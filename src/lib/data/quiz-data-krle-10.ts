@@ -4,7 +4,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-1-1": [
     {
       question: "Hva betyr ordet \"filosofi\"?",
-      options: ["Kjærlighet til visdom", "Søken etter makt", "Studiet av samfunnets styresett", "Læren om kroppen"],
+      options: ["Kjærlighet til visdom", "Søken etter makt", "Læren om styreformer", "Læren om kroppen"],
       explanation: "Filosofi kommer fra gresk og betyr \"kjærlighet til visdom\".",
     },
     {
@@ -14,7 +14,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvahandler Platons hulelignelse om?",
-      options: ["Forskjellen mellom skinn og sann virkelighet", "Hvordan man bygger en hule", "Hvordan man bygger et rettferdig og godt samfunn", "Hvordan sansene alltid gir oss helt sikker kunnskap"],
+      options: ["Forskjellen mellom skinn og sann virkelighet", "Hvordan man bygger en hule inne i fjellet av stein og leire", "Hvordan man bygger et rettferdig og godt samfunn", "Hvordan sansene alltid gir oss helt sikker kunnskap"],
       explanation: "Hulelignelsen handler om forskjellen mellom skinn og virkelighet, og hvordan vi kan søke sann kunnskap.",
     },
     {
@@ -34,7 +34,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den sokratiske metoden?",
-      options: ["Å stille spørsmål for å komme frem til sannhet", "Å lese og pugge de gamle filosofiske tekstene", "Å holde lange forelesninger der læreren gir svarene", "Å meditere i stillhet for å oppnå indre ro"],
+      options: ["Å stille spørsmål for å komme frem til sannhet", "Å lese og pugge de gamle filosofiske tekstene", "Å holde lange forelesninger med ferdige svar", "Å meditere i stillhet for å oppnå indre ro"],
       explanation: "Den sokratiske metoden går ut på å stille spørsmål for å få folk til å tenke gjennom sine egne overbevisninger og komme frem til sannhet.",
     },
     {
@@ -44,7 +44,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Platons lære om ideene?",
-      options: ["Den sanne virkelighet er bakenfor det vi ser", "Bare det vi kan se med øynene er virkelig", "Alle ideer og meninger er akkurat like sanne", "Det finnes ingen fast sannhet, alt er relativt"],
+      options: ["Den sanne virkelighet er bakenfor det vi ser", "Bare det vi kan se med øynene er virkelig", "Alle ideer og meninger er akkurat like sanne", "Det finnes ingen fast sannhet"],
       explanation: "Platon mente at den sanne virkeligheten består av ideer eller former som er perfekte og evige. Det vi ser er bare ufullstendige kopier.",
     },
     {
@@ -59,12 +59,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mener eksistensialister med \"eksistens går foran essens\"?",
-      options: ["Vi skaper vår egen natur gjennom våre valg", "Vi fødes med en fast natur som styrer alt", "Essensen er alltid viktigere enn eksistensen", "Vi kan aldri forandre den vi egentlig er"],
+      options: ["Vi skaper vår egen natur gjennom våre valg", "Vi fødes med en fast natur som styrer alt", "Essensen er viktigere enn eksistensen", "Vi kan aldri forandre den vi egentlig er"],
       explanation: "Dette betyr at mennesket først eksisterer, og deretter skaper sin egen natur/essens gjennom sine valg. Vi er ikke født med en forutbestemt essens.",
     },
     {
       question: "Hva er eksistensiell angst ifølge eksistensialistene?",
-      options: ["Angst over frihet og ansvar", "Bekymring for prøver", "En redsel for mørket og det ukjente", "Redsel for mørket"],
+      options: ["Angst over frihet og ansvar", "Bekymring for prøver", "En redsel for mørket og det ukjente", "Frykt for å møte nye mennesker"],
       explanation: "Eksistensiell angst er følelsen som oppstår når vi innser at vi er helt frie og ansvårlige for våre valg, uten objektive retningslinjer.",
     },
     {
@@ -81,7 +81,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-1-2": [
     {
       question: "Hva mente Karl Marx med at religion er \"opium for folket\"?",
-      options: ["Religion bedøver folk og holder dem nede", "Religion er avhengighetsskapende som narkotika", "Prester solgte opium", "Religion er sunt som medisin"],
+      options: ["Religion bedøver folk og holder dem nede", "Religion er avhengighetsskapende som narkotika", "Prester finansierte kirkene ved å selge opium", "Religion virker like helbredende på folk som medisin"],
       explanation: "Marx mente at religion bedøver folk og holder dem nede ved å love belønning i det neste liv.",
     },
     {
@@ -116,22 +116,22 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mente Nietzsche med \"slavemoral\"?",
-      options: ["Kristendømmen fremmer svakhet i stedet for styrke", "At kristendommen støtter og forsvarer slaveriet", "At alle moralske regler er nøyaktig like gode", "At all moral opprinnelig kommer fra slavene"],
+      options: ["Kristendømmen fremmer svakhet i stedet for styrke", "At kristendommen støtter og forsvarer selve slaveriet som ordning", "At alle moralske regler er nøyaktig like gode og gyldige", "At all moral opprinnelig kommer fra slavene"],
       explanation: "Nietzsche mente at kristendømmen fremmer svakhet ved å rose ydmykhet, lydighet og lidelse, i stedet for styrke og selvhevdelse.",
     },
     {
       question: "Hvorfor mente Freud at religion er en \"kollektiv nevrose\"?",
-      options: ["Religion springer ut av ubevisste konflikter og ønsketenkning", "At religion smitter mellom folk som en sykdom", "At alle religiøse mennesker er psykisk syke", "At religion gjør folk fysisk syke over tid"],
+      options: ["Religion springer ut av ubevisste konflikter og ønsketenkning", "At religion smitter mellom folk som en sykdom og bør behandles medisinsk", "At alle religiøse mennesker uten unntak er psykisk syke og trenger behandling", "At religion gjør folk fysisk syke over tid"],
       explanation: "Freud mente at religion, som nevroser, springer ut av ubevisste konflikter og ønsketenkning for å håndtere angst og usikkerhet.",
     },
     {
       question: "Ifølge Marx, når vil religion forsvinne?",
-      options: ["Når undertrykkelsen opphører", "Når alle blir utdannet", "Når vitenskapen beviser at Gud ikke finnes", "Aldri"],
+      options: ["Når undertrykkelsen opphører", "Når hele befolkningen har fått høyere utdanning", "Når vitenskapen beviser at Gud ikke finnes", "Aldri, religionen vil alltid finnes"],
       explanation: "Marx mente at religion ville forsvinne når samfunnsforholdene endres og undertrykkelsen opphører - når folk ikke lenger trenger religiøs trøst.",
     },
     {
       question: "Hva er særegent med \"ny ateisme\" sammenlignet med tradisjonell ateisme?",
-      options: ["Aktivt argumenterer for at religion er farlig og skadelig", "Den er langt mer tolerant og åpen overfor religion", "Den retter kritikken kun mot kristendommen", "Den unngår helt å delta i offentlig debatt"],
+      options: ["Aktivt argumenterer for at religion er farlig og skadelig", "Den er langt mer tolerant og åpen overfor religion enn tidligere ateisme var", "Den retter kritikken kun mot kristendommen og lar andre religioner være i fred", "Den unngår helt å delta i offentlig debatt"],
       explanation: "Ny ateisme er mer aktiv og militant i sin kritikk av religion, argumenterer åpent for at religion er farlig og skadelig, ikke bare usann.",
     },
     {
@@ -178,7 +178,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem representerer dydsetikken?",
-      options: ["Aristoteles", "Immanuel Kant", "Jeremy Bentham", "Karl Marx"],
+      options: ["Aristoteles", "Immanuel Kant", "Jeremy Bentham", "Karl Marx og Friedrich Engels"],
       explanation: "Aristoteles er hovedrepresentanten for dydsetikk.",
     },
     {
@@ -198,7 +198,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ville et dydig menneske gjøre ifølge dydsetikken?",
-      options: ["Handle med mot, visdom og rettferdighet", "Ikke gjøre noe som helst i situasjonen", "Alltid følge de nedskrevne reglene til punkt", "Alltid velge løsningen som redder flest mulig"],
+      options: ["Handle med mot, visdom og rettferdighet", "Ikke gjøre noe som helst i den situasjonen", "Alltid følge de nedskrevne reglene til punkt", "Alltid velge løsningen som redder flest mulig"],
       explanation: "Dydsetikken spør hva et modig, rettferdig og vis person ville gjørt. Kanskje finne en annen løsning, eller handle ut fra dømmekraft i situasjonen.",
     },
     {
@@ -208,7 +208,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er eutanasi (aktiv dødshjelp)?",
-      options: ["Å aktivt hjelpe en pasient til å dø", "Å la en pasient dø naturlig", "Å donere organer etter at pasienten er død", "Å la en pasient dø helt naturlig av seg selv"],
+      options: ["Å aktivt hjelpe en pasient til å dø", "Å gi pasienten sterkere smertelindring", "Å donere organer etter at pasienten er død", "Å la en pasient dø helt naturlig av seg selv"],
       explanation: "Eutanasi er når en lege aktivt hjelper en pasient til å dø, vanligvis for å avslutte lidelse ved uhelbredelig sykdom.",
     },
     {
@@ -218,7 +218,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det etiske hovedspørsmålet ved kunstig intelligens?",
-      options: ["Ansvar, personvern og moralsk status", "Hvilken farge AI-roboter skal ha", "Hvor mye det koster å bygge og drive avanserte datasystemer", "Om AI er raskere enn mennesker"],
+      options: ["Ansvar, personvern og moralsk status", "Hvilken farge AI-roboter skal ha", "Hva datasystemene koster å drive", "Om AI er raskere enn mennesker"],
       explanation: "Hovedspørsmål inkluderer hvem som er ansvårlig når AI gjør feil, personvern, arbeidsplasser, og om AI kan ha rettigheter eller moralsk status.",
     },
     {
@@ -228,24 +228,24 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er argumentet for dyrs rettigheter ut fra et etisk perspektiv?",
-      options: ["Dyr kan føle smerte og har derfor moralsk verdi", "Dyr er like intelligente som mennesker", "Alle dyr bør få stemmerett og delta i demokratiske politiske valg", "Dyr er bare til nytte for mennesker"],
+      options: ["Dyr kan føle smerte og har derfor moralsk verdi", "Dyr er like intelligente som mennesker", "Alle dyr bør få stemmerett ved politiske valg", "Dyr er bare til nytte for mennesker"],
       explanation: "Dyr kan føle smerte og lidelse, og dermed bør deres interesser tas hensyn til. Noen mener det er artsdiskriminering å behandle dyr dårligere uten god grunn.",
     },
   ],
   "krle-10-2-2": [
     {
       question: "Hva er et livssyn?",
-      options: ["Et helhetlig syn på virkeligheten og livet", "En politisk overbevisning", "Et yrke eller en profesjon man utdanner seg til og livnærer seg av", "En vitenskapelig teori"],
+      options: ["Et helhetlig syn på virkeligheten og livet", "En politisk overbevisning", "Et yrke man utdanner seg til", "En vitenskapelig teori"],
       explanation: "Et livssyn er et helhetlig syn på virkeligheten og hvordan vi bør leve.",
     },
     {
       question: "Hva er Human-Etisk Forbund?",
-      options: ["Norges største livssynsorganisasjon utenom kirken", "En kristen organisasjon", "En landsdekkende idrettsorganisasjon for barn og ungdom", "Et politisk parti med representanter innvalgt på Stortinget"],
+      options: ["Norges største livssynsorganisasjon utenom kirken", "En kristen misjonsorganisasjon som driver arbeid i utlandet", "En landsdekkende idrettsorganisasjon for barn og ungdom", "Et politisk parti med representanter innvalgt på Stortinget"],
       explanation: "Human-Etisk Forbund er Norges største livssynsorganisasjon utenom Den norske kirke.",
     },
     {
       question: "Hva er hovedforskjellen mellom humanisme og religiøse livssyn?",
-      options: ["Humanisme tror ikke på gud eller det overnaturlige", "Humanisme er mot menneskerettigheter", "Humanismen mangler helt et etisk grunnlag og noen felles verdier", "Humanismen er prinsipielt imot menneskerettigheter og demokratiet"],
+      options: ["Humanisme tror ikke på gud eller det overnaturlige", "Humanismen bygger sine verdier på åpenbaringer fra en guddom", "Humanismen mangler helt et etisk grunnlag og noen felles verdier", "Humanismen er prinsipielt imot menneskerettigheter og demokratiet"],
       explanation: "Humanisme tror ikke på noen gud eller overnaturlige krefter.",
     },
     {
@@ -255,7 +255,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Amsterdam-deklarasjonen?",
-      options: ["Humanismens prinsipperklæring fra 2002", "En politisk traktat", "En hellig religiøs tekst som brukes i gudstjenester og bønn", "En religiøs tekst"],
+      options: ["Humanismens prinsipperklæring fra 2002", "En politisk traktat", "En hellig tekst brukt i bønn", "En religiøs tekst"],
       explanation: "Amsterdam-deklarasjonen er humanismens \"trosbekjennelse\" fra 2002.",
     },
     {
@@ -270,7 +270,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan får humanister moral og etikk?",
-      options: ["Gjennom fornuft, empati og refleksjon", "Fra religiøse tekster", "Direkte fra Gud gjennom bønn og guddommelig åpenbaring", "Gjennom hellige religiøse tekster åpenbart av en guddom"],
+      options: ["Gjennom fornuft, empati og refleksjon", "Fra hellige tekster alene", "Direkte fra Gud gjennom bønn og guddommelig åpenbaring", "Gjennom hellige religiøse tekster åpenbart av en guddom"],
       explanation: "Humanister mener at etikk kan utvikles gjennom menneskelig fornuft, empati og refleksjon over konsekvenser - uten referanse til guddom eller religiøse tekster.",
     },
     {
@@ -295,17 +295,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom ateisme og humanisme?",
-      options: ["Ateisme er fravær av gudstro, humanisme er et helhetlig livssyn", "Ateister har ingen verdier", "Ateister mangler helt verdier og noe grunnlag for etisk handling", "Humanister tror på Gud, mens ateister avviser alt overnaturlig helt"],
+      options: ["Ateisme er fravær av gudstro, humanisme er et helhetlig livssyn", "Ateisme er et helhetlig livssyn, mens humanisme bare er fravær av gudstro", "Ateister mangler helt verdier og noe grunnlag for etisk handling", "Humanister tror på Gud, mens ateister avviser alt overnaturlig helt"],
       explanation: "Ateisme er bare fravær av tro på gud(er), mens humanisme er et helhetlig livssyn med positive verdier. Man kan være ateist uten å være humanist.",
     },
     {
       question: "Hvordan forholder eksistensialismen seg til mening?",
-      options: ["Vi må selv skape mening gjennom autentiske valg", "Naturen gir mening", "Gud gir hvert menneske en ferdig mening det bare må oppdage", "Naturen selv gir livet en objektiv og innebygd mening å følge"],
+      options: ["Vi må selv skape mening gjennom autentiske valg", "Samfunnet gir oss meningen ferdig", "Gud gir hvert menneske en ferdig mening det bare må oppdage", "Naturen selv gir livet en objektiv og innebygd mening å følge"],
       explanation: "Eksistensialismen mener at mennesket må selv skape mening gjennom autentiske valg og engasjement, selv om universet ikke har noen innebygd mening.",
     },
     {
       question: "Kan religiøse og sekulære mennesker dele etiske verdier?",
-      options: ["Ja, de kan dele verdier selv om begrunnelsen er ulik", "Bare religiøse har verdier", "Nei, religiøse og sekulære kan aldri enes om noen felles verdier", "Bare religiøse mennesker har et ekte grunnlag for etiske verdier"],
+      options: ["Ja, de kan dele verdier selv om begrunnelsen er ulik", "Nei, fordi verdier alltid må bygge på et hellig skrift", "Nei, religiøse og sekulære kan aldri enes om noen felles verdier", "Bare religiøse mennesker har et ekte grunnlag for etiske verdier"],
       explanation: "Ja, mennesker med ulike livssyn kan dele mange etiske verdier som menneskerettigheter, rettferdighet og omsorg - selv om begrunnelsen er ulik.",
     },
   ],
@@ -322,7 +322,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer religionsfrihet?",
-      options: ["Frihet til å ha, skifte og praktisere religion", "Bare frihet til å være kristen", "Bare frihet til å være medlem av den kristne folkekirken", "Frihet til å tvinge sin egen religion på andre mennesker"],
+      options: ["Frihet til å ha, skifte og praktisere religion", "Bare frihet til å være medlem av en kristen kirke", "Bare frihet til å være medlem av den kristne folkekirken", "Frihet til å tvinge sin egen religion på andre mennesker"],
       explanation: "Religionsfrihet innebærer frihet til å ha, skifte og praktisere religion, samt frihet til å ikke ha religion.",
     },
     {
@@ -332,17 +332,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Den norske kirke?",
-      options: ["Den lutherske folkekirken", "Den katolske kirke", "En gresk-ortodoks kirke med røtter i Østkirken", "En ortodoks kirke"],
+      options: ["Den lutherske folkekirken", "Den katolske kirke", "En gresk-ortodoks kirke", "En ortodoks kirke"],
       explanation: "Den norske kirke er den lutherske folkekirken som ca. 65% av befolkningen tilhører.",
     },
     {
       question: "Hva sier Grunnloven § 16 om religion?",
-      options: ["Alle innbyggere har fri religionsutøvelse", "Bare kristendom er tillatt", "At bare kristendommen er tillatt som religion i landet", "At religion er en privatsak og forbudt i det offentlige"],
+      options: ["Alle innbyggere har fri religionsutøvelse", "At bare kristendommen er tillatt som statsreligion", "At bare kristendommen er tillatt som religion i landet", "At religion er en privatsak og forbudt i det offentlige"],
       explanation: "Grunnloven § 16 sier at alle innbyggere har fri religionsutøvelse.",
     },
     {
       question: "Hvilke grupper var forbudt i Norge før 1845?",
-      options: ["Andre kristne kirker, jøder og jesuitter", "Katolikker hadde full frihet", "Bare islam og dens tilhengere var forbudt i landet", "Katolikker hadde full religiøs frihet og fri innreise"],
+      options: ["Andre kristne kirker, jøder og jesuitter", "Bare samiske trosformer og gudehus var forbudt", "Bare islam og dens tilhengere var forbudt i landet", "Katolikker hadde full religiøs frihet og fri innreise"],
       explanation: "Andre kristne kirker enn statskirken var forbudt, samt jøder og jesuitter hadde innreiseforbud.",
     },
     {
@@ -362,39 +362,39 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når kan religionsfrihet begrenses ifølge norsk lov?",
-      options: ["Når praksis skader andre eller bryter loven", "Bare for minoritetsreligioner", "Alltid, staten kan når som helst gripe inn mot all religion", "Aldri, religionsfriheten er absolutt og kan ikke innskrenkes"],
+      options: ["Når praksis skader andre eller bryter loven", "Bare for små minoritetsreligioner", "Alltid, staten kan når som helst gripe inn mot all religion", "Aldri, religionsfriheten er absolutt og kan ikke innskrenkes"],
       explanation: "Religionsfrihet kan begrenses hvis religiøs praksis skader andre eller bryter med norsk lov.",
     },
     {
       question: "Hva betyr det at Norge er et livssynsåpent samfunn?",
-      options: ["Staten er nøytral og behandler alle livssyn likt", "Religion er forbudt i offentligheten", "At bare kristendommen har offentlig betydning og forrang", "At all religion er forbudt i det offentlige og synlige rom"],
+      options: ["Staten er nøytral og behandler alle livssyn likt", "At religion er forbudt i offentlig sektor", "At bare kristendommen har offentlig betydning og forrang", "At all religion er forbudt i det offentlige og synlige rom"],
       explanation: "Det betyr at staten skal være nøytral, behandle alle livssyn likt, og respektere mangfold.",
     },
     {
       question: "Hva er en fordel med religiøst mangfold?",
-      options: ["Kulturell rikdom og større toleranse", "Det skaper alltid konflikt", "Religiøst mangfold fører alltid til konflikt og splittelse", "Religion bør være enhetlig"],
+      options: ["Kulturell rikdom og større toleranse", "Det skaper alltid konflikt", "Mangfold fører alltid til konflikt", "Religion bør være enhetlig"],
       explanation: "Religiøst mangfold gir kulturell rikdom, ulike perspektiver, og kan fremme toleranse og forståelse.",
     },
     {
       question: "Hvordan kan kunnskap bidra i et flerreligiøst samfunn?",
-      options: ["Forebygger fordømmer og fremmer dialog", "Bare religiøse trenger kunnskap", "Bare de religiøse selv trenger kunnskap om sin egen tro", "Kunnskap er uviktig"],
+      options: ["Forebygger fordømmer og fremmer dialog", "Bare religiøse trenger kunnskap", "Kunnskap skaper bare flere konflikter", "Kunnskap er uviktig"],
       explanation: "Kunnskap om ulike religioner kan førebygge fordømmer, misforståelser og konflikter, samt fremme dialog og samforståelse.",
     },
   ],
   "krle-10-3-2": [
     {
       question: "Hva er hadith?",
-      options: ["Beretninger om Muhammads ord og handlinger", "Et kapittel i Koranen", "Navnet på den store, hellige moskeen i byen Mekka", "En bestemt av de fem daglige rituelle bønnene i islam"],
+      options: ["Beretninger om Muhammads ord og handlinger", "Et innledende kapittel i Koranen", "Navnet på den store, hellige moskeen i byen Mekka", "En bestemt av de fem daglige rituelle bønnene i islam"],
       explanation: "Hadith er beretninger om profeten Muhammads ord og handlinger.",
     },
     {
       question: "Hva er hovedforskjellen mellom sunni og shia?",
-      options: ["Uenighet om hvem som skulle lede etter Muhammad", "De har forskjellige hellige bøker", "De ber sine bønner på to forskjellige og adskilte språk", "De tror på helt forskjellige guder og guddommelige makter"],
+      options: ["Uenighet om hvem som skulle lede etter Muhammad", "De har helt forskjellige hellige bøker og bønnetider", "De ber sine bønner på to forskjellige og adskilte språk", "De tror på helt forskjellige guder og guddommelige makter"],
       explanation: "Uenighet om hvem som skulle lede etter Muhammads død.",
     },
     {
       question: "Hva kjennetegner sufisme?",
-      options: ["En mystisk retning med fokus på indre opplevelse", "En politisk bevegelse", "En politisk bevegelse som kjemper for statlig makt i islam", "En helt ny religion som brøt ut av og forlot islam fullstendig"],
+      options: ["En mystisk retning med fokus på indre opplevelse", "En rettsskole som tolker sharia strengere enn de andre", "En politisk bevegelse som kjemper for statlig makt i islam", "En helt ny religion som brøt ut av og forlot islam fullstendig"],
       explanation: "Sufisme er en mystisk retning med fokus på indre åndelig erfaring.",
     },
     {
@@ -404,7 +404,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sharia?",
-      options: ["Islamsk lov basert på Koranen og hadith", "En type mat", "En av de fem daglige bønnene muslimer utfører vendt mot Mekka", "En årlig religiøs høytid som markerer en viktig hendelse i islam"],
+      options: ["Islamsk lov basert på Koranen og hadith", "En matrett som spises under id", "En av de fem daglige bønnene muslimer utfører vendt mot Mekka", "En årlig religiøs høytid som markerer en viktig hendelse i islam"],
       explanation: "Sharia er islamsk lov utledet fra Koranen og hadith.",
     },
     {
@@ -424,7 +424,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ijtihad?",
-      options: ["Selvstendig tolkning av islamske kilder", "Et kapittel i Koranen", "Et av de innledende kapitlene i den hellige Koranen", "En islamsk høytid som feires årlig til minne om profeten"],
+      options: ["Selvstendig tolkning av islamske kilder", "Den rituelle vaskingen som gjøres før bønnen", "Et av de innledende kapitlene i den hellige Koranen", "En islamsk høytid som feires årlig til minne om profeten"],
       explanation: "Ijtihad er selvstendig tolkning av islamske kilder, viktig i reformbevegelser.",
     },
     {
@@ -434,7 +434,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skiller sufisme seg fra andre islamske retninger?",
-      options: ["Fokus på mystisk erfaring og indre åndelig reise", "Avviser Koranen", "Er en retning som utelukkende er åpen for mannlige troende", "Avviser Koranen som hellig kilde og bygger på egne skrifter"],
+      options: ["Fokus på mystisk erfaring og indre åndelig reise", "Er den eneste retningen som tillater bilder", "Er en retning som utelukkende er åpen for mannlige troende", "Avviser Koranen som hellig kilde og bygger på egne skrifter"],
       explanation: "Sufisme fokuserer på mystisk erfaring og indre åndelig reise, bruker poesi, musikk og meditasjon.",
     },
     {
@@ -444,7 +444,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner reformislam?",
-      options: ["Historisk tolkning, likestilling og dialog med vitenskap", "Kun tradisjonelle verdier", "Uendret tradisjon der historisk tolkning regnes som frafall", "Full avvisning av Koranen til fordel for kun hadith-samlingene"],
+      options: ["Historisk tolkning, likestilling og dialog med vitenskap", "Kun tradisjonelle verdier og streng regelfølging", "Uendret tradisjon der historisk tolkning regnes som frafall", "Full avvisning av Koranen til fordel for kun hadith-samlingene"],
       explanation: "Reformislam ønsker å tolke Koranen historisk, likestilling, kritisk lesning av hadith og dialog med vitenskap.",
     },
     {
@@ -461,7 +461,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var det store skisma i 1054?",
-      options: ["Splittelsen mellom ortodoks og katolsk kirke", "Reformasjonen", "Korstogenes militære forsøk på å gjenerobre Jerusalem", "Det vestromerske rikets endelige sammenbrudd i år 476"],
+      options: ["Splittelsen mellom ortodoks og katolsk kirke", "Reformasjonen som Martin Luther startet i Tyskland i 1517", "Korstogenes militære forsøk på å gjenerobre Jerusalem", "Det vestromerske rikets endelige sammenbrudd i år 476"],
       explanation: "Det store skisma var splittelsen mellom østlig (ortodoks) og vestlig (katolsk) kirke.",
     },
     {
@@ -481,12 +481,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er økumenikk?",
-      options: ["Arbeid for kristen enhet", "En type gudstjeneste", "En gammel form for høymesse med røkelse", "Religionskritikk"],
+      options: ["Arbeid for kristen enhet", "En type gudstjeneste", "En form for høymesse", "Religionskritikk"],
       explanation: "Økumenikk er arbeid for kristen enhet på tvers av kirkesamfunn.",
     },
     {
       question: "Hva var Martin Luthers hovedkritikk i 1517?",
-      options: ["Avlatshandel", "Paveembetet", "Pavens embete", "Klostervesenet"],
+      options: ["Avlatshandel", "Klosterløftene", "Pavens embete", "Klostervesenet"],
       explanation: "Luther kritiserte avlatshandel og publiserte 95 teser om dette.",
     },
     {
@@ -506,7 +506,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med kristendømmen under opplysningstiden?",
-      options: ["Fornuft utfordret tro og kirke-stat ble skilt", "Hele befolkningen sluttet opp om kristen tro", "Kirken styrket sin makt over stat og vitenskap", "Forholdet mellom tro og fornuft forble uendret"],
+      options: ["Fornuft utfordret tro og kirke-stat ble skilt", "Hele befolkningen sluttet enda sterkere opp om kristen tro", "Kirken styrket sin makt over stat og vitenskap", "Forholdet mellom tro og fornuft forble uendret"],
       explanation: "Fornuft utfordret tro, bibelkritikk oppsto, og kirke og stat ble skilt mange steder.",
     },
     {
@@ -516,17 +516,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor vokser kristendømmen mest i dag?",
-      options: ["I Afrika, Latin-Amerika og Asia", "I Vest- og Nord-Europa", "I Australia og på Stillehavsøyene", "I Canada og USA i nord"],
+      options: ["I Afrika, Latin-Amerika og Asia", "I Vest- og Nord-Europa", "I Australia alene", "I Canada og USA i nord"],
       explanation: "Kristendømmen vokser mest i Afrika, Latin-Amerika og Asia, mens den synker i Europa.",
     },
     {
       question: "Hva var Andre Vatikankonsil?",
-      options: ["Katolsk reform som moderniserte kirken", "Et nytt korstoget", "Pavens formelle nedleggelse av embetet sitt", "En andre reformasjon startet av protestantene"],
+      options: ["Katolsk reform som moderniserte kirken", "Et nytt korstog mot Det hellige land", "Pavens formelle nedleggelse av embetet sitt", "En andre reformasjon startet av protestantene"],
       explanation: "Andre Vatikankonsil (1962-65) var katolsk reform som moderniserte kirken og åpnet for økumenikk.",
     },
     {
       question: "Hva betyr sekularisering?",
-      options: ["At samfunnet blir mindre religiøst", "At kirken får mer makt", "At kirken igjen får styringen over samfunnet", "At hele befolkningen går over til kristen tro"],
+      options: ["At samfunnet blir mindre religiøst", "At kirken får stadig mer makt", "At kirken igjen får styringen over samfunnet", "At hele befolkningen går over til kristen tro"],
       explanation: "Sekularisering betyr at samfunnet blir mindre religiøst og mer sekulært (verdslig).",
     },
   ],
@@ -538,7 +538,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er økumenikk?",
-      options: ["Dialog mellom ulike kristne kirkesamfunn", "En bestemt form for høymesse i kirken", "En metode for å drive misjon i andre land", "Dialog mellom alle verdensreligioner samlet"],
+      options: ["Dialog mellom ulike kristne kirkesamfunn", "En bestemt form for høymesse i den katolske kirken", "En metode for å drive misjon i andre land", "Dialog mellom alle verdensreligioner samlet"],
       explanation: "Økumenikk er dialog og samarbeid mellom ulike kristne kirkesamfunn.",
     },
     {
@@ -568,17 +568,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en viktig utfordring i religionsdialog?",
-      options: ["Manglende kunnskap og historiske konflikter", "At man vet altfor mye om hverandres tro", "At alle parter allerede er fullstendig enige", "At det ikke finnes noen hindringer i det hele tatt"],
+      options: ["Manglende kunnskap og historiske konflikter", "At man alltid vet altfor mye om hverandres tro på forhånd", "At alle parter allerede er fullstendig enige", "At det ikke finnes noen hindringer i det hele tatt"],
       explanation: "Manglende kunnskap om hverandre, historiske konflikter og ujevnt maktforhold kan være hindringer.",
     },
     {
       question: "Hva var viktig etter 22. juli 2011?",
-      options: ["Rosemarsjer og økt fokus på dialog", "Dialog ble avsluttet", "All dialog mellom livssyn ble avsluttet", "Ingenting endret seg i samfunnet etterpå"],
+      options: ["Rosemarsjer og økt fokus på dialog", "Trossamfunnene sluttet å møte hverandre", "All dialog mellom livssyn ble avsluttet", "Ingenting endret seg i samfunnet etterpå"],
       explanation: "Rosemarsjene samlet alle livssyn og økte fokus på dialog og felles identitet.",
     },
     {
       question: "Hva er teologisk dialog?",
-      options: ["Lærd samtale om trosinnhold", "Politisk aktivisme", "Daglig praktisk samarbeid i nærmiljøet", "Daglig samarbeid"],
+      options: ["Lærd samtale om trosinnhold", "Politisk aktivisme", "Daglig samarbeid i nabolag", "Daglig samarbeid"],
       explanation: "Teologisk dialog er lærd samtale om trosinnhold, der man finner likheter og forskjeller.",
     },
     {
@@ -593,7 +593,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er \"A Common Word\"?",
-      options: ["Muslim-kristen dialoginitiativ", "En norsk organisasjon", "En underorganisasjon i FN-systemet for tro", "En FN-organisasjon"],
+      options: ["Muslim-kristen dialoginitiativ", "En norsk organisasjon", "En underavdeling i FN", "En FN-organisasjon"],
       explanation: "\"A Common Word\" er et muslim-kristen dialoginitiativ som søker felles grunn mellom religionene.",
     },
     {
@@ -615,12 +615,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier menneskerettighetene om religionsfrihet?",
-      options: ["Frihet til å ha, skifte og praktisere religion", "Frihet til å tvinge andre", "At all religiøs utøvelse er forbudt i samfunnet", "Kun frihet til å tro innvendig, ikke å skifte tro"],
+      options: ["Frihet til å ha, skifte og praktisere religion", "Frihet til å pålegge andre mennesker sin egen tro og praksis", "At all religiøs utøvelse er forbudt i samfunnet", "Kun frihet til å tro innvendig, ikke å skifte tro"],
       explanation: "Menneskerettighetene gir frihet til å ha, skifte og praktisere religion.",
     },
     {
       question: "Hva er sekularisme?",
-      options: ["Skille mellom stat og religion", "Alle må være ateister", "At religionen står i sentrum og styrer statens lover og verdier", "Staten bestemmer tro"],
+      options: ["Skille mellom stat og religion", "Alle må være ateister", "At religionen styrer staten", "Staten bestemmer tro"],
       explanation: "Sekularisme er prinsippet om skille mellom stat og religion.",
     },
     {
@@ -635,27 +635,27 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke rettigheter gir artikkel 18 i menneskerettighetene?",
-      options: ["Tanke-, samvittighets- og religionsfrihet", "Ubegrenset religionsutøvelse", "Bare retten til å tro privat, uten rett til å skifte religion", "Rett til å diskriminere"],
+      options: ["Tanke-, samvittighets- og religionsfrihet", "Ubegrenset religionsutøvelse", "Bare retten til å tro privat", "Rett til å diskriminere"],
       explanation: "Artikkel 18 gir rett til tanke-, samvittighets- og religionsfrihet.",
     },
     {
       question: "Når kan religionsfrihet begrenses?",
-      options: ["Når praksis skader andre eller diskriminerer", "Kun i diktatur", "Religionsfrihet kan aldri begrenses under noen omstendigheter", "Religionsfrihet kan alltid begrenses fritt av statens myndigheter"],
+      options: ["Når praksis skader andre eller diskriminerer", "Kun i land som styres av et diktatur", "Religionsfrihet kan aldri begrenses under noen omstendigheter", "Religionsfrihet kan alltid begrenses fritt av statens myndigheter"],
       explanation: "Religionsfrihet kan begrenses når praksis skader andre eller diskriminerer.",
     },
     {
       question: "Hvilken spenning er særlig debattert i Norge?",
-      options: ["Mellom religionsfrihet og likestilling", "Mellom kristne og muslimer", "Mellom unge og eldre om hvor viktig religion skal være i livet", "Mellom unge og gamle"],
+      options: ["Mellom religionsfrihet og likestilling", "Mellom kristne og muslimer", "Mellom unge og eldre troende", "Mellom unge og gamle"],
       explanation: "Spenningen mellom religionsfrihet og likestilling er særlig debattert.",
     },
     {
       question: "Hva menes med postsekularistisk syn?",
-      options: ["Religion har legitimt plass i offentligheten", "Religion skal ikke diskuteres", "At alle borgere bør bli sekulære og legge fra seg sin tro", "At religiøse spørsmål ikke bør diskuteres i offentlig debatt"],
+      options: ["Religion har legitimt plass i offentligheten", "Religion skal ikke diskuteres i noen sammenheng", "At alle borgere bør bli sekulære og legge fra seg sin tro", "At religiøse spørsmål ikke bør diskuteres i offentlig debatt"],
       explanation: "Postsekularistisk syn mener religion har legitimt plass i offentligheten og religiøse borgere trenger ikke \"oversette\" sine argumenter.",
     },
     {
       question: "Hvorfor er debatten om religiøse symboler i offentlige roller vanskelig?",
-      options: ["Balanse mellom religionsfrihet og statlig nøytralitet", "Bare muslimer er berørt", "Debatten er egentlig ikke vanskelig, og løsningen er helt opplagt", "Alle er allerede enige om hvordan symbolene skal håndteres i staten"],
+      options: ["Balanse mellom religionsfrihet og statlig nøytralitet", "Bare muslimske kvinner er berørt", "Debatten er egentlig ikke vanskelig, og løsningen er helt opplagt", "Alle er allerede enige om hvordan symbolene skal håndteres i staten"],
       explanation: "Fordi den balanserer mellom individets religionsfrihet og statens nøytralitet, samt hva som oppleves truende vs. inkluderende.",
     },
     {
@@ -675,29 +675,29 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er utfordringen med autonomi for trossamfunn?",
-      options: ["Selvstyre kan kollidere med likestilling og andre verdier", "Det finnes ingen utfordring", "Det finnes egentlig ingen utfordring med selvstyre for trossamfunn", "Staten bør styre alt internt i trossamfunn og fjerne alt selvstyre"],
+      options: ["Selvstyre kan kollidere med likestilling og andre verdier", "Trossamfunn har ikke lov til å styre sine egne indre forhold selv", "Det finnes egentlig ingen utfordring med selvstyre for trossamfunn", "Staten bør styre alt internt i trossamfunn og fjerne alt selvstyre"],
       explanation: "Trossamfunn ønsker selvstyre, men dette kan kollidere med likestilling og andre samfunnsverdier (f.eks. kvinnelige ledere, LHBT-rettigheter).",
     },
   ],
   "krle-10-5-2": [
     {
       question: "Hva mente Aristoteles med eudaimonia?",
-      options: ["Lykke gjennom å realisere sitt potensial", "Å følge regler blindt", "Å følge samfunnets regler blindt uten å bruke egen fornuft", "Å eie mest mulig eiendom og materielle goder i løpet av livet"],
+      options: ["Lykke gjennom å realisere sitt potensial", "Å følge alle samfunnets regler helt blindt", "Å følge samfunnets regler blindt uten å bruke egen fornuft", "Å eie mest mulig eiendom og materielle goder i løpet av livet"],
       explanation: "Aristoteles mente eudaimonia er lykke gjennom å realisere sitt potensial og leve dydig.",
     },
     {
       question: "Hva mener eksistensialistene om livets mening?",
-      options: ["Vi må skape vår egen mening", "Vitenskap gir mening", "At livet i seg selv aldri kan ha noen form for mening", "Mening finnes ikke"],
+      options: ["Vi må skape vår egen mening", "Vitenskap gir mening", "At livet aldri har mening", "Mening finnes ikke"],
       explanation: "Eksistensialistene mener at livet ikke har ferdig mening - vi må skape den selv.",
     },
     {
       question: "Hva sier kristendømmen om livets mening?",
-      options: ["Å elske Gud og nesten, oppnå frelse", "Det finnes ingen mening", "At meningen er å samle rikdom og materiell velstand", "At meningen er å unngå all lidelse gjennom hele livet"],
+      options: ["Å elske Gud og nesten, oppnå frelse", "At meningen ligger i å samle mest mulig kunnskap", "At meningen er å samle rikdom og materiell velstand", "At meningen er å unngå all lidelse gjennom hele livet"],
       explanation: "Kristendømmen sier meningen er å elske Gud og nesten, leve etter Guds vilje, og oppnå frelse.",
     },
     {
       question: "Hva er nihilisme?",
-      options: ["Livet har ingen iboende mening", "Vitenskapen har alle svar", "At Gud alene gir livet all dets mening og verdi", "Gud gir all mening"],
+      options: ["Livet har ingen iboende mening", "Vitenskapen har alle svar", "At Gud alene gir livet mening", "Gud gir all mening"],
       explanation: "Nihilisme er synet om at livet har ingen iboende mening og verdier er menneskeskapte.",
     },
     {
@@ -707,22 +707,22 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er absurdismen?",
-      options: ["Å leve med det meningsløse, men velge livet", "Religion er løsningen", "At vi bør gi opp livet siden universet er likegyldig til oss", "At religiøs tro er den eneste løsningen på livets meningsløshet"],
+      options: ["Å leve med det meningsløse, men velge livet", "At vitenskapen alene gir livet en fullstendig mening", "At vi bør gi opp livet siden universet er likegyldig til oss", "At religiøs tro er den eneste løsningen på livets meningsløshet"],
       explanation: "Absurdismen (Camus) handler om å leve med det meningsløse - universets likegyldighet, men vi kan velge å leve likevel.",
     },
     {
       question: "Hva sier buddhismen om livets mening?",
-      options: ["Å frigjøres fra lidelse og oppnå nirvana", "Å herske over andre", "At meningen med livet er å tjene mest mulig penger", "At meningen med livet er å herske over og styre andre"],
+      options: ["Å frigjøres fra lidelse og oppnå nirvana", "Å bygge flest mulig templer", "At meningen med livet er å tjene mest mulig penger", "At meningen med livet er å herske over og styre andre"],
       explanation: "Buddhismen sier meningen er å frigjøres fra lidelse gjennom opplysning (nirvana).",
     },
     {
       question: "Hva er hedonisme?",
-      options: ["Livets mål er nytelse og lykke", "Religion er nødvendig", "At plikten mot andre er det eneste som gir livet mål", "Lidelse er målet"],
+      options: ["Livets mål er nytelse og lykke", "Religion er nødvendig", "At plikten alene er målet", "Lidelse er målet"],
       explanation: "Hedonisme er synet om at livets mål er nytelse og lykke (Epikur).",
     },
     {
       question: "Hva sier islam om livets mening?",
-      options: ["Å tjene Allah og forberede seg på evig liv", "Det finnes ingen mening", "At meningen med livet er å bli så rik som mulig", "At meningen med livet er å herske over andre mennesker"],
+      options: ["Å tjene Allah og forberede seg på evig liv", "Å oppnå nirvana gjennom meditasjon", "At meningen med livet er å bli så rik som mulig", "At meningen med livet er å herske over andre mennesker"],
       explanation: "Islam sier meningen er å tjene Allah, følge hans bud, og forberede seg på evig liv.",
     },
     {
@@ -732,7 +732,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom nihilisme og absurdisme?",
-      options: ["Nihilisme gir opp, absurdisme velger å leve likevel", "Nihilisme er optimistisk", "Absurdisme er en religiøs retning som mener Gud gir livet mening", "Nihilisme er optimistisk og mener livet har en klar iboende mening"],
+      options: ["Nihilisme gir opp, absurdisme velger å leve likevel", "Nihilisme er en religiøs retning", "Absurdisme er en religiøs retning som mener Gud gir livet mening", "Nihilisme er optimistisk og mener livet har en klar iboende mening"],
       explanation: "Nihilisme sier livet er meningsløst og stopper der. Absurdisme (Camus) erkjenner det meningsløse, men velger å leve likevel - opprør mot det absurde.",
     },
     {
@@ -747,7 +747,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er utfordringen med forskningens funn om mening?",
-      options: ["Forskning viser opplevd mening, ikke objektiv mening", "Forskning motbeviser religion", "Forskningen har allerede motbevist at religiøs tro gir mening", "Forskning om mening er irrelevant og har ingen verdi å tilføre"],
+      options: ["Forskning viser opplevd mening, ikke objektiv mening", "Forskningen kan måle objektiv mening", "Forskningen har allerede motbevist at religiøs tro gir mening", "Forskning om mening er irrelevant og har ingen verdi å tilføre"],
       explanation: "Forskning viser hva som gir opplevd mening (relasjoner, bidrag, vekst), men kan ikke si hva som er objektiv mening eller om slik finnes.",
     },
     {
@@ -764,12 +764,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er empirisme?",
-      options: ["Retningen som mener sanseerfaring er den viktigste kilden til kunnskap", "Retningen som mener fornuften alene, uten sansene, gir oss kunnskap", "Læren om hvordan store keiserdømmer oppstår og faller gjennom historien", "Troen på at mennesket har medfødte ideer uavhengig av all erfaring"],
+      options: ["Retningen som mener sanseerfaring er den viktigste kilden til kunnskap", "Retningen som mener fornuften alene, uten sansene, gir oss kunnskap", "Læren om hvordan keiserdømmer oppstår og faller", "Troen på at mennesket har medfødte ideer uavhengig av all erfaring"],
       explanation: "Empirismen (Locke, Hume) mener at kunnskap først og fremst kommer fra sanseerfaring.",
     },
     {
       question: "Hva forsøkte Thomas Aquinas å gjøre i sin filosofi?",
-      options: ["Å forene kristen tro med Aristoteles' filosofi og fornuften", "Å bevise at filosofi er meningsløst", "Han forsøkte å innføre buddhismens lære i det kristne Europa", "Han forsøkte å avskaffe all religion til fordel for ren fornuft"],
+      options: ["Å forene kristen tro med Aristoteles' filosofi og fornuften", "Å bevise at all filosofi er meningsløs og derfor bør forkastes helt", "Han forsøkte å innføre buddhismens lære i det kristne Europa", "Han forsøkte å avskaffe all religion til fordel for ren fornuft"],
       explanation: "Thomas Aquinas (1225-1274) er middelalderens mest kjente filosof og forente kristen teologi med Aristoteles' fornuftsfilosofi.",
     },
     {
@@ -796,7 +796,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Debatten om personvern mot sikkerhet er et eksempel på hva?",
-      options: ["En verdikonflikt der to viktige hensyn står mot hverandre", "En ren teknisk diskusjon uten etikk", "Et spørsmål med ett opplagt og entydig svar som alle fornuftige folk er enige om", "En ren teknisk diskusjon om lovverk og datasystemer helt uten etiske sider ved seg"],
+      options: ["En verdikonflikt der to viktige hensyn står mot hverandre", "En ren interessekonflikt mellom to kommersielle selskaper på markedet", "Et spørsmål med ett opplagt og entydig svar som alle fornuftige folk er enige om", "En ren teknisk diskusjon om lovverk og datasystemer helt uten etiske sider ved seg"],
       explanation: "Personvern og sikkerhet er begge viktige verdier -- når de kolliderer, oppstår et etisk dilemma i samfunnsdebatten.",
     },
     {
@@ -806,7 +806,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en etisk analyse fra ren synsing?",
-      options: ["Analysen bruker etiske teorier og begrunner standpunktene", "Analysen er alltid kortere", "Analysen er alltid vesentlig kortere og enklere enn den umiddelbare synsingen er", "Det er egentlig ingen forskjell -- begge deler er personlige meninger uten begrunnelse"],
+      options: ["Analysen bruker etiske teorier og begrunner standpunktene", "Analysen bygger utelukkende på hva den enkelte selv føler er riktig", "Analysen er alltid vesentlig kortere og enklere enn den umiddelbare synsingen er", "Det er egentlig ingen forskjell -- begge deler er personlige meninger uten begrunnelse"],
       explanation: "En etisk analyse begrunner vurderingene med etiske teorier som pliktetikk, konsekvensetikk og dydsetikk.",
     },
   ],
@@ -823,7 +823,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket dokument ble vedtatt av FN i 1948?",
-      options: ["Verdenserklæringen om menneskerettigheter", "Barnekonvensjonen", "Den europeiske menneskerettighetskonvensjonen", "FN-pakten om klima"],
+      options: ["Verdenserklæringen om menneskerettigheter", "Barnekonvensjonen om barns særlige rettigheter", "Den europeiske menneskerettighetskonvensjonen", "FN-pakten om klima og naturmangfold"],
       explanation: "FNs verdenserklæring om menneskerettigheter ble vedtatt i 1948, i kjølvannet av andre verdenskrig.",
     },
     {
@@ -833,14 +833,14 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på at rettigheter kan komme i konflikt?",
-      options: ["Religionsfrihet kan kollidere med likestilling", "Stemmerett kolliderer alltid med eiendomsrett", "Stemmeretten kolliderer nesten alltid direkte med eiendomsretten i moderne samfunn", "Ytringsfrihet og pressefrihet er motsetninger"],
+      options: ["Religionsfrihet kan kollidere med likestilling", "Stemmeretten kolliderer alltid med retten til eiendom", "Stemmeretten kolliderer nesten alltid direkte med eiendomsretten i moderne samfunn", "Ytringsfrihet og pressefrihet er motsetninger"],
       explanation: "Rettigheter kan kollidere -- for eksempel når religiøse praksiser utfordrer likestilling. Da må rettighetene veies mot hverandre.",
     },
   ],
   "krle-10-2-3": [
     {
       question: "Hva er forskjellen på ateisme og agnostisisme?",
-      options: ["Ateisten mener det ikke finnes noen gud, agnostikeren mener vi ikke kan vite det", "Ateisme er en religion, agnostisisme er en vitenskap", "Ateisme er en organisert religion, mens agnostisisme regnes som en egen naturvitenskap", "Agnostikeren benekter bestemt at gud finnes, mens ateisten bare er usikker på spørsmålet"],
+      options: ["Ateisten mener det ikke finnes noen gud, agnostikeren mener vi ikke kan vite det", "Ateisme er en organisert religion med egne ritualer, prester og hellige skrifter", "Ateisme er en organisert religion, mens agnostisisme regnes som en egen naturvitenskap", "Agnostikeren benekter bestemt at gud finnes, mens ateisten bare er usikker på spørsmålet"],
       explanation: "Ateisme er standpunktet at gud ikke finnes, mens agnostisisme er standpunktet at vi ikke kan vite om gud finnes.",
     },
     {
@@ -850,12 +850,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket klassisk argument for Guds eksistens viser til orden og hensiktsmessighet i naturen?",
-      options: ["Designargumentet (det teleologiske argumentet)", "Ønsketenknings-argumentet", "Ønsketenknings-argumentet, som forklarer troen som et resultat av menneskets behov", "Slavemoral-argumentet"],
+      options: ["Designargumentet (det teleologiske argumentet)", "Ønsketenknings-argumentet", "Ønsketenknings-argumentet om menneskets behov", "Slavemoral-argumentet"],
       explanation: "Designargumentet hevder at naturens orden og kompleksitet peker mot en intelligent skaper.",
     },
     {
       question: "Hva kjennetegner «ny ateisme»?",
-      options: ["Aktiv, offentlig religionskritikk som hevder at religion er skadelig", "En retning som forsvarer religion", "En bevegelse fra middelalderen som avviste kirkens makt og de geistliges autoritet", "En stille og privat form for ateisme som helst holder livssynet for seg selv i det skjulte"],
+      options: ["Aktiv, offentlig religionskritikk som hevder at religion er skadelig", "En retning som forsvarer religionen mot all kritikk som kommer fra utsiden", "En bevegelse fra middelalderen som avviste kirkens makt og de geistliges autoritet", "En stille og privat form for ateisme som helst holder livssynet for seg selv i det skjulte"],
       explanation: "Ny ateisme (2000-tallet, med blant andre Richard Dawkins) argumenterer offentlig for at religion er både usann og skadelig.",
     },
     {
@@ -867,17 +867,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-2-4": [
     {
       question: "Hvilke tre deler omfatter religionsfriheten?",
-      options: ["Trosfrihet, bekjennelsesfrihet og kultusfrihet", "Stemmefrihet, pressefrihet og næringsfrihet", "Skattefrihet, tollfrihet og avgiftsfrihet for godkjente tros- og livssynssamfunn", "Skattefrihet, tollfrihet og avgiftsfrihet"],
+      options: ["Trosfrihet, bekjennelsesfrihet og kultusfrihet", "Stemmefrihet, pressefrihet og næringsfrihet", "Skattefrihet, tollfrihet og avgiftsfrihet for godkjente tros- og livssynssamfunn", "Ytringsfrihet, forsamlingsfrihet og organisasjonsfrihet"],
       explanation: "Religionsfrihet omfatter retten til å tro (trosfrihet), uttrykke troen offentlig (bekjennelsesfrihet) og praktisere den (kultusfrihet).",
     },
     {
       question: "Hva må gjøres når religionsfrihet og ytringsfrihet kolliderer?",
-      options: ["Rettighetene må veies mot hverandre -- ingen av dem er absolutte i sin utøvelse", "Begge rettighetene oppheves i slike saker fordi de likevel utelukker hverandre", "Religionsfriheten vinner alltid, uansett hvor krenkende ytringen måtte oppfattes", "Ytringsfriheten vinner alltid og uten et eneste unntak, siden den er helt absolutt"],
+      options: ["Rettighetene må veies mot hverandre -- ingen av dem er absolutte i sin utøvelse", "Begge rettighetene oppheves helt i slike saker fordi de utelukker hverandre fullstendig", "Religionsfriheten vinner alltid, uansett hvor krenkende ytringen måtte oppfattes", "Ytringsfriheten vinner alltid og uten et eneste unntak, siden den er helt absolutt"],
       explanation: "I demokratiske samfunn må kolliderende rettigheter avveies mot hverandre fra sak til sak.",
     },
     {
       question: "Er blasfemi straffbart i Norge i dag?",
-      options: ["Nei, blasfemiparagrafen er opphevet", "Ja, det gir lang fengselsstraff", "Ja, men bare når spotten er rettet direkte mot kristendommen og statskirken", "Ja, men bare mot kristendommen"],
+      options: ["Nei, blasfemiparagrafen er opphevet", "Ja, det gir lang fengselsstraff", "Ja, men bare mot statskirken", "Ja, men bare mot kristendommen"],
       explanation: "Blasfemiparagrafen er opphevet i Norge -- religionskritikk og religionssatire er lovlig.",
     },
     {
@@ -887,24 +887,24 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor er ytringsfriheten forankret i norsk lov?",
-      options: ["I Grunnloven paragraf 100", "I Grunnloven paragraf 1", "Den er ikke lovfestet i Norge", "Bare i kommunale vedtekter"],
+      options: ["I Grunnloven paragraf 100", "I Grunnloven paragraf 1 om riket", "Den er ikke lovfestet i Norge", "Bare i kommunale vedtekter"],
       explanation: "Ytringsfriheten er forankret i Grunnloven paragraf 100, i tillegg til internasjonale konvensjoner.",
     },
   ],
   "krle-10-2-5": [
     {
       question: "Hva betyr sekularisering?",
-      options: ["At religionens innflytelse på samfunn, politikk og kultur minsker", "At staten innfører en offisiell religion", "At alle religioner over tid smelter sammen til én felles tro for hele verden", "At staten offisielt innfører én bestemt religion som alle innbyggere må følge"],
+      options: ["At religionens innflytelse på samfunn, politikk og kultur minsker", "At staten innfører én bestemt offisiell religion for alle innbyggerne i landet", "At alle religioner over tid smelter sammen til én felles tro for hele verden", "At staten offisielt innfører én bestemt religion som alle innbyggere må følge"],
       explanation: "Sekularisering (fra latin saeculum, «verdslig») betyr at religionens innflytelse i samfunnet minsker.",
     },
     {
       question: "På hvilke tre nivåer brukes begrepet sekularisering?",
-      options: ["Samfunnsnivå, organisasjonsnivå og individnivå", "Lokalt, nasjonalt og globalt nivå", "Barnenivå, ungdomsnivå og voksennivå, alt etter alderen på dem som mister troen", "Fortid, nåtid og fremtid"],
+      options: ["Samfunnsnivå, organisasjonsnivå og individnivå", "Lokalt, nasjonalt og globalt nivå", "Barnenivå, ungdomsnivå og voksennivå", "Fortid, nåtid og fremtid"],
       explanation: "Sekularisering skjer på samfunnsnivå (institusjoner mister innflytelse), organisasjonsnivå og individnivå (personlig tro svekkes).",
     },
     {
       question: "Hvilke faktorer regnes som årsaker til sekularisering?",
-      options: ["Vitenskap, urbanisering, utdanning og individualisering", "Mer religiøs undervisning i skolen", "Bygging av langt flere kirker og bedehus enn samfunnet egentlig har behov for", "Mer og strengere religiøs undervisning i den offentlige skolen for alle elever"],
+      options: ["Vitenskap, urbanisering, utdanning og individualisering", "Færre utdanningstilbud og mindre lesing blant folk flest i landet", "Bygging av langt flere kirker og bedehus enn samfunnet egentlig har behov for", "Mer og strengere religiøs undervisning i den offentlige skolen for alle elever"],
       explanation: "Vitenskapelige forklaringer, modernisering, økt utdanning og velstand, og individualisering bidrar til sekularisering.",
     },
     {
@@ -921,7 +921,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-3-3": [
     {
       question: "Hva er synkretisme?",
-      options: ["Å blande elementer fra ulike religiøse tradisjoner", "Å følge én religion strengt", "En egen type kirkemusikk som blander flere ulike tonearter i samme melodi", "Å avvise all religion og alt religiøst innhold som ren overtro og innbilning"],
+      options: ["Å blande elementer fra ulike religiøse tradisjoner", "Å følge én bestemt religion strengt", "En egen type kirkemusikk som blander flere ulike tonearter i samme melodi", "Å avvise all religion og alt religiøst innhold som ren overtro og innbilning"],
       explanation: "Synkretisme -- blanding av elementer fra ulike tradisjoner -- er et typisk kjennetegn ved nyreligiøsiteten.",
     },
     {
@@ -936,12 +936,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken kritikk rettes mot deler av den alternative bevegelsen?",
-      options: ["Manglende vitenskapelig grunnlag og kommersialisering", "At den krever for mye kirkegang", "At den krever langt for mye kirkegang og fast oppmøte i etablerte menigheter", "At tilbudene er altfor billige til å kunne holde en faglig forsvarlig standard"],
+      options: ["Manglende vitenskapelig grunnlag og kommersialisering", "At den stiller altfor strenge krav til faste og til daglig bønn", "At den krever langt for mye kirkegang og fast oppmøte i etablerte menigheter", "At tilbudene er altfor billige til å kunne holde en faglig forsvarlig standard"],
       explanation: "Kritikken gjelder blant annet manglende vitenskapelig belegg for healing og alternativ medisin, kommersialisering og kulturell appropriering.",
     },
     {
       question: "Hva er wicca?",
-      options: ["En moderne natur- og heksereligion innen nypaganismen", "En kristen vekkelsesbevegelse", "En eldgammel gresk filosofisk retning med røtter tilbake til antikkens tenkere", "En eldgammel gresk filosofi"],
+      options: ["En moderne natur- og heksereligion innen nypaganismen", "En kristen vekkelsesbevegelse", "En eldgammel gresk filosofisk retning", "En eldgammel gresk filosofi"],
       explanation: "Wicca er en moderne naturreligion inspirert av førkristne tradisjoner, en del av nypaganismen.",
     },
   ],
@@ -953,7 +953,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle hadde noaiden i samisk religion?",
-      options: ["Religiøs leder som gikk i transe og reiste til åndeverdenen", "Konge over alle samer", "Den øverste kongen og verdslige lederen over alle samiske grupper og bygder", "En omreisende handelsmann som byttet varer mellom de samiske og andre folkene"],
+      options: ["Religiøs leder som gikk i transe og reiste til åndeverdenen", "Den fremste reineieren i siidaen som fordelte beitene", "Den øverste kongen og verdslige lederen over alle samiske grupper og bygder", "En omreisende handelsmann som byttet varer mellom de samiske og andre folkene"],
       explanation: "Noaiden var den religiøse spesialisten som med runebommen kunne gå i transe og kontakte åndeverdenen.",
     },
     {
@@ -963,12 +963,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sieidi?",
-      options: ["Samiske hellige steder, ofte steiner eller formasjoner i naturen", "Samenes hellige bok", "En stor samisk høytid som feires en fast dag hvert år med gudstjeneste og fest", "En bestemt form for joik som fremføres ved seremonier og religiøse markeringer"],
+      options: ["Samiske hellige steder, ofte steiner eller formasjoner i naturen", "En samisk trommestikke av reinhorn brukt til å tyde tegnene på runebommen", "En stor samisk høytid som feires en fast dag hvert år med gudstjeneste og fest", "En bestemt form for joik som fremføres ved seremonier og religiøse markeringer"],
       explanation: "Sieidi er samenes hellige steder i landskapet, der man tradisjonelt bar frem offer.",
     },
     {
       question: "Hva er Drømmetiden i aboriginsk religion?",
-      options: ["En dimensjon der forfedreåndene skapte verden -- til stede både i fortid og nåtid", "En meditasjonsteknikk fra India", "En avansert meditasjonsteknikk med opprinnelse i hinduismens tradisjoner fra India", "En kjent moderne australsk roman som skildrer urbefolkningens møte med kolonimakten"],
+      options: ["En dimensjon der forfedreåndene skapte verden -- til stede både i fortid og nåtid", "En fast årlig festival der urfolksgruppene i Australia møtes for å danse, synge og handle", "En avansert meditasjonsteknikk med opprinnelse i hinduismens tradisjoner fra India", "En kjent moderne australsk roman som skildrer urbefolkningens møte med kolonimakten"],
       explanation: "Drømmetiden er det sentrale begrepet i aboriginsk åndelighet -- skapelsens dimensjon som fortsatt eksisterer parallelt med nåtiden.",
     },
   ],
@@ -980,12 +980,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konvertering?",
-      options: ["Å skifte religion eller livssyn", "Å bli født inn i en religion", "Å oversette hellige tekster til et nytt og moderne språk", "Å oversette hellige tekster"],
+      options: ["Å skifte religion eller livssyn", "Å bli født inn i en religion", "Å oversette hellige tekster", "Å ta et nytt religiøst navn"],
       explanation: "Konvertering er å skifte fra én religion eller ett livssyn til et annet.",
     },
     {
       question: "Hvordan kan livssynet påvirke hverdagslivet?",
-      options: ["Gjennom valg av mat, klær, høytider og hvordan man prioriterer", "Bare gjennom hva man gjør på søndager", "Utelukkende gjennom hva man velger å foreta seg i gudstjenesten på søndager", "Livssyn er en privat overbevisning som aldri påvirker praktiske valg i hverdagen"],
+      options: ["Gjennom valg av mat, klær, høytider og hvordan man prioriterer", "Bare gjennom hvilke dager i uka man velger å ta fri fra arbeidet sitt", "Utelukkende gjennom hva man velger å foreta seg i gudstjenesten på søndager", "Livssyn er en privat overbevisning som aldri påvirker praktiske valg i hverdagen"],
       explanation: "Livssyn kan påvirke mat (halal, kosher, vegetarisme), klær, høytider, ritualer og moralske valg i hverdagen.",
     },
     {
@@ -995,14 +995,14 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan en livskrise påvirke livssynet?",
-      options: ["Den kan bli et vendepunkt der man revurderer tro og verdier", "Livskriser endrer aldri noens livssyn", "Den fører alltid til at mennesker vender seg mot religion og finner en fast tro", "En livskrise er altfor smertefull til noensinne å kunne endre en persons livssyn"],
+      options: ["Den kan bli et vendepunkt der man revurderer tro og verdier", "En livskrise gjør alltid mennesker langt mer religiøse enn de var før", "Den fører alltid til at mennesker vender seg mot religion og finner en fast tro", "En livskrise er altfor smertefull til noensinne å kunne endre en persons livssyn"],
       explanation: "Livskriser kan bli vendepunkter -- noen finner tro, andre mister den, og mange revurderer verdiene sine.",
     },
   ],
   "krle-10-4-3": [
     {
       question: "Hvilke fire prinsipper er grunnleggende i medisinsk etikk (Beauchamp og Childress)?",
-      options: ["Velgjørenhet, ikke skade, autonomi og rettferdighet", "Hurtighet, effektivitet, lønnsomhet og lojalitet", "Tro på det gode, håp for framtiden, nestekjærlighet og tålmodighet med pasienten", "Frihet, likhet, brorskap og solidaritet"],
+      options: ["Velgjørenhet, ikke skade, autonomi og rettferdighet", "Hurtighet, effektivitet, lønnsomhet og lojalitet", "Tro på det gode, håp for framtiden, nestekjærlighet og tålmodighet med pasienten", "Frihet, likhet, brorskap og solidaritet mellom alle borgere"],
       explanation: "De fire prinsippene er velgjørenhet (gjøre godt), ikke skade, respekt for pasientens autonomi, og rettferdighet.",
     },
     {
@@ -1017,7 +1017,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket etisk spørsmål reiser genredigeringsteknologien CRISPR?",
-      options: ["Hvor grensen går for å endre menneskers arvemateriale", "Hvilken farge sykehusene skal males i", "Om leger og annet helsepersonell trenger lang formell utdanning før de får behandle", "Om datamaskiner bør brukes i medisin"],
+      options: ["Hvor grensen går for å endre menneskers arvemateriale", "Hvilken farge sykehusene skal males i", "Om helsepersonell trenger lang utdanning", "Om datamaskiner bør brukes i medisin"],
       explanation: "CRISPR gjør det mulig å redigere gener -- det reiser spørsmål om hvor grensen går, særlig for endringer som går i arv.",
     },
     {
@@ -1029,7 +1029,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-4-4": [
     {
       question: "Hva handler global rettferdighet om?",
-      options: ["Rettferdig fordeling av ressurser, muligheter og rettigheter på verdensbasis", "Bare rettssaker i internasjonale domstoler", "Utelukkende rettssakene og dommene som behandles i de internasjonale domstolene", "Målet om at alle verdens land etter hvert skal ta i bruk ett felles verdensspråk"],
+      options: ["Rettferdig fordeling av ressurser, muligheter og rettigheter på verdensbasis", "Bare rettssakene og dommene som blir behandlet ved de internasjonale domstolene i Haag", "Utelukkende rettssakene og dommene som behandles i de internasjonale domstolene", "Målet om at alle verdens land etter hvert skal ta i bruk ett felles verdensspråk"],
       explanation: "Global rettferdighet handler om fordeling av ressurser og muligheter mellom mennesker og land i hele verden.",
     },
     {
@@ -1039,7 +1039,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ville en utilitarist typisk si om rike lands hjelp til fattige?",
-      options: ["At rike bør hjelpe når det gir større samlet velferd i verden", "At konsekvensene av hjelp er irrelevante", "At man bare har plikt til å hjelpe naboland man deler grense med", "At konsekvensene av hjelpen er helt uten betydning for vurderingen"],
+      options: ["At rike bør hjelpe når det gir større samlet velferd i verden", "At rike land aldri har noen som helst plikt til å hjelpe fattige land", "At man bare har plikt til å hjelpe naboland man deler grense med", "At konsekvensene av hjelpen er helt uten betydning for vurderingen"],
       explanation: "Utilitarismen vurderer handlinger etter konsekvensene -- penger gjør ofte mer nytte hos dem som har minst.",
     },
     {
@@ -1049,24 +1049,24 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva har de store religionene til felles i synet på fattigdom?",
-      options: ["En plikt eller sterk oppfordring til å hjelpe fattige og dele med andre", "At fattigdom alltid er selvforskyldt", "At det utelukkende er statens ansvar å hjelpe, ikke den enkelte troende", "At fattigdom alltid er selvforskyldt og skyldes den enkeltes egne dårlige valg"],
+      options: ["En plikt eller sterk oppfordring til å hjelpe fattige og dele med andre", "At fattigdom er en prøvelse fra Gud som mennesker ikke har lov til å gripe inn i", "At det utelukkende er statens ansvar å hjelpe, ikke den enkelte troende", "At fattigdom alltid er selvforskyldt og skyldes den enkeltes egne dårlige valg"],
       explanation: "Kristendom, islam, jødedom, buddhisme og humanisme deler alle idealet om å hjelpe fattige og dele med andre.",
     },
   ],
   "krle-10-4-5": [
     {
       question: "Hva hevder rettferdig krig-teorien?",
-      options: ["At krig kan være moralsk forsvarlig under visse strenge betingelser", "At krig aldri kan vurderes moralsk", "At bare den siden som til slutt går seirende ut av krigen, har hatt rett hele veien", "At all krig i seg selv alltid er rettferdig så lenge et land forsvarer sine interesser"],
+      options: ["At krig kan være moralsk forsvarlig under visse strenge betingelser", "At spørsmålet om krig aldri lar seg vurdere moralsk", "At bare den siden som til slutt går seirende ut av krigen, har hatt rett hele veien", "At all krig i seg selv alltid er rettferdig så lenge et land forsvarer sine interesser"],
       explanation: "Rettferdig krig-teorien (bellum justum) setter strenge betingelser, som rettferdig grunn og krig som siste utvei.",
     },
     {
       question: "Hvilke tenkere utviklet rettferdig krig-tradisjonen?",
-      options: ["Augustin og Thomas Aquinas", "Sokrates og Platon", "Sokrates og læresvennen Platon", "Karl Marx og Friedrich Nietzsche"],
+      options: ["Augustin og Thomas Aquinas", "Sokrates og Platon", "Platon og Aristoteles", "Karl Marx og Friedrich Nietzsche"],
       explanation: "Tradisjonen strekker seg tilbake til Augustin (354-430) og ble videreutviklet av Thomas Aquinas (1225-1274).",
     },
     {
       question: "Hva mener en absolutt pasifist?",
-      options: ["At krig og vold alltid er galt, uansett omstendigheter", "At krig er greit i selvforsvar", "At krig kan være bra fordi den setter fart på et lands økonomi", "At krig kan forsvares moralsk når det handler om rent selvforsvar"],
+      options: ["At krig og vold alltid er galt, uansett omstendigheter", "At krig er helt greit så lenge det handler om rent selvforsvar", "At krig kan være bra fordi den setter fart på et lands økonomi", "At krig kan forsvares moralsk når det handler om rent selvforsvar"],
       explanation: "Absolutt pasifisme avviser all krig og vold, mens betinget pasifisme kan godta unntak i ekstreme tilfeller.",
     },
     {
@@ -1076,7 +1076,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner terrorisme?",
-      options: ["Vold eller trusler mot sivile for å skape frykt og oppnå politiske mål", "Politisk debatt med sterke ord", "Politisk debatt og ordveksling der partene bruker sterke og opprørende ord", "Enhver form for militær aktivitet mellom to lands ordinære og uniformerte styrker"],
+      options: ["Vold eller trusler mot sivile for å skape frykt og oppnå politiske mål", "Politisk debatt der partene bruker svært sterke og krasse ord mot hverandre i media", "Politisk debatt og ordveksling der partene bruker sterke og opprørende ord", "Enhver form for militær aktivitet mellom to lands ordinære og uniformerte styrker"],
       explanation: "Terrorisme er vold rettet mot sivile for å spre frykt og presse gjennom politiske eller ideologiske mål.",
     },
   ],
@@ -1088,12 +1088,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er antisemittisme?",
-      options: ["Hat, fordommer og diskriminering rettet mot jøder", "Kritikk av israelsk landbrukspolitikk", "Saklig kritikk av staten Israels landbruks- og vanningspolitikk", "En generell motstand mot alle former for organisert religion og tro"],
+      options: ["Hat, fordommer og diskriminering rettet mot jøder", "Saklig kritikk av staten Israels landbrukspolitikk", "Saklig kritikk av staten Israels landbruks- og vanningspolitikk", "En generell motstand mot alle former for organisert religion og tro"],
       explanation: "Antisemittisme er hat og fordommer mot jøder -- den nådde sitt bunnpunkt med Holocaust og finnes fortsatt i dag.",
     },
     {
       question: "Hvilke hovedretninger finnes innenfor jødedommen?",
-      options: ["Ortodoks, konservativ og reformjødedom", "Katolsk, ortodoks og protestantisk", "Sunni og shia som de to store hovedgrenene", "Theravada, Mahayana og Vajrayana som hovedretningene"],
+      options: ["Ortodoks, konservativ og reformjødedom", "Katolsk, ortodoks og protestantisk kristendom", "Sunni og shia som de to store hovedgrenene", "Theravada, Mahayana og Vajrayana som hovedretningene"],
       explanation: "Jødedommens hovedretninger er ortodoks, konservativ og reform -- de skiller seg i synet på Toraens autoritet.",
     },
     {
@@ -1103,7 +1103,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to hovedretninger deles buddhismen vanligvis inn i?",
-      options: ["Theravada og Mahayana", "Sunni og shia", "Ortodoks og reform", "Katolsk og protestantisk"],
+      options: ["Theravada og Mahayana", "Sunni og shia", "Ortodoks og reform", "Katolsk og ortodoks"],
       explanation: "Buddhismens hovedretninger er Theravada («de eldstes lære») og Mahayana («det store fartøyet»).",
     },
   ],
@@ -1115,12 +1115,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er religion vanligvis den eneste årsaken til konflikter som kalles religiøse?",
-      options: ["Nei, religion er ofte én av flere årsaker sammen med politikk, økonomi og etnisitet", "Nei, religion spiller aldri noen som helst rolle i konflikter mellom folkegrupper", "Ja, dersom religion ikke fantes, ville det ikke oppstått noen konflikter i verden", "Ja, religion er alltid den eneste og avgjørende årsaken til slike konflikter"],
+      options: ["Nei, religion er ofte én av flere årsaker sammen med politikk, økonomi og etnisitet", "Nei, religion spiller aldri noen som helst rolle i konflikter mellom ulike folkegrupper", "Ja, dersom religion ikke fantes, ville det ikke oppstått noen konflikter i verden", "Ja, religion er alltid den eneste og avgjørende årsaken til slike konflikter"],
       explanation: "Konflikter med religiøse dimensjoner handler som regel også om land, makt, økonomi og etnisitet.",
     },
     {
       question: "Hva er «hellig krig»?",
-      options: ["Ideen om at krig kan være religiøst rettferdiggjort eller påbudt av Gud", "En krig som utkjempes helt uten bruk av våpen, bare med ord og bønn", "En langvarig krig som i historien varte i om lag hundre sammenhengende år", "En moderne dataspillsjanger uten historiske eller religiøse røtter i virkeligheten"],
+      options: ["Ideen om at krig kan være religiøst rettferdiggjort eller påbudt av Gud", "En krig som utkjempes helt uten bruk av våpen, bare med ord, bønn og faste", "En langvarig krig som i historien varte i om lag hundre sammenhengende år", "En moderne dataspillsjanger uten historiske eller religiøse røtter i virkeligheten"],
       explanation: "Hellig krig er ideen om religiøst rettferdiggjort krig -- som korstogene i kristendommens historie.",
     },
     {
@@ -1142,12 +1142,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er handlingsdialog?",
-      options: ["Samarbeid om felles mål på tvers av religiøse skillelinjer", "En teologisk diskusjon om dogmer", "En dyptgående teologisk diskusjon om dogmer og læresetninger på tvers av tro", "Å bo tilfeldigvis i samme bygård som mennesker med en annen religiøs bakgrunn"],
+      options: ["Samarbeid om felles mål på tvers av religiøse skillelinjer", "En akademisk konferanse der teologer sammenligner læresetninger", "En dyptgående teologisk diskusjon om dogmer og læresetninger på tvers av tro", "Å bo tilfeldigvis i samme bygård som mennesker med en annen religiøs bakgrunn"],
       explanation: "Handlingsdialog er praktisk samarbeid -- for eksempel om veldedighet eller miljø -- på tvers av tro.",
     },
     {
       question: "Hva er livsdialog?",
-      options: ["Den daglige, naturlige sameksistensen mellom mennesker med ulik tro", "En offisiell konferanse mellom religiøse ledere", "En grundig akademisk avhandling som sammenligner de ulike verdensreligionene", "En opphetet TV-debatt der representanter for ulike religioner møtes foran kamera"],
+      options: ["Den daglige, naturlige sameksistensen mellom mennesker med ulik tro", "En offisiell konferanse der religiøse ledere møtes og forhandler om lære", "En grundig akademisk avhandling som sammenligner de ulike verdensreligionene", "En opphetet TV-debatt der representanter for ulike religioner møtes foran kamera"],
       explanation: "Livsdialog er hverdagslivets sameksistens -- naboskap, skole og arbeidsliv på tvers av tro.",
     },
     {
@@ -1164,7 +1164,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-6-1": [
     {
       question: "Hva menes med «bindestrek-identitet»?",
-      options: ["Å oppleve tilhørighet til flere kulturer samtidig, som norsk-pakistansk", "At identiteten er skrevet med bindestrek i passet", "Å bytte statsborgerskap og fullstendig legge fra seg kulturen man vokste opp med", "At man juridisk registrerer to ulike morsmål og nasjonaliteter i det samme passet"],
+      options: ["Å oppleve tilhørighet til flere kulturer samtidig, som norsk-pakistansk", "At navnet ditt står skrevet med en bindestrek i både passet og folkeregisteret", "Å bytte statsborgerskap og fullstendig legge fra seg kulturen man vokste opp med", "At man juridisk registrerer to ulike morsmål og nasjonaliteter i det samme passet"],
       explanation: "Bindestrek-identitet beskriver mennesker som opplever tilhørighet til flere kulturer samtidig.",
     },
     {
@@ -1179,12 +1179,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan livsriter bidra til identitet og tilhørighet?",
-      options: ["De markerer viktige overganger i livet og bekrefter tilhørighet til et fellesskap", "De har ingen betydning for identiteten", "De har ingen betydning for identiteten og handler kun om gamle og utdaterte skikker", "De erstatter behovet for venner og nære relasjoner ved å gi tilhørighet på egen hånd"],
+      options: ["De markerer viktige overganger i livet og bekrefter tilhørighet til et fellesskap", "De erstatter fullstendig behovet for både familie og religiøst fellesskap rundt den enkelte", "De har ingen betydning for identiteten og handler kun om gamle og utdaterte skikker", "De erstatter behovet for venner og nære relasjoner ved å gi tilhørighet på egen hånd"],
       explanation: "Livsriter som dåp, konfirmasjon og bryllup markerer overganger og styrker opplevelsen av fellesskap og identitet.",
     },
     {
       question: "Hva kan tap av et religiøst fellesskap innebære for et menneske?",
-      options: ["Savn av tilhørighet og behov for å finne nye fellesskap", "Automatisk medlemskap i et nytt samfunn", "Automatisk og umiddelbart medlemskap i et helt nytt religiøst samfunn og trossamfunn", "Ingenting -- fellesskap betyr ikke noe"],
+      options: ["Savn av tilhørighet og behov for å finne nye fellesskap", "At man mister retten til å delta i høytider", "Automatisk og umiddelbart medlemskap i et helt nytt religiøst samfunn og trossamfunn", "Ingenting -- fellesskap betyr ikke noe"],
       explanation: "Fellesskap gir tilhørighet -- den som forlater eller mister et trosfellesskap, kan oppleve savn og må ofte finne nye fellesskap.",
     },
   ],
@@ -1201,24 +1201,24 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke faktorer påvirker unges forhold til tro og livssyn?",
-      options: ["Familie, venner, skole, medier og personlige erfaringer", "Bare tilfeldigheter", "Kun reklame og markedsføring, som styrer hva unge til enhver tid velger å tro på", "Utelukkende genene og arven, slik at livssyn er noe man er født med og ikke kan endre"],
+      options: ["Familie, venner, skole, medier og personlige erfaringer", "Bare rene tilfeldigheter, helt uten mønstre eller påvirkning utenfra", "Kun reklame og markedsføring, som styrer hva unge til enhver tid velger å tro på", "Utelukkende genene og arven, slik at livssyn er noe man er født med og ikke kan endre"],
       explanation: "Familie, sosialt miljø, skole, medier og egne erfaringer former unges forhold til tro og livssyn.",
     },
     {
       question: "Hva kjennetegner en kulturelt religiøs ungdom?",
-      options: ["Deltar i religiøse tradisjoner og høytider uten sterk personlig tro", "Er leder i et trossamfunn", "Er valgt leder i et trossamfunn og har ansvar for gudstjenester og seremonier der", "Ber flere ganger daglig og følger alle religionens påbud svært strengt og nøyaktig"],
+      options: ["Deltar i religiøse tradisjoner og høytider uten sterk personlig tro", "Har meldt seg helt ut av alle trossamfunn og markerer ingen høytider lenger", "Er valgt leder i et trossamfunn og har ansvar for gudstjenester og seremonier der", "Ber flere ganger daglig og følger alle religionens påbud svært strengt og nøyaktig"],
       explanation: "Den kulturelt religiøse deltar i tradisjoner og høytider av kulturelle og familiære grunner, uten sterk personlig overbevisning.",
     },
     {
       question: "Hvorfor er ungdomstiden en viktig periode for livssynsutvikling?",
-      options: ["Fordi man former sin egen identitet og tar selvstendige standpunkt", "Fordi livssyn ikke kan endres etter fylte 20", "Fordi livssynet ikke lenger kan endres i det hele tatt etter at man har fylt tjue år", "Fordi barn og unge ikke har noen tanker om livet, døden eller meningen med tilværelsen"],
+      options: ["Fordi man former sin egen identitet og tar selvstendige standpunkt", "Fordi livssynet ikke lar seg endre etter fylte tjue år", "Fordi livssynet ikke lenger kan endres i det hele tatt etter at man har fylt tjue år", "Fordi barn og unge ikke har noen tanker om livet, døden eller meningen med tilværelsen"],
       explanation: "I ungdomstiden løsriver man seg fra foreldrene og utvikler egne standpunkter -- også i tros- og livssynsspørsmål.",
     },
   ],
   "krle-10-6-3": [
     {
       question: "Hva er en overgangsrite?",
-      options: ["Et ritual som markerer overgangen fra én fase i livet til en annen", "En type kirkemusikk", "En daglig bønn som troende leser på faste tidspunkter gjennom dagen for å ære Gud", "En bestemt type kirkemusikk som spilles på orgel under gudstjenester og seremonier"],
+      options: ["Et ritual som markerer overgangen fra én fase i livet til en annen", "En årlig høytid som markerer et vendepunkt", "En daglig bønn som troende leser på faste tidspunkter gjennom dagen for å ære Gud", "En bestemt type kirkemusikk som spilles på orgel under gudstjenester og seremonier"],
       explanation: "Overgangsriter («rites de passage») markerer livsoverganger som fødsel, voksenliv, ekteskap og død.",
     },
     {
@@ -1228,12 +1228,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bar/bat mitsva?",
-      options: ["Den jødiske markeringen av at en gutt eller jente blir religiøst myndig", "Den jødiske bryllupsseremonien", "En jødisk begravelsesskikk der den døde stelles og gravlegges innen kort tid", "Den jødiske bryllupsseremonien der brudeparet vies under en baldakin kalt huppa"],
+      options: ["Den jødiske markeringen av at en gutt eller jente blir religiøst myndig", "Den jødiske navneseremonien som holdes like etter at barnet er kommet til verden", "En jødisk begravelsesskikk der den døde stelles og gravlegges innen kort tid", "Den jødiske bryllupsseremonien der brudeparet vies under en baldakin kalt huppa"],
       explanation: "Bar mitsva (gutter) og bat mitsva (jenter) markerer religiøs myndighetsalder i jødedommen.",
     },
     {
       question: "Hva er brit mila?",
-      options: ["Den jødiske omskjæringen av guttebarn på den åttende dagen", "En buddhistisk munkeordinasjon", "En hinduistisk navneseremoni der barnet får sitt navn kort tid etter fødselen", "En kristen konfirmasjon der ungdom bekrefter dåpen og troen sin foran menigheten"],
+      options: ["Den jødiske omskjæringen av guttebarn på den åttende dagen", "Den jødiske velsignelsen av hjemmet ved innflytting i ny bolig og hus", "En hinduistisk navneseremoni der barnet får sitt navn kort tid etter fødselen", "En kristen konfirmasjon der ungdom bekrefter dåpen og troen sin foran menigheten"],
       explanation: "Brit mila er den jødiske omskjæringsseremonien for guttebarn, som etter tradisjonen skjer på den åttende dagen.",
     },
     {
@@ -1245,7 +1245,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-6-4": [
     {
       question: "Hva er kjønnsroller?",
-      options: ["Samfunnets forventninger til hvordan kvinner og menn skal oppføre seg og leve", "Biologiske egenskaper man er født med", "Lover vedtatt av Stortinget som bestemmer hvordan kvinner og menn skal oppføre seg", "Biologiske egenskaper man er født med, som kromosomer, hormoner og kroppslige trekk"],
+      options: ["Samfunnets forventninger til hvordan kvinner og menn skal oppføre seg og leve", "Hvilke yrker som lønner seg best økonomisk for kvinner og for menn i arbeidslivet i dag", "Lover vedtatt av Stortinget som bestemmer hvordan kvinner og menn skal oppføre seg", "Biologiske egenskaper man er født med, som kromosomer, hormoner og kroppslige trekk"],
       explanation: "Kjønnsroller er sosiale forventninger til kjønnene -- i religiøs sammenheng ofte knyttet til tolkninger av hellige tekster.",
     },
     {
@@ -1260,12 +1260,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på biologisk og sosialt kjønn?",
-      options: ["Biologisk kjønn er kroppen man er født med, sosialt kjønn er samfunnets forventninger", "Sosialt kjønn er medfødt, biologisk kjønn er tillært", "De betyr nøyaktig det samme, og skillet mellom dem har ingen praktisk betydning i dag", "Sosialt kjønn er medfødt og biologisk bestemt, mens biologisk kjønn er tillært i samfunnet"],
+      options: ["Biologisk kjønn er kroppen man er født med, sosialt kjønn er samfunnets forventninger", "Begge deler bestemmes av samfunnet", "De betyr nøyaktig det samme, og skillet mellom dem har ingen praktisk betydning i dag", "Sosialt kjønn er medfødt og biologisk bestemt, mens biologisk kjønn er tillært i samfunnet"],
       explanation: "Biologisk kjønn handler om kroppen, mens sosialt kjønn handler om roller og forventninger som varierer mellom samfunn.",
     },
     {
       question: "Hva er et eksempel på endring i retning likestilling i religiøse samfunn?",
-      options: ["At flere kirkesamfunn og jødiske retninger har fått kvinnelige prester og rabbinere", "At kvinner har mistet stemmerett i trossamfunn", "At menn ikke lenger har lov til å bli prester eller religiøse ledere noe sted i verden", "At samtlige religioner nå har avskaffet alle former for lederroller og geistlige embeter"],
+      options: ["At flere kirkesamfunn og jødiske retninger har fått kvinnelige prester og rabbinere", "At kvinner har mistet stemmeretten i samtlige trossamfunn i løpet av de aller siste årene", "At menn ikke lenger har lov til å bli prester eller religiøse ledere noe sted i verden", "At samtlige religioner nå har avskaffet alle former for lederroller og geistlige embeter"],
       explanation: "I flere tradisjoner, som Den norske kirke og reformjødedommen, kan kvinner i dag bli prester og rabbinere.",
     },
   ],
@@ -1277,12 +1277,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er integrering?",
-      options: ["At minoriteter deltar i samfunnet samtidig som de kan beholde sin egen kultur", "At minoriteter må gi opp all egen kultur", "At ulike grupper bevisst isoleres fra hverandre og lever i hvert sitt adskilte samfunn", "At ingen mennesker flytter mellom land, slik at befolkningen holder seg fullstendig lik"],
+      options: ["At minoriteter deltar i samfunnet samtidig som de kan beholde sin egen kultur", "At minoriteter må gi opp hele sin egen kultur og bli fullstendig lik majoriteten i landet", "At ulike grupper bevisst isoleres fra hverandre og lever i hvert sitt adskilte samfunn", "At ingen mennesker flytter mellom land, slik at befolkningen holder seg fullstendig lik"],
       explanation: "Integrering betyr deltakelse i fellesskapet kombinert med rom for egen kultur og identitet.",
     },
     {
       question: "Hva er segregering?",
-      options: ["At grupper lever atskilt fra hverandre i samme samfunn", "At alle deltar i de samme aktivitetene", "At alle innbyggerne deltar i de samme aktivitetene og fellesskapene på tvers av grupper", "En form for religionsdialog"],
+      options: ["At grupper lever atskilt fra hverandre i samme samfunn", "At alle deltar i de samme aktivitetene", "At alle deltar i de samme fellesskapene", "En form for religionsdialog"],
       explanation: "Segregering er når grupper lever atskilt -- det motsatte av et integrert fellesskap.",
     },
     {
@@ -1299,7 +1299,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-7-1": [
     {
       question: "Hva er eskatologi?",
-      options: ["Læren om de siste ting -- døden, livet etter døden og verdens ende", "Læren om ritualer ved fødsel", "Læren om verdens skapelse, altså hvordan universet og menneskene ble til i begynnelsen", "Studiet av gamle og utdødde språk som brukes til å tolke og oversette hellige skrifter"],
+      options: ["Læren om de siste ting -- døden, livet etter døden og verdens ende", "Læren om ritualene som markerer fødsel, navngiving og de første leveårene", "Læren om verdens skapelse, altså hvordan universet og menneskene ble til i begynnelsen", "Studiet av gamle og utdødde språk som brukes til å tolke og oversette hellige skrifter"],
       explanation: "Eskatologi (fra gresk eschatos, «siste») er læren om de siste ting og finnes i alle store religioner.",
     },
     {
@@ -1309,7 +1309,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller buddhismens syn på gjenfødelse fra hinduismens?",
-      options: ["Buddhismen lærer at det ikke finnes noen evig sjel som gjenfødes", "Buddhismen tror på kroppslig oppstandelse", "Hinduismen avviser gjenfødelse fullstendig, mens buddhismen bygger hele læren på den", "Buddhismen tror på kroppslig oppstandelse på dommedagen, mens hinduismen avviser dette"],
+      options: ["Buddhismen lærer at det ikke finnes noen evig sjel som gjenfødes", "Buddhismen lærer at en evig sjel gjenfødes helt uendret i en ny kropp hver gang", "Hinduismen avviser gjenfødelse fullstendig, mens buddhismen bygger hele læren på den", "Buddhismen tror på kroppslig oppstandelse på dommedagen, mens hinduismen avviser dette"],
       explanation: "Buddhismen avviser en evig sjel (anatta) -- det som fortsetter er en strøm av bevissthet, ikke en sjel som i hinduismen.",
     },
     {
@@ -1319,7 +1319,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan møter humanismen døden?",
-      options: ["Livet er alt vi har, og mening må skapes her og nå", "Ved å nekte å snakke om døden", "Med troen på reinkarnasjon, der sjelen fødes på nytt i en ny kropp gang på gang", "Med troen på reinkarnasjon"],
+      options: ["Livet er alt vi har, og mening må skapes her og nå", "Ved å nekte å snakke om døden", "Med troen på at sjelen fødes på nytt", "Med troen på reinkarnasjon"],
       explanation: "Humanismen tror ikke på et liv etter døden -- nettopp derfor blir livet her og nå så verdifullt.",
     },
   ],
@@ -1331,17 +1331,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nihilisme?",
-      options: ["Standpunktet at livet er uten objektiv mening, formål eller verdi", "Læren om at bare nytelse betyr noe", "Troen på at absolutt alt i tilværelsen har en dyp mening og en overordnet hensikt", "En religiøs vekkelsesbevegelse som samler mennesker om felles tro og gudsopplevelse"],
+      options: ["Standpunktet at livet er uten objektiv mening, formål eller verdi", "Læren om at bare sanselig nytelse i øyeblikket betyr noe for et menneske", "Troen på at absolutt alt i tilværelsen har en dyp mening og en overordnet hensikt", "En religiøs vekkelsesbevegelse som samler mennesker om felles tro og gudsopplevelse"],
       explanation: "Nihilisme (fra latin nihil, «ingenting») hevder at livet ikke har noen objektiv mening eller verdi.",
     },
     {
       question: "Hva går absurdismen ut på?",
-      options: ["Det er et gap mellom menneskets søken etter mening og universets taushet -- men vi kan velge å leve likevel", "At meningen er gitt av Gud", "At livet er meningsløst, og at den eneste ærlige konklusjonen derfor er å gi opp og trekke seg tilbake fra det", "At meningen med livet er gitt på forhånd av Gud, og at mennesket bare må oppdage den planen som allerede finnes"],
+      options: ["Det er et gap mellom menneskets søken etter mening og universets taushet -- men vi kan velge å leve likevel", "At mening ikke er et spørsmål filosofien i det hele tatt kan behandle, og at det derfor må overlates til religionen", "At livet er meningsløst, og at den eneste ærlige konklusjonen derfor er å gi opp og trekke seg tilbake fra det", "At meningen med livet er gitt på forhånd av Gud, og at mennesket bare må oppdage den planen som allerede finnes"],
       explanation: "Absurdismen (Camus) erkjenner det meningsløse, men svarer med å leve livet fullt ut likevel.",
     },
     {
       question: "Hva er eudaimonia hos Aristoteles?",
-      options: ["Det gode liv -- lykke gjennom å realisere sitt potensial og leve dydig", "En tilstand av konstant nytelse", "Rikdom, makt og berømmelse som ytre bevis på at et menneske har lyktes og oppnådd et vellykket liv", "En tilstand av konstant sanselig nytelse der målet er å oppleve mest mulig behag hvert eneste øyeblikk"],
+      options: ["Det gode liv -- lykke gjennom å realisere sitt potensial og leve dydig", "En tilstand av konstant materiell rikdom og ytre anerkjennelse", "Rikdom, makt og berømmelse som ytre bevis på at et menneske har lyktes og oppnådd et vellykket liv", "En tilstand av konstant sanselig nytelse der målet er å oppleve mest mulig behag hvert eneste øyeblikk"],
       explanation: "Eudaimonia er Aristoteles' begrep for det gode liv: å blomstre som menneske ved å realisere sitt potensial.",
     },
     {
@@ -1353,12 +1353,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-7-3": [
     {
       question: "Hva er teodicéproblemet?",
-      options: ["Spørsmålet om hvordan en god og allmektig Gud kan forenes med lidelse og ondskap i verden", "Spørsmålet om hvor mange guder som finnes", "Spørsmålet om hvor gammel verden er, og om skapelsen skjedde på seks dager eller over milliarder av år", "Spørsmålet om hvilke menneskelige språk Gud forstår, og om bønner må bes på et bestemt hellig tungemål"],
+      options: ["Spørsmålet om hvordan en god og allmektig Gud kan forenes med lidelse og ondskap i verden", "Spørsmålet om hvor mange guder som finnes, og om de samarbeider eller strides med hverandre om makten", "Spørsmålet om hvor gammel verden er, og om skapelsen skjedde på seks dager eller over milliarder av år", "Spørsmålet om hvilke menneskelige språk Gud forstår, og om bønner må bes på et bestemt hellig tungemål"],
       explanation: "Teodicéproblemet er det logiske dilemmaet: Hvis Gud er allgod og allmektig, hvorfor finnes det ondskap?",
     },
     {
       question: "Hva går «den frie vilje-argumentet» ut på?",
-      options: ["At ondskap følger av menneskets frie valg, og at friheten er verdt denne prisen", "At Gud skaper all ondskap direkte", "At lidelse og ondskap egentlig ikke finnes, men bare er en illusjon vi mennesker innbiller oss", "At mennesket i virkeligheten ikke har noen fri vilje, siden alle valg er styrt av Gud på forhånd"],
+      options: ["At ondskap følger av menneskets frie valg, og at friheten er verdt denne prisen", "At Gud selv skaper all ondskap direkte og styrer hvert eneste onde valg et menneske gjør", "At lidelse og ondskap egentlig ikke finnes, men bare er en illusjon vi mennesker innbiller oss", "At mennesket i virkeligheten ikke har noen fri vilje, siden alle valg er styrt av Gud på forhånd"],
       explanation: "Et klassisk svar på teodicéproblemet: Gud ga mennesket fri vilje, og ondskap er en konsekvens av menneskers frie valg.",
     },
     {
@@ -1368,7 +1368,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan forklarer hinduismen lidelse?",
-      options: ["Gjennom karma og samsara -- handlinger får konsekvenser i dette og neste liv", "Som noe som ikke har noen forklaring", "Som et resultat av ren uflaks alene, uten noen kobling til handlinger i dette eller i tidligere liv", "Som noe helt tilfeldig som ikke har noen dypere forklaring, og som verken karma eller guder står bak"],
+      options: ["Gjennom karma og samsara -- handlinger får konsekvenser i dette og neste liv", "Som en straff gudene sender ned over enkeltmennesker allerede i løpet av dette livet", "Som et resultat av ren uflaks alene, uten noen kobling til handlinger i dette eller i tidligere liv", "Som noe helt tilfeldig som ikke har noen dypere forklaring, og som verken karma eller guder står bak"],
       explanation: "I hinduismen forstås lidelse i lys av karma: Handlinger får konsekvenser, også på tvers av gjenfødelser.",
     },
     {
@@ -1380,17 +1380,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-7-4": [
     {
       question: "Hva er determinisme?",
-      options: ["Synet at alt som skjer er fullstendig bestemt av forutgående årsaker", "Læren om at viljen skapes av tilfeldigheter alene", "En religiøs høytid som markeres for å minne troende om at framtiden ligger fast i Guds hender", "Synet at mennesket har fullstendig fri vilje, og at ingen valg er bestemt av forutgående årsaker"],
+      options: ["Synet at alt som skjer er fullstendig bestemt av forutgående årsaker", "Læren om at viljen skapes av rene tilfeldigheter uten noen årsak i det hele tatt", "En religiøs høytid som markeres for å minne troende om at framtiden ligger fast i Guds hender", "Synet at mennesket har fullstendig fri vilje, og at ingen valg er bestemt av forutgående årsaker"],
       explanation: "Determinisme er synet at alle hendelser, inkludert våre valg, er bestemt av forutgående årsaker.",
     },
     {
       question: "Hva mente Sartre om menneskets frihet?",
-      options: ["At mennesket er «dømt til frihet» og fullt ansvarlig for sine valg", "At frihet er en gave man kan takke nei til", "At mennesket i virkeligheten ikke har noen valg, siden alt er bestemt av samfunnet og omgivelsene", "At mennesket ikke har noen valg"],
+      options: ["At mennesket er «dømt til frihet» og fullt ansvarlig for sine valg", "At frihet er en gave man kan takke nei til", "At alt er bestemt av samfunnet", "At mennesket ikke har noen valg"],
       explanation: "Sartre mente vi alltid må velge og ikke kan flykte fra ansvaret -- vi er «dømt til frihet».",
     },
     {
       question: "Hva er samvittigheten?",
-      options: ["Den indre moralske sansen som hjelper oss å vurdere om handlinger er riktige eller gale", "En del av hjernen som styrer synet", "En bestemt del av hjernen som styrer synet, og som gjør at vi kan skille mellom farger og former", "En følelse som bare dypt religiøse mennesker har, og som forsvinner hos dem som mister troen på Gud"],
+      options: ["Den indre moralske sansen som hjelper oss å vurdere om handlinger er riktige eller gale", "En innlært vane som bare gjelder i møte med loven og myndighetene, og som ellers ikke virker inn", "En bestemt del av hjernen som styrer synet, og som gjør at vi kan skille mellom farger og former", "En følelse som bare dypt religiøse mennesker har, og som forsvinner hos dem som mister troen på Gud"],
       explanation: "Samvittigheten er vår indre moralske sans -- den tolkes ulikt av religioner, filosofer og psykologer.",
     },
     {
@@ -1407,7 +1407,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-7-5": [
     {
       question: "Hva er forskjellen på hedonistisk og eudaimonisk lykke?",
-      options: ["Hedonistisk lykke er nytelse her og nå, eudaimonisk lykke er et meningsfullt liv i tråd med egne verdier", "De to begrepene betyr nøyaktig det samme, og handler begge om å oppnå mest mulig nytelse i øyeblikket", "Hedonistisk lykke krever nødvendigvis et langt liv, mens eudaimonisk lykke kan oppnås på et eneste øyeblikk", "Eudaimonisk lykke handler bare om kortvarig nytelse, mens hedonistisk lykke dreier seg om et meningsfullt liv"],
+      options: ["Hedonistisk lykke er nytelse her og nå, eudaimonisk lykke er et meningsfullt liv i tråd med egne verdier", "De to begrepene betyr nøyaktig det samme, og handler begge om å oppnå mest mulig nytelse i selve øyeblikket", "Hedonistisk lykke krever nødvendigvis et langt liv, mens eudaimonisk lykke kan oppnås på et eneste øyeblikk", "Eudaimonisk lykke handler bare om kortvarig nytelse, mens hedonistisk lykke dreier seg om et meningsfullt liv"],
       explanation: "Hedonistisk lykke er å føle seg bra her og nå, mens eudaimonisk lykke er å leve godt og meningsfullt over tid.",
     },
     {
@@ -1417,39 +1417,39 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hedonistisk tilpasning?",
-      options: ["At vi raskt venner oss til endringer og vender tilbake til vårt vanlige lykkenivå", "At lykke aldri kan endre seg", "At sanselig nytelse varer evig når man først har oppnådd den, slik at lykken aldri avtar over tid", "En treningsform der man gradvis venner kroppen til større belastning for å bygge opp fysisk utholdenhet"],
+      options: ["At vi raskt venner oss til endringer og vender tilbake til vårt vanlige lykkenivå", "At lykken vokser jevnt og trutt så lenge man stadig skaffer seg flere og dyrere ting i livet", "At sanselig nytelse varer evig når man først har oppnådd den, slik at lykken aldri avtar over tid", "En treningsform der man gradvis venner kroppen til større belastning for å bygge opp fysisk utholdenhet"],
       explanation: "Hedonistisk tilpasning betyr at både positive og negative endringer -- som lottogevinst -- gir overraskende kortvarig effekt på lykkenivået.",
     },
     {
       question: "Hva la Epikur i begrepet nytelse?",
-      options: ["Fravær av smerte og enkle gleder -- ikke uhemmet luksus", "Mest mulig fest og overdådighet", "Bare åndelig meditasjon og indre fordypning, uten noen plass til kroppslige gleder eller vennskap i livet", "Streng askese og selvplaging"],
+      options: ["Fravær av smerte og enkle gleder -- ikke uhemmet luksus", "Mest mulig fest og overdådighet", "Bare åndelig meditasjon uten plass til vennskap", "Streng askese og selvplaging"],
       explanation: "Epikur forsto nytelse som fravær av smerte og uro, oppnådd gjennom enkle gleder og vennskap.",
     },
     {
       question: "Hva viser moderne lykkeforskning at gjør mennesker lykkelige?",
-      options: ["Gode relasjoner og opplevelse av mening -- mer enn stadig mer penger og ting", "Å unngå alle utfordringer", "Å være mest mulig alene og unngå andre mennesker, fordi relasjoner i lengden bare skaper stress og konflikt", "Å unngå alle former for utfordringer og anstrengelse, siden et bekymringsfritt og passivt liv gir mest lykke"],
+      options: ["Gode relasjoner og opplevelse av mening -- mer enn stadig mer penger og ting", "Å skaffe seg stadig mer penger og stadig flere eiendeler", "Å være mest mulig alene og unngå andre mennesker, fordi relasjoner i lengden bare skaper stress og konflikt", "Å unngå alle former for utfordringer og anstrengelse, siden et bekymringsfritt og passivt liv gir mest lykke"],
       explanation: "Forskning viser at nære relasjoner, mening og engasjement betyr mer for lykken enn økende materiell velstand.",
     },
   ],
   "krle-10-8-1": [
     {
       question: "Hva betyr det å drøfte?",
-      options: ["Å belyse en sak fra flere sider med argumenter for og imot, og komme frem til en begrunnet konklusjon", "Å liste opp fakta uten vurdering", "Å liste opp fakta og opplysninger om et tema uten å vurdere dem eller trekke noen begrunnet konklusjon", "Å gjenta nøyaktig det læreren eller læreboka har sagt, uten å tilføre egne vurderinger eller synspunkter"],
+      options: ["Å belyse en sak fra flere sider med argumenter for og imot, og komme frem til en begrunnet konklusjon", "Å liste opp alle kjente fakta i en sak uten å vurdere dem opp mot hverandre eller trekke noen konklusjon", "Å liste opp fakta og opplysninger om et tema uten å vurdere dem eller trekke noen begrunnet konklusjon", "Å gjenta nøyaktig det læreren eller læreboka har sagt, uten å tilføre egne vurderinger eller synspunkter"],
       explanation: "Drøfting innebærer å presentere flere perspektiver med argumenter for og imot, og konkludere begrunnet.",
     },
     {
       question: "Hva er et konsekvensargument?",
-      options: ["Et argument som peker på følgene av et standpunkt eller en handling", "Et argument basert på hva en kjent person mener", "Et argument som angriper motparten personlig i stedet for å ta stilling til selve saken som diskuteres", "Et argument som angriper motparten personlig"],
+      options: ["Et argument som peker på følgene av et standpunkt eller en handling", "Et argument basert på hva en kjent person mener", "Et argument som angriper motpartens person", "Et argument som angriper motparten personlig"],
       explanation: "Konsekvensargumenter begrunner et standpunkt med hvilke følger det får.",
     },
     {
       question: "Hva er et skråplanargument?",
-      options: ["Å hevde at ett steg uunngåelig vil føre til stadig mer ekstreme konsekvenser", "Å bruke statistikk i argumentasjonen", "Å underbygge et standpunkt med tall og statistikk, slik at påstanden får tyngde gjennom målbare data", "Å vise til en gjeldende lov eller regel som begrunnelse for at et bestemt standpunkt må være det riktige"],
+      options: ["Å hevde at ett steg uunngåelig vil føre til stadig mer ekstreme konsekvenser", "Å bygge hele argumentet på hva en kjent og anerkjent person tilfeldigvis mener om saken", "Å underbygge et standpunkt med tall og statistikk, slik at påstanden får tyngde gjennom målbare data", "Å vise til en gjeldende lov eller regel som begrunnelse for at et bestemt standpunkt må være det riktige"],
       explanation: "Skråplanargumentet er en feilslutning der man hevder at ett steg automatisk fører til ekstreme følger, uten å begrunne hvorfor.",
     },
     {
       question: "Hva er et stråmannsargument?",
-      options: ["Å forvrenge motpartens syn slik at det blir lettere å angripe", "Å bruke eksempler fra landbruket", "Å stille oppklarende spørsmål til motparten for å forsikre seg om at man har forstått standpunktet riktig", "Å stille oppklarende spørsmål"],
+      options: ["Å forvrenge motpartens syn slik at det blir lettere å angripe", "Å bruke eksempler fra landbruket", "Å stille oppklarende spørsmål til motparten for å forsikre seg om at man har forstått standpunktet riktig", "Å vise til en gammel tradisjon"],
       explanation: "Stråmannsargumentet angriper en forvrengt versjon av motpartens syn i stedet for det faktiske standpunktet.",
     },
     {
@@ -1461,7 +1461,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   "krle-10-8-2": [
     {
       question: "Hvilke tre tverrfaglige temaer finnes i LK20?",
-      options: ["Demokrati og medborgerskap, bærekraftig utvikling, og folkehelse og livsmestring", "Matematikk, norsk og engelsk", "Idrett, kosthold og søvn, som skal sikre at elevene tar vare på egen kropp og fysiske helse", "Matematikk, norsk og engelsk, som regnes som fagene alle andre fag i skolen bygger videre på"],
+      options: ["Demokrati og medborgerskap, bærekraftig utvikling, og folkehelse og livsmestring", "Idrett, kosthold og søvn, som er de tre tverrfaglige temaene i den norske skolen", "Idrett, kosthold og søvn, som skal sikre at elevene tar vare på egen kropp og fysiske helse", "Matematikk, norsk og engelsk, som regnes som fagene alle andre fag i skolen bygger videre på"],
       explanation: "LK20 har tre tverrfaglige temaer: demokrati og medborgerskap, bærekraftig utvikling, og folkehelse og livsmestring.",
     },
     {
@@ -1471,17 +1471,17 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan knytter KRLE-faget seg til temaet demokrati og medborgerskap?",
-      options: ["Gjennom religionsfrihet, ytringsfrihet og medborgerskap i et flerreligiøst samfunn", "Bare gjennom historieundervisning", "Bare gjennom å oppfordre elevene til å stemme ved valg når de blir gamle nok til å delta i valgene", "Bare gjennom historieundervisning om hvordan de ulike verdensreligionene oppsto og spredte seg gjennom tidene"],
+      options: ["Gjennom religionsfrihet, ytringsfrihet og medborgerskap i et flerreligiøst samfunn", "Gjennom å lære elevene utenat de viktigste bønnene og trosbekjennelsene i hver religion", "Bare gjennom å oppfordre elevene til å stemme ved valg når de blir gamle nok til å delta i valgene", "Bare gjennom historieundervisning om hvordan de ulike verdensreligionene oppsto og spredte seg gjennom tidene"],
       explanation: "KRLE belyser demokratiske verdier som religionsfrihet, ytringsfrihet og det å leve sammen i et flerreligiøst samfunn.",
     },
     {
       question: "Hva innebærer forvalteransvaret?",
-      options: ["At mennesket skal ta vare på jorden, og at naturen ikke bare er en ressurs", "At miljøvern er i strid med alle religioner", "At naturen fritt kan utnyttes og forbrukes slik mennesket vil, siden den er skapt utelukkende for vår skyld", "At miljøvern og omtanke for naturen står i strid med alle religioner, som setter mennesket over skaperverket"],
+      options: ["At mennesket skal ta vare på jorden, og at naturen ikke bare er en ressurs", "At mennesket bare skal forvalte sin egen eiendom, og ikke naturen ellers", "At naturen fritt kan utnyttes og forbrukes slik mennesket vil, siden den er skapt utelukkende for vår skyld", "At miljøvern og omtanke for naturen står i strid med alle religioner, som setter mennesket over skaperverket"],
       explanation: "Forvalteransvaret (stewardship) er ideen om at mennesket har fått ansvar for å ta vare på jorden og dens ressurser.",
     },
     {
       question: "Hvordan henger KRLE sammen med folkehelse og livsmestring?",
-      options: ["Refleksjon over eksistensielle spørsmål, identitet og tilhørighet kan styrke livsmestring", "KRLE handler bare om trening og kosthold", "KRLE handler bare om fysisk trening og sunt kosthold, og har lite å tilføre elevenes tanker om identitet", "Bare leger og helsepersonell jobber med livsmestring, mens skolefagene ikke har noen rolle i dette arbeidet"],
+      options: ["Refleksjon over eksistensielle spørsmål, identitet og tilhørighet kan styrke livsmestring", "Bare helsesykepleieren har ansvar for livsmestring", "KRLE handler bare om fysisk trening og sunt kosthold, og har lite å tilføre elevenes tanker om identitet", "Bare leger og helsepersonell jobber med livsmestring, mens skolefagene ikke har noen rolle i dette arbeidet"],
       explanation: "Arbeid med eksistensielle spørsmål, identitet og etikk i hverdagen støtter elevenes livsmestring og mentale helse.",
     },
   ],
@@ -1493,7 +1493,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke trekk deler de abrahamittiske religionene?",
-      options: ["Monoteisme, profettradisjoner, hellige skrifter og troen på en dommedag", "At de oppsto i Øst-Asia", "Dyrking av mange ulike guder samtidig, der hver gud har ansvar for sitt eget område av tilværelsen", "At de alle sammen oppsto i Øst-Asia, og at de derfra spredte seg videre ut til resten av verdens land"],
+      options: ["Monoteisme, profettradisjoner, hellige skrifter og troen på en dommedag", "At de alle sammen oppsto i Øst-Asia lenge før vår tidsregning begynte", "Dyrking av mange ulike guder samtidig, der hver gud har ansvar for sitt eget område av tilværelsen", "At de alle sammen oppsto i Øst-Asia, og at de derfra spredte seg videre ut til resten av verdens land"],
       explanation: "De abrahamittiske religionene deler monoteismen, profettradisjoner, hellige skrifter og dommedagstro, med røtter i Midtøsten.",
     },
     {
@@ -1503,12 +1503,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det endelige målet i buddhismen?",
-      options: ["Nirvana -- frigjøring fra lidelse og gjenfødelse", "Moksha -- forening med brahman", "Oppstandelse på dommedag og evig liv i paradis hos Gud", "Å opparbeide god karma og gjenfødes som konge eller prest"],
+      options: ["Nirvana -- frigjøring fra lidelse og gjenfødelse", "Moksha, altså forening med brahman og slutten på gjenfødelsen", "Oppstandelse på dommedag og evig liv i paradis hos Gud", "Å opparbeide god karma og gjenfødes som konge eller prest"],
       explanation: "Buddhismens mål er nirvana -- at begjær, hat og uvitenhet slukkes og lidelsen opphører.",
     },
     {
       question: "Omtrent hvor mange tilhengere har de abrahamittiske religionene til sammen?",
-      options: ["Ca. 4,3 milliarder", "Ca. 500 millioner", "Ca. 100 millioner tilhengere i hele verden", "Ca. 100 millioner"],
+      options: ["Ca. 4,3 milliarder", "Ca. 500 millioner", "Ca. 2 milliarder", "Ca. 100 millioner"],
       explanation: "Jødedom, kristendom og islam har til sammen rundt 4,3 milliarder tilhengere.",
     },
   ],
@@ -1520,7 +1520,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nærhetsetikk?",
-      options: ["Etikk der ansvaret oppstår i møtet med den andres ansikt (Levinas)", "Etikk som bare gjelder plikter overfor familie, venner og naboer", "En teori om hvordan geografisk avstand svekker vårt moralske ansvar", "Det samme som utilitarisme, der summen av nytte for flest avgjør"],
+      options: ["Etikk der ansvaret oppstår i møtet med den andres ansikt (Levinas)", "Etikk som bare gjelder plikter overfor familie, venner og nærmeste naboer", "En teori om hvordan geografisk avstand svekker vårt moralske ansvar", "Det samme som utilitarisme, der summen av nytte for flest avgjør"],
       explanation: "Nærhetsetikken (Emmanuel Levinas) vektlegger ansvaret som oppstår i det konkrete møtet med den andre.",
     },
     {
@@ -1530,12 +1530,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke filosofer forbindes med utilitarismen?",
-      options: ["Jeremy Bentham og John Stuart Mill", "Immanuel Kant og Hannah Arendt", "Immanuel Kant og Hannah Arendt, kjent for pliktetikken", "Kierkegaard og Sartre"],
+      options: ["Jeremy Bentham og John Stuart Mill", "Immanuel Kant og Hannah Arendt fra pliktetikken", "Immanuel Kant og Hannah Arendt, kjent for pliktetikken", "Kierkegaard og Sartre fra eksistensialismen"],
       explanation: "Utilitarismen ble grunnlagt av Jeremy Bentham og videreutviklet av John Stuart Mill.",
     },
     {
       question: "Hvor finner vi varianter av den gylne regel?",
-      options: ["I nesten alle religioner og livssyn", "Bare i gresk filosofi", "Bare i kristendommen, uttrykt av Jesus i Bergprekenen", "Bare i kristendommen"],
+      options: ["I nesten alle religioner og livssyn", "Bare i gresk filosofi", "Bare i kristendommen, uttrykt av Jesus i Bergprekenen", "Bare i moderne lovverk"],
       explanation: "Den gylne regel -- «gjør mot andre det du vil at andre skal gjøre mot deg» -- finnes i nesten alle religioner og livssyn.",
     },
   ],
@@ -1552,12 +1552,12 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva legges det vekt på i vurderingen på muntlig eksamen i KRLE?",
-      options: ["Faglig kunnskap, bruk av fagbegreper og evne til å drøfte", "Bare hvor lang presentasjonen er", "Elevens klesstil, kroppsspråk og pen håndskrift på notatene", "Bare hvor lang selve presentasjonen er, målt i antall minutter"],
+      options: ["Faglig kunnskap, bruk av fagbegreper og evne til å drøfte", "Bare hvor mange kilder eleven har rukket å nevne underveis", "Elevens klesstil, kroppsspråk og pen håndskrift på notatene", "Bare hvor lang selve presentasjonen er, målt i antall minutter"],
       explanation: "Vurderingen legger vekt på faglig kunnskap, korrekt bruk av fagbegreper og evnen til å drøfte fra flere perspektiver.",
     },
     {
       question: "Hva kjennetegner en god drøfting på eksamen?",
-      options: ["Flere perspektiver belyses, og konklusjonen er begrunnet", "Bare ett synspunkt presenteres", "At man unngår å konkludere og lar spørsmålet stå helt åpent", "At man gjengir læreboka og lærerens notater mest mulig ordrett"],
+      options: ["Flere perspektiver belyses, og konklusjonen er begrunnet", "At eleven presenterer flest mulig synspunkter uten å velge noen", "At man unngår å konkludere og lar spørsmålet stå helt åpent", "At man gjengir læreboka og lærerens notater mest mulig ordrett"],
       explanation: "God drøfting viser flere perspektiver, bruker argumenter og eksempler, og munner ut i en begrunnet konklusjon.",
     },
     {

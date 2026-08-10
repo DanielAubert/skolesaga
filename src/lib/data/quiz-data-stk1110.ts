@@ -56,17 +56,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-0-2': [
     {
       question: "Hva er nøkkelleddet i $\\text{Var}(X+Y)$ når $X$ og $Y$ er avhengige?",
-      options: ["Kovariansleddet $2\\text{Cov}(X,Y)$", "Produktet $E(X)E(Y)$ av forventningene", "Differansen $\\text{Var}(X)-\\text{Var}(Y)$", "Kvadratet av summen $(X+Y)^2$"],
+      options: ["Kovariansleddet $2\\text{Cov}(X,Y)$", "Produktet $E(X)E(Y)$ av forventningene", "Differansen $\\text{Var}(X)-\\text{Var}(Y)$", "Kvadratet av selve summen $(X+Y)^2$"],
       explanation: "$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)+2\\text{Cov}(X,Y)$; kovariansleddet er null kun når variablene er ukorrelerte.",
     },
     {
       question: "Hva er $\\text{Var}(\\bar X)$ for $n$ uavhengige, identisk fordelte variable med varians $\\sigma^2$?",
-      options: ["$\\sigma^2/n$", "$\\sigma^2$", "$n\\sigma^2$", "$\\sigma/\\sqrt n$"],
+      options: ["$\\sigma^2/n$", "$\\sigma^2$", "$n\\sigma^2$ (vokser)", "$\\sigma/\\sqrt n$"],
       explanation: "Variansen til gjennomsnittet er $\\sigma^2/n$ — den krymper med $n$, som er grunnlaget for standardfeilen $\\sigma/\\sqrt n$.",
     },
     {
       question: "Hvilken gammafordeling er $\\chi^2_n$ lik?",
-      options: ["$\\text{gamma}(\\alpha=n/2,\\ \\beta=2)$", "$\\text{gamma}(\\alpha=n,\\ \\beta=1)$", "$\\text{gamma}(\\alpha=2,\\ \\beta=n/2)$", "$\\text{gamma}(\\alpha=n/2,\\ \\beta=1/2)$"],
+      options: ["$\\text{gamma}(\\alpha=n/2,\\ \\beta=2)$", "$\\text{gamma}(\\alpha=n,\\ \\beta=1)$", "$\\text{gamma}(\\alpha=2,\\ \\beta=n/2)$ i skala", "$\\text{gamma}(\\alpha=n/2,\\ \\beta=1/2)$"],
       explanation: "$\\chi^2_n=\\text{gamma}(n/2,2)$; da blir $E=\\alpha\\beta=n$ og $\\text{Var}=\\alpha\\beta^2=2n$, akkurat kjikvadratens verdier.",
     },
     {
@@ -81,7 +81,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er scorefunksjonen $s(\\theta)$?",
-      options: ["Den deriverte av log-likelihood, $\\ell'(\\theta)$", "Selve likelihoodfunksjonen $L(\\theta)$", "Den andrederiverte $\\ell''(\\theta)$ av log-likelihood", "Logaritmen $\\log L(\\theta)$ av likelihooden"],
+      options: ["Den deriverte av log-likelihood, $\\ell'(\\theta)$", "Selve likelihoodfunksjonen $L(\\theta)$", "Den andrederiverte $\\ell''(\\theta)$ av log-likelihood", "Logaritmen $\\log L(\\theta)$ av selve likelihooden"],
       explanation: "$s(\\theta)=\\ell'(\\theta)$; ML-estimatoren løser $s(\\theta)=0$, og selve løsningen gjøres i kap. 1.2.",
     },
     {
@@ -106,7 +106,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket argument er variansen i notasjonen $N(\\mu,\\sigma^2)$?",
-      options: ["Det andre argumentet, $\\sigma^2$", "Det første argumentet, $\\mu$", "Ingen — begge er standardavvik", "Det andre argumentet, men tolket som $\\sigma$"],
+      options: ["Det andre argumentet, $\\sigma^2$", "Det første argumentet, $\\mu$", "Ingen av dem — begge er standardavvik", "Det andre argumentet, men tolket som $\\sigma$"],
       explanation: "I settenes notasjon er andre argument alltid variansen $\\sigma^2$, aldri standardavviket.",
     },
     {
@@ -133,7 +133,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-1-1': [
     {
       question: "Hva skiller en *estimator* fra et *estimat*?",
-      options: ["Estimatoren er regelen $\\hat\\Theta$ (tilfeldig), estimatet er tallet den gir", "Estimatoren er tallet, mens estimatet er regelen som produserer det", "Estimatoren er alltid forventningsrett, mens estimatet alltid er systematisk skjevt", "Estimatoren brukes i store utvalg, mens estimatet brukes i små og usikre utvalg"],
+      options: ["Estimatoren er regelen $\\hat\\Theta$ (tilfeldig), estimatet er tallet den gir", "Estimatoren er tallet, mens estimatet er den regelen som faktisk produserer det", "Estimatoren er alltid forventningsrett, mens estimatet alltid er systematisk skjevt", "Estimatoren brukes i store utvalg, mens estimatet brukes i små og usikre utvalg"],
       explanation: "En estimator er en funksjon av de tilfeldige $X_i$ og dermed selv en tilfeldig variabel ($\\hat\\Theta$, stor bokstav); estimatet ($\\hat\\theta$, liten bokstav) er det faste tallet den gir på ett datasett.",
     },
     {
@@ -153,12 +153,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En vektet sum $\\sum w_i X_i$ av uavhengige $X_i$ med $E(X_i)=\\mu$ er forventningsrett for $\\mu$ nettopp når:",
-      options: ["vektene summerer til 1, altså $\\sum w_i = 1$", "alle vektene er like store, altså $w_i = 1/n$", "vektene summerer til 0, altså $\\sum w_i = 0$", "kvadratene av vektene summerer til 1, altså $\\sum w_i^2 = 1$"],
+      options: ["vektene summerer til 1, altså $\\sum w_i = 1$", "alle vektene er like store, altså $w_i = 1/n$", "vektene summerer til 0, altså at $\\sum w_i = 0$", "kvadratene av vektene summerer til 1, altså $\\sum w_i^2 = 1$"],
       explanation: "$E(\\sum w_i X_i)=\\mu\\sum w_i$, som er lik $\\mu$ nettopp når $\\sum w_i=1$. Like vekter er ett spesialtilfelle, men ikke nødvendig for forventningsretthet.",
     },
     {
       question: "Hvorfor har utvalgsvariansen $S^2$ divisor $n-1$ og ikke $n$?",
-      options: ["Avvikene måles fra $\\bar X$, ikke fra $\\mu$, så divisor $n-1$ gjør $S^2$ forventningsrett", "Divisor $n-1$ gjør regnestykket enklere fordi leddet med $\\bar X$ da faller helt bort", "Divisor $n-1$ gir alltid mindre varians enn divisor $n$ ville gjort på de samme dataene", "Divisor $n-1$ kreves fordi $S^2$ ellers kunne blitt et negativt tall for små utvalg"],
+      options: ["Avvikene måles fra $\\bar X$, ikke fra $\\mu$, så divisor $n-1$ gjør $S^2$ forventningsrett", "Divisor $n-1$ gjør regnestykket enklere fordi leddet med $\\bar X$ da faller helt bort", "Divisor $n-1$ gir alltid mindre varians enn divisor $n$ ville gitt på nøyaktig de samme dataene", "Divisor $n-1$ kreves fordi $S^2$ ellers kunne blitt et negativt tall for små utvalg"],
       explanation: "Fordi avvikssummen $\\sum(X_i-\\bar X)^2$ har $n-1$ frihetsgrader (avvik fra $\\bar X$, ikke $\\mu$), gir divisor $n-1$ nettopp $E(S^2)=\\sigma^2$ — altså forventningsrett.",
     },
     {
@@ -173,7 +173,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er variansen til utvalgsgjennomsnittet $\\bar X$ når $X_i$ er uavhengige med varians $\\sigma^2$?",
-      options: ["$\\text{Var}(\\bar X)=\\sigma^2/n$, som krymper når utvalget vokser", "$\\text{Var}(\\bar X)=\\sigma^2$, uavhengig av utvalgsstørrelsen", "$\\text{Var}(\\bar X)=\\sigma^2/\\sqrt{n}$, som krymper sakte i $n$", "$\\text{Var}(\\bar X)=n\\sigma^2$, som vokser når utvalget vokser"],
+      options: ["$\\text{Var}(\\bar X)=\\sigma^2/n$, som krymper når utvalget vokser", "$\\text{Var}(\\bar X)=\\sigma^2$, uavhengig av utvalgsstørrelsen", "$\\text{Var}(\\bar X)=\\sigma^2/\\sqrt{n}$, som krymper ganske sakte i $n$", "$\\text{Var}(\\bar X)=n\\sigma^2$, som vokser når utvalget vokser"],
       explanation: "$\\text{Var}(\\bar X)=\\frac{1}{n^2}\\sum\\text{Var}(X_i)=\\frac{n\\sigma^2}{n^2}=\\frac{\\sigma^2}{n}$. Det er $\\sigma/\\sqrt n$ som er standardfeilen, ikke variansen.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan dekomponeres middels kvadratisk feil (MSE)?",
-      options: ["$\\text{MSE}=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2$ — varians pluss skjevhet i annen", "$\\text{MSE}=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)$ — varians pluss skjevhet", "$\\text{MSE}=\\text{Var}(\\hat\\Theta)-b(\\hat\\Theta)^2$ — varians minus skjevhet i annen", "$\\text{MSE}=\\text{Var}(\\hat\\Theta)\\cdot b(\\hat\\Theta)^2$ — varians gange skjevhet i annen"],
+      options: ["$\\text{MSE}=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2$ — varians pluss skjevhet i annen", "$\\text{MSE}=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)$ — varians pluss skjevhet", "$\\text{MSE}=\\text{Var}(\\hat\\Theta)-b(\\hat\\Theta)^2$ — altså varians minus skjevhet i annen", "$\\text{MSE}=\\text{Var}(\\hat\\Theta)\\cdot b(\\hat\\Theta)^2$ — varians gange skjevhet i annen"],
       explanation: "$\\text{MSE}(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2$. Skjevheten inngår i *annen* — ikke som ledd uten kvadrat. For en forventningsrett estimator ($b=0$) er MSE lik variansen.",
     },
     {
@@ -213,7 +213,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier Tsjebysjeffs ulikhet for en variabel $Y$ med endelig varians?",
-      options: ["$P(|Y-E(Y)|\\ge\\varepsilon)\\le \\text{Var}(Y)/\\varepsilon^2$", "$P(|Y-E(Y)|\\ge\\varepsilon)\\ge \\text{Var}(Y)/\\varepsilon^2$", "$P(|Y-E(Y)|\\ge\\varepsilon)= \\text{Var}(Y)\\cdot\\varepsilon^2$", "$P(|Y-E(Y)|\\ge\\varepsilon)\\le \\varepsilon^2/\\text{Var}(Y)$"],
+      options: ["$P(|Y-E(Y)|\\ge\\varepsilon)\\le \\text{Var}(Y)/\\varepsilon^2$", "$P(|Y-E(Y)|\\ge\\varepsilon)\\ge \\text{Var}(Y)/\\varepsilon^2$ (motsatt ulikhet)", "$P(|Y-E(Y)|\\ge\\varepsilon)= \\text{Var}(Y)\\cdot\\varepsilon^2$", "$P(|Y-E(Y)|\\ge\\varepsilon)\\le \\varepsilon^2/\\text{Var}(Y)$"],
       explanation: "Tsjebysjeff binder bomsannsynligheten oppover av $\\text{Var}(Y)/\\varepsilon^2$. Jo mindre varians, desto mindre sjanse for stort avvik — broen fra «varians mot 0» til konsistens.",
     },
     {
@@ -243,7 +243,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva uttrykker den relative effisiensen $\\text{Var}(\\hat\\Theta_2)/\\text{Var}(\\hat\\Theta_1)$ mellom to forventningsrette estimatorer?",
-      options: ["Er forholdet $>1$, er $\\hat\\Theta_1$ mest effisient", "Er forholdet $>1$, er $\\hat\\Theta_2$ mest effisient", "Forholdet måler den samlede skjevheten til de to", "Forholdet er alltid lik 1 for forventningsrette estimatorer"],
+      options: ["Er forholdet $>1$, er $\\hat\\Theta_1$ mest effisient", "Er forholdet $>1$, er $\\hat\\Theta_2$ den mest effisiente", "Forholdet måler den samlede skjevheten til de to", "Forholdet er alltid lik 1 for forventningsrette estimatorer"],
       explanation: "Er $\\text{Var}(\\hat\\Theta_2)>\\text{Var}(\\hat\\Theta_1)$ (forhold $>1$), spriker $\\hat\\Theta_2$ mer — altså er $\\hat\\Theta_1$ mest effisient. Tallet viser hvor mye informasjon den dårligere estimatoren kaster bort.",
     },
     {
@@ -265,7 +265,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det $k$-te *teoretiske* momentet?",
-      options: ["Forventningen $E(X^k)$ — en funksjon av den ukjente parameteren", "Gjennomsnittet $\\frac1n\\sum X_i^k$ regnet ut av dataene", "Den $k$-te deriverte av log-likelihood-funksjonen", "Variansen til den $k$-te observasjonen i utvalget"],
+      options: ["Forventningen $E(X^k)$ — en funksjon av den ukjente parameteren", "Gjennomsnittet $\\frac1n\\sum X_i^k$ regnet ut direkte fra de observerte dataene", "Den $k$-te deriverte av log-likelihood-funksjonen", "Variansen til den $k$-te observasjonen i utvalget"],
       explanation: "Det $k$-te teoretiske momentet er $E(X^k)$, lest ut av fordelingen. Gjennomsnittet $\\frac1n\\sum X_i^k$ er det tilhørende *empiriske* momentet.",
     },
     {
@@ -275,7 +275,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For Poisson$(\\lambda)$ er $E(X)=\\lambda$. Hva blir momentestimatoren?",
-      options: ["$\\hat\\lambda=\\bar X$, siden momentligningen gir $\\lambda=\\bar X$", "$\\hat\\lambda=1/\\bar X$, siden $\\lambda$ er en rate", "$\\hat\\lambda=\\bar X/2$, siden $E(X)=2\\lambda$", "$\\hat\\lambda=S^2$, siden variansen i Poisson også er lik raten $\\lambda$"],
+      options: ["$\\hat\\lambda=\\bar X$, siden momentligningen gir $\\lambda=\\bar X$", "$\\hat\\lambda=1/\\bar X$, siden $\\lambda$ er en rate per tidsenhet her", "$\\hat\\lambda=\\bar X/2$, siden $E(X)=2\\lambda$", "$\\hat\\lambda=S^2$, siden variansen i Poisson også er lik raten $\\lambda$"],
       explanation: "Momentligningen $E(X)=\\bar X$ blir $\\lambda=\\bar X$, så $\\hat\\lambda=\\bar X$. For Poisson sammenfaller dette med ML-estimatoren.",
     },
     {
@@ -290,12 +290,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan defineres likelihood-funksjonen $L(\\theta)$ for uavhengige data?",
-      options: ["$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$ — produktet av tetthetene", "$L(\\theta)=\\sum_{i=1}^n f(x_i;\\theta)$ — summen av tetthetene", "$L(\\theta)=\\prod_{i=1}^n \\log f(x_i;\\theta)$ — produktet av log-tetthetene", "$L(\\theta)=\\frac1n\\sum_{i=1}^n f(x_i;\\theta)$ — gjennomsnittet av tetthetene"],
+      options: ["$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$ — produktet av tetthetene", "$L(\\theta)=\\sum_{i=1}^n f(x_i;\\theta)$ — altså summen av tetthetene", "$L(\\theta)=\\prod_{i=1}^n \\log f(x_i;\\theta)$ — produktet av log-tetthetene", "$L(\\theta)=\\frac1n\\sum_{i=1}^n f(x_i;\\theta)$ — gjennomsnittet av tetthetene"],
       explanation: "Uavhengighet gjør simultantettheten til et produkt: $L(\\theta)=\\prod f(x_i;\\theta)$. Uten uavhengighet gjelder ikke produktformen.",
     },
     {
       question: "Hva gjør logaritmen med likelihood-funksjonen?",
-      options: ["Gjør produktet om til en sum: $\\ell(\\theta)=\\sum\\log f(x_i;\\theta)$", "Gjør summen om til et produkt av log-ledd", "Flytter toppunktet til en annen parameterverdi", "Fjerner behovet for å bekrefte at punktet er et maksimum"],
+      options: ["Gjør produktet om til en sum: $\\ell(\\theta)=\\sum\\log f(x_i;\\theta)$", "Gjør summen om til et produkt av log-ledd", "Flytter toppunktet til en annen parameterverdi", "Fjerner behovet for å bekrefte at punktet virkelig er et maksimumspunkt"],
       explanation: "$\\ell(\\theta)=\\log L(\\theta)=\\sum\\log f(x_i;\\theta)$ — produkt blir sum, langt lettere å derivere. Logaritmen er strengt voksende, så toppunktet flytter seg ikke.",
     },
     {
@@ -305,22 +305,22 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er scorefunksjonen $s(\\theta)$?",
-      options: ["Den deriverte av log-likelihood: $s(\\theta)=\\ell'(\\theta)$", "Den andrederiverte av log-likelihood: $s(\\theta)=\\ell''(\\theta)$", "Log-likelihood selv: $s(\\theta)=\\ell(\\theta)$", "Likelihood-funksjonen selv: $s(\\theta)=L(\\theta)$"],
+      options: ["Den deriverte av log-likelihood: $s(\\theta)=\\ell'(\\theta)$", "Den andrederiverte av log-likelihood: $s(\\theta)=\\ell''(\\theta)$", "Log-likelihood selv: $s(\\theta)=\\ell(\\theta)$", "Selve likelihood-funksjonen: $s(\\theta)=L(\\theta)$ uten logaritme"],
       explanation: "Scoren er $s(\\theta)=\\ell'(\\theta)$. Toppen av $\\ell$ ligger der scoren er null; scoren er også byggesteinen for Fisher-informasjonen.",
     },
     {
       question: "Hva gir løsningen av likelihoodligningen $s(\\hat\\theta)=0$?",
-      options: ["Et stasjonærpunkt — kandidaten til ML-estimator, som må bekreftes å være et maksimum", "Garantert det globale maksimumet, helt uten behov for noen videre sjekk av krumningen", "Alltid et minimum av log-likelihood-funksjonen", "Momentestimatoren, som alltid er ulik ML-estimatoren"],
+      options: ["Et stasjonærpunkt — kandidaten til ML-estimator, som må bekreftes å være et maksimum", "Garantert det globale maksimumet, helt uten behov for noen videre sjekk av krumningen", "Alltid et minimumspunkt for log-likelihood-funksjonen i hele det tillatte parameterrommet", "Momentestimatoren, som alltid er ulik ML-estimatoren"],
       explanation: "$s(\\hat\\theta)=0$ gir bare et stasjonærpunkt (kan være maks, min eller vendepunkt). Du må bekrefte at det er et maksimum med $\\ell''(\\hat\\theta)<0$.",
     },
     {
       question: "Hva er det obligatoriske siste trinnet i ML-kjeden?",
-      options: ["Bekreft maksimum ved at $\\ell''(\\hat\\theta)<0$", "Bekreft at $\\ell''(\\hat\\theta)>0$, altså positiv krumning", "Bekreft at scoren $s(\\hat\\theta)>0$ i punktet", "Bekreft at estimatoren er forventningsrett"],
+      options: ["Bekreft maksimum ved at $\\ell''(\\hat\\theta)<0$", "Bekreft at $\\ell''(\\hat\\theta)>0$, altså positiv krumning", "Bekreft at scoren $s(\\hat\\theta)>0$ i punktet", "Bekreft at estimatoren faktisk er forventningsrett"],
       explanation: "Andrederiverttesten $\\ell''(\\hat\\theta)<0$ viser at $\\ell$ buer nedover — altså et toppunkt. Dette trinnet glemmes oftest og straffes hardt av sensor.",
     },
     {
       question: "Hvilket trinn i ML-utledningen glemmes oftest og gir mest trekk?",
-      options: ["Maksimumsbekreftelsen $\\ell''(\\hat\\theta)<0$", "Å sette opp likelihood-funksjonen $L(\\theta)$", "Å ta logaritmen av likelihooden", "Å regne ut det empiriske gjennomsnittet $\\bar X$"],
+      options: ["Maksimumsbekreftelsen $\\ell''(\\hat\\theta)<0$", "Å sette opp likelihood-funksjonen $L(\\theta)$", "Å ta logaritmen av selve likelihood-funksjonen", "Å regne ut det empiriske gjennomsnittet $\\bar X$"],
       explanation: "Uten trinn 5, andrederiverttesten, er ML-utledningen ufullstendig — dette er den vanligste trekkbelastningen i estimeringsoppgaven.",
     },
     {
@@ -345,7 +345,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For $N(\\mu,\\sigma^2)$ blir ML-estimatoren $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$. Hva er viktig å merke seg?",
-      options: ["Den deler på $n$ og er derfor skjev; forventningsrett er $S^2$ med $n-1$", "Den deler på $n-1$ og er derfor forventningsrett akkurat som $S^2$", "Den er alltid lik $S^2$ uansett hvordan divisoren velges", "Den er forventningsrett fordi ML garanterer forventningsretthet"],
+      options: ["Den deler på $n$ og er derfor skjev; forventningsrett er $S^2$ med $n-1$", "Den deler på $n-1$ og er derfor forventningsrett, nøyaktig slik som $S^2$ er", "Den er alltid lik $S^2$ uansett hvordan divisoren velges", "Den er forventningsrett fordi ML garanterer forventningsretthet"],
       explanation: "ML-variansen deler på $n$ og er skjev med $b=-\\sigma^2/n$. ML gir ikke automatisk forventningsrette estimatorer — den forventningsrette varianten er $S^2$ (divisor $n-1$).",
     },
     {
@@ -355,7 +355,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For Poisson med $\\hat\\lambda=\\bar X$ — hva blir ML-estimatoren for $\\psi=P(X=0)=e^{-\\lambda}$?",
-      options: ["$\\hat\\psi=e^{-\\bar X}$, ved å sette $\\hat\\lambda=\\bar X$ inn i $e^{-\\lambda}$", "$\\hat\\psi=e^{-1/\\bar X}$, ved å bruke den inverse raten", "$\\hat\\psi=1-e^{-\\bar X}$, sannsynligheten for minst én", "$\\hat\\psi=\\bar X e^{-\\bar X}$, sannsynligheten for nøyaktig én hendelse per enhet"],
+      options: ["$\\hat\\psi=e^{-\\bar X}$, ved å sette $\\hat\\lambda=\\bar X$ inn i $e^{-\\lambda}$", "$\\hat\\psi=e^{-1/\\bar X}$, ved å sette inn den inverse verdien av gjennomsnittsraten", "$\\hat\\psi=1-e^{-\\bar X}$, sannsynligheten for minst én", "$\\hat\\psi=\\bar X e^{-\\bar X}$, sannsynligheten for nøyaktig én hendelse per enhet"],
       explanation: "Invariansprinsippet gir $\\hat\\psi=g(\\hat\\lambda)=e^{-\\bar X}$. Man setter ML-estimatoren rett inn i funksjonen $g(\\lambda)=e^{-\\lambda}$.",
     },
     {
@@ -385,7 +385,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med konstantledd i $\\ell(\\theta)$ som ikke inneholder $\\theta$ (f.eks. $-\\log(\\prod x_i!)$ i Poisson)?",
-      options: ["De forsvinner ved derivasjon og påvirker ikke estimatoren", "De må beholdes fordi de endrer plasseringen av maksimum", "De gjør likelihooden negativ og må trekkes fra", "De inngår i skjevheten til den ferdige estimatoren"],
+      options: ["De forsvinner ved derivasjon og påvirker ikke estimatoren", "De må beholdes fordi de endrer plasseringen av selve maksimum", "De gjør likelihooden negativ og må trekkes fra", "De inngår i skjevheten til den ferdige estimatoren"],
       explanation: "Ledd uten $\\theta$ har derivert 0 og påvirker ikke $s(\\theta)$ eller estimatoren. De kan droppes tidlig for å forenkle regningen.",
     },
     {
@@ -400,7 +400,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det geometrisk at $\\ell''(\\hat\\theta)<0$ i ML-punktet?",
-      options: ["Log-likelihood-kurven buer nedover i punktet — altså et toppunkt", "Log-likelihood-kurven buer oppover i punktet — altså et bunnpunkt", "Log-likelihood-kurven er rett i punktet — altså et vendepunkt", "Scoren vokser i punktet, så estimatoren blir skjev"],
+      options: ["Log-likelihood-kurven buer nedover i punktet — altså et toppunkt", "Log-likelihood-kurven buer oppover i punktet — altså et bunnpunkt", "Log-likelihood-kurven er helt rett i punktet — altså et vendepunkt", "Scoren vokser i punktet, så estimatoren blir skjev"],
       explanation: "Negativ andrederivert betyr at $\\ell$ krummer nedover, som kjennetegner et maksimum. Er $\\ell''>0$ er det et bunnpunkt, er $\\ell''=0$ kan det være et vendepunkt.",
     },
     {
@@ -417,17 +417,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan henger utvalgsinformasjonen $I_n(\\theta)$ sammen med $I(\\theta)$?",
-      options: ["$I_n(\\theta)=n\\,I(\\theta)$, additiv over uavhengige observasjoner", "$I_n(\\theta)=I(\\theta)/n$, slik at informasjonen avtar med utvalget", "$I_n(\\theta)=I(\\theta)$, altså helt uavhengig av antall observasjoner", "$I_n(\\theta)=n^2 I(\\theta)$, med kvadratisk vekst i utvalgsstørrelsen"],
+      options: ["$I_n(\\theta)=n\\,I(\\theta)$, additiv over uavhengige observasjoner", "$I_n(\\theta)=I(\\theta)/n$, slik at informasjonen avtar", "$I_n(\\theta)=I(\\theta)$, altså helt uavhengig av antall observasjoner", "$I_n(\\theta)=n^2 I(\\theta)$, med kvadratisk vekst i utvalgsstørrelsen"],
       explanation: "Informasjonen er additiv over uavhengige observasjoner, så $n$ observasjoner gir $n$ ganger informasjonen i én.",
     },
     {
       question: "Hva er den tilnærmede fordelingen til ML-estimatoren for stor $n$?",
-      options: ["$\\hat\\theta\\approx N(\\theta,\\ 1/(nI(\\theta)))$", "$\\hat\\theta\\approx N(\\theta,\\ nI(\\theta))$, med selve informasjonen som varians", "$\\hat\\theta\\approx N(\\theta,\\ 1/I(\\theta))$, altså helt uten faktoren $n$", "$\\hat\\theta\\approx N(0,\\ 1/(nI(\\theta)))$, feilaktig sentrert i null"],
+      options: ["$\\hat\\theta\\approx N(\\theta,\\ 1/(nI(\\theta)))$", "$\\hat\\theta\\approx N(\\theta,\\ nI(\\theta))$, med selve informasjonen som varians", "$\\hat\\theta\\approx N(\\theta,\\ 1/I(\\theta))$, altså helt uten faktoren $n$", "$\\hat\\theta\\approx N(0,\\ 1/(nI(\\theta)))$"],
       explanation: "ML-asymptotikken gir en normalfordeling sentrert på $\\theta$ med varians lik den inverse utvalgsinformasjonen $1/(nI(\\theta))$.",
     },
     {
       question: "Hva er standardfeilen $se(\\hat\\theta)$ til en ML-estimator?",
-      options: ["$se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$", "$se(\\hat\\theta)=1/(nI(\\hat\\theta))$, altså glemt å ta kvadratroten", "$se(\\hat\\theta)=\\sqrt{nI(\\hat\\theta)}$, med informasjonen oppe i telleren", "$se(\\hat\\theta)=\\sqrt{1/I(\\hat\\theta)}$, uten faktoren $n$ i nevneren"],
+      options: ["$se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$", "$se(\\hat\\theta)=1/(nI(\\hat\\theta))$", "$se(\\hat\\theta)=\\sqrt{nI(\\hat\\theta)}$, med informasjonen oppe i telleren", "$se(\\hat\\theta)=\\sqrt{1/I(\\hat\\theta)}$, uten faktoren $n$ i nevneren"],
       explanation: "Standardfeilen er kvadratroten av den estimerte variansen $1/(nI(\\hat\\theta))$, med $\\theta$ erstattet av estimatet.",
     },
     {
@@ -437,7 +437,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Fisher-informasjonen $I(\\lambda)$ for Poisson$(\\lambda)$ i én observasjon?",
-      options: ["$I(\\lambda)=1/\\lambda$, siden $E(X)=\\lambda$ for Poisson", "$I(\\lambda)=\\lambda$, altså forvekslet med selve raten i modellen", "$I(\\lambda)=1/\\lambda^2$, som er svaret for eksponentialfordelingen", "$I(\\lambda)=\\lambda^2$, altså kvadratet av den ukjente raten"],
+      options: ["$I(\\lambda)=1/\\lambda$, siden $E(X)=\\lambda$ for Poisson", "$I(\\lambda)=\\lambda$, altså forvekslet med selve raten i modellen", "$I(\\lambda)=1/\\lambda^2$, som er svaret for eksponentialfordelingen", "$I(\\lambda)=\\lambda^2$, kvadratet av raten"],
       explanation: "$\\log f=-\\lambda+x\\log\\lambda-\\log x!$ gir andrederivert $-x/\\lambda^2$; med $E(X)=\\lambda$ blir $I(\\lambda)=\\lambda/\\lambda^2=1/\\lambda$.",
     },
     {
@@ -457,12 +457,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste feilen når man definerer Fisher-informasjonen?",
-      options: ["Å glemme forventningen eller minustegnet i $-E[\\ell'']$", "Å bruke førstederiverte $\\ell'$ i stedet for den andrederiverte $\\ell''$", "Å ta kvadratroten av hele uttrykket $I(\\theta)$ helt til slutt", "Å dele på utvalgsstørrelsen $n$ på et altfor tidlig tidspunkt"],
+      options: ["Å glemme forventningen eller minustegnet i $-E[\\ell'']$", "Å bruke førstederiverte $\\ell'$ i stedet for den andrederiverte $\\ell''$", "Å ta kvadratroten av hele uttrykket $I(\\theta)$ helt til slutt", "Å dele på utvalgsstørrelsen $n$ for tidlig"],
       explanation: "Uten forventningen blir størrelsen datavhengig (observert informasjon), og uten minustegnet får den feil fortegn.",
     },
     {
       question: "Hvorfor bruker Wald-intervallet $z$ og ikke $t$?",
-      options: ["Fordi det hviler på ML-estimatorens normaltilnærming", "Fordi standardavviket $\\sigma$ av en eller annen grunn alltid er kjent", "Fordi $t$-fordelingen utelukkende gjelder for data om andeler", "Fordi $z$-kvantilen konsekvent gir et smalere intervall enn $t$"],
+      options: ["Fordi det hviler på ML-estimatorens normaltilnærming", "Fordi standardavviket $\\sigma$ av en eller annen grunn alltid er kjent", "Fordi $t$-fordelingen bare gjelder data om andeler", "Fordi $z$-kvantilen konsekvent gir et smalere intervall enn $t$"],
       explanation: "Wald-intervallet er en normaltilnærming (ML-asymptotikk). $t$ brukes derimot for et normalgjennomsnitt der $\\sigma$ er estimert med $S$.",
     },
     {
@@ -477,7 +477,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er den asymmetriske Wald-formen en feil?",
-      options: ["Nei, asymmetrien er riktig når $se$ avhenger av parameteren", "Ja, fordi et konfidensintervall alltid skal være symmetrisk om $\\hat\\theta$", "Ja, fordi den asymmetriske formen alltid gir for lav dekning", "Nei, men bare dersom den ukjente parameteren kan bli negativ"],
+      options: ["Nei, asymmetrien er riktig når $se$ avhenger av parameteren", "Ja, fordi et konfidensintervall alltid skal være symmetrisk om $\\hat\\theta$", "Ja, fordi den asymmetriske formen gir for lav dekning", "Nei, men bare dersom den ukjente parameteren kan bli negativ"],
       explanation: "Sensor regner det asymmetriske intervallet som riktig — den symmetriske Wald-formen er en grovere tilnærming (§4.7).",
     },
     {
@@ -502,7 +502,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Fisher-informasjonen $I(p)$ for Bernoulli$(p)$?",
-      options: ["$I(p)=1/[p(1-p)]$, som gir $se=\\sqrt{\\hat p(1-\\hat p)/n}$", "$I(p)=p(1-p)$, som egentlig er variansen til én Bernoulli-variabel", "$I(p)=1/p$, altså uten leddet som gjelder mislykket utfall", "$I(p)=1/(1-p)$, altså uten leddet som gjelder suksess"],
+      options: ["$I(p)=1/[p(1-p)]$, som gir $se=\\sqrt{\\hat p(1-\\hat p)/n}$", "$I(p)=p(1-p)$, som egentlig er variansen til én Bernoulli-variabel", "$I(p)=1/p$, uten leddet for mislykket utfall", "$I(p)=1/(1-p)$, altså uten leddet som gjelder suksess"],
       explanation: "$\\log f=x\\log p+(1-x)\\log(1-p)$ gir $I(p)=1/p+1/(1-p)=1/[p(1-p)]$, som gir andels-standardfeilen $\\sqrt{\\hat p(1-\\hat p)/n}$.",
     },
     {
@@ -547,12 +547,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det geometrisk at Fisher-informasjonen er stor?",
-      options: ["Log-likelihood har en skarp, sterkt krummet topp, som gir l", "Log-likelihood er nesten helt flat i området rundt toppunktet", "Estimatoren får da en tilsvarende stor varians og usikkerhet", "Utvalgsstørrelsen $n$ må nødvendigvis være ganske liten her"],
+      options: ["Log-likelihood har en skarp, sterkt krummet topp, som gir l", "Log-likelihood er nesten helt flat i området rundt toppunktet", "Estimatoren får da stor varians og usikkerhet", "Utvalgsstørrelsen $n$ må nødvendigvis være ganske liten her"],
       explanation: "Fisher-informasjonen er forventet krumning av log-likelihood; en skarp topp betyr liten varians og presis estimering.",
     },
     {
       question: "En estimator $T=X_1$ (kun første observasjon) for Poisson$(\\lambda)$ har relativ effisiens mot $\\bar X$ lik:",
-      options: ["$1/n$, verdien med $P(Z>z_{0{,}025})=0{,}025$ i øvre hale", "$n$, som om $T$ skulle brukt flere observasjoner enn $\\bar X$", "$1$, som om begge estimatorene var like effektive her", "$1/n^2$, altså med en kvadrert utvalgsstørrelse i nevneren"],
+      options: ["$1/n$, verdien med $P(Z>z_{0{,}025})=0{,}025$ i øvre hale", "$n$, som om $T$ skulle brukt flere observasjoner enn $\\bar X$", "$1$, som om begge estimatorene var like effektive her", "$1/n^2$, med kvadrert utvalgsstørrelse i nevneren"],
       explanation: "$\\operatorname{Var}(\\bar X)/\\operatorname{Var}(T)=(\\lambda/n)/\\lambda=1/n$; $T$ kaster bort $n-1$ observasjoner.",
     },
     {
@@ -569,17 +569,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil det si at en apriori er konjugert til en likelihood?",
-      options: ["Aposteriori havner i samme fordelingsfamilie som apriori", "At apriori og likelihood tilfeldigvis har akkurat samme forventning", "At aposteriorifordelingen alltid blir en normalfordeling til slutt", "At likelihooden forsvinner helt ut av aposteriorifordelingen"],
+      options: ["Aposteriori havner i samme fordelingsfamilie som apriori", "At apriori og likelihood tilfeldigvis har akkurat samme forventning", "At aposteriori alltid blir en normalfordeling", "At likelihooden forsvinner helt ut"],
       explanation: "Konjugering betyr at oppdateringen bare endrer parametrene, ikke fordelingsfamilien — da slipper man å integrere.",
     },
     {
       question: "Hva er kjernetrikset for å gjenkjenne en konjugert aposteriori?",
-      options: ["Samle eksponentene og sammenligne med en kjent kjerne", "Å integrere produktet apriori $\\times$ likelihood helt eksplisitt ut", "Å derivere likelihooden og deretter sette den deriverte lik null", "Å ta logaritmen av produktet og finne dets maksimumspunkt"],
+      options: ["Samle eksponentene og sammenligne med en kjent kjerne", "Å integrere produktet helt eksplisitt ut", "Å derivere likelihooden og deretter sette den deriverte lik null", "Å ta logaritmen og finne maksimumspunktet"],
       explanation: "Man samler potensene av parameteren og leddene i eksponenten, og gjenkjenner så fordelingsformen (f.eks. gamma-kjernen).",
     },
     {
       question: "Hva er gamma-kjernen (skala-form) man skal gjenkjenne?",
-      options: ["$\\theta^{\\alpha-1}e^{-\\theta/\\beta}$", "$\\theta^{\\alpha}e^{-\\theta\\beta}$, med feil eksponenter og skala oppe", "$e^{-\\theta}\\theta^{\\alpha}/\\alpha!$, som egentlig er Poisson-formen", "$\\theta^{\\alpha-1}e^{-\\theta^2/\\beta}$, med feilaktig kvadrert $\\theta$"],
+      options: ["$\\theta^{\\alpha-1}e^{-\\theta/\\beta}$", "$\\theta^{\\alpha}e^{-\\theta\\beta}$", "$e^{-\\theta}\\theta^{\\alpha}/\\alpha!$, som egentlig er Poisson-formen", "$\\theta^{\\alpha-1}e^{-\\theta^2/\\beta}$, med feilaktig kvadrert $\\theta$"],
       explanation: "En gamma$(\\alpha,\\beta)$ i skala-form har kjerne $\\theta^{\\alpha-1}e^{-\\theta/\\beta}$; et uttrykk $\\theta^a e^{-b\\theta}$ er gamma med $\\alpha=a+1$, $\\beta=1/b$.",
     },
     {
@@ -599,12 +599,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Aposteriori er gamma$(\\alpha',\\beta')$. Hva er Bayes-estimatoren?",
-      options: ["$\\alpha'\\beta'$, altså gamma-forventningen $E=\\alpha'\\beta'$", "$\\alpha'/\\beta'$, altså formen delt på skalaen i stedet for gange", "$\\alpha'+\\beta'$, altså summen av de to aposteriori-parametrene", "$\\alpha'\\beta'^2$, som egentlig er variansen i gammafordelingen"],
+      options: ["$\\alpha'\\beta'$, altså gamma-forventningen $E=\\alpha'\\beta'$", "$\\alpha'/\\beta'$, formen delt på skalaen", "$\\alpha'+\\beta'$, altså summen av de to aposteriori-parametrene", "$\\alpha'\\beta'^2$, som egentlig er variansen i gammafordelingen"],
       explanation: "Forventningen i en gamma (skala) er formen ganger skalaen, $E=\\alpha'\\beta'$, som er nettopp Bayes-estimatoren.",
     },
     {
       question: "Hva skjer med Bayes-estimatoren når $n\\to\\infty$?",
-      options: ["Den nærmer seg ML-estimatoren $\\bar x$", "Den nærmer seg apriori-forventningen $\\alpha\\beta$ i stedet", "Den går mot null uansett hvilken apriori man har valgt", "Den blir lik aprioriens modus når utvalget blir stort"],
+      options: ["Den nærmer seg ML-estimatoren $\\bar x$", "Den nærmer seg apriori-forventningen $\\alpha\\beta$ i stedet", "Den går mot null uansett apriori", "Den blir lik aprioriens modus"],
       explanation: "For store utvalg dominerer likelihooden apriorien, så Bayes-estimatoren $\\frac{\\alpha+s}{1/\\beta+n}\\to s/n=\\bar x$.",
     },
     {
@@ -619,17 +619,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor slipper man å regne normeringskonstanten i konjugerte tilfeller?",
-      options: ["Fordi fordelingsformen gjenkjennes fra kjernen", "Fordi likelihooden allerede er ferdig normert på forhånd", "Fordi apriorifordelingen tilfeldigvis integrerer til null", "Fordi parameteren $\\theta$ er diskret i disse tilfellene"],
+      options: ["Fordi fordelingsformen gjenkjennes fra kjernen", "Fordi likelihooden allerede er ferdig normert på forhånd", "Fordi apriorifordelingen tilfeldigvis integrerer til null", "Fordi parameteren $\\theta$ er diskret"],
       explanation: "Når kjernen matcher en kjent fordeling, kjenner man normeringskonstanten fra den familien — ingen integrasjon nødvendig.",
     },
     {
       question: "Hva er den vanligste feilen når man skal vise konjugering?",
-      options: ["Å påstå konjugering uten å samle eksponentene", "Å ta logaritmen av apriorifordelingen før man multipliserer", "Å bruke altfor mange observasjoner enn oppgaven gir", "Å regne ut forventningen av selve likelihood-funksjonen"],
+      options: ["Å påstå konjugering uten å samle eksponentene", "Å ta logaritmen av apriorifordelingen før man multipliserer", "Å bruke flere observasjoner enn oppgitt", "Å regne forventningen av likelihooden"],
       explanation: "Sensor krever at du faktisk multipliserer, samler eksponentene og identifiserer fordelingsfamilien — ikke bare påstår at gamma er konjugert.",
     },
     {
       question: "For eksponential-rate med gamma$(a,b)$-apriori og datasum $\\sum x_i$, hva er aposteriori?",
-      options: ["gamma$(a+n,\\ b/(1+b\\sum x_i))$", "gamma$(a+\\sum x_i,\\ b/(1+nb))$, med sum og antall byttet om", "gamma$(a,\\ b+n)$, altså formen uendret og skalaen økt", "gamma$(a\\cdot n,\\ b/\\sum x_i)$, med multipliserte parametre"],
+      options: ["gamma$(a+n,\\ b/(1+b\\sum x_i))$", "gamma$(a+\\sum x_i,\\ b/(1+nb))$", "gamma$(a,\\ b+n)$, altså formen uendret og skalaen økt", "gamma$(a\\cdot n,\\ b/\\sum x_i)$, med multipliserte parametre"],
       explanation: "Eksponential-likelihooden er $\\lambda^{n}e^{-\\lambda\\sum x_i}$, så formen øker med $n$ og skalaen krymper med datasummen: gamma$(a+n,\\ b/(1+b\\sum x_i))$.",
     },
     {
@@ -666,22 +666,22 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-1-5': [
     {
       question: "Hva er det obligatoriske siste trinnet i ML-kjeden som oftest glemmes?",
-      options: ["Bekrefte at $\\ell''(\\hat\\theta)<0$, altså at punktet er et maksimum", "Ta logaritmen av likelihooden", "Sette scoren $s(\\theta)$ lik null", "Skrive likelihooden som et produkt av tetthetene før man tar den deriverte scoren"],
+      options: ["Bekrefte at $\\ell''(\\hat\\theta)<0$, altså at punktet er et maksimum", "Ta logaritmen av selve likelihooden før man i det hele tatt deriverer den", "Sette scoren $s(\\theta)$ lik null og løse for $\\theta$", "Skrive likelihooden som et produkt av tetthetene før man tar den deriverte scoren"],
       explanation: "Løsning av $s(\\hat\\theta)=0$ gir bare et stasjonærpunkt; maksimumsbekreftelsen $\\ell''(\\hat\\theta)<0$ er det siste, obligatoriske trinnet.",
     },
     {
       question: "En estimator skrives $\\hat\\Theta$ (stor bokstav) og et estimat $\\hat\\theta$ (tall). Hva er riktig?",
-      options: ["$\\hat\\Theta$ er en stokastisk variabel med varians; $\\hat\\theta$ er ett fast tall", "Begge er tilfeldige variabler med samme varians", "$\\hat\\theta$ (liten bokstav) har en varians, mens $\\hat\\Theta$ (stor bokstav) bare er ett observert tall", "De betyr det samme og kan brukes om hverandre"],
+      options: ["$\\hat\\Theta$ er en stokastisk variabel med varians; $\\hat\\theta$ er ett fast tall", "Begge to er stokastiske variabler med nøyaktig den samme variansen og fordelingen bak", "$\\hat\\theta$ (liten bokstav) har en varians, mens $\\hat\\Theta$ (stor bokstav) bare er ett observert tall", "De betyr det samme og kan brukes om hverandre"],
       explanation: "Estimatoren er en funksjon av de tilfeldige dataene (stokastisk, har varians); estimatet er tallet den gir på ett datasett.",
     },
     {
       question: "ML-estimatorens tilnærmede fordeling for stor $n$ er $\\hat\\theta\\approx N(\\theta,1/(nI(\\theta)))$. Hva er det andre argumentet?",
-      options: ["Variansen til ML-estimatoren", "Standardavviket til ML-estimatoren", "Fisher-informasjonen $I(\\theta)$", "Konfidensnivået $1-\\alpha$"],
+      options: ["Variansen til ML-estimatoren", "Standardavviket til ML-estimatoren", "Fisher-informasjonen $I(\\theta)$", "Konfidensnivået $1-\\alpha$ i intervallet"],
       explanation: "I notasjonen $N(\\mu,\\sigma^2)$ er andre argument alltid variansen; her $1/(nI(\\theta))$.",
     },
     {
       question: "Fisher-informasjonen i én observasjon defineres som:",
-      options: ["$I(\\theta)=-E[\\partial^2\\log f(X;\\theta)/\\partial\\theta^2]$", "$I(\\theta)=\\partial^2\\log f(x;\\theta)/\\partial\\theta^2$ i estimatet", "$I(\\theta)=E[\\partial^2\\log f(X;\\theta)/\\partial\\theta^2]$", "$I(\\theta)=nI_1(\\theta)$ for én observasjon"],
+      options: ["$I(\\theta)=-E[\\partial^2\\log f(X;\\theta)/\\partial\\theta^2]$", "$I(\\theta)=\\partial^2\\log f(x;\\theta)/\\partial\\theta^2$ i estimatet", "$I(\\theta)=E[\\partial^2\\log f(X;\\theta)/\\partial\\theta^2]$ uten minus", "$I(\\theta)=nI_1(\\theta)$ også når det bare er én observasjon"],
       explanation: "Fisher-info er den forventede negative andrederiverte. Uten minustegn får du feil fortegn; uten forventning får du observert informasjon.",
     },
     {
@@ -691,17 +691,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I et Wald-konfidensintervall $\\hat\\theta\\pm z_{\\alpha/2}\\,se$, hvorfor brukes $z$ og ikke $t$?",
-      options: ["Fordi normalformen kommer fra ML-asymptotikken (sentralgrenseteoremet)", "Fordi standardavviket $\\sigma$ er estimert med utvalgsstandardavviket $S$ fra de samme observasjonene", "Fordi utvalget alltid er lite", "Fordi $t$ bare gjelder for andeler"],
+      options: ["Fordi normalformen kommer fra ML-asymptotikken (sentralgrenseteoremet)", "Fordi standardavviket $\\sigma$ er estimert med utvalgsstandardavviket $S$ fra de samme observasjonene", "Fordi utvalget i praksis alltid er ganske lite", "Fordi $t$-fordelingen utelukkende gjelder for data om andeler og rater i store utvalg"],
       explanation: "Wald hviler på at ML-estimatoren er tilnærmet normal via CLT; $t_{n-1}$ hører derimot til et normalgjennomsnitt med estimert $\\sigma$.",
     },
     {
       question: "For Poisson$(\\lambda)$ er Fisher-informasjonen i én observasjon:",
-      options: ["$I(\\lambda)=1/\\lambda$", "$I(\\lambda)=1/\\lambda^2$", "$I(\\lambda)=\\lambda$", "$I(\\lambda)=1/(\\lambda(1-\\lambda))$"],
+      options: ["$I(\\lambda)=1/\\lambda$", "$I(\\lambda)=1/\\lambda^2$", "$I(\\lambda)=\\lambda$ per observasjon", "$I(\\lambda)=1/(\\lambda(1-\\lambda))$"],
       explanation: "$\\log f=-\\lambda+x\\log\\lambda-\\log x!$ gir andrederivert $-x/\\lambda^2$; forventning med $E(X)=\\lambda$ gir $I(\\lambda)=1/\\lambda$.",
     },
     {
       question: "Standardfeilen til en ML-estimator er $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$. Hvorfor står $\\hat\\theta$ og ikke $\\theta$ i uttrykket?",
-      options: ["Den sanne $\\theta$ er ukjent, så vi plugger inn estimatet", "Fordi standardfeilen $se$ egentlig måler skjevheten til estimatoren, ikke spredningen rundt forventningen", "Fordi $I$ alltid evalueres i null", "For å gjøre intervallet symmetrisk"],
+      options: ["Den sanne $\\theta$ er ukjent, så vi plugger inn estimatet", "Fordi standardfeilen $se$ egentlig måler skjevheten til estimatoren, ikke spredningen rundt forventningen", "Fordi $I$ alltid skal evalueres i null", "For å gjøre konfidensintervallet helt symmetrisk om estimatet"],
       explanation: "Variansen er $1/(nI(\\theta))$ med sann $\\theta$; siden den er ukjent, setter standardfeilen inn estimatet $\\hat\\theta$.",
     },
     {
@@ -721,7 +721,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For Rayleigh$(\\theta)$ med $E(X^2)=2\\theta^2$ er Fisher-informasjonen:",
-      options: ["$I(\\theta)=4/\\theta^2$", "$I(\\theta)=1/\\theta^2$", "$I(\\theta)=2/\\theta^2$", "$I(\\theta)=\\theta^2/4$"],
+      options: ["$I(\\theta)=4/\\theta^2$", "$I(\\theta)=1/\\theta^2$ i én observasjon", "$I(\\theta)=2/\\theta^2$", "$I(\\theta)=\\theta^2/4$"],
       explanation: "$\\partial^2\\log f/\\partial\\theta^2=2/\\theta^2-3x^2/\\theta^4$; med $E(X^2)=2\\theta^2$ blir $I(\\theta)=-2/\\theta^2+6/\\theta^2=4/\\theta^2$.",
     },
     {
@@ -731,17 +731,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For uniform på $[0,\\theta]$ svikter score-metoden. Hva er ML-estimatoren?",
-      options: ["$\\hat\\theta=\\max_i X_i=X_{(n)}$", "$\\hat\\theta=2\\bar X$", "$\\hat\\theta=\\bar X$", "$\\hat\\theta=n/\\sum X_i$"],
+      options: ["$\\hat\\theta=\\max_i X_i=X_{(n)}$", "$\\hat\\theta=2\\bar X$", "$\\hat\\theta=\\bar X$", "$\\hat\\theta=n/\\sum X_i$, den inverse raten"],
       explanation: "Støtten avhenger av $\\theta$, så $L(\\theta)=\\theta^{-n}$ er avtakende og maksimeres ved den minste tillatte verdien — den største observasjonen.",
     },
     {
       question: "Når skal du sammenligne to estimatorer på MSE i stedet for varians?",
-      options: ["Så snart minst én av dem er skjev", "Alltid, uansett skjevhet", "Bare når begge er forventningsrette", "Bare når variansene er like"],
+      options: ["Så snart minst én av dem er skjev", "Alltid, uansett om de er skjeve eller ikke", "Bare når begge er forventningsrette", "Bare når de to variansene er nøyaktig like"],
       explanation: "MSE $=\\text{Var}+b^2$ veier bom mot spredning; ved forskjellig skjevhet er varians alene misvisende.",
     },
     {
       question: "En ML-estimator gir $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ i normalmodellen. Er den forventningsrett for $\\sigma^2$?",
-      options: ["Nei, den er skjev med $b=-\\sigma^2/n$; $S^2$ (divisor $n-1$) er forventningsrett", "Ja, alle ML-estimatorer er forventningsrette fordi de per konstruksjon maksimerer sannsynligheten for de observerte dataene", "Ja, fordi den maksimerer likelihooden", "Nei, den er skjev med $b=+\\sigma^2/n$"],
+      options: ["Nei, den er skjev med $b=-\\sigma^2/n$; $S^2$ (divisor $n-1$) er forventningsrett", "Ja, alle ML-estimatorer er forventningsrette fordi de per konstruksjon maksimerer sannsynligheten for de observerte dataene", "Ja, ML-estimatorer er alltid forventningsrette fordi de maksimerer likelihooden fullt ut", "Nei, den er skjev med $b=+\\sigma^2/n$, altså skjev oppover"],
       explanation: "ML deler på $n$ og undervurderer variansen; forventningen er $\\frac{n-1}{n}\\sigma^2$, så skjevheten er $-\\sigma^2/n$. ML garanterer ikke forventningsretthet.",
     },
     {
@@ -756,12 +756,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med Bayes-estimatoren i Poisson–gamma når $n$ blir stor?",
-      options: ["Den nærmer seg ML-estimatet $\\bar x$ fordi dataene overdøver apriorien", "Den nærmer seg apriori-forventningen $\\alpha\\beta$ fordi apriorien får stadig mer å si etter hvert som utvalget vokser", "Den blir eksakt lik apriori-modus", "Den divergerer"],
+      options: ["Den nærmer seg ML-estimatet $\\bar x$ fordi dataene overdøver apriorien", "Den nærmer seg apriori-forventningen $\\alpha\\beta$ fordi apriorien får stadig mer å si etter hvert som utvalget vokser", "Den blir til slutt nøyaktig lik modusverdien i selve apriorifordelingen", "Den divergerer og vokser uten noen øvre grense"],
       explanation: "Bayes er et vektet snitt av $\\bar x$ og $\\alpha\\beta$ med datavekt $w=n\\beta/(1+n\\beta)\\to1$, så Bayes $\\to$ ML.",
     },
     {
       question: "For eksponential med forventning $\\theta$ er $I(\\theta)=1/\\theta^2$. Hva blir standardfeilen $se(\\hat\\theta)$?",
-      options: ["$\\hat\\theta/\\sqrt n$", "$1/(\\hat\\theta\\sqrt n)$", "$\\hat\\theta^2/n$", "$\\sqrt{\\hat\\theta/n}$"],
+      options: ["$\\hat\\theta/\\sqrt n$", "$1/(\\hat\\theta\\sqrt n)$", "$\\hat\\theta^2/n$ uten rot", "$\\sqrt{\\hat\\theta/n}$"],
       explanation: "$se=\\sqrt{1/(nI(\\hat\\theta))}=\\sqrt{\\hat\\theta^2/n}=\\hat\\theta/\\sqrt n$.",
     },
     {
@@ -781,7 +781,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et 95 % konfidensintervall for $\\theta$ betyr korrekt at:",
-      options: ["Prosedyren fanger $\\theta$ i 95 % av gjentatte utvalg", "Det er 95 % sannsynlig at $\\theta$ ligger i akkurat dette intervallet", "$\\theta$ er stokastisk med 95 % sannsynlighet innenfor", "95 % av dataene ligger i intervallet"],
+      options: ["Prosedyren fanger $\\theta$ i 95 % av gjentatte utvalg", "Det er 95 % sannsynlig at $\\theta$ ligger i akkurat dette intervallet", "$\\theta$ er stokastisk med 95 % sannsynlighet innenfor", "Hele 95 % av de observerte dataene ligger i intervallet"],
       explanation: "$\\theta$ er en fast (ukjent) størrelse; det er *prosedyren* som har 95 % dekningsgrad over gjentatte utvalg.",
     },
     {
@@ -793,7 +793,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-2-1': [
     {
       question: "Hvorfor bruker vi t-fordelingen (ikke z) i intervallet $\\bar X\\pm t_{n-1,\\alpha/2}\\,S/\\sqrt n$?",
-      options: ["Fordi $\\sigma$ er ukjent og erstattet med den stokastiske $S$", "Fordi t-fordelingen alltid gir smalere intervall enn z", "Fordi $\\bar X$ ikke er normalfordelt for små utvalg", "Fordi t-fordelingen kreves for alle andels-intervaller"],
+      options: ["Fordi $\\sigma$ er ukjent og erstattet med den stokastiske $S$", "Fordi t-fordelingen alltid gir et smalere intervall enn z gjør", "Fordi $\\bar X$ ikke er normalfordelt for små utvalg", "Fordi t-fordelingen kreves for alle andels-intervaller"],
       explanation: "Når $\\sigma$ estimeres med $S$, blir nevneren stokastisk og halene tyngre — pivoten blir $t_{n-1}$, ikke $N(0,1)$.",
     },
     {
@@ -808,7 +808,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et 95 % konfidensintervall for $\\mu$ betyr korrekt at:",
-      options: ["prosedyren fanger den sanne $\\mu$ i 95 % av gjentatte utvalg", "det er 95 % sannsynlig at $\\mu$ ligger i akkurat dette intervallet", "95 % av observasjonene ligger innenfor intervallet", "$\\mu$ er stokastisk og treffer intervallet 95 % av tiden"],
+      options: ["prosedyren fanger den sanne $\\mu$ i 95 % av gjentatte utvalg", "det er 95 % sannsynlig at $\\mu$ ligger i akkurat dette intervallet", "95 % av observasjonene ligger innenfor intervallet", "$\\mu$ er stokastisk og treffer intervallet i 95 % av tilfellene"],
       explanation: "$\\mu$ er et fast tall; sannsynligheten 0,95 hører til metoden over gjentatte utvalg, ikke det enkelte intervallet.",
     },
     {
@@ -818,17 +818,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Standardfeilen til gjennomsnittet i t-intervallet er:",
-      options: ["$S/\\sqrt n$", "$S/n$", "$\\sigma/\\sqrt n$", "$S^2/\\sqrt n$"],
+      options: ["$S/\\sqrt n$", "$S/n$ uten rot", "$\\sigma/\\sqrt n$", "$S^2/\\sqrt n$"],
       explanation: "$se(\\bar X)=S/\\sqrt n$; det sanne $\\sigma$ er ukjent, så vi bruker $S$.",
     },
     {
       question: "Andels-intervallet $\\hat p\\pm z_{\\alpha/2}\\sqrt{\\hat p(1-\\hat p)/n}$ er et spesialtilfelle av:",
-      options: ["Wald-intervallet for en ML-estimator", "t-intervallet for en forventning", "khikvadrat-intervallet for en varians", "et eksakt pivot-intervall for en rate"],
+      options: ["Wald-intervallet for en ML-estimator", "t-intervallet for en vanlig forventning", "khikvadrat-intervallet for en varians", "et eksakt pivot-intervall for en rate"],
       explanation: "$\\hat p$ er ML-estimatoren for binomisk med $I(p)=1/[p(1-p)]$, så $se=\\sqrt{1/(nI(\\hat p))}=\\sqrt{\\hat p(1-\\hat p)/n}$.",
     },
     {
       question: "Hvilken pivot står bak khikvadrat-intervallet for variansen?",
-      options: ["$(n-1)S^2/\\sigma^2\\sim\\chi^2_{n-1}$", "$(\\bar X-\\mu)/(S/\\sqrt n)\\sim t_{n-1}$", "$nS^2/\\sigma^2\\sim\\chi^2_{n}$", "$(\\hat p-p)/se\\sim N(0,1)$"],
+      options: ["$(n-1)S^2/\\sigma^2\\sim\\chi^2_{n-1}$", "$(\\bar X-\\mu)/(S/\\sqrt n)\\sim t_{n-1}$", "$nS^2/\\sigma^2\\sim\\chi^2_{n}$ med $n$ df", "$(\\hat p-p)/se\\sim N(0,1)$"],
       explanation: "Den skalerte utvalgsvariansen er khikvadratfordelt med $n-1$ frihetsgrader for normale data.",
     },
     {
@@ -848,7 +848,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med bredden på et KI hvis du firedobler utvalgsstørrelsen $n$ (alt annet likt)?",
-      options: ["Bredden halveres", "Bredden firedobles", "Bredden er uendret", "Bredden dobles"],
+      options: ["Bredden halveres", "Bredden firedobles", "Bredden er uendret", "Bredden dobles i stedet"],
       explanation: "Marginen går som $1/\\sqrt n$; firedobling av $n$ dobler $\\sqrt n$ og halverer dermed bredden.",
     },
     {
@@ -863,7 +863,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For et 99 % intervall (i stedet for 95 %) blir intervallet:",
-      options: ["bredere, fordi kvantilen er større", "smalere, fordi vi er mer sikre", "uendret i bredde", "alltid asymmetrisk"],
+      options: ["bredere, fordi kvantilen er større", "smalere, fordi vi da er langt mer sikre", "uendret i bredde", "alltid asymmetrisk"],
       explanation: "Høyere konfidens krever større kvantil ($t$ eller $z$), som gir større margin og bredere intervall.",
     },
     {
@@ -873,12 +873,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For Poisson med $I(\\lambda)=1/\\lambda$, $n=50$, $\\bar x=2{,}4$: hva er Wald-standardfeilen $se(\\hat\\lambda)$?",
-      options: ["$\\sqrt{2{,}4/50}\\approx 0{,}219$", "$2{,}4/50=0{,}048$", "$\\sqrt{2{,}4}/50\\approx 0{,}031$", "$\\sqrt{2{,}4\\cdot 50}\\approx 10{,}95$"],
+      options: ["$\\sqrt{2{,}4/50}\\approx 0{,}219$", "$2{,}4/50=0{,}048$ uten rot", "$\\sqrt{2{,}4}/50\\approx 0{,}031$ per enhet", "$\\sqrt{2{,}4\\cdot 50}\\approx 10{,}95$"],
       explanation: "$se=\\sqrt{1/(nI(\\hat\\lambda))}=\\sqrt{\\hat\\lambda/n}=\\sqrt{2{,}4/50}$.",
     },
     {
       question: "Hvordan får du et konfidensintervall for standardavviket $\\sigma$ fra intervallet for $\\sigma^2$?",
-      options: ["Ta kvadratrot av begge grensene", "Ta kvadratrot bare av øvre grense", "Del begge grensene på $n-1$", "Legg til $\\pm z_{\\alpha/2}$"],
+      options: ["Ta kvadratrot av begge grensene", "Ta kvadratrot bare av øvre grense", "Del begge grensene på frihetsgraden $n-1$", "Legg til $\\pm z_{\\alpha/2}$"],
       explanation: "Kvadratrot er monotont voksende, så grensene transformeres direkte; intervallet forblir asymmetrisk.",
     },
     {
@@ -888,7 +888,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Utvalgsvariansen $S^2=\\frac{1}{n-1}\\sum(X_i-\\bar X)^2$ har deleren $n-1$ fordi:",
-      options: ["avvikene måles fra $\\bar X$, som binder én frihetsgrad", "$n-1$ alltid gir et mindre tall enn $n$", "det er en konvensjon uten matematisk grunn", "variansen ellers ville blitt negativ"],
+      options: ["avvikene måles fra $\\bar X$, som binder én frihetsgrad", "$n-1$ alltid gir et mindre tall enn $n$", "det er en ren konvensjon helt uten noe matematisk grunnlag", "variansen ellers ville blitt negativ"],
       explanation: "Med $n$ som deler ville $S^2$ vært skjevt for $\\sigma^2$; $n-1$ gjør den forventningsrett.",
     },
     {
@@ -903,12 +903,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Dualiteten mellom KI og test sier at et tosidig $(1-\\alpha)$-KI inneholder nøyaktig de $\\theta_0$ som:",
-      options: ["IKKE forkastes av en tosidig test på nivå $\\alpha$", "forkastes av en tosidig test på nivå $\\alpha$", "gir P-verdi mindre enn $\\alpha$", "ligger mer enn $z_{\\alpha/2}$ standardfeil unna $\\hat\\theta$"],
+      options: ["IKKE forkastes av en tosidig test på nivå $\\alpha$", "forkastes av en tosidig test på signifikansnivå $\\alpha$", "gir P-verdi mindre enn $\\alpha$", "ligger mer enn $z_{\\alpha/2}$ standardfeil unna $\\hat\\theta$"],
       explanation: "Verdier utenfor intervallet forkastes; verdier innenfor beholdes — det er CI↔test-dualiteten.",
     },
     {
       question: "t-intervallet for en forventning er relativt robust mot avvik fra normalitet, mens khikvadrat-intervallet for variansen er:",
-      options: ["følsomt for ikke-normalitet", "enda mer robust enn t", "helt uavhengig av fordelingsform", "bare gyldig for $n<10$"],
+      options: ["følsomt for ikke-normalitet", "enda mer robust enn t-intervallet", "helt uavhengig av fordelingsform", "bare gyldig for $n<10$"],
       explanation: "Variansintervallet avhenger sterkt av normalantakelsen; bruk det med forsiktighet ved ikke-normale data.",
     },
     {
@@ -938,7 +938,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Standardavviket $S$ er, i motsetning til $S^2$, IKKE:",
-      options: ["forventningsrett for $\\sigma$", "et anslag på spredningen", "kvadratroten av $S^2$", "brukt i standardfeilen"],
+      options: ["forventningsrett for $\\sigma$", "et anslag på den sanne spredningen", "kvadratroten av $S^2$", "brukt i standardfeilen"],
       explanation: "Kvadratrot er ikke-lineær, så selv om $E(S^2)=\\sigma^2$, er $E(S)\\ne\\sigma$ generelt.",
     },
   ],
@@ -950,7 +950,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Signifikansnivået $\\alpha$ er sannsynligheten for å:",
-      options: ["forkaste $H_0$ når $H_0$ faktisk er sann (type I-feil)", "beholde $H_0$ når $H_0$ faktisk er falsk (type II-feil)", "forkaste $H_0$ når $H_a$ faktisk er sann (styrken)", "beholde $H_0$ når $H_0$ faktisk er sann (korrekt valg)"],
+      options: ["forkaste $H_0$ når $H_0$ faktisk er sann (type I-feil)", "beholde $H_0$ når $H_0$ faktisk er falsk (type II-feil)", "forkaste $H_0$ når $H_a$ faktisk er sann (styrken)", "beholde $H_0$ når $H_0$ faktisk er sann (et korrekt valg)"],
       explanation: "$\\alpha=P(\\text{forkast }H_0\\mid H_0\\text{ sann})$ er type I-feilraten, valgt på forhånd.",
     },
     {
@@ -960,12 +960,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan velges retningen (en- eller tosidig) i $H_a$?",
-      options: ["Ut fra hva situasjonen ber deg påvise, FØR du ser dataene", "Ut fra hvilken retning observatoren peker etter at du har regnet", "Alltid tosidig for å være på den sikre siden uansett", "Ut fra hvilken retning som gir lavest P-verdi"],
+      options: ["Ut fra hva situasjonen ber deg påvise, FØR du ser dataene", "Ut fra hvilken retning observatoren peker etter at du har regnet", "Alltid tosidig, for å være på den helt sikre siden uansett hva", "Ut fra hvilken retning som gir lavest P-verdi"],
       explanation: "Å velge retning etter dataene ('fiske') ugyldiggjør nivået; retningen følger av spørsmålet.",
     },
     {
       question: "En tosidig test på nivå $\\alpha$ forkaster $H_0:\\mu=\\mu_0$ hvis og bare hvis:",
-      options: ["$\\mu_0$ ligger utenfor det tosidige $(1-\\alpha)$-konfidensintervallet", "$\\mu_0$ ligger innenfor det tosidige $(1-\\alpha)$-konfidensintervallet", "P-verdien er større enn $\\alpha$", "estimatet $\\bar x$ er lik $\\mu_0$"],
+      options: ["$\\mu_0$ ligger utenfor det tosidige $(1-\\alpha)$-konfidensintervallet", "$\\mu_0$ ligger innenfor det tosidige $(1-\\alpha)$-konfidensintervallet", "P-verdien er større enn det signifikansnivået $\\alpha$ som er valgt på forhånd", "estimatet $\\bar x$ er nøyaktig lik $\\mu_0$"],
       explanation: "Det er CI-test-dualiteten: verdier utenfor KI-et forkastes, verdier innenfor beholdes.",
     },
     {
@@ -985,17 +985,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Vi forkaster $H_0$ når:",
-      options: ["P-verdi $<\\alpha$", "P-verdi $>\\alpha$", "P-verdi $=1-\\alpha$", "P-verdi $>0{,}5$"],
+      options: ["P-verdi $<\\alpha$", "P-verdi $>\\alpha$ i testen", "P-verdi $=1-\\alpha$", "P-verdi $>0{,}5$"],
       explanation: "Liten P-verdi betyr at dataene er uforenlige med $H_0$; vi forkaster når den er under det valgte nivået.",
     },
     {
       question: "Hva er galt med å konkludere 'vi beholder $H_0$, altså er $H_0$ sann'?",
-      options: ["Å ikke forkaste betyr bare utilstrekkelig belegg mot $H_0$, ikke bevis for den", "Ingenting er galt — det å beholde nullhypotesen beviser faktisk at den er sann", "Man skal i praksis alltid forkaste $H_0$ i de tilfellene der P-verdien er stor", "En nullhypotese kan aldri beholdes i en test, den kan bare forkastes eller ikke"],
+      options: ["Å ikke forkaste betyr bare utilstrekkelig belegg mot $H_0$, ikke bevis for den", "Ingenting er galt — det å beholde nullhypotesen beviser jo faktisk at den er sann", "Man skal i praksis alltid forkaste $H_0$ i de tilfellene der P-verdien er stor", "En nullhypotese kan aldri beholdes i en test, den kan bare forkastes eller ikke"],
       explanation: "Fravær av bevis er ikke bevis på fravær; en beholdt $H_0$ er ikke bevist.",
     },
     {
       question: "For en ensidig (høyresidig) test er P-verdien:",
-      options: ["$P(T\\ge t_{\\text{obs}}\\mid H_0)$", "$2\\,P(T\\ge |t_{\\text{obs}}|\\mid H_0)$", "$P(T\\le t_{\\text{obs}}\\mid H_0)$", "$1-P(T\\ge t_{\\text{obs}}\\mid H_0)$"],
+      options: ["$P(T\\ge t_{\\text{obs}}\\mid H_0)$", "$2\\,P(T\\ge |t_{\\text{obs}}|\\mid H_0)$", "$P(T\\le t_{\\text{obs}}\\mid H_0)$ i venstre hale", "$1-P(T\\ge t_{\\text{obs}}\\mid H_0)$"],
       explanation: "Ensidig P-verdi er halesannsynligheten i retning av $H_a$; tosidig ville doblet den.",
     },
     {
@@ -1005,7 +1005,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil endrer både forkastningsgrense og P-verdi mest direkte?",
-      options: ["Feil retning i $H_a$ (en- mot tosidig)", "Å oppgi konklusjonen i kontekst", "Å regne standardfeilen som $S/\\sqrt n$", "Å bruke $\\bar x$ som estimat"],
+      options: ["Feil retning i $H_a$ (en- mot tosidig)", "Å oppgi konklusjonen i kontekst", "Å regne standardfeilen til gjennomsnittet som $S/\\sqrt n$", "Å bruke $\\bar x$ som estimat"],
       explanation: "Sidethet bestemmer om kvantilen er $\\alpha$ eller $\\alpha/2$, og om P-verdien dobles — feil retning slår rett inn.",
     },
     {
@@ -1015,12 +1015,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et resultat er 'statistisk signifikant på 5 %-nivå' når:",
-      options: ["P-verdien er mindre enn 0,05", "effekten er stor og praktisk viktig", "utvalget er større enn 30", "konfidensintervallet inneholder $\\mu_0$"],
+      options: ["P-verdien er mindre enn 0,05", "effekten er stor og praktisk viktig", "utvalget er større enn 30 observasjoner", "konfidensintervallet inneholder $\\mu_0$"],
       explanation: "Signifikans er en terskel på P-verdien; den sier ikke at effekten er stor eller viktig.",
     },
     {
       question: "Hvorfor gir P-verdi-regelen og kritisk-verdi-regelen alltid samme konklusjon?",
-      options: ["P-verdi $<\\alpha$ er nøyaktig det samme som at observatoren er i forkastningsområdet", "Fordi den beregnede P-verdien i en test alltid ender opp med å bli lik nivået $\\alpha$", "Fordi den kritiske verdien i enhver hypotesetest alltid har verdien 1,96 uansett", "De to reglene gir faktisk bare samme konklusjon når testen er tosidig, ikke ellers"],
+      options: ["P-verdi $<\\alpha$ er nøyaktig det samme som at observatoren er i forkastningsområdet", "Fordi den beregnede P-verdien i en test alltid ender opp med å bli lik nivået $\\alpha$", "Fordi den kritiske verdien i enhver hypotesetest alltid har verdien 1,96 uansett", "De to reglene gir faktisk bare den samme konklusjonen når testen er tosidig, ikke ellers"],
       explanation: "De to reglene er to formuleringer av samme grense, derfor ekvivalente.",
     },
     {
@@ -1045,12 +1045,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Type II-feil er å:",
-      options: ["beholde $H_0$ når den faktisk er falsk", "forkaste $H_0$ når den faktisk er sann", "velge feil retning i $H_a$", "regne P-verdien feil"],
+      options: ["beholde $H_0$ når den faktisk er falsk", "forkaste $H_0$ når den i virkeligheten er sann", "velge feil retning i $H_a$", "regne P-verdien feil"],
       explanation: "Type II ($\\beta$) er en bommet alarm; styrken er $1-\\beta$.",
     },
     {
       question: "Hvorfor er 'statistisk signifikant' ikke det samme som 'stor effekt'?",
-      options: ["Med stort $n$ kan selv en liten effekt gi liten P-verdi", "Signifikans krever alltid en stor effekt", "P-verdien måler effektstørrelsen direkte", "Store effekter gir alltid P-verdi over 0,05"],
+      options: ["Med stort $n$ kan selv en liten effekt gi liten P-verdi", "Signifikans krever alltid en stor effekt", "P-verdien måler effektstørrelsen direkte", "Store effekter gir alltid en P-verdi et godt stykke over 0,05"],
       explanation: "P-verdien avhenger av både effekt og $n$; rapporter alltid estimatet ved siden av.",
     },
     {
@@ -1075,7 +1075,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For en skjev nullfordeling (som $\\chi^2$ eller $F$) må den tosidige P-verdien:",
-      options: ["håndtere de to halene hver for seg (ikke bare doble)", "alltid være dobbelt av den ensidige", "settes lik den ensidige", "regnes som $1-\\alpha$"],
+      options: ["håndtere de to halene hver for seg (ikke bare doble)", "alltid være nøyaktig dobbelt av den ensidige P-verdien", "settes lik den ensidige", "regnes som $1-\\alpha$ i stedet"],
       explanation: "Doblingsregelen gjelder symmetriske fordelinger; skjeve haler er ulike.",
     },
     {
@@ -1107,12 +1107,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den klassiske fellen ved parvise data?",
-      options: ["Å behandle dem som to uavhengige utvalg i stedet for å redusere til differanser", "Å redusere dem til differanser i stedet for å bruke to-utvalgstest", "Å bruke z i stedet for t på differansene", "Å regne pooled varians av differansene"],
+      options: ["Å behandle dem som to uavhengige utvalg i stedet for å redusere til differanser", "Å redusere dem til differanser i stedet for å kjøre en vanlig to-utvalgs t-test på gruppene", "Å bruke z i stedet for t på differansene", "Å regne pooled varians av differansene"],
       explanation: "Parvise data er koblet; de skal reduseres til $D_i$ og testes som ett utvalg med $n-1$ df.",
     },
     {
       question: "For parvise data med $n$ par har den parvise t-testen hvor mange frihetsgrader?",
-      options: ["$n-1$", "$2n-2$", "$2n-1$", "$n$"],
+      options: ["$n-1$", "$2n-2$", "$2n-1$", "$n$ frihetsgrader"],
       explanation: "Differansene $D_i$ er ETT utvalg av størrelse $n$ (antall par), så df er $n-1$.",
     },
     {
@@ -1132,12 +1132,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er en parvis test ofte kraftigere enn et uavhengig oppsett?",
-      options: ["Differansene fjerner individvariasjonen, så standardfeilen blir mindre", "Fordi den bruker flere frihetsgrader", "Fordi den alltid gir lavere P-verdi uansett data", "Fordi den ikke krever normalitet"],
+      options: ["Differansene fjerner individvariasjonen, så standardfeilen blir mindre", "Fordi den bruker flere frihetsgrader", "Fordi den alltid gir en lavere P-verdi, helt uansett hvordan dataene ser ut", "Fordi den parvise testen ikke krever normalfordelte data i det hele tatt"],
       explanation: "Koblingen tar bort variasjonen mellom enheter, som ellers øker støyen.",
     },
     {
       question: "I et konfidensintervall for andelsdifferansen $p_1-p_2$ brukes:",
-      options: ["separate $\\hat p_1$ og $\\hat p_2$ (ingen likhetsantakelse)", "pooled $\\hat p$ som i testen", "bare $\\hat p_1$", "en t-kvantil med $n_1+n_2-2$ df"],
+      options: ["separate $\\hat p_1$ og $\\hat p_2$ (ingen likhetsantakelse)", "pooled $\\hat p$ akkurat som i selve hypotesetesten for likhet", "bare $\\hat p_1$ fra første gruppe", "en t-kvantil med $n_1+n_2-2$ frihetsgrader i stedet for en z-kvantil"],
       explanation: "KI antar ikke $p_1=p_2$, så vi bruker de separate estimatene; pooled brukes bare i testen under $H_0$.",
     },
     {
@@ -1152,12 +1152,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En to-utvalgs t-test er ekvivalent med:",
-      options: ["en enkel regresjon på en dummy $x\\in\\{0,1\\}$ (test av $\\beta_1=0$)", "en multippel regresjon med to prediktorer", "en khikvadrat-test for variansen", "en parvis t-test på de samme dataene"],
+      options: ["en enkel regresjon på en dummy $x\\in\\{0,1\\}$ (test av $\\beta_1=0$)", "en multippel regresjon med to ulike forklaringsvariabler i samme modell", "en khikvadrat-test for variansen", "en parvis t-test på de samme dataene"],
       explanation: "Koder man gruppen som dummy, blir $\\hat\\beta_1=\\bar Y_1-\\bar Y_2$ og t-testen for $\\beta_1=0$ identisk med to-utvalgstesten.",
     },
     {
       question: "Hva forutsetter pooling av variansene?",
-      options: ["at de to gruppene har lik varians $\\sigma^2$", "at de to gruppene har lik forventning", "at gruppene er like store", "at dataene er parvise"],
+      options: ["at de to gruppene har lik varians $\\sigma^2$", "at de to gruppene har nøyaktig lik forventning", "at de to gruppene inneholder nøyaktig like mange observasjoner", "at dataene er parvise"],
       explanation: "Pooled varians er ett felles anslag på $\\sigma^2$ — bare meningsfullt hvis variansene faktisk er like.",
     },
     {
@@ -1167,7 +1167,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Reaksjonstid hos 15 menn og 18 kvinner (ulike personer). Hvilket oppsett og df?",
-      options: ["To-utvalgs pooled t med $15+18-2=31$ frihetsgrader", "Parvis t med 14 frihetsgrader", "To-utvalgs andels-z uten df", "Ett-utvalgs t med 32 frihetsgrader"],
+      options: ["To-utvalgs pooled t med $15+18-2=31$ frihetsgrader", "Parvis t-test med 14 frihetsgrader på differansene per person", "To-utvalgs andels-z uten df", "Ett-utvalgs t-test med 32 frihetsgrader for hele materialet"],
       explanation: "Ulike, uavhengige personer i to grupper → pooled to-utvalg med $m+n-2=31$.",
     },
     {
@@ -1177,17 +1177,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Inneholder KI-et for $\\mu_1-\\mu_2$ verdien 0, betyr det at:",
-      options: ["$H_0:\\mu_1=\\mu_2$ ikke kan forkastes tosidig på nivå $\\alpha$", "$H_0:\\mu_1=\\mu_2$ forkastes tosidig på nivå $\\alpha$", "gruppene har nøyaktig lik varians", "utvalgene er for små"],
+      options: ["$H_0:\\mu_1=\\mu_2$ ikke kan forkastes tosidig på nivå $\\alpha$", "$H_0:\\mu_1=\\mu_2$ forkastes tosidig på signifikansnivå $\\alpha$", "gruppene har nøyaktig lik varians", "utvalgene er for små til å konkludere"],
       explanation: "Dualiteten: 0 (ingen forskjell) inne i KI-et betyr at $H_0$ ikke forkastes.",
     },
     {
       question: "Andels-z-testen krever for normaltilnærmingen at:",
-      options: ["antall suksesser OG feil i hver gruppe er romslig over 5", "gruppene er like store", "$\\hat p_1=\\hat p_2$", "$n_1+n_2>1000$"],
+      options: ["antall suksesser OG feil i hver gruppe er romslig over 5", "gruppene er nøyaktig like store i antall observasjoner hver", "$\\hat p_1$ og $\\hat p_2$ er helt like", "$n_1+n_2$ er større enn 1000"],
       explanation: "For få suksesser/feil i en gruppe gjør normaltilnærmingen upålitelig.",
     },
     {
       question: "Slitasje på venstre og høyre sko hos 12 personer (to materialer). Hvilket oppsett?",
-      options: ["Parvis t på differanse per person, $t_{11}$", "To-utvalgs pooled t, $t_{22}$", "Andels-z-test", "Enveis ANOVA"],
+      options: ["Parvis t på differanse per person, $t_{11}$", "To-utvalgs pooled t-test med fordelingen $t_{22}$", "Andels-z-test på de to gruppene", "Enveis ANOVA med to grupper"],
       explanation: "Venstre og høyre sko på samme person er koblet — parvise data, $n-1=11$ df.",
     },
     {
@@ -1202,17 +1202,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Estimatet på effekten i en parvis test er:",
-      options: ["gjennomsnittet av differansene $\\bar D$", "differansen av standardavvikene", "pooled varians $S_p^2$", "P-verdien"],
+      options: ["gjennomsnittet av differansene $\\bar D$", "differansen mellom de to standardavvikene", "pooled varians $S_p^2$", "P-verdien fra testen"],
       explanation: "$\\bar D$ er selve effektestimatet; rapporter det med KI ved siden av P-verdien.",
     },
     {
       question: "«Er metode A bedre enn B?» gir hvilken alternativhypotese?",
-      options: ["Ensidig $H_a:\\mu_1>\\mu_2$", "Tosidig $H_a:\\mu_1\\ne\\mu_2$", "Ensidig $H_a:\\mu_1<\\mu_2$", "$H_a:\\sigma_1^2\\ne\\sigma_2^2$"],
+      options: ["Ensidig $H_a:\\mu_1>\\mu_2$", "Tosidig $H_a:\\mu_1\\ne\\mu_2$", "Ensidig $H_a:\\mu_1<\\mu_2$ (motsatt retning)", "$H_a:\\sigma_1^2\\ne\\sigma_2^2$"],
       explanation: "«Bedre enn» peker på én retning — ensidig, akkurat som for ett utvalg.",
     },
     {
       question: "Hvorfor er det feil å bruke to-utvalgs df på parvise data?",
-      options: ["Man overvurderer frihetsgradene og bruker en for stor standardfeil", "Man undervurderer frihetsgradene", "Det gir alltid en for liten P-verdi", "Det spiller ingen rolle for konklusjonen"],
+      options: ["Man overvurderer frihetsgradene og bruker en for stor standardfeil", "Man undervurderer frihetsgradene i den parvise testen ganske betydelig", "Det gir alltid en for liten P-verdi", "Det spiller ingen rolle i det hele tatt for den endelige konklusjonen"],
       explanation: "Parvise data har $n-1$ df, ikke $2n-2$; å ignorere koblingen gir også en oppblåst standardfeil og svakere test.",
     },
     {
@@ -1224,7 +1224,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-2-4': [
     {
       question: "Hva er styrken til en test?",
-      options: ["Sannsynligheten $1-\\beta$ for å forkaste $H_0$ når $H_a$ er sann", "Sannsynligheten $\\alpha$ for å forkaste $H_0$ når $H_0$ er sann", "Sannsynligheten $\\beta$ for å beholde $H_0$ når $H_a$ er sann", "Sannsynligheten $1-\\alpha$ for å beholde $H_0$ når $H_0$ er sann"],
+      options: ["Sannsynligheten $1-\\beta$ for å forkaste $H_0$ når $H_a$ er sann", "Sannsynligheten $\\alpha$ for å forkaste $H_0$ når $H_0$ er sann", "Sannsynligheten $\\beta$ for å beholde $H_0$ når $H_a$ er sann", "Sannsynligheten $1-\\alpha$ for å beholde $H_0$ når $H_0$ faktisk er sann"],
       explanation: "Styrken er $1-\\beta$: evnen til å oppdage en reell effekt (forkaste $H_0$ når $H_a$ faktisk er sann).",
     },
     {
@@ -1234,17 +1234,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I dimensjoneringsformelen $n\\ge (z_\\alpha+z_{\\beta})^2\\sigma^2/\\delta^2$: hva gjør du med et desimalt svar?",
-      options: ["Runder alltid OPP til nærmeste heltall", "Runder alltid NED til nærmeste heltall", "Runder til nærmeste heltall på vanlig måte", "Beholder desimalen som det nødvendige antallet"],
+      options: ["Runder alltid OPP til nærmeste heltall", "Runder alltid NED til nærmeste hele tall", "Runder til nærmeste heltall på vanlig måte", "Beholder desimalen som det nødvendige antallet"],
       explanation: "Kravet er en minst-betingelse på styrken; runder du ned, faller styrken under kravet. Rund derfor opp.",
     },
     {
       question: "For en ensidig høyresidig normaltest er styrken ved sann verdi $\\mu_1$:",
-      options: ["$\\Phi(-z_\\alpha+(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$", "$\\Phi(-z_\\alpha-(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$", "$\\Phi(z_\\alpha+(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$", "$1-\\Phi(-z_\\alpha+(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$"],
+      options: ["$\\Phi(-z_\\alpha+(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$", "$\\Phi(-z_\\alpha-(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$ med minustegn", "$\\Phi(z_\\alpha+(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$", "$1-\\Phi(-z_\\alpha+(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n))$"],
       explanation: "Leddet $(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n)$ er positivt når $\\mu_1>\\mu_0$ og løfter styrken fra $\\alpha$ mot 1.",
     },
     {
       question: "Ved $\\mu=\\mu_0$ (altså $H_0$ akkurat sann) er styrken til en ensidig test lik:",
-      options: ["$\\alpha$", "$1-\\alpha$", "$\\beta$", "$0{,}5$"],
+      options: ["$\\alpha$", "$1-\\alpha$", "$\\beta$ ved sann verdi", "$0{,}5$"],
       explanation: "Da er $(\\mu_1-\\mu_0)=0$, så styrken er $\\Phi(-z_\\alpha)=\\alpha$ — styrkekurven starter i $\\alpha$.",
     },
     {
@@ -1254,7 +1254,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For et Poisson-antall $X\\sim\\text{Poisson}(\\mu)$: hva er standardavviket?",
-      options: ["$\\sqrt{\\mu}$, siden forventning og varians begge er $\\mu$", "$\\mu$, siden forventning og varians begge er $\\mu$", "$\\mu^2$, siden variansen er kvadratet av forventningen", "$1/\\sqrt{\\mu}$, siden variansen avtar med raten"],
+      options: ["$\\sqrt{\\mu}$, siden forventning og varians begge er $\\mu$", "$\\mu$, siden forventning og varians begge er $\\mu$", "$\\mu^2$, siden variansen er kvadratet av selve forventningen", "$1/\\sqrt{\\mu}$, siden variansen avtar med raten"],
       explanation: "Poisson har $E(X)=\\text{Var}(X)=\\mu$, så standardavviket er $\\sqrt{\\mu}$.",
     },
     {
@@ -1264,17 +1264,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med styrken når du øker utvalgsstørrelsen $n$ (alt annet likt)?",
-      options: ["Styrken øker, fordi standardfeilen $\\sigma/\\sqrt n$ krymper", "Styrken synker, fordi det blir flere måter å ta feil på", "Styrken er uendret, fordi $n$ ikke inngår i styrken", "Styrken øker bare hvis $\\alpha$ samtidig senkes"],
+      options: ["Styrken øker, fordi standardfeilen $\\sigma/\\sqrt n$ krymper", "Styrken synker, fordi det blir flere måter å ta feil på i utvalget", "Styrken er uendret, fordi $n$ ikke inngår i styrken", "Styrken øker bare hvis $\\alpha$ samtidig senkes"],
       explanation: "Større $n$ gir mindre standardfeil, som løfter leddet $(\\mu_1-\\mu_0)/(\\sigma/\\sqrt n)$ og dermed styrken.",
     },
     {
       question: "Hva er den standardiserte effekten som styrer nødvendig $n$?",
-      options: ["$\\delta/\\sigma$ — effekten målt i standardavvik", "$\\delta\\cdot\\sigma$ — effekten ganget med spredningen", "$\\delta/\\sqrt n$ — effekten delt på rot-$n$", "$\\sigma/\\delta$ — spredningen delt på effekten"],
+      options: ["$\\delta/\\sigma$ — effekten målt i standardavvik", "$\\delta\\cdot\\sigma$ — effekten ganget med spredningen", "$\\delta/\\sqrt n$ — effekten delt på rot-$n$", "$\\sigma/\\delta$ — spredningen delt på selve effekten"],
       explanation: "Formelen kan skrives $n\\ge (z_\\alpha+z_\\beta)^2/(\\delta/\\sigma)^2$, så det er $\\delta/\\sigma$ som avgjør.",
     },
     {
       question: "I Poisson-styrken bruker du hvilket standardavvik i den kritiske grensen $c$ mot i selve styrken?",
-      options: ["$\\sqrt{\\mu_0}$ i grensen $c$, men $\\sqrt{\\mu_1}$ i styrken", "$\\sqrt{\\mu_1}$ i grensen $c$, men $\\sqrt{\\mu_0}$ i styrken", "$\\sqrt{\\mu_0}$ begge steder, siden $H_0$ styrer alt", "$\\sqrt{\\mu_1}$ begge steder, siden vi regner under sann rate"],
+      options: ["$\\sqrt{\\mu_0}$ i grensen $c$, men $\\sqrt{\\mu_1}$ i styrken", "$\\sqrt{\\mu_1}$ i selve grensen $c$, men $\\sqrt{\\mu_0}$ i styrken", "$\\sqrt{\\mu_0}$ begge steder, ettersom $H_0$ styrer hele regningen", "$\\sqrt{\\mu_1}$ begge steder, siden vi regner under sann rate"],
       explanation: "Grensen $c=\\mu_0+z_\\alpha\\sqrt{\\mu_0}$ regnes under $H_0$; styrken regnes under sann rate, med $\\sqrt{\\mu_1}$.",
     },
     {
@@ -1294,14 +1294,14 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste feilen i en dimensjoneringsoppgave?",
-      options: ["Å runde $n$ ned i stedet for opp", "Å bruke t-fordeling i stedet for normalfordeling", "Å regne styrken som $1-\\alpha$", "Å glemme å oppgi frihetsgradene"],
+      options: ["Å runde $n$ ned i stedet for opp", "Å bruke t-fordeling i stedet for normalfordeling", "Å regne styrken som $1-\\alpha$", "Å glemme å oppgi frihetsgradene i svaret"],
       explanation: "Avrunding ned gir for få observasjoner og dermed styrke under kravet — rund alltid opp (§5.1).",
     },
   ],
   'stk1110-2-5': [
     {
       question: "Hva kjennetegner en pivotal størrelse (pivot)?",
-      options: ["Fordelingen avhenger ikke av parameteren, selv om størrelsen gjør det", "Den er et rent tall som ikke inneholder parameteren i det hele tatt", "Den er alltid normalfordelt uansett utvalgsstørrelse", "Den er identisk med maximum-likelihood-estimatoren"],
+      options: ["Fordelingen avhenger ikke av parameteren, selv om størrelsen gjør det", "Den er et rent tall som ikke inneholder den ukjente parameteren i det hele tatt", "Den er alltid normalfordelt uansett utvalgsstørrelse", "Den er identisk med maximum-likelihood-estimatoren"],
       explanation: "En pivot er en funksjon av data OG parameter hvis fordeling er fri for parameteren — derfor kan kvantiler leses av og ulikheten løses for $\\theta$.",
     },
     {
@@ -1311,12 +1311,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et eksakt konfidensintervall fra en $\\chi^2$-pivot er asymmetrisk om $\\hat\\theta$. Hva betyr det?",
-      options: ["Det er riktig og forventet, fordi $\\chi^2$ er en skjev fordeling", "Det er en regnefeil som må rettes til et symmetrisk intervall", "Det betyr at pivoten ble valgt feil", "Det betyr at utvalgsstørrelsen $n$ er altfor liten til at intervallet kan brukes i praksis"],
+      options: ["Det er riktig og forventet, fordi $\\chi^2$ er en skjev fordeling", "Det er en regnefeil som må rettes til et symmetrisk intervall", "Det betyr at selve pivoten må ha blitt valgt feil helt fra starten av", "Det betyr at utvalgsstørrelsen $n$ er altfor liten til at intervallet kan brukes i praksis"],
       explanation: "Skjeve pivoter ($\\chi^2$, $F$) gir naturlig asymmetriske intervaller — det er en egenskap, ikke en feil (§4.7).",
     },
     {
       question: "I det eksakte KI-et $[2\\sum X_i/\\chi^2_{2n,\\alpha/2},\\ 2\\sum X_i/\\chi^2_{2n,1-\\alpha/2}]$: hvor havner den STORE kvantilen?",
-      options: ["I nevneren til den NEDRE grensen", "I nevneren til den ØVRE grensen", "I telleren til den øvre grensen", "Den store kvantilen brukes ikke i intervallet"],
+      options: ["I nevneren til den NEDRE grensen", "I nevneren til den ØVRE grensen i intervallet", "I telleren til den øvre grensen av intervallet", "Den store kvantilen brukes ikke i intervallet"],
       explanation: "Fordi $\\theta$ står i nevneren av pivoten, byttes ulikhetstegnene: den store kvantilen $\\chi^2_{2n,\\alpha/2}$ gir den nedre grensen.",
     },
     {
@@ -1331,7 +1331,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når foretrekkes et eksakt pivot-intervall framfor Wald-intervallet?",
-      options: ["Når standardfeilen selv avhenger av parameteren, eller $n$ er liten", "Alltid, fordi Wald aldri gir riktig dekning", "Bare når dataene er normalfordelte", "Bare når den ukjente parameteren tilfeldigvis er en varians og ikke en forventning"],
+      options: ["Når standardfeilen selv avhenger av parameteren, eller $n$ er liten", "Alltid, ettersom Wald-intervallet aldri gir riktig dekningsgrad i praksis", "Bare når dataene er normalfordelte", "Bare når den ukjente parameteren tilfeldigvis er en varians og ikke en forventning"],
       explanation: "Wald er en symmetrisk normaltilnærming for store $n$; når $se$ avhenger av parameteren eller $n$ er liten, er den eksakte pivoten bedre (§4.7).",
     },
     {
@@ -1341,7 +1341,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kjikvadratfordelingen $\\chi^2_\\nu$ er et spesialtilfelle av hvilken fordeling?",
-      options: ["Gamma$(\\nu/2,\\,2)$ — form $\\nu/2$, skala 2", "Gamma$(\\nu,\\,1)$ — form $\\nu$, skala 1", "Normal med forventning $\\nu$ og varians $2\\nu$", "Eksponensial med forventning $\\nu$"],
+      options: ["Gamma$(\\nu/2,\\,2)$ — form $\\nu/2$, skala 2", "Gamma$(\\nu,\\,1)$ — med form $\\nu$ og skala 1", "Normal med forventning $\\nu$ og varians $2\\nu$", "Eksponensialfordeling med forventning $\\nu$"],
       explanation: "$\\chi^2_\\nu=\\text{gamma}(\\nu/2,2)$; denne identiteten lar oss gjenkjenne pivotens fordeling.",
     },
     {
@@ -1356,7 +1356,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er $\\sum X_i$ alene IKKE en pivot for $\\theta$?",
-      options: ["Fordi fordelingen (gamma$(n,\\theta)$) avhenger av $\\theta$", "Fordi $\\sum X_i$ ikke inneholder dataene", "Fordi $\\sum X_i$ alltid er eksakt normalfordelt uansett hvor liten utvalgsstørrelsen $n$ er", "Fordi $\\sum X_i$ er et rent tall uten fordeling"],
+      options: ["Fordi fordelingen (gamma$(n,\\theta)$) avhenger av $\\theta$", "Fordi $\\sum X_i$ ikke inneholder dataene", "Fordi $\\sum X_i$ alltid er eksakt normalfordelt uansett hvor liten utvalgsstørrelsen $n$ er", "Fordi $\\sum X_i$ er et rent tall helt uten noen egen fordeling"],
       explanation: "$\\sum X_i\\sim$ gamma$(n,\\theta)$; kvantilene avhenger av det ukjente $\\theta$, så vi kan ikke løse for $\\theta$. Å dele på $\\theta$ skalerer parameteren bort.",
     },
     {
@@ -1366,7 +1366,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er første steg i pivot-oppskriften?",
-      options: ["Finn $W(X,\\theta)$ med fordeling uavhengig av $\\theta$", "Sett $\\theta$ lik gjennomsnittet $\\bar X$", "Regn Wald-standardfeilen $se(\\hat\\theta)$", "Tegn et QQ-plott av observasjonene og vurder om de er tilnærmet normalfordelte"],
+      options: ["Finn $W(X,\\theta)$ med fordeling uavhengig av $\\theta$", "Sett $\\theta$ lik selve utvalgsgjennomsnittet $\\bar X$ direkte", "Regn Wald-standardfeilen $se(\\hat\\theta)$", "Tegn et QQ-plott av observasjonene og vurder om de er tilnærmet normalfordelte"],
       explanation: "Steg 1 er å finne en pivot; deretter setter man kvantiler rundt og løser for $\\theta$.",
     },
     {
@@ -1383,7 +1383,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "ANOVA-observatoren er:",
-      options: ["$F=\\text{MSB}/\\text{MSW}\\sim F_{k-1,\\,N-k}$ under $H_0$", "$F=\\text{MSW}/\\text{MSB}\\sim F_{N-k,\\,k-1}$ under $H_0$", "$T=\\text{MSB}/\\text{MSW}\\sim t_{N-k}$ under $H_0$", "$\\chi^2=\\text{SSB}/\\text{SSW}\\sim\\chi^2_{k-1}$ under $H_0$"],
+      options: ["$F=\\text{MSB}/\\text{MSW}\\sim F_{k-1,\\,N-k}$ under $H_0$", "$F=\\text{MSW}/\\text{MSB}\\sim F_{N-k,\\,k-1}$ under nullhypotesen", "$T=\\text{MSB}/\\text{MSW}\\sim t_{N-k}$ under $H_0$", "$\\chi^2=\\text{SSB}/\\text{SSW}\\sim\\chi^2_{k-1}$ under $H_0$"],
       explanation: "F er forholdet mellom variasjon mellom grupper (MSB) og innen grupper (MSW), med df $(k-1,\\,N-k)$.",
     },
     {
@@ -1393,7 +1393,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I ANOVA-tabellen: hvordan regnes F value fra kolonnene?",
-      options: ["Mean Sq for gruppe delt på Mean Sq for Residuals", "Sum Sq for gruppe delt på Sum Sq for Residuals", "Df for gruppe delt på Df for Residuals", "Mean Sq for Residuals delt på Mean Sq for gruppe"],
+      options: ["Mean Sq for gruppe delt på Mean Sq for Residuals", "Sum Sq for gruppe delt på Sum Sq for Residuals", "Df for gruppe delt på Df for Residuals", "Mean Sq for Residuals delt på Mean Sq for selve gruppen"],
       explanation: "F value $=$ MSB/MSW $=$ (Mean Sq gruppe)/(Mean Sq Residuals).",
     },
     {
@@ -1403,7 +1403,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den empiriske fordelingsfunksjonen $\\hat F(x)$?",
-      options: ["Andelen observasjoner som er $\\le x$: $\\tfrac1n\\sum I(x_i\\le x)$", "Gjennomsnittet av observasjonene opp til $x$", "Den antatte normalfordelingen tilpasset dataene", "Den forhåndsvalgte sannsynligheten $\\alpha$ for å gjøre en type I-feil i en test"],
+      options: ["Andelen observasjoner som er $\\le x$: $\\tfrac1n\\sum I(x_i\\le x)$", "Gjennomsnittet av observasjonene opp til $x$", "Den antatte normalfordelingen som er tilpasset de observerte dataene", "Den forhåndsvalgte sannsynligheten $\\alpha$ for å gjøre en type I-feil i en test"],
       explanation: "$\\hat F$ legger sannsynlighet $1/n$ på hvert datapunkt og er grunnlaget for bootstrap.",
     },
     {
@@ -1413,7 +1413,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et 95 % bootstrap-persentilintervall leses av som:",
-      options: ["2,5- og 97,5-persentilene av bootstrap-fordelingen", "Estimatet $\\pm 1{,}96$ ganger bootstrap-standardfeilen", "Minste og største verdi i bootstrap-fordelingen", "5- og 95-persentilene av bootstrap-fordelingen"],
+      options: ["2,5- og 97,5-persentilene av bootstrap-fordelingen", "Estimatet $\\pm 1{,}96$ ganger bootstrap-standardfeilen", "Minste og største verdi i hele bootstrap-fordelingen", "5- og 95-persentilene av hele bootstrap-fordelingen"],
       explanation: "For 95 % tas $\\alpha/2=2{,}5$-persentilen og $1-\\alpha/2=97{,}5$-persentilen direkte.",
     },
     {
@@ -1433,7 +1433,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er koblingen mellom enveis ANOVA og regresjon?",
-      options: ["ANOVA er en regresjon på dummyvariabler for gruppene", "ANOVA er en logistisk regresjon på gruppene", "ANOVA og regresjon har ingen sammenheng", "ANOVA er et spesialtilfelle av et prediksjonsintervall"],
+      options: ["ANOVA er en regresjon på dummyvariabler for gruppene", "ANOVA er en logistisk regresjon på gruppetilhørigheten", "ANOVA og regresjon har ingen sammenheng", "ANOVA er et spesialtilfelle av et prediksjonsintervall"],
       explanation: "Med $k-1$ dummyer blir ANOVAs F-test regresjonens samlede F-test, og kontraster er t-tester på koeffisientene.",
     },
     {
@@ -1448,7 +1448,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "MSW i ANOVA er generaliseringen av hva fra to-utvalgstesten?",
-      options: ["Den pooled variansen $S_p^2$", "Den pooled andelen $\\hat p$", "Differansen $\\bar Y_1-\\bar Y_2$", "Standardfeilen til gjennomsnittet"],
+      options: ["Den pooled variansen $S_p^2$", "Den pooled andelen $\\hat p$ fra testen", "Differansen $\\bar Y_1-\\bar Y_2$", "Standardfeilen til gjennomsnittet"],
       explanation: "MSW slår sammen variasjon innen grupper til ett anslag på $\\sigma^2$ — akkurat som $S_p^2$, men for $k$ grupper.",
     },
   ],
@@ -1460,22 +1460,22 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer trinn 3 — å 'utlede at nivået blir $\\alpha$' — for en ensidig test?",
-      options: ["Å skrive ut $P(\\text{forkast } H_0\\mid H_0)=P(T>t_{\\nu,\\alpha}\\mid H_0)=\\alpha$", "Å velge signifikansnivået $\\alpha=0{,}05$ og deretter bruke det videre uten noen nærmere begrunnelse", "Å regne den observerte P-verdien og etterpå sjekke om den tilfeldigvis havner under nivået $\\alpha$", "Å vise at teststyrken $1-\\beta$ under alternativhypotesen blir nøyaktig lik signifikansnivået $\\alpha$"],
+      options: ["Å skrive ut $P(\\text{forkast } H_0\\mid H_0)=P(T>t_{\\nu,\\alpha}\\mid H_0)=\\alpha$", "Å velge signifikansnivået $\\alpha=0{,}05$ og bruke det videre", "Å regne den observerte P-verdien og etterpå sjekke om den tilfeldigvis havner under nivået $\\alpha$", "Å vise at teststyrken $1-\\beta$ under alternativhypotesen blir nøyaktig lik signifikansnivået $\\alpha$"],
       explanation: "Nivå-utledningen skriver forkastningssannsynligheten under $H_0$ eksplisitt og viser at den er $\\alpha$ — det eksplisitte sensorkravet.",
     },
     {
       question: "Testobservatoren for én forventning med UKJENT $\\sigma$ er:",
-      options: ["$T=(\\bar X-\\mu_0)/(S/\\sqrt n)$, med $T\\sim t_{n-1}$ under $H_0$", "$Z=(\\bar X-\\mu_0)/(\\sigma/\\sqrt n)$, med $Z\\sim N(0,1)$ under $H_0$", "$T=(\\bar X-\\mu_0)/S$, med $T\\sim t_{n}$ ($n$ frihetsgrader) under $H_0$", "$Z=(\\bar X-\\mu_0)\\sqrt n$, med $Z\\sim N(0,1)$ standardnormal under $H_0$"],
+      options: ["$T=(\\bar X-\\mu_0)/(S/\\sqrt n)$, med $T\\sim t_{n-1}$ under $H_0$", "$Z=(\\bar X-\\mu_0)/(\\sigma/\\sqrt n)$, med $Z\\sim N(0,1)$", "$T=(\\bar X-\\mu_0)/S$, med $T\\sim t_{n}$ ($n$ frihetsgrader) under $H_0$", "$Z=(\\bar X-\\mu_0)\\sqrt n$, med $Z\\sim N(0,1)$ standardnormal under $H_0$"],
       explanation: "Ukjent $\\sigma$ estimeres med $S$; da er observatoren $t_{n-1}$-fordelt under $H_0$ — ikke normal.",
     },
     {
       question: "For PARVISE data (samme enhet målt to ganger) er riktig observator og frihetsgrad:",
-      options: ["$T=\\bar D/(S_D/\\sqrt n)\\sim t_{n-1}$, der $n$ er antall par", "$T=(\\bar Y_1-\\bar Y_2)/(S_p\\sqrt{1/m+1/n})\\sim t_{m+n-2}$, med pooled varians", "$Z=(\\bar Y_1-\\bar Y_2)/\\sqrt{\\ldots}\\sim N(0,1)$, som for to uavhengige utvalg", "$T=\\bar D/(S_D/\\sqrt n)\\sim t_{2n-2}$, med dobbelt så mange frihetsgrader"],
+      options: ["$T=\\bar D/(S_D/\\sqrt n)\\sim t_{n-1}$, der $n$ er antall par", "$T=(\\bar Y_1-\\bar Y_2)/(S_p\\sqrt{1/m+1/n})\\sim t_{m+n-2}$, med pooled varians", "$Z=(\\bar Y_1-\\bar Y_2)/\\sqrt{\\ldots}\\sim N(0,1)$, som for to uavhengige utvalg", "$T=\\bar D/(S_D/\\sqrt n)\\sim t_{2n-2}$"],
       explanation: "Parvise data reduseres til differansene $D_i$ og testes som ETT utvalg med $n-1$ frihetsgrader ($n$ = par), ikke som to uavhengige utvalg.",
     },
     {
       question: "I to-utvalgs andelstesten skal standardfeilen under $H_0$ bruke:",
-      options: ["pooled $\\hat p=(x_1+x_2)/(n_1+n_2)$", "de separate estimatene $\\hat p_1$ og $\\hat p_2$ hver for seg, uten sammenslåing", "det uvektede gjennomsnittet $(\\hat p_1+\\hat p_2)/2$ av de to gruppeandelene", "den største av de to gruppeandelene $\\hat p_1$ og $\\hat p_2$, som en øvre grense"],
+      options: ["pooled $\\hat p=(x_1+x_2)/(n_1+n_2)$", "separate $\\hat p_1$ og $\\hat p_2$", "det uvektede gjennomsnittet $(\\hat p_1+\\hat p_2)/2$ av de to gruppeandelene", "den største av de to gruppeandelene $\\hat p_1$ og $\\hat p_2$, som en øvre grense"],
       explanation: "Under $H_0:p_1=p_2$ antas én felles andel, så standardfeilen bruker pooled $\\hat p$. Separate $\\hat p_i$ hører til KI for differansen.",
     },
     {
@@ -1490,7 +1490,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En Poisson-test av $H_0:\\mu=\\mu_0$ med normaltilnærming bruker observatoren:",
-      options: ["$Z=(X-\\mu_0)/\\sqrt{\\mu_0}$, fordi $E(X)=\\text{Var}(X)=\\mu$", "$Z=(X-\\mu_0)/\\mu_0$, siden Poisson-variansen er lik $\\mu_0^2$", "$T=(X-\\mu_0)/\\sqrt{X}\\sim t_{n-1}$, som en t-fordelt observator", "$Z=(X-\\mu_0)/\\sqrt{X}$, standardisert med det observerte antallet $X$"],
+      options: ["$Z=(X-\\mu_0)/\\sqrt{\\mu_0}$, fordi $E(X)=\\text{Var}(X)=\\mu$", "$Z=(X-\\mu_0)/\\mu_0$, siden Poisson-variansen er lik $\\mu_0^2$", "$T=(X-\\mu_0)/\\sqrt{X}\\sim t_{n-1}$, som en t-fordelt observator", "$Z=(X-\\mu_0)/\\sqrt{X}$, med det observerte antallet"],
       explanation: "For Poisson er forventning og varians begge $\\mu$; under $H_0$ er standardavviket $\\sqrt{\\mu_0}$, og CLT gir $Z\\approx N(0,1)$.",
     },
     {
@@ -1500,17 +1500,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan begrunnes valget mellom ensidig og tosidig $H_a$?",
-      options: ["Ut fra hva situasjonen ber deg påvise, FØR du ser dataene", "Ut fra hvilken retning testobservatoren peker etter at du har regnet den ut", "Ut fra hvilken av de to retningene som ender opp med å gi den minste P-verdien", "Alltid tosidig uansett situasjon, for å være på den sikre siden i alle tilfeller"],
+      options: ["Ut fra hva situasjonen ber deg påvise, FØR du ser dataene", "Ut fra hvilken retning testobservatoren peker etter at du har regnet den ut", "Ut fra hvilken av de to retningene som ender opp med å gi den minste P-verdien", "Alltid tosidig uansett situasjon, for sikkerhets skyld"],
       explanation: "Retningen følger av spørsmålet og bestemmes før dataene ses; å velge retning etter dataene ugyldiggjør nivået.",
     },
     {
       question: "P-verdien er korrekt definert som:",
-      options: ["sannsynligheten under $H_0$ for et minst like ekstremt utfall som det observerte", "sannsynligheten for at nullhypotesen $H_0$ er den sanne hypotesen gitt de innsamlede dataene", "sannsynligheten for at alternativhypotesen $H_a$ er den korrekte hypotesen i dette forsøket", "andelen av de innsamlede observasjonene som faktisk ligger i det vi kaller det ekstreme området"],
+      options: ["sannsynligheten under $H_0$ for et minst like ekstremt utfall som det observerte", "sannsynligheten for at nullhypotesen $H_0$ er den sanne hypotesen gitt de innsamlede dataene", "sannsynligheten for at alternativhypotesen $H_a$ er den korrekte hypotesen i dette forsøket", "andelen observasjoner som ligger i det ekstreme området"],
       explanation: "P-verdien beregnes UNDER $H_0$ og måler hvor ekstreme dataene er — ikke sannsynligheten for en hypotese.",
     },
     {
       question: "En ett-utvalgs t-test som skal 'påvise ØKNING' over $\\mu_0$ skal ha:",
-      options: ["$H_a:\\mu>\\mu_0$ (ensidig, høyresidig)", "$H_a:\\mu\\ne\\mu_0$ (tosidig, endring i begge retninger)", "$H_a:\\mu<\\mu_0$ (ensidig, venstresidig alternativ)", "$H_0:\\mu>\\mu_0$ (ulikhet som selve nullhypotesen)"],
+      options: ["$H_a:\\mu>\\mu_0$ (ensidig, høyresidig)", "$H_a:\\mu\\ne\\mu_0$ (tosidig)", "$H_a:\\mu<\\mu_0$ (ensidig, venstresidig alternativ)", "$H_0:\\mu>\\mu_0$ som nullhypotese"],
       explanation: "'Påvise økning' er en bestemt retning, så $H_a$ er ensidig høyresidig; $H_0$ er alltid likheten $\\mu=\\mu_0$.",
     },
     {
@@ -1520,7 +1520,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En medstudent behandler før/etter-målinger på samme personer som to uavhengige utvalg. Hva er galt?",
-      options: ["Dataene er koblet og skal reduseres til differanser $D_i$ med $t_{n-1}$", "Ingenting er galt — før/etter-målinger regnes alltid som to helt uavhengige utvalg", "Han skulle egentlig brukt en F-test for varianser i stedet for en t-test her", "Han skulle brukt observatoren $Z\\sim N(0,1)$ i stedet for en t-fordelt observator"],
+      options: ["Dataene er koblet og skal reduseres til differanser $D_i$ med $t_{n-1}$", "Ingenting er galt — før/etter-målinger er uavhengige utvalg", "Han skulle egentlig brukt en F-test for varianser i stedet for en t-test her", "Han skulle brukt observatoren $Z\\sim N(0,1)$ i stedet for en t-fordelt observator"],
       explanation: "Koblede målinger på samme enhet er parvise; å ignorere koblingen gir feil df og for stor standardfeil.",
     },
     {
@@ -1550,12 +1550,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Siste trinn (konklusjon) i ritualet skal:",
-      options: ["oversette forkast/behold til situasjonens språk, med P-verdi og nivå", "kun oppgi den nakne konklusjonen om $T$ er større enn den kritiske verdien", "gjenta de to hypotesene $H_0$ og $H_a$ ordrett slik de ble formulert", "regne det tosidige konfidensintervallet for parameteren helt på nytt igjen"],
+      options: ["oversette forkast/behold til situasjonens språk, med P-verdi og nivå", "kun oppgi den nakne konklusjonen om $T$ er større enn den kritiske verdien", "gjenta de to hypotesene $H_0$ og $H_a$ ordrett slik de ble formulert", "regne konfidensintervallet for parameteren helt på nytt"],
       explanation: "Sensor krever en konklusjon i kontekst — ikke bare 'forkast $H_0$', men hva det betyr for situasjonen.",
     },
     {
       question: "Du har både regnet et 95 %-KI og gjort en tosidig 5 %-test. Dualiteten sier at:",
-      options: ["$H_0:\\theta=\\theta_0$ forkastes hvis og bare hvis $\\theta_0$ ligger utenfor KI-et", "test og konfidensintervall i praksis godt kan ende opp med å gi motstridende svar", "dualiteten mellom test og intervall bare gjelder for ensidige tester, ikke tosidige", "konfidensintervallet inneholder nettopp de nullverdiene $\\theta_0$ som faktisk forkastes"],
+      options: ["$H_0:\\theta=\\theta_0$ forkastes hvis og bare hvis $\\theta_0$ ligger utenfor KI-et", "test og konfidensintervall i praksis godt kan ende opp med å gi motstridende svar", "dualiteten bare gjelder for ensidige tester, ikke tosidige", "konfidensintervallet inneholder nettopp de nullverdiene $\\theta_0$ som faktisk forkastes"],
       explanation: "Det tosidige $(1-\\alpha)$-KI-et er mengden av nullverdier som IKKE forkastes — en direkte kryssjekk.",
     },
     {
@@ -1575,7 +1575,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En F-test av lik varians gir $F=2{,}5$ mot kritisk verdi 2,76 og beholder $H_0$. Hva betyr det for en påfølgende pooled t-test?",
-      options: ["Lik-varians-antakelsen kan beholdes, så pooling er forsvarlig", "Det er nå bevist at de to variansene er nøyaktig like store", "Man må uansett bytte til Welch-varianten som ikke antar lik varians", "Pooling er nå forbudt, ganske enkelt fordi observatoren $F$ er større enn 1"],
+      options: ["Lik-varians-antakelsen kan beholdes, så pooling er forsvarlig", "Det er nå bevist at de to variansene er nøyaktig like store", "Man må uansett bytte til Welch-varianten", "Pooling er nå forbudt, ganske enkelt fordi observatoren $F$ er større enn 1"],
       explanation: "Ikke-forkastet $H_0$ gir ikke belegg mot lik varians, så pooling er forsvarlig — men det er ikke et bevis for at variansene er identiske.",
     },
   ],
@@ -1587,7 +1587,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange frihetsgrader har feilvariansen $S^2$ i enkel lineær regresjon med $n$ observasjoner?",
-      options: ["$n-2$, fordi to parametere ($\\beta_0$ og $\\beta_1$) er estimert", "$n-1$, fordi bare senteret $\\bar Y$ er estimert, ikke stigningstallet", "$n$, fordi ingen frihetsgrader bindes i regresjon", "$n-3$, fordi også $\\sigma^2$ teller som en estimert parameter"],
+      options: ["$n-2$, fordi to parametere ($\\beta_0$ og $\\beta_1$) er estimert", "$n-1$, fordi bare senteret $\\bar Y$ er estimert, ikke stigningstallet", "$n$, fordi ingen frihetsgrader bindes i regresjon", "$n-3$, fordi også $\\sigma^2$ teller med som en estimert parameter"],
       explanation: "To parametere ($\\beta_0,\\beta_1$) estimeres, så $S^2=\\text{SSE}/(n-2)$. Å skrive $n-1$ er den klassiske df-feilen.",
     },
     {
@@ -1597,12 +1597,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Variansen er $V(\\hat\\beta_1)=\\sigma^2/S_{xx}$. Hva betyr dette for presisjonen?",
-      options: ["Mer spredte $x$-verdier (stor $S_{xx}$) gir mer presist stigningstall", "Mer spredte $x$-verdier (stor $S_{xx}$) gir mindre presist stigningstall", "Presisjonen avhenger overhodet ikke av hvordan $x$-verdiene ligger", "Variansen blir eksakt null så snart utvalgsstørrelsen $n$ er partall"],
+      options: ["Mer spredte $x$-verdier (stor $S_{xx}$) gir mer presist stigningstall", "Mer spredte $x$-verdier (stor $S_{xx}$) gir mindre presist stigningstall", "Presisjonen avhenger overhodet ikke av hvordan $x$-verdiene ligger", "Variansen blir eksakt null så snart utvalgsstørrelsen $n$ er et partall"],
       explanation: "Stor $S_{xx}$ i nevneren gjør $V(\\hat\\beta_1)$ liten — spre $x$-verdiene for presisjon.",
     },
     {
       question: "I enkel lineær regresjon er determinasjonskoeffisienten $R^2$ lik:",
-      options: ["kvadratet av korrelasjonen mellom $x$ og $y$, altså $r^2$", "korrelasjonskoeffisienten $r$ selv, altså uten å kvadrere den først", "stigningstallet $\\hat\\beta_1$ ganget med $\\bar x$", "differansen $1-r$ mellom én og korrelasjonen"],
+      options: ["kvadratet av korrelasjonen mellom $x$ og $y$, altså $r^2$", "korrelasjonskoeffisienten $r$ selv, altså uten å kvadrere den først", "stigningstallet $\\hat\\beta_1$ ganget med gjennomsnittet $\\bar x$", "differansen $1-r$ mellom én og korrelasjonen"],
       explanation: "$R^2=r^2$ i enkel regresjon. Å forveksle $R^2$ med $r$ (glemme kvadratet) er en hyppig feil.",
     },
     {
@@ -1617,27 +1617,27 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bruker inferensen for $\\beta_1$ t-fordelingen og ikke normalfordelingen?",
-      options: ["Fordi $\\sigma$ er ukjent og erstattet med den stokastiske estimatoren $S$", "Fordi selve estimatoren $\\hat\\beta_1$ i dette tilfellet ikke er normalfordelt", "Fordi forklaringsvariablene $x_i$ er trukket tilfeldig", "Fordi $R^2$ per definisjon alltid er mindre enn 1"],
+      options: ["Fordi $\\sigma$ er ukjent og erstattet med den stokastiske estimatoren $S$", "Fordi selve estimatoren $\\hat\\beta_1$ i dette tilfellet ikke er normalfordelt", "Fordi forklaringsvariablene $x_i$ er trukket helt tilfeldig fra populasjonen", "Fordi $R^2$ per definisjon alltid er mindre enn 1"],
       explanation: "Estimert $\\sigma$ (via $S$) gir t-fordeling med $n-2$ frihetsgrader, akkurat som i ett-utvalgstesten.",
     },
     {
       question: "Et 95 %-KI for $\\beta_1$ er $[1{,}63,\\ 2{,}68]$. Hva sier dualiteten om $H_0:\\beta_1=0$ tosidig på 5 %-nivå?",
-      options: ["$H_0$ forkastes, fordi verdien 0 ligger utenfor intervallet", "$H_0$ beholdes, fordi verdien 0 ligger utenfor intervallet", "$H_0$ beholdes, fordi hele intervallet består av positive tall", "Dualiteten mellom test og KI kan ikke brukes i regresjon"],
+      options: ["$H_0$ forkastes, fordi verdien 0 ligger utenfor intervallet", "$H_0$ beholdes, siden verdien 0 ligger utenfor hele intervallet", "$H_0$ beholdes, fordi hele intervallet består av positive tall", "Dualiteten mellom test og KI kan ikke brukes i regresjon"],
       explanation: "Forkast $H_0:\\beta_1=\\beta_1^0$ hviss $\\beta_1^0$ ligger utenfor KI-et; 0 er utenfor $[1{,}63,\\ 2{,}68]$.",
     },
     {
       question: "Minste kvadrater minimerer:",
-      options: ["$\\sum(y_i-\\hat\\beta_0-\\hat\\beta_1 x_i)^2$, summen av kvadrerte loddrette avstander", "$\\sum|y_i-\\hat\\beta_0-\\hat\\beta_1 x_i|$, altså summen av de absolutte loddrette avvikene", "$\\sum(x_i-\\bar x)^2$, den totale spredningen i forklaringsvariabelen", "summen av de vinkelrette (ortogonale) avstandene fra punktene til linja"],
+      options: ["$\\sum(y_i-\\hat\\beta_0-\\hat\\beta_1 x_i)^2$, summen av kvadrerte loddrette avstander", "$\\sum|y_i-\\hat\\beta_0-\\hat\\beta_1 x_i|$, altså summen av de absolutte loddrette avvikene", "$\\sum(x_i-\\bar x)^2$, den totale spredningen i forklaringsvariabelen", "summen av de vinkelrette (ortogonale) avstandene fra hvert enkelt punkt ned til linja"],
       explanation: "LS minimerer summen av kvadrerte residualer (loddrette avvik), ikke absoluttavvik eller vinkelrett avstand.",
     },
     {
       question: "For $\\hat\\beta_1=2{,}15$ og $se(\\hat\\beta_1)=0{,}23$ med $n=10$: hva er t-observatoren for $H_0:\\beta_1=0$?",
-      options: ["$T=2{,}15/0{,}23\\approx 9{,}3$, med $n-2=8$ frihetsgrader", "$T=2{,}15/0{,}23\\approx 9{,}3$, med $n-1=9$ frihetsgrader", "$T=0{,}23/2{,}15\\approx 0{,}11$, med $n-2=8$ frihetsgrader", "$T=2{,}15\\cdot 0{,}23\\approx 0{,}49$, med $n=10$ frihetsgrader"],
+      options: ["$T=2{,}15/0{,}23\\approx 9{,}3$, med $n-2=8$ frihetsgrader", "$T=2{,}15/0{,}23\\approx 9{,}3$, men med $n-1=9$ frihetsgrader", "$T=0{,}23/2{,}15\\approx 0{,}11$, med $n-2=8$ frihetsgrader", "$T=2{,}15\\cdot 0{,}23\\approx 0{,}49$, med $n=10$ frihetsgrader"],
       explanation: "$T=\\hat\\beta_1/se$, og enkel regresjon har $n-2=8$ frihetsgrader.",
     },
     {
       question: "Hva er standardfeilen $se(\\hat\\beta_1)$?",
-      options: ["$S/\\sqrt{S_{xx}}$, der $S=\\sqrt{\\text{SSE}/(n-2)}$ estimerer $\\sigma$", "$S/\\sqrt{n}$, som er standardfeilen til det vanlige utvalgsgjennomsnittet $\\bar X$", "$\\sigma^2/S_{xx}$, altså selve variansen til $\\hat\\beta_1$", "$S\\cdot\\sqrt{S_{xx}}$, produktet av $S$ og roten av $S_{xx}$"],
+      options: ["$S/\\sqrt{S_{xx}}$, der $S=\\sqrt{\\text{SSE}/(n-2)}$ estimerer $\\sigma$", "$S/\\sqrt{n}$, som er standardfeilen til det vanlige utvalgsgjennomsnittet $\\bar X$", "$\\sigma^2/S_{xx}$, altså selve variansen til $\\hat\\beta_1$", "$S\\cdot\\sqrt{S_{xx}}$, altså produktet av $S$ og kvadratroten av $S_{xx}$"],
       explanation: "$se(\\hat\\beta_1)=\\sqrt{V(\\hat\\beta_1)}$ med $\\sigma$ erstattet av $S$: $S/\\sqrt{S_{xx}}$.",
     },
     {
@@ -1647,12 +1647,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Uttrykket $\\text{SSE}=\\sum(y_i-\\hat y_i)^2$ måler:",
-      options: ["variasjonen i $y$ som linja IKKE forklarer (residualvariasjon)", "den totale variasjonen i $y$ rundt sitt eget gjennomsnitt", "den delen av variasjonen i $y$ som linja nettopp forklarer", "spredningen i forklaringsvariabelens $x$-verdier rundt $\\bar x$"],
+      options: ["variasjonen i $y$ som linja IKKE forklarer (residualvariasjon)", "den totale variasjonen i $y$ rundt sitt eget gjennomsnitt $\\bar y$", "den delen av variasjonen i $y$ som linja nettopp forklarer", "spredningen i forklaringsvariabelens $x$-verdier rundt $\\bar x$"],
       explanation: "SSE er summen av kvadrerte residualer — den uforklarte delen. $R^2=1-\\text{SSE}/\\text{SST}$.",
     },
     {
       question: "Under normalfordelte feilledd gjelder at minste kvadrater:",
-      options: ["gir nøyaktig de samme estimatorene som maximum likelihood", "alltid gir et høyere $R^2$ enn maximum likelihood ville gjort", "er en helt annen metode uten noen kobling til likelihood", "bare gir gyldige estimatorer i tilfellet der $\\beta_0=0$"],
+      options: ["gir nøyaktig de samme estimatorene som maximum likelihood", "alltid gir et høyere $R^2$ enn maximum likelihood ville gjort", "er en helt annen metode helt uten kobling til likelihood-teorien", "bare gir gyldige estimatorer i tilfellet der $\\beta_0=0$"],
       explanation: "Log-likelihooden inneholder $-\\frac{1}{2\\sigma^2}\\sum(y_i-\\beta_0-\\beta_1x_i)^2$, så å maksimere $\\ell$ er å minimere residualkvadratsummen.",
     },
     {
@@ -1662,7 +1662,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ekstrapolering i regresjon betyr å:",
-      options: ["bruke linja for $x$-verdier utenfor det området dataene dekker", "legge til nok en forklaringsvariabel i den eksisterende modellen", "fjerne mistenkelige uteliggere før man tilpasser linja på nytt", "regne determinasjonskoeffisienten $R^2$ på nytt for et delutvalg"],
+      options: ["bruke linja for $x$-verdier utenfor det området dataene dekker", "legge til nok en forklaringsvariabel i den eksisterende modellen", "fjerne mistenkelige uteliggere før man tilpasser regresjonslinja på nytt", "regne determinasjonskoeffisienten $R^2$ på nytt for et delutvalg"],
       explanation: "Modellen er bare understøttet i dataområdet; utenfor kan sammenhengen bryte sammen.",
     },
     {
@@ -1697,7 +1697,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Uttrykket $\\hat\\beta_1=\\sum c_iY_i$ (funksjon av stokastiske $Y_i$) er en:",
-      options: ["estimator — en stokastisk variabel med forventning og varians", "et estimat — et fast tall regnet ut fra ett datasett", "parameter — en fast, ukjent egenskap ved populasjonen", "residual — avviket mellom observert og tilpasset verdi"],
+      options: ["estimator — en stokastisk variabel med forventning og varians", "et estimat — et fast tall regnet ut fra ett datasett", "parameter — en fast, ukjent egenskap ved populasjonen", "residual — avviket mellom observert verdi og tilpasset verdi fra linja"],
       explanation: "$\\hat\\beta_1$ er en funksjon av de stokastiske $Y_i$, altså en estimator; tallverdien fra data er et estimat.",
     },
     {
@@ -1707,7 +1707,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "$R^2=0{,}30$ i en regresjon. Hva er en korrekt tolkning?",
-      options: ["30 % av variasjonen i $y$ forklares av forklaringsvariabelen $x$", "korrelasjonen mellom $x$ og $y$ er nøyaktig lik 0,30", "30 % av observasjonene ligger nøyaktig på regresjonslinja", "stigningstallet $\\hat\\beta_1$ har verdien 0,30 i denne modellen"],
+      options: ["30 % av variasjonen i $y$ forklares av forklaringsvariabelen $x$", "korrelasjonen mellom $x$ og $y$ er nøyaktig lik 0,30", "30 % av observasjonene ligger nøyaktig på regresjonslinja", "stigningstallet $\\hat\\beta_1$ har nøyaktig verdien 0,30 i denne modellen"],
       explanation: "$R^2$ er andelen forklart variasjon; korrelasjonen er $\\sqrt{0{,}30}\\approx 0{,}55$.",
     },
     {
@@ -1739,7 +1739,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan regner du ut `t value` fra de andre kolonnene?",
-      options: ["`t value` $=$ `Estimate` delt på `Std. Error`", "`t value` $=$ `Std. Error` delt på `Estimate`", "`t value` $=$ `Estimate` ganget med `Std. Error`", "`t value` $=$ `Estimate` delt på `Pr(>|t|)`"],
+      options: ["`t value` $=$ `Estimate` delt på `Std. Error`", "`t value` $=$ `Std. Error` delt på `Estimate`", "`t value` $=$ `Estimate` ganget med `Std. Error`", "`t value` $=$ `Estimate` delt på P-verdien `Pr(>|t|)`"],
       explanation: "$\\texttt{t value}=\\hat\\beta_j/se(\\hat\\beta_j)=$ `Estimate`/`Std. Error` — en fin kryssjekk.",
     },
     {
@@ -1754,7 +1754,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bruker du `Adjusted R-squared` (ikke `Multiple R-squared`) til å sammenligne modeller?",
-      options: ["Fordi `Multiple R-squared` øker uansett når en variabel legges til", "Fordi `Adjusted R-squared` alltid er større og dermed mer optimistisk", "Fordi `Multiple R-squared` bare gjelder for enkel regresjon", "Fordi `Adjusted R-squared` måler korrelasjonen mellom prediktorene"],
+      options: ["Fordi `Multiple R-squared` øker uansett når en variabel legges til", "Fordi `Adjusted R-squared` alltid er større og dermed mer optimistisk", "Fordi `Multiple R-squared` bare gjelder i enkel lineær regresjon med én prediktor", "Fordi `Adjusted R-squared` måler korrelasjonen mellom prediktorene"],
       explanation: "`Multiple R-squared` kan aldri synke ved flere variabler; den justerte straffer for antall prediktorer.",
     },
     {
@@ -1764,7 +1764,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En koeffisient har `Pr(>|t|)` $=0{,}42$. Hva kan du konkludere på 5 %-nivå?",
-      options: ["Koeffisienten er ikke signifikant — vi kan ikke forkaste at den er null gitt de øvrige", "Koeffisienten er signifikant — en P-verdi på 0,42 betyr at variabelen forklarer 42 % av variasjonen i responsen", "Variabelen er helt uviktig for responsen uansett modell", "Det er 42 % sannsynlig at koeffisienten er nøyaktig null"],
+      options: ["Koeffisienten er ikke signifikant — vi kan ikke forkaste at den er null gitt de øvrige", "Koeffisienten er signifikant — en P-verdi på 0,42 betyr at variabelen forklarer 42 % av variasjonen i responsen", "Variabelen er helt uviktig for responsen uansett modell", "Det er hele 42 % sannsynlig at denne koeffisienten i virkeligheten er nøyaktig lik null"],
       explanation: "$0{,}42>0{,}05$, så $H_0:\\beta_j=0$ beholdes; ikke-signifikant betyr ikke automatisk «uviktig».",
     },
     {
@@ -1799,7 +1799,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En koeffisient er ikke-signifikant i en multippel regresjon. Hva er den riktige tolkningen?",
-      options: ["Variabelen bidrar ikke utover det de øvrige variablene allerede fanger", "Variabelen har garantert ingen sammenheng med responsen i det hele tatt", "Modellen som helhet må forkastes fordi én koeffisient er null", "Estimatet er nøyaktig null og kan fjernes uten videre vurdering"],
+      options: ["Variabelen bidrar ikke utover det de øvrige variablene allerede fanger", "Variabelen har garantert ingen sammenheng med responsen i det hele tatt", "Modellen som helhet må forkastes fordi én koeffisient er null", "Estimatet er nøyaktig null, og variabelen kan fjernes uten videre vurdering"],
       explanation: "P-verdien er betinget på de øvrige; en korrelert variabel kan skjule effekten (§5.14).",
     },
     {
@@ -1809,7 +1809,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I enkel regresjon er sammenhengen mellom F-statistikken og t-verdien for stigningstallet:",
-      options: ["$F=(\\texttt{t value})^2$, og de gir samme P-verdi", "$F=\\texttt{t value}$, altså nøyaktig samme tall", "$F=2\\cdot\\texttt{t value}$ på grunn av tosidigheten", "$F$ og t har ingen fast sammenheng i enkel regresjon"],
+      options: ["$F=(\\texttt{t value})^2$, og de gir samme P-verdi", "$F=\\texttt{t value}$, altså nøyaktig det samme tallet", "$F=2\\cdot\\texttt{t value}$ på grunn av tosidigheten", "$F$ og t har ingen fast sammenheng i enkel regresjon"],
       explanation: "Med én prediktor er $F=(\\texttt{t value})^2$ og den samlede P-verdien lik `Pr(>|t|)` for stigningstallet.",
     },
     {
@@ -1819,7 +1819,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "`Multiple R-squared` i utskriften er:",
-      options: ["$R^2=1-\\text{SSE}/\\text{SST}$, andelen forklart variasjon", "korrelasjonen $r$ mellom respons og prediktor", "residualspredningen $\\hat\\sigma$ i modellen", "den justerte $R^2$-en, som straffer for antall prediktorer i modellen"],
+      options: ["$R^2=1-\\text{SSE}/\\text{SST}$, andelen forklart variasjon", "korrelasjonen $r$ mellom responsen og prediktoren i modellen", "residualspredningen $\\hat\\sigma$ i modellen", "den justerte $R^2$-en, som straffer for antall prediktorer i modellen"],
       explanation: "«Multiple R-squared» er $R^2$; den justerte varianten står i egen kolonne ved siden av.",
     },
     {
@@ -1834,7 +1834,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Den samlede P-verdien på F-statistic-linja forteller om:",
-      options: ["hvorvidt minst én av forklaringsvariablene bidrar (modellen forklarer noe)", "hvilken enkelt variabel som er den viktigste i modellen", "om residualene tilfredsstiller normalitetsantakelsen i alle de tre standard residualplottene", "om `(Intercept)` er signifikant forskjellig fra null"],
+      options: ["hvorvidt minst én av forklaringsvariablene bidrar (modellen forklarer noe)", "hvilken enkelt forklaringsvariabel som er den aller viktigste i hele modellen", "om residualene tilfredsstiller normalitetsantakelsen i alle de tre standard residualplottene", "om `(Intercept)` er signifikant forskjellig fra null"],
       explanation: "F-P-verdien gjelder $H_0:$ alle helninger null; liten P-verdi betyr at minst én prediktor bidrar.",
     },
     {
@@ -1849,7 +1849,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En koeffisient har $t=0{,}84$ og et 95 %-KI $[-1{,}52,\\ 0{,}70]$. Hva sier dualiteten?",
-      options: ["Ikke signifikant på 5 %-nivå, fordi 0 ligger inne i intervallet", "Signifikant på 5 %-nivå, fordi intervallet inneholder negative tall", "Signifikant, fordi t-verdien er positiv og under 1", "Dualiteten gjelder ikke for koeffisienter i multippel regresjon"],
+      options: ["Ikke signifikant på 5 %-nivå, fordi 0 ligger inne i intervallet", "Signifikant på 5 %-nivå, fordi intervallet inneholder negative tall", "Signifikant, fordi t-verdien er positiv og under 1", "Dualiteten gjelder ikke for koeffisienter i en multippel regresjon"],
       explanation: "0 ligger inne i KI-et, så $H_0:\\beta_j=0$ beholdes — i tråd med den lave t-verdien.",
     },
     {
@@ -1876,12 +1876,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange frihetsgrader har $S^2$ i multippel regresjon med $n$ observasjoner og $k$ prediktorer?",
-      options: ["$n-k-1$, fordi $k+1$ parametre er estimert", "$n-k$, fordi bare de $k$ helningene regnes som estimerte parametre", "$n-1$, som for vanlig utvalgsvarians", "$n-2$, uansett antall prediktorer"],
+      options: ["$n-k-1$, fordi $k+1$ parametre er estimert", "$n-k$, fordi bare de $k$ helningene regnes som estimerte parametre", "$n-1$, akkurat som for vanlig utvalgsvarians", "$n-2$, uansett antall prediktorer"],
       explanation: "Konstantleddet teller med: $k+1$ estimerte parametre gir df $=n-k-1$.",
     },
     {
       question: "Hva skjer med $R^2$ når en ny prediktor legges til modellen?",
-      options: ["Den kan aldri synke — uansett hvor irrelevant variabelen er", "Den øker bare hvis den nye variabelen er statistisk signifikant på 5 %-nivå", "Den kan synke hvis variabelen er ukorrelert med responsen", "Den er uendret til variabelen testes med F-test"],
+      options: ["Den kan aldri synke — uansett hvor irrelevant variabelen er", "Den øker bare hvis den nye variabelen er statistisk signifikant på 5 %-nivå", "Den kan synke dersom den nye variabelen er ukorrelert med responsen", "Den er uendret til variabelen testes med F-test"],
       explanation: "Den store modellen inneholder den lille som spesialtilfelle, så SSE kan ikke øke — dermed kan $R^2$ ikke synke.",
     },
     {
@@ -1901,7 +1901,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr koeffisienten $\\beta_j$ i multippel regresjon?",
-      options: ["Endring i forventet respons per enhet $x_j$ når de andre variablene holdes konstant", "Den totale effekten av $x_j$ på responsen, uavhengig av modellens øvrige innhold", "Korrelasjonen mellom $x_j$ og responsen, omregnet til standardisert skala med standardavvikene", "Andelen av variasjonen i responsen som $x_j$ alene forklarer"],
+      options: ["Endring i forventet respons per enhet $x_j$ når de andre variablene holdes konstant", "Den totale effekten av $x_j$ på responsen, uavhengig av hva modellen ellers inneholder", "Korrelasjonen mellom $x_j$ og responsen, omregnet til standardisert skala med standardavvikene", "Andelen av variasjonen i responsen som $x_j$ alene forklarer"],
       explanation: "Tolkningen er betinget: effekten av $x_j$ med de øvrige prediktorene i modellen holdt faste.",
     },
     {
@@ -1921,37 +1921,37 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er multikollinearitet?",
-      options: ["Sterk korrelasjon mellom prediktorene som blåser opp standardfeilene", "Sterk korrelasjon mellom residualene og de tilpassede verdiene i modellen", "At feilleddene er avhengige over tid i stedet for uavhengige", "At responsen er lineær i noen prediktorer og ikke i andre"],
+      options: ["Sterk korrelasjon mellom prediktorene som blåser opp standardfeilene", "Sterk korrelasjon mellom residualene og de tilpassede verdiene i modellen", "At feilleddene er avhengige over tid i stedet for å være helt uavhengige", "At responsen er lineær i noen prediktorer og ikke i andre"],
       explanation: "Nesten-overlappende prediktorer gjør $X^TX$ nær singulær: koeffisientene blir upresise selv om modellen samlet er god.",
     },
     {
       question: "En koeffisient endrer seg kraftig når en ny variabel legges til modellen. Hva er den naturlige forklaringen?",
-      options: ["Den nye variabelen er korrelert med prediktoren og påvirker responsen — konfundering", "Modellen har mistet en frihetsgrad, og det forskyver alle estimatene", "Minste kvadraters metode er numerisk ustabil og gir litt ulike koeffisienter hver gang", "Residualvariansen har økt, og det trekker koeffisientene mot null"],
+      options: ["Den nye variabelen er korrelert med prediktoren og påvirker responsen — konfundering", "Modellen har mistet en frihetsgrad, og det forskyver samtlige estimater i hele tabellen", "Minste kvadraters metode er numerisk ustabil og gir litt ulike koeffisienter hver gang", "Residualvariansen har økt, og det trekker koeffisientene mot null"],
       explanation: "Uten den nye variabelen arvet prediktoren dens effekt; med den måles bare prediktorens egen, betingede effekt.",
     },
     {
       question: "Hva sier normalligningene på matriseform?",
-      options: ["$X^TX\\hat\\beta=X^TY$ — residualene er ukorrelerte med kolonnene i $X$", "$XX^T\\hat\\beta=XY$ — residualene er ukorrelerte med hver enkelt rad i $X$", "$X\\hat\\beta=Y$ — modellen skal treffe alle observasjonene", "$X^T\\hat\\beta=Y^TX$ — transponert balanse mellom sidene"],
+      options: ["$X^TX\\hat\\beta=X^TY$ — residualene er ukorrelerte med kolonnene i $X$", "$XX^T\\hat\\beta=XY$ — residualene er ukorrelerte med hver enkelt rad i $X$", "$X\\hat\\beta=Y$ — modellen skal treffe hver eneste observasjon helt nøyaktig", "$X^T\\hat\\beta=Y^TX$ — transponert balanse mellom sidene"],
       explanation: "Minimering av $\\lVert y-X\\beta\\rVert^2$ gir $X^T(y-X\\hat\\beta)=0$, altså $X^TX\\hat\\beta=X^Ty$.",
     },
     {
       question: "Hvilken dimensjon har designmatrisen $X$ med $n$ observasjoner og $k$ prediktorer?",
-      options: ["$n\\times(k+1)$ — én rad per observasjon, én kolonne per parameter", "$n\\times k$ — konstantleddet trenger ingen kolonne", "$(k+1)\\times n$ — én rad per parameter, én kolonne per observasjon", "$(k+1)\\times(k+1)$ — kvadratisk som $X^TX$"],
+      options: ["$n\\times(k+1)$ — én rad per observasjon, én kolonne per parameter", "$n\\times k$ — konstantleddet trenger ingen egen kolonne i matrisen", "$(k+1)\\times n$ — én rad per parameter, én kolonne per observasjon", "$(k+1)\\times(k+1)$ — kvadratisk som $X^TX$"],
       explanation: "Første kolonne er 1-ere (bærer $\\beta_0$), deretter én kolonne per prediktor: $n\\times(k+1)$.",
     },
     {
       question: "Hva inneholder første kolonne i designmatrisen, og hvorfor?",
-      options: ["Bare 1-ere — den bærer konstantleddet $\\beta_0$ inn i hver ligning", "Responsverdiene — de må stå først for at produktet skal stemme", "Radnumrene — de identifiserer observasjonene i systemet", "Gjennomsnittene av prediktorene — de sentrerer modellen rundt tyngdepunktet"],
+      options: ["Bare 1-ere — den bærer konstantleddet $\\beta_0$ inn i hver ligning", "Responsverdiene — de må stå først for at matriseproduktet skal stemme", "Radnumrene — de identifiserer observasjonene i systemet", "Gjennomsnittene av prediktorene — de sentrerer modellen rundt tyngdepunktet"],
       explanation: "Rad $i$ av $X\\beta$ starter med $1\\cdot\\beta_0$, så konstantleddet kommer med i alle $n$ ligningene.",
     },
     {
       question: "I R-utskriften for multippel regresjon: hvor finner du $\\hat\\sigma$ og frihetsgradene?",
-      options: ["På «Residual standard error»-linja: tallet og «on … degrees of freedom»", "I «Std. Error»-kolonnen: det øverste tallet og antallet rader i tabellen", "På «Multiple R-squared»-linja: roten av tallet og $n-1$", "På «F-statistic»-linja: første tall og andre DF-tall"],
+      options: ["På «Residual standard error»-linja: tallet og «on … degrees of freedom»", "I «Std. Error»-kolonnen: det øverste tallet og antallet rader i tabellen", "På «Multiple R-squared»-linja: kvadratroten av tallet og frihetsgraden $n-1$", "På «F-statistic»-linja: første tall og andre DF-tall"],
       explanation: "«Residual standard error: $s$ on $n-k-1$ degrees of freedom» gir både $\\hat\\sigma$ og frihetsgradene.",
     },
     {
       question: "Modell A ($k=2$) har justert $R^2=0{,}83$; modell B ($k=3$) har $R^2$ som er høyere, men justert $R^2=0{,}80$. Hva velger du?",
-      options: ["Modell A — utvidelsen forsvarer ikke den tapte frihetsgraden", "Modell B — høyest $R^2$ betyr mest forklart variasjon", "Modell B — flere variabler gir alltid mer presise prediksjoner av nye data", "Ingen av dem før en F-test har sammenlignet modellene"],
+      options: ["Modell A — utvidelsen forsvarer ikke den tapte frihetsgraden", "Modell B — det høyeste $R^2$ betyr mest forklart variasjon i data", "Modell B — flere variabler gir alltid mer presise prediksjoner av nye data", "Ingen av dem før en F-test har sammenlignet modellene"],
       explanation: "Ved modellvalg vinner høyest justert $R^2$; at $R^2$ steg er automatikk, ikke bevis på bedre modell.",
     },
     {
@@ -1971,7 +1971,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er overtilpasning?",
-      options: ["Modellen jager tilfeldig støy i utvalget med for mange parametre", "Modellen bruker for få parametre og overser dermed reelle effekter i dataene", "Modellen brukes utenfor dataområdet der den ikke gjelder", "Modellen bryter normalitetsantakelsen for feilleddene"],
+      options: ["Modellen jager tilfeldig støy i utvalget med for mange parametre", "Modellen bruker for få parametre og overser dermed reelle effekter i dataene", "Modellen brukes langt utenfor det dataområdet der den faktisk gjelder", "Modellen bryter normalitetsantakelsen for feilleddene"],
       explanation: "Symptom: høy $R^2$ men synkende justert $R^2$ — god beskrivelse av utvalget, dårlig prediksjon av nye data.",
     },
     {
@@ -2013,22 +2013,22 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-3-4': [
     {
       question: "Hva sjekker plottet av residualer mot tilpassede verdier?",
-      options: ["Linearitetsantakelsen — kurvatur avslører at den lineære formen er feil", "Normalitetsantakelsen — skjeve residualer gir bue i punktskyen", "Variansantakelsen — trakten viser at residualene er avhengige", "Uavhengighetsantakelsen — mønster betyr at feilleddene er korrelerte over tid"],
+      options: ["Linearitetsantakelsen — kurvatur avslører at den lineære formen er feil", "Normalitetsantakelsen — skjeve residualer gir en tydelig bue i punktskyen", "Variansantakelsen — trakten viser at residualene er avhengige", "Uavhengighetsantakelsen — mønster betyr at feilleddene er korrelerte over tid"],
       explanation: "Plott 1 «eier» lineariteten: et parabelmønster betyr at modellen mangler et ledd, typisk et kvadratledd.",
     },
     {
       question: "Hva plottes i scale-location-plottet, og hva avdekker en stigende trend?",
-      options: ["$\\sqrt{|e_i|}$ mot $\\hat y_i$; trend betyr at variansen ikke er konstant", "$e_i^2$ mot $x_i$; trend betyr at modellen mangler et kvadratledd i prediktoren", "$|e_i|$ mot tid; trend betyr avhengighet mellom målingene", "$e_i$ mot normalkvantiler; trend betyr tunge haler i fordelingen"],
+      options: ["$\\sqrt{|e_i|}$ mot $\\hat y_i$; trend betyr at variansen ikke er konstant", "$e_i^2$ mot $x_i$; trend betyr at modellen mangler et kvadratledd i prediktoren", "$|e_i|$ mot tid; trend betyr avhengighet mellom målingene", "$e_i$ mot normalkvantiler; en trend betyr tunge haler i residualfordelingen"],
       explanation: "Roten av absolutte residualer mot tilpassede verdier: en trend viser heteroskedastisitet.",
     },
     {
       question: "Hva tyder en S-form i QQ-plottet på (venstre ende under linja, høyre over)?",
-      options: ["Tunge haler — ekstreme residualer er vanligere enn normalfordelingen tilsier", "Heteroskedastisitet — spredningen i residualene vokser med nivået på responsen", "Ikke-linearitet — sammenhengen krummer i endene av dataområdet", "Autokorrelasjon — nabomålingene henger sammen i tid"],
+      options: ["Tunge haler — ekstreme residualer er vanligere enn normalfordelingen tilsier", "Heteroskedastisitet — spredningen i residualene vokser med nivået på responsen", "Ikke-linearitet — sammenhengen krummer tydelig i begge endene av hele dataområdet", "Autokorrelasjon — nabomålingene henger sammen i tid"],
       explanation: "Haleavvik i QQ-plottet handler om fordelingens form: S-formen er signaturen til tunge haler.",
     },
     {
       question: "Hva er hatmatrisen?",
-      options: ["$H=X(X^TX)^{-1}X^T$ — den sender $Y$ til de tilpassede verdiene", "$H=(X^TX)^{-1}X^TY$ — den beregner koeffisientvektoren direkte fra dataene", "$H=X^TX$ — den oppsummerer designets spredning", "$H=I-X(X^TX)^{-1}X^T$ — den sender $Y$ til residualene"],
+      options: ["$H=X(X^TX)^{-1}X^T$ — den sender $Y$ til de tilpassede verdiene", "$H=(X^TX)^{-1}X^TY$ — den beregner koeffisientvektoren direkte fra dataene", "$H=X^TX$ — den oppsummerer designets spredning", "$H=I-X(X^TX)^{-1}X^T$ — den sender $Y$ over i selve residualvektoren"],
       explanation: "$\\hat Y=X\\hat\\beta=X(X^TX)^{-1}X^TY=HY$; «hatten» settes på $Y$. Residualene bruker $I-H$.",
     },
     {
@@ -2053,7 +2053,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor trengs $\\sqrt{1-h_{ii}}$-korreksjonen?",
-      options: ["Rå residualer har ulik varians — kantpunktenes avvik undervurderes uten den", "Rå residualer summerer seg ikke til null uten korreksjonen", "Rå residualer er målt i responsens enheter og må gjøres enhetsløse før tolkning", "Rå residualer er avhengige av rekkefølgen observasjonene kom i"],
+      options: ["Rå residualer har ulik varians — kantpunktenes avvik undervurderes uten den", "Rå residualer summerer seg ikke til null uten korreksjonen", "Rå residualer er målt i responsens enheter og må gjøres enhetsløse før tolkning", "Rå residualer er avhengige av nøyaktig hvilken rekkefølge observasjonene kom i"],
       explanation: "Høy-leverage-punkter har liten residualvarians; uten korreksjon ser dårlig tilpassede kantpunkter «pene» ut.",
     },
     {
@@ -2073,7 +2073,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Residualplottet viser et parabelmønster. Hva er standardtiltaket?",
-      options: ["Utvide modellen med et kvadratledd og tegne plottene på nytt", "Transformere responsen med logaritme for å dempe den voksende variansen", "Bytte til en rangbasert test som ikke krever normalitet", "Fjerne observasjonene med de største residualene"],
+      options: ["Utvide modellen med et kvadratledd og tegne plottene på nytt", "Transformere responsen med logaritme for å dempe den voksende variansen", "Bytte til en rangbasert test som ikke krever normalfordelte feilledd", "Fjerne observasjonene med de største residualene"],
       explanation: "Kurvatur = ikke-linearitet: legg til $x^2$ som prediktor (fortsatt lineær regresjon) og sjekk diagnosen på nytt.",
     },
     {
@@ -2083,7 +2083,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "QQ-plottet viser tunge haler i et lite utvalg. Hvilket alternativ bør vurderes?",
-      options: ["En rangbasert test (Wilcoxon) som ikke bygger på normalitet", "En F-test, som er robust mot alle typer avvik fra normalfordelingen", "Å doble utvalget ved å telle hver observasjon to ganger", "En z-test, siden normalkvantilene da ikke trengs"],
+      options: ["En rangbasert test (Wilcoxon) som ikke bygger på normalitet", "En F-test, som er robust mot alle typer avvik fra normalfordelingen", "Å doble utvalget ved å telle hver enkelt observasjon to ganger", "En z-test, siden normalkvantilene da ikke trengs"],
       explanation: "Med tunge haler og små $n$ er t-apparatet sårbart; rangtester er den robuste utveien.",
     },
     {
@@ -2125,7 +2125,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor kommer «$1+$» under rota i prediksjonsintervallet fra?",
-      options: ["Den nye observasjonens eget feilledd $\\varepsilon_0$ med varians $\\sigma^2$", "Usikkerheten i konstantleddet $\\hat\\beta_0$ som alltid bidrar med $\\sigma^2$", "Korreksjonen for at $\\hat\\sigma$ er estimert og ikke kjent", "Avrundingsfeilen i punktprediksjonen $\\hat y_0$"],
+      options: ["Den nye observasjonens eget feilledd $\\varepsilon_0$ med varians $\\sigma^2$", "Usikkerheten i konstantleddet $\\hat\\beta_0$ som alltid bidrar med $\\sigma^2$", "Korreksjonen for at $\\hat\\sigma$ er estimert fra dataene og ikke er kjent på forhånd", "Avrundingsfeilen i punktprediksjonen $\\hat y_0$"],
       explanation: "$V(Y_0-\\hat Y_0)=V(Y_0)+V(\\hat Y_0)$: den nye målingen spres selv $\\sigma^2$ rundt linja.",
     },
     {
@@ -2155,17 +2155,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ekstrapolering?",
-      options: ["Å bruke modellen for $x_0$ utenfor de observerte $x$-verdiene", "Å predikere responsen for en $x_0$-verdi som allerede finnes i datasettet", "Å utvide modellen med flere prediktorer enn nødvendig", "Å gjenta prediksjonen for mange $x_0$-verdier samtidig"],
+      options: ["Å bruke modellen for $x_0$ utenfor de observerte $x$-verdiene", "Å predikere responsen for en $x_0$-verdi som allerede finnes i datasettet", "Å utvide modellen med flere prediktorer enn nødvendig", "Å gjenta prediksjonen for svært mange ulike $x_0$-verdier samtidig"],
       explanation: "Utenfor dataområdet mangler både presisjon (bred rot) og belegg for linearitet — derfor advarselen.",
     },
     {
       question: "Hvorfor er ekstrapolering «dobbelt farlig»?",
-      options: ["Intervallet eksploderer i bredde, og lineariteten er ubegrunnet utenfor dataene", "Frihetsgradene synker kraftig, og t-kvantilen blir udefinert utenfor dataområdet", "$\\hat\\sigma$ overvurderes, og $S_{xx}$ kan bli negativ langt ute", "Punktprediksjonen skifter fortegn, og residualene blir korrelerte"],
+      options: ["Intervallet eksploderer i bredde, og lineariteten er ubegrunnet utenfor dataene", "Frihetsgradene synker kraftig, og t-kvantilen blir udefinert utenfor dataområdet", "$\\hat\\sigma$ overvurderes, og $S_{xx}$ kan bli negativ langt ute", "Punktprediksjonen skifter fortegn, og residualene blir dessuten sterkt korrelerte"],
       explanation: "Både statistisk (helningsleddet vokser kvadratisk) og modellmessig (formen der ute er ren gjetning).",
     },
     {
       question: "«Hva blir strømforbruket i akkurat denne boligen på 120 m²?» Hvilket intervall?",
-      options: ["Prediksjonsintervall — spørsmålet gjelder én ny enkeltobservasjon", "KI for forventet respons — spørsmålet gjelder boligtypens gjennomsnittsnivå", "KI for $\\beta_1$ — spørsmålet gjelder arealeffekten", "Ingen av dem — enkeltboliger kan ikke intervallestimeres"],
+      options: ["Prediksjonsintervall — spørsmålet gjelder én ny enkeltobservasjon", "KI for forventet respons — spørsmålet gjelder boligtypens gjennomsnittsnivå", "KI for $\\beta_1$ — spørsmålet gjelder arealeffekten", "Ingen av dem — enkeltboliger kan overhodet ikke intervallestimeres"],
       explanation: "Nøkkelord «akkurat denne»: en stokastisk enkeltmåling krever prediksjonsintervall.",
     },
     {
@@ -2180,7 +2180,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Punktprediksjonen $\\hat y_0$ for en ny observasjon og punktestimatet for forventet respons er …",
-      options: ["identiske — begge er $\\hat\\beta_0+\\hat\\beta_1x_0$; bare usikkerheten skiller", "forskjellige — prediksjonen legger til et eget anslag for støyleddet $\\varepsilon_0$", "forskjellige — forventningen bruker $\\bar y$ i stedet for linja", "identiske bare når $x_0=\\bar x$, ellers ulike"],
+      options: ["identiske — begge er $\\hat\\beta_0+\\hat\\beta_1x_0$; bare usikkerheten skiller", "forskjellige — prediksjonen legger til et eget anslag for støyleddet $\\varepsilon_0$", "forskjellige — forventningen bruker $\\bar y$ i stedet for hele regresjonslinja", "identiske bare når $x_0=\\bar x$, ellers ulike"],
       explanation: "Beste gjetning på $\\varepsilon_0$ er null, så punktsvarene sammenfaller; intervallene gjør ikke det.",
     },
     {
@@ -2210,7 +2210,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er prediksjonsintervallet til å stole på?",
-      options: ["Når $x_0$ ligger i dataområdet og residualdiagnostikken er godkjent", "Når $n$ er stort nok, uansett hvor $x_0$ ligger", "Når $R^2$ er høy, uansett modellantakelsene", "Når punktprediksjonen er positiv og $\\hat\\sigma$ er tilstrekkelig liten i forhold"],
+      options: ["Når $x_0$ ligger i dataområdet og residualdiagnostikken er godkjent", "Når $n$ er stort nok, helt uavhengig av hvor $x_0$ ligger i forhold til dataene", "Når $R^2$ er høy, uansett modellantakelsene", "Når punktprediksjonen er positiv og $\\hat\\sigma$ er tilstrekkelig liten i forhold"],
       explanation: "Interpolering + holdbare antakelser (kap. 3.4) er forutsetningene formlene hviler på.",
     },
   ],
@@ -2269,7 +2269,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
   'stk1110-3-7': [
     {
       question: "Hva er alltid første trinn i syvtrinnsoppskriften for en regresjonsoppgave?",
-      options: ["Definere modellen $Y_i=\\beta_0+\\beta_1x_{i1}+\\dots+\\varepsilon_i$ med antakelsene", "Regne ut $R^2$ og justert $R^2$ for alle kandidatmodellene som er oppgitt i oppgaven", "Tegne de tre residualplottene og vurdere mønstrene i dem grundig", "Konstruere prediksjonsintervallet for den nye observasjonen i oppgaven"],
+      options: ["Definere modellen $Y_i=\\beta_0+\\beta_1x_{i1}+\\dots+\\varepsilon_i$ med antakelsene", "Regne ut $R^2$ og justert $R^2$ for alle kandidatmodellene som er oppgitt i oppgaven", "Tegne alle de tre residualplottene og vurdere mønstrene i hvert enkelt av dem grundig", "Konstruere prediksjonsintervallet for den nye observasjonen i oppgaven"],
       explanation: "Trinn 1 er modell + antakelser (uavhengige $\\varepsilon_i\\sim N(0,\\sigma^2)$); diagnostikk og prediksjon kommer i trinn 6–7.",
     },
     {
@@ -2289,12 +2289,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bygger du et 95 %-KI for $\\beta_j$ rett fra utskriften?",
-      options: ["Estimate $\\pm\\ t_{df,\\,0{,}025}\\cdot$ Std. Error, med df fra RSE-linja", "Estimate $\\pm\\ 1{,}96\\cdot$ Residual standard error, lest fra bunnlinja i utskriften", "t value $\\pm\\ t_{df,\\,0{,}025}\\cdot$ Std. Error fra samme rad", "Estimate $\\pm\\ 2\\cdot$ Pr(>|t|) multiplisert med standardfeilen"],
+      options: ["Estimate $\\pm\\ t_{df,\\,0{,}025}\\cdot$ Std. Error, med df fra RSE-linja", "Estimate $\\pm\\ 1{,}96\\cdot$ Residual standard error, lest fra bunnlinja i utskriften", "t value $\\pm\\ t_{df,\\,0{,}025}\\cdot$ Std. Error fra samme rad", "Estimate $\\pm\\ 2\\cdot$ Pr(>|t|) multiplisert med standardfeilen på raden"],
       explanation: "KI $=$ Estimate $\\pm\\ t_{df,\\,\\alpha/2}\\cdot$ Std. Error; frihetsgraden leses av «on … degrees of freedom».",
     },
     {
       question: "Hvilken hypotese tester F-statistic-linja i en multippel regresjon?",
-      options: ["$H_0:\\beta_1=\\dots=\\beta_k=0$ — ingen av prediktorene har effekt", "$H_0:$ alle koeffisientene i modellen, inkludert konstantleddet $\\beta_0$, er lik null", "$H_0:$ feilleddene er normalfordelte med konstant varians", "$H_0:R^2=0{,}5$ — modellen forklarer halvparten av variasjonen"],
+      options: ["$H_0:\\beta_1=\\dots=\\beta_k=0$ — ingen av prediktorene har effekt", "$H_0:$ alle koeffisientene i modellen, inkludert konstantleddet $\\beta_0$, er lik null", "$H_0:$ feilleddene er normalfordelte med konstant varians", "$H_0:R^2=0{,}5$ — modellen forklarer nøyaktig halvparten av variasjonen"],
       explanation: "F-testen er den samlede testen av alle helningene (konstantleddet inngår ikke).",
     },
     {
@@ -2304,7 +2304,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan ikke Multiple R-squared brukes til å velge mellom modeller med ulikt antall variabler?",
-      options: ["$R^2$ øker alltid når en variabel legges til, uansett om den er nyttig", "$R^2$ kan bare beregnes når modellen har nøyaktig én prediktor", "$R^2$ synker alltid når utvalgsstørrelsen vokser, og er derfor for ustabil til modellvalg", "$R^2$ måler bare variansen til residualene, ikke tilpasningen"],
+      options: ["$R^2$ øker alltid når en variabel legges til, uansett om den er nyttig", "$R^2$ kan bare beregnes i modeller som har nøyaktig én eneste prediktor", "$R^2$ synker alltid når utvalgsstørrelsen vokser, og er derfor for ustabil til modellvalg", "$R^2$ måler bare variansen til residualene, ikke tilpasningen"],
       explanation: "SSE kan aldri øke når en variabel legges til, så $R^2$ stiger automatisk — derfor brukes justert $R^2$ til modellvalg.",
     },
     {
@@ -2314,7 +2314,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konfundering i regresjonssammenheng?",
-      options: ["At en koeffisient endres når en korrelert variabel tas inn i modellen", "At to prediktorer alltid må fjernes samtidig fra en multippel regresjonsmodell", "At residualene blir korrelerte når modellen har flere prediktorer", "At $R^2$ og justert $R^2$ gir motsatte konklusjoner om modellvalget"],
+      options: ["At en koeffisient endres når en korrelert variabel tas inn i modellen", "At to prediktorer alltid må fjernes samtidig fra en multippel regresjonsmodell", "At residualene blir korrelerte når modellen har flere prediktorer", "At $R^2$ og justert $R^2$ gir motsatte konklusjoner om selve modellvalget"],
       explanation: "Uten den korrelerte variabelen fanger den gamle koeffisienten også noe av dens effekt; i multippel modell måles effekten med den andre holdt konstant.",
     },
     {
@@ -2339,7 +2339,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er prediksjonsintervallet alltid bredere enn KI-et for forventet respons ved samme $x_0$?",
-      options: ["Den nye observasjonens eget støyledd $\\varepsilon_0$ kommer i tillegg", "Prediksjonsintervallet bruker en større t-kvantil enn konfidensintervallet", "KI-et gjelder bare i $\\bar x$, der usikkerheten alltid er minst", "PI-et bruker frihetsgraden $n-1$ i stedet for $n-2$ i kvantilen"],
+      options: ["Den nye observasjonens eget støyledd $\\varepsilon_0$ kommer i tillegg", "Prediksjonsintervallet bruker en større t-kvantil enn konfidensintervallet", "KI-et gjelder bare i punktet $\\bar x$, der usikkerheten alltid er minst", "PI-et bruker frihetsgraden $n-1$ i stedet for $n-2$ i kvantilen"],
       explanation: "PI-et skal fange en ny enkeltobservasjon, ikke bare linjas nivå — derfor «$1+$» under rota. Kvantil og df er de samme.",
     },
     {
@@ -2359,7 +2359,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En koeffisient i en multippel modell er ikke signifikant. Hva er korrekt tolkning?",
-      options: ["Ingen påvisbar tilleggseffekt utover de andre variablene i modellen", "Variabelen er uviktig og kan alltid strykes uten konsekvenser", "Variabelen har effekt, men bare i den enkle modellen uten de andre", "Testen er ugyldig fordi frihetsgradene blir for små i multippel modell"],
+      options: ["Ingen påvisbar tilleggseffekt utover de andre variablene i modellen", "Variabelen er uviktig og kan alltid strykes uten konsekvenser", "Variabelen har effekt, men bare i den enkle modellen uten de andre variablene", "Testen er ugyldig fordi frihetsgradene blir for små i multippel modell"],
       explanation: "t-testen er betinget på de øvrige variablene; særlig ved korrelerte prediktorer kan en viktig variabel få svak t-test.",
     },
     {
@@ -2406,12 +2406,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et deltrinn ber deg finne $I(\\theta)$ og angi den tilnærmede fordelingen til ML-estimatoren. Hvilken sjanger?",
-      options: ["Sjanger C — Fisher-informasjon og Wald", "Sjanger N — eksakt pivot", "Sjanger B — forventningsretthet og varians", "Sjanger L — Bayesiansk inferens"],
+      options: ["Sjanger C — Fisher-informasjon og Wald", "Sjanger N — eksakt pivot for en skalaparameter", "Sjanger B — forventningsretthet og varians", "Sjanger L — Bayesiansk inferens"],
       explanation: "Fisher-informasjon og MLE-asymptotikken $N(\\theta,1/(nI(\\theta)))$ er sjanger C — spesialistpunktet i estimeringskjeden.",
     },
     {
       question: "Oppgaven oppgir en gammafordelt apriori for en Poisson-rate og ber om aposteriorifordelingen. Hvilken sjanger?",
-      options: ["Sjanger L — Bayesiansk inferens", "Sjanger M — enveis ANOVA", "Sjanger O — ikke-parametrikk og bootstrap", "Sjanger N — eksakt pivot"],
+      options: ["Sjanger L — Bayesiansk inferens", "Sjanger M — enveis ANOVA med flere grupper", "Sjanger O — ikke-parametrikk og bootstrap", "Sjanger N — eksakt pivot"],
       explanation: "Apriori → aposteriori via $\\pi(\\theta\\mid x)\\propto\\pi(\\theta)L(\\theta)$ er sjanger L, det roterende Bayes-punktet (nytt fast innslag siden 2022).",
     },
     {
@@ -2456,17 +2456,17 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når foretrekker fasiten et eksakt pivot-intervall (sjanger N) framfor Wald?",
-      options: ["Når standardavviket til estimatoren avhenger av parameteren selv", "Når utvalget er stort, siden normaltilnærmingen da blir for upresis til Wald", "Aldri — Wald-intervallet er alltid førstevalget i fasitene", "Når parameteren er en andel mellom 0 og 1"],
+      options: ["Når standardavviket til estimatoren avhenger av parameteren selv", "Når utvalget er stort, siden normaltilnærmingen da blir for upresis til Wald", "Aldri — Wald-intervallet er alltid førstevalget i fasitene", "Når parameteren er en andel mellom 0 og 1 og utvalget samtidig er lite"],
       explanation: "Avhenger $se(\\hat\\theta)$ av $\\theta$, gir pivoten et eksakt (gjerne asymmetrisk) intervall — asymmetrien er et trekk, ikke en feil.",
     },
     {
       question: "Hvilke deltrinn er de «sikre punktene» du tar først i alle kjedene?",
-      options: ["Modelldefinisjon, standard estimator/intervall og R-utskrift-avlesning", "Fisher-informasjon, eksakt pivot og Bayes-oppdateringen", "Kryssjekkene — dualitetssjekk og rimelighetsvurdering av alle tallsvarene", "Diagnostikk-drøftingene, siden de ikke krever regning"],
+      options: ["Modelldefinisjon, standard estimator/intervall og R-utskrift-avlesning", "Fisher-informasjon, eksakt pivot og Bayes-oppdateringen", "Kryssjekkene — dualitetssjekk og rimelighetsvurdering av alle tallsvarene", "Diagnostikk-drøftingene, ettersom de ikke krever noen regning i det hele tatt"],
       explanation: "Sikre-punkter-strategien: ta de tidlige, metodesikre punktene i alle oppgavene før spesialistpunktene.",
     },
     {
       question: "Ved tre storoppgaver på 240 minutter — hvilket tidsoppsett anbefaler kapitlet?",
-      options: ["~75 min estimering, ~65 min test/KI, ~85 min regresjon, ~15 min kontroll", "Nøyaktig 80 min på hver av de tre oppgavene, uten avsatt sluttkontroll", "~50 min på estimeringen, ~50 min på test/KI og ~140 min på regresjonsoppgaven", "Ingen plan — regn kronologisk til tiden går ut"],
+      options: ["~75 min estimering, ~65 min test/KI, ~85 min regresjon, ~15 min kontroll", "Nøyaktig 80 minutter på hver av de tre oppgavene, uten avsatt sluttkontroll", "~50 min på estimeringen, ~50 min på test/KI og ~140 min på regresjonsoppgaven", "Ingen plan — regn kronologisk til tiden går ut"],
       explanation: "Budsjettet gir regresjonen mest (den bærer flest delpunkter), holder av sluttkontroll, og settes opp *før* du begynner å regne.",
     },
   ],
@@ -2488,27 +2488,27 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "P-verdien i oppgave 2c er omtrent 0,011. Hva betyr det?",
-      options: ["Under $H_0$ er sannsynligheten 0,011 for en testobservator minst like ekstrem som den observerte", "Sannsynligheten for at nullhypotesen $H_0$ er sann, gitt de observerte dataene, er 0,011", "Sannsynligheten for at alternativet $H_a$ er feilaktig er 0,011, gitt at testen endte med å forkaste $H_0$", "Testen tar feil i 1,1 % av alle mulige utfall av forsøket"],
+      options: ["Under $H_0$ er sannsynligheten 0,011 for en testobservator minst like ekstrem som den observerte", "Sannsynligheten for at nullhypotesen $H_0$ er sann, gitt de observerte dataene, er 0,011", "Sannsynligheten for at alternativet $H_a$ er feilaktig er 0,011, gitt at testen endte med å forkaste $H_0$", "Testen tar feil i 1,1 % av alle mulige utfall av forsøket, dersom det ble gjentatt svært mange ganger"],
       explanation: "P-verdien er en halesannsynlighet beregnet under $H_0$ — aldri sannsynligheten for at en hypotese er sann.",
     },
     {
       question: "Hvorfor brukes justert $R^2$ (ikke `Multiple R-squared`) til modellvalget i oppgave 3d?",
-      options: ["Vanlig $R^2$ øker alltid når en variabel legges til, også når den er unyttig", "Justert $R^2$ måler prediksjonsfeilen direkte, mens vanlig $R^2$ måler tilpasning", "Vanlig $R^2$ kan ikke beregnes når modellen har mer enn én forklaringsvariabel", "Justert $R^2$ er alltid størst i den modellen som har flest variabler"],
+      options: ["Vanlig $R^2$ øker alltid når en variabel legges til, også når den er unyttig", "Justert $R^2$ måler prediksjonsfeilen direkte, mens vanlig $R^2$ måler tilpasning", "Vanlig $R^2$ kan ikke beregnes når modellen har mer enn én forklaringsvariabel", "Justert $R^2$ er alltid størst i nettopp den modellen som har flest variabler"],
       explanation: "Minste kvadrater tilpasser aldri dårligere med flere ledd, så $R^2$ stiger uansett; justert $R^2$ straffer forbrukte frihetsgrader.",
     },
     {
       question: "Hvorfor er prediksjonsintervallet i oppgave 3f mye bredere enn konfidensintervallet i samme punkt?",
-      options: ["Det gjelder én ny observasjon og bærer i tillegg støyleddets varians $\\sigma^2$", "Det bruker en strengere t-kvantil enn konfidensintervallet ved samme konfidensnivå", "Det tar høyde for at $x_0$ ligger utenfor dataområdet til modellen", "Det er beregnet med flere frihetsgrader enn konfidensintervallet"],
+      options: ["Det gjelder én ny observasjon og bærer i tillegg støyleddets varians $\\sigma^2$", "Det bruker en strengere t-kvantil enn konfidensintervallet ved samme konfidensnivå", "Det tar høyde for at $x_0$ kan ligge et godt stykke utenfor dataområdet til modellen", "Det er beregnet med flere frihetsgrader enn konfidensintervallet"],
       explanation: "Prediksjonsintervallet har $\\hat\\sigma^2$ i tillegg under rota («$1+$»-leddet) fordi en ny enkeltobservasjon også har egen støy.",
     },
     {
       question: "Hva er forskjellen på estimatoren $\\hat\\theta_{ML}=n/T$ og tallet $2{,}00$ i oppgave 1?",
-      options: ["Estimatoren er en stokastisk variabel (funksjon av utvalget); 2,00 er estimatet i det observerte utvalget", "Estimatoren er det faste tallet man slår opp i formelsamlingen; 2,00 er den stokastiske realiseringen av utvalget", "De er samme objekt — notasjonen med stor bokstav er bare en skrivekonvensjon", "Estimatoren er avrundingen av estimatet til nærmeste hele parameterverdi"],
+      options: ["Estimatoren er en stokastisk variabel (funksjon av utvalget); 2,00 er estimatet i det observerte utvalget", "Estimatoren er det faste tallet man slår opp i formelsamlingen; 2,00 er den stokastiske realiseringen av utvalget", "De er nøyaktig samme objekt — notasjonen med stor forbokstav er bare en skrivekonvensjon helt uten innhold", "Estimatoren er avrundingen av estimatet til nærmeste hele parameterverdi"],
       explanation: "Utsagn som $E(\\hat\\theta_{ML})=n\\theta/(n-1)$ gjelder den stokastiske estimatoren $n/T$ — ikke tallet 2,00. Skillet er et fast sensorkrav.",
     },
     {
       question: "Hvorfor er alternativet i oppgave 2 ensidig ($H_a:\\mu_2>\\mu_1$)?",
-      options: ["Påstanden som skal belegges har en retning: den nye legeringen hevdes å være sterkere", "Ensidige tester er alltid å foretrekke fordi de har større styrke", "Utvalgene har ulik størrelse, og da må testen legges ensidig", "Fordi $\\bar y_2>\\bar y_1$ i det observerte datamaterialet — retningen leses rett av observasjonene"],
+      options: ["Påstanden som skal belegges har en retning: den nye legeringen hevdes å være sterkere", "Ensidige tester er alltid å foretrekke, ettersom de har vesentlig større styrke enn tosidige", "Utvalgene har ulik størrelse, og da må testen legges ensidig", "Fordi $\\bar y_2>\\bar y_1$ i det observerte datamaterialet — retningen leses rett av observasjonene"],
       explanation: "Retningen følger av påstanden som formuleres *før* dataene brukes — aldri av hvilket gjennomsnitt som ble størst.",
     },
     {
@@ -2535,12 +2535,12 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I Poisson–gamma-oppsettet er $\\hat\\lambda_{\\text{Bayes}}=w\\bar x+(1-w)\\alpha\\beta$ med $w=n\\beta/(1+n\\beta)$. Hva skjer når $n$ vokser?",
-      options: ["$w\\to 1$, og Bayes-estimatoren nærmer seg ML-estimatoren $\\bar x$", "$w\\to 0$, slik at apriori-forventningen til slutt dominerer helt over dataene", "$w\\to 1/2$, så data og apriori teller til slutt nøyaktig likt", "$w$ er konstant i $n$ — vekten bestemmes bare av apriorien"],
+      options: ["$w\\to 1$, og Bayes-estimatoren nærmer seg ML-estimatoren $\\bar x$", "$w\\to 0$, slik at apriori-forventningen til slutt dominerer helt over dataene", "$w\\to 1/2$, slik at data og apriori til slutt teller nøyaktig like mye", "$w$ er konstant i $n$ — vekten bestemmes bare av apriorien"],
       explanation: "Med mye data dominerer likelihooden: $w=n\\beta/(1+n\\beta)\\to 1$, og Bayes smelter sammen med ML.",
     },
     {
       question: "Hva innebærer «kjernetrikset» når du skal vise konjugering?",
-      options: ["Samle potensene av $\\theta$ og leddene i eksponenten, og kjenne igjen fordelingens kjerne", "Regne ut normeringskonstanten eksplisitt ved å integrere produktet av apriori og likelihood", "Derivere aposteriorifordelingen og sette den deriverte lik null", "Erstatte likelihooden med normaltilnærmingen sin før du ganger med apriori"],
+      options: ["Samle potensene av $\\theta$ og leddene i eksponenten, og kjenne igjen fordelingens kjerne", "Regne ut normeringskonstanten eksplisitt ved å integrere produktet av apriori og likelihood", "Derivere hele aposteriorifordelingen med hensyn på parameteren og sette den deriverte lik null", "Erstatte likelihooden med normaltilnærmingen sin før du ganger med apriori"],
       explanation: "Konjugering vises ved å skrive $\\pi(\\theta)L(\\theta)$ som $\\theta^{a}e^{-b\\theta}$-form og lese av parametrene — integrasjon er unødvendig.",
     },
     {
@@ -2555,7 +2555,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En enveis ANOVA gir P-verdi 0,0002. Hva kan du konkludere?",
-      options: ["Minst én gruppeforventning skiller seg fra de andre — men ikke hvilken", "Alle gruppene i forsøket har innbyrdes forskjellige forventninger på 5 %-nivå", "Den største gruppen er signifikant forskjellig fra den minste", "Sannsynligheten for at alle gruppene er like er 0,0002"],
+      options: ["Minst én gruppeforventning skiller seg fra de andre — men ikke hvilken", "Alle gruppene i forsøket har innbyrdes forskjellige forventninger på 5 %-nivå", "Den største gruppen er signifikant forskjellig fra den aller minste gruppen", "Sannsynligheten for at alle gruppene er like er 0,0002"],
       explanation: "$H_a$ sier bare at ikke alle $\\mu_i$ er like. Hvilke grupper som skiller seg krever oppfølgende kontraster; P-verdien er heller ikke en sannsynlighet for hypotesen.",
     },
     {
@@ -2582,7 +2582,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Det eksakte KI-et for $\\theta$ fra kjikvadrat-pivoten er ikke symmetrisk om $\\hat\\theta$. Hva betyr det?",
-      options: ["Ingenting galt — et eksakt intervall fra en skjev pivot er asymmetrisk", "Det er en regnefeil, siden konfidensintervaller alltid skal være symmetriske om estimatet", "Det må symmetriseres ved å ta gjennomsnittet av de to grensene", "Konfidensnivået er feil og må justeres ned til under 95 prosent"],
+      options: ["Ingenting galt — et eksakt intervall fra en skjev pivot er asymmetrisk", "Det er en regnefeil, siden konfidensintervaller alltid skal være symmetriske om estimatet", "Det må symmetriseres ved å ta gjennomsnittet av de to grensene", "Konfidensnivået er da feil og må justeres ned til godt under 95 prosent"],
       explanation: "Kjikvadratfordelingen er skjev, og pivot-intervallet arver skjevheten. Symmetri gjelder bare når pivoten er (tilnærmet) normal.",
     },
     {
@@ -2602,7 +2602,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes pooled andel $\\hat p$ i standardfeilen når to andeler testes mot $H_0:p_1=p_2$?",
-      options: ["Under $H_0$ er andelene samme ukjente $p$, som best estimeres med alle data samlet", "Pooling gir alltid mindre standardfeil og dermed en sterkere test", "Pooling korrigerer for at de to utvalgene har ulik størrelse", "Pooling er nødvendig for at differansen mellom andelene skal bli nøyaktig normalfordelt"],
+      options: ["Under $H_0$ er andelene samme ukjente $p$, som best estimeres med alle data samlet", "Pooling gir alltid mindre standardfeil, og dermed blir testen sterkere enn den ellers ville vært", "Pooling korrigerer for at de to utvalgene har ulik størrelse", "Pooling er nødvendig for at differansen mellom andelene skal bli nøyaktig normalfordelt"],
       explanation: "Standardfeilen beregnes under $H_0$, og der finnes bare én andel $p$ — fellesestimatet $\\hat p=(x_1+x_2)/(n_1+n_2)$ er det riktige.",
     },
     {
@@ -2612,7 +2612,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med de to intervallene ved $x_0$ når $n\\to\\infty$ (med samme $x$-spredning)?",
-      options: ["KI-bredden går mot null, mens PI-bredden er nedad begrenset av støyleddet $\\sigma$", "Begge intervallene krymper mot null når linja blir kjent eksakt", "PI-bredden går mot null først, siden enkeltobservasjoner er lettest å treffe", "Begge stabiliserer seg til slutt på samme bredde, som bestemmes av residualvariansen alene"],
+      options: ["KI-bredden går mot null, mens PI-bredden er nedad begrenset av støyleddet $\\sigma$", "Begge intervallene krymper mot null når linja blir kjent eksakt", "PI-bredden går mot null først, ettersom enkeltobservasjoner er lettest å treffe presist", "Begge stabiliserer seg til slutt på samme bredde, som bestemmes av residualvariansen alene"],
       explanation: "Linjeusikkerheten forsvinner med mye data, men en ny observasjon spres fortsatt med $\\sigma$ — «$1+$»-leddet forsvinner aldri.",
     },
     {

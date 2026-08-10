@@ -19,7 +19,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the main message about strategic versus passive learning?",
-      options: ["Actively choosing and applying strategies is more effective than passive studying", "Strategies only matter for beginners", "Simply being exposed to the language passively is always enough for full mastery, no strategy needed", "Learning strategies only matter for absolute beginners and become entirely useless once you reach an advanced level"],
+      options: ["Actively choosing and applying strategies is more effective than passive studying", "Learning strategies only matter for those who already speak the language fluently", "Simply being exposed to the language passively is always enough for full mastery, no strategy needed", "Learning strategies only matter for absolute beginners and become entirely useless once you reach an advanced level"],
       explanation: "The most successful language learners actively choose and apply appropriate strategies rather than studying passively.",
     },
     {
@@ -31,7 +31,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-1-2": [
     {
       question: "According to the chapter, what is the ethical way to use AI tools for schoolwork?",
-      options: ["Use AI for explanations and feedback while writing your own work", "Have AI write the assignment and submit it as your own", "Have the AI tool write the whole assignment for you, then submit it unchanged and present it as your own work", "Only use AI to translate finished Norwegian texts"],
+      options: ["Use AI for explanations and feedback while writing your own work", "Have AI write the assignment and submit it as your own", "Have the AI tool write the whole assignment and submit it unchanged", "Only use AI to translate finished Norwegian texts"],
       explanation: "Using AI to learn — getting explanations, feedback and practice — is ethical; submitting AI-written work as your own is not.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What principle is more effective for learning through digital media?",
-      options: ["Active use beats passive consumption", "Watching as many videos as possible without notes", "Avoiding authentic content until you are fluent", "Using only one tool for everything"],
+      options: ["Active use beats passive consumption", "Watching as many videos as possible without notes", "Avoiding authentic content until you are fluent", "Using only one single tool"],
       explanation: "Actively engaging with content — noting expressions, practising, producing language — beats passive watching.",
     },
     {
@@ -63,39 +63,39 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which stress pattern is typical for two-syllable nouns and verbs in English?",
-      options: ["Nouns are usually stressed on the first syllable, verbs on the second", "Nouns on the second syllable, verbs on the first", "Both nouns and verbs are always stressed on the very last syllable regardless of their part of speech", "Both are always stressed on the last syllable"],
+      options: ["Nouns are usually stressed on the first syllable, verbs on the second", "Nouns on the second syllable, verbs on the first", "Both nouns and verbs are always stressed on the very last syllable regardless of their part of speech", "Stress in English is entirely free and unpredictable"],
       explanation: "Most two-syllable nouns stress the first syllable (REcord), while many two-syllable verbs stress the second (reCORD).",
     },
     {
       question: "How can sentence stress change meaning?",
-      options: ["Stressing different words in the same sentence creates different meanings", "It only changes the volume, never the meaning", "It only changes how loudly the sentence is spoken and can never alter the actual meaning of the words", "It only becomes relevant in written English through punctuation and has no effect at all in normal speech"],
+      options: ["Stressing different words in the same sentence creates different meanings", "It only changes the volume of the voice and never the meaning of the sentence", "It only changes how loudly the sentence is spoken and can never alter the actual meaning of the words", "It only becomes relevant in written English through punctuation and has no effect at all in normal speech"],
       explanation: "\"I never said she stole it\" can mean different things depending on which word is stressed.",
     },
     {
       question: "Which sounds should Norwegian speakers pay special attention to?",
-      options: ["The \"th\" sounds /θ/ and /ð/", "The sounds /m/ and /n/", "The sibilant sound /s/, which is pronounced far back in English", "The sound /s/"],
+      options: ["The \"th\" sounds /θ/ and /ð/", "The sounds /m/ and /n/", "The sibilant sound /s/, which is pronounced far back in English", "The vowel sound /u/"],
       explanation: "The th-sounds do not exist in Norwegian and are a common challenge, along with the short \"i\" vs long \"ee\" distinction.",
     },
     {
       question: "What is intonation?",
-      options: ["The melody of speech that conveys attitudes and distinguishes questions from statements", "The order of words in a sentence", "How quickly or slowly you speak, measured as the overall tempo and pace of your delivery", "The correct spelling of difficult or irregular words when you write them down on the page"],
+      options: ["The melody of speech that conveys attitudes and distinguishes questions from statements", "The order of words in a sentence and the grammatical rules governing that order", "How quickly or slowly you speak, measured as the overall tempo and pace of your delivery", "The correct spelling of difficult or irregular words when you write them down on the page"],
       explanation: "Intonation is the rise and fall of pitch — it signals questions, statements, emotions and attitudes.",
     },
   ],
   "engelsk-vg1-1-4": [
     {
       question: "What are \"Tier 2 words\"?",
-      options: ["High-utility academic vocabulary used across subjects, like \"analyze\" and \"significant\"", "Highly technical terms used in only one subject", "Basic everyday words like \"house\", \"dog\" and \"run\" that nearly all speakers already know", "Highly technical, subject-specific terms such as \"photosynthesis\" used in only one narrow field"],
+      options: ["High-utility academic vocabulary used across subjects, like \"analyze\" and \"significant\"", "Words invented recently that have not yet entered any standard dictionary of English", "Basic everyday words like \"house\", \"dog\" and \"run\" that nearly all speakers already know", "Highly technical, subject-specific terms such as \"photosynthesis\" used in only one narrow field"],
       explanation: "Tier 2 words are academic words useful across many subjects — analyze, demonstrate, significant, consequently.",
     },
     {
       question: "What is hedging in academic writing?",
-      options: ["Softening claims with words like \"may\", \"might\" and \"suggests\"", "Using as many strong claims as possible", "Hiding your opinion completely so the reader can never tell what position you actually hold", "Packing your writing with as many strong, absolute claims as possible to sound fully confident"],
+      options: ["Softening claims with words like \"may\", \"might\" and \"suggests\"", "Placing every claim inside a direct quotation from a published source", "Hiding your opinion completely so the reader can never tell what position you actually hold", "Packing your writing with as many strong, absolute claims as possible to sound fully confident"],
       explanation: "Hedging shows appropriate academic caution: \"The results suggest...\" rather than \"This proves...\".",
     },
     {
       question: "Which feature is typical of academic register?",
-      options: ["Avoiding contractions and slang in favour of precise, formal vocabulary", "Short text-message style sentences", "Frequent use of emojis and reactions to make the text feel friendly and approachable", "Very short, text-message style sentences with plenty of abbreviations and casual shorthand"],
+      options: ["Avoiding contractions and slang in favour of precise, formal vocabulary", "Addressing the reader directly as \"you\" throughout the whole text", "Frequent use of emojis and reactions to make the text feel friendly and approachable", "Very short, text-message style sentences with plenty of abbreviations and casual shorthand"],
       explanation: "Academic register avoids contractions, slang and overly personal statements, favouring precision and objectivity.",
     },
     {
@@ -117,12 +117,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is a cognate?",
-      options: ["A word in two languages that shares a common origin, like \"house\" and \"hus\"", "A grammatical error caused by your first language", "A single word that carries two directly opposite meanings depending on the context it appears in", "A word that has no possible translation and simply cannot be expressed in another language at all"],
+      options: ["A word in two languages that shares a common origin, like \"house\" and \"hus\"", "A grammatical error caused by your first language interfering with the second one", "A single word that carries two directly opposite meanings depending on the context it appears in", "A word that has no possible translation and simply cannot be expressed in another language at all"],
       explanation: "Cognates share a common origin across languages (water/vann, house/hus) and make vocabulary learning easier.",
     },
     {
       question: "Why is the Norwegian word \"gift\" a classic false friend for English learners?",
-      options: ["In Norwegian it means married or poison, but in English it means a present", "It is spelled differently in the two languages", "The word \"gift\" does not exist in Norwegian at all and only appears in the English vocabulary", "It means exactly the same thing in both languages, so it is actually a safe and reliable cognate"],
+      options: ["In Norwegian it means married or poison, but in English it means a present", "It is spelled slightly differently in the two languages", "The word \"gift\" does not exist in Norwegian at all and only appears in the English vocabulary", "It means exactly the same thing in both languages, so it is actually a safe and reliable cognate"],
       explanation: "False friends look identical but differ in meaning: Norwegian \"gift\" = married/poison, English \"gift\" = present.",
     },
     {
@@ -132,19 +132,19 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is a transfer strategy in language learning?",
-      options: ["Using knowledge of your own language to understand and learn another", "Moving to an English-speaking country", "Transferring your files, notes and documents between different computers and devices while studying", "Physically moving to an English-speaking country in order to be surrounded by the language every day"],
+      options: ["Using knowledge of your own language to understand and learn another", "Switching to your first language whenever a word is missing", "Transferring your files, notes and documents between different computers and devices while studying", "Physically moving to an English-speaking country in order to be surrounded by the language every day"],
       explanation: "Transfer strategies use your Norwegian (and other languages) strategically to recognise patterns and vocabulary in English.",
     },
   ],
   "engelsk-vg1-2-1": [
     {
       question: "What does nuanced expression mean?",
-      options: ["Conveying precise meaning by choosing the right words, tone and structure for each situation", "Using the longest words available", "Speaking as quickly as you possibly can so that you can fit the maximum amount of information into a short time", "Always choosing the longest and most complicated words available, regardless of whether they suit the situation"],
+      options: ["Conveying precise meaning by choosing the right words, tone and structure for each situation", "Repeating the same key term in every sentence so that the message cannot be misunderstood", "Speaking as quickly as you possibly can so that you can fit the maximum amount of information into a short time", "Always choosing the longest and most complicated words available, regardless of whether they suit the situation"],
       explanation: "Nuance is about precision — matching word choice, tone and structure to your exact intent and the situation.",
     },
     {
       question: "Which is an example of hedging?",
-      options: ["\"It seems that the policy may have contributed to the problem.\"", "\"The policy is the problem, end of discussion.\"", "\"The policy is the problem, end of discussion, and anyone who disagrees is simply mistaken.\"", "\"The policy definitely caused the problem.\""],
+      options: ["\"It seems that the policy may have contributed to the problem.\"", "\"The policy is the problem, end of discussion.\"", "\"The policy is the problem, and nobody can disagree.\"", "\"The policy definitely caused the problem.\""],
       explanation: "Hedging softens claims with words like \"seems\", \"may\" and \"might\", showing awareness of complexity.",
     },
     {
@@ -154,7 +154,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which word choice shows the most precise vocabulary?",
-      options: ["\"He strode into the room\" instead of \"He walked into the room\"", "\"He did a thing over in the place where the other stuff was\"", "\"He went in, like, somewhere around that general area, I guess\"", "\"He was basically just there in that spot for a while, sort of\""],
+      options: ["\"He strode into the room\" instead of \"He walked into the room\"", "\"He did a certain thing over in the place where the other stuff was kept\"", "\"He went in, like, somewhere around that general area, I guess\"", "\"He was basically just there in that spot for a while, sort of\""],
       explanation: "Precise verbs like \"strode\" convey manner and attitude that vague words like \"walked\" or \"went\" do not.",
     },
     {
@@ -166,22 +166,22 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-2-2": [
     {
       question: "What is an idiom?",
-      options: ["A fixed expression whose meaning cannot be deduced from the individual words", "A grammar rule about word order", "A grammar rule that governs the correct order of words within an English sentence", "A set formal greeting or polite phrase used when opening a letter or a conversation"],
+      options: ["A fixed expression whose meaning cannot be deduced from the individual words", "A short proverb that states a moral lesson in a memorable form", "A grammar rule governing word order in a sentence", "A set formal greeting or polite phrase used when opening a letter or a conversation"],
       explanation: "Idioms like \"break the ice\" have figurative meanings that cannot be worked out word by word.",
     },
     {
       question: "What is a phrasal verb?",
-      options: ["A verb combined with a particle that creates a new meaning, like \"put off\"", "A verb that rhymes with its object", "A verb placed in the simple past tense to describe an action that was completed earlier in time", "A verb chosen so that it rhymes with its object, creating a memorable and poetic-sounding phrase"],
+      options: ["A verb combined with a particle that creates a new meaning, like \"put off\"", "A verb that is formed directly from a noun by adding one of the standard endings", "A verb placed in the simple past tense to describe an action that was completed earlier in time", "A verb chosen so that it rhymes with its object, creating a memorable and poetic-sounding phrase"],
       explanation: "Phrasal verbs (look up, put off, figure out) combine a verb with a particle and are extremely common in English.",
     },
     {
       question: "What is a collocation?",
-      options: ["Words that naturally go together, like \"make a decision\" and \"take a risk\"", "Words with the same spelling", "Two or more words that happen to share exactly the same spelling but different meanings", "A pair of antonyms, meaning two words that express directly opposite ideas or qualities"],
+      options: ["Words that naturally go together, like \"make a decision\" and \"take a risk\"", "Words borrowed directly from another language without any change", "Two or more words that happen to share exactly the same spelling but different meanings", "A pair of antonyms, meaning two words that express directly opposite ideas or qualities"],
       explanation: "Collocations are natural word partnerships: \"make a decision\", not \"do a decision\".",
     },
     {
       question: "What is the chapter's advice about using idioms?",
-      options: ["Use them appropriately and in context — overuse sounds forced", "Use as many as possible in every sentence", "Only ever use idioms in formal academic essays, where they add the required level of sophistication", "Only use them in academic essays"],
+      options: ["Use them appropriately and in context — overuse sounds forced", "Use as many as possible in every sentence", "Only ever use idioms in formal academic essays, where they add the required level of sophistication", "Translate them literally"],
       explanation: "Idioms make language natural, but overusing them sounds forced; some are also old-fashioned or regional.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-2-3": [
     {
       question: "What is active listening?",
-      options: ["Fully concentrating on and processing what others say", "Waiting silently for your turn to speak", "Repeating everything the speaker says back to them word for word to confirm that you heard it", "Repeating everything word for word"],
+      options: ["Fully concentrating on and processing what others say", "Waiting silently for your turn to speak", "Repeating everything the speaker says back to them word for word to confirm that you heard it", "Taking detailed written notes only"],
       explanation: "Active listening means truly hearing and processing what others say — not just waiting for your turn.",
     },
     {
@@ -203,7 +203,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What characterises respectful disagreement?",
-      options: ["Challenging ideas rather than people: \"I see your point, but I think...\"", "Telling the other person \"You're wrong\"", "Telling the other person directly \"You're wrong\" so there is no doubt about where you stand", "Raising your voice and repeating yourself until the other person finally gives in and agrees"],
+      options: ["Challenging ideas rather than people: \"I see your point, but I think...\"", "Repeating your own argument louder until the other person stops objecting", "Telling the other person directly \"You're wrong\" so there is no doubt about where you stand", "Raising your voice and repeating yourself until the other person finally gives in and agrees"],
       explanation: "Respectful disagreement targets the idea, not the person — for example \"I see your point, but...\".",
     },
     {
@@ -213,24 +213,24 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Why is summarizing others' arguments useful in a discussion?",
-      options: ["It demonstrates understanding and keeps the discussion productive", "It uses up time so you talk less", "It fully replaces any need for you to give your own actual response", "It proves the other participant completely wrong before they can reply"],
+      options: ["It demonstrates understanding and keeps the discussion productive", "It signals that the discussion has now formally ended", "It fully replaces any need for you to give your own actual response", "It proves the other participant completely wrong before they can reply"],
       explanation: "Summarizing shows you have understood the other person and helps keep the discussion focused and productive.",
     },
   ],
   "engelsk-vg1-2-4": [
     {
       question: "What are the three pillars of an effective presentation?",
-      options: ["Content, delivery and structure", "Jokes, quotes and statistics", "Slides, background music and costumes", "Slides, music and costumes"],
+      options: ["Content, delivery and structure", "Jokes, quotes and statistics", "Slides, background music and costumes", "Length, volume and speed"],
       explanation: "Effective presentations combine what you say (content), how you say it (delivery) and how you organize it (structure).",
     },
     {
       question: "What is the best practice for presentation slides?",
-      options: ["Visually clear slides with minimal text that support your spoken message", "Slides packed with full paragraphs to read aloud", "Adding as many flashy animations and transitions as the software will allow", "Slides densely packed with full paragraphs that you read aloud word for word"],
+      options: ["Visually clear slides with minimal text that support your spoken message", "Slides with as much text as possible so nothing important is left out", "Adding as many flashy animations and transitions as the software will allow", "Slides densely packed with full paragraphs that you read aloud word for word"],
       explanation: "Slides should support, not replace, your spoken message — keep text minimal and visuals clear.",
     },
     {
       question: "Which delivery techniques make a presentation engaging?",
-      options: ["Eye contact, pacing, pausing and vocal variety", "Reading the manuscript word for word", "Reading the whole manuscript out word for word without ever looking up", "Speaking in monotone to seem serious"],
+      options: ["Eye contact, pacing, pausing and vocal variety", "Reading the manuscript word for word", "Reading the manuscript out without looking up", "Speaking in monotone to seem serious"],
       explanation: "Eye contact, varied pace and pitch, and deliberate pauses keep the audience engaged.",
     },
     {
@@ -240,7 +240,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What should a good presentation conclusion do?",
-      options: ["Summarise the main points and end memorably", "Introduce a completely new topic", "Introduce a completely new topic that the audience has not heard about", "Apologise for the quality"],
+      options: ["Summarise the main points and end memorably", "Introduce a completely new topic", "Introduce a new topic at the very end", "Apologise for the quality"],
       explanation: "A strong conclusion summarises your message and leaves the audience with something memorable.",
     },
   ],
@@ -252,7 +252,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which signal words typically indicate the past simple, not the present perfect?",
-      options: ["\"yesterday\", \"last week\", \"ago\"", "\"for\", \"so far\", \"already\"", "\"always\", \"never\", \"just\"", "\"yet\", \"ever\", \"since\""],
+      options: ["\"yesterday\", \"last week\", \"ago\"", "\"for\", \"so far\", \"already\", \"yet\"", "\"always\", \"never\", \"just\", \"lately\"", "\"yet\", \"ever\", \"since\""],
       explanation: "\"Yesterday\", \"last week\" and \"ago\" pin the action to finished past time, requiring past simple.",
     },
     {
@@ -262,7 +262,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the passive voice version of \"The committee approved the plan\"?",
-      options: ["\"The plan was approved by the committee.\"", "\"The plan approved the committee.\"", "\"The committee was approved by the plan.\"", "\"The plan is approving the committee.\""],
+      options: ["\"The plan was approved by the committee.\"", "\"The plan approves the committee.\"", "\"The committee has approved the plan.\"", "\"The plan is approving the committee.\""],
       explanation: "In the passive, the object becomes the subject: \"The plan was approved (by the committee).\"",
     },
     {
@@ -274,7 +274,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-3-2": [
     {
       question: "What is an independent clause?",
-      options: ["A clause that can stand alone as a complete sentence", "A clause that always begins with \"because\"", "A group of words that has a subject but lacks any main verb of its own", "A direct question that ends with a question mark rather than a full stop"],
+      options: ["A clause that can stand alone as a complete sentence", "A clause that always begins with a subordinating word such as \"because\"", "A group of words that has a subject but lacks any main verb of its own", "A direct question that ends with a question mark rather than a full stop"],
       explanation: "Independent clauses are complete sentences on their own; dependent clauses need an independent clause.",
     },
     {
@@ -284,7 +284,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which of these correctly joins two closely related independent clauses without a conjunction?",
-      options: ["\"The exam was difficult; many students struggled.\"", "\"The exam was difficult, many students struggled.\"", "\"The exam was difficult many students struggled.\"", "\"The exam was difficult: because many students struggled.\""],
+      options: ["\"The exam was difficult; many students struggled.\"", "\"The test was hard, lots of students found it tough.\"", "\"The exam was difficult many students struggled.\"", "\"Because many students struggled: the exam was difficult.\""],
       explanation: "A semicolon links two closely related independent clauses. A comma alone creates a comma splice.",
     },
     {
@@ -294,7 +294,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Why does sentence variety matter in writing?",
-      options: ["It keeps readers engaged, creates rhythm and lets you emphasise key ideas", "Examiners count the number of words only", "Examiners simply count the total number of words and reward the longest texts", "Identical, repeated sentence patterns are always easier for readers to follow"],
+      options: ["It keeps readers engaged, creates rhythm and lets you emphasise key ideas", "Examiners simply count the different sentence types used", "Examiners simply count the total number of words and reward the longest texts", "Identical, repeated sentence patterns are always easier for readers to follow"],
       explanation: "Varying structure, openings and length creates engaging rhythm and demonstrates advanced language skills.",
     },
   ],
@@ -316,7 +316,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is lexical cohesion?",
-      options: ["Creating connection through word choice, such as repetition and related words", "Always using the same single word", "Always repeating the exact same single word in every sentence of the paragraph", "Using only very formal, academic vocabulary regardless of the intended audience"],
+      options: ["Creating connection through word choice, such as repetition and related words", "Choosing words that begin with the same letter throughout the paragraph", "Always repeating the exact same single word in every sentence of the paragraph", "Using only very formal, academic vocabulary regardless of the intended audience"],
       explanation: "Lexical cohesion links a text through vocabulary: repetition, synonyms and word families that keep the topic clear.",
     },
     {
@@ -333,7 +333,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What does the ARMS revision strategy stand for?",
-      options: ["Add, Remove, Move, Substitute", "Analyse, Read, Mark, Submit", "Argue, Refute, Modify, Summarise", "Ask, Research, Memorise, Study"],
+      options: ["Add, Remove, Move, Substitute", "Analyse, Read, Mark and Submit", "Argue, Refute, Modify, Summarise", "Ask, Research, Memorise, Study"],
       explanation: "ARMS: Add what is missing, Remove the unnecessary, Move what is misplaced, Substitute what could be better.",
     },
     {
@@ -348,19 +348,19 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is a reverse outline used for?",
-      options: ["Checking the structure of a draft you have already written", "Counting the words in each paragraph", "Planning and outlining an essay in full detail before you write it", "Counting the exact number of words contained in each body paragraph"],
+      options: ["Checking the structure of a draft you have already written", "Checking that every paragraph contains the same number of words", "Planning and outlining an essay in full detail before you write it", "Counting the exact number of words contained in each body paragraph"],
       explanation: "A reverse outline summarises each paragraph of your draft so you can evaluate and fix the overall structure.",
     },
   ],
   "engelsk-vg1-4-1": [
     {
       question: "Why do writers use literary devices?",
-      options: ["To create imagery, evoke emotion and add layers of meaning", "Because school curricula require them", "To make otherwise short texts noticeably longer and wordier", "Because school curricula strictly require them in every essay"],
+      options: ["To create imagery, evoke emotion and add layers of meaning", "Because publishers pay writers more for texts that contain them", "To make otherwise short texts noticeably longer and wordier", "Because school curricula strictly require them in every essay"],
       explanation: "Literary devices create vivid imagery, evoke emotional responses, convey complex ideas and make language memorable.",
     },
     {
       question: "What is the key principle when analysing a literary device in a text?",
-      options: ["Explain its effect on the reader, not just identify it", "Assume every device means the same thing", "Ignore the surrounding context and analyse the device in isolation", "List as many separate devices as you possibly can find in the passage"],
+      options: ["Explain its effect on the reader, not just identify it", "Assume every device carries the same meaning", "Ignore the surrounding context and analyse the device in isolation", "List as many separate devices as you possibly can find in the passage"],
       explanation: "Good analysis connects technique to effect: not just naming the device, but explaining what it does in context.",
     },
     {
@@ -370,7 +370,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Why can the same literary device have different effects in different texts?",
-      options: ["Because context shapes how a device works and what it means", "Because devices change their definitions every year", "It cannot — a given device always produces one single, fixed effect", "Because ordinary readers are simply unable to recognise devices at all"],
+      options: ["Because context shapes how a device works and what it means", "Because the definitions of literary devices are revised every single year", "It cannot — a given device always produces one single, fixed effect", "Because ordinary readers are simply unable to recognise devices at all"],
       explanation: "Context matters: repetition might build tension in one text and comfort in another.",
     },
     {
@@ -382,7 +382,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-4-2": [
     {
       question: "Which six elements are central to short story analysis?",
-      options: ["Plot, character, setting, theme, point of view and style", "Hero, villain, sidekick, mentor, victim and judge", "Hero, villain, sidekick, wise mentor, helpless victim and fair judge", "Title, author, year, publisher, length and price"],
+      options: ["Plot, character, setting, theme, point of view and style", "Font, margins, page count and cover", "Hero, villain, sidekick, wise mentor, helpless victim and fair judge", "Title, author, year, publisher, length and price"],
       explanation: "Short story analysis examines plot, character, setting, theme, point of view and style.",
     },
     {
@@ -397,19 +397,19 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the PEE structure in literary analysis?",
-      options: ["Point, Evidence, Explanation", "Plot, Ending, Evaluation", "Preview, Example, Ending", "Person, Event, Effect"],
+      options: ["Point, Evidence, Explanation", "Plot, Ending and Evaluation", "Preview, Example and Ending", "Person, Event, Effect"],
       explanation: "PEE: make an analytical Point, support it with Evidence from the text, then Explain its significance.",
     },
     {
       question: "What is a dynamic character?",
-      options: ["A character who changes during the story", "A character with no dialogue", "The physically fastest or most energetic character in the plot", "The fastest character"],
+      options: ["A character who changes during the story", "A character with no dialogue", "The physically fastest or most energetic character in the plot", "A nameless minor figure"],
       explanation: "A dynamic character undergoes change, while a static character remains the same throughout the story.",
     },
   ],
   "engelsk-vg1-4-3": [
     {
       question: "What is a motif?",
-      options: ["A recurring element that develops a theme", "The main character's motivation", "The opening first chapter that introduces a novel", "A sudden, surprising twist near the end of the plot"],
+      options: ["A recurring element that develops a theme", "The single decisive turning point of the plot", "The opening first chapter that introduces a novel", "A sudden, surprising twist near the end of the plot"],
       explanation: "A motif is a recurring image, object or phrase that reinforces and develops a theme through the novel.",
     },
     {
@@ -436,7 +436,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-4-4": [
     {
       question: "What is a stanza?",
-      options: ["A group of lines forming a unit in a poem", "The last line of a sonnet", "A particular pattern of end-rhyme in verse", "The overall descriptive title given to a poem"],
+      options: ["A group of lines forming a unit in a poem", "The rhythmic beat counted in each line", "A particular pattern of end-rhyme in verse", "The overall descriptive title given to a poem"],
       explanation: "A stanza is a group of lines forming a unit — the poetic equivalent of a paragraph.",
     },
     {
@@ -451,7 +451,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which are sound devices in poetry?",
-      options: ["Rhyme, alliteration, assonance and onomatopoeia", "Chapters, prefaces and back-of-book indexes", "Plot, setting and character development", "Page margins, font choices and headings"],
+      options: ["Rhyme, alliteration, assonance and onomatopoeia", "Chapters, prefaces and back-of-book indexes with page numbers", "Plot, setting and the development of the main characters", "Page margins, font choices and headings"],
       explanation: "Sound devices — rhyme, alliteration, assonance, onomatopoeia — create the musical quality of poetry.",
     },
     {
@@ -468,12 +468,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is dramatic irony?",
-      options: ["When the audience knows something the characters do not", "When the actors forget or stumble over their lines", "When the villain of the story ultimately triumphs", "When a play concludes with a notably sad ending"],
+      options: ["When the audience knows something the characters do not", "When the actors forget their lines and have to be prompted from the wings", "When the villain of the story ultimately triumphs", "When a play concludes with a notably sad ending"],
       explanation: "Dramatic irony creates tension because the audience possesses knowledge the characters lack.",
     },
     {
       question: "What is mise-en-scene?",
-      options: ["Everything visible in a frame — set, costumes, lighting and actors", "The written dialogue contained in the screenplay", "The scrolling closing credits at the film's end", "The musical score and soundtrack of the film"],
+      options: ["Everything visible in a frame — set, costumes, lighting and actors", "The written dialogue contained in the screenplay before any filming begins", "The scrolling closing credits shown at the very end of the finished film", "The musical score and soundtrack of the film"],
       explanation: "Mise-en-scene covers everything visible within the frame: set design, costumes, lighting and actor placement.",
     },
     {
@@ -483,7 +483,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is cinematography?",
-      options: ["The art of camera work and visual composition in film", "The craft of writing and publishing film reviews", "The advertising and marketing of finished films", "The architectural design of cinema buildings"],
+      options: ["The art of camera work and visual composition in film", "The craft of writing and publishing reviews of newly released films", "The advertising and marketing of finished films", "The architectural design of cinema buildings"],
       explanation: "Cinematography is the art of camera work — angles, movement, framing and visual composition.",
     },
   ],
@@ -495,7 +495,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What should an active reader do BEFORE reading a non-fiction text?",
-      options: ["Preview the text, set a purpose and activate prior knowledge", "Read the whole text twice through as quickly as possible", "Skip straight to the exercises at the end of the text", "Memorise the conclusion before reading the body"],
+      options: ["Preview the text, set a purpose and activate prior knowledge", "Read the whole text through twice as quickly as you possibly can manage", "Skip straight to the exercises at the end of the text", "Memorise the conclusion before reading the body"],
       explanation: "The before-phase includes previewing, setting a purpose for reading and activating what you already know.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What should you do AFTER reading a non-fiction text?",
-      options: ["Summarise, evaluate and connect the content to what you know", "Forget everything at once and move straight on", "Look only at the pictures and ignore the words", "Count how many paragraphs the text contained"],
+      options: ["Summarise, evaluate and connect the content to what you know", "Forget everything at once and move straight on to the next chapter", "Look only at the pictures and ignore the words on the page entirely", "Count how many paragraphs the text contained"],
       explanation: "The after-phase consolidates understanding: summarise the content, evaluate it and connect it to prior knowledge.",
     },
   ],
@@ -522,17 +522,17 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which of these is a sign of bias in a source?",
-      options: ["Emotionally charged language and omission of relevant context", "Direct quotation of experts on both sides of the issue", "A carefully compiled list of cited references", "Neutral, factual wording free of loaded terms"],
+      options: ["Emotionally charged language and omission of relevant context", "Direct quotation of named experts on both sides of the disputed issue", "A carefully compiled list of cited references", "Neutral, factual wording free of loaded terms"],
       explanation: "Loaded language, selective emphasis and omission of context are typical signs of bias or framing.",
     },
     {
       question: "How should you organise a synthesis of several sources?",
-      options: ["By theme, not source by source", "By the length of each source", "Strictly alphabetically by each author's surname", "Alphabetically by author"],
+      options: ["By theme, not source by source", "By the length of each source", "Strictly alphabetically by each author's surname", "In order of publication date"],
       explanation: "Effective synthesis organises by theme, identifying patterns and contradictions across sources rather than summarising one source at a time.",
     },
     {
       question: "Why compare several sources on the same topic?",
-      options: ["Comparison reveals patterns, contradictions and creates a fuller understanding", "It exists mainly to pad out and lengthen the assignment", "Reliable sources on a topic essentially never disagree", "A single well-chosen source is always entirely enough"],
+      options: ["Comparison reveals patterns, contradictions and creates a fuller understanding", "It exists mainly to pad out and lengthen the assignment you hand in", "Reliable sources on a given topic essentially never disagree with each other", "A single well-chosen source is always entirely enough"],
       explanation: "Comparing sources exposes different perspectives and gaps, helping you build new, more complete understanding.",
     },
     {
@@ -554,7 +554,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which of these is a red flag for an unreliable source?",
-      options: ["Anonymous authors, sensational language and missing citations", "A clearly named author listed with relevant credentials", "Explicit references pointing to verifiable evidence", "A recent and clearly stated publication date"],
+      options: ["Anonymous authors, sensational language and missing citations", "A clearly named author listed together with relevant credentials", "Explicit references pointing to verifiable evidence", "A recent and clearly stated publication date"],
       explanation: "Red flags include anonymous authors, emotional or sensational language, missing citations and extreme claims.",
     },
     {
@@ -564,19 +564,19 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "A website mimics the domain of a well-known news outlet. What should you do?",
-      options: ["Treat it as a red flag and verify through lateral reading", "Trust it straight away because the name looks familiar", "Share it with others immediately before checking it", "Assume it must simply be a harmless piece of satire"],
+      options: ["Treat it as a red flag and verify through lateral reading", "Trust it straight away because the domain name looks familiar to you", "Share it with others immediately, before you have checked anything", "Assume it must simply be a harmless piece of satire"],
       explanation: "Domains mimicking legitimate sites are a known red flag — verify the source by checking what others say about it.",
     },
   ],
   "engelsk-vg1-5-4": [
     {
       question: "What is the difference between misinformation and disinformation?",
-      options: ["Misinformation is false content spread without intent to deceive; disinformation is deliberately created to deceive", "Misinformation is always political while disinformation never is", "Disinformation is true content whereas misinformation is false", "Misinformation is always political; disinformation never is"],
+      options: ["Misinformation is false content spread without intent to deceive; disinformation is deliberately created to deceive", "Misinformation is always political while disinformation never is", "Disinformation is true content whereas misinformation is false", "Both terms describe deliberate lies told by governments only"],
       explanation: "The difference is intent: misinformation is spread unknowingly, disinformation is deliberate deception.",
     },
     {
       question: "How do social media algorithms curate your feed?",
-      options: ["Based on engagement — what you interact with", "Based on what is most accurate", "Completely at random, with no underlying logic", "In strict chronological order, newest posts first"],
+      options: ["Based on engagement — what you interact with", "Based on which posts have been fact-checked most recently", "Completely at random, with no underlying logic", "In strict chronological order, newest posts first"],
       explanation: "Algorithms optimise for engagement, which can create filter bubbles and amplify emotional content.",
     },
     {
@@ -586,7 +586,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What should you do before sharing emotionally charged content?",
-      options: ["Pause and verify it first", "Share it quickly while it is relevant", "Add an angry comment", "Tag as many friends as possible"],
+      options: ["Pause and verify it first", "Share it quickly while it is relevant", "Add a strongly worded comment", "Tag as many friends as possible"],
       explanation: "\"Verify before you amplify\": pausing before sharing emotional content prevents spreading misinformation.",
     },
     {
@@ -598,7 +598,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-6-1": [
     {
       question: "Which features characterise formal writing?",
-      options: ["Sophisticated vocabulary, no contractions and an objective tone", "Slang, emojis and short fragments", "First-person anecdotes, humour and frequent everyday contractions", "Casual slang, playful emojis and a strongly personal, opinionated tone"],
+      options: ["Sophisticated vocabulary, no contractions and an objective tone", "Rhetorical questions, exclamation marks and direct address to the reader", "First-person anecdotes, humour and frequent everyday contractions", "Casual slang, playful emojis and a strongly personal, opinionated tone"],
       explanation: "Formal writing uses precise vocabulary, avoids contractions, and keeps an objective, professional tone.",
     },
     {
@@ -608,7 +608,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "According to the chapter, is formal or informal register inherently better?",
-      options: ["Neither — the skill is choosing the right register for audience and purpose", "Informal is always better", "Formal register is always better because it sounds more educated and precise", "The formal register is correct only when writing to strangers you do not know"],
+      options: ["Neither — the skill is choosing the right register for audience and purpose", "Informal register is always the better choice because it reaches more readers", "Formal register is always better because it sounds more educated and precise", "The formal register is correct only when writing to strangers you do not know"],
       explanation: "Context determines appropriateness: neither register is better in itself.",
     },
     {
@@ -618,7 +618,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "When is informal register appropriate?",
-      options: ["In personal messages, blogs and conversation with friends", "In official complaints", "In academic essays, research reports and examination answers", "In job applications, cover letters and formal emails to employers"],
+      options: ["In personal messages, blogs and conversation with friends", "In official complaints and formal letters", "In academic essays, research reports and examination answers", "In job applications, cover letters and formal emails to employers"],
       explanation: "Informal register suits personal and conversational contexts; formal contexts require formal register.",
     },
   ],
@@ -630,7 +630,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "In a PEEL paragraph, which part is described as the most important?",
-      options: ["The Explanation — analysing the significance of the evidence", "The Evidence", "The Point — stating the paragraph's main claim in the topic sentence", "The Link — tying the paragraph back to the thesis and to the next point"],
+      options: ["The Explanation — analysing the significance of the evidence", "The Evidence — quoting the source material that supports the claim", "The Point — stating the paragraph's main claim in the topic sentence", "The Link — tying the paragraph back to the thesis and to the next point"],
       explanation: "The explanation is where you analyse why the evidence matters — without it, evidence is just a quotation.",
     },
     {
@@ -667,7 +667,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Is first person acceptable in reflective writing?",
-      options: ["Yes — reflective writing is personal and honest, written in first person", "Only in the concluding paragraph, never in the body of the reflection", "No — the first person is strictly banned in every kind of academic writing", "Only if the teacher approves it first, since first person is normally too casual"],
+      options: ["Yes — reflective writing is personal and honest, written in first person", "Only in the concluding paragraph, and never anywhere in the body of the reflection", "No — the first person is strictly banned in every kind of academic writing", "Only if the teacher approves it first, since first person is normally too casual"],
       explanation: "Reflective writing is by nature personal and uses first person, unlike most analytical writing.",
     },
     {
@@ -679,7 +679,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-6-4": [
     {
       question: "When must you cite a source in academic writing?",
-      options: ["Whenever you use ideas from others, whether quoted or paraphrased", "Only when using direct quotations", "Only when you quote someone's exact words directly from the source", "Only for printed books and journals, but never for online websites"],
+      options: ["Whenever you use ideas from others, whether quoted or paraphrased", "Only when the source you are using was published within the last five years", "Only when you quote someone's exact words directly from the source", "Only for printed books and journals, but never for online websites"],
       explanation: "Both direct quotes and paraphrases of others' ideas require citation — otherwise it is plagiarism.",
     },
     {
@@ -689,7 +689,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is required for a correct paraphrase?",
-      options: ["Significantly changing the wording AND citing the source", "Copying the text into italics", "Changing just one or two words while keeping the sentence structure", "Copying the original text exactly but placing all of it into italics"],
+      options: ["Significantly changing the wording AND citing the source", "Replacing a few words with synonyms", "Changing just one or two words while keeping the sentence structure", "Copying the original text exactly but placing all of it into italics"],
       explanation: "A paraphrase must substantially reword the original and still credit the source.",
     },
     {
@@ -711,7 +711,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What makes description vivid?",
-      options: ["Specific, concrete details that engage multiple senses", "As many adjectives as possible", "Using long, abstract statements about feelings and ideas", "Piling on as many adjectives as possible before each noun"],
+      options: ["Specific, concrete details that engage multiple senses", "Abstract nouns that name the emotion the reader should feel", "Using long, abstract statements about feelings and ideas", "Piling on as many adjectives as possible before each noun"],
       explanation: "Vivid description uses specific, concrete sensory details and strong, precise verbs — and avoids cliches.",
     },
     {
@@ -726,14 +726,14 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Why should writers avoid cliches like \"cold as ice\"?",
-      options: ["Worn-out phrases weaken the writing; fresh images are more powerful", "Cliches are too difficult to understand", "Cliches are far too difficult for most ordinary readers to understand", "Examiners have officially banned a fixed list of specific set phrases"],
+      options: ["Worn-out phrases weaken the writing; fresh images are more powerful", "Cliches are protected by copyright and may not be reused in new writing", "Cliches are far too difficult for most ordinary readers to understand", "Examiners have officially banned a fixed list of specific set phrases"],
       explanation: "Cliches are predictable and lifeless; original, specific images create stronger effects.",
     },
   ],
   "engelsk-vg1-7-1": [
     {
       question: "Which event transformed English from Old English to Middle English?",
-      options: ["The Norman Conquest of 1066", "The American Revolution", "The invention of the internet", "The Viking discovery of America"],
+      options: ["The Norman Conquest of 1066", "The American Revolution of 1776", "The invention of the internet", "The Viking discovery of America"],
       explanation: "The Norman Conquest brought massive French influence, transforming English into Middle English (1100-1500).",
     },
     {
@@ -748,7 +748,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "How did Middle English change compared to Old English?",
-      options: ["Grammar was simplified while vocabulary expanded massively", "The language lost most of its vocabulary", "Grammar became far more complex, adding many new inflections and endings", "The language lost most of its vocabulary and shrank to a few thousand words"],
+      options: ["Grammar was simplified while vocabulary expanded massively", "The language kept every Old English ending and added new ones on top", "Grammar became far more complex, adding many new inflections and endings", "The language lost most of its vocabulary and shrank to a few thousand words"],
       explanation: "Middle English simplified the inflected Old English grammar while absorbing thousands of French words.",
     },
     {
@@ -765,7 +765,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "In Kachru's Three Circles model, which countries are in the Outer Circle?",
-      options: ["Former colonies where English has official functions, like India and Nigeria", "Countries learning English as a foreign language, like Norway", "Native-speaker countries where English is the first language, like the UK and USA", "Countries learning English purely as a foreign language, such as Norway and China"],
+      options: ["Former colonies where English has official functions, like India and Nigeria", "Countries where English is learned as a foreign language, such as Norway and Japan", "Native-speaker countries where English is the first language, like the UK and USA", "Countries learning English purely as a foreign language, such as Norway and China"],
       explanation: "The Outer Circle consists of post-colonial countries where English plays an official role; Norway is in the Expanding Circle.",
     },
     {
@@ -780,14 +780,14 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which factors contributed to the global spread of English?",
-      options: ["Colonialism, economic power, science, pop culture and the internet", "Only the quality of English grammar", "Only the supposedly high quality of English grammar and logical structure", "Its unusually simple and consistent spelling system that is easy to learn"],
+      options: ["Colonialism, economic power, science, pop culture and the internet", "The decision of the United Nations to make English its single working language", "Only the supposedly high quality of English grammar and logical structure", "Its unusually simple and consistent spelling system that is easy to learn"],
       explanation: "Colonialism, American power, science, technology, popular culture and the internet all drove English's global spread.",
     },
   ],
   "engelsk-vg1-7-3": [
     {
       question: "How does the chapter describe World Englishes such as Indian and Nigerian English?",
-      options: ["As legitimate varieties with systematic features of their own", "As incorrect versions of British English", "As passing fashions and slang that fade once colonial contact ends completely", "As dying dialects that will vanish as global standard English spreads everywhere"],
+      options: ["As legitimate varieties with systematic features of their own", "As incorrect versions of British English that ought to be corrected", "As passing fashions and slang that fade once colonial contact ends completely", "As dying dialects that will vanish as global standard English spreads everywhere"],
       explanation: "There is no single \"correct\" English — post-colonial varieties have systematic features shaped by local languages and cultures.",
     },
     {
@@ -797,7 +797,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the chapter's advice about varieties when writing?",
-      options: ["Be consistent within one variety — do not mix British and American spelling", "Mix varieties freely to show range", "Invent your own spelling system so long as you apply it across the whole document", "Always use American spelling because it is now the global standard for all writing"],
+      options: ["Be consistent within one variety — do not mix British and American spelling", "Mix British and American spelling freely in order to show your range", "Invent your own spelling system so long as you apply it across the whole document", "Always use American spelling because it is now the global standard for all writing"],
       explanation: "Choose one variety (e.g. British or American) and use it consistently within a text.",
     },
     {
@@ -807,14 +807,14 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What often shapes the features of post-colonial English varieties?",
-      options: ["Influence from local languages and cultures", "Decisions by the British government", "Careless errors that were never corrected by teachers", "Errors that were never corrected"],
+      options: ["Influence from local languages and cultures", "Decisions by the British government", "Careless errors that were never corrected by teachers", "Rules set by British publishers"],
       explanation: "Features of varieties like Indian or Singaporean English reflect the local languages and cultures of their communities.",
     },
   ],
   "engelsk-vg1-7-4": [
     {
       question: "How has the internet affected the English language?",
-      options: ["It has accelerated language change dramatically", "It has frozen the language in place", "It has frozen the language completely in its current form", "It has eliminated the creation of any genuinely new words"],
+      options: ["It has accelerated language change dramatically", "It has frozen the language in the form it had before 1990", "It has frozen the language completely in its current form", "It has eliminated the creation of any genuinely new words"],
       explanation: "Digital communication creates new words, new meanings and new conventions at unprecedented speed.",
     },
     {
@@ -829,7 +829,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "How can punctuation carry meaning in digital communication?",
-      options: ["Punctuation and capitalization can signal emotion and tone", "Digital text cannot convey emotions", "Digital text can never convey emotion because it lacks voice and facial cues", "Only emojis and images can carry tone, since written marks stay purely neutral"],
+      options: ["Punctuation and capitalization can signal emotion and tone", "Only the choice of font and colour can carry emotion in digital writing", "Digital text can never convey emotion because it lacks voice and facial cues", "Only emojis and images can carry tone, since written marks stay purely neutral"],
       explanation: "In digital writing, a full stop, ALL CAPS or missing punctuation can signal tone and emotion.",
     },
     {
@@ -856,7 +856,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What was the \"double edge\" of the Industrial Revolution?",
-      options: ["It created wealth and technology but also slums, child labour and pollution", "It only affected the countryside", "It affected only the countryside, leaving the growing industrial cities untouched", "It brought only positive effects, raising living standards for absolutely everyone"],
+      options: ["It created wealth and technology but also slums, child labour and pollution", "It raised wages steadily for every worker while leaving the cities unchanged", "It affected only the countryside, leaving the growing industrial cities untouched", "It brought only positive effects, raising living standards for absolutely everyone"],
       explanation: "Alongside higher wages and new technology came slums, child labour, pollution and dramatic differences in life expectancy.",
     },
     {
@@ -868,7 +868,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-8-2": [
     {
       question: "Why was India called \"the Jewel in the Crown\"?",
-      options: ["It was the most valuable colony of the British Empire", "It produced most of Britain's diamonds", "It was the first colony that Britain lost, prompting reform of imperial policy", "It was the first colony Britain lost"],
+      options: ["It was the most valuable colony of the British Empire", "It produced most of Britain's diamonds", "It was the first colony that Britain lost, prompting reform of imperial policy", "It supplied Britain with tea only"],
       explanation: "India was Britain's most prized colony, providing raw materials, tax revenue, markets and soldiers.",
     },
     {
@@ -883,19 +883,19 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which of these is part of the British Empire's legacy?",
-      options: ["The spread of English, common law systems — but also slavery and exploitation", "Only positive contributions", "No lasting effects at all, since the colonies returned to their pre-colonial states", "Only positive contributions, such as railways, schools and modern legal institutions"],
+      options: ["The spread of English, common law systems — but also slavery and exploitation", "Only the loss of trade, since the colonies gained nothing at all from the period", "No lasting effects at all, since the colonies returned to their pre-colonial states", "Only positive contributions, such as railways, schools and modern legal institutions"],
       explanation: "The Empire spread English, law and parliamentary models, but its legacy also includes slavery, exploitation and cultural destruction.",
     },
     {
       question: "When did the British Empire decline?",
-      options: ["Between 1914 and 1997, through the World Wars and decolonization", "It still exists at full size", "During the 1500s, as Spain and Portugal overtook Britain in overseas exploration", "Immediately after 1066, when Norman rule replaced the earlier Anglo-Saxon kingdoms"],
+      options: ["Between 1914 and 1997, through the World Wars and decolonization", "It ended abruptly in a single year when all colonies left at once", "During the 1500s, as Spain and Portugal overtook Britain in overseas exploration", "Immediately after 1066, when Norman rule replaced the earlier Anglo-Saxon kingdoms"],
       explanation: "The Empire declined through the 20th century, with decolonization after the World Wars; Hong Kong was handed over in 1997.",
     },
   ],
   "engelsk-vg1-8-3": [
     {
       question: "What is the role of the monarch in the British political system?",
-      options: ["Ceremonial head of state", "Head of government with real power", "Leader of the largest party", "Chief judge"],
+      options: ["Ceremonial head of state", "Head of government with real power", "Leader of the largest party", "Commander of the armed forces"],
       explanation: "The monarch is the ceremonial head of state, while the Prime Minister is head of government.",
     },
     {
@@ -910,12 +910,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which steps must a British bill pass to become law?",
-      options: ["House of Commons, House of Lords and Royal Assent", "Only the Prime Minister's signature", "It must be approved directly by the public in a binding national referendum vote", "Approval by the European Union"],
+      options: ["House of Commons, House of Lords and Royal Assent", "Only the Prime Minister's signature", "It must be approved in a binding referendum", "Approval by the European Union"],
       explanation: "A bill passes readings in the Commons, then the Lords, and finally receives Royal Assent.",
     },
     {
       question: "How did Scotland and Northern Ireland vote in the Brexit referendum?",
-      options: ["Both voted Remain, unlike England and Wales", "Both voted Leave", "Scotland voted Leave, Northern Ireland Remain", "They did not participate"],
+      options: ["Both voted Remain, unlike England and Wales", "Both voted Leave", "Scotland voted Leave, Wales Remain", "They did not participate"],
       explanation: "The geographic divide was striking: England and Wales voted Leave, while Scotland and Northern Ireland voted Remain.",
     },
   ],
@@ -937,12 +937,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which regional identities make up the United Kingdom?",
-      options: ["English, Scottish, Welsh and Northern Irish", "British, American, Canadian and Australian", "Only English, since the other nations were fully absorbed", "English, French, German and Dutch"],
+      options: ["English, Scottish, Welsh and Northern Irish", "British, American, Canadian and Australian identities", "Only English, since the other nations were fully absorbed", "English, French, German and Dutch"],
       explanation: "The UK contains distinct English, Scottish, Welsh and Northern Irish identities.",
     },
     {
       question: "What is \"Estuary English\"?",
-      options: ["A widespread accent between RP and Cockney", "The accent of the Scottish Highlands", "The formal medieval court English once spoken by nobles around the monarch", "An American business accent"],
+      options: ["A widespread accent between RP and Cockney", "The traditional accent of the Scottish Highlands", "The formal medieval court English once spoken by nobles around the monarch", "A formal broadcasting accent"],
       explanation: "Estuary English, between RP and Cockney, has become increasingly common as accent attitudes change.",
     },
   ],
@@ -959,7 +959,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "How does the US Constitution of 1787 treat slavery?",
-      options: ["It never uses the word \"slave\" but protects slavery in several clauses", "It does not mention anything related to slavery", "It abolished slavery immediately across every state the moment it was ratified", "It banned slavery only in the southern states while allowing it in the northern ones"],
+      options: ["It never uses the word \"slave\" but protects slavery in several clauses", "It does not mention anything related to slavery anywhere in its text at all", "It abolished slavery immediately across every state the moment it was ratified", "It banned slavery only in the southern states while allowing it in the northern ones"],
       explanation: "The Constitution avoided the word \"slave\" while protecting slavery through the Three-Fifths Compromise and the Fugitive Slave Clause.",
     },
     {
@@ -976,7 +976,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-9-2": [
     {
       question: "What is the core promise of the American Dream?",
-      options: ["Success through merit and hard work, regardless of birth", "Guaranteed wealth for everyone", "Guaranteed wealth handed automatically to everyone regardless of any effort", "Free government housing provided for all citizens as a basic national right"],
+      options: ["Success through merit and hard work, regardless of birth", "A guaranteed government income paid to every citizen from birth", "Guaranteed wealth handed automatically to everyone regardless of any effort", "Free government housing provided for all citizens as a basic national right"],
       explanation: "The Dream promises equal opportunity, upward mobility and success through merit rather than birth.",
     },
     {
@@ -996,7 +996,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which symbol is most associated with the immigrant promise of America?",
-      options: ["The Statue of Liberty", "The Liberty Bell", "The White House in Washington", "The White House"],
+      options: ["The Statue of Liberty", "The Liberty Bell", "The White House in Washington", "Mount Rushmore"],
       explanation: "The Statue of Liberty, welcoming arrivals to New York, symbolises the promise of opportunity for immigrants.",
     },
   ],
@@ -1008,12 +1008,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the filibuster in the US Senate?",
-      options: ["A senator can speak indefinitely to block a vote, and 60 votes are needed to end debate", "The President's right to dissolve the Senate", "A senator can be removed from office by a simple majority vote of 51 senators after debate", "A committee can shorten any debate to five minutes, and 51 votes are needed to pass the bill"],
+      options: ["A senator can speak indefinitely to block a vote, and 60 votes are needed to end debate", "The President's constitutional right to dissolve the Senate and call a new election", "A senator can be removed from office by a simple majority vote of 51 senators after debate", "A committee can shorten any debate to five minutes, and 51 votes are needed to pass the bill"],
       explanation: "Because ending debate (cloture) requires 60 votes, most significant legislation effectively needs 60 Senate votes, not 51.",
     },
     {
       question: "What is the purpose of checks and balances?",
-      options: ["Each branch of government can limit the others", "To check citizens' bank accounts", "Each branch must approve the federal budget together", "Voters directly limit every decision made by Congress"],
+      options: ["Each branch of government can limit the others", "To keep the federal budget in balance every year", "Each branch must approve the federal budget together", "Voters directly limit every decision made by Congress"],
       explanation: "Checks and balances let each branch limit the others — for example the presidential veto and judicial review.",
     },
     {
@@ -1035,7 +1035,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What does the history of Irish Americans \"becoming white\" illustrate?",
-      options: ["That race is a social construction that can change over time", "That discrimination ended in the 1800s", "That discrimination against immigrant groups had fully ended by the mid-1800s", "That national immigration laws have stayed the same for well over two centuries"],
+      options: ["That race is a social construction that can change over time", "That racial categories in the United States have never changed since 1776", "That discrimination against immigrant groups had fully ended by the mid-1800s", "That national immigration laws have stayed the same for well over two centuries"],
       explanation: "Irish immigrants were once seen as racially inferior but were later included in the majority — showing race is socially constructed.",
     },
     {
@@ -1072,7 +1072,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the Treaty of Waitangi (1840)?",
-      options: ["The founding treaty between the British Crown and the Māori in New Zealand", "A trade agreement between Australia and New Zealand", "A modern trade and defence agreement signed between Australia and New Zealand", "A set of whaling regulations agreed between British settlers and Pacific traders"],
+      options: ["The founding treaty between the British Crown and the Māori in New Zealand", "A peace settlement ending a war between two Māori tribes", "A modern trade and defence agreement signed between Australia and New Zealand", "A set of whaling regulations agreed between British settlers and Pacific traders"],
       explanation: "New Zealand became a British colony through the 1840 Treaty of Waitangi with the Māori.",
     },
     {
@@ -1084,7 +1084,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-10-2": [
     {
       question: "What are Canada's two official languages?",
-      options: ["English and French", "English and Spanish", "English and Inuktitut", "French and German"],
+      options: ["English and French", "English and Spanish", "English and Inuktitut", "French and Cree"],
       explanation: "Canada is officially bilingual in English and French.",
     },
     {
@@ -1094,12 +1094,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Why does Quebec protect the French language so actively?",
-      options: ["Fear that French would be overwhelmed by English dominance", "French is the only language spoken there", "French is the only language that is ever spoken anywhere in the province", "The English language is officially banned across the whole of Canada by law"],
+      options: ["Fear that French would be overwhelmed by English dominance", "Quebec law requires every other province to teach French to all its pupils", "French is the only language that is ever spoken anywhere in the province", "The English language is officially banned across the whole of Canada by law"],
       explanation: "Quebec's language laws respond to fears that global English dominance threatens its distinct francophone culture.",
     },
     {
       question: "What type of state is Canada?",
-      options: ["A constitutional monarchy with the British monarch as head of state", "A direct democracy without parliament", "A federal republic led by a directly elected president as head of state", "A direct democracy where citizens vote on laws without any elected parliament"],
+      options: ["A constitutional monarchy with the British monarch as head of state", "An absolute monarchy where the Canadian king rules without any parliament", "A federal republic led by a directly elected president as head of state", "A direct democracy where citizens vote on laws without any elected parliament"],
       explanation: "Canada is a constitutional monarchy; the British monarch is the ceremonial head of state.",
     },
     {
@@ -1111,22 +1111,22 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-10-3": [
     {
       question: "How does the chapter describe Indian English?",
-      options: ["A legitimate variety representing linguistic evolution", "Broken English that needs correcting", "Broken English full of errors that must be corrected to match British usage", "A secret coded language used only among certain families to hide their meaning"],
+      options: ["A legitimate variety representing linguistic evolution", "A dialect used only in Indian films and never in ordinary conversation", "Broken English full of errors that must be corrected to match British usage", "A secret coded language used only among certain families to hide their meaning"],
       explanation: "Indian English is a legitimate variety with its own systematic vocabulary and grammar features.",
     },
     {
       question: "Which grammar feature is characteristic of Indian English?",
-      options: ["Using the continuous for states: \"He is not knowing the answer\"", "Putting verbs first in every sentence", "Dropping all main verbs, as in \"He the answer\" instead of a full sentence", "Placing the verb before the subject in every single statement and question"],
+      options: ["Using the continuous for states: \"He is not knowing the answer\"", "Leaving out the definite article before every noun in a written sentence", "Dropping all main verbs, as in \"He the answer\" instead of a full sentence", "Placing the verb before the subject in every single statement and question"],
       explanation: "Indian English often uses continuous forms for states (\"I am having two brothers\") and \"isn't it?\" as a universal tag.",
     },
     {
       question: "What is \"Hinglish\"?",
-      options: ["Code-switching that mixes Hindi and English", "English with a Hindu religious vocabulary", "English written with a specialised Hindu religious and ritual vocabulary", "A formal written standard in India"],
+      options: ["Code-switching that mixes Hindi and English", "A written standard used in courts", "English written with a specialised Hindu religious and ritual vocabulary", "A formal written standard in India"],
       explanation: "Hinglish mixes Hindi and English and is common in everyday speech, advertising and Bollywood.",
     },
     {
       question: "Which fact about English in India is true?",
-      options: ["More people speak English in India than in the UK", "English arrived in India in the 1990s", "The use of English is completely banned in all Indian public schools by law", "English is banned in Indian schools"],
+      options: ["More people speak English in India than in the UK", "English arrived in India in the 1990s", "The use of English is completely banned in all Indian public schools by law", "English is a compulsory first language"],
       explanation: "India has more English speakers than the UK, and Indian English literature wins global prizes.",
     },
     {
@@ -1138,17 +1138,17 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-10-4": [
     {
       question: "Which experiences are shared by many indigenous peoples in the English-speaking world?",
-      options: ["Loss of land, destruction of language and forced assimilation policies", "Full political independence from the start", "Purely voluntary migration to cities in search of better-paid factory work", "Total freedom from any form of discrimination throughout the colonial period"],
+      options: ["Loss of land, destruction of language and forced assimilation policies", "Full political independence and self-government from the very first contact", "Purely voluntary migration to cities in search of better-paid factory work", "Total freedom from any form of discrimination throughout the colonial period"],
       explanation: "Common experiences include loss of land and resources, cultural destruction, boarding schools and ongoing inequality.",
     },
     {
       question: "What were the Standing Rock protests (2016-2017) about?",
-      options: ["An oil pipeline routed near the tribe's water supply and sacred sites", "A football stadium", "A large new casino planned on tribal land against the community's wishes", "A section of border wall crossing traditional tribal territory in the south"],
+      options: ["An oil pipeline routed near the tribe's water supply and sacred sites", "A proposed football stadium on land the tribe had leased out", "A large new casino planned on tribal land against the community's wishes", "A section of border wall crossing traditional tribal territory in the south"],
       explanation: "The Dakota Access Pipeline crossed under the tribe's water source and near sacred burial sites, sparking huge protests.",
     },
     {
       question: "What is \"environmental racism\"?",
-      options: ["Placing dangerous projects disproportionately near minority communities", "Banning minorities from national parks", "A policy banning ethnic minorities from entering protected national parks", "An unusual weather phenomenon that mainly affects poorer minority regions"],
+      options: ["Placing dangerous projects disproportionately near minority communities", "Charging minorities higher park fees", "A policy banning ethnic minorities from entering protected national parks", "An unusual weather phenomenon that mainly affects poorer minority regions"],
       explanation: "Standing Rock highlighted how risky projects are often moved near minority communities — the original route near a mostly white city was rejected.",
     },
     {
@@ -1158,19 +1158,19 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What were the boarding/residential schools for indigenous children designed to do?",
-      options: ["Force assimilation by removing children from their language and culture", "Provide voluntary summer camps", "Offer voluntary summer camps that families could freely choose to attend", "Carefully preserve indigenous languages by teaching them to every new pupil"],
+      options: ["Force assimilation by removing children from their language and culture", "Teach indigenous children practical farming skills near their own home villages", "Offer voluntary summer camps that families could freely choose to attend", "Carefully preserve indigenous languages by teaching them to every new pupil"],
       explanation: "Forced assimilation policies removed children from their families to erase indigenous language and culture.",
     },
   ],
   "engelsk-vg1-11-1": [
     {
       question: "What is a genre in music?",
-      options: ["A category of music with shared characteristics", "The volume of a song", "The overall loudness at which a particular song is recorded and played", "A specific type of musical instrument used to perform a piece of music"],
+      options: ["A category of music with shared characteristics", "The commercial label that released a particular recording", "The overall loudness at which a particular song is recorded and played", "A specific type of musical instrument used to perform a piece of music"],
       explanation: "A genre is a category of music with shared characteristics, like rock, hip hop or country.",
     },
     {
       question: "Which genre emerged in the 1970s as part of a broader cultural movement?",
-      options: ["Hip hop and rap", "Rock and roll", "Rock and roll, which appeared in the 1950s", "Classical"],
+      options: ["Hip hop and rap", "Baroque opera", "Rock and roll, which appeared in the 1950s", "Classical"],
       explanation: "Hip hop emerged in the 1970s (in the Bronx), while rock and roll dates from the 1950s.",
     },
     {
@@ -1180,7 +1180,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What does \"cultural impact\" mean when discussing music?",
-      options: ["The effect a work has on society and values", "The number of instruments used", "The total financial cost of writing and producing a recording", "The overall loudness at which a track is played to an audience"],
+      options: ["The effect a work has on society and values", "The number of separate instruments used", "The total financial cost of writing and producing a recording", "The overall loudness at which a track is played to an audience"],
       explanation: "Cultural impact refers to how music influences society, attitudes and values.",
     },
     {
@@ -1197,17 +1197,17 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is cinematography?",
-      options: ["Camera work and visual composition", "The cinema's sound system", "The total production budget of the film", "The salaries paid to the leading actors"],
+      options: ["Camera work and visual composition", "The sound system installed in the cinema", "The total production budget of the film", "The salaries paid to the leading actors"],
       explanation: "Cinematography is the art of camera work and visual composition in film.",
     },
     {
       question: "What does \"representation\" mean in media analysis?",
-      options: ["How groups of people are portrayed in media", "The film's legal rights", "How much money a film earns at the box office worldwide", "The total number of viewers a broadcast attracts over a season"],
+      options: ["How groups of people are portrayed in media", "The legal rights a studio holds", "How much money a film earns at the box office worldwide", "The total number of viewers a broadcast attracts over a season"],
       explanation: "Representation concerns how groups (genders, ethnicities, cultures) are portrayed — and who gets portrayed at all.",
     },
     {
       question: "What is mise-en-scene?",
-      options: ["Everything visible within a film frame", "The script's first draft", "The list of names shown in the closing credits of a film", "The closing credits"],
+      options: ["Everything visible within a film frame", "The script's first draft", "The list of names shown in the closing credits of a film", "The opening title card"],
       explanation: "Mise-en-scene is everything visible in the frame: sets, costumes, lighting and actors.",
     },
     {
@@ -1219,7 +1219,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-11-3": [
     {
       question: "Why can video games be analysed as cultural texts?",
-      options: ["They have complex narratives and characters and reflect cultural values", "They cannot be studied seriously", "They are made purely for young children and therefore hold no cultural meaning", "They contain no real stories, only rules and scores that mean nothing culturally"],
+      options: ["They have complex narratives and characters and reflect cultural values", "They are produced by such large teams that no single author can be identified", "They are made purely for young children and therefore hold no cultural meaning", "They contain no real stories, only rules and scores that mean nothing culturally"],
       explanation: "Games offer complex narratives, interactive storytelling and global cultural impact — worthy of analysis.",
     },
     {
@@ -1229,7 +1229,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What are gameplay mechanics?",
-      options: ["The rules and systems that define how a game works", "The people who repair gaming computers", "The technicians and staff who repair and service gaming computers and consoles", "The musical soundtrack and sound effects that accompany a game's action scenes"],
+      options: ["The rules and systems that define how a game works", "The engine and code libraries a studio licenses to build the game", "The technicians and staff who repair and service gaming computers and consoles", "The musical soundtrack and sound effects that accompany a game's action scenes"],
       explanation: "Gameplay mechanics are the rules and systems — movement, combat, resource management — that define how a game works.",
     },
     {
@@ -1239,14 +1239,14 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What makes games different from films as storytelling media?",
-      options: ["Interactivity — the player participates in the story", "Games are always shorter", "Games always tell shorter stories than films and end far more quickly", "Games contain no characters at all, only landscapes and abstract objects"],
+      options: ["Interactivity — the player participates in the story", "Games are watched passively from beginning to end", "Games always tell shorter stories than films and end far more quickly", "Games contain no characters at all, only landscapes and abstract objects"],
       explanation: "Interactive storytelling and player agency set games apart from passive media like film.",
     },
   ],
   "engelsk-vg1-11-4": [
     {
       question: "What is intercultural competence?",
-      options: ["The ability to communicate effectively across cultures", "Fluency in at least five languages", "Being fluent in at least five different world languages simultaneously", "Having memorised the names of every capital city in the world by heart"],
+      options: ["The ability to communicate effectively across cultures", "The ability to translate any text between two languages without a dictionary", "Being fluent in at least five different world languages simultaneously", "Having memorised the names of every capital city in the world by heart"],
       explanation: "Intercultural competence is the ability to communicate effectively and appropriately across cultural differences.",
     },
     {
@@ -1261,12 +1261,12 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which areas commonly differ between cultures?",
-      options: ["Communication styles, concepts of time, personal space and formality", "Nothing — all cultures behave identically", "Only food preferences differ, while everything else stays identical across cultures", "Only styles of clothing differ, while all other social behaviour is truly universal"],
+      options: ["Communication styles, concepts of time, personal space and formality", "Nothing at all, since every culture behaves in exactly the same way everywhere", "Only food preferences differ, while everything else stays identical across cultures", "Only styles of clothing differ, while all other social behaviour is truly universal"],
       explanation: "Key differences include direct vs. indirect communication, time and punctuality, personal space, hierarchy and humor.",
     },
     {
       question: "A Dutch colleague gives very direct criticism that a Japanese colleague finds rude. What explains this?",
-      options: ["Different cultural norms for direct versus indirect communication", "The Dutch colleague is simply impolite", "The Dutch colleague is simply an impolite and badly mannered individual", "The Japanese colleague misheard the actual words that were spoken to them"],
+      options: ["Different cultural norms for direct versus indirect communication", "The Japanese colleague dislikes criticism", "The Dutch colleague is simply an impolite and badly mannered individual", "The Japanese colleague misheard the actual words that were spoken to them"],
       explanation: "Directness norms vary culturally: what is honest feedback in one culture can seem rude in another.",
     },
   ],
@@ -1288,7 +1288,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What is the \"standpunkt\" grade?",
-      options: ["The overall achievement grade based on the competence goals", "The grade on a single test", "The grade a student receives on a single written test near the end of term", "An optional bonus grade added on top of the ordinary achievement assessment"],
+      options: ["The overall achievement grade based on the competence goals", "The grade awarded for the written examination set by the directorate", "The grade a student receives on a single written test near the end of term", "An optional bonus grade added on top of the ordinary achievement assessment"],
       explanation: "The standpunkt is the overall achievement grade; in addition, students may be drawn for a written or oral exam.",
     },
     {
@@ -1300,7 +1300,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
   "engelsk-vg1-12-2": [
     {
       question: "What is the typical format of the written English exam?",
-      options: ["Part 1 with short-answer tasks and Part 2 with a long text, over 5 hours", "One multiple-choice test of 30 minutes", "An oral presentation delivered in front of examiners with no written component", "A single multiple-choice test lasting only thirty minutes with no writing at all"],
+      options: ["Part 1 with short-answer tasks and Part 2 with a long text, over 5 hours", "A single essay of 300 words written without any preparation material at all", "An oral presentation delivered in front of examiners with no written component", "A single multiple-choice test lasting only thirty minutes with no writing at all"],
       explanation: "The written exam typically has short-answer tasks (e.g. comparing sources) and a long text, within 5 hours.",
     },
     {
@@ -1310,7 +1310,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "What should you identify before writing your long text?",
-      options: ["The text type, required content and expected structure", "The number of paragraphs other students write", "The name of the examiner who will assess and grade your finished answer", "How many paragraphs the other students around you are choosing to write"],
+      options: ["The text type, required content and expected structure", "The number of paragraphs other candidates write", "The name of the examiner who will assess and grade your finished answer", "How many paragraphs the other students around you are choosing to write"],
       explanation: "Task analysis — identifying text type, content and structure requirements — prevents answering the wrong question.",
     },
     {
@@ -1332,7 +1332,7 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "How should you use notes during your presentation?",
-      options: ["Speak from notes rather than reading a full script aloud", "Read every word from a manuscript", "Use no preparation or notes at all and improvise the entire presentation", "Hand all of your written notes to the examiner before you start speaking"],
+      options: ["Speak from notes rather than reading a full script aloud", "Read every single word aloud directly from a written manuscript", "Use no preparation or notes at all and improvise the entire presentation", "Hand all of your written notes to the examiner before you start speaking"],
       explanation: "Speaking from keyword notes keeps your delivery natural; reading aloud weakens communication.",
     },
     {
@@ -1342,39 +1342,39 @@ const quizData_engelsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Which criteria are you assessed on in the oral exam?",
-      options: ["Content, language quality, communication ability and structure", "Clothing, posture, punctuality and handwriting", "Your choice of clothing, your posture, your punctuality and your handwriting", "Only how quickly you speak, measured in the number of words per minute you say"],
+      options: ["Content, language quality, communication ability and structure", "Clothing, posture, punctuality and the neatness of your handwriting", "Your choice of clothing, your posture, your punctuality and your handwriting", "Only how quickly you speak, measured in the number of words per minute you say"],
       explanation: "Assessment covers content/knowledge, language (vocabulary, grammar, pronunciation), communication and coherence.",
     },
     {
       question: "Which preparation strategies does the chapter recommend?",
-      options: ["Recording yourself, simulating exam conditions and getting peer feedback", "Avoiding speaking practice to stay fresh", "Memorising one single answer word for word and using it for every question asked", "Practising only silently inside your head without ever saying the words out loud"],
+      options: ["Recording yourself, simulating exam conditions and getting peer feedback", "Avoiding all speaking practice beforehand to stay fresh", "Memorising one single answer word for word and using it for every question asked", "Practising only silently inside your head without ever saying the words out loud"],
       explanation: "Recording yourself, realistic practice runs and peer feedback are effective ways to prepare for the oral exam.",
     },
   ],
   "engelsk-vg1-12-4": [
     {
       question: "What are the four pillars of competence in English VG1?",
-      options: ["Communication, language, culture and source evaluation", "Spelling, reading speed, handwriting and memory", "Correct spelling, fast reading speed, neat handwriting and strong memory recall", "Grammar, grammar, grammar and grammar"],
+      options: ["Communication, language, culture and source evaluation", "Attendance, punctuality, effort and behaviour", "Correct spelling, fast reading speed, neat handwriting and strong memory recall", "Grammar, spelling and nothing else"],
       explanation: "The four pillars are communication, language, culture and critical source evaluation.",
     },
     {
       question: "Which criteria are used to assess the reliability of a source?",
-      options: ["Authority, accuracy, objectivity, currency and purpose", "Length, colour, font and images", "The length of the text, its colour scheme, the font used and the images included", "Popularity and number of shares"],
+      options: ["Authority, accuracy, objectivity, currency and purpose", "Popularity, shares, likes and comments", "The length of the text, its colour scheme, the font used and the images included", "Popularity and number of shares"],
       explanation: "Reliability is assessed by who made it (authority), accuracy, objectivity, how current it is, and its purpose.",
     },
     {
       question: "Why are cross-curricular connections valuable?",
-      options: ["Connecting knowledge across topics demonstrates deep understanding", "They replace the need to study", "They make the final examinations noticeably shorter and quicker to complete", "They completely replace the need to study any of the individual subjects at all"],
+      options: ["Connecting knowledge across topics demonstrates deep understanding", "They are required by the curriculum in every single written assignment", "They make the final examinations noticeably shorter and quicker to complete", "They completely replace the need to study any of the individual subjects at all"],
       explanation: "Linking knowledge across different topics shows deep understanding rather than isolated facts.",
     },
     {
       question: "What is reflective learning?",
-      options: ["Thinking about your own learning process to consolidate knowledge", "Studying in front of a mirror", "Repeating lists of memorised facts aloud over and over until they are learned", "The habit of studying while seated directly in front of a large mirror at home"],
+      options: ["Thinking about your own learning process to consolidate knowledge", "Copying the teacher's notes into your own book without changing anything", "Repeating lists of memorised facts aloud over and over until they are learned", "The habit of studying while seated directly in front of a large mirror at home"],
       explanation: "Reflecting on how you learn consolidates knowledge and reveals areas needing further work.",
     },
     {
       question: "Which grammar areas does the final review highlight for accuracy?",
-      options: ["Verb forms, conditionals, countable/uncountable nouns and prepositions", "Hieroglyphics and runes", "Only the letters of the alphabet and the correct order in which they appear", "Ancient Egyptian hieroglyphics and old Norse runes used in historical writing"],
+      options: ["Verb forms, conditionals, countable/uncountable nouns and prepositions", "Only the names of the letters", "Only the letters of the alphabet and the correct order in which they appear", "Ancient Egyptian hieroglyphics and old Norse runes used in historical writing"],
       explanation: "The review highlights verb forms, conditionals, countable/uncountable nouns and prepositions as key accuracy areas.",
     },
   ],

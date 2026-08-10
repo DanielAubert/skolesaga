@@ -4,39 +4,39 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-1-1": [
     {
       question: "Hva er hovedoppgaven til CPU-en i en datamaskin?",
-      options: ["Å utføre alle beregninger og instruksjoner som programmene krever", "Å lagre filer permanent når maskinen er av", "Å tegne opp og oppdatere bildet som vises på skjermen med riktige farger og oppløsning fortløpende", "Å koble maskinen til internett"],
+      options: ["Å utføre alle beregninger og instruksjoner som programmene krever", "Å lagre filer permanent når maskinen er av", "Å tegne opp og oppdatere bildet som vises på skjermen", "Å koble maskinen til internett"],
       explanation: "CPU (Central Processing Unit) er datamaskinens «hjerne» og utfører alle beregninger og instruksjoner. Ytelsen måles i klokkehastighet (GHz) og antall kjerner.",
     },
     {
       question: "Hva kjennetegner RAM (arbeidsminne)?",
-      options: ["Det er raskt korttidsminne der innholdet forsvinner når maskinen slås av", "Det lagrer data permanent også uten strøm", "Det er en enhet som styrer skjermbildet og bestemmer oppløsningen på det som vises til brukeren", "Det er en tregere type minne enn harddisken, men til gjengjeld helt sikret mot at innholdet forsvinner"],
+      options: ["Det er raskt korttidsminne der innholdet forsvinner når maskinen slås av", "Det lagrer data permanent også uten strøm, slik at innholdet ligger der ved neste oppstart", "Det er en enhet som styrer skjermbildet og bestemmer oppløsningen på det som vises til brukeren", "Det er en tregere type minne enn harddisken, men til gjengjeld helt sikret mot at innholdet forsvinner"],
       explanation: "RAM er raskt korttidsminne (arbeidsminne) og er flyktig - alt innhold forsvinner når maskinen slås av.",
     },
     {
       question: "Hva betyr det at RAM er «flyktig»?",
-      options: ["Innholdet forsvinner når strømmen slås av", "Det kan flytte seg fysisk i maskinen", "At det kan lagre nærmest uendelig mye data fordi innholdet komprimeres automatisk før det skrives", "Det kan lagre uendelig mye data"],
+      options: ["Innholdet forsvinner når strømmen slås av", "Det kan flytte seg fysisk i maskinen", "At det kan lagre nærmest uendelig mye data fordi innholdet komprimeres automatisk før det skrives", "Det bruker strøm bare under oppstart"],
       explanation: "At RAM er flyktig betyr at innholdet forsvinner når maskinen slås av - derfor må data lagres på en disk for å bevares.",
     },
     {
       question: "Hva måles ytelsen til en CPU blant annet i?",
-      options: ["Klokkehastighet (GHz) og antall kjerner", "Antall gigabyte lagringsplass", "Skjermoppløsningen målt i piksler, altså hvor mange bildepunkter skjermen kan vise samtidig totalt", "Skjermoppløsning"],
+      options: ["Klokkehastighet (GHz) og antall kjerner", "Antall gigabyte lagringsplass", "Skjermoppløsningen målt i piksler, altså hvor mange bildepunkter skjermen kan vise samtidig totalt", "Antall porter og tilkoblinger på hovedkortet"],
       explanation: "CPU-ens ytelse måles i klokkehastighet (GHz) og antall kjerner som kan jobbe parallelt.",
     },
     {
       question: "Hvorfor lastes et program fra disken og inn i RAM når du åpner det?",
-      options: ["Fordi RAM er mye raskere å lese fra enn disken", "Fordi RAM lagrer data permanent", "Fordi CPU-en ikke er i stand til å lese direkte fra disken og trenger RAM som eneste mulige mellomlager", "Fordi CPU ikke kan lese disken"],
+      options: ["Fordi RAM er mye raskere å lese fra enn disken", "Fordi RAM lagrer data permanent", "Fordi CPU-en ikke er i stand til å lese direkte fra disken", "Fordi disken tømmes ved avslutning"],
       explanation: "Programmer lastes inn i RAM fordi RAM er mye raskere å lese fra enn en harddisk, slik at programmet kjører raskt.",
     },
   ],
   "im-vg1-1-2": [
     {
       question: "Hva er et operativsystem?",
-      options: ["Systemprogramvare som er et mellomledd mellom maskinvaren og brukeren", "Et tekstbehandlingsprogram", "Et tekstbehandlingsprogram brukeren åpner for å skrive dokumenter, brev og rapporter med formatering", "En nettleser man installerer for å kunne åpne nettsider og søke etter informasjon på internett raskt"],
+      options: ["Systemprogramvare som er et mellomledd mellom maskinvaren og brukeren", "En fysisk komponent på hovedkortet som fordeler strøm til de andre delene i maskinen", "Et tekstbehandlingsprogram brukeren åpner for å skrive dokumenter, brev og rapporter med formatering", "En nettleser man installerer for å kunne åpne nettsider og søke etter informasjon på internett raskt"],
       explanation: "Et operativsystem er systemprogramvare som fungerer som mellomledd mellom maskinvaren og brukeren, og styrer maskinvaren, gir brukergrensesnitt og kjører programmer.",
     },
     {
       question: "Hvilken av disse er en av operativsystemets hovedoppgaver?",
-      options: ["Å styre maskinvaren som CPU, minne og lagring", "Å lage nettsider", "Å redigere video ved å klippe sammen opptak, legge til overganger og eksportere ferdig film til fil", "Å designe logoer"],
+      options: ["Å styre maskinvaren som CPU, minne og lagring", "Å lage nettsider med HTML og CSS", "Å redigere video ved å klippe sammen opptak, legge til overganger og eksportere ferdig film til fil", "Å designe logoer og grafiske profiler"],
       explanation: "Operativsystemet styrer maskinvaren (CPU, minne, lagring, enheter), gir et brukergrensesnitt og kjører programmer.",
     },
     {
@@ -46,7 +46,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes et filsystem til?",
-      options: ["Å organisere og holde orden på filer og mapper på en lagringsenhet", "Å vise farger på skjermen", "Å bestemme hvilke farger og hvilken oppløsning skjermen skal vise bildene og teksten med til brukeren", "Å koble maskinen til internett og holde nettverksforbindelsen stabil mens dataene overføres begge veier"],
+      options: ["Å organisere og holde orden på filer og mapper på en lagringsenhet", "Å vise farger på skjermen", "Å bestemme hvilke farger og hvilken oppløsning skjermen viser", "Å koble maskinen til internett og holde nettverksforbindelsen stabil mens dataene overføres begge veier"],
       explanation: "Filsystemet organiserer hvordan filer og mapper lagres og hentes på en lagringsenhet, slik at brukeren kan finne igjen dataene sine.",
     },
     {
@@ -58,17 +58,17 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-1-3": [
     {
       question: "Hva er systemprogramvare?",
-      options: ["Programvare som styrer og administrerer maskinvaren, som operativsystemer og drivere", "Spill og tekstbehandlere", "Nettsider som lastes inn i nettleseren og viser tekst, bilder og lenker for den som besøker en adresse", "Spill, tekstbehandlere og andre programmer som brukeren åpner og jobber direkte med for å løse oppgaver"],
+      options: ["Programvare som styrer og administrerer maskinvaren, som operativsystemer og drivere", "Fysiske komponenter som hovedkort, minnebrikker og kabler som maskinen er bygd opp av", "Nettsider som lastes inn i nettleseren og viser tekst, bilder og lenker for den som besøker en adresse", "Spill, tekstbehandlere og andre programmer som brukeren åpner og jobber direkte med for å løse oppgaver"],
       explanation: "Systemprogramvare styrer og administrerer maskinvaren - operativsystemer, drivere og diskverktøy er eksempler. Brukeren jobber sjelden direkte med den.",
     },
     {
       question: "Hva er applikasjonsprogramvare?",
-      options: ["Programmer brukeren jobber direkte med for å utføre oppgaver, som tekstbehandlere og nettlesere", "Drivere for maskinvaren", "Selve operativsystemet som styrer maskinvaren, gir brukergrensesnitt og starter opp når maskinen slås på", "BIOS, den lavnivåkoden som ligger på hovedkortet og starter maskinen før operativsystemet lastes inn i minnet"],
+      options: ["Programmer brukeren jobber direkte med for å utføre oppgaver, som tekstbehandlere og nettlesere", "Drivere for maskinvaren, altså småprogrammene som lar systemet kommunisere med skjermkort og skriver", "Selve operativsystemet som styrer maskinvaren, gir brukergrensesnitt og starter opp når maskinen slås på", "BIOS, den lavnivåkoden som ligger på hovedkortet og starter maskinen før operativsystemet lastes inn i minnet"],
       explanation: "Applikasjonsprogramvare («apper») er programmene brukeren jobber direkte med, f.eks. tekstbehandlere, nettlesere og bilderedigering.",
     },
     {
       question: "Hva kjennetegner åpen kildekode (open source)?",
-      options: ["Kildekoden er fritt tilgjengelig slik at hvem som helst kan se, endre og dele den", "Det kan bare brukes av store bedrifter", "At programmet alltid er dyrt å kjøpe fordi utviklerne krever betaling for hver eneste kopi som distribueres", "At kildekoden holdes hemmelig og lukket, slik at bare utvikleren selv har innsyn i hvordan programmet fungerer"],
+      options: ["Kildekoden er fritt tilgjengelig slik at hvem som helst kan se, endre og dele den", "Det kan bare brukes av store bedrifter", "At programmet alltid er dyrt fordi utvikleren krever betaling per kopi", "At kildekoden holdes hemmelig og lukket, slik at bare utvikleren selv har innsyn i hvordan programmet fungerer"],
       explanation: "Åpen kildekode betyr at kildekoden er fritt tilgjengelig, slik at brukere kan se, endre og dele den, ofte gratis.",
     },
     {
@@ -85,12 +85,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-1-4": [
     {
       question: "Hva er nettskyen (cloud computing)?",
-      options: ["Levering av IT-tjenester over internett der du leier kapasitet i stedet for egne servere", "En type lokal harddisk", "En nettleser man bruker for å åpne nettsider, og som lagrer alt innhold direkte på maskinens egen disk", "En type lokal harddisk som monteres inne i maskinen for å gi ekstra lagringsplass til filer og programmer"],
+      options: ["Levering av IT-tjenester over internett der du leier kapasitet i stedet for egne servere", "Et abonnement på programvare som installeres lokalt og kjører uten kontakt med noen tjener", "En nettleser man bruker for å åpne nettsider, og som lagrer alt innhold direkte på maskinens egen disk", "En type lokal harddisk som monteres inne i maskinen for å gi ekstra lagringsplass til filer og programmer"],
       explanation: "Nettskyen er levering av IT-tjenester over internett. I stedet for egne servere leier du kapasitet fra leverandører som Azure, AWS eller Google Cloud, og betaler for det du bruker.",
     },
     {
       question: "Hva er en fordel med skyteknologi?",
-      options: ["Du slipper å kjøpe og drifte egne servere og betaler kun for det du bruker", "Du må alltid eie all maskinvaren selv", "Det krever ingen internettforbindelse i det hele tatt, fordi alt kjøres og lagres lokalt på din egen maskin", "Du må alltid eie og drifte all maskinvaren selv, men slipper å betale for strømmen serverne bruker underveis"],
+      options: ["Du slipper å kjøpe og drifte egne servere og betaler kun for det du bruker", "Du må alltid eie all maskinvaren selv", "Det krever ingen internettforbindelse, fordi alt kjøres lokalt", "Du binder deg til et fast antall år uansett hvor lite du bruker"],
       explanation: "En fordel med nettskyen er at du slipper å kjøpe og drifte egne servere og betaler bare for kapasiteten du faktisk bruker.",
     },
     {
@@ -117,7 +117,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er asynkron kommunikasjon?",
-      options: ["Kommunikasjon med tidsforsinkelse der deltakerne ikke trenger å være til stede samtidig", "Kommunikasjon som krever telefon", "Kommunikasjon som utelukkende foregår gjennom videosamtaler der partene ser og hører hverandre direkte", "Kommunikasjon som alltid krever at man bruker telefon, slik at begge parter må ringe hverandre på samme tid"],
+      options: ["Kommunikasjon med tidsforsinkelse der deltakerne ikke trenger å være til stede samtidig", "Kommunikasjon der begge parter må sitte i samme rom og snakke sammen ansikt til ansikt", "Kommunikasjon som utelukkende foregår gjennom videosamtaler der partene ser og hører hverandre direkte", "Kommunikasjon som alltid krever at man bruker telefon, slik at begge parter må ringe hverandre på samme tid"],
       explanation: "Asynkron kommunikasjon skjer med tidsforsinkelse - mottakeren svarer når det passer. E-post er et typisk eksempel.",
     },
     {
@@ -127,19 +127,19 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fordel med asynkron kommunikasjon?",
-      options: ["Deltakerne kan svare når det passer dem, uavhengig av tidssoner", "Det krever at alle er pålogget samtidig", "Alle deltakerne får svar helt umiddelbart, fordi meldingene leveres og besvares i samme øyeblikk de sendes", "Det fungerer bare på telefon"],
+      options: ["Deltakerne kan svare når det passer dem, uavhengig av tidssoner", "Det krever at alle er pålogget samtidig", "Alle deltakerne får svar umiddelbart i samme øyeblikk", "Det fungerer bare på telefon"],
       explanation: "En fordel med asynkron kommunikasjon er fleksibilitet - deltakerne kan lese og svare når det passer, noe som er nyttig på tvers av tidssoner.",
     },
     {
       question: "Hva er et eksempel på et digitalt samarbeidsverktøy?",
-      options: ["Et delt dokument flere kan redigere samtidig", "En frittstående kalkulator", "En vanlig papirblokk der man skriver ned notater for hånd og deler dem videre ved å rekke den til andre", "En vanlig papirblokk"],
+      options: ["Et delt dokument flere kan redigere samtidig", "En frittstående kalkulator", "En vanlig papirblokk der man skriver ned notater for hånd og deler dem videre ved å rekke den til andre", "En papirbasert timeplan som henges opp på veggen"],
       explanation: "Delte dokumenter der flere kan skrive samtidig (f.eks. i skyen) er typiske digitale samarbeidsverktøy.",
     },
   ],
   "im-vg1-1-6": [
     {
       question: "Hva er den minste dataenheten i en datamaskin?",
-      options: ["En bit, som kan være 0 eller 1", "En kilobyte", "En byte, som er satt sammen av åtte enkeltverdier og danner grunnlaget for hvordan tegn lagres i maskinen", "En megabyte"],
+      options: ["En bit, som kan være 0 eller 1", "En kilobyte, som består av 1024 byte", "En byte, som er satt sammen av åtte enkeltverdier og danner grunnlaget for hvordan tegn lagres i maskinen", "En megabyte, som består av 1024 kilobyte"],
       explanation: "En bit er den minste dataenheten og kan ha verdien 0 eller 1.",
     },
     {
@@ -159,14 +159,14 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket tallsystem bruker datamaskiner internt for å representere data?",
-      options: ["Det binære (totallssystemet)", "Det desimale (titallssystemet)", "Romertall", "Brøker"],
+      options: ["Det binære (totallssystemet)", "Det desimale (titallssystemet)", "Romertall slik de brukes på klokkeskiver", "Brøker med teller og nevner"],
       explanation: "Datamaskiner representerer alt internt i det binære systemet (0 og 1), fordi elektronikken bygger på to tilstander (av/på).",
     },
   ],
   "im-vg1-1-7": [
     {
       question: "Hva er digitalisering?",
-      options: ["Prosessen der analoge prosesser og tjenester gjøres digitale og endrer hvordan vi arbeider", "Å skrive ut dokumenter på papir", "Å kjøpe inn en ny og kraftigere datamaskin med raskere CPU og mer minne enn den forrige maskinen hadde", "Å skrive ut digitale dokumenter på papir slik at de kan arkiveres fysisk i permer og leses uten skjerm"],
+      options: ["Prosessen der analoge prosesser og tjenester gjøres digitale og endrer hvordan vi arbeider", "Å bygge om et kontorlokale slik at skrivebordene står tettere og flere får plass", "Å kjøpe inn en ny og kraftigere datamaskin med raskere CPU og mer minne enn den forrige maskinen hadde", "Å skrive ut digitale dokumenter på papir slik at de kan arkiveres fysisk i permer og leses uten skjerm"],
       explanation: "Digitalisering er prosessen der analoge prosesser og tjenester gjøres digitale, og handler om at teknologien endrer hvordan vi organiserer arbeid, kommunikasjon og tjenester.",
     },
     {
@@ -176,24 +176,24 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan digitalisering påvirke arbeidslivet?",
-      options: ["Noen oppgaver automatiseres, mens nye yrker og arbeidsmåter oppstår", "Alle jobber forsvinner umiddelbart", "Bare lønningene øker for alle ansatte, mens selve oppgavene og måten man jobber på forblir helt uendret", "Alle jobber forsvinner umiddelbart fordi maskinene overtar samtlige oppgaver mennesker tidligere utførte selv"],
+      options: ["Noen oppgaver automatiseres, mens nye yrker og arbeidsmåter oppstår", "Ingenting endrer seg for de ansatte", "Bare lønningene øker for alle ansatte, mens selve oppgavene og måten man jobber på forblir helt uendret", "Alle jobber forsvinner umiddelbart fordi maskinene overtar samtlige oppgaver mennesker tidligere utførte selv"],
       explanation: "Digitalisering automatiserer noen oppgaver, men skaper også nye yrker og endrer hvordan vi arbeider og samarbeider.",
     },
     {
       question: "Hva er en utfordring ved økt digitalisering i samfunnet?",
-      options: ["Digitalt utenforskap for dem som ikke behersker teknologien", "At alt blir billigere uten ulemper", "At ingen lenger bruker internett, fordi tjenestene flyttes tilbake til papir og fysiske skranker over tid", "At ingen lenger bruker internett"],
+      options: ["Digitalt utenforskap for dem som ikke behersker teknologien", "At alt blir billigere uten ulemper", "At ingen lenger bruker internett, fordi tjenestene flyttes tilbake til papir og fysiske skranker over tid", "At maskinene overtar all beslutningsmyndighet"],
       explanation: "En utfordring er digitalt utenforskap - at noen grupper ikke behersker eller har tilgang til teknologien og dermed havner utenfor.",
     },
     {
       question: "Hva handler digitalisering først og fremst om, ut over selve teknologien?",
-      options: ["Å endre måten vi organiserer arbeid, kommunikasjon og tjenester på", "Å kjøpe mest mulig utstyr", "Å unngå all form for endring i rutinene, slik at de ansatte kan jobbe akkurat som de alltid har gjort før", "Å redusere internettbruken på arbeidsplassen, slik at de ansatte konsentrerer seg bedre om oppgavene sine"],
+      options: ["Å endre måten vi organiserer arbeid, kommunikasjon og tjenester på", "Å kjøpe mest mulig utstyr, slik at hver ansatt har flere skjermer og maskiner", "Å unngå all form for endring i rutinene, slik at de ansatte kan jobbe akkurat som de alltid har gjort før", "Å redusere internettbruken på arbeidsplassen, slik at de ansatte konsentrerer seg bedre om oppgavene sine"],
       explanation: "Digitalisering handler ikke bare om å ta i bruk ny teknologi, men om hvordan teknologien endrer måten vi organiserer arbeid, kommunikasjon og tjenester på.",
     },
   ],
   "im-vg1-2-1": [
     {
       question: "Hva handler programmering om?",
-      options: ["Å gi datamaskinen presise instruksjoner for å løse oppgaver", "Å tegne bilder for hånd", "Å koble maskinen til internett og sette opp nettverket slik at flere enheter kan kommunisere med hverandre", "Å reparere maskinvare"],
+      options: ["Å gi datamaskinen presise instruksjoner for å løse oppgaver", "Å tegne bilder for hånd", "Å koble maskinen til internett og sette opp nettverket", "Å reparere maskinvare"],
       explanation: "Programmering handler om å gi datamaskinen presise, steg-for-steg-instruksjoner for å løse oppgaver.",
     },
     {
@@ -203,12 +203,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et programmeringsspråk som ofte brukes for å lage interaktive nettsider?",
-      options: ["JavaScript", "Python", "COBOL, mye brukt i eldre banksystemer", "COBOL"],
+      options: ["JavaScript", "Python", "COBOL, mye brukt i eldre banksystemer", "Fortran"],
       explanation: "JavaScript er språket som typisk brukes for å lage interaktive nettsider i nettleseren.",
     },
     {
       question: "Hva er en IDE?",
-      options: ["Et utviklingsmiljø med kodeeditor, syntaksfarging og kjøremiljø", "En nettverksprotokoll", "En nettverksprotokoll som bestemmer hvordan kildekoden overføres mellom utviklerens maskin og en server", "En fysisk maskinvarekomponent som settes inn i maskinen for å øke hastigheten når man utvikler programmer"],
+      options: ["Et utviklingsmiljø med kodeeditor, syntaksfarging og kjøremiljø", "En protokoll som overfører kildekode mellom to maskiner", "En nettverksprotokoll som bestemmer hvordan kildekoden overføres mellom utviklerens maskin og en server", "En fysisk maskinvarekomponent som settes inn i maskinen for å øke hastigheten når man utvikler programmer"],
       explanation: "En IDE (Integrated Development Environment) er et utviklingsmiljø som gir kodeeditor med syntaksfarging, autofullføring og kjøremiljø, f.eks. VS Code eller Thonny.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-2-2": [
     {
       question: "Hva er en variabel?",
-      options: ["En navngitt beholder for å lagre data i et program", "Et programmeringsspråk", "En feilmelding som vises når programmet stopper uventet", "Et eget programmeringsspråk brukt til å lagre data på disk"],
+      options: ["En navngitt beholder for å lagre data i et program", "Et fast tall som ikke kan endres mens programmet kjører", "En feilmelding som vises når programmet stopper uventet", "Et eget programmeringsspråk brukt til å lagre data på disk"],
       explanation: "En variabel er som en navngitt boks der du lagrer verdier - en navngitt beholder for data i et program.",
     },
     {
@@ -235,19 +235,19 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken datatype brukes for tekst i Python?",
-      options: ["str (streng)", "float", "bool (tekstverdi)", "float (desimaltekst)"],
+      options: ["str (streng)", "int (heltall)", "bool (tekstverdi)", "float (desimaltekst)"],
       explanation: "Datatypen `str` (string/streng) brukes for tekst i Python, f.eks. \"Hei\".",
     },
     {
       question: "Hva representerer datatypen bool?",
-      options: ["Boolske verdier: True eller False", "Desimaltall med komma, som 3.14", "Ordnede lister med flere elementer", "Tekststrenger skrevet i anførselstegn"],
+      options: ["Boolske verdier: True eller False", "Desimaltall med komma, som 3.14", "Lister med flere elementer", "Tekststrenger skrevet i anførselstegn"],
       explanation: "Datatypen `bool` representerer boolske verdier - sant (`True`) eller usant (`False`).",
     },
   ],
   "im-vg1-2-3": [
     {
       question: "Hva brukes en if-setning til?",
-      options: ["Å kjøre kode bare hvis en betingelse er sann", "Å gjenta kode mange ganger", "Å lagre data i en variabel for senere bruk i programmet", "Å gjenta den samme kodeblokken mange ganger etter hverandre"],
+      options: ["Å kjøre kode bare hvis en betingelse er sann", "Å definere en ny funksjon som kan kalles senere", "Å lagre data i en variabel for senere bruk i programmet", "Å gjenta den samme kodeblokken mange ganger etter hverandre"],
       explanation: "En `if`-setning utfører kode bare hvis betingelsen er sann, slik at programmet kan ta beslutninger.",
     },
     {
@@ -257,12 +257,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør den logiske operatoren `and`?",
-      options: ["Gir True bare hvis begge betingelsene er sanne", "Gir True hvis minst én betingelse er sann", "Gir True dersom minst én av betingelsene er sann", "Gjentar en kodeblokk så lenge betingelsen holder"],
+      options: ["Gir True bare hvis begge betingelsene er sanne", "Gir True hvis minst én betingelse er sann", "Snur en betingelse om til det motsatte", "Gjentar en kodeblokk så lenge betingelsen holder"],
       explanation: "Operatoren `and` gir `True` bare når begge betingelsene er sanne. `or` gir True hvis minst én er sann.",
     },
     {
       question: "Hva brukes `elif` til i Python?",
-      options: ["Å teste en ny betingelse hvis den forrige var usann", "Å definere en variabel", "Å definere en ny variabel som brukes videre i programmet", "Å avslutte hele programmet umiddelbart uansett betingelse"],
+      options: ["Å teste en ny betingelse hvis den forrige var usann", "Å gjenta en kodeblokk helt til betingelsen ikke lenger er sann", "Å definere en ny variabel som brukes videre i programmet", "Å avslutte hele programmet umiddelbart uansett betingelse"],
       explanation: "`elif` (else if) tester en ny betingelse dersom den foregående `if`-betingelsen var usann.",
     },
     {
@@ -274,7 +274,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-2-4": [
     {
       question: "Hva brukes løkker til i programmering?",
-      options: ["Å gjenta kode flere ganger", "Å lagre data permanent", "Å lagre data permanent på harddisken", "Å koble til internett"],
+      options: ["Å gjenta kode flere ganger", "Å koble sammen to programmer", "Å lagre data permanent på harddisken", "Å koble til internett"],
       explanation: "Løkker brukes til å gjenta kode et bestemt antall ganger eller så lenge en betingelse er sann.",
     },
     {
@@ -294,7 +294,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når kjører en while-løkke?",
-      options: ["Så lenge betingelsen er sann", "Alltid nøyaktig én gang", "Bare når en tilhørende liste er helt tom", "Bare når listen er tom"],
+      options: ["Så lenge betingelsen er sann", "Alltid nøyaktig én gang, uansett betingelse", "Bare når en tilhørende liste er helt tom", "Bare når programmet startes på nytt"],
       explanation: "En `while`-løkke kjører så lenge betingelsen er sann, og stopper når den blir usann.",
     },
   ],
@@ -355,7 +355,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-2-7": [
     {
       question: "Hva er en algoritme?",
-      options: ["En trinnvis oppskrift for å løse et problem", "Et programmeringsspråk", "Et programmeringsspråk laget for å beskrive løsninger", "En feilmelding som vises når koden ikke løser problemet"],
+      options: ["En trinnvis oppskrift for å løse et problem", "En ferdig kodefil som kan kjøres direkte av maskinen", "Et programmeringsspråk laget for å beskrive løsninger", "En feilmelding som vises når koden ikke løser problemet"],
       explanation: "En algoritme er en steg-for-steg-oppskrift for å løse et problem.",
     },
     {
@@ -375,7 +375,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør du planlegge en algoritme før du koder?",
-      options: ["Det gjør løsningen tydeligere og reduserer feil", "Det fjerner behovet for testing", "Det gjør koden alltid tregere når den til slutt kjøres", "Det er forbudt å kode uten en godkjent plan på forhånd"],
+      options: ["Det gjør løsningen tydeligere og reduserer feil", "Det fjerner behovet for å teste koden i det hele tatt", "Det gjør koden alltid tregere når den til slutt kjøres", "Det er forbudt å kode uten en godkjent plan på forhånd"],
       explanation: "Å planlegge med pseudokode eller flytskjema gjør løsningen tydeligere og reduserer risikoen for feil før du begynner å kode.",
     },
   ],
@@ -392,7 +392,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når oppstår en kjøretidsfeil?",
-      options: ["Under kjøring, f.eks. ved deling på null", "Når koden er helt riktig", "Før programmet starter, når koden leses inn", "Når koden er helt riktig og fungerer som planlagt"],
+      options: ["Under kjøring, f.eks. ved deling på null", "Når koden ikke følger språkets grammatikk", "Før programmet starter, når koden leses inn", "Når koden er helt riktig og fungerer som planlagt"],
       explanation: "En kjøretidsfeil oppstår mens programmet kjører, f.eks. når man prøver å dele på null eller bruke en verdi som ikke finnes.",
     },
     {
@@ -402,7 +402,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med enhetstesting?",
-      options: ["Å sjekke at enkeltdeler av koden gir riktig resultat", "Å gjøre programmet tregere", "Å koble programmet til internett for å hente testdata", "Å gjøre programmet tregere ved å kjøre ekstra testkode"],
+      options: ["Å sjekke at enkeltdeler av koden gir riktig resultat", "Å måle hvor mye strøm programmet bruker mens det kjører", "Å koble programmet til internett for å hente testdata", "Å gjøre programmet tregere ved å kjøre ekstra testkode"],
       explanation: "Enhetstesting sjekker systematisk at enkeltdeler (enheter) av koden gir riktig resultat, ofte med `assert`.",
     },
   ],
@@ -414,7 +414,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en URL?",
-      options: ["Adressen til en ressurs på nettet", "Et programmeringsspråk", "En type maskinvare som kobler PC-en til nettet", "En nettleser som viser frem ressurser fra nettet"],
+      options: ["Adressen til en ressurs på nettet", "Et passord som gir tilgang til en nettside", "En type maskinvare som kobler PC-en til nettet", "En nettleser som viser frem ressurser fra nettet"],
       explanation: "En URL (Uniform Resource Locator) er adressen til en ressurs på nettet og består bl.a. av protokoll, domene og sti.",
     },
     {
@@ -424,7 +424,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle har nettleseren i klient-tjener-modellen?",
-      options: ["Den er klienten som sender forespørsler", "Den er tjeneren som lagrer nettsidene", "Den er en nettverkskabel som overfører dataene", "Den er en database som holder på alle nettsidene"],
+      options: ["Den er klienten som sender forespørsler", "Den er tjeneren som lagrer og leverer nettsidene", "Den er en nettverkskabel som overfører dataene", "Den er en database som holder på alle nettsidene"],
       explanation: "Nettleseren er klienten som sender forespørsler til tjeneren og viser frem svaret (nettsiden).",
     },
     {
@@ -441,12 +441,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre deler består et typisk HTML-element av?",
-      options: ["Starttag, innhold og lukkingstag", "Variabel, datatype og operator", "Selektor, egenskap og verdi, slik en CSS-regel er bygd opp", "Selektor, egenskap og verdi"],
+      options: ["Starttag, innhold og lukkingstag", "Variabel, datatype og operator", "Selektor, egenskap og verdi, slik en CSS-regel er bygd opp", "Overskrift, avsnitt og lenke i fast rekkefølge"],
       explanation: "Et HTML-element består av en starttag (med eventuelle attributter), innhold og en lukkingstag, f.eks. `<p>tekst</p>`.",
     },
     {
       question: "Hva er et selvlukkende element?",
-      options: ["Et element uten innhold og uten lukkingstag, som <br>", "Et element med mye tekst", "En CSS-regel som lukker seg selv når stilarket lastes inn", "En JavaScript-funksjon som kaller seg selv når siden åpnes"],
+      options: ["Et element uten innhold og uten lukkingstag, som <br>", "Et element som alltid må inneholde minst ett bilde eller én lenke", "En CSS-regel som lukker seg selv når stilarket lastes inn", "En JavaScript-funksjon som kaller seg selv når siden åpnes"],
       explanation: "Et selvlukkende element har ikke innhold og trenger ingen lukkingstag, f.eks. `<br>` (linjeskift) eller `<img>`.",
     },
     {
@@ -463,17 +463,17 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-3-3": [
     {
       question: "Hva brukes CSS til?",
-      options: ["Å style utseendet på en nettside, som farger, skrift og layout", "Å gjøre siden interaktiv med kode", "Å lagre brukerdata og innstillinger i nettleseren mellom besøk", "Å gjøre siden interaktiv med kode som reagerer på klikk og input"],
+      options: ["Å style utseendet på en nettside, som farger, skrift og layout", "Å bestemme hvilke overskrifter og avsnitt siden består av", "Å lagre brukerdata og innstillinger i nettleseren mellom besøk", "Å gjøre siden interaktiv med kode som reagerer på klikk og input"],
       explanation: "CSS (Cascading Style Sheets) brukes til å style utseendet på en nettside - farger, skrifttyper, avstander og layout.",
     },
     {
       question: "Hvilke to hoveddeler består en CSS-regel av?",
-      options: ["En selektor og en deklarasjonsblokk", "En variabel og en funksjon", "En variabel og en funksjon som beregner en verdi", "En klient og en tjener"],
+      options: ["En selektor og en deklarasjonsblokk", "En tag og et attributt", "En variabel og en funksjon som beregner en verdi", "En klient og en tjener"],
       explanation: "En CSS-regel består av en selektor (som velger elementene) og en deklarasjonsblokk med egenskaper og verdier.",
     },
     {
       question: "Hva gjør selektoren i en CSS-regel?",
-      options: ["Velger hvilke HTML-elementer regelen gjelder for", "Bestemmer fargen direkte", "Kjører JavaScript-koden som er knyttet til elementene", "Bestemmer fargen på elementene direkte uten deklarasjoner"],
+      options: ["Velger hvilke HTML-elementer regelen gjelder for", "Laster inn stilarket fra tjeneren når siden åpnes", "Kjører JavaScript-koden som er knyttet til elementene", "Bestemmer fargen på elementene direkte uten deklarasjoner"],
       explanation: "Selektoren (f.eks. `h1`) velger hvilke HTML-elementer regelen skal gjelde for.",
     },
     {
@@ -495,7 +495,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør viewport-meta-taggen?",
-      options: ["Forteller nettleseren hvordan siden skal skaleres på mobile enheter", "Lagrer sidens data lokalt på enheten for raskere lasting", "Endrer fargene og bakgrunnen på siden avhengig av enhet", "Kjører JavaScript automatisk når siden åpnes på mobilen"],
+      options: ["Forteller nettleseren hvordan siden skal skaleres på mobile enheter", "Lagrer sidens data lokalt på enheten slik at den laster raskere neste gang", "Endrer fargene og bakgrunnen på siden avhengig av enhet", "Kjører JavaScript automatisk når siden åpnes på mobilen"],
       explanation: "Viewport-meta-taggen forteller nettleseren hvordan siden skal skaleres på mobile enheter. Uten den vises skrivebordsversjonen i miniatyr.",
     },
     {
@@ -505,7 +505,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr «mobile first» i webdesign?",
-      options: ["Å designe for mobilskjermen først og utvide til større skjermer", "Å ignorere mobilbrukere fordi de fleste bruker skrivebord", "Å designe for skrivebordet først og krympe ned til mobil", "At mobilversjonen alltid lastes tregere enn skrivebordet"],
+      options: ["Å designe for mobilskjermen først og utvide til større skjermer", "Å ignorere mobilbrukere helt fordi de aller fleste besøker siden fra skrivebord", "Å designe for den store skrivebordsskjermen først og krympe ned til mobil etterpå", "At mobilversjonen alltid lastes tregere enn skrivebordet"],
       explanation: "«Mobile first» betyr at man designer for den minste skjermen (mobil) først og deretter utvider designet til større skjermer.",
     },
     {
@@ -549,7 +549,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de fire WCAG-prinsippene (POUR)?",
-      options: ["Mulig å oppfatte, mulig å betjene, forståelig og robust", "Python, objekt, utdata og resultat", "Python, objekt, utdata og resultat, som styrer programflyt", "Protokoll, objekt, URL og rute, som styrer nettverkstrafikk"],
+      options: ["Mulig å oppfatte, mulig å betjene, forståelig og robust", "Presisjon, oversikt, ytelse og respons i selve grensesnittet", "Python, objekt, utdata og resultat, som styrer programflyt", "Protokoll, objekt, URL og rute, som styrer nettverkstrafikk"],
       explanation: "POUR står for Perceivable (mulig å oppfatte), Operable (mulig å betjene), Understandable (forståelig) og Robust.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på et tilgjengelighetstiltak?",
-      options: ["God fargekontrast mellom tekst og bakgrunn", "Bruk av bare små bokstaver", "Å bruke bare små bokstaver for et mer moderne uttrykk", "Å fjerne alle overskrifter for en renere og enklere side"],
+      options: ["God fargekontrast mellom tekst og bakgrunn", "Bruk av mange ulike skrifttyper", "Å bruke bare små bokstaver for et mer moderne uttrykk", "Å fjerne alle overskrifter for en renere og enklere side"],
       explanation: "God fargekontrast mellom tekst og bakgrunn gjør innholdet lesbart for svaksynte, og er et viktig tilgjengelighetstiltak.",
     },
   ],
@@ -586,12 +586,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det å publisere en nettside?",
-      options: ["Å gjøre den tilgjengelig på internett for andre", "Å skrive den ut på papir", "Å skrive den ut på papir for arkivering og distribusjon", "Å slette den fra tjeneren slik at ingen får tilgang lenger"],
+      options: ["Å gjøre den tilgjengelig på internett for andre", "Å lagre den som en fil i en mappe på din egen maskin", "Å skrive den ut på papir for arkivering og distribusjon", "Å slette den fra tjeneren slik at ingen får tilgang lenger"],
       explanation: "Å publisere en nettside betyr å legge den ut på en server slik at den blir tilgjengelig på internett for andre.",
     },
     {
       question: "Hva gjør en «commit» i Git?",
-      options: ["Lagrer et øyeblikksbilde av endringene i prosjektet", "Endrer fargen på koden", "Kobler prosjektet til internett slik at det kan publiseres", "Sletter all koden i prosjektet og starter historikken på nytt"],
+      options: ["Lagrer et øyeblikksbilde av endringene i prosjektet", "Endrer fargen og skrifttypen som koden vises med i editoren", "Kobler prosjektet til internett slik at det kan publiseres", "Sletter all koden i prosjektet og starter historikken på nytt"],
       explanation: "En commit lagrer et øyeblikksbilde av endringene i prosjektet med en beskrivende melding, slik at historikken kan spores.",
     },
   ],
@@ -613,19 +613,19 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bidrar prinsippet «balanse» til i et design?",
-      options: ["En følelse av visuell stabilitet ved fordeling av elementer", "At alt blir tilfeldig plassert", "At elementene plasseres tilfeldig for et mer levende uttrykk", "At fargene forsvinner slik at oppmerksomheten rettes mot form"],
+      options: ["En følelse av visuell stabilitet ved fordeling av elementer", "At alle elementene får nøyaktig samme størrelse og farge overalt", "At elementene plasseres tilfeldig for et mer levende uttrykk", "At fargene forsvinner slik at oppmerksomheten rettes mot form"],
       explanation: "Balanse handler om å fordele de visuelle elementene slik at designet føles stabilt og harmonisk, enten symmetrisk eller asymmetrisk.",
     },
     {
       question: "Hvorfor er «nærhet» et nyttig designprinsipp?",
-      options: ["Elementer som hører sammen plasseres nær hverandre, så sammenhengen blir tydelig", "Alt skal spres mest mulig", "Alle elementer skal spres jevnt utover hele flaten med lik avstand, uansett innhold", "Beslektet informasjon skjules bak hverandre slig at betrakteren må lete for å finne den"],
+      options: ["Elementer som hører sammen plasseres nær hverandre, så sammenhengen blir tydelig", "Elementene skal stables oppå hverandre", "Alle elementer skal spres jevnt utover flaten med lik avstand", "Beslektet informasjon skjules bak hverandre slig at betrakteren må lete for å finne den"],
       explanation: "Prinsippet om nærhet sier at relaterte elementer bør plasseres nær hverandre, slik at betrakteren ser at de hører sammen.",
     },
   ],
   "im-vg1-4-2": [
     {
       question: "Hva er en fargemodell?",
-      options: ["Et matematisk system for å beskrive og reprodusere farger", "En kamerainnstilling", "Et bildeformat som lagrer farge og oppløsning i én komprimert fil", "En innstilling på kameraet som bestemmer hvitbalanse og lysstyrke"],
+      options: ["Et matematisk system for å beskrive og reprodusere farger", "En liste over hvilke skrifttyper og størrelser et dokument bruker", "Et bildeformat som lagrer farge og oppløsning i én komprimert fil", "En innstilling på kameraet som bestemmer hvitbalanse og lysstyrke"],
       explanation: "En fargemodell er et matematisk system for å beskrive og reprodusere farger. Ulike medier bruker ulike modeller.",
     },
     {
@@ -640,7 +640,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handler fargepsykologi om?",
-      options: ["Hvordan farger påvirker følelser og assosiasjoner hos betrakteren", "Hvordan blekk fordeles og trykkes på papir i en firefargeprosess", "Hvordan man skriver inn fargekoder med heksadesimale verdier i HTML og CSS", "Hvordan skjermen bygger opp lys ved å blande røde, grønne og blå lyspunkter"],
+      options: ["Hvordan farger påvirker følelser og assosiasjoner hos betrakteren", "Hvordan blekk fordeles og trykkes på papiret i en firefargeprosess med fire trykkplater", "Hvordan man skriver inn fargekoder med heksadesimale verdier i HTML og CSS", "Hvordan skjermen bygger opp lys ved å blande røde, grønne og blå lyspunkter"],
       explanation: "Fargepsykologi handler om hvordan ulike farger påvirker følelser og assosiasjoner - f.eks. at blått ofte oppfattes som rolig og tillitvekkende.",
     },
     {
@@ -657,7 +657,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en serif-skrift?",
-      options: ["Den har små «føtter» (seriffer) på bokstavene", "Den brukes bare på skjerm", "Den er laget spesielt for skjermlesing og fungerer dårlig i trykte bøker", "Den har ingen kontraster"],
+      options: ["Den har små «føtter» (seriffer) på bokstavene", "Den har alltid samme bredde på alle bokstaver", "Den er laget spesielt for skjermlesing og fungerer dårlig i trykte bøker", "Den har ingen kontraster"],
       explanation: "En serif-skrift har små avsluttende streker («føtter» eller seriffer) på bokstavene, mens sans-serif er uten slike.",
     },
     {
@@ -667,7 +667,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er valg av skrifttype viktig?",
-      options: ["Det påvirker lesbarhet og hvilken stemning teksten formidler", "Det bestemmer fargemodellen", "Det bestemmer hvilken fargemodell dokumentet lagres og vises med", "Det har ingen praktisk betydning så lenge teksten er stavet riktig"],
+      options: ["Det påvirker lesbarhet og hvilken stemning teksten formidler", "Det avgjør hvor stor dokumentfilen blir når den lagres og sendes", "Det bestemmer hvilken fargemodell dokumentet lagres og vises med", "Det har ingen praktisk betydning så lenge teksten er stavet riktig"],
       explanation: "Valg av skrifttype påvirker både lesbarheten og stemningen teksten formidler - en lekende skrift og en seriøs skrift gir ulikt inntrykk.",
     },
     {
@@ -679,7 +679,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-4-4": [
     {
       question: "Hva handler komposisjon i fotografering om?",
-      options: ["Hvordan elementene er plassert og arrangert i bildet", "Hvilken skjerm man redigerer på", "Hvilket filformat og komprimering bildet lagres i etter redigeringen", "Hvilken skjermtype og kalibrering man redigerer bildet på i etterkant"],
+      options: ["Hvordan elementene er plassert og arrangert i bildet", "Hvilken lukkertid og blenderåpning kameraet er stilt inn på", "Hvilket filformat og komprimering bildet lagres i etter redigeringen", "Hvilken skjermtype og kalibrering man redigerer bildet på i etterkant"],
       explanation: "Komposisjon handler om hvordan elementene er plassert og arrangert i bildet, slik at blikket ledes til det viktigste og helheten blir god.",
     },
     {
@@ -694,7 +694,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ledelinjer i et bilde?",
-      options: ["Linjer som leder blikket mot motivet", "Kamerainnstillinger", "Tekst eller bildetekst som legges oppå bildet for å forklare motivet", "Tekst på bildet"],
+      options: ["Linjer som leder blikket mot motivet", "Kamerainnstillinger", "Tekst eller bildetekst som legges oppå bildet for å forklare motivet", "Skarpe skygger i bakgrunnen"],
       explanation: "Ledelinjer er linjer i bildet (f.eks. en vei eller et gjerde) som naturlig leder betrakterens blikk mot motivet.",
     },
     {
@@ -706,12 +706,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-4-5": [
     {
       question: "Hva er ikke-destruktiv redigering?",
-      options: ["En arbeidsmetode der du endrer bildet uten å ødelegge originalen", "Å ta helt nye bilder hver gang du vil prøve en annen redigering", "Å slette originalbildet etter redigering for å spare lagringsplass", "En metode der du kun kan redigere bildet i svart-hvitt og gråtoner"],
+      options: ["En arbeidsmetode der du endrer bildet uten å ødelegge originalen", "Å ta helt nye bilder hver eneste gang du vil prøve ut en annen redigering", "Å slette originalbildet etter redigering for å spare lagringsplass", "En metode der du kun kan redigere bildet i svart-hvitt og gråtoner"],
       explanation: "Ikke-destruktiv redigering er en metode der du gjør endringer uten å ødelegge originalbildet, ved å bruke lag, masker og justeringslag.",
     },
     {
       question: "Hva er en fordel med ikke-destruktiv redigering?",
-      options: ["Du kan alltid gå tilbake og endre eller fjerne redigeringen", "Bildet blir automatisk skarpere", "Filene blir alltid vesentlig mindre og krever mindre lagringsplass", "Bildet blir automatisk skarpere og mer detaljert etter hver endring"],
+      options: ["Du kan alltid gå tilbake og endre eller fjerne redigeringen", "Programmet velger automatisk hvilke farger bildet skal ha for deg", "Filene blir alltid vesentlig mindre og krever mindre lagringsplass", "Bildet blir automatisk skarpere og mer detaljert etter hver endring"],
       explanation: "Fordelen er at du alltid kan gå tilbake og endre eller fjerne redigeringen, fordi originalen er bevart.",
     },
     {
@@ -738,7 +738,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en stor fordel med vektorgrafikk?",
-      options: ["Den kan skaleres til enhver størrelse uten tap av kvalitet", "Den har alltid flest mulig farger", "Den blir alltid uskarp og pikselert når den vises i original størrelse", "Den inneholder alltid langt flere farger enn andre bildeformater kan vise"],
+      options: ["Den kan skaleres til enhver størrelse uten tap av kvalitet", "Den lagrer bildet som et fast rutenett av piksler", "Den blir alltid uskarp og pikselert når den vises i original størrelse", "Den inneholder alltid langt flere farger enn andre bildeformater kan vise"],
       explanation: "Fordelen med vektorgrafikk er at den kan skaleres til enhver størrelse uten tap av kvalitet, fordi den bygger på matematiske formler.",
     },
     {
@@ -748,7 +748,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Til hva egner vektorgrafikk seg spesielt godt?",
-      options: ["Logoer og illustrasjoner som skal kunne skaleres", "Detaljerte fotografier", "Detaljerte fotografier med myke overganger og mange fargenyanser", "Lydopptak og lydmiks der bølgeformen må bevares nøyaktig som original"],
+      options: ["Logoer og illustrasjoner som skal kunne skaleres", "Skanning av gamle papirfotografier i høy oppløsning", "Detaljerte fotografier med myke overganger og mange fargenyanser", "Lydopptak og lydmiks der bølgeformen må bevares nøyaktig som original"],
       explanation: "Vektorgrafikk egner seg godt til logoer, ikoner og illustrasjoner som må kunne skaleres til ulike størrelser uten å miste kvalitet.",
     },
     {
@@ -770,12 +770,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer i preproduksjonsfasen?",
-      options: ["Planlegging, som manus, storyboard og opptaksplan", "Distribusjon til publikum", "Distribusjon og publisering av den ferdige videoen ut til publikum", "Selve filmingen der kamera og lys settes opp og scenene spilles inn"],
+      options: ["Planlegging, som manus, storyboard og opptaksplan", "Fargekorrigering og lydmiks av det ferdige materialet", "Distribusjon og publisering av den ferdige videoen ut til publikum", "Selve filmingen der kamera og lys settes opp og scenene spilles inn"],
       explanation: "Preproduksjon er planleggingsfasen, der man lager manus, storyboard, opptaksplan og organiserer ressurser før opptak.",
     },
     {
       question: "Hva skjer i postproduksjonsfasen?",
-      options: ["Redigering, klipping, lyd og effekter på det innspilte materialet", "Planlegging av manus", "Selve opptaket der kamera, lys og lyd rigges opp og scenene filmes", "Planlegging av manus, storyboard og opptaksplan før innspillingen starter"],
+      options: ["Redigering, klipping, lyd og effekter på det innspilte materialet", "Innhenting av tillatelser og booking av lokasjoner før opptaksstart", "Selve opptaket der kamera, lys og lyd rigges opp og scenene filmes", "Planlegging av manus, storyboard og opptaksplan før innspillingen starter"],
       explanation: "Postproduksjon er fasen etter opptak, der materialet redigeres, klippes og får lyd, fargekorreksjon og effekter.",
     },
     {
@@ -787,7 +787,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-5-2": [
     {
       question: "Hva bestemmer oppløsningen i et videobilde?",
-      options: ["Hvor mange piksler bildet består av, altså skarpheten", "Hvilken lyd som spilles", "Hvor lang videoen er i minutter og sekunder fra start til slutt", "Hvilken bakgrunnslyd og musikk som spilles av gjennom videoklippet"],
+      options: ["Hvor mange piksler bildet består av, altså skarpheten", "Hvor mange bilder videoen viser per sekund under avspilling", "Hvor lang videoen er i minutter og sekunder fra start til slutt", "Hvilken bakgrunnslyd og musikk som spilles av gjennom videoklippet"],
       explanation: "Oppløsningen bestemmer hvor mange piksler bildet består av og dermed skarpheten. 1080p er Full HD, 4K er Ultra HD.",
     },
     {
@@ -797,7 +797,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser et totalbilde (VT)?",
-      options: ["Hele scenen, for å etablere lokasjon og gi oversikt", "Bakgrunnen uten personer", "En enkelt hånd eller gjenstand isolert uten resten av omgivelsene", "Kun bakgrunnen og lokasjonen uten at noen personer er med i bildet"],
+      options: ["Hele scenen, for å etablere lokasjon og gi oversikt", "Kun himmelen og horisonten sett over selve lokasjonen", "En enkelt hånd eller gjenstand isolert uten resten av omgivelsene", "Kun bakgrunnen og lokasjonen uten at noen personer er med i bildet"],
       explanation: "Et totalbilde (VT) viser hele scenen og brukes til å etablere lokasjonen og gi seeren oversikt.",
     },
     {
@@ -807,7 +807,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et halvtotalt bildeutsnitt (HT)?",
-      options: ["Personen vist fra knærne og opp, som gir kontekst", "Hele landskapet uten personer", "Personen vist fra hoften og opp med totalt uskarp bakgrunn", "Hele miljøet og landskapet vist helt uten personer i bildet"],
+      options: ["Personen vist fra knærne og opp, som gir kontekst", "Bare hendene til personen i nærbilde", "Personen vist fra hoften og opp med totalt uskarp bakgrunn", "Hele miljøet og landskapet vist helt uten personer i bildet"],
       explanation: "Et halvtotalt utsnitt (HT) viser personen fra omtrent knærne og opp, og gir kontekst mellom totalbildet og nærbildet.",
     },
   ],
@@ -819,7 +819,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en overgang (transition) i videoredigering?",
-      options: ["En effekt mellom to klipp, som signaliserer noe til seeren", "En kamerainnstilling", "En type mikrofon som fanger opp lyden mellom to opptak jevnt", "En kamerainnstilling som bestemmer skarpheten på hvert klipp"],
+      options: ["En effekt mellom to klipp, som signaliserer noe til seeren", "En tekstplakat som vises på skjermen mellom to scener i filmen", "En type mikrofon som fanger opp lyden mellom to opptak jevnt", "En kamerainnstilling som bestemmer skarpheten på hvert klipp"],
       explanation: "En overgang er en effekt mellom to klipp, f.eks. en oppløsning (dissolve), og bør brukes med omtanke fordi den signaliserer noe til seeren.",
     },
     {
@@ -834,7 +834,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedmålet med god videoredigering?",
-      options: ["Å gjøre råmaterialet om til en sammenhengende fortelling", "Å gjøre videoen så lang som mulig", "Å gjøre videoen så lang som overhodet mulig for å fylle tiden", "Å fjerne all lyd slik at bildene alene bærer fortellingen helt"],
+      options: ["Å gjøre råmaterialet om til en sammenhengende fortelling", "Å vise alt råmaterialet i nøyaktig den rekkefølgen det ble filmet", "Å gjøre videoen så lang som overhodet mulig for å fylle tiden", "Å fjerne all lyd slik at bildene alene bærer fortellingen helt"],
       explanation: "Målet med redigering er å forme råmaterialet til en sammenhengende og engasjerende fortelling, ikke å bruke flest mulig effekter.",
     },
   ],
@@ -846,7 +846,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier opptaksmønsteret til en mikrofon noe om?",
-      options: ["Fra hvilke retninger mikrofonen fanger opp lyd", "Hvilket kamera som brukes", "Hvilken farge og tone lyden får i det ferdige opptaket", "Hvor stor lydfilen blir etter at opptaket er avsluttet"],
+      options: ["Fra hvilke retninger mikrofonen fanger opp lyd", "Hvor lenge mikrofonen kan ta opp før batteriet er tomt", "Hvilken farge og tone lyden får i det ferdige opptaket", "Hvor stor lydfilen blir etter at opptaket er avsluttet"],
       explanation: "Opptaksmønsteret beskriver fra hvilke retninger mikrofonen er følsom for lyd, f.eks. rundtopptakende eller retningsbestemt.",
     },
     {
@@ -873,17 +873,17 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør en equalizer (EQ)?",
-      options: ["Justerer volumet på bestemte frekvensområder", "Endrer fargen på lyden", "Endrer fargen og tonen på lyden til et varmere uttrykk", "Legger til bilder og grafikk synkront med lydsignalet nå"],
+      options: ["Justerer volumet på bestemte frekvensområder", "Fjerner all bakgrunnsstøy fra opptaket automatisk", "Endrer fargen og tonen på lyden til et varmere uttrykk", "Legger til bilder og grafikk synkront med lydsignalet nå"],
       explanation: "En equalizer (EQ) justerer volumet på bestemte frekvensområder, f.eks. bass og diskant, for å forme lyden.",
     },
     {
       question: "Hva er hensikten med å klippe i nullkrysninger i bølgeformen?",
-      options: ["Å unngå klikkelyder i overgangene", "Å gjøre lyden høyere", "Å gjøre hele lyden vesentlig høyere i klippet", "Å endre frekvensen på lyden til et lysere leie"],
+      options: ["Å unngå klikkelyder i overgangene", "Å fjerne alle pauser mellom ordene", "Å gjøre hele lyden vesentlig høyere i klippet", "Å endre frekvensen på lyden til et lysere leie"],
       explanation: "Å klippe der bølgeformen krysser nulllinjen unngår plutselige hopp i signalet, som ellers kan gi hørbare klikkelyder.",
     },
     {
       question: "Hva er miksing i lydsammenheng?",
-      options: ["Å balansere flere lydspor til en helhet", "Å ta opp bare ett spor", "Å ta opp bare ett enkelt lydspor helt for seg", "Å slette lyden slik at videoen blir helt stille"],
+      options: ["Å balansere flere lydspor til en helhet", "Å ta opp lyd uten mikrofon", "Å ta opp bare ett enkelt lydspor helt for seg", "Å slette lyden slik at videoen blir helt stille"],
       explanation: "Miksing er å balansere nivåene og plasseringen til flere lydspor (dialog, musikk, effekter) slik at de fungerer godt sammen.",
     },
     {
@@ -900,17 +900,17 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes motion graphics ofte til?",
-      options: ["Å formidle budskap, forklare konsepter eller skape visuelle effekter", "Å ta fotografier av høy kvalitet til trykte publikasjoner", "Å lagre store filer effektivt på en delt nettverksserver", "Å bygge og drifte lokale nettverk mellom flere maskiner"],
+      options: ["Å formidle budskap, forklare konsepter eller skape visuelle effekter", "Å ta fotografier av høy kvalitet til trykte publikasjoner og plakater", "Å lagre store filer effektivt på en delt nettverksserver", "Å bygge og drifte lokale nettverk mellom flere maskiner"],
       explanation: "Motion graphics brukes til å formidle budskap, forklare konsepter (f.eks. forklaringsvideoer) og skape visuelle effekter.",
     },
     {
       question: "Hva er et keyframe (nøkkelbilde) i animasjon?",
-      options: ["Et punkt som definerer en bestemt tilstand, og programmet beregner bevegelsen mellom dem", "En lydeffekt som spilles av på et bestemt tidspunkt i klippet", "En type kamera som tar ett nøkkelbilde per sekund i opptaket", "En filendelse som lagrer selve animasjonen i komprimert form"],
+      options: ["Et punkt som definerer en bestemt tilstand, og programmet beregner bevegelsen mellom dem", "En lydeffekt som legges inn på et bestemt tidspunkt i klippet og spilles av hver gang det vises", "En type kamera som tar nøyaktig ett nøkkelbilde per sekund gjennom hele opptaket i studio", "En filendelse som lagrer selve animasjonen i komprimert form"],
       explanation: "Et keyframe definerer en bestemt tilstand (f.eks. posisjon) på et tidspunkt, og programmet beregner mellombildene (interpolering) mellom keyframes.",
     },
     {
       question: "Hva er animasjon?",
-      options: ["Å skape illusjon av bevegelse ved å vise en rekke bilder etter hverandre", "Å ta ett enkelt stillbilde og vise det lenge på skjermen", "Å redigere og mikse lyd slik at den følger bildene jevnt", "Å skrive kode som styrer hvordan bildene lagres på disk"],
+      options: ["Å skape illusjon av bevegelse ved å vise en rekke bilder etter hverandre", "Å ta ett enkelt stillbilde og vise det lenge på skjermen uten noen form for bevegelse", "Å redigere og mikse lyd slik at den følger bildene jevnt", "Å skrive kode som styrer hvordan bildene lagres på disk"],
       explanation: "Animasjon er å skape en illusjon av bevegelse ved å vise en rask rekke av bilder (frames) etter hverandre.",
     },
     {
@@ -937,7 +937,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken type mikrofon anbefales ofte for podcast?",
-      options: ["En dynamisk mikrofon eller en USB-kondensatormikrofon", "En innebygd telefonhøyttaler", "Ingen mikrofon, bare lydopptak direkte fra rommets akustikk", "En videoprojektor koblet til lydkortet for bedre opptakslyd"],
+      options: ["En dynamisk mikrofon eller en USB-kondensatormikrofon", "En innebygd høyttaler i telefonen brukt som opptaksenhet", "Ingen mikrofon, bare lydopptak direkte fra rommets akustikk", "En videoprojektor koblet til lydkortet for bedre opptakslyd"],
       explanation: "For podcast anbefales ofte en dynamisk mikrofon (f.eks. Rode PodMic) eller en USB-kondensatormikrofon (f.eks. Blue Yeti) for god lydkvalitet.",
     },
     {
@@ -954,7 +954,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et LAN?",
-      options: ["Et lokalt nettverk innenfor et begrenset område, som et hjem eller en skole", "Et globalt nettverk som dekker hele verden over lange avstander", "En type kabel som kobler sammen enheter innenfor et byggverk", "En protokoll for e-post som sender data over korte avstander"],
+      options: ["Et lokalt nettverk innenfor et begrenset område, som et hjem eller en skole", "Et globalt nettverk som knytter sammen hele verden over svært lange avstander", "En type kabel som kobler sammen enheter innenfor et byggverk", "En protokoll for e-post som sender data over korte avstander"],
       explanation: "Et LAN (Local Area Network) er et lokalt nettverk innenfor et begrenset område, f.eks. et hjem, kontor eller en skole.",
     },
     {
@@ -964,7 +964,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en ruter (router) sin oppgave i et nettverk?",
-      options: ["Å sende datapakker mellom nettverk og finne riktig vei", "Å vise bilder på skjermen", "Å lagre alle filene i nettverket permanent på en fast disk", "Å vise bilder og grafikk fra nettverket direkte på skjermen"],
+      options: ["Å sende datapakker mellom nettverk og finne riktig vei", "Å forsterke det trådløse signalet slik at det dekker hele bygget", "Å lagre alle filene i nettverket permanent på en fast disk", "Å vise bilder og grafikk fra nettverket direkte på skjermen"],
       explanation: "En ruter sender datapakker mellom nettverk og finner riktig vei (rute) for trafikken, f.eks. mellom hjemmenettverket og internett.",
     },
     {
@@ -976,12 +976,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-6-2": [
     {
       question: "Hva er en nettverksprotokoll?",
-      options: ["Et standardisert sett med regler for hvordan data formateres, overføres og mottas", "Et bildeformat", "En sentral datamaskin som lagrer alle nettsidene og sender dem videre til brukerne i nettverket", "Et komprimert filformat som bestemmer hvordan bilder og video pakkes for rask overføring på nett"],
+      options: ["Et standardisert sett med regler for hvordan data formateres, overføres og mottas", "Et bildeformat som avgjør hvor mange farger og hvilken oppløsning en fil kan ha", "En sentral datamaskin som lagrer alle nettsidene og sender dem videre til brukerne i nettverket", "Et komprimert filformat som bestemmer hvordan bilder og video pakkes for rask overføring på nett"],
       explanation: "En nettverksprotokoll er et standardisert sett med regler som bestemmer hvordan data formateres, overføres og mottas mellom enheter.",
     },
     {
       question: "Hva brukes protokollen HTTP/HTTPS til?",
-      options: ["Å overføre nettsider mellom nettleser og webserver", "Å lagre filer lokalt", "Å styre hvor mye strøm skjermen og prosessoren bruker under normal drift", "Å lagre dokumenter og filer trygt i en lokal mappe på harddisken uten nett"],
+      options: ["Å overføre nettsider mellom nettleser og webserver", "Å tildele hver enkelt enhet i nettverket en unik adresse", "Å styre hvor mye strøm skjermen og prosessoren bruker under normal drift", "Å lagre dokumenter og filer trygt i en lokal mappe på harddisken uten nett"],
       explanation: "HTTP/HTTPS er protokollen som brukes til å overføre nettsider mellom nettleseren (klient) og webserveren.",
     },
     {
@@ -1003,7 +1003,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-6-3": [
     {
       question: "Hva er skadevare (malware)?",
-      options: ["Ondsinnet programvare laget for å skade eller utnytte systemer", "Et tekstbehandlingsprogram", "En fysisk nettverkskabel som kobler datamaskinen til ruteren i hjemmet", "En vanlig nettleser som du bruker for å åpne og surfe på nettsider trygt"],
+      options: ["Ondsinnet programvare laget for å skade eller utnytte systemer", "Et tekstbehandlingsprogram som følger med når du installerer systemet", "En fysisk nettverkskabel som kobler datamaskinen til ruteren i hjemmet", "En vanlig nettleser som du bruker for å åpne og surfe på nettsider trygt"],
       explanation: "Skadevare (malware) er ondsinnet programvare laget for å skade, forstyrre eller skaffe uautorisert tilgang til systemer, f.eks. virus og trojanere.",
     },
     {
@@ -1018,12 +1018,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør et datavirus?",
-      options: ["Fester seg til andre filer og sprer seg når filen kjøres", "Beskytter systemet mot angrep", "Øker internetthastigheten ved å rydde opp i unødvendige filer på harddisken", "Sørger for at data lagres trygt og tar automatisk sikkerhetskopi av viktige filer"],
+      options: ["Fester seg til andre filer og sprer seg når filen kjøres", "Beskytter systemet mot angrep utenfra ved å blokkere trafikk", "Øker internetthastigheten ved å rydde opp i unødvendige filer på harddisken", "Sørger for at data lagres trygt og tar automatisk sikkerhetskopi av viktige filer"],
       explanation: "Et virus fester seg til andre filer og sprer seg når filen kjøres, og kan ødelegge data, bremse systemet eller gi uvedkommende tilgang.",
     },
     {
       question: "Hva er en sårbarhet i et IT-system?",
-      options: ["En svakhet som kan utnyttes av en angriper", "En sikkerhetsoppdatering", "En nettverkskabel som overfører data mellom enhetene raskt", "En sikkerhetsoppdatering som tetter kjente hull i programvaren"],
+      options: ["En svakhet som kan utnyttes av en angriper", "Et program som krypterer harddisken", "En nettverkskabel mellom to enheter", "En sikkerhetsoppdatering som tetter kjente hull i programvaren"],
       explanation: "En sårbarhet er en svakhet i et system (f.eks. uoppdatert programvare) som en angriper kan utnytte for å få tilgang eller gjøre skade.",
     },
   ],
@@ -1040,12 +1040,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på «noe du har» i tofaktorautentisering?",
-      options: ["En mobiltelefon som mottar en engangskode", "En PIN-kode du husker", "Et passord du har valgt selv og husker utenat", "En PIN-kode du husker og taster inn ved innlogging"],
+      options: ["En mobiltelefon som mottar en engangskode", "Et fingeravtrykk du skanner ved innlogging", "Et passord du har valgt selv og husker utenat", "En PIN-kode du husker og taster inn ved innlogging"],
       explanation: "«Noe du har» er en fysisk faktor, som en mobiltelefon som mottar en SMS-kode eller en autentiseringsapp - passord og PIN er «noe du vet».",
     },
     {
       question: "Hva kjennetegner et sterkt passord?",
-      options: ["Det er langt og kombinerer store og små bokstaver, tall og symboler", "Det er kort og lett å gjette", "Det er en enkel tallrekke som «12345» fordi den er rask å taste hver gang", "Det er ditt eget navn kombinert med fødselsåret ditt så du husker det lett"],
+      options: ["Det er langt og kombinerer store og små bokstaver, tall og symboler", "Det er kort og består bare av små bokstaver, slik at det er lett å gjette", "Det er en enkel tallrekke som «12345» fordi den er rask å taste hver gang", "Det er ditt eget navn kombinert med fødselsåret ditt så du husker det lett"],
       explanation: "Et sterkt passord er langt og kombinerer store og små bokstaver, tall og symboler, og er vanskelig å gjette.",
     },
     {
@@ -1057,27 +1057,27 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-6-5": [
     {
       question: "Hva er personopplysninger?",
-      options: ["Alle opplysninger som kan knyttes til en identifiserbar person", "Bare offentlig statistikk", "Bare navn og postadresse, mens e-post og telefonnummer holdes helt utenfor", "Bare interne bedriftsdata om omsetning, produkter og forretningshemmeligheter"],
+      options: ["Alle opplysninger som kan knyttes til en identifiserbar person", "Bare anonym statistikk som ikke kan spores tilbake til enkeltpersoner", "Bare navn og postadresse, mens e-post og telefonnummer holdes helt utenfor", "Bare interne bedriftsdata om omsetning, produkter og forretningshemmeligheter"],
       explanation: "Personopplysninger er alle opplysninger som kan knyttes til en identifiserbar person - navn, fødselsnummer, e-post, IP-adresse, bilder, helsedata med mer.",
     },
     {
       question: "Hva er GDPR?",
-      options: ["Et regelverk som beskytter behandlingen av personopplysninger", "Et programmeringsspråk", "En nettleser med innebygde funksjoner for å blokkere sporing og reklame", "En type maskinvare som krypterer og beskytter dataene på en server fysisk"],
+      options: ["Et regelverk som beskytter behandlingen av personopplysninger", "Et programmeringsspråk som brukes til å bygge sikre nettløsninger", "En nettleser med innebygde funksjoner for å blokkere sporing og reklame", "En type maskinvare som krypterer og beskytter dataene på en server fysisk"],
       explanation: "GDPR (personvernforordningen) er et europeisk regelverk som beskytter hvordan personopplysninger samles inn og behandles.",
     },
     {
       question: "Hva er et grunnleggende krav i GDPR for å behandle personopplysninger?",
-      options: ["Det må finnes et lovlig grunnlag, ofte samtykke fra personen", "Man kan samle inn alt fritt uten grunn", "Man kan samle inn så mye data man vil, helt fritt og uten noen begrunnelse", "Innsamlede data kan deles videre med hvem som helst uten personens vitende"],
+      options: ["Det må finnes et lovlig grunnlag, ofte samtykke fra personen", "Data må alltid lagres i minst ti år", "Man kan samle inn så mye data man vil uten begrunnelse", "Innsamlede data kan deles videre med hvem som helst uten personens vitende"],
       explanation: "GDPR krever et lovlig behandlingsgrunnlag, f.eks. samtykke, og at den registrerte informeres om hva som samles inn og hvorfor.",
     },
     {
       question: "Er en IP-adresse en personopplysning etter GDPR?",
-      options: ["Ja, fordi den kan knyttes til en identifiserbar person", "Nei, den er aldri en personopplysning", "Bare når IP-adressen tilhører en bedrift og ikke en vanlig privatperson hjemme", "Nei, en IP-adresse regnes aldri som en personopplysning under noen omstendighet"],
+      options: ["Ja, fordi den kan knyttes til en identifiserbar person", "Nei, fordi den tilhører ruteren og ikke en person", "Bare når IP-adressen tilhører en bedrift og ikke en vanlig privatperson hjemme", "Nei, en IP-adresse regnes aldri som en personopplysning under noen omstendighet"],
       explanation: "En IP-adresse regnes som en personopplysning fordi den kan knyttes til en identifiserbar person.",
     },
     {
       question: "Hvilken rettighet gir GDPR til den enkelte?",
-      options: ["Rett til innsyn i og sletting av egne personopplysninger", "Rett til å hacke andres systemer", "Rett til å bryte deg inn i andres systemer så lenge du bare ser på dataene", "Rett til å selge andres personopplysninger videre så lenge du tjener på det"],
+      options: ["Rett til innsyn i og sletting av egne personopplysninger", "Rett til å kreve gratis internett fra staten", "Rett til å bryte deg inn i andres systemer så lenge du bare ser på dataene", "Rett til å selge andres personopplysninger videre så lenge du tjener på det"],
       explanation: "GDPR gir blant annet rett til innsyn i egne personopplysninger og rett til å få dem rettet eller slettet («retten til å bli glemt»).",
     },
   ],
@@ -1099,7 +1099,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor sies det at teknologi ikke er nøytral?",
-      options: ["Den reflekterer valgene til de som lager den og påvirker samfunnet", "Fordi den alltid er feilfri", "Fordi den er umulig å endre etter at den først er laget og tatt i bruk", "Fordi den i praksis aldri blir brukt og derfor ikke påvirker samfunnet"],
+      options: ["Den reflekterer valgene til de som lager den og påvirker samfunnet", "Fordi den alltid virker helt feilfritt så snart den er ferdig utviklet", "Fordi den er umulig å endre etter at den først er laget og tatt i bruk", "Fordi den i praksis aldri blir brukt og derfor ikke påvirker samfunnet"],
       explanation: "Teknologi er ikke nøytral fordi den reflekterer valgene og verdiene til de som lager den, og påvirker samfunnet på måter som ikke alltid er forutsigbare.",
     },
     {
@@ -1116,7 +1116,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på UX og UI?",
-      options: ["UX er hele brukeropplevelsen, UI er det visuelle grensesnittet brukeren ser", "UX handler bare om farger", "UX handler bare om fargevalg og skrifttyper, mens UI dekker hele opplevelsen", "De er nøyaktig det samme, og begge begrepene beskriver kun det visuelle designet"],
+      options: ["UX er hele brukeropplevelsen, UI er det visuelle grensesnittet brukeren ser", "UX gjelder bare mobilapper, mens UI utelukkende gjelder nettsider på skrivebord", "UX handler bare om fargevalg og skrifttyper, mens UI dekker hele opplevelsen", "De er nøyaktig det samme, og begge begrepene beskriver kun det visuelle designet"],
       explanation: "UX (User Experience) handler om hele brukeropplevelsen, mens UI (User Interface) handler om det visuelle grensesnittet - knapper, farger og layout.",
     },
     {
@@ -1131,24 +1131,24 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva omfatter UX ifølge definisjonen?",
-      options: ["Hele reisen fra brukerens første møte med produktet og videre", "Bare fargevalget", "Bare prisen brukeren betaler for å kjøpe og ta i bruk produktet", "Bare maskinvaren som produktet kjører på, som skjerm og prosessor"],
+      options: ["Hele reisen fra brukerens første møte med produktet og videre", "Bare fargevalget og skrifttypene som brukes i selve grensesnittet", "Bare prisen brukeren betaler for å kjøpe og ta i bruk produktet", "Bare maskinvaren som produktet kjører på, som skjerm og prosessor"],
       explanation: "UX omfatter hele reisen fra brukerens første møte med produktet, gjennom bruk, til etterpå - ikke bare ett enkelt skjermbilde.",
     },
   ],
   "im-vg1-7-2": [
     {
       question: "Hvorfor gjør man brukerundersøkelser i UX-design?",
-      options: ["For å forstå brukernes reelle behov og avdekke hva de faktisk trenger", "For å bekrefte egne antakelser", "For å gjøre prosjektet mer omfattende og dyrere enn nødvendig, og på den måten kunne fakturere kunden mer", "For å bekrefte teamets egne antakelser om brukerne slik at man slipper å endre den ferdige designløsningen"],
+      options: ["For å forstå brukernes reelle behov og avdekke hva de faktisk trenger", "For å dokumentere at prosjektet følger gjeldende regler for personvern", "For å gjøre prosjektet mer omfattende og dyrere enn nødvendig, og på den måten kunne fakturere kunden mer", "For å bekrefte teamets egne antakelser om brukerne slik at man slipper å endre den ferdige designløsningen"],
       explanation: "Brukerundersøkelser er grunnlaget for god UX-design fordi de avdekker brukernes reelle behov, i stedet for å bygge på antakelser.",
     },
     {
       question: "Hva gir kvalitative metoder?",
-      options: ["Dybdeforståelse av hvorfor brukere gjør som de gjør", "Bare store mengder tall", "Store mengder statistiske tall som kan generaliseres, men uten forklaring på årsakene bak brukernes valg", "Kun maskinvaredata"],
+      options: ["Dybdeforståelse av hvorfor brukere gjør som de gjør", "Bare store mengder tall", "Store mengder tall uten forklaring på årsakene", "Kun tekniske data om maskinvaren"],
       explanation: "Kvalitative metoder som intervjuer og observasjon gir dybdeforståelse av hvorfor brukere gjør som de gjør, mens kvantitative metoder gir tall og mengder.",
     },
     {
       question: "Hva er et brukerintervju?",
-      options: ["En samtale med en bruker en-til-en for å forstå behov og erfaringer", "En spørreundersøkelse til tusenvis samtidig", "En teknisk ytelses- og belastningstest av maskinvaren for å se hvor mange brukere systemet tåler samtidig", "En teknisk test av maskinvaren"],
+      options: ["En samtale med en bruker en-til-en for å forstå behov og erfaringer", "En spørreundersøkelse til tusenvis samtidig", "En teknisk ytelses- og belastningstest av maskinvaren for å se hvor mange brukere systemet tåler samtidig", "En gruppesamtale der mange brukere diskuterer produktet med hverandre"],
       explanation: "Et brukerintervju er en en-til-en-samtale der man stiller åpne spørsmål for å forstå brukerens behov, opplevelser og utfordringer.",
     },
     {
@@ -1158,19 +1158,19 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke spørsmål bør man bruke i et brukerintervju?",
-      options: ["Åpne spørsmål som lar brukeren fortelle fritt", "Ledende spørsmål som styrer svaret", "Bare lukkede ja/nei-spørsmål, slik at svarene raskt kan telles opp og settes inn i en oversiktlig tabell", "Bare ja/nei-spørsmål"],
+      options: ["Åpne spørsmål som lar brukeren fortelle fritt", "Ledende spørsmål som styrer brukeren mot ønsket svar", "Bare lukkede ja/nei-spørsmål, slik at svarene raskt kan telles opp og settes inn i en oversiktlig tabell", "Spørsmål som brukeren må svare på skriftlig i etterkant"],
       explanation: "Åpne spørsmål lar brukeren fortelle fritt og gir rikere innsikt enn lukkede ja/nei-spørsmål eller ledende spørsmål.",
     },
   ],
   "im-vg1-7-3": [
     {
       question: "Hva er en wireframe?",
-      options: ["En enkel skisse av strukturen og plasseringen av elementer på en side", "Et ferdig, fargelagt design", "Et ferdig, fargelagt og detaljert design med bilder og typografi, klart til å publiseres direkte for brukerne", "En type nettverkskabel som kobler sammen enhetene slik at siden kan vises på flere skjermer samtidig i teamet"],
+      options: ["En enkel skisse av strukturen og plasseringen av elementer på en side", "En ferdig fargepalett og skriftliste som gjelder for hele nettstedet og alle undersidene", "Et ferdig, fargelagt og detaljert design med bilder og typografi, klart til å publiseres direkte for brukerne", "En type nettverkskabel som kobler sammen enhetene slik at siden kan vises på flere skjermer samtidig i teamet"],
       explanation: "En wireframe er en enkel skisse som viser strukturen og plasseringen av elementer (uten detaljert grafikk), brukt tidlig for å planlegge layout.",
     },
     {
       question: "Hva er en prototype?",
-      options: ["En testbar modell av produktet som lar deg prøve ut ideer før koding", "Den endelige ferdige nettsiden", "En lydfil som spilles av når brukeren åpner produktet, for å forklare hvordan de ulike funksjonene virker", "Den endelige, ferdige nettsiden som er kodet, testet og publisert, og som ikke lenger skal endres på noen måte"],
+      options: ["En testbar modell av produktet som lar deg prøve ut ideer før koding", "En skriftlig kravspesifikasjon som lister opp alt produktet skal kunne gjøre", "En lydfil som spilles av når brukeren åpner produktet, for å forklare hvordan de ulike funksjonene virker", "Den endelige, ferdige nettsiden som er kodet, testet og publisert, og som ikke lenger skal endres på noen måte"],
       explanation: "En prototype er en testbar modell av produktet som lar deg prøve ut og teste ideer raskt, før du bruker tid på fullstendig design og koding.",
     },
     {
@@ -1180,51 +1180,51 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en skisse (sketch) i designprosessen?",
-      options: ["En rask tegning for å utforske mange ideer raskt uten detaljer", "Et ferdig produkt", "En databasemodell som viser hvordan informasjonen skal lagres og kobles sammen i systemet bak nettstedet", "Et ferdig og gjennomarbeidet produkt med endelige farger og innhold, klart til å leveres direkte til kunden"],
+      options: ["En rask tegning for å utforske mange ideer raskt uten detaljer", "En ferdig testrapport fra en gjennomført brukertest", "En databasemodell som viser hvordan informasjonen skal lagres og kobles sammen i systemet bak nettstedet", "Et ferdig og gjennomarbeidet produkt med endelige farger og innhold, klart til å leveres direkte til kunden"],
       explanation: "En skisse er en rask tegning (ofte på papir) brukt til å utforske mange ideer raskt, uten detaljer - bare konsepter.",
     },
     {
       question: "Hva er den naturlige rekkefølgen i en designprosess?",
-      options: ["Skisse, wireframe, prototype, ferdig design", "Ferdig design, skisse, koding", "Ferdig design først, deretter rask skisse og til slutt koding av alle sidene i produktet før lansering", "Prototype, skisse, lansering"],
+      options: ["Skisse, wireframe, prototype, ferdig design", "Koding, lansering, deretter skisse", "Ferdig design først, deretter rask skisse og til slutt koding av alle sidene i produktet før lansering", "Prototype, skisse, lansering"],
       explanation: "En typisk designprosess går fra rask skisse, via wireframe (struktur) og prototype (testbar modell), til ferdig design og utvikling.",
     },
   ],
   "im-vg1-7-4": [
     {
       question: "Hva er brukertesting?",
-      options: ["Å la ekte brukere prøve produktet for å avdekke problemer", "At designeren tester selv alene", "En teknisk maskinvaretest der man måler hvor mye belastning enhetene og serverne tåler under høy trafikk", "En teknisk maskinvaretest"],
+      options: ["Å la ekte brukere prøve produktet for å avdekke problemer", "At designeren tester selv alene", "En teknisk test av hvor mye belastning serverne tåler", "En automatisk stavekontroll av all tekst"],
       explanation: "Brukertesting er å la ekte brukere prøve produktet for å avdekke problemer som designeren selv ikke ser, fordi designeren kjenner produktet for godt.",
     },
     {
       question: "Hva er think-aloud-metoden?",
-      options: ["Brukeren sier høyt hva de tenker og gjør mens de bruker produktet", "Designeren forklarer alt for brukeren", "At man kun måler antall klikk og tidsbruk uten å snakke med brukeren om hva de tenker mens de tester", "Man måler kun klikk uten å snakke"],
+      options: ["Brukeren sier høyt hva de tenker og gjør mens de bruker produktet", "Designeren forklarer alt for brukeren", "At man kun måler antall klikk og tidsbruk uten å snakke med brukeren om hva de tenker mens de tester", "Brukeren skriver ned tankene sine etterpå"],
       explanation: "Think-aloud (tenke høyt) er en metode der brukeren sier høyt hva de tenker, føler og gjør mens de bruker prototypen, slik at man forstår tankegangen deres.",
     },
     {
       question: "Hvordan bør oppgaver i en brukertest formuleres?",
-      options: ["Som mål, f.eks. «finn kontaktinformasjonen», ikke som «klikk på Kontakt-knappen»", "Ved å fortelle nøyaktig hvor de skal klikke", "Uten noe konkret mål i det hele tatt, slik at brukeren fritt kan klikke rundt uten en oppgave å løse", "Som ferdig reklametekst der produktets fordeler beskrives, slik at brukeren blir positiv før testen starter"],
+      options: ["Som mål, f.eks. «finn kontaktinformasjonen», ikke som «klikk på Kontakt-knappen»", "Ved å fortelle brukeren nøyaktig hvilke knapper som skal klikkes i hvilken rekkefølge", "Uten noe konkret mål i det hele tatt, slik at brukeren fritt kan klikke rundt uten en oppgave å løse", "Som ferdig reklametekst der produktets fordeler beskrives, slik at brukeren blir positiv før testen starter"],
       explanation: "Oppgaver bør formuleres som mål («finn kontaktinformasjonen»), ikke som instruksjoner («klikk på Kontakt-knappen»), slik at testen viser om brukeren finner frem selv.",
     },
     {
       question: "Hvorfor oppdager ikke designeren selv alle problemene i et produkt?",
-      options: ["Fordi designeren kjenner produktet for godt og blir «blind» for problemer", "Fordi designeren aldri tester", "Fordi maskinvaren brukeren har er feil, og problemene derfor skyldes utstyret og ikke selve designet", "Fordi designeren aldri tester produktet selv og derfor ikke rekker å se problemene før det er lansert"],
+      options: ["Fordi designeren kjenner produktet for godt og blir «blind» for problemer", "Fordi brukerne aldri leser bruksanvisningen", "Fordi maskinvaren brukeren har er feil, og problemene derfor skyldes utstyret og ikke selve designet", "Fordi designeren aldri tester produktet selv og derfor ikke rekker å se problemene før det er lansert"],
       explanation: "Designeren kjenner produktet for godt og tar mye for gitt, og blir derfor «blind» for problemer som nye brukere raskt støter på.",
     },
     {
       question: "Hva er et viktig første steg når man planlegger en brukertest?",
-      options: ["Å definere hva man vil lære av testen", "Å lansere produktet med en gang", "Å lansere produktet med en gang og heller rette opp feilene etter hvert som ekte brukere melder om dem", "Å skrive ferdig all koden"],
+      options: ["Å definere hva man vil lære av testen", "Å ansette flere designere", "Å lansere produktet med en gang og heller rette opp feilene etter hvert som ekte brukere melder om dem", "Å skrive ferdig all koden"],
       explanation: "Et viktig første steg er å definere målet: hva vil du lære av testen? Det styrer hvilke oppgaver brukerne får.",
     },
   ],
   "im-vg1-7-5": [
     {
       question: "Hva er informasjonsarkitektur (IA)?",
-      options: ["Kunsten å organisere og strukturere innhold slik at brukere finner det de leter etter", "En programmeringsteknikk", "En fargemodell som bestemmer hvordan fargene på nettstedet settes sammen for å gi et helhetlig uttrykk", "En type maskinvare som lagrer innholdet på nettstedet, slik at sidene kan hentes frem raskt ved hvert besøk"],
+      options: ["Kunsten å organisere og strukturere innhold slik at brukere finner det de leter etter", "En programmeringsteknikk for å hente innhold fra en database så raskt som mulig ved hvert oppslag", "En fargemodell som bestemmer hvordan fargene på nettstedet settes sammen for å gi et helhetlig uttrykk", "En type maskinvare som lagrer innholdet på nettstedet, slik at sidene kan hentes frem raskt ved hvert besøk"],
       explanation: "Informasjonsarkitektur er kunsten å organisere og strukturere innhold i logiske grupper slik at brukere lett finner det de leter etter.",
     },
     {
       question: "Hva er global navigasjon?",
-      options: ["Hovedmenyen som er tilgjengelig på alle sider og viser de viktigste kategoriene", "En undermeny på én enkelt side", "En type server som styrer hvordan de ulike sidene på nettstedet lastes inn når brukeren navigerer rundt", "En undermeny som bare vises på én enkelt side og lister opp valgene innenfor akkurat den delen av nettstedet"],
+      options: ["Hovedmenyen som er tilgjengelig på alle sider og viser de viktigste kategoriene", "En knapperad som bare vises helt nederst på forsiden", "En type server som styrer hvordan de ulike sidene på nettstedet lastes inn når brukeren navigerer rundt", "En undermeny som bare vises på én enkelt side og lister opp valgene innenfor akkurat den delen av nettstedet"],
       explanation: "Global navigasjon er hovedmenyen som er tilgjengelig på alle sider og viser de viktigste kategoriene på nettstedet.",
     },
     {
@@ -1234,7 +1234,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konsekvensen av dårlig informasjonsarkitektur?",
-      options: ["Brukerne finner ikke frem og blir frustrerte", "Maskinvaren blir bedre", "At fargene og typografien på siden blir penere, siden strukturen styrer hvordan elementene fargelegges", "Siden laster raskere"],
+      options: ["Brukerne finner ikke frem og blir frustrerte", "Maskinvaren blir bedre", "At fargene og typografien blir penere", "Siden laster raskere"],
       explanation: "Dårlig informasjonsarkitektur gjør at brukerne ikke finner frem og blir frustrerte, selv om innholdet faktisk finnes på siden.",
     },
     {
@@ -1246,66 +1246,66 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-7-6": [
     {
       question: "Hva er et designsystem?",
-      options: ["En samling gjenbrukbare komponenter, retningslinjer og standarder for et produkt", "En programmeringsfeil", "En enkelt ferdig nettside som viser frem alle produktets funksjoner samlet på ett sted for brukeren", "En type maskinvare som teamet bruker for å lagre og dele designfilene mellom de ulike medarbeiderne"],
+      options: ["En samling gjenbrukbare komponenter, retningslinjer og standarder for et produkt", "En programmeringsfeil som gjør at grensesnittet ser ulikt ut i forskjellige nettlesere", "En enkelt ferdig nettside som viser frem alle produktets funksjoner samlet på ett sted for brukeren", "En type maskinvare som teamet bruker for å lagre og dele designfilene mellom de ulike medarbeiderne"],
       explanation: "Et designsystem er en samling gjenbrukbare komponenter, retningslinjer og standarder som styrer hvordan et digitalt produkt ser ut og oppfører seg.",
     },
     {
       question: "Hva er en stor fordel med et designsystem?",
-      options: ["Det sikrer et konsistent utseende og sparer tid når et team jobber sammen", "Det gjør hver side helt forskjellig", "Det gjør hver eneste side helt forskjellig fra de andre, slik at nettstedet virker variert og spennende", "Det fjerner behovet for design helt, fordi ferdige komponenter gjør at man ikke lenger må ta designvalg"],
+      options: ["Det sikrer et konsistent utseende og sparer tid når et team jobber sammen", "Det gjør at teamet slipper å bli enige om noe som helst underveis", "Det gjør hver eneste side helt forskjellig fra de andre, slik at nettstedet virker variert og spennende", "Det fjerner behovet for design helt, fordi ferdige komponenter gjør at man ikke lenger må ta designvalg"],
       explanation: "Et designsystem sikrer konsistens i utseende og oppførsel, og sparer tid fordi teamet gjenbruker komponenter i stedet for å lage alt på nytt.",
     },
     {
       question: "Hva inneholder et komponentbibliotek?",
-      options: ["Ferdige UI-elementer som knapper og skjemafelt som kan gjenbrukes", "Bare tekst uten design", "Bare rå tekst uten design eller formatering, som utvikleren selv må sette et utseende på ved hver bruk", "En liste over de ansatte i teamet og hvilke deler av grensesnittet hver enkelt av dem har ansvaret for"],
+      options: ["Ferdige UI-elementer som knapper og skjemafelt som kan gjenbrukes", "En samling ferdige fargepaletter for trykk", "Bare rå tekst uten design eller formatering, som utvikleren selv må sette et utseende på ved hver bruk", "En liste over de ansatte i teamet og hvilke deler av grensesnittet hver enkelt av dem har ansvaret for"],
       explanation: "Et komponentbibliotek inneholder ferdige UI-elementer (knapper, skjemafelt, kort osv.) som kan gjenbrukes på tvers av produktet.",
     },
     {
       question: "Hva er en stilguide?",
-      options: ["Et dokument som beskriver regler for farger, typografi og bruk av elementer", "En nettverksprotokoll", "En databasemodell som beskriver hvordan typografien og fargene lagres og hentes frem når siden vises", "En nettverksprotokoll som styrer hvordan fargene og skriftene overføres mellom serveren og nettleseren"],
+      options: ["Et dokument som beskriver regler for farger, typografi og bruk av elementer", "En nettverksprotokoll", "En databasemodell for hvordan fargene lagres", "En nettverksprotokoll som styrer hvordan fargene og skriftene overføres mellom serveren og nettleseren"],
       explanation: "En stilguide beskriver reglene for hvordan farger, typografi, ikoner og andre elementer skal brukes, slik at uttrykket blir enhetlig.",
     },
     {
       question: "Hvorfor trenger et team som jobber over tid et felles designsystem?",
-      options: ["For å ha et felles språk og felles regler slik at produktet henger sammen", "For å gjøre arbeidet tregere", "For å unngå samarbeid mellom medarbeiderne, slik at hver enkelt kan designe sin egen del helt fritt", "For å gjøre arbeidet tregere med vilje, slik at teamet må bruke lengre tid og dermed unngår slurvefeil"],
+      options: ["For å ha et felles språk og felles regler slik at produktet henger sammen", "For å slippe å teste produktet på brukere", "For å unngå samarbeid, slik at hver enkelt designer sin egen del", "For å gjøre arbeidet tregere med vilje så teamet unngår slurv"],
       explanation: "Et felles designsystem gir teamet et felles språk og felles regler, slik at produktet henger visuelt og funksjonelt sammen selv når mange jobber på det.",
     },
   ],
   "im-vg1-8-1": [
     {
       question: "Hva er prosjektmetodikk?",
-      options: ["Et strukturert rammeverk for å planlegge, gjennomføre og avslutte prosjekter", "Et programmeringsspråk", "En type maskinvare som teamet bruker for å styre og følge fremdriften i de ulike delene av prosjektet", "Et bestemt programmeringsspråk som brukes til å skrive koden som holder oversikt over prosjektets faser"],
+      options: ["Et strukturert rammeverk for å planlegge, gjennomføre og avslutte prosjekter", "Et programmeringsspråk som brukes til å skrive prosjektplaner og fremdriftsrapporter", "En type maskinvare som teamet bruker for å styre og følge fremdriften i de ulike delene av prosjektet", "Et bestemt programmeringsspråk som brukes til å skrive koden som holder oversikt over prosjektets faser"],
       explanation: "Prosjektmetodikk er et strukturert rammeverk som definerer faser, roller, verktøy og prosesser for å planlegge, gjennomføre og avslutte prosjekter.",
     },
     {
       question: "Hva kjennetegner en smidig (agile) arbeidsmetode?",
-      options: ["Arbeidet skjer i korte, gjentakende sykluser med jevn tilpasning underveis", "Alt planlegges i detalj én gang og endres aldri", "Alt planlegges i detalj én gang helt i starten, og planen ligger deretter fast uten endringer underveis", "Man jobber bare alene og uten samarbeid, slik at hver medarbeider styrer sin egen del av prosjektet selv"],
+      options: ["Arbeidet skjer i korte, gjentakende sykluser med jevn tilpasning underveis", "Alt arbeidet settes bort til en ekstern leverandør som ikke rapporterer underveis", "Alt planlegges i detalj én gang helt i starten, og planen ligger deretter fast uten endringer underveis", "Man jobber bare alene og uten samarbeid, slik at hver medarbeider styrer sin egen del av prosjektet selv"],
       explanation: "Smidige (agile) metoder jobber i korte, gjentakende sykluser (iterasjoner), med hyppige tilbakemeldinger og tilpasning underveis i stedet for én fastlåst plan.",
     },
     {
       question: "Hvorfor er det nyttig å dele et prosjekt inn i faser?",
-      options: ["Det gir oversikt, struktur og kontroll på fremdriften", "Det gjør prosjektet umulig å fullføre", "Det fjerner alle mål fra prosjektet, siden fokuset flyttes fra resultatet og over til selve faseinndelingen", "Det fjerner alle mål"],
+      options: ["Det gir oversikt, struktur og kontroll på fremdriften", "Det gjør prosjektet umulig å fullføre", "Det fjerner alle mål fra prosjektet, siden fokuset flyttes fra resultatet og over til selve faseinndelingen", "Det gjør at ingen trenger å rapportere fremdrift"],
       explanation: "Å dele et prosjekt i faser gir oversikt, struktur og kontroll, slik at man kan følge fremdriften og sikre at man leverer ønsket resultat.",
     },
     {
       question: "Hva er en milepæl i et prosjekt?",
-      options: ["Et viktig delmål eller punkt som markerer fremdrift", "Et programmeringsspråk", "En type feilmelding som dukker opp når en prosjektfase ikke blir fullført innen den planlagte fristen", "En type feilmelding"],
+      options: ["Et viktig delmål eller punkt som markerer fremdrift", "Et programmeringsspråk", "En type feilmelding som dukker opp når en prosjektfase ikke blir fullført innen den planlagte fristen", "En ukentlig statusrapport til kunden"],
       explanation: "En milepæl er et viktig delmål eller kontrollpunkt i prosjektet som markerer at en sentral del er fullført.",
     },
     {
       question: "Hva er fossefall (vannfall) som prosjektmetode?",
-      options: ["En lineær metode der fasene gjennomføres i fast rekkefølge én etter én", "Det samme som smidig metode", "Det samme som smidig metode, der man jobber i korte sykluser og tilpasser planen etter hver tilbakemelding", "En metode helt uten faser, der teamet jobber fritt og bestemmer underveis hva som skal gjøres til enhver tid"],
+      options: ["En lineær metode der fasene gjennomføres i fast rekkefølge én etter én", "En metode der alle fasene kjøres samtidig", "Det samme som smidig metode, der man jobber i korte sykluser og tilpasser planen etter hver tilbakemelding", "En metode helt uten faser, der teamet jobber fritt og bestemmer underveis hva som skal gjøres til enhver tid"],
       explanation: "Fossefallsmetoden er lineær: fasene (f.eks. analyse, design, utvikling, test) gjennomføres i fast rekkefølge, én etter én, før man går videre.",
     },
   ],
   "im-vg1-8-2": [
     {
       question: "Hvorfor er klare roller viktige i et prosjektteam?",
-      options: ["De forhindrer dobbeltarbeid og sikrer at alle oppgaver dekkes", "De gjør at ingen trenger å jobbe", "De gjør at teamlederen kan ta alle avgjørelser alene uten å informere resten av teamet", "De erstatter behovet for planlegging fordi rollene i seg selv styrer hele prosjektets fremdrift"],
+      options: ["De forhindrer dobbeltarbeid og sikrer at alle oppgaver dekkes", "De gjør at ingen trenger å ta ansvar for fremdriften i prosjektet", "De gjør at teamlederen kan ta alle avgjørelser alene uten å informere resten av teamet", "De erstatter behovet for planlegging fordi rollene i seg selv styrer hele prosjektets fremdrift"],
       explanation: "Klare roller forhindrer dobbeltarbeid og sikrer at alle oppgaver blir dekket, fordi alle vet hva de har ansvar for.",
     },
     {
       question: "Hva er aktiv lytting?",
-      options: ["Å gi full oppmerksomhet og stille oppfølgingsspørsmål", "Å ignorere den som snakker", "Å avbryte den som snakker for raskt å komme med egne løsninger og synspunkter", "Å late som man følger med mens man egentlig planlegger sitt eget neste innlegg"],
+      options: ["Å gi full oppmerksomhet og stille oppfølgingsspørsmål", "Å ignorere den som snakker og heller lese e-post underveis", "Å avbryte den som snakker for raskt å komme med egne løsninger og synspunkter", "Å late som man følger med mens man egentlig planlegger sitt eget neste innlegg"],
       explanation: "Aktiv lytting innebærer å gi full oppmerksomhet, vise at man følger med og stille oppfølgingsspørsmål - en nøkkel til god kommunikasjon.",
     },
     {
@@ -1327,7 +1327,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
   "im-vg1-8-3": [
     {
       question: "Hva er brainstorming?",
-      options: ["En metode for å generere mange ideer raskt uten å kritisere dem underveis", "En måte å teste maskinvare på", "En teknikk for å planlegge kildekoden i et program før selve programmeringen starter", "En struktur der man vurderer og forkaster ideer fortløpende for å spare tid i prosessen"],
+      options: ["En metode for å generere mange ideer raskt uten å kritisere dem underveis", "En måte å teste maskinvare på ved å belaste den maksimalt over lang tid i strekk", "En teknikk for å planlegge kildekoden i et program før selve programmeringen starter", "En struktur der man vurderer og forkaster ideer fortløpende for å spare tid i prosessen"],
       explanation: "Brainstorming er en metode for å generere så mange ideer som mulig raskt, der man utsetter kritikk og vurderer ideene etterpå.",
     },
     {
@@ -1337,24 +1337,24 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et moodboard?",
-      options: ["En visuell samling av bilder, farger og elementer som definerer stil og stemning", "En liste over feil i koden", "En type kamerainnstilling som styrer fargebalanse og stemning i bilder under en opptaksdag", "En strukturert oversikt over alle feil og mangler som er funnet i kildekoden til et prosjekt"],
+      options: ["En visuell samling av bilder, farger og elementer som definerer stil og stemning", "En liste over hvilke medarbeidere som har ansvar for hver del av prosjektet", "En type kamerainnstilling som styrer fargebalanse og stemning i bilder under en opptaksdag", "En strukturert oversikt over alle feil og mangler som er funnet i kildekoden til et prosjekt"],
       explanation: "Et moodboard er en visuell samling av bilder, farger, teksturer og typografi som definerer stilen og stemningen for et prosjekt.",
     },
     {
       question: "Hva er hensikten med konseptutvikling?",
-      options: ["Å utvikle og foredle ideer til et tydelig konsept før produksjon", "Å hoppe rett til ferdig produkt", "Å teste at maskinvaren og programvaren fungerer sammen før man begynner på selve produksjonen", "Å hoppe direkte til et ferdig produkt for å spare tid, og heller justere konseptet i etterkant"],
+      options: ["Å utvikle og foredle ideer til et tydelig konsept før produksjon", "Å velge den første ideen uten å vurdere andre", "Å teste at maskinvaren og programvaren fungerer sammen før man begynner på selve produksjonen", "Å hoppe direkte til et ferdig produkt for å spare tid, og heller justere konseptet i etterkant"],
       explanation: "Konseptutvikling handler om systematisk å utvikle og foredle ideer til et tydelig konsept, slik at produksjonen har en klar retning.",
     },
     {
       question: "Hvorfor er det nyttig å bruke referanser når man utvikler et konsept?",
-      options: ["De gir inspirasjon og et felles bilde av ønsket stil og retning", "De erstatter all egen idéutvikling", "De erstatter helt behovet for egen idéutvikling siden man bare kopierer det som allerede finnes", "De brukes kun til å dokumentere feil man vil unngå, ikke til å inspirere retning og stil videre"],
+      options: ["De gir inspirasjon og et felles bilde av ønsket stil og retning", "De brukes bare til å regne ut hva produksjonen kommer til å koste", "De erstatter helt behovet for egen idéutvikling siden man bare kopierer det som allerede finnes", "De brukes kun til å dokumentere feil man vil unngå, ikke til å inspirere retning og stil videre"],
       explanation: "Referanser (f.eks. i et moodboard) gir inspirasjon og skaper et felles bilde i teamet av ønsket stil, stemning og retning.",
     },
   ],
   "im-vg1-8-4": [
     {
       question: "Hva handler dramaturgi om?",
-      options: ["Hvordan en fortelling bygges opp for å engasjere publikum", "Hvordan man redigerer farger", "Hvordan man kobler sammen enheter i et nettverk slik at data flyter effektivt mellom dem", "Hvordan man kobler nettverk"],
+      options: ["Hvordan en fortelling bygges opp for å engasjere publikum", "Hvordan man redigerer farger", "Hvordan man kobler sammen enheter i et nettverk", "Hvordan man stemmer et instrument"],
       explanation: "Dramaturgi handler om hvordan en fortelling bygges opp og struktureres for å skape spenning og engasjere publikum.",
     },
     {
@@ -1364,7 +1364,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer i akt 1 i tre-akt-strukturen?",
-      options: ["Hovedpersonen og verdenen introduseres", "Historien avsluttes", "Historien avsluttes og publikum får se hvordan det gikk med hovedpersonen til slutt", "Rulleteksten vises"],
+      options: ["Hovedpersonen og verdenen introduseres", "Alle konfliktene er allerede løst før historien starter", "Historien avsluttes og publikum får se hvordan det gikk med hovedpersonen til slutt", "Rulleteksten vises mens musikken spilles"],
       explanation: "I akt 1 (presentasjon/setup) introduseres hovedpersonen og verdenen, og det vises hva som står på spill.",
     },
     {
@@ -1374,41 +1374,41 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med anslaget i berettermodellen?",
-      options: ["Å fange oppmerksomheten og sette tonen", "Å presentere alle detaljer", "Å vise rulleteksten og kreditere alle som har bidratt i produksjonen av fortellingen", "Å avslutte historien"],
+      options: ["Å fange oppmerksomheten og sette tonen", "Å presentere alle detaljer om personene i historien", "Å vise rulleteksten og kreditere alle som har bidratt i produksjonen av fortellingen", "Å avslutte historien med en tydelig konklusjon"],
       explanation: "Anslaget er den første fasen i berettermodellen og har som hensikt å fange oppmerksomheten og sette tonen for fortellingen.",
     },
   ],
   "im-vg1-8-5": [
     {
       question: "Hva er en database?",
-      options: ["En organisert samling av data som lagres og administreres elektronisk", "En type kamera", "En lydfil som inneholder strukturert informasjon om et prosjekt i komprimert form", "En nettleser som brukeren bruker for å hente og vise informasjon lagret på servere"],
+      options: ["En organisert samling av data som lagres og administreres elektronisk", "En type kamera som lagrer bildene sine direkte i skyen etter hvert opptak", "En lydfil som inneholder strukturert informasjon om et prosjekt i komprimert form", "En nettleser som brukeren bruker for å hente og vise informasjon lagret på servere"],
       explanation: "En database er en organisert samling av data som lagres og administreres elektronisk, slik at man effektivt kan lagre, hente, oppdatere og slette data.",
     },
     {
       question: "Hvordan organiserer en relasjonsdatabase data?",
-      options: ["I tabeller med rader og kolonner", "Som løse tekstfiler", "Som lydspor der hvert spor lagrer én kategori av data adskilt fra de andre sporene", "Som lydspor"],
+      options: ["I tabeller med rader og kolonner", "Som løse tekstfiler", "Som lydspor der hvert spor lagrer én kategori av data adskilt fra de andre sporene", "I mapper på skrivebordet"],
       explanation: "En relasjonsdatabase organiserer data i tabeller med rader og kolonner, der tabeller kan knyttes sammen gjennom relasjoner.",
     },
     {
       question: "Hva er en rad (record) i en databasetabell?",
-      options: ["En enkelt oppføring med data, f.eks. én bestemt elev", "Navnet på en kolonne", "Navnet på en kolonne som beskriver hvilken type data feltet skal inneholde i tabellen", "Hele databasen med alle tabeller, relasjoner og oppføringer samlet på ett og samme sted"],
+      options: ["En enkelt oppføring med data, f.eks. én bestemt elev", "Selve navnet på tabellen slik det er definert i databasen", "Navnet på en kolonne som beskriver hvilken type data feltet skal inneholde i tabellen", "Hele databasen med alle tabeller, relasjoner og oppføringer samlet på ett og samme sted"],
       explanation: "En rad (record) er en enkelt oppføring i en tabell - f.eks. all informasjon om én bestemt elev.",
     },
     {
       question: "Hva gjør et språk som SQL?",
-      options: ["Lar deg hente, legge til og endre data i en database", "Setter opp et nettverk", "Setter opp og konfigurerer nettverket som databasen og serverne kommuniserer over", "Designer logoer og grafiske profiler som senere kan knyttes til data i en database"],
+      options: ["Lar deg hente, legge til og endre data i en database", "Redigerer bilder i en database", "Setter opp og konfigurerer nettverket som databasen og serverne kommuniserer over", "Designer logoer og grafiske profiler som senere kan knyttes til data i en database"],
       explanation: "SQL (Structured Query Language) er et språk som lar deg spørre etter, legge til, endre og slette data i en relasjonsdatabase.",
     },
     {
       question: "Hva er en fordel med å bruke en database fremfor løse filer?",
-      options: ["Data kan lagres, hentes og oppdateres effektivt og strukturert", "Det gjør dataene umulige å finne", "Det krever ingen organisering på forhånd fordi databasen ordner alt helt automatisk selv", "Det gjør dataene vanskeligere å finne fordi alt lagres samlet i én enkelt uoversiktlig fil"],
+      options: ["Data kan lagres, hentes og oppdateres effektivt og strukturert", "Det gjør at dataene bare kan leses av én bruker om gangen", "Det krever ingen organisering på forhånd fordi databasen ordner alt helt automatisk selv", "Det gjør dataene vanskeligere å finne fordi alt lagres samlet i én enkelt uoversiktlig fil"],
       explanation: "En database gjør at data kan lagres, hentes, oppdateres og slettes effektivt og strukturert, noe som er vanskelig med mange løse filer.",
     },
   ],
   "im-vg1-8-6": [
     {
       question: "Hva er et miljøproblem knyttet til produksjon av elektronikk?",
-      options: ["Den krever sjeldne mineraler som ofte utvinnes med stor miljøbelastning", "Den gir bare positive effekter", "Den regnes som helt ren fordi utvinning av metaller foregår i lukkede og kontrollerte anlegg", "Den bruker svært lite ressurser fordi komponentene er små og lette å produsere i store kvanta"],
+      options: ["Den krever sjeldne mineraler som ofte utvinnes med stor miljøbelastning", "Den gir bare positive effekter for miljøet fordi anleggene er utslippsfrie", "Den regnes som helt ren fordi utvinning av metaller foregår i lukkede og kontrollerte anlegg", "Den bruker svært lite ressurser fordi komponentene er små og lette å produsere i store kvanta"],
       explanation: "Produksjon av elektronikk krever sjeldne jordarter og mineraler som ofte utvinnes under dårlige arbeidsforhold og med stor miljøbelastning.",
     },
     {
@@ -1423,12 +1423,12 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et tiltak for mer bærekraftig bruk av IT-utstyr?",
-      options: ["Å reparere og gjenbruke utstyr i stedet for å kaste det", "Å bytte ut alt utstyr hvert år", "Å kaste utstyr som fortsatt fungerer for å gi plass til nyere modeller med bedre ytelse", "Å kaste utstyr som fungerer"],
+      options: ["Å reparere og gjenbruke utstyr i stedet for å kaste det", "Å bytte ut alt utstyr hvert år", "Å kaste utstyr som fortsatt virker fint", "Å kjøpe utstyr fra utlandet"],
       explanation: "Et bærekraftig tiltak er å forlenge levetiden til utstyr gjennom reparasjon og gjenbruk, i stedet for å kaste og kjøpe nytt unødvendig.",
     },
     {
       question: "Hvorfor er datasentre en bærekraftsutfordring?",
-      options: ["De er energikrevende og trenger mye strøm og kjøling", "De er helt utslippsfrie uten tiltak", "De er helt utslippsfrie også uten tiltak fordi de utelukkende drives av fornybar vannkraft", "De bruker ingen energi"],
+      options: ["De er energikrevende og trenger mye strøm og kjøling", "De bruker bare overskuddsvarme fra andre bygg", "De er helt utslippsfrie også uten tiltak fordi de utelukkende drives av fornybar vannkraft", "De må stenges om natten"],
       explanation: "Datasentre er energikrevende - de bruker mye strøm til drift og kjøling, noe som gir et betydelig klima- og miljøfotavtrykk.",
     },
   ],
@@ -1440,7 +1440,7 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en typisk HMS-utfordring i IT-bransjen?",
-      options: ["Belastningsskader fra mye skjermarbeid", "Fare fra tunge maskiner", "Håndtering av giftige kjemikalier som brukes daglig i vanlig kontorarbeid", "Giftige kjemikalier"],
+      options: ["Belastningsskader fra mye skjermarbeid", "Fare fra tunge maskiner i produksjonshallen", "Håndtering av giftige kjemikalier som brukes daglig i vanlig kontorarbeid", "Fallulykker fra stillaser på byggeplassen"],
       explanation: "IT-arbeid har egne HMS-utfordringer, særlig belastningsskader (muskel- og skjelettplager) fra mye stillesittende skjermarbeid.",
     },
     {
@@ -1455,24 +1455,24 @@ const quizData_im_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva plikter arbeidsgiver å sørge for ifølge arbeidsmiljøloven?",
-      options: ["Et fullt forsvarlig arbeidsmiljø", "At ansatte aldri tar pauser", "At de ansatte aldri tar pauser slik at produksjonen holder jevn og høy fart hele dagen", "At lønnen holdes hemmelig"],
+      options: ["Et fullt forsvarlig arbeidsmiljø", "At all overtid er frivillig", "At de ansatte aldri tar pauser slik at produksjonen holder jevn og høy fart hele dagen", "At lønnen holdes hemmelig"],
       explanation: "Arbeidsmiljøloven pålegger arbeidsgiver å sørge for et fullt forsvarlig arbeidsmiljø, både fysisk og psykososialt.",
     },
   ],
   "im-vg1-8-8": [
     {
       question: "Hva gjør en frontendutvikler?",
-      options: ["Bygger det brukeren ser, som nettsider og apper", "Bygger systemer bak kulissene på serveren", "Bygger systemene bak kulissene på serveren, som databaser og logikk brukeren ikke ser", "Reparerer maskinvare"],
+      options: ["Bygger det brukeren ser, som nettsider og apper", "Tester maskinvaren i serverrommet", "Bygger systemene bak kulissene på serveren, som databaser og logikk brukeren ikke ser", "Reparerer maskinvare"],
       explanation: "En frontendutvikler bygger det brukeren ser og interagerer med - nettsider og apper - mens en backendutvikler bygger systemene bak kulissene.",
     },
     {
       question: "Hva gjør en backendutvikler?",
-      options: ["Bygger systemene bak kulissene, som servere og databaser", "Lager bare det brukeren ser", "Designer plakater og trykksaker som markedsfører applikasjonen mot nye brukere", "Lager kun det brukeren ser og trykker på, som grensesnittet i nettsider og apper"],
+      options: ["Bygger systemene bak kulissene, som servere og databaser", "Setter opp og drifter nettverket og kablingen i hele bygget", "Designer plakater og trykksaker som markedsfører applikasjonen mot nye brukere", "Lager kun det brukeren ser og trykker på, som grensesnittet i nettsider og apper"],
       explanation: "En backendutvikler bygger systemene bak kulissene - servere, databaser og logikk som driver applikasjonen.",
     },
     {
       question: "Hva gjør en UX-/UI-designer?",
-      options: ["Designer digitale brukeropplevelser og grensesnitt", "Reparerer datamaskiner", "Reparerer maskinvare og bytter defekte komponenter som skjermkort og minne", "Fører regnskap og budsjetter for IT-avdelingens innkjøp og lisenskostnader"],
+      options: ["Designer digitale brukeropplevelser og grensesnitt", "Skriver serverkode og setter opp databasene bak løsningen", "Reparerer maskinvare og bytter defekte komponenter som skjermkort og minne", "Fører regnskap og budsjetter for IT-avdelingens innkjøp og lisenskostnader"],
       explanation: "En UX-/UI-designer designer digitale brukeropplevelser (UX) og det visuelle grensesnittet (UI) som brukerne møter.",
     },
     {

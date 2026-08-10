@@ -4,7 +4,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-1-1": [
     {
       question: "Hva er salgsprosessen?",
-      options: ["En strukturert fremgangsmåte for å møte kunder, kartlegge behov, presentere løsninger og avslutte salget", "En liste over alle produktene en butikk har på lager", "Et digitalt kassesystem som registrerer hvert salg og oppdaterer lagerbeholdningen automatisk ved betaling", "En fullstendig oversikt over alle varene butikken har på lager, sortert etter pris og leverandør til enhver tid"],
+      options: ["En strukturert fremgangsmåte for å møte kunder, kartlegge behov, presentere løsninger og avslutte salget", "En fast prisliste som viser hva hvert enkelt produkt i butikken koster, oppdatert hver morgen før åpning", "Et digitalt kassesystem som registrerer hvert salg og oppdaterer lagerbeholdningen automatisk ved betaling", "En fullstendig oversikt over alle varene butikken har på lager, sortert etter pris og leverandør til enhver tid"],
       explanation: "Salgsprosessen er en strukturert fremgangsmåte med definerte faser som bygger på hverandre, fra første kontakt til avslutning og oppfølging.",
     },
     {
@@ -31,7 +31,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-1-2": [
     {
       question: "Hva er nonverbal kommunikasjon?",
-      options: ["Kroppsspråk, ansiktsuttrykk, stemmebruk, øyekontakt og fysisk avstand", "Det vi sier med ord, muntlig eller skriftlig", "Kommunikasjon som bare kan skje over telefon der partene ikke ser hverandre fysisk", "Alt vi formidler med selve ordene våre, enten det sies muntlig eller skrives ned skriftlig"],
+      options: ["Kroppsspråk, ansiktsuttrykk, stemmebruk, øyekontakt og fysisk avstand", "Skriftlige beskjeder som sendes mellom kolleger i løpet av arbeidsdagen", "Kommunikasjon som bare kan skje over telefon der partene ikke ser hverandre fysisk", "Alt vi formidler med selve ordene våre, enten det sies muntlig eller skrives ned skriftlig"],
       explanation: "Nonverbal kommunikasjon er alt annet enn ordene: kroppsspråk, ansiktsuttrykk, stemmebruk, øyekontakt og avstand. Forskning viser at det nonverbale ofte påvirker mer enn ordene alene.",
     },
     {
@@ -51,29 +51,29 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et åpent kroppsspråk i kundemøtet?",
-      options: ["Blikkontakt, smil og en vendt, imøtekommende kroppsholdning", "Å stå med ryggen til kunden mens du jobber", "Kryssede armer over brystet og blikket festet ned mot gulvet mens kunden snakker", "Kryssede armer og blikket ned i gulvet"],
+      options: ["Blikkontakt, smil og en vendt, imøtekommende kroppsholdning", "Å stå med ryggen til kunden mens du jobber", "Kryssede armer over brystet og blikket festet ned mot gulvet mens kunden snakker", "Å holde en avis eller mobil opp foran ansiktet"],
       explanation: "Åpent kroppsspråk signaliserer at du er tilgjengelig og interessert: blikkontakt, smil og en åpen holdning vendt mot kunden – med passende fysisk avstand.",
     },
   ],
   "salg-service-vg1-1-3": [
     {
       question: "Hva er rådgivende salg?",
-      options: ["En salgsmetode der selgeren hjelper kunden å finne den beste løsningen ut fra kundens behov", "En form for salg som utelukkende foregår over telefon uten fysisk møte med kunden", "En salgsmetode der selgeren konsekvent anbefaler det dyreste produktet for å øke provisjonen", "En metode der kunden får rabatt på betingelse av at de handler for et større beløp enn planlagt"],
+      options: ["En salgsmetode der selgeren hjelper kunden å finne den beste løsningen ut fra kundens behov", "En form for salg som utelukkende foregår over telefon, uten at selger og kunde noen gang møtes", "En salgsmetode der selgeren konsekvent anbefaler det dyreste produktet for å øke provisjonen", "En metode der kunden får rabatt på betingelse av at de handler for et større beløp enn planlagt"],
       explanation: "I rådgivende salg opptrer selgeren som rådgiver med fokus på kundens behov, ikke på produktet eller provisjonen. Det bygger tillit og langsiktige kunderelasjoner.",
     },
     {
       question: "Hva er forskjellen på uttalte og latente behov?",
-      options: ["Uttalte behov sier kunden selv, latente behov er behov kunden ikke er bevisst på ennå", "Det er ingen forskjell – begrepene betyr det samme", "Uttalte behov gjelder kun for bedriftskunder, mens latente behov bare gjelder privatkunder", "Det finnes egentlig ingen forskjell – uttalte og latente behov beskriver nøyaktig det samme"],
+      options: ["Uttalte behov sier kunden selv, latente behov er behov kunden ikke er bevisst på ennå", "Uttalte behov må dekkes med en gang, mens latente behov først kan dekkes ved neste kjøp", "Uttalte behov gjelder kun for bedriftskunder, mens latente behov bare gjelder privatkunder", "Det finnes egentlig ingen forskjell – uttalte og latente behov beskriver nøyaktig det samme"],
       explanation: "Uttalte behov er det kunden selv gir uttrykk for, mens latente behov er behov kunden har uten å være klar over dem. En god selger avdekker begge.",
     },
     {
       question: "Hva står bokstavene i SPIN-teknikken for?",
-      options: ["Situasjons-, Problem-, Implikasjons- og Nytteverdi-spørsmål", "Service, Produkt, Informasjon og Nettverk", "Spørre-, Presentere-, Informere- og Notere-fasen som selgeren følger steg for steg", "Spørre, Presentere, Informere og Notere"],
+      options: ["Situasjons-, Problem-, Implikasjons- og Nytteverdi-spørsmål", "Service, Produkt, Informasjon og Nettverk", "Spørre-, Presentere-, Informere- og Notere-fasen som selgeren følger steg for steg", "Salg, Pris, Innkjøp og Netto"],
       explanation: "SPIN er en spørreteknikk for behovsavdekking: Situasjonsspørsmål, Problemspørsmål, Implikasjonsspørsmål og Nytteverdi-spørsmål.",
     },
     {
       question: "Hvilken type SPIN-spørsmål utforsker konsekvensene av et problem for kunden?",
-      options: ["Implikasjonsspørsmål", "Nytteverdi-spørsmål", "Nytteverdi-spørsmål som får kunden til å se gevinsten av en løsning", "Situasjonsspørsmål"],
+      options: ["Implikasjonsspørsmål", "Problemspørsmål", "Nytteverdi-spørsmål som får kunden til å se gevinsten av en løsning", "Situasjonsspørsmål"],
       explanation: "Implikasjonsspørsmål får kunden til å se konsekvensene av problemet, f.eks. 'Hva skjer hvis dette fortsetter?'. Det øker motivasjonen for å finne en løsning.",
     },
     {
@@ -85,12 +85,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-1-4": [
     {
       question: "Hva er en innvending i salgssammenheng?",
-      options: ["Et spørsmål, en bekymring eller et motargument fra kunden i løpet av salgsprosessen", "En skriftlig klage etter at kjøpet er gjennomført", "En rabatt eller prisreduksjon selgeren tilbyr kunden for å gjøre handelen mer attraktiv", "En skriftlig klage kunden sender inn en tid etter at hele kjøpet allerede er gjennomført"],
+      options: ["Et spørsmål, en bekymring eller et motargument fra kunden i løpet av salgsprosessen", "En skriftlig bekreftelse selgeren sender kunden når bestillingen er registrert i systemet", "En rabatt eller prisreduksjon selgeren tilbyr kunden for å gjøre handelen mer attraktiv", "En skriftlig klage kunden sender inn en tid etter at hele kjøpet allerede er gjennomført"],
       explanation: "En innvending er kundens spørsmål, bekymring eller motargument – ofte om pris, behov, timing eller tillit. Den bør ses som en mulighet til å gi mer informasjon.",
     },
     {
       question: "Hva er det første steget i teknikken for innvendingsbehandling?",
-      options: ["Lytt ferdig uten å avbryte", "Gi rabatt med en gang", "Svar raskt før kunden snakker ferdig", "Bytt tema for å unngå innvendingen"],
+      options: ["Lytt ferdig uten å avbryte", "Gi rabatt med en gang", "Svar før kunden er ferdig", "Bytt tema for å unngå innvendingen"],
       explanation: "Teknikken er: 1) Lytt ferdig, 2) Bekreft, 3) Utforsk, 4) Svar, 5) Sjekk. Å lytte ferdig viser respekt og gir deg hele bildet.",
     },
     {
@@ -105,14 +105,14 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør innvendinger ses på som noe positivt?",
-      options: ["De viser ofte at kunden er interessert og vurderer kjøpet seriøst", "De betyr at kunden allerede har bestemt seg for å kjøpe", "De gir selgeren en god grunn til å avslutte samtalen og gå videre til neste kunde", "De betyr at kunden allerede har bestemt seg for kjøpet og bare trenger en kvittering"],
+      options: ["De viser ofte at kunden er interessert og vurderer kjøpet seriøst", "De betyr at selgeren har presentert produktet feil fra begynnelsen av", "De gir selgeren en god grunn til å avslutte samtalen og gå videre til neste kunde", "De betyr at kunden allerede har bestemt seg for kjøpet og bare trenger en kvittering"],
       explanation: "Innvendinger er ofte tegn på interesse – kunden engasjerer seg i produktet. Godt håndtert gir de mulighet til å fjerne tvil og komme nærmere et salg.",
     },
   ],
   "salg-service-vg1-1-5": [
     {
       question: "Hva er mersalg (upselling)?",
-      options: ["Å tilby kunden en oppgradert eller dyrere versjon av produktet de vurderer", "Å tilby tilleggsprodukter som utfyller hovedproduktet", "Å selge nøyaktig det samme produktet til flere ulike kunder i løpet av samme dag", "Å gi kunden en rabatt på neste kjøp som takk for at de handlet hos bedriften i dag"],
+      options: ["Å tilby kunden en oppgradert eller dyrere versjon av produktet de vurderer", "Å tilby tilleggsprodukter som utfyller og passer sammen med hovedproduktet kunden kjøper", "Å selge nøyaktig det samme produktet til flere ulike kunder i løpet av samme dag", "Å gi kunden en rabatt på neste kjøp som takk for at de handlet hos bedriften i dag"],
       explanation: "Mersalg er å tilby en oppgradering, f.eks. 256 GB-versjonen i stedet for 128 GB. Kryssalg er derimot å tilby tilleggsprodukter som deksel og lader.",
     },
     {
@@ -122,7 +122,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når passer det å foreslå mersalg?",
-      options: ["Når oppgraderingen løser et reelt behov og prisdifferansen er fornuftig", "Alltid – jo dyrere produkt, jo bedre for kunden", "Først når kunden allerede har takket nei to ganger, slik at man kan presse litt ekstra", "Bare i situasjoner der kunden har svært dårlig tid og ikke rekker å tenke seg grundig om"],
+      options: ["Når oppgraderingen løser et reelt behov og prisdifferansen er fornuftig", "Alltid, ettersom et dyrere produkt uansett er et bedre kjøp for kunden", "Først når kunden allerede har takket nei to ganger, slik at man kan presse litt ekstra", "Bare i situasjoner der kunden har svært dårlig tid og ikke rekker å tenke seg grundig om"],
       explanation: "Mersalg passer når det løser et reelt behov hos kunden, prisdifferansen er fornuftig og kunden har fleksibelt budsjett. Ellers kan det oppleves som press.",
     },
     {
@@ -132,14 +132,14 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er mersalg og kryssalg viktig for bedriften?",
-      options: ["Det øker verdien av hvert salg uten å måtte skaffe nye kunder", "Det gjør at bedriften slipper å føre regnskap", "Det gjør at bedriften slipper å føre løpende regnskap over inntekter og utgifter", "Det fjerner konkurransen i markedet fordi kundene da ikke handler hos andre aktører"],
+      options: ["Det øker verdien av hvert salg uten å måtte skaffe nye kunder", "Det gjør at bedriften slipper å betale merverdiavgift av salgene sine", "Det gjør at bedriften slipper å føre løpende regnskap over inntekter og utgifter", "Det fjerner konkurransen i markedet fordi kundene da ikke handler hos andre aktører"],
       explanation: "Mersalg og kryssalg øker omsetningen per kunde. Det er ofte rimeligere å selge mer til eksisterende kunder enn å skaffe helt nye.",
     },
   ],
   "salg-service-vg1-1-6": [
     {
       question: "Hva er ettermarked?",
-      options: ["Alle aktiviteter som skjer etter at det opprinnelige salget er gjennomført", "Salg som skjer på slutten av sesongen", "Markedet for kjøp og salg av brukte og annenhånds varer mellom private personer", "Reklame og markedsføring som først vises etter at butikken har stengt for dagen"],
+      options: ["Alle aktiviteter som skjer etter at det opprinnelige salget er gjennomført", "Salg som først skjer helt på slutten av sesongen, når varene settes kraftig ned i pris", "Markedet for kjøp og salg av brukte og annenhånds varer mellom private personer", "Reklame og markedsføring som først vises etter at butikken har stengt for dagen"],
       explanation: "Ettermarked omfatter service, reservedeler, oppgraderinger, vedlikehold og ny-salg til eksisterende kunder – og er en viktig inntektskilde for mange bedrifter.",
     },
     {
@@ -149,7 +149,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lønner kundeoppfølging seg økonomisk?",
-      options: ["Det er billigere å beholde eksisterende kunder enn å skaffe nye", "Oppfølging gjør at bedriften slipper markedsføring helt", "Det senker bedriftens behov for antall ansatte i både salg og kundeservice", "God oppfølging gjør at bedriften kan kutte ut all annen markedsføring fullstendig"],
+      options: ["Det er billigere å beholde eksisterende kunder enn å skaffe nye", "Eksisterende kunder betaler alltid en høyere pris enn nye kunder gjør", "Det senker bedriftens behov for antall ansatte i både salg og kundeservice", "God oppfølging gjør at bedriften kan kutte ut all annen markedsføring fullstendig"],
       explanation: "Å beholde kunder er kostnadseffektivt, fornøyde kunder gir muntlig markedsføring, og langsiktige relasjoner gir gjentatte kjøp.",
     },
     {
@@ -166,7 +166,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-1-7": [
     {
       question: "Hva regulerer forbrukerkjøpsloven?",
-      options: ["Kjøp av varer mellom en forbruker og en næringsdrivende", "Bare kjøp av tjenester som frisørtimer", "Kjøp og salg av varer som skjer mellom to private personer uten næringsdrivende", "Handel som utelukkende foregår mellom to bedrifter eller næringsdrivende parter"],
+      options: ["Kjøp av varer mellom en forbruker og en næringsdrivende", "Bare kjøp av tjenester som frisørtimer og andre personlige tjenester", "Kjøp og salg av varer som skjer mellom to private personer uten næringsdrivende", "Handel som utelukkende foregår mellom to bedrifter eller næringsdrivende parter"],
       explanation: "Forbrukerkjøpsloven gjelder når en forbruker kjøper varer av en næringsdrivende, og gir forbrukeren sterk beskyttelse, blant annet to års reklamasjonsrett.",
     },
     {
@@ -176,24 +176,24 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når gjelder angrerettloven?",
-      options: ["Ved fjernsalg som netthandel og telefonsalg, og salg utenfor fast utsalgssted", "Bare ved kjøp av brukte varer, ikke ved kjøp av nye og ubrukte produkter", "Bare ved kjøp av varer som koster mer enn 10 000 kroner, uansett hvor de kjøpes", "Ved alle vanlige kjøp som gjøres i en fysisk butikk over disken hos en næringsdrivende"],
+      options: ["Ved fjernsalg som netthandel og telefonsalg, og salg utenfor fast utsalgssted", "Bare ved kjøp av brukte varer, og aldri ved kjøp av nye og ubrukte produkter fra butikk", "Bare ved kjøp av varer som koster mer enn 10 000 kroner, uansett hvor de kjøpes", "Ved alle vanlige kjøp som gjøres i en fysisk butikk over disken hos en næringsdrivende"],
       explanation: "Angrerettloven gir 14 dagers angrefrist ved fjernsalg (f.eks. netthandel og telefonsalg) og salg utenfor fast utsalgssted – ikke ved vanlige butikkjøp.",
     },
     {
       question: "Hvor lang er angrefristen etter angrerettloven?",
-      options: ["14 dager fra varen er mottatt", "30 dager fra bestilling", "24 timer fra det øyeblikket kjøpet ble gjort og bekreftet", "24 timer fra kjøpet"],
+      options: ["14 dager fra varen er mottatt", "30 dager fra bestilling", "24 timer fra det øyeblikket kjøpet ble gjort og bekreftet", "6 måneder fra levering"],
       explanation: "Angrefristen er 14 dager fra varen er mottatt. Det finnes unntak der angreretten ikke gjelder, for eksempel for enkelte forseglede varer.",
     },
     {
       question: "Hvilken plikt har selgeren overfor kunden?",
-      options: ["Å gi korrekt informasjon, opplyse om priser og behandle reklamasjoner", "Å oppgi navnene på andre kunder som har kjøpt varen", "Å gi kunden rabatt på prisen hver gang det kommer inn en klage på en vare", "Å oppgi navn og kontaktinfo på andre kunder som tidligere har kjøpt samme vare"],
+      options: ["Å gi korrekt informasjon, opplyse om priser og behandle reklamasjoner", "Å tilby kunden gratis frakt på alt hen kjøper i butikken", "Å gi kunden rabatt på prisen hver gang det kommer inn en klage på en vare", "Å oppgi navn og kontaktinfo på andre kunder som tidligere har kjøpt samme vare"],
       explanation: "Selgerens plikter omfatter blant annet korrekt informasjon om varen, tydelige prisopplysninger og forsvarlig behandling av reklamasjoner.",
     },
   ],
   "salg-service-vg1-2-1": [
     {
       question: "Hva er service?",
-      options: ["All hjelp og støtte en bedrift gir kundene før, under og etter et kjøp", "Reparasjon av biler og maskiner", "Reparasjon og vedlikehold av biler, maskiner og annet teknisk utstyr for kundene", "Utelukkende det å hilse høflig og si hei til kundene når de kommer inn i butikken"],
+      options: ["All hjelp og støtte en bedrift gir kundene før, under og etter et kjøp", "Bare selve vareutvalget en butikk har stående i hyllene til enhver tid", "Reparasjon og vedlikehold av biler, maskiner og annet teknisk utstyr for kundene", "Utelukkende det å hilse høflig og si hei til kundene når de kommer inn i butikken"],
       explanation: "Service er all hjelp og støtte før, under og etter kjøpet, og handler om å møte eller overgå kundens forventninger gjennom vennlighet, kompetanse og problemløsning.",
     },
     {
@@ -220,17 +220,17 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-2-2": [
     {
       question: "Hva innebærer vertskapsrollen?",
-      options: ["Å ta imot og ivareta gjester slik at de føler seg velkomne, trygge og verdsatt", "Å holde oversikt over varelageret", "Å holde løpende oversikt over varelageret og bestille inn nye varer før hyllene blir tomme", "Å servere mat og drikke så raskt som overhodet mulig slik at bordene raskt blir ledige igjen"],
+      options: ["Å ta imot og ivareta gjester slik at de føler seg velkomne, trygge og verdsatt", "Å holde et stramt tidsskjema slik at bordet blir ledig igjen før neste reservasjon", "Å holde løpende oversikt over varelageret og bestille inn nye varer før hyllene blir tomme", "Å servere mat og drikke så raskt som overhodet mulig slik at bordene raskt blir ledige igjen"],
       explanation: "Vertskapsrollen handler om å være oppmerksom, imøtekommende og proaktiv slik at kunder og gjester føler seg velkomne, trygge og verdsatt.",
     },
     {
       question: "Omtrent hvor raskt dannes førsteinntrykket av en person eller et sted?",
-      options: ["I løpet av de første sekundene", "Etter at kunden har betalt", "Etter at kunden har betalt varen", "Etter omtrent en time med samtale"],
+      options: ["I løpet av de første sekundene", "Etter at kunden har forlatt butikken", "Etter at kunden har betalt varen", "Etter omtrent en time med samtale"],
       explanation: "Førsteinntrykket dannes i løpet av få sekunder – kapittelet nevner de første 7 sekundene. Derfor er hilsen, blikkontakt og et ryddig miljø så viktig.",
     },
     {
       question: "Hva betyr det å være proaktiv som vertskap?",
-      options: ["Å forutse gjestenes behov og tilby hjelp før de spør", "Å vente til gjesten klager før man gjør noe", "Å gi alle gjester det samme innøvde standardsvaret uansett hva situasjonen eller behovet er", "Å gi alle gjester samme standardsvar"],
+      options: ["Å forutse gjestenes behov og tilby hjelp før de spør", "Å vente til gjesten klager før man gjør noe", "Å gi alle gjester det samme innøvde standardsvaret uansett hva situasjonen eller behovet er", "Å overlate gjesten til en kollega med en gang"],
       explanation: "Proaktivitet er ett av elementene i godt vertskap: du ser behov før gjesten må be om noe, for eksempel å tilby påfyll eller vise vei.",
     },
     {
@@ -252,7 +252,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør du møte den usikre kunden?",
-      options: ["Gi trygghet, still spørsmål og kom med tydelige anbefalinger", "La kunden klare seg selv til den har bestemt seg", "La kunden helt klare seg selv til den på egen hånd har bestemt seg for hva den vil kjøpe", "Presentere flest mulig alternativer samtidig"],
+      options: ["Gi trygghet, still spørsmål og kom med tydelige anbefalinger", "Vis kunden bare det dyreste alternativet i hyllen", "La kunden helt klare seg selv til den på egen hånd har bestemt seg for hva den vil kjøpe", "Presentere så mange alternativer som mulig på én gang uten å spørre"],
       explanation: "Den usikre kunden trenger trygghet og veiledning. Still spørsmål, begrens valgmulighetene og gi tydelige, ærlige anbefalinger.",
     },
     {
@@ -267,14 +267,14 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du være bevisst på i møte med kunder fra andre kulturer?",
-      options: ["At kommunikasjonsstil, personlig rom og forhold til tid kan variere mellom kulturer", "At alle kunder fra samme land oppfører seg helt likt", "At alle kunder fra ett og samme land uten unntak oppfører seg helt likt og forventer det samme", "At du alltid skal ta initiativ til å håndhilse på kunden uansett hvilken kultur vedkommende har"],
+      options: ["At kommunikasjonsstil, personlig rom og forhold til tid kan variere mellom kulturer", "At du alltid bør snakke høyere og mye langsommere til alle utenlandske kunder du møter", "At alle kunder fra ett og samme land uten unntak oppfører seg helt likt og forventer det samme", "At du alltid skal ta initiativ til å håndhilse på kunden uansett hvilken kultur vedkommende har"],
       explanation: "Kulturer kan variere i kommunikasjonsstil (direkte/indirekte), personlig avstand og tidsoppfatning. Vær observant og tilpass deg – uten å generalisere for mye.",
     },
   ],
   "salg-service-vg1-2-4": [
     {
       question: "Hva står LAST-modellen for i klagebehandling?",
-      options: ["Lytt, Anerkjenn, Spør og kartlegg, Ta ansvar og løs", "Lytt, Argumenter, Stå på ditt, Tilby rabatt", "Lov en løsning, Avtal et møte, Selg noe nytt og Takk for handelen", "Lytt litt, Argumenter imot, Stå på ditt syn og Tilby en liten rabatt"],
+      options: ["Lytt, Anerkjenn, Spør og kartlegg, Ta ansvar og løs", "Lov, Avvis, Skyld på andre og Trekk deg helt fra saken", "Lov en løsning, Avtal et møte, Selg noe nytt og Takk for handelen", "Lytt litt, Argumenter imot, Stå på ditt syn og Tilby en liten rabatt"],
       explanation: "LAST-modellen: Lytt til kunden, Anerkjenn følelsene, Spør og kartlegg hva som har skjedd, og Ta ansvar og løs problemet.",
     },
     {
@@ -284,24 +284,24 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig fremgangsmåte når en kunde er sint?",
-      options: ["Behold roen, lytt ferdig og vis forståelse før du foreslår en løsning", "Svar med samme tonefall for å vise styrke", "Ignorer kunden helt og la vedkommende stå og vente til sinnet av seg selv har roet seg ned", "Svar med nøyaktig samme høye tonefall som kunden for tydelig å vise egen styrke og autoritet"],
+      options: ["Behold roen, lytt ferdig og vis forståelse før du foreslår en løsning", "Be kunden komme tilbake en annen dag når det er roligere i butikken", "Ignorer kunden helt og la vedkommende stå og vente til sinnet av seg selv har roet seg ned", "Svar med nøyaktig samme høye tonefall som kunden for tydelig å vise egen styrke og autoritet"],
       explanation: "Møt sinne med ro: lytt uten å avbryte, anerkjenn frustrasjonen, og fokuser på løsning. Å gå i forsvar eller krangle gjør situasjonen verre.",
     },
     {
       question: "Hva bør du gjøre hvis en kunde kommer med trusler eller blir aggressiv?",
-      options: ["Prioritere egen og andres sikkerhet og hente hjelp fra leder eller vakt", "Late som ingenting og fortsette å ekspedere", "Svare kunden med egne trusler tilbake for å markere at man ikke lar seg presse eller skremme", "Late som ingenting har skjedd og rolig fortsette å ekspedere de andre kundene som venter i køen"],
+      options: ["Prioritere egen og andres sikkerhet og hente hjelp fra leder eller vakt", "Diskutere høyt med kunden foran de andre i køen for å vinne fram", "Svare kunden med egne trusler tilbake for å markere at man ikke lar seg presse eller skremme", "Late som ingenting har skjedd og rolig fortsette å ekspedere de andre kundene som venter i køen"],
       explanation: "Ved trusler eller aggresjon gjelder sikkerhet først: trekk deg ut av situasjonen, varsle leder/vakt, og følg virksomhetens rutiner.",
     },
     {
       question: "Hvordan kan konflikter med kunder forebygges?",
-      options: ["Tydelig kommunikasjon, god service fra start og gode rutiner", "Ved å unngå all kontakt med kundene", "Ved bevisst å unngå all unødvendig kontakt med kundene slik at det aldri oppstår uenigheter", "Ved å fjerne muligheten til å klage"],
+      options: ["Tydelig kommunikasjon, god service fra start og gode rutiner", "Ved å la kundene ordne opp seg imellom", "Ved bevisst å unngå all unødvendig kontakt med kundene slik at det aldri oppstår uenigheter", "Ved å fjerne muligheten til å klage"],
       explanation: "Forebygging handler om tydelig kommunikasjon (riktige forventninger), god service fra start og rutiner som fanger opp problemer tidlig.",
     },
   ],
   "salg-service-vg1-2-5": [
     {
       question: "Hva er en nødssituasjon?",
-      options: ["En situasjon som krever umiddelbar handling for å beskytte liv, helse eller eiendom", "En situasjon der en kunde klager på prisen", "En situasjon der det har bygget seg opp en uvanlig lang kø av kunder foran kassa i butikken", "En situasjon der en populær vare akkurat er blitt utsolgt og kunden ikke får kjøpt det de vil"],
+      options: ["En situasjon som krever umiddelbar handling for å beskytte liv, helse eller eiendom", "En situasjon der en kunde klager høylytt på prisen og krever å få snakke med en leder", "En situasjon der det har bygget seg opp en uvanlig lang kø av kunder foran kassa i butikken", "En situasjon der en populær vare akkurat er blitt utsolgt og kunden ikke får kjøpt det de vil"],
       explanation: "Nødssituasjoner er hendelser som brann, alvorlige ulykker, medisinske nødsituasjoner, trusler eller vold – de krever umiddelbar handling.",
     },
     {
@@ -311,24 +311,24 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er servicemedarbeiderens viktigste oppgave under en nødssituasjon?",
-      options: ["Å ivareta egen og andres sikkerhet og varsle etter rutinene", "Å fortsette betjeningen av kunder som venter", "Å filme hele hendelsen med mobilen så nøye som mulig for å ha god dokumentasjon i etterkant", "Å filme hendelsen for dokumentasjon"],
+      options: ["Å ivareta egen og andres sikkerhet og varsle etter rutinene", "Å fortsette betjeningen av kunder som venter", "Å filme hele hendelsen med mobilen så nøye som mulig for å ha god dokumentasjon i etterkant", "Å låse inngangsdøren umiddelbart"],
       explanation: "Under hendelsen skal du sette sikkerhet først, varsle nødetater etter behov, og følge virksomhetens rutiner – f.eks. bistå ved evakuering.",
     },
     {
       question: "Hva er riktig adferd under et ran?",
-      options: ["Forhold deg rolig, ikke gjør motstand, og merk deg detaljer du trygt kan observere", "Løp etter raneren når han forlater lokalet", "Forsøk å overmanne raneren fysisk og få kontroll på situasjonen før noen andre rekker å bli skadet", "Løp raskt etter raneren når vedkommende forlater lokalet, slik at politiet lettere kan pågripe ham"],
+      options: ["Forhold deg rolig, ikke gjør motstand, og merk deg detaljer du trygt kan observere", "Still deg foran kassaapparatet og nekt å åpne det uansett hva raneren krever", "Forsøk å overmanne raneren fysisk og få kontroll på situasjonen før noen andre rekker å bli skadet", "Løp raskt etter raneren når vedkommende forlater lokalet, slik at politiet lettere kan pågripe ham"],
       explanation: "Ved ran er liv og helse viktigst: vær rolig, ikke ta unødvendig risiko, følg instruksjoner – og observer detaljer som kan hjelpe politiet etterpå.",
     },
     {
       question: "Hva er arbeidsgivers ansvar etter en alvorlig hendelse?",
-      options: ["Å følge opp og ivareta de ansatte, for eksempel med samtaler og støtte", "Å la de ansatte håndtere reaksjonene på egen hånd", "Å trekke de involverte ansatte i lønn for den tiden butikken var stengt på grunn av hendelsen", "Å la de ansatte selv håndtere alle reaksjoner og etterdønninger på egen hånd uten noen oppfølging"],
+      options: ["Å følge opp og ivareta de ansatte, for eksempel med samtaler og støtte", "Å kreve at de ansatte er tilbake i full jobb neste dag", "Å trekke de involverte ansatte i lønn for den tiden butikken var stengt på grunn av hendelsen", "Å la de ansatte selv håndtere alle reaksjoner og etterdønninger på egen hånd uten noen oppfølging"],
       explanation: "Etter en hendelse er det vanlig med reaksjoner. Arbeidsgiver skal følge opp de ansatte med samtaler, eventuelt profesjonell hjelp, og lære av hendelsen.",
     },
   ],
   "salg-service-vg1-2-6": [
     {
       question: "Hvilke fire faser består arrangementsplanlegging av?",
-      options: ["Idé og konsept, planlegging, gjennomføring og etterarbeid", "Markedsføring, påmelding, fakturering og purring", "Innkjøp av varer, salg til kundene, føring av regnskap og revisjon av tallene i etterkant", "Booking, rigging, servering og opprydding"],
+      options: ["Idé og konsept, planlegging, gjennomføring og etterarbeid", "Markedsføring, påmelding, fakturering og purring", "Innkjøp, salg, regnskapsføring og revisjon i etterkant", "Booking, rigging, servering og opprydding"],
       explanation: "De fire fasene er: 1) idé og konsept, 2) planlegging, 3) gjennomføring og 4) etterarbeid med evaluering.",
     },
     {
@@ -338,7 +338,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke poster er typiske utgifter i et arrangementsbudsjett?",
-      options: ["Lokale, mat og drikke, utstyr, underholdning og markedsføring", "Billettinntekter, sponsorinntekter og gaver", "Billettinntekter fra publikum, sponsorinntekter fra samarbeidspartnere og gaver fra støttespillere", "Skatt, moms og arbeidsgiveravgift alene"],
+      options: ["Lokale, mat og drikke, utstyr, underholdning og markedsføring", "Bonuser til de frivillige og utbytte til eierne av arrangementet", "Billettinntekter fra publikum, sponsorinntekter fra samarbeidspartnere og gaver fra støttespillere", "Skatt, merverdiavgift og arbeidsgiveravgift som de eneste postene"],
       explanation: "Vanlige utgiftsposter er leie av lokale, mat og drikke, utstyr, underholdning og markedsføring. Billetter og sponsorer er inntekter.",
     },
     {
@@ -348,7 +348,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er en sjekkliste nyttig i planleggingen av et arrangement?",
-      options: ["Den sikrer at alle detaljer som sted, mat og program blir husket og fulgt opp", "Den gjør at man slipper å samarbeide med andre", "Den gjør at man slipper å samarbeide med andre, siden én person alene kan følge hele lista", "Den brukes egentlig bare i etterkant hvis noe uventet skulle gå galt underveis i arrangementet"],
+      options: ["Den sikrer at alle detaljer som sted, mat og program blir husket og fulgt opp", "Den erstatter behovet for å avtale hvem som gjør hva", "Den gjør at man slipper å samarbeide med andre, siden én person alene kan følge hele lista", "Den brukes egentlig bare i etterkant hvis noe uventet skulle gå galt underveis i arrangementet"],
       explanation: "En sjekkliste over sted, mat og drikke, program, utstyr osv. gir oversikt og sørger for at ingenting glemmes i en kompleks planleggingsprosess.",
     },
   ],
@@ -365,7 +365,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et godt prinsipp for å bygge nettverk?",
-      options: ["Gi verdi til andre, vær genuin og vedlikehold relasjonene over tid", "Samle flest mulig kontakter uten å følge dem opp", "Holde all kunnskap og informasjon du sitter på for deg selv, slik at du beholder et forsprang", "Bare ta kontakt med folk i nettverket ditt de gangene du selv har behov for en tjeneste fra dem"],
+      options: ["Gi verdi til andre, vær genuin og vedlikehold relasjonene over tid", "Å samle flest mulig kontakter uten noen gang å følge dem opp etterpå", "Holde all kunnskap og informasjon du sitter på for deg selv, slik at du beholder et forsprang", "Bare ta kontakt med folk i nettverket ditt de gangene du selv har behov for en tjeneste fra dem"],
       explanation: "Godt nettverksarbeid handler om å være genuin, ta initiativ, gi verdi til andre (ikke bare be om tjenester) og vedlikeholde kontakten jevnlig.",
     },
     {
@@ -382,7 +382,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-3-1": [
     {
       question: "Hva er markedsføring?",
-      options: ["Alle aktiviteter en virksomhet gjør for å skape, kommunisere og levere verdi til kunder", "Å selge varer til lavest mulig pris", "Å produsere varer i så store mengder som mulig for å få ned kostnaden på hver enkelt enhet", "Å selge varene sine til lavest mulig pris slik at man alltid slår konkurrentene på pris alene"],
+      options: ["Alle aktiviteter en virksomhet gjør for å skape, kommunisere og levere verdi til kunder", "Å produsere varene selv i egen fabrikk og deretter frakte dem ut til butikkene", "Å produsere varer i så store mengder som mulig for å få ned kostnaden på hver enkelt enhet", "Å selge varene sine til lavest mulig pris slik at man alltid slår konkurrentene på pris alene"],
       explanation: "Markedsføring handler om å identifisere kundens behov og utvikle løsninger som dekker dem bedre enn konkurrentene – ikke bare reklame.",
     },
     {
@@ -397,12 +397,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer en nisjestrategi?",
-      options: ["Å konsentrere seg om et lite, spesialisert segment av markedet", "Å selge til hele markedet med lavest mulig pris", "Å bare selge produktene sine gjennom nettbutikk og digitale flater", "Å selge til hele markedet samtidig med lavest mulig pris til alle kunder"],
+      options: ["Å konsentrere seg om et lite, spesialisert segment av markedet", "Å selge bare til bedriftskunder og aldri til privatpersoner", "Å bare selge produktene sine gjennom nettbutikk og digitale flater", "Å selge til hele markedet samtidig med lavest mulig pris til alle kunder"],
       explanation: "Nisjestrategi betyr å fokusere på et smalt segment med spesielle behov. Differensiering og kostnadslederskap er andre markedsstrategier.",
     },
     {
       question: "Hva betyr det at en virksomhet er markedsorientert?",
-      options: ["At den tar utgangspunkt i kundenes behov når den utvikler tilbudet sitt", "At den ligger plassert nær et torg eller marked", "At virksomheten hovedsakelig bryr seg om børskursen og aksjeverdien sin", "At virksomheten er fysisk plassert nær et torg, kjøpesenter eller marked"],
+      options: ["At den tar utgangspunkt i kundenes behov når den utvikler tilbudet sitt", "At den bare selger til andre bedrifter og ikke til forbrukere", "At virksomheten hovedsakelig bryr seg om børskursen og aksjeverdien sin", "At virksomheten er fysisk plassert nær et torg, kjøpesenter eller marked"],
       explanation: "En markedsorientert virksomhet starter med kundens behov og tilpasser produkter og markedsføring deretter – i motsetning til ren produktorientering.",
     },
   ],
@@ -429,7 +429,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en persona i markedsføringssammenheng?",
-      options: ["En fiktiv, detaljert beskrivelse av en typisk kunde i målgruppen", "En kjendis som reklamerer for produktet", "Den juridiske eieren av bedriften som står ansvarlig for markedsføringen", "En kjent kjendis eller influenser som reklamerer for bedriftens produkter"],
+      options: ["En fiktiv, detaljert beskrivelse av en typisk kunde i målgruppen", "En ansatt som har fått ansvar for bedriftens profil i sosiale medier", "Den juridiske eieren av bedriften som står ansvarlig for markedsføringen", "En kjent kjendis eller influenser som reklamerer for bedriftens produkter"],
       explanation: "En persona er en konstruert, konkret beskrivelse av en typisk kunde (navn, alder, behov, vaner) som hjelper bedriften å målrette kommunikasjonen.",
     },
   ],
@@ -456,7 +456,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse målene er mest i tråd med SMART-prinsippet?",
-      options: ["'Vi skal øke omsetningen med 10 % innen 31. desember'", "'Vi skal selge mer en gang i fremtiden'", "'Vi skal selge mer av alt vi har en gang i nær fremtid'", "'Vi skal bli betydelig bedre enn vi er i dag på det meste'"],
+      options: ["'Vi skal øke omsetningen med 10 % innen 31. desember'", "'Vi skal ha de mest fornøyde kundene i hele bransjen vår'", "'Vi skal selge mer av alt vi har en gang i nær fremtid'", "'Vi skal bli betydelig bedre enn vi er i dag på det meste'"],
       explanation: "Målet er spesifikt og målbart (10 % omsetningsvekst), tidsbestemt (innen 31. desember) og realistisk – i motsetning til de vage alternativene.",
     },
   ],
@@ -468,12 +468,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det første steget i planleggingen av en kampanje?",
-      options: ["Å definere målet for kampanjen", "Å lage innholdet", "Å sette det økonomiske budsjettet før målet er avklart", "Å sette budsjett"],
+      options: ["Å definere målet for kampanjen", "Å lage innholdet", "Å sette det økonomiske budsjettet før målet er avklart", "Å velge kampanjens navn"],
       explanation: "Planleggingen starter med å definere målet. Deretter følger målgruppe, budskap, kanaler, innhold, budsjett/tidslinje, gjennomføring og evaluering.",
     },
     {
       question: "Hva er KPI-er i kampanjesammenheng?",
-      options: ["Nøkkeltall som brukes til å måle om kampanjen når målene sine", "Kostnadene ved å produsere innhold", "De ulike kanalene og flatene som brukes for å spre kampanjebudskapet", "De kreative ideene og forslagene til utforming av annonsene i kampanjen"],
+      options: ["Nøkkeltall som brukes til å måle om kampanjen når målene sine", "Kostnadene ved å produsere selve innholdet som brukes i kampanjen", "De ulike kanalene og flatene som brukes for å spre kampanjebudskapet", "De kreative ideene og forslagene til utforming av annonsene i kampanjen"],
       explanation: "KPI (Key Performance Indicator) er målbare nøkkeltall, f.eks. rekkevidde, klikk eller salg, som viser om kampanjen leverer som planlagt.",
     },
     {
@@ -490,7 +490,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-3-5": [
     {
       question: "Hvilke hovedelementer består kommunikasjonsmodellen av?",
-      options: ["Avsender, budskap, kanal, mottaker, støy og tilbakemelding", "Planlegging, gjennomføring og evaluering", "Tekst (skrift), bilde (visuelt), lyd (audio) og video (levende bilder)", "Planlegging (forberedelse), gjennomføring (utførelse) og evaluering (måling)"],
+      options: ["Avsender, budskap, kanal, mottaker, støy og tilbakemelding", "Innkjøp, lagerføring, salg og regnskapsføring gjennom hele kampanjen", "Tekst (skrift), bilde (visuelt), lyd (audio) og video (levende bilder)", "Planlegging (forberedelse), gjennomføring (utførelse) og evaluering (måling)"],
       explanation: "Kommunikasjonsmodellen beskriver hvordan et budskap går fra avsender via en kanal til mottaker, der støy kan forstyrre og tilbakemelding går tilbake.",
     },
     {
@@ -505,12 +505,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med støy i kommunikasjonsmodellen?",
-      options: ["Alt som forstyrrer eller forvrenger budskapet på veien til mottakeren", "Negative kommentarer i sosiale medier", "Negative kommentarer og klager fra misfornøyde kunder i sosiale medier", "Utelukkende høy og forstyrrende musikk som spilles av inne i butikklokalet"],
+      options: ["Alt som forstyrrer eller forvrenger budskapet på veien til mottakeren", "Antallet mottakere som faktisk åpner og leser reklamen som blir sendt ut", "Negative kommentarer og klager fra misfornøyde kunder i sosiale medier", "Utelukkende høy og forstyrrende musikk som spilles av inne i butikklokalet"],
       explanation: "Støy er alle forstyrrelser som gjør at budskapet ikke når frem slik det var ment – f.eks. uklart språk, konkurrerende reklame eller tekniske problemer.",
     },
     {
       question: "Hvorfor er bilder viktige i markedskommunikasjon?",
-      options: ["Bilder kommuniserer raskt og vekker følelser før teksten leses", "Bilder er alltid billigere enn tekst", "Loven krever at all reklame skal inneholde minst ett tydelig bilde", "Bilder er alltid vesentlig billigere å produsere og bruke enn tekst"],
+      options: ["Bilder kommuniserer raskt og vekker følelser før teksten leses", "Bilder erstatter behovet for et budskap", "Loven krever at all reklame skal inneholde minst ett tydelig bilde", "Bilder er alltid vesentlig billigere å produsere og bruke enn tekst"],
       explanation: "Visuell kommunikasjon virker raskt: bilder fanger oppmerksomheten og formidler stemning og budskap før mottakeren har lest teksten.",
     },
   ],
@@ -522,7 +522,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier markedsføringsloven om skjult reklame?",
-      options: ["Reklame skal tydelig fremstå som reklame – skjult reklame er forbudt", "Skjult reklame er tillatt hvis produktet er bra", "Skjult reklame er fullt tillatt i sosiale medier så lenge den er kreativ", "Loven sier ingenting om skjult reklame, så dette avgjøres av bransjen selv"],
+      options: ["Reklame skal tydelig fremstå som reklame – skjult reklame er forbudt", "Skjult reklame er tillatt så lenge produktet som omtales holder god kvalitet", "Skjult reklame er fullt tillatt i sosiale medier så lenge den er kreativ", "Loven sier ingenting om skjult reklame, så dette avgjøres av bransjen selv"],
       explanation: "All markedsføring skal kunne identifiseres som markedsføring. Derfor må f.eks. influensere merke sponsede innlegg tydelig.",
     },
     {
@@ -532,7 +532,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rettighet gir GDPR forbrukerne?",
-      options: ["Rett til innsyn i og sletting av egne personopplysninger", "Rett til å se andre kunders kjøpshistorikk", "Rett til å se andre kunders kjøpshistorikk og personopplysninger fritt", "Rett til ubegrenset angrerett på alle kjøp i minst fem år etter kjøpet"],
+      options: ["Rett til innsyn i og sletting av egne personopplysninger", "Rett til å få tilbake alle varer man har kjøpt de siste fem årene", "Rett til å se andre kunders kjøpshistorikk og personopplysninger fritt", "Rett til ubegrenset angrerett på alle kjøp i minst fem år etter kjøpet"],
       explanation: "GDPR gir blant annet rett til innsyn, retting og sletting av egne data, og krever samtykke til innsamling og bruk av personopplysninger.",
     },
     {
@@ -549,12 +549,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på merkevareidentitet og merkevareprofil (image)?",
-      options: ["Identiteten er slik bedriften ønsker å fremstå, profilen er slik kundene faktisk oppfatter den", "Identiteten gjelder kun for fysiske produkter, mens profilen gjelder tjenester", "Identiteten er selve logoen, mens profilen er bedriftens nettside og app", "Det er rett og slett to ulike ord som betyr nøyaktig det helt samme"],
+      options: ["Identiteten er slik bedriften ønsker å fremstå, profilen er slik kundene faktisk oppfatter den", "Identiteten gjelder kun for fysiske produkter, mens profilen utelukkende gjelder tjenester bedriften leverer", "Identiteten er selve logoen, mens profilen er bedriftens nettside og app", "Det er rett og slett to ulike ord som betyr nøyaktig det helt samme"],
       explanation: "Merkevareidentitet er bedriftens ønskede bilde av seg selv, mens profil/image er kundenes faktiske oppfatning. Målet er at de to skal stemme overens.",
     },
     {
       question: "Hvilke elementer inngår i en visuell identitet?",
-      options: ["Logo, fargepalett, typografi, bildestil og grafiske elementer", "Åpningstider, adresse og telefonnummer", "Ansattes lønn, bonusordninger, frynsegoder og andre personalvilkår", "Bedriftens åpningstider, besøksadresse, telefonnummer og e-postadresse"],
+      options: ["Logo, fargepalett, typografi, bildestil og grafiske elementer", "Bedriftens organisasjonsnummer, styresammensetning og aksjekapital", "Ansattes lønn, bonusordninger, frynsegoder og andre personalvilkår", "Bedriftens åpningstider, besøksadresse, telefonnummer og e-postadresse"],
       explanation: "Den visuelle identiteten består av logo, farger, typografi, bildestil og grafiske elementer som brukes konsekvent i all kommunikasjon.",
     },
     {
@@ -564,19 +564,19 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er en sterk merkevare lønnsom?",
-      options: ["Den gir lojale kunder, mulighet for høyere priser og lavere markedsføringskostnader per salg", "En sterk merkevare gjør at bedriften helt slipper å betale skatt og avgifter", "En sterk merkevare fjerner all konkurranse i markedet fullstendig og varig", "En sterk merkevare garanterer at produktene aldri får feil eller mangler"],
+      options: ["Den gir lojale kunder, mulighet for høyere priser og lavere markedsføringskostnader per salg", "En sterk merkevare gjør at bedriften helt slipper å betale skatt og offentlige avgifter til staten", "En sterk merkevare fjerner all konkurranse i markedet fullstendig og varig", "En sterk merkevare garanterer at produktene aldri får feil eller mangler"],
       explanation: "Sterke merkevarer gir gjenkjøp og lojalitet, betalingsvillighet for merkenavnet og mer effektiv markedsføring.",
     },
   ],
   "salg-service-vg1-4-1": [
     {
       question: "Hva er e-handel?",
-      options: ["Kjøp og salg av varer og tjenester over internett", "Bare salg av elektronikk i fysisk butikk", "Eksport av norske varer til kunder og bedrifter i andre land", "Handel med utenlandsk valuta og aksjer på internasjonale børser"],
+      options: ["Kjøp og salg av varer og tjenester over internett", "Bare salg av elektronikk og hvitevarer i fysiske butikker", "Eksport av norske varer til kunder og bedrifter i andre land", "Handel med utenlandsk valuta og aksjer på internasjonale børser"],
       explanation: "E-handel (elektronisk handel) omfatter nettbutikker, digitale markedsplasser, abonnementstjenester og andre kommersielle transaksjoner som foregår digitalt.",
     },
     {
       question: "Hva betyr B2C?",
-      options: ["Salg fra bedrift til forbruker (Business to Consumer)", "Salg fra produsent direkte uten mellomledd", "Salg direkte fra produsent til forbruker helt uten noen mellomledd", "Salg som foregår mellom to private forbrukere, for eksempel på Finn"],
+      options: ["Salg fra bedrift til forbruker (Business to Consumer)", "Salg mellom to bedrifter (Business to Business)", "Salg direkte fra produsent til forbruker helt uten noen mellomledd", "Salg som foregår mellom to private forbrukere, for eksempel på Finn"],
       explanation: "B2C er Business to Consumer – bedrift selger til forbruker. B2B er bedrift til bedrift, C2C er forbruker til forbruker, og D2C er produsent direkte til forbruker.",
     },
     {
@@ -586,7 +586,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan har digitaliseringen endret servicerollen?",
-      options: ["Den krever ny digital kompetanse og skaper nye roller, men menneskelig service er fortsatt viktig", "Den har gjort menneskelig service helt overflødig", "Den påvirker først og fremst lagermedarbeidere og har liten betydning for selve kundeservicerollen", "Den har fjernet nesten alle jobber i varehandelen og gjort digital kompetanse unødvendig for de ansatte"],
+      options: ["Den krever ny digital kompetanse og skaper nye roller, men menneskelig service er fortsatt viktig", "Den har gjort menneskelig service helt overflødig, siden alle henvendelser nå løses av maskiner alene", "Den påvirker først og fremst lagermedarbeidere og har liten betydning for selve kundeservicerollen", "Den har fjernet nesten alle jobber i varehandelen og gjort digital kompetanse unødvendig for de ansatte"],
       explanation: "Digital handel gir nye kompetansekrav og roller (f.eks. digital kundeservice), men menneskelig service er fortsatt avgjørende, særlig ved komplekse behov.",
     },
     {
@@ -598,7 +598,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-4-2": [
     {
       question: "Hva er sosiale medier-markedsføring (SMM)?",
-      options: ["Bruk av sosiale plattformer for å promotere produkter, bygge merkevare og engasjere kunder", "Å sende massevis av e-post til tilfeldige adresser", "Betalt reklame på fysiske plakater og bannere i bybildet for å engasjere og nå ut til kundene", "Å sende store mengder e-post til tilfeldige adresser for å promotere produkter og bygge merkevare"],
+      options: ["Bruk av sosiale plattformer for å promotere produkter, bygge merkevare og engasjere kunder", "Å dele ut trykte brosjyrer og flygeblad i postkasser for å bygge merkevare og engasjere kunder", "Betalt reklame på fysiske plakater og bannere i bybildet for å engasjere og nå ut til kundene", "Å sende store mengder e-post til tilfeldige adresser for å promotere produkter og bygge merkevare"],
       explanation: "SMM omfatter både organisk (gratis) og betalt innhold på sosiale plattformer for å bygge merkevare, engasjere kunder og drive trafikk.",
     },
     {
@@ -608,17 +608,17 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en innholdskalender?",
-      options: ["En plan over hva som skal publiseres, når og i hvilke kanaler", "En liste over konkurrentenes kampanjer", "En detaljert oversikt over når de ansatte i bedriften har ferie og fri", "En løpende liste over konkurrentenes kampanjer og hva de publiserer når"],
+      options: ["En plan over hva som skal publiseres, når og i hvilke kanaler", "En oversikt over hvor mange følgere hver ansatt har i sosiale medier", "En detaljert oversikt over når de ansatte i bedriften har ferie og fri", "En løpende liste over konkurrentenes kampanjer og hva de publiserer når"],
       explanation: "En innholdskalender gir struktur på publiseringen: hvilke innlegg, hvilke datoer og hvilke kanaler – og sikrer jevn og planlagt aktivitet.",
     },
     {
       question: "Hvilke metrikker måler engasjement i sosiale medier?",
-      options: ["Likerklikk, kommentarer og delinger", "Antall ansatte i markedsavdelingen", "Den månedlige husleien bedriften betaler for butikklokalet sitt", "Husleien for butikklokalet"],
+      options: ["Likerklikk, kommentarer og delinger", "Antall ansatte i markedsavdelingen", "Den månedlige husleien bedriften betaler for butikklokalet sitt", "Antall varer på lager"],
       explanation: "Engasjement måles ved interaksjoner som likes, kommentarer og delinger. Rekkevidde måler hvor mange som ser innholdet, og konvertering måler handlinger som kjøp.",
     },
     {
       question: "Hvorfor er det viktig å kjenne målgruppen før man velger plattform?",
-      options: ["Ulike plattformer har ulike brukergrupper – innholdet bør publiseres der målgruppen faktisk er", "Plattformvalget har ingen betydning for resultatet", "Alle plattformer har nøyaktig samme brukere, så det spiller ingen rolle hvor innholdet publiseres", "Man bør alltid velge den nyeste plattformen på markedet uansett hvem målgruppen faktisk består av"],
+      options: ["Ulike plattformer har ulike brukergrupper – innholdet bør publiseres der målgruppen faktisk er", "Plattformvalget har ingen betydning for resultatet, siden innholdet uansett når frem til alle", "Alle plattformer har nøyaktig samme brukere, så det spiller ingen rolle hvor innholdet publiseres", "Man bør alltid velge den nyeste plattformen på markedet uansett hvem målgruppen faktisk består av"],
       explanation: "Plattformene skiller seg i alder og bruksmønster – f.eks. har TikTok og Snapchat ung profil, mens LinkedIn er profesjonell. Velg kanal etter målgruppen.",
     },
   ],
@@ -635,12 +635,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formålet med SSL/TLS-kryptering i netthandel?",
-      options: ["Å sikre at data som sendes mellom kunde og nettbutikk ikke kan leses av uvedkommende", "Å oversette nettsiden til flere språk", "Å gjøre nettsiden raskere ved å komprimere bildene og redusere lastetiden for kunden", "Å oversette nettsiden automatisk til flere språk slik at utenlandske kunder forstår den"],
+      options: ["Å sikre at data som sendes mellom kunde og nettbutikk ikke kan leses av uvedkommende", "Å lagre kundens betalingskort for fremtidige kjøp", "Å gjøre nettsiden raskere ved å komprimere bildene og redusere lastetiden for kunden", "Å oversette nettsiden automatisk til flere språk slik at utenlandske kunder forstår den"],
       explanation: "SSL/TLS krypterer kommunikasjonen mellom nettleser og server, slik at betalingsinformasjon og persondata ikke kan avlyttes.",
     },
     {
       question: "Hva er 3D Secure?",
-      options: ["Et ekstra sikkerhetstrinn ved kortbetaling på nett, der kunden bekrefter identiteten sin", "En spesiell type 3D-skriver som produserer fysiske bankkort til kunder i butikken", "En leveringsgaranti som sikrer at bestilte varer alltid leveres til kunden innen tre dager", "Et avansert kamerasystem i fysiske butikker som overvåker betalinger ved kassen"],
+      options: ["Et ekstra sikkerhetstrinn ved kortbetaling på nett, der kunden bekrefter identiteten sin", "En spesiell type 3D-skriver som produserer fysiske bankkort til kunder i butikken", "En leveringsgaranti som sikrer at bestilte varer leveres innen tre dager", "Et avansert kamerasystem i fysiske butikker som overvåker betalinger ved kassen"],
       explanation: "3D Secure (f.eks. Verified by Visa / Mastercard SecureCode) krever ekstra bekreftelse fra kortholder, som BankID, og reduserer svindel ved netthandel.",
     },
     {
@@ -652,12 +652,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-4-4": [
     {
       question: "Hva er en chatbot?",
-      options: ["Et dataprogram som simulerer samtale med mennesker, ofte via tekst på nettsider", "En ansatt som svarer på chat-henvendelser", "En ansatt i kundeservice som svarer på chat-henvendelser fra kunder via nettsiden", "Et program som blokkerer reklame og popup-vinduer mens kunden surfer på nettsiden"],
+      options: ["Et dataprogram som simulerer samtale med mennesker, ofte via tekst på nettsider", "Et system som automatisk oversetter nettsiden til kundens eget språk mens hen leser den", "En ansatt i kundeservice som svarer på chat-henvendelser fra kunder via nettsiden", "Et program som blokkerer reklame og popup-vinduer mens kunden surfer på nettsiden"],
       explanation: "En chatbot simulerer samtale. Enkle chatbots følger forhåndsprogrammerte regler, mens avanserte bruker kunstig intelligens for å forstå og svare.",
     },
     {
       question: "Hvilken type oppgaver egner chatbots seg best til?",
-      options: ["Enkle, hyppige spørsmål som åpningstider, ordrestatus og vanlige FAQ", "Komplekse klagesaker med sterke følelser", "Krevende forhandlinger om erstatning der beløp og ansvar må vurderes fra sak til sak", "Komplekse klagesaker der kunden er svært misfornøyd og har sterke følelser inne i bildet"],
+      options: ["Enkle, hyppige spørsmål som åpningstider, ordrestatus og vanlige FAQ", "Personlig rådgivning om helse og økonomi", "Krevende forhandlinger om erstatning der beløp og ansvar må vurderes fra sak til sak", "Komplekse klagesaker der kunden er svært misfornøyd og har sterke følelser inne i bildet"],
       explanation: "Chatbots er effektive på enkle, repeterende henvendelser hele døgnet. Komplekse og emosjonelle saker bør overlates til mennesker.",
     },
     {
@@ -667,7 +667,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når bør en chatbot-samtale overføres til et menneske?",
-      options: ["Ved komplekse problemer, emosjonelle situasjoner eller når kunden ikke får hjelp", "Aldri – chatboten skal alltid fullføre samtalen", "Bare når det er utenfor bedriftens ordinære åpningstid og ingen ansatte er tilgjengelige", "Aldri, fordi chatboten alltid skal fullføre samtalen selv uansett hvor komplisert saken blir"],
+      options: ["Ved komplekse problemer, emosjonelle situasjoner eller når kunden ikke får hjelp", "Bare når kunden uttrykkelig ber om å få snakke med en robot i stedet for et menneske", "Bare når det er utenfor bedriftens ordinære åpningstid og ingen ansatte er tilgjengelige", "Aldri, fordi chatboten alltid skal fullføre samtalen selv uansett hvor komplisert saken blir"],
       explanation: "Mennesker trengs ved komplekse problemer, emosjonelle situasjoner, verdifulle kunder og rådgivning. En god løsning er hybrid: chatbot først, menneske ved behov.",
     },
     {
@@ -711,7 +711,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på atferdsdata?",
-      options: ["Hvilke sider kunden besøker og hva kunden klikker på i nettbutikken", "Kundens svar i en tilfredshetsundersøkelse", "Kundens alder og kjønn slik det er oppgitt ved registrering av brukerkontoen", "Bedriftens egne lagertall og oversikt over hvor mange varer som finnes på lageret"],
+      options: ["Hvilke sider kunden besøker og hva kunden klikker på i nettbutikken", "Kundens skriftlige svar i en tilfredshetsundersøkelse sendt ut etter kjøpet", "Kundens alder og kjønn slik det er oppgitt ved registrering av brukerkontoen", "Bedriftens egne lagertall og oversikt over hvor mange varer som finnes på lageret"],
       explanation: "Atferdsdata beskriver hva kunden faktisk gjør, som nettleseratferd og klikk. Demografiske data er f.eks. alder/kjønn, og tilbakemeldingsdata kommer fra undersøkelser.",
     },
     {
@@ -721,7 +721,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket etisk prinsipp er viktig ved innsamling av kundedata?",
-      options: ["Samtykke og transparens – kunden skal vite hva som samles inn og godta det", "Å selge dataene videre uten å informere", "Å samle inn mest mulig data i skjul uten at kunden merker det eller blir informert", "Å selge kundedataene videre til andre bedrifter uten å informere kunden på forhånd"],
+      options: ["Samtykke og transparens – kunden skal vite hva som samles inn og godta det", "Å lagre alle data uten tidsbegrensning fordi de kanskje kan bli nyttige senere", "Å samle inn mest mulig data i skjul uten at kunden merker det eller blir informert", "Å selge kundedataene videre til andre bedrifter uten å informere kunden på forhånd"],
       explanation: "Etisk og lovlig datahåndtering krever samtykke, åpenhet om bruken, proporsjonalitet (ikke samle mer enn nødvendig) og god sikkerhet.",
     },
     {
@@ -743,12 +743,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor regnes utenlandske turister som en eksportinntekt for Norge?",
-      options: ["De bringer inn valuta fra utlandet selv om de konsumerer i Norge", "De tar med seg norske varer hjem gratis", "De tar med seg norske varer og suvenirer hjem helt gratis når de forlater landet", "De reiser kun rundt innenfor Norges grenser og bruker aldri penger i utlandet på turen"],
+      options: ["De bringer inn valuta fra utlandet selv om de konsumerer i Norge", "De betaler norsk inntektsskatt for hver dag de oppholder seg i landet", "De tar med seg norske varer og suvenirer hjem helt gratis når de forlater landet", "De reiser kun rundt innenfor Norges grenser og bruker aldri penger i utlandet på turen"],
       explanation: "Når utenlandske turister bruker penger i Norge, tilfører de \"fersk\" valuta utenfra, på samme måte som vanlig eksport av varer.",
     },
     {
       question: "Hvilken av disse hører til delen \"reiseformidling\" i reiselivsnæringen?",
-      options: ["Reisebyråer og destinasjonsselskaper", "Hoteller og campingplasser", "Restauranter, kafeer og andre serveringssteder for reisende", "Restauranter og kafeer"],
+      options: ["Reisebyråer og destinasjonsselskaper", "Hoteller og campingplasser", "Restauranter, kafeer og andre serveringssteder for reisende", "Flyselskaper og togselskaper"],
       explanation: "Reiseformidling omfatter reisebyråer, online-plattformer, turistinformasjon og destinasjonsselskaper - de som formidler reiser og tilbud.",
     },
     {
@@ -770,7 +770,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedoppgaven til housekeeping på et hotell?",
-      options: ["Romrengjøring, vask av tekstiler og stell av fellesområder", "Servering i restauranten", "Innsjekking og utsjekking av gjester ved ankomst og avreise", "Salg, markedsføring og booking av rom til nye hotellgjester"],
+      options: ["Romrengjøring, vask av tekstiler og stell av fellesområder", "Servering av mat og drikke til gjestene i hotellrestauranten", "Innsjekking og utsjekking av gjester ved ankomst og avreise", "Salg, markedsføring og booking av rom til nye hotellgjester"],
       explanation: "Housekeeping har ansvar for romrengjøring, vask og stell av tekstiler, fellesområder og påfylling av minibar.",
     },
     {
@@ -792,7 +792,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et opplevelsesprodukt?",
-      options: ["Det er immaterielt, konsumeres i øyeblikket og involverer kundens aktive deltakelse", "Det er en fysisk vare kunden tar med hjem", "Det er en fysisk vare kunden kan ta med seg hjem, oppbevare og bruke om igjen senere", "Det kan produseres på forhånd, lagres på lager og selges videre på et senere tidspunkt"],
+      options: ["Det er immaterielt, konsumeres i øyeblikket og involverer kundens aktive deltakelse", "Det pakkes ferdig inn på lageret og sendes hjem til kunden med posten etter bestilling", "Det er en fysisk vare kunden kan ta med seg hjem, oppbevare og bruke om igjen senere", "Det kan produseres på forhånd, lagres på lager og selges videre på et senere tidspunkt"],
       explanation: "Et opplevelsesprodukt er immaterielt (ikke fysisk), konsumeres i øyeblikket og involverer ofte kundens aktive deltakelse for å skape en minneverdig erfaring.",
     },
     {
@@ -819,7 +819,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre dimensjoner inngår i bærekraftig reiseliv?",
-      options: ["Miljømessig, sosial og økonomisk bærekraft", "Transport, overnatting og servering", "Pris, kvalitet og leveringstid på reiselivsproduktet", "Transport, overnatting og servering av mat og drikke"],
+      options: ["Miljømessig, sosial og økonomisk bærekraft", "Kultur, natur og historie", "Pris, kvalitet og leveringstid på reiselivsproduktet", "Transport, overnatting og servering av mat og drikke"],
       explanation: "Bærekraft har tre dimensjoner: miljømessig (natur og klima), sosial (kultur og arbeidsforhold) og økonomisk (langsiktig lønnsomhet).",
     },
     {
@@ -834,14 +834,14 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på et tiltak for miljømessig bærekraft i reiselivet?",
-      options: ["Redusere klimagassutslipp og minimere avfall og forurensning", "Bygge så mange hoteller som mulig", "Å bygge så mange nye hoteller som mulig for å ta imot alle turistene", "Å senke prisene på alle reiser slik at flest mulig har råd til å reise"],
+      options: ["Redusere klimagassutslipp og minimere avfall og forurensning", "Å forlenge sesongen med flere charterfly", "Å bygge så mange nye hoteller som mulig for å ta imot alle turistene", "Å senke prisene på alle reiser slik at flest mulig har råd til å reise"],
       explanation: "Miljømessig bærekraft handler om å redusere klimagassutslipp, bevare natur, minimere avfall og forurensning og bruke ressurser forsvarlig.",
     },
   ],
   "salg-service-vg1-5-5": [
     {
       question: "Hva er internasjonal turisme?",
-      options: ["Reiser der personer krysser landegrenser for fritid, forretning eller andre formål", "Reiser som utelukkende foregår innenfor grensene til turistens eget hjemland", "Bare reiser som gjennomføres i forbindelse med forretning og arbeidsoppdrag", "Reiser som varer lenger enn ett sammenhengende år på samme oppholdssted"],
+      options: ["Reiser der personer krysser landegrenser for fritid, forretning eller andre formål", "Reiser som utelukkende foregår innenfor grensene til turistens eget hjemland, uten grensepassering", "Bare reiser som gjennomføres i forbindelse med forretning og arbeidsoppdrag", "Reiser som varer lenger enn ett sammenhengende år på samme oppholdssted"],
       explanation: "Internasjonal turisme omfatter reiser der personer krysser landegrenser - UNWTO rapporterte over 1,4 milliarder internasjonale turistankomster årlig før pandemien.",
     },
     {
@@ -851,12 +851,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer trenden \"bleisure\"?",
-      options: ["En kombinasjon av business (forretning) og leisure (fritid) på samme reise", "Å reise så lett som mulig, uten innsjekket bagasje eller store kofferter", "Å booke reiser i aller siste liten for å få tak i de billigste tilbudene", "Å reise utelukkende for fritid og avkobling, helt uten arbeidsformål"],
+      options: ["En kombinasjon av business (forretning) og leisure (fritid) på samme reise", "Å reise så lett som mulig, helt uten innsjekket bagasje eller store kofferter i lasterommet", "Å booke reisen i aller siste liten for å få tak i de aller billigste restplassene på markedet", "Å reise utelukkende for fritid og avkobling, helt uten arbeidsformål"],
       explanation: "Bleisure er en sammensetning av \"business\" og \"leisure\" - der man kombinerer forretningsreise med fritid, ofte ved å forlenge oppholdet.",
     },
     {
       question: "Hva kjennetegner trenden \"opplevelsesturisme\"?",
-      options: ["En dreining fra å \"se\" til å \"gjøre\", med vekt på autentiske, lokale opplevelser", "Å unngå all kontakt med lokalbefolkningen og holde seg strengt til hotellet", "Å velge reisen med aller lavest mulig pris uansett hva innholdet består av", "Å rekke å besøke flest mulig land på kortest mulig tid under samme reise"],
+      options: ["En dreining fra å \"se\" til å \"gjøre\", med vekt på autentiske, lokale opplevelser", "Å unngå all kontakt med lokalbefolkningen og holde seg strengt innenfor hotellområdet hele turen", "Å velge reisen med aller lavest mulig pris uansett hva innholdet består av", "Å rekke å besøke flest mulig land på kortest mulig tid under samme reise"],
       explanation: "Opplevelsesturisme handler om å gå fra passiv observasjon (\"se\") til aktiv deltakelse (\"gjøre\") og søke autentiske, lokale opplevelser.",
     },
     {
@@ -873,7 +873,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et destinasjonsselskap?",
-      options: ["En organisasjon som utvikler og markedsfører en destinasjon og koordinerer reiselivsaktørene", "En restaurantkjede som driver flere serveringssteder på samme destinasjon", "Et flyselskap som frakter turister til og fra ulike reisemål verden over", "Et stort hotell med svært mange rom og god kapasitet for mange gjester"],
+      options: ["En organisasjon som utvikler og markedsfører en destinasjon og koordinerer reiselivsaktørene", "En restaurantkjede som driver flere serveringssteder på samme destinasjon under felles navn", "Et flyselskap som frakter turister til og fra ulike reisemål verden over", "Et stort hotell med svært mange rom og god kapasitet for mange gjester"],
       explanation: "Et destinasjonsselskap arbeider for å utvikle og markedsføre en destinasjon, koordinerer samarbeid mellom aktørene og jobber for økt besøk og verdiskaping.",
     },
     {
@@ -883,7 +883,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken oppgave hører til et destinasjonsselskap?",
-      options: ["Koordinere samarbeid mellom reiselivsaktørene og markedsføre destinasjonen", "Å selge flybilletter og pakketurer direkte til enkeltkunder", "Å tilberede og servere maten på en restaurant på reisemålet", "Å drive og daglig lede ett enkelt hotell på destinasjonen"],
+      options: ["Koordinere samarbeid mellom reiselivsaktørene og markedsføre destinasjonen", "Å selge flybilletter og ferdige pakketurer direkte til den enkelte reisende", "Å tilberede og servere maten på en av restaurantene på reisemålet", "Å drive og daglig lede ett enkelt hotell på destinasjonen"],
       explanation: "Destinasjonsselskapet markedsfører destinasjonen, koordinerer aktørene, driver produktutvikling og fungerer som vertskap, f.eks. Visit Oslo.",
     },
     {
@@ -900,12 +900,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er anmeldelser og anbefalinger spesielt viktige i reiselivsmarkedsføring?",
-      options: ["Fordi produktet er immaterielt og ikke kan prøves på forhånd", "Fordi produktet alltid er billig", "Fordi kundene stort sett aldri reiser til samme sted en gang til", "Fordi reiselivsproduktet nesten alltid er billig og lett å bytte ut"],
+      options: ["Fordi produktet er immaterielt og ikke kan prøves på forhånd", "Fordi prisen på reisen alltid er den samme uansett når man bestiller", "Fordi kundene stort sett aldri reiser til samme sted en gang til", "Fordi reiselivsproduktet nesten alltid er billig og lett å bytte ut"],
       explanation: "Reiselivsprodukter er immaterielle og kan ikke prøves på forhånd, så kunden stoler på bilder, historier, anmeldelser og anbefalinger for å redusere kjøpsrisikoen.",
     },
     {
       question: "Hva betyr det at reiselivsprodukter \"ikke kan lagres\"?",
-      options: ["Et tomt rom eller ledig sete i dag er tapt inntekt for alltid", "At man ikke kan ta bilder av dem", "At man ikke får lov til å ta bilder av produktet for bruk i markedsføring", "At varene råtner eller blir ødelagt hvis de blir liggende for lenge på lager"],
+      options: ["Et tomt rom eller ledig sete i dag er tapt inntekt for alltid", "At de ikke kan selges videre til andre reisende", "At man ikke får lov til å ta bilder av produktet for bruk i markedsføring", "At varene råtner eller blir ødelagt hvis de blir liggende for lenge på lager"],
       explanation: "Reiselivsprodukter kan ikke lagres - et tomt hotellrom eller ledig flysete er tapt for godt. Dette gjør yield management og dynamisk prising viktig.",
     },
     {
@@ -942,7 +942,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at en virksomhet er lønnsom?",
-      options: ["At inntektene er større enn kostnadene over tid", "At den har et stort varelager", "At virksomheten har svært mange ansatte i arbeid", "At virksomheten har et stort og velfylt varelager"],
+      options: ["At inntektene er større enn kostnadene over tid", "At den har flere ansatte enn konkurrentene i bransjen", "At virksomheten har svært mange ansatte i arbeid", "At virksomheten har et stort og velfylt varelager"],
       explanation: "Lønnsomhet betyr at virksomheten over tid har høyere inntekter enn kostnader, slik at det blir et overskudd.",
     },
   ],
@@ -964,7 +964,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor fører virksomheter regnskap?",
-      options: ["Det er lovpålagt og gir oversikt over økonomien", "Det er frivillig og sjelden brukt", "Kun for å gjøre inntrykk på kunder og samarbeidspartnere", "Det er helt frivillig og blir sjelden faktisk brukt i praksis"],
+      options: ["Det er lovpålagt og gir oversikt over økonomien", "Det er et krav fra kundene, ikke fra myndighetene", "Kun for å gjøre inntrykk på kunder og samarbeidspartnere", "Det er helt frivillig og blir sjelden faktisk brukt i praksis"],
       explanation: "Alle virksomheter er lovpålagt å føre regnskap. Det gir oversikt over økonomien og er grunnlag for skatt, styring og kontroll.",
     },
     {
@@ -981,7 +981,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kalkulasjon?",
-      options: ["Beregningen av hva et produkt eller en tjeneste koster å produsere/levere", "Den endelige salgsprisen til kunden", "En oversikt over hvor mange enheter virksomheten har solgt i løpet av en gitt salgsperiode", "Den endelige salgsprisen kunden betaler i kassen, inkludert merverdiavgift og eventuelle rabatter"],
+      options: ["Beregningen av hva et produkt eller en tjeneste koster å produsere/levere", "En oversikt over hvilke leverandører virksomheten kjøper råvarene sine fra", "En oversikt over hvor mange enheter virksomheten har solgt i løpet av en gitt salgsperiode", "Den endelige salgsprisen kunden betaler i kassen, inkludert merverdiavgift og eventuelle rabatter"],
       explanation: "Kalkulasjon er beregningen av hva et produkt koster å produsere/levere, inkludert direkte og indirekte kostnader, og er grunnlaget for prissetting.",
     },
     {
@@ -991,7 +991,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må prisen som et minimum dekke for at virksomheten skal tjene penger over tid?",
-      options: ["Kostnadene knyttet til produktet, pluss en fortjeneste", "Ingenting - prisen kan settes fritt", "Kun lønna til én av de ansatte i virksomheten, som er den viktigste kostnaden å dekke inn", "Kun lønna til én ansatt"],
+      options: ["Kostnadene knyttet til produktet, pluss en fortjeneste", "Ingenting - prisen kan settes fritt", "Kun lønna til én av de ansatte i virksomheten, som er den viktigste kostnaden å dekke inn", "Bare emballasjen rundt varen"],
       explanation: "Prisen må dekke alle kostnader (direkte og indirekte) og gi fortjeneste, samtidig som den er akseptabel for kundene og konkurransedyktig.",
     },
     {
@@ -1013,7 +1013,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig å ta ansvar for hele verdikjeden, ikke bare egen virksomhet?",
-      options: ["Fordi miljømessige og sosiale problemer kan oppstå hos leverandører lenger ned i kjeden", "Fordi leverandørene bestemmer prisen alene", "Fordi det å ta ansvar for hele verdikjeden er helt gratis og aldri koster virksomheten noe ekstra", "Fordi loven forbyr virksomheter å gjøre egne innkjøp, slik at ansvaret uansett ligger hos leverandøren"],
+      options: ["Fordi miljømessige og sosiale problemer kan oppstå hos leverandører lenger ned i kjeden", "Fordi leverandørene alene bestemmer prisen, og virksomheten derfor ikke kan påvirke noe som helst", "Fordi det å ta ansvar for hele verdikjeden er helt gratis og aldri koster virksomheten noe ekstra", "Fordi loven forbyr virksomheter å gjøre egne innkjøp, slik at ansvaret uansett ligger hos leverandøren"],
       explanation: "Problemer som forurensning eller dårlige arbeidsforhold kan oppstå hos underleverandører. Ansvar for hele kjeden sikrer at bærekraft gjelder helheten.",
     },
     {
@@ -1023,14 +1023,14 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på et bærekraftig valg i en kafés verdikjede?",
-      options: ["Velge lokale leverandører med kortreiste råvarer og rettferdige arbeidsforhold", "Alltid velge den billigste leverandøren uansett", "Kaste all mat som ikke blir solgt med en gang stengetid nærmer seg, i stedet for å ta vare på den", "Alltid velge den billigste leverandøren uansett hvordan råvarene er produsert eller fraktet til kaféen"],
+      options: ["Velge lokale leverandører med kortreiste råvarer og rettferdige arbeidsforhold", "Å kjøpe inn engangsservise i plast fordi det er raskest å rydde bort", "Kaste all mat som ikke blir solgt med en gang stengetid nærmer seg, i stedet for å ta vare på den", "Alltid velge den billigste leverandøren uansett hvordan råvarene er produsert eller fraktet til kaféen"],
       explanation: "Et bærekraftig valg er å velge leverandører med kortreiste råvarer, lavere utslipp og rettferdige arbeidsforhold - selv om de ikke alltid er billigst.",
     },
   ],
   "salg-service-vg1-6-5": [
     {
       question: "Hva står HMS for?",
-      options: ["Helse, Miljø og Sikkerhet", "Hotell, Mat og Servering", "Handel, Marked og Salg - de tre kjerneområdene i faget", "Handel, Marked og Salg"],
+      options: ["Helse, Miljø og Sikkerhet", "Hotell, Mat og Servering i reiselivet", "Handel, Marked og Salg - de tre kjerneområdene i faget", "Hygiene, Mat og Sikkerhet i drift"],
       explanation: "HMS står for Helse, Miljø og Sikkerhet. HMS-arbeid forebygger skader og ulykker og sikrer et godt arbeidsmiljø.",
     },
     {
@@ -1045,12 +1045,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket regelverk handler om trygg håndtering av mat i en serveringsbedrift?",
-      options: ["Mattrygghet/næringsmiddelregelverket", "Plan- og bygningsloven", "Opphavsrettsloven, som regulerer bruken av oppskrifter og menyer på et serveringssted", "Opphavsrettsloven"],
+      options: ["Mattrygghet/næringsmiddelregelverket", "Plan- og bygningsloven", "Opphavsrettsloven, som regulerer bruken av oppskrifter og menyer på et serveringssted", "Arbeidsmiljøloven om verneutstyr"],
       explanation: "Servering av mat reguleres av mattrygghets-/næringsmiddelregelverket, som stiller krav til hygiene og trygg håndtering av mat.",
     },
     {
       question: "Hvorfor lønner det seg å sette seg inn i regelverket som gjelder for virksomheten?",
-      options: ["For å unngå alvorlige konsekvenser som bøter og stenging", "Fordi det gir lavere skatt automatisk", "Fordi regelverket i praksis aldri håndheves av myndighetene og derfor kan ignoreres uten risiko", "For å kunne ignorere dem trygt"],
+      options: ["For å unngå alvorlige konsekvenser som bøter og stenging", "Fordi det gir lavere skatt automatisk", "Fordi regelverket i praksis aldri håndheves", "For å kunne kreve høyere priser"],
       explanation: "Å kjenne og følge regelverket forebygger alvorlige konsekvenser som bøter, tap av bevillinger og stenging - det lønner seg alltid.",
     },
   ],
@@ -1062,7 +1062,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser et organisasjonskart?",
-      options: ["Den hierarkiske oppbygningen og ansvarslinjene i en virksomhet", "Plasseringen av varer i butikken", "En samlet oversikt over prisene på alle produktene virksomheten selger, sortert etter kategori", "Veibeskrivelse til virksomheten"],
+      options: ["Den hierarkiske oppbygningen og ansvarslinjene i en virksomhet", "Plasseringen av varer i butikken", "En samlet oversikt over prisene på alle produktene", "Veibeskrivelse til virksomheten"],
       explanation: "Et organisasjonskart viser virksomhetens struktur visuelt - avdelinger, roller og hvem som rapporterer til hvem.",
     },
     {
@@ -1072,7 +1072,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er klar oppgavefordeling viktig i en virksomhet?",
-      options: ["Det gjør at alle vet hva de har ansvar for, og hindrer at oppgaver faller mellom to stoler", "Det er bare viktig i store konsern", "Det gjør arbeidet langsommere fordi de ansatte hele tiden må sjekke hvem som har ansvar for hva", "Det har ingen praktisk betydning så lenge de ansatte er dyktige og gjør jobben sin uansett fordeling"],
+      options: ["Det gjør at alle vet hva de har ansvar for, og hindrer at oppgaver faller mellom to stoler", "Det er bare viktig i store konsern med mange avdelinger og flere hundre ansatte", "Det gjør arbeidet langsommere fordi de ansatte hele tiden må sjekke hvem som har ansvar for hva", "Det har ingen praktisk betydning så lenge de ansatte er dyktige og gjør jobben sin uansett fordeling"],
       explanation: "Klar oppgavefordeling gjør at alle vet hva de har ansvar for, gir effektiv drift og hindrer at viktige oppgaver blir glemt.",
     },
     {
@@ -1084,12 +1084,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-6-7": [
     {
       question: "Hva er administrative funksjoner i en virksomhet?",
-      options: ["Støttefunksjoner som holder virksomheten i gang uten direkte å produsere varene/tjenestene", "Selve produksjonen av varene", "Bare salget av varer og tjenester direkte til kundene, som er den delen som skaper inntektene", "Transporten av ferdige varer fra lageret og ut til de enkelte butikkene og de endelige kundene"],
+      options: ["Støttefunksjoner som holder virksomheten i gang uten direkte å produsere varene/tjenestene", "Selve produksjonen av varene, altså arbeidet som skjer nede i fabrikken eller ute på kjøkkenet", "Bare salget av varer og tjenester direkte til kundene, som er den delen som skaper inntektene", "Transporten av ferdige varer fra lageret og ut til de enkelte butikkene og de endelige kundene"],
       explanation: "Administrative funksjoner er støttefunksjoner som økonomi/regnskap, HR, IT, innkjøp og dokumentasjon - de holder virksomheten i gang uten å produsere selve varene/tjenestene.",
     },
     {
       question: "Hva er kvalitetsstyring?",
-      options: ["Systematisk arbeid for å sikre og forbedre kvaliteten på produkter og tjenester", "Å ansette flest mulig medarbeidere", "Å selge til flest mulig kunder på kortest mulig tid for å øke omsetningen og resultatet raskt", "Å ansette flest mulig medarbeidere slik at virksomheten alltid har god nok bemanning i alle avdelinger"],
+      options: ["Systematisk arbeid for å sikre og forbedre kvaliteten på produkter og tjenester", "Å ansette flest mulig medarbeidere uten opplæring", "Å selge til flest mulig kunder på kortest mulig tid for å øke omsetningen og resultatet raskt", "Å ansette flest mulig medarbeidere slik at virksomheten alltid har god nok bemanning i alle avdelinger"],
       explanation: "Kvalitetsstyring er systematisk arbeid for å sikre og forbedre kvalitet - sette standarder, måle ytelse, finne avvik og iverksette forbedringer.",
     },
     {
@@ -1099,7 +1099,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er gode rutiner viktige for kvalitet, f.eks. en sjekk-inn-rutine på hotell?",
-      options: ["De sikrer at gjester får en jevn og forutsigbar god opplevelse hver gang", "De gjør arbeidet tilfeldig", "De gjør arbeidet mer tilfeldig fordi de ansatte selv velger hvordan hver gjest skal tas imot", "De øker antall feil fordi de ansatte blir så bundet av rutinene at de ikke bruker eget skjønn"],
+      options: ["De sikrer at gjester får en jevn og forutsigbar god opplevelse hver gang", "De gjør at gjestene må vente lenger", "De gjør arbeidet mer tilfeldig fordi de ansatte selv velger", "De øker antall feil fordi de ansatte blir så bundet av rutinene at de ikke bruker eget skjønn"],
       explanation: "Gode rutiner sikrer at oppgaver utføres likt og riktig hver gang, slik at kunden får en jevn og forutsigbar kvalitet.",
     },
     {
@@ -1111,34 +1111,34 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-7-1": [
     {
       question: "Hva er kultur?",
-      options: ["Felles verdier, normer, skikker og væremåter som kjennetegner en gruppe mennesker", "Hvilket språk man snakker hjemme", "Utelukkende hvilket morsmål og hvilken dialekt man snakker hjemme sammen med familien sin", "Hvor mye penger og hvilken levestandard en gruppe mennesker eller et samfunn har til rådighet"],
+      options: ["Felles verdier, normer, skikker og væremåter som kjennetegner en gruppe mennesker", "Hvilke kunstuttrykk som vises fram på museene og galleriene i et land i løpet av et år", "Utelukkende hvilket morsmål og hvilken dialekt man snakker hjemme sammen med familien sin", "Hvor mye penger og hvilken levestandard en gruppe mennesker eller et samfunn har til rådighet"],
       explanation: "Kultur er de felles verdier, normer, skikker og væremåter som kjennetegner en gruppe, og påvirker hvordan vi kommuniserer og hva vi anser som høflig.",
     },
     {
       question: "Hvorfor er kulturforståelse viktig i servicenæringen?",
-      options: ["Fordi kunder fra ulike kulturer kan ha ulike forventninger til service og kommunikasjon", "Fordi det aldri kommer utenlandske kunder", "Fordi det i praksis aldri kommer utenlandske kunder inn i norske butikker og serveringssteder", "Fordi alle kunder er helt like og har nøyaktig de samme forventningene til service og kommunikasjon"],
+      options: ["Fordi kunder fra ulike kulturer kan ha ulike forventninger til service og kommunikasjon", "Fordi utenlandske kunder alltid betaler mer enn norske", "Fordi det i praksis aldri kommer utenlandske kunder inn i norske butikker og serveringssteder", "Fordi alle kunder er helt like og har nøyaktig de samme forventningene til service og kommunikasjon"],
       explanation: "Kunder fra ulike kulturer kan ha ulike forventninger til høflighet, tid og kommunikasjon. Kulturforståelse gjør at man kan gi god service til alle.",
     },
     {
       question: "Hva kan en kulturell misforståelse i kundekontakt føre til?",
-      options: ["At kunden føler seg dårlig behandlet selv om medarbeideren mente godt", "At kunden alltid blir fornøyd", "At kunden alltid blir fornøyd, siden misforståelser bare skaper en morsom stemning i samtalen", "At prisen på produktet automatisk går ned som en kompensasjon for at noe ble misforstått i møtet"],
+      options: ["At kunden føler seg dårlig behandlet selv om medarbeideren mente godt", "At bedriften automatisk blir pålagt å betale kunden en erstatning i etterkant", "At kunden alltid blir fornøyd, siden misforståelser bare skaper en morsom stemning i samtalen", "At prisen på produktet automatisk går ned som en kompensasjon for at noe ble misforstått i møtet"],
       explanation: "Ulike kulturelle koder kan gjøre at en velment handling oppleves som uhøflig, slik at kunden føler seg dårlig behandlet uten at det var ment slik.",
     },
     {
       question: "Hva påvirker kultur ifølge kapittelet?",
-      options: ["Hvordan vi kommuniserer, forholder oss til tid og hva vi anser som høflig", "Bare hvilken mat folk liker", "Egentlig ingenting i arbeidslivet, siden alle oppfører seg helt likt så snart de er på jobb", "Bare hvilken type mat og drikke folk fra ulike deler av verden foretrekker og liker best å spise"],
+      options: ["Hvordan vi kommuniserer, forholder oss til tid og hva vi anser som høflig", "Bare hvilke klær folk går med på jobb", "Egentlig ingenting i arbeidslivet, siden alle oppfører seg helt likt så snart de er på jobb", "Bare hvilken type mat og drikke folk fra ulike deler av verden foretrekker og liker best å spise"],
       explanation: "Kultur påvirker hvordan vi kommuniserer, hva vi anser som høflig, hvordan vi forholder oss til tid og hva vi forventer i ulike situasjoner.",
     },
     {
       question: "Hva er en god holdning i møte med kunder fra andre kulturer?",
-      options: ["Å være åpen, respektfull og nysgjerrig fremfor å dømme", "Å anta at egen kultur alltid er riktig", "Å behandle dem noe mer forsiktig og dårligere enn andre kunder for å unngå å tråkke feil", "Å behandle dem dårligere"],
+      options: ["Å være åpen, respektfull og nysgjerrig fremfor å dømme", "Å anta at egen kultur alltid er riktig", "Å behandle dem noe mer forsiktig og dårligere enn andre kunder for å unngå å tråkke feil", "Å snakke høyt og langsomt til dem"],
       explanation: "Kulturforståelse bygger på åpenhet, respekt og nysgjerrighet - å forstå at andre kan ha andre koder uten å dømme dem som \"feil\".",
     },
   ],
   "salg-service-vg1-7-2": [
     {
       question: "Hva betyr mangfold i arbeidslivet?",
-      options: ["Variasjon i hvem de ansatte er, f.eks. kjønn, alder, etnisitet, erfaring og bakgrunn", "At bedriften selger mange ulike varer", "At bedriften fører og selger et bredt utvalg av mange ulike varer og produkter til kundene sine", "At alle de ansatte i virksomheten er helt like når det gjelder bakgrunn, alder, kjønn og erfaring"],
+      options: ["Variasjon i hvem de ansatte er, f.eks. kjønn, alder, etnisitet, erfaring og bakgrunn", "At bedriften har avdelinger i mange ulike land og driver handel over landegrensene", "At bedriften fører og selger et bredt utvalg av mange ulike varer og produkter til kundene sine", "At alle de ansatte i virksomheten er helt like når det gjelder bakgrunn, alder, kjønn og erfaring"],
       explanation: "Mangfold betyr variasjon i hvem de ansatte er - kjønn, alder, etnisitet, religion, funksjonsevne, utdanning og erfaring.",
     },
     {
@@ -1148,39 +1148,39 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan mangfold være en ressurs for en virksomhet?",
-      options: ["Ulike perspektiver og bakgrunner gir bedre forståelse av et mangfoldig kundegrunnlag", "Det har ingen betydning for resultatet", "Det reduserer antallet nye ideer fordi ulike bakgrunner fører til at folk drar i hver sin retning", "Det gjør at alle de ansatte tenker helt likt, slik at virksomheten blir mer enig og effektiv i alt"],
+      options: ["Ulike perspektiver og bakgrunner gir bedre forståelse av et mangfoldig kundegrunnlag", "Det har ingen målbar betydning for resultatet, verken for salget eller for arbeidsmiljøet", "Det reduserer antallet nye ideer fordi ulike bakgrunner fører til at folk drar i hver sin retning", "Det gjør at alle de ansatte tenker helt likt, slik at virksomheten blir mer enig og effektiv i alt"],
       explanation: "Et mangfoldig team har ulike perspektiver og erfaringer, noe som gir bedre problemløsning og bedre forståelse av et mangfoldig kundegrunnlag.",
     },
     {
       question: "Hvilken lov forbyr diskriminering i arbeidslivet?",
-      options: ["Likestillings- og diskrimineringsloven", "Markedsføringsloven", "Vegtrafikkloven, som stiller krav til likebehandling av trafikanter uansett bakgrunn og kjennetegn", "Vegtrafikkloven"],
+      options: ["Likestillings- og diskrimineringsloven", "Markedsføringsloven", "Vegtrafikkloven, som stiller krav til likebehandling av trafikanter uansett bakgrunn og kjennetegn", "Konkurranseloven"],
       explanation: "Likestillings- og diskrimineringsloven forbyr diskriminering, og arbeidsgivere har aktivitetsplikt til å fremme likestilling.",
     },
     {
       question: "Hva kan skje med en ansatt som diskriminerer kunder eller kolleger?",
-      options: ["Advarsler, oppsigelse og erstatningsansvar", "Automatisk lønnsøkning", "Forfremmelse og en fin bonus, fordi vedkommende viser at hen tør å ta tydelige og upopulære valg", "Forfremmelse og bonus"],
+      options: ["Advarsler, oppsigelse og erstatningsansvar", "Automatisk lønnsøkning", "Forfremmelse og en fin bonus, fordi vedkommende viser at hen tør å ta tydelige og upopulære valg", "Ingen reaksjon overhodet"],
       explanation: "En ansatt som diskriminerer kan få advarsler, oppsigelse og erstatningsansvar, fordi diskriminering er forbudt ved lov.",
     },
   ],
   "salg-service-vg1-7-3": [
     {
       question: "Hva er etikk?",
-      options: ["Læren om hva som er riktig og galt, godt og ondt", "Reglene for regnskapsføring", "Metoden man bruker for å beregne og fastsette riktig pris på produktene og tjenestene man selger", "Hvordan man setter priser"],
+      options: ["Læren om hva som er riktig og galt, godt og ondt", "Reglene for regnskapsføring", "Metoden for å fastsette riktig pris på varene", "Regler for arbeidstid"],
       explanation: "Etikk er læren om hva som er riktig og galt, godt og ondt. I arbeidslivet handler det om å handle moralsk forsvarlig overfor kunder, kolleger og samfunnet.",
     },
     {
       question: "Når oppstår et etisk dilemma?",
-      options: ["Når ulike verdier eller hensyn står mot hverandre", "Når alt er klart og enkelt", "Når hele situasjonen er klar og enkel, og det bare finnes ett åpenbart riktig valg å ta", "Når man tjener mye penger"],
+      options: ["Når ulike verdier eller hensyn står mot hverandre", "Når man har god tid til å tenke", "Når hele situasjonen er klar og enkel, og det bare finnes ett åpenbart riktig valg å ta", "Når man tjener mye penger"],
       explanation: "Et etisk dilemma oppstår når ulike verdier eller hensyn står mot hverandre, slik at det ikke finnes ett opplagt riktig valg.",
     },
     {
       question: "En kunde vil kjøpe et dyrere produkt enn de trenger. Hva er det etisk riktige?",
-      options: ["Å informere kunden ærlig om hva de faktisk trenger, selv om det gir lavere salg", "Å selge det dyreste uansett behov", "Å presse kunden hardt til å kjøpe mer og dyrere enn planlagt før de rekker å ombestemme seg", "Å lyve om produktets egenskaper slik at det virker som kunden har et større behov enn de har"],
+      options: ["Å informere kunden ærlig om hva de faktisk trenger, selv om det gir lavere salg", "Å selge det aller dyreste produktet uansett hva kunden faktisk har behov for", "Å presse kunden hardt til å kjøpe mer og dyrere enn planlagt før de rekker å ombestemme seg", "Å lyve om produktets egenskaper slik at det virker som kunden har et større behov enn de har"],
       explanation: "God forretningsetikk innebærer å gi ærlige råd ut fra kundens behov, selv om det gir lavere salg på kort sikt - det bygger tillit på lang sikt.",
     },
     {
       question: "Hvem berøres av de etiske valgene man tar i arbeidslivet?",
-      options: ["Kunder, kolleger, arbeidsgiver og samfunnet", "Kun konkurrentene", "Kun konkurrentene som taper markedsandeler på det", "Bare den enkelte medarbeideren som selv gjør valget"],
+      options: ["Kunder, kolleger, arbeidsgiver og samfunnet", "Kun bedriftens eiere", "Kun konkurrentene som taper markedsandeler på det", "Bare den enkelte medarbeideren som selv gjør valget"],
       explanation: "Etiske valg i arbeidslivet berører kunder, kolleger, arbeidsgivere og samfunnet rundt - derfor er etisk bevissthet viktig.",
     },
     {
@@ -1207,7 +1207,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sikrer en tariffavtale for de ansatte?",
-      options: ["Minimumsrettigheter for lønns- og arbeidsvilkår", "Garantert forfremmelse hvert år", "En personlig eierandel i bedriften de er ansatt i", "Fullstendig fritak fra arbeidsplikt i hele avtaleperioden"],
+      options: ["Minimumsrettigheter for lønns- og arbeidsvilkår", "Garantert forfremmelse og lønnsøkning hvert eneste år", "En personlig eierandel i bedriften de er ansatt i", "Fullstendig fritak fra arbeidsplikt i hele avtaleperioden"],
       explanation: "En tariffavtale sikrer minimumsrettigheter for lønn og arbeidsvilkår i avtaleperioden.",
     },
     {
@@ -1224,17 +1224,17 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du gjøre hvis du oppdager noe farlig på arbeidsplassen, som en glatt gulvflate?",
-      options: ["Melde fra til leder eller verneombud med en gang", "Vente til noen skader seg", "Ignorere det siden ansvaret ligger hos rengjøringen", "Holde det hemmelig for ikke å skape unødig uro på jobb"],
+      options: ["Melde fra til leder eller verneombud med en gang", "Vente til noen faktisk skader seg på stedet først", "Ignorere det siden ansvaret ligger hos rengjøringen", "Holde det hemmelig for ikke å skape unødig uro på jobb"],
       explanation: "Du har plikt til å melde fra om farer til leder eller verneombud - ikke vent til en ulykke skjer.",
     },
     {
       question: "Hvem har ansvar for HMS på en arbeidsplass?",
-      options: ["Både arbeidsgiver og arbeidstakere har ansvar", "Bare den nyeste medarbeideren", "Kun kundene som besøker og bruker arbeidsplassen", "Bare den nyeste medarbeideren som nettopp er ansatt"],
+      options: ["Både arbeidsgiver og arbeidstakere har ansvar", "Bare verneombudet alene", "Kun kundene som besøker og bruker arbeidsplassen", "Bare den nyeste medarbeideren som nettopp er ansatt"],
       explanation: "Arbeidsgiver har hovedansvaret for HMS-systemet, men også arbeidstakere har plikt til å bidra og melde fra om farer.",
     },
     {
       question: "Hva er et eksempel på en HMS-utfordring i butikk?",
-      options: ["Tunge løft og risiko for ran eller trusler", "For mange kunder som handler", "At det kommer for mange kunder som vil handle samtidig", "At varene i butikken er svært populære og selger raskt"],
+      options: ["Tunge løft og risiko for ran eller trusler", "At kundene betaler med kort i stedet for kontanter", "At det kommer for mange kunder som vil handle samtidig", "At varene i butikken er svært populære og selger raskt"],
       explanation: "HMS-utfordringer i butikk kan være tunge løft, glatte gulv, defekt utstyr og risiko for ran eller trusler fra kunder.",
     },
     {
@@ -1246,7 +1246,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-7-6": [
     {
       question: "Hvordan kan risiko uttrykkes?",
-      options: ["Risiko = Sannsynlighet × Konsekvens", "Risiko = Inntekt − Kostnad", "Risiko = Enhetspris multiplisert med solgt antall", "Risiko = Pris × Antall"],
+      options: ["Risiko = Sannsynlighet × Konsekvens", "Risiko = Inntekt − Kostnad", "Risiko = Enhetspris multiplisert med solgt antall", "Risiko = Kostnad ÷ Tid"],
       explanation: "Risiko er sannsynligheten for at noe uønsket skjer, kombinert med konsekvensene hvis det skjer: Risiko = Sannsynlighet × Konsekvens.",
     },
     {
@@ -1256,7 +1256,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En hendelse har høy sannsynlighet og svært alvorlige konsekvenser. Hvordan vurderes risikoen?",
-      options: ["Som høy - den bør prioriteres for tiltak", "Som lav - den kan ignoreres", "Som lav - den kan trygt ignoreres inntil videre", "Som umulig å vurdere fordi begge faktorene er ukjente"],
+      options: ["Som høy - den bør prioriteres for tiltak", "Som moderat, siden alvorlige hendelser sjelden inntreffer", "Som lav - den kan trygt ignoreres inntil videre", "Som umulig å vurdere fordi begge faktorene er ukjente"],
       explanation: "Når både sannsynlighet og konsekvens er høye, blir risikoen høy. Slike farer bør prioriteres for forebyggende tiltak.",
     },
     {
@@ -1278,12 +1278,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva inneholder en beredskapsplan?",
-      options: ["Hva som skal gjøres ved ulike hendelser, hvem som har ansvar, og hvordan varsling skal skje", "Utelukkende gjeldende priser og rabatter på alle produktene", "En fullstendig liste over bedriftens registrerte kunder", "Oppskrifter og porsjonsstørrelser til bruk på kjøkkenet"],
+      options: ["Hva som skal gjøres ved ulike hendelser, hvem som har ansvar, og hvordan varsling skal skje", "Utelukkende gjeldende priser og rabatter på alle produktene virksomheten selger i butikken", "En fullstendig liste over bedriftens registrerte kunder", "Oppskrifter og porsjonsstørrelser til bruk på kjøkkenet"],
       explanation: "En beredskapsplan er en dokumentert plan som beskriver hva som skal gjøres ved ulike hendelser, hvem som har ansvar og hvordan varsling skal skje.",
     },
     {
       question: "Hvorfor er det viktig å øve på beredskapsplaner?",
-      options: ["Fordi man da handler riktig og raskt når en reell hendelse skjer", "Fordi loven uttrykkelig forbyr bedrifter å ha slike planer", "Fordi planer i praksis aldri kommer til å bli tatt i bruk", "Fordi selve øvelsene er morsomme og bygger samhold"],
+      options: ["Fordi man da handler riktig og raskt når en reell hendelse skjer", "Fordi loven uttrykkelig forbyr bedrifter å ha slike planer liggende", "Fordi slike planer i praksis aldri kommer til å bli tatt i bruk", "Fordi selve øvelsene er morsomme og bygger samhold"],
       explanation: "En plan i en skuff hjelper ingen. Øvelser gjør at man handler riktig og raskt når adrenalinet pumper og en reell krise oppstår.",
     },
     {
@@ -1300,7 +1300,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-8-1": [
     {
       question: "Hva er innovasjon?",
-      options: ["Å skape noe nytt som har verdi og blir tatt i bruk", "Å kopiere det andre allerede gjør", "Å kopiere nøyaktig det andre bedrifter allerede tilbyr", "En lovende idé som aldri blir realisert eller tatt i bruk"],
+      options: ["Å skape noe nytt som har verdi og blir tatt i bruk", "Å kjøpe opp en konkurrent i markedet", "Å kopiere nøyaktig det andre bedrifter allerede tilbyr", "En lovende idé som aldri blir realisert eller tatt i bruk"],
       explanation: "Innovasjon er å skape noe nytt som har verdi - et nytt produkt, en ny tjeneste, prosess eller forretningsmodell - og som faktisk tas i bruk.",
     },
     {
@@ -1320,7 +1320,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må til for at en god idé skal regnes som innovasjon?",
-      options: ["At den faktisk tas i bruk og skaper verdi", "At den holdes hemmelig", "At den bare eksisterer på papiret og aldri tas i bruk", "At den holdes strengt hemmelig og aldri deles med noen"],
+      options: ["At den faktisk tas i bruk og skaper verdi", "At den blir patentert hos Patentstyret", "At den bare eksisterer på papiret og aldri tas i bruk", "At den holdes strengt hemmelig og aldri deles med noen"],
       explanation: "En idé blir først innovasjon når den realiseres, tas i bruk og skaper verdi - ikke før.",
     },
   ],
@@ -1332,29 +1332,29 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god forretningsidé?",
-      options: ["Den løser et reelt problem for en definert kundegruppe bedre enn alternativene", "Den ligner mest mulig på det alle andre allerede tilbyr", "Den koster mest mulig å produsere og levere til kunden", "Den har ingen definert kundegruppe som etterspør den"],
+      options: ["Den løser et reelt problem for en definert kundegruppe bedre enn alternativene", "Den ligner mest mulig på det alle de andre i bransjen allerede tilbyr kundene", "Den koster mest mulig å produsere og levere til kunden", "Den har ingen definert kundegruppe som etterspør den"],
       explanation: "En god forretningsidé løser et reelt problem for en definert kundegruppe på en måte som er bedre enn eksisterende alternativer.",
     },
     {
       question: "Hvilke spørsmål bør en forretningsidé svare på?",
-      options: ["Hva tilbyr vi, hvem er kundene, og hvordan tjener vi penger?", "Hvilken farge og form skal bedriftens logo egentlig ha?", "Hvor mange ansatte har konkurrenten i samme bransje?", "Når på dagen skal de ansatte ta lunsjpausen sin?"],
+      options: ["Hva tilbyr vi, hvem er kundene, og hvordan tjener vi penger?", "Hvilken farge, form og skrifttype skal bedriftens logo egentlig ha?", "Hvor mange ansatte har hver av konkurrentene i samme bransje?", "Når på dagen skal de ansatte ta lunsjpausen sin?"],
       explanation: "En forretningsidé svarer på hva man tilbyr, hvem kundene er, og hvordan man tjener penger - kjernen i forretningen.",
     },
     {
       question: "Hvorfor er det viktig at en forretningsidé løser et reelt problem?",
-      options: ["Fordi kundene bare betaler for noe som gir dem verdi eller løser et behov", "Fordi loven krever at enhver forretningsidé løser et problem", "Fordi det alltid er helt gratis og enkelt å løse et problem", "Fordi det egentlig ikke spiller noen rolle for salget"],
+      options: ["Fordi kundene bare betaler for noe som gir dem verdi eller løser et behov", "Fordi loven krever at enhver registrert forretningsidé skal løse et problem", "Fordi det alltid er helt gratis og enkelt å løse et problem", "Fordi det egentlig ikke spiller noen rolle for salget"],
       explanation: "Kunder betaler for løsninger på reelle behov. Hvis ideen ikke løser et faktisk problem, vil få være villige til å betale for den.",
     },
     {
       question: "Hva er et naturlig steg fra en løs idé til en forretningsidé?",
-      options: ["Å konkretisere hvem kunden er og hvordan ideen skaper verdi for dem", "Å glemme kundene helt og bare konsentrere seg om produktet", "Å bevisst holde ideen så løs og vag som overhodet mulig", "Å utelukkende bruke tid på å designe logo og fargevalg"],
+      options: ["Å konkretisere hvem kunden er og hvordan ideen skaper verdi for dem", "Å glemme kundene helt og heller bare konsentrere seg om selve produktet", "Å bevisst holde ideen så løs og vag som overhodet mulig i lang tid", "Å utelukkende bruke tiden på å designe logo, farger og visittkort"],
       explanation: "Veien fra idé til forretningsidé går gjennom å konkretisere kundegruppen, behovet og hvordan ideen skaper verdi og kan tjene penger.",
     },
   ],
   "salg-service-vg1-8-3": [
     {
       question: "Hva beskriver en forretningsmodell?",
-      options: ["Hvordan en bedrift skaper, leverer og fanger verdi", "Bare hvor mange ansatte bedriften har", "Utelukkende bedriftens logo, farger og visuelle profil", "Kun postadressen og beliggenheten til bedriftens lokaler"],
+      options: ["Hvordan en bedrift skaper, leverer og fanger verdi", "Bare hvor mange ansatte bedriften har på lønningslista", "Utelukkende bedriftens logo, farger og visuelle profil", "Kun postadressen og beliggenheten til bedriftens lokaler"],
       explanation: "En forretningsmodell beskriver hvordan en bedrift skaper, leverer og fanger verdi - hvem kundene er, hva de får, hvordan det leveres og hvordan bedriften tjener penger.",
     },
     {
@@ -1364,7 +1364,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at en forretningsmodell skal \"fange verdi\"?",
-      options: ["At bedriften klarer å tjene penger på verdien den skaper", "At bedriften gir alt bort gratis", "At bedriften gir hele verdien bort gratis for å bygge et størst mulig marked", "At verdien forsvinner fordi konkurrentene alltid kopierer den umiddelbart etterpå"],
+      options: ["At bedriften klarer å tjene penger på verdien den skaper", "At bedriften overlater prissettingen helt til kundene selv", "At bedriften gir hele verdien bort gratis for å bygge et størst mulig marked", "At verdien forsvinner fordi konkurrentene alltid kopierer den umiddelbart etterpå"],
       explanation: "Å \"fange verdi\" betyr at bedriften gjennom inntektsmodellen sin klarer å tjene penger på den verdien den skaper og leverer til kundene.",
     },
     {
@@ -1374,14 +1374,14 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er forretningsmodellen viktig for en gründer?",
-      options: ["Den viser om ideen faktisk kan tjene penger og være levedyktig", "Den erstatter behovet for kunder", "Den har ingen praktisk nytte så lenge gründeren tror sterkt nok på sin egen idé", "Den erstatter fullstendig behovet for å skaffe betalende kunder til virksomheten"],
+      options: ["Den viser om ideen faktisk kan tjene penger og være levedyktig", "Den bestemmer hvilken selskapsform man må velge", "Den har ingen praktisk nytte så lenge gründeren tror sterkt nok på sin egen idé", "Den erstatter fullstendig behovet for å skaffe betalende kunder til virksomheten"],
       explanation: "Forretningsmodellen viser om ideen kan skape, levere og fange verdi - altså om den faktisk kan bli en levedyktig og lønnsom virksomhet.",
     },
   ],
   "salg-service-vg1-8-4": [
     {
       question: "Hva handler bærekraft om?",
-      options: ["Å dekke dagens behov uten å ødelegge for fremtidige generasjoners muligheter", "Å bruke opp ressursene raskest mulig", "Å utnytte og bruke opp naturressursene raskest mulig mens etterspørselen er størst", "Å unngå all ny utvikling og teknologi og heller bevare samfunnet nøyaktig slik det er"],
+      options: ["Å dekke dagens behov uten å ødelegge for fremtidige generasjoners muligheter", "Å bevare naturen helt urørt ved å stanse all produksjon og alt forbruk umiddelbart", "Å utnytte og bruke opp naturressursene raskest mulig mens etterspørselen er størst", "Å unngå all ny utvikling og teknologi og heller bevare samfunnet nøyaktig slik det er"],
       explanation: "Bærekraft handler om å dekke dagens behov uten å ødelegge for fremtidige generasjoners mulighet til å dekke sine behov - den tredelte bunnlinjen: økonomisk, sosial og miljømessig.",
     },
     {
@@ -1391,12 +1391,12 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er greenwashing?",
-      options: ["Å fremstille bedriften som mer miljøvennlig enn den faktisk er", "Å vaske gulvene med miljøvennlig såpe", "Å resirkulere papp og papir fra varelageret slik at avfallet blir til ny råvare igjen", "Å vaske gulvene og lokalene i butikken med miljøvennlig og svanemerket rengjøringssåpe"],
+      options: ["Å fremstille bedriften som mer miljøvennlig enn den faktisk er", "Å tilby kundene et grønt fraktalternativ mot et tillegg i prisen", "Å resirkulere papp og papir fra varelageret slik at avfallet blir til ny råvare igjen", "Å vaske gulvene og lokalene i butikken med miljøvennlig og svanemerket rengjøringssåpe"],
       explanation: "Greenwashing er å fremstille bedriften som mer miljøvennlig enn den er. Det er villedende markedsføring som kan straffes.",
     },
     {
       question: "Hvordan unngår en bedrift greenwashing?",
-      options: ["Ved å være ærlig, unngå vage påstander og dokumentere det den hevder", "Ved å bruke ordet \"miljøvennlig\" mest mulig", "Ved å bruke ordet \"miljøvennlig\" så ofte som mulig i all reklame og på produktemballasjen", "Ved å skjule hva bedriften faktisk gjør slik at kundene ikke kan stille kritiske spørsmål"],
+      options: ["Ved å være ærlig, unngå vage påstander og dokumentere det den hevder", "Ved å la et reklamebyrå skrive miljøpåstandene", "Ved å bruke ordet \"miljøvennlig\" så ofte som mulig i all reklame og på produktemballasjen", "Ved å skjule hva bedriften faktisk gjør slik at kundene ikke kan stille kritiske spørsmål"],
       explanation: "For å unngå greenwashing må bedriften være ærlig om hva den faktisk gjør, unngå vage påstander som \"miljøvennlig\" og dokumentere det den hevder.",
     },
     {
@@ -1408,22 +1408,22 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
   "salg-service-vg1-8-5": [
     {
       question: "Hva er en pitch?",
-      options: ["En kort, overbevisende presentasjon av en forretningsidé", "Et langt regnskapsdokument", "En formell kundeklage som sendes skriftlig når en vare eller tjeneste ikke holder mål", "En fullstendig prisliste som viser alle produkter med varenummer, priser og rabattnivåer"],
+      options: ["En kort, overbevisende presentasjon av en forretningsidé", "Et langt regnskapsdokument med tall for hele driftsåret", "En formell kundeklage som sendes skriftlig når en vare eller tjeneste ikke holder mål", "En fullstendig prisliste som viser alle produkter med varenummer, priser og rabattnivåer"],
       explanation: "En pitch er en kort, overbevisende presentasjon av en forretningsidé, med mål om å vekke interesse og få tilhørerne til å ville vite mer eller handle.",
     },
     {
       question: "Hva er målet med en pitch?",
-      options: ["Å vekke interesse og få tilhørerne til å ville vite mer eller handle", "Å fortelle alt i detalj på en time", "Å lese høyt opp hele regnskapet med tall for hvert kvartal de siste tre driftsårene", "Å fortelle absolutt alt om ideen i minste detalj i løpet av en time lang presentasjon"],
+      options: ["Å vekke interesse og få tilhørerne til å ville vite mer eller handle", "Å selge produktet direkte i møtet", "Å lese høyt opp hele regnskapet med tall for hvert kvartal de siste tre driftsårene", "Å fortelle absolutt alt om ideen i minste detalj i løpet av en time lang presentasjon"],
       explanation: "Målet med en pitch er å vekke interesse og engasjement, slik at tilhørerne (f.eks. investorer eller kunder) vil vite mer eller handle.",
     },
     {
       question: "Hva kjennetegner en \"heispitch\" (elevator pitch)?",
-      options: ["Den er så kort at den kan holdes på tiden en heistur tar", "Den varer minst en time", "Den varer i minst en time og går grundig gjennom hele forretningsplanen i detalj", "Den krever alltid en lang serie med lysbilder og grafer for å fungere overbevisende"],
+      options: ["Den er så kort at den kan holdes på tiden en heistur tar", "Den holdes bare skriftlig og sendes på e-post til investorene", "Den varer i minst en time og går grundig gjennom hele forretningsplanen i detalj", "Den krever alltid en lang serie med lysbilder og grafer for å fungere overbevisende"],
       explanation: "En heispitch er en svært kort pitch - så konsentrert at den kan holdes på den korte tiden en heistur tar, ofte 30-60 sekunder.",
     },
     {
       question: "Hva bør en god pitch tydelig få frem?",
-      options: ["Hvilket problem ideen løser og hvorfor den er verdifull", "Alle tekniske detaljer i produktet", "Hele regnskapshistorikken med tall for inntekter og kostnader gjennom alle driftsårene", "Hele regnskapshistorikken"],
+      options: ["Hvilket problem ideen løser og hvorfor den er verdifull", "Alle tekniske detaljer i produktet", "Hele regnskapshistorikken med tall for inntekter og kostnader gjennom alle driftsårene", "Navnene på alle ansatte"],
       explanation: "En god pitch får tydelig frem problemet ideen løser, løsningen og hvorfor den skaper verdi - kort og engasjerende, ikke alle detaljer.",
     },
     {
@@ -1440,7 +1440,7 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et prosjekt sammenlignet med daglig drift?",
-      options: ["Det har en definert start og slutt og et unikt mål", "Det gjentas hver dag uendret", "Det varer evig og har verken en definert startdato eller en planlagt avslutning", "Det gjentas helt uendret hver eneste dag på akkurat samme måte som løpende drift"],
+      options: ["Det har en definert start og slutt og et unikt mål", "Det utføres av innleide konsulenter i stedet for egne ansatte", "Det varer evig og har verken en definert startdato eller en planlagt avslutning", "Det gjentas helt uendret hver eneste dag på akkurat samme måte som løpende drift"],
       explanation: "Et prosjekt har en definert start og slutt og et unikt mål, mens daglig drift er løpende og gjentakende.",
     },
     {
@@ -1467,17 +1467,17 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kunstig intelligens (KI)?",
-      options: ["Datasystemer som kan utføre oppgaver som normalt krever menneskelig intelligens", "Et vanlig kalkulatorprogram", "Et helt vanlig kalkulatorprogram som utfører forhåndsprogrammerte regnestykker raskt", "En bestemt type moderne kassaapparat som registrerer salg og skriver ut kvitteringer"],
+      options: ["Datasystemer som kan utføre oppgaver som normalt krever menneskelig intelligens", "Et vanlig regnearkprogram der brukeren selv legger inn alle formlene på forhånd", "Et helt vanlig kalkulatorprogram som utfører forhåndsprogrammerte regnestykker raskt", "En bestemt type moderne kassaapparat som registrerer salg og skriver ut kvitteringer"],
       explanation: "Kunstig intelligens er datasystemer som kan utføre oppgaver som normalt krever menneskelig intelligens - forstå språk, gjenkjenne mønstre, ta beslutninger og lære av erfaring.",
     },
     {
       question: "Hvor brukes KI allerede i servicenæringen?",
-      options: ["I chatbots, anbefalingssystemer og automatisert kundeservice", "Ingen steder ennå", "Bare i romfart og avansert forskning, ikke i vanlige servicebedrifter ennå", "Ingen steder ennå, ettersom teknologien fortsatt er på et rent forsøksstadium"],
+      options: ["I chatbots, anbefalingssystemer og automatisert kundeservice", "Bare i store internasjonale hotellkjeder i utlandet med egne IT-avdelinger", "Bare i romfart og avansert forskning, ikke i vanlige servicebedrifter ennå", "Ingen steder ennå, ettersom teknologien fortsatt er på et rent forsøksstadium"],
       explanation: "KI brukes allerede i chatbots, anbefalingssystemer og automatisert kundeservice i mange servicebedrifter.",
     },
     {
       question: "Hva er en utfordring teknologien gir for servicenæringen?",
-      options: ["Ansatte må lære nye ferdigheter og balansere teknologi med menneskelig kontakt", "Teknologi gjør all service dårligere", "At ny teknologi alltid gjør all kundeservice dårligere enn den var uten teknologi", "At det blir helt umulig å selge noe som helst når automatiseringen tar over driften"],
+      options: ["Ansatte må lære nye ferdigheter og balansere teknologi med menneskelig kontakt", "At all teknologi må skiftes ut i sin helhet hvert eneste år for å virke", "At ny teknologi alltid gjør all kundeservice dårligere enn den var uten teknologi", "At det blir helt umulig å selge noe som helst når automatiseringen tar over driften"],
       explanation: "Teknologien krever at ansatte stadig lærer nye ferdigheter, samtidig som virksomheten må balansere automatisering med den menneskelige kontakten kundene verdsetter.",
     },
     {
