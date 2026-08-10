@@ -9,7 +9,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedfunksjonen til kutikula?",
-      options: ["Beskytte hårets indre og gi glans når lagene ligger flatt", "Inneholde fargestoffet melanin", "Forankre hårstrået i hodebunnen og gi det næring fra blodårene", "Produsere talg som holder hodebunnen og lengdene smurte og myke"],
+      options: ["Beskytte hårets indre og gi glans når lagene ligger flatt", "Inneholde fargestoffet melanin som bestemmer hårets naturlige farge", "Forankre hårstrået i hodebunnen og gi det næring fra blodårene", "Produsere talg som holder hodebunnen og lengdene smurte og myke"],
       explanation: "Kutikula er det ytterste laget av flate, overlappende celler som beskytter hårets indre og gir glans når de ligger flatt.",
     },
     {
@@ -24,7 +24,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en follikkel?",
-      options: ["Hårsekken i huden som hårstrået vokser fra", "Det innerste laget i hårstrået", "Det innerste marglaget i hårstrået som gir strukturen fylde", "Fargepigmentet melanin som ligger lagret inne i hårets bark"],
+      options: ["Hårsekken i huden som hårstrået vokser fra", "Det innerste laget som ligger i midten av hårstrået", "Det innerste marglaget i hårstrået som gir strukturen fylde", "Fargepigmentet melanin som ligger lagret inne i hårets bark"],
       explanation: "Follikkelen er hårsekken i huden der hårstrået dannes og vokser ut fra.",
     },
   ],
@@ -46,7 +46,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en leave-in balsam?",
-      options: ["Et lett pleieprodukt som påføres uten å skylles ut", "En balsam som må ligge i 30 minutter før skylling", "Et oksidativt fargeprodukt som gir varig endring av hårets tone", "En rensende dypvirkende sjampo laget spesielt for svært fett hår"],
+      options: ["Et lett pleieprodukt som påføres uten å skylles ut", "En balsam som må ligge i 30 minutter før skylling", "Et oksidativt fargeprodukt som gir varig endring av hårets tone", "En rensende dypvirkende sjampo for fett hår"],
       explanation: "Leave-in balsam er et lett pleieprodukt som påføres i håret og blir værende uten å skylles ut.",
     },
     {
@@ -63,7 +63,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med effilering (uttynning)?",
-      options: ["Fjerne volum og vekt uten å forkorte lengden synlig", "Klippe håret kortest mulig", "Farge kun hårtuppene for å skape en tydelig fargekontrast", "Føne håret helt rett og glatt fra rot til tupp med børste"],
+      options: ["Fjerne volum og vekt uten å forkorte lengden synlig", "Klippe håret kortest mulig over hele hodet med en klippemaskin", "Farge kun hårtuppene for å skape en tydelig fargekontrast", "Føne håret helt rett og glatt fra rot til tupp med børste"],
       explanation: "Effilering tynner ut tykke partier og fjerner volum uten at lengden forkortes synlig, og gir mykere overganger.",
     },
     {
@@ -85,7 +85,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-1-4": [
     {
       question: "Hva er funksjonen til cool shot (kaldluft) på en føntørker?",
-      options: ["Fiksere frisyren og lukke kutikula", "Tørke håret raskere med høy varme", "Endre hårets naturlige tone og gi en varig fargeforandring", "Tilføre fuktighet til håret"],
+      options: ["Fiksere frisyren og lukke kutikula", "Tørke håret raskere med høy varme", "Endre hårets farge varig", "Tilføre fuktighet til håret"],
       explanation: "Cool shot bruker kald luft til å låse formen, fiksere frisyren og lukke kutikula etter styling.",
     },
     {
@@ -95,7 +95,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør man bruke varmebeskyttelse før varmestyling?",
-      options: ["For å beskytte håret mot varmeskade", "For å gjøre håret mørkere", "For å fjerne flass og løse skjell fra hodebunnen effektivt", "For å øke vekten på håret"],
+      options: ["For å beskytte håret mot varmeskade", "For å gjøre håret mørkere", "For å fjerne flass og skjell", "For å øke vekten på håret"],
       explanation: "Varmebeskyttelse påføres før bruk av varmeapparater for å beskytte håret mot skade fra høy temperatur.",
     },
     {
@@ -159,14 +159,14 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bleking av hår?",
-      options: ["En kjemisk prosess som fjerner melanin for å lysne håret", "En prosess som tilfører pigment for å gjøre håret mørkere", "En teknikk for å klippe håret", "En måte å føne håret på"],
+      options: ["En kjemisk prosess som fjerner melanin for å lysne håret", "En prosess som tilfører pigment for å gjøre håret mørkere", "En teknikk for å klippe håret", "En måte å føne håret på som gir mer glans og fylde i hele lengden"],
       explanation: "Bleking er en kjemisk prosess som fjerner melanin (det naturlige fargestoffet) fra håret for å lysne det.",
     },
   ],
   "frisor-blomster-vg1-1-7": [
     {
       question: "Hva er Marcel-bølger?",
-      options: ["En bølgeteknikk fra 1872 som lages med varmt jern", "En moderne balayage-teknikk", "En mild rensende sjampo som ble utviklet på 1920-tallet", "En spesiell type klippesaks med tagger for uttynning av håret"],
+      options: ["En bølgeteknikk fra 1872 som lages med varmt jern", "En moderne balayage-teknikk der fargen males på for hånd i lengdene", "En mild rensende sjampo som ble utviklet på 1920-tallet", "En spesiell type klippesaks med tagger for uttynning av håret"],
       explanation: "Marcel-bølger er en bølgeteknikk oppfunnet i 1872 av Marcel Grateau, skapt med et varmt jern.",
     },
     {
@@ -208,7 +208,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken plantedel transporterer vann og næring mellom rot og blad/blomst?",
-      options: ["Stengelen", "Kronbladet", "Roten alene", "Pollenet"],
+      options: ["Stengelen", "Kronbladet", "Roten alene", "Pollenet i støvbærerne"],
       explanation: "Stengelen transporterer vann og næring mellom rot og blad/blomst, og gir planten struktur og støtte.",
     },
     {
@@ -225,7 +225,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva inneholder blomstermat (næringstilskudd til vannet)?",
-      options: ["Sukker, syre og bakteriehemmer", "Bare rent vann", "Utelukkende helt rent vann uten noen tilsatte stoffer", "Salt og pepper"],
+      options: ["Sukker, syre og bakteriehemmer", "Bare rent vann", "Rent vann uten tilsetninger", "Salt og pepper"],
       explanation: "Blomstermat inneholder sukker (næring), syre (riktig pH) og bakteriehemmer, noe som forlenger holdbarheten.",
     },
     {
@@ -235,7 +235,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør kontrolleres når blomster ankommer butikken?",
-      options: ["Utviklingsstadium og tegn til skader, sopp eller råte", "Hvilken farge emballasjen har", "Utelukkende fargen og materialet på emballasjen de ble levert i", "Bare innkjøpsprisen, slik at fortjenesten på salget kan beregnes"],
+      options: ["Utviklingsstadium og tegn til skader, sopp eller råte", "Hvilken farge emballasjen har", "Utelukkende fargen og materialet på emballasjen de ble levert i", "Bare innkjøpsprisen for å beregne fortjenesten"],
       explanation: "Ved mottak utføres en kvalitetskontroll der man sjekker utviklingsstadium og ser etter skader, sopp eller råte.",
     },
     {
@@ -247,12 +247,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-2-3": [
     {
       question: "Hva kjennetegner spiralteknikken?",
-      options: ["Alle stenglene legges i samme retning rundt et bindepunkt", "Stenglene legges i kryss i alle retninger", "Blomstene limes fast til hverandre i stedet for å bindes med tråd", "Alle stenglene legges i kryss i ulike retninger rundt bindepunktet"],
+      options: ["Alle stenglene legges i samme retning rundt et bindepunkt", "Stenglene legges i kryss i alle retninger", "Blomstene limes fast til hverandre", "Alle stenglene legges i kryss i ulike retninger rundt bindepunktet"],
       explanation: "I spiralteknikken legges alle stenglene i samme retning rundt et bindepunkt, slik at de danner en spiral og buketten kan stå av seg selv.",
     },
     {
       question: "Hva er oasis?",
-      options: ["Vannsugende blomsterskum som holder blomster på plass og forsyner dem med vann", "En type ståltråd", "En type myk ståltråd som brukes til å forsterke og støtte svake blomsterstengler", "En spesialsaks som klipper stenglene i skrå vinkel uten å klemme sammen vannkanalene"],
+      options: ["Vannsugende blomsterskum som holder blomster på plass og forsyner dem med vann", "En type ståltråd", "En type myk ståltråd som brukes til å støtte svake blomsterstengler", "En spesialsaks som klipper stenglene i skrå vinkel uten å klemme sammen vannkanalene"],
       explanation: "Oasis er vannsugende blomsterskum som blomster stikkes i; det holder dem på plass og gir dem vann.",
     },
     {
@@ -267,14 +267,14 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en biedermeierbukett?",
-      options: ["En kompakt, rund bukett med konsentriske ringer av ulike blomstertyper", "En bukett med bare én blomst", "En lang og smal, ensidig bukett som legges vannrett over armen ved overrekkelse", "En løs bukett helt uten stengler der de enkelte blomstene bindes med floral tape"],
+      options: ["En kompakt, rund bukett med konsentriske ringer av ulike blomstertyper", "En bukett satt sammen av bare én stor blomst omgitt av mye grønt bladverk", "En lang og smal, ensidig bukett som legges vannrett over armen ved overrekkelse", "En løs bukett helt uten stengler der de enkelte blomstene bindes med floral tape"],
       explanation: "En biedermeierbukett er kompakt og rund med konsentriske ringer av ulike blomstertyper.",
     },
   ],
   "frisor-blomster-vg1-2-4": [
     {
       question: "Hva er det gylne snitt?",
-      options: ["Et proporsjonssystem med forholdet 1:1,618 som oppleves harmonisk", "En teknikk for å klippe stengler", "En fargekombinasjon av nabofarger som gir en rolig og harmonisk tone", "En type høy og smal vase som er formet etter harmoniske proporsjoner"],
+      options: ["Et proporsjonssystem med forholdet 1:1,618 som oppleves harmonisk", "En teknikk for å klippe stengler skrått i en helt bestemt vinkel før binding", "En fargekombinasjon av nabofarger som gir en rolig og harmonisk tone", "En type høy og smal vase som er formet etter harmoniske proporsjoner"],
       explanation: "Det gylne snitt er et proporsjonssystem med forholdet 1:1,618 som oppleves som spesielt harmonisk i komposisjon.",
     },
     {
@@ -289,12 +289,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er asymmetrisk balanse?",
-      options: ["Ulik fordeling av elementer som likevel oppleves balansert", "Helt lik fordeling på begge sider", "Fullstendig fravær av all visuell balanse i komposisjonen med vilje", "En form for sterk fargekontrast mellom motstående farger i sirkelen"],
+      options: ["Ulik fordeling av elementer som likevel oppleves balansert", "Helt lik fordeling av elementene på begge sider av en midtakse", "Fullstendig fravær av all visuell balanse i komposisjonen med vilje", "En form for sterk fargekontrast mellom motstående farger i sirkelen"],
       explanation: "Asymmetrisk balanse er en ulik fordeling av elementer som likevel oppleves harmonisk gjennom visuell vekt.",
     },
     {
       question: "Hva er negativt rom i et arrangement?",
-      options: ["Tomt rom mellom elementene som gir letthet og oversikt", "Stengler som er klippet bort", "Området rett under vasen der skyggen faller på underlaget", "De mørkeste og tyngste blomstene som trekker blikket nedover"],
+      options: ["Tomt rom mellom elementene som gir letthet og oversikt", "Stengler som er klippet bort og lagt igjen", "Området rett under vasen der skyggen faller på underlaget", "De mørkeste og tyngste blomstene som trekker blikket nedover"],
       explanation: "Negativt rom er det tomme rommet mellom elementene, som bidrar til letthet og oversikt i komposisjonen.",
     },
   ],
@@ -306,7 +306,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et monokromatisk fargeskjema?",
-      options: ["Ulike nyanser av kun én farge", "To motstående farger", "Tre farger med lik avstand", "Alle fargene i sirkelen samtidig"],
+      options: ["Ulike nyanser av kun én farge", "To motstående farger", "Tre farger med lik avstand", "Alle fargene samtidig"],
       explanation: "Monokromatisk fargeskjema bruker ulike nyanser, valører og metninger av kun én farge.",
     },
     {
@@ -321,19 +321,19 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner komplementære farger i et arrangement?",
-      options: ["De er motstående i fargesirkelen og gir sterk kontrast", "De er nabofarger som gir rolig harmoni", "De ligger side om side i fargesirkelen og gir en rolig harmoni", "De er ulike nyanser og valører av én og samme grunnfarge i sirkelen"],
+      options: ["De er motstående i fargesirkelen og gir sterk kontrast", "De er nabofarger som gir rolig harmoni", "De ligger side om side i fargesirkelen og gir en rolig harmoni", "De er ulike nyanser av én og samme grunnfarge"],
       explanation: "Komplementære farger ligger motstående i fargesirkelen og gir en sterk, livlig kontrast.",
     },
   ],
   "frisor-blomster-vg1-2-6": [
     {
       question: "Hva er en brudebukett?",
-      options: ["Buketten bruden holder under vielsen", "En bukett som legges på en kiste", "En rund krans med fire lys som brukes i adventstiden før jul", "En bukett til bordpynt"],
+      options: ["Buketten bruden holder under vielsen", "En bukett som legges på en kiste", "En rund krans med fire lys", "En bukett til bordpynt"],
       explanation: "Brudebuketten er buketten bruden holder under vielsen, og er ofte kjernen i bryllupsblomstene.",
     },
     {
       question: "Hva er en corsage?",
-      options: ["En liten blomsterdekorasjon som festes i jakkeslaget", "En stor bukett til begravelse", "En stor og tung sørgebukett som legges ned ved en begravelse", "En rund adventskrans med fire lys, ett for hver søndag i advent"],
+      options: ["En liten blomsterdekorasjon som festes i jakkeslaget", "En stor bukett til begravelse", "En stor og tung sørgebukett som legges ned ved en begravelse", "En rund adventskrans med fire lys"],
       explanation: "En corsage er en liten blomsterdekorasjon som festes i jakkeslaget, vanlig for brudgom og forlovere.",
     },
     {
@@ -343,12 +343,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kistepynt?",
-      options: ["Et langstrakt blomsterarrangement som legges oppå kisten", "En liten dekorasjon i jakkeslaget", "En bukett bruden holder i hendene under selve vielsen i kirken", "En rund krans med fire lys som brukes i adventstiden før julaften"],
+      options: ["Et langstrakt blomsterarrangement som legges oppå kisten", "En liten blomsterdekorasjon som festes i jakkeslaget på en dress", "En bukett bruden holder i hendene under selve vielsen i kirken", "En rund krans med fire lys som brukes i adventstiden før julaften"],
       explanation: "Kistepynt er et langstrakt arrangement som legges oppå kisten ved begravelser.",
     },
     {
       question: "Hvorfor krever anledningsblomster ofte planlegging i god tid?",
-      options: ["De skal koordineres med tema, dekorasjon og sesong", "Blomster vokser saktere om vinteren", "Blomster må alltid farges kunstig for å passe til anledningens tema", "Kunden betaler alltid på forhånd"],
+      options: ["De skal koordineres med tema, dekorasjon og sesong", "Blomster vokser saktere om vinteren", "Blomster må alltid farges kunstig", "Kunden betaler alltid på forhånd"],
       explanation: "Anledningsblomster skal ofte koordineres med andre elementer som tema, dekorasjon og sesong, og krever derfor planlegging.",
     },
   ],
@@ -370,29 +370,29 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva inspirerte jugendstilen (1890–1910)?",
-      options: ["Naturens organiske former med buede linjer", "Antikkens tempelarkitektur", "Strenge, rette vinkler og streng industriell symmetri i formene", "Industriell minimalisme"],
+      options: ["Naturens organiske former med buede linjer", "Antikkens tempelarkitektur", "Strenge, rette vinkler og symmetri", "Industriell minimalisme"],
       explanation: "Jugendstilen var inspirert av naturens organiske former med buede, flytende linjer.",
     },
     {
       question: "Hvorfor er kunnskap om stilhistorie nyttig for en blomsterdekoratør?",
-      options: ["Den gir et bredere repertoar og hjelper med å tolke trender", "Den bestemmer prisen på blomstene", "Den fjerner blomstenes behov for jevnlig vanning og stell i vasen", "Den erstatter behovet for verktøy som saks, ståltråd og blomsterteip"],
+      options: ["Den gir et bredere repertoar og hjelper med å tolke trender", "Den bestemmer prisen på både blomstene og alle bindematerialene", "Den fjerner blomstenes behov for jevnlig vanning og stell i vasen", "Den erstatter behovet for verktøy som saks, ståltråd og blomsterteip"],
       explanation: "Stilhistorie gir et bredere repertoar og dypere forståelse, og hjelper deg å tolke og forstå aktuelle trender.",
     },
   ],
   "frisor-blomster-vg1-2-8": [
     {
       question: "Hva er en samplanting?",
-      options: ["Flere planter med like behov plantet sammen i én beholder", "En enkelt plante i en stor potte", "En bundet bukett av snittblomster satt sammen med spiralteknikken", "En krans av tørkede blomster og grener festet på et rundt skjelett"],
+      options: ["Flere planter med like behov plantet sammen i én beholder", "En enkelt plante satt alene i en stor potte med god plass rundt", "En bundet bukett av snittblomster satt sammen med spiralteknikken", "En krans av tørkede blomster og grener festet på et rundt skjelett"],
       explanation: "En samplanting er et arrangement der flere planter med like behov for lys, vann og temperatur plantes sammen i én beholder.",
     },
     {
       question: "Hvorfor brukes lecakuler i bunnen av en potte?",
-      options: ["For å sikre god drenering av overskuddsvann", "For å gjøre potten tyngre", "For å gjøre potten tyngre så den står stødigere på underlaget", "For å tilføre planten ekstra næring gjennom hele vekstsesongen"],
+      options: ["For å sikre god drenering av overskuddsvann", "For å gjøre potten tyngre", "For å gjøre potten tyngre så den står stødigere på underlaget", "For å tilføre planten ekstra næring"],
       explanation: "Lecakuler er lette leirkuler som legges i bunnen for å lede bort overskuddsvann og sikre god drenering.",
     },
     {
       question: "Hva er ompotting?",
-      options: ["Å flytte en plante til en større potte når røttene fyller den gamle", "Å sette planten i mørke", "Å fjerne alle bladene fra planten så den bruker mindre energi på vekst", "Å klippe stengelen kraftig ned mot jorda så planten forgrener seg bedre"],
+      options: ["Å flytte en plante til en større potte når røttene fyller den gamle", "Å sette planten i et helt mørkt rom i flere uker slik at den får hvile ut", "Å fjerne alle bladene fra planten så den bruker mindre energi på vekst", "Å klippe stengelen kraftig ned mot jorda så planten forgrener seg bedre"],
       explanation: "Ompotting er å flytte planten over i en større potte når røttene har fylt hele den gamle potta.",
     },
     {
@@ -441,12 +441,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken virkning har blå farge ofte i et rom?",
-      options: ["Virker rolig og dempende", "Øker pulsen og stimulerer appetitten", "Gjør rommet varmere", "Gir energi og uro"],
+      options: ["Virker rolig og dempende", "Øker puls og appetitt", "Gjør rommet varmere", "Gir energi og uro"],
       explanation: "Blå er en kald farge som ofte oppleves som rolig og fjern, og virker dempende.",
     },
     {
       question: "Hvorfor brukes rød farge ofte i restauranter?",
-      options: ["Den øker puls og energinivå og stimulerer appetitten", "Den gjør rommet kaldere", "Den gjør at rommet oppleves kjøligere og mer avslappende å sitte i", "Den demper appetitten og får gjestene til å spise mindre og roligere"],
+      options: ["Den øker puls og energinivå og stimulerer appetitten", "Den gjør at rommet oppleves kaldere og mer nøytralt for gjestene", "Den gjør at rommet oppleves kjøligere og mer avslappende å sitte i", "Den demper appetitten og får gjestene til å spise mindre og roligere"],
       explanation: "Rød øker puls og energinivå og stimulerer appetitten, derfor brukes den ofte i restauranter.",
     },
     {
@@ -456,14 +456,14 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med fargesymbolikk?",
-      options: ["Den kulturelle og psykologiske betydningen farger bærer", "Antallet farger i en palett", "Hvor mørk eller lys en bestemt farge fremstår i valør og tone", "Prisen på malingen og pigmentene som brukes for å lage fargen"],
+      options: ["Den kulturelle og psykologiske betydningen farger bærer", "Antallet farger som inngår i en ferdig sammensatt fargepalett", "Hvor mørk eller lys en bestemt farge fremstår i valør og tone", "Prisen på malingen og pigmentene som brukes for å lage fargen"],
       explanation: "Fargesymbolikk er den kulturelle og psykologiske betydningen ulike farger bærer, og den kan variere mellom kulturer.",
     },
   ],
   "frisor-blomster-vg1-3-3": [
     {
       question: "Hva er en plantegning?",
-      options: ["En todimensjonal tegning av rom sett ovenfra i riktig målestokk", "Et fotografi av rommet", "Et fargefotografi av rommet tatt ovenfra som viser møbler og farger", "En detaljert skriftlig liste over alle møblene som skal stå i rommet"],
+      options: ["En todimensjonal tegning av rom sett ovenfra i riktig målestokk", "Et fotografi av rommet tatt i øyehøyde fra døråpningen ved befaring", "Et fargefotografi av rommet tatt ovenfra som viser møbler og farger", "En detaljert skriftlig liste over alle møblene som skal stå i rommet"],
       explanation: "En plantegning er en todimensjonal tegning av et rom sett ovenfra, tegnet i riktig målestokk.",
     },
     {
@@ -478,7 +478,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sirkulasjonssone i et rom?",
-      options: ["Område beregnet for ferdsel og bevegelse", "En sone der det ikke er lov å gå", "Området der hovedmøblene grupperes tettest for visuell tyngde", "Området der møblene står tettest"],
+      options: ["Område beregnet for ferdsel og bevegelse", "En sone der det ikke er lov å gå", "Området der hovedmøblene grupperes", "Området der møblene står tettest"],
       explanation: "En sirkulasjonssone er området som er beregnet for ferdsel og bevegelse gjennom rommet.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er prinsippet i minimalisme?",
-      options: ["Å redusere til det essensielle – «less is more»", "Å fylle rommet med mest mulig pynt", "Å fylle rommet med mest mulig pynt og dekorative detaljer", "Å ta i bruk flest mulig farger for et rikt og levende uttrykk"],
+      options: ["Å redusere til det essensielle – «less is more»", "Å fylle rommet med mest mulig pynt", "Å fylle rommet med mest mulig pynt og dekorative detaljer", "Å ta i bruk flest mulig ulike farger"],
       explanation: "Minimalisme handler om å redusere til det essensielle, etter prinsippet «less is more».",
     },
   ],
@@ -522,7 +522,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva garanterer FSC-sertifisering?",
-      options: ["Bærekraftig skogbruk", "At treet er malt", "At treet er importert", "At produktet er billigst"],
+      options: ["Bærekraftig skogbruk", "At treet er malt og lakkert", "At treet er importert", "At produktet er billigst"],
       explanation: "FSC-sertifisering (Forest Stewardship Council) garanterer at treet kommer fra bærekraftig skogbruk.",
     },
     {
@@ -532,7 +532,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er teksturkontrast i interiør?",
-      options: ["Effekten av å kombinere materialer med ulik overflate", "Kontrast mellom to farger", "Den planlagte avstanden mellom møblene i en romkomposisjon", "Den visuelle kontrasten mellom to komplementærfarger i rommet"],
+      options: ["Effekten av å kombinere materialer med ulik overflate", "Kontrast mellom to farger som ligger langt fra hverandre i sirkelen", "Den planlagte avstanden mellom møblene i en romkomposisjon", "Den visuelle kontrasten mellom to komplementærfarger i rommet"],
       explanation: "Teksturkontrast er den visuelle og taktile effekten av å kombinere materialer med ulik overflate, for eksempel grovt og glatt.",
     },
     {
@@ -581,12 +581,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med en konseptbeskrivelse?",
-      options: ["Å forklare den overordnede designideen med begrunnelse", "Å liste opp alle leverandører", "Å tegne rommet nøyaktig opp i målestokk med mål og plassering", "Å vise den samlede prisen på prosjektet med spesifiserte poster"],
+      options: ["Å forklare den overordnede designideen med begrunnelse", "Å liste opp alle leverandører og produkter som skal kjøpes inn", "Å tegne rommet nøyaktig opp i målestokk med mål og plassering", "Å vise den samlede prisen på prosjektet med spesifiserte poster"],
       explanation: "En konseptbeskrivelse er en skriftlig forklaring av den overordnede designideen, med begrunnelse for valgene.",
     },
     {
       question: "Hvilken fase kommer typisk først i designprosessen?",
-      options: ["Behovsanalyse", "Ferdig presentasjon", "Visualisering i 3D", "Fakturering"],
+      options: ["Behovsanalyse", "Ferdig presentasjon", "Visualisering i 3D", "Fakturering av kunden"],
       explanation: "Behovsanalysen kommer først – man må forstå kundens behov og rommets forutsetninger før idé- og konseptutvikling.",
     },
     {
@@ -613,7 +613,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er negativt rom i en komposisjon?",
-      options: ["Tomrommet som gir pusterom og fremhever hovedelementene", "De mørkeste fargene i bildet", "De mørkeste fargepartiene i bildet som gir dybde og tyngde", "Tekst i komposisjonen som er feilplassert eller skrevet feil"],
+      options: ["Tomrommet som gir pusterom og fremhever hovedelementene", "De mørkeste fargene i bildet, målt etter valør og metning", "De mørkeste fargepartiene i bildet som gir dybde og tyngde", "Tekst i komposisjonen som er feilplassert eller skrevet feil"],
       explanation: "Negativt rom er tomrommet i en komposisjon som gir pusterom og fremhever hovedelementene.",
     },
     {
@@ -635,7 +635,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er cross-merchandising?",
-      options: ["Å plassere komplementære produkter sammen for å øke mersalg", "Å sortere produkter etter pris", "Å fjerne alle prisskilt og informasjon fra vareplasseringene", "Å sortere alle produktene systematisk etter pris fra lav til høy"],
+      options: ["Å plassere komplementære produkter sammen for å øke mersalg", "Å sortere produkter etter pris innenfor hver enkelt hylle i butikken", "Å fjerne alle prisskilt og informasjon fra vareplasseringene", "Å sortere alle produktene systematisk etter pris fra lav til høy"],
       explanation: "Cross-merchandising er å plassere komplementære produkter sammen (f.eks. sjampo og balsam) for å oppmuntre til mersalg.",
     },
     {
@@ -645,7 +645,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handler kundeflyt om?",
-      options: ["Bevegelsesmønsteret til kunder gjennom butikken", "Hvor mange penger kundene bruker", "Antall ansatte som betjener kundene i butikken til enhver tid", "Hvor mye penger den enkelte kunden bruker under et butikkbesøk"],
+      options: ["Bevegelsesmønsteret til kunder gjennom butikken", "Hvor mange penger kundene bruker", "Antall ansatte som betjener kundene i butikken til enhver tid", "Hvor mye penger den enkelte kunden bruker"],
       explanation: "Kundeflyt handler om bevegelsesmønsteret til kundene gjennom butikken, som påvirkes av planløsning og produktplassering.",
     },
   ],
@@ -662,24 +662,24 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre dybdeplan skaper romfølelse i et vindu?",
-      options: ["Forgrunn, mellomgrunn og bakgrunn", "Venstre, midt og høyre", "Venstre kant, midtparti og høyre kant i bredden", "Lys, farge og tekst"],
+      options: ["Forgrunn, mellomgrunn og bakgrunn", "Venstre, midt og høyre", "Venstre, midtparti og høyre", "Lys, farge og tekst"],
       explanation: "Forgrunn, mellomgrunn og bakgrunn er de tre dybdeplanene som skaper romfølelse i en vinduseksponering.",
     },
     {
       question: "Hva er hensikten med rekvisitter i en utstilling?",
-      options: ["Støtte temaet og stemningen uten å overdøve varene", "Erstatte varene helt", "Fylle opp tomrom på lageret så butikken virker godt forsynt utad", "Skjule prisene og produktinformasjonen bak dekorative gjenstander"],
+      options: ["Støtte temaet og stemningen uten å overdøve varene", "Erstatte varene helt slik at vinduet bare viser rekvisitter", "Fylle opp tomrom på lageret så butikken virker godt forsynt utad", "Skjule prisene og produktinformasjonen bak dekorative gjenstander"],
       explanation: "Rekvisitter støtter temaet og stemningen i utstillingen, men skal ikke ta oppmerksomheten fra selve varene.",
     },
     {
       question: "Hvorfor bør vinduseksponeringen skiftes regelmessig?",
-      options: ["For å holde uttrykket ferskt og relevant", "For å unngå rengjøring", "For å skjule butikken bak dekorasjonen mot innsyn utenfra", "For å spare strøm ved å slå av belysningen i vinduet oftere"],
+      options: ["For å holde uttrykket ferskt og relevant", "For å unngå rengjøring", "For å skjule butikken bak dekorasjonen mot innsyn utenfra", "For å spare strøm i vinduet"],
       explanation: "Regelmessig skifte holder uttrykket ferskt og relevant, og gir forbipasserende en grunn til å legge merke til butikken på nytt.",
     },
   ],
   "frisor-blomster-vg1-4-4": [
     {
       question: "Hva handler skilthierarki om?",
-      options: ["Å organisere skilt etter viktighet og funksjon", "Å gjøre alle skilt like store", "Å fjerne mest mulig skilting så fasaden og butikken framstår helt ren", "Å male skiltene i én farge"],
+      options: ["Å organisere skilt etter viktighet og funksjon", "Å gjøre alle skilt like store", "Å fjerne mest mulig skilting fra fasaden", "Å male skiltene i én farge"],
       explanation: "Skilthierarki organiserer skilt etter viktighet og funksjon, fra fasadeskilt til avdelings-, produkt- og kampanjeskilt.",
     },
     {
@@ -689,12 +689,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et Z-mønster i layout?",
-      options: ["Den naturlige blikk-bevegelsen over en flate", "En måte å henge skilt på", "En måte å henge skilt på slik at de danner en sikksakk over veggen", "En fargekombinasjon av tre toner som brytes mot hverandre diagonalt"],
+      options: ["Den naturlige blikk-bevegelsen over en flate", "En måte å henge skilt på", "En måte å henge skilt på slik at de danner en sikksakk over veggen", "En fargekombinasjon av tre toner"],
       explanation: "Z-mønsteret beskriver den naturlige blikk-bevegelsen over en flate (øverst venstre til høyre, diagonalt ned, så nederst), og brukes som layoutprinsipp.",
     },
     {
       question: "Hva er en call-to-action?",
-      options: ["En handlingsoppfordring som ber mottakeren gjøre noe", "En type digital skjerm", "En type digital skjerm som viser roterende reklame i butikklokalet", "En fargepalett satt sammen for å skape en bestemt stemning i designet"],
+      options: ["En handlingsoppfordring som ber mottakeren gjøre noe", "En type digital skjerm", "En type digital skjerm som viser roterende reklame i butikklokalet", "En fargepalett som skaper en bestemt stemning"],
       explanation: "En call-to-action er en handlingsoppfordring i designet, som «bestill nå» eller «kjøp i dag», som ber mottakeren handle.",
     },
     {
@@ -711,17 +711,17 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en øystand?",
-      options: ["Frittstående med tilgang fra alle sider, gir størst synlighet", "Bare tilgang fra én side", "Vegger på tre sider med én åpning ut mot den nærmeste gangveien", "En stand som henger fra taket over gangen for å spare gulvplass"],
+      options: ["Frittstående med tilgang fra alle sider, gir størst synlighet", "Bare tilgang fra én side, med lukkede vegger på de tre andre sidene", "Vegger på tre sider med én åpning ut mot den nærmeste gangveien", "En stand som henger fra taket over gangen for å spare gulvplass"],
       explanation: "En øystand er frittstående med tilgang fra alle sider, noe som gir størst synlighet på messen.",
     },
     {
       question: "Hva er attraksjonssonen på en messestand?",
-      options: ["Fronten av standen som skal trekke besøkende inn med blikkfang", "Lageret bak standen der ekstra varer og materiell oppbevares", "Gangen mellom standene der de besøkende passerer forbi utstillingen", "Pauserommet der standpersonalet hviler mellom besøksrundene"],
+      options: ["Fronten av standen som skal trekke besøkende inn med blikkfang", "Lageret bak standen der ekstra varer og materiell oppbevares", "Gangen mellom standene der de besøkende passerer", "Pauserommet der standpersonalet hviler mellom besøksrundene"],
       explanation: "Attraksjonssonen er fronten av standen som med blikkfang og åpenhet skal trekke besøkende inn.",
     },
     {
       question: "Hva er interaktivitet i eventdesign?",
-      options: ["Aktiv deltakelse fra besøkende, som demonstrasjoner eller konkurranser", "At man bare deler ut brosjyrer", "At de besøkende bare ser passivt på uten selv å ta del i noe på standen", "At standen står tom uten personale slik at gjestene utforsker den alene"],
+      options: ["Aktiv deltakelse fra besøkende, som demonstrasjoner eller konkurranser", "At man bare deler ut brosjyrer og trykksaker til alle som går forbi standen", "At de besøkende bare ser passivt på uten selv å ta del i noe på standen", "At standen står tom uten personale slik at gjestene utforsker den alene"],
       explanation: "Interaktivitet er aktiv deltakelse fra besøkende, for eksempel demonstrasjoner, konkurranser eller hands-on-aktiviteter.",
     },
     {
@@ -760,12 +760,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-4-7": [
     {
       question: "Hva er første steg i designprosessen?",
-      options: ["Oppdragsanalyse", "Ferdig presentasjon", "Fotografering av resultat", "Fakturering"],
+      options: ["Oppdragsanalyse", "Ferdig presentasjon", "Fotografering av resultat", "Fakturering av oppdraget"],
       explanation: "Designprosessen starter med oppdragsanalyse, der man forstår oppdraget, målgruppen og rammene.",
     },
     {
       question: "Hva er en oppdragsanalyse?",
-      options: ["Analyse av oppdragets krav, målgruppe, budsjett og rammer", "En tegning av butikken", "En liste over fargene og materialene som skal brukes i prosjektet", "Et ferdig produkt som leveres til kunden ved slutten av oppdraget"],
+      options: ["Analyse av oppdragets krav, målgruppe, budsjett og rammer", "En målsatt tegning av butikken sett ovenfra i riktig målestokk", "En liste over fargene og materialene som skal brukes i prosjektet", "Et ferdig produkt som leveres til kunden ved slutten av oppdraget"],
       explanation: "Oppdragsanalysen kartlegger oppdragets krav, målgruppe, budsjett og rammer, og er grunnlaget for resten av prosjektet.",
     },
     {
@@ -775,7 +775,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er prosessdokumentasjon?",
-      options: ["Fotografering og notater underveis som viser arbeidsmetode", "Bare det ferdige bildet", "En plantegning av rommet som viser hvor elementene skal plasseres", "En faktura som viser hva arbeidet og materialene har kostet kunden"],
+      options: ["Fotografering og notater underveis som viser arbeidsmetode", "Bare det ferdige bildet av resultatet, tatt helt til slutt i prosjektet", "En plantegning av rommet som viser hvor elementene skal plasseres", "En faktura som viser hva arbeidet og materialene har kostet kunden"],
       explanation: "Prosessdokumentasjon er fotografering og notater underveis i prosjektet, som dokumenterer arbeidsmetoden.",
     },
     {
@@ -829,7 +829,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes blomsterteip til?",
-      options: ["Dekke ståltråd på stilker for et naturlig utseende", "Klippe stenglene", "Feste piggholderen fast i bunnen av en lav skål eller vase", "Skjære stilker skrått slik at blomstene tar opp mer vann i vasen"],
+      options: ["Dekke ståltråd på stilker for et naturlig utseende", "Klippe stenglene i riktig lengde før de bindes sammen i buketten", "Feste piggholderen fast i bunnen av en lav skål eller vase", "Skjære stilker skrått slik at blomstene tar opp mer vann i vasen"],
       explanation: "Blomsterteip er selvklebende tape som dekker ståltråd på stilker og gir et naturlig grønt utseende.",
     },
     {
@@ -841,17 +841,17 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-5-3": [
     {
       question: "Hva er MDF?",
-      options: ["Middels tetthet fiberplate laget av treflis presset med lim", "En type glass", "En vevd overflate av naturfibre som brukes til trekk og møbelstoff", "En hard legering av jern og karbon som brukes i møbelbeslag og verktøy"],
+      options: ["Middels tetthet fiberplate laget av treflis presset med lim", "En type herdet glass som brukes i vitrineskap og i tynne bordplater", "En vevd overflate av naturfibre som brukes til trekk og møbelstoff", "En hard legering av jern og karbon som brukes i møbelbeslag og verktøy"],
       explanation: "MDF (middels tetthet fiberplate) er laget av treflis som presses sammen med lim, og brukes mye i møbler og innredning.",
     },
     {
       question: "Hva er pulverlakkering?",
-      options: ["Overflatebehandling der metall dekkes med farget pulver og herdes", "En måte å vaske tekstiler på", "En hard tresort som males med farget pulver før den brukes i møbler", "En skånsom metode for å vaske ømfintlige tekstiler ved lav temperatur"],
+      options: ["Overflatebehandling der metall dekkes med farget pulver og herdes", "En måte å vaske tekstiler på med pulver i stedet for flytende vaskemiddel", "En hard tresort som males med farget pulver før den brukes i møbler", "En skånsom metode for å vaske ømfintlige tekstiler ved lav temperatur"],
       explanation: "Pulverlakkering er en overflatebehandling der metallgjenstander dekkes med farget pulver som herdes i ovn til en slitesterk overflate.",
     },
     {
       question: "Hva er et komposittmateriale?",
-      options: ["Et materiale satt sammen av to eller flere ulike materialer", "Rent tre uten behandling", "Et rent grunnstoff av metall som brukes uten tilsetning av andre stoffer", "Ubehandlet massivt trevirke som beholder sine naturlige egenskaper uendret"],
+      options: ["Et materiale satt sammen av to eller flere ulike materialer", "Rent tre uten behandling, bare tørket og høvlet før bruk i møbler", "Et rent grunnstoff av metall som brukes uten tilsetning av andre stoffer", "Ubehandlet massivt trevirke som beholder sine naturlige egenskaper uendret"],
       explanation: "Et komposittmateriale er satt sammen av to eller flere ulike materialer for å oppnå spesielle egenskaper, som styrke eller letthet.",
     },
     {
@@ -868,7 +868,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-5-4": [
     {
       question: "Hva gjør filleringssakser (uttynningssakser)?",
-      options: ["Tynner ut håret jevnt uten å endre lengden", "Klipper håret helt kort", "Farger håret jevnt ved å fordele fargepasta fra rot til tupp", "Tørker og former håret raskt med varmluft mens det kammes ut"],
+      options: ["Tynner ut håret jevnt uten å endre lengden", "Klipper håret helt kort inntil hodebunnen på hele hodet", "Farger håret jevnt ved å fordele fargepasta fra rot til tupp", "Tørker og former håret raskt med varmluft mens det kammes ut"],
       explanation: "Filleringssakser har tenner og tynner ut håret jevnt uten å endre lengden synlig.",
     },
     {
@@ -895,7 +895,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-5-5": [
     {
       question: "Hva er Svanemerket?",
-      options: ["Det offisielle nordiske miljømerket for produkter og tjenester", "Et merke for billige produkter", "En type mild sjampo utviklet spesielt for sensitiv hodebunn og hår", "Et fagforbund som organiserer ansatte innen frisør- og blomsterfaget"],
+      options: ["Det offisielle nordiske miljømerket for produkter og tjenester", "Et merke som viser at produktet er blant de billigste i sin varegruppe", "En type mild sjampo utviklet spesielt for sensitiv hodebunn og hår", "Et fagforbund som organiserer ansatte innen frisør- og blomsterfaget"],
       explanation: "Svanemerket er det offisielle nordiske miljømerket med strenge krav til miljø, helse og kvalitet.",
     },
     {
@@ -905,12 +905,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva står FSC for?",
-      options: ["Forest Stewardship Council – sertifisering av bærekraftig skogbruk", "Et system av standardiserte fargekoder for maling og overflater", "En fagforening som ivaretar interessene til ansatte i faget", "En slitesterk legering av metall brukt i verktøy og beslag"],
+      options: ["Forest Stewardship Council – sertifisering av bærekraftig skogbruk", "Et system av standardiserte fargekoder for maling og overflater", "En fagforening som ivaretar interessene til ansatte i faget", "En slitesterk legering av metall som brukes i verktøy og i møbelbeslag"],
       explanation: "FSC (Forest Stewardship Council) er en sertifisering som garanterer at trevirke kommer fra bærekraftig skogbruk.",
     },
     {
       question: "Hva er upcycling?",
-      options: ["Å gi brukte materialer nytt liv i en ny og ofte bedre form", "Å kaste alt brukt materiale", "Å kjøpe inn nye produkter hver gang i stedet for å reparere gamle", "Å kaste alle brukte materialer og erstatte dem med helt nye råvarer"],
+      options: ["Å gi brukte materialer nytt liv i en ny og ofte bedre form", "Å kaste alt brukt materiale i restavfallet etter hvert oppdrag", "Å kjøpe inn nye produkter hver gang i stedet for å reparere gamle", "Å kaste alle brukte materialer og erstatte dem med helt nye råvarer"],
       explanation: "Upcycling er å gi brukte materialer nytt liv i en ny og ofte mer verdifull form, i stedet for å kaste dem.",
     },
     {
@@ -986,29 +986,29 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en autoklav?",
-      options: ["Et apparat for sterilisering med damp under høyt trykk", "En blomstervase", "En saks med to skarpe blad brukt til å klippe stilker og grener", "En bred vase av glass laget for å holde vann og blomster stående"],
+      options: ["Et apparat for sterilisering med damp under høyt trykk", "En blomstervase", "En saks med to skarpe blad brukt til å klippe stilker og grener", "En bred vase av glass til vann og blomster"],
       explanation: "En autoklav er et apparat som steriliserer utstyr med damp under høyt trykk og temperatur.",
     },
     {
       question: "Hva brukes en stikkboks til?",
-      options: ["Trygg kassering av skarpe gjenstander som barberblader", "Oppbevaring av sjampo", "Dosering og oppbevaring av flytende sjampo og balsam på benken", "Sikker lagring av ferske snittblomster i kjølig og fuktig miljø"],
+      options: ["Trygg kassering av skarpe gjenstander som barberblader", "Oppbevaring av sjampo", "Dosering og oppbevaring av flytende sjampo og balsam på benken", "Sikker lagring av ferske snittblomster i kjølerom"],
       explanation: "En stikkboks er en spesialbeholder for trygg kassering av skarpe gjenstander som barberblader, slik at ingen skader seg.",
     },
     {
       question: "Hva er hensikten med en renholdsplan?",
-      options: ["Dokumentere hva, når og hvordan renhold skal gjennomføres", "Å markedsføre salongen", "Å fastsette prisene på behandlinger og produkter i salongen", "Å bestemme fargevalget og interiøret i lokalet ved oppussing"],
+      options: ["Dokumentere hva, når og hvordan renhold skal gjennomføres", "Å markedsføre salongen og tjenestene den tilbyr til nye kunder", "Å fastsette prisene på behandlinger og produkter i salongen", "Å bestemme fargevalget og interiøret i lokalet ved oppussing"],
       explanation: "En renholdsplan er en skriftlig plan som dokumenterer hva som skal rengjøres, når og hvordan, slik at hygienen blir systematisk.",
     },
   ],
   "frisor-blomster-vg1-6-3": [
     {
       question: "Hva står HMS for?",
-      options: ["Helse, miljø og sikkerhet", "Hygiene, materialer og service", "Helse, marked og salg", "Håndtering, måling og styring"],
+      options: ["Helse, miljø og sikkerhet", "Hygiene, materialer og service", "Helse, marked og salgsarbeid", "Håndtering, måling og styring"],
       explanation: "HMS står for helse, miljø og sikkerhet – systematisk arbeid for å forebygge skader, sykdom og uhell på arbeidsplassen.",
     },
     {
       question: "Hvilken lov er den viktigste for arbeidsmiljø i Norge?",
-      options: ["Arbeidsmiljøloven", "Forbrukerkjøpsloven", "Vegtrafikkloven", "Markedsføringsloven"],
+      options: ["Arbeidsmiljøloven", "Forbrukerkjøpsloven", "Vegtrafikkloven i Norge", "Markedsføringsloven"],
       explanation: "Arbeidsmiljøloven er Norges viktigste lov for arbeidsmiljø, arbeidstid og stillingsvern.",
     },
     {
@@ -1018,7 +1018,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er internkontroll?",
-      options: ["Et system for å sikre at HMS-krav i lovverket etterleves i virksomheten", "Rutiner for å kontrollere at kundene betaler regningene sine i tide", "En regnskapsmetode for å føre inntekter og utgifter i virksomheten", "En markedsstrategi for å tiltrekke seg nye kunder til salongen"],
+      options: ["Et system for å sikre at HMS-krav i lovverket etterleves i virksomheten", "Rutiner for å kontrollere at kundene betaler regningene sine i tide", "En regnskapsmetode for å føre inntekter og utgifter i virksomheten", "En markedsstrategi for å tiltrekke seg nye kunder og holde på de faste kundene"],
       explanation: "Internkontroll er et system for å sikre at virksomheten følger HMS-kravene i lovverket gjennom rutiner og dokumentasjon.",
     },
     {
@@ -1045,7 +1045,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer CLP-forordningen?",
-      options: ["Klassifisering, merking og emballering av kjemiske produkter", "Prissetting og påslag på produkter som selges i butikken", "Arbeidstidens lengde og pauseordninger for ansatte i salongen", "Regler for markedsføring av kjemiske produkter på nett og sosiale medier"],
+      options: ["Klassifisering, merking og emballering av kjemiske produkter", "Prissetting og påslag på produkter som selges i butikken", "Arbeidstidens lengde og pauseordninger for ansatte i salongen", "Regler for markedsføring av kjemiske produkter"],
       explanation: "CLP-forordningen er EU-regelverket for klassifisering, merking og emballering av kjemiske produkter.",
     },
     {
@@ -1062,17 +1062,17 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en belastningsskade?",
-      options: ["Skade som oppstår ved langvarig eller gjentatt fysisk belastning", "En skade fra ett enkelt fall", "En allergisk reaksjon i huden ved kontakt med et bestemt kjemikalie", "En brannskade som oppstår ved kontakt med varme verktøy eller væsker"],
+      options: ["Skade som oppstår ved langvarig eller gjentatt fysisk belastning", "En skade som oppstår ved ett enkelt fall eller ett slag i arbeidstiden", "En allergisk reaksjon i huden ved kontakt med et bestemt kjemikalie", "En brannskade som oppstår ved kontakt med varme verktøy eller væsker"],
       explanation: "En belastningsskade oppstår ved langvarig eller gjentatt fysisk belastning på kroppen, ofte over tid.",
     },
     {
       question: "Hva er karpaltunnelsyndrom?",
-      options: ["En tilstand der nerven i håndleddet klemmes, gir smerte og nummenhet", "En luftveissykdom forårsaket av innånding av kjemiske damper", "En øyenskade som skyldes sprut av kjemikalier under arbeid", "En kronisk hudallergi som gir kløe og utslett på hendene"],
+      options: ["En tilstand der nerven i håndleddet klemmes, gir smerte og nummenhet", "En luftveissykdom forårsaket av innånding av kjemiske damper", "En øyenskade som skyldes sprut av kjemikalier under arbeid", "En kronisk hudallergi som gir kløe og utslett på både hender og underarmer"],
       explanation: "Karpaltunnelsyndrom er en tilstand der nerven i håndleddet klemmes sammen og gir smerte, nummenhet og svakhet.",
     },
     {
       question: "Hva er mikropauser?",
-      options: ["Korte pauser (rundt 30 sekunder) med jevne mellomrom for å forebygge belastning", "En mild type sjampo som brukes ved hyppig hårvask hos kunder", "Å bytte til en helt annen arbeidsplass når man blir sliten", "En lang lunsjpause midt på dagen for å hvile skikkelig ut"],
+      options: ["Korte pauser (rundt 30 sekunder) med jevne mellomrom for å forebygge belastning", "En mild type sjampo som brukes ved hyppig hårvask hos kunder", "Å bytte til en helt annen arbeidsplass når man blir sliten", "En lang lunsjpause midt på dagen der man hviler skikkelig ut før neste kunde kommer"],
       explanation: "Mikropauser er korte pauser på rundt 30 sekunder tatt jevnlig for å avlaste kroppen og forebygge belastningsskader.",
     },
     {
@@ -1094,17 +1094,17 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket stoff er det vanligste allergenet i oksidative hårfarger?",
-      options: ["PPD (para-fenylendiamin)", "Sukker", "Sukker tilsatt for å binde fargen", "Bomullsfibre fra hetten på benken"],
+      options: ["PPD (para-fenylendiamin)", "Sukkerstoffer i fargekremen", "Sukker tilsatt for å binde fargen", "Bomullsfibre fra hetten på benken"],
       explanation: "PPD (para-fenylendiamin) er det vanligste allergenet i oksidative hårfarger og kan gi alvorlige reaksjoner.",
     },
     {
       question: "Hva brukes en barrierekrem til?",
-      options: ["Beskytte huden mot irriterende stoffer før arbeid", "Å rengjøre og desinfisere verktøy grundig", "Å tilføre ekstra næring til snittblomster", "Å farge håret i ønsket nyanse og tone"],
+      options: ["Beskytte huden mot irriterende stoffer før arbeid", "Å rengjøre og desinfisere verktøy grundig", "Å tilføre ekstra næring til snittblomster", "Å farge håret i ønsket nyanse og tone før behandlingen"],
       explanation: "Barrierekrem påføres huden før arbeid for å danne en beskyttende barriere mot irriterende stoffer.",
     },
     {
       question: "Hvorfor er forebygging spesielt viktig for yrkesrelaterte hudplager?",
-      options: ["Mange av plagene er kroniske når de først har utviklet seg", "De har ingen sammenheng med arbeidet", "De rammer bare nyutdannede som ennå ikke har lært teknikken", "De er alltid lette å kurere så snart de blir oppdaget i tide"],
+      options: ["Mange av plagene er kroniske når de først har utviklet seg", "De har ingen sammenheng med det arbeidet man utfører i salongen", "De rammer bare nyutdannede som ennå ikke har lært teknikken", "De er alltid lette å kurere så snart de blir oppdaget i tide"],
       explanation: "Mange yrkesrelaterte hud- og luftveisplager blir kroniske når de først har utviklet seg, derfor er forebygging avgjørende.",
     },
   ],
@@ -1121,7 +1121,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et velkomstrituale?",
-      options: ["En strukturert måte å ta imot kunder på som skaper trygghet og god stemning", "En reklamasjonsrutine som følges når kunden er misfornøyd", "En type betalingsordning der kunden betaler på forskudd", "En prisliste som viser hva de ulike tjenestene koster"],
+      options: ["En strukturert måte å ta imot kunder på som skaper trygghet og god stemning", "En reklamasjonsrutine som følges når kunden er misfornøyd", "En type betalingsordning der kunden betaler på forskudd", "En prisliste som henger fremme i salongen og viser hva de ulike tjenestene koster"],
       explanation: "Et velkomstrituale er en strukturert måte å ta imot kunder på som skaper trygghet og en god start på besøket.",
     },
     {
@@ -1143,7 +1143,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner aktiv lytting?",
-      options: ["Å lytte med full oppmerksomhet, bekrefte forståelse og stille oppfølgingsspørsmål", "Å se på telefonen eller andre ting mens kunden forklarer seg", "Å snakke mest selv og fylle stillheten med egne historier", "Å avbryte kunden ofte for å komme raskere til poenget"],
+      options: ["Å lytte med full oppmerksomhet, bekrefte forståelse og stille oppfølgingsspørsmål", "Å se på telefonen eller andre ting mens kunden forklarer seg", "Å snakke mest selv og fylle stillheten med egne historier", "Å avbryte kunden ofte for å komme raskere fram til poenget og spare tid på selve timen"],
       explanation: "Aktiv lytting innebærer å lytte med full oppmerksomhet, bekrefte at man har forstått og stille oppfølgingsspørsmål.",
     },
     {
@@ -1153,7 +1153,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er lukkede spørsmål nyttige?",
-      options: ["Til avgrensning og bekreftelse med korte ja/nei-svar", "Når man vil unngå at kunden svarer i det hele tatt", "Når man ønsker lange og utdypende svar fra kunden", "Utelukkende når kunden kommer med en reklamasjon"],
+      options: ["Til avgrensning og bekreftelse med korte ja/nei-svar", "Når man vil unngå at kunden svarer i det hele tatt", "Når man ønsker lange og utdypende svar fra kunden", "Utelukkende når kunden kommer med en reklamasjon på arbeidet"],
       explanation: "Lukkede spørsmål gir korte svar som ja eller nei, og er nyttige til å avgrense og bekrefte detaljer.",
     },
     {
@@ -1165,7 +1165,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-7-3": [
     {
       question: "Hva er fagspråk?",
-      options: ["Spesialiserte begreper og uttrykk innenfor et bestemt fagområde", "Utelukkende skriftlig kommunikasjon mellom fagpersoner", "Et fremmedspråk man må lære for å jobbe i bransjen", "En form for kroppsspråk man bruker overfor kunden"],
+      options: ["Spesialiserte begreper og uttrykk innenfor et bestemt fagområde", "Utelukkende skriftlig kommunikasjon mellom fagpersoner", "Et fremmedspråk man må lære for å jobbe i bransjen", "En form for kroppsspråk man bruker overfor kunden under behandlingen"],
       explanation: "Fagspråk er de spesialiserte begrepene og uttrykkene som brukes innenfor et fagområde, som «balayage» eller «bindepunkt».",
     },
     {
@@ -1175,12 +1175,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når bør du bruke fagspråk?",
-      options: ["Med kollegaer og leverandører der presisjon er viktig", "Alltid, også med uvitende kunder", "Alltid og i alle sammenhenger, også overfor kunder helt uten fagbakgrunn", "Utelukkende i reklame og markedsføring, for å imponere potensielle nye kunder"],
+      options: ["Med kollegaer og leverandører der presisjon er viktig", "Alltid, også med kunder som ikke kjenner faguttrykkene fra før", "Alltid og i alle sammenhenger, også overfor kunder helt uten fagbakgrunn", "Utelukkende i reklame og markedsføring, for å imponere potensielle nye kunder"],
       explanation: "Fagspråk gir presis og effektiv kommunikasjon mellom fagfolk, men bør forklares når man snakker med kunder uten fagbakgrunn.",
     },
     {
       question: "Hva er et kundekort?",
-      options: ["Skriftlig dokumentasjon av kundens behandlingshistorikk og preferanser", "Et betalingskort", "Et visittkort med salongens kontaktinformasjon som deles ut til nye kunder", "En rabattkupong som gir kunden fast prisavslag ved neste bestilte behandling"],
+      options: ["Skriftlig dokumentasjon av kundens behandlingshistorikk og preferanser", "Et betalingskort som kunden bruker for å betale for behandlingen i kassen", "Et visittkort med salongens kontaktinformasjon som deles ut til nye kunder", "En rabattkupong som gir kunden fast prisavslag ved neste bestilte behandling"],
       explanation: "Et kundekort er skriftlig dokumentasjon av kundens behandlingshistorikk og preferanser, nyttig ved senere besøk.",
     },
     {
@@ -1202,7 +1202,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er fordelsfokus som salgsteknikk?",
-      options: ["Å formidle kundens nytte fremfor produktets tekniske egenskaper", "Å fokusere på konkurrentene", "Å bevisst unngå å nevne selve produktet, og heller snakke om helt andre temaer", "Å utelukkende snakke om prisen og understreke at produktet er billigst i markedet"],
+      options: ["Å formidle kundens nytte fremfor produktets tekniske egenskaper", "Å fokusere på konkurrentenes produkter og priser i samtalen med kunden", "Å bevisst unngå å nevne selve produktet, og heller snakke om helt andre temaer", "Å utelukkende snakke om prisen og understreke at produktet er billigst i markedet"],
       explanation: "Fordelsfokus handler om å formidle kundens nytte og verdi av produktet fremfor bare de tekniske egenskapene.",
     },
     {
@@ -1219,7 +1219,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-7-5": [
     {
       question: "Hva er selvkost?",
-      options: ["Den totale kostnaden ved å produsere en vare eller levere en tjeneste", "Salgsprisen til kunden", "Kun de direkte materialkostnadene, uten lønn, husleie og andre indirekte kostnader", "Salgsprisen kunden faktisk betaler i kassen, inkludert bedriftens fortjenestemargin"],
+      options: ["Den totale kostnaden ved å produsere en vare eller levere en tjeneste", "Salgsprisen til kunden slik den står oppført på prislisten som henger i salongen", "Kun de direkte materialkostnadene, uten lønn, husleie og andre indirekte kostnader", "Salgsprisen kunden faktisk betaler i kassen, inkludert bedriftens fortjenestemargin"],
       explanation: "Selvkost er den totale kostnaden ved å produsere en vare eller levere en tjeneste, inkludert direkte og indirekte kostnader.",
     },
     {
@@ -1239,19 +1239,19 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er svinn?",
-      options: ["Tap av varer på grunn av skade, forringelse eller utløpt holdbarhet", "Fortjenesten på et produkt", "Selve salgsprisen kunden betaler i kassen for varen eller den utførte tjenesten", "De faste driftskostnadene som husleie og strøm, som påløper uansett aktivitetsnivå"],
+      options: ["Tap av varer på grunn av skade, forringelse eller utløpt holdbarhet", "Fortjenesten på et enkelt produkt etter at alle kostnadene er trukket fra", "Selve salgsprisen kunden betaler i kassen for varen eller den utførte tjenesten", "De faste driftskostnadene som husleie og strøm, som påløper uansett aktivitetsnivå"],
       explanation: "Svinn er tap av varer på grunn av skade, forringelse eller utløpt holdbarhet, og påvirker lønnsomheten negativt.",
     },
   ],
   "frisor-blomster-vg1-7-6": [
     {
       question: "Hva er en reklamasjon?",
-      options: ["En formell klage på en vare eller tjeneste som ikke svarer til det avtalte", "En anbefaling fra en fornøyd kunde", "En type rabatt bedriften gir faste kunder som kommer tilbake gjentatte ganger", "En markedsføringskampanje der salongen reklamerer for nye behandlinger og tilbud"],
+      options: ["En formell klage på en vare eller tjeneste som ikke svarer til det avtalte", "En positiv anbefaling fra en fornøyd kunde som andre kunder kan lese på nettet", "En type rabatt bedriften gir faste kunder som kommer tilbake gjentatte ganger", "En markedsføringskampanje der salongen reklamerer for nye behandlinger og tilbud"],
       explanation: "En reklamasjon er en formell klage fra kunden på en vare eller tjeneste som ikke svarer til det som ble avtalt – en mangel.",
     },
     {
       question: "Hvilken lov gir kunden rett til å reklamere ved mangel?",
-      options: ["Forbrukerkjøpsloven", "Arbeidsmiljøloven", "Vegtrafikkloven, som gjelder ferdsel og kjøring på offentlig vei og i trafikken", "CLP-forordningen"],
+      options: ["Forbrukerkjøpsloven", "Arbeidsmiljøloven", "Vegtrafikkloven, som gjelder ferdsel og kjøring på offentlig vei og i trafikken", "CLP-forordningen om kjemikalier"],
       explanation: "Etter forbrukerkjøpsloven har kunden rett til å reklamere dersom det foreligger en mangel ved varen eller tjenesten.",
     },
     {
@@ -1266,14 +1266,14 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke utfall kan en berettiget reklamasjon resultere i?",
-      options: ["Retting, prisavslag, omlevering eller heving av kjøpet", "Bare en unnskyldning", "En økt pris for kunden, som dekning for bedriftens ekstraarbeid med saken", "Kun en full avvisning av kravet, siden kunden selv har ansvar for feilen som oppsto"],
+      options: ["Retting, prisavslag, omlevering eller heving av kjøpet", "Bare en muntlig unnskyldning fra den som utførte arbeidet", "En økt pris for kunden, som dekning for bedriftens ekstraarbeid med saken", "Kun en full avvisning av kravet, siden kunden selv har ansvar for feilen som oppsto"],
       explanation: "En berettiget reklamasjon kan resultere i retting (nytt forsøk), prisavslag, omlevering eller heving av kjøpet.",
     },
   ],
   "frisor-blomster-vg1-7-7": [
     {
       question: "Hva er et bookingsystem?",
-      options: ["Et digitalt verktøy som lar kunder bestille time eller tjenester via nett", "En sosial medie-plattform for bilder", "En type betalingsterminal der kunden betaler for behandlingen med kort eller mobil", "En papirbasert prisliste som henger i salongen og viser kostnaden for hver behandling"],
+      options: ["Et digitalt verktøy som lar kunder bestille time eller tjenester via nett", "En plattform i sosiale medier der salongen deler bilder av arbeidet sitt daglig", "En type betalingsterminal der kunden betaler for behandlingen med kort eller mobil", "En papirbasert prisliste som henger i salongen og viser kostnaden for hver behandling"],
       explanation: "Et bookingsystem er et digitalt verktøy der kunder kan bestille time via nett; det håndterer timeavtaler, kundedata og påminnelser.",
     },
     {
@@ -1283,7 +1283,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en direktemelding (DM)?",
-      options: ["En privat melding sendt via sosiale medier", "En offentlig anmeldelse", "En faktura som sendes til kunden etter en utført behandling eller et produktkjøp", "En reklamasjon på papir"],
+      options: ["En privat melding sendt via sosiale medier", "En offentlig anmeldelse som alle følgere kan lese", "En faktura som sendes til kunden etter en utført behandling eller et produktkjøp", "En reklamasjon på papir"],
       explanation: "En direktemelding (DM) er en privat melding sendt via sosiale medier som Instagram eller Facebook.",
     },
     {
@@ -1300,7 +1300,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-8-1": [
     {
       question: "Hva er et fagbrev?",
-      options: ["Et offentlig dokument som bekrefter bestått fagprøve i et yrkesfag", "En arbeidskontrakt", "En timeavtale som viser når kunden er booket inn til behandling hos en fagperson", "Et førerkort som bekrefter at innehaveren har rett til å føre motorkjøretøy på vei"],
+      options: ["Et offentlig dokument som bekrefter bestått fagprøve i et yrkesfag", "En skriftlig arbeidskontrakt som inngås mellom lærlingen og lærebedriften", "En timeavtale som viser når kunden er booket inn til behandling hos en fagperson", "Et førerkort som bekrefter at innehaveren har rett til å føre motorkjøretøy på vei"],
       explanation: "Et fagbrev er et offentlig dokument som bekrefter at du har bestått fagprøven i et yrkesfag.",
     },
     {
@@ -1320,14 +1320,14 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem vurderer fag- og svenneprøver?",
-      options: ["En prøvenemnd av fagpersoner", "Kundene i salongen", "Leverandørene, som vurderer om utstyret og produktene er brukt på riktig måte", "Læreren alene"],
+      options: ["En prøvenemnd av fagpersoner", "Kundene i salongen", "Leverandørene av utstyret", "Læreren alene"],
       explanation: "En prøvenemnd bestående av fagpersoner vurderer fag- og svenneprøvene.",
     },
   ],
   "frisor-blomster-vg1-8-2": [
     {
       question: "Hva innebærer profesjonalitet?",
-      options: ["Å utføre arbeid med høy faglig standard, etikk og gode holdninger", "Å jobbe raskest mulig uansett kvalitet", "Å ta høyest mulig pris for hver behandling, uavhengig av kvaliteten som leveres", "Å unngå unødvendig kontakt med kunder, slik at man kan konsentrere seg om arbeidet"],
+      options: ["Å utføre arbeid med høy faglig standard, etikk og gode holdninger", "Å jobbe raskest mulig uansett kvalitet", "Å ta høyest mulig pris for hver behandling, uavhengig av kvaliteten som leveres", "Å unngå unødvendig kontakt med kunder under arbeidet"],
       explanation: "Profesjonalitet innebærer å utføre arbeidet med høy faglig standard, opptre etisk og ansvarlig, og behandle kunder og kollegaer med respekt.",
     },
     {
@@ -1342,12 +1342,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er yrkesstolthet?",
-      options: ["En positiv følelse av tilhørighet og stolthet knyttet til eget fag", "Å mene at andre fag er mindre verdt", "En overbevisning om at eget fag er finere og mer verdt enn alle andre yrkesfag", "Å ta høyest mulig pris for arbeidet, som en måte å vise egen faglig dyktighet på"],
+      options: ["En positiv følelse av tilhørighet og stolthet knyttet til eget fag", "Å mene at alle andre yrkesfag er mindre verdt enn det faget man selv har", "En overbevisning om at eget fag er finere og mer verdt enn alle andre yrkesfag", "Å ta høyest mulig pris for arbeidet, som en måte å vise egen faglig dyktighet på"],
       explanation: "Yrkesstolthet er en positiv følelse av tilhørighet og stolthet knyttet til eget fag og det arbeidet man utfører.",
     },
     {
       question: "Hva er kvalitetsbevissthet?",
-      options: ["Bevisst streben etter å levere best mulig arbeid i alle ledd", "Å levere raskest mulig uansett resultat", "Å utelukkende fokusere på pris, slik at tjenesten alltid blir billigst mulig for kunden", "Å unngå tilbakemeldinger fra kunder og kollegaer, for ikke å bli usikker på eget arbeid"],
+      options: ["Bevisst streben etter å levere best mulig arbeid i alle ledd", "Å levere raskest mulig uansett resultat", "Å utelukkende fokusere på pris og levere billigst mulig", "Å unngå tilbakemeldinger fra kunder og kollegaer, for ikke å bli usikker på eget arbeid"],
       explanation: "Kvalitetsbevissthet er en bevisst streben etter å levere best mulig arbeid i alle ledd, fra planlegging til ferdig resultat.",
     },
   ],
@@ -1359,7 +1359,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fagforening?",
-      options: ["En organisasjon som ivaretar arbeidstakernes interesser", "En organisasjon for arbeidsgivere", "En offentlig etat som fører tilsyn med arbeidsmiljøet i norske bedrifter", "En sammenslutning av bedrifter som samarbeider om felles innkjøp av varer"],
+      options: ["En organisasjon som ivaretar arbeidstakernes interesser", "En organisasjon for arbeidsgivere", "En offentlig etat som fører tilsyn med arbeidsmiljøet i norske bedrifter", "En sammenslutning av bedrifter med felles innkjøp"],
       explanation: "En fagforening er en organisasjon som ivaretar arbeidstakernes interesser, blant annet i lønns- og arbeidsvilkår.",
     },
     {
@@ -1374,7 +1374,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer arbeidsmiljøloven?",
-      options: ["Arbeidsforhold, arbeidstid, HMS og arbeidstakers rettigheter", "Faremerking av kjemikalier alene", "Hvordan priser skal settes og merkes på varer og tjenester i en butikk", "Hvordan bedrifter kan markedsføre produktene sine på nett og i sosiale medier"],
+      options: ["Arbeidsforhold, arbeidstid, HMS og arbeidstakers rettigheter", "Faremerking av kjemikalier og hvordan de skal merkes og oppbevares", "Hvordan priser skal settes og merkes på varer og tjenester i en butikk", "Hvordan bedrifter kan markedsføre produktene sine på nett og i sosiale medier"],
       explanation: "Arbeidsmiljøloven regulerer arbeidsforhold, arbeidstid, HMS og arbeidstakers rettigheter.",
     },
   ],
@@ -1401,7 +1401,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er klimaavtrykk?",
-      options: ["Den totale mengden klimagasser en aktivitet eller virksomhet forårsaker", "Mengden vann en plante bruker", "En type nedbrytbar emballasje laget av gjenvunnede og fornybare materialer", "Antall kunder som besøker en butikk eller salong i løpet av en gitt periode"],
+      options: ["Den totale mengden klimagasser en aktivitet eller virksomhet forårsaker", "Mengden vann en enkelt plante bruker i løpet av en hel vekstsesong i butikken", "En type nedbrytbar emballasje laget av gjenvunnede og fornybare materialer", "Antall kunder som besøker en butikk eller salong i løpet av en gitt periode"],
       explanation: "Klimaavtrykk er den totale mengden klimagasser en aktivitet, et produkt eller en virksomhet forårsaker.",
     },
   ],
@@ -1413,7 +1413,7 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er svinn?",
-      options: ["Tap av materialer, varer eller ressurser som ikke kommer til nytte", "Fortjenesten på et produkt", "Et system av rutiner for å sikre jevn kvalitet på varer og tjenester", "Den fortjenesten en bedrift sitter igjen med etter salg av et produkt"],
+      options: ["Tap av materialer, varer eller ressurser som ikke kommer til nytte", "Fortjenesten på hvert enkelt produkt, regnet i kroner per solgte enhet", "Et system av rutiner for å sikre jevn kvalitet på varer og tjenester", "Den fortjenesten en bedrift sitter igjen med etter salg av et produkt"],
       explanation: "Svinn er tap av materialer, varer eller ressurser som ikke kommer til nytte, for eksempel blomster som visner før salg.",
     },
     {
@@ -1435,12 +1435,12 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
   "frisor-blomster-vg1-8-6": [
     {
       question: "Hva er kulturforståelse?",
-      options: ["Evnen til å forstå og respektere mennesker med annen kulturell bakgrunn", "En markedsføringsmetode rettet mot kunder med ulik kulturell bakgrunn", "En hardfør blomstersort som tåler ulike klima og brukes i internasjonal binding", "Kunnskap om fargesirkelen og hvordan farger virker sammen i design"],
+      options: ["Evnen til å forstå og respektere mennesker med annen kulturell bakgrunn", "En markedsføringsmetode rettet mot kunder med ulik kulturell bakgrunn", "En hardfør blomstersort som tåler ulike klima", "Kunnskap om fargesirkelen og hvordan farger virker sammen i design"],
       explanation: "Kulturforståelse er evnen til å forstå, respektere og forholde seg til mennesker med annen kulturell bakgrunn enn din egen.",
     },
     {
       question: "Hva er inkludering?",
-      options: ["Å skape et miljø der alle føler seg velkomne og verdsatt", "Å bare ansette like personer", "Å bare ansette personer som ligner hverandre for å sikre god lagfølelse", "Å holde utvalgte personer utenfor fellesskapet for å bevare et godt miljø"],
+      options: ["Å skape et miljø der alle føler seg velkomne og verdsatt", "Å bare ansette personer med nøyaktig samme bakgrunn som en selv", "Å bare ansette personer som ligner hverandre for å sikre god lagfølelse", "Å holde utvalgte personer utenfor fellesskapet for å bevare et godt miljø"],
       explanation: "Inkludering handler om å skape et miljø der alle føler seg velkomne og verdsatt uavhengig av bakgrunn.",
     },
     {
@@ -1455,14 +1455,14 @@ const quizData_frisor_blomster_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er kulturforståelse viktig i kundemøtet?",
-      options: ["Det gir bedre kundeopplevelser og et mer inkluderende arbeidsmiljø", "Det erstatter fagkunnskapen", "Det bestemmer hvilke priser bedriften kan ta for de ulike tjenestene sine", "Det erstatter behovet for fagkunnskap og faglige ferdigheter i kundemøtet"],
+      options: ["Det gir bedre kundeopplevelser og et mer inkluderende arbeidsmiljø", "Det erstatter den fagkunnskapen som kreves for å utføre selve arbeidet", "Det bestemmer hvilke priser bedriften kan ta for de ulike tjenestene sine", "Det erstatter behovet for fagkunnskap og faglige ferdigheter i kundemøtet"],
       explanation: "Kulturforståelse gir bedre kundeopplevelser og et mer inkluderende arbeidsmiljø, fordi verdier og kommunikasjonsmåter varierer mellom kulturer.",
     },
   ],
   "frisor-blomster-vg1-8-7": [
     {
       question: "Hva er innovasjon?",
-      options: ["Å skape noe nytt eller forbedre noe eksisterende på en måte som gir verdi", "Å kopiere konkurrentene nøyaktig", "Å holde alle arbeidsmåter og produkter helt uendret for å bevare kvaliteten", "Å kopiere konkurrentenes produkter nøyaktig for å ta igjen forspranget deres"],
+      options: ["Å skape noe nytt eller forbedre noe eksisterende på en måte som gir verdi", "Å kopiere konkurrentene helt nøyaktig slik at tilbudet blir helt likt deres", "Å holde alle arbeidsmåter og produkter helt uendret for å bevare kvaliteten", "Å kopiere konkurrentenes produkter nøyaktig for å ta igjen forspranget deres"],
       explanation: "Innovasjon er å skape noe nytt eller forbedre noe eksisterende på en måte som gir verdi – det kan også være små forbedringer i hverdagen.",
     },
     {

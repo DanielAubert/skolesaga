@@ -14,12 +14,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken etisk grunnverdi innebærer å handle ærlig og konsekvent?",
-      options: ["Integritet", "Lojalitet", "Respekt", "Taushetsplikt"],
+      options: ["Integritet", "Lojalitet", "Respekt for andre", "Taushetsplikt"],
       explanation: "Integritet betyr å handle ærlig og konsekvent. Det innebærer blant annet a aldri la seg bestikke, rapportere sannferdig og ta ansvar for egne feil.",
     },
     {
       question: "Hvilken yrkesrolle har det overordnede ansvåret for sikkerheten i en virksomhet?",
-      options: ["Sikkerhetsleder", "Vekter", "Sikkerhetsradgiver", "Operator i alarmsentral"],
+      options: ["Sikkerhetsleder", "Vekter i tjeneste", "Sikkerhetsradgiver", "Operator i alarmsentral"],
       explanation: "Sikkerhetslederen har det overordnede ansvåret for sikkerheten, inkludert a utvikle sikkerhetsstrategi, gjennomføre risikovurderinger og lede sikkerhetspersonell.",
     },
     {
@@ -31,7 +31,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-2": [
     {
       question: "Hvordan defineres risiko i sikkerhetsarbeid?",
-      options: ["Sannsynlighet multiplisert med konsekvens", "Konsekvens minus førebyggende tiltak", "Summen av alle identifiserte trusler i et gitt tidsrom", "Antall sårbarheter delt påverdier"],
+      options: ["Sannsynlighet multiplisert med konsekvens", "Konsekvens minus førebyggende tiltak", "Summen av alle identifiserte trusler i et gitt tidsrom", "Antall sårbarheter delt på verdiene som beskyttes"],
       explanation: "Risiko defineres som kombinasjonen (produktet) av sannsynlighet for at en uønsket hendelse inntreffer og konsekvensene av hendelsen.",
     },
     {
@@ -51,7 +51,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken farge i risikomatrisen indikerer at umiddelbar handling kreves?",
-      options: ["Rod (hoy/svært høy risiko)", "Oransje (moderat risiko)", "Oransje (moderat risiko som må håndteres straks)", "Gul (akseptabel risiko)"],
+      options: ["Rod (hoy/svært høy risiko)", "Oransje (moderat risiko)", "Oransje (moderat risiko som må håndteres straks)", "Gul (akseptabel og lav risiko)"],
       explanation: "Rode risikoer (hoy/svært høy) krever umiddelbar handling. Oransje risikoer bør vurderes for tiltak, mens grønne risikoer normalt er akseptable.",
     },
   ],
@@ -63,7 +63,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva star CPTED for?",
-      options: ["Crime Prevention Through Environmental Design", "Certified Professional Technical Defense", "Controlled Perimeter Total External Deterrence", "Central Protection Technology Emergency Directive"],
+      options: ["Crime Prevention Through Environmental Design", "Certified Professional Technical Defense System", "Controlled Perimeter Total External Deterrence", "Central Protection Technology Emergency Directive"],
       explanation: "CPTED står for Crime Prevention Through Environmental Design - kriminalitetsførebygging gjennom utforming av omgivelsene.",
     },
     {
@@ -85,7 +85,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-4": [
     {
       question: "Hvilke tre faktorer baseres adgangskontroll pa?",
-      options: ["Noe du vet, noe du har, noe du er", "Sone, barriere og kontroll", "Kortleser, tallkode og videokamera på inngangen", "Kort, kode og kamera"],
+      options: ["Noe du vet, noe du har, noe du er", "Sone, barriere og kontroll", "Kortleser, kode og videokamera", "Kort, kode og kamera"],
       explanation: "Adgangskontroll baseres påtre faktorer: noe du vet (passord/PIN), noe du har (kort/nokkel), og noe du er (biometri). To-faktor kombinerer to av disse.",
     },
     {
@@ -100,7 +100,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken korttype anses som standard for adgangskontroll i dag?",
-      options: ["Proximity-kort (RFID)", "Magnetstripekort", "Strekodekort som avleses optisk av en skanner", "Strekodekort"],
+      options: ["Proximity-kort (RFID)", "Magnetstripekort", "Optisk strekodekort", "Strekodekort"],
       explanation: "Proximity-kort (RFID) er standard i dag. De har beroringsri avlesning, er vanskeligere a kopiere enn magnetstripe, og har lang levetid.",
     },
     {
@@ -144,7 +144,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva star ABCDE for i førstehjelp?",
-      options: ["Airway, Breathing, Circulation, Disability, Expose", "Always Be Careful During any Emergency situation", "Assess, Bandage, Compress the wound, Dress it, Elevate", "Alert, Breathe, Call for help, Do compressions, Evaluate"],
+      options: ["Airway, Breathing, Circulation, Disability, Expose", "Always Be Careful During any Emergency situation at work", "Assess, Bandage, Compress the wound, Dress it, Elevate", "Alert, Breathe, Call for help, Do compressions, Evaluate"],
       explanation: "ABCDE står for Airway (luftveier), Breathing (pusting), Circulation (sirkulasjon), Disability (bevissthet) og Expose (eksponere/avdekke).",
     },
     {
@@ -176,12 +176,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen pånodrett og nodverge?",
-      options: ["Nødrett redder fra fare, nodverge forsvarer mot angrep", "Nodrett gjelder for vektere, nodverge for alle", "Nødrett gjelder bare for vektere, mens nødverge gjelder for alle borgere", "Nodrett er lovlig, nodverge er ulovlig"],
+      options: ["Nødrett redder fra fare, nodverge forsvarer mot angrep", "Nodrett gjelder for vektere, nodverge for alle", "Nødrett gjelder bare for vektere", "Nodrett er lovlig, nodverge er ulovlig"],
       explanation: "Nodrett (§ 17) gir rett til a bega ellers straffbare handlinger for a redde fra fare. Nodverge (§ 18) gir rett til a forsvare seg mot ulovlige angrep.",
     },
     {
       question: "Hva innebærer maktpyramidens prinsipp?",
-      options: ["Start med minst inngripende middel og ok gradvis", "Bruk alltid maksimal makt for sikkerhet", "Overlat all form for maktbruk til politiet og grip aldri selv inn", "La politiet handtere all maktbruk"],
+      options: ["Start med minst inngripende middel og ok gradvis", "Bruk alltid maksimal makt for sikkerhet", "Grip aldri selv inn ved maktbruk", "La politiet handtere all maktbruk"],
       explanation: "Maktpyramiden innebærer a starte med minst inngripende middel (tilstedevarelse) og gradvis oke om nødvendig, fra verbal kommunikasjon til fysisk makt kun i nodverge.",
     },
     {
@@ -279,7 +279,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er yrkesetikk?",
-      options: ["De moralske prinsippene og retningslinjene som styrer utovelsen av et yrke", "Lovbestemmelser som fastsetter minstelønn innenfor et yrke", "En detaljert oversikt over arbeidstider og pauser i yrket", "Reglene for hvordan man skal kle seg korrekt på jobb"],
+      options: ["De moralske prinsippene og retningslinjene som styrer utovelsen av et yrke", "Lovbestemmelser som fastsetter minstelønn innenfor et yrke", "En detaljert oversikt over arbeidstider og pauser i yrket", "Reglene for hvordan man skal kle seg korrekt og opptre høflig overfor kundene"],
       explanation: "Yrkesetikk er de moralske prinsippene og retningslinjene som styrer yrkesutovelsen, blant annet respekt for menneskeverd, likebehandling, taushetsplikt og integritet.",
     },
     {
@@ -289,12 +289,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebaerer integritet i yrkesetikken?",
-      options: ["A handle ærlig og konsekvent og ikke la seg bestikke", "A vaere lojal mot arbeidsgiver uansett", "Å alltid føye seg etter kundens ønsker for å unngå klager", "Å holde all informasjon skjult for ledelsen i virksomheten"],
+      options: ["A handle ærlig og konsekvent og ikke la seg bestikke", "A vaere lojal mot arbeidsgiver uansett hva som blir bedt om", "Å alltid føye seg etter kundens ønsker for å unngå klager", "Å holde all informasjon skjult for ledelsen i virksomheten"],
       explanation: "Integritet betyr a handle ærlig og konsekvent, aldri la seg bestikke, rapportere sannferdig og ta ansvar for egne feil.",
     },
     {
       question: "Hva kan brudd pa taushetsplikten i alvorlige tilfeller fore til?",
-      options: ["Oppsigelse og straffeansvar", "Bare en muntlig advarsel", "En høyere lønn som kompensasjon for tabben", "Ingen konsekvenser"],
+      options: ["Oppsigelse og straffeansvar", "Bare en muntlig advarsel", "En høyere lønn som kompensasjon for tabben", "Ingen konsekvenser for den ansatte"],
       explanation: "Brudd pa taushetsplikten kan fore til oppsigelse, og i alvorlige tilfeller straffeansvar.",
     },
   ],
@@ -306,7 +306,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god hendelsesrapport?",
-      options: ["Den er objektiv, kronologisk og inneholder relevante fakta", "Den inneholder vekterens personlige meninger", "Den skrives kun dersom politiet uttrykkelig ber om skriftlig dokumentasjon", "Den er kortest mulig og utelater tidspunkter og andre detaljer om hendelsen"],
+      options: ["Den er objektiv, kronologisk og inneholder relevante fakta", "Den inneholder vekterens personlige meninger om de involverte", "Den skrives kun dersom politiet uttrykkelig ber om skriftlig dokumentasjon", "Den er kortest mulig og utelater tidspunkter og andre detaljer om hendelsen"],
       explanation: "En hendelsesrapport skal vaere objektiv, kronologisk og inneholde alle relevante fakta. Den brukes som dokumentasjon overfor oppdragsgiver, politi og forsikring.",
     },
     {
@@ -321,7 +321,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med skriftlig rapportering av en hendelse?",
-      options: ["A dokumentere fakta for oppdragsgiver, politi og forsikring", "A erstatte muntlig kommunikasjon helt", "A gjore vekteren og selskapet mer kjent gjennom omtale i lokale medier", "A straffe personen som var involvert ved a gi videre bevis til domstolen"],
+      options: ["A dokumentere fakta for oppdragsgiver, politi og forsikring", "A erstatte all muntlig kommunikasjon mellom vekter og vaktsentral", "A gjore vekteren og selskapet mer kjent gjennom omtale i lokale medier", "A straffe personen som var involvert ved a gi videre bevis til domstolen"],
       explanation: "Skriftlig rapportering dokumenterer hendelsen objektivt og kronologisk, og brukes som grunnlag overfor oppdragsgiver, politi og forsikringsselskap.",
     },
   ],
@@ -333,7 +333,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan har vekterrollen endret seg fra 1980 til i dag?",
-      options: ["Fra analog patruljering til digital teknologi og IP-baserte systemer", "Vektere har faatt politimyndighet", "Den er i praksis helt uforandret med samme utstyr og oppgaver som for", "Vektere har mistet all teknologisk stotte og jobber kun manuelt i dag"],
+      options: ["Fra analog patruljering til digital teknologi og IP-baserte systemer", "Vektere har faatt politimyndighet og kan paagripe pa lik linje med politiet", "Den er i praksis helt uforandret med samme utstyr og oppgaver som for", "Vektere har mistet all teknologisk stotte og jobber kun manuelt i dag"],
       explanation: "Pa 1980-tallet brukte vektere lommelykt, notatblokk og analoge kameraer. I dag er sikkerhetsarbeid digitalt med IP-baserte systemer, elektronisk rapportering og avansert overvaking.",
     },
     {
@@ -360,7 +360,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr sarbarhet?",
-      options: ["Manglende evne til a motsta en hendelse eller gjenopprette etterpa", "Verdien av det som beskyttes", "Den samlede verdien av det som skal beskyttes, malt i penger og betydning", "En mulig uonsket handling eller hendelse som kan skade det vi vil beskytte"],
+      options: ["Manglende evne til a motsta en hendelse eller gjenopprette etterpa", "Verdien av det som beskyttes, regnet i kroner og i betydning for driften", "Den samlede verdien av det som skal beskyttes, malt i penger og betydning", "En mulig uonsket handling eller hendelse som kan skade det vi vil beskytte"],
       explanation: "Sarbarhet er manglende evne til a motsta en uonsket hendelse eller til a gjenopprette onsket tilstand etterpa. Det er det motsatte av robusthet.",
     },
     {
@@ -370,7 +370,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konsekvens i risikosammenheng?",
-      options: ["Det mulige resultatet av en uonsket hendelse, malt i skade pa verdier", "Hvor trolig hendelsen er", "Trusselaktorens motiv og hensikt bak den planlagte uonskede handlingen", "Et uttrykk for hvor trolig det er at den uonskede hendelsen faktisk skjer"],
+      options: ["Det mulige resultatet av en uonsket hendelse, malt i skade pa verdier", "Hvor trolig hendelsen er, uttrykt som en sannsynlighet i prosent per ar", "Trusselaktorens motiv og hensikt bak den planlagte uonskede handlingen", "Et uttrykk for hvor trolig det er at den uonskede hendelsen faktisk skjer"],
       explanation: "Konsekvens er det mulige resultatet av en hendelse, malt i skade pa liv, helse, materielle verdier, miljo, okonomi eller omdomme.",
     },
     {
@@ -392,7 +392,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes HAZOP-metoden til?",
-      options: ["A identifisere farer og driftsproblemer i prosessanlegg ved hjelp av ledeord", "A planlegge ferieavvikling og bemanning gjennom aret ved anlegget i drift", "A beregne lonn og godtgjorelse til ansatte som jobber i prosessanlegget", "A male kundetilfredshet og omdomme etter leveranser fra prosessanlegget"],
+      options: ["A identifisere farer og driftsproblemer i prosessanlegg ved hjelp av ledeord", "A planlegge ferieavvikling og bemanning gjennom aret ved anlegget i drift", "A beregne lonn og godtgjorelse til alle ansatte som jobber i prosessanlegget til daglig", "A male kundetilfredshet og omdomme etter leveranser fra prosessanlegget"],
       explanation: "HAZOP (Hazard and Operability Study) bruker ledeord (mer, mindre, ingen) kombinert med prosessparametere for a avdekke avvik i tekniske systemer og prosessanlegg.",
     },
     {
@@ -402,7 +402,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en risikoanalyse?",
-      options: ["En systematisk framgangsmate for a beskrive og beregne risiko", "En liste over forsikringer", "En samlet oversikt over alle forsikringsavtaler virksomheten har tegnet", "En detaljert plan for markedsforing av virksomhetens sikkerhetstjenester"],
+      options: ["En systematisk framgangsmate for a beskrive og beregne risiko", "En liste over samtlige forsikringer virksomheten har tegnet hos selskapet", "En samlet oversikt over alle forsikringsavtaler virksomheten har tegnet", "En detaljert plan for markedsforing av virksomhetens sikkerhetstjenester"],
       explanation: "Risikoanalyse er en systematisk metode for a identifisere uonskede hendelser, kartlegge arsaker og konsekvenser, og vurdere sannsynlighet og konsekvensgrad.",
     },
   ],
@@ -414,7 +414,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kritisk infrastruktur?",
-      options: ["Anlegg og systemer som er nodvendige for samfunnets grunnleggende funksjoner", "Utelukkende militaere anlegg og forsvarets installasjoner i landet ellers", "Reklameskilt og informasjonstavler langs veiene som kan skades av vaer", "Alle private boliger og hytter som er sarbare for innbrudd og brann"],
+      options: ["Anlegg og systemer som er nodvendige for samfunnets grunnleggende funksjoner", "Utelukkende militaere anlegg og forsvarets installasjoner i landet ellers", "Reklameskilt og informasjonstavler langs veiene som kan skades av vaer", "Alle private boliger og fritidshytter som kan vaere sarbare for innbrudd og brann"],
       explanation: "Kritisk infrastruktur er anlegg og systemer som er nodvendige for samfunnets grunnleggende behov. Bortfall kan true liv, helse og samfunnsfunksjoner.",
     },
     {
@@ -424,7 +424,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke typer svakheter ser en sarbarhetsvurdering pa?",
-      options: ["Fysiske, tekniske, organisatoriske og menneskelige", "Bare okonomiske", "Bare fysiske svakheter som lasing, gjerder og sikring av dorer og vinduer", "Kun juridiske svakheter i avtaler og manglende samsvar med gjeldende lover"],
+      options: ["Fysiske, tekniske, organisatoriske og menneskelige", "Bare okonomiske svakheter i virksomhetens arsbudsjett", "Bare fysiske svakheter som lasing, gjerder og sikring av dorer og vinduer", "Kun juridiske svakheter i avtaler og manglende samsvar med gjeldende lover"],
       explanation: "En sarbarhetsvurdering ser pa bade fysiske, tekniske, organisatoriske og menneskelige svakheter.",
     },
     {
@@ -436,7 +436,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-2-4": [
     {
       question: "Hva er forebyggende tiltak?",
-      options: ["Tiltak som reduserer sannsynligheten for at en hendelse inntreffer", "Tiltak som bare brukes etter en hendelse", "Tiltak som kun handler om a tegne forsikring for a dekke okonomiske tap", "Tiltak som oker konsekvensene og skadeomfanget nar en hendelse inntreffer"],
+      options: ["Tiltak som reduserer sannsynligheten for at en hendelse inntreffer", "Tiltak som bare kan brukes etter at en uonsket hendelse allerede har skjedd", "Tiltak som kun handler om a tegne forsikring for a dekke okonomiske tap", "Tiltak som oker konsekvensene og skadeomfanget nar en hendelse inntreffer"],
       explanation: "Forebyggende tiltak reduserer sannsynligheten for at en uonsket hendelse skjer, for eksempel adgangskontroll, opplaering og vedlikehold.",
     },
     {
@@ -451,7 +451,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er forebyggende tiltak ofte mest kostnadseffektive?",
-      options: ["Fordi de forhindrer at hendelsen skjer i det hele tatt", "Fordi de erstatter all forsikring", "Fordi de fullt ut erstatter behovet for a tegne forsikring mot skader", "Fordi de oker konsekvensene og gjor skadene storre nar noe forst skjer"],
+      options: ["Fordi de forhindrer at hendelsen skjer i det hele tatt", "Fordi de erstatter all forsikring", "Fordi de fullt ut erstatter behovet for a tegne forsikring mot skader", "Fordi de oker konsekvensene og gjor skadene storre"],
       explanation: "Forebyggende tiltak er ofte mest kostnadseffektive fordi de hindrer hendelsen i a skje, slik at man unngar bade direkte skader og folgeskader.",
     },
     {
@@ -463,7 +463,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-2-5": [
     {
       question: "Hva er risikostyring?",
-      options: ["Alle koordinerte aktiviteter for a lede og kontrollere en organisasjon med hensyn til risiko", "A bevisst ignorere risiko fordi den likevel ikke lar seg kontrollere fullt ut", "Bare a skrive rapporter i etterkant av hendelser uten videre oppfolging", "Utelukkende a kjope forsikring som dekker tap etter uonskede hendelser"],
+      options: ["Alle koordinerte aktiviteter for a lede og kontrollere en organisasjon med hensyn til risiko", "A bevisst ignorere risiko fordi den likevel ikke lar seg kontrollere fullt ut", "Bare a skrive rapporter i etterkant av hendelser uten videre oppfolging", "Utelukkende a kjope forsikringer som skal dekke de okonomiske tapene etter uonskede hendelser"],
       explanation: "Risikostyring omfatter rammeverk, risikovurdering, risikohaandtering, overvaking og gjennomgang. Malet er a holde risikoen pa et akseptabelt niva.",
     },
     {
@@ -473,29 +473,29 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er akseptkriterier?",
-      options: ["Forhaandsdefinerte kriterier for hvilke risikoer organisasjonen er villig til a akseptere", "Krav til uniform og synlig legitimasjon for personell i sikringstjeneste", "Krav til ansattes utdanning og kompetanse for a fa jobbe med sikkerhet", "Regler for lonn og godtgjorelse til dem som utforer risikovurderingene"],
+      options: ["Forhaandsdefinerte kriterier for hvilke risikoer organisasjonen er villig til a akseptere", "Krav til uniform og synlig legitimasjon for personell i sikringstjeneste", "Krav til de ansattes utdanning og kompetanse for a kunne fa jobbe med sikkerhet i virksomheten", "Regler for lonn og godtgjorelse til dem som utforer risikovurderingene"],
       explanation: "Akseptkriterier er forhaandsdefinerte kriterier fastsatt av ledelsen som angir hvilke risikoer organisasjonen aksepterer, basert pa lover, verdier og okonomi.",
     },
     {
       question: "Hva er malet med risikostyring?",
-      options: ["A holde risikoen pa et niva som er akseptabelt for organisasjonen", "A eliminere all risiko fullstendig", "A ta pa seg storst mulig risiko for a kunne oppna hoyest mulig gevinst og avkastning for virksomheten", "A oke risikoen for storre gevinst"],
+      options: ["A holde risikoen pa et niva som er akseptabelt for organisasjonen", "A eliminere all risiko fullstendig", "A ta pa seg storst mulig risiko for a kunne oppna hoyest mulig gevinst og avkastning for virksomheten", "A oke risikoen bevisst for a kunne oppna en storre gevinst for eierne"],
       explanation: "Malet med risikostyring er a sikre at risikoen holdes pa et niva som er akseptabelt for organisasjonen, gjennom systematisk vurdering og tiltak.",
     },
     {
       question: "Hvem fastsetter normalt akseptkriteriene i en virksomhet?",
-      options: ["Ledelsen / styret", "Den enkelte vekter", "Kundene", "Forsikringsselskapet alene"],
+      options: ["Ledelsen / styret", "Den enkelte vekter", "Kundene og leverandorene", "Forsikringsselskapet alene"],
       explanation: "Akseptkriteriene fastsettes av ledelsen (ofte styret), som tar hensyn til lover, organisasjonens verdier, okonomiske rammer og interessentenes forventninger.",
     },
   ],
   "sikkerhetsfag-3-1": [
     {
       question: "Hva star CPTED for?",
-      options: ["Crime Prevention Through Environmental Design", "Crime Patrol Through Electronic Detection", "Certified Protection Through Electronic Detection", "Critical Protection ofTerrorist Domains"],
+      options: ["Crime Prevention Through Environmental Design", "Crime Patrol Through Electronic Detection", "Certified Protection Through Electronics", "Critical Protection ofTerrorist Domains"],
       explanation: "CPTED star for Crime Prevention Through Environmental Design - kriminalitetsforebygging gjennom utforming av det fysiske miljoet.",
     },
     {
       question: "Hva er hovedmalet med CPTED?",
-      options: ["A gjore det vanskeligere a begaa lovbrudd og lettere a oppdage uonsket atferd", "A bygge hoyere murer rundt alt", "A installere flest mulig alarmer og kameraer slik at politiet raskt kan gripe inn nar noe har skjedd", "A erstatte all fysisk sikring med et stort antall vektere som patruljerer omradet gjennom hele dognet"],
+      options: ["A gjore det vanskeligere a begaa lovbrudd og lettere a oppdage uonsket atferd", "A bygge stadig hoyere murer og kraftigere gjerder rundt hele det sikrede omradet", "A installere flest mulig alarmer og kameraer slik at politiet raskt kan gripe inn nar noe har skjedd", "A erstatte all fysisk sikring med et stort antall vektere som patruljerer omradet gjennom hele dognet"],
       explanation: "CPTED soker a redusere muligheter for kriminalitet, oke oppdagelsesrisikoen og styrke trygghetsfolelsen gjennom hvordan omgivelsene utformes.",
     },
     {
@@ -510,29 +510,29 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med naturlig tilgangskontroll i CPTED?",
-      options: ["A lede bevegelse og markere grenser mellom offentlige og private soner", "A stenge alle innganger permanent", "A ansette dorvakter ved samtlige innganger slik at de fysisk kan avvise personer uten aerend", "A overvake alle som ferdes i omradet med kamera slik at bevegelsene deres kan spores i ettertid"],
+      options: ["A lede bevegelse og markere grenser mellom offentlige og private soner", "A stenge samtlige innganger permanent slik at ingen kan passere gjennom dem", "A ansette dorvakter ved samtlige innganger slik at de fysisk kan avvise personer uten aerend", "A overvake alle som ferdes i omradet med kamera slik at bevegelsene deres kan spores i ettertid"],
       explanation: "Naturlig tilgangskontroll bruker design som stier, lave gjerder og soneinndeling for a lede bevegelse og tydeliggjore hvor folk hører hjemme, noe som reduserer mulighet for kriminalitet.",
     },
   ],
   "sikkerhetsfag-3-2": [
     {
       question: "Hva omfatter fysisk sikring?",
-      options: ["Materielle tiltak som hindrer, forsinker eller oppdager uautorisert tilgang", "Bare opplaering av ansatte", "Utelukkende elektroniske alarmer og sensorer som varsler vaktsentralen nar noen forsoker a ta seg inn", "Utelukkende forsikringsavtaler som dekker det okonomiske tapet dersom et innbrudd eller en skade skjer"],
+      options: ["Materielle tiltak som hindrer, forsinker eller oppdager uautorisert tilgang", "Bare opplaering av de ansatte i rutiner og prosedyrer for adgang til bygninger", "Utelukkende elektroniske alarmer og sensorer som varsler vaktsentralen nar noen forsoker a ta seg inn", "Utelukkende forsikringsavtaler som dekker det okonomiske tapet dersom et innbrudd eller en skade skjer"],
       explanation: "Fysisk sikring omfatter gjerder, murer, porter, laser, dorer og andre konstruksjoner som utgjor fysiske hindre for inntrengere.",
     },
     {
       question: "Hva er perimetersikring?",
-      options: ["Sikringstiltak langs yttergrensen av et omrade", "Sikring av sentrale serverrom", "Sikring av de sentrale serverrommene der virksomhetens viktigste data og systemer oppbevares", "Sikring av ansattes passord"],
+      options: ["Sikringstiltak langs yttergrensen av et omrade", "Sikring av sentrale serverrom", "Sikring av de sentrale serverrommene", "Sikring av ansattes passord"],
       explanation: "Perimetersikring er tiltak langs yttergrensen av en eiendom, som gjerder, murer, porter og bommer, for a kontrollere adgang og oppdage forsok pa inntrenging.",
     },
     {
       question: "Hva er ideen bak forsvar i dybden (lagdelt sikring)?",
-      options: ["Flere lag med barrierer slik at en inntrenger ma forsere flere hindre", "Alle barrierer plasseres samme sted", "At elektronisk overvaking med kamera og sensorer alene erstatter behovet for fysiske barrierer og hindre", "At alle barrierene plasseres samlet pa samme sted slik at de til sammen danner ett kraftig sikringspunkt"],
+      options: ["Flere lag med barrierer slik at en inntrenger ma forsere flere hindre", "Alle barrierer plasseres samme sted", "At elektronisk overvaking alene erstatter fysiske barrierer", "At alle barrierene plasseres samlet pa samme sted slik at de til sammen danner ett kraftig sikringspunkt"],
       explanation: "Forsvar i dybden bruker flere lag med sikring (perimeter, bygningsskall, indre soner) slik at en inntrenger ma forsere flere barrierer, noe som forsinker og oker oppdagelsessjansen.",
     },
     {
       question: "Hvilket tiltak hører til perimeterlaget i et sikringsopplegg?",
-      options: ["Gjerde med port og kortleser for kjoretoy", "Adgangskort til kontorlandskapet", "En forsterket staaldor med boltelaas som beskytter selve verdihvelvet innerst i bygget", "Stalldor til selve hvelvet"],
+      options: ["Gjerde med port og kortleser for kjoretoy", "Adgangskort til kontorlandskapet", "En forsterket staaldor med boltelaas", "Stalldor til selve hvelvet"],
       explanation: "Perimeterlaget er yttergrensen, for eksempel gjerde med piggtrad, motorisert port og kortleser/nummerplateleser for kjoretoy.",
     },
     {
@@ -544,7 +544,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-3-3": [
     {
       question: "Hva bestar et alarmsystem av?",
-      options: ["Detektorer, en sentral og varslingsenheter", "Bare en lasebrikke", "Utelukkende en elektronisk laasebrikke som styrer hvem som far adgang til de sikrede omradene", "Bare en hoyttaler"],
+      options: ["Detektorer, en sentral og varslingsenheter", "Bare en lasebrikke", "Utelukkende en elektronisk laasebrikke", "Bare en hoyttaler"],
       explanation: "Et alarmsystem bestar av detektorer som registrerer hendelser, en sentral som behandler signalene, og varslingsenheter som gir alarm til riktige mottakere.",
     },
     {
@@ -554,12 +554,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er falske alarmer et problem?",
-      options: ["De undergraver tilliten slik at reelle alarmer ikke tas pa alvor", "De gjor systemet billigere", "De oker den samlede sikkerheten fordi systemet stadig testes og de ansatte holdes skjerpet", "De gjor sikringssystemet billigere fordi det da ikke trengs like mange vektere og kontroller"],
+      options: ["De undergraver tilliten slik at reelle alarmer ikke tas pa alvor", "De gjor systemet billigere fordi det da trengs faerre detektorer i bygget", "De oker den samlede sikkerheten fordi systemet stadig testes og de ansatte holdes skjerpet", "De gjor sikringssystemet billigere fordi det da ikke trengs like mange vektere og kontroller"],
       explanation: "Falske alarmer er et betydelig problem fordi de undergraver tilliten til systemet og kan fore til at reelle alarmer ikke tas pa alvor.",
     },
     {
       question: "Hvilken detektor egner seg for a oppdage at en dor apnes?",
-      options: ["Magnetkontakt", "Glassbruddetektor", "Roykdetektor", "Temperaturfoler"],
+      options: ["Magnetkontakt", "Glassbruddetektor", "Roykdetektor i taket", "Temperaturfoler"],
       explanation: "Magnetkontakter monteres pa dorer og vinduer og registrerer nar de apnes ved at magnetfeltet brytes.",
     },
     {
@@ -571,12 +571,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-3-4": [
     {
       question: "Hva star CCTV for?",
-      options: ["Closed Circuit Television - et lukket kamerasystem", "Central Control Television Unit", "Continuous Camera Tracking Vision - et kamerasystem som folger bevegelser automatisk", "Crime Camera Tactical Vision"],
+      options: ["Closed Circuit Television - et lukket kamerasystem", "Central Control Television Unit", "Continuous Camera Tracking Vision", "Crime Camera Tactical Vision"],
       explanation: "CCTV star for Closed Circuit Television - et lukket kamerasystem der signalet kun er tilgjengelig for autoriserte brukere, ikke for kringkasting.",
     },
     {
       question: "Hva krever GDPR ved kameraovervaking?",
-      options: ["Behandlingsgrunnlag, interesseavveining, tydelig skilting og begrenset lagringstid", "At man overvaker overalt uten begrensning", "At alle opptak lagres permanent i arkivet slik at de kan hentes frem igjen dersom det skulle bli behov", "At virksomheten kan overvake alle omrader uten begrensning saa lenge formaalet er a hindre kriminalitet"],
+      options: ["Behandlingsgrunnlag, interesseavveining, tydelig skilting og begrenset lagringstid", "At man kan overvake alle omraader helt uten begrensning i tid, omfang eller lagring", "At alle opptak lagres permanent i arkivet slik at de kan hentes frem igjen dersom det skulle bli behov", "At virksomheten kan overvake alle omrader uten begrensning saa lenge formaalet er a hindre kriminalitet"],
       explanation: "GDPR krever blant annet et behandlingsgrunnlag (ofte berettiget interesse), en interesseavveining, tydelig skilting og at opptak ikke lagres lenger enn nodvendig.",
     },
     {
@@ -586,7 +586,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bor gjores forst nar en butikk vil installere kameraovervaking?",
-      options: ["Fastsette og dokumentere formaalet med overvakingen", "Lagre opptak sa lenge som mulig", "Skjule alle kameraene godt slik at kunder og ansatte ikke merker at de blir filmet i butikken", "Overvake ansattes pauserom"],
+      options: ["Fastsette og dokumentere formaalet med overvakingen", "Lagre opptak sa lenge som mulig", "Skjule alle kameraene godt for kunder og ansatte", "Overvake ansattes pauserom"],
       explanation: "Forst ma formaalet (for eksempel a forebygge butikktyveri) fastsettes og dokumenteres, fordi formaalet styrer hva som er lovlig a overvake.",
     },
     {
@@ -608,24 +608,24 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forutsetter en god rapporteringskultur?",
-      options: ["At det er trygt a rapportere uten frykt for negative konsekvenser", "At bare ledelsen far rapportere", "At avvik og hendelser holdes hemmelige internt, slik at virksomhetens omdomme ikke blir skadet utad", "At den som rapporterer straffes"],
+      options: ["At det er trygt a rapportere uten frykt for negative konsekvenser", "At bare ledelsen far rapportere", "At avvik og hendelser holdes hemmelige internt", "At den som rapporterer straffes"],
       explanation: "En god rapporteringskultur forutsetter at det er trygt a rapportere uten frykt for negative konsekvenser, slik at man far frem informasjon man kan laere av.",
     },
     {
       question: "Hvorfor regnes menneskene som den viktigste faktoren i sikkerhetsarbeid?",
-      options: ["Fordi holdninger og atferd avgjor om rutiner og systemer faktisk virker", "Fordi teknologi er uten betydning", "Fordi lover og regler ikke gjelder for de ansatte selv, men bare for utenforstaaende og besokende", "Fordi mennesker som er godt opplaert i praksis aldri gjor feil naar de utforer sikkerhetsoppgavene sine"],
+      options: ["Fordi holdninger og atferd avgjor om rutiner og systemer faktisk virker", "Fordi teknologi er uten betydning", "Fordi lover og regler ikke gjelder for de ansatte selv, men bare for utenforstaaende og besokende", "Fordi mennesker som er godt opplaert i praksis aldri gjor feil"],
       explanation: "Selv de beste systemene svikter hvis menneskene ikke folger dem. Holdninger, atferd og en god sikkerhetskultur avgjor om sikkerhetsarbeidet faktisk fungerer.",
     },
     {
       question: "Hva er et viktig forste steg for a forbedre sikkerhetskulturen?",
-      options: ["Tydelig ledelsesforankring der ledere gar foran som gode eksempler", "A skjule hendelser for ansatte", "A skjule uonskede hendelser for de ovrige ansatte slik at de ikke mister troen paa sikkerhetsarbeidet", "A fjerne all opplaering slik at de ansatte laerer av egne erfaringer og finner losninger paa egen haand"],
+      options: ["Tydelig ledelsesforankring der ledere gar foran som gode eksempler", "A skjule hendelser for ansatte", "A skjule uonskede hendelser for de ovrige ansatte slik at de ikke mister troen paa sikkerhetsarbeidet", "A fjerne all opplaering slik at ansatte laerer av egne feil"],
       explanation: "Ledelsesforankring er sentralt: nar ledelsen tydelig prioriterer sikkerhet og selv folger rutinene, pavirker det holdningene og atferden i hele organisasjonen.",
     },
   ],
   "sikkerhetsfag-4-1": [
     {
       question: "Hva er adgangskontroll?",
-      options: ["Tiltak og systemer som begrenser og styrer tilgang til omrader eller informasjon", "Et brannvarslingssystem", "En type forsikring som gir okonomisk dekning dersom uvedkommende tar seg inn og forarsaker skade", "Et kameraopptak som dokumenterer hvem som har beveget seg inn og ut av bygningens ulike omraader"],
+      options: ["Tiltak og systemer som begrenser og styrer tilgang til omrader eller informasjon", "Et brannvarslingssystem med detektorer, sirener og direkte varsling til brannvesenet", "En type forsikring som gir okonomisk dekning dersom uvedkommende tar seg inn og forarsaker skade", "Et kameraopptak som dokumenterer hvem som har beveget seg inn og ut av bygningens ulike omraader"],
       explanation: "Adgangskontroll er tiltak og systemer som sikrer at kun autoriserte personer far adgang til omrader de har rett til a vaere i.",
     },
     {
@@ -635,12 +635,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med soneinndeling?",
-      options: ["A gradere tilgang slik at sensitive omrader krever hoyere autorisasjon", "A gjore alle omrader apne for alle", "A fjerne all form for adgangskontroll slik at bade ansatte og besokende kan bevege seg helt fritt", "A samle alle ansatte og besokende i ett stort felles rom slik at de enkelt kan holdes under oppsyn"],
+      options: ["A gradere tilgang slik at sensitive omrader krever hoyere autorisasjon", "A gjore alle omrader apne for alle", "A fjerne all form for adgangskontroll slik at bade ansatte og besokende kan bevege seg helt fritt", "A samle alle ansatte og besokende i ett stort felles rom"],
       explanation: "Soneinndeling deler bygget i soner med ulik tilgangskrav (offentlig, kontrollert, begrenset), slik at sensitive omrader krever hoyere niva av autentisering.",
     },
     {
       question: "Hvilke tre faktortyper kan brukes i autentisering?",
-      options: ["Noe du har, noe du vet og noe du er", "Noe du ser, hører og lukter", "Tidspunktet paa dognet, stedet du befinner deg paa og vaeret som raader akkurat da", "Lonn, alder og stilling"],
+      options: ["Noe du har, noe du vet og noe du er", "Noe du ser, hører og lukter", "Tidspunkt, sted og vaer", "Lonn, alder og stilling"],
       explanation: "De tre faktortypene er: noe du har (kort, brikke), noe du vet (PIN, passord) og noe du er (fingeravtrykk, iris).",
     },
     {
@@ -652,44 +652,44 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-4-2": [
     {
       question: "Hva er besokshandtering?",
-      options: ["Rutiner for a motta, registrere, folge opp og lose ut besokende", "En forsikring for besokende", "En automatisk alarmordning som varsler resepsjonen hver gang en dor apnes i bygget", "Et sett brannvernrutiner som gjelder spesielt for gjester og eksterne besokende i bygg"],
+      options: ["Rutiner for a motta, registrere, folge opp og lose ut besokende", "En forsikring for besokende", "En automatisk alarmordning som varsler resepsjonen hver gang en dor apnes i bygget", "Et sett brannvernrutiner for gjester og besokende"],
       explanation: "Besokshandtering er rutinene en virksomhet har for a motta, registrere, folge opp og lose ut besokende, slik at alle besok er planlagt og kontrollert.",
     },
     {
       question: "Hva er hovedmalet med god besokshandtering?",
-      options: ["A sikre at alle besok er planlagt, identifisert og innenfor autoriserte omrader", "A spare resepsjonens lonn", "A overvake de ansattes bevegelser og arbeidstid gjennom besokssystemets registreringer", "A redusere lonnsutgiftene i resepsjonen ved at besok registrerer seg helt uten bemanning"],
+      options: ["A sikre at alle besok er planlagt, identifisert og innenfor autoriserte omrader", "A spare lonnsutgifter i resepsjonen ved a ha faerre ansatte paa vakt i lopet av dagen", "A overvake de ansattes bevegelser og arbeidstid gjennom besokssystemets registreringer", "A redusere lonnsutgiftene i resepsjonen ved at besok registrerer seg helt uten bemanning"],
       explanation: "Malet er a sikre at alle besok er planlagt, at besokende er identifisert, og at de kun oppholder seg i autoriserte omrader.",
     },
     {
       question: "Hvorfor brukes forhaandsregistrering av besokende?",
-      options: ["Slik at besoket er planlagt og besokende er identifisert pa forhaand", "For a hindre at noen far komme", "For a gjore besoket mer kostbart slik at faerre eksterne velger a komme til virksomheten", "For a slippe a rapportere og loggfore besoket slik at ingen spor blir liggende i systemet"],
+      options: ["Slik at besoket er planlagt og besokende er identifisert pa forhaand", "For a hindre at eksterne besokende i det hele tatt far komme inn i bygget", "For a gjore besoket mer kostbart slik at faerre eksterne velger a komme til virksomheten", "For a slippe a rapportere og loggfore besoket slik at ingen spor blir liggende i systemet"],
       explanation: "Forhaandsregistrering gjor at besoket er planlagt og identiteten kjent for ankomst, noe som styrker bade sikkerhet og effektivitet i mottaket.",
     },
     {
       question: "Hvorfor bor et besokskort gi begrenset tilgang?",
-      options: ["Slik at besokende kun far adgang til de omradene de skal til", "Slik at de kan ga overalt", "For a gjore selve besokskortet dyrere a produsere slik at faerre kort kommer pa avveie", "For a slippe a sette opp skilting og merking av soner fordi kortet styrer all adgang selv"],
+      options: ["Slik at besokende kun far adgang til de omradene de skal til", "Slik at de kan ga overalt", "For a gjore selve besokskortet dyrere a produsere slik at faerre kort kommer pa avveie", "For a slippe a sette opp skilting og merking av soner"],
       explanation: "Et besokskort bor gi tilgang kun til relevante omrader, slik at besokende ikke kommer inn i sensitive soner de ikke har aerend i.",
     },
     {
       question: "Hva er en god rutine ved ankomst for besokende til et sensitivt selskap?",
-      options: ["Fremvise legitimasjon og fa et besokskort med begrenset tilgang", "Hente eget adgangskort fra en hylle", "Hente sitt eget adgangskort fra en apen hylle i resepsjonen og bruke det uten registrering", "Fa utlevert fri og ubegrenset adgang til hele bygningen for a slippe unodige adgangssperrer"],
+      options: ["Fremvise legitimasjon og fa et besokskort med begrenset tilgang", "Hente eget adgangskort fra en hylle", "Hente sitt eget adgangskort fra en apen hylle i resepsjonen og bruke det uten registrering", "Fa fri og ubegrenset adgang til hele bygningen"],
       explanation: "Ved ankomst bor besokende identifiseres med legitimasjon og fa et besokskort som gir begrenset, sporbar tilgang til relevante omrader.",
     },
   ],
   "sikkerhetsfag-4-3": [
     {
       question: "Hva er rondering?",
-      options: ["En systematisk kontrollrunde etter en fastsatt plan", "En forsikringsordning", "Et automatisk varslingssystem som utloser alarm nar noen beveger seg i et sikret omrade", "En brannovelse"],
+      options: ["En systematisk kontrollrunde etter en fastsatt plan", "En forsikringsordning", "Et automatisk varslingssystem med alarm", "En brannovelse"],
       explanation: "Rondering er en systematisk kontrollrunde der en sikkerhetsmedarbeider gjennomgar et definert omrade etter en fastsatt plan for a oppdage avvik.",
     },
     {
       question: "Hva er hovedformaalet med rondering?",
-      options: ["A oppdage avvik, forebygge hendelser og sikre at alt er i orden", "A registrere ansattes pauser", "A registrere de ansattes pauser og arbeidstid gjennom passeringene ved hvert sjekkpunkt", "A gi vekteren jevnlig fysisk trening og kondisjon gjennom lange runder i og rundt bygget"],
+      options: ["A oppdage avvik, forebygge hendelser og sikre at alt er i orden", "A registrere ansattes pauser", "A registrere de ansattes pauser og arbeidstid gjennom passeringene ved hvert sjekkpunkt", "A gi vekteren jevnlig fysisk trening"],
       explanation: "Formaalet med rondering er a oppdage avvik, forebygge uonskede hendelser og sikre at alt er i orden langs faste sjekkpunkter.",
     },
     {
       question: "Hva bestar et elektronisk ronderingssystem av?",
-      options: ["Ronderingsbrikker ved sjekkpunktene og en handholdt enhet for registrering", "Bare en mobiltelefon uten app", "Utelukkende et overvakingskamera som filmer sjekkpunktene og lagrer opptaket fortlopende", "Utelukkende en sentral alarmsentral som mottar signaler fra faste detektorer i bygningen"],
+      options: ["Ronderingsbrikker ved sjekkpunktene og en handholdt enhet for registrering", "Bare en helt vanlig mobiltelefon uten noen form for app installert paa forhaand", "Utelukkende et overvakingskamera som filmer sjekkpunktene og lagrer opptaket fortlopende", "Utelukkende en sentral alarmsentral som mottar signaler fra faste detektorer i bygningen"],
       explanation: "Et elektronisk ronderingssystem har brikker (NFC/RFID) ved sjekkpunktene og en handholdt enhet vekteren bruker for a registrere at hvert punkt er kontrollert.",
     },
     {
@@ -699,24 +699,24 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bor en vekter se etter under en nattrondering ved et lager?",
-      options: ["Spor av uvedkommende, ulaste porter og tegn pa innbruddsforsok", "Antall biler pa parkeringen", "Utelukkende om utelyset er tent slik at parkeringsplassen er godt opplyst gjennom natten", "Antall biler som star parkert pa omradet for a beregne hvor mange ansatte som er pa jobb"],
+      options: ["Spor av uvedkommende, ulaste porter og tegn pa innbruddsforsok", "Antall biler pa parkeringen", "Utelukkende om utelyset er tent", "Antall biler som star parkert pa omradet for a beregne hvor mange ansatte som er pa jobb"],
       explanation: "Under rondering kontrolleres gjerder og porter, og vekteren ser etter spor av uvedkommende og tegn pa innbruddsforsok ved sjekkpunktene.",
     },
   ],
   "sikkerhetsfag-4-4": [
     {
       question: "Hva er mottakskontroll?",
-      options: ["Prosedyrer ved mottak av personer, varer, post og utstyr", "Kontroll av ansattes arbeidstid", "Et sett brannvernrutiner som gjelder spesielt for varelager og mottaksomrader i bygningen", "Kontroll av kameraopptak"],
+      options: ["Prosedyrer ved mottak av personer, varer, post og utstyr", "Kontroll av ansattes arbeidstid", "Et sett brannvernrutiner for varelageret", "Kontroll av kameraopptak"],
       explanation: "Mottakskontroll er prosedyrene som gjennomfores ved mottak av personer, varer, post og utstyr, for a sikre at alt som kommer inn er autorisert og trygt.",
     },
     {
       question: "Hva er malet med mottakskontroll?",
-      options: ["A sikre at alt som kommer inn er autorisert, trygt og korrekt", "A hindre alle leveranser", "A overvake naboene og deres eiendommer gjennom kameraene som er montert ved varemottaket", "A hindre at det i det hele tatt kommer leveranser inn i bygget for a redusere sikkerhetsrisiko"],
+      options: ["A sikre at alt som kommer inn er autorisert, trygt og korrekt", "A hindre alle leveranser", "A overvake naboene og deres eiendommer gjennom kameraene som er montert ved varemottaket", "A hindre at det kommer leveranser inn i bygget"],
       explanation: "Malet er a sikre at alt som kommer inn er autorisert, trygt og korrekt, og at ingenting uonsket passerer gjennom mottaket.",
     },
     {
       question: "Hva bor kontrolleres nar en leverandor ankommer varemottaket?",
-      options: ["Legitimasjon og arbeidsordre/leveranseinformasjon", "Leverandorens private telefon", "Hvilken farge og modell varebilen har slik at man kan kjenne igjen kjoretoyet neste gang", "Bare leverandorens lonn"],
+      options: ["Legitimasjon og arbeidsordre/leveranseinformasjon", "Leverandorens private telefon", "Hvilken farge og modell varebilen har", "Bare leverandorens lonn"],
       explanation: "Ved varemottak kontrolleres leverandorens legitimasjon og arbeidsordre/leveranse, slik at bare planlagte og autoriserte leveranser slipper inn.",
     },
     {
@@ -733,7 +733,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-4-5": [
     {
       question: "Hva er personopplysninger?",
-      options: ["Enhver opplysning som kan knyttes til en identifiserbar person", "Bare offentlige dokumenter", "Utelukkende dokumenter som er offentlig tilgjengelige og dermed kan deles fritt med alle", "Utelukkende en persons fulle navn og bostedsadresse slik det star oppfort i folkeregisteret"],
+      options: ["Enhver opplysning som kan knyttes til en identifiserbar person", "Bare offentlige dokumenter", "Utelukkende dokumenter som er offentlig tilgjengelige og dermed kan deles fritt med alle", "Utelukkende en persons fulle navn og bostedsadresse"],
       explanation: "Personopplysninger er enhver opplysning som kan knyttes til en identifiserbar person, inkludert navn, bilder, video, fingeravtrykk, IP-adresser og adgangskortdata.",
     },
     {
@@ -748,7 +748,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ma gjores for at kameraovervaking skal vaere lovlig?",
-      options: ["Dokumentere formaal, gjore interesseavveining og sette opp tydelig skilting", "Lagre opptak i ubegrenset tid", "Skjule alle kameraene helt slik at ingen legger merke til at overvakingen faktisk foregar", "Dele opptakene fritt med alle som ber om innsyn slik at overvakingen blir mest mulig apen"],
+      options: ["Dokumentere formaal, gjore interesseavveining og sette opp tydelig skilting", "Lagre alle opptakene i ubegrenset tid uten a informere dem som faktisk blir filmet", "Skjule alle kameraene helt slik at ingen legger merke til at overvakingen faktisk foregar", "Dele opptakene fritt med alle som ber om innsyn slik at overvakingen blir mest mulig apen"],
       explanation: "Lovlig kameraovervaking krever dokumentert formaal, en interesseavveining mellom sikkerhetsbehov og personvern, tydelig skilting og begrenset lagringstid.",
     },
     {
@@ -770,7 +770,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor slokker et stearinlys nar man setter et glass over det?",
-      options: ["Oksygenet brukes opp, og en av branntrekantens sider fjernes", "Glasset tilforer mer brennbart stoff", "Det blir rett og slett for varmt inne under glasset til at flammen kan holde seg taent", "Trykket inne i glasset oker sa mye at flammen presses sammen og til slutt slukner helt"],
+      options: ["Oksygenet brukes opp, og en av branntrekantens sider fjernes", "Glasset tilforer mer brennbart stoff til flammen mens det star der", "Det blir rett og slett for varmt inne under glasset til at flammen kan holde seg taent", "Trykket inne i glasset oker sa mye at flammen presses sammen og til slutt slukner helt"],
       explanation: "Glasset stenger ute ny luft. Etter hvert synker oksygenkonsentrasjonen under cirka 16 prosent, og forbrenningen kan ikke opprettholdes - oksygensiden i branntrekanten fjernes.",
     },
     {
@@ -780,7 +780,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er overtenning et kritisk vendepunkt i brannforlopet?",
-      options: ["Brannen sprer seg da raskt til tilstoetende rom og rommet blir livsfarlig", "Slokking blir enklere", "Slokkingen blir enklere etter overtenning fordi flammene samler seg pa ett sted i rommet", "Roeyken blir renere og mindre giftig etter overtenning slik at det gaar an a puste i rommet"],
+      options: ["Brannen sprer seg da raskt til tilstoetende rom og rommet blir livsfarlig", "Slokking blir enklere fordi temperaturen faller raskt like etter overtenningen", "Slokkingen blir enklere etter overtenning fordi flammene samler seg pa ett sted i rommet", "Roeyken blir renere og mindre giftig etter overtenning slik at det gaar an a puste i rommet"],
       explanation: "Etter overtenning sprer brannen seg raskt til tilstoetende rom, og temperaturen gjor rommet umulig a oppholde seg i. Romning ma skje for overtenning.",
     },
   ],
@@ -797,12 +797,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en branncelle?",
-      options: ["Et avgrenset omrade konstruert for a hindre at brann og roeyk sprer seg en gitt tid", "En type brannslukker", "Et etterlysende skilt som markerer romningsveien og leder folk trygt ut ved en evakuering", "En alarmenhet med roykdetektor som varsler bade internt i bygget og direkte til brannvesenet"],
+      options: ["Et avgrenset omrade konstruert for a hindre at brann og roeyk sprer seg en gitt tid", "En type brannslukker fylt med skum som brukes mot storre branner i store naeringsbygg", "Et etterlysende skilt som markerer romningsveien og leder folk trygt ut ved en evakuering", "En alarmenhet med roykdetektor som varsler bade internt i bygget og direkte til brannvesenet"],
       explanation: "En branncelle er et avgrenset omrade adskilt med branncellebegrensende bygningsdeler som hindrer spredning av brann og roeyk i en bestemt tidsperiode, for eksempel EI 30 eller EI 60.",
     },
     {
       question: "Hva betyr betegnelsen EI 60 om en bygningsdel?",
-      options: ["Den har 60 minutters brannmotstand", "Den taler 60 graders varme", "Den taler en flammetemperatur pa inntil 60 grader for materialet begynner a gi etter", "Den er 60 centimeter tykk"],
+      options: ["Den har 60 minutters brannmotstand", "Den taler 60 graders varme", "Den taler flammer pa 60 grader", "Den er 60 centimeter tykk"],
       explanation: "EI 60 betyr at bygningsdelen har 60 minutters brannmotstand (integritet og isolasjon), altsa at den hindrer brann og roeyk i a passere i 60 minutter.",
     },
     {
@@ -814,17 +814,17 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-5-3": [
     {
       question: "Hvordan slokker CO2 en brann?",
-      options: ["Ved a fortrenge oksygen (kveler brannen)", "Ved a tilfore brennbart stoff", "Ved a tilfore ekstra oksygen som fortynner roeyken slik at flammene kveles og dor ut", "Ved a tilfore mer oksygen"],
+      options: ["Ved a fortrenge oksygen (kveler brannen)", "Ved a tilfore brennbart stoff", "Ved a tilfore ekstra oksygen", "Ved a tilfore mer oksygen"],
       explanation: "CO2 slokker ved a fortrenge oksygenet rundt brannen (kveler den). Det egner seg godt rundt elektronikk fordi det ikke etterlater rester.",
     },
     {
       question: "Hva er forsteinnsats ved brann?",
-      options: ["Slokking og redning som utfores pa stedet for brannvesenet ankommer", "Brannvesenets arbeid etter ankomst", "Slokkingen og redningen brannvesenet utforer etter at de har rykket ut og ankommet stedet", "En forsikringsordning som daekker de forste utgiftene virksomheten far rett etter en brann"],
+      options: ["Slokking og redning som utfores pa stedet for brannvesenet ankommer", "Brannvesenets samlede arbeid etter at de har ankommet selve skadestedet", "Slokkingen og redningen brannvesenet utforer etter at de har rykket ut og ankommet stedet", "En forsikringsordning som daekker de forste utgiftene virksomheten far rett etter en brann"],
       explanation: "Forsteinnsats er slokkingen og redningen som utfores av personer pa stedet i de kritiske forste minuttene, for brannvesenet kommer. Egen sikkerhet gaar alltid forst.",
     },
     {
       question: "Hvilket slokkemiddel er best egnet pa en liten papirbrann naer elektronikk?",
-      options: ["CO2-slokker", "Vannboette uten begrensning", "Brannteppe over hele rommet", "Sand"],
+      options: ["CO2-slokker", "Vannboette uten begrensning", "Brannteppe over hele rommet", "En boette med sand"],
       explanation: "CO2 egner seg godt naer elektronikk fordi det kveler brannen uten a etterlate rester som skader utstyret. Papir (klasse A) kan slokkes med CO2 nar brannen er liten.",
     },
     {
@@ -856,24 +856,24 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket regelverk stiller krav til romningsveier?",
-      options: ["Byggteknisk forskrift (TEK17) og brannforskriften", "Bare personopplysningsloven", "Vaktvirksomhetsloven og politiloven, som regulerer vekternes adgang til a lede folk ut", "Bare vaktvirksomhetsloven"],
+      options: ["Byggteknisk forskrift (TEK17) og brannforskriften", "Bare personopplysningsloven", "Vaktvirksomhetsloven og politiloven", "Bare vaktvirksomhetsloven"],
       explanation: "Krav til romningsveier er regulert i byggteknisk forskrift (TEK17) og brannforskriften, som setter krav til sikre og markerte utganger.",
     },
     {
       question: "Hvorfor bor laereren ta med klasselisten ved evakuering av en skole?",
-      options: ["For a kunne telle og kontrollere at alle elevene er kommet ut", "For a vise til brannvesenet hvem som eier skolen", "For a kunne dokumentere overfor brannvesenet hvem som er registrert eier av skolebygningen", "For a registrere fravaer til karakteren"],
+      options: ["For a kunne telle og kontrollere at alle elevene er kommet ut", "For a vise til brannvesenet hvem som eier skolen", "For a dokumentere hvem som eier skolebygningen", "For a registrere fravaer til karakteren"],
       explanation: "Klasselisten brukes pa samlingsplassen til a telle elevene og raskt avdekke om noen mangler og fortsatt kan vaere inne i bygningen.",
     },
   ],
   "sikkerhetsfag-5-5": [
     {
       question: "Hva er brannvernlederens rolle?",
-      options: ["A ivareta det daglige brannvernarbeidet pa vegne av eier/ledelse", "A slokke alle branner alene", "A erstatte det kommunale brannvesenet ved a overta all utrykning og redning i virksomheten", "A vaere juridisk eier av bygningen og ha det overordnede okonomiske ansvaret for brannsikringen"],
+      options: ["A ivareta det daglige brannvernarbeidet pa vegne av eier/ledelse", "A slokke alle branner alene", "A erstatte det kommunale brannvesenet ved a overta all utrykning og redning i virksomheten", "A vaere juridisk eier av bygningen"],
       explanation: "Brannvernlederen koordinerer brannforebyggende tiltak, gjennomforer brannovelser, folger opp slokkeutstyr og dokumenterer arbeidet. Eieren har det overordnede ansvaret.",
     },
     {
       question: "Hva er internkontroll i brannvernsammenheng?",
-      options: ["Systematiske tiltak for a sikre samsvar med HMS- og brannlovgivningen", "En engangskontroll fra brannvesenet", "En bestemt type slokkeapparat som plasseres sentralt og kontrolleres av eier en gang i aret", "En engangskontroll utfort av brannvesenet ved tilsyn, som avslutter behovet for videre oppfolging"],
+      options: ["Systematiske tiltak for a sikre samsvar med HMS- og brannlovgivningen", "En engangskontroll fra brannvesenet ved det aller forste tilsynet i bygget", "En bestemt type slokkeapparat som plasseres sentralt og kontrolleres av eier en gang i aret", "En engangskontroll utfort av brannvesenet ved tilsyn, som avslutter behovet for videre oppfolging"],
       explanation: "Internkontroll er systematiske tiltak virksomheten iverksetter for a sikre at brannsikkerheten planlegges, utfores og dokumenteres i samsvar med lovgivningen.",
     },
     {
@@ -888,14 +888,14 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bor brannverndokumentasjonen i en bedrift inneholde?",
-      options: ["Organisering, brannteknisk beskrivelse, rutiner og ovelsesplan", "Bare ansattes lonn", "Bare virksomhetens regnskap og budsjett, som viser hvor mye som er brukt pa brannteknisk utstyr", "Bare en oppdatert kundeoversikt med kontaktinformasjon som brukes ved varsling under en evakuering"],
+      options: ["Organisering, brannteknisk beskrivelse, rutiner og ovelsesplan", "Bare ansattes lonn", "Bare virksomhetens regnskap og budsjett, som viser hvor mye som er brukt pa brannteknisk utstyr", "Bare en oppdatert kundeoversikt med kontaktinformasjon"],
       explanation: "Brannverndokumentasjonen bor blant annet inneholde ansvarsfordeling/organisering, brannteknisk beskrivelse av bygget, rutiner og plan for brannovelser.",
     },
   ],
   "sikkerhetsfag-6-1": [
     {
       question: "Hva star HMS for?",
-      options: ["Helse, miljo og sikkerhet", "Handtering av metoder og system", "Hovedsikkerhet og milisystem", "Helhetlig miljosatsing"],
+      options: ["Helse, miljo og sikkerhet", "Handtering av metoder og system", "Hovedsikkerhet og milisystem", "Helhetlig miljosatsing i drift"],
       explanation: "HMS star for helse, miljo og sikkerhet - det systematiske arbeidet med a ivareta arbeidstakernes helse, det ytre miljoet og sikkerheten pa arbeidsplassen.",
     },
     {
@@ -905,12 +905,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forste steg i en arlig HMS-gjennomgang?",
-      options: ["En risikovurdering av arbeidsoppgavene", "A kjope nytt utstyr uten vurdering", "A si opp ansatte som har hatt flest avvik, slik at risikonivaet i virksomheten reduseres raskt", "A avvikle alle rutiner"],
+      options: ["En risikovurdering av arbeidsoppgavene", "A kjope nytt utstyr uten vurdering", "A si opp ansatte med flest avvik", "A avvikle alle rutiner"],
       explanation: "En HMS-gjennomgang starter typisk med en risikovurdering av arbeidsoppgavene, der man identifiserer farer for sa a lage en handlingsplan med tiltak.",
     },
     {
       question: "Hvorfor har vektere som jobber alene om natten okt risiko?",
-      options: ["De er mer utsatt for vold og har ingen kollega til a bistaa", "De jobber kortere dager", "De har vesentlig bedre lonn enn andre vektere og tar derfor pa seg unodig risikofylte oppdrag", "De jobber gjennomgaende kortere vakter enn dagvaktene og rekker derfor ikke a bli slitne pa jobb"],
+      options: ["De er mer utsatt for vold og har ingen kollega til a bistaa", "De jobber kortere dager", "De har vesentlig bedre lonn enn andre vektere og tar derfor pa seg unodig risikofylte oppdrag", "De jobber gjennomgaende kortere vakter enn dagvaktene"],
       explanation: "Aleinearbeid om natten gir okt risiko for vold og truende situasjoner fordi vekteren ikke har en kollega til stede som kan bistaa eller tilkalle hjelp raskt.",
     },
     {
@@ -922,12 +922,12 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-6-2": [
     {
       question: "Hva regulerer arbeidsmiljoloven?",
-      options: ["Arbeidsmiljo, arbeidstid, stillingsvern og medvirkning", "Bare kameraovervaking", "Bare brannvern og romningsveier pa arbeidsplassen, samt kravene til dokumentert brannovelse", "Bare lonnsniva og lonnsutbetaling, mens arbeidstid og stillingsvern reguleres av egne avtaler"],
+      options: ["Arbeidsmiljo, arbeidstid, stillingsvern og medvirkning", "Bare kameraovervaking", "Bare brannvern og romningsveier pa arbeidsplassen, samt kravene til dokumentert brannovelse", "Bare lonnsniva og lonnsutbetaling"],
       explanation: "Arbeidsmiljoloven er den sentrale loven for arbeidsforhold i Norge og stiller krav til arbeidsmiljoet, arbeidstiden, stillingsvern og medvirkning.",
     },
     {
       question: "Hvem er verneombudet?",
-      options: ["Arbeidstakernes representant i sporsmal om arbeidsmiljoet", "En representant for arbeidsgiver alene", "En ekstern HMS-konsulent virksomheten leier inn for a ivareta arbeidstakernes interesser", "En ansatt i Arbeidstilsynet"],
+      options: ["Arbeidstakernes representant i sporsmal om arbeidsmiljoet", "En representant for arbeidsgiver alene", "En ekstern HMS-konsulent som leies inn", "En ansatt i Arbeidstilsynet"],
       explanation: "Verneombudet er arbeidstakernes valgte representant i sporsmal som angar arbeidsmiljoet, valgt av og blant de ansatte for to ar om gangen.",
     },
     {
@@ -959,7 +959,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formaalet med HLR?",
-      options: ["A opprettholde blodstrommen til hjernen og vitale organer nar hjertet har stoppet", "A varme opp pasienten", "A varme opp en nedkjolt og livlos pasient slik at kroppstemperaturen kommer opp for utrykning", "A stoppe ytre og indre blodninger ved hjelp av trykk og bandasjer for ambulansen ankommer stedet"],
+      options: ["A opprettholde blodstrommen til hjernen og vitale organer nar hjertet har stoppet", "A varme opp pasienten slik at kroppstemperaturen stiger opp til et normalt niva igjen", "A varme opp en nedkjolt og livlos pasient slik at kroppstemperaturen kommer opp for utrykning", "A stoppe ytre og indre blodninger ved hjelp av trykk og bandasjer for ambulansen ankommer stedet"],
       explanation: "HLR (hjerte-lunge-redning) opprettholder blodstrommen til hjernen og andre vitale organer nar hjertet har stoppet, til hjertet eventuelt kan startes igjen.",
     },
     {
@@ -976,17 +976,17 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
   "sikkerhetsfag-6-4": [
     {
       question: "Hva er ergonomi?",
-      options: ["Laeren om a tilpasse arbeidet og arbeidsplassen til menneskets forutsetninger", "Laeren om alarmsystemer", "Laeren om brann og forbrenning, som beskriver hvordan branner oppstar, sprer seg og kan slokkes", "Laeren om alarm- og varslingssystemer, som beskriver hvordan sensorer og detektorer skal plasseres"],
+      options: ["Laeren om a tilpasse arbeidet og arbeidsplassen til menneskets forutsetninger", "Laeren om alarmsystemer og hvordan slike systemer settes opp, driftes og vedlikeholdes", "Laeren om brann og forbrenning, som beskriver hvordan branner oppstar, sprer seg og kan slokkes", "Laeren om alarm- og varslingssystemer, som beskriver hvordan sensorer og detektorer skal plasseres"],
       explanation: "Ergonomi er laeren om a tilpasse arbeidet, arbeidsplassen og verktoyene til menneskets fysiske og psykiske forutsetninger, for a forebygge skader og oke effektiviteten.",
     },
     {
       question: "Hva er en belastningsskade?",
-      options: ["En skade som oppstar gradvis av gjentatte paakjenninger eller feil belastning", "En psykisk diagnose uten fysisk arsak", "En forgiftning som oppstar nar kroppen tar opp skadelige gasser eller kjemikalier i arbeidsmiljoet", "En akutt brannskade som oppstar plutselig nar huden utsettes for varme, flammer eller etsende stoffer"],
+      options: ["En skade som oppstar gradvis av gjentatte paakjenninger eller feil belastning", "En rent psykisk diagnose helt uten fysisk arsak, verken i kroppen eller i arbeidet", "En forgiftning som oppstar nar kroppen tar opp skadelige gasser eller kjemikalier i arbeidsmiljoet", "En akutt brannskade som oppstar plutselig nar huden utsettes for varme, flammer eller etsende stoffer"],
       explanation: "En belastningsskade oppstar gradvis pa grunn av gjentatte paakjenninger eller feil belastning over tid, typisk i skuldre, nakke og rygg.",
     },
     {
       question: "Hvorfor er det et ergonomisk problem at skjermer plasseres for lavt?",
-      options: ["Operatoren maa boye hodet nedover, noe som belaster nakke og rygg", "Det bruker mer strom", "Fordi bildet pa skjermen blir uskarpt og vanskeligere a lese nar operatoren ser ned pa det", "Fordi skjermen bruker mer strom nar den star lavt, noe som oker virksomhetens energikostnader"],
+      options: ["Operatoren maa boye hodet nedover, noe som belaster nakke og rygg", "Det bruker mer strom fordi lysstyrken maa okes kraftig for aa se bildet", "Fordi bildet pa skjermen blir uskarpt og vanskeligere a lese nar operatoren ser ned pa det", "Fordi skjermen bruker mer strom nar den star lavt, noe som oker virksomhetens energikostnader"],
       explanation: "Skjermer plassert for lavt tvinger operatoren til a boye hodet framover og nedover over tid, noe som gir okt belastning pa nakke og rygg.",
     },
     {
@@ -996,14 +996,14 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig prinsipp for tung loftteknikk?",
-      options: ["Bruk beina, hold ryggen rett og lasten naer kroppen", "Boy ryggen og loft med strake bein", "Vri overkroppen mens du lofter lasten, slik at du raskt far snudd deg mot der lasten skal settes", "Hold lasten langt fra kroppen"],
+      options: ["Bruk beina, hold ryggen rett og lasten naer kroppen", "Boy ryggen og loft med strake bein", "Vri overkroppen mens du lofter lasten", "Hold lasten langt fra kroppen"],
       explanation: "Riktig loftteknikk innebaerer a bruke beina (boye i knaeene), holde ryggen rett og lasten naer kroppen, og unnga vridning, for a unnga belastning pa ryggen.",
     },
   ],
   "sikkerhetsfag-6-5": [
     {
       question: "Hva handler psykososialt arbeidsmiljo om?",
-      options: ["De psykologiske og sosiale forholdene pa arbeidsplassen", "Bare fysisk verneutstyr", "Bare lonnsforholdene og de okonomiske godtgjorelsene de ansatte mottar for arbeidet de utforer", "Bare brannsikkerhet"],
+      options: ["De psykologiske og sosiale forholdene pa arbeidsplassen", "Bare fysisk verneutstyr", "Bare lonnsforholdene til de ansatte", "Bare brannsikkerhet"],
       explanation: "Psykososialt arbeidsmiljo handler om de psykologiske og sosiale forholdene, som relasjoner, organisering av arbeidet, medvirkning, arbeidsmengde og opplevelse av mening.",
     },
     {
@@ -1023,7 +1023,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig a handtere vold og trusler systematisk i sikkerhetsbransjen?",
-      options: ["Fordi ansatte er saerlig utsatt, og det pavirker helse og arbeidsmiljo", "Fordi det er uvanlig og uten betydning", "Fordi vold og trusler er uvanlig i bransjen og derfor ikke har vesentlig betydning for driften", "Fordi det utelukkende handler om okonomiske tap, og ikke pavirker de ansattes helse eller trivsel"],
+      options: ["Fordi ansatte er saerlig utsatt, og det pavirker helse og arbeidsmiljo", "Fordi slike hendelser er uvanlige og uten betydning for driften av selskapet", "Fordi vold og trusler er uvanlig i bransjen og derfor ikke har vesentlig betydning for driften", "Fordi det utelukkende handler om okonomiske tap, og ikke pavirker de ansattes helse eller trivsel"],
       explanation: "Sikkerhetsansatte er saerlig utsatt for vold og trusler. Systematisk forebygging og oppfolging beskytter de ansattes fysiske og psykiske helse og arbeidsmiljo.",
     },
   ],
@@ -1035,29 +1035,29 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er autorisasjon i vaktvirksomhetsloven?",
-      options: ["En offentlig tillatelse fra politiet til a drive vaktvirksomhet", "Et vekterdiplom fra skolen", "En kontrakt mellom vaktforetaket og kunden som beskriver hvilke tjenester som skal leveres", "En forsikringsavtale som dekker de okonomiske tapene et vaktforetak far ved skader og tyveri"],
+      options: ["En offentlig tillatelse fra politiet til a drive vaktvirksomhet", "Et vekterdiplom fra skolen", "En kontrakt mellom vaktforetaket og kunden som beskriver hvilke tjenester som skal leveres", "En forsikringsavtale som dekker tap ved skader og tyveri"],
       explanation: "Autorisasjon er en offentlig tillatelse fra politiet som gir et foretak lov til a drive vaktvirksomhet. Uten autorisasjon er det ulovlig a tilby vakttjenester.",
     },
     {
       question: "Hvem gir autorisasjon til a drive vaktvirksomhet?",
-      options: ["Politidistriktet der foretaket har hovedkontor", "Arbeidstilsynet", "Kommunen der foretaket har sitt hovedkontor, gjennom vedtak i det lokale naeringsutvalget", "Datatilsynet"],
+      options: ["Politidistriktet der foretaket har hovedkontor", "Arbeidstilsynet", "Kommunen der foretaket har hovedkontor", "Datatilsynet"],
       explanation: "Autorisasjonen gis av politidistriktet der foretaket har sitt hovedkontor.",
     },
     {
       question: "Hva vurderer politiet ved soknad om a bli vekter?",
-      options: ["Vandel, blant annet ut fra type lovbrudd og hvor lenge siden", "Bare soekerens utdanning i andre fag", "Kun soekerens formelle utdanning i helt andre fagfelt enn sikkerhet og vakthold", "Bare soekerens alder ved soknadstidspunktet, uavhengig av eventuelle tidligere lovbrudd"],
+      options: ["Vandel, blant annet ut fra type lovbrudd og hvor lenge siden", "Bare soekerens utdanning i andre fag", "Kun soekerens formelle utdanning i helt andre fagfelt enn sikkerhet og vakthold", "Bare soekerens alder ved soknadstidspunktet"],
       explanation: "Politiet vurderer vandelen individuelt ut fra blant annet type lovbrudd og hvor lenge det er siden, fordi vektere kan havne i konfliktsituasjoner.",
     },
     {
       question: "Hva er hovedformaalet med vaktvirksomhetsloven?",
-      options: ["A regulere hvem som kan drive vaktvirksomhet og hvilke krav som gjelder", "A regulere kameraovervaking alene", "A regulere forebyggende brannvern og beredskap i naeringsbygg med mange ansatte", "A fastsette hvilken minstelonn og hvilke arbeidstidsordninger vektere har krav paa"],
+      options: ["A regulere hvem som kan drive vaktvirksomhet og hvilke krav som gjelder", "A regulere bruken av kameraovervaking alene, uten andre former for sikring", "A regulere forebyggende brannvern og beredskap i naeringsbygg med mange ansatte", "A fastsette hvilken minstelonn og hvilke arbeidstidsordninger vektere har krav paa"],
       explanation: "Vaktvirksomhetsloven regulerer hvem som kan drive vaktvirksomhet, kravene til autorisasjon, og hvilke plikter og begrensninger vektere har.",
     },
   ],
   "sikkerhetsfag-7-2": [
     {
       question: "Hva gir nodverge (straffeloven paragraf 18) rett til?",
-      options: ["A bruke nodvendig makt for a avverge et ulovlig angrep", "A pagripe hvem som helst uten grunn", "A pagripe hvem som helst uten konkret grunn eller mistanke om en straffbar handling", "A straffe en person etter angrepet"],
+      options: ["A bruke nodvendig makt for a avverge et ulovlig angrep", "A pagripe hvem som helst uten grunn", "A pagripe hvem som helst uten konkret mistanke", "A straffe en person etter angrepet"],
       explanation: "Nodverge gir rett til a bruke makt for a avverge et pagaaende ulovlig angrep. Makten maa ikke gaa lenger enn nodvendig og ikke vaere apenbart uforsvarlig.",
     },
     {
@@ -1067,17 +1067,17 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva krever forholdsmessighetsprinsippet ved maktbruk?",
-      options: ["At maktbruken staar i rimelig forhold til angrepet og ikke er uforsvarlig", "At man alltid bruker maksimal makt", "At man venter til skaden er skjedd og forst deretter griper inn overfor angriperen", "At man i prinsippet aldri kan bruke noen form for fysisk makt selv om man blir angrepet"],
+      options: ["At maktbruken staar i rimelig forhold til angrepet og ikke er uforsvarlig", "At man alltid skal bruke maksimal makt for a stanse angrepet raskest mulig", "At man venter til skaden er skjedd og forst deretter griper inn overfor angriperen", "At man i prinsippet aldri kan bruke noen form for fysisk makt selv om man blir angrepet"],
       explanation: "Forholdsmessighet innebaerer at maktbruken ikke maa gaa lenger enn nodvendig og ikke vaere apenbart uforsvarlig sett opp mot angrepets farlighet og de truede verdiene.",
     },
     {
       question: "Nar gjelder borgernes pagripelsesrett?",
-      options: ["Nar noen treffes pa fersk gjerning i en straffbar handling", "Nar man mistenker noen uten bevis", "Naar arbeidsdagen er over og vekteren onsker a avslutte vakten sin for kvelden", "Naar en kunde klager til vekteren over daarlig service eller lang koe i en butikk"],
+      options: ["Nar noen treffes pa fersk gjerning i en straffbar handling", "Nar man mistenker noen uten bevis", "Naar arbeidsdagen er over og vekteren onsker a avslutte vakten sin for kvelden", "Naar en kunde klager over daarlig service i en butikk"],
       explanation: "Borgernes pagripelsesrett gjelder nar en person treffes pa fersk gjerning eller ferske spor i en straffbar handling, slik en butikkvekter kan ved butikktyveri.",
     },
     {
       question: "Hva bor en ordensvakt gjore forst nar to gjester begynner a slass?",
-      options: ["Forsoke verbal tilnaerming for eventuell fysisk inngripen", "Slaa til begge umiddelbart", "Ignorere situasjonen fullstendig og la slagsmaalet utvikle seg videre uten a gripe inn", "Forlate stedet raskt og overlate hele haandteringen til de andre gjestene som er til stede"],
+      options: ["Forsoke verbal tilnaerming for eventuell fysisk inngripen", "Slaa til begge umiddelbart", "Ignorere situasjonen fullstendig og la slagsmaalet utvikle seg videre uten a gripe inn", "Forlate stedet og overlate haandteringen til gjestene"],
       explanation: "Minste inngripende middel forst: en verbal tilnaerming (\"Stopp dette\") for man eventuelt fysisk skiller partene. Maktbruk skal vaere nodvendig og forholdsmessig.",
     },
   ],
@@ -1089,7 +1089,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer brann- og eksplosjonsvernloven?",
-      options: ["Bade forebyggende arbeid og beredskap mot brann og eksplosjon", "Bare etterforskning etter brann", "Bare forsikringsutbetalinger og oppgjor mellom eier og selskap etter en brannskade", "Bare tekniske bygningstegninger og hvordan romning skal tegnes inn i byggets planer"],
+      options: ["Bade forebyggende arbeid og beredskap mot brann og eksplosjon", "Bare etterforskning etter brann", "Bare forsikringsutbetalinger og oppgjor mellom eier og selskap etter en brannskade", "Bare tekniske bygningstegninger og romningsplaner"],
       explanation: "Loven regulerer bade forebyggende arbeid mot brann og eksplosjon, og beredskapen, inkludert brannvesenets rolle og krav til bygninger og virksomheter.",
     },
     {
@@ -1099,29 +1099,29 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle har vektere i brannforebygging under rondering?",
-      options: ["A oppdage og rapportere avvik som blokkerte utganger og manglende slokkeutstyr", "A overta brannvesenets oppgaver", "A slokke enhver brann som oppstaar helt alene uten a tilkalle brannvesen eller nodetater", "A ignorere alle brannforhold under rondering fordi dette ligger utenfor vekterens ansvar"],
+      options: ["A oppdage og rapportere avvik som blokkerte utganger og manglende slokkeutstyr", "A overta alle brannvesenets oppgaver bade under slokking og under redning pa stedet", "A slokke enhver brann som oppstaar helt alene uten a tilkalle brannvesen eller nodetater", "A ignorere alle brannforhold under rondering fordi dette ligger utenfor vekterens ansvar"],
       explanation: "Under rondering bidrar vektere til brannforebygging ved a oppdage og rapportere avvik, for eksempel blokkerte nodutganger eller manglende slokkeapparat.",
     },
     {
       question: "Hvorfor bor manglende slokkeutstyr noteres og rapporteres?",
-      options: ["Slik at det kan utbedres og dokumenteres som en del av internkontrollen", "For a straffe den ansvarlige", "For a unngaa personlig ansvar ved a skyve oppgaven med utbedring over paa noen andre", "For a oke brannfaren bevisst slik at man senere kan teste hvordan beredskapen fungerer"],
+      options: ["Slik at det kan utbedres og dokumenteres som en del av internkontrollen", "For a kunne straffe den som er ansvarlig for at slokkeutstyret mangler i bygget", "For a unngaa personlig ansvar ved a skyve oppgaven med utbedring over paa noen andre", "For a oke brannfaren bevisst slik at man senere kan teste hvordan beredskapen fungerer"],
       explanation: "Manglende slokkeutstyr noteres med plassering og rapporteres slik at det kan erstattes raskt, og inngar i virksomhetens dokumenterte internkontroll av brannsikkerheten.",
     },
   ],
   "sikkerhetsfag-7-4": [
     {
       question: "Hva regnes som personopplysninger etter GDPR?",
-      options: ["Enhver opplysning som kan knyttes til en identifiserbar person", "Bare opplysninger om bedrifter", "Bare anonyme data som er avidentifisert og ikke lenger kan spores tilbake til noen person", "Bare offentlig tilgjengelige opplysninger som allerede er publisert i aapne registre og lister"],
+      options: ["Enhver opplysning som kan knyttes til en identifiserbar person", "Bare opplysninger om bedrifter", "Bare anonyme data som er avidentifisert og ikke lenger kan spores tilbake til noen person", "Bare offentlig tilgjengelige opplysninger"],
       explanation: "Personopplysninger er enhver opplysning som kan knyttes til en identifiserbar person, inkludert navn, videoopptak, IP-adresser, fingeravtrykk og posisjonsdata.",
     },
     {
       question: "Hva er et behandlingsgrunnlag etter GDPR?",
-      options: ["Det juridiske grunnlaget som gjor det lovlig a behandle personopplysninger", "En forsikringsavtale", "En arbeidskontrakt mellom vaktselskapet og den enkelte vekter som behandler opplysningene", "En bestemt type kamera med hoy opplosning som er godkjent for lovlig overvaking av omraader"],
+      options: ["Det juridiske grunnlaget som gjor det lovlig a behandle personopplysninger", "En forsikringsavtale som dekker okonomiske tap ved tap av personopplysninger", "En arbeidskontrakt mellom vaktselskapet og den enkelte vekter som behandler opplysningene", "En bestemt type kamera med hoy opplosning som er godkjent for lovlig overvaking av omraader"],
       explanation: "Behandlingsgrunnlaget er det juridiske grunnlaget som gjor behandlingen lovlig, for eksempel samtykke, avtale, rettslig forpliktelse, berettiget interesse eller vitale interesser.",
     },
     {
       question: "Hva ma et vaktselskap gjore for det installerer kameraovervaking i et kjopesenter?",
-      options: ["Vurdere behandlingsgrunnlag og dokumentere interesseavveiningen", "Lagre opptak i ubegrenset tid", "Skjule alle kameraene godt slik at ingen besokende oppdager at de faktisk blir overvaket", "Sorge for at opptakene fritt kan deles med alle ansatte i senteret uavhengig av rollen deres"],
+      options: ["Vurdere behandlingsgrunnlag og dokumentere interesseavveiningen", "Lagre opptak i ubegrenset tid", "Skjule alle kameraene godt slik at ingen besokende oppdager at de faktisk blir overvaket", "Sorge for at opptakene fritt kan deles med alle ansatte"],
       explanation: "For installasjon ma selskapet vurdere behandlingsgrunnlaget (ofte berettiget interesse), dokumentere interesseavveiningen og utarbeide en protokoll over behandlingsaktiviteter.",
     },
     {
@@ -1131,14 +1131,14 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et viktig tiltak ved kameraovervaking av et omrade?",
-      options: ["Tydelig skilting om at omradet er kameraovervaket", "A lagre opptak for alltid", "A lagre alle opptakene for alltid slik at man aldri gaar tom for gammelt bevismateriale", "A unnga all dokumentasjon"],
+      options: ["Tydelig skilting om at omradet er kameraovervaket", "A lagre opptak for alltid", "A lagre alle opptakene for alltid", "A unnga all dokumentasjon"],
       explanation: "Tydelig skilting om at et omrade er kameraovervaket er et sentralt krav, slik at de registrerte er informert om overvakingen.",
     },
   ],
   "sikkerhetsfag-7-5": [
     {
       question: "Hvilken lov er den viktigste for regulering av arbeidsforhold i Norge?",
-      options: ["Arbeidsmiljoloven", "Vaktvirksomhetsloven", "Politiloven", "Sivilbeskyttelsesloven"],
+      options: ["Arbeidsmiljoloven", "Vaktvirksomhetsloven", "Politiloven i Norge", "Sivilbeskyttelsesloven"],
       explanation: "Arbeidsmiljoloven (lov om arbeidsmiljo, arbeidstid og stillingsvern) er den viktigste loven for arbeidsforhold, og gjelder ogsa for vektere.",
     },
     {
@@ -1153,29 +1153,29 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ordensvaktenes rolle naar politiet er til stede ved braak?",
-      options: ["Observere, rapportere, bortvise fra privat grunn og varsle politiet", "Pagripe og avhore mistenkte", "Paagripe de mistenkte og gjennomfore avhor av dem for a klarlegge hva som har skjedd", "Overta all politimyndighet paa stedet og selv lede den videre haandteringen av braaket"],
+      options: ["Observere, rapportere, bortvise fra privat grunn og varsle politiet", "Pagripe og avhore de mistenkte pa stedet for politiet rekker fram til stedet", "Paagripe de mistenkte og gjennomfore avhor av dem for a klarlegge hva som har skjedd", "Overta all politimyndighet paa stedet og selv lede den videre haandteringen av braaket"],
       explanation: "Ordensvakter observerer og rapporterer, forsoker verbal kommunikasjon, bortviser fra privat grunn og varsler politiet, som tar over haandteringen ved eskalering.",
     },
     {
       question: "Hvorfor er det viktig at vektere kjenner grensen mot politiets myndighet?",
-      options: ["Fordi politiet har myndighet vektere ikke har, og roller ma holdes adskilt", "Fordi vektere har mer myndighet enn politiet", "Fordi vektere fritt kan overta politiets oppgaver naar de mener det er hensiktsmessig paa stedet", "Fordi grensene mellom rollene ikke har praktisk betydning saa lenge maalet er a skape ro og orden"],
+      options: ["Fordi politiet har myndighet vektere ikke har, og roller ma holdes adskilt", "Fordi vektere har mer myndighet enn politiet", "Fordi vektere fritt kan overta politiets oppgaver naar de mener det er hensiktsmessig paa stedet", "Fordi grensene mellom rollene ikke har praktisk betydning"],
       explanation: "Politiet har myndighet (for eksempel pagripelse og bruk av tvangsmidler) som vektere ikke har. Vektere ma holde seg innenfor sitt virkeomrade og overlate politioppgaver til politiet.",
     },
   ],
   "sikkerhetsfag-8-1": [
     {
       question: "Hva er beredskap?",
-      options: ["Tiltak som planlegges og gjennomfores for a haandtere uventede hendelser", "En type forsikring", "En brannklasse som angir hvor motstandsdyktig en bygning er mot brann og roykutvikling", "Et automatisk alarmsystem som varsler nodetatene straks en uonsket hendelse blir registrert"],
+      options: ["Tiltak som planlegges og gjennomfores for a haandtere uventede hendelser", "En type forsikring som dekker de okonomiske skadene etter uonskede hendelser", "En brannklasse som angir hvor motstandsdyktig en bygning er mot brann og roykutvikling", "Et automatisk alarmsystem som varsler nodetatene straks en uonsket hendelse blir registrert"],
       explanation: "Beredskap er tiltak som planlegges og gjennomfores for a haandtere uventede hendelser som kan true liv, helse, miljo eller verdier, og omfatter forebygging, forberedelse, respons og gjenoppretting.",
     },
     {
       question: "Hva er et tiltakskort?",
-      options: ["En kortfattet instruks for konkrete handlinger ved en bestemt type hendelse", "Et bankkort for beredskap", "Et forhaandsbetalt bankkort som brukes til innkjop av utstyr til beredskapen ved kriser", "Et opplyst romningsskilt som viser retningen mot naermeste nodutgang under en evakuering"],
+      options: ["En kortfattet instruks for konkrete handlinger ved en bestemt type hendelse", "Et eget bankkort som er satt av til innkjop i beredskapssituasjoner i bedriften", "Et forhaandsbetalt bankkort som brukes til innkjop av utstyr til beredskapen ved kriser", "Et opplyst romningsskilt som viser retningen mot naermeste nodutgang under en evakuering"],
       explanation: "Et tiltakskort er en kortfattet instruks knyttet til en bestemt rolle og et bestemt scenario, med trinnvise handlinger slik at den ansvarlige vet noyaktig hva som skal gjores.",
     },
     {
       question: "Hva bor en vaktleder gjore forst ved bekreftet brann i et kjopesenter?",
-      options: ["Ringe 110 og iverksette evakuering", "Vente til kunden har gatt hjem", "Vente rolig til de siste kundene har rukket a gaa hjem for man foretar seg noe som helst", "Slukke all belysning"],
+      options: ["Ringe 110 og iverksette evakuering", "Vente til kunden har gatt hjem", "Vente rolig uten a foreta seg noe", "Slukke all belysning"],
       explanation: "Ved bekreftet brann bor vaktlederen ringe 110, gi noyaktig adresse og informasjon, og iverksette evakuering, samt sende vektere til utgangene for a lede folk ut.",
     },
     {
@@ -1197,7 +1197,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner god krisekommunikasjon?",
-      options: ["Den er rask, ærlig, konsistent og tilpasset mottakeren", "Den er treig og holdes hemmelig", "Den endrer budskap stadig ut fra hvem som spor, slik at ulike mottakere faar ulik informasjon", "Den utelater all informasjon"],
+      options: ["Den er rask, ærlig, konsistent og tilpasset mottakeren", "Den er treig og holdes hemmelig", "Den endrer budskap ut fra hvem som spor", "Den utelater all informasjon"],
       explanation: "God krisekommunikasjon er rask, ærlig, konsistent og tilpasset mottakeren, slik at riktig informasjon naar dem som trenger den, og tilliten opprettholdes.",
     },
     {
@@ -1207,39 +1207,39 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bor en kriseleder gjore tidlig i en gasslekkasje?",
-      options: ["Innhente situasjonsbilde: type gass, omfang og vindretning", "Vente til media ringer", "Vente med a foreta seg noe til media ringer og etterspor en offisiell uttalelse om hendelsen", "Avlyse all evakuering med en gang for a unngaa at det oppstaar panikk blant de tilstedevaerende"],
+      options: ["Innhente situasjonsbilde: type gass, omfang og vindretning", "Vente til media ringer", "Vente med a foreta seg noe til media ringer og etterspor en offisiell uttalelse om hendelsen", "Avlyse all evakuering for a unngaa panikk"],
       explanation: "Kriselederen bor raskt innhente et situasjonsbilde - hva slags gass, omfang og vindretning - som grunnlag for beslutninger om evakuering og koordinering med nodetatene.",
     },
     {
       question: "Hvorfor er rask og ærlig informasjon viktig under en krise?",
-      options: ["For a redusere usikkerhet og opprettholde tillit", "For a unnga a varsle nodetatene", "For a tjene penger paa situasjonen ved a selge informasjon om krisen videre til interesserte", "For a skjule hva som skjer"],
+      options: ["For a redusere usikkerhet og opprettholde tillit", "For a unnga a varsle nodetatene", "For a tjene penger paa selve situasjonen", "For a skjule hva som skjer"],
       explanation: "Rask og ærlig kommunikasjon reduserer usikkerhet, hindrer rykter og opprettholder tilliten til virksomheten under og etter krisen.",
     },
   ],
   "sikkerhetsfag-8-3": [
     {
       question: "Hva er terrorisme?",
-      options: ["Alvorlige voldshandlinger eller trusler som skal skape frykt og pavirke beslutninger", "Vanlig vinningskriminalitet", "Ulovlig innsamling av personopplysninger for a selge dem videre til kriminelle nettverk", "Uroligheter mellom to nabostater som eskalerer til aapen militaer konflikt over et grenseomraade"],
+      options: ["Alvorlige voldshandlinger eller trusler som skal skape frykt og pavirke beslutninger", "Vanlig vinningskriminalitet som tyveri, innbrudd og bedrageri rettet mot privatpersoner", "Ulovlig innsamling av personopplysninger for a selge dem videre til kriminelle nettverk", "Uroligheter mellom to nabostater som eskalerer til aapen militaer konflikt over et grenseomraade"],
       explanation: "Terrorisme er alvorlige voldshandlinger eller trusler om slike, med hensikt a skape frykt i befolkningen, pavirke politiske beslutninger eller destabilisere samfunnet.",
     },
     {
       question: "Hva er PLIVO?",
-      options: ["Felles prosedyre for nodetatene ved pagaaende livstruende vold", "Et kameraovervakingssystem", "Et regelverk for hvordan vaktselskaper skal bevaepnes ved store arrangementer", "En nasjonal varslingsordning der publikum sender tips om mistenkelig aktivitet"],
+      options: ["Felles prosedyre for nodetatene ved pagaaende livstruende vold", "Et kameraovervakingssystem som brukes i offentlige rom og i store bygg", "Et regelverk for hvordan vaktselskaper skal bevaepnes ved store arrangementer", "En nasjonal varslingsordning der publikum sender tips om mistenkelig aktivitet"],
       explanation: "PLIVO (Pagaaende Livstruende Vold) er en felles prosedyre for politi, brann og helse, utviklet etter 22. juli 2011, for raskt og koordinert a redde liv ved slike hendelser.",
     },
     {
       question: "Hva er forste steg i en trusselvurdering for et arrangement?",
-      options: ["Identifisere mulige trusselaktorer", "Avlyse arrangementet", "Sende ferdig risikorapport til Datatilsynet for endelig godkjenning", "Selge billetter"],
+      options: ["Identifisere mulige trusselaktorer", "Avlyse arrangementet", "Sende rapport til Datatilsynet", "Selge billetter"],
       explanation: "En trusselvurdering starter med a identifisere mulige trusselaktorer (for eksempel radikaliserte enkeltpersoner) og deretter vurdere deres intensjon og kapasitet.",
     },
     {
       question: "Hvilken etat har en sentral rolle i forebyggende arbeid mot terror i Norge?",
-      options: ["PST (Politiets sikkerhetstjeneste)", "Arbeidstilsynet", "Kripos, som etterforsker organisert kriminalitet etter at handlingen er begatt", "Datatilsynet"],
+      options: ["PST (Politiets sikkerhetstjeneste)", "Arbeidstilsynet", "Kripos, som etterforsker etterpa", "Datatilsynet"],
       explanation: "PST (Politiets sikkerhetstjeneste) har en sentral rolle i det forebyggende arbeidet mot terror og utarbeider nasjonale trusselvurderinger.",
     },
     {
       question: "Hva inngar i a vurdere en trusselaktor?",
-      options: ["Aktorens intensjon og kapasitet", "Aktorens favorittfarge", "Aktorens medlemskap i lovlige organisasjoner og hvor ofte de deltar paa moter", "Aktorens bosted alene"],
+      options: ["Aktorens intensjon og kapasitet", "Aktorens favorittfarge", "Aktorens moteaktivitet", "Aktorens bosted alene"],
       explanation: "I en trusselvurdering vurderes aktorens intensjon (vilje til a utfore handlingen) og kapasitet (evne/midler til a gjennomfore den), gjerne sett opp mot PSTs trusselvurdering.",
     },
   ],
@@ -1251,7 +1251,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva anbefaler DSB at hver husstand har som egenberedskap?",
-      options: ["Vann, mat, varme, lys og medisin for minst 72 timer", "Et vaktselskap pa kontrakt", "En privat bunker med plass og forsyninger for hele nabolaget ved en storre krise", "En fast kontrakt med et vaktselskap som rykker ut ved strømbrudd og andre hendelser"],
+      options: ["Vann, mat, varme, lys og medisin for minst 72 timer", "Et vaktselskap pa kontrakt", "En privat bunker med plass og forsyninger for hele nabolaget ved en storre krise", "En fast kontrakt med et vaktselskap"],
       explanation: "DSB anbefaler at alle husstander har egenberedskap med vann, mat, varme, lys og nodvendig medisin for a klare seg selv i minst 72 timer (tre dogn).",
     },
     {
@@ -1261,7 +1261,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva inngar i forebyggende flomberedskap i en kommune?",
-      options: ["Oppdaterte flomsonekart, byggebegrensninger og vedlikehold av flomvoller", "A fjerne alle dreneringssystemer", "Aa overlate all haandtering av flomrisiko til den enkelte grunneier uten kommunal oppfølging", "Aa fjerne eksisterende dreneringssystemer og flomvoller for aa spare kostnader til vedlikehold"],
+      options: ["Oppdaterte flomsonekart, byggebegrensninger og vedlikehold av flomvoller", "A fjerne alle dreneringssystemene i kommunen for aa spare penger paa drift", "Aa overlate all haandtering av flomrisiko til den enkelte grunneier uten kommunal oppfølging", "Aa fjerne eksisterende dreneringssystemer og flomvoller for aa spare kostnader til vedlikehold"],
       explanation: "Forebyggende flomberedskap omfatter oppdaterte flomsonekart, byggebegrensninger i utsatte soner, vedlikehold av flomvoller og dreneringssystemer, og sikring av kritisk infrastruktur.",
     },
     {
@@ -1288,7 +1288,7 @@ const quizData_sikkerhetsfag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor evalueres beredskapsovelser systematisk?",
-      options: ["For a avdekke svakheter og forbedre beredskapen kontinuerlig", "For a spare penger pa planverk", "For aa dokumentere at videre øvelser er unødvendige slik at man kan slutte aa øve", "For aa kunne straffe de deltakerne som gjorde feil under gjennomføringen av øvelsen"],
+      options: ["For a avdekke svakheter og forbedre beredskapen kontinuerlig", "For a spare penger paa arbeidet med planverket i hele virksomheten", "For aa dokumentere at videre øvelser er unødvendige slik at man kan slutte aa øve", "For aa kunne straffe de deltakerne som gjorde feil under gjennomføringen av øvelsen"],
       explanation: "Systematisk evaluering avdekker hva som fungerte og hva som sviktet, slik at planverk og beredskap kan forbedres kontinuerlig.",
     },
     {

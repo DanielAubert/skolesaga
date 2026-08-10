@@ -4,12 +4,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-1-1": [
     {
       question: "Hva er designprinsipper?",
-      options: ["Grunnleggende regler for å organisere visuelle elementer til et vellykket resultat", "En liste over hvilke farger som er forbudt å bruke", "De faste reglene for hvordan man rigger og betjener en industrisymaskin på et verksted", "En offentlig liste over hvilke farger og materialer som er forbudt å bruke i produksjon"],
+      options: ["Grunnleggende regler for å organisere visuelle elementer til et vellykket resultat", "En fast liste over hvilke farger som det er forbudt å bruke i verkstedet på en skole", "De faste reglene for hvordan man rigger og betjener en industrisymaskin på et verksted", "En offentlig liste over hvilke farger og materialer som er forbudt å bruke i produksjon"],
       explanation: "Designprinsipper som balanse, kontrast, rytme og enhet hjelper designeren å ta bevisste valg om form, farge, størrelse og plassering.",
     },
     {
       question: "Hva menes med visuell vekt i et design?",
-      options: ["Hvor mye oppmerksomhet et element tiltrekker seg", "Hvor lang tid det tar å tegne elementet", "Hvor lang tid det tar å tegne og ferdigstille elementet for hånd", "Hvor mange gram materialet veier"],
+      options: ["Hvor mye oppmerksomhet et element tiltrekker seg", "Hvor lang tid det tar å tegne elementet", "Hvor lang tid det tar å tegne og ferdigstille elementet for hånd", "Hvor mange gram materialet i selve elementet veier"],
       explanation: "Store elementer, mørke farger og sterke kontraster har høy visuell vekt, mens små og lyse elementer har lavere visuell vekt.",
     },
     {
@@ -31,17 +31,17 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-1-2": [
     {
       question: "Hva betyr det at form skal følge funksjon?",
-      options: ["Produktets utforming skal støtte opp om bruken det er laget for", "Form og funksjon har ingenting med hverandre å gjøre", "At form og funksjon er to helt atskilte forhold uten sammenheng", "At funksjonen er helt uviktig så lenge produktet bare ser pent nok ut"],
+      options: ["Produktets utforming skal støtte opp om bruken det er laget for", "Form og funksjon har ingenting med hverandre å gjøre i et produkt", "At form og funksjon er to atskilte forhold uten sammenheng", "At funksjonen er helt uviktig så lenge produktet bare ser pent nok ut"],
       explanation: "Sammenhengen mellom form og funksjon handler om at utseendet og utformingen skal gjøre produktet godt å bruke.",
     },
     {
       question: "Hvilke tre forhold vurderes ofte når man bedømmer håndverksfaglig kvalitet?",
-      options: ["Holdbarhet, funksjon og estetisk uttrykk", "Innkjøpspris, egenvekt og fargevalg", "Produktets alder, eier og merkenavn", "Total lengde, bredde og høyde i mål"],
+      options: ["Holdbarhet, funksjon og estetisk uttrykk", "Innkjøpspris, egenvekt og valg av farge på overflaten", "Produktets alder, tidligere eier og merkenavn", "Total lengde, bredde og høyde i mål"],
       explanation: "Ifølge kompetansemålet vurderes kvalitet ut fra holdbarhet, funksjon og estetisk uttrykk.",
     },
     {
       question: "Hva menes med estetikk i denne sammenhengen?",
-      options: ["Produktets visuelle uttrykk og hvordan det oppleves som vakkert", "Hvor mye produktet koster å kjøpe i butikken", "Hvor lang produksjonstid det tok å lage det", "Hvor tungt produktet er å bære eller løfte"],
+      options: ["Produktets visuelle uttrykk og hvordan det oppleves som vakkert", "Hvor mye produktet koster å kjøpe i butikken", "Hvor lang produksjonstid det tok å lage det", "Hvor tungt produktet er å bære eller å løfte i vanlig daglig bruk"],
       explanation: "Estetikk handler om det visuelle og sanselige uttrykket – hvordan produktet ser ut og oppleves.",
     },
     {
@@ -51,7 +51,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et flott designet glass som lekker når man drikker av det, har en svakhet i hvilket forhold?",
-      options: ["Funksjon", "Estetikk", "Farge", "Stilhistorie"],
+      options: ["Funksjon", "Estetikk", "Fargevalget", "Stilhistorie"],
       explanation: "Glasset kan se fint ut (god estetikk), men når det lekker svikter funksjonen – det fyller ikke bruksformålet sitt.",
     },
   ],
@@ -68,7 +68,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan lager man sekundærfarger?",
-      options: ["Ved å blande to primærfarger", "Ved å blande svart og hvit", "Ved å blande en primærfarge og en tertiærfarge", "De finnes ikke i naturen"],
+      options: ["Ved å blande to primærfarger", "Ved å blande svart og hvit maling", "Ved å blande en primærfarge og en tertiærfarge", "De finnes ikke i naturen og må kjøpes ferdig"],
       explanation: "Sekundærfargene oransje, grønn og fiolett lages ved å blande to primærfarger.",
     },
     {
@@ -78,41 +78,41 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes symboler i håndverk fra ulike kulturer?",
-      options: ["De kan bære med seg mening og kulturell betydning", "De gjør ferdige produktet tydelig tyngre å bære", "De er utelukkende til pynt og har ingen mening", "De brukes bare innenfor digital grafisk design"],
+      options: ["De kan bære med seg mening og kulturell betydning", "De gjør ferdige produktet tydelig tyngre å bære", "De er utelukkende til pynt og bærer ingen mening ut over det", "De brukes bare innenfor digital grafisk design"],
       explanation: "Symboler kan formidle mening, identitet og tradisjon, og brukes bevisst i mange håndverkskulturer.",
     },
   ],
   "handverk-design-vg1-1-4": [
     {
       question: "Hva er forskjellen på todimensjonal og tredimensjonal komposisjon?",
-      options: ["Todimensjonal er flat (lengde og bredde), tredimensjonal har også dybde/volum", "Det finnes ingen reell forskjell mellom de to formene for komposisjon", "Todimensjonal bruker farger, mens tredimensjonal alltid bruker bare svart-hvitt", "Todimensjonal bruker farger, tredimensjonal bruker bare svart-hvitt"],
+      options: ["Todimensjonal er flat (lengde og bredde), tredimensjonal har også dybde/volum", "Det finnes ingen reell forskjell mellom de to formene for komposisjon", "Todimensjonal bruker farger, mens tredimensjonal alltid bruker bare svart-hvitt", "Todimensjonal bruker farger, tredimensjonal bruker bare svart-hvitt og gråtoner"],
       explanation: "Todimensjonal komposisjon foregår på en flate med lengde og bredde, mens tredimensjonal komposisjon også har dybde og volum.",
     },
     {
       question: "Hva menes med proporsjoner i en komposisjon?",
-      options: ["Størrelsesforholdet mellom elementene", "Materialet elementene er laget av", "Fargene og fargenyansene på elementene", "Innkjøpsprisen på hvert enkelt element"],
+      options: ["Størrelsesforholdet mellom elementene", "Materialet de enkelte elementene er laget av", "Fargene og fargenyansene på elementene", "Innkjøpsprisen på hvert enkelt element"],
       explanation: "Proporsjoner handler om forholdet mellom størrelsene på de ulike delene i komposisjonen.",
     },
     {
       question: "Hvilke virkemidler brukes for å skape et visuelt uttrykk i en komposisjon?",
-      options: ["Plassering, størrelse og proporsjoner", "Kun innkjøpspris og total egenvekt", "Utelukkende valg av lim og festemetode", "Bare materialenes opprinnelsesland"],
+      options: ["Plassering, størrelse og proporsjoner", "Kun innkjøpspris og samlet egenvekt for materialene", "Utelukkende valg av lim og festemetode", "Bare hvilket land materialene opprinnelig kommer fra"],
       explanation: "Komposisjon bygges opp gjennom bevisst plassering, størrelse og proporsjoner mellom elementene.",
     },
     {
       question: "Hva er en fordel med å øve på tredimensjonal komposisjon i ulike materialer?",
-      options: ["Man lærer hvordan form oppleves fra flere sider og i rom", "Det gjør at komposisjonen fremstår helt flat", "Man trenger ikke å lage noen skisse først", "Man slipper helt å tenke på proporsjoner"],
+      options: ["Man lærer hvordan form oppleves fra flere sider og i rom", "Det gjør at komposisjonen fremstår helt flat", "Man trenger ikke å lage noen skisse først", "Man slipper helt å tenke på proporsjoner mellom de ulike delene"],
       explanation: "I tre dimensjoner må man vurdere hvordan formen virker fra alle vinkler, ikke bare forfra.",
     },
     {
       question: "Hva betyr balanse i en komposisjon?",
-      options: ["At den visuelle vekten er fordelt slik at helheten oppleves stabil", "At alle elementene i komposisjonen veier nøyaktig like mye i gram", "At man begrenser seg til å bruke bare én farge i hele komposisjonen", "At komposisjonen må være helt speilsymmetrisk hver eneste gang"],
+      options: ["At den visuelle vekten er fordelt slik at helheten oppleves stabil", "At alle elementene i komposisjonen veier nøyaktig like mye i gram", "At man begrenser seg til å bruke bare én farge i hele komposisjonen", "At komposisjonen alltid må være helt speilsymmetrisk om en midtakse"],
       explanation: "Balanse handler om at den visuelle vekten er fordelt slik at komposisjonen oppleves harmonisk – det kan være symmetrisk eller asymmetrisk.",
     },
   ],
   "handverk-design-vg1-1-5": [
     {
       question: "Hva er hovedhensikten med å skissere i idéutviklingen?",
-      options: ["Å visualisere og utvikle ideer raskt", "Å lage det ferdige produktet med en gang", "Å beregne prisen på produktet", "Å erstatte alle arbeidstegninger"],
+      options: ["Å visualisere og utvikle ideer raskt", "Å lage det ferdige produktet med en gang", "Å beregne prisen på det ferdige produktet", "Å erstatte alle arbeidstegninger i prosjektet"],
       explanation: "Skissering er et raskt verktøy for å få ideer ut på papir, utforske muligheter og kommunisere tanker.",
     },
     {
@@ -122,29 +122,29 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god idéskisse i tidlig fase?",
-      options: ["Den er rask og utforskende, ikke nødvendigvis perfekt", "Den må være ferdig fargelagt og fullt detaljert", "Den må alltid lages digitalt på et tegneprogram", "Den må være helt nøyaktig og målsatt fra start"],
+      options: ["Den er rask og utforskende, ikke nødvendigvis perfekt", "Den må være ferdig fargelagt og fullt detaljert", "Den må alltid lages digitalt på et tegneprogram", "Den må være helt nøyaktig og målsatt allerede fra første strek"],
       explanation: "I idéfasen er det viktigere å få fram mange ideer raskt enn å lage perfekte tegninger.",
     },
     {
       question: "Hva er en fordel med å lage mange skisser før man velger en løsning?",
-      options: ["Man utforsker flere muligheter og finner bedre løsninger", "Man bruker opp mer papir og tegneutstyr", "Man slipper å tenke kreativt underveis", "Man trenger ikke bruke verktøy senere"],
+      options: ["Man utforsker flere muligheter og finner bedre løsninger", "Man bruker opp mer papir og tegneutstyr", "Man slipper å tenke kreativt underveis i arbeidet med produktet", "Man trenger ikke bruke verktøy senere i arbeidet med produktet"],
       explanation: "Ved å skissere flere alternativer kan man sammenligne, kombinere og videreutvikle ideene til en bedre løsning.",
     },
     {
       question: "Skisser kan lages både manuelt og med digitale ressurser. Hva er en fordel med manuell skissering?",
-      options: ["Den er rask og krever lite utstyr", "Den gir alltid mer presise mål", "Den krever alltid tilgang på strøm", "Den kan ikke endres underveis"],
+      options: ["Den er rask og krever lite utstyr", "Den gir alltid mer presise mål enn digital skissering", "Den krever alltid tilgang på strøm", "Den kan ikke endres underveis i arbeidet"],
       explanation: "Manuell skissering med blyant og papir er rask, fleksibel og krever lite utstyr, noe som passer godt i idéfasen.",
     },
   ],
   "handverk-design-vg1-1-6": [
     {
       question: "Hva er hensikten med en arbeidstegning?",
-      options: ["Å gi nøyaktig informasjon om mål og utforming for å lage produktet", "Å presentere kun fargevalget for det ferdige produktet", "Å vise nøyaktig hvor mye produktet koster å produsere", "Å erstatte selve det ferdige produktet fullstendig"],
+      options: ["Å gi nøyaktig informasjon om mål og utforming for å lage produktet", "Å presentere kun fargevalget for det ferdige produktet overfor kunden", "Å vise nøyaktig hvor mye produktet koster å produsere", "Å kunne erstatte selve det ferdige produktet fullstendig overfor kunden"],
       explanation: "En arbeidstegning gir presise mål og opplysninger som trengs for å produsere produktet riktig.",
     },
     {
       question: "Hva betyr målestokk på en teknisk tegning?",
-      options: ["Forholdet mellom målene på tegningen og de virkelige målene", "Hvilket verktøy man skal bruke for å lage produktet", "Hvilken farge det ferdige produktet skal males i", "Hvor tungt det ferdige produktet blir å bære"],
+      options: ["Forholdet mellom målene på tegningen og de virkelige målene", "Hvilket verktøy man skal bruke for å lage produktet", "Hvilken farge det ferdige produktet skal males i", "Hvor tungt det ferdige produktet blir å bære og flytte på selv"],
       explanation: "Målestokk angir forholdet mellom tegningens mål og virkeligheten, for eksempel 1:2 der tegningen er halv størrelse av det virkelige.",
     },
     {
@@ -154,7 +154,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en mal eller et mønster brukt til i håndverk?",
-      options: ["Å overføre en form eller et omriss nøyaktig til materialet", "Å beregne fortjenesten på det ferdige produktet", "Å fargelegge det ferdige produktet jevnt", "Å markedsføre produktet mot nye kunder"],
+      options: ["Å overføre en form eller et omriss nøyaktig til materialet", "Å beregne fortjenesten på det ferdige produktet ved salg til kunde", "Å fargelegge det ferdige produktet jevnt", "Å markedsføre det ferdige produktet mot nye kunder i markedet"],
       explanation: "Maler og mønstre brukes til å overføre presise former og omriss til materialet, slik at man får riktig form gjentatte ganger.",
     },
     {
@@ -166,7 +166,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-1-7": [
     {
       question: "Hva handler stilhistorie om?",
-      options: ["Utviklingen av formuttrykk og stilretninger gjennom ulike tidsperioder", "Hvordan man setter riktig pris på ferdige produkter", "Reglene for helse, miljø og sikkerhet i verkstedet", "Hvordan man syr og monterer et komplett plagg"],
+      options: ["Utviklingen av formuttrykk og stilretninger gjennom ulike tidsperioder", "Hvordan man setter riktig pris på ferdige produkter", "Reglene for helse, miljø og sikkerhet i verkstedet", "Hvordan man syr og monterer et komplett plagg fra mønster til ferdig søm"],
       explanation: "Stilhistorie er læren om hvordan formspråk, ornamentikk og design har utviklet seg gjennom ulike epoker.",
     },
     {
@@ -176,7 +176,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med en stilperiode?",
-      options: ["En tidsepoke med felles trekk i form og uttrykk", "En bestemt type verktøy i verkstedet", "Et bestemt materiale man arbeider i", "En metode for å beregne kostnad på"],
+      options: ["En tidsepoke med felles trekk i form og uttrykk", "En bestemt type verktøy i verkstedet", "Et bestemt materiale som håndverkeren velger å arbeide i", "En metode for å beregne kostnaden på et ferdig produkt"],
       explanation: "En stilperiode er en epoke der design og formspråk deler bestemte kjennetegn, for eksempel barokk eller funksjonalisme.",
     },
     {
@@ -186,7 +186,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fordel med å analysere designgjenstander fra ulike epoker?",
-      options: ["Man lærer å gjenkjenne hvordan form og uttrykk endrer seg over tid", "Det gjør det ferdige produktet billigere å lage", "Det er utelukkende relevant for digital design", "Man slipper helt å lage sine egne skisser"],
+      options: ["Man lærer å gjenkjenne hvordan form og uttrykk endrer seg over tid", "Det gjør det ferdige produktet billigere å lage", "Det er utelukkende relevant for digital design", "Man slipper helt å lage sine egne skisser i idéfasen av eget arbeid"],
       explanation: "Analyse av historiske gjenstander gir innsikt i hvordan tidens idealer, teknikker og materialer har preget formgivingen.",
     },
   ],
@@ -203,7 +203,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket materiale egner seg best til en bærende konstruksjon som må tåle stor belastning?",
-      options: ["Et sterkt og stivt materiale, for eksempel hardt tre eller metall", "Et tynt og lett skrivepapir uten stivhet", "Et mykt og lett bøyelig tekstilstoff", "Løs, ubearbeidet ull uten fast form"],
+      options: ["Et sterkt og stivt materiale, for eksempel hardt tre eller metall", "Et tynt og lett skrivepapir uten stivhet", "Et mykt og lett bøyelig tekstilstoff", "Løs, ubearbeidet ull uten fast form eller evne til å bære noen last"],
       explanation: "Bærende konstruksjoner krever sterke og stive materialer som metall eller hardt tre som tåler belastning uten å gi etter.",
     },
     {
@@ -213,7 +213,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør man kjenne et materiales bruksområde før man starter?",
-      options: ["For å sikre at produktet blir funksjonelt og holdbart", "For å gjøre produktet tyngre", "For at produktet skal veie mest mulig og kjennes solid i hånden", "For å slippe å bruke verktøy og heller forme materialet for hånd"],
+      options: ["For å sikre at produktet blir funksjonelt og holdbart", "For å gjøre det ferdige produktet tyngre å løfte og håndtere", "For at produktet skal veie mest mulig og kjennes solid i hånden", "For å slippe å bruke verktøy og heller forme materialet for hånd"],
       explanation: "Kunnskap om bruksområdet sikrer at materialet brukes der det egner seg, slik at produktet blir funksjonelt og varig.",
     },
   ],
@@ -235,7 +235,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en typisk utfordring ved å bearbeide stein?",
-      options: ["Det er hardt og sprøtt og krever spesielle verktøy", "Det er like enkelt å forme som leire", "Det er mykt og smelter lett når det varmes opp med brenner", "Det tar lett fyr og må derfor beskyttes mot gnister og varme"],
+      options: ["Det er hardt og sprøtt og krever spesielle verktøy", "Det er like enkelt å forme for hånd som myk og fuktig leire", "Det er mykt og smelter lett når det varmes opp med brenner", "Det tar lett fyr og må derfor beskyttes mot gnister og varme"],
       explanation: "Stein er hardt og sprøtt, og krever tålmodig arbeid med egnede verktøy fordi det ikke kan bøyes eller strekkes.",
     },
     {
@@ -279,22 +279,22 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med leire når den brennes i en ovn?",
-      options: ["Den blir hard og varig (keramikk)", "Den smelter til væske som blir borte", "Den blir mykere og mer formbar", "Den endrer seg ikke i det hele tatt"],
+      options: ["Den blir hard og varig (keramikk)", "Den smelter til væske som blir borte", "Den blir mykere og mer formbar enn før", "Den endrer seg ikke i det hele tatt"],
       explanation: "Ved brenning herder leira og blir til keramikk, et hardt og varig materiale.",
     },
     {
       question: "Hva er en typisk egenskap ved gips?",
-      options: ["Det er flytende først, men herder raskt til en fast form", "Det forblir flytende for alltid", "Det kan ikke støpes i former og må i stedet skjæres ut for hånd", "Det er like sterkt og bæredyktig som stål og brukes derfor i bygg"],
+      options: ["Det er flytende først, men herder raskt til en fast form", "Det forblir flytende for alltid og herder aldri, uansett form", "Det kan ikke støpes i former og må i stedet skjæres ut for hånd", "Det er like sterkt og bæredyktig som stål og brukes derfor i bygg"],
       explanation: "Gips blandes med vann til en flytende masse som raskt herder, og egner seg godt til støping i former.",
     },
     {
       question: "Hvorfor er voks egnet til modellering av detaljer?",
-      options: ["Det er mykt og lett å forme, og kan smeltes om", "Det er hardere enn stein", "Det er hardere enn stein og krever meisel og hammer for å formes", "Det kan ikke formes i det hele tatt og selges kun i ferdige plater"],
+      options: ["Det er mykt og lett å forme, og kan smeltes om", "Det er hardere enn stein", "Det er hardere enn stein og krever meisel og hammer for å formes", "Det kan ikke formes i det hele tatt"],
       explanation: "Voks er mykt og lett å bearbeide, og kan smeltes om igjen, noe som gjør det egnet til detaljert modellering.",
     },
     {
       question: "Hvorfor må leirearbeid tørke før det brennes?",
-      options: ["Vann i leira kan få den til å sprekke under brenning", "Det er ingen grunn til å tørke leira", "Tørkingen er det som gir leira den endelige fargen og glansen", "Tørr leire er mykere og lettere å forme rett før den settes i ovnen"],
+      options: ["Vann i leira kan få den til å sprekke under brenning", "Det er ingen grunn til å tørke leira før den settes i ovnen", "Tørkingen er det som gir leira den endelige fargen og glansen", "Tørr leire er mykere og lettere å forme rett før den settes i ovnen"],
       explanation: "Hvis leira inneholder fukt når den brennes, kan vannet fordampe raskt og få arbeidet til å sprekke eller eksplodere.",
     },
   ],
@@ -316,7 +316,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan en håndverker redusere materialsvinn?",
-      options: ["Ved å planlegge tilskjæring godt og bruke restmaterialer", "Ved å ikke planlegge i det hele tatt", "Ved å la være å planlegge tilskjæringen og heller kappe underveis", "Ved å kjøpe mest mulig materiale på forhånd for å ha nok i reserve"],
+      options: ["Ved å planlegge tilskjæring godt og bruke restmaterialer", "Ved å ikke planlegge tilskjæringen av materialet i det hele tatt", "Ved å la være å planlegge tilskjæringen og heller kappe underveis", "Ved å kjøpe mest mulig materiale på forhånd for å ha nok i reserve"],
       explanation: "God planlegging av tilskjæring og bruk av rester reduserer svinn, sparer penger og er bedre for miljøet.",
     },
     {
@@ -338,7 +338,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr bærekraftig høsting av naturmaterialer?",
-      options: ["Å høste slik at naturen kan fornye seg og ikke skades varig", "Å bare bruke importerte materialer", "Å høste uten å tenke på framtiden så lenge man dekker eget behov nå", "Å ta ut så mye som mulig hver gang mens materialet ennå er tilgjengelig"],
+      options: ["Å høste slik at naturen kan fornye seg og ikke skades varig", "Å bare bruke importerte materialer i stedet for lokale råvarer", "Å høste uten å tenke på framtiden så lenge man dekker eget behov nå", "Å ta ut så mye som mulig hver gang mens materialet ennå er tilgjengelig"],
       explanation: "Bærekraftig høsting innebærer å ta ut materialer uten å skade bestanden, slik at ressursen kan fornye seg over tid.",
     },
     {
@@ -360,7 +360,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må man vurdere når man tilpasser teknikk til materiale?",
-      options: ["Hvordan materialet oppfører seg og hva det tåler", "Hvilken farge verkstedet har", "Hvilken farge veggene i verkstedet har der arbeidet skal utføres", "Hvor mange som ser på mens man arbeider med materialet ved benken"],
+      options: ["Hvordan materialet oppfører seg og hva det tåler", "Hvilken farge verkstedet har", "Hvilken farge veggene i verkstedet har der arbeidet skal utføres", "Hvor mange som ser på mens man arbeider"],
       explanation: "Materialets egenskaper avgjør hvilke teknikker som fungerer, derfor må teknikk tilpasses hvordan materialet oppfører seg.",
     },
     {
@@ -375,7 +375,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et godt utgangspunkt for å velge teknikk og verktøy?",
-      options: ["Å vite hva produktet skal brukes til og hvilket materiale man har", "Å bruke verktøy man ikke kjenner", "Å velge det dyreste verktøyet i verkstedet siden det gir best kvalitet", "Å spørre hva andre liker best og la deres smak styre valget av verktøy"],
+      options: ["Å vite hva produktet skal brukes til og hvilket materiale man har", "Å bruke et verktøy man verken kjenner fra før eller har prøvd ut selv", "Å velge det dyreste verktøyet i verkstedet siden det gir best kvalitet", "Å spørre hva andre liker best og la deres smak styre valget av verktøy"],
       explanation: "Funksjonskravene til produktet og egenskapene til materialet gir et godt grunnlag for å velge riktig teknikk og verktøy.",
     },
   ],
@@ -387,49 +387,49 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse er en tradisjonell norsk håndverkstradisjon?",
-      options: ["Treskjæring", "Origami", "Batikk fra Indonesia", "Kinesisk kalligrafi"],
+      options: ["Treskjæring", "Origami fra Japan", "Batikk fra Indonesia", "Kinesisk kalligrafi"],
       explanation: "Treskjæring er en lang norsk håndverkstradisjon, sammen med rosemaling, sølvsmie og bunadsarbeid.",
     },
     {
       question: "Hva er en bunad?",
-      options: ["En tradisjonell norsk folkedrakt med lokale særtrekk", "Et verktøy for treskjæring", "En type dekorativ maling som påføres tremøbler og trefat for hånd", "En vevstol der garnet spennes opp for å veve tradisjonelle mønstre"],
+      options: ["En tradisjonell norsk folkedrakt med lokale særtrekk", "Et verktøy for treskjæring", "En type dekorativ maling som påføres tremøbler og trefat for hånd", "En vevstol der garnet spennes opp"],
       explanation: "Bunaden er en tradisjonell norsk folkedrakt der broderi, sølv og mønstre ofte varierer mellom ulike distrikter.",
     },
     {
       question: "Hva forteller variasjonene i norske håndverkstradisjoner mellom distriktene?",
-      options: ["At tradisjonene har utviklet seg lokalt med egne særtrekk", "At alle distrikter har nøyaktig samme tradisjon", "At mønstre og teknikker ble bestemt sentralt og fordelt likt utover hele landet", "At tradisjoner ikke har lokal tilknytning"],
+      options: ["At tradisjonene har utviklet seg lokalt med egne særtrekk", "At alle distrikter har nøyaktig samme tradisjon", "At mønstre og teknikker ble bestemt sentralt", "At tradisjoner ikke har lokal tilknytning"],
       explanation: "Lokale variasjoner i mønstre, materialer og teknikker viser at tradisjonene har vokst fram ulikt fra sted til sted.",
     },
     {
       question: "Hvorfor er sølvsmie en viktig del av norsk håndverkshistorie?",
-      options: ["Sølvarbeid som bunadssølv har lange tradisjoner og kulturell betydning", "Sølv brukes aldri i norsk håndverk", "Bunadssølv støpes i fabrikk og regnes derfor ikke som ekte tradisjonelt håndverk", "Sølv i bunader er utelukkende dekorativt og har ingen symbolsk eller kulturell betydning"],
+      options: ["Sølvarbeid som bunadssølv har lange tradisjoner og kulturell betydning", "Sølv brukes aldri i norsk håndverk", "Bunadssølv støpes i fabrikk og regnes derfor ikke som ekte tradisjonelt håndverk", "Sølv i bunader er utelukkende dekorativt uten symbolikk"],
       explanation: "Sølvsmie, blant annet til bunadssølv og smykker, har lange tradisjoner i Norge og bærer kulturell og symbolsk betydning.",
     },
   ],
   "handverk-design-vg1-3-2": [
     {
       question: "Hva er duodji?",
-      options: ["Samisk tradisjonelt håndverk", "En moderne 3D-printteknikk", "En norsk teknikk for rosemaling på tre", "En norsk malertradisjon"],
+      options: ["Samisk tradisjonelt håndverk", "En moderne 3D-printteknikk", "Rosemaling på tre", "En norsk malertradisjon"],
       explanation: "Duodji er det samiske tradisjonshåndverket, som omfatter blant annet arbeid i reinsdyrhorn, skinn, tre og tekstil.",
     },
     {
       question: "Hvilke materialer er typiske i samisk duodji?",
-      options: ["Reinsdyrhorn, skinn, tre og tekstil", "Bare plast og metall", "Kun blåst glass og glasert steintøy fra ovn", "Mest støpt bronse og valset aluminiumsplate"],
+      options: ["Reinsdyrhorn, skinn, tre og tekstil", "Bare plast og valset metall fra fabrikk", "Kun blåst glass og glasert steintøy fra ovn", "Mest støpt bronse og valset aluminiumsplate"],
       explanation: "Duodji bruker ofte lokale naturmaterialer som reinsdyrhorn, skinn, never, tre og tekstil.",
     },
     {
       question: "Hvorfor har duodji kulturell betydning for det samiske folket?",
-      options: ["Det bærer videre samisk identitet, kunnskap og tradisjon", "Det er en helt moderne oppfinnelse", "Det ble oppfunnet nylig og har ingen forankring i eldre samisk kultur", "Det handler kun om å lage billige suvenirer for turister som besøker området"],
+      options: ["Det bærer videre samisk identitet, kunnskap og tradisjon", "Det er en helt moderne oppfinnelse", "Det ble oppfunnet nylig og har ingen forankring i eldre samisk kultur", "Det handler kun om å lage billige suvenirer"],
       explanation: "Duodji er nært knyttet til samisk identitet og kultur, og overfører tradisjonell kunnskap mellom generasjoner.",
     },
     {
       question: "Hva kan mønstre og farger i duodji formidle?",
-      options: ["Tilhørighet, opprinnelse og kulturell identitet", "Bare hvilket år produktet ble laget", "Utelukkende hvor mye produktet koster å kjøpe i butikken", "Kun hvor slitesterkt og praktisk materialet i produktet er"],
+      options: ["Tilhørighet, opprinnelse og kulturell identitet", "Bare hvilket år og hvilken måned produktet ble laget", "Utelukkende hvor mye produktet koster å kjøpe i butikken", "Kun hvor slitesterkt og praktisk materialet i produktet er"],
       explanation: "Mønstre, farger og former i duodji kan vise tilhørighet til område og slekt, og bærer kulturell betydning.",
     },
     {
       question: "Hvorfor er det viktig å vise respekt når man henter inspirasjon fra urfolkshåndverk?",
-      options: ["Tradisjonene har dyp kulturell betydning og bør ikke misbrukes", "Det spiller ingen rolle hvordan man bruker dem", "Motivene er offentlig eiendom, så ingen kan ta anstøt av hvordan de brukes", "Man bør alltid gjengi mønstrene helt nøyaktig uten å forstå betydningen bak"],
+      options: ["Tradisjonene har dyp kulturell betydning og bør ikke misbrukes", "Det spiller ingen rolle hvordan man bruker dem", "Motivene er offentlig eiendom, så ingen kan ta anstøt av hvordan de brukes", "Man bør alltid gjengi mønstrene helt nøyaktig"],
       explanation: "Urfolkshåndverk er knyttet til kultur og identitet, og bør behandles med respekt og forståelse, ikke utnyttes uten innsikt.",
     },
   ],
@@ -441,17 +441,17 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lærer man tradisjonelle teknikker når man skal gjenskape tradisjonelle produkter?",
-      options: ["For å oppnå riktig uttrykk og kvalitet som i originalen", "Det har ingen betydning hvilken teknikk man bruker", "Fordi den eneste hensikten er å gjøre arbeidet mer tidkrevende og kostbart", "Fordi moderne verktøy og maskiner er forbudt å bruke i tradisjonelt håndverk"],
+      options: ["For å oppnå riktig uttrykk og kvalitet som i originalen", "Det har ingen betydning hvilken teknikk man bruker", "Fordi den eneste hensikten er å gjøre arbeidet mer tidkrevende og kostbart", "Fordi moderne verktøy er forbudt i faget"],
       explanation: "Tradisjonelle teknikker gir det rette uttrykket og den kvaliteten som kjennetegner de opprinnelige produktene.",
     },
     {
       question: "Hva er et eksempel på en tradisjonell teknikk i tre?",
-      options: ["Treskjæring", "Sveising", "Vakuumstøping", "Laserkutting"],
+      options: ["Treskjæring", "Sveising av metall", "Vakuumstøping", "Laserkutting"],
       explanation: "Treskjæring er en klassisk tradisjonell teknikk for å dekorere og forme tre med håndverktøy.",
     },
     {
       question: "Hvorfor er øvelse viktig for å mestre tradisjonelle håndverksteknikker?",
-      options: ["Ferdighetene krever trening for å bli presise og sikre", "Man trenger aldri å øve på håndverk", "Fordi de fleste teknikker kan læres fullt ut på bare noen få minutter", "Fordi håndverk er en medfødt evne som ikke krever trening eller erfaring"],
+      options: ["Ferdighetene krever trening for å bli presise og sikre", "Man trenger aldri å øve på håndverk", "Fordi de fleste teknikker kan læres fullt ut på bare noen få minutter", "Fordi håndverk er en medfødt evne"],
       explanation: "Tradisjonelle teknikker krever finmotorikk og erfaring, og må øves inn over tid for å bli sikre og presise.",
     },
     {
@@ -478,12 +478,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er felles for veving, nålebinding, toving og broderi?",
-      options: ["Det er tradisjonelle tekstile teknikker", "De er alle moderne maskinteknikker", "De brukes bare til å bearbeide harde materialer som metall og stein", "De brukes bare på metall"],
+      options: ["Det er tradisjonelle tekstile teknikker", "De er alle moderne maskinteknikker", "De brukes bare på harde materialer", "De brukes bare på metall"],
       explanation: "Alle fire er tradisjonelle tekstile håndverksteknikker for å lage eller dekorere tekstiler.",
     },
     {
       question: "Hvorfor regnes nålebinding som eldre enn strikking?",
-      options: ["Funn viser at nålebinding ble brukt før strikketeknikken oppsto", "Nålebinding ble oppfunnet i går", "Fordi strikking regnes som en utdødd teknikk som ikke lenger utøves", "Fordi nålebinding ble oppfunnet nylig, lenge etter at strikkingen oppsto"],
+      options: ["Funn viser at nålebinding ble brukt før strikketeknikken oppsto", "Nålebinding ble oppfunnet i vår egen tid, etter industrialiseringen", "Fordi strikking regnes som en utdødd teknikk som ikke lenger utøves", "Fordi nålebinding ble oppfunnet nylig, lenge etter at strikkingen oppsto"],
       explanation: "Arkeologiske funn viser at nålebinding er en svært gammel teknikk som ble brukt lenge før strikkingen ble vanlig.",
     },
   ],
@@ -495,7 +495,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med å tilpasse et mønster?",
-      options: ["Å få produktet til å passe riktig størrelse eller person", "Å gjøre mønsteret penere uten grunn", "Å redusere materialforbruket så mye som mulig uansett resultat", "Å øke prisen på det ferdige produktet uten å forbedre passformen"],
+      options: ["Å få produktet til å passe riktig størrelse eller person", "Å gjøre selve mønsteret penere å se på uten noen annen grunn", "Å redusere materialforbruket så mye som mulig uansett resultat", "Å øke prisen på det ferdige produktet uten å forbedre passformen"],
       explanation: "Mønstertilpasning sikrer at det ferdige produktet får riktig passform og størrelse.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en mal eller et mønster brukt til ved mønsterkonstruksjon?",
-      options: ["Å overføre form og mål nøyaktig til materialet", "Å markedsføre produktet", "Å blande og lage riktige farger til dekorasjon av delene", "Å regne ut fortjenesten og materialkostnaden for produktet"],
+      options: ["Å overføre form og mål nøyaktig til materialet", "Å markedsføre det ferdige produktet overfor kunder", "Å blande og lage riktige farger til dekorasjon av delene", "Å regne ut fortjenesten og materialkostnaden for produktet"],
       explanation: "Maler og mønstre overfører riktig form og mål til materialet, slik at delene blir like og passer sammen.",
     },
   ],
@@ -527,12 +527,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan tradisjonelle uttrykk være verdifulle i moderne produkter?",
-      options: ["De gir produktet identitet, historie og særpreg", "De gjør produktet umoderne og uten verdi", "De bidrar bare til å øke vekten og kostnaden uten annen gevinst", "De har ingen betydning for kunden"],
+      options: ["De gir produktet identitet, historie og særpreg", "De gjør produktet umoderne og uten verdi", "De bidrar bare til å øke vekten og kostnaden", "De har ingen betydning for kunden"],
       explanation: "Tradisjonelle elementer kan gi et moderne produkt en tydelig identitet, en historie og et særpreg som skiller det ut.",
     },
     {
       question: "Hva kan gå tapt hvis man fornyer en tradisjon helt uten å ta hensyn til opphavet?",
-      options: ["Den kulturelle meningen og særpreget kan svekkes", "Produktet blir alltid bedre", "Produktet blir alltid bedre av at man ser helt bort fra opphavet", "Prisen synker alltid, mens uttrykket og kvaliteten forblir uendret"],
+      options: ["Den kulturelle meningen og særpreget kan svekkes", "Produktet blir alltid bedre", "Produktet blir alltid bedre av at man ser helt bort fra opphavet", "Prisen synker alltid på produktet"],
       explanation: "Hvis man fjerner seg helt fra opphavet, kan den kulturelle meningen og det karakteristiske uttrykket forsvinne.",
     },
     {
@@ -544,7 +544,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-3-7": [
     {
       question: "Hvordan kan håndverk brukes som politisk eller kulturelt uttrykk?",
-      options: ["Produkter og symboler kan formidle meninger, motstand eller identitet", "Bare tekst kan uttrykke meninger", "Bare skreven og talt tekst kan formidle politiske og kulturelle budskap", "Håndverk dreier seg utelukkende om praktisk funksjon uten symbolsk innhold"],
+      options: ["Produkter og symboler kan formidle meninger, motstand eller identitet", "Bare skrevet tekst kan uttrykke meninger, aldri gjenstander man lager selv", "Bare skreven og talt tekst kan formidle politiske og kulturelle budskap", "Håndverk dreier seg utelukkende om praktisk funksjon uten symbolsk innhold"],
       explanation: "Gjennom motiver, symboler og materialvalg kan håndverk uttrykke politiske og kulturelle budskap og identitet.",
     },
     {
@@ -571,7 +571,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-4-1": [
     {
       question: "Hva brukes digitale designverktøy til i håndverk?",
-      options: ["Skissering, tegning og 3D-modellering av produkter", "Til å erstatte alt håndarbeid for alltid", "Automatisk sliping og polering av ferdige treprodukter", "Registrering av lagerbeholdning og bestilling av råmaterialer"],
+      options: ["Skissering, tegning og 3D-modellering av produkter", "Til å erstatte alt håndarbeid for alltid", "Automatisk sliping og polering av ferdige treprodukter", "Registrering av lagerbeholdning i verkstedet"],
       explanation: "Digitale verktøy brukes til å skissere, tegne og lage 3D-modeller som planlegging og visualisering av produkter.",
     },
     {
@@ -581,12 +581,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med 3D-modellering?",
-      options: ["Å lage en tredimensjonal digital modell av et objekt", "Å fotografere ferdige produkter", "Å skrive ut en ferdig fil på papir i naturlig størrelse", "Å måle opp objektet nøyaktig med skyvelær og linjal først"],
+      options: ["Å lage en tredimensjonal digital modell av et objekt", "Å fotografere ferdige produkter fra flere vinkler i studio", "Å skrive ut en ferdig fil på papir i naturlig størrelse", "Å måle opp objektet nøyaktig med skyvelær og linjal først"],
       explanation: "3D-modellering er å bygge en digital, tredimensjonal modell som viser objektets form og volum.",
     },
     {
       question: "Hvorfor kan det være nyttig å kombinere digitale verktøy med manuell skissering?",
-      options: ["Manuell skissering er rask i idéfasen, digitale verktøy gir presisjon senere", "Digitale verktøy er alltid dårligere", "Digitale verktøy er alltid raskere enn manuell skissering i alle faser av arbeidet", "Manuell skissering brukes bare til å fargelegge den ferdige digitale modellen til slutt"],
+      options: ["Manuell skissering er rask i idéfasen, digitale verktøy gir presisjon senere", "Digitale verktøy er alltid dårligere", "Digitale verktøy er alltid raskere enn manuell skissering i alle faser av arbeidet", "Manuell skissering brukes bare til å fargelegge den ferdige modellen"],
       explanation: "Manuelle skisser passer godt til raske ideer, mens digitale verktøy gir presise mål og mulighet for nøyaktige modeller.",
     },
     {
@@ -598,22 +598,22 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-4-2": [
     {
       question: "Hva er hovedhensikten med 3D-modellering i produktutvikling?",
-      options: ["Å planlegge og visualisere produktet før det lages fysisk", "Å erstatte behovet for materialer", "Å fargelegge de manuelle skissene slik at de ser mer ferdige ut", "Å beregne nøyaktig hvor mye produktet vil koste å selge i butikk"],
+      options: ["Å planlegge og visualisere produktet før det lages fysisk", "Å erstatte behovet for materialer helt og holdent i produksjonen", "Å fargelegge de manuelle skissene slik at de ser mer ferdige ut", "Å beregne nøyaktig hvor mye produktet vil koste å selge i butikk"],
       explanation: "3D-modellering lar deg planlegge og se hvordan produktet vil se ut og fungere før du bruker tid og materialer på å lage det.",
     },
     {
       question: "Hva er en fordel med å lage en 3D-modell før produksjon?",
-      options: ["Man kan oppdage og rette feil tidlig", "Man slipper å lage produktet i det hele tatt", "Modellen koster alltid mer enn produktet", "Det gjør produksjonen umulig"],
+      options: ["Man kan oppdage og rette feil tidlig", "Man slipper å lage produktet i det hele tatt", "Modellen koster alltid mer enn produktet", "Det gjør selve produksjonen umulig å gjennomføre"],
       explanation: "Ved å se modellen i 3D kan man oppdage feil, vurdere proporsjoner og gjøre endringer før man bruker materialer.",
     },
     {
       question: "Hva kan en 3D-modell brukes som grunnlag for?",
-      options: ["Digital fabrikasjon som 3D-printing eller CNC-fresing", "Bare som et fint bilde uten bruk", "Kun som en illustrasjon i en presentasjon, uten videre produksjon", "Å regne ut hvor mye materiale som trengs til hele serieproduksjonen"],
+      options: ["Digital fabrikasjon som 3D-printing eller CNC-fresing", "Bare som et fint bilde uten bruk", "Kun som en illustrasjon i en presentasjon, uten videre produksjon", "Å regne ut hvor mye materiale som trengs"],
       explanation: "En 3D-modell kan eksporteres og brukes direkte i digital produksjon, for eksempel 3D-printing eller CNC-fresing.",
     },
     {
       question: "Hvorfor er det viktig at en 3D-modell har riktige mål?",
-      options: ["Feil mål gir feil størrelse på det ferdige produktet", "Riktige mål gjør modellen tyngre", "Målene har bare betydning når produktet skal 3D-printes, ikke ellers", "Riktige mål brukes kun til å gjøre den digitale filen enklere å lagre"],
+      options: ["Feil mål gir feil størrelse på det ferdige produktet", "Riktige mål gjør modellen tyngre", "Målene har bare betydning når produktet skal 3D-printes, ikke ellers", "Riktige mål gjør bare filen enklere å lagre"],
       explanation: "Hvis modellen har feil mål, vil også det produserte produktet få feil størrelse, så nøyaktighet er viktig.",
     },
     {
@@ -640,19 +640,19 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en stor fordel med laserkutting og CNC-fresing?",
-      options: ["Høy presisjon og mulighet for å gjenta nøyaktig like deler", "At resultatet alltid blir tilfeldig", "At de gir et tydelig håndlaget preg som maskiner ikke klarer", "At man kan jobbe helt uten å tegne eller planlegge på forhånd"],
+      options: ["Høy presisjon og mulighet for å gjenta nøyaktig like deler", "At resultatet alltid blir tilfeldig og ulikt fra gang til gang", "At de gir et tydelig håndlaget preg som maskiner ikke klarer", "At man kan jobbe helt uten å tegne eller planlegge på forhånd"],
       explanation: "Digitale maskiner gir stor presisjon og kan lage mange identiske deler nøyaktig likt, gang på gang.",
     },
     {
       question: "Hvorfor er sammenhengen mellom digital design og fysisk resultat viktig å forstå?",
-      options: ["Det du tegner digitalt, blir det maskinen lager fysisk", "Maskinen lager noe helt annet enn filen", "Den digitale filen brukes bare som en veiledende skisse for hånd", "Maskinen forbedrer designet automatisk og retter opp feil i filen"],
+      options: ["Det du tegner digitalt, blir det maskinen lager fysisk", "Maskinen lager alltid noe helt annet enn det filen beskriver", "Den digitale filen brukes bare som en veiledende skisse for hånd", "Maskinen forbedrer designet automatisk og retter opp feil i filen"],
       explanation: "Maskinen følger den digitale filen, så feil eller unøyaktighet i designet overføres direkte til det fysiske produktet.",
     },
   ],
   "handverk-design-vg1-4-4": [
     {
       question: "Hva er 3D-printing?",
-      options: ["En metode som bygger et objekt lag på lag ut fra en digital modell", "En metode som kutter bort materiale med en roterende skarp fres", "En måte å veve tråder sammen til et tredimensjonalt mønster", "En teknikk der man støper flytende plast i en fast form"],
+      options: ["En metode som bygger et objekt lag på lag ut fra en digital modell", "En metode som kutter bort materiale med en roterende og svært skarp fres", "En måte å veve tråder sammen til et tredimensjonalt mønster", "En teknikk der man støper flytende plast i en fast form"],
       explanation: "3D-printing (additiv produksjon) bygger objektet lag for lag etter en digital 3D-modell.",
     },
     {
@@ -662,7 +662,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kalles 3D-printing en form for additiv produksjon?",
-      options: ["Materiale legges til lag for lag", "Materiale fjernes ved skjæring", "Det brukes ikke materiale", "Det handler om å legge sammen tall"],
+      options: ["Materiale legges til lag for lag", "Materiale fjernes ved skjæring", "Det brukes ikke materiale", "Det handler om å summere tall"],
       explanation: "Additiv betyr at man legger til materiale lag for lag, i motsetning til subtraktiv produksjon der man fjerner materiale.",
     },
     {
@@ -672,14 +672,14 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må man tenke på når man velger materiale til 3D-printing?",
-      options: ["At materialets egenskaper passer til hva prototypen eller produktet skal tåle", "At man alltid velger det dyreste materialet for beste kvalitet", "At alle printmaterialer har helt like egenskaper uansett bruk", "At fargen på materialet er det eneste som har betydning"],
+      options: ["At materialets egenskaper passer til hva prototypen eller produktet skal tåle", "At man alltid velger det aller dyreste materialet for å sikre best mulig kvalitet", "At alle printmaterialer har helt like egenskaper uansett bruk", "At fargen på materialet er det eneste som har betydning"],
       explanation: "Ulike printmaterialer har ulike egenskaper, så valget må passe til om resultatet skal være en test, en del eller et bruksprodukt.",
     },
   ],
   "handverk-design-vg1-4-5": [
     {
       question: "Hva er hensikten med digital dokumentasjon av en designprosess?",
-      options: ["Å vise og forklare hvordan produktet ble utviklet", "Å skjule arbeidet for andre", "Å beregne moms og kostnader knyttet til produksjonen", "Å erstatte selve produktet med en digital fil for salg"],
+      options: ["Å vise og forklare hvordan produktet ble utviklet", "Å skjule arbeidsmetoden for andre i klassen og for læreren", "Å beregne moms og kostnader knyttet til produksjonen", "Å erstatte selve produktet med en digital fil for salg"],
       explanation: "Digital dokumentasjon viser stegene i prosessen og gjør det mulig å formidle, vurdere og lære av arbeidet.",
     },
     {
@@ -689,7 +689,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er godt foto viktig når man dokumenterer et produkt?",
-      options: ["Bildet formidler produktets kvaliteter og detaljer tydelig", "Foto erstatter alltid produktet", "Foto brukes bare til å skjule feil og mangler ved produktet", "Bildet erstatter produktet helt, så kunden slipper å se det"],
+      options: ["Bildet formidler produktets kvaliteter og detaljer tydelig", "Foto erstatter alltid selve produktet i en presentasjon for kunden", "Foto brukes bare til å skjule feil og mangler ved produktet", "Bildet erstatter produktet helt, så kunden slipper å se det"],
       explanation: "Gode bilder med riktig lys og vinkel formidler produktets form, detaljer og kvalitet på en troverdig måte.",
     },
     {
@@ -699,7 +699,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke digitale virkemidler kan brukes til presentasjon av produkter?",
-      options: ["Fotografi, film og digitale presentasjoner", "Bare håndskrevne lapper", "Kun håndskrevne notater og skisser tegnet med blyant på papir", "Kun muntlig fortelling"],
+      options: ["Fotografi, film og digitale presentasjoner", "Bare håndskrevne lapper", "Kun håndskrevne notater og skisser", "Kun muntlig fortelling"],
       explanation: "Fotografi, film og digitale presentasjoner er effektive virkemidler for å vise fram og forklare produkter.",
     },
   ],
@@ -721,34 +721,34 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan det være lurt å velge teknikk ut fra hva produktet trenger?",
-      options: ["Ulike deler av prosessen egner seg best for ulike teknikker", "Man bør alltid bruke samme teknikk til alt", "Bare digitale teknikker regnes som gyldige i moderne håndverk", "Valg av teknikk har ingen betydning for det ferdige resultatet"],
+      options: ["Ulike deler av prosessen egner seg best for ulike teknikker", "Man bør alltid bruke samme teknikk til alt", "Bare digitale teknikker regnes som gyldige i moderne håndverk", "Valg av teknikk har ingen betydning for resultatet"],
       explanation: "Ved å velge teknikk etter behov kan man bruke digital presisjon der det trengs og manuelt arbeid der uttrykket er viktig.",
     },
     {
       question: "Hva er en begrensning ved utelukkende digital produksjon?",
-      options: ["Det kan mangle det personlige, håndlagde preget", "Det gir alltid dårlig presisjon", "Det gir alltid dårligere presisjon enn manuelt håndarbeid", "Det krever alltid mer tid og planlegging enn manuell produksjon"],
+      options: ["Det kan mangle det personlige, håndlagde preget", "Det gir alltid dårlig presisjon", "Det gir alltid dårligere presisjon enn manuelt håndarbeid", "Det krever alltid mer tid og planlegging"],
       explanation: "Rent digital produksjon kan mangle det unike, håndlagde uttrykket som mange verdsetter i håndverk.",
     },
   ],
   "handverk-design-vg1-5-1": [
     {
       question: "Hva er en naturfiber?",
-      options: ["En fiber som kommer fra planter eller dyr, som bomull eller ull", "En kunstig fiber laget av olje og kjemikalier i en fabrikk", "En sterk tråd som brukes til å veve mønster i tekstiler", "Et redskap som brukes til å tvinne løs ull til garn"],
+      options: ["En fiber som kommer fra planter eller dyr, som bomull eller ull", "En kunstig fiber laget av olje og kjemikalier i en fabrikk", "En sterk tråd som brukes til å veve mønster i tekstiler", "Et redskap som brukes til å tvinne løs ull til ferdig spunnet garn"],
       explanation: "Naturfibre kommer fra naturen, enten fra planter (bomull, lin) eller dyr (ull, silke).",
     },
     {
       question: "Hvilken av disse er en syntetisk fiber?",
-      options: ["Polyester", "Bomull", "Bomull fra plantens frøkapsler, mye brukt i klær", "Ull"],
+      options: ["Polyester", "Bomull", "Bomull fra plantens frøkapsler, mye brukt i klær", "Ull fra sau"],
       explanation: "Polyester er en syntetisk (kunstig) fiber laget av kjemiske stoffer, mens ull, bomull og lin er naturfibre.",
     },
     {
       question: "Hvilken egenskap er typisk for ull?",
-      options: ["God varmeisolering og evne til å ta opp fukt", "At den smelter i romtemperatur", "Høy glans og glatt overflate som gjør at fukt renner rett av", "Rask uttørking og evne til å lede varme raskt bort fra kroppen"],
+      options: ["God varmeisolering og evne til å ta opp fukt", "At den smelter allerede ved vanlig romtemperatur", "Høy glans og glatt overflate som gjør at fukt renner rett av", "Rask uttørking og evne til å lede varme raskt bort fra kroppen"],
       explanation: "Ull isolerer godt mot kulde og kan ta opp fukt uten å føles våt, derfor brukes den mye i varme klær.",
     },
     {
       question: "Hvorfor er det viktig å kunne vurdere stoffkvalitet?",
-      options: ["Riktig stoff til riktig formål gir bedre og mer holdbare produkter", "Kvalitet bestemmer bare prisen, ikke bruken", "Alle tekstiler har samme styrke, så valget kan trygt gjøres tilfeldig", "Kvaliteten påvirker kun fargen, mens holdbarheten bestemmes av sømteknikken"],
+      options: ["Riktig stoff til riktig formål gir bedre og mer holdbare produkter", "Kvalitet bestemmer bare prisen på stoffet, ikke hva det kan brukes til", "Alle tekstiler har samme styrke, så valget kan trygt gjøres tilfeldig", "Kvaliteten påvirker kun fargen, mens holdbarheten bestemmes av sømteknikken"],
       explanation: "Ulike stoffer egner seg til ulike formål, så det å vurdere kvalitet sikrer at produktet blir funksjonelt og varig.",
     },
     {
@@ -760,17 +760,17 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-5-2": [
     {
       question: "Hva er en rett søm brukt til?",
-      options: ["Å sy to lag stoff sammen i en jevn linje", "Å brodere et mønster", "Å brodere et pyntemønster langs kanten av plagget", "Å farge to stofflag samtidig i samme jevne fargetone"],
+      options: ["Å sy to lag stoff sammen i en jevn linje", "Å brodere et mønster i flere ulike garnfarger", "Å brodere et pyntemønster langs kanten av plagget", "Å farge to stofflag samtidig i samme jevne fargetone"],
       explanation: "Rett søm er den vanligste sømmen og brukes til å sy stofflag sammen i en jevn, holdbar linje.",
     },
     {
       question: "Hva er en sikksakksøm spesielt nyttig til?",
-      options: ["Å hindre at stoffkanten frynser, og å sy i tøyelige stoffer", "Å tegne mønster", "Å klippe elastiske stoffer i en jevn kant uten at de frynser", "Å tegne opp mønsterlinjer og merker rett på stoffets vrangside"],
+      options: ["Å hindre at stoffkanten frynser, og å sy i tøyelige stoffer", "Å tegne opp mønsterlinjene på stoffet før man klipper det til", "Å klippe elastiske stoffer i en jevn kant uten at de frynser", "Å tegne opp mønsterlinjer og merker rett på stoffets vrangside"],
       explanation: "Sikksakksøm går fram og tilbake og brukes til å rensy kanter mot frynsing og til å sy elastiske stoffer.",
     },
     {
       question: "Hvorfor velger man ulik nål og tråd til ulike stoffer?",
-      options: ["Nål og tråd må passe til stofftykkelse og fibertype", "Alle nåler og tråder passer til alt", "Valget av nål og tråd påvirker kun sømmens farge, ikke styrken", "Tynt stoff krever alltid en kraftigere nål enn tykt og tett stoff"],
+      options: ["Nål og tråd må passe til stofftykkelse og fibertype", "Alle nåler og tråder passer like godt til alle typer stoff", "Valget av nål og tråd påvirker kun sømmens farge, ikke styrken", "Tynt stoff krever alltid en kraftigere nål enn tykt og tett stoff"],
       explanation: "Tykt stoff trenger kraftigere nål og tråd enn tynt stoff, og feil valg kan ødelegge stoffet eller gi svake sømmer.",
     },
     {
@@ -780,7 +780,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig å feste tråden i starten og slutten av en søm?",
-      options: ["For at sømmen ikke skal rakne opp", "For å gjøre sømmen svakere", "For å spare tråd og redusere forbruket underveis", "Det har ingen hensikt"],
+      options: ["For at sømmen ikke skal rakne opp", "For å gjøre sømmen svakere", "For å spare tråd og redusere forbruket underveis", "Det har ingen hensikt å feste tråden"],
       explanation: "Hvis tråden ikke festes, kan sømmen lett rakne opp ved bruk, derfor syr man fram og tilbake eller knyter av.",
     },
   ],
@@ -792,7 +792,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må man ta mål før man konstruerer et mønster?",
-      options: ["For at plagget skal få riktig passform", "Mål er unødvendig ved mønsterkonstruksjon", "For å bestemme fargen", "For å beregne fortjenesten"],
+      options: ["For at plagget skal få riktig passform", "Mål er unødvendig ved mønsterkonstruksjon", "For å bestemme fargen på stoffet i plagget", "For å beregne fortjenesten"],
       explanation: "Nøyaktige kroppsmål er grunnlaget for å konstruere et mønster som gir riktig passform.",
     },
     {
@@ -819,7 +819,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med beis (bets) ved farging?",
-      options: ["Å hjelpe fargen å feste seg bedre til fibrene", "Å gjøre stoffet tynnere", "Å fjerne overflødig farge så stoffet blir lysere igjen", "Å klippe stoffet i biter før det legges ned i fargebadet"],
+      options: ["Å hjelpe fargen å feste seg bedre til fibrene", "Å gjøre selve stoffet tynnere og lettere før farging", "Å fjerne overflødig farge så stoffet blir lysere igjen", "Å klippe stoffet i biter før det legges ned i fargebadet"],
       explanation: "Beis er stoffer som binder fargen til fibrene, slik at fargen fester seg bedre og blir mer holdbar.",
     },
     {
@@ -856,7 +856,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må renningen være stram i en vev?",
-      options: ["For at vevingen skal bli jevn og stoffet fast", "Stramhet har ingen betydning", "For at stoffet skal bli løsere og mer luftig etter veving", "For at renningstrådene lettere skal ryke og kunne byttes ut"],
+      options: ["For at vevingen skal bli jevn og stoffet fast", "Stramheten i renningen har ingen betydning for veven", "For at stoffet skal bli løsere og mer luftig etter veving", "For at renningstrådene lettere skal ryke og kunne byttes ut"],
       explanation: "En jevn og stram renning gir et fast og jevnt stoff, mens en slapp renning gir ujevn og dårlig vev.",
     },
     {
@@ -895,12 +895,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-6-1": [
     {
       question: "Hva er dreiing i keramikk?",
-      options: ["Å forme leire på et roterende dreiehjul", "Å brenne leire i ovn", "Å brenne den formede leira hardt i en varm keramikkovn", "Å veve et jevnt mønster i leira mens den fortsatt er myk"],
+      options: ["Å forme leire på et roterende dreiehjul", "Å brenne den ferdige leira i ovn ved høy varme", "Å brenne den formede leira hardt i en varm keramikkovn", "Å veve et jevnt mønster i leira mens den fortsatt er myk"],
       explanation: "Dreiing er å forme leira mens den roterer på et dreiehjul, slik at man kan lage runde, jevne former som krus og skåler.",
     },
     {
       question: "Hva er platearbeid (plateteknikk) i keramikk?",
-      options: ["Å bygge former av flate leireplater", "Å brenne leira to ganger", "Å dreie leira rund og jevn på et roterende dreiehjul", "Å dreie leira på hjul"],
+      options: ["Å bygge former av flate leireplater", "Å brenne leira to ganger", "Å dreie leira rund på et hjul", "Å dreie leira på hjul"],
       explanation: "I platearbeid kjevles leira ut til flate plater som settes sammen til former, for eksempel firkantede fat eller bokser.",
     },
     {
@@ -910,7 +910,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kalles uglasert, ferdig brent leire i første brenning?",
-      options: ["Biskvit (skår)", "Renning", "Patina (aldringsbelegg)", "Glasur"],
+      options: ["Biskvit (skår)", "Renning", "Patina", "Glasur"],
       explanation: "Etter første brenning, før glasering, kalles den porøse, harde leira biskvit (eller skår).",
     },
     {
@@ -922,7 +922,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-6-2": [
     {
       question: "Hva er en glasur?",
-      options: ["Et glassaktig belegg som smelter på keramikken under brenning", "Et verktøy for dreiing", "Et håndverktøy man bruker til å dreie og forme leira mens den fortsatt er våt", "En finkornet leiretype som brukes som grunnmasse når man dreier opp keramikken"],
+      options: ["Et glassaktig belegg som smelter på keramikken under brenning", "Et verktøy som brukes til å dreie leira rundt på selve dreiehjulet", "Et håndverktøy man bruker til å dreie og forme leira mens den fortsatt er våt", "En finkornet leiretype som brukes som grunnmasse når man dreier opp keramikken"],
       explanation: "Glasur er et belegg som ved brenning smelter til en glassaktig overflate som gjør keramikken tett, holdbar og dekorativ.",
     },
     {
@@ -932,12 +932,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er brenningstemperaturen viktig for glasur?",
-      options: ["Glasuren må nå riktig temperatur for å smelte og feste seg", "Lav temperatur smelter alltid glasuren", "Glasur trenger slett ikke å brennes, men tørker og herder fint i romtemperatur over tid", "Temperaturen har ingen betydning"],
+      options: ["Glasuren må nå riktig temperatur for å smelte og feste seg", "Lav temperatur smelter alltid glasuren", "Glasur trenger ikke brennes, men herder i romtemperatur", "Temperaturen har ingen betydning"],
       explanation: "Hver glasur har et temperaturområde der den smelter riktig; for lav temperatur gir umoden glasur, for høy kan ødelegge den.",
     },
     {
       question: "Hva kan skje hvis glasuren legges på for tykt?",
-      options: ["Den kan renne, sprekke eller boble under brenning", "Den blir alltid finere", "Overflaten blir alltid finere og jevnere jo tykkere man legger på glasuren", "Keramikken blir mykere"],
+      options: ["Den kan renne, sprekke eller boble under brenning", "Den blir alltid finere", "Overflaten blir jevnere jo tykkere glasuren er", "Keramikken blir mykere"],
       explanation: "For tykt glasurlag kan renne, danne bobler eller sprekke under brenningen og ødelegge resultatet.",
     },
     {
@@ -954,12 +954,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør man sage med tannretningen og kjenne fiberretningen i tre?",
-      options: ["For å få et rent snitt og unngå at treet flises opp", "Fiberretning har ingen betydning", "For å fjerne fargen fra treet så den naturlige veden kommer bedre til syne", "For å gjøre treet fuktig og mykt slik at sagen glir lettere gjennom fibrene"],
+      options: ["For å få et rent snitt og unngå at treet flises opp", "Fiberretningen i treet har ingen betydning for snittet", "For å fjerne fargen fra treet så den naturlige veden kommer bedre til syne", "For å gjøre treet fuktig og mykt slik at sagen glir lettere gjennom fibrene"],
       explanation: "Sager og verktøy fungerer best i forhold til fiberretningen, og riktig retning gir rene snitt uten oppflising.",
     },
     {
       question: "Hva er en sammenføyning i trearbeid?",
-      options: ["En måte å koble to tredeler sammen på", "En type maling", "En håndsag med fine tenner som brukes til å kappe tredeler i riktig lengde", "En tresort"],
+      options: ["En måte å koble to tredeler sammen på", "En type maling", "En håndsag med fine tenner", "En tresort"],
       explanation: "En sammenføyning er en teknikk for å feste tredeler sammen, for eksempel med tapp og sliss, sinking eller liming.",
     },
     {
@@ -976,7 +976,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-6-4": [
     {
       question: "Hva er treskjæring?",
-      options: ["Å skjære mønstre og former i tre med egne skjæreverktøy", "Å lime tre sammen", "Å brenne treet lett på overflaten for å gi det et mørkere og dekorativt uttrykk", "Å lime flere tredeler forsiktig sammen til en større og mer sammenhengende form"],
+      options: ["Å skjære mønstre og former i tre med egne skjæreverktøy", "Å lime flere tredeler sammen med trelim og godt festede tvinger", "Å brenne treet lett på overflaten for å gi det et mørkere og dekorativt uttrykk", "Å lime flere tredeler forsiktig sammen til en større og mer sammenhengende form"],
       explanation: "Treskjæring er en dekorativ teknikk der man skjærer ut mønstre, figurer og relieff i tre med skarpe skjærejern.",
     },
     {
@@ -991,7 +991,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et relieff i treskjæring?",
-      options: ["Et mønster der figurer står fram fra en bakgrunn", "En helt flat overflate uten mønster", "En sammenføyning der to tredeler festes til hverandre med tapp og sliss", "En type dekkende maling som legges over hele flaten for å pynte produktet"],
+      options: ["Et mønster der figurer står fram fra en bakgrunn", "En helt flat overflate uten mønster", "En sammenføyning der to tredeler festes til hverandre med tapp og sliss", "En type dekkende maling over hele flaten"],
       explanation: "I relieffskjæring fjerner man bakgrunnen slik at motivet hever seg opp og står fram fra flaten.",
     },
     {
@@ -1003,7 +1003,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-6-5": [
     {
       question: "Hva er lodding i metallarbeid?",
-      options: ["Å føye metalldeler sammen ved å smelte et tilsettingsmetall mellom dem", "Å sage metall i biter", "Å sage metallet i mindre biter med en fintannet metallsag før videre bearbeiding", "Å male metalldelene med en beskyttende overflate slik at de holdes sammen visuelt"],
+      options: ["Å føye metalldeler sammen ved å smelte et tilsettingsmetall mellom dem", "Å sage metallet opp i mindre biter med en håndsag før man monterer delene", "Å sage metallet i mindre biter med en fintannet metallsag før videre bearbeiding", "Å male metalldelene med en beskyttende overflate slik at de holdes sammen visuelt"],
       explanation: "Lodding føyer metalldeler sammen ved hjelp av et tilsettingsmetall (loddetinn eller sølvlodd) som smelter ved lavere temperatur enn delene.",
     },
     {
@@ -1013,7 +1013,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes filing mye i metallarbeid?",
-      options: ["For å forme, glatte og fjerne skarpe kanter på metall", "For å brenne metallet", "For å farge metallet slik at det får et jevnt og blankt lag over hele overflaten", "For å smelte metallet helt ned så det kan støpes om til en helt ny og ønsket form"],
+      options: ["For å forme, glatte og fjerne skarpe kanter på metall", "For å brenne metallet", "For å farge metallet slik at det får et jevnt og blankt lag over hele overflaten", "For å smelte metallet ned så det kan støpes om"],
       explanation: "Filing former og jevner metall og fjerner skarpe grader og kanter etter saging og kutting.",
     },
     {
@@ -1030,12 +1030,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
   "handverk-design-vg1-6-6": [
     {
       question: "Hva er smiing?",
-      options: ["Å forme varmt metall ved å slå på det med hammer", "Å støpe metall i en form", "Å file metallet kaldt for å jevne kantene og gi det den formen man ønsker seg", "Å file metall kaldt"],
+      options: ["Å forme varmt metall ved å slå på det med hammer", "Å støpe metall i en form", "Å file metallet kaldt til ønsket form", "Å file metall kaldt"],
       explanation: "Smiing er å forme oppvarmet, mykt metall ved å hamre det mot en ambolt til ønsket form.",
     },
     {
       question: "Hvorfor varmer smeden opp metallet før det formes?",
-      options: ["Varmt metall blir mykere og lettere å forme", "Varmt metall er hardere å forme", "For å avkjøle selve smia og essa slik at arbeidsplassen holder en jevn temperatur", "Oppvarming har ingen betydning"],
+      options: ["Varmt metall blir mykere og lettere å forme", "Varmt metall er hardere å forme", "For å avkjøle selve smia og essa", "Oppvarming har ingen betydning"],
       explanation: "Når metall varmes opp, blir det mykt og formbart, slik at det kan hamres til ønsket form uten å sprekke.",
     },
     {
@@ -1050,24 +1050,24 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er smiing et tradisjonelt håndverk?",
-      options: ["Det har lange historiske røtter og overleverte teknikker", "Det brukes bare digitalt", "Det ble oppfunnet helt nylig og regnes derfor som et av de nyeste håndverkene", "Det utøves i dag bare digitalt med maskiner, uten noen form for manuelt arbeid"],
+      options: ["Det har lange historiske røtter og overleverte teknikker", "Det brukes i dag bare digitalt av moderne håndverkere i faget", "Det ble oppfunnet helt nylig og regnes derfor som et av de nyeste håndverkene", "Det utøves i dag bare digitalt med maskiner, uten noen form for manuelt arbeid"],
       explanation: "Smiing har vært utøvd i tusenvis av år, og teknikkene er overlevert som en viktig del av håndverkstradisjonen.",
     },
   ],
   "handverk-design-vg1-6-7": [
     {
       question: "Hva er hensikten med overflatebehandling?",
-      options: ["Å beskytte og forskjønne overflaten på et produkt", "Å gjøre produktet svakere", "Å fjerne all farge fra produktet slik at bare det rene materialet blir synlig", "Å ødelegge overflaten"],
+      options: ["Å beskytte og forskjønne overflaten på et produkt", "Å gjøre produktet svakere", "Å fjerne all farge fra produktet", "Å ødelegge overflaten"],
       explanation: "Overflatebehandling beskytter materialet mot slitasje, fukt og skade, og gir samtidig ønsket utseende.",
     },
     {
       question: "Hva er beis?",
-      options: ["Et middel som farger treet og fremhever strukturen", "Et verktøy for å sage", "En type mykt metall som brukes til beslag og detaljer på trekonstruksjoner", "Et håndverktøy man bruker til å sage treet i riktige lengder før bearbeiding"],
+      options: ["Et middel som farger treet og fremhever strukturen", "Et verktøy for å sage", "En type mykt metall som brukes til beslag og detaljer på trekonstruksjoner", "Et håndverktøy man bruker til å sage treet"],
       explanation: "Beis trenger inn i treet og gir det farge samtidig som treets naturlige struktur og åremønster fremheves.",
     },
     {
       question: "Hva er patinering av metall?",
-      options: ["Å gi metallet et bevisst aldret eller fargeendret overflatelag", "Å gjøre metallet flytende", "Å varme metallet så kraftig at det blir flytende og kan helles i en form", "Å smelte metallet helt ned til det blir flytende og kan støpes om på nytt"],
+      options: ["Å gi metallet et bevisst aldret eller fargeendret overflatelag", "Å gjøre metallet helt flytende i en digel før det helles ut i formen", "Å varme metallet så kraftig at det blir flytende og kan helles i en form", "Å smelte metallet helt ned til det blir flytende og kan støpes om på nytt"],
       explanation: "Patinering gir metallet en overflate som ser eldet ut eller har en bestemt farge, ofte gjennom kjemisk behandling eller oksidering.",
     },
     {
@@ -1077,46 +1077,46 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er etterbehandling viktig for kvaliteten på et produkt?",
-      options: ["God etterbehandling påvirker både holdbarhet og estetisk uttrykk", "Etterbehandling har ingen betydning", "Den brukes egentlig bare på tekstilprodukter og har lite å si for tre og metall", "Den gjør nesten alltid produktet dårligere fordi den dekker til materialets egenskaper"],
+      options: ["God etterbehandling påvirker både holdbarhet og estetisk uttrykk", "Etterbehandling har ingen betydning for kvaliteten på det ferdige produktet", "Den brukes egentlig bare på tekstilprodukter og har lite å si for tre og metall", "Den gjør nesten alltid produktet dårligere fordi den dekker til materialets egenskaper"],
       explanation: "Etterbehandling avgjør hvor godt produktet tåler bruk over tid og hvordan overflaten ser ut, og påvirker dermed kvaliteten.",
     },
   ],
   "handverk-design-vg1-7-1": [
     {
       question: "Hva er en designprosess?",
-      options: ["En strukturert vei fra idé til ferdig produkt", "Bare det å selge et produkt", "En løs samling ideer man velger tilfeldig mellom uten plan", "En enkelt håndtegnet skisse som viser hvordan produktet skal se ut"],
+      options: ["En strukturert vei fra idé til ferdig produkt", "Bare det å selge et produkt", "En løs samling ideer man velger tilfeldig mellom uten plan", "En enkelt håndtegnet skisse av produktet"],
       explanation: "En designprosess er de planlagte stegene man følger fra idé, gjennom utvikling, til et ferdig produkt.",
     },
     {
       question: "Hvilken fase kommer tidligst i en designprosess?",
-      options: ["Idéutvikling", "Ferdigstilling", "Markedsføring", "Salg"],
+      options: ["Idéutvikling", "Ferdigstilling", "Markedsføring", "Salg av produktet"],
       explanation: "Idéutvikling er en av de første fasene, der man får og utforsker ideer før man går videre til planlegging og produksjon.",
     },
     {
       question: "Hvorfor er det nyttig å dokumentere designprosessen?",
-      options: ["Det viser valgene man tok og gjør det lettere å lære og forbedre", "Dokumentasjon er bortkastet tid", "Det låser prosessen slik at man ikke kan gjøre endringer underveis", "Det er hovedsakelig en formalitet som stjeler tid fra selve håndverket"],
+      options: ["Det viser valgene man tok og gjør det lettere å lære og forbedre", "Dokumentasjon er bortkastet tid som heller burde brukes i verkstedet", "Det låser prosessen slik at man ikke kan gjøre endringer underveis", "Det er hovedsakelig en formalitet som stjeler tid fra selve håndverket"],
       explanation: "Dokumentasjon synliggjør valg og utvikling, noe som er nyttig for vurdering, refleksjon og forbedring.",
     },
     {
       question: "Hva betyr det å arbeide innenfor gitte tidsrammer?",
-      options: ["Å fullføre arbeidet innen en fastsatt frist", "At man alltid blir ferdig på fem minutter", "Å bruke akkurat den tiden man selv føler for, uten avtalt sluttdato", "At man kan bruke ubegrenset med tid"],
+      options: ["Å fullføre arbeidet innen en fastsatt frist", "At man alltid blir ferdig på fem minutter", "Å bruke akkurat den tiden man føler for", "At man kan bruke ubegrenset med tid"],
       explanation: "Å arbeide innenfor tidsrammer betyr å planlegge og styre arbeidet slik at man blir ferdig til avtalt frist.",
     },
     {
       question: "Hvorfor kan en designprosess være syklisk og ikke bare rett fram?",
-      options: ["Man går ofte tilbake og forbedrer ideer underveis", "Det finnes ingen sammenheng mellom fasene", "Fordi alle valg låses fast med en gang og aldri kan gjøres om senere", "Man kan aldri endre noe etter start"],
+      options: ["Man går ofte tilbake og forbedrer ideer underveis", "Det finnes ingen sammenheng mellom fasene", "Fordi alle valg låses fast med en gang", "Man kan aldri endre noe etter start"],
       explanation: "I praksis går man ofte tilbake til tidligere faser for å justere og forbedre, slik at prosessen blir en sløyfe heller enn en rett linje.",
     },
   ],
   "handverk-design-vg1-7-2": [
     {
       question: "Hva er hensikten med en brukerundersøkelse?",
-      options: ["Å kartlegge hva brukerne trenger og ønsker", "Å bestemme prisen på materialer", "Å redusere direkte kontakt med brukerne til et absolutt minimum", "Å unngå kontakt med brukere"],
+      options: ["Å kartlegge hva brukerne trenger og ønsker", "Å bestemme prisen på materialer", "Å redusere kontakten med brukerne", "Å unngå kontakt med brukere"],
       explanation: "En brukerundersøkelse kartlegger brukernes behov, ønsker og problemer, som grunnlag for å utvikle gode produkter.",
     },
     {
       question: "Hva menes med en behovsanalyse?",
-      options: ["En vurdering av hvilke behov et produkt skal dekke", "En beregning av fortjenesten", "En teknikk for å farge og mønstre tekstiler før de settes sammen", "En utregning av forventet fortjeneste når produktet legges ut for salg"],
+      options: ["En vurdering av hvilke behov et produkt skal dekke", "En beregning av fortjenesten", "En teknikk for å farge og mønstre tekstiler før de settes sammen", "En utregning av forventet fortjeneste ved salg"],
       explanation: "En behovsanalyse undersøker hvilke behov produktet skal løse, slik at utviklingen treffer det brukerne faktisk trenger.",
     },
     {
@@ -1126,7 +1126,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken metode kan brukes i en enkel brukerundersøkelse?",
-      options: ["Spørreskjema eller intervju", "Å gjette tilfeldig", "Å regne ut hvor mye merverdiavgift produktet vil koste ved salg", "Å ikke spørre noen"],
+      options: ["Spørreskjema eller intervju", "Å gjette tilfeldig", "Å regne ut merverdiavgift", "Å ikke spørre noen"],
       explanation: "Spørreskjemaer og intervjuer er vanlige måter å samle inn informasjon om brukernes behov og preferanser på.",
     },
     {
@@ -1153,12 +1153,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en funksjonell prototype?",
-      options: ["En prototype som faktisk fungerer som det ferdige produktet skal", "En prototype uten noen funksjon", "Et allerede solgt produkt som er levert og tatt i bruk hos kunden", "En prototype som kun er laget for utseendets skyld og ikke skal virke"],
+      options: ["En prototype som faktisk fungerer som det ferdige produktet skal", "En prototype helt uten funksjon, som bare er laget for å vises fram", "Et allerede solgt produkt som er levert og tatt i bruk hos kunden", "En prototype som kun er laget for utseendets skyld og ikke skal virke"],
       explanation: "En funksjonell prototype lar deg teste at produktet faktisk virker slik det er tenkt, ikke bare hvordan det ser ut.",
     },
     {
       question: "Hva er en fordel med å teste en prototype på brukere?",
-      options: ["Man får tilbakemelding som kan forbedre produktet", "Det gir aldri nyttig informasjon", "Brukere bør holdes utenfor helt til produktet er helt ferdig utviklet", "Brukere bør aldri se prototyper"],
+      options: ["Man får tilbakemelding som kan forbedre produktet", "Det gir aldri nyttig informasjon", "Brukere bør holdes helt utenfor utviklingen", "Brukere bør aldri se prototyper"],
       explanation: "Brukertesting av prototyper gir verdifulle tilbakemeldinger om hva som fungerer og hva som bør endres.",
     },
   ],
@@ -1212,7 +1212,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør man tilpasse presentasjonen til ulike interessenter?",
-      options: ["Ulike mottakere er opptatt av ulike sider ved produktet", "Man bør alltid si nøyaktig det samme uansett", "Alle mottakere er i praksis helt like og vil vite nøyaktig det samme", "Man bør si nøyaktig det samme til alle for å virke konsekvent og troverdig"],
+      options: ["Ulike mottakere er opptatt av ulike sider ved produktet", "Man bør alltid si nøyaktig det samme uansett", "Alle mottakere er i praksis helt like og vil vite nøyaktig det samme", "Man bør si nøyaktig det samme til alle mottakere"],
       explanation: "En kunde, en investor og en fagperson kan være opptatt av ulike ting, så presentasjonen bør tilpasses mottakerens interesser.",
     },
   ],
@@ -1224,7 +1224,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med visuell kommunikasjon?",
-      options: ["Å formidle budskap gjennom bilder, tegninger og symboler", "Bare å skrive lange tekster", "Å formidle et budskap utelukkende ved å snakke høyt og tydelig", "Å redusere kommunikasjonen til et minimum for å unngå misforståelser"],
+      options: ["Å formidle budskap gjennom bilder, tegninger og symboler", "Bare å skrive lange tekster helt uten bilder, skisser eller symboler", "Å formidle et budskap utelukkende ved å snakke høyt og tydelig", "Å redusere kommunikasjonen til et minimum for å unngå misforståelser"],
       explanation: "Visuell kommunikasjon bruker bilder, skisser, tegninger og symboler for å formidle informasjon på en tydelig måte.",
     },
     {
@@ -1256,24 +1256,24 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det nyttig å vurdere kvalitet underveis og ikke bare til slutt?",
-      options: ["Feil kan oppdages og rettes før de blir kostbare", "Det er ingen vits i å vurdere underveis", "Vurdering underveis er unødvendig fordi feil uansett vises til slutt", "Vurdering gjør arbeidet dårligere"],
+      options: ["Feil kan oppdages og rettes før de blir kostbare", "Det er ingen vits i å vurdere underveis", "Vurdering underveis er unødvendig", "Vurdering gjør arbeidet dårligere"],
       explanation: "Ved å vurdere kvalitet underveis kan man oppdage og rette feil tidlig, før de blir vanskelige eller dyre å fikse.",
     },
     {
       question: "Hva betyr det å evaluere eget arbeid kritisk?",
-      options: ["Å vurdere ærlig hva som er bra og hva som kan forbedres", "Bare å rose alt man har gjort", "Å overse svakhetene i arbeidet for å bevare motivasjonen videre", "Å forkaste og kaste alt man lager fordi det aldri blir godt nok"],
+      options: ["Å vurdere ærlig hva som er bra og hva som kan forbedres", "Bare å rose alt man selv har gjort gjennom hele prosjektet", "Å overse svakhetene i arbeidet for å bevare motivasjonen videre", "Å forkaste og kaste alt man lager fordi det aldri blir godt nok"],
       explanation: "Kritisk egenevaluering betyr å vurdere arbeidet ærlig, med blikk for både styrker og forbedringspunkter.",
     },
     {
       question: "Hvorfor kan det være nyttig å vurdere andres arbeid også?",
-      options: ["Man lærer av andres løsninger og blir bedre til å vurdere kvalitet", "Det gjør egne ferdigheter dårligere", "Man kan kopiere andres løsninger direkte og trenger dermed ikke å øve på faget selv", "Man finner ut hvem i klassen som er dårligst, slik at man selv slipper å forbedre seg"],
+      options: ["Man lærer av andres løsninger og blir bedre til å vurdere kvalitet", "Det gjør at ens egne ferdigheter i faget blir tydelig dårligere over tid", "Man kan kopiere andres løsninger direkte og trenger dermed ikke å øve på faget selv", "Man finner ut hvem i klassen som er dårligst, slik at man selv slipper å forbedre seg"],
       explanation: "Å vurdere andres arbeid trener evnen til å se kvalitet, og man kan hente inspirasjon og lærdom fra andres løsninger.",
     },
   ],
   "handverk-design-vg1-7-8": [
     {
       question: "Hva er prosjektstyring?",
-      options: ["Å planlegge, fordele oppgaver og holde framdrift i et prosjekt", "Å gjøre alt arbeid alene uten plan", "Å regne ut hva materialene i det ferdige produktet kommer til å koste kunden", "Å bestemme salgsprisen på produktet ut fra hvor mange timer det tar å lage det"],
+      options: ["Å planlegge, fordele oppgaver og holde framdrift i et prosjekt", "Å gjøre alt arbeidet i prosjektet helt alene og uten noen som helst plan", "Å regne ut hva materialene i det ferdige produktet kommer til å koste kunden", "Å bestemme salgsprisen på produktet ut fra hvor mange timer det tar å lage det"],
       explanation: "Prosjektstyring handler om å planlegge arbeidet, fordele oppgaver og styre framdriften slik at prosjektet blir ferdig i tide.",
     },
     {
@@ -1283,12 +1283,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fremdriftsplan?",
-      options: ["En oversikt over hva som skal gjøres når, fram mot tidsfristen", "En liste over materialer", "En oversikt over hvem i gruppa som har ansvar for hvilke verktøy", "En detaljert liste over alle materialene og verktøyene gruppa trenger"],
+      options: ["En oversikt over hva som skal gjøres når, fram mot tidsfristen", "En liste over alle materialene som skal brukes i hele prosjektet", "En oversikt over hvem i gruppa som har ansvar for hvilke verktøy", "En detaljert liste over alle materialene og verktøyene gruppa trenger"],
       explanation: "En fremdriftsplan viser rekkefølge og tidspunkt for oppgavene, slik at gruppa holder oversikt og rekker fristen.",
     },
     {
       question: "Hva er en god måte å håndtere uenighet i et gruppearbeid?",
-      options: ["Å lytte til hverandre og finne løsninger sammen", "Å la én bestemme alt alene", "Å avbryte samarbeidet helt til alle er enige igjen", "Å la flertallet stemme uten å høre på begrunnelsene bak"],
+      options: ["Å lytte til hverandre og finne løsninger sammen", "Å la én i gruppa bestemme alt alene uten diskusjon", "Å avbryte samarbeidet helt til alle er enige igjen", "Å la flertallet stemme uten å høre på begrunnelsene bak"],
       explanation: "God kommunikasjon, der man lytter og finner løsninger sammen, er nøkkelen til å håndtere uenighet i et samarbeid.",
     },
     {
@@ -1310,17 +1310,17 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med etisk produksjon?",
-      options: ["Produksjon som tar hensyn til mennesker, dyr og miljø", "Produksjon som forurenser mest mulig", "Produksjon som skjer helt uten regler for arbeidsforhold og miljø", "Produksjon som er lagt opp for å bli så billig som overhodet mulig"],
+      options: ["Produksjon som tar hensyn til mennesker, dyr og miljø", "Produksjon som forurenser mest mulig for å holde kostnadene nede", "Produksjon som skjer helt uten regler for arbeidsforhold og miljø", "Produksjon som er lagt opp for å bli så billig som overhodet mulig"],
       explanation: "Etisk produksjon innebærer å ta hensyn til arbeidsforhold, dyrevelferd og miljø gjennom produksjonen.",
     },
     {
       question: "Hvorfor kan lokal produksjon være mer miljøvennlig?",
-      options: ["Kortere transport gir lavere utslipp", "Lokal produksjon forurenser alltid mer", "Transport har ingen betydning", "Lokal produksjon krever mer materiale"],
+      options: ["Kortere transport gir lavere utslipp", "Lokal produksjon forurenser alltid mer", "Transport har ingen betydning for utslippene", "Lokal produksjon krever mer materiale"],
       explanation: "Når materialer og produkter ikke fraktes langt, blir transportutslippene lavere, noe som er bedre for miljøet.",
     },
     {
       question: "Hvordan kan etterspørsel etter bærekraft påvirke håndverksfagene?",
-      options: ["Flere kunder ønsker miljøvennlige og holdbare produkter", "Bærekraft har ingen betydning for kunder", "Det påvirker bare prisen, ikke hvordan håndverkeren jobber", "Bærekraft angår kun industriell masseproduksjon, ikke håndverk"],
+      options: ["Flere kunder ønsker miljøvennlige og holdbare produkter", "Bærekraft har ingen betydning for hva kundene faktisk velger", "Det påvirker bare prisen, ikke hvordan håndverkeren jobber", "Bærekraft angår kun industriell masseproduksjon, ikke håndverk"],
       explanation: "Når kundene etterspør bærekraftige produkter, må håndverkere tilpasse materialvalg og produksjon for å møte dette behovet.",
     },
   ],
@@ -1332,7 +1332,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er reparasjon viktig for bærekraft?",
-      options: ["Reparasjon forlenger produktets levetid og reduserer avfall", "Det er alltid best å kaste og kjøpe nytt", "Det lønner seg alltid å kaste og kjøpe nytt framfor å reparere", "Reparasjon har ingen miljøeffekt så lenge produktet uansett slites"],
+      options: ["Reparasjon forlenger produktets levetid og reduserer avfall", "Det er alltid best å kaste produktet og kjøpe nytt med en gang", "Det lønner seg alltid å kaste og kjøpe nytt framfor å reparere", "Reparasjon har ingen miljøeffekt så lenge produktet uansett slites"],
       explanation: "Når man reparerer i stedet for å kaste, varer produktet lenger, og man sparer ressurser og reduserer avfall.",
     },
     {
@@ -1342,7 +1342,7 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er vedlikehold viktig for produktlevetiden?",
-      options: ["Godt vedlikehold gjør at produktet varer lenger", "Vedlikehold forkorter alltid levetiden", "Vedlikehold forkorter levetiden fordi man sliter på produktet", "Vedlikehold har ingen effekt så lenge produktet er godt laget"],
+      options: ["Godt vedlikehold gjør at produktet varer lenger", "Vedlikehold forkorter alltid levetiden til produktet", "Vedlikehold forkorter levetiden fordi man sliter på produktet", "Vedlikehold har ingen effekt så lenge produktet er godt laget"],
       explanation: "Regelmessig vedlikehold hindrer slitasje og skade, slik at produktet holder seg i bruk lenger.",
     },
     {
@@ -1445,29 +1445,29 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan kjennskap til nærmiljøet styrke et håndverk?",
-      options: ["Man kan bruke lokale ressurser og tradisjoner som grunnlag og inspirasjon", "Lokal kunnskap svekker alltid produktet", "Man bør erstatte lokale ressurser med importerte materialer for å virke mer moderne", "Man bør holde tradisjoner og lokale råvarer atskilt fra selve håndverksproduksjonen"],
+      options: ["Man kan bruke lokale ressurser og tradisjoner som grunnlag og inspirasjon", "Lokal kunnskap svekker alltid kvaliteten på det ferdige håndverksproduktet", "Man bør erstatte lokale ressurser med importerte materialer for å virke mer moderne", "Man bør holde tradisjoner og lokale råvarer atskilt fra selve håndverksproduksjonen"],
       explanation: "Kunnskap om lokale ressurser og tradisjoner gir et godt grunnlag og inspirasjon for å lage produkter med lokal forankring og særpreg.",
     },
     {
       question: "Hvorfor kan regionale tradisjoner variere fra sted til sted?",
-      options: ["Ulik natur, kultur og historie har formet ulike tradisjoner", "Alle regioner har helt like tradisjoner", "Fordi hver region velger håndverk tilfeldig uten sammenheng med ressurser", "Fordi klima og natur er likt overalt, så bare kulturen skaper forskjellene"],
+      options: ["Ulik natur, kultur og historie har formet ulike tradisjoner", "Alle regioner har helt like tradisjoner", "Fordi hver region velger håndverk tilfeldig uten sammenheng med ressurser", "Fordi klima og natur er likt overalt"],
       explanation: "Ulike regioner har forskjellig natur, ressurser, kultur og historie, noe som har ført til ulike håndverkstradisjoner.",
     },
     {
       question: "Hvordan kan etterspørsel påvirke lokale håndverksfag?",
-      options: ["Etterspørsel etter lokale produkter kan holde tradisjoner levende", "Etterspørsel gjelder bare industrien", "Etterspørsel gjelder bare masseproduserte industrivarer og ikke lokalt håndverk", "Etterspørsel svekker tradisjoner fordi kundene alltid ønsker helt nye produkter"],
+      options: ["Etterspørsel etter lokale produkter kan holde tradisjoner levende", "Etterspørsel gjelder bare industrien, aldri de små enkeltverkstedene", "Etterspørsel gjelder bare masseproduserte industrivarer og ikke lokalt håndverk", "Etterspørsel svekker tradisjoner fordi kundene alltid ønsker helt nye produkter"],
       explanation: "Når det er etterspørsel etter lokale håndverksprodukter, gir det grunnlag for å videreføre og holde tradisjonene levende.",
     },
   ],
   "handverk-design-vg1-8-7": [
     {
       question: "Hva er en forretningsidé?",
-      options: ["En idé om hva man skal lage eller tilby, og hvordan man kan tjene på det", "En liste over verktøy", "En beskrivelse av hvilke materialer og teknikker som brukes i produksjonen", "En plan for hvordan man måler og kvalitetskontrollerer det ferdige produktet"],
+      options: ["En idé om hva man skal lage eller tilby, og hvordan man kan tjene på det", "En fullstendig liste over alle verktøyene og maskinene som virksomheten eier", "En beskrivelse av hvilke materialer og teknikker som brukes i produksjonen", "En plan for hvordan man måler og kvalitetskontrollerer det ferdige produktet"],
       explanation: "En forretningsidé beskriver hvilket produkt eller hvilken tjeneste man vil tilby, og hvordan virksomheten kan bli lønnsom.",
     },
     {
       question: "Hva er entreprenørskap?",
-      options: ["Å skape og utvikle en virksomhet ut fra en idé", "Å bare arbeide for andre uten egne ideer", "En sammenføyningsteknikk der to trestykker limes og skrus fast til hverandre", "En type sammenføyning i tre"],
+      options: ["Å skape og utvikle en virksomhet ut fra en idé", "Å bare arbeide for andre uten egne ideer", "En teknikk der to trestykker limes fast", "En type sammenføyning i tre"],
       explanation: "Entreprenørskap handler om å utvikle en idé til en virksomhet, ofte med risiko og nytenking.",
     },
     {
@@ -1477,12 +1477,12 @@ const quizData_handverk_design_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan trender påvirke en håndverksvirksomhet?",
-      options: ["Trender påvirker hva kundene etterspør og hva som blir populært", "Trender gjelder bare klesindustrien", "Trender styrer bare prisen på råvarer og påvirker ikke hva kundene faktisk vil ha", "Trender gjelder utelukkende klesindustrien og har ingen virkning på annet håndverk"],
+      options: ["Trender påvirker hva kundene etterspør og hva som blir populært", "Trender gjelder bare klesindustrien", "Trender styrer bare prisen på råvarer og påvirker ikke hva kundene faktisk vil ha", "Trender gjelder utelukkende klesindustrien"],
       explanation: "Trender styrer hva som er populært til enhver tid, og en virksomhet kan tilpasse seg eller utnytte trender for å nå kundene.",
     },
     {
       question: "Hvorfor er innovasjon viktig i håndverksfagene?",
-      options: ["Nytenking gir nye produkter og muligheter og holder faget levende", "Innovasjon ødelegger alltid tradisjon", "Det er tryggest å aldri prøve nye materialer eller metoder i et håndverksfag", "Innovasjon fører alltid til at gamle håndverkstradisjoner går tapt og forsvinner"],
+      options: ["Nytenking gir nye produkter og muligheter og holder faget levende", "Innovasjon ødelegger alltid tradisjon", "Det er tryggest å aldri prøve nye materialer eller metoder i et håndverksfag", "Innovasjon fører alltid til at gamle tradisjoner går tapt"],
       explanation: "Innovasjon, det å tenke nytt, gir nye produkter og muligheter og bidrar til at håndverksfagene utvikler seg og holder seg relevante.",
     },
   ],
