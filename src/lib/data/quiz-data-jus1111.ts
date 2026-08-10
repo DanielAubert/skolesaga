@@ -148,7 +148,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det galt å bruke Rt. 2004 s. 675 (Agurkpinne) som fasit for vedtakelse i enhver kontekst?",
-      options: ["Dommen gjelder næringsforhold og en bestemt kontekst — overføringsverdien må drøftes, ikke antas", "Dommen er opphevet ved senere praksis og har ikke lenger rettskildeverdi", "Dommen handler egentlig om angrerett ved fjernsalg, ikke om vedtakelse av avtalevilkår i det hele tatt", "Dommen står ikke i noe domsutvalg og kan derfor aldri brukes som rettskildeargument i en praktikumsbesvarelse"],
+      options: ["Dommen gjelder næringsforhold og en bestemt kontekst — overføringsverdien må drøftes, ikke antas", "Dommen er opphevet ved senere praksis og har ikke lenger rettskildeverdi", "Dommen handler egentlig om angrerett ved fjernsalg, ikke om vedtakelse av avtalevilkår", "Dommen står ikke i noe domsutvalg og kan derfor aldri brukes som rettskildeargument"],
       explanation: "Ukritisk domsoverføring er navngitt trekk (H2019, V2025). Agurkpinne gjelder næringsforhold og en bestemt vedtakelseskontekst; overføringen til annet faktum må problematiseres konkret.",
     },
     {
@@ -158,7 +158,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på «kommet frem» og «kommet til kunnskap» i avtaleloven?",
-      options: ["«Kommet frem» er objektiv ankomst til mottakerens sfære; «kommet til kunnskap» er at mottakeren faktisk har fått kjennskap", "De to uttrykkene betyr nøyaktig det samme, og avtaleloven bruker dem om hverandre uten at det er tilsiktet noe skille mellom dem", "«Kommet frem» gjelder bare muntlige avtaler, «kommet til kunnskap» bare skriftlige avtaler, mens elektronisk kommunikasjon faller utenfor begge uttrykkene", "«Kommet til kunnskap» er et eldre uttrykk som ikke lenger brukes i moderne avtalerett"],
+      options: ["«Kommet frem» er objektiv ankomst til mottakerens sfære; «kommet til kunnskap» er at mottakeren faktisk har fått kjennskap", "De to uttrykkene betyr nøyaktig det samme, og avtaleloven bruker dem om hverandre uten tilsiktet skille", "«Kommet frem» gjelder bare muntlige avtaler, mens «kommet til kunnskap» gjelder bare skriftlige avtaler", "«Kommet til kunnskap» er et eldre uttrykk som ikke lenger brukes i moderne avtalerett"],
       explanation: "Ordlyden skiller to tidspunkter: «kommet frem» (objektiv ankomst) og «kommet til kunnskap» (faktisk kjennskap). Skillet er en klassisk presisjonstest, særlig for tilbakekall etter § 7.",
     },
     {
@@ -180,7 +180,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Etter avtl. § 2 — når må en aksept ha kommet frem for at avtale slutter, når tilbyderen har satt en frist?",
-      options: ["Innen fristens utløp; aksepten må være i tilbyderens sfære (innboks/postkasse), men behøver ikke være lest", "Innen fristens utløp, og tilbyderen må i tillegg ha lest og uttrykkelig bekreftet aksepten før bindende avtale anses sluttet", "Innen rimelig tid etter fristen, dersom forsinkelsen skyldes posten", "Innen fristens utløp regnet fra det tidspunktet aksepten ble skrevet, ikke fra da den kom frem til tilbyderen"],
+      options: ["Innen fristens utløp; aksepten må være i tilbyderens sfære (innboks/postkasse), men behøver ikke være lest", "Innen fristens utløp, og tilbyderen må i tillegg ha lest og uttrykkelig bekreftet aksepten", "Innen rimelig tid etter fristen, dersom forsinkelsen skyldes posten", "Innen fristens utløp regnet fra det tidspunktet aksepten ble skrevet, ikke fra da den kom frem"],
       explanation: "§ 2 knytter rettidigheten til at aksepten er «kommet frem» innen fristen — altså i tilbyderens sfære. Det kreves ikke at tilbyderen har lest den (det ville vært «kommet til kunnskap»).",
     },
     {
@@ -260,7 +260,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer fristnormen «uten ugrunnet opphold» i §§ 4 (2) og 6 (2)?",
-      options: ["At tilbyderen må reagere så snart det er rimelig mulig etter at han ble klar over forholdet — ikke øyeblikkelig, men uten unødig venting", "At tilbyderen har nøyaktig 48 timer på seg, regnet fra da aksepten kom frem", "At tilbyderen må reagere i samme sekund han blir klar over forholdet, altså et enda strengere krav enn «straks»-kravet for muntlige tilbud i § 3 annet ledd", "At tilbyderen kan vente inntil akseptfristen for det opprinnelige tilbudet er utløpt før han er nødt til å reagere på forholdet uten ugrunnet opphold"],
+      options: ["At tilbyderen må reagere så snart det er rimelig mulig etter at han ble klar over forholdet — ikke øyeblikkelig, men uten unødig venting", "At tilbyderen har nøyaktig 48 timer på seg, regnet fra da aksepten kom frem", "At tilbyderen må reagere i samme sekund han blir klar over forholdet, altså strengere enn «straks»-kravet i § 3 annet ledd", "At tilbyderen kan vente inntil akseptfristen for det opprinnelige tilbudet er utløpt før han må reagere på forholdet"],
       explanation: "«Uten ugrunnet opphold» betyr så snart det er rimelig mulig — uten unødig venting, men ikke øyeblikkelig. Den er mildere enn «straks» (§ 3 annet ledd) og er ingen fast timegrense. Oversittes den, inntrer bindingen etter §§ 4 (2)/6 (2).",
     },
     {
@@ -287,7 +287,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En part hevder klart «dette er avtale», men prisen er aldri fastlagt. Hva følger av Rt. 1992 s. 1110 (OBOS/Stiansen)?",
-      options: ["Manglende enighet om et vesentlig punkt som prisen taler tungt mot binding, selv om den ene parten uttrykte seg klart", "Et klart «dette er avtale» fra én part erstatter enigheten om prisen straks og uten videre forhandlinger, så binding foreligger", "Prisen er aldri et vesentlig punkt i en avtale, og manglende enighet om prisen er derfor uten betydning for bindingsspørsmålet", "Binding foreligger automatisk fordi utsagnet var klart formulert"],
+      options: ["Manglende enighet om et vesentlig punkt som prisen taler tungt mot binding, selv om den ene parten uttrykte seg klart", "Et klart «dette er avtale» fra én part erstatter enigheten om prisen uten videre, så binding foreligger", "Prisen er aldri et vesentlig punkt i en avtale, og manglende enighet om prisen er uten betydning", "Binding foreligger automatisk fordi utsagnet var klart formulert"],
       explanation: "OBOS/Stiansen er mot-ankeret: mangler enighet om et essentiale (typisk pris), er utgangspunktet at avtale ikke er sluttet. Ett klart utsagn fra én part skaper ikke enighet om et vilkår partene ikke ble enige om.",
     },
     {
@@ -312,7 +312,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle spiller innrettelse i forventningsprinsippet?",
-      options: ["Innrettelse er tillitsinvesteringen som aktiverer vernet — jo tyngre og mer synlig, desto sterkere står bindingsargumentet", "Innrettelse er uten betydning for bindingsspørsmålet; det er bare ordlyden i selve utsagnet som teller når binding vurderes", "Innrettelse fører alltid til binding uansett hvor uklart utsagnet var, og selv om avgiveren tok et uttrykkelig forbehold om styrets godkjenning", "Innrettelse må alltid bestå i en pengebetaling for i det hele tatt å telle"],
+      options: ["Innrettelse er tillitsinvesteringen som aktiverer vernet — jo tyngre og mer synlig, desto sterkere står bindingsargumentet", "Innrettelse er uten betydning for bindingsspørsmålet; det er bare ordlyden i selve utsagnet som teller", "Innrettelse fører alltid til binding uansett hvor uklart utsagnet var, og selv om avgiveren tok forbehold", "Innrettelse må alltid bestå i en pengebetaling for i det hele tatt å telle"],
       explanation: "Innrettelse (avvist annen kjøper, oppsagt avtale, startet produksjon) er vernobjektet. Uten innrettelse mangler prinsippet noe å verne, og terskelen for binding heves; men innrettelse alene overstyrer ikke et helt uklart utsagn eller et gyldig forbehold.",
     },
     {
@@ -399,12 +399,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En angremelding ligger ULEST i mottakerens innboks ved siden av den opprinnelige aksepten, og mottakeren leser angremeldingen først når han åpner innboksen. Er tilbakekallet rettidig etter § 7?",
-      options: ["Ja — tilbakekallet var kommet frem før aksepten kom til mottakerens kunnskap, og da er § 7-vinduet fortsatt åpent", "Nei — begge meldingene kom frem samtidig, og da er tilbakekallet alltid for sent etter § 7, uansett når aksepten faktisk ble lest", "Nei — § 7 gjelder etter ordlyden bare tilbakekall av tilbud, ikke av aksepter", "Ja, men bare dersom angremeldingen i tillegg ble sendt innen akseptfristen i § 2"],
+      options: ["Ja — tilbakekallet var kommet frem før aksepten kom til mottakerens kunnskap, og da er § 7-vinduet fortsatt åpent", "Nei — begge meldingene kom frem samtidig, og da er tilbakekallet alltid for sent etter § 7", "Nei — § 7 gjelder etter ordlyden bare tilbakekall av tilbud, ikke av aksepter", "Ja, men bare dersom angremeldingen i tillegg ble sendt innen akseptfristen i § 2"],
       explanation: "§ 7 krever bare at tilbakekallet kommer frem før eller senest samtidig med at løftet kommer til mottakerens kunnskap. Her var angremeldingen kommet frem (i innboksen) før aksepten ble lest — vinduet var åpent, og tilbakekallet er rettidig. § 7 gjelder både tilbud og aksept.",
     },
     {
       question: "Du konkluderer med at binding aldri oppsto (trinn 1). Hva krever metoden at du gjør videre?",
-      options: ["Drøfte tilbakekall etter § 7 / re integra subsidiært, for det tilfellet at binding likevel anses inntrådt", "Avslutte besvarelsen — når binding ikke oppsto, er det ingenting mer å drøfte", "Gå rett til erstatningsspørsmålet uten å nevne tilbakekall", "Anvende re integra direkte som selvstendig grunnlag allerede på trinn 1, før § 7 i det hele tatt er vurdert"],
+      options: ["Drøfte tilbakekall etter § 7 / re integra subsidiært, for det tilfellet at binding likevel anses inntrådt", "Avslutte besvarelsen — når binding ikke oppsto, er det ingenting mer å drøfte", "Gå rett til erstatningsspørsmålet uten å nevne tilbakekall", "Anvende re integra direkte som selvstendig grunnlag allerede på trinn 1, før § 7 er vurdert"],
       explanation: "Subsidiaritet er obligatorisk der primærkonklusjonen avskjærer resten: du må drøfte tilbakekall subsidiært («dersom binding først anses inntrådt …»). Manglende subsidiær drøftelse ga uttrykkelig trekk (H2015).",
     },
     {
@@ -461,7 +461,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når kan ellers etterfølgende vilkår likevel anses vedtatt?",
-      options: ["Når fast bransjepraksis eller et etablert forretningsforhold gjør at motparten måtte regne med dem.", "Når selgeren sender vilkårene på e-post innen 24 timer etter at kjøpet er gjennomført, uavhengig av hva de inneholder.", "Når vilkårene er rimelige etter en konkret helhetsvurdering.", "Når kjøperen er forbruker og selgeren er næringsdrivende."],
+      options: ["Når fast bransjepraksis eller et etablert forretningsforhold gjør at motparten måtte regne med dem.", "Når selgeren sender vilkårene på e-post innen 24 timer etter at kjøpet er gjennomført.", "Når vilkårene er rimelige etter en konkret helhetsvurdering.", "Når kjøperen er forbruker og selgeren er næringsdrivende."],
       explanation: "Unntaket fra etterfølgende-vilkår-regelen er fast bransjepraksis eller et etablert forretningsforhold der partene gjentatte ganger har handlet på de samme vilkårene, slik at motparten måtte regne med dem. Rimelighet hører til § 36, ikke vedtakelse.",
     },
     {
@@ -491,7 +491,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Standardvilkårene lå bak en diskret grå bunnlenke plassert UNDER «fullfør kjøp»-knappen, uten avkrysning. En av dem var en uvanlig tyngende gebyrklausul. Er gebyrklausulen vedtatt?",
-      options: ["Sannsynligvis ikke – en uvanlig tyngende klausul krever tydelig fremheving, og en diskret bunnlenke oppfyller ikke synbarhetskravet.", "Ja – lenken var tilgjengelig, og tilgjengelighet er tilstrekkelig for vedtakelse også av uvanlig tyngende klausuler, uten noe tilleggskrav om synbarhet.", "Ja – kjøperen er selv ansvarlig for å lese alt før han trykker på knappen.", "Spørsmålet avgjøres uansett av § 36, ikke av vedtakelseslæren."],
+      options: ["Sannsynligvis ikke – en uvanlig tyngende klausul krever tydelig fremheving, og en diskret bunnlenke oppfyller ikke synbarhetskravet.", "Ja – lenken var tilgjengelig, og tilgjengelighet er tilstrekkelig for vedtakelse også av uvanlig tyngende klausuler.", "Ja – kjøperen er selv ansvarlig for å lese alt før han trykker på knappen.", "Spørsmålet avgjøres uansett av § 36, ikke av vedtakelseslæren."],
       explanation: "For en uvanlig tyngende klausul slår det skjerpede kravet inn med full tyngde: den måtte vært særskilt og tydelig fremhevet. En grå bunnlenke under kjøpsknappen uten avkrysning oppfyller ikke synbarhetskravet for en slik klausul. Tilgjengelighet alene er ikke nok.",
     },
     {
@@ -600,7 +600,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En privatperson selger motorsykkelen sin gjennom en næringsdrivende butikk som selger den på kommisjon til en forbruker. Hvilken regel avgjør lovvalget?",
-      options: ["Representantregelen — selgerens næringsdrivende representant likestilles med selgeren", "Restkategorien i kjøpsloven § 1, siden eieren er privat og selv ikke opptrer i næringsvirksomhet ved salget", "Deklaratorisk avtalefrihet etter kjøpsloven § 3, slik at partene selv kan avtale hvilken lov som gjelder", "Angrerettloven § 20 om angrefristen, som avgjør hvilken lov kjøpet følger"],
+      options: ["Representantregelen — selgerens næringsdrivende representant likestilles med selgeren", "Restkategorien i kjøpsloven § 1, siden eieren er en privatperson", "Deklaratorisk avtalefrihet etter kjøpsloven § 3, slik at partene velger lov", "Angrerettloven § 20 om angrefristen, som avgjør hvilken lov kjøpet følger"],
       explanation: "Representantregelen i fkjl. § 1 likestiller selgerens næringsdrivende representant med selgeren, så salget blir forbrukerkjøp selv om den egentlige eieren er privat. Dette er det skjulte delspørsmålet man lett overser.",
     },
     {
@@ -640,7 +640,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner virkeområdet til angrerettloven (§ 1)?",
-      options: ["Fjernsalg og salg utenom faste forretningslokaler mellom næringsdrivende og forbruker", "Alle kjøp mellom privatpersoner, uavhengig av om handelen skjer på nett eller ved personlig oppmøte", "Alle kjøp der kjøperen er en forbruker, uansett selger og uansett hvor kjøpet fysisk finner sted", "Kjøp av brukte varer på nettmarkedsplasser, uansett hvem som selger"],
+      options: ["Fjernsalg og salg utenom faste forretningslokaler mellom næringsdrivende og forbruker", "Alle kjøp mellom privatpersoner, uavhengig av om handelen skjer på nett", "Alle kjøp der kjøperen er en forbruker, uansett selger og kjøpssted", "Kjøp av brukte varer på nettmarkedsplasser, uansett hvem som selger"],
       explanation: "Angrerettloven § 1 gjelder fjernsalg og salg utenom faste forretningslokaler, og krever at selgeren er næringsdrivende. Den gjelder derfor ikke når selgeren er privat, selv om kjøpet skjer på nett.",
     },
     {
@@ -707,7 +707,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er vilkåret i § 19 (1) c for at det foreligger mangel tross «som den er»-forbehold?",
-      options: ["Tingen er i vesentlig dårligere stand enn kjøperen hadde grunn til å regne med etter kjøpesummen og forholdene ellers", "Tingen svarer ikke til et særlig formål kjøperen hadde tilkjennegitt og som selgeren måtte forstå at kjøperen bygde på hans sakkunnskap for", "Selgeren har gitt en konkret uriktig opplysning om tingens egenskaper eller bruk, og opplysningen har virket inn på kjøperens beslutning", "Kjøperen har unnlatt å undersøke tingen før kjøpet til tross for selgerens oppfordring"],
+      options: ["Tingen er i vesentlig dårligere stand enn kjøperen hadde grunn til å regne med etter kjøpesummen og forholdene ellers", "Tingen svarer ikke til et særlig formål kjøperen hadde tilkjennegitt og som selgeren måtte forstå", "Selgeren har gitt en uriktig opplysning om tingens egenskaper, og opplysningen har virket inn på kjøpet", "Kjøperen har unnlatt å undersøke tingen før kjøpet til tross for selgerens oppfordring"],
       explanation: "§ 19 (1) c krever at tingen er i «vesentlig dårligere stand» enn kjøperen hadde grunn til å regne med, vurdert mot kjøpesummens størrelse og forholdene ellers — ofte en prosentbetraktning utbedringskost/kjøpesum.",
     },
     {
@@ -742,7 +742,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Faktum sier ingenting om at maskinen ble solgt «som den er». Hva bør du gjøre?",
-      options: ["Ikke innføre et forbehold — å konstruere «som den er» som ikke står i faktum er faktumspekulasjon", "Legge til grunn at et alminnelig forbehold alltid gjelder ved brukthandel mellom to profesjonelle parter", "Anta at det gjelder et forbehold fordi kjøperen er næringsdrivende og selv må bære risikoen for skjulte feil ved maskinen", "Behandle salget etter § 19 uansett, siden bestemmelsen gjelder alt salg av brukte ting"],
+      options: ["Ikke innføre et forbehold — å konstruere «som den er» som ikke står i faktum er faktumspekulasjon", "Legge til grunn at et alminnelig forbehold alltid gjelder ved all brukthandel", "Anta at det gjelder et forbehold fordi kjøperen er næringsdrivende og bærer risikoen", "Behandle salget etter § 19 uansett, siden bestemmelsen gjelder alt salg av brukte ting"],
       explanation: "Et «som den er»-forbehold må stå i faktum. Å dikte det opp for å slippe § 17-drøftelsen er navngitt faktumspekulasjon (V2024). Uten forbehold går vurderingen på § 17 (og eventuelt § 18).",
     },
     {
@@ -794,7 +794,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En forsinkelse på et par uker på en alminnelig sofa er neppe vesentlig. Kunden har likevel satt en rimelig tilleggsfrist som selgeren oversitter. Kan hun heve?",
-      options: ["Ja, etter § 25 (2) kan hun heve etter oversittet rimelig tilleggsfrist, uavhengig av om forsinkelsen er vesentlig", "Nei, heving forutsetter alltid at forsinkelsen er vesentlig etter § 25 (1), også når selgeren har oversittet en rimelig tilleggsfrist", "Nei, tilleggsfrist gir bare rett til erstatning, ikke heving", "Ja, men bare dersom hun først har krevd naturaloppfyllelse i retten"],
+      options: ["Ja, etter § 25 (2) kan hun heve etter oversittet rimelig tilleggsfrist, uavhengig av om forsinkelsen er vesentlig", "Nei, heving forutsetter alltid vesentlig forsinkelse etter § 25 (1), også ved oversittet tilleggsfrist", "Nei, tilleggsfrist gir bare rett til erstatning, ikke heving", "Ja, men bare dersom hun først har krevd naturaloppfyllelse i retten"],
       explanation: "§ 25 (2) gir en selvstendig hevingsrett: har kjøperen satt en rimelig tilleggsfrist (Nachfrist) som oversittes, kan hun heve uavhengig av vesentlighet. Dette er veien ut når vesentligheten er usikker.",
     },
     {
@@ -819,7 +819,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedregelen om leveringssted når annet ikke er avtalt (§ 6)?",
-      options: ["Hentekjøp: tingen skal hentes hos selgerens forretningssted, og levering skjer når den er klar for henting der", "Selgeren må alltid bringe varen helt frem til kjøperens hjemadresse for egen regning og risiko, som hovedregel om bringekjøp", "Levering skjer der kjøperen befinner seg når avtalen inngås", "Leveringsstedet fastsettes ensidig av kjøperen etter kjøpet"],
+      options: ["Hentekjøp: tingen skal hentes hos selgerens forretningssted, og levering skjer når den er klar for henting der", "Selgeren må alltid bringe varen helt frem til kjøperens hjemadresse for egen regning og risiko", "Levering skjer der kjøperen befinner seg når avtalen inngås", "Leveringsstedet fastsettes ensidig av kjøperen etter kjøpet"],
       explanation: "Utgangspunktet etter § 6 er hentekjøp: tingen holdes klar for henting hos selgeren, og selgerens leveringsplikt er oppfylt idet den er klar for henting der.",
     },
     {
@@ -866,7 +866,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skal Rt. 2006 s. 179 (Støvletthæl) brukes i en hevingsdrøftelse i et næringskjøp?",
-      options: ["Med forbehold — dommen gjaldt forbrukerkjøp med lavere terskel, så overføringsverdien til kjl. § 39 må problematiseres, ikke forutsettes", "Som direkte fasit for at funksjonssvikt gir hevingsrett også i næringskjøp, slik at terskelen «vesentlig kontraktsbrudd» i § 39 anses oppfylt uten videre", "Den er uten rettskildemessig betydning for næringskjøp og bør ikke nevnes i en hevingsdrøftelse i det hele tatt", "Den fastsetter innholdet i terskelen «vesentlig kontraktsbrudd» for næringskjøp, slik at dommens vurdering kan legges uendret til grunn i en hevingsdrøftelse"],
+      options: ["Med forbehold — dommen gjaldt forbrukerkjøp med lavere terskel, så overføringsverdien til kjl. § 39 må problematiseres, ikke forutsettes", "Som direkte fasit for at funksjonssvikt gir hevingsrett også i næringskjøp, slik at § 39 anses oppfylt uten videre", "Den er uten rettskildemessig betydning for næringskjøp og bør ikke nevnes i en hevingsdrøftelse i det hele tatt", "Den fastsetter terskelen «vesentlig kontraktsbrudd» for næringskjøp, slik at dommens vurdering kan legges uendret til grunn"],
       explanation: "Støvletthæl gjaldt forbrukerkjøp (fkjl. § 32, «ikke uvesentlig») — en lavere terskel enn kjl. § 39. Å bruke den som fasit i næringskjøp er en typisk feil (jf. H2019). Overføringsverdien er begrenset og skal problematiseres.",
     },
     {
@@ -941,7 +941,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Bare åtte prosent av et vareparti er mangelfullt, og selgeren tilbyr omlevering av de defekte enhetene. Hvordan påvirker dette vesentlighetsvurderingen for heving av hele kjøpet?",
-      options: ["At omlevering/prisavslag er et tilstrekkelig alternativ, trekker mot vesentlighet — heving av hele kjøpet kan være uforholdsmessig", "Åtte prosent mangel gir automatisk hevingsrett for hele kjøpet, uavhengig av om omlevering av de defekte enhetene ville vært et tilstrekkelig alternativ", "Den delen av varepartiet som er mangelfri, er uten betydning for vesentlighetsvurderingen og skal holdes helt utenfor når det avgjøres om hele kjøpet kan heves", "Vesentlighet avgjøres bare av kjøperens eget ønske om å komme ut av kjøpet av varepartiet"],
+      options: ["At omlevering/prisavslag er et tilstrekkelig alternativ, trekker mot vesentlighet — heving av hele kjøpet kan være uforholdsmessig", "Åtte prosent mangel gir automatisk hevingsrett for hele kjøpet, uavhengig av om omlevering ville vært tilstrekkelig", "Den delen av varepartiet som er mangelfri, er uten betydning for vesentlighetsvurderingen og skal holdes helt utenfor", "Vesentlighet avgjøres bare av kjøperens eget ønske om å komme ut av kjøpet av varepartiet"],
       explanation: "Momentet «alternativenes tilstrekkelighet» er sentralt: er kjøperen tilstrekkelig hjulpet med omlevering av de defekte enhetene eller prisavslag, taler det mot at bruddet er vesentlig, og heving av hele kjøpet blir uforholdsmessig. Formålsforfeiling kan likevel trekke motsatt vei.",
     },
   ],
@@ -963,7 +963,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er påstanden «streik er alltid utenfor selgers kontroll» riktig?",
-      options: ["Nei — egen streik ligger normalt innenfor kontroll, mens landsomfattende transportstreik ligger utenfor; det kreves konkret vurdering", "Ja, all streik er per definisjon utenfor selgers kontroll, ettersom en arbeidskonflikt utløses av fagforeningen og ikke av selgerens egen virksomhet", "Ja, fordi arbeidsgiver aldri rår over om egne ansatte går til streik under et tariffoppgjør", "Nei — all streik ligger alltid innenfor selgers kontroll, ettersom arbeidsgiveren til enhver tid rår over arbeidsforholdet og kan avverge enhver arbeidskonflikt"],
+      options: ["Nei — egen streik ligger normalt innenfor kontroll, mens landsomfattende transportstreik ligger utenfor; det kreves konkret vurdering", "Ja, all streik er per definisjon utenfor selgers kontroll, ettersom en arbeidskonflikt utløses av fagforeningen", "Ja, fordi arbeidsgiver aldri rår over om egne ansatte går til streik under et tariffoppgjør", "Nei — all streik ligger alltid innenfor selgers kontroll, ettersom arbeidsgiveren til enhver tid rår over arbeidsforholdet"],
       explanation: "Vurderingen er konkret (V2012-poenget). Streik blant selgers egne ansatte er normalt innenfor kontroll; en nasjonal transportstreik selger ikke rår over, er utenfor.",
     },
     {
@@ -1023,7 +1023,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer adekvansbegrensningen i § 67 (1)?",
-      options: ["Tapet dekkes bare så langt selger med rimelighet kunne ha forutsett det som en mulig følge av kontraktbruddet", "Tapet dekkes fullt ut uansett hvor upåregnelig det var for selgeren på tidspunktet da kontrakten mellom partene ble inngått", "Bare tap på salgstingen selv dekkes, mens ethvert følgetap hos kjøperen faller utenfor uansett hvor påregnelig det var", "Erstatningen begrenses til kontraktssummen, slik at tap utover kjøpesummen aldri dekkes"],
+      options: ["Tapet dekkes bare så langt selger med rimelighet kunne ha forutsett det som en mulig følge av kontraktbruddet", "Tapet dekkes fullt ut uansett hvor upåregnelig det var for selgeren ved kontraktsinngåelsen", "Bare tap på salgstingen selv dekkes, mens ethvert følgetap hos kjøperen faller utenfor", "Erstatningen begrenses til kontraktssummen, slik at tap utover kjøpesummen aldri dekkes"],
       explanation: "Adekvans avskjærer fjerne, upåregnelige følgetap. Erstatningen dekker bare påregnelige følger av bruddet.",
     },
     {
@@ -1110,7 +1110,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fantes en alternativ, dyrere frakt som ville brakt varen frem i tide. Hvilket vilkår og hvilken begrensning gjelder?",
-      options: ["Vilkår 4 («unngå eller overvinne»), med en offergrense — bare rimelige tiltak kreves, vurdert mot kontraktsverdien", "Vilkår 2 — alternativet gjør hindringen innenfor kontroll uansett hvor uforholdsmessig dyr den alternative frakten ville vært", "Vilkår 1 — alternativ frakt betyr at det ikke er noen hindring", "Ingen begrensning — enhver alternativ frakt må alltid brukes"],
+      options: ["Vilkår 4 («unngå eller overvinne»), med en offergrense — bare rimelige tiltak kreves, vurdert mot kontraktsverdien", "Vilkår 2 — alternativet gjør hindringen innenfor kontroll uansett hvor dyr frakten ville vært", "Vilkår 1 — alternativ frakt betyr at det ikke er noen hindring", "Ingen begrensning — enhver alternativ frakt må alltid brukes"],
       explanation: "Vilkår 4 krever bare rimelige tiltak. Offergrensen: et alternativ til moderat merkostnad må brukes, mens et helt uforholdsmessig dyrt (f.eks. tredobbel pris av lav kontraktsverdi) kan ikke kreves. Konkret avveining.",
     },
     {
@@ -1140,7 +1140,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Utelukker det at kjøper hever i trinn 3, at han også får erstatning i trinn 4?",
-      options: ["Nei — ved forsinkelse kumuleres beføyelsene etter § 22 (2), så erstatning kommer i tillegg til hevingen", "Ja — den som velger heving, har uttømt sine beføyelser og kan ikke i tillegg kreve erstatning for det økonomiske følgetapet", "Ja, med mindre selger var i ond tro om hindringen da avtalen ble inngått", "Nei, men da kan bare erstatning kreves — hevingsretten faller bort ved force majeure"],
+      options: ["Nei — ved forsinkelse kumuleres beføyelsene etter § 22 (2), så erstatning kommer i tillegg til hevingen", "Ja — den som velger heving, har uttømt sine beføyelser og kan ikke også kreve erstatning", "Ja, med mindre selger var i ond tro om hindringen da avtalen ble inngått", "Nei, men da kan bare erstatning kreves — hevingsretten faller bort ved force majeure"],
       explanation: "Heving og erstatning kommer i tillegg til hverandre — ved forsinkelse følger kumulasjonen av § 22 (2) (mangelsparallellen er § 30 (2)). Erstatningen fanger opp følgetapet heving ikke dekker.",
     },
     {
@@ -1294,7 +1294,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kan forbrukeren gjøre gjeldende en feil som han faktisk kjente til da han kjøpte tingen?",
-      options: ["Nei, forbrukeren kan ikke påberope det han faktisk kjente eller måtte kjenne til ved kjøpet", "Ja, alltid, siden forbrukeren ikke har undersøkelsesplikt før kjøpet etter forbrukerkjøpslovens system", "Ja, dersom den kjente feilen senere utvikler seg til noe mer alvorlig", "Nei, fordi forbrukeren hadde en plikt til å undersøke tingen før kjøpet og derfor bærer risikoen for det han da kunne oppdaget"],
+      options: ["Nei, forbrukeren kan ikke påberope det han faktisk kjente eller måtte kjenne til ved kjøpet", "Ja, alltid, siden forbrukeren ikke har undersøkelsesplikt før kjøpet", "Ja, dersom den kjente feilen senere utvikler seg til noe mer alvorlig", "Nei, fordi forbrukeren hadde en plikt til å undersøke tingen før kjøpet"],
       explanation: "Forbrukeren kan ikke påberope det han faktisk kjente eller måtte kjenne til ved kjøpet. Dette er ikke en undersøkelsesplikt — bare et forbud mot å påberope kjent kunnskap.",
     },
     {
@@ -1309,7 +1309,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er innvirkningskravet i § 16 (1) b og c en «skjult presisjonstest»?",
-      options: ["Fordi opplysningssvikten bare er en mangel hvis den kan antas å ha virket inn, og kandidater ofte hopper over vilkåret", "Fordi vilkåret bare gjelder ved «som den er»-salg og ikke ved ordinære kjøp", "Fordi vilkåret forutsetter at forbrukeren har undersøkt tingen før kjøpet, slik at bare opplysningssvikt han ikke selv kunne avdekket, rammes", "Fordi det erstatter kravet om avtalesamsvar i § 15 (1) og dermed gjør en selvstendig vurdering av opplysningssvikten helt unødvendig"],
+      options: ["Fordi opplysningssvikten bare er en mangel hvis den kan antas å ha virket inn, og kandidater ofte hopper over vilkåret", "Fordi vilkåret bare gjelder ved «som den er»-salg og ikke ved ordinære kjøp", "Fordi vilkåret forutsetter at forbrukeren selv har undersøkt tingen grundig før kjøpet ble inngått", "Fordi det erstatter kravet om avtalesamsvar i § 15 (1) og dermed gjør en egen vurdering unødvendig"],
       explanation: "Innvirkningskravet må nevnes og subsumeres uttrykkelig; mange kandidater hopper over det og taper poeng selv med riktig konklusjon. Det gjelder ikke bare «som den er»-salg.",
     },
   ],
@@ -1356,7 +1356,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En lekk oppvaskmaskin ødelegger parketten under. Hvilken regel avgjør om gulvskaden dekkes?",
-      options: ["Produktskadegrensen i fkjl. § 34 — tap på annet enn salgstingen dekkes ved nær og direkte sammenheng med tingens forutsatte bruk", "Kjøpslovens § 67 om direkte og indirekte tap, som sorterer tapet etter type og avgjør om skade på annet enn salgstingen dekkes fullt ut", "Bilansvarsloven, siden det er tale om en fysisk skade på en gjenstand utenfor selve salgstingen", "Produktansvarsloven, som alltid går foran forbrukerkjøpsloven ved enhver følgeskade på annet enn selve salgstingen i et forbrukerforhold"],
+      options: ["Produktskadegrensen i fkjl. § 34 — tap på annet enn salgstingen dekkes ved nær og direkte sammenheng med tingens forutsatte bruk", "Kjøpslovens § 67 om direkte og indirekte tap, som sorterer tapet etter type og avgjør om skaden dekkes fullt ut", "Bilansvarsloven, siden det er tale om en fysisk skade på en gjenstand utenfor selve salgstingen", "Produktansvarsloven, som alltid går foran forbrukerkjøpsloven ved enhver følgeskade på annet enn salgstingen"],
       explanation: "Gulvskaden er tap på annet enn salgstingen (produktskade). Etter produktskadegrensen i fkjl. § 34 dekkes slikt tap ved nær og direkte sammenheng med tingens forutsatte bruk. En oppvaskmaskin skal håndtere vann, så vannskaden ligger nær bruken.",
     },
     {
@@ -1366,7 +1366,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den relevante skillelinjen for tapssortering i kjøpsloven, til forskjell fra forbrukerkjøpsloven?",
-      options: ["Direkte mot indirekte tap (kjl. § 67), der § 67 (3) a fører avbøtingskostnader tilbake til direkte tap", "Forbruker mot næring, akkurat som i forbrukerkjøpsloven, slik at skillelinjen er felles for de to lovene og bygger på partsforholdet", "Forsettlig mot uaktsomt kontraktbrudd, slik at erstatningens omfang bestemmes av selgerens skyldgrad ved kontraktbruddet", "Formuestap mot ikke-økonomisk tap, slik at ulempe og tapt fritid holdes utenfor"],
+      options: ["Direkte mot indirekte tap (kjl. § 67), der § 67 (3) a fører avbøtingskostnader tilbake til direkte tap", "Forbruker mot næring, akkurat som i forbrukerkjøpsloven, slik at skillelinjen er felles", "Forsettlig mot uaktsomt kontraktbrudd, slik at omfanget bestemmes av selgerens skyldgrad", "Formuestap mot ikke-økonomisk tap, slik at ulempe og tapt fritid holdes utenfor"],
       explanation: "Kjøpsloven skiller på direkte/indirekte tap (§ 67), og § 67 (3) a fører avbøtingskostnader tilbake til direkte tap. Forbrukerkjøpsloven skiller derimot på forbruker/næring (§ 52 (2) b). Sorteringen er felles, skillelinjen ulik.",
     },
     {
@@ -1428,7 +1428,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En næringskjøper mottar et vareparti, lar det stå ukontrollert, og oppdager en synlig mangel fire måneder senere. Hva er riktig om den relative fristen?",
-      options: ["Fristen løp fra da kjøperen burde ha oppdaget mangelen ved en undersøkelse etter § 31, altså kort tid etter levering", "Fristen løp først fra den faktiske oppdagelsen fire måneder senere", "Fristen løper ikke før selgeren varsler om mulige feil", "Fristen er alltid minst to måneder fra oppdagelsen også for næringskjøpere, slik forbrukerkjøpslovens to-månedersgulv fastsetter"],
+      options: ["Fristen løp fra da kjøperen burde ha oppdaget mangelen ved en undersøkelse etter § 31, altså kort tid etter levering", "Fristen løp først fra den faktiske oppdagelsen fire måneder senere", "Fristen løper ikke før selgeren varsler om mulige feil", "Fristen er alltid minst to måneder fra oppdagelsen også for næringskjøpere, etter forbrukerkjøpsloven"],
       explanation: "Kjøpsloven § 31 pålegger næringskjøperen å undersøke tingen så snart det er rimelig høve. En synlig mangel «burde» da vært oppdaget straks, og den relative fristen løp fra det tidspunktet — ikke fra den utsatte faktiske oppdagelsen.",
     },
     {
@@ -1448,7 +1448,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En selger sender tekniker, tilbyr utbedring og forhandler i uker uten fristforbehold, og påberoper seg deretter at det er reklamert for seint. Hva gjelder?",
-      options: ["Selgeren kan etter ulovfestet rett ha tapt fristinnsigelsen ved å innlate seg i realitetsdrøftelse uten forbehold", "Selgeren kan alltid trekke fristinnsigelsen så lenge fristen objektivt var oversittet, uavhengig av hvordan han selv har opptrådt etterpå", "Realitetsdrøftelse forlenger reklamasjonsfristen med to måneder", "Fristinnsigelsen består fordi den følger direkte av loven"],
+      options: ["Selgeren kan etter ulovfestet rett ha tapt fristinnsigelsen ved å innlate seg i realitetsdrøftelse uten forbehold", "Selgeren kan alltid trekke fristinnsigelsen så lenge fristen var oversittet, uansett egen opptreden", "Realitetsdrøftelse forlenger reklamasjonsfristen med to måneder", "Fristinnsigelsen består fordi den følger direkte av loven"],
       explanation: "Etter ulovfestet rett kan en selger som realitetsdrøfter kravet uten å ta fristforbehold, tape fristinnsigelsen. Hensynet er lojalitet og passivitet. Vil selgeren beholde innsigelsen, må han ta uttrykkelig forbehold.",
     },
     {
@@ -1485,7 +1485,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kjøperen i et privat bruktsalg via nettannonse hevder han har 14 dagers angrerett fordi handelen skjedde «på nett». Hva er riktig?",
-      options: ["Angrerettloven gjelder ikke, fordi den forutsetter at selgeren er næringsdrivende", "Angrerettloven gjelder, fordi alt salg over internett gir angrerett", "Angrerettloven gjelder i 14 dager fra levering uansett hvem selgeren er, også ved privatsalg", "Angrerettloven gjelder fordi kjøperen er forbruker"],
+      options: ["Angrerettloven gjelder ikke, fordi den forutsetter at selgeren er næringsdrivende", "Angrerettloven gjelder, fordi alt salg over internett gir angrerett", "Angrerettloven gjelder i 14 dager fra levering, også ved privatsalg", "Angrerettloven gjelder fordi kjøperen er forbruker"],
       explanation: "Angrerettloven §§ 1 og 20 gjelder bare fjernsalg fra en næringsdrivende selger. Ved privatsalg avvises loven i én setning. Å anvende angrerettloven mellom private er en navngitt eksamensfeil.",
     },
     {
@@ -1515,7 +1515,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Utbedring av en mangel koster om lag 28 % av kjøpesummen. Hvordan brukes dette i § 19 (1) c?",
-      options: ["Prosentandelen er et tungtveiende moment som taler for «vesentlig dårligere stand»", "Prosentandelen er uten betydning; bare selgerens skyld teller", "En andel over 5 % beviser automatisk mangel", "Prosentbetraktning hører hjemme i reklamasjonsvurderingen, ikke i § 19 om mangel ved tingen"],
+      options: ["Prosentandelen er et tungtveiende moment som taler for «vesentlig dårligere stand»", "Prosentandelen er uten betydning; bare selgerens skyld teller", "En andel over 5 % beviser automatisk mangel", "Prosentbetraktning hører hjemme i reklamasjonsvurderingen, ikke i § 19"],
       explanation: "Vesentlighetsterskelen i c vurderes typisk ved en prosentbetraktning: utbedringskostnad mot kjøpesum. En andel på ~28 % taler klart for «vesentlig dårligere stand». Det er ingen fast automatisk grense.",
     },
     {
@@ -1572,7 +1572,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kunde skades av en defekt panelovn kjøpt i en elektrobutikk som bare er forhandler. Kunden påberoper produktansvarsloven mot butikken. Hva er riktig?",
-      options: ["Loven avvises i én setning — butikken er verken produsent eller importør (§ 1-3); ansvar må ev. bygge på culpa eller ulovfestet objektivt ansvar", "Butikken hefter objektivt etter produktansvarsloven fordi den solgte ovnen", "Produktansvarsloven gjelder alltid ved produktskade uansett hvem som saksøkes, også en ren forhandler som verken har produsert eller importert produktet", "Kravet må avvises helt fordi ovnen fulgte en kjøpsavtale"],
+      options: ["Loven avvises i én setning — butikken er verken produsent eller importør (§ 1-3); ansvar må ev. bygge på culpa eller ulovfestet objektivt ansvar", "Butikken hefter objektivt etter produktansvarsloven fordi den solgte ovnen", "Produktansvarsloven gjelder alltid ved produktskade uansett hvem som saksøkes, også en ren forhandler", "Kravet må avvises helt fordi ovnen fulgte en kjøpsavtale"],
       explanation: "Produktansvarsloven treffer ikke forhandleren. Den avvises kort, og man går videre til culpa/ulovfestet objektivt ansvar. Navngitt felle H2025, V2023, V2021.",
     },
     {
@@ -1612,7 +1612,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En defekt vare skader kjøpstingens omgivelser (f.eks. ovnen svir av kjøperens egen bod). Hvilket regelverk kan tapet følge?",
-      options: ["Kjøpsreglene — fkjl. § 34 / kjl. § 67 (2) bokstav d, «nær og direkte sammenheng» med kjøpstingen", "Utelukkende den deliktsrettslige culpanormen mot selgeren, uavhengig av om kjøpsreglene dekker skaden på omgivelsene", "Produktansvarsloven mot enhver forhandler i kjeden", "Skadeserstatningsloven § 2-1 om arbeidsgiveransvar"],
+      options: ["Kjøpsreglene — fkjl. § 34 / kjl. § 67 (2) bokstav d, «nær og direkte sammenheng» med kjøpstingen", "Utelukkende den deliktsrettslige culpanormen mot selgeren, ikke kjøpsreglene", "Produktansvarsloven mot enhver forhandler i kjeden", "Skadeserstatningsloven § 2-1 om arbeidsgiveransvar"],
       explanation: "Grensesnittet: produktskade på salgstingens omgivelser kan følge kjøpsreglene når skaden har «nær og direkte sammenheng» med kjøpstingen (fkjl. § 34 / kjl. § 67 (2) d). Full drill i kap. 5.2.",
     },
     {
@@ -1701,7 +1701,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Skadelidte har selv medvirket til en motorvognskade (utenfor kollisjonstilfellene). Hvilket regelsett styrer avkortningen — og hva fortrenges?",
-      options: ["Bal. § 7 styrer — spesialregelen med terskelen «berre lite til last» fortrenger den alminnelige skl. § 5-1", "Skl. § 5-1 styrer — den alminnelige medvirkningsregelen gjelder fullt ut også ved motorvognskader", "Bal. § 2 styrer — unntakskatalogen avgjør når skadelidtes medvirkning fører til avkortning", "Bal. § 8 (2) styrer — skyldfordelingsregelen gjelder for alle skader der en motorvogn er innblandet i vegtrafikken"],
+      options: ["Bal. § 7 styrer — spesialregelen med terskelen «berre lite til last» fortrenger den alminnelige skl. § 5-1", "Skl. § 5-1 styrer — den alminnelige medvirkningsregelen gjelder fullt ut også ved motorvognskader", "Bal. § 2 styrer — unntakskatalogen avgjør når skadelidtes medvirkning fører til avkortning", "Bal. § 8 (2) styrer — skyldfordelingsregelen gjelder alle skader der en motorvogn er innblandet"],
       explanation: "Bal. § 7 er spesialregelen som fortrenger skl. § 5-1 ved motorvognskade (lex specialis). Å bruke skl. § 5-1 ga «kraftig trekk» i H2022. Terskelen «berre lite til last» skjermer skadelidte mot avkortning for bagatellmessig uaktsomhet.",
     },
     {
@@ -1721,7 +1721,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor opptrer bilansvaret typisk som «del II» av eksamenssettet?",
-      options: ["I materialet kobles det alltid på en kontrakts- eller deliktstvist — det testes aldri alene", "Fordi bilansvaret er for enkelt til å bære en hel oppgave og derfor bare opptrer som en kort biport i eksamenssettene", "Fordi det bare gir plusspoeng", "Fordi § 8 krever en forutgående kontraktsdrøftelse"],
+      options: ["I materialet kobles det alltid på en kontrakts- eller deliktstvist — det testes aldri alene", "Fordi bilansvaret er for enkelt til å bære en hel oppgave alene", "Fordi det bare gir plusspoeng", "Fordi § 8 krever en forutgående kontraktsdrøftelse"],
       explanation: "Bilansvaret opptrer aldri alene i materialet, men kobles på en annen tvist som «del II». Kombinasjonstreningen består i å bytte spor rent uten å blande reglene.",
     },
     {
@@ -1788,7 +1788,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er profesjonsansvaret?",
-      options: ["En culpavariant med streng norm, men med rom for kritikkverdig men likevel forsvarlig yrkesutøvelse", "Et rent objektivt ansvar der ethvert feilgrep gir erstatning uavhengig av om skadevolderen kunne bebreides for handlingen", "En mildere norm enn den alminnelige culpanormen, fordi fagpersoner må ha et visst rom for å ta feil i utøvelsen", "Et lovfestet ansvar hjemlet i skadeserstatningsloven § 2-1"],
+      options: ["En culpavariant med streng norm, men med rom for kritikkverdig men likevel forsvarlig yrkesutøvelse", "Et rent objektivt ansvar der ethvert feilgrep gir erstatning uavhengig av bebreidelse", "En mildere norm enn den alminnelige culpanormen, fordi fagpersoner må kunne ta feil", "Et lovfestet ansvar hjemlet i skadeserstatningsloven § 2-1"],
       explanation: "Profesjonsansvaret er en variant av culpaansvaret for fagpersoner. Normen er streng, men ikke objektiv: det finnes rom for kritikkverdig, men forsvarlig utøvelse. Ikke ethvert feilgrep er uaktsomt.",
     },
     {
@@ -1823,7 +1823,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den objektive aktsomhetsnormen i culpavurderingen?",
-      options: ["Hva en alminnelig fornuftig og samvittighetsfull person i skadevolderens rolle og situasjon ville gjort", "Hva akkurat denne skadevolderen med sine evner klarte å forstå og forutse, altså en rent subjektiv målestokk", "Hva skadelidte i ettertid mener at skadevolderen burde ha gjort i den situasjonen han sto oppe i da skaden skjedde", "Hva som er teknisk mulig å gjennomføre, uansett hva det ville koste"],
+      options: ["Hva en alminnelig fornuftig og samvittighetsfull person i skadevolderens rolle og situasjon ville gjort", "Hva akkurat denne skadevolderen med sine evner klarte å forstå, altså en subjektiv målestokk", "Hva skadelidte i ettertid mener at skadevolderen burde ha gjort i den situasjonen", "Hva som er teknisk mulig å gjennomføre, uansett hva det ville koste"],
       explanation: "Normen er objektiv (bonus pater familias) og individualiseres etter rolle, men skadevolderens dårlige dømmekraft gir ikke rabatt. Subjektive forhold får bare betydning i randsonen.",
     },
     {
@@ -2064,12 +2064,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer vesentlighetsreservasjonen ved samvirkende årsaker?",
-      options: ["Skadevolderens bidrag må ha vært så vidt vesentlig i årsaksbildet at det er naturlig å knytte ansvar til det", "Alle medvirkende årsaker, også helt bagatellmessige, medfører fullt ansvar", "Bare den årsaken som alene var tilstrekkelig, regnes som årsak", "Skadevolderen slipper alltid ansvar når det finnes mer enn én årsak"],
+      options: ["Skadevolderens bidrag må ha vært så vidt vesentlig i årsaksbildet at det er naturlig å knytte ansvar til det", "Alle medvirkende årsaker, også helt bagatellmessige bidrag til skadeforløpet, medfører fullt ansvar for hele skaden", "Bare den årsaken som alene var tilstrekkelig, regnes som årsak", "Skadevolderen slipper alltid ansvar når det finnes mer enn én årsak"],
       explanation: "Ved samvirke krever P-pille II at bidraget er så vidt vesentlig at ansvar er naturlig; bagatellmessige bidrag avskjæres. Det kreves verken at årsaken var tilstrekkelig alene, og flere årsaker fritar ikke automatisk.",
     },
     {
       question: "Hva går innsigelsen om hypotetisk skadeutvikling ut på?",
-      options: ["At skaden ville ha inntruffet uansett, uavhengig av den ansvarsbetingende handlingen", "At følgen var for fjern og avledet til å være påregnelig", "At kravshaveren er en tredjeperson uten vernet interesse", "At skadelidte kunne ha begrenset tapet sitt"],
+      options: ["At skaden ville ha inntruffet uansett, uavhengig av den ansvarsbetingende handlingen", "At følgen var for fjern og avledet til å være påregnelig for skadevolderen da handlingen ble foretatt", "At kravshaveren bare rammes indirekte gjennom en annens skade og derfor mangler vernet interesse", "At skadelidte kunne ha begrenset tapet sitt ved rimelige tiltak"],
       explanation: "Hypotetisk skadeutvikling er «det skjedde uansett»-innsigelsen: man sammenligner faktisk forløp med et tenkt forløp uten handlingen. Fører den frem, var handlingen ikke nødvendig for tapet. De andre er adekvans, vernet interesse og tapsbegrensning.",
     },
     {
@@ -2079,7 +2079,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale metodegrepet når du vurderer adekvans?",
-      options: ["Adekvansen vurderes per tapspost — én post kan være adekvat og en annen inadekvat", "Adekvansen vurderes samlet for hele kravet under ett", "Adekvansen avgjøres av hvor mange årsaker som samvirket", "Adekvansen avhenger bare av hvor grov skadevolderens skyld var"],
+      options: ["Adekvansen vurderes per tapspost — én post kan være adekvat og en annen inadekvat", "Adekvansen vurderes samlet for hele kravet, slik at alle tapspostene står og faller sammen", "Adekvansen avgjøres av hvor mange årsaker som samvirket i skadeforløpet", "Adekvansen avhenger bare av hvor grov skadevolderens skyld var, slik at grov skyld gjør enhver følge påregnelig"],
       explanation: "Adekvans vurderes per tapspost: personskaden kan være adekvat mens en spesiell følgeskade er inadekvat. Den vurderes ikke samlet, og avhenger av følgens påregnelighet — ikke primært av antall årsaker eller skyldgrad.",
     },
     {
@@ -2089,7 +2089,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedregelen om avledede tredjemannstap?",
-      options: ["De er som hovedregel ikke vernet, men det gjøres en konkret nærhetsvurdering", "Alle tredjemenn som lider tap, har krav på erstatning", "Ingen tredjemenn kan noen gang få erstatning for avledet tap", "Tredjemannstap er alltid vernet så lenge tapet er økonomisk"],
+      options: ["De er som hovedregel ikke vernet, men det gjøres en konkret nærhetsvurdering", "Alle tredjemenn som lider et påviselig økonomisk tap som følge av skaden, har krav på full erstatning", "Ingen tredjemenn kan få erstatning for avledet tap, uansett hvor nær tilknytningen til den skadde er", "Tredjemannstap er alltid vernet så lenge tapet er rent økonomisk og lar seg dokumentere i regnskapet"],
       explanation: "Hovedregelen (Rt. 1955 s. 872, Rt. 1973 s. 1268) er at avledede tredjemannstap ikke er vernet, men Rt. 2006 s. 690 (Lillestrøm) viser at regelen ikke er absolutt — det gjøres en konkret nærhetsvurdering. Verken «alle» eller «ingen» er riktig.",
     },
     {
@@ -2119,12 +2119,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En bussjåfør skader uaktsomt en fotballspiller, og en lokal sportsbar krever erstatning for lavere omsetning på kampdager. Hva er den mest presise begrunnelsen for at baren ikke når frem?",
-      options: ["Barens tap er et avledet tredjemannstap som er for fjernt etter nærhetsvurderingen — baren er ikke direkte rammet", "Barens tap er inadekvat fordi omsetningstap aldri er en påregnelig følge av en trafikkskade", "Det mangler faktisk årsakssammenheng mellom påkjørselen og barens omsetning", "Bussjåføren manglet ansvarsgrunnlag"],
+      options: ["Barens tap er et avledet tredjemannstap som er for fjernt etter nærhetsvurderingen — baren er ikke direkte rammet", "Barens tap er inadekvat fordi omsetningstap aldri er en påregnelig følge av en trafikkskade", "Det mangler faktisk årsakssammenheng mellom påkjørselen og barens omsetning", "Bussjåføren manglet ansvarsgrunnlag fordi uaktsom kjøring i trafikken bare utløser ansvar når skadevolderen har opptrådt grovt uaktsomt"],
       explanation: "Baren er en tredjeperson som rammes indirekte fordi spilleren ble skadet; tapet er avledet og for fjernt etter nærhetsvurderingen (hovedregel: tredjemannstap ikke vernet). Poenget er kravshaverens posisjon, ikke adekvans, faktisk årsak eller ansvarsgrunnlag.",
     },
     {
       question: "Hvilke tre grunnvilkår må være oppfylt for erstatning utenfor kontrakt?",
-      options: ["Ansvarsgrunnlag, årsakssammenheng og økonomisk tap", "Ansvarsgrunnlag, adekvans og vernet interesse", "Årsakssammenheng, skyld og oppreisning", "Uaktsomhet, kontrakt og tap"],
+      options: ["Ansvarsgrunnlag, årsakssammenheng og økonomisk tap", "Ansvarsgrunnlag, adekvans og vernet interesse — de tre kumulative grunnvilkårene", "Årsakssammenheng, skyld hos skadevolderen og krav på oppreisning", "Uaktsomhet, avtale mellom partene og et dokumentert økonomisk tap"],
       explanation: "De tre grunnvilkårene er ansvarsgrunnlag, årsakssammenheng og økonomisk tap. Adekvans og vernet interesse er begrensninger som avskjærer ansvaret, ikke selvstendige grunnvilkår.",
     },
     {
@@ -2136,7 +2136,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
   'jus1111-4-6': [
     {
       question: "Skadelidte syklet uten hjelm og bidro til hodeskadens omfang. Ingen motorvogn er involvert. Hvilken hjemmel regulerer avkortningen?",
-      options: ["Skadeserstatningsloven § 5-1 nr. 1 — medvirkning ved egen skyld", "Skadeserstatningsloven § 5-1 nr. 2 — tapsbegrensningsplikt", "Skadeserstatningsloven § 5-1 nr. 3 — identifikasjon", "Skadeserstatningsloven § 1-3 — selvforskyldt rus"],
+      options: ["Skadeserstatningsloven § 5-1 nr. 1 — medvirkning ved egen skyld", "Skadeserstatningsloven § 5-1 nr. 2 — plikten til å begrense tapet etter at skaden er inntruffet", "Skadeserstatningsloven § 5-1 nr. 3 — identifikasjon med andre som har medvirket til skaden", "Skadeserstatningsloven § 1-3 — selvforskyldt rus hos den som volder skaden"],
       explanation: "Skadelidtes egen uforsiktighet før/under skaden faller under § 5-1 nr. 1. Nr. 2 gjelder unnlatelser etter skaden, nr. 3 gjelder andres medvirkning, og § 1-3 gjelder rus — ingen av dem passer her.",
     },
     {
@@ -2156,7 +2156,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Skadelidte nektet en enkel, risikofri behandling som ville gjenopprettet full funksjon, og fikk et varig tap. Hvilken regel gjelder?",
-      options: ["Skadeserstatningsloven § 5-1 nr. 2 — tapsbegrensningsplikt etter skaden", "Skadeserstatningsloven § 5-1 nr. 1 — medvirkning ved egen skyld", "Skadeserstatningsloven § 5-1 nr. 3 — identifikasjon", "Skadeserstatningsloven § 1-2 nr. 1 — tilsynsansvar"],
+      options: ["Skadeserstatningsloven § 5-1 nr. 2 — tapsbegrensningsplikt etter skaden", "Skadeserstatningsloven § 5-1 nr. 1 — medvirkning ved egen skyld før eller under skadehendelsen", "Skadeserstatningsloven § 5-1 nr. 3 — identifikasjon med andre som skadelidte svarer for", "Skadeserstatningsloven § 1-2 nr. 1 — tilsynsansvar"],
       explanation: "Unnlatelse av å begrense tapet etter at skaden er skjedd hører under § 5-1 nr. 2. Å plassere dette under nr. 1 (skyld før/under skaden) er en klassisk sammenblanding.",
     },
     {
@@ -2171,12 +2171,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer skadeserstatningsloven § 1-2 nr. 2?",
-      options: ["Foreldrenes objektive, beløpsbegrensede ansvar for skade barnet volder, uansett egen skyld", "Foreldrenes ubegrensede ansvar for all skade barnet volder", "Avkortning av barnets erstatningskrav for foreldrenes uaktsomhet", "Barnets eget erstatningsansvar etter alder og utvikling"],
+      options: ["Foreldrenes objektive, beløpsbegrensede ansvar for skade barnet volder, uansett egen skyld", "Foreldrenes ubegrensede ansvar for all skade barnet volder", "Avkortning av barnets erstatningskrav i den grad foreldrene selv har vært uaktsomme i tilsynet med barnet", "Barnets eget erstatningsansvar etter alder og utvikling"],
       explanation: "§ 1-2 nr. 2 gir et objektivt ansvar uansett egen skyld, men bare inntil 5 000 kroner per skadevolding. Culpaansvaret for tilsynssvikt ligger i nr. 1; barnets eget ansvar i § 1-1.",
     },
     {
       question: "Hva regulerer skadeserstatningsloven § 1-2 nr. 1?",
-      options: ["Foreldrenes culpaansvar for tilsynssvikt — manglende tilbørlig tilsyn med barnet", "Foreldrenes objektive ansvar begrenset til et fast beløp", "Identifikasjon mellom foreldre og barn ved barnets skade", "Selvforskyldt rus hos foreldrene"],
+      options: ["Foreldrenes culpaansvar for tilsynssvikt — manglende tilbørlig tilsyn med barnet", "Foreldrenes objektive ansvar for barnets skadeforvoldelse, begrenset til et fast kronebeløp", "Identifikasjon mellom foreldre og barn ved barnets skade", "Selvforskyldt rus hos foreldrene som grunnlag for ansvar"],
       explanation: "§ 1-2 nr. 1 er et culpaansvar: foreldre svarer der de har latt det mangle på tilbørlig tilsyn. Det beløpsbegrensede objektive ansvaret ligger i nr. 2.",
     },
     {
@@ -2191,7 +2191,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser Rt. 2005 s. 887 (Bilbelte) om forholdet mellom skyld og avkortningsgrad?",
-      options: ["Klar medvirkning ga likevel lav avkortning — skyld og avkortningsgrad er to atskilte trinn", "Klar medvirkning gir alltid full bortfall av erstatningen", "Manglende bilbelte identifiseres med skadevolderen", "Medvirkning kan ikke vurderes når skadelidte var uten verneutstyr"],
+      options: ["Klar medvirkning ga likevel lav avkortning — skyld og avkortningsgrad er to atskilte trinn", "Klar medvirkning gir alltid full bortfall av erstatningen", "Manglende bilbelte identifiseres med skadevolderen", "Medvirkning kan ikke vurderes når skadelidte manglet påbudt verneutstyr som bilbelte eller hjelm"],
       explanation: "Bilbelte-dommen viser at selv om medvirkning (manglende bilbelte) klart forelå, ble avkortningen satt lavt. Skyldkonstatering og fastsettelse av avkortningsgrad er to separate vurderinger.",
     },
     {
@@ -2201,7 +2201,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor i erstatningsvurderingen kommer spørsmålet om medvirkning og avkortning inn?",
-      options: ["Etter at ansvarsgrunnlaget er konstatert — som en modifikasjon av erstatningen", "Før ansvarsgrunnlaget, som et selvstendig fjerde grunnvilkår", "I stedet for årsakssammenheng", "Bare når skadevolderen har handlet forsettlig"],
+      options: ["Etter at ansvarsgrunnlaget er konstatert — som en modifikasjon av erstatningen", "Før ansvarsgrunnlaget vurderes, som et selvstendig fjerde grunnvilkår ved siden av de tre andre", "I stedet for årsakssammenheng, som en erstatning for årsaksvurderingen", "Bare når skadevolderen har handlet forsettlig"],
       explanation: "Medvirkning er ikke et grunnvilkår, men en modifikasjon som vurderes etter at ansvaret er konstatert. Rekkefølgen er: konstater ansvar → vurder medvirkning/avkortning.",
     },
     {
@@ -2216,7 +2216,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den praktiske konsekvensen av å drøfte skl. § 5-1 i en ren motorvognskade på eksamen?",
-      options: ["Feil lovvalg som har gitt «kraftig trekk» (H2022) — bal. § 7 skulle vært brukt", "Ingen konsekvens, siden reglene gir samme resultat uansett", "Bonus, fordi § 5-1 er den mer generelle regelen", "At forbrukerkjøpsloven i stedet må anvendes"],
+      options: ["Feil lovvalg som har gitt «kraftig trekk» (H2022) — bal. § 7 skulle vært brukt", "Ingen konsekvens, siden § 5-1 og bal. § 7 leder til samme avkortning i den konkrete saken", "Bonus, fordi § 5-1 er den generelle medvirkningsregelen som også dekker motorvognskader", "At forbrukerkjøpsloven i stedet må anvendes"],
       explanation: "Ved motorvognskade fortrenger bilansvarslova skl. § 5-1, og avkortning vurderes etter bal. § 7 (og § 8 andre ledd i kollisjon). Feil lovvalg her ga «kraftig trekk» i H2022 og var tema i V2015.",
     },
     {
@@ -2228,7 +2228,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
   'jus1111-4-7': [
     {
       question: "En tolv år gammel bil kondemneres etter en uaktsom påkjørsel. Hva kan eieren kreve etter skl. § 4-1?",
-      options: ["Gjenanskaffelsesverdien for en tilsvarende brukt bil (med fradrag for slit og elde)", "Prisen på en tilsvarende ny bil", "Gjenanskaffelsesverdi pluss et tillegg for affeksjonsverdi", "Full erstatning etter fritt skjønn ut fra hva eieren mener bilen var verdt"],
+      options: ["Gjenanskaffelsesverdien for en tilsvarende brukt bil (med fradrag for slit og elde)", "Prisen på en tilsvarende ny bil av samme merke og modell, uten fradrag for verdifall ved slit og elde", "Gjenanskaffelsesverdi pluss et tillegg for affeksjonsverdi", "Full erstatning etter fritt skjønn ut fra hva eieren mener bilen var verdt"],
       explanation: "Tingsskade dekker kun det økonomiske tapet, og en totalskadd gjenstand erstattes til gjenanskaffelsesverdi med fradrag for slit og elde. Nypris ville gi «nytt for gammelt» i strid med berikelsesforbudet (A/B-skillet i H2016).",
     },
     {
@@ -2243,7 +2243,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tapsposter dekker skl. § 3-1 ved personskade?",
-      options: ["Lidt tap, tap i framtidig erverv og merutgifter", "Kun tapt arbeidsinntekt frem til oppgjøret", "Ménerstatning og oppreisning", "Kun fremtidig inntektstap"],
+      options: ["Lidt tap, tap i framtidig erverv og merutgifter", "Kun tapt arbeidsinntekt fra skadetidspunktet og frem til oppgjøret", "Ménerstatning og oppreisning for den belastningen skaden har medført", "Kun framtidig inntektstap etter oppgjøret"],
       explanation: "§ 3-1 dekker tre poster: lidt (påløpt) tap, tap i framtidig erverv og merutgifter skaden påfører. Mén (§ 3-2) og oppreisning (§ 3-5) er egne hjemler.",
     },
     {
@@ -2258,7 +2258,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Skadelidte lot være å begrense et tap han enkelt kunne redusert. Hvilken regel rammer dette i utmålingen?",
-      options: ["Tapsbegrensningsplikten, skl. § 5-1 nr. 2", "Lemping, skl. § 5-2", "Identifikasjon, skl. § 5-1 nr. 3", "Ménerstatning, skl. § 3-2"],
+      options: ["Tapsbegrensningsplikten, skl. § 5-1 nr. 2", "Lemping av ansvaret etter skl. § 5-2 fordi tapet ble unødig stort", "Identifikasjon med en annens uaktsomhet, skl. § 5-1 nr. 3", "Ménerstatning for varig medisinsk invaliditet, skl. § 3-2"],
       explanation: "§ 5-1 nr. 2 pålegger skadelidte å begrense tapet. Den delen av tapet som kunne vært unngått ved rimelige tiltak, avkortes. § 5-2 (lemping) og § 5-1 nr. 3 (identifikasjon) er andre regler.",
     },
     {
@@ -2283,7 +2283,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når bør du drøfte selve tallberegningen av erstatningen bredt på JUS1111-eksamen?",
-      options: ["Sjelden — det holder å plassere postene under riktig hjemmel og verdsettelsesprinsipp når faktum gir holdepunkter", "Alltid, uansett om oppgaven gir tall", "Bare i tingsskadetilfeller", "Aldri — utmåling er ikke pensum"],
+      options: ["Sjelden — det holder å plassere postene under riktig hjemmel og verdsettelsesprinsipp når faktum gir holdepunkter", "Alltid og i full bredde, uansett om oppgaven gir tallmateriale eller bare beskriver hvilke tapsposter som er aktuelle for skadelidte", "Bare i tingsskadetilfeller, der verdsettelsen følger av gjenanskaffelsesverdien", "Aldri — utmåling er ikke prøvingstema og gir ingen uttelling"],
       explanation: "Utmåling er plusspoeng-stoff. Selve kroneberegningen er ikke prøvingstema; poenget er riktig hjemmel per post og riktig verdsettelsesprinsipp. Å drøfte bredt når oppgaven har avgrenset det bort, koster.",
     },
   ],
@@ -2305,7 +2305,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem retter skadelidte bilansvarskravet mot?",
-      options: ["Trafikkforsikringsselskapet til motorvognen", "Bileieren personlig", "Føreren personlig", "Statens vegvesen"],
+      options: ["Trafikkforsikringsselskapet til motorvognen", "Bileieren personlig, som registrert eier av motorvognen", "Føreren personlig, siden det er han som volder skaden", "Statens vegvesen, som forvalter motorvognregisteret"],
       explanation: "Ansvaret er kanalisert til den lovpålagte trafikkforsikringen. Å rette kravet mot bileieren personlig er en vanlig presisjonsglipp.",
     },
     {
@@ -2315,12 +2315,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er terskelen for avkortning ved skadelidtes medvirkning etter bal. § 7?",
-      options: ["Erstatningen avkortes ikke hvis skadelidte er «berre lite til last»", "Enhver medvirkning gir forholdsmessig avkortning", "Avkortning bare ved grov uaktsomhet hos skadelidte", "Avkortning følger reglene i skl. § 5-1"],
+      options: ["Erstatningen avkortes ikke hvis skadelidte er «berre lite til last»", "Enhver medvirkning gir forholdsmessig avkortning", "Avkortning bare ved grov uaktsomhet hos skadelidte, ellers ytes full erstatning", "Avkortning følger reglene i skl. § 5-1"],
       explanation: "§ 7 skjermer trafikkofre: er skadelidte «berre lite til last», gis ingen avkortning. Terskelen ligger høyere til skadelidtes fordel enn i skl. § 5-1.",
     },
     {
       question: "En bil og en motorsykkel kolliderer, og de to forsikringsselskapene skal gjøre opp seg imellom. Hvilken paragraf styrer?",
-      options: ["§ 8 — kollisjonsregelen, som er uttømmende i oppgjøret mellom motorvogner", "§ 4 — «gjer»-ansvaret", "§ 7 — medvirkningsregelen", "skl. § 5-1 — den alminnelige medvirkningsregelen"],
+      options: ["§ 8 — kollisjonsregelen, som er uttømmende i oppgjøret mellom motorvogner", "§ 4 — «gjer»-ansvaret, som også styrer forholdet mellom vognene", "§ 7 — medvirkningsregelen, som fordeler tapet mellom de to selskapene etter skyld", "skl. § 5-1 — den alminnelige medvirkningsregelen, som gjelder når begge parter har utvist skyld"],
       explanation: "I det interne oppgjøret mellom to kolliderende motorvogner er § 8 uttømmende; §§ 4 og 7 anvendes ikke. Dette var fellen i H2021 og H2022.",
     },
     {
@@ -2330,7 +2330,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En fotgjenger skades i en kollisjon mellom to biler. Hvordan vurderes fotgjengerens krav?",
-      options: ["Etter § 4 (objektivt) mot forsikringen — fotgjengeren er ingen motorvogn og omfattes ikke av § 8", "Etter § 8, som en av partene i kollisjonsoppgjøret", "Fotgjengeren har intet krav fordi han ikke er part i kollisjonen", "Etter skl. § 5-1"],
+      options: ["Etter § 4 (objektivt) mot forsikringen — fotgjengeren er ingen motorvogn og omfattes ikke av § 8", "Etter § 8, som en av partene i kollisjonsoppgjøret", "Fotgjengeren har intet krav fordi han ikke er part i kollisjonen, og oppgjøret skjer bare mellom de to selskapene", "Etter skl. § 5-1, som fordeler tapet etter skyld"],
       explanation: "§ 8 gjelder bare oppgjøret mellom motorvogner. En fotgjenger er ingen motorvogn og har intet kollisjonsoppgjør — kravet går etter § 4 (og ev. § 7 for medvirkning).",
     },
     {
@@ -2340,7 +2340,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kan en parkert, avslått bil «gjøre» skade i lovens forstand?",
-      options: ["Ja, hvis farekomplekset likevel realiseres — den ruller, tar fyr eller en del løsner", "Nei, en parkert bil kan aldri utløse bilansvar", "Ja, alltid, så lenge skaden skjer inntil bilen", "Bare hvis eieren var uaktsom med parkeringen"],
+      options: ["Ja, hvis farekomplekset likevel realiseres — den ruller, tar fyr eller en del løsner", "Nei, en parkert bil med avslått motor kan aldri utløse bilansvar, uansett hva som senere skjer med den", "Ja, alltid, så lenge skaden skjer inntil bilen", "Bare hvis eieren var uaktsom med parkeringen"],
       explanation: "Det avgjørende er om farekomplekset (bevegelse, tyngde, brann) realiseres — ikke om bilen er i drift. Rene tilfeldige skader ved en stillestående bil faller utenfor «gjer».",
     },
     {
@@ -2350,12 +2350,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer bal. § 8 (2)?",
-      options: ["Fordelingen/medvirkningen i kollisjonsoppgjøret mellom motorvogner", "Unntakene fra lovens virkeområde", "Definisjonen av motorvogn", "Skadelidtes rett til å kreve forsikringsselskapet direkte"],
+      options: ["Fordelingen/medvirkningen i kollisjonsoppgjøret mellom motorvogner", "Unntakene fra lovens virkeområde, som holder visse skadetilfeller helt utenfor", "Definisjonen av motorvogn og lovas saklige rekkevidde", "Skadelidtes rett til å kreve forsikringsselskapet direkte, uten om bileieren"],
       explanation: "§ 8 (2) er fordelings-/medvirkningsregelen innad i kollisjonsoppgjøret mellom vogner, og erstatter både § 7 og skl. § 5-1 i det interne oppgjøret.",
     },
     {
       question: "Hva er forholdet mellom bal. og skl. § 5-1 ved motorvognskade?",
-      options: ["Bal. §§ 7 og 8 er spesialregler som fortrenger skl. § 5-1", "Skl. § 5-1 går foran bal. som lex superior", "De anvendes parallelt og kumulativt", "Skadelidte velger fritt hvilken regel som skal brukes"],
+      options: ["Bal. §§ 7 og 8 er spesialregler som fortrenger skl. § 5-1", "Skl. § 5-1 går foran bal. som lex superior, siden den generelle regelen er trinnhøyere", "De anvendes parallelt og kumulativt, slik at avkortningen vurderes etter begge", "Skadelidte velger fritt hvilken regel som skal brukes, og legger den gunstigste til grunn"],
       explanation: "Lex specialis: ved motorvognskade styrer bilansvarslovas egne medvirkningsregler (§§ 7 og 8), ikke skl. § 5-1. Feil valg ga «kraftig trekk» i H2022.",
     },
     {
@@ -2375,14 +2375,14 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilken rekkefølge bør du disponere et bilansvarsspørsmål?",
-      options: ["Motorvogn (§ 3, jf. § 1) → «gjer»/farekompleks (§ 4) → avgrensning (§ 2) → kollisjon (§ 8) eller medvirkning (§ 7)", "Skyld (§ 8) → årsak (§ 4) → unntak (§ 2), i den rekkefølgen anførslene står i faktum", "Medvirkning (§ 7) → hjemmel (§ 4) → definisjon (§ 3), siden avkortning alltid tas først", "Unntak (§ 2) → medvirkning (§ 7) → hjemmel (§ 4), fordi unntakene stenger resten"],
+      options: ["Motorvogn (§ 3, jf. § 1) → «gjer»/farekompleks (§ 4) → avgrensning (§ 2) → kollisjon (§ 8) eller medvirkning (§ 7)", "Skyld (§ 8) → årsak (§ 4) → unntak (§ 2), i den rekkefølgen anførslene står i faktum, siden partenes påstander styrer disposisjonen", "Medvirkning (§ 7) → hjemmel (§ 4) → definisjon (§ 3), siden avkortning alltid tas først", "Unntak (§ 2) → medvirkning (§ 7) → hjemmel (§ 4), fordi unntakene stenger resten"],
       explanation: "Hjemmelskartet gir rekkefølgen: avklar motorvogn og «gjer» (hjemmelen), sjekk § 2-avgrensning, og velg deretter kollisjonssporet (§ 8, uttømmende mellom vogner) eller medvirkning (§ 7).",
     },
   ],
   'jus1111-4-9': [
     {
       question: "Hva er den faste tre-trinns disposisjonen i «arbeidstaker på ville veier»?",
-      options: ["Culpa hos arbeidstakeren → § 2-1-tilregning → medvirkning hos skadelidte", "§ 2-1-tilregning → årsakssammenheng → utmåling", "Objektivt ansvar → culpa → adekvans", "Medvirkning → oppreisning → lemping"],
+      options: ["Culpa hos arbeidstakeren → § 2-1-tilregning → medvirkning hos skadelidte", "§ 2-1-tilregning → årsakssammenheng → utmåling av skadelidtes økonomiske tap", "Objektivt ansvar → culpa → adekvans", "Medvirkning → oppreisning → lemping"],
       explanation: "Malen er: (1) culpa hos arbeidstakeren, (2) tilregning til arbeidsgiver etter § 2-1, (3) medvirkning/aksept av risiko hos skadelidte. Denne rekkefølgen overføres direkte til eksamen.",
     },
     {
@@ -2402,17 +2402,17 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kan forsettlige handlinger fra arbeidstakeren omfattes av § 2-1?",
-      options: ["Ja, når arbeidstilknytningen er sterk nok (Rt. 2008 s. 755, Hjemmehjelp)", "Nei, forsett bringer alltid handlingen utenfor § 2-1", "Bare hvis arbeidsgiver hadde godkjent handlingen", "Bare ved skade på ting, ikke på person"],
+      options: ["Ja, når arbeidstilknytningen er sterk nok (Rt. 2008 s. 755, Hjemmehjelp)", "Nei, forsettlige handlinger faller alltid utenfor § 2-1 fordi de bryter arbeidstilknytningen", "Bare hvis arbeidsgiver hadde godkjent handlingen", "Bare ved skade på ting, ikke på person"],
       explanation: "Hjemmehjelp-dommen viser at også forsettlige handlinger kan omfattes når tilknytningen til arbeidet er tilstrekkelig sterk. Forsett peker mot reservasjonen, men avgjør ikke alene.",
     },
     {
       question: "Hvor rettes et oppreisningskrav (§ 3-5) i et arbeidsgiveransvarstilfelle?",
-      options: ["Mot arbeidstakeren personlig — det kanaliseres ikke til arbeidsgiveren gjennom § 2-1", "Mot arbeidsgiveren, som svarer for alt arbeidstakeren volder", "Mot begge solidarisk, uansett skyldform", "Oppreisning kan ikke kreves i deliktstilfeller"],
+      options: ["Mot arbeidstakeren personlig — det kanaliseres ikke til arbeidsgiveren gjennom § 2-1", "Mot arbeidsgiveren, som svarer for alt arbeidstakeren volder", "Mot begge solidarisk, uansett skyldform, slik at skadelidte kan velge hvem kravet rettes mot", "Oppreisning kan ikke kreves i deliktstilfeller"],
       explanation: "Oppreisning er et personlig ansvar knyttet til den kvalifiserte skylden (forsett/grov uaktsomhet) og rettes mot arbeidstakeren, ikke arbeidsgiveren.",
     },
     {
       question: "Hvilke akser vurderes under vilkåret «under utføring av arbeid»?",
-      options: ["Funksjonell, tidsmessig og stedlig tilknytning", "Skadeevne, synbarhet og handlingsalternativer", "Stadig, typisk og ekstraordinær", "Årsak, adekvans og vernet interesse"],
+      options: ["Funksjonell, tidsmessig og stedlig tilknytning", "Skadeevne, synbarhet og alternative handlemåter for arbeidstakeren", "Stadig, typisk og ekstraordinær risiko ved virksomheten", "Årsak, adekvans og vernet interesse"],
       explanation: "Tilknytningen vurderes funksjonelt (sammenheng med oppgaven), tidsmessig (arbeidstiden) og stedlig (arbeidsstedet). De tre andre settene hører til culpa, objektivt ansvar og årsakslæren.",
     },
     {
@@ -2427,12 +2427,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En ansatt skader noen under et rent privat ærend i lunsjen, utenfor arbeidsstedet. Hva taler dette for?",
-      options: ["At tilknytningen er svak på alle akser, slik at § 2-1 er tvilsom", "At § 2-1 alltid gjelder så lenge personen er ansatt", "At oppreisning uansett kanaliseres til arbeidsgiver", "At skadelidte har medvirket"],
+      options: ["At tilknytningen er svak på alle akser, slik at § 2-1 er tvilsom", "At § 2-1 alltid gjelder så lenge personen står i et løpende ansettelsesforhold", "At oppreisning uansett kanaliseres til arbeidsgiveren, som svarer for den ansattes handlinger", "At skadelidte har medvirket til skaden ved egen uforsiktighet"],
       explanation: "Rent privat ærend (svak funksjonell tilknytning), i lunsjen (svak tidsmessig) og utenfor arbeidsstedet (svak stedlig) gjør «under utføring av arbeid» tvilsomt. Da må kravet rettes mot arbeidstakeren personlig.",
     },
     {
       question: "Hvilken feil advarer sensorveiledningene (V2015) uttrykkelig mot i § 2-1-drøftelser?",
-      options: ["Å trekke inn organansvar i arbeidsgiveransvaret", "Å bruke momentlæren på culpa", "Å drøfte medvirkning etter § 5-1", "Å nevne påregnelighetsreservasjonen"],
+      options: ["Å trekke inn organansvar i arbeidsgiveransvaret", "Å bruke culpanormens momentlære når arbeidstakerens uaktsomhet skal vurderes", "Å drøfte skadelidtes medvirkning etter § 5-1 i stedet for å avslutte med tilregningen", "Å nevne påregnelighetsreservasjonen når arbeidstakeren har handlet uaktsomt"],
       explanation: "Å blande organansvaret inn i § 2-1-drøftelsen er en navngitt misforståelse (V2015). Organansvaret skal holdes utenfor arbeidsgiveransvaret.",
     },
     {
@@ -2464,7 +2464,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Faktum nevner at foreldrene var uoppmerksomme da barnet deres ble skadet. Hva er fellen?",
-      options: ["Å avkorte barnets erstatningskrav på grunn av foreldrenes uaktsomhet", "Å gi barnet full erstatning", "Å drøfte foreldrenes eget krav som tredjemannstap", "Å anvende skl. § 1-2 mot foreldrene"],
+      options: ["Å avkorte barnets erstatningskrav på grunn av foreldrenes uaktsomhet", "Å gi barnet full erstatning uten noen form for avkortning", "Å drøfte foreldrenes eget krav som tredjemannstap ved siden av barnets erstatningskrav", "Å anvende skl. § 1-2 mot foreldrene som skadevoldere"],
       explanation: "Passiv identifikasjon: foreldres uaktsomhet avkorter IKKE barnets krav (Rt. 2002 s. 1283, Dam).",
     },
     {
@@ -2474,12 +2474,12 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En vare er solgt mellom to private via nettannonse. Hva skal du gjøre med angrerettloven?",
-      options: ["Avvise den i én setning — den gjelder kun næringsselger", "Anvende den fordi salget skjer over nett (fjernsalg)", "Anvende den fordi kjøper er en forbruker", "Drøfte angrefristen grundig"],
+      options: ["Avvise den i én setning — den gjelder kun næringsselger", "Anvende den fordi salget skjer over nett (fjernsalg), uavhengig av hvem selgeren er", "Anvende den fordi kjøper er en forbruker som handler utenfor næring", "Drøfte angrefristen grundig og regne den fra da varen ble overlevert"],
       explanation: "Angrerettloven gjelder bare næringsselger ved fjernsalg; mellom private avvises den presist, og lovvalget blir kjøpsloven.",
     },
     {
       question: "En motorvogn er involvert i skaden, og skadelidte har medvirket. Hvilken medvirkningsregel gjelder?",
-      options: ["bal. § 7 («berre lite til last») — ikke skl. § 5-1", "skl. § 5-1 nr. 1", "skl. § 5-1 nr. 2", "avtl. § 36 analogisk"],
+      options: ["bal. § 7 («berre lite til last») — ikke skl. § 5-1", "skl. § 5-1 nr. 1 — enhver medvirkning gir forholdsmessig avkortning", "skl. § 5-1 nr. 2 — avkortning bare ved grov uaktsomhet hos skadelidte", "avtl. § 36 analogisk, slik at avkortningen bygger på en rimelighetsvurdering"],
       explanation: "Ved motorvognskade er bilansvarslova spesialregel: § 7 avkorter medvirkning; å bruke skl. § 5-1 er en navngitt felle («kraftig trekk»).",
     },
     {
@@ -2504,7 +2504,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skal en oppgave med tre ulike skadelidte etter samme ulykke disponeres?",
-      options: ["Sorteres per skadelidt → per krav → per grunnlag → per tapspost", "Slås sammen til én felles drøftelse av ansvarsgrunnlaget", "Disponeres etter tidsrekkefølgen skadene oppsto", "Behandles bare for den mest skadelidte; de andre nevnes kort"],
+      options: ["Sorteres per skadelidt → per krav → per grunnlag → per tapspost", "Slås sammen til én felles drøftelse av ansvarsgrunnlaget", "Disponeres etter tidsrekkefølgen skadene oppsto", "Behandles bare for den mest skadelidte; de øvrige nevnes i en avsluttende setning"],
       explanation: "«Én ulykke, flere skadelidte» krever sortering per skadelidt og deretter per krav/grunnlag/tapspost — det er selve sorteringsøvelsen.",
     },
     {
@@ -2514,7 +2514,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Oppgaven sier uttrykkelig at årsakssammenhengen er uomtvistet. Hva gjør du?",
-      options: ["Nevner den i én setning og bruker tiden på tvistepunktene", "Drøfter betingelseslæren grundig for sikkerhets skyld", "Hopper over hele erstatningsdrøftelsen", "Drøfter adekvans i stedet, siden årsak er avklart"],
+      options: ["Nevner den i én setning og bruker tiden på tvistepunktene", "Drøfter betingelseslæren grundig for sikkerhets skyld, med egen konklusjon", "Hopper over hele erstatningsdrøftelsen", "Drøfter adekvans i stedet, siden årsakskravet allerede er avklart"],
       explanation: "Å drøfte et uomtvistet vilkår bredt er en proporsjonsfeil som trekker; det opplagte får én setning, tvilspunktene får dybden.",
     },
     {

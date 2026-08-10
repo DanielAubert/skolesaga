@@ -4,7 +4,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-1': [
   {
     question: 'Hva innebærer profesjonell yrkesutovelse i helse- og oppvekstfag?',
-    options: ["A kombinere fagkunnskap, etisk bevissthet og personlig kompetanse", "A gjøre det man selv synes er best", "A følge lederens instrukser nøyaktig og aldri stille spørsmål ved rutinene", "A gjøre det man selv opplever som riktig ut fra egen livserfaring og magefølelse"],
+    options: ["A kombinere fagkunnskap, etisk bevissthet og personlig kompetanse", "A gjøre det man selv synes er best, uten å ta hensyn til faglige rutiner", "A følge lederens instrukser nøyaktig og aldri stille spørsmål ved rutinene", "A gjøre det man selv opplever som riktig ut fra egen livserfaring og magefølelse"],
     explanation: 'Profesjonell yrkesutovelse handler om a kombinere fagkunnskap, etisk bevissthet og personlig kompetanse til beste for brukerne.',
   },
   {
@@ -14,7 +14,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er yrkesetikk?',
-    options: ["Moralske prinsipper og retningslinjer som styrer yrkesutovelsen", "Personlige meninger om rett og galt", "Lover og forskrifter som Stortinget vedtar og som gir rettslige plikter i yrket", "Bindende regler som arbeidsgiver alene fastsetter for den enkelte arbeidsplassen"],
+    options: ["Moralske prinsipper og retningslinjer som styrer yrkesutovelsen", "Personlige meninger om rett og galt som hver enkelt danner seg selv", "Lover og forskrifter som Stortinget vedtar og som gir rettslige plikter i yrket", "Bindende regler som arbeidsgiver alene fastsetter for den enkelte arbeidsplassen"],
     explanation: 'Yrkesetikk beskriver hvilke verdier og normer som skal ligge til grunn for profesjonell praksis innenfor et fagfelt.',
   },
   {
@@ -24,7 +24,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kan brudd påtaushetsplikten føre til?',
-    options: ["Straffeansvar og tap av autorisasjon", "Bare muntlig advarsel", "Ingen konsekvenser så lenge det ikke skjedde med vilje", "Bare internt oppgjør"],
+    options: ["Straffeansvar og tap av autorisasjon", "Bare muntlig advarsel", "Ingen konsekvenser ved uhell", "Bare internt oppgjør"],
     explanation: 'Brudd påtaushetsplikten kan føre til straffeansvar, oppsigelse og tap av autorisasjon. Det er en lovpalaagt plikt.',
   },
 ],
@@ -48,12 +48,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er snoking i journal?',
-    options: ["A sla opp i journalen til pasienter man ikke har tjenstlig behov for å se", "A dokumentere observasjoner", "A lese sin egen journal for a se hva helsepersonell har dokumentert om en selv", "A dokumentere egne observasjoner og tiltak i journalen etter en pasientkontakt"],
+    options: ["A sla opp i journalen til pasienter man ikke har tjenstlig behov for å se", "A dokumentere observasjoner om pasienter man selv har hatt ansvar for på vakt", "A lese sin egen journal for a se hva helsepersonell har dokumentert om en selv", "A dokumentere egne observasjoner og tiltak i journalen etter en pasientkontakt"],
     explanation: 'Snoking er a sla opp i journalen til pasienter du ikke har tjenstlig behov for å se. Dette er ulovlig og kan føre til oppsigelse, bot eller straff.',
   },
   {
     question: 'Hva kan mangelfull dokumentasjon føre til?',
-    options: ["Svikt i pasientbehandlingen og mulig erstatningsansvar", "Bare muntlig tilbakemelding", "Kun en muntlig tilbakemelding fra leder uten videre oppfølging i saken", "Kun en intern diskusjon på avdelingen uten formelle reaksjoner mot noen"],
+    options: ["Svikt i pasientbehandlingen og mulig erstatningsansvar", "Bare muntlig tilbakemelding fra kollegene på neste vaktskifte", "Kun en muntlig tilbakemelding fra leder uten videre oppfølging i saken", "Kun en intern diskusjon på avdelingen uten formelle reaksjoner mot noen"],
     explanation: 'Mangelfull dokumentasjon kan føre til svikt i pasientbehandlingen, tilsynssak, erstatningsansvar og i verste fall straffansvar.',
   },
 ],
@@ -82,7 +82,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebærer systemtenkning i pasientsikkerhet?',
-    options: ["A se påsystemet rundt den enkelte, ikke bare personlig skyld", "A ignorere individuelle feil", "A legge skylden pådatasystemet nårnoe gårgalt i pasientbehandlingen", "A ignorere individuelle feil helt og bare se påde ytre rammene rundt"],
+    options: ["A se påsystemet rundt den enkelte, ikke bare personlig skyld", "A ignorere individuelle feil og skylde på arbeidspresset i stedet", "A legge skylden pådatasystemet nårnoe gårgalt i pasientbehandlingen", "A ignorere individuelle feil helt og bare se påde ytre rammene rundt"],
     explanation: 'Systemtenkning innebærer a se påhvordan systemet rundt den enkelte bidrar til at feil skjer, i tillegg til individuelt ansvar.',
   },
 ],
@@ -91,12 +91,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-4': [
   {
     question: 'Hva er palliasjon?',
-    options: ["Aktiv behandling og omsorg for pasienter med uhelbredelig sykdom", "Kurativ behandling av kreft", "Forebyggende helsearbeid som skal hindre at sykdom oppstårhos friske", "Kurativ behandling som har som mål a helbrede pasienten for kreftsykdom"],
+    options: ["Aktiv behandling og omsorg for pasienter med uhelbredelig sykdom", "Kurativ behandling av kreft med cellegift, stråling og kirurgiske inngrep", "Forebyggende helsearbeid som skal hindre at sykdom oppstårhos friske", "Kurativ behandling som har som mål a helbrede pasienten for kreftsykdom"],
     explanation: 'Palliasjon er aktiv behandling, pleie og omsorg for pasienter med uhelbredelig sykdom og kort forventet levetid. Hovedmalet er best mulig livskvalitet.',
   },
   {
     question: 'Hva er dodsralling?',
-    options: ["Surklete lyd nårpasienten ikke klærer a hoste opp slim", "En allergisk reaksjon", "En type pustestopp der pasienten slutter a puste i korte perioder", "En allergisk reaksjon i luftveiene som gir hevelse og pustebesvær"],
+    options: ["Surklete lyd nårpasienten ikke klærer a hoste opp slim", "En allergisk reaksjon som gir kløe og utslett hos pasienten", "En type pustestopp der pasienten slutter a puste i korte perioder", "En allergisk reaksjon i luftveiene som gir hevelse og pustebesvær"],
     explanation: 'Dodsralling er en surklete lyd nårpasienten ikke klærer a hoste opp slim. Det er vanligvis ikke plagsomt for pasienten, men kan være belastende for parorende.',
   },
   {
@@ -106,7 +106,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er terminal fase?',
-    options: ["Den siste fasen av livet nårdøden er nær førestående", "Forste fase av en sykdom", "En bestemt type lindrende behandling som gis mot slutten av livet", "En periode med tydelig bedring der pasientens tilstand blir stabil"],
+    options: ["Den siste fasen av livet nårdøden er nær førestående", "Forste fase av en sykdom, før symptomene er tydelige ennå", "En bestemt type lindrende behandling som gis mot slutten av livet", "En periode med tydelig bedring der pasientens tilstand blir stabil"],
     explanation: 'Terminal fase er den siste fasen av livet nårdøden er nær førestående, vanligvis de siste dagene eller timene.',
   },
   {
@@ -125,7 +125,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er tegn påoverdose?',
-    options: ["Bevisstloshet, langsom/ingen pust, bla lepper", "Oyeblikkelig oppvakning", "Høyt blodtrykk sammen med rask og kraftig puls", "Oyeblikkelig oppvakning og økt aktivitet hos personen"],
+    options: ["Bevisstloshet, langsom/ingen pust, bla lepper", "Oyeblikkelig oppvakning og full bevissthet igjen", "Høyt blodtrykk sammen med rask og kraftig puls", "Oyeblikkelig oppvakning og økt aktivitet hos personen"],
     explanation: 'Tegn påoverdose inkluderer bevisstloshet, langsom eller ingen pust, og bla lepper. Ring 113 umiddelbart.',
   },
   {
@@ -154,7 +154,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke typer vold finnes?',
-    options: ["Fysisk, psykisk, seksuell, økonomisk og digital vold", "Bare seksuell vold", "Kun psykisk vold i form av trusler, nedsettelse og kontrollering", "Kun seksuell vold der noen tvinger andre til uonskede handlinger"],
+    options: ["Fysisk, psykisk, seksuell, økonomisk og digital vold", "Bare seksuell vold og andre overgrep av fysisk karakter", "Kun psykisk vold i form av trusler, nedsettelse og kontrollering", "Kun seksuell vold der noen tvinger andre til uonskede handlinger"],
     explanation: 'Vold kan være fysisk, psykisk, seksuell, økonomisk, materiell, digital og latent. Alle former er alvorlige og skadelige.',
   },
   {
@@ -178,7 +178,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-7': [
   {
     question: 'Hva er kulturell kompetanse?',
-    options: ["Evnen til a arbeide effektivt med mennesker fra ulike kulturer", "A være fra en annen kultur", "A kunne snakke mange ulike språk flytende og oversette for andre", "A reise mye rundt i verden og oppleve mange forskjellige samfunn"],
+    options: ["Evnen til a arbeide effektivt med mennesker fra ulike kulturer", "A være fra en annen kultur enn den pasienten selv vokste opp med", "A kunne snakke mange ulike språk flytende og oversette for andre", "A reise mye rundt i verden og oppleve mange forskjellige samfunn"],
     explanation: 'Kulturell kompetanse er evnen til a arbeide effektivt med mennesker fra ulike kulturer, inkludert bevissthet om egen kultur og sensitivitet for forskjeller.',
   },
   {
@@ -188,7 +188,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Nårbør du bruke tolk?',
-    options: ["Ved viktige samtaler og nårdet er behov for a sikre forståelse", "Aldri, familie kan alltid tolke", "Aldri, ettersom familiemedlemmer alltid kan tolke godt nok selv", "Bare nårpasienten selv uttrykkelig ber om a fåen tolk til stede"],
+    options: ["Ved viktige samtaler og nårdet er behov for a sikre forståelse", "Aldri, familie kan alltid tolke, også ved sensitive og vanskelige temaer", "Aldri, ettersom familiemedlemmer alltid kan tolke godt nok selv", "Bare nårpasienten selv uttrykkelig ber om a fåen tolk til stede"],
     explanation: 'Tolk bør brukes ved viktige samtaler for a sikre forståelse. Familiemedlemmer bør ikke brukes som tolker ved sensitive temaer.',
   },
   {
@@ -198,7 +198,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig a huske om kultur?',
-    options: ["Kultur er dynamisk og endrer seg, og det er stor variasjon innad i grupper", "Bare første generasjon innvandrere har kultur", "At kultur er noe fast og medfodt som folger en person uendret gjennom hele livet, uavhengig av erfaringer", "At det bare er forste generasjon innvandrere som egentlig har en kultur som pavirker mote med helsetjenesten"],
+    options: ["Kultur er dynamisk og endrer seg, og det er stor variasjon innad i grupper", "Bare første generasjon innvandrere har kultur, mens barna deres ikke har det", "At kultur er noe fast og medfodt som folger en person uendret gjennom hele livet, uavhengig av erfaringer", "At det bare er forste generasjon innvandrere som egentlig har en kultur som pavirker mote med helsetjenesten"],
     explanation: 'Kultur er dynamisk og endrer seg over tid. Det er stor variasjon innad i alle grupper, og man bør aldri generalisere.',
   },
 ],
@@ -207,27 +207,27 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-8': [
   {
     question: 'Hva er velferdsteknologi?',
-    options: ["Teknologisk assistanse som bidrar til økt trygghet og selvstendighet", "Bare roboter i helsevesenet", "Datamaskiner og journalsystemer som ansatte pa sykehus bruker til a dokumentere pasientopplysninger", "Utelukkende avanserte roboter som overtar stell og pleie i sykehjem og hjemmetjeneste for de ansatte"],
+    options: ["Teknologisk assistanse som bidrar til økt trygghet og selvstendighet", "Bare roboter i helsevesenet som utfører oppgaver i stedet for ansatte", "Datamaskiner og journalsystemer som ansatte pa sykehus bruker til a dokumentere pasientopplysninger", "Utelukkende avanserte roboter som overtar stell og pleie i sykehjem og hjemmetjeneste for de ansatte"],
     explanation: 'Velferdsteknologi er teknologisk assistanse som bidrar til økt trygghet, sikkerhet, sosial deltakelse, mobilitet og aktivitet for brukere med nedsatt funksjonsevne.',
   },
   {
     question: 'Erstatter velferdsteknologi menneskelig kontakt?',
-    options: ["Nei, den skal være et supplement til, ikke erstatning for, menneskelig omsorg", "Ja, det er hovedformalet", "Bare i noen tilfeller kan teknologien fullt ut erstatte den menneskelige kontakten brukeren trenger", "Ja, hovedformalet er a la teknologien overta omsorgsoppgavene slik at tjenesten trenger faerre ansatte"],
+    options: ["Nei, den skal være et supplement til, ikke erstatning for, menneskelig omsorg", "Ja, det er hovedformalet med all velferdsteknologi som tas i bruk i helsetjenesten", "Bare i noen tilfeller kan teknologien fullt ut erstatte den menneskelige kontakten brukeren trenger", "Ja, hovedformalet er a la teknologien overta omsorgsoppgavene slik at tjenesten trenger faerre ansatte"],
     explanation: 'Velferdsteknologi skal være et supplement til, ikke en erstatning for, menneskelig kontakt og omsorg. Den kan frigjøre tid til mer kvalitetstid med brukerne.',
   },
   {
     question: 'Hva er et etisk dilemma ved GPS-sporing av personer med demens?',
-    options: ["Avveining mellom sikkerhet og frihet/selvbestemmelse", "Det er ingen etiske dilemmaer", "Det eneste problemet er at slikt utstyr er for dyrt til at kommunen har rad til a tilby det til alle", "At det bruker for mye batteri"],
+    options: ["Avveining mellom sikkerhet og frihet/selvbestemmelse", "Det er ingen etiske dilemmaer", "Det eneste problemet er at utstyret er for dyrt", "At det bruker for mye batteri"],
     explanation: 'GPS-sporing reiser etiske sporsmål om avveining mellom sikkerhet og frihet, spesielt nårpersonen ikke kan gi informert samtykke.',
   },
   {
     question: 'Hva er trygghetsalarm?',
-    options: ["En enhet som bruker trykker påfor a tilkalle hjelp", "En tyverialarm", "En brannalarm montert i taket som varsler beboeren og brannvesenet ved roykutvikling i boligen", "En brannalarm"],
+    options: ["En enhet som bruker trykker påfor a tilkalle hjelp", "En tyverialarm i boligen", "En brannalarm montert i taket i boligen", "En brannalarm som varsler"],
     explanation: 'Trygghetsalarm er en enhet brukeren baerer påseg og kan trykke påfor a tilkalle hjelp ved behov, for eksempel ved fall.',
   },
   {
     question: 'Hva bør vurderes for man tar i bruk velferdsteknologi?',
-    options: ["Brukerens behov, samtykke, personvern og etiske hensyn", "Bare hva kommunen bestemmer", "Bare kostnaden ved innkjop og drift, siden det viktigste er at losningen holder seg innenfor budsjettet", "Bare hva familien ønsker"],
+    options: ["Brukerens behov, samtykke, personvern og etiske hensyn", "Bare hva kommunen bestemmer", "Bare kostnaden ved innkjøp og drift", "Bare hva familien ønsker"],
     explanation: 'For man tar i bruk velferdsteknologi måman vurdere brukerens behov, samtykke, personvern, nytte versus inngripen, og etiske hensyn.',
   },
 ],
@@ -236,22 +236,22 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-9': [
   {
     question: 'Hva er innovasjon?',
-    options: ["Nye eller forbedrede løsninger som faktisk tas i bruk", "Bare teknologiske endringer", "Bare helt nye oppfinnelser og patenter som aldri har eksistert for, uansett om de tas i bruk eller ikke", "Bare det ledelsen bestemmer"],
+    options: ["Nye eller forbedrede løsninger som faktisk tas i bruk", "Bare teknologiske endringer", "Bare helt nye oppfinnelser og patenter", "Bare det ledelsen bestemmer"],
     explanation: 'Innovasjon er nye eller vesentlig forbedrede produkter, tjenester, prosesser eller organisasjonsformer som faktisk tas i bruk for a skape verdi.',
   },
   {
     question: 'Hvem kan komme med forbedringsforslag?',
-    options: ["Alle ansatte, uansett stilling", "Bare de med lang utdanning", "Bare ansatte med lang hoyere utdanning har faglig grunnlag nok til a foresla endringer i arbeidet", "Bare eksterne konsulenter"],
+    options: ["Alle ansatte, uansett stilling", "Bare de med lang utdanning", "Bare høyt utdannede ansatte", "Bare eksterne konsulenter og rådgivere"],
     explanation: 'De beste forbedringene kommer ofte fra de som ser hverdagen. Alle ansatte kan og bør komme med forbedringsforslag.',
   },
   {
     question: 'Hva er PDSA-syklusen?',
-    options: ["Plan-Do-Study-Act, en metode for forbedring", "En type velferdsteknologi", "En sykdomsdiagnose som beskriver en bestemt tilstand som helsefagarbeideren skal folge opp hos brukeren", "En sykdomsdiagnose"],
+    options: ["Plan-Do-Study-Act, en metode for forbedring", "En type velferdsteknologi", "En sykdomsdiagnose som følges opp", "En sykdomsdiagnose"],
     explanation: 'PDSA står for Plan-Do-Study-Act og er en metode for systematisk forbedringsarbeid der man planlegger, tester, evaluerer og justerer.',
   },
   {
     question: 'Hvorfor er medarbeiderdrevet innovasjon viktig?',
-    options: ["Fordi ansatte ser utfordringer og muligheter i hverdagen", "Fordi ledelsen ikke har tid", "Fordi det star i loven at alle ansatte plikter a levere et bestemt antall forbedringsforslag hvert ar", "Fordi det star i loven"],
+    options: ["Fordi ansatte ser utfordringer og muligheter i hverdagen", "Fordi ledelsen ikke har tid", "Fordi det står i loven at ansatte må levere forslag", "Fordi det star i loven om dette"],
     explanation: 'Ansatte som jobber direkte med brukerne ser ofte utfordringer og muligheter som ledelsen ikke ser. Deres innspill er verdifulle for a forbedre tjenestene.',
   },
   {
@@ -265,27 +265,27 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-10': [
   {
     question: 'Hva kan du gjøre etter fagbrev i helse- og oppvekstfag?',
-    options: ["Jobbe som helsefagarbeider, ta videreutdanning eller studere videre", "Bare jobbe i barnehage", "Bare jobbe i barnehage som barne- og ungdomsarbeider, siden fagbrevet ikke apner for arbeid i helsesektoren", "Du ma bytte karriere til et helt annet felt, fordi fagbrevet i seg selv ikke gir grunnlag for videre studier"],
+    options: ["Jobbe som helsefagarbeider, ta videreutdanning eller studere videre", "Bare jobbe i barnehage eller skolefritidsordning resten av yrkeslivet sitt", "Bare jobbe i barnehage som barne- og ungdomsarbeider, siden fagbrevet ikke apner for arbeid i helsesektoren", "Du ma bytte karriere til et helt annet felt, fordi fagbrevet i seg selv ikke gir grunnlag for videre studier"],
     explanation: 'Etter fagbrev kan du jobbe som helsefagarbeider eller barne- og ungdomsarbeider, ta fagskole, videreutdanning, eller studere videre (f.eks. sykepleie via Y-veien).',
   },
   {
     question: 'Hva er Y-veien?',
-    options: ["En vei til høyskoleutdanning basert påfagbrev og praksis", "En type medisinsk behandling", "En type medisinsk behandling som gis over tid til pasienter med kroniske lidelser i hjemmetjenesten", "En fysisk vei til sykehuset"],
+    options: ["En vei til høyskoleutdanning basert påfagbrev og praksis", "En type medisinsk behandling", "En type medisinsk behandling som gis over tid", "En fysisk vei til sykehuset"],
     explanation: 'Y-veien gir mulighet til a ta høyskoleutdanning (f.eks. sykepleie) basert påfagbrev og relevant praksis, uten generell studiekompetanse.',
   },
   {
     question: 'Hvordan kan du holde deg faglig oppdatert?',
-    options: ["Kurs, fagdager, lese faglitteratur, refleksjon med kolleger", "Det er ikke nødvendig etter fagbrev", "Ved a bytte jobb ofte og skaffe seg nye arbeidsplasser, siden det er den eneste maten a laere noe nytt pa", "Bare gjennom formell utdanning"],
+    options: ["Kurs, fagdager, lese faglitteratur, refleksjon med kolleger", "Det er ikke nødvendig etter fagbrev", "Ved a bytte jobb ofte og skaffe seg nye arbeidsplasser", "Bare gjennom formell utdanning"],
     explanation: 'Faglig oppdatering kan skje gjennom kurs, fagdager, faglitteratur, refleksjon med kolleger og gjennom praktisk erfaring.',
   },
   {
     question: 'Hva er fagskole?',
-    options: ["Yrkesrettet utdanning på 1-2 åretter fagbrev", "Det samme som videregaende", "En type grunnskole for voksne som ikke fullforte skolegangen sin da de var i vanlig skolealder", "Det samme som høyskolee"],
+    options: ["Yrkesrettet utdanning på 1-2 åretter fagbrev", "Det samme som videregaende", "En type grunnskole for voksne", "Det samme som høyskolee"],
     explanation: 'Fagskole er en yrkesrettet utdanning på 1-2 årsom bygger påfagbrev. Det finnes fagskoleutdanninger i f.eks. demensomsorg, psykisk helse og palliasjon.',
   },
   {
     question: 'Hva bør du tenke pånårdu planlegger karrieren?',
-    options: ["Hva du liker, hva du vil lære mer om, og hvor du ser deg selv i fremtiden", "Ingenting, bare følge strømmen", "Ingenting spesielt, det holder a folge stommen og ta imot de mulighetene som tilfeldigvis dukker opp", "Bare hva slags jobb som gir den hoyeste lonna, ettersom lonn er det viktigste nar man skal velge yrke"],
+    options: ["Hva du liker, hva du vil lære mer om, og hvor du ser deg selv i fremtiden", "Ingenting, bare følge strømmen og gjøre som de andre i klassen gjør etter skolen", "Ingenting spesielt, det holder a folge stommen og ta imot de mulighetene som tilfeldigvis dukker opp", "Bare hva slags jobb som gir den hoyeste lonna, ettersom lonn er det viktigste nar man skal velge yrke"],
     explanation: 'Når du planlegger karrieren bør du tenke påhva du liker a jobbe med, hvilke områder du vil lære mer om, og hvor du ser deg selv i fremtiden.',
   },
 ],
@@ -294,81 +294,81 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-1-1': [
   {
     question: 'Hva kjennetegner profesjonell yrkesutøvelse?',
-    options: ["Faglig kompetanse, etisk bevissthet og ansvarlig handling", "Å gjøre det man personlig synes", "A gjore det man personlig synes er best i oyeblikket, uavhengig av faglige retningslinjer og rutiner", "Å følge bare egne meninger"],
+    options: ["Faglig kompetanse, etisk bevissthet og ansvarlig handling", "Å gjøre det man personlig synes", "A gjore det man personlig synes er best i oyeblikket", "Å følge bare egne meninger"],
     explanation: 'Profesjonalitet forener fagkunnskap, etikk og ansvarlighet til beste for pasienten.',
   },
   {
     question: 'Hva er faglig skjønn?',
-    options: ["Evnen til å vurdere og tilpasse handling ut fra kunnskap og situasjon", "Å følge regler blindt", "A la personlige meninger og egne preferanser styre hvordan man handler i motet med den enkelte pasienten", "A folge regler og prosedyrer helt bokstavelig og blindt, uansett hva den enkelte situasjonen krever av deg"],
+    options: ["Evnen til å vurdere og tilpasse handling ut fra kunnskap og situasjon", "Å følge regler blindt uten å vurdere hva situasjonen faktisk krever av deg", "A la personlige meninger og egne preferanser styre hvordan man handler i motet med den enkelte pasienten", "A folge regler og prosedyrer helt bokstavelig og blindt, uansett hva den enkelte situasjonen krever av deg"],
     explanation: 'Faglig skjønn er å bruke kunnskap og erfaring til å vurdere og tilpasse handlinger i den enkelte situasjon.',
   },
   {
     question: 'Hva er yrkesidentitet?',
-    options: ["Følelsen av tilhørighet til og forståelse av eget yrke", "En arbeidskontrakt", "En lonnsavtale som fastsetter hvor mye man skal ha betalt for arbeidet man utforer i yrket sitt", "En lønnsavtale"],
+    options: ["Følelsen av tilhørighet til og forståelse av eget yrke", "En skriftlig arbeidskontrakt", "En lonnsavtale som fastsetter hva man skal ha betalt", "En lønnsavtale med arbeidsgiver"],
     explanation: 'Yrkesidentitet handler om hvordan man forstår og ser seg selv som fagperson.',
   },
   {
     question: 'Hva betyr det å handle innenfor egen kompetanse?',
-    options: ["Å utføre oppgaver man har opplæring og myndighet til", "Å overlate alt til andre", "A overlate alle krevende oppgaver til andre kolleger, slik at man selv slipper a ta pa seg noe ansvar", "Å gjøre alt uansett"],
+    options: ["Å utføre oppgaver man har opplæring og myndighet til", "Å overlate alt til andre", "A overlate alle krevende oppgaver til kolleger", "Å gjøre alt man blir bedt om"],
     explanation: 'Forsvarlig yrkesutøvelse krever at man holder seg innenfor egen kompetanse og myndighet.',
   },
   {
     question: 'En oppgave krever kompetanse du ikke har. Hva er profesjonelt riktig?',
-    options: ["Si fra og be om opplæring eller veiledning", "La pasienten klare seg selv", "Late som du behersker oppgaven, slik at du ikke framstar som usikker overfor pasient og kolleger", "Late som du kan det"],
+    options: ["Si fra og be om opplæring eller veiledning", "La pasienten klare seg selv", "Late som du behersker oppgaven likevel og går i gang", "Late som du kan det fra før"],
     explanation: 'Profesjonalitet innebærer å erkjenne egne grenser og be om opplæring eller veiledning.',
   },
 ],
   'helseoppvekst-vg3-1-2': [
   {
     question: 'Hva er velgjørenhetsprinsippet?',
-    options: ["Plikten til å gjøre godt og fremme pasientens beste", "Respekt for selvbestemmelse", "Respekten for pasientens rett til selv a bestemme over eget liv, egen kropp og egen behandling", "Plikten til å ikke skade"],
+    options: ["Plikten til å gjøre godt og fremme pasientens beste", "Respekt for selvbestemmelse", "Respekten for pasientens rett til selvbestemmelse", "Plikten til å ikke skade"],
     explanation: 'Velgjørenhet (beneficence) er plikten til å handle til pasientens beste.',
   },
   {
     question: 'Hva er autonomiprinsippet?',
-    options: ["Respekt for pasientens rett til selvbestemmelse", "Plikten til å gjøre godt", "Plikten til a gjore godt og aktivt fremme pasientens beste gjennom de handlingene man velger a utfore", "Plikten til å ikke skade"],
+    options: ["Respekt for pasientens rett til selvbestemmelse", "Plikten til å gjøre godt", "Plikten til a gjore godt for pasienten", "Plikten til å ikke skade"],
     explanation: 'Autonomiprinsippet handler om å respektere pasientens rett til å bestemme over eget liv.',
   },
   {
     question: 'Hva er et etisk dilemma?',
-    options: ["En situasjon der gode verdier står mot hverandre", "En situasjon med ett opplagt svar", "Et klart lovbrudd der en ansatt bevisst har handlet i strid med reglene og retningslinjene i tjenesten", "En faglig uenighet om diagnose"],
+    options: ["En situasjon der gode verdier står mot hverandre", "En situasjon med ett opplagt svar", "Et klart lovbrudd der en ansatt bryter reglene bevisst", "En faglig uenighet om diagnose"],
     explanation: 'Et etisk dilemma oppstår når gode verdier kommer i konflikt og valget er vanskelig.',
   },
   {
     question: 'Hvordan bør man håndtere et etisk dilemma?',
-    options: ["Reflektere systematisk over verdier og konsekvenser, gjerne med kolleger", "Bare følge magefølelsen", "Bare folge magefolelsen og forste innskytelse, framfor a veie verdier og konsekvenser opp mot hverandre", "Velge losning helt tilfeldig, siden alle utfall er like gode og valget likevel ikke kan begrunnes faglig"],
+    options: ["Reflektere systematisk over verdier og konsekvenser, gjerne med kolleger", "Bare følge magefølelsen og handle slik det kjennes riktig i den enkelte situasjonen", "Bare folge magefolelsen og forste innskytelse, framfor a veie verdier og konsekvenser opp mot hverandre", "Velge losning helt tilfeldig, siden alle utfall er like gode og valget likevel ikke kan begrunnes faglig"],
     explanation: 'Etiske dilemmaer håndteres best gjennom systematisk refleksjon, gjerne i fellesskap.',
   },
   {
     question: 'En pasient nekter nødvendig behandling. Hvilke prinsipper står mot hverandre?',
-    options: ["Autonomi mot velgjørenhet", "Rettferdighet mot lønn", "Ingen etiske prinsipper er egentlig i konflikt her", "Hygiene mot pynt"],
+    options: ["Autonomi mot velgjørenhet", "Rettferdighet mot lønn", "Ingen prinsipper i strid", "Hygiene mot pynt"],
     explanation: 'Pasientens selvbestemmelse (autonomi) står mot plikten til å gjøre godt (velgjørenhet).',
   },
 ],
   'helseoppvekst-vg3-1-3': [
   {
     question: 'Hva er taushetsplikt?',
-    options: ["Plikten til å hindre at uvedkommende får tilgang til pasientopplysninger", "Plikten til å fortelle pårørende alt", "En helt frivillig avtale mellom ansatt og pasient om hva som eventuelt kan deles videre til andre", "Plikten til a informere de parorende om alt som gjelder pasientens helse og behandling, uansett samtykke"],
+    options: ["Plikten til å hindre at uvedkommende får tilgang til pasientopplysninger", "Plikten til å fortelle pårørende alt de spør om, uten pasientens samtykke", "En helt frivillig avtale mellom ansatt og pasient om hva som eventuelt kan deles videre til andre", "Plikten til a informere de parorende om alt som gjelder pasientens helse og behandling, uansett samtykke"],
     explanation: 'Taushetsplikten verner pasientens opplysninger mot innsyn fra uvedkommende.',
   },
   {
     question: 'Når kan taushetsplikten fravikes?',
-    options: ["Ved samtykke eller lovbestemte unntak, som fare for liv", "Når man selv synes det passer", "Når en kollega på en annen avdeling er nysgjerrig på pasienten", "Dersom pasienten selv har omtalt saken åpent til andre tidligere"],
+    options: ["Ved samtykke eller lovbestemte unntak, som fare for liv", "Når man selv synes det passer i situasjonen", "Når en kollega på en annen avdeling er nysgjerrig på pasienten", "Dersom pasienten selv har omtalt saken åpent til andre tidligere"],
     explanation: 'Taushetsplikten kan fravikes ved samtykke eller lovbestemte unntak som avvergingsplikt.',
   },
   {
     question: 'Hva regulerer GDPR / personvernregelverket?',
-    options: ["Hvordan personopplysninger samles inn, lagres og brukes", "Lønnsforhold", "Hvordan lønn og tillegg beregnes for ansatte i helsetjenesten", "Hvor mange timer den ansatte kan jobbe per uke og krav til pauser"],
+    options: ["Hvordan personopplysninger samles inn, lagres og brukes", "Lønnsforhold og hva den ansatte tjener", "Hvordan lønn og tillegg beregnes for ansatte i helsetjenesten", "Hvor mange timer den ansatte kan jobbe per uke og krav til pauser"],
     explanation: 'Personvernregelverket setter krav til lovlig og sikker behandling av personopplysninger.',
   },
   {
     question: 'Hva er digital dømmekraft?',
-    options: ["Å bruke digitale verktøy ansvarlig, trygt og etisk", "Å være pålogget hele tiden", "Å skrive og taste inn opplysninger så raskt og effektivt som mulig", "Å være pålogget og tilgjengelig digitalt gjennom hele arbeidsdagen"],
+    options: ["Å bruke digitale verktøy ansvarlig, trygt og etisk", "Å være pålogget hele tiden på egen mobil og PC hjemme", "Å skrive og taste inn opplysninger så raskt og effektivt som mulig", "Å være pålogget og tilgjengelig digitalt gjennom hele arbeidsdagen"],
     explanation: 'Digital dømmekraft er å bruke teknologi ansvarlig, trygt og med god vurderingsevne.',
   },
   {
     question: 'Hva er et brudd på digital dømmekraft i helsearbeid?',
-    options: ["Å dele bilde eller opplysninger om en pasient på sosiale medier", "Å logge ut av journalsystemet", "Å logge seg ut av journalsystemet når man forlater arbeidsstasjonen", "Å bruke godkjente og sikre fagsystemer når du dokumenterer helsehjelp"],
+    options: ["Å dele bilde eller opplysninger om en pasient på sosiale medier", "Å logge ut av journalsystemet hver gang du forlater skjermen din", "Å logge seg ut av journalsystemet når man forlater arbeidsstasjonen", "Å bruke godkjente og sikre fagsystemer når du dokumenterer helsehjelp"],
     explanation: 'Å dele pasientopplysninger på sosiale medier bryter taushetsplikt og personvern.',
   },
 ],
@@ -380,7 +380,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er samtykkekompetanse?',
-    options: ["Evnen til å forstå og ta stilling til informasjon om egen helse", "Retten til å bestemme over andre", "En medisinsk diagnose som avgjør hvilken behandling pasienten får", "Retten en pårørende har til å bestemme over en annen persons helse"],
+    options: ["Evnen til å forstå og ta stilling til informasjon om egen helse", "Retten til å bestemme over andre voksne i familien sin uten samtykke", "En medisinsk diagnose som avgjør hvilken behandling pasienten får", "Retten en pårørende har til å bestemme over en annen persons helse"],
     explanation: 'Samtykkekompetanse er evnen til å forstå informasjon og treffe valg om egen helsehjelp.',
   },
   {
@@ -390,66 +390,66 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva må alltid forsøkes før tvang vurderes?',
-    options: ["Tillitsskapende tiltak og frivillige løsninger", "Å trekke seg unna", "Å trekke seg helt unna situasjonen og la pasienten være uten hjelp", "Ingenting, siden tvang uansett kan iverksettes med en gang ved behov"],
+    options: ["Tillitsskapende tiltak og frivillige løsninger", "Å trekke seg unna og overlate saken helt til andre", "Å trekke seg helt unna situasjonen og la pasienten være uten hjelp", "Ingenting, siden tvang uansett kan iverksettes med en gang ved behov"],
     explanation: 'Tillitsskapende og frivillige tiltak skal alltid prøves før tvang kan vurderes.',
   },
   {
     question: 'En pasient med samtykkekompetanse nekter et tiltak. Hva gjelder?',
-    options: ["Pasientens nei skal som hovedregel respekteres", "Tiltaket gis med tvang", "Pårørende bestemmer over pasienten og kan overstyre nektelsen deres", "Tiltaket gjennomføres med tvang fordi personalet vet hva som er best"],
+    options: ["Pasientens nei skal som hovedregel respekteres", "Tiltaket gis med tvang så raskt situasjonen tillater det", "Pårørende bestemmer over pasienten og kan overstyre nektelsen deres", "Tiltaket gjennomføres med tvang fordi personalet vet hva som er best"],
     explanation: 'En samtykkekompetent pasient har rett til å nekte helsehjelp, og dette skal respekteres.',
   },
 ],
   'helseoppvekst-vg3-1-5': [
   {
     question: 'Hva er relasjonskompetanse?',
-    options: ["Evnen til å bygge og opprettholde gode, tillitsfulle relasjoner", "Teknisk kunnskap alene", "Å bestemme over andre og styre relasjonen ut fra egne behov og ønsker", "Å ha tilstrekkelig teknisk fagkunnskap alene, uten sosiale ferdigheter"],
+    options: ["Evnen til å bygge og opprettholde gode, tillitsfulle relasjoner", "Teknisk kunnskap alene om prosedyrer og utstyr som brukes i avdelingen", "Å bestemme over andre og styre relasjonen ut fra egne behov og ønsker", "Å ha tilstrekkelig teknisk fagkunnskap alene, uten sosiale ferdigheter"],
     explanation: 'Relasjonskompetanse er ferdigheter i å skape og ivareta gode, tillitsfulle relasjoner.',
   },
   {
     question: 'Hva er aktiv lytting?',
-    options: ["Å gi full oppmerksomhet, vise interesse og bekrefte den andre", "Å tenke på noe annet", "Å tenke på helt andre ting mens den andre snakker og forteller", "Å avbryte den andre ofte for raskt å komme med egne synspunkter"],
+    options: ["Å gi full oppmerksomhet, vise interesse og bekrefte den andre", "Å tenke på noe annet mens den andre snakker og vente på tur sin", "Å tenke på helt andre ting mens den andre snakker", "Å avbryte den andre ofte for raskt å komme med egne synspunkter"],
     explanation: 'Aktiv lytting er å gi full oppmerksomhet og bekrefte den man snakker med.',
   },
   {
     question: 'Hva er empati?',
-    options: ["Evnen til å forstå og leve seg inn i andres følelser", "Å føle medlidenhet ovenfra", "Å føle medlidenhet ovenfra og synes synd på den andre personen", "Å være likegyldig og distansert overfor hvordan den andre har det"],
+    options: ["Evnen til å forstå og leve seg inn i andres følelser", "Å føle medlidenhet ovenfra og ned", "Å føle medlidenhet ovenfra og synes synd på den andre personen", "Å være likegyldig og distansert overfor hvordan den andre har det"],
     explanation: 'Empati er evnen til å forstå og leve seg inn i hvordan en annen har det.',
   },
   {
     question: 'Hvorfor er kulturell kompetanse viktig i kommunikasjon?',
-    options: ["Uttrykk og kroppsspråk kan ha ulik betydning i ulike kulturer", "Alle kommuniserer likt", "Kultur er irrelevant fordi mennesker uttrykker seg helt likt uansett", "Bare det talte språket betyr noe, ikke kroppsspråk eller uttrykksmåte"],
+    options: ["Uttrykk og kroppsspråk kan ha ulik betydning i ulike kulturer", "Alle kommuniserer likt uansett bakgrunn og morsmål i alle land", "Kultur er irrelevant fordi mennesker uttrykker seg helt likt uansett", "Bare det talte språket betyr noe, ikke kroppsspråk eller uttrykksmåte"],
     explanation: 'Samme uttrykk kan tolkes ulikt mellom kulturer, og kulturforståelse styrker kommunikasjonen.',
   },
   {
     question: 'En pasient er taus og avvisende. Hva er en god tilnærming?',
-    options: ["Vise tålmodighet, være til stede og respektere pasientens tempo", "Trekke seg unna for godt", "Trekke seg unna for godt og overlate pasienten helt til seg selv", "Presse fram svar og kreve at pasienten forteller det du vil vite nå"],
+    options: ["Vise tålmodighet, være til stede og respektere pasientens tempo", "Trekke seg unna for godt og la en kollega ta over pasienten i stedet", "Trekke seg unna for godt og overlate pasienten helt til seg selv", "Presse fram svar og kreve at pasienten forteller det du vil vite nå"],
     explanation: 'Tålmodighet, tilstedeværelse og respekt for pasientens tempo bygger tillit.',
   },
 ],
   'helseoppvekst-vg3-1-6': [
   {
     question: 'Hva kjennetegner konstruktiv konflikthåndtering?',
-    options: ["Å finne løsninger gjennom dialog og respekt", "Å vinne for enhver pris", "Å vinne diskusjonen for enhver pris uansett hva den andre mener", "Å overse problemet i håp om at konflikten løser seg selv over tid"],
+    options: ["Å finne løsninger gjennom dialog og respekt", "Å vinne for enhver pris i diskusjonen med kollegaen", "Å vinne diskusjonen for enhver pris uansett hva den andre mener", "Å overse problemet i håp om at konflikten løser seg selv over tid"],
     explanation: 'Konstruktiv håndtering søker løsninger gjennom respektfull dialog der begge blir hørt.',
   },
   {
     question: 'Hva er deeskalering?',
-    options: ["Å dempe en opptrappende konflikt eller uro", "Å trappe opp en konflikt", "Å trappe opp og forsterke en konflikt som allerede er i gang", "En type beroligende medisin som gis til urolige pasienter ved behov"],
+    options: ["Å dempe en opptrappende konflikt eller uro", "Å trappe opp en konflikt som pågår", "Å trappe opp og forsterke en konflikt som allerede er i gang", "En type beroligende medisin som gis til urolige pasienter ved behov"],
     explanation: 'Deeskalering er teknikker for å roe ned en situasjon som er i ferd med å eskalere.',
   },
   {
     question: 'Hva er ofte en grunnleggende årsak til konflikter?',
-    options: ["Misforståelser og dårlig kommunikasjon", "For god planlegging", "For grundig og god planlegging av arbeidet på arbeidsplassen", "For mye enighet"],
+    options: ["Misforståelser og dårlig kommunikasjon", "For god planlegging", "For grundig planlegging av arbeidet", "For mye enighet i gruppa"],
     explanation: 'Mange konflikter bunner i misforståelser og kommunikasjonssvikt.',
   },
   {
     question: 'Hva er et godt deeskaleringsgrep i møte med en opphisset pasient?',
-    options: ["Snakke rolig, holde avstand og vise forståelse", "Komme tett innpå", "Argumentere imot pasienten for å overbevise om at hen tar feil", "Komme tett innpå pasienten fysisk for å markere at du har kontroll"],
+    options: ["Snakke rolig, holde avstand og vise forståelse", "Komme tett innpå pasienten for å vise at du er trygg", "Argumentere imot pasienten for å overbevise om at hen tar feil", "Komme tett innpå pasienten fysisk for å markere at du har kontroll"],
     explanation: 'Rolig stemme, trygg avstand og forståelse kan dempe en opphisset situasjon.',
   },
   {
     question: 'Hva er et godt første steg i å løse en konflikt mellom kolleger?',
-    options: ["Snakke direkte sammen og lytte til hverandre", "La det bygge seg opp", "Snakke bak ryggen på kollegaen med de andre på avdelingen først", "La uenigheten bygge seg opp over tid til den blir stor nok til å ta"],
+    options: ["Snakke direkte sammen og lytte til hverandre", "La det bygge seg opp og håpe det går over av seg selv", "Snakke bak ryggen på kollegaen med de andre på avdelingen først", "La uenigheten bygge seg opp over tid til den blir stor nok til å ta"],
     explanation: 'Direkte dialog og gjensidig lytting er et godt utgangspunkt for å løse konflikter.',
   },
 ],
@@ -466,7 +466,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er empowerment i helsesammenheng?',
-    options: ["Å styrke pasientens egne ressurser og kontroll over egen helse", "Å gjøre pasienten avhengig", "Å gjøre pasienten mer avhengig av helsepersonell over lengre tid", "Å overta ansvaret for pasienten og bestemme hva som er best for hen"],
+    options: ["Å styrke pasientens egne ressurser og kontroll over egen helse", "Å gjøre pasienten avhengig av hjelp fra helsetjenesten hele tiden", "Å gjøre pasienten mer avhengig av helsepersonell over lengre tid", "Å overta ansvaret for pasienten og bestemme hva som er best for hen"],
     explanation: 'Empowerment styrker pasientens egne krefter, kontroll og mestring av egen helse.',
   },
   {
@@ -488,44 +488,44 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva fremmer livskvalitet gjennom livsløpet?',
-    options: ["Mestring, sosial kontakt, mening og verdighet", "At andre bestemmer alt", "Isolasjon og lite kontakt med andre mennesker gjennom livet", "Passivitet og at man unngår aktivitet og deltakelse i hverdagen"],
+    options: ["Mestring, sosial kontakt, mening og verdighet", "At andre bestemmer alt for deg gjennom livet ditt", "Isolasjon og lite kontakt med andre mennesker gjennom livet", "Passivitet og at man unngår aktivitet og deltakelse i hverdagen"],
     explanation: 'Mestring, fellesskap, mening og verdighet fremmer livskvalitet i alle livsfaser.',
   },
   {
     question: 'Hva betyr et livsløpsperspektiv?',
-    options: ["Å se mennesket i lys av hele livet, fra barndom til alderdom", "Å bare se på alderdommen", "Å bare se på alderdommen og de behovene som oppstår sent i livet", "Å bare se på barndommen og det som skjer tidlig i menneskets liv"],
+    options: ["Å se mennesket i lys av hele livet, fra barndom til alderdom", "Å bare se på alderdommen og se bort fra tidligere livsfaser i livet", "Å bare se på alderdommen og de behovene som oppstår sent i livet", "Å bare se på barndommen og det som skjer tidlig i menneskets liv"],
     explanation: 'Et livsløpsperspektiv ser behov og muligheter i lys av hele livsløpet.',
   },
   {
     question: 'Hvorfor er mestring viktig for livskvalitet?',
-    options: ["Mestring gir kontroll, selvtillit og mening", "Mestring senker livskvaliteten", "Det gjelder bare unge mennesker, ikke eldre eller de midt i livet", "Mestring er irrelevant"],
+    options: ["Mestring gir kontroll, selvtillit og mening", "Mestring senker livskvaliteten", "Det gjelder bare unge mennesker", "Mestring er irrelevant"],
     explanation: 'Opplevelsen av å mestre gir kontroll og mening, som styrker livskvaliteten.',
   },
   {
     question: 'Hvordan kan du fremme trivsel hos en bruker?',
-    options: ["Legge til rette for meningsfulle aktiviteter ut fra brukerens ønsker", "Bestemme alt for brukeren", "Følge en fast dagsplan der alle brukerne gjør de samme aktivitetene til samme tid", "Ta over gjøremålene brukeren strever med, slik at hverdagen blir enklest mulig for personen"],
+    options: ["Legge til rette for meningsfulle aktiviteter ut fra brukerens ønsker", "Bestemme alt for brukeren ut fra hva personalet mener er best for hen", "Følge en fast dagsplan der alle brukerne gjør de samme aktivitetene til samme tid", "Ta over gjøremålene brukeren strever med, slik at hverdagen blir enklest mulig for personen"],
     explanation: 'Å støtte meningsfulle aktiviteter tilpasset brukerens ønsker fremmer trivsel.',
   },
 ],
   'helseoppvekst-vg3-2-3': [
   {
     question: 'Hva er brukermedvirkning?',
-    options: ["At brukeren får delta i og påvirke beslutninger om egne tjenester", "At fagpersonen bestemmer alene", "At pårørende overtar avgjørelsene og taler brukerens sak i alle spørsmål om tjenesten", "At helsepersonellet informerer brukeren om beslutninger som allerede er tatt på forhånd"],
+    options: ["At brukeren får delta i og påvirke beslutninger om egne tjenester", "At fagpersonen bestemmer alene uten å snakke med brukeren på forhånd", "At pårørende overtar avgjørelsene og taler brukerens sak i alle spørsmål om tjenesten", "At helsepersonellet informerer brukeren om beslutninger som allerede er tatt på forhånd"],
     explanation: 'Brukermedvirkning gir brukeren innflytelse over utformingen av egne tjenester.',
   },
   {
     question: 'Hva er samvalg?',
-    options: ["At bruker og fagperson sammen velger ut fra informasjon og brukerens ønsker", "At brukeren velger uten informasjon", "At kommunen fatter vedtak om hvilke tjenester og behandling brukeren skal motta", "At brukeren velger behandling på egen hånd uten faglig informasjon fra helsepersonellet"],
+    options: ["At bruker og fagperson sammen velger ut fra informasjon og brukerens ønsker", "At brukeren velger uten informasjon om hva alternativene innebærer av fordeler", "At kommunen fatter vedtak om hvilke tjenester og behandling brukeren skal motta", "At brukeren velger behandling på egen hånd uten faglig informasjon fra helsepersonellet"],
     explanation: 'Samvalg er delt beslutningstaking der bruker og fagperson kommer fram til valg sammen.',
   },
   {
     question: 'Hva er en individuell plan?',
-    options: ["En koordinert plan for personer med behov for langvarige, koordinerte tjenester", "En medisinliste", "En oversikt over alle legemidler brukeren tar, med dosering og tidspunkt for inntak", "En avtale om tidspunkt for neste konsultasjon eller behandling hos helsepersonellet"],
+    options: ["En koordinert plan for personer med behov for langvarige, koordinerte tjenester", "En medisinliste som viser hvilke legemidler brukeren skal ta gjennom hele døgnet", "En oversikt over alle legemidler brukeren tar, med dosering og tidspunkt for inntak", "En avtale om tidspunkt for neste konsultasjon eller behandling hos helsepersonellet"],
     explanation: 'Individuell plan samordner tjenestene rundt en bruker med sammensatte behov.',
   },
   {
     question: 'Hvordan ivaretar du medvirkning for en bruker med redusert samtykkekompetanse?',
-    options: ["Tolke signaler, kjenne livshistorien og involvere pårørende", "Vente til brukeren blir frisk", "La være å involvere brukeren og heller ta avgjørelsene raskt for å spare tid", "Utsette alle beslutninger til brukeren igjen blir helt frisk og samtykkekompetent"],
+    options: ["Tolke signaler, kjenne livshistorien og involvere pårørende", "Vente til brukeren blir frisk nok til å svare", "La være å involvere brukeren og heller ta avgjørelsene raskt for å spare tid", "Utsette alle beslutninger til brukeren igjen blir helt frisk og samtykkekompetent"],
     explanation: 'Også ved redusert samtykkekompetanse skal medvirkning ivaretas gjennom observasjon, livshistorie og pårørende.',
   },
   {
@@ -537,7 +537,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-2-4': [
   {
     question: 'Hvilken lov gir pasienten rett til helse- og omsorgstjenester?',
-    options: ["Pasient- og brukerrettighetsloven", "Veitrafikkloven", "Barneloven, som regulerer foreldreansvar, samvær og barns rettigheter", "Skatteloven"],
+    options: ["Pasient- og brukerrettighetsloven", "Veitrafikkloven", "Barneloven om foreldreansvar", "Skatteloven i Norge"],
     explanation: 'Pasient- og brukerrettighetsloven fastsetter retten til nødvendige helse- og omsorgstjenester.',
   },
   {
@@ -552,34 +552,34 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken rettighet har pårørende?',
-    options: ["Rett til informasjon og medvirkning innenfor taushetspliktens grenser", "Rett til all informasjon uansett", "Rett til å overstyre pasientens egne valg når de er uenige i behandlingen", "Ingen selvstendige rettigheter, siden all informasjon tilhører pasienten alene"],
+    options: ["Rett til informasjon og medvirkning innenfor taushetspliktens grenser", "Rett til all informasjon uansett hva pasienten selv måtte ønske om det", "Rett til å overstyre pasientens egne valg når de er uenige i behandlingen", "Ingen selvstendige rettigheter, siden all informasjon tilhører pasienten alene"],
     explanation: 'Pårørende har rett til informasjon og medvirkning, men taushetsplikt og samtykke setter grenser.',
   },
   {
     question: 'Hvorfor skal helsefagarbeideren kjenne til pasientrettigheter?',
-    options: ["For å kunne informere og veilede pasienter og pårørende", "For å begrense rettighetene", "Bare ledere og saksbehandlere trenger denne kunnskapen i det daglige arbeidet", "For å kunne begrense hvilke rettigheter pasienten og pårørende faktisk får bruke"],
+    options: ["For å kunne informere og veilede pasienter og pårørende", "For å begrense rettighetene pasienten kan kreve i tjenesten", "Bare ledere og saksbehandlere trenger denne kunnskapen i det daglige arbeidet", "For å kunne begrense hvilke rettigheter pasienten og pårørende faktisk får bruke"],
     explanation: 'Kunnskap om rettigheter gjør at du kan informere og veilede pasienter og pårørende.',
   },
 ],
   'helseoppvekst-vg3-2-5': [
   {
     question: 'Hvilken rolle kan frivillige organisasjoner ha?',
-    options: ["Bidra med fellesskap, aktiviteter og helsefremmende tiltak", "Erstatte all helsehjelp", "Stille diagnoser og vurdere hvilken medisinsk behandling brukeren har behov for", "Erstatte all offentlig helsehjelp og overta ansvaret for behandlingen av brukerne"],
+    options: ["Bidra med fellesskap, aktiviteter og helsefremmende tiltak", "Erstatte all helsehjelp som kommunen ellers skal gi brukeren", "Stille diagnoser og vurdere hvilken medisinsk behandling brukeren har behov for", "Erstatte all offentlig helsehjelp og overta ansvaret for behandlingen av brukerne"],
     explanation: 'Frivillige organisasjoner bidrar med fellesskap, aktiviteter og helsefremmende tiltak.',
   },
   {
     question: 'Hva er et helsefremmende tiltak?',
-    options: ["Tiltak som styrker det som gir god helse og mestring", "Lindring ved livets slutt", "Lindrende omsorg og symptomdempende tiltak ved livets siste fase", "Kun rehabilitering for å gjenvinne funksjon etter sykdom eller skade"],
+    options: ["Tiltak som styrker det som gir god helse og mestring", "Lindring ved livets slutt for pasienter med kort levetid igjen", "Lindrende omsorg og symptomdempende tiltak ved livets siste fase", "Kun rehabilitering for å gjenvinne funksjon etter sykdom eller skade"],
     explanation: 'Helsefremmende tiltak styrker faktorer som gir helse, trivsel og mestring.',
   },
   {
     question: 'Hvorfor er samarbeid med frivillige nyttig?',
-    options: ["Det utvider tilbudet og styrker brukernes sosiale nettverk", "Det erstatter helsepersonell", "Det har ingen reell verdi for brukeren utover å fylle ledig tid", "Det er utelukkende en ekstra utgift uten faglig verdi for tjenesten"],
+    options: ["Det utvider tilbudet og styrker brukernes sosiale nettverk", "Det erstatter helsepersonell og de faglige oppgavene deres i tjenesten", "Det har ingen reell verdi for brukeren utover å fylle ledig tid", "Det er utelukkende en ekstra utgift uten faglig verdi for tjenesten"],
     explanation: 'Samarbeid med frivillige beriker tilbudet og styrker brukernes nettverk og deltakelse.',
   },
   {
     question: 'Hva er nettverksbygging i denne sammenhengen?',
-    options: ["Å styrke brukerens sosiale relasjoner og kontakter", "Å koble til internett", "En form for journalføring der man kartlegger brukerens kontaktpersoner", "Å skjerme brukeren fra kontakt for at personen skal få ro og hvile bedre"],
+    options: ["Å styrke brukerens sosiale relasjoner og kontakter", "Å koble brukeren til internett hjemme", "En form for journalføring der man kartlegger brukerens kontaktpersoner", "Å skjerme brukeren fra kontakt for at personen skal få ro og hvile bedre"],
     explanation: 'Nettverksbygging handler om å styrke og utvide brukerens sosiale relasjoner.',
   },
   {
@@ -596,29 +596,29 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en trygghetsalarm?',
-    options: ["Et hjelpemiddel som lar brukeren tilkalle hjelp ved behov", "En blodtrykksmåler", "En type medisin brukeren tar for å redusere angst og uro i hverdagen", "Et apparat som måler og registrerer brukerens blodtrykk gjennom døgnet"],
+    options: ["Et hjelpemiddel som lar brukeren tilkalle hjelp ved behov", "En blodtrykksmåler som brukeren har på armen hjemme i boligen", "En type medisin brukeren tar for å redusere angst og uro i hverdagen", "Et apparat som måler og registrerer brukerens blodtrykk gjennom døgnet"],
     explanation: 'En trygghetsalarm lar brukeren raskt tilkalle hjelp, for eksempel ved fall.',
   },
   {
     question: 'Hva er en fordel med videokonsultasjon?',
-    options: ["Pasienten kan få kontakt med helsepersonell uten å reise", "Det fjerner taushetsplikten", "Det krever alltid fysisk oppmøte på legekontoret eller ved sykehuset", "Det opphever taushetsplikten fordi samtalen foregår over en digital linje"],
+    options: ["Pasienten kan få kontakt med helsepersonell uten å reise", "Det fjerner taushetsplikten under selve samtalen med pasienten", "Det krever alltid fysisk oppmøte på legekontoret eller ved sykehuset", "Det opphever taushetsplikten fordi samtalen foregår over en digital linje"],
     explanation: 'Videokonsultasjon gir tilgang til helsehjelp uten reise og kan spare tid for pasienten.',
   },
   {
     question: 'Hva må vurderes før velferdsteknologi tas i bruk?',
-    options: ["Brukerens samtykke, behov og personvern", "Hva som er mest avansert", "Utelukkende prisen på løsningen og hva som er billigst for kommunen å drifte", "Hva som er nyest"],
+    options: ["Brukerens samtykke, behov og personvern", "Hva som er mest avansert", "Utelukkende prisen på løsningen", "Hva som er nyest på markedet"],
     explanation: 'Bruk av velferdsteknologi krever vurdering av samtykke, behov og personvern.',
   },
   {
     question: 'Hvordan kan du veilede en pasient i bruk av digitale verktøy?',
-    options: ["Forklare enkelt, vise trinn for trinn og øve sammen", "Anta at pasienten kan alt", "Anta at pasienten mestrer verktøyet fra før og hoppe rett til bruk", "Gjøre alle oppgavene for pasienten så personen slipper å lære det selv"],
+    options: ["Forklare enkelt, vise trinn for trinn og øve sammen", "Anta at pasienten kan alt om digitale verktøy fra før", "Anta at pasienten mestrer verktøyet fra før og hoppe rett til bruk", "Gjøre alle oppgavene for pasienten så personen slipper å lære det selv"],
     explanation: 'God veiledning er å forklare enkelt, vise steg for steg og øve sammen med pasienten.',
   },
 ],
   'helseoppvekst-vg3-3-1': [
   {
     question: 'Hva er hensikten med å kartlegge funksjonsnivå?',
-    options: ["Å vurdere behov for hjelp og tilrettelegging ut fra ressurser", "Å redusere selvstendighet", "Å dokumentere brukerens svikt for å kunne begrunne strengere tiltak", "Å overta alle daglige oppgaver slik at brukeren slipper å anstrenge seg"],
+    options: ["Å vurdere behov for hjelp og tilrettelegging ut fra ressurser", "Å redusere selvstendigheten til brukeren gjennom faste rutiner hver dag", "Å dokumentere brukerens svikt for å kunne begrunne strengere tiltak", "Å overta alle daglige oppgaver slik at brukeren slipper å anstrenge seg"],
     explanation: 'Kartlegging avdekker hva brukeren mestrer og hvor det trengs støtte og tilrettelegging.',
   },
   {
@@ -628,137 +628,137 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør en god kartlegging bygge på?',
-    options: ["Brukerens ressurser, behov og ønsker", "Personalets antakelser", "Utelukkende diagnosen brukeren har fått av lege eller spesialist", "Bare diagnosen"],
+    options: ["Brukerens ressurser, behov og ønsker", "Personalets antakelser", "Utelukkende diagnosen fra legen", "Bare diagnosen alene"],
     explanation: 'God kartlegging tar utgangspunkt i brukerens ressurser, behov og egne ønsker.',
   },
   {
     question: 'Hva er et omsorgsbehov?',
-    options: ["Behov for hjelp og støtte for å dekke grunnleggende behov", "En type journal", "Et legemiddel som brukeren tar for å dekke et bestemt helseproblem", "En diagnose stilt av lege som beskriver hvilken sykdom brukeren har"],
+    options: ["Behov for hjelp og støtte for å dekke grunnleggende behov", "En type journal der all informasjon om brukeren samles ett sted", "Et legemiddel som brukeren tar for å dekke et bestemt helseproblem", "En diagnose stilt av lege som beskriver hvilken sykdom brukeren har"],
     explanation: 'Omsorgsbehov er behovet for hjelp til å ivareta grunnleggende fysiske, psykiske og sosiale behov.',
   },
   {
     question: 'Hvorfor er det viktig å se brukerens ressurser, ikke bare svikt?',
-    options: ["Det gir mestringsfremmende og verdig omsorg", "Ressurser er irrelevante", "Kun svikt og hjelpebehov er viktig når man skal planlegge god omsorg", "Bare svikt er viktig"],
+    options: ["Det gir mestringsfremmende og verdig omsorg", "Ressurser er irrelevante", "Kun svikt og hjelpebehov er viktig", "Bare svikt er viktig"],
     explanation: 'Å bygge på ressurser fremmer mestring og verdighet, i tråd med et ressursorientert syn.',
   },
 ],
   'helseoppvekst-vg3-3-2': [
   {
     question: 'Hva er viktig ved akutt sykdom?',
-    options: ["Rask observasjon, prioritering og varsling", "Å la pasienten klare seg", "Å vente og se an situasjonen før man setter i gang med tiltak", "Å unngå dokumentasjon for å bruke all tid direkte på pasienten"],
+    options: ["Rask observasjon, prioritering og varsling", "Å la pasienten klare seg selv", "Å vente og se an situasjonen før man setter i gang med tiltak", "Å unngå dokumentasjon for å bruke all tid direkte på pasienten"],
     explanation: 'Ved akutt sykdom er rask observasjon, prioritering og varsling avgjørende.',
   },
   {
     question: 'Hva menes med å prioritere i sykepleietiltak?',
-    options: ["Å gjøre det mest akutte og viktige først", "Å gjøre minst viktig først", "Å avvente og unngå å handle til situasjonen har roet seg helt ned", "Å gjøre alt samtidig"],
+    options: ["Å gjøre det mest akutte og viktige først", "Å gjøre minst viktig først", "Å avvente til situasjonen roer seg", "Å gjøre alt samtidig"],
     explanation: 'Prioritering er å sette inn tiltak der behovet er størst og mest akutt.',
   },
   {
     question: 'Hvorfor er observasjon viktig ved akutt og kronisk sykdom?',
-    options: ["For å fange opp endringer og iverksette tiltak i tide", "Det har ingen nytte", "Det er kun en fast rutine uten reell betydning for behandlingen", "Det fyller tiden mellom de andre pleieoppgavene i vaktens forløp"],
+    options: ["For å fange opp endringer og iverksette tiltak i tide", "Det har ingen nytte for behandlingen av pasienten videre", "Det er kun en fast rutine uten reell betydning for behandlingen", "Det fyller tiden mellom de andre pleieoppgavene i vaktens forløp"],
     explanation: 'Observasjon gjør at man oppdager endringer tidlig og kan handle i tide.',
   },
   {
     question: 'Hva gjør du hvis en pasients tilstand forverres raskt?',
-    options: ["Måler vitale tegn og varsler ansvarlig sykepleier/lege umiddelbart", "Venter til neste vakt", "Ber pasienten om å beskrive symptomene grundig før du foretar deg noe", "Gir pasienten smertestillende og ber vedkommende hvile til det gir seg"],
+    options: ["Måler vitale tegn og varsler ansvarlig sykepleier/lege umiddelbart", "Venter til neste vakt slik at kollegene kan vurdere det i stedet for deg", "Ber pasienten om å beskrive symptomene grundig før du foretar deg noe", "Gir pasienten smertestillende og ber vedkommende hvile til det gir seg"],
     explanation: 'Forverring skal følges opp med målinger og umiddelbar varsling til ansvarlig.',
   },
   {
     question: 'Hvorfor er dokumentasjon viktig ved sammensatte behov?',
-    options: ["For å sikre kontinuitet og forsvarlig oppfølging", "Bare for statistikk", "For å ha noe å vise til dersom det senere kommer en klagesak", "For å dokumentere at du selv har brukt nok tid på hver pasient"],
+    options: ["For å sikre kontinuitet og forsvarlig oppfølging", "Bare for statistikk som ledelsen samler inn hvert år", "For å ha noe å vise til dersom det senere kommer en klagesak", "For å dokumentere at du selv har brukt nok tid på hver pasient"],
     explanation: 'God dokumentasjon sikrer at viktig informasjon følger pasienten og at oppfølgingen blir forsvarlig.',
   },
 ],
   'helseoppvekst-vg3-3-3': [
   {
     question: 'Hva er NEWS2 brukt til?',
-    options: ["Å systematisk fange opp forverring i pasientens tilstand", "Å registrere besøk", "Å registrere pasientens vekt og høyde for å beregne kroppsmasseindeks", "Å beregne riktig legemiddeldose ut fra pasientens alder og kroppsvekt"],
+    options: ["Å systematisk fange opp forverring i pasientens tilstand", "Å registrere besøk og hvem som har vært innom pasienten i dag", "Å registrere pasientens vekt og høyde for å beregne kroppsmasseindeks", "Å beregne riktig legemiddeldose ut fra pasientens alder og kroppsvekt"],
     explanation: 'NEWS2 er et skåringsverktøy som ut fra vitale tegn fanger opp forverring tidlig.',
   },
   {
     question: 'Hvilke vitale tegn inngår i systematisk observasjon?',
-    options: ["Puls, respirasjon, blodtrykk, temperatur og bevissthet", "Bare skostørrelse", "Kun kroppsvekt, høyde og livvidde målt med målebånd hver morgen", "Kun hårfarge, hudfarge og øyenfarge notert ved innkomstsamtalen"],
+    options: ["Puls, respirasjon, blodtrykk, temperatur og bevissthet", "Bare skostørrelse og andre mål som ikke sier noe om tilstanden", "Kun kroppsvekt, høyde og livvidde målt med målebånd hver morgen", "Kun hårfarge, hudfarge og øyenfarge notert ved innkomstsamtalen"],
     explanation: 'Vitale tegn omfatter puls, respirasjon, blodtrykk, temperatur og bevissthetsnivå.',
   },
   {
     question: 'Hvorfor brukes medisinsk utstyr i observasjon?',
-    options: ["For å få objektive måleverdier på pasientens tilstand", "Det har ingen nytte", "Det har egentlig ingen nytte, det er pasientens egne ord som teller", "For å fylle tiden mellom stell og måltider når det er stille på vakt"],
+    options: ["For å få objektive måleverdier på pasientens tilstand", "Det har ingen nytte utover det man ser med egne øyne uansett", "Det har egentlig ingen nytte, det er pasientens egne ord som teller", "For å fylle tiden mellom stell og måltider når det er stille på vakt"],
     explanation: 'Medisinsk utstyr gir objektive målinger som styrker vurderingen av tilstanden.',
   },
   {
     question: 'Hvorfor skal observasjoner dokumenteres i digital journal?',
-    options: ["For sporbarhet, kontinuitet og forsvarlig oppfølging", "Det er frivillig pynt", "For å vise at man har brukt nok tid ved hver enkelt pasient", "Kun for at ledelsen skal kunne lage statistikk over avdelingen"],
+    options: ["For sporbarhet, kontinuitet og forsvarlig oppfølging", "Det er frivillig pynt i journalen", "For å vise at man har brukt nok tid ved hver enkelt pasient", "Kun for at ledelsen skal lage statistikk"],
     explanation: 'Dokumentasjon i journal sikrer sporbarhet og at observasjoner følges opp.',
   },
   {
     question: 'Du måler en tydelig forverring i vitale tegn. Hva gjør du?',
-    options: ["Varsler ansvarlig umiddelbart og dokumenterer", "Venter til neste måling", "Sletter målingen fordi utstyret trolig har vist en feilverdi", "Gir pasienten ro og observerer selv videre uten å varsle noen"],
+    options: ["Varsler ansvarlig umiddelbart og dokumenterer", "Venter til neste planlagte måling", "Sletter målingen fordi utstyret trolig har vist en feilverdi", "Gir pasienten ro og observerer selv videre"],
     explanation: 'Tydelig forverring skal varsles umiddelbart til ansvarlig og dokumenteres.',
   },
 ],
   'helseoppvekst-vg3-3-4': [
   {
     question: 'Hva er «de syv R-ene» i legemiddelhåndtering?',
-    options: ["Riktig pasient, legemiddel, dose, tid, måte, dokumentasjon og observasjon", "Sju renholdsregler", "Riktig sengeplass, romnummer, sengetøy, madrass, hodepute, dyne og ullteppe", "Riktig vask, desinfeksjon, sterilisering, sortering, lagring, kildesortering og lufting"],
+    options: ["Riktig pasient, legemiddel, dose, tid, måte, dokumentasjon og observasjon", "Sju renholdsregler som gjelder på avdelingen", "Riktig sengeplass, romnummer, sengetøy, madrass, hodepute, dyne og ullteppe", "Riktig vask, desinfeksjon, sterilisering, sortering og lagring"],
     explanation: 'De syv R-ene er en huskeregel for sikker legemiddelhåndtering.',
   },
   {
     question: 'Hvorfor må man observere etter at et legemiddel er gitt?',
-    options: ["For å fange opp både ønsket effekt og bivirkninger", "Bare for å fylle skjema", "For å kunne øke dosen dersom pasienten ikke merker noen effekt", "Det er unødvendig når legen allerede har ordinert riktig legemiddel"],
+    options: ["For å fange opp både ønsket effekt og bivirkninger", "Bare for å fylle ut et skjema", "For å kunne øke dosen dersom pasienten ikke merker noen effekt", "Det er unødvendig når legen har ordinert riktig"],
     explanation: 'Observasjon etter administrering fanger opp effekt og eventuelle bivirkninger.',
   },
   {
     question: 'Hva er en bivirkning?',
-    options: ["En uønsket virkning av et legemiddel", "Den ønskede effekten", "Den ønskede effekten legemidlet er ment å ha på pasienten", "En type sykdom"],
+    options: ["En uønsket virkning av et legemiddel", "Den ønskede effekten", "Den ønskede effekten av legemidlet", "En type sykdom hos pasienten"],
     explanation: 'En bivirkning er en uønsket effekt som kan oppstå ved bruk av et legemiddel.',
   },
   {
     question: 'Hva gjør du hvis du oppdager en feil i legemiddelhåndteringen?',
-    options: ["Melder avvik og varsler ansvarlig umiddelbart", "Sletter dokumentasjonen", "Lar det være siden en enkelt feil sjelden får noen alvorlig betydning", "Sletter dokumentasjonen slik at feilen ikke skal skape unødig oppstyr"],
+    options: ["Melder avvik og varsler ansvarlig umiddelbart", "Sletter dokumentasjonen i etterkant", "Lar det være siden feilen er liten", "Sletter dokumentasjonen slik at feilen ikke skal skape unødig oppstyr"],
     explanation: 'Feil skal meldes som avvik og varsles til ansvarlig av hensyn til pasientsikkerheten.',
   },
   {
     question: 'Hva må du kontrollere før du administrerer et legemiddel?',
-    options: ["Identitet, ordinasjon og de syv R-ene", "Bare fargen på tabletten", "Kun fargen og formen på tabletten for å kjenne igjen legemidlet", "Bare prisen"],
+    options: ["Identitet, ordinasjon og de syv R-ene", "Bare fargen på tabletten", "Kun fargen og formen på tabletten", "Bare prisen på legemidlet"],
     explanation: 'Før administrering skal du kontrollere pasientens identitet, ordinasjonen og de syv R-ene.',
   },
 ],
   'helseoppvekst-vg3-3-5': [
   {
     question: 'Hva er hensikten med ernæringskartlegging?',
-    options: ["Å avdekke ernæringsstatus og behov for tiltak", "Å telle kalorier for friske", "Å måle blodtrykk og puls som del av den daglige observasjonen", "Å telle kalorier for friske ansatte som ønsker å gå ned i vekt"],
+    options: ["Å avdekke ernæringsstatus og behov for tiltak", "Å telle kalorier for friske", "Å måle blodtrykk og puls hver dag", "Å telle kalorier for friske ansatte"],
     explanation: 'Ernæringskartlegging avdekker ernæringsstatus og om det er behov for tiltak.',
   },
   {
     question: 'Hva er konsistenstilpasning?',
-    options: ["Å justere matens konsistens, for eksempel ved svelgevansker", "Å bare servere kald mat", "Å bare servere kald mat fordi det er enklere og tryggere å tilberede", "Å fjerne all næring fra maten så pasienten kan faste før en operasjon"],
+    options: ["Å justere matens konsistens, for eksempel ved svelgevansker", "Å bare servere kald mat til pasienten", "Å bare servere kald mat fordi det er enklere og tryggere å tilberede", "Å fjerne all næring fra maten før en planlagt operasjon på sykehus"],
     explanation: 'Konsistenstilpasning gjør maten tryggere å svelge ved svelgevansker (dysfagi).',
   },
   {
     question: 'Hva er spesialkost?',
-    options: ["Mat tilpasset spesielle behov, allergier eller sykdommer", "Vanlig mat for alle", "Bare festmat og kaker som serveres ved høytider og bursdager", "Vanlig mat som serveres likt til alle pasienter uansett behov"],
+    options: ["Mat tilpasset spesielle behov, allergier eller sykdommer", "Vanlig mat for alle pasienter", "Bare festmat og kaker som serveres ved høytider og bursdager", "Vanlig mat servert likt til alle pasienter"],
     explanation: 'Spesialkost er mat tilpasset spesielle behov som allergier, diabetes eller religiøse hensyn.',
   },
   {
     question: 'Hva er et tiltak ved underernæring?',
-    options: ["Energi- og næringsrike, små og hyppige måltider", "Å kutte mellommåltider", "Færre og større måltider slik at pasienten får ro mellom hvert", "Bare lettprodukter med redusert fett- og sukkerinnhold i maten"],
+    options: ["Energi- og næringsrike, små og hyppige måltider", "Å kutte ut alle mellommåltider", "Færre og større måltider slik at pasienten får ro mellom hvert", "Bare lettprodukter med redusert fett"],
     explanation: 'Ved underernæring brukes energirike, små og hyppige måltider og berikning av mat.',
   },
   {
     question: 'Hvorfor er god ernæring viktig for syke?',
-    options: ["Det fremmer tilheling, immunforsvar og funksjon", "Det har ingen betydning", "Det har ingen betydning så lenge pasienten får medisinene sine", "Syke trenger mindre mat fordi de er i ro og bruker lite energi"],
+    options: ["Det fremmer tilheling, immunforsvar og funksjon", "Det har ingen betydning for syke", "Det har ingen betydning så lenge pasienten får medisinene sine", "Syke trenger mindre mat fordi de er i ro"],
     explanation: 'God ernæring fremmer tilheling, motstandskraft og opprettholdelse av funksjon.',
   },
 ],
   'helseoppvekst-vg3-3-6': [
   {
     question: 'Hva er riktig kompresjon-ventilasjonsforhold ved HLR på voksne?',
-    options: ["30 kompresjoner og 2 innblåsinger", "Bare innblåsinger", "5 brystkompresjoner etterfulgt av 1 innblåsing gjentatt raskt", "15 og 5"],
+    options: ["30 kompresjoner og 2 innblåsinger", "Bare innblåsinger", "5 kompresjoner og 1 innblåsing", "15 kompresjoner og 5 innblåsinger"],
     explanation: 'Standard HLR på voksne er 30 brystkompresjoner etterfulgt av 2 innblåsinger.',
   },
   {
     question: 'Hva står ABCDE for?',
-    options: ["Airway, Breathing, Circulation, Disability, Exposure", "Aldri berøre", "Aldri berør, bland deg ikke, be andre, dra unna og evakuer", "Akutt blodtap, brudd, choktilstand, dehydrering og ernæring"],
+    options: ["Airway, Breathing, Circulation, Disability, Exposure", "Aldri berøre pasienten uten hansker", "Aldri berør, bland deg ikke, be andre, dra unna og evakuer", "Akutt blodtap, brudd, chok, dehydrering, ernæring"],
     explanation: 'ABCDE er en systematisk metode: luftvei, pust, sirkulasjon, bevissthet og avdekking.',
   },
   {
@@ -768,29 +768,29 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva gjør du med en bevisstløs person som puster normalt?',
-    options: ["Legger personen i stabilt sideleie og overvåker", "Lar personen ligge på rygg", "Gir innblåsinger med jevne mellomrom for å være sikker på pusten", "Setter personen opp i sittende stilling så pusten skal bli lettere"],
+    options: ["Legger personen i stabilt sideleie og overvåker", "Lar personen ligge på rygg", "Gir innblåsinger med jevne mellomrom", "Setter personen opp i sittende stilling"],
     explanation: 'En bevisstløs person som puster normalt legges i stabilt sideleie for frie luftveier.',
   },
   {
     question: 'Hva er viktig ved varsling i en akutt situasjon?',
-    options: ["Gi tydelig og presis informasjon om sted og tilstand", "Snakke utydelig", "Vente lenge med å ringe til du er helt sikker på hva som feiler", "Unnlate å oppgi sted fordi sentralen uansett kan spore telefonen"],
+    options: ["Gi tydelig og presis informasjon om sted og tilstand", "Snakke utydelig og fort i telefonen", "Vente lenge med å ringe til du er helt sikker på hva som feiler", "Unnlate å oppgi sted til sentralen"],
     explanation: 'Tydelig og presis varsling om sted og tilstand er avgjørende for rask hjelp.',
   },
 ],
   'helseoppvekst-vg3-3-7': [
   {
     question: 'Hva er det viktigste enkelttiltaket mot smitte?',
-    options: ['God håndhygiene', 'Parfyme', 'Å unngå pasienter', 'Å lufte rommet'],
+    options: ['God håndhygiene', 'Parfyme på jobb', 'Å unngå pasienter', 'Å lufte rommet'],
     explanation: 'God håndhygiene er det viktigste enkelttiltaket mot smittespredning.',
   },
   {
     question: 'Hva er basale smittevernrutiner?',
-    options: ["Grunnleggende tiltak som gjelder ved all pasientkontakt", "Spesialtiltak bare ved utbrudd", "Frivillige tiltak den enkelte selv kan velge å følge ved behov", "Spesialtiltak som bare settes i verk under påviste smitteutbrudd"],
+    options: ["Grunnleggende tiltak som gjelder ved all pasientkontakt", "Spesialtiltak bare ved utbrudd", "Frivillige tiltak den enkelte selv kan velge å følge ved behov", "Spesialtiltak bare under smitteutbrudd"],
     explanation: 'Basale rutiner er grunnleggende smitteverntiltak som gjelder ved all pasientkontakt.',
   },
   {
     question: 'Hva er en helsetjenesteassosiert infeksjon?',
-    options: ["En infeksjon som oppstår i forbindelse med helsehjelp", "En medfødt sykdom", "En allergisk reaksjon som oppstår på et bestemt legemiddel", "En medfødt sykdom pasienten har hatt helt siden fødselen av"],
+    options: ["En infeksjon som oppstår i forbindelse med helsehjelp", "En medfødt sykdom hos pasienten", "En allergisk reaksjon på et legemiddel", "En medfødt sykdom pasienten har hatt fra fødselen"],
     explanation: 'Det er en infeksjon pasienten får i forbindelse med behandling eller pleie.',
   },
   {
@@ -800,46 +800,46 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Når skal du utføre håndhygiene i pasientkontakt?',
-    options: ["Før og etter kontakt med pasient og før rene/etter urene prosedyrer", "Bare hvis hendene ser skitne ut", "Bare ved arbeidsdagens slutt før du forlater avdelingen og går hjem", "Bare når hendene dine ser synlig skitne ut eller kjennes klissete ut"],
+    options: ["Før og etter kontakt med pasient og før rene/etter urene prosedyrer", "Bare hvis hendene ser skitne ut", "Bare ved arbeidsdagens slutt før du forlater avdelingen og går hjem", "Bare når hendene dine ser synlig skitne ut"],
     explanation: 'Håndhygiene utføres blant annet før og etter pasientkontakt og rundt prosedyrer.',
   },
 ],
   'helseoppvekst-vg3-4-1': [
   {
     question: 'Hva er rehabilitering?',
-    options: ["Planlagt prosess for å gjenvinne best mulig funksjon", "En enkelt behandling", "En enkelt behandling som gis én gang for å rette opp en skade", "Bare hvile og ro slik at kroppen kan komme seg helt på egen hånd"],
+    options: ["Planlagt prosess for å gjenvinne best mulig funksjon", "En enkelt behandling hos legen", "En enkelt behandling som gis én gang for å rette opp en skade", "Bare hvile og ro så kroppen kommer seg selv"],
     explanation: 'Rehabilitering er en planlagt prosess for å gjenvinne tapt funksjon og mestring.',
   },
   {
     question: 'Hva er forskjellen på rehabilitering og habilitering?',
-    options: ["Habilitering bygger opp funksjon man ikke har hatt, rehabilitering gjenvinner tapt funksjon", "Rehabilitering gjelder bare barn", "De betyr egentlig nøyaktig det samme, og de to begrepene brukes helt om hverandre i praksisen", "Rehabilitering gjelder bare barn og unge, mens habilitering brukes om alle andre aldersgrupper"],
+    options: ["Habilitering bygger opp funksjon man ikke har hatt, rehabilitering gjenvinner tapt funksjon", "Rehabilitering gjelder bare barn, ikke voksne pasienter", "De betyr egentlig nøyaktig det samme, og de to begrepene brukes helt om hverandre i praksisen", "Rehabilitering gjelder bare barn og unge, habilitering alle andre"],
     explanation: 'Habilitering bygger opp funksjon som ikke tidligere har vært til stede, rehabilitering gjenvinner tapt funksjon.',
   },
   {
     question: 'Hvorfor er tverrfaglig samarbeid viktig i rehabilitering?',
-    options: ["Flere yrkesgrupper må bidra for å nå brukerens mål", "Samarbeid er forbudt", "Samarbeid mellom yrkesgrupper er forbudt av hensyn til taushetsplikten", "Det er ikke viktig så lenge hver fagperson gjør sin egen del av jobben"],
+    options: ["Flere yrkesgrupper må bidra for å nå brukerens mål", "Samarbeid er forbudt i rehabilitering", "Samarbeid mellom yrkesgrupper er forbudt", "Det er ikke viktig hvis hver gjør sin del"],
     explanation: 'Rehabilitering krever ofte flere fagpersoner som sammen støtter brukerens mål.',
   },
   {
     question: 'Hva er helsefagarbeiderens rolle i rehabilitering?',
-    options: ["Å støtte trening, motivere og legge til rette for mestring", "Å gjøre brukeren passiv", "Å bestemme treningsopplegget alene uten å involvere brukerens egne mål", "Å skjerme brukeren fra aktivitet slik at hen holder seg mest mulig i ro"],
+    options: ["Å støtte trening, motivere og legge til rette for mestring", "Å gjøre brukeren mest mulig passiv", "Å bestemme treningsopplegget alene uten å involvere brukerens egne mål", "Å skjerme brukeren fra all aktivitet gjennom hele dagen på rommet"],
     explanation: 'Helsefagarbeideren støtter og motiverer brukeren i å trene og mestre dagliglivet.',
   },
   {
     question: 'Hva sikrer en individuell plan i rehabilitering?',
-    options: ["Koordinerte og helhetlige tjenester rundt brukeren", "En medisinliste", "En fullstendig oversikt over alle legemidler brukeren skal ta hver dag", "En detaljert vaktplan for personalet som jobber på avdelingen hver uke"],
+    options: ["Koordinerte og helhetlige tjenester rundt brukeren", "En medisinliste for brukeren", "En fullstendig oversikt over alle legemidler brukeren skal ta hver dag", "En detaljert vaktplan for personalet"],
     explanation: 'Individuell plan samordner tjenestene rundt brukeren med sammensatte behov.',
   },
 ],
   'helseoppvekst-vg3-4-2': [
   {
     question: 'Hva er hverdagsmestring?',
-    options: ["Å mestre dagliglivets gjøremål mest mulig selv", "Kun medisinsk behandling", "At personalet overtar og utfører alle daglige gjøremål for brukeren", "Å unngå fysisk aktivitet slik at brukeren skåner kroppen mest mulig"],
+    options: ["Å mestre dagliglivets gjøremål mest mulig selv", "Kun medisinsk behandling fra lege", "At personalet overtar og utfører alle daglige gjøremål for brukeren", "Å unngå fysisk aktivitet for å skåne kroppen"],
     explanation: 'Hverdagsmestring handler om å støtte brukeren i å klare daglige gjøremål selv.',
   },
   {
     question: 'Hva er ADL-trening?',
-    options: ["Trening på aktiviteter i dagliglivet for økt selvstendighet", "En type medisin", "En bestemt type medisin som gis for å bedre brukerens funksjonsnivå", "En medisinsk diagnose som beskriver graden av nedsatt selvstendighet"],
+    options: ["Trening på aktiviteter i dagliglivet for økt selvstendighet", "En type medisin brukeren får daglig", "En bestemt type medisin som gis for å bedre brukerens funksjonsnivå", "En medisinsk diagnose om nedsatt selvstendighet"],
     explanation: 'ADL-trening er målrettet øving på dagliglivets aktiviteter for å øke selvstendigheten.',
   },
   {
@@ -876,12 +876,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig når du veileder en bruker i bruk av et nytt hjelpemiddel?',
-    options: ["Vise trinn for trinn, øve sammen og sjekke forståelse", "Forklare raskt uten øving", "Gjøre hele oppgaven for brukeren så det blir gjort riktig", "Forklare bruken raskt én gang uten å øve sammen med brukeren"],
+    options: ["Vise trinn for trinn, øve sammen og sjekke forståelse", "Forklare raskt uten å øve sammen", "Gjøre hele oppgaven for brukeren så det blir gjort riktig", "Forklare bruken raskt én gang uten øving"],
     explanation: 'God veiledning er å vise steg for steg, øve sammen og sjekke at brukeren mestrer.',
   },
   {
     question: 'Hva er første steg når en bruker trenger et nytt hjelpemiddel?',
-    options: ["Kartlegge behovet og søke gjennom riktige kanaler", "La brukeren klare seg selv", "Kjøpe et tilfeldig hjelpemiddel før behovet er kartlagt", "La brukeren klare seg selv uten å vurdere behovet nærmere"],
+    options: ["Kartlegge behovet og søke gjennom riktige kanaler", "La brukeren klare seg selv", "Kjøpe et tilfeldig hjelpemiddel før behovet er kartlagt", "La brukeren klare seg selv uten vurdering"],
     explanation: 'Behovet kartlegges og hjelpemiddelet søkes om gjennom hjelpemiddelsentralen.',
   },
 ],
@@ -898,7 +898,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er observasjon viktig ved psykiske lidelser?',
-    options: ["For å fange opp endringer i tilstand og fungering", "Bare for statistikk", "Observasjon er unødvendig når tilstanden virker stabil", "Observasjon gjøres kun for å samle inn statistikk til avdelingen"],
+    options: ["For å fange opp endringer i tilstand og fungering", "Bare for statistikk til ledelsen", "Observasjon er unødvendig når tilstanden virker stabil", "Observasjon gjøres kun for statistikk"],
     explanation: 'Observasjon av endringer i tilstand og fungering er viktig for god oppfølging og trygghet.',
   },
   {
@@ -908,7 +908,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er helsefagarbeiderens rolle i miljøarbeid ved psykiske lidelser?',
-    options: ["Å skape trygghet, struktur og støtte mestring i hverdagen", "Å overstyre pasientens valg", "Å stille selvstendige diagnoser om pasientens psykiske lidelse", "Å gi psykoterapeutisk behandling alene uten annet fagpersonell"],
+    options: ["Å skape trygghet, struktur og støtte mestring i hverdagen", "Å overstyre pasientens egne valg", "Å stille selvstendige diagnoser om pasientens psykiske lidelse", "Å gi psykoterapi alene uten annet fagpersonell"],
     explanation: 'Helsefagarbeideren bidrar med trygghet, struktur og støtte til mestring i det daglige miljøarbeidet.',
   },
 ],
@@ -920,17 +920,17 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er skadereduksjon?',
-    options: ["Tiltak som reduserer skadene av rusbruk uten å kreve rusfrihet", "Å kreve at brukeren blir fullstendig avholdende med en gang", "Å overse rusproblemet i håp om at det løser seg av seg selv", "Å straffe brukeren for rusbruken slik at atferden opphører"],
+    options: ["Tiltak som reduserer skadene av rusbruk uten å kreve rusfrihet", "Å kreve at brukeren blir fullstendig avholdende fra første dag av", "Å overse rusproblemet i håp om at det løser seg av seg selv", "Å straffe brukeren for rusbruken slik at atferden opphører"],
     explanation: 'Skadereduksjon søker å redusere skadene ved rusbruk, for eksempel gjennom rene sprøyter og oppfølging.',
   },
   {
     question: 'Hvordan møter du best en person med rusproblemer?',
-    options: ["Med respekt og uten fordømmelse", "Med å overse personen", "Med moralisering over valgene personen har tatt", "Med moralisering"],
+    options: ["Med respekt og uten fordømmelse", "Med å overse personen", "Med moralisering over valgene", "Med moralisering"],
     explanation: 'En respektfull, ikke-dømmende holdning er viktig i møte med personer med rusproblemer.',
   },
   {
     question: 'Hva er et eksempel på behandling ved avhengighet?',
-    options: ["Samtaleterapi, motiverende intervju og eventuelt legemiddelassistert behandling", "Ingen form for behandling, siden avhengighet må løses på egen hånd", "Utelukkende hvile og ro uten samtaler eller medisinsk oppfølging", "Kun strafferettslige reaksjoner for å stanse rusbruken helt"],
+    options: ["Samtaleterapi, motiverende intervju og eventuelt legemiddelassistert behandling", "Ingen form for behandling i det hele tatt, siden avhengighet må løses på egen hånd", "Utelukkende hvile og ro uten samtaler eller medisinsk oppfølging", "Kun strafferettslige reaksjoner for å stanse rusbruken helt"],
     explanation: 'Behandling kan omfatte samtaleterapi, motiverende intervju og legemiddelassistert behandling (LAR).',
   },
   {
@@ -942,7 +942,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-4-6': [
   {
     question: 'Hvorfor er meningsfulle aktiviteter viktige?',
-    options: ["De gir innhold, mestring og bedre livskvalitet", "De er bare tidsfordriv", "De skaper mest uro og bør derfor holdes på et minimum", "De er bare tidsfordriv uten reell betydning for brukeren"],
+    options: ["De gir innhold, mestring og bedre livskvalitet", "De er bare et tidsfordriv", "De skaper mest uro og bør derfor holdes på et minimum", "De er bare tidsfordriv uten betydning"],
     explanation: 'Meningsfulle aktiviteter gir struktur, mestring og økt livskvalitet.',
   },
   {
@@ -962,7 +962,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er tilhørighet viktig i aktivitetstilbud?',
-    options: ["Det styrker trivsel, identitet og psykisk helse", "Bare prestasjon teller", "Tilhørighet skaper bare uro og bør derfor unngås", "Tilhørighet er uten betydning for trivsel og helse"],
+    options: ["Det styrker trivsel, identitet og psykisk helse", "Bare prestasjon teller her", "Tilhørighet skaper bare uro og bør derfor unngås", "Tilhørighet er uten betydning for trivsel"],
     explanation: 'Opplevelsen av tilhørighet styrker trivsel og psykisk helse i aktivitetstilbud.',
   },
 ],
@@ -974,34 +974,34 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er målet med lindrende behandling?',
-    options: ["Å lindre smerte og andre plagsomme symptomer", "Å forlenge livet for enhver pris", "Å forebygge at nye sykdommer oppstår gjennom vaksiner og screening", "Å helbrede sykdommen"],
+    options: ["Å lindre smerte og andre plagsomme symptomer", "Å forlenge livet for enhver pris", "Å forebygge at nye sykdommer oppstår", "Å helbrede sykdommen"],
     explanation: 'Lindrende behandling skal redusere smerte og plager og bedre livskvaliteten.',
   },
   {
     question: 'Hva menes med helhetlig omsorg i palliasjon?',
-    options: ["Å ivareta fysiske, psykiske, sosiale og åndelige behov", "Bare fysisk smertelindring", "Å konsentrere seg om medikamentell smertelindring og de fysiske plagene", "Å sørge for at pasienten får riktige medisiner til fastsatte tidspunkter"],
+    options: ["Å ivareta fysiske, psykiske, sosiale og åndelige behov", "Bare fysisk smertelindring med medisin", "Å konsentrere seg om medikamentell smertelindring og de fysiske plagene", "Å sørge for at pasienten får riktige medisiner"],
     explanation: 'Helhetlig palliativ omsorg ivaretar fysiske, psykiske, sosiale og åndelige behov.',
   },
   {
     question: 'Hva er viktig i livets sluttfase?',
-    options: ["Verdighet, ro, symptomlindring og nærhet", "Å diskutere prognosen høyt ved sengen", "Å begrense besøk og kontakt så pasienten får ro og hviler uforstyrret", "Å unngå pasienten"],
+    options: ["Verdighet, ro, symptomlindring og nærhet", "Å diskutere prognosen høyt ved sengen", "Å begrense besøk og kontakt", "Å unngå pasienten helt"],
     explanation: 'God omsorg ved livets slutt handler om verdighet, ro, lindring og nærhet.',
   },
   {
     question: 'Hvorfor er pårørende viktige i palliativ omsorg?',
-    options: ["De er i en sårbar situasjon og trenger informasjon og støtte", "De skal overta all pleie", "De har ingen egentlig rolle og bør overlate all omsorg til helsepersonell", "De forventes å overta all pleie og ansvar for pasienten på egen hånd hjemme"],
+    options: ["De er i en sårbar situasjon og trenger informasjon og støtte", "De skal overta all pleie av pasienten", "De har ingen egentlig rolle og bør overlate all omsorg til helsepersonell", "De forventes å overta all pleie hjemme selv"],
     explanation: 'Pårørende er ofte i en krevende situasjon og trenger god informasjon og støtte.',
   },
 ],
   'helseoppvekst-vg3-5-2': [
   {
     question: 'Hva er smertekartlegging?',
-    options: ["Å vurdere smertens styrke, type og hva som lindrer", "Å registrere besøk", "Å måle blodtrykk og puls for å avdekke om pasienten har smerter et sted", "Å telle kaloriinntak og væskebalanse for å vurdere ernæringstilstanden nøye"],
+    options: ["Å vurdere smertens styrke, type og hva som lindrer", "Å registrere besøk hos pasienten", "Å måle blodtrykk og puls for å avdekke om pasienten har smerter et sted", "Å telle kaloriinntak og væskebalanse"],
     explanation: 'Smertekartlegging vurderer smertens intensitet, art og hva som lindrer den.',
   },
   {
     question: 'Hva er et eksempel på et plagsomt symptom i livets sluttfase?',
-    options: ["Kvalme og tung pust (dyspné)", "God matlyst", "Overskudd og betydelig økt fysisk styrke", "God matlyst og økt appetitt hos pasienten"],
+    options: ["Kvalme og tung pust (dyspné)", "God matlyst hele døgnet", "Overskudd og betydelig økt fysisk styrke", "God matlyst og tydelig økt appetitt"],
     explanation: 'Kvalme, dyspné og smerte er vanlige plagsomme symptomer som krever lindring.',
   },
   {
@@ -1011,12 +1011,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ikke-medikamentell symptomlindring?',
-    options: ["Tiltak som god leiring, ro, frisk luft og nærhet", "Bare sterke medisiner", "Kirurgisk inngrep for å fjerne kilden til smerten og plagene raskt", "Bruk av sterke smertestillende og beroligende medisiner i høye doser"],
+    options: ["Tiltak som god leiring, ro, frisk luft og nærhet", "Bare sterke medisiner mot smerte", "Kirurgisk inngrep for å fjerne kilden til smerten og plagene raskt", "Bruk av sterke smertestillende medisiner"],
     explanation: 'Ikke-medikamentelle tiltak som leiring, ro og nærhet kan lindre plager i tillegg til medisiner.',
   },
   {
     question: 'Hvordan vurderer du smerte hos en pasient som ikke kan uttrykke seg verbalt?',
-    options: ["Observerer kroppsspråk, mimikk, uro og endret atferd", "Antar fravær av smerte", "Går ut fra at pasienten er smertefri når han ikke sier noe om det", "Spør utelukkende pårørende og stoler bare på deres beskrivelse av smerten"],
+    options: ["Observerer kroppsspråk, mimikk, uro og endret atferd", "Antar at pasienten er uten smerte", "Går ut fra at pasienten er smertefri når han ikke sier noe om det", "Spør utelukkende pårørende om smerten"],
     explanation: 'Hos pasienter som ikke kan uttrykke seg verbalt vurderes smerte gjennom atferd, mimikk og uro.',
   },
 ],
@@ -1028,7 +1028,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan du støtte pårørende til en alvorlig syk?',
-    options: ["Lytte, gi informasjon og være til stede", "Overta all pleie", "Bagatellisere situasjonen så de ikke skal bekymre seg unødig mye", "Unngå å oppsøke dem så de får ro til å bearbeide alt på egen hånd"],
+    options: ["Lytte, gi informasjon og være til stede", "Overta all pleie for dem", "Bagatellisere situasjonen så de ikke skal bekymre seg unødig mye", "Unngå å oppsøke dem i det hele tatt"],
     explanation: 'God pårørendestøtte handler om å lytte, informere og være til stede.',
   },
   {
@@ -1038,51 +1038,51 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner en god væremåte i møte med sørgende?',
-    options: ["Ro, nærvær og å tåle den andres følelser", "Å gi raske løsninger", "Å unngå temaet helt for å skåne den andre", "Å gi raske løsninger og velmente, gode råd"],
+    options: ["Ro, nærvær og å tåle den andres følelser", "Å gi raske løsninger straks", "Å unngå temaet helt for å skåne den andre", "Å gi raske løsninger og velmente gode råd"],
     explanation: 'I møte med sørgende er ro, nærvær og evnen til å tåle følelser viktigere enn ord.',
   },
   {
     question: 'Hva bør du unngå i møte med en person i sorg?',
-    options: ["Å bagatellisere eller komme med klisjeer", "Å være til stede", "Å være rolig til stede sammen med den sørgende", "Å vise omsorg og tåle den andres sterke følelser"],
+    options: ["Å bagatellisere eller komme med klisjeer", "Å være rolig til stede", "Å være rolig til stede sammen med den sørgende", "Å vise omsorg og tåle sterke følelser"],
     explanation: 'Å bagatellisere sorgen eller komme med klisjeer kan oppleves krenkende; lytting og nærvær er bedre.',
   },
 ],
   'helseoppvekst-vg3-5-4': [
   {
     question: 'Hva er omsorgssvikt?',
-    options: ["Når grunnleggende behov for omsorg og trygghet ikke blir dekket", "En normal del av livet", "Når en person får for mye omsorg og oppmerksomhet fra sine nærmeste", "En helt normal del av livet som alle går gjennom i perioder av og til"],
+    options: ["Når grunnleggende behov for omsorg og trygghet ikke blir dekket", "En normal del av livet for de fleste", "Når en person får for mye omsorg og oppmerksomhet fra sine nærmeste", "En helt normal del av livet som alle går gjennom i perioder av og til"],
     explanation: 'Omsorgssvikt er manglende dekning av grunnleggende fysiske og følelsesmessige behov.',
   },
   {
     question: 'Hva er avvergingsplikten?',
-    options: ["Plikten til å forsøke å hindre alvorlige lovbrudd som vold og overgrep", "En plikt til å varsle om alt", "En frivillig mulighet man kan velge å benytte hvis man selv ønsker det", "En plikt til å varsle myndighetene om absolutt alle regelbrudd man ser"],
+    options: ["Plikten til å forsøke å hindre alvorlige lovbrudd som vold og overgrep", "En plikt til å varsle om alt man ser", "En frivillig mulighet man kan velge å benytte hvis man selv ønsker det", "En plikt til å varsle myndighetene om absolutt alle regelbrudd man ser"],
     explanation: 'Avvergingsplikten er en lovpålagt plikt til å søke å hindre visse alvorlige straffbare handlinger.',
   },
   {
     question: 'Hva kan være et tegn på vold eller overgrep?',
-    options: ["Uforklarlige skader, frykt og endret atferd", "Mye sosial aktivitet", "Overskudd og tydelig bedret allmenntilstand", "God matlyst og tydelig økt appetitt hos personen"],
+    options: ["Uforklarlige skader, frykt og endret atferd", "Mye sosial aktivitet", "Overskudd og tydelig bedret allmenntilstand", "God matlyst og økt appetitt"],
     explanation: 'Uforklarlige skader, frykt og endret atferd kan være tegn på vold eller overgrep.',
   },
   {
     question: 'Hva gjør du ved mistanke om vold eller overgrep?',
-    options: ["Dokumenterer observasjonene og følger virksomhetens rutiner for varsling", "Sprer det som sladder", "Ignorerer det siden det sannsynligvis bare dreier seg om en misforståelse", "Sprer opplysningene videre som sladder til kolleger og til andre pasienter"],
+    options: ["Dokumenterer observasjonene og følger virksomhetens rutiner for varsling", "Sprer det som sladder til andre kolleger", "Ignorerer det siden det sannsynligvis bare dreier seg om en misforståelse", "Sprer opplysningene videre som sladder til kolleger og til andre pasienter"],
     explanation: 'Ved mistanke skal du dokumentere objektivt og følge rutinene for varsling.',
   },
   {
     question: 'Hvorfor er det viktig å kjenne tegn på omsorgssvikt og overgrep?',
-    options: ["For å kunne oppdage og hjelpe sårbare personer tidlig", "Bare politiet trenger det", "Det er irrelevant i det daglige arbeidet med pasienter og brukere", "For å kunne fraskrive seg ansvar og unngå å bli blandet inn i saken selv"],
+    options: ["For å kunne oppdage og hjelpe sårbare personer tidlig", "Bare politiet trenger den kunnskapen", "Det er irrelevant i det daglige arbeidet med pasienter og brukere", "For å kunne fraskrive seg ansvar og unngå å bli blandet inn i saken selv"],
     explanation: 'Kunnskap om tegnene gjør at du kan oppdage og handle for å beskytte sårbare personer.',
   },
 ],
   'helseoppvekst-vg3-5-5': [
   {
     question: 'Hvorfor må man ta kulturelle og religiøse hensyn ved sykdom og død?',
-    options: ["Tro og tradisjon henger sammen med verdighet og trygghet", "Fordi alle har like tradisjoner", "Fordi alle mennesker har de samme tradisjonene og forventningene ved død", "Det er irrelevant så lenge den medisinske behandlingen er faglig forsvarlig"],
+    options: ["Tro og tradisjon henger sammen med verdighet og trygghet", "Fordi alle har helt like tradisjoner", "Fordi alle mennesker har de samme tradisjonene og forventningene ved død", "Det er irrelevant så lenge den medisinske behandlingen er faglig forsvarlig"],
     explanation: 'Kulturelle og religiøse hensyn ved sykdom og død ivaretar verdighet og trygghet.',
   },
   {
     question: 'Hva er åndelig omsorg?',
-    options: ["Å ivareta menneskets behov for mening, tro og eksistensielle spørsmål", "Bare medisinsk behandling", "Bare praktisk hjelp med daglige gjøremål som stell, mat og påkledning", "Utelukkende medisinsk behandling av kroppslige plager og fysiske sykdommer"],
+    options: ["Å ivareta menneskets behov for mening, tro og eksistensielle spørsmål", "Bare medisinsk behandling av kroppen", "Bare praktisk hjelp med daglige gjøremål som stell, mat og påkledning", "Utelukkende medisinsk behandling av kroppslige plager"],
     explanation: 'Åndelig omsorg ivaretar behov for mening, tro og eksistensielle spørsmål, særlig ved alvorlig sykdom.',
   },
   {
@@ -1092,34 +1092,34 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig å vite om ritualer ved død i ulike kulturer?',
-    options: ["De kan variere og bør respekteres så langt det er mulig", "De er uten betydning", "De er like overalt uansett kultur og religion pasienten tilhører", "De er uten betydning for hvordan omsorgen ved livets slutt utføres"],
+    options: ["De kan variere og bør respekteres så langt det er mulig", "De er uten betydning i det daglige arbeidet med pasienter", "De er like overalt uansett kultur og religion pasienten tilhører", "De er uten betydning for hvordan omsorgen ved livets slutt utføres"],
     explanation: 'Ritualer ved død varierer mellom kulturer og religioner og bør respekteres.',
   },
   {
     question: 'En døende pasient ønsker et religiøst ritual. Hva gjør du?',
-    options: ["Legger til rette for ønsket og involverer relevante personer", "Bestemmer selv hva som er best", "Ignorerer ønsket og lar det være siden pasienten uansett snart skal dø", "Avviser ønsket fordi det ikke er en del av vanlige rutiner på avdelingen"],
+    options: ["Legger til rette for ønsket og involverer relevante personer", "Bestemmer selv hva som er best for pasienten", "Ignorerer ønsket og lar det være siden pasienten uansett snart skal dø", "Avviser ønsket fordi det ikke er en del av vanlige rutiner på avdelingen"],
     explanation: 'Å legge til rette for pasientens religiøse ønsker er en del av verdig omsorg ved livets slutt.',
   },
 ],
   'helseoppvekst-vg3-6-1': [
   {
     question: 'Hvorfor er dokumentasjon viktig?',
-    options: ["Det sikrer kontinuitet, kvalitet og pasientsikkerhet", "For å overvåke kolleger", "Bare for å bruke tid og fylle vaktene med skriftlig papirarbeid", "Det er frivillig pynt som ser bra ut, men ikke har praktisk betydning"],
+    options: ["Det sikrer kontinuitet, kvalitet og pasientsikkerhet", "For å overvåke kolleger på avdelingen", "Bare for å bruke tid og fylle vaktene med skriftlig papirarbeid", "Det er frivillig pynt som ser bra ut, men ikke har praktisk betydning"],
     explanation: 'Dokumentasjon sikrer at informasjon følger pasienten og at omsorgen blir forsvarlig.',
   },
   {
     question: 'Hva er en EPJ?',
-    options: ["Elektronisk pasientjournal", "En arbeidskontrakt", "En forsikringsordning for pasienter", "En bestemt type medisin man gir eldre"],
+    options: ["Elektronisk pasientjournal", "En arbeidskontrakt", "En forsikringsordning", "En bestemt type medisin man gir eldre"],
     explanation: 'EPJ står for elektronisk pasientjournal, et digitalt system for helseopplysninger.',
   },
   {
     question: 'Hva er VIPS-modellen et eksempel på?',
-    options: ["En modell for systematisk sykepleiedokumentasjon", "En treningsform", "En treningsform som fremmer bevegelighet og balanse", "En bestemt type medisin som brukes mye i eldreomsorgen"],
+    options: ["En modell for systematisk sykepleiedokumentasjon", "En treningsform for eldre brukere", "En treningsform som fremmer bevegelighet og balanse", "En bestemt type medisin som brukes mye i eldreomsorgen"],
     explanation: 'VIPS er en modell for å strukturere sykepleiedokumentasjon i journalen.',
   },
   {
     question: 'Hva kjennetegner god dokumentasjon?',
-    options: ["Korrekt, objektiv, relevant og ført uten unødig opphold", "Med personlige karakteristikker", "Vag, upresis og full av personlige meninger og antakelser", "Skrevet lenge i etterkant ut fra hukommelsen fra tidligere vakter"],
+    options: ["Korrekt, objektiv, relevant og ført uten unødig opphold", "Med personlige karakteristikker av brukeren og de pårørende", "Vag, upresis og full av personlige meninger og antakelser", "Skrevet lenge i etterkant ut fra hukommelsen fra tidligere vakter"],
     explanation: 'God dokumentasjon er saklig, objektiv, presis og føres så snart som mulig.',
   },
   {
@@ -1136,17 +1136,17 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et avvik?',
-    options: ["En hendelse som bryter med rutiner eller krav, ofte med risiko", "En vanlig oppgave", "En planlagt arbeidsoppgave som utføres etter fast rutine hver dag", "Et skriftlig samtykke pasienten gir før en prosedyre settes i gang"],
+    options: ["En hendelse som bryter med rutiner eller krav, ofte med risiko", "En vanlig oppgave i det daglige arbeidet", "En planlagt arbeidsoppgave som utføres etter fast rutine hver dag", "Et skriftlig samtykke pasienten gir før en prosedyre settes i gang"],
     explanation: 'Et avvik er en hendelse der noe ikke skjer som det skal, og kan true pasientsikkerheten.',
   },
   {
     question: 'Hvorfor melder man avvik?',
-    options: ["For å lære av hendelser og forbedre rutinene", "For å straffe enkeltpersoner", "For å skjule uheldige hendelser for ledelsen og tilsynet", "For å kunne straffe den enkelte ansatte som gjorde en feil"],
+    options: ["For å lære av hendelser og forbedre rutinene", "For å straffe enkeltpersoner som har gjort feil", "For å skjule uheldige hendelser for ledelsen og tilsynet", "For å kunne straffe den enkelte ansatte som gjorde en feil"],
     explanation: 'Avviksmelding handler om læring og forbedring, ikke å henge ut enkeltpersoner.',
   },
   {
     question: 'Hva er internkontroll?',
-    options: ["Virksomhetens egne systematiske tiltak for å oppfylle krav", "En pasientrettighet", "Journalen der all helsehjelp til pasienten blir dokumentert", "Pasientens lovfestede rett til å medvirke i egen behandling"],
+    options: ["Virksomhetens egne systematiske tiltak for å oppfylle krav", "En pasientrettighet etter loven", "Journalen der all helsehjelp til pasienten blir dokumentert", "Pasientens lovfestede rett til å medvirke i egen behandling"],
     explanation: 'Internkontroll er virksomhetens eget system for å sikre at krav til kvalitet og sikkerhet følges.',
   },
   {
@@ -1168,17 +1168,17 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en yrkesskade i helsearbeid ofte knyttet til?',
-    options: ["Belastning på rygg og skuldre ved feil forflytning", "For lite arbeid", "Riktig løfteteknikk med bøyde knær og lasten nær kroppen", "God ergonomi og riktig bruk av tekniske hjelpemidler i stell"],
+    options: ["Belastning på rygg og skuldre ved feil forflytning", "For lite arbeid gjennom dagen", "Riktig løfteteknikk med bøyde knær og lasten nær kroppen", "God ergonomi og riktig bruk av tekniske hjelpemidler i stell"],
     explanation: 'Mange yrkesskader i helsearbeid skyldes belastning ved tunge løft og feil forflytningsteknikk.',
   },
   {
     question: 'Hvorfor brukes hjelpemidler ved forflytning?',
-    options: ["For å forebygge skade hos både ansatt og pasient", "Det er forbudt å berøre pasienter", "Fordi det er forbudt for helsepersonell å berøre pasienter", "Fordi pasientene som regel ikke ønsker hjelp fra de ansatte"],
+    options: ["For å forebygge skade hos både ansatt og pasient", "Det er forbudt å berøre pasienter uten hansker på jobb", "Fordi det er forbudt for helsepersonell å berøre pasienter", "Fordi pasientene som regel ikke ønsker hjelp fra de ansatte"],
     explanation: 'Hjelpemidler reduserer belastning og gir tryggere forflytning for begge parter.',
   },
   {
     question: 'Hva er et godt ergonomisk prinsipp ved løft?',
-    options: ["Bøy i knærne, hold ryggen rett og last nær kroppen", "Bøy ryggen og strekk armene", "Bøy ryggen forover og strekk armene godt ut fra kroppen", "Vri ryggen mens du løfter for å nå lasten lettere til siden"],
+    options: ["Bøy i knærne, hold ryggen rett og last nær kroppen", "Bøy ryggen og strekk armene ut", "Bøy ryggen forover og strekk armene godt ut fra kroppen", "Vri ryggen mens du løfter for å nå lasten lettere til siden"],
     explanation: 'Riktig løfteteknikk er å bruke beina, holde ryggen rett og holde lasten nær kroppen.',
   },
 ],
@@ -1205,7 +1205,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan helsesektoren redusere miljøbelastningen?',
-    options: ["Mindre matsvinn, god sortering og redusert engangsbruk", "Mer engangsutstyr", "Å ta i bruk mer engangsutstyr for å redusere smitterisikoen", "Å bekymre seg mindre om matsvinn siden mat brytes raskt ned"],
+    options: ["Mindre matsvinn, god sortering og redusert engangsbruk", "Mer engangsutstyr på avdelingen", "Å ta i bruk mer engangsutstyr for å redusere smitterisikoen", "Å bekymre seg mindre om matsvinn siden mat brytes raskt ned"],
     explanation: 'Redusert matsvinn, god avfallssortering og mindre engangsbruk reduserer miljøbelastningen.',
   },
 ],
@@ -1217,22 +1217,22 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et pasientforløp?',
-    options: ["Den sammenhengende kjeden av tjenester pasienten møter", "En enkelt legetime", "Selve sykehusbygget der pasienten legges inn under oppholdet", "En enkelt legetime der pasienten får en diagnose og behandling"],
+    options: ["Den sammenhengende kjeden av tjenester pasienten møter", "En enkelt legetime hos fastlegen", "Selve sykehusbygget der pasienten legges inn under oppholdet", "En enkelt legetime der pasienten får en diagnose og behandling"],
     explanation: 'Et pasientforløp er den helhetlige veien pasienten følger gjennom ulike tjenester.',
   },
   {
     question: 'Hvorfor er koordinering viktig?',
-    options: ["Det hindrer fragmenterte og motstridende tjenester", "Det reduserer kvaliteten", "Det er hovedsakelig papirarbeid uten betydning for pasienten", "Det senker kvaliteten fordi flere blander seg inn i behandlingen"],
+    options: ["Det hindrer fragmenterte og motstridende tjenester", "Det reduserer kvaliteten på tjenesten", "Det er hovedsakelig papirarbeid uten betydning for pasienten", "Det senker kvaliteten fordi flere blander seg inn i behandlingen"],
     explanation: 'Koordinering sikrer at tjenestene henger sammen og trekker i samme retning for pasienten.',
   },
   {
     question: 'Hva fremmer god samhandling mellom tjenestenivåer?',
-    options: ["God informasjonsflyt og klare ansvarsforhold", "Manglende kommunikasjon", "Manglende kommunikasjon som gir hver enhet arbeidsro alene", "At hver ansatt handler fritt ut fra egen faglige vurdering"],
+    options: ["God informasjonsflyt og klare ansvarsforhold", "Manglende kommunikasjon mellom tjenestenivåene", "Manglende kommunikasjon som gir hver enhet arbeidsro alene", "At hver ansatt handler fritt ut fra egen faglige vurdering"],
     explanation: 'God informasjonsflyt og tydelig ansvarsfordeling er forutsetninger for god samhandling.',
   },
   {
     question: 'Hva er en forutsetning for godt teamarbeid?',
-    options: ["Tydelig rollefordeling, god kommunikasjon og felles mål", "Manglende informasjonsdeling", "At hvert medlem handler fritt ut fra sin egen vurdering alene", "Uklare roller slik at oppgavene kan fordeles løpende ved behov"],
+    options: ["Tydelig rollefordeling, god kommunikasjon og felles mål", "Manglende informasjonsdeling i teamet", "At hvert medlem handler fritt ut fra sin egen vurdering alene", "Uklare roller slik at oppgavene kan fordeles løpende ved behov"],
     explanation: 'Klare roller, åpen kommunikasjon og felles mål er forutsetninger for godt teamarbeid.',
   },
 ],
@@ -1249,17 +1249,17 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr det å handle innenfor egen kompetanse?',
-    options: ["Å utføre oppgaver man har opplæring og myndighet til", "Å overlate alt til legen", "Å aldri be andre om hjelp, men klare oppgavene på egen hånd", "Å utføre alle oppgaver uansett, siden man er på jobb for det"],
+    options: ["Å utføre oppgaver man har opplæring og myndighet til", "Å overlate alle oppgaver til legen", "Å aldri be andre om hjelp, men klare oppgavene på egen hånd", "Å utføre alle oppgaver uansett, siden man er på jobb for det"],
     explanation: 'Forsvarlig yrkesutøvelse krever at man holder seg innenfor egen kompetanse og myndighet.',
   },
   {
     question: 'Hva gjør du hvis du blir bedt om en oppgave du ikke er kvalifisert for?',
-    options: ["Sier fra og ber om opplæring eller veiledning", "Lar pasienten klare seg", "Later som om du behersker den for ikke å virke usikker utad", "Utfører oppgaven likevel, siden du fikk beskjed om å gjøre den"],
+    options: ["Sier fra og ber om opplæring eller veiledning", "Lar pasienten klare seg selv i stedet", "Later som om du behersker den for ikke å virke usikker utad", "Utfører oppgaven likevel, siden du fikk beskjed om å gjøre den"],
     explanation: 'Du skal ikke utføre oppgaver du ikke er kvalifisert for; si fra og be om opplæring.',
   },
   {
     question: 'Hvorfor er kunnskap om lovverket viktig for helsefagarbeideren?',
-    options: ["For å handle forsvarlig og ivareta pasientens rettigheter", "For å begrense rettigheter", "Det er unødvendig så lenge man følger beskjeder fra ledelsen", "Bare ledere og jurister trenger å kjenne til helselovgivningen"],
+    options: ["For å handle forsvarlig og ivareta pasientens rettigheter", "For å begrense pasientens rettigheter", "Det er unødvendig så lenge man følger beskjeder fra ledelsen", "Bare ledere og jurister trenger å kjenne til helselovgivningen"],
     explanation: 'Kunnskap om lovverket sikrer forsvarlig yrkesutøvelse og ivaretakelse av pasientens rettigheter.',
   },
 ],
@@ -1276,34 +1276,34 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en arbeidstakerrettighet?',
-    options: ["Rett til ferie, lønn og et forsvarlig arbeidsmiljø", "Plikt til å være uorganisert", "Rett til å bryte inngåtte avtaler dersom man er uenig i dem", "Plikt til å stå utenfor enhver fagforening mens man er ansatt"],
+    options: ["Rett til ferie, lønn og et forsvarlig arbeidsmiljø", "Plikt til å være uorganisert på jobb", "Rett til å bryte inngåtte avtaler dersom man er uenig i dem", "Plikt til å stå utenfor enhver fagforening mens man er ansatt"],
     explanation: 'Arbeidstakere har lovfestede rettigheter som ferie, lønn og forsvarlig arbeidsmiljø.',
   },
   {
     question: 'Hva er en fagforening?',
-    options: ["En sammenslutning som ivaretar arbeidstakernes interesser", "Et statlig kontrollorgan", "En bedriftsintern avdeling som ansetter og lønner arbeidstakerne", "Et offentlig kontrollorgan som fører tilsyn med bedriftens økonomi"],
+    options: ["En sammenslutning som ivaretar arbeidstakernes interesser", "Et statlig kontrollorgan for bedrifter", "En bedriftsintern avdeling som ansetter og lønner arbeidstakerne", "Et offentlig kontrollorgan som fører tilsyn med bedriftens økonomi"],
     explanation: 'En fagforening organiserer arbeidstakere for å fremme lønns- og arbeidsvilkår.',
   },
   {
     question: 'Hva er en arbeidsgiverforpliktelse?',
-    options: ["Å sørge for et forsvarlig arbeidsmiljø og følge arbeidsavtalen", "Å ignorere arbeidsmiljøloven", "Å bestemme lønn og arbeidstid fritt uten hensyn til lover og avtaler", "Å kunne se bort fra arbeidsmiljøloven når driften krever rask omstilling"],
+    options: ["Å sørge for et forsvarlig arbeidsmiljø og følge arbeidsavtalen", "Å ignorere arbeidsmiljøloven i praksis", "Å bestemme lønn og arbeidstid fritt uten hensyn til lover og avtaler", "Å kunne se bort fra arbeidsmiljøloven når driften krever rask omstilling"],
     explanation: 'Arbeidsgiver plikter blant annet å sikre et forsvarlig arbeidsmiljø og overholde avtaler og lover.',
   },
 ],
   'helseoppvekst-vg3-8-1': [
   {
     question: 'Hva betyr livslang læring?',
-    options: ["At læring fortsetter gjennom hele yrkeslivet", "At man slutter å lære etter skolen", "At man slutter å tilegne seg ny kunnskap etter fullført skolegang", "At kunnskap først og fremst utvikles i barndommen og ungdomstiden"],
+    options: ["At læring fortsetter gjennom hele yrkeslivet", "At man slutter å lære etter skolen", "At man slutter å tilegne seg ny kunnskap etter fullført skolegang", "At kunnskap utvikles i barndommen"],
     explanation: 'Livslang læring innebærer å oppdatere og utvikle kompetansen gjennom hele livet.',
   },
   {
     question: 'Hva er faglig refleksjon?',
-    options: ["Å tenke kritisk over egen praksis for å lære og forbedre seg", "Å bare beskrive hva som skjedde", "Å beskrive hva som skjedde i situasjonen uten å vurdere egen rolle", "Å forsvare og begrunne alle valg man tar for å slippe kritikk utenfra"],
+    options: ["Å tenke kritisk over egen praksis for å lære og forbedre seg", "Å bare beskrive hva som skjedde i vakten uten å tenke mer over det", "Å beskrive hva som skjedde i situasjonen uten å vurdere egen rolle", "Å forsvare og begrunne alle valg man tar for å slippe kritikk utenfra"],
     explanation: 'Faglig refleksjon er å vurdere egen praksis kritisk for å lære og utvikle seg.',
   },
   {
     question: 'Hva er veiledning?',
-    options: ["Strukturert støtte til læring og refleksjon over praksis", "En type behandling", "En avtale mellom arbeidsgiver og ansatt om lønn og arbeidsvilkår", "En vurdering som stiller en diagnose ut fra pasientens symptomer"],
+    options: ["Strukturert støtte til læring og refleksjon over praksis", "En type behandling pasienten får", "En avtale mellom arbeidsgiver og ansatt om lønn og arbeidsvilkår", "En vurdering som stiller en diagnose ut fra pasientens symptomer"],
     explanation: 'Veiledning er strukturert støtte til læring og refleksjon over egen yrkesutøvelse.',
   },
   {
@@ -1320,22 +1320,22 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-8-2': [
   {
     question: 'Hva er innovasjon i helsetjenesten?',
-    options: ["Å utvikle og ta i bruk nye løsninger som forbedrer tjenestene", "Å redusere kvaliteten", "Å videreføre etablerte rutiner uendret for å bevare stabil drift", "Å redusere bemanning og tilbud for å kutte kostnader i tjenesten"],
+    options: ["Å utvikle og ta i bruk nye løsninger som forbedrer tjenestene", "Å redusere kvaliteten på tjenestene", "Å videreføre etablerte rutiner uendret for å bevare stabil drift", "Å redusere bemanning og tilbud for å kutte kostnader i tjenesten"],
     explanation: 'Innovasjon er å utvikle og ta i bruk nye løsninger som gir bedre tjenester.',
   },
   {
     question: 'Hva er forbedringsarbeid?',
-    options: ["Systematisk arbeid for å gjøre tjenestene bedre", "Å gjøre alt likt for alltid", "Å nedprioritere kvalitet til fordel for raskere gjennomføring", "Å utføre alle oppgaver på samme måte over tid uten justeringer"],
+    options: ["Systematisk arbeid for å gjøre tjenestene bedre", "Å gjøre alt likt for alltid framover", "Å nedprioritere kvalitet til fordel for raskere gjennomføring", "Å utføre alle oppgaver på samme måte over tid"],
     explanation: 'Forbedringsarbeid er systematisk innsats for å heve kvaliteten på tjenestene.',
   },
   {
     question: 'Hvordan kan en helsefagarbeider bidra til tjenesteutvikling?',
-    options: ["Foreslå forbedringer, melde avvik og dele erfaringer", "Motsette seg alle endringer", "La være å si fra om feil for å unngå konflikt på arbeidsplassen", "Motsette seg endringer i rutiner for å beholde det man er vant til"],
+    options: ["Foreslå forbedringer, melde avvik og dele erfaringer", "Motsette seg alle endringer i rutinene", "La være å si fra om feil for å unngå konflikt på arbeidsplassen", "Motsette seg endringer i rutiner for å beholde det man er vant til"],
     explanation: 'Helsefagarbeideren bidrar ved å foreslå forbedringer, melde avvik og dele erfaringer fra praksis.',
   },
   {
     question: 'Hvorfor er innovasjon viktig i møte med framtidens utfordringer?',
-    options: ["Det kan gi bedre og mer effektive tjenester ved økt behov", "Det forverrer tjenestene", "Det gir sjelden verdi og fører helst til unødvendig merarbeid", "Det forverrer tjenestene ved å gjøre rutinene mer uoversiktlige"],
+    options: ["Det kan gi bedre og mer effektive tjenester ved økt behov", "Det forverrer tjenestene for brukerne på sikt og de ansatte", "Det gir sjelden verdi og fører helst til unødvendig merarbeid", "Det forverrer tjenestene ved å gjøre rutinene mer uoversiktlige"],
     explanation: 'Innovasjon kan gi bedre og mer effektive tjenester når behovet øker, for eksempel med eldrebølgen.',
   },
   {
@@ -1347,12 +1347,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-8-3': [
   {
     question: 'Hvilken mulighet har en helsefagarbeider etter fagbrevet?',
-    options: ["Arbeid, fagskole eller videreutdanning", "Kun arbeidsledighet", "Kun arbeidsledighet fram til man tar en helt annen utdanning", "Ingen muligheter"],
+    options: ["Arbeid, fagskole eller videreutdanning", "Kun arbeidsledighet", "Kun arbeidsledighet i lang tid", "Ingen muligheter"],
     explanation: 'Med fagbrev kan helsefagarbeideren jobbe, ta fagskole eller bygge på mot høyere utdanning.',
   },
   {
     question: 'Hva er en fagskole?',
-    options: ["En yrkesrettet utdanning som bygger på fagbrev eller yrkeserfaring", "En videregående skole", "Et universitet som gir teoretisk høyere utdanning og akademiske grader", "En obligatorisk grunnskole for barn og unge før videregående opplæring"],
+    options: ["En yrkesrettet utdanning som bygger på fagbrev eller yrkeserfaring", "En videregående skole for ungdom i fylket", "Et universitet som gir teoretisk høyere utdanning og akademiske grader", "En obligatorisk grunnskole for barn og unge før videregående opplæring"],
     explanation: 'Fagskoler gir yrkesrettet høyere utdanning som bygger videre på fagbrev og yrkeserfaring.',
   },
   {
@@ -1362,12 +1362,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bør du tenke gjennom egne interesser i karrierevalg?',
-    options: ["Trivsel og motivasjon henger sammen med riktig valg", "Interesser betyr ingenting", "Bare lønnsnivået er avgjørende for om du blir værende i yrket", "Alle yrker er såpass like at valget knapt påvirker motivasjonen"],
+    options: ["Trivsel og motivasjon henger sammen med riktig valg", "Interesser betyr ingenting for valget", "Bare lønnsnivået er avgjørende for om du blir værende i yrket", "Alle yrker er såpass like at valget knapt påvirker motivasjonen"],
     explanation: 'Å velge i tråd med egne interesser og styrker gir bedre trivsel og motivasjon.',
   },
   {
     question: 'Hva gir påbygging til generell studiekompetanse?',
-    options: ["Grunnlag for å søke høyere utdanning", "En praksisplass", "En praksisplass i en bedrift der du lærer yrket gjennom arbeid", "En lønnsavtale"],
+    options: ["Grunnlag for å søke høyere utdanning", "En praksisplass", "En praksisplass i en bedrift", "En lønnsavtale"],
     explanation: 'Påbygging gir generell studiekompetanse og dermed mulighet til å søke universitet og høgskole.',
   },
 ],
