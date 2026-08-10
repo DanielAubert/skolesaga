@@ -148,6 +148,16 @@ function tvilling(x, y) {
   if (kort.length < 3) return null;                       // for kort til å avgjøre
   if (lang.length <= kort.length) return null;            // ingen avkorting → ikke tvillingmønsteret
   if (hardeSett(a) !== hardeSett(b)) return null;         // nektelse/operator byttet → ulik påstand
+  // ⚠ KORTE MENGDEUTTRYKK: et tallord TIL endrer verdien, ikke fylden.
+  // Funnet i stv1200: fasit «En halv enhet tekstil» mot «En OG EN halv enhet
+  // tekstil» — 0,5 mot 1,5. Den korte er en delsekvens, men mengden er en annen.
+  // Regelen gjelder bare når BEGGE er korte (≤6 tokens); ellers ville den avvist
+  // ekte tvillinger der den lange tilfeldigvis nevner et tall i en bisetning
+  // («Cirka 24 minutter» mot «… de TRE delvektene»).
+  if (kort.length <= 6 && lang.length <= 6) {
+    const t = (arr) => arr.filter((w) => TALLORD.includes(w) || /^\d/.test(w)).sort().join('|');
+    if (t(kort) && t(kort) !== t(lang)) return null;
+  }
   if (!inneholder(mykeSett(kort), mykeSett(lang))) return null;  // et tall-/retningsord er ERSTATTET
 
   const felles = lcs(kort, lang);

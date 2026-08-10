@@ -4,7 +4,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-0-1': [
     {
       question: "Hvordan er eksamen i STV1200 satt sammen i dagens format, altså settene fra H2020 til H2025?",
-      options: ["Du velger ett av tre langsvarsalternativer og besvarer tre av fem kortsvarsspørsmål", "Du velger to av tre langsvarsalternativer og besvarer to av fem kortsvarsspørsmål", "Du besvarer alle tre langsvarsalternativene og velger tre av fem kortsvarsspørsmål", "Du velger ett av to langsvarsalternativer og besvarer fire av seks kortsvarsspørsmål"],
+      options: ["Du velger ett av tre langsvarsalternativer og besvarer tre av fem kortsvarsspørsmål", "Du velger to av de tre langsvarsalternativene og besvarer to av fem kortsvarsspørsmål", "Du besvarer alle de tre langsvarsalternativene og velger tre av fem kortsvarsspørsmål", "Du velger ett av to langsvarsalternativer og besvarer fire av seks kortsvarsspørsmål"],
       explanation: "I dagens format får du tre langsvarsalternativer merket A til C og besvarer ett, og fem kortsvarsspørsmål merket D til H der du besvarer tre. Alternativet med ett av to og fire av seks beskriver formen i H2010 til H2012 og er historikk. De to øvrige beskriver ordninger som ikke finnes i arkivet.",
     },
     {
@@ -19,12 +19,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr mantraet «anvend, ikke bare gjengi»?",
-      options: ["At begreper og teori skal brukes til å bygge et argument, ikke bare forklares", "At besvarelsen bør inneholde flest mulig av pensums begreper og teorier", "At kandidaten bør skrive personlig og bruke sine egne meninger om verdenspolitikk", "At de empiriske detaljene er mindre viktige enn den generelle forståelsen"],
+      options: ["At begreper og teori skal brukes til å bygge et argument, ikke bare forklares", "At besvarelsen bør inneholde flest mulig av pensums begreper og teorier", "At kandidaten bør skrive personlig og bruke sine egne meninger om verdenspolitikk", "At de empiriske detaljene er mindre viktige enn den generelle forståelsen av faget"],
       explanation: "Å anvende betyr å bruke et begrep, en teori eller et tall til å svare på et spørsmål som ikke har ett opplagt svar. Det er ikke det samme som å mene noe personlig, og det gir heller ikke grunn til å slakke på empirien: presis empiri er fortsatt et selvstendig krav.",
     },
     {
       question: "Oppgaven lyder: «Drøft internasjonale organisasjoners betydning med utgangspunkt i minst to av perspektivene realisme, liberalisme og konstruktivisme.» Hvilken sjanger er dette?",
-      options: ["T, altså teoridrøfting, der kravet er å kontrastere perspektivene på samme spørsmål", "L, altså vanlig todelt langsvar, der kravet er en presis redegjørelse først", "KR, altså kronikk- og tekstanalyse, der kravet er å identifisere perspektivet i en vedlagt tekst", "KD, altså kortsvar med mini-drøfting, der kravet er en kort pro og contra"],
+      options: ["T, altså teoridrøfting, der kravet er å kontrastere perspektivene på samme spørsmål", "L, altså vanlig todelt langsvar, der kravet er en presis redegjørelse først", "KR, altså kronikk- og tekstanalyse, der kravet er å identifisere perspektivet", "KD, altså kortsvar med mini-drøfting, der kravet er en kort pro og contra"],
       explanation: "Formuleringen «med utgangspunkt i minst to av perspektivene» kjennetegner teoridrøftingen, der det harde kravet er kontrastering og ikke beskrivelse. Kronikk- og tekstanalysen forutsetter en vedlagt tekst, og kortsvarsformene hører hjemme i Del 2 med et helt annet tidsbudsjett.",
     },
     {
@@ -44,7 +44,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av de fire vurderingsaksene beskriver boka som A-markøren i et langsvar?",
-      options: ["Akse 3, selvstendig struktur og analytisk kreativitet", "Akse 2, presisjon i empiri og begreper", "Akse 1, anvendelse og drøfting av teori og empiri", "Akse 4, riktig bruk av perspektivene og analysenivåene"],
+      options: ["Akse 3, selvstendig struktur og analytisk kreativitet", "Akse 2, presisjon i bruken av empiri og faglige begreper", "Akse 1, anvendelse og drøfting av både teori og empiri", "Akse 4, riktig bruk av perspektivene og analysenivåene"],
       explanation: "Akse 3 måler om kandidaten selv organiserer diskusjonen, velger forklaringsfaktorer og begrunner valget, og det er dette som løfter et allerede godt svar. Presisjon i empiri er grunnkravet, anvendelse og drøfting er terskelen mot C og oppover, og riktig verktøybruk er et krav der oppgaven ber om det.",
     },
     {
@@ -76,7 +76,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en analytisk disposisjon fra en innholdsfortegnelse?",
-      options: ["Den analytiske disposisjonen begrunner hvorfor akkurat disse faktorene er valgt", "Den analytiske disposisjonen står til slutt i besvarelsen i stedet for i starten", "Den analytiske disposisjonen lister flere punkter og er derfor mer dekkende", "Den analytiske disposisjonen bruker fagbegreper i stedet for hverdagsspråk"],
+      options: ["Den analytiske disposisjonen begrunner hvorfor akkurat disse faktorene er valgt", "Den analytiske disposisjonen står til slutt i besvarelsen i stedet for i starten", "Den analytiske disposisjonen lister opp flere punkter og er derfor mer dekkende enn en innholdsfortegnelse", "Den analytiske disposisjonen bruker fagbegreper i stedet for vanlig hverdagsspråk"],
       explanation: "Forskjellen er begrunnelsen: en disposisjon sier hvorfor nettopp disse forklaringsfaktorene er relevante og hva som dermed utelates. Plassering, antall punkter og ordvalg endrer ikke om et valg faktisk er tatt og begrunnet — og det er valget som treffer Akse 3.",
     },
     {
@@ -111,7 +111,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skal du aldri hoppe over de korte faktaspørsmålene et flerdelt langsvar åpner med?",
-      options: ["De er lette poeng, tar kort tid og inngår eksplisitt i vurderingen", "De er den eneste delen av oppgaven som gir uttelling på Akse 1", "De er som regel den lengste delen av oppgaven og bør derfor prioriteres", "De erstatter kravet om drøfting dersom de besvares helt presist"],
+      options: ["De er lette poeng, tar kort tid og inngår eksplisitt i vurderingen", "De er den eneste delen av oppgaven som gir noen uttelling på Akse 1", "De er som regel den lengste delen av oppgaven og bør derfor prioriteres", "De erstatter kravet om drøfting dersom de blir besvart helt presist"],
       explanation: "Åpningsspørsmålene har et presist svar, tar sjelden mer enn et kvarter til sammen og teller med i vurderingen. Å hoppe over ett av dem er en variant av feil nummer fem. De måles på presisjon, ikke på anvendelse, og de fritar ikke for drøftingskravet.",
     },
     {
@@ -126,7 +126,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva måler Akse 3 i et langsvar?",
-      options: ["Om kandidaten selv organiserer diskusjonen og begrunner utvalget sitt", "Om kandidaten har med de riktige tallene og traktatartiklene", "Om kandidaten bruker analysenivåene der oppgaven ber om dem", "Om kandidaten har lest hele pensum og dekker alle de relevante temaene i faget"],
+      options: ["Om kandidaten selv organiserer diskusjonen og begrunner utvalget sitt", "Om kandidaten har med de riktige tallene og de riktige traktatartiklene", "Om kandidaten bruker analysenivåene der oppgaven ber om dem", "Om kandidaten har lest hele pensum og dekker alle de relevante temaene i faget"],
       explanation: "Akse 3 handler om selvstendig struktur og analytisk kreativitet: å velge forklaringsfaktorer, avgrense fornuftig og begrunne det. Riktige tall hører til Akse 2, bruk av verktøyet hører til Akse 4, og pensumdekning er ikke en egen akse.",
     },
     {
@@ -148,7 +148,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-0-3': [
     {
       question: "Hvor mange kortsvar besvarer du i dagens format, og hvor mye teller de til sammen?",
-      options: ["Tre av fem spørsmål, og de teller 40 prosent av karakteren", "Fem av fem spørsmål, og de teller 40 prosent av karakteren", "Tre av fem spørsmål, og de teller 60 prosent av karakteren", "Fire av seks spørsmål, og de teller 40 prosent av karakteren"],
+      options: ["Tre av fem spørsmål, og de teller 40 prosent av karakteren", "Fem av fem spørsmål, og de teller 40 prosent av hele karakteren", "Tre av fem spørsmål, og de teller 60 prosent av hele karakteren", "Fire av seks spørsmål, og de teller 40 prosent av karakteren"],
       explanation: "I settene fra H2020 til H2025 får du fem kortsvarsspørsmål merket D til H og besvarer tre, og de tre teller 40 prosent til sammen. Fire av seks var formen i H2010 til H2012 og er historikk, og 60 prosent er langsvarsdelens vekt.",
     },
     {
@@ -158,7 +158,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de fire trinnene i kortsvarsmalen, i riktig rekkefølge?",
-      options: ["Presis gjengivelse, den sentrale distinksjonen, ett kort eksempel, én løftende setning", "Innledning, presis gjengivelse, drøfting av fordeler og ulemper, konklusjon", "Den sentrale distinksjonen, presis gjengivelse, to korte eksempler og en kort oppsummering", "Ett kort eksempel, presis gjengivelse, kobling til teori, kritisk vurdering"],
+      options: ["Presis gjengivelse, den sentrale distinksjonen, ett kort eksempel, én løftende setning", "Innledning, presis gjengivelse, en drøfting av fordeler og ulemper, og til slutt konklusjon", "Den sentrale distinksjonen, presis gjengivelse, to korte eksempler og en kort oppsummering", "Ett kort eksempel, presis gjengivelse, kobling til teori, kritisk vurdering"],
       explanation: "Rekkefølgen er gjengivelse, distinksjon, eksempel og løftende setning. Kortsvaret har verken innledning eller konklusjon i essayforstand, og en drøfting av fordeler og ulemper hører hjemme i et KD-spørsmål, ikke i et faktakortsvar.",
     },
     {
@@ -235,7 +235,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr anarki i det internasjonale systemet?",
-      options: ["At det ikke finnes noen overordnet myndighet over statene som kan håndheve avtaler", "At det internasjonale systemet mangler regler, traktater og faste spilleregler", "At stater opptrer uforutsigbart fordi ingen av dem har stabile interesser", "At internasjonale organisasjoner mangler ressurser til å gjennomføre vedtakene sine"],
+      options: ["At det ikke finnes noen overordnet myndighet over statene som kan håndheve avtaler", "At det internasjonale systemet helt mangler regler, traktater og faste spilleregler", "At stater opptrer uforutsigbart fordi ingen av dem har stabile interesser", "At internasjonale organisasjoner mangler ressurser til å gjennomføre vedtakene sine"],
       explanation: "Riktig svar er fravær av en overordnet myndighet over statene. Anarki er ikke det samme som kaos eller regelløshet: systemet er tvert imot gjennomregulert med traktater, sedvane og organisasjoner. Det som mangler, er en håndhever over partene. Å skrive «kaos» er den klassiske definisjonsfeilen i faget.",
     },
     {
@@ -245,7 +245,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med relative gevinster?",
-      options: ["At staten vurderer utbyttet av en avtale i forhold til hva motparten får", "At staten vurderer om avtalen gir mer enn den kostet å forhandle fram", "At staten vurderer utbyttet i forhold til hva den selv hadde før avtalen", "At staten vurderer om avtalen gir størst mulig samlet gevinst for alle parter"],
+      options: ["At staten vurderer utbyttet av en avtale i forhold til hva motparten får", "At staten vurderer om avtalen gir mer enn den kostet å forhandle fram i utgangspunktet", "At staten vurderer utbyttet i forhold til hva den selv hadde før avtalen ble inngått", "At staten vurderer om avtalen gir størst mulig samlet gevinst for alle parter"],
       explanation: "Riktig svar er at utbyttet måles mot motpartens. Å måle mot egen utgangsposisjon er derimot absolutte gevinster, som er liberalismens målestokk — det alternativet ligger nær og er nettopp fella. Forskjellen mellom de to er ikke hvor snille statene er, men hva gevinsten måles mot.",
     },
     {
@@ -255,7 +255,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en nullsumsituasjon og en positivsumsituasjon?",
-      options: ["I den første er den enes gevinst den andres tap, i den andre kan begge komme bedre ut", "I den første er gevinsten sikker, i den andre avhenger den av at motparten holder ord", "I den første er gevinsten sikker på forhånd, i den andre avhenger den helt av at motparten holder ord", "I den første er gevinsten økonomisk, i den andre er den politisk eller symbolsk"],
+      options: ["I den første er den enes gevinst den andres tap, i den andre kan begge komme bedre ut", "I den første deltar det bare to parter, mens i den andre kan flere parter delta samtidig", "I den første er gevinsten sikker på forhånd, i den andre avhenger den helt av at motparten holder ord", "I den første er gevinsten økonomisk, i den andre er den politisk eller symbolsk"],
       explanation: "Riktig svar er at nullsum betyr at den enes gevinst er den andres tap, mens positivsum betyr at begge kan komme bedre ut samtidig. Skillet handler om strukturen i situasjonen, ikke om hvor sikker gevinsten er, hvor mange parter som deltar eller hva slags gevinst det er snakk om.",
     },
     {
@@ -280,12 +280,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva hevder liberal institusjonalisme om internasjonale institusjoner?",
-      options: ["At de har egenvekt fordi de senker usikkerhet, kostnader og kollektive handlingsproblemer", "At de i praksis løser de fleste av de problemene som oppstår i forholdet mellom stater over tid", "At de gjenspeiler maktforholdet mellom medlemmene og har liten egen betydning", "At de kan overprøve medlemsstatenes beslutninger når vedtakene er bindende nok"],
+      options: ["At de har egenvekt fordi de senker usikkerhet, kostnader og kollektive handlingsproblemer", "At de i praksis løser de fleste av de problemene som oppstår i forholdet mellom stater over tid", "At de gjenspeiler maktforholdet mellom medlemmene og har liten egen betydning", "At de kan overprøve de beslutningene medlemsstatene selv tar, når vedtakene er bindende nok"],
       explanation: "Riktig svar er at institusjonene har egenvekt gjennom å redusere usikkerhet og transaksjonskostnader og løse kollektive handlingsproblemer. Alternativet om å løse problemene tilskriver tradisjonen et poeng den ikke har, og alternativet om å overprøve blander egenvekt med overnasjonal myndighet. Alternativet om å gjenspeile makt er realismens syn.",
     },
     {
       question: "Hva kjennetegner et fangens dilemma?",
-      options: ["Begge kommer best ut av å bryte mens den andre holder, og begge ender med å tape", "Partene mangler tillit til hverandre fordi de aldri har samarbeidet om noe tidligere", "Den ene parten har informasjon den andre ikke har, og utnytter forspranget", "Gevinsten fordeles skjevt, slik at den ene parten taper på å inngå avtalen"],
+      options: ["Begge kommer best ut av å bryte mens den andre holder, og begge ender med å tape", "Partene mangler tillit til hverandre fordi de aldri har samarbeidet om noe tidligere", "Den ene parten har informasjon som den andre mangler, og utnytter forspranget sitt", "Gevinsten fordeles så skjevt at den ene av partene taper på å inngå avtalen i det hele tatt"],
       explanation: "Riktig svar er at hver part kommer best ut av å bryte mens den andre holder, og at resultatet blir at begge bryter. Utfallet oppstår også mellom fullt rasjonelle parter som kjenner hverandre godt, så manglende tillit i psykologisk forstand er ikke mekanismen. Det er strukturen som gir det dårlige utfallet.",
     },
     {
@@ -305,7 +305,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva består den kantianske triangelen av?",
-      options: ["Demokrati, handel og internasjonale organisasjoner som gjensidig forsterkende fredsdrivere", "Analysenivåene individ, stat og system brukt som samlet ramme for å forklare både krig og fred", "Perspektivene realisme, liberalisme og konstruktivisme som fagets tre grunnsyn", "Anarki, selvhjelp og maktbalanse som kjeden realismen bygger forklaringen på"],
+      options: ["Demokrati, handel og internasjonale organisasjoner som gjensidig forsterkende fredsdrivere", "Analysenivåene individ, stat og system brukt som samlet ramme for å forklare både krig og fred", "Perspektivene realisme, liberalisme og konstruktivisme forstått som de tre grunnsynene i faget", "Anarki, selvhjelp og maktbalanse som kjeden realismen bygger forklaringen på"],
       explanation: "Riktig svar er demokrati, handel og internasjonale organisasjoner. Poenget er at de tre henger sammen: demokratier handler mer med hverandre, handel skaper behov for felles ordninger, og ordningene gjør det lettere å binde seg. Analysenivåene og perspektivtriaden er helt andre inndelinger, og forvekslingen er verdt å vokte seg for.",
     },
     {
@@ -315,7 +315,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er liberalismens blindsone?",
-      options: ["At den undervurderer hvor raskt samarbeid faller sammen når sikkerheten står på spill", "At den forklarer dårlig hvorfor internasjonale institusjoner overlever store maktskifter", "At den ikke kan forutsi hvilken vei en internasjonal norm vil utvikle seg", "At den overser at innenrikspolitiske grupper påvirker utenrikspolitikken"],
+      options: ["At den undervurderer hvor raskt samarbeid faller sammen når sikkerheten står på spill", "At den forklarer dårlig hvorfor internasjonale institusjoner overlever store maktskifter", "At den ikke kan forutsi hvilken vei en internasjonal norm kommer til å utvikle seg over tid", "At den overser at innenrikspolitiske grupper påvirker utenrikspolitikken"],
       explanation: "Riktig svar er at liberalismen undervurderer hvor raskt gevinstlogikken skifter fra absolutt til relativ når sikkerhetsinteresser kommer i spill. Alternativet om institusjoners utholdenhet er realismens blindsone, og alternativet om prediksjon er konstruktivismens. Innenrikspolitiske grupper er tvert imot noe liberalismen legger stor vekt på.",
     },
     {
@@ -427,7 +427,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feiloppfatning som forklaringsfaktor?",
-      options: ["At beslutningstakeren tolker ny informasjon inn i et bilde hun allerede har", "At beslutningstakeren mangler tilgang til den informasjonen som ville vært avgjørende", "At beslutningstakeren bevisst gir et misvisende bilde av situasjonen utad", "At partene i en konflikt har ulik informasjon og grunn til å skjule den"],
+      options: ["At beslutningstakeren tolker ny informasjon inn i et bilde hun allerede har", "At beslutningstakeren mangler tilgang til den informasjonen som ville vært avgjørende", "At beslutningstakeren bevisst gir et misvisende bilde av situasjonen utad til andre", "At partene i en konflikt har ulik informasjon og grunn til å skjule den"],
       explanation: "Riktig svar er at ny informasjon tolkes inn i et eksisterende bilde. Manglende tilgang er noe annet: ofte er informasjonen der, men blir tolket skjevt — og derfor hjelper ikke alltid mer informasjon. Alternativet om ulik informasjon mellom partene beskriver privat informasjon, som er en annen mekanisme.",
     },
     {
@@ -457,12 +457,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på maktfordeling, maktforskyvning og maktbalanse?",
-      options: ["Den første er en tilstand, den andre en endring, den tredje en mekanisme", "Den første gjelder militær makt, den andre økonomisk, den tredje begge deler", "Den første er et realistisk begrep, de to andre er liberale begreper", "Den første beskriver stormakter, de to andre beskriver hele systemet"],
+      options: ["Den første er en tilstand, den andre en endring, den tredje en mekanisme", "Den første gjelder militær makt, den andre økonomisk, den tredje begge deler", "Den første er et realistisk begrep, mens de to andre er liberale begreper", "Den første beskriver bare stormaktene, de to andre beskriver hele systemet"],
       explanation: "Riktig svar er skillet mellom tilstand, endring og mekanisme: maktbalanse er at stater slutter seg sammen mot den som blir for sterk. De tre brukes om hverandre i svake besvarelser, og det er en ren presisjonsfeil som trekker ned uansett hvor god drøftingen ellers er.",
     },
     {
       question: "Hva er alliansestruktur som systemnivåfaktor?",
-      options: ["Mønsteret av forsvarsforpliktelser mellom statene, og hvor troverdige de er", "En enkelt stats beslutning om å slutte seg til en forsvarsallianse med andre stater", "Fordelingen av militære ressurser mellom medlemmene i en allianse", "Reglene for hvordan en allianse fatter vedtak i en krisesituasjon"],
+      options: ["Mønsteret av forsvarsforpliktelser mellom statene, og hvor troverdige de er", "En enkelt stats beslutning om å slutte seg til en forsvarsallianse med andre stater", "Fordelingen av de militære ressursene mellom medlemmene i en og samme allianse", "Reglene for hvordan en allianse fatter sine vedtak i en akutt krisesituasjon"],
       explanation: "Riktig svar er mønsteret av forpliktelser i systemet som helhet. Alliansedannelse er en handling en enkelt stat utfører som del av selvhjelp; alliansestrukturen er tilstanden som blir resultatet for alle. Strukturen kan både dempe konflikt og spre den, og hvilket som dominerer, er et drøftingsspørsmål.",
     },
     {
@@ -502,7 +502,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor ofte er analysenivåene navngitt i selve oppgaveteksten i eksamensarkivet?",
-      options: ["I 8 av 16 sett, både på krigsårsaker og på utenrikspolitikk", "I 2 av 16 sett, og begge gangene handlet spørsmålet om årsakene til krig", "I 12 av 16 sett, oftest som eget kortsvarsspørsmål", "I 5 av 16 sett, og bare i de eldste terminene i arkivet"],
+      options: ["I 8 av 16 sett, både på krigsårsaker og på utenrikspolitikk", "I 2 av 16 sett, og begge gangene om årsakene til krig", "I 12 av 16 sett, oftest som eget kortsvarsspørsmål", "I 5 av 16 sett, og bare i de eldste terminene i arkivet"],
       explanation: "Riktig svar er 8 av 16 sett. Det gjør analysenivåene til den mest brukte eksplisitte analyseramma i faget — i de siste settene er de faktisk oftere etterspurt enn teoriperspektivene, som er navngitt i 10 av 16 sett, men ikke i H2025.",
     },
   ],
@@ -676,7 +676,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller frykten for juks fra frykten for relative tap?",
-      options: ["Den ene gjelder at avtalen ikke holdes, den andre hva som skjer når den holdes", "Den ene gjelder små stater med lite spillerom, den andre gjelder først og fremst stormaktene", "Den ene gjelder handelsavtaler, den andre gjelder avtaler om sikkerhet", "Den ene er en realistisk innvending, den andre er en liberal innvending"],
+      options: ["Den ene gjelder at avtalen ikke holdes, den andre hva som skjer når den holdes", "Den ene gjelder små stater, den andre gjelder stormaktene", "Den ene gjelder handelsavtaler, den andre gjelder avtaler om sikkerhet", "Den ene er en realistisk innvending, den andre er en liberal innvending"],
       explanation: "Riktig svar er at frykten for juks gjelder at avtalen ikke holdes, mens frykten for relative tap gjelder hva som skjer når den holdes. Skillet er avgjørende fordi institusjoner langt på vei løser det første hinderet, men ikke det andre.",
     },
     {
@@ -696,7 +696,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva hevder konstruktivismen om anarkiets betydning?",
-      options: ["At fraværet av en håndhever er likt for alle, mens betydningen av det varierer", "At anarkiet forsvinner når statene slutter å forholde seg til det som gitt", "At anarkiet er mindre viktig enn normer og derfor bør forlates som premiss", "At anarkiet skyldes at de internasjonale organisasjonene mangler reell myndighet over statene"],
+      options: ["At fraværet av en håndhever er likt for alle, mens betydningen av det varierer", "At anarkiet forsvinner når statene slutter å forholde seg til det som gitt", "At anarkiet er mindre viktig enn normer og derfor bør forlates som premiss", "At anarkiet skyldes at organisasjonene mangler reell myndighet"],
       explanation: "Riktig svar er at fraværet av en håndhever er ett og samme faktum for alle, mens betydningen avhenger av hvordan statene forstår hverandre. Konstruktivismen benekter ikke anarkiet — den benekter at fraværet alene bestemmer atferden, og å gjengi den som en benektelse er en karikatur.",
     },
     {
@@ -723,7 +723,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-2-2': [
     {
       question: "Hva er sikkerhetsdilemmaet?",
-      options: ["At defensive tiltak oppfattes som offensive, så begge ruster opp uten å ville krig", "At to stater ruster opp mot hverandre fordi begge to i realiteten forbereder et angrep", "At allianser trekker flere parter inn i en opprinnelig lokal konflikt", "At stater bryter avtaler når kostnaden ved å følge dem blir for høy"],
+      options: ["At defensive tiltak oppfattes som offensive, så begge ruster opp uten å ville krig", "At to stater ruster opp mot hverandre fordi begge to i realiteten forbereder et angrep", "At allianser trekker stadig flere parter inn i en konflikt som opprinnelig var lokal", "At stater bryter avtaler når kostnaden ved å følge dem blir for høy"],
       explanation: "Riktig svar er at defensive tiltak oppfattes som offensive, slik at begge ruster opp uten å ønske krig. To parter som ruster opp fordi begge planlegger angrep, har et kappløp uten et dilemma — det er nettopp fraværet av aggressive hensikter som gjør mekanismen interessant.",
     },
     {
@@ -763,7 +763,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er virkemåten til transparens og tillitsskapende tiltak?",
-      options: ["De flytter atferd fra det uobserverbare til det observerbare", "De gjør det rettslig bindende for partene å begrense egne styrker", "De overfører kontrollen med opprustningen til en tredjepart", "De reduserer kostnaden ved å bygge opp egne forsvarsstyrker"],
+      options: ["De flytter atferd fra det uobserverbare til det observerbare", "De gjør det rettslig bindende for partene å begrense egne styrker", "De overfører kontrollen med opprustningen til en nøytral tredjepart", "De reduserer kostnaden ved å bygge opp sine egne forsvarsstyrker"],
       explanation: "Riktig svar er at slike tiltak flytter atferd fra det uobserverbare til det observerbare, og dermed treffer dilemmaets kjerne. De fjerner likevel ikke usikkerheten om framtidige hensikter, og derfor demper de dilemmaet framfor å oppheve det.",
     },
     {
@@ -803,7 +803,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er argumentet for at bipolaritet gir stabilitet?",
-      options: ["At få aktører gir oversiktlighet, slik at feilberegninger blir sjeldnere", "At to omtrent like sterke parter alltid vil avskrekke hverandre", "At koalisjoner kan skifte raskt nok til å hindre at en enkelt konflikt vokser seg altomfattende", "At de to polene har felles interesse av å hindre nye stormakter"],
+      options: ["At få aktører gir oversiktlighet, slik at feilberegninger blir sjeldnere", "At to omtrent like sterke parter alltid vil avskrekke hverandre", "At koalisjoner kan skifte raskt nok til å hindre at konflikter vokser", "At de to polene har felles interesse av å hindre nye stormakter"],
       explanation: "Riktig svar er at få aktører gir oversiktlighet, slik at feilberegninger blir sjeldnere. Argumentet om skiftende koalisjoner tilhører den motsatte posisjonen, som taler for multipolaritet — og debatten er uavgjort, blant annet fordi antallet historiske systemer er lite.",
     },
     {
@@ -830,7 +830,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en stat og en nasjon?",
-      options: ["En stat er en styringsordning, en nasjon er et fellesskap som ser seg som ett folk", "En stat er anerkjent av andre stater, en nasjon er anerkjent av sin egen befolkning", "En stat har grenser, en nasjon har medlemmer spredt over flere land", "En stat er en juridisk enhet, en nasjon er en økonomisk enhet"],
+      options: ["En stat er en styringsordning, en nasjon er et fellesskap som ser seg som ett folk", "En stat er anerkjent av andre stater, en nasjon er anerkjent av sin egen befolkning", "En stat har faste grenser, mens en nasjon kan ha medlemmene sine spredt over flere land", "En stat er en juridisk enhet, en nasjon er en økonomisk enhet"],
       explanation: "Riktig svar er at en stat er en styringsordning over et territorium, mens en nasjon er et fellesskap av mennesker som oppfatter seg som ett folk. Skillet er nødvendig for å kunne skrive presist om nasjonalisme og om stater med flere folkegrupper.",
     },
     {
@@ -860,12 +860,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre bestanddeler skiller faget mellom når det analyserer et system?",
-      options: ["Enhetene, ordensprinsippet og fordelingen av kapabiliteter", "Statene, organisasjonene og de transnasjonale aktørene", "Territoriet, befolkningen og styringsordningen i hver enhet", "Reglene, håndhevingen og tvisteløsningen mellom enhetene"],
+      options: ["Enhetene, ordensprinsippet og fordelingen av kapabiliteter", "Statene, organisasjonene og de transnasjonale aktørene i systemet", "Territoriet, befolkningen og styringsordningen i hver enhet", "Reglene, håndhevingen og tvisteløsningen mellom de enkelte enhetene"],
       explanation: "Riktig svar er enhetene, ordensprinsippet og fordelingen av kapabiliteter. Den siste endrer seg hele tiden og er det polaritetsdebatten handler om, mens endring i de to første er sjelden og langt mer dyptgripende.",
     },
     {
       question: "Hva er terskelspørsmålet i debatten om statssystemets endring?",
-      options: ["Hva som måtte ha skjedd for at vi skulle si at systemet var erstattet", "Hvor mange stater som må avstå myndighet før endringen er reell", "Hvor lang tid en utvikling må vare før den regnes som varig endring", "Hvilken av de tre bestanddelene som er viktigst for systemets stabilitet"],
+      options: ["Hva som måtte ha skjedd for at vi skulle si at systemet var erstattet", "Hvor mange stater som må avstå myndighet før endringen regnes som reell", "Hvor lang tid en utvikling må vare før den regnes som en varig endring", "Hvilken av de tre bestanddelene som er viktigst for systemets stabilitet"],
       explanation: "Riktig svar er hva som måtte ha skjedd for at vi skulle si at systemet var erstattet. Grepet gjør konklusjonen etterprøvbar uansett hvilken vei den peker, og den som stiller spørsmålet kan like gjerne konkludere med at terskelen nærmer seg.",
     },
     {
@@ -952,7 +952,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har krigstypen betydning for hvordan årsaker forklares?",
-      options: ["Fordi faktorene som forklarer én type, forklarer en annen type dårlig", "Fordi typene måles med hvert sitt terskeltall i de store datasettene", "Fordi bare mellomstatlig krig kan analyseres med de tre analysenivåene", "Fordi typene har ulik varighet og derfor ulikt samlet antall kampdøde"],
+      options: ["Fordi faktorene som forklarer én type, forklarer en annen type dårlig", "Fordi typene måles med hvert sitt terskeltall i de store datasettene i faget", "Fordi bare mellomstatlig krig kan analyseres med de tre analysenivåene", "Fordi typene har ulik varighet og derfor også ulikt samlet antall kampdøde"],
       explanation: "Riktig svar er at faktorene som forklarer én type, forklarer en annen type dårlig. Maktbalanse og alliansestruktur forklarer mellomstatlig krig, mens statens svakhet, ressursinntekter og manglende garantier forklarer borgerkrig. Analysenivåene kan brukes på begge typene.",
     },
     {
@@ -962,7 +962,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feiloppfatning som krigsårsak?",
-      options: ["Systematisk gal lesning av motpartens hensikter, styrke eller vilje", "Mangel på etterretning om motpartens faktiske militære kapasitet", "Bevisst overdrivelse av egen styrke for å oppnå bedre vilkår", "Uenighet innad i beslutningsgruppen om hvordan situasjonen skal tolkes"],
+      options: ["Systematisk gal lesning av motpartens hensikter, styrke eller vilje", "Mangel på etterretning om motpartens faktiske militære kapasitet og styrke", "Bevisst overdrivelse av egen styrke for å oppnå bedre vilkår", "Uenighet innad i beslutningsgruppen om hvordan situasjonen skal tolkes"],
       explanation: "Riktig svar er systematisk gal lesning av motpartens hensikter, styrke eller vilje. Mekanismen virker også når informasjonen finnes, fordi den tolkes gjennom forventninger man har fra før. Bevisst overdrivelse av egen styrke er derimot privat informasjon, som er en systemnivåmekanisme.",
     },
     {
@@ -992,7 +992,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan virker regimetypen som krigsårsak?",
-      options: ["Gjennom hvor mange og hvor sterke begrensninger lederen møter", "Gjennom hvor fredelig innstilt befolkningen i staten er", "Gjennom hvor stor del av statsbudsjettet som årlig går til forsvarssektoren", "Gjennom hvor mange allianser staten har inngått med naboene"],
+      options: ["Gjennom hvor mange og hvor sterke begrensninger lederen møter", "Gjennom hvor fredelig innstilt befolkningen i staten er", "Gjennom hvor stor del av budsjettet som går til forsvaret", "Gjennom hvor mange allianser staten har inngått med naboene"],
       explanation: "Riktig svar er gjennom hvor mange og hvor sterke begrensninger lederen møter: forsamling, domstoler, presse og valg. Mekanismen er ikke at demokratier er mer fredsommelige av natur, men at flere vetopunkter gjør beslutningen tregere og dyrere. Dette er grunnlaget for strukturforklaringen av den demokratiske freden.",
     },
     {
@@ -1074,7 +1074,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-3-2': [
     {
       question: "Hva betyr det at en utenrikspolitisk beslutning forklares outside-in?",
-      options: ["At impulsen kommer utenfra: en trussel, et press eller en forpliktelse", "At beslutningen er rettet mot forhold utenfor landets egne grenser", "At beslutningen ble kjent utad før den var ferdig behandlet innenlands", "At beslutningen ble tatt av utenriksdepartementet og ikke av regjeringen"],
+      options: ["At impulsen kommer utenfra: en trussel, et press eller en forpliktelse", "At beslutningen er rettet mot forhold som ligger utenfor landets egne grenser", "At beslutningen ble kjent i utlandet før den var ferdig behandlet innenlands", "At beslutningen ble tatt av utenriksdepartementet og ikke av regjeringen"],
       explanation: "Riktig svar er at impulsen kommer utenfra: en trussel, et press fra allierte eller en internasjonal forpliktelse. Alternativet om at beslutningen er rettet utad ligger nær, men all utenrikspolitikk er rettet utad. Spørsmålet er hvor impulsen kom fra, ikke hvem som fattet vedtaket.",
     },
     {
@@ -1084,7 +1084,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er outside-in og inside-out ikke det samme som system- og statsnivå?",
-      options: ["Paret spør hvor impulsen kommer fra, nivåene hvor forklaringsfaktoren ligger", "Paret gjelder enkeltbeslutninger, nivåene bare langvarige mønstre over tid", "Paret er utviklet for utenrikspolitikk, nivåene bare for mellomstatlig krig", "Paret rommer to kategorier og nivåene tre, så én kategori blir alltid til overs"],
+      options: ["Paret spør hvor impulsen kommer fra, nivåene hvor forklaringsfaktoren ligger", "Paret gjelder enkeltbeslutninger, mens nivåene bare gjelder langvarige mønstre", "Paret er utviklet for utenrikspolitikk, mens nivåene bare gjelder mellomstatlig krig", "Paret rommer to kategorier og nivåene tre, så én kategori blir alltid til overs"],
       explanation: "Riktig svar er at paret spør hvor impulsen kommer fra, mens nivåene spør hvor forklaringsfaktoren ligger. En impuls utenfra kan godt forklares på individnivå, hvis det avgjørende var hvordan beslutningstakerne leste den. De to begrepsparene overlapper, men de er ikke det samme.",
     },
     {
@@ -1094,7 +1094,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner de innenriksdrevne kildene til utenrikspolitikk?",
-      options: ["De varierer mellom stater, og forklarer forskjeller bedre enn fellestrekk", "De virker sterkest i akutte kriser der beslutningen må tas svært raskt", "De er vanskeligere å observere enn de ytre, og brukes derfor sjeldnere", "De gjelder bare demokratier, siden autoritære stater mangler slike kanaler"],
+      options: ["De varierer mellom stater, og forklarer forskjeller bedre enn fellestrekk", "De virker sterkest i akutte kriser der beslutningen må tas svært raskt av ledelsen", "De er vanskeligere å observere enn de ytre kildene, og brukes derfor sjeldnere", "De gjelder bare demokratier, siden autoritære stater mangler slike kanaler"],
       explanation: "Riktig svar er at de varierer mellom stater og derfor forklarer forskjeller bedre enn fellestrekk. I akutte kriser er handlingsrommet trangest, og de indre kildene betyr minst. Også autoritære stater har forvaltninger og innenrikspolitiske kraftforhold; de virker bare gjennom andre kanaler.",
     },
     {
@@ -1104,7 +1104,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i Allisons modell én, den rasjonelle aktøren?",
-      options: ["Staten behandles som én enhetlig aktør som velger det som best tjener målene", "Staten forstås som summen av alle de organisasjonene som skal sette vedtaket ut i livet", "Staten antas å ville maksimere makt, siden sikkerhet går foran alt annet", "Staten antas å handle konsekvent fordi den er bundet av tidligere vedtak"],
+      options: ["Staten behandles som én enhetlig aktør som velger det som best tjener målene", "Staten forstås som summen av alle de organisasjonene som skal sette vedtaket ut i livet", "Staten antas å ville maksimere sin egen makt, siden sikkerhet går foran alt annet", "Staten antas å handle konsekvent fordi den er bundet av tidligere vedtak"],
       explanation: "Riktig svar er at staten behandles som én enhetlig aktør som velger det alternativet som best tjener målene. Antakelsen om maktmaksimering er en bestemt realistisk påstand om hva målet er, ikke selve modellen: modell én er nøytral med hensyn til målene. Modellen er en analytisk forenkling, ikke en påstand om at ledere alltid tenker klart.",
     },
     {
@@ -1114,7 +1114,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forklarer Allisons modell to utfallet med?",
-      options: ["Rutinene og standardprosedyrene til de organisasjonene som skal utføre vedtaket", "Dragkampen mellom departementer som ender i et kompromiss ingen av dem egentlig ønsket", "Manglende informasjon om hva motparten faktisk har tenkt å gjøre", "At politisk ledelse overprøver fagmyndighetene når saken blir viktig nok"],
+      options: ["Rutinene og standardprosedyrene til de organisasjonene som skal utføre vedtaket", "Dragkampen mellom departementer som ender i et kompromiss ingen av dem egentlig ønsket", "Manglende informasjon om hva motparten faktisk har tenkt å gjøre", "At den politiske ledelsen overprøver fagmyndighetene når saken blir viktig nok for den"],
       explanation: "Riktig svar er rutinene og standardprosedyrene til de utførende organisasjonene. Dragkamp mellom departementer er modell tre, og sammenblandingen er den mest utbredte enkeltfeilen i temaet. Modell to handler om hva apparatet er innøvd til å gjøre, ikke om hva noen ønsker.",
     },
     {
@@ -1134,12 +1134,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr formuleringen om at hvor du står, avhenger av hvor du sitter?",
-      options: ["At standpunktet en aktør tar, følger av aktørens stilling og ansvarsområde", "At embetsverket setter sine egne interesser foran statens når det får anledning til det", "At beslutninger flytter seg oppover i systemet når saken blir følsom", "At aktører skifter standpunkt når de blir stilt til ansvar for følgene"],
+      options: ["At standpunktet en aktør tar, følger av aktørens stilling og ansvarsområde", "At embetsverket setter sine egne interesser foran statens", "At beslutninger flytter seg oppover i systemet når saken blir følsom", "At aktører skifter standpunkt når de blir stilt til ansvar for følgene"],
       explanation: "Riktig svar er at standpunktet følger av aktørens stilling og ansvarsområde. Mekanismen er strukturell og forutsetter ikke egennytte: aktørene gjør jobben sin, og det er nettopp derfor posisjonene er forutsigbare. En forklaring som gjør dette til en påstand om egeninteresse, mister det som gjør den analytisk brukbar.",
     },
     {
       question: "Hva overser Allisons modell én?",
-      options: ["At målene inne i staten kan være motstridende og utfallet et kompromiss", "At beslutningstakere kan feilvurdere motpartens hensikter og styrke", "At internasjonale forpliktelser kan binde staten sterkere enn dens egne mål", "At stater ofte handler ut fra vaner de har opparbeidet over lang tid"],
+      options: ["At målene inne i staten kan være motstridende og utfallet et kompromiss", "At beslutningstakere kan feilvurdere motpartens hensikter og styrke", "At internasjonale forpliktelser kan binde staten sterkere enn dens egne mål", "At stater ofte handler ut fra innarbeidede vaner de har opparbeidet over lang tid"],
       explanation: "Riktig svar er at målene inne i staten kan være motstridende og at utfallet kan være et kompromiss ingen ønsket. Feilvurdering av motparten er en individnivåmekanisme fra krigsårsakslæren, ikke det Allison peker på her. Modellen forklarer derfor dårlig hvorfor beslutninger ofte er inkonsekvente eller halvhjertede.",
     },
     {
@@ -1201,7 +1201,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at den demokratiske freden er dyadisk?",
-      options: ["At mønsteret gjelder par av stater der begge er demokratier", "At mønsteret gjelder to ulike typer konflikt samtidig", "At mønsteret bygger på to uavhengige datasett som gir samme svar", "At mønsteret har to forklaringer som utfyller hverandre"],
+      options: ["At mønsteret gjelder par av stater der begge er demokratier", "At mønsteret gjelder to ulike typer konflikt i det samme tidsrommet", "At mønsteret bygger på to uavhengige datasett som gir samme svar", "At mønsteret har to ulike forklaringer som utfyller hverandre"],
       explanation: "Riktig svar er at mønsteret gjelder par av stater der begge er demokratier. Ordet kommer av dyade, altså et par. Påstanden sier ingenting om hvordan et demokrati oppfører seg overfor et ikke-demokrati, og der er atferden ikke påfallende fredelig.",
     },
     {
@@ -1226,7 +1226,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i strukturforklaringen av den demokratiske freden?",
-      options: ["Institusjonelle begrensninger gjør krigsbeslutningen treg, åpen og kostbar", "Demokratiske ledere har mindre personlig makt enn autoritære ledere", "Demokratier har svakere militærapparat enn stater med annen styreform", "Demokratier er bundet av folkerettslige forpliktelser i større grad enn andre"],
+      options: ["Institusjonelle begrensninger gjør krigsbeslutningen treg, åpen og kostbar", "Demokratiske ledere har mindre personlig makt enn autoritære ledere", "Demokratier har et svakere militærapparat enn stater med en annen styreform", "Demokratier er bundet av folkerettslige forpliktelser i større grad enn andre"],
       explanation: "Riktig svar er at institusjonelle begrensninger gjør krigsbeslutningen treg, åpen og kostbar: en forsamling må gi samtykke, pressen gjør kostnadene kjent, og et valg må vinnes. Forklaringen sier ikke at demokratiske ledere er mindre villige til å bruke makt, men at de møter flere hindre. Mekanismen virker gjensidig fordi begge parter kan se at den andre ikke kan mobilisere i hemmelighet.",
     },
     {
@@ -1557,7 +1557,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken gevinstlogikk hviler realismens skepsis til samarbeid på?",
-      options: ["Relative gevinster: det holder ikke å tjene på avtalen hvis en rival tjener mer", "Absolutte gevinster: spørsmålet er om alle kommer bedre ut med avtalen enn uten", "Positivsum: at samarbeid over tid gir mer til alle enn det koster å opprettholde", "Nullsum i den forstand at all handel mellom stater er et tapsprosjekt for begge"],
+      options: ["Relative gevinster: det holder ikke å tjene på avtalen hvis en rival tjener mer", "Absolutte gevinster: spørsmålet er om alle kommer bedre ut med avtalen enn uten den", "Positivsum: at samarbeid over tid gir mer til alle enn det koster å opprettholde", "Nullsum i den forstand at all handel mellom stater er et tapsprosjekt for begge parter"],
       explanation: "Riktig svar er relative gevinster: gevinsten måles mot hva motparten får. Absolutte gevinster er liberalismens målestokk, der spørsmålet er om alle kommer bedre ut med ordningen enn uten den.",
     },
     {
@@ -1567,7 +1567,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konstruktivismens bidrag til spørsmålet om organisasjoners betydning?",
-      options: ["At organisasjonene er steder der staters interesser formes, ikke bare møtes", "At organisasjonene senker kostnadene ved å forhandle fram nye avtaler", "At organisasjonene speiler maktfordelingen blant medlemmene ved opprettelsen", "At organisasjonene er avhengige av bidrag fra noen få store medlemsland"],
+      options: ["At organisasjonene er steder der staters interesser formes, ikke bare møtes", "At organisasjonene senker kostnadene ved å forhandle fram nye avtaler", "At organisasjonene speiler maktfordelingen blant medlemmene ved opprettelsen", "At organisasjonene er avhengige av bidrag fra noen få av de store medlemslandene"],
       explanation: "Riktig svar er at organisasjonene er steder der interesser formes gjennom normer, ikke bare møtes. Konstituerende normer skaper kategorier som legitim maktbruk; regulerende normer styrer atferden innenfor dem.",
     },
     {
@@ -1669,7 +1669,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-5-1': [
     {
       question: "Hvem representerer Ministerrådet, også kalt Unionsrådet?",
-      options: ["Medlemsstatenes regjeringer, med én statsråd fra hvert medlemsland", "Unionen som helhet, uavhengig av det enkelte medlemslandets syn", "Borgerne i medlemsstatene, valgt av dem i direkte valg hvert femte år", "De nasjonale parlamentene, som sender delegasjoner til hvert møte"],
+      options: ["Medlemsstatenes regjeringer, med én statsråd fra hvert medlemsland", "Unionen som helhet, uavhengig av hva det enkelte medlemslandet mener", "Borgerne i medlemsstatene, valgt av dem i direkte valg hvert femte år", "De nasjonale parlamentene, som sender egne delegasjoner til hvert møte"],
       explanation: "Riktig svar er medlemsstatenes regjeringer, med én statsråd per land. Å representere unionen som helhet er Kommisjonens oppgave, og direkte valg gjelder Europaparlamentet. Å bytte om på hvem organene taler for, er den vanligste feilen i dette temaet.",
     },
     {
@@ -1689,7 +1689,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner den ordinære lovgivningsprosedyren, også kalt medbestemmelse?",
-      options: ["Rettsakten er vedtatt først når Rådet og Parlamentet har sluttet seg til samme tekst", "Kommisjonen legger fram forslaget, og Ministerrådet vedtar det deretter alene", "Parlamentet legger fram forslaget, og Kommisjonen avgjør om det skal fremmes", "Ministerrådet vedtar rettsakten alene etter at Parlamentet har gitt en rådgivende uttalelse"],
+      options: ["Rettsakten er vedtatt først når Rådet og Parlamentet har sluttet seg til samme tekst", "Kommisjonen legger fram forslaget, og Ministerrådet vedtar det deretter uten Parlamentet", "Parlamentet legger fram forslaget, og Kommisjonen avgjør om det skal fremmes", "Ministerrådet vedtar rettsakten alene etter at Parlamentet har gitt en rådgivende uttalelse"],
       explanation: "Riktig svar er at både Rådet og Parlamentet må slutte seg til samme tekst. Det er derfor Parlamentet i praksis har vetorett i denne prosedyren. Alternativet om en rådgivende uttalelse beskriver en eldre ordning og er den vanligste feillesningen.",
     },
     {
@@ -1699,27 +1699,27 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en forordning og et direktiv?",
-      options: ["Forordningen gjelder direkte, mens direktivet må gjennomføres nasjonalt innen en frist", "Forordningen gjelder bare for de statene som slutter seg til den, direktivet for alle", "Forordningen er rettslig bindende, mens direktivet er en anbefaling til medlemsstatene", "Forordningen vedtas av Kommisjonen alene, mens direktivet vedtas av Rådet og Parlamentet"],
+      options: ["Forordningen gjelder direkte, mens direktivet må gjennomføres nasjonalt innen en frist", "Forordningen gjelder bare for de statene som slutter seg til den, mens direktivet gjelder alle", "Forordningen er rettslig bindende, mens direktivet bare er en anbefaling til medlemsstatene", "Forordningen vedtas av Kommisjonen alene, mens direktivet vedtas av Rådet og Parlamentet"],
       explanation: "Riktig svar er at forordningen gjelder direkte, mens direktivet må gjennomføres i nasjonal rett innen en frist. Direktivet er bindende med hensyn til målet, mens landet velger midlene — det er derfor «anbefaling» ligger nær og likevel er galt.",
     },
     {
       question: "Hva ligger i at Kommisjonen kalles traktatenes vokter?",
-      options: ["Den fører tilsyn med at medlemsstatene følger EU-retten, og kan forfølge brudd", "Den har enerett til å tolke traktatene når medlemsstatene er uenige om innholdet", "Den godkjenner nasjonale lover før de kan tre i kraft i medlemsstatene", "Den kan endre traktatene når et flertall av medlemsstatene ber om det"],
+      options: ["Den fører tilsyn med at medlemsstatene følger EU-retten, og kan forfølge brudd", "Den har enerett til å tolke traktatene når medlemsstatene er uenige om innholdet", "Den godkjenner nasjonale lover før de kan tre i kraft i den enkelte medlemsstaten", "Den kan endre traktatene når et flertall av medlemsstatene ber om det"],
       explanation: "Riktig svar er tilsyn med at medlemsstatene følger EU-retten, med mulighet til å forfølge brudd. Å avgjøre tolkningen endelig er EU-domstolens oppgave, ikke Kommisjonens, og det skillet er verdt å ha klart i et kortsvar.",
     },
     {
       question: "På hvilke felt kreves det fortsatt enstemmighet i Ministerrådet?",
-      options: ["På blant annet utenriks- og sikkerhetspolitikk, skatt og opptak av nye medlemmer", "På blant annet konkurransepolitikk, forbrukervern og felles produktstandarder i det indre markedet", "Bare i saker som gjelder unionens eget budsjett og indre administrasjon", "På alle felt der en medlemsstat uttrykkelig ber om at saken behandles slik"],
+      options: ["På blant annet utenriks- og sikkerhetspolitikk, skatt og opptak av nye medlemmer", "På blant annet konkurransepolitikk, forbrukervern og produktstandarder", "Bare i saker som gjelder unionens eget budsjett og indre administrasjon", "På alle felt der en medlemsstat uttrykkelig ber om at saken behandles slik"],
       explanation: "Riktig svar er blant annet utenriks- og sikkerhetspolitikk, skatt og opptak av nye medlemmer. Mønsteret er ikke tilfeldig: enstemmigheten ligger igjen der suvereniteten oppleves som tyngst, og det er et poeng som gir uttelling i en drøfting av tyngdepunktet.",
     },
     {
       question: "Hva er Det europeiske råd?",
-      options: ["Toppmøtet av stats- og regjeringssjefer, som staker ut unionens hovedlinjer", "Domstolen som avgjør tvister mellom unionens organer og medlemsstatene", "En menneskerettighetsorganisasjon som står utenfor unionens institusjoner", "Et rådgivende organ for regioner og lokalsamfunn som uttaler seg i saker som berører dem"],
+      options: ["Toppmøtet av stats- og regjeringssjefer, som staker ut unionens hovedlinjer", "Domstolen som avgjør tvister mellom unionens organer og medlemsstatene", "En menneskerettighetsorganisasjon som står utenfor unionens institusjoner", "Et rådgivende organ for regioner og lokalsamfunn"],
       explanation: "Riktig svar er toppmøtet av stats- og regjeringssjefer. Alternativet om en menneskerettighetsorganisasjon utenfor unionen viser til Europarådet, som er noe helt annet. Navnefella mellom Det europeiske råd, Rådet og Europarådet er reell og felles for mange.",
     },
     {
       question: "Hva kjennetegner EU-domstolens myndighet?",
-      options: ["Den har tvungen domsmyndighet: en stat kan bli part uten å ha samtykket i saken", "Den behandler straffesaker mot enkeltpersoner for brudd på unionens regelverk", "Den avgjør bare saker der begge parter på forhånd uttrykkelig har samtykket til å bli part", "Den gir rådgivende uttalelser som medlemsstatene selv velger om de vil følge"],
+      options: ["Den har tvungen domsmyndighet: en stat kan bli part uten å ha samtykket i saken", "Den behandler straffesaker mot enkeltpersoner for brudd på unionens regelverk", "Den avgjør bare saker der begge parter på forhånd uttrykkelig har samtykket til å bli part", "Den gir bare rådgivende uttalelser som medlemsstatene selv velger om de vil følge"],
       explanation: "Riktig svar er at domstolen har tvungen domsmyndighet. Alternativet om samtykke beskriver domstolen for tvister mellom stater i FN-systemet, og forskjellen er ett av de skarpeste enkeltpoengene i en sammenligning mellom EU og andre internasjonale organisasjoner.",
     },
     {
@@ -1729,7 +1729,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer det at Europaparlamentet har en de facto vetorett?",
-      options: ["At ingen rettsakt i den ordinære prosedyren kan vedtas uten Parlamentets tilslutning", "At Parlamentet kan oppheve en rettsakt som allerede er vedtatt av Ministerrådet", "At Parlamentet kan stanse Kommisjonens forslag før de i det hele tatt blir lagt fram for Rådet", "At Parlamentet kan overprøve EU-domstolens avgjørelser i saker om lovgivning"],
+      options: ["At ingen rettsakt i den ordinære prosedyren kan vedtas uten Parlamentets tilslutning", "At Parlamentet kan oppheve en rettsakt som allerede er vedtatt av Ministerrådet alene", "At Parlamentet kan stanse Kommisjonens forslag før de i det hele tatt blir lagt fram for Rådet", "At Parlamentet kan overprøve EU-domstolens avgjørelser i saker om lovgivning"],
       explanation: "Riktig svar er at ingen rettsakt i den ordinære lovgivningsprosedyren kan vedtas uten Parlamentets tilslutning. Vetoretten er altså en følge av selve prosedyren, ikke en egen rettighet Parlamentet kan bruke fritt i andre sammenhenger.",
     },
     {
@@ -1744,7 +1744,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er initiativretten best beskrevet som?",
-      options: ["Dagsordenmakt: retten til å bestemme hva det i det hele tatt skal stemmes over", "Vedtaksmakt: retten til å avgjøre om et forslag skal bli gjeldende rett", "Vetomakt: retten til å stanse et forslag som de to lovgiverne har vedtatt", "Kontrollmakt: retten til å granske hvordan medlemsstatene bruker unionens midler"],
+      options: ["Dagsordenmakt: retten til å bestemme hva det i det hele tatt skal stemmes over", "Vedtaksmakt: retten til å avgjøre om et forslag skal bli til gjeldende rett i unionen", "Vetomakt: retten til å stanse et forslag som de to lovgiverne allerede har vedtatt", "Kontrollmakt: retten til å granske hvordan medlemsstatene bruker unionens midler"],
       explanation: "Riktig svar er dagsordenmakt. Den som holder et forslag tilbake, trenger aldri å vinne en avstemning — og det kan være mer avgjørende enn stemmeretten selv. Kommisjonen har samtidig ingen stemme i selve vedtaket, og det er nettopp skillet spørsmålet tester.",
     },
     {
@@ -1794,7 +1794,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Rådets formannskap?",
-      options: ["En rolle som går på omgang mellom medlemsstatene og styrer arbeidet i perioden", "Et fast lederverv som velges av Europaparlamentet for hele valgperioden", "En stilling som innehas av Europakommisjonens president så lenge kollegiet hans eller hennes sitter", "Et sekretariat av embetsfolk som forbereder sakene uten å lede møtene selv"],
+      options: ["En rolle som går på omgang mellom medlemsstatene og styrer arbeidet i perioden", "Et fast lederverv som velges av Europaparlamentet for hele valgperioden", "En stilling som innehas av Europakommisjonens president", "Et sekretariat av embetsfolk som forbereder sakene uten å lede møtene selv"],
       explanation: "Riktig svar er at formannskapet går på omgang mellom medlemsstatene og styrer arbeidet i perioden. Rollen gir innflytelse over dagsorden og framdrift, men ikke over stemmereglene — og det er en presisering som er verdt å ha med.",
     },
     {
@@ -1831,7 +1831,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor sier vi at kriteriene måler grader av overnasjonalitet?",
-      options: ["Fordi de danner en skala der en organisasjon kan skåre høyt på noen og lavt på andre", "Fordi hvert kriterium teller like mye og summen avgjør om organisasjonen er overnasjonal", "Fordi kriteriene endrer seg over tid og derfor må vurderes på nytt for hvert tiår", "Fordi ulike forfattere legger ulikt innhold i hva overnasjonal myndighet skal bety"],
+      options: ["Fordi de danner en skala der en organisasjon kan skåre høyt på noen og lavt på andre", "Fordi hvert kriterium teller like mye og summen avgjør om organisasjonen er overnasjonal", "Fordi kriteriene endrer seg over tid og derfor må vurderes på nytt for hvert eneste tiår", "Fordi ulike forfattere legger ulikt innhold i hva overnasjonal myndighet skal bety"],
       explanation: "Riktig svar er at kriteriene danner en skala der en organisasjon kan skåre høyt på noen og lavt på andre. Det er derfor et ja- eller nei-svar på om EU er overnasjonal, er feil svarform — spørsmålet er hvor og hvor mye.",
     },
     {
@@ -1841,7 +1841,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skårer EU sterkt, men ikke maksimalt, på håndhevelseskriteriet?",
-      options: ["Fordi håndhevelsen skjer gjennom medlemsstatenes egne myndigheter og domstoler", "Fordi unionen mangler en domstol som kan avgjøre om regelverket er brutt", "Fordi bare medlemsstatene selv kan avgjøre om et brudd har funnet sted i saken", "Fordi vedtak må godkjennes i hvert lands nasjonalforsamling før de kan håndheves"],
+      options: ["Fordi håndhevelsen skjer gjennom medlemsstatenes egne myndigheter og domstoler", "Fordi unionen mangler en egen domstol som kan avgjøre om regelverket er blitt brutt", "Fordi bare medlemsstatene selv kan avgjøre om et brudd faktisk har funnet sted i saken", "Fordi vedtak må godkjennes i hvert lands nasjonalforsamling før de kan håndheves"],
       explanation: "Riktig svar er at håndhevelsen skjer gjennom medlemsstatenes egne myndigheter og domstoler. Unionen har både domstol og tilsyn, men ikke et eget tvangsapparat — det er nettopp derfor skåren er sterk uten å være maksimal.",
     },
     {
@@ -1856,7 +1856,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skårer FNs sikkerhetsråd på kriteriet om vedtak mot et medlems vilje?",
-      options: ["Svakt for de fem faste medlemmene, siden vetoretten hindrer vedtak mot dem", "Høyt for alle medlemsstatene, siden vedtak etter kapittel VII binder alle", "Svakt for alle stater, siden rådet bare kan gi anbefalinger og ikke pålegg", "Høyt bare for de statene som selv har stemt for vedtaket i den enkelte saken"],
+      options: ["Svakt for de fem faste medlemmene, siden vetoretten hindrer vedtak mot dem", "Høyt for alle medlemsstatene, siden vedtak etter kapittel VII binder dem alle", "Svakt for alle statene, siden rådet bare kan gi anbefalinger og ikke pålegg til dem", "Høyt bare for de statene som selv har stemt for vedtaket i den enkelte saken"],
       explanation: "Riktig svar er at skåren er svak for de fem faste medlemmene, fordi vetoretten hindrer vedtak mot dem. Rådet fatter bindende vedtak — det er kriterium én — men bare på fred og sikkerhet, og vetoet svekker nettopp kriterium to.",
     },
     {
@@ -1918,7 +1918,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken traktat la grunnlaget for ØMU?",
-      options: ["Maastricht-traktaten fra 1992, som også fastsatte kravene for å kunne delta", "Enhetsakten fra 1987, som satte målet om å fullføre det indre markedet", "Roma-traktaten, som opprettet det økonomiske fellesskapet mellom medlemmene", "Stabilitets- og vekstpakten, som kom til noen år etter at euroen var vedtatt"],
+      options: ["Maastricht-traktaten fra 1992, som også fastsatte kravene for å kunne delta", "Enhetsakten fra 1987, som satte målet om å fullføre det indre markedet i unionen", "Roma-traktaten, som opprettet det økonomiske fellesskapet mellom medlemmene", "Stabilitets- og vekstpakten, som kom til noen år etter at euroen var vedtatt"],
       explanation: "Riktig svar er Maastricht-traktaten fra 1992. Enhetsakten gjaldt det indre markedet, mens stabilitets- og vekstpakten er regelverket som viderefører budsjettkravene etter at et land er kommet med.",
     },
     {
@@ -1943,7 +1943,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på underskuddskravet og gjeldskravet?",
-      options: ["Underskuddet er strømmen i år, mens gjelden er beholdningen bygd opp fra før", "Underskuddet gjelder staten, mens gjelden også omfatter kommunene og fylkene", "Underskuddet måles mot skatteinntektene, mens gjelden måles mot produksjonen", "Underskuddet vurderes ved inntreden, mens gjelden først vurderes noen år etter"],
+      options: ["Underskuddet er strømmen i år, mens gjelden er beholdningen bygd opp fra før", "Underskuddet gjelder bare staten, mens gjelden også omfatter kommunene og fylkene", "Underskuddet måles mot skatteinntektene, mens gjelden måles mot den samlede produksjonen", "Underskuddet vurderes ved inntreden, mens gjelden først vurderes noen år etter"],
       explanation: "Riktig svar er skillet mellom strøm og beholdning. Et land kan ha lavt underskudd i år og likevel høy gjeld fra før, eller motsatt — og de to tilfellene peker mot ulike svar, siden gjeldsandelen også kan falle ved at produksjonen vokser.",
     },
     {
@@ -1953,7 +1953,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva krever valutakurskriteriet?",
-      options: ["At valutaen har ligget stabil i kurssamarbeidet før innføringen, uten egen devaluering", "At valutaen har vært fast knyttet til euroen helt siden den felles valutaen først ble innført", "At landet har avviklet all handel med valuta før medlemskapet trer i kraft", "At kursen har steget jevnt mot euroen i perioden før landet søker om deltakelse"],
+      options: ["At valutaen har ligget stabil i kurssamarbeidet før innføringen, uten egen devaluering", "At valutaen har vært fast knyttet til euroen helt siden den felles valutaen først ble innført", "At landet har avviklet all handel med valuta før medlemskapet trer i kraft", "At kursen har steget jevnt mot euroen gjennom hele perioden før landet søker om deltakelse"],
       explanation: "Riktig svar er stabil kurs i det avtalte kurssamarbeidet, uten devaluering på eget initiativ. Kriteriet måler ikke økonomiens tilstand, men politikkens utholdenhet: landet viser at det tåler å leve uten devalueringsventilen før den forsvinner for godt.",
     },
     {
@@ -1963,12 +1963,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med et euromedlems pengepolitikk?",
-      options: ["Den overføres til ECB, som setter én rente for hele eurosonen under ett", "Den blir værende nasjonal, men må godkjennes av Kommisjonen hvert år", "Den avvikles helt, siden en valutaunion ikke trenger noen rentesetting", "Den deles mellom ECB og landets egen sentralbank etter en fast fordelingsnøkkel"],
+      options: ["Den overføres til ECB, som setter én rente for hele eurosonen under ett", "Den blir værende nasjonal, men må godkjennes av Kommisjonen hvert eneste år", "Den avvikles helt, siden en valutaunion ikke trenger noen rentesetting i det hele tatt", "Den deles mellom ECB og landets egen sentralbank etter en fast fordelingsnøkkel"],
       explanation: "Riktig svar er at pengepolitikken overføres til ECB. Landets egen sentralbank består, men som del av et felles system og ikke som selvstendig rentesetter — og det betyr at et land i nedgang ikke får lavere rente av den grunn.",
     },
     {
       question: "Hva skjer med et euromedlems valutapolitikk?",
-      options: ["Den forsvinner som virkemiddel, siden landet ikke har en egen kurs å endre", "Den overføres til Ministerrådet, som fastsetter kursen mot andre valutaer", "Den blir værende nasjonal, men kan bare brukes etter samtykke fra ECB", "Den erstattes av en ordning der kursen justeres automatisk etter inflasjonen"],
+      options: ["Den forsvinner som virkemiddel, siden landet ikke har en egen kurs å endre", "Den overføres til Ministerrådet, som fastsetter kursen mot alle andre valutaer", "Den blir værende nasjonal, men kan bare brukes etter samtykke fra ECB på forhånd", "Den erstattes av en ordning der kursen justeres automatisk etter inflasjonen"],
       explanation: "Riktig svar er at valutapolitikken forsvinner som eget virkemiddel. Dette er det tapet som betyr mest i praksis: kursfall virker raskt og krever ingen upopulære vedtak, mens alternativet innenfor unionen må vedtas av noen og tar år.",
     },
     {
@@ -2142,7 +2142,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva krever prinsippet om nasjonal behandling?",
-      options: ["At en importert vare innenfor grensen behandles minst like godt som en tilsvarende hjemlig vare", "At alle handelspartnere skal behandles helt likt i det øyeblikket varene passerer grensen til landet", "At hvert medlem selv kan bestemme reglene for varer som produseres innenlands", "At nasjonale myndigheter godkjenner alle importerte varer før de kan omsettes"],
+      options: ["At en importert vare innenfor grensen behandles minst like godt som en tilsvarende hjemlig vare", "At alle handelspartnere skal behandles helt likt i det øyeblikket varene passerer grensen til landet", "At hvert enkelt medlem selv kan bestemme hvilke regler som skal gjelde for varer produsert innenlands", "At de nasjonale myndighetene må godkjenne hver enkelt importert vare før den kan omsettes i landet"],
       explanation: "Riktig svar er at importerte varer ikke skal diskrimineres innenfor grensen. Alternativet om lik behandling ved grensen ligger nær og beskriver bestevilkårsprinsippet. Huskeregelen er hvor grensen går: bestevilkår ved grensen, nasjonal behandling innenfor den.",
     },
     {
@@ -2157,17 +2157,17 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et internasjonalt regime?",
-      options: ["Et sett regler, normer og prosedyrer statene har sluttet seg til på et bestemt saksområde", "En organisasjon med sekretariat og faste organer som forvalter en gruppe avtaler", "En overnasjonal myndighet som kan fatte vedtak mot enkeltstaters uttrykte vilje", "En gruppe stater som har inngått en gjensidig forpliktende forsvarsavtale med hverandre om felles innsats"],
+      options: ["Et sett regler, normer og prosedyrer statene har sluttet seg til på et bestemt saksområde", "En organisasjon med sekretariat og faste organer som forvalter en gruppe avtaler", "En overnasjonal myndighet som kan fatte vedtak mot enkeltstaters uttrykte vilje", "En gruppe stater som har inngått en gjensidig forpliktende forsvarsavtale"],
       explanation: "Riktig svar er at et regime er regelverket og forventningene på et saksområde. Alternativet om sekretariat og organer beskriver en internasjonal organisasjon; WTO er begge deler samtidig, og det er nettopp derfor skillet er verdt å ha klart.",
     },
     {
       question: "Hva er forskjellen på toll og et ikke-tollmessig handelshinder?",
-      options: ["Toll er en avgift ved grensen, mens ikke-tollmessige hindre er krav og ordninger som vanskeliggjør salg", "Toll gjelder bare industrivarer, mens de ikke-tollmessige hindrene gjelder tjenester og immaterielle rettigheter", "Toll fastsettes av regjeringen, mens ikke-tollmessige hindre fastsettes av nasjonalforsamlingen", "Toll rammer alle handelspartnere likt, mens ikke-tollmessige hindre rammer bare enkeltland"],
+      options: ["Toll er en avgift ved grensen, mens ikke-tollmessige hindre er krav og ordninger som vanskeliggjør salg", "Toll gjelder bare industrivarer, mens de ikke-tollmessige hindrene gjelder tjenester og immaterielle rettigheter", "Toll fastsettes av regjeringen alene, mens de ikke-tollmessige hindrene fastsettes av nasjonalforsamlingen", "Toll rammer alle handelspartnere likt, mens ikke-tollmessige hindre rammer bare enkeltland"],
       explanation: "Riktig svar er at toll er en grenseavgift, mens ikke-tollmessige hindre er kvoter, tekniske krav, innkjøpsregler og subsidier. Skillet er politisk viktig: toll er lett å måle og forhandle bort, mens de andre hindrene ofte har en legitim begrunnelse i behold.",
     },
     {
       question: "Hva kjennetegnet tvisteløsningen under GATT?",
-      options: ["En avgjørelse kunne stanses av den parten den gikk imot, siden den krevde tilslutning fra alle", "Avgjørelsene ble truffet av en fast domstol med myndighet til å ilegge partene bøter", "Tvistene ble avgjort av de største handelsnasjonene i fellesskap, på egne forhandlingsmøter mellom dem", "Avgjørelsene var bindende, men kunne ankes til en klageinstans oppnevnt av sekretariatet"],
+      options: ["En avgjørelse kunne stanses av den parten den gikk imot, siden den krevde tilslutning fra alle", "Avgjørelsene ble truffet av en fast domstol med myndighet til å ilegge partene bøter", "Tvistene ble avgjort av de største handelsnasjonene i fellesskap, på egne forhandlingsmøter mellom dem", "Avgjørelsene var bindende, men kunne ankes videre til en egen klageinstans oppnevnt av sekretariatet"],
       explanation: "Riktig svar er at den tapende parten kunne blokkere konklusjonen. Merk presiseringen: det var ikke reglene som var svake under GATT, det var håndhevelsen — og det er den distinksjonen et langsvar bør ha med.",
     },
     {
@@ -2192,7 +2192,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken struktur har handelspolitikk mellom to land som begge fristes til toll?",
-      options: ["Et fangens dilemma, der begge taper på gjensidig proteksjonisme, men hver enkelt fristes til å bryte", "En ren interessekonflikt, der partene ønsker seg helt ulike utfall av forhandlingene", "Et nullsumspill, der den enes gevinst nøyaktig tilsvarer den andres tap i handelen", "Et koordineringsproblem, der partene bare trenger å bli enige om hvilken felles standard de skal bruke seg imellom"],
+      options: ["Et fangens dilemma, der begge taper på gjensidig proteksjonisme, men hver enkelt fristes til å bryte", "En ren interessekonflikt, der de to partene ønsker seg helt ulike utfall av forhandlingene seg imellom", "Et nullsumspill, der den enes gevinst nøyaktig tilsvarer den andres tap i handelen", "Et koordineringsproblem, der partene bare trenger å bli enige om hvilken felles standard de skal bruke seg imellom"],
       explanation: "Riktig svar er fangens dilemma. Alternativet om ren interessekonflikt ligger nær og er galt på ett viktig punkt: i fangens dilemma er partene enige om hva som er best for begge, og det er derfor institusjoner kan løse problemet.",
     },
     {
@@ -2284,7 +2284,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil det si at et land har komparativt fortrinn i en vare?",
-      options: ["At det produserer varen med lavest alternativkostnad, altså gir opp minst av noe annet", "At det produserer varen med færre arbeidstimer enn andre land bruker på den", "At det er bedre til å lage nettopp denne varen enn til å lage noen av de andre varene sine", "At det selger varen til lavere pris enn konkurrentene i det samme markedet"],
+      options: ["At det produserer varen med lavest alternativkostnad, altså gir opp minst av noe annet", "At det produserer varen med færre arbeidstimer enn det andre land bruker på den samme varen", "At det er bedre til å lage nettopp denne varen enn til å lage noen av de andre varene sine", "At det selger varen til lavere pris enn konkurrentene i det samme markedet"],
       explanation: "Riktig svar er lavest alternativkostnad. Alternativet om færre arbeidstimer beskriver absolutt fortrinn, og den forvekslingen er den klassiske feilen: komparativt fortrinn handler om hva landet gir opp, ikke om hvem som er raskest.",
     },
     {
@@ -2304,17 +2304,17 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Land A bruker 2 timer på en enhet korn og 4 timer på en enhet tekstil. Hva er alternativkostnaden for én enhet korn i A?",
-      options: ["En halv enhet tekstil", "To enheter tekstil", "Fire enheter tekstil", "En og en halv enhet tekstil"],
+      options: ["En halv enhet tekstil", "To enheter tekstil", "Fire enheter tekstil", "Én enhet tekstil"],
       explanation: "Riktig svar er en halv enhet tekstil: de to timene som går med til én enhet korn, kunne gitt en halv enhet tekstil. Alternativet om to enheter er den samme brøken snudd, og den gir alternativkostnaden for tekstil målt i korn.",
     },
     {
       question: "Hvorfor kan et land ikke ha komparativt fortrinn i begge varer?",
-      options: ["Fordi alternativkostnadene måles mot hverandre, og begge kan ikke være lavest samtidig", "Fordi ingen land har nok arbeidskraft til å produsere begge varene i tilstrekkelig omfang", "Fordi handelsavtaler forbyr at ett land dominerer to markeder samtidig", "Fordi det ville krevd at landet var absolutt best på begge varene samtidig"],
+      options: ["Fordi alternativkostnadene måles mot hverandre, og begge kan ikke være lavest samtidig", "Fordi ingen land har nok arbeidskraft til å produsere begge varene i tilstrekkelig omfang", "Fordi gjeldende handelsavtaler forbyr at ett og samme land dominerer to markeder samtidig", "Fordi det ville ha krevd at landet var absolutt best på begge de to varene på samme tid"],
       explanation: "Riktig svar følger av at alternativkostnaden er en sammenligning innad i landet. Er den lav for den ene varen, er den høy for den andre — og derfor havner fortrinnene alltid i hver sin vare.",
     },
     {
       question: "Hva er bytteforholdet i handelen mellom to land?",
-      options: ["Hvor mye av den ene varen som gis for en enhet av den andre i handelen mellom dem", "Forholdet mellom den samlede eksporten og den samlede importen for hvert av de to landene", "Forholdet mellom tollsatsene de to landene har på hverandres varer", "Andelen av produksjonen hvert land velger å selge ut av landet"],
+      options: ["Hvor mye av den ene varen som gis for en enhet av den andre i handelen mellom dem", "Forholdet mellom den samlede eksporten og den samlede importen for hvert av de to landene", "Forholdet mellom de tollsatsene de to landene har lagt på hverandres varer i handelen", "Andelen av produksjonen hvert land velger å selge ut av landet"],
       explanation: "Riktig svar er hvor mye som gis for hva. For at begge skal tjene, må bytteforholdet ligge mellom de to landenes alternativkostnader — og hvor i det intervallet det lander, avgjør hvordan gevinsten fordeles mellom dem.",
     },
     {
@@ -2324,7 +2324,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier infant-industry-argumentet?",
-      options: ["At en ung næring kan trenge midlertidig vern for å bli konkurransedyktig", "At en næring i tilbakegang bør vernes til de ansatte har nådd pensjonsalder", "At nye næringer bør subsidieres permanent fordi de skaper arbeidsplasser", "At land bør verne de næringene der de allerede har komparativt fortrinn"],
+      options: ["At en ung næring kan trenge midlertidig vern for å bli konkurransedyktig", "At en næring i tilbakegang bør vernes til de ansatte har nådd pensjonsalder", "At nye næringer bør subsidieres permanent fordi de skaper nye arbeidsplasser", "At land bør verne nettopp de næringene der de allerede har komparativt fortrinn"],
       explanation: "Riktig svar er midlertidig vern av unge næringer, et argument knyttet til List. Merk hvilken forutsetning det angriper: at produktiviteten er gitt. Er produktivitet noe som bygges, er dagens fortrinn ikke naturgitt.",
     },
     {
@@ -2339,7 +2339,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at handelen er positivsum?",
-      options: ["At den samlede produksjonen øker, slik at begge land kan komme bedre ut enn uten handel", "At alle grupper i begge landene kommer bedre ut enn de var før handelen mellom dem begynte", "At begge land kommer like mye bedre ut av avtalen som de inngår med hverandre", "At handelen alltid gir overskudd på handelsbalansen for begge de to landene"],
+      options: ["At den samlede produksjonen øker, slik at begge land kan komme bedre ut enn uten handel", "At alle grupper i begge landene kommer bedre ut enn de var før handelen mellom dem begynte", "At begge land kommer nøyaktig like mye bedre ut av den handelsavtalen de inngår med hverandre", "At handelen alltid gir overskudd på handelsbalansen for begge de to landene"],
       explanation: "Riktig svar er en påstand om summen, ikke om noen enkelt part. Fra at begge land kan komme bedre ut, følger verken at alle i begge land gjør det, eller at de kommer like mye bedre ut — begge de slutningene er vanlige og gale.",
     },
     {
@@ -2401,7 +2401,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en allmenningsressurs fra et rent fellesgode?",
-      options: ["Allmenningsressursen er også rivaliserende: det den ene bruker, er borte for de andre", "Allmenningsressursen er ekskluderbar, slik at brukere kan stenges ute fra den", "Allmenningsressursen forvaltes av staten, mens fellesgodet forvaltes av internasjonale organer", "Allmenningsressursen fornyer seg selv, mens fellesgodet må vedlikeholdes aktivt"],
+      options: ["Allmenningsressursen er også rivaliserende: det den ene bruker, er borte for de andre", "Allmenningsressursen er ekskluderbar, slik at enkeltbrukere kan stenges ute fra bruken", "Allmenningsressursen forvaltes av staten, mens fellesgodet forvaltes av internasjonale organer", "Allmenningsressursen fornyer seg selv over tid, mens fellesgodet må vedlikeholdes aktivt"],
       explanation: "Riktig svar er rivaliseringen. Skillet avgjør hva slags problem man står overfor: et rent fellesgode har et produksjonsproblem, mens en allmenningsressurs har et forvaltningsproblem — og de krever ulike løsninger.",
     },
     {
@@ -2411,7 +2411,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva beskriver allmenningens tragedie?",
-      options: ["At en felles ressurs overforbrukes fordi gevinsten er privat mens kostnaden fordeles på alle", "At felles ressurser forvaltes dårligere av stater enn av private eiere", "At ressurser blir knappe fordi befolkningen vokser raskere enn produksjonen", "At stater med felles grense oftere kommer i konflikt om naturressurser enn stater som ligger langt fra hverandre"],
+      options: ["At en felles ressurs overforbrukes fordi gevinsten er privat mens kostnaden fordeles på alle", "At felles ressurser forvaltes dårligere av stater enn av private eiere", "At ressurser blir knappe fordi befolkningen vokser raskere enn produksjonen", "At stater med felles grense oftere kommer i konflikt om naturressurser"],
       explanation: "Riktig svar er misforholdet mellom privat gevinst og felles kostnad. Poenget er at ingen av brukerne handler irrasjonelt — det er mekanismen og ikke moralen som er saken, og derfor hjelper det ikke å formane noen.",
     },
     {
@@ -2421,12 +2421,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor hjelper det ikke å overbevise flere om at et miljøproblem er alvorlig?",
-      options: ["Fordi hindret er at den enkelte taper på å gå først, ikke at noen er uenige om målet", "Fordi statene mangler den tekniske kunnskapen som trengs for å iverksette effektive tiltak", "Fordi internasjonale avtaler krever enstemmighet blant alle berørte parter", "Fordi virkningene av tiltak først kan måles etter flere tiår med innsats"],
+      options: ["Fordi hindret er at den enkelte taper på å gå først, ikke at noen er uenige om målet", "Fordi statene mangler den tekniske kunnskapen som trengs for å iverksette effektive tiltak", "Fordi internasjonale avtaler av dette slaget krever enstemmighet blant alle berørte parter", "Fordi virkningene av slike tiltak først kan måles etter flere tiår med samlet innsats"],
       explanation: "Riktig svar er at hindret ligger i strukturen. I et fangens dilemma er partene allerede enige om at samarbeid er best for alle — og det er derfor løsningen må endre den enkeltes regnestykke, ikke holdningen.",
     },
     {
       question: "Hvilke tre forhold gjør kollektive handlingsproblemer vanskeligere?",
-      options: ["Antall aktører, ujevn fordeling av kostnader og gevinster, og tidsforskjellen mellom dem", "Antall aktører, geografisk avstand mellom dem, og ulikheter i språk og kultur", "Ressursens verdi, antallet alternative ressurser, og prisen på ressursen i verdensmarkedet", "Statenes styresett, deres militære styrke, og deres medlemskap i allianser"],
+      options: ["Antall aktører, ujevn fordeling av kostnader og gevinster, og tidsforskjellen mellom dem", "Antall aktører, den geografiske avstanden mellom dem, og ulikheter i både språk og kultur", "Ressursens verdi, antallet alternative ressurser, og prisen på ressursen i verdensmarkedet", "Statenes styresett, deres militære styrke, og deres medlemskap i internasjonale allianser"],
       explanation: "Riktig svar er de tre forholdene som varierer mellom saker. Klimaproblemet skårer høyt på alle tre, og det er den mest presise forklaringen faget kan gi på hvorfor det er tyngre enn andre miljøavtaler.",
     },
     {
@@ -2441,27 +2441,27 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er overvåking en forutsetning og ikke en formalitet i miljøavtaler?",
-      options: ["Fordi et løfte ingen kan kontrollere, ikke gir noen andre grunn til selv å bidra", "Fordi rapporteringen gir grunnlag for å beregne hvor store utslippene faktisk er", "Fordi avtalene krever at partene bruker de samme målemetodene i alle land", "Fordi organisasjonen må vite hvem som skal betale den største andelen av utgiftene"],
+      options: ["Fordi et løfte ingen kan kontrollere, ikke gir noen andre grunn til selv å bidra", "Fordi rapporteringen gir grunnlag for å beregne hvor store utslippene faktisk er", "Fordi avtalene krever at partene bruker nøyaktig de samme målemetodene i alle land", "Fordi organisasjonen må vite hvem som skal betale den største andelen av utgiftene"],
       explanation: "Riktig svar er at kontroll er det som gjør det trygt for andre å bidra. Koblingen til handelsregimet er direkte: gjennomsiktighetsprinsippet gjør nøyaktig det samme der, og en avtale uten kontrollmekanisme er en hensiktserklæring.",
     },
     {
       question: "Hva menes med at en miljøavtale gjør samarbeidet til et gjentatt spill?",
-      options: ["At faste runder gir framtidige fordeler som det koster å miste ved å bryte i dag", "At avtalen må reforhandles i sin helhet med jevne mellomrom mellom partene", "At partene bytter på hvem som bærer den største kostnaden fra én runde til den neste", "At avtalen gjelder for en prøveperiode før den eventuelt gjøres permanent"],
+      options: ["At faste runder gir framtidige fordeler som det koster å miste ved å bryte i dag", "At avtalen må reforhandles i sin helhet med jevne mellomrom mellom partene", "At partene bytter på hvem som bærer den største kostnaden fra én runde til den neste", "At avtalen først gjelder for en prøveperiode før den eventuelt blir gjort permanent"],
       explanation: "Riktig svar er at gjentakelsen gir framtidige runder en verdi. Det er skyggen av framtiden satt i system, og mekanismen er betinging og ikke straff — den virker også uten at noen har makt til å straffe.",
     },
     {
       question: "Hva er realismens lesning av internasjonale miljøavtaler?",
-      options: ["At avtalene i hovedsak registrerer atferd statene uansett var villige til", "At avtalene reduserer usikkerhet og dermed gjør samarbeid mulig under anarki", "At avtalene uttrykker en norm om at stater skal ha en miljøpolitikk", "At avtalene overfører myndighet fra statene til internasjonale organer"],
+      options: ["At avtalene i hovedsak registrerer atferd statene uansett var villige til", "At avtalene reduserer usikkerhet og dermed gjør samarbeid mulig under anarki", "At avtalene uttrykker en norm om at alle stater skal ha en egen miljøpolitikk", "At avtalene overfører myndighet fra statene over til internasjonale organer"],
       explanation: "Riktig svar er at avtalene registrerer mer enn de flytter. Uenigheten mot liberal institusjonalisme gjelder ikke om avtaler inngås, men om de endrer atferd — og det er det spørsmålet en drøfting skal stille.",
     },
     {
       question: "Hva er liberal institusjonalismes blindsone på miljøsamarbeid?",
-      options: ["Fordelingsstriden: at mye av uenigheten gjelder hvem som skal betale, ikke usikkerhet", "Mekanismen: at perspektivet ikke forklarer hvorfor samarbeid er vanskelig under anarki", "Endringen: at perspektivet ikke forklarer hvorfor miljø kom på dagsordenen", "Prediksjonen: at perspektivet sier lite om når en etablert norm vil gi etter"],
+      options: ["Fordelingsstriden: at mye av uenigheten gjelder hvem som skal betale, ikke usikkerhet", "Mekanismen: at perspektivet ikke forklarer hvorfor samarbeid er vanskelig under anarki", "Endringen: at perspektivet ikke forklarer hvorfor miljø kom på dagsordenen", "Prediksjonen: at perspektivet sier lite om når en etablert norm vil komme til å gi etter"],
       explanation: "Riktig svar er fordelingsstriden. Perspektivet behandler ofte problemet som et koordineringsproblem der alle vil det samme, og det forklarer hvorfor avtaler kan være godt konstruert på papiret og likevel stå stille.",
     },
     {
       question: "Hva er realismens blindsone på miljøsamarbeid?",
-      options: ["Endringen: at miljø i det hele tatt er blitt fast post på den internasjonale dagsordenen", "Fordelingen: at kostnadene ved tiltak fordeler seg ujevnt mellom statene", "Strukturen: at perspektivet mangler et begrep om kollektive handlingsproblemer", "Mekanismen: at perspektivet ikke forklarer hvorfor felles ressurser blir overforbrukt over tid"],
+      options: ["Endringen: at miljø i det hele tatt er blitt fast post på den internasjonale dagsordenen", "Fordelingen: at kostnadene ved tiltak fordeler seg ujevnt mellom statene", "Strukturen: at perspektivet mangler et eget begrep om kollektive handlingsproblemer mellom stater", "Mekanismen: at perspektivet ikke forklarer hvorfor felles ressurser blir overforbrukt over tid"],
       explanation: "Riktig svar er endringen. At stater bruker tid og ressurser på forhandlinger med usikker gevinst, er vanskelig å utlede av egeninteresse alene — og blindsonen er skarpest der en stat har påtatt seg klart kostbare forpliktelser.",
     },
     {
@@ -2493,12 +2493,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mye av langsvarets skrivetid bør gå til drøftingsdelen?",
-      options: ["Rundt 55 minutter, altså over halvparten av de 90 til 110 minuttene", "Rundt 15 minutter, siden drøftingen bygger på den empiriske delen", "Rundt 30 minutter, slik at de to delene får omtrent like mye tid", "Rundt 80 minutter, slik at det knapt blir tid til den empiriske delen"],
+      options: ["Rundt 55 minutter, altså over halvparten av de 90 til 110 minuttene", "Rundt 15 minutter, siden drøftingen bygger på den empiriske delen foran", "Rundt 30 minutter, slik at de to delene får omtrent like mye tid hver", "Rundt 80 minutter, slik at det knapt blir tid til den empiriske delen"],
       explanation: "Riktig svar er rundt 55 minutter. Fordelingen er rundt 10 minutter disponering, rundt 15 minutter empirisk del, rundt 55 minutter drøfting og rundt 10 minutter kontroll. Drøftingen får mest fordi det er der karakteren avgjøres.",
     },
     {
       question: "Hva er den empiriske delens tak?",
-      options: ["At mer korrekt bakgrunnsstoff ikke gir ekstra uttelling når tallene først er riktige", "At den empiriske delen ikke bør overstige et bestemt antall linjer i besvarelsen", "At bare de tallene som står i pensumboka, kan brukes i den redegjørende delen", "At feil i den empiriske delen kan repareres dersom drøftingen er tilstrekkelig sterk og selvstendig"],
+      options: ["At mer korrekt bakgrunnsstoff ikke gir ekstra uttelling når tallene først er riktige", "At den empiriske delen ikke bør overstige et bestemt antall linjer i besvarelsen", "At bare de tallene som står i pensumboka, kan brukes i den redegjørende delen", "At feil i den empiriske delen kan repareres av en sterk drøfting"],
       explanation: "Riktig svar er at mengden fakta har et tak, mens presisjonen ikke har det. Alternativet om at drøfting reparerer feil empiri, er nettopp den påstanden veiledningene avviser: regelen går begge veier, og presis empiri uten drøfting stopper på C.",
     },
     {
@@ -2508,7 +2508,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil det si å behandle et motargument, i motsetning til å nevne det?",
-      options: ["Å si hvor langt innvendingen treffer, og hvorfor du likevel lander som du gjør", "Å plassere innvendingen i et eget avsnitt med en tydelig overskrift foran", "Å gjengi innvendingen i sin svakeste form, slik at den blir lett å tilbakevise", "Å nevne innvendingen tidlig, slik at leseren vet at du kjenner motforestillingene"],
+      options: ["Å si hvor langt innvendingen treffer, og hvorfor du likevel lander som du gjør", "Å plassere innvendingen i et eget avsnitt med en tydelig overskrift foran seg i teksten", "Å gjengi innvendingen i sin svakeste form, slik at den blir lett å tilbakevise", "Å nevne innvendingen tidlig, slik at leseren vet at du kjenner motforestillingene"],
       explanation: "Riktig svar er at behandlingen ligger i setningen etterpå: hvor langt treffer innvendingen, og hva følger av det. Alternativet om svakeste form beskriver en stråmann, som sensor gjenkjenner umiddelbart fordi den mangler konkret belegg.",
     },
     {
@@ -2600,7 +2600,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva representerer Europakommisjonen?",
-      options: ["Unionen som helhet, og kommissærene skal opptre uavhengig av hjemstaten", "Medlemsstatenes regjeringer, med én statsråd fra hvert medlemsland", "Borgerne i medlemsstatene, gjennom direkte valg hvert femte år", "Stats- og regjeringssjefene, som fastsetter unionens overordnede retning"],
+      options: ["Unionen som helhet, og kommissærene skal opptre uavhengig av hjemstaten", "Medlemsstatenes regjeringer, med én statsråd fra hvert enkelt medlemsland", "Borgerne i medlemsstatene, gjennom direkte valg hvert femte år i landene", "Stats- og regjeringssjefene, som fastsetter unionens overordnede retning"],
       explanation: "Riktig svar er unionen som helhet. Ministerrådet representerer regjeringene og Europaparlamentet borgerne; stats- og regjeringssjefene utgjør Det europeiske råd, som gir politisk retning, men ikke lovgir.",
     },
     {
@@ -2615,7 +2615,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er distinksjonen mellom kollektivt forsvar og kollektiv sikkerhet?",
-      options: ["Forsvar retter forpliktelsen utad, sikkerhet retter reaksjonen innover i kretsen", "Forsvar gjelder de militære midlene, mens sikkerhet gjelder de økonomiske virkemidlene", "Forsvar gjelder mellom naboland, sikkerhet gjelder globale organisasjoner", "Forsvar bygger på traktat, sikkerhet bygger på uformelle forventninger"],
+      options: ["Forsvar retter forpliktelsen utad, sikkerhet retter reaksjonen innover i kretsen", "Forsvar gjelder de militære midlene, mens sikkerhet gjelder de økonomiske virkemidlene", "Forsvar gjelder bare mellom naboland, mens sikkerhet gjelder globale organisasjoner", "Forsvar bygger på traktat, sikkerhet bygger på uformelle forventninger"],
       explanation: "Riktig svar er retningen: NATO er kollektivt forsvar mot en ytre trussel, FN bygger på kollektiv sikkerhet mot et medlem som bryter freden. Forvekslingen er en dokumentert feil #3, altså upresis empiri.",
     },
     {
@@ -2667,7 +2667,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-7-3': [
     {
       question: "I hvor mange av de 16 settene finnes kronikk- og tekstanalyseoppgaven?",
-      options: ["I 3 av 16 sett, og alltid som langsvarsalternativ C i Del 1", "I 8 av 16 sett, fordelt jevnt mellom langsvar og kortsvar", "I 12 av 16 sett, som gjør den til fagets største oppgavetype", "I 1 av 16 sett, og den er derfor knapt verdt å forberede"],
+      options: ["I 3 av 16 sett, og alltid som langsvarsalternativ C i Del 1", "I 8 av 16 sett, fordelt jevnt mellom langsvar og kortsvar i settene", "I 12 av 16 sett, som gjør den til fagets største oppgavetype", "I 1 av 16 sett, og den er derfor knapt verdt å forberede seg på"],
       explanation: "Riktig svar er 3 av 16 sett — H2018 ordinær, H2020 og H2022 — alltid som alternativ C. Sjangeren er ikke brukt siden H2022 og skal regnes som sannsynlig, men ikke sikker.",
     },
     {
@@ -2697,12 +2697,12 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket trekk peker sterkest mot at en tekst resonnerer realistisk?",
-      options: ["At utfallet måles mot hva motparten får, ikke mot situasjonen uten avtalen", "At teksten er kritisk og pessimistisk i tonen gjennom hele sitt resonnement", "At teksten avviser samarbeid med andre stater som prinsipielt uklokt", "At teksten legger vekt på militære spørsmål framfor økonomiske spørsmål"],
+      options: ["At utfallet måles mot hva motparten får, ikke mot situasjonen uten avtalen", "At teksten er kritisk og pessimistisk i tonen gjennom hele sitt resonnement", "At teksten avviser samarbeid med andre stater som prinsipielt uklokt og farlig", "At teksten legger vekt på militære spørsmål framfor økonomiske og sosiale spørsmål"],
       explanation: "Riktig svar er gevinstmålingen, altså relative gevinster. Kriteriet er hva teksten regner med, ikke hvilken stemning den har: en tekst kan være dypt bekymret og likevel liberalistisk, hvis bekymringen gjelder at institusjonene er for svake.",
     },
     {
       question: "Hvilket trekk peker sterkest mot at en tekst resonnerer liberalistisk?",
-      options: ["At regelverk og avtaler tillegges selvstendig virkning på partenes atferd", "At teksten er positiv til at land samarbeider om et felles problem", "At teksten viser til at ordningen har vart lenge og er godt innarbeidet", "At teksten omtaler økonomiske gevinster framfor sikkerhetspolitiske hensyn"],
+      options: ["At regelverk og avtaler tillegges selvstendig virkning på partenes atferd", "At teksten er positiv til at land samarbeider om et felles problem", "At teksten viser til at ordningen har vart lenge og er blitt godt innarbeidet", "At teksten omtaler økonomiske gevinster framfor sikkerhetspolitiske hensyn"],
       explanation: "Riktig svar er at institusjoner tillegges egenvekt. En realistisk tekst kan gjerne anbefale samarbeid, men begrunner det med at det tjener statens egen posisjon — ikke med at regelverket i seg selv endrer hva partene kan regne med.",
     },
     {
@@ -2717,7 +2717,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den empiriske delen i en kronikkoppgave?",
-      options: ["Den presise framstillingen av perspektivene, der feiltilskrivning koster", "Faktaopplysningene i den vedlagte teksten, som kandidaten skal kontrollere", "Tallene og traktatartiklene som hører til temaet teksten handler om", "Redegjørelsen for hvilke sett kronikksjangeren tidligere har kommet i"],
+      options: ["Den presise framstillingen av perspektivene, der feiltilskrivning koster", "Faktaopplysningene i den vedlagte teksten, som kandidaten skal kontrollere", "Tallene og traktatartiklene som hører til det temaet den vedlagte teksten handler om", "Redegjørelsen for hvilke sett kronikksjangeren tidligere har kommet i"],
       explanation: "Riktig svar er framstillingen av perspektivene. Å skrive at realismen alltid vil ha mest mulig makt, uten å skille offensiv fra defensiv realisme, er en feil på presisjonsaksen — like kostbar som gale tall i et institusjonsspørsmål.",
     },
     {
@@ -2836,7 +2836,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre elementer inngår i krigsdefinisjonen?",
-      options: ["Uforenlig interesse, væpnet vold over en terskel, og organiserte aktører", "To eller flere stater, militære styrker, og en formell krigserklæring", "Territorielt krav, økonomiske motiver, og en utløsende enkelthendelse", "Uenighet mellom partene, tap av menneskeliv, og internasjonal fordømmelse"],
+      options: ["Uforenlig interesse, væpnet vold over en terskel, og organiserte aktører", "To eller flere stater, militære styrker, og en formell krigserklæring mellom dem", "Territorielt krav, økonomiske motiver, og en utløsende enkelthendelse i konflikten", "Uenighet mellom partene, tap av menneskeliv, og internasjonal fordømmelse"],
       explanation: "Riktig svar er de tre elementene, og alle tre må være til stede. Kravet om organiserte aktører skiller krig fra omfattende vold uten organisering, og kravet om uforenlig interesse skiller den fra vold uten politisk innhold.",
     },
     {
@@ -2851,7 +2851,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på feiloppfatning og privat informasjon?",
-      options: ["Feiloppfatning er at en part tar feil, privat informasjon at ingen kan vise at de har rett", "Feiloppfatning gjelder militære forhold, mens privat informasjon gjelder økonomiske forhold", "Feiloppfatning oppstår før krigen bryter ut, privat informasjon underveis i krigen", "Feiloppfatning gjelder ledere, mens privat informasjon gjelder etterretningstjenester"],
+      options: ["Feiloppfatning er at en part tar feil, privat informasjon at ingen kan vise at de har rett", "Feiloppfatning gjelder militære forhold, mens privat informasjon gjelder økonomiske forhold", "Feiloppfatning oppstår før krigen bryter ut, privat informasjon underveis i krigen", "Feiloppfatning gjelder de politiske lederne, mens privat informasjon gjelder etterretningstjenestene"],
       explanation: "Riktig svar er skillet mellom en psykologisk og en strukturell mekanisme. Derfor ligger de på hvert sitt analysenivå: feiloppfatning på individnivå, privat informasjon på systemnivå.",
     },
     {
@@ -2903,7 +2903,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
   'stv1200-7-6': [
     {
       question: "Hva er et kontrasteringsspørsmål i en teoridrøfting?",
-      options: ["Ett spørsmål begge perspektivene har et klart og uforenlig svar på", "Et spørsmål om hvilket av perspektivene som er faglig mest holdbart", "Et spørsmål om hvordan perspektivene har utviklet seg faghistorisk", "Et spørsmål om hvilke temaer hvert av perspektivene passer best på"],
+      options: ["Ett spørsmål begge perspektivene har et klart og uforenlig svar på", "Et spørsmål om hvilket av perspektivene som er faglig mest holdbart", "Et spørsmål om hvordan perspektivene har utviklet seg gjennom faghistorien", "Et spørsmål om hvilke temaer hvert av de to perspektivene passer best på"],
       explanation: "Riktig svar er det felles spørsmålet med uforenlige svar. Et tema er ikke et spørsmål: institusjoners betydning kan begge perspektivene snakke om i hver sin retning, mens spørsmålet tvinger dem til å svare på det samme.",
     },
     {
@@ -2923,7 +2923,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er liberalismens blindsone på institusjonsspørsmålet?",
-      options: ["Fordelingen — hvem som får hva, mellom medlemmene og innad i dem", "Mekanismen — hvordan institusjoner faktisk reduserer usikkerhet", "Historien — hvordan de fleste organisasjonene ble opprettet", "Rekkevidden — hvor mange stater som faktisk deltar i hver enkelt ordning"],
+      options: ["Fordelingen — hvem som får hva, mellom medlemmene og innad i dem", "Mekanismen — hvordan institusjonene faktisk reduserer usikkerheten", "Historien — hvordan de fleste organisasjonene ble opprettet", "Rekkevidden — hvor mange stater som faktisk deltar i hver enkelt ordning"],
       explanation: "Riktig svar er fordelingen. Liberalismen leser dessuten lett fravær av åpen konflikt som samarbeid. Mekanismen er derimot liberalismens styrke, ikke dens blindsone.",
     },
     {

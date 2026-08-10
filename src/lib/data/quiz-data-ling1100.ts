@@ -91,7 +91,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller det å forklare en mekanisme fra det å gjenfortelle den?",
-      options: ["Forklaringen kan brukes til å avgjøre et nytt tilfelle.", "Forklaringen er lengre og inneholder flere fagtermer.", "Forklaringen nevner alltid teoretikeren bak begrepet.", "Forklaringen unngår engelske termer til fordel for norske."],
+      options: ["Forklaringen kan brukes til å avgjøre et nytt tilfelle.", "Forklaringen er lengre og inneholder flere fagtermer enn gjenfortellingen.", "Forklaringen nevner alltid teoretikeren som står bak begrepet.", "Forklaringen unngår engelske termer til fordel for norske."],
       explanation: "Riktig er at en forklart mekanisme lar deg håndtere tilfeller du ikke har sett før, mens en gjenfortelling bare gjenkjenner kjente. Svaret om lengde tester troen på at mer tekst er mer dybde. De to øvrige nevner ting som kan være til stede i begge, og som derfor ikke skiller dem.",
     },
     {
@@ -131,14 +131,14 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket spørsmål avgjør hvilken modus en oppgave krever?",
-      options: ["Om to dyktige kandidater kan svare ulikt og begge ha rett.", "Om oppgaven inneholder et symbol eller en formel.", "Om temaet i oppgaven hører til semantikk eller til pragmatikk.", "Om oppgaven er formulert på norsk eller på engelsk."],
+      options: ["Om to dyktige kandidater kan svare ulikt og begge ha rett.", "Om oppgaven inneholder et logisk symbol eller en formel i teksten.", "Om temaet i oppgaven hører til semantikk eller til pragmatikk.", "Om oppgaven er formulert på norsk eller på engelsk."],
       explanation: "Riktig er å spørre om flere svar kan være forsvarlige: kan de det, er oppgaven redegjørende. Svaret om semantikk og pragmatikk tester en nyttig, men upålitelig tommelfingerregel — også semantikkdelen har redegjørende oppgaver. De to øvrige handler om form, ikke om hva slags svar som kreves.",
     },
   ],
   'ling1100-1-1': [
     {
       question: "Hva studerer semantikk?",
-      options: ["Konvensjonell, kontekstuavhengig betydning i språksystemet.", "Hva en taler ville oppnå med en bestemt ytring.", "Hvordan språkbruken varierer mellom ulike sosiale grupper i et samfunn.", "Hvordan lydene i et språk er organisert i et system."],
+      options: ["Konvensjonell, kontekstuavhengig betydning i språksystemet.", "Hva en taler ville oppnå med en bestemt ytring.", "Hvordan språkbruken varierer mellom ulike sosiale grupper i et samfunn.", "Hvordan lydene i et språk er organisert i et system av fonemer."],
       explanation: "Riktig er den konvensjonelle betydningen som ligger i språket selv. Svaret om talerens hensikt beskriver pragmatikk, som er nabofeltet og den vanligste forvekslingen. De to øvrige beskriver sosiolingvistikk og fonologi, som ikke er pensum i dette emnet.",
     },
     {
@@ -148,7 +148,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det som har sannhetsverdi?",
-      options: ["Proposisjonen.", "Setningen.", "Ordrekka.", "Ytringen, i kraft av å være en hendelse."],
+      options: ["Proposisjonen.", "Den enkelte setningen.", "Selve ordrekka.", "Ytringen, i kraft av å være en hendelse."],
       explanation: "Riktig er proposisjonen, altså det innholdet som påstås om verden. Setningen «Jeg er hjemme» er verken sann eller usann i seg selv, og ordrekka er bare en annen måte å si setning på. Ytringen er en hendelse, og hendelser er verken sanne eller usanne — det er innholdet de uttrykker som er det.",
     },
     {
@@ -158,12 +158,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er skillet mellom type og forekomst?",
-      options: ["Typen er et abstrakt mønster, forekomsten en konkret realisering.", "Typen er den skriftlige formen, mens forekomsten er den muntlige uttalen.", "Typen er ordklassen, forekomsten er det enkelte ordet.", "Typen er betydningen, forekomsten er referenten."],
+      options: ["Typen er et abstrakt mønster, forekomsten en konkret realisering.", "Typen er den skriftlige formen, mens forekomsten er den muntlige uttalen.", "Typen er ordklassen, mens forekomsten er det enkelte ordet i teksten.", "Typen er betydningen, forekomsten er referenten."],
       explanation: "Riktig er mønster mot realisering: rekka «hus hus hus» har ett ord om du teller typer og tre om du teller forekomster. Svaret om skrift og tale tester en nærliggende, men gal forestilling om at skillet gjelder medium. De to øvrige forveksler skillet med grammatiske og semantiske kategorier.",
     },
     {
       question: "Hva kjennetegner et indeksikalsk uttrykk?",
-      options: ["Det har en fast regel for å finne referenten, men ingen fast referent.", "Det har en fast referent uansett hvem som bruker det.", "Det har flere betydninger som er historisk urelaterte, slik ordet *ball* har.", "Det kan ikke brukes til å peke ut noe i verden."],
+      options: ["Det har en fast regel for å finne referenten, men ingen fast referent.", "Det har én og samme faste referent uansett hvem som bruker det, og når.", "Det har flere betydninger som er historisk urelaterte, slik ordet *ball* har.", "Det kan ikke brukes til å peke ut noe i verden."],
       explanation: "Riktig er regelen uten fast referent: regelen for *jeg* er «den som ytrer dette», og den er lik for alle. Svaret om fast referent beskriver egennavn, som er motstykket. Svaret om urelaterte betydninger beskriver homonymi, og det siste beskriver uttrykk uten referanse.",
     },
     {
@@ -178,7 +178,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er språklig underbestemthet?",
-      options: ["At setningen alene ikke fastlegger den fullstendige proposisjonen.", "At en setning er grammatisk ufullstendig fordi den mangler et påkrevd ledd.", "At taleren uttrykker seg uklart og bør omformulere.", "At et ord mangler en presis definisjon i ordboka."],
+      options: ["At setningen alene ikke fastlegger den fullstendige proposisjonen.", "At en setning er grammatisk ufullstendig fordi den mangler et påkrevd ledd.", "At taleren uttrykker seg uklart og derfor burde ha omformulert ytringen.", "At et ord mangler en presis definisjon i ordboka."],
       explanation: "Riktig er at det språket koder, er mindre enn det som kommuniseres — og det er begrunnelsen for at pragmatikken finnes som eget felt. Svaret om grammatisk ufullstendighet tester forvekslingen med et syntaktisk problem. De to øvrige gjør fenomenet til en svakhet hos taleren eller ordboka, mens det er en systematisk egenskap ved språk.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva markerer firkanttegnet foran en setning?",
-      options: ["At setningen er velformet, men semantisk eller pragmatisk avvikende.", "At setningen ikke genereres av grammatikken.", "At setningen er hentet fra et annet språk og derfor er glossert i teksten.", "At setningen er en overskrift og ikke et eksempel."],
+      options: ["At setningen er velformet, men semantisk eller pragmatisk avvikende.", "At setningen ikke genereres av grammatikken.", "At setningen er hentet fra et annet språk og derfor er glossert i teksten.", "At setningen er en overskrift i teksten og ikke et nummerert eksempel."],
       explanation: "Riktig er at grammatikken bygger setningen helt fint, men at noe annet skurrer, som i «Steinen ble redd». Svaret om at grammatikken svikter, beskriver stjerna. De to øvrige tester forvekslingen med tegnets bruk i andre sammenhenger, blant annet som overskriftsmarkør i markdown.",
     },
     {
@@ -208,7 +208,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er talermening?",
-      options: ["Det taleren ville kommunisere med en bestemt ytring.", "Det setningen betyr i kraft av språkets konvensjoner.", "Den betydningen som står oppført i en ordbok.", "Den betydningen alle talere av språket er enige om."],
+      options: ["Det taleren ville kommunisere med en bestemt ytring.", "Det setningen betyr i kraft av språkets konvensjoner.", "Den betydningen som står oppført i en ordbok over språket.", "Den betydningen alle talere av språket legger i uttrykket."],
       explanation: "Riktig er det taleren ville oppnå i den enkelte situasjonen. De tre øvrige beskriver alle setningsbetydningen fra hver sin vinkel, og de er derfor nære: setningsbetydningen er én og felles, mens talermeningene er mange og situasjonsbestemte.",
     },
     {
@@ -240,7 +240,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er intensjonen til et uttrykk?",
-      options: ["Betingelsen som avgjør hva ekstensjonen blir.", "Hensikten taleren har med å bruke uttrykket.", "Mengden av ting uttrykket faktisk gjelder for.", "Den historiske opprinnelsen til uttrykket."],
+      options: ["Betingelsen som avgjør hva ekstensjonen blir.", "Hensikten taleren har med å bruke nettopp dette uttrykket.", "Mengden av ting uttrykket faktisk gjelder for.", "Den historiske opprinnelsen til uttrykket i språket."],
       explanation: "Riktig er betingelsen, oppskriften på å finne ut hva som hører med. Svaret om hensikt tester forvekslingen med det likelydende dagligordet, og det er en unødvendig kilde til uklarhet i besvarelser. Mengden er ekstensjonen, og opprinnelsen er etymologi.",
     },
     {
@@ -260,12 +260,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en opak kontekst?",
-      options: ["En kontekst der bytte av koreferensielle uttrykk kan endre sannhetsverdien.", "En kontekst der uttrykket mangler en referent i verden og derfor er tomt for innhold.", "En kontekst der setningen er grammatisk flertydig.", "En kontekst der taleren ikke er identifisert."],
+      options: ["En kontekst der bytte av koreferensielle uttrykk kan endre sannhetsverdien.", "En kontekst der uttrykket mangler en referent i verden.", "En kontekst der setningen er grammatisk flertydig.", "En kontekst der taleren ikke er identifisert."],
       explanation: "Riktig er svikten i substitusjon, typisk i setninger om hva noen tror, vet eller mistenker. Svaret om manglende referent beskriver tomme uttrykk, som er et annet fenomen. De to øvrige forveksler opasitet med flertydighet og med ukjent taler, og ingen av delene rører substitusjonsprinsippet.",
     },
     {
       question: "Hva sier substitusjonsprinsippet?",
-      options: ["At bytte av uttrykk med samme referent bevarer sannhetsverdien.", "At to synonymer alltid kan byttes ut i enhver setning uten tap av innhold.", "At et uttrykk kan erstattes av sin egen definisjon.", "At en setning kan omskrives uten å endre betydning."],
+      options: ["At bytte av uttrykk med samme referent bevarer sannhetsverdien.", "At to synonymer alltid kan byttes ut i enhver setning.", "At et uttrykk kan erstattes av sin egen definisjon.", "At en setning kan omskrives uten å endre betydning."],
       explanation: "Riktig er kravet om at koreferensielle uttrykk skal kunne byttes uten at sannhetsverdien endrer seg — og at dette svikter i opake kontekster. Svaret om synonymer tester forvekslingen mellom koreferanse og synonymi. De to øvrige beskriver definisjonsutskifting og parafrase.",
     },
     {
@@ -275,7 +275,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er tomme uttrykk et problem for en ren referensiell teori?",
-      options: ["Fordi de har betydning uten å ha noen referent.", "Fordi de kan tolkes på flere måter samtidig.", "Fordi de bare forekommer i skjønnlitteratur.", "Fordi de mangler en presis definisjon i ordboka."],
+      options: ["Fordi de har betydning uten å ha noen referent.", "Fordi de kan tolkes på flere måter i én og samme setning.", "Fordi de bare forekommer i skjønnlitteratur.", "Fordi de mangler en presis definisjon i ordboka."],
       explanation: "Riktig er at et uttrykk som *enhjørning* er fullt forståelig uten at noe svarer til det, mens teorien knytter betydning til referanse. Freges svar er at uttrykket har sense uten reference. De tre øvrige tester troen på at problemet gjelder flertydighet, fiksjonssjangeren eller leksikografi.",
     },
     {
@@ -285,7 +285,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kommunikasjonsinnvendingen mot den representasjonelle teorien?",
-      options: ["At felles betydning blir vanskelig når betydningen er individuell.", "At mentale representasjoner ikke kan undersøkes med vitenskapelige metoder.", "At teorien ikke kan forklare uttrykk uten referent.", "At teorien gjør språklæring vanskeligere å forklare."],
+      options: ["At felles betydning blir vanskelig når betydningen er individuell.", "At mentale representasjoner ikke kan undersøkes vitenskapelig.", "At teorien ikke kan forklare uttrykk uten referent.", "At teorien gjør språklæring vanskeligere å forklare."],
       explanation: "Riktig er problemet med at vi må mene det samme for å være uenige om noe. Svaret om uttrykk uten referent snur innvendingen: det er nettopp der posisjonen er sterk. Det samme gjelder språklæring. Svaret om vitenskapelig undersøkelse er en metodeinnvending som ikke berører selve teorien om betydning.",
     },
     {
@@ -295,7 +295,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier sannhetsbetingelsessemantikken at det er å kunne en setnings betydning?",
-      options: ["Å vite hva som må være tilfelle for at den skal være sann.", "Å vite om den faktisk er sann eller usann.", "Å kunne oversette den til et annet språk.", "Å kjenne den konvensjonelle betydningen til hvert enkelt ord i den."],
+      options: ["Å vite hva som må være tilfelle for at den skal være sann.", "Å vite om den faktisk er sann eller usann.", "Å kunne oversette den til et annet språk.", "Å kjenne den konvensjonelle betydningen til hvert ord."],
       explanation: "Riktig er at man kan betingelsen, ikke svaret. Svaret om å vite om den er sann, tester nettopp den vanligste misforståelsen: du forstår «Det snør i Tromsø» uten å vite om det stemmer. De to øvrige gjør forståelse til oversettelse eller til ren ordkunnskap, og ingen av delene fanger setningsnivået.",
     },
     {
@@ -305,7 +305,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken pensumbok er hovedreferansen for teoriene om mening?",
-      options: ["Elbourne, «Meaning: A Slim Guide to Semantics».", "Saeed, «Semantics».", "Huang, «Pragmatics».", "Zimmermann og Sternefeld, «Introduction to Semantics»."],
+      options: ["Elbourne, «Meaning: A Slim Guide to Semantics».", "Saeed, «Semantics», som er innføringsboka i semantikk.", "Huang, «Pragmatics», pensumboka i pragmatikk.", "Zimmermann og Sternefeld, «Introduction to Semantics»."],
       explanation: "Riktig er Elbourne, som stiller de to hovedposisjonene opp mot hverandre, og hvis inntreden i pensum forklarer at temaet er stigende. Saeed dekker mening og referanse mer oversiktlig, Zimmermann og Sternefeld det formelle apparatet, og Huang pragmatikken.",
     },
     {
@@ -332,7 +332,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har *ingen av gjestene* ingen referanse?",
-      options: ["Fordi uttrykket kvantifiserer i stedet for å peke ut noen.", "Fordi det ikke finnes noen gjester i den aktuelle situasjonen.", "Fordi uttrykket står i ubestemt form.", "Fordi uttrykket tilskriver noen en egenskap."],
+      options: ["Fordi uttrykket kvantifiserer i stedet for å peke ut noen.", "Fordi det ikke finnes noen gjester i den aktuelle situasjonen.", "Fordi uttrykket står i ubestemt form uten noen artikkel foran.", "Fordi uttrykket tilskriver noen en egenskap."],
       explanation: "Riktig er at uttrykket sier noe om en gruppe under ett, ikke om en enkeltperson. Svaret om at det ikke finnes gjester, beskriver den andre grunnen til manglende referanse, nemlig tomhet — og de to grunnene skal holdes fra hverandre i svaret. Svaret om egenskapstilskriving beskriver predikativ bruk.",
     },
     {
@@ -342,7 +342,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner generisk bruk av en nominalfrase?",
-      options: ["Uttrykket sier noe om en type i sin alminnelighet.", "Uttrykket peker på ett bestemt eksemplar av typen det gjelder.", "Uttrykket brukes bare i vitenskapelige tekster.", "Uttrykket står alltid i flertall."],
+      options: ["Uttrykket sier noe om en type i sin alminnelighet.", "Uttrykket peker på ett bestemt eksemplar av typen det gjelder.", "Uttrykket brukes bare i vitenskapelige og faglige tekster.", "Uttrykket står alltid i flertallsform og aldri i entall."],
       explanation: "Riktig er utsagn om arten, som i «Reven er et rovdyr». Testen er at spørsmålet «hvilken?» ikke har noe svar, samtidig som setningen er meningsfull. Svaret om bestemt eksemplar er nettopp motstykket, og de to øvrige knytter fenomenet til sjanger og tall, som ikke avgjør noe.",
     },
     {
@@ -516,12 +516,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken strategi er «bald on record» — bar handling uten reparasjon?",
-      options: ["Å utføre den truende handlingen direkte og udempet", "Å antyde handlingen og la mottakeren slutte seg til den", "Å pleie mottakerens behov for anerkjennelse først", "Å la være å utføre handlingen i det hele tatt"],
+      options: ["Å utføre den truende handlingen direkte og udempet", "Å antyde handlingen og la mottakeren slutte seg til den", "Å pleie mottakerens behov for anerkjennelse først av alt", "Å la være å utføre handlingen i det hele tatt"],
       explanation: "Riktig er den direkte, udempede utførelsen — riktig valg når det haster eller partene står nær hverandre. Antydning er den indirekte strategien, anerkjennelse er positiv høflighet, og å tie er den siste strategien på stigen.",
     },
     {
       question: "Hva verner positiv høflighet?",
-      options: ["Mottakerens behov for å bli verdsatt og godtatt", "Mottakerens behov for å slippe å bli pålagt noe", "Talerens egen anseelse i den aktuelle situasjonen", "Den felles grunnen partene allerede er enige om"],
+      options: ["Mottakerens behov for å bli verdsatt og godtatt", "Mottakerens behov for å slippe å bli pålagt noe av andre", "Talerens egen anseelse i den aktuelle situasjonen", "Den felles grunnen som partene allerede er enige om"],
       explanation: "Riktig er behovet for anerkjennelse, altså det positive ansiktet. Behovet for handlefrihet er det negative ansiktet, som negativ høflighet verner. Talerens egen anseelse og partenes felles grunn er ikke det positiv høflighet retter seg mot.",
     },
     {
@@ -608,12 +608,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken test peker mot at et innhold er en implikatur?",
-      options: ["At innholdet kan trekkes tilbake uten selvmotsigelse", "At innholdet overlever når setningen negeres", "At innholdet forsvinner når setningen negeres", "At innholdet kan parafraseres med «det er påbudt at …»"],
+      options: ["At innholdet kan trekkes tilbake uten selvmotsigelse", "At innholdet overlever uendret når hele setningen negeres", "At innholdet forsvinner så snart hele setningen negeres", "At innholdet kan parafraseres med «det er påbudt at …»"],
       explanation: "Riktig er kansellerbarhetstesten. Å overleve negasjon kjennetegner presupposisjon, å forsvinne under negasjon kjennetegner entailment, og påbudsparafrasen gjelder deontisk modalitet.",
     },
     {
       question: "«Bendik kan svømme» foreslås som eksempel på epistemisk/deontisk flertydighet. Hva er problemet?",
-      options: ["Hovedlesningen er dynamisk, så flertydigheten går i en annen retning", "Setningen har ingen modalverb og kan derfor ikke være modal", "Setningen er deontisk i alle kontekster og har bare én lesning", "Setningen inneholder et egennavn, og egennavn har fast referanse i alle kontekster"],
+      options: ["Hovedlesningen er dynamisk, så flertydigheten går i en annen retning", "Setningen inneholder ikke noe modalverb og kan derfor ikke være modal", "Setningen er deontisk i alle kontekster og har bare én lesning", "Setningen inneholder et egennavn, og egennavn har fast referanse i alle kontekster"],
       explanation: "Riktig er at hovedlesningen er evne, altså dynamisk modalitet. Den deontiske finnes, men den epistemiske er anstrengt — så eksempelet viser et annet skille enn det oppgaven gjelder.",
     },
     {
@@ -633,17 +633,17 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags løsninger har oppgavene i dette kapitlet?",
-      options: ["Momentlister skrevet av oss, ikke offisielle fasiter", "Offisielle løsningsforslag hentet fra emnets eget arkiv", "Fasitsvar med ett riktig alternativ per deloppgave", "Vurderte kandidatbesvarelser med karakter oppgitt"],
+      options: ["Momentlister skrevet av oss, ikke offisielle fasiter", "Offisielle løsningsforslag hentet fra emnets eget arkiv", "Fasitsvar der ett alternativ er riktig for hver deloppgave", "Vurderte kandidatbesvarelser med karakter oppgitt"],
       explanation: "Riktig er nyskrevne momentlister. LING1100 har ingen publiserte løsningsforslag og ingen fasit, og boka gjengir verken karakterer eller ekte besvarelser.",
     },
     {
       question: "Hva er det billigste pluss-punktet i en Del 10-besvarelse?",
-      options: ["Én begrunnet kobling til et annet kapittel i pensum", "En lengre innledning som plasserer temaet historisk", "En liste over alle teoretikerne som har skrevet om temaet", "En avsluttende drøfting av om teorien holder mål"],
+      options: ["Én begrunnet kobling til et annet kapittel i pensum", "En lengre innledning som plasserer temaet i faghistorien", "En liste over alle teoretikerne som har skrevet om temaet", "En avsluttende drøfting av om teorien holder mål"],
       explanation: "Riktig er koblingen: den koster to setninger og viser sammenheng. En lang innledning spiser tid, en navneliste viser ingenting, og drøfting er feil sjanger når oppgaven ber om en redegjørelse.",
     },
     {
       question: "Hvilken feil gjør en kandidat som besvarer fire av fem deloppgaver?",
-      options: ["Feil #9 — å svare på feil antall deler", "Feil #5 — å liste i stedet for å forklare", "Feil #2 — å bytte om parvise begreper", "Feil #10 — å utelate egne eksempler"],
+      options: ["Feil #9 — å svare på feil antall deler", "Feil #5 — å liste i stedet for å forklare", "Feil #2 — å bytte om begrepene i et begrepspar", "Feil #10 — å utelate egne eksempler"],
       explanation: "Riktig er feil #9, som gjelder antall besvarte deler og valgoppgaver. De tre andre kodene beskriver mangler i innholdet av det som faktisk er besvart.",
     },
   ],
@@ -665,7 +665,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva påstår formelen $\\exists x\\,(A(x) \\rightarrow B(x))$ i praksis?",
-      options: ["At det finnes minst én ting som ikke er A, eller som er B", "At enhver ting i domenet som er A, uten noe unntak også er B", "At det finnes minst én ting som er både A og B", "At ingen A-er er B-er"],
+      options: ["At det finnes minst én ting som ikke er A, eller som er B", "At enhver ting i domenet som er A, uten noe unntak også er B", "At det finnes minst én ting i domenet som er både A og B samtidig", "At ingen av A-ene i domenet er B-er"],
       explanation: "En implikasjon er sann så snart forleddet er usant, så formelen er sann bare det finnes én ting utenfor A. Den riktige oversettelsen av «noen A er B» er eksistenskvantor med konjunksjon, og «alle A er B» krever allkvantor.",
     },
     {
@@ -675,7 +675,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier evalueringsalgoritmens siste trinn at du skal gjøre?",
-      options: ["Peke ut det individet som avgjør sannhetsverdien", "Skrive opp modellen på nytt som kontroll", "Gjenta oppgaveteksten slik at svaret kan leses alene", "Angi hvor mange rader tabellen ville hatt"],
+      options: ["Peke ut det individet som avgjør sannhetsverdien", "Skrive opp hele modellen en gang til som kontroll til slutt", "Gjenta oppgaveteksten slik at svaret kan leses alene", "Angi hvor mange rader en sannhetstabell ville hatt"],
       explanation: "Å peke ut hvem som velter en allpåstand eller redder en eksistenspåstand er det som skiller et riktig svar fra et fullstendig. Modellen skrives ned i trinn 1, ikke til slutt, og rader hører til sannhetstabeller, ikke til modellevaluering.",
     },
     {
@@ -725,14 +725,14 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den avgjørende testen for om en oppgave krever F2-evaluering framfor F1-tabell?",
-      options: ["Om oppgaven oppgir en modell med domene og tolkningsfunksjon", "Om oppgaven bruker kvantorer i formlene", "Om oppgaven ber om en skriftlig begrunnelse i tillegg til selve svaret", "Om oppgaven inneholder mer enn to variabler"],
+      options: ["Om oppgaven oppgir en modell med domene og tolkningsfunksjon", "Om oppgaven bruker kvantorer i formlene", "Om oppgaven ber om en skriftlig begrunnelse", "Om oppgaven inneholder mer enn to variabler"],
       explanation: "En oppgitt modell er signalet: da skal formelen vurderes i én bestemt situasjon, ikke i alle mulige. Kvantorer, begrunnelseskrav og antall variabler forekommer i begge sjangrene og skiller dem ikke.",
     },
   ],
   'ling1100-11-2': [
     {
       question: "Hva avgjør hvilken redegjørende sjanger en oppgave krever?",
-      options: ["Instruksjonsverbet i oppgaveteksten", "Temaet oppgaven handler om", "Hvor mange poeng oppgaven er verdt", "Hvilken del av pensum stoffet står i"],
+      options: ["Instruksjonsverbet i oppgaveteksten", "Temaet oppgaven handler om", "Hvor mange poeng oppgaven er verdt i settet", "Hvilken del av pensum stoffet står i"],
       explanation: "Sjangeren styres av verbet: «gjør rede for», «avgjør for hvert», «sammenlign» og «er du enig» krever fire ulike svarformer. Samme tema kan komme i alle fire sjangrene, og hverken plassering i pensum eller poeng sier noe om svarformen.",
     },
     {
@@ -757,7 +757,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedfeilen i A3-sjangeren?",
-      options: ["To parallelle monologer uten at posisjonene møtes", "At det ikke kåres en vinner til slutt", "At bare to akser brukes i stedet for fire", "At den ene teorien får litt mer plass enn den andre"],
+      options: ["To parallelle monologer uten at posisjonene møtes", "At det ikke kåres en vinner til slutt", "At bare to akser brukes i sammenligningen i stedet for fire", "At den ene teorien får litt mer plass enn den andre"],
       explanation: "En besvarelse som beskriver A og deretter B uten å stille dem opp mot hverandre, har ikke sammenlignet. Sjangeren krever ikke at du kårer en vinner, to akser holder godt, og en liten skjevfordeling er uproblematisk.",
     },
     {
@@ -819,7 +819,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den dyreste konsekvensen av å svare på alle tre spørsmålene i en temablokk?",
-      options: ["Tjue minutter tas fra en annen besvarelse senere i settet", "Det tredje svaret trekker ned vurderingen av de to andre i blokka", "Sensor vurderer bare det svakeste av de tre", "Besvarelsen blir underkjent som formfeil"],
+      options: ["Tjue minutter tas fra en annen besvarelse senere i settet", "Det tredje svaret trekker ned vurderingen av de to andre i blokka", "Sensor vurderer bare det svakeste av de tre svarene i blokka", "Besvarelsen blir underkjent som formfeil"],
       explanation: "Det ekstra svaret gir ikke uttelling, og tiden det tar, hentes alltid fra slutten av settet der man er dårligst på tid. Det trekker ikke ned, og det finnes ingen dokumentasjon på verken utvelging av det svakeste eller på underkjenning.",
     },
     {
@@ -844,7 +844,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av feilene rammer FØR kandidaten har skrevet et ord?",
-      options: ["Å velge bort den formelle verktøykassa i settlesingen", "Å bruke vage formuleringer i et formelt svar", "Å utelate egne eksempler i en implikaturoppgave", "Å behandle tematiske roller overfladisk i et ellers langt svar"],
+      options: ["Å velge bort den formelle verktøykassa i settlesingen", "Å bruke vage og upresise formuleringer i et formelt svar", "Å utelate egne eksempler i en implikaturoppgave", "Å behandle tematiske roller overfladisk i et ellers langt svar"],
       explanation: "Bortvalget skjer i planleggingsfasen og treffer en hel temablokk, ikke ett svar. De tre andre er alle feil inne i en tekst som allerede er i gang.",
     },
     {
@@ -859,12 +859,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den riktige måten å behandle et ekte grensetilfelle på i et formelt svar?",
-      options: ["Oppgi begge analysene, si hva testene gir, og velg", "Oppgi begge analysene og la spørsmålet stå åpent", "Velg den vanligste analysen uten å nevne den konkurrerende", "Bytte til et annet eksempel som ikke er tvilsomt"],
+      options: ["Oppgi begge analysene, si hva testene gir, og velg", "Oppgi begge analysene og la spørsmålet om valg stå åpent", "Velg den vanligste analysen uten å nevne den konkurrerende", "Bytte til et annet eksempel som ikke er tvilsomt"],
       explanation: "Grensetilfellet skal behandles, ikke bare markeres — og et valg med begrunnelse er nettopp behandlingen. Å la spørsmålet stå åpent er slark, og på eksamen kan man verken bytte ut oppgavens eksempel eller fortie den konkurrerende analysen.",
     },
     {
       question: "Hva sier varsellampekortet at du skal gjøre de siste minuttene av en besvarelse?",
-      options: ["Sjekke om hvert kategorinavn har en utskrevet test bak seg", "Skrive om innledningen slik at den peker framover", "Legge til en oppsummering av alt du har vist tidligere i svaret", "Telle antall ord i svaret"],
+      options: ["Sjekke om hvert kategorinavn har en utskrevet test bak seg", "Skrive om innledningen slik at den peker framover mot konklusjonen", "Legge til en oppsummering av alt du har vist tidligere i svaret", "Telle hvor mange ord hele svaret er på"],
       explanation: "Kontrollen er tredelt: test bak hvert kategorinavn, eget eksempel per kategori, og alle instruksjonsverb krysset av. Innledninger, oppsummeringer og ordtelling gir ingen uttelling i dette faget.",
     },
     {
@@ -1021,7 +1021,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
   'ling1100-2-1': [
     {
       question: "Hva er et leksem?",
-      options: ["En ordenhet i ordforrådet, med all sin bøyning.", "En enkelt ordform slik den står i en konkret setning.", "Et ord som har mer enn én betydning.", "Den minste betydningsbærende delen av et ord."],
+      options: ["En ordenhet i ordforrådet, med all sin bøyning.", "En enkelt ordform slik den står i en konkret setning.", "Et ord som har mer enn én betydning.", "Den minste betydningsbærende delen et ord kan deles i."],
       explanation: "Riktig er oppslagsenheten: *sykkel*, *sykkelen* og *sykler* er ett leksem. Svaret om enkeltform tester nettopp den forvekslingen, og skillet er nødvendig for å formulere hva som skiller homonymi fra polysemi. De to øvrige beskriver flertydighet og morfemer.",
     },
     {
@@ -1031,7 +1031,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner polysemi?",
-      options: ["Ett leksem har flere beslektede betydninger.", "To leksemer har tilfeldigvis samme form.", "Ett ord kan uttales på to måter.", "To ord kan byttes ut med hverandre i alle sammenhenger."],
+      options: ["Ett leksem har flere beslektede betydninger.", "To ulike leksemer har tilfeldigvis fått samme form.", "Ett og samme ord kan uttales på to ulike måter.", "To ord kan byttes ut med hverandre i alle sammenhenger."],
       explanation: "Riktig er ett leksem med beslektede betydninger, som *hode* om kroppsdelen og om den øverste delen av en spiker. Svaret om to leksemer med lik form er homonymi. De to øvrige beskriver uttalevariasjon og absolutt synonymi, som er andre fenomener.",
     },
     {
@@ -1041,7 +1041,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken mekanisme ligger bak at *foten* av et fjell heter det den gjør?",
-      options: ["Metaforisk utvidelse, altså overføring ved likhet.", "Metonymisk utvidelse, altså overføring ved sammenheng.", "Homonymi, siden betydningene er urelaterte.", "Hyponymi, siden fjellfoten er en type fot."],
+      options: ["Metaforisk utvidelse, altså overføring ved likhet.", "Metonymisk utvidelse, altså overføring ved sammenheng.", "Homonymi, siden de to betydningene er historisk urelaterte.", "Hyponymi, siden fjellfoten er en type fot."],
       explanation: "Riktig er metafor: begge er den nederste delen av noe som strekker seg oppover, og likheten bærer betydningen over. Svaret om metonymi tester den nærmeste forvekslingen — den bygger på at ting henger sammen, ikke på at de ligner. De to øvrige er andre relasjoner helt.",
     },
     {
@@ -1081,7 +1081,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kohyponymer?",
-      options: ["Leksemer med samme nærmeste overordnede ord.", "Leksemer som betyr omtrent det samme.", "Leksemer som er deler av samme helhet.", "Leksemer som har samme form, men ulik betydning."],
+      options: ["Leksemer med samme nærmeste overordnede ord.", "Leksemer som betyr omtrent det samme i alle sammenhenger.", "Leksemer som betegner deler av en og samme helhet.", "Leksemer som har samme form, men ulik betydning."],
       explanation: "Riktig er søsken i hierarkiet, som *rose* og *tulipan* under *blomst*, og de er typisk uforenlige. Du møter dem igjen som antonymitypen taksonomiske søstre. De tre øvrige beskriver synonymi, meronymi og homonymi.",
     },
     {
@@ -1106,7 +1106,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må et fullstendig svar inneholde i en klassifiseringsoppgave?",
-      options: ["Relasjonen, testen kjørt på ordene, og resultatet.", "Relasjonen og den engelske termen for den.", "Relasjonen og et eksempel fra pensumboka.", "Relasjonen gjentatt i en kort oppsummering til slutt."],
+      options: ["Relasjonen, testen kjørt på ordene, og resultatet.", "Relasjonen og den engelske termen for den.", "Relasjonen og et illustrerende eksempel fra pensumboka.", "Relasjonen gjentatt i en kort oppsummering til slutt."],
       explanation: "Riktig er kategori, test og resultat — det er testen som skiller den som har analysert fra den som har gjettet. Svaret med engelsk term tester troen på at fagspråk erstatter begrunnelse. De to øvrige legger til noe som ikke er etterspurt og lar begrunnelsen stå ubesvart.",
     },
   ],
@@ -1118,7 +1118,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner komplementære antonymer?",
-      options: ["Negasjonen av det ene medfører det andre, begge veier.", "Ordene markerer hver sin ende av en skala.", "Ordene beskriver det samme forholdet sett fra hver sin side.", "Ordene ligger på samme nivå i en taksonomi."],
+      options: ["Negasjonen av det ene medfører det andre, begge veier.", "Ordene markerer hver sin ende av en skala med mellomtrinn imellom.", "Ordene beskriver det samme forholdet sett fra hver sin side.", "Ordene ligger på samme nivå i den samme taksonomien og utelukker hverandre."],
       explanation: "Riktig er den toveis slutningen: er noe ikke levende, er det dødt, og motsatt. Svaret om skala beskriver graderbare antonymer, svaret om to sider beskriver konverser, og det siste beskriver taksonomiske søstre. Alle fire er antonymityper, og det er nettopp derfor testen må kjøres.",
     },
     {
@@ -1133,17 +1133,17 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser komparativtesten ut over at et par er graderbart?",
-      options: ["At slutningen fra det ene ordet til det andre aldri er gyldig.", "At det ene ordet er eldre enn det andre.", "At ordene alltid kan byttes ut med hverandre uten tap av innhold.", "At paret hører til et lukket semantisk felt."],
+      options: ["At slutningen fra det ene ordet til det andre aldri er gyldig.", "At det ene ordet er belagt tidligere i språkhistorien enn det andre.", "At ordene alltid kan byttes ut med hverandre uten tap av innhold.", "At paret hører til et lukket semantisk felt med et fast antall medlemmer."],
       explanation: "Riktig er at komparativen bare sammenlikner: at kaffen er varmere enn teen, sier ingenting om at noen av dem er varme. Begge kan være iskalde. De tre øvrige er påstander testen ikke gir grunnlag for, og det første av dem gjør en historisk påstand ut av en logisk test.",
     },
     {
       question: "Hva tester mellomtrinn-testen?",
-      options: ["Om formuleringen «verken A eller B» er en normal beskrivelse.", "Om ordene kan settes i komparativ.", "Om det ene ordet opphever virkningen av handlingen det andre uttrykker.", "Om ordene har samme overordnede ord."],
+      options: ["Om formuleringen «verken A eller B» er en normal beskrivelse.", "Om ordene kan settes i komparativ.", "Om det ene ordet opphever virkningen av handlingen det andre uttrykker.", "Om ordene har det samme overordnede ordet over seg i taksonomien."],
       explanation: "Riktig er om det finnes et mellomfelt: «verken varmt eller kaldt» er normalt, «verken levende eller dødt» er det ikke. Komparativ er en annen test for den samme egenskapen. De to øvrige tester reverser og taksonomiske søstre.",
     },
     {
       question: "Hva er den umarkerte polen i paret *stor* og *liten*?",
-      options: ["*Stor*, siden «Hvor stor er den?» er nøytralt.", "*Liten*, siden det er det klart minst brukte ordet i paret.", "Ingen av dem, siden begge kan graderes.", "Begge, siden paret er symmetrisk."],
+      options: ["*Stor*, siden «Hvor stor er den?» er nøytralt.", "*Liten*, siden det er det klart minst brukte ordet i paret.", "Ingen av dem, siden begge ordene lar seg gradere med gradsadverb.", "Begge, siden paret er symmetrisk og ingen av ordene er mer nøytralt enn det andre."],
       explanation: "Riktig er *stor*: spørsmålet kan stilles om hva som helst uten at det ligger noe i det, og substantivavledningen er *størrelse*. Svaret om at ingen er umarkert, tester troen på at graderbarhet utelukker markerthet; det er tvert imot bare graderbare par som har en umarkert pol.",
     },
     {
@@ -1153,7 +1153,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner konverser?",
-      options: ["De beskriver samme forhold med byttede argumenter, sant samtidig.", "De beskriver to handlinger som hver fører tilbake til utgangspunktet.", "De deler et felt i nøyaktig to uten mellomrom.", "De ligger på samme nivå i en taksonomi."],
+      options: ["De beskriver samme forhold med byttede argumenter, sant samtidig.", "De beskriver to handlinger som hver fører tilbake til utgangspunktet.", "De deler et semantisk felt i nøyaktig to deler, uten mellomrom imellom.", "De ligger på samme nivå i en taksonomi."],
       explanation: "Riktig er perspektivbyttet: «Kari solgte til Ola» og «Ola kjøpte av Kari» beskriver samme hendelse. Svaret om å føre tilbake til utgangspunktet er reverser, som er den nærmeste forvekslingen. De to øvrige beskriver komplementære par og taksonomiske søstre.",
     },
     {
@@ -1163,12 +1163,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er parallellen mellom konverser og aktiv og passiv?",
-      options: ["Begge lar samme situasjon beskrives med byttede ledd.", "Begge krever at ordene tåler komparativ.", "Begge gjelder bare for handlingsverb.", "Begge forutsetter at det finnes et mellomtrinn på en skala."],
+      options: ["Begge lar samme situasjon beskrives med byttede ledd.", "Begge krever at ordene tåler komparativ.", "Begge gjelder bare for verb som uttrykker en handling, ikke for tilstandsverb.", "Begge forutsetter at det finnes et mellomtrinn på en skala."],
       explanation: "Riktig er at grammatikken gjør det samme arbeidet uten å bytte ord. Merk grensen: aktiv og passiv er ikke antonymer, siden det er samme leksem i to former. Svaret om handlingsverb er galt fordi også tilstandsord som *eie* og *tilhøre* kan være konverser.",
     },
     {
       question: "Hva kjennetegner reverser?",
-      options: ["Den ene handlingen fører tilbake til utgangstilstanden.", "De to setningene er begge sanne om ett og samme øyeblikk i tid.", "Ordene tåler komparativ og gradsadverb.", "Negasjonen av det ene gir det andre."],
+      options: ["Den ene handlingen fører tilbake til utgangstilstanden.", "De to setningene er begge sanne om ett og samme øyeblikk i tid.", "Ordene tåler både komparativ og gradsadverb som *ganske* og *svært*.", "Negasjonen av det ene gir det andre."],
       explanation: "Riktig er at handlingene går i hver sin retning og opphever hverandre. Svaret om samme øyeblikk er nettopp kjennetegnet på konverser, og det er den testen som skiller de to. De to øvrige beskriver graderbare og komplementære par.",
     },
     {
@@ -1183,7 +1183,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner taksonomiske søstre?",
-      options: ["De ligger på samme nivå og utelukker hverandre, uten å dekke feltet.", "De deler feltet mellom seg i nøyaktig to deler, uten noe mellomrom imellom.", "De beskriver samme forhold fra hver sin side.", "De markerer hver sin ende av en skala."],
+      options: ["De ligger på samme nivå og utelukker hverandre, uten å dekke feltet.", "De deler feltet mellom seg i nøyaktig to deler, uten noe mellomrom imellom.", "De beskriver det samme forholdet sett fra hver av de to deltakernes side.", "De markerer hver sin ende av en skala."],
       explanation: "Riktig er at det finnes flere jamstilte alternativer, som mandag og tirsdag blant sju dager. Svaret om å dele feltet i to beskriver komplementære par, og det er den viktigste kontrasten. De to øvrige beskriver konverser og graderbare par.",
     },
     {
@@ -1250,7 +1250,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken antonymitype lar seg dårligst uttrykke med binære trekk?",
-      options: ["Graderbare antonymer.", "Komplementære antonymer.", "Konverser.", "Taksonomiske søstre."],
+      options: ["Graderbare antonymer.", "Komplementære antonymer.", "Konverser, altså perspektivpar.", "Taksonomiske søstre."],
       explanation: "Riktig er de graderbare: de markerer hver sin ende av en skala, og en skala kan ikke gjengis med to verdier. Komplementære par passer derimot perfekt, siden de skiller seg på ett binært trekk. Dette er en av metodens klareste grenser og er verdt å nevne i et svar.",
     },
     {
@@ -1260,12 +1260,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilke ordfelt fungerer komponentanalyse best?",
-      options: ["I lukkede felt med få gjentakende dimensjoner, som slektskapsord.", "I åpne felt med svært mange medlemmer, som artefakter, redskaper og møbler", "I felt der ordene er graderbare, som temperatur og størrelse.", "I felt der medlemskapet er et gradsspørsmål, som møbler."],
+      options: ["I lukkede felt med få gjentakende dimensjoner, som slektskapsord.", "I åpne felt med svært mange medlemmer, som artefakter", "I felt der ordene er graderbare, som temperatur og størrelse.", "I felt der medlemskapet er et gradsspørsmål, som møbler."],
       explanation: "Riktig er de lukkede feltene: slektskapsord, husdyrord og tallord har få, klare dimensjoner som gjenbrukes. De tre andre svarene beskriver nettopp de tilfellene der metoden svikter — åpne felt mangler naturlige dimensjoner, graderbare felt krever skalaer, og uskarpe grenser tåler ikke pluss og minus.",
     },
     {
       question: "Hva er semantisk universalitet en påstand om?",
-      options: ["At variasjonen mellom språkenes betydningsstrukturer har grenser", "At alle språk i verden har omtrent like store og like inndelte ordforråd", "At alle språk til slutt vil utvikle de samme ordene.", "At oversettelse alltid gir et fullstendig likeverdig uttrykk."],
+      options: ["At variasjonen mellom språkenes betydningsstrukturer har grenser", "At alle språk i verden har omtrent like store og like inndelte ordforråd", "At alle språk til slutt vil utvikle de samme ordene.", "At oversettelse alltid gir et fullstendig likeverdig uttrykk i målspråket."],
       explanation: "Riktig er at variasjonen er innrammet av noe felles. Universalitet påstår ikke at ordforrådene er like store eller identiske, og heller ikke at oversettelse er tapsfri — bare at det finnes felles strukturer som gjør oversettelse mulig i det hele tatt.",
     },
     {
@@ -1290,7 +1290,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kreves det kriterier for hva som teller som en grunnleggende fargeterm?",
-      options: ["Fordi ethvert språk ellers kunne lage uendelig mange fargeuttrykk", "Fordi noen av språkene i undersøkelsen manglet ord for farger i det hele tatt", "Fordi fargeord skifter betydning raskere enn andre ord.", "Fordi kriteriene avgjør hvilke farger folk klarer å skille."],
+      options: ["Fordi ethvert språk ellers kunne lage uendelig mange fargeuttrykk", "Fordi noen av språkene i undersøkelsen manglet fargeord", "Fordi fargeord skifter betydning raskere enn andre ord.", "Fordi kriteriene avgjør hvilke farger folk klarer å skille."],
       explanation: "Riktig er at sammenligningen ellers ville vært meningsløs: sammensetninger og lånte varenavn kan lages i det uendelige. Kriteriene krever ett morfem, ikke underkategori, brukbar om alle slags ting og allment brukt. Kriteriene sier ingenting om hva folk klarer å skille perseptuelt.",
     },
   ],
@@ -1317,7 +1317,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mangler i svaret «Streng og gitar står i et meronymiforhold»?",
-      options: ["Retningen: hvilket ord er meronym og hvilket er holonym", "Den engelske termen for relasjonen", "Et eget ordpar som illustrerer den samme relasjonen", "En henvisning til hvilket kapittel i boka relasjonen er hentet fra"],
+      options: ["Retningen: hvilket ord er meronym og hvilket er holonym", "Den engelske termen for relasjonen", "Et eget ordpar som illustrerer den samme relasjonen", "En henvisning til kapitlet i boka relasjonen står i"],
       explanation: "Riktig er retningen. Meronymi er per definisjon enveis, og uten retning er relasjonen ikke identifisert. Den engelske termen og egne eksempler er nyttige, men de er tilleggskrav som bare gjelder når oppgaven ber om dem.",
     },
     {
@@ -1342,7 +1342,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kontrollerer du en hyponymirelasjon i tillegg til formelen?",
-      options: ["Med arv: hyperonymets egenskaper skal gjelde for hyponymet", "Med komparativ: hyponymet skal tåle gradsadverb", "Med argumentbytte: de to setningene skal beskrive samme forhold", "Med negasjon: å benekte hyponymet skal gi hyperonymet"],
+      options: ["Med arv: hyperonymets egenskaper skal gjelde for hyponymet", "Med komparativ: hyponymet skal tåle gradsadverb", "Med argumentbytte: de to setningene skal beskrive samme forhold", "Med negasjon: å benekte hyponymet skal gi hyperonymet i stedet"],
       explanation: "Riktig er arvekontrollen: alt som gjelder for trær, gjelder for bjørker. Det er nettopp arven som skiller hyponymi fra meronymi, siden en sykkel kan sykles uten at et hjul kan det. De tre andre testene hører til graderbarhet, konverser og komplementaritet.",
     },
     {
@@ -1357,12 +1357,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor holder ikke «Negasjonstesten viser at de ikke er komplementære» som begrunnelse?",
-      options: ["Fordi det er en påstand om testresultatet, ikke testen kjørt.", "Fordi negasjonstesten ikke gjelder for komplementære antonymer", "Fordi testen alltid må kjøres på minst tre ordpar samtidig", "Fordi det engelske navnet på testen mangler i formuleringen"],
+      options: ["Fordi det er en påstand om testresultatet, ikke testen kjørt.", "Fordi negasjonstesten ikke gjelder for komplementære antonymer", "Fordi testen alltid må kjøres på minst tre ulike ordpar samtidig", "Fordi det engelske navnet på testen mangler i selve formuleringen"],
       explanation: "Riktig er skillet mellom å påstå og å vise. Et fullstendig svar skriver ut slutningen med ordene fra oppgaven i begge retninger. Negasjonstesten er nettopp testen for komplementaritet, og verken antall par eller engelsk term er poenget her.",
     },
     {
       question: "Ordparet *tvilling* og *søsken*: hva er det fullstendige svaret?",
-      options: ["Hyponymi, med *tvilling* som hyponym, vist med «er en type»", "Meronymi, med *tvilling* som meronym, vist med del-formelen", "Taksonomiske søstre, siden begge er slektskapsord i det samme feltet", "Komplementære antonymer, siden man er tvilling eller ikke"],
+      options: ["Hyponymi, med *tvilling* som hyponym, vist med «er en type»", "Meronymi, med *tvilling* som meronym, vist med del-formelen", "Taksonomiske søstre, siden begge er slektskapsord", "Komplementære antonymer, siden man er tvilling eller ikke"],
       explanation: "Riktig er hyponymi med retning og formel: «En tvilling er en type søsken» fungerer, ikke omvendt. En tvilling er ikke en del av et søsken, ordene ligger ikke på samme nivå i taksonomien, og de står ikke i noe motsetningsforhold.",
     },
     {
@@ -1583,12 +1583,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en presupposisjonsutløser?",
-      options: ["Ordet eller konstruksjonen som er kilden til antakelsen", "Den situasjonen i samtalen som gjør at antakelsen blir aktuell", "Den delen av setningen som faktisk blir påstått", "Det svaret som bekrefter antakelsen i en samtale"],
+      options: ["Ordet eller konstruksjonen som er kilden til antakelsen", "Den situasjonen i samtalen som gjør at antakelsen blir aktuell", "Den delen av setningen som faktisk blir påstått av taleren", "Det svaret som bekrefter antakelsen senere i den samme samtalen"],
       explanation: "Riktig er ordet eller konstruksjonen. Utløserne deles i leksikalske, som er enkeltord, og strukturelle, som er konstruksjoner. Det påståtte er nettopp det motsatte av det presupponerte, og situasjonen avgjør ikke hvilken trigger som foreligger.",
     },
     {
       question: "Hvordan skiller du en leksikalsk fra en strukturell trigger?",
-      options: ["Bytt ut ordet du mistenker, og se om antakelsen faller", "Se om setningen er lang nok til å inneholde en egen leddsetning", "Sjekk om antakelsen står før eller etter hovedverbet", "Se om setningen kan gjøres om til et ja/nei-spørsmål"],
+      options: ["Bytt ut ordet du mistenker, og se om antakelsen faller", "Se om setningen er lang nok til å inneholde en egen leddsetning", "Sjekk om antakelsen står før eller etter hovedverbet i setningen", "Se om setningen kan gjøres om til et ja/nei-spørsmål"],
       explanation: "Riktig er byttekontrollen: forsvinner antakelsen når ordet byttes, var triggeren leksikalsk. I kløyvde setninger kan alle innholdsordene byttes uten at antakelsen forsvinner, og det viser at den ligger i konstruksjonen.",
     },
     {
@@ -1598,7 +1598,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva presupponerer «Naboen begynte å pusse opp badet»?",
-      options: ["At naboen ikke pusset opp badet før", "At naboen pusset opp badet før", "At naboen pusset opp badet ferdig", "At naboen hadde et bad som trengte oppussing"],
+      options: ["At naboen ikke pusset opp badet før", "At naboen pusset opp badet før", "At naboen pusset opp badet ferdig", "At naboen hadde et bad å pusse opp"],
       explanation: "Riktig er den negative antakelsen: begynne-verb forutsetter at tilstanden ikke forelå. Å svare at oppussingen pågikk før, er svaret for «slutte å», og det er den vanligste enkeltfeilen i denne oppgavetypen. Setningen sier heller ingenting om fullføring.",
     },
     {
@@ -1648,7 +1648,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er akkommodasjon?",
-      options: ["At tilhøreren stilltiende føyer til en ukjent antakelse", "At taleren tilpasser antakelsen til akkurat det tilhøreren vet fra før", "At antakelsen oppheves fordi den viser seg å være usann", "At to talere blir enige om hva som er felles bakgrunn"],
+      options: ["At tilhøreren stilltiende føyer til en ukjent antakelse", "At taleren tilpasser antakelsen til det tilhøreren vet", "At antakelsen oppheves fordi den viser seg å være usann", "At to talere blir enige om hva som er felles bakgrunn"],
       explanation: "Riktig er den stilltiende tilføyelsen: sier noen «søsteren min», protesterer ingen. Det gjør presupposisjoner effektive til å bygge felles bakgrunn, og samtidig risikable, siden det som føyes til, aldri blir lagt fram til vurdering.",
     },
     {
@@ -1849,7 +1849,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
   'ling1100-4-1': [
     {
       question: "Hva er det predikatlogikken kan som proposisjonslogikken ikke kan?",
-      options: ["Se inni setningen og regne på hvem som har hvilke egenskaper", "Regne ut sannhetsverdien til sammensatte uttrykk med konnektiver", "Avgjøre om to setninger uttrykker den samme proposisjonen", "Skille mellom setningsnivået og ytringsnivået i en analyse"],
+      options: ["Se inni setningen og regne på hvem som har hvilke egenskaper", "Regne ut sannhetsverdien til sammensatte uttrykk med konnektiver", "Avgjøre om to setninger uttrykker den samme proposisjonen", "Skille mellom setningsnivået og ytringsnivået i en semantisk analyse"],
       explanation: "Riktig er at predikatlogikken ser inni setningen. Proposisjonslogikken har setningen som minste enhet og behandler «Alle deltakerne leverte» som én udelelig bokstav. Å regne ut sammensatte uttrykk kunne proposisjonslogikken allerede, og skillet setning mot ytring hører til Del 1.",
     },
     {
@@ -1864,7 +1864,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan ikke eksistenskvantoren parres med implikasjon?",
-      options: ["Fordi formelen da blir sann så snart det finnes noe som ikke oppfyller antesedenten", "Fordi eksistenskvantoren ikke kan stå foran en implikasjon i det hele tatt i standard notasjon", "Fordi implikasjonen krever at begge leddene er sanne på samme tid", "Fordi eksistenskvantoren bare kan binde én variabel om gangen i en formel"],
+      options: ["Fordi formelen da blir sann så snart det finnes noe som ikke oppfyller antesedenten", "Fordi eksistenskvantoren ikke kan stå foran en implikasjon", "Fordi implikasjonen krever at begge leddene er sanne på samme tid", "Fordi eksistenskvantoren bare kan binde én variabel om gangen i en formel"],
       explanation: "Riktig er at formelen blir nesten alltid sann. En implikasjon med usann antesedent er sann av tom sannhet, så ett eneste individ utenfor A-mengden gjør hele eksistenspåstanden sann. Konstruksjonen er fullt lovlig grammatisk sett — den sier bare noe annet enn den skulle.",
     },
     {
@@ -1884,12 +1884,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er $K(a,b)$ og $K(b,a)$ ulike formler?",
-      options: ["Fordi argumentrekkefølgen avgjør hvilken retning relasjonen har", "Fordi de to formlene bruker forskjellige relasjonssymboler i praksis", "Fordi den ene formelen er lukket mens den andre er åpen", "Fordi de to konstantene har ulik aritet i de to formlene"],
+      options: ["Fordi argumentrekkefølgen avgjør hvilken retning relasjonen har", "Fordi de to formlene bruker forskjellige relasjonssymboler i praksis", "Fordi den ene formelen er lukket mens den andre har en fri variabel", "Fordi de to konstantene har ulik aritet i de to formlene"],
       explanation: "Riktig er argumentrekkefølgen. Med «$x$ kjenner $y$» sier den ene at Arne kjenner Bea og den andre at Bea kjenner Arne, og de to kan ha ulik sannhetsverdi. Konstanter har ingen aritet — det er predikater som har det.",
     },
     {
       question: "Hva kreves for å oversette ordet «bare», som i «bare Nora leverte»?",
-      options: ["Et eksistensledd og et entydighetsledd med identitetstegnet", "To eksistenskvantorer etter hverandre som binder hver sin variabel i formelen", "En eksklusiv disjunksjon mellom de to mulige leddene", "En allkvantor med konjunksjon inni virkefeltet"],
+      options: ["Et eksistensledd og et entydighetsledd med identitetstegnet", "To eksistenskvantorer som binder hver sin variabel", "En eksklusiv disjunksjon mellom de to mulige leddene", "En allkvantor med konjunksjon inni virkefeltet"],
       explanation: "Riktig er eksistensledd pluss entydighetsledd. Setningen sier både at Nora leverte og at alt som leverte, er Nora, og den siste delen krever identitetstegnet. Uten det kan «bare» ikke uttrykkes i predikatlogikk.",
     },
     {
@@ -1904,7 +1904,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på «ingen A er B» og «ikke alle A er B»?",
-      options: ["Den første utelukker samtlige A-er, den andre krever bare ett unntak", "Den første krever bare ett unntak, den andre utelukker samtlige A-er", "Den første er en eksistenspåstand, den andre er en identitetspåstand", "Den første gjelder bare når det finnes A-er, den andre gjelder alltid"],
+      options: ["Den første utelukker samtlige A-er, den andre krever bare ett unntak", "Den første krever bare ett unntak, mens den andre utelukker samtlige A-er", "Den første er en eksistenspåstand, den andre er en påstand om identitet", "Den første gjelder bare når det finnes A-er, den andre gjelder alltid"],
       explanation: "Riktig er at den første utelukker alle og den andre krever ett unntak. Situasjonen med fem artikler der fire er publisert, gjør «ikke alle» sann og «ingen» usann. Begge er kvantorpåstander, og ingen av dem er en identitetspåstand.",
     },
     {
@@ -1914,7 +1914,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en atomær formel?",
-      options: ["Ett predikat med argumentplassene fylt ut, uten konnektiver", "Ett predikat med minst ett konnektiv knyttet til seg på utsiden av parentesen", "En formel som er sann i enhver modell man kan lage", "En formel der alle variablene er bundet av kvantorer"],
+      options: ["Ett predikat med argumentplassene fylt ut, uten konnektiver", "Ett predikat med minst ett konnektiv knyttet til seg", "En formel som er sann i enhver modell man kan lage", "En formel der alle variablene er bundet av kvantorer"],
       explanation: "Riktig er ett predikat med utfylte argumentplasser. Atomære formler er bunnen som konnektivene bygger større formler av, akkurat som atomære proposisjoner var det i sannhetstabellene. En formel som er sann i enhver modell, er logisk sann, som er noe annet.",
     },
     {
@@ -1946,7 +1946,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken kvantor har videst virkefelt i en formel med to kvantorer?",
-      options: ["Den som står lengst til venstre, og som dermed har den andre inni seg", "Den som står lengst til høyre, siden den regnes ut sist når formelen leses", "Allkvantoren, uansett hvor i formelen den er plassert", "Eksistenskvantoren, siden den binder den innerste variabelen"],
+      options: ["Den som står lengst til venstre, og som dermed har den andre inni seg", "Den som står lengst til høyre, siden den regnes ut sist når formelen leses", "Allkvantoren, uansett hvor i formelen den er plassert i forhold til den andre", "Eksistenskvantoren, siden den binder den innerste variabelen"],
       explanation: "Riktig er den venstre. Den ytterste kvantoren velges én gang for alle, mens den innerste velges på nytt for hvert valg den ytterste gjør. Hvilken type kvantor det er, spiller ingen rolle for leseregelen.",
     },
     {
@@ -1961,7 +1961,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør kvantorløfting?",
-      options: ["Flytter et kvantoruttrykk opp foran setningen i logisk form og etterlater et spor", "Bytter om rekkefølgen på ordene i den setningen vi faktisk hører og skriver ned på papiret", "Erstatter en kvantor med den andre og snur konnektivet inni parentesen", "Slår sammen to kvantorer til én som binder begge variablene"],
+      options: ["Flytter et kvantoruttrykk opp foran setningen i logisk form og etterlater et spor", "Bytter om rekkefølgen på ordene i setningen vi faktisk hører", "Erstatter en kvantor med den andre og snur konnektivet inni parentesen", "Slår sammen to kvantorer til én som binder begge variablene"],
       explanation: "Riktig er at et kvantoruttrykk flyttes opp i logisk form. Overflateformen er uendret — vi hører ingen omstokking. Å bytte kvantor og konnektiv er kvantornegasjonslovene, som er et annet fenomen.",
     },
     {
@@ -1981,7 +1981,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er logisk form i denne sammenhengen?",
-      options: ["Et representasjonsnivå der virkefeltene er entydig fastlagt", "Den formen setningen har når den uttales eller skrives ned", "Den formelen som er felles for begge lesningene av setningen", "Et regelsett som avgjør hvilken lesning som er den riktige"],
+      options: ["Et representasjonsnivå der virkefeltene er entydig fastlagt", "Den formen setningen har når den uttales eller skrives ned på papiret", "Den formelen som er felles for begge lesningene av setningen", "Et regelsett som avgjør hvilken av de to lesningene som er den riktige"],
       explanation: "Riktig er et representasjonsnivå der virkefeltene er entydige. En flertydig setning har derfor én overflateform og to logiske former. Ingen av lesningene er «den riktige» — begge er lesninger av setningen.",
     },
     {
@@ -2006,7 +2006,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med den foretrukne lesningen av en scope-flertydig setning?",
-      options: ["Den lesningen som melder seg først uten videre sammenheng", "Den lesningen som er logisk sterkest av de to mulige", "Den lesningen som følger av formelen med færrest parenteser", "Den lesningen som gjør setningen sann i flest situasjoner"],
+      options: ["Den lesningen som melder seg først uten videre sammenheng", "Den lesningen som er logisk sterkest av de to mulige lesningene", "Den lesningen som følger av formelen med færrest parenteser", "Den lesningen som gjør setningen sann i flest situasjoner"],
       explanation: "Riktig er den som melder seg først. Det er et pragmatisk forhold, ikke et semantisk: setningen har fortsatt begge lesningene, og sammenhengen kan gjøre den mindre tilgjengelige til den opplagte. Den foretrukne er dessuten som regel den svakeste, ikke den sterkeste.",
     },
   ],
@@ -2023,7 +2023,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan tolkes et ettplasspredikat i en modell?",
-      options: ["Som en mengde av individer, nemlig de predikatet er sant om", "Som en mengde av ordnede par av individer hentet fra domenet", "Som ett bestemt individ som predikatet peker ut", "Som en sannhetsverdi som gjelder hele domenet under ett"],
+      options: ["Som en mengde av individer, nemlig de predikatet er sant om", "Som en mengde av ordnede par av individer hentet fra domenet", "Som ett bestemt individ i domenet som predikatet peker ut i modellen", "Som en sannhetsverdi som gjelder hele domenet under ett"],
       explanation: "Riktig er som en mengde individer. Ekstensjonen er de tingene predikatet er sant om, og det som ikke står der, er usant. Mengder av ordnede par er tolkningen av toplasspredikater, altså relasjoner.",
     },
     {
@@ -2058,7 +2058,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en motmodell?",
-      options: ["En modell der formelen får motsatt sannhetsverdi av den den hadde", "En modell der alle formlene i oppgaven blir usanne samtidig", "En modell med et større domene enn den opprinnelige hadde", "En modell der tolkningsfunksjonen ikke er definert for alle symboler"],
+      options: ["En modell der formelen får motsatt sannhetsverdi av den den hadde", "En modell der alle formlene i oppgaven blir usanne samtidig", "En modell med et større domene enn det den opprinnelige modellen hadde", "En modell der tolkningsfunksjonen ikke er definert for alle symboler"],
       explanation: "Riktig er motsatt sannhetsverdi. Framgangsmåten er å endre nøyaktig det oppslaget som avgjorde svaret, ikke å bygge en ny modell fra grunnen. En modell uten fullstendig tolkningsfunksjon er ikke en modell i det hele tatt.",
     },
     {
@@ -2073,7 +2073,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes ikke symbolet for entailment om sannhet i én modell?",
-      options: ["Fordi entailment er en påstand om alle modeller, ikke om én", "Fordi entailment bare gjelder mellom formler uten kvantorer", "Fordi symbolet allerede er brukt om material implikasjon i boka", "Fordi sannhet i én modell ikke kan uttrykkes med noe symbol"],
+      options: ["Fordi entailment er en påstand om alle modeller, ikke om én", "Fordi entailment bare gjelder mellom formler som er uten kvantorer", "Fordi symbolet allerede er brukt om material implikasjon i boka", "Fordi sannhet i én modell ikke kan uttrykkes med noe eget symbol"],
       explanation: "Riktig er at entailment gjelder alle modeller. Sannhet i én modell er en påstand om nettopp én situasjon, og å bruke samme symbol ville visket ut det skillet Del 3 handlet om. Material implikasjon har sitt eget symbol, pilen.",
     },
     {
@@ -2098,7 +2098,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør et svar på en modelloppgave inneholde ut over sannhetsverdien?",
-      options: ["Oppslaget for hvert atom og hvilket individ som avgjorde svaret", "En oversettelse av formelen tilbake til naturlig norsk språk som kontroll", "En sannhetstabell for alle kombinasjoner av sannhetsverdier", "En begrunnelse for hvorfor akkurat denne modellen ble valgt"],
+      options: ["Oppslaget for hvert atom og hvilket individ som avgjorde svaret", "En oversettelse av formelen tilbake til norsk som kontroll", "En sannhetstabell for alle kombinasjoner av sannhetsverdier", "En begrunnelse for hvorfor akkurat denne modellen ble valgt"],
       explanation: "Riktig er oppslaget og det avgjørende individet. En riktig verdi uten framgangsmåte er et gjettet svar, og føringen er halve poenget. Sannhetstabeller trengs ikke, siden atomene har faste verdier i en gitt modell.",
     },
   ],
@@ -2120,7 +2120,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er første trinn i evalueringsalgoritmen?",
-      options: ["Å skrive modellen ned, også når oppgaven allerede oppgir den", "Å finne hovedkonnektivet i den formelen som skal evalueres", "Å prøve hvert individ i domenet mot den formelen som står inni kvantoren", "Å oversette formelen tilbake til norsk som en kontroll"],
+      options: ["Å skrive modellen ned, også når oppgaven allerede oppgir den", "Å finne hovedkonnektivet i den formelen som skal evalueres", "Å prøve hvert individ i domenet mot formelen inni kvantoren", "Å oversette formelen tilbake til norsk som en kontroll"],
       explanation: "Riktig er å skrive modellen ned. Uten den kan svaret ditt ikke kontrolleres, og det er samme krav som variabelforklaringen i en sannhetstabell. Hovedkonnektivet finnes i neste trinn.",
     },
     {
@@ -2135,7 +2135,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier en formel som består av en negasjon utenpå en eksistenspåstand?",
-      options: ["At ingenting i domenet oppfyller formelen inni kvantoren", "At minst én ting i domenet ikke oppfyller formelen inni", "At nøyaktig én ting i domenet oppfyller formelen inni", "At formelen inni er usann for det første individet i domenet"],
+      options: ["At ingenting i domenet oppfyller formelen inni kvantoren", "At minst én ting i domenet ikke oppfyller formelen inni kvantoren", "At nøyaktig én ting i domenet oppfyller formelen inni kvantoren", "At formelen inni er usann for det første individet i domenet"],
       explanation: "Riktig er at ingenting oppfyller den. Ved kvantornegasjonsloven er dette det samme som at alt ikke oppfyller den. At minst én ting ikke gjør det, er derimot en negert allpåstand.",
     },
     {
@@ -2145,12 +2145,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må stå i en oversettelsesnøkkel for et toplasspredikat?",
-      options: ["Hvilken argumentplass som er hvilken, skrevet ut i ord", "Hvilke individer i domenet relasjonen faktisk er sann om", "Hvor mange par ekstensjonen inneholder til sammen", "Hvilket konnektiv predikatet skal parres med"],
+      options: ["Hvilken argumentplass som er hvilken, skrevet ut i ord", "Hvilke individer i domenet relasjonen faktisk er sann om", "Hvor mange ordnede par ekstensjonen inneholder til sammen", "Hvilket konnektiv predikatet skal parres med"],
       explanation: "Riktig er hvilken plass som er hvilken. «$K$ = kjenner» sier ikke hvem som kjenner hvem, og uten det kan formelen ikke tolkes. Ekstensjonen hører til modellen, ikke til nøkkelen.",
     },
     {
       question: "Hvor lang tid bør du regne med på en F2-oppgave på eksamen?",
-      options: ["Omtrent tjue minutters skrivetid, som er én av ti besvarelser", "Omtrent førti minutters skrivetid, siden formlene tar tid å sette opp", "Omtrent ti minutters skrivetid, siden svaret er kort", "Omtrent en time, siden hele settet består av fire oppgaver"],
+      options: ["Omtrent tjue minutters skrivetid, som er én av ti besvarelser", "Omtrent førti minutters skrivetid, siden formlene tar tid å sette opp", "Omtrent ti minutters skrivetid, siden selve svaret er kort å skrive", "Omtrent en time, siden hele settet består av fire oppgaver"],
       explanation: "Riktig er omtrent tjue minutter. Det nyeste settformatet har ti besvarelser fordelt på fire timer, og differansen går til å lese settet, velge oppgaver og lese gjennom til slutt. F2-oppgaver er blant de raskeste når de er øvd inn.",
     },
     {
@@ -2160,12 +2160,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med en formel som mangler parentes rundt kvantorens virkefelt?",
-      options: ["Deler av formelen faller utenfor, og en variabel blir stående fri", "Kvantoren mister evnen til å binde noen variabel i formelen i det hele tatt", "Formelen blir automatisk usann i alle modeller den prøves mot", "Konnektivet inni bytter plass med kvantoren når formelen leses"],
+      options: ["Deler av formelen faller utenfor, og en variabel blir stående fri", "Kvantoren mister evnen til å binde noen variabel", "Formelen blir automatisk usann i alle modeller den prøves mot", "Konnektivet inni bytter plass med kvantoren når formelen leses"],
       explanation: "Riktig er at en variabel blir fri. Formelen blir da åpen og har ingen sannhetsverdi, og den kan derfor ikke være oversettelsen av en fullstendig setning. Kvantoren binder fortsatt det som står innenfor rekkevidden sin.",
     },
     {
       question: "Hva er trinnvis oppbygging i en modelloppgave?",
-      options: ["Å regne ut de minste delene først og sette dem sammen utover", "Å regne ut hele formelen i ett trinn og kontrollere til slutt", "Å prøve individene i domenet i alfabetisk rekkefølge", "Å skrive formelen om til en enklere ekvivalent form først"],
+      options: ["Å regne ut de minste delene først og sette dem sammen utover", "Å regne ut hele formelen i ett trinn og kontrollere til slutt", "Å prøve individene i domenet i alfabetisk rekkefølge etter navn", "Å skrive formelen om til en enklere, men ekvivalent form først"],
       explanation: "Riktig er å regne innenfra og ut. Mellomtrinnene skal stå i svaret, akkurat som mellomkolonnene i en sannhetstabell — de er dokumentasjon, ikke rot. Rekkefølgen på individene spiller ingen rolle.",
     },
     {
@@ -2180,7 +2180,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et svar som bare oppgir sannhetsverdien i en modelloppgave?",
-      options: ["Det mangler framgangsmåten, som er halve poenget med oppgavetypen", "Det er fullstendig, siden sannhetsverdien er det eneste som kan kontrolleres", "Det er riktig så lenge modellen er skrevet av i besvarelsen", "Det mangler bare den avsluttende parafrasen tilbake til norsk"],
+      options: ["Det mangler framgangsmåten, som er halve poenget med oppgavetypen", "Det er fullstendig, siden sannhetsverdien er det eneste som kan kontrolleres", "Det er riktig så lenge modellen er skrevet av i besvarelsen", "Det mangler bare den avsluttende parafrasen av formelen tilbake til norsk"],
       explanation: "Riktig er at framgangsmåten mangler. En riktig verdi uten oppslag er ikke skilt fra et gjettet svar. Parafrasen hører til oversettelsesoppgaver, ikke til evalueringer.",
     },
   ],
@@ -2217,7 +2217,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser «slutte å»-testen ved en atelisk situasjon?",
-      options: ["At situasjonen fortsatt gjelder for den delen som ble utført", "At situasjonen ikke fant sted i det hele tatt hvis den ble avbrutt", "At situasjonen bare kan avbrytes ved et naturlig endepunkt", "At situasjonen må gjentas for å regnes som fullført"],
+      options: ["At situasjonen fortsatt gjelder for den delen som ble utført", "At situasjonen ikke fant sted i det hele tatt hvis den ble avbrutt", "At situasjonen bare kan avbrytes når den når et naturlig endepunkt", "At situasjonen må gjentas for å regnes som fullført"],
       explanation: "Riktig er at situasjonen er oppfylt underveis. Har noen løpt i ti minutter og stopper, har de løpt. Ved teliske situasjoner er det motsatt: avbrytes skrivingen, er rapporten ikke skrevet.",
     },
     {
@@ -2227,32 +2227,32 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er kombinasjonen statisk og telisk umulig?",
-      options: ["Fordi en tilstand ikke har noen indre utvikling som kan fullføres", "Fordi statiske situasjoner alltid er punktuelle og ikke varer", "Fordi teliske situasjoner alltid krever en handlende deltaker", "Fordi statiske situasjoner ikke kan kombineres med tidsadverbialer"],
+      options: ["Fordi en tilstand ikke har noen indre utvikling som kan fullføres", "Fordi statiske situasjoner alltid er punktuelle og aldri strekker seg over tid", "Fordi teliske situasjoner alltid krever en deltaker som handler bevisst", "Fordi statiske situasjoner ikke kan kombineres med tidsadverbialer"],
       explanation: "Riktig er at en tilstand mangler indre utvikling. Sluttpunktet til en tilstand er derfor alltid vilkårlig og aldri innebygd. Statiske situasjoner er tvert imot alltid durative og tåler tidsrom-adverbialer godt.",
     },
     {
       question: "Hva kjennetegner en punktuell situasjon?",
-      options: ["Den er momentan og har ikke noe tidspunkt der den er halvveis", "Den varer kort, men har likevel en indre utstrekning", "Den kan bare beskrives med verb som står i presens eller i preteritum", "Den mangler alltid et naturlig endepunkt i beskrivelsen"],
+      options: ["Den er momentan og har ikke noe tidspunkt der den er halvveis", "Den varer kort, men har likevel en indre utstrekning", "Den kan bare beskrives med verb som står i presens eller i preteritum", "Den mangler alltid et naturlig endepunkt i den beskrevne situasjonen"],
       explanation: "Riktig er at den er momentan uten indre utstrekning. Det finnes ikke et tidspunkt der en ballong er halvveis sprukket. Punktuelle situasjoner kan godt være teliske — en ankomst er det.",
     },
     {
       question: "Hva skjer med «holde på med»-testen ved en punktuell situasjon?",
-      options: ["Den gir enten en forberedelseslesning eller en gjentakelseslesning", "Den gir en lesning der selve situasjonen pågår helt som den ville gjort ellers", "Den blir ugrammatisk og kan ikke brukes i det hele tatt", "Den gir samme resultat som ved en durativ situasjon"],
+      options: ["Den gir enten en forberedelseslesning eller en gjentakelseslesning", "Den gir en lesning der selve situasjonen pågår helt som den ville gjort ellers", "Den blir ugrammatisk og kan ikke brukes om en slik situasjon i det hele tatt", "Den gir samme resultat som ved en durativ situasjon"],
       explanation: "Riktig er forberedelse eller gjentakelse. «Toget holdt på med å ankomme» beskriver tiden før ankomsten, ikke en pågående ankomst — og at omtolkningen kreves, er selve utslaget. Setningen er altså ikke ugrammatisk.",
     },
     {
       question: "Hvordan påvirker objektet telisiteten?",
-      options: ["Et avgrenset objekt gir naturlig endepunkt, et mengdeobjekt gir det ikke", "Et avgrenset objekt gir atelisitet, mens et ubestemt mengdeobjekt gir telisitet", "Objektet påvirker bare varigheten, aldri telisiteten i setningen", "Objektet påvirker telisiteten bare når verbet står i fortidsform"],
+      options: ["Et avgrenset objekt gir naturlig endepunkt, et mengdeobjekt gir det ikke", "Et avgrenset objekt gir atelisitet, mens et ubestemt mengdeobjekt gir telisitet", "Objektet påvirker bare varigheten av situasjonen, aldri telisiteten i setningen", "Objektet påvirker telisiteten bare når verbet står i fortidsform"],
       explanation: "Riktig er at et avgrenset objekt gir endepunkt. «Skrive en rapport» er telisk, «skrive rapporter» er ikke. Merk likevel at et bestemt objekt ikke alltid holder — «diskutere oppgaven» er atelisk.",
     },
     {
       question: "Hva bør et svar på en klassifiseringsoppgave inneholde ut over trekkene?",
-      options: ["Testene skrevet ut som faktiske setninger, med markør der de ikke går", "En begrunnelse for hvorfor akkurat disse setningene ble valgt ut til oppgaven", "En oversikt over hvilke verb som normalt hører til hver klasse", "En vurdering av hvor sannsynlig det er at situasjonen fant sted"],
+      options: ["Testene skrevet ut som faktiske setninger, med markør der de ikke går", "En begrunnelse for hvorfor akkurat disse setningene ble valgt ut til oppgaven", "En oversikt over hvilke verb som normalt hører til hver klasse", "En vurdering av hvor sannsynlig det er at situasjonen fant sted i virkeligheten"],
       explanation: "Riktig er testene skrevet ut. «Jeg brukte progressivtesten» forteller ikke hva resultatet ble, og et trekk uten test er en påstand. Hva som faktisk skjedde, er ikke et semantisk spørsmål.",
     },
     {
       question: "Hva gjør du når testene spriker på en setning?",
-      options: ["Sier hvilke lesninger setningen har og klassifiserer hver for seg", "Velger den klassen som magefølelsen tilsier, og går videre til neste setning", "Skriver at det ikke er mulig å avgjøre klassen for setningen", "Bruker bare den testen som gir det mest ventede resultatet"],
+      options: ["Sier hvilke lesninger setningen har og klassifiserer hver for seg", "Velger den klassen magefølelsen tilsier, og går videre", "Skriver at det ikke er mulig å avgjøre klassen for setningen", "Bruker bare den testen som gir det mest ventede resultatet"],
       explanation: "Riktig er å klassifisere hver lesning for seg. Sprikende tester skyldes nesten alltid at setningen har mer enn én lesning. Å skrive «det kommer an på» uten å si hva det kommer an på, er slark.",
     },
     {
@@ -2262,7 +2262,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan uttrykkes pågående handling på norsk, siden språket mangler progressiv form?",
-      options: ["Med omskrivninger som «holde på med å» og «være i ferd med å»", "Med presens partisipp av hovedverbet i stedet for med infinitiv", "Med et eget hjelpeverb som bare brukes i denne funksjonen", "Med tidsadverbialer som «akkurat nå» foran hovedverbet"],
+      options: ["Med omskrivninger som «holde på med å» og «være i ferd med å»", "Med presens partisipp av hovedverbet i stedet for med infinitiv", "Med et eget hjelpeverb som bare brukes til å uttrykke pågående handling", "Med tidsadverbialer som «akkurat nå» plassert foran hovedverbet"],
       explanation: "Riktig er omskrivningene. Engelsk har en egen bøyningsform, norsk bruker uttrykk som «holde på med å», og det er den formen boka bruker i testene. Testen måler det samme på begge språk.",
     },
     {
@@ -2289,7 +2289,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en accomplishment fra en achievement?",
-      options: ["Durativiteten — den ene tar tid, den andre er momentan", "Telisiteten — den ene har endepunkt, den andre ikke", "Dynamikken — den ene er en handling, den andre en tilstand", "Objektet — den ene har objekt, den andre har det ikke"],
+      options: ["Durativiteten — den ene tar tid, den andre er momentan", "Telisiteten — den ene har et endepunkt, den andre har det ikke", "Dynamikken — den ene er en handling, den andre en tilstand", "Objektet — den ene klassen har objekt, den andre har det ikke"],
       explanation: "Riktig er durativiteten. Begge klasser er dynamiske og teliske, og det eneste som skiller dem, er om situasjonen har utstrekning i tid. Et objekt kan begge ha, og ingen av dem er statiske.",
     },
     {
@@ -2334,7 +2334,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner perfektivt aspekt?",
-      options: ["Situasjonen presenteres som en avsluttet helhet, sett utenfra", "Situasjonen presenteres som pågående, sett innenfra og uten slutten", "Situasjonen plasseres før ytringsøyeblikket i tid", "Situasjonen presenteres som gjentatt over et tidsrom"],
+      options: ["Situasjonen presenteres som en avsluttet helhet, sett utenfra", "Situasjonen presenteres som pågående, sett innenfra og uten slutten", "Situasjonen plasseres før ytringsøyeblikket i tid", "Situasjonen presenteres som gjentatt flere ganger over et tidsrom"],
       explanation: "Riktig er avsluttet helhet sett utenfra. Ved teliske situasjoner innebærer det som regel at endepunktet ble nådd. Plassering i tid er tempus, ikke aspekt.",
     },
     {
@@ -2396,7 +2396,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier verbfrase-kontrollen at du skal gjøre?",
-      options: ["Spørre om objektet eller adverbialet er med på å avgjøre trekket", "Kontrollere at verbet er bøyd riktig i den tidsformen setningen krever", "Sjekke at verbfrasen inneholder minst ett adverbial", "Telle hvor mange argumenter verbet krever i setningen"],
+      options: ["Spørre om objektet eller adverbialet er med på å avgjøre trekket", "Kontrollere at verbet er bøyd riktig i den tidsformen setningen krever", "Sjekke at verbfrasen inneholder minst ett adverbial", "Telle hvor mange argumenter verbet krever for å danne en full setning"],
       explanation: "Riktig er å spørre om objektet eller adverbialet avgjør. Prøv å bytte objektet og kjør «på X tid»-testen på nytt — endrer resultatet seg, har du funnet noe verdt å nevne. Antall argumenter hører til predikatlogikken.",
     },
     {
@@ -2416,7 +2416,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det avgjørende ved «holde på med»-testen på grensen accomplishment mot achievement?",
-      options: ["Ikke om setningen går, men hvilken lesning den kommer til å ha", "Ikke hvilken lesning den får, men om setningen i det hele tatt går", "Om verbet kan stå i presens partisipp på engelsk", "Om setningen tåler et tidsrom-adverbial i tillegg"],
+      options: ["Ikke om setningen går, men hvilken lesning den kommer til å ha", "Ikke hvilken lesning den får, men om setningen i det hele tatt går", "Om verbet kan stå i presens partisipp på engelsk", "Om setningen tåler et tidsrom-adverbial som «i en time» i tillegg"],
       explanation: "Riktig er hvilken lesning setningen får. Ved en accomplishment pågår selve situasjonen; ved en achievement får du bare en forberedelseslesning, altså tiden fram mot overgangen. Begge setningene er som regel grammatiske.",
     },
     {
@@ -2426,12 +2426,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er galt med å analysere tempus med bare to punkter?",
-      options: ["Da kan ikke preteritum skilles fra presens perfektum", "Da kan ikke presens skilles fra framtidig tolkning", "Da blir hendelsestiden umulig å plassere i forhold til nå", "Da faller aspektet sammen med tempus i analysen"],
+      options: ["Da kan ikke preteritum skilles fra presens perfektum", "Da kan ikke presens skilles fra en framtidig tolkning av setningen", "Da blir hendelsestiden umulig å plassere i forhold til nå", "Da faller aspektet sammen med tempus i selve analysen av setningen"],
       explanation: "Riktig er at de to fortidsformene ikke kan skilles. Begge har hendelsen før ytringstiden, og det er referansetiden som gjør forskjellen. Det er nettopp derfor modellen har tre punkter og ikke to.",
     },
     {
       question: "Hva bør du gjøre med dine egne eksempelsetninger før du skriver dem inn?",
-      options: ["Kjøre testene på dem, slik at de faktisk tåler klassifiseringen", "Kontrollere at de ikke ligner for mye på setningene i selve oppgaveteksten", "Sette dem i samme tidsform som setningene i oppgaven", "Skrive dem på både norsk og engelsk for sikkerhets skyld"],
+      options: ["Kjøre testene på dem, slik at de faktisk tåler klassifiseringen", "Kontrollere at de ikke ligner for mye på setningene i selve oppgaveteksten", "Sette dem i den samme tidsformen som setningene i selve oppgaveteksten", "Skrive dem på både norsk og engelsk for sikkerhets skyld"],
       explanation: "Riktig er å kjøre testene. Et eget eksempel som ikke tåler testene, er verre enn ingen — det viser at apparatet ikke sitter. Tidsform og språk er derimot fritt, med mindre oppgaven sier noe annet.",
     },
     {
@@ -2446,7 +2446,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med klassen når «Klokka tikket» får tidsrom-adverbialet «i en time»?",
-      options: ["Den blir en aktivitet, siden en iterativ lesning framtvinges", "Den blir en accomplishment, siden adverbialet gir et endepunkt", "Den blir en tilstand, siden situasjonen nå varer over tid", "Den forblir en semelfaktiv, siden hvert tikk er momentant"],
+      options: ["Den blir en aktivitet, siden en iterativ lesning framtvinges", "Den blir en accomplishment, siden adverbialet gir et endepunkt", "Den blir en tilstand, siden situasjonen nå strekker seg over et tidsrom", "Den forblir en semelfaktiv, siden hvert enkelt tikk er momentant i seg selv"],
       explanation: "Riktig er aktivitet ved iterativ lesning. Adverbialet krever varighet, og ett tikk har ikke det, så setningen tolkes om til en serie. Serien har fortsatt ikke noe naturlig endepunkt.",
     },
     {
@@ -2463,7 +2463,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
   'ling1100-6-1': [
     {
       question: "Hva er en tematisk rolle?",
-      options: ["Deltakerens funksjon i situasjonen setningen beskriver", "Den grammatiske plassen leddet har i setningsstrukturen", "Ordklassen leddet i setningen tilhører", "Leddets plassering i den norske ordstillingen"],
+      options: ["Deltakerens funksjon i situasjonen setningen beskriver", "Den grammatiske plassen leddet har i setningsstrukturen", "Ordklassen leddet i setningen tilhører, som verb eller substantiv", "Leddets plassering i den norske ordstillingen"],
       explanation: "Riktig er at rollen sier hva deltakeren er i hendelsen. Svaret om grammatisk plass beskriver syntaktisk funksjon, som er et annet system — og å blande de to er sjangerens vanligste feil.",
     },
     {
@@ -2473,12 +2473,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle har «hovednøkkelen» i «Hovednøkkelen åpnet døra»?",
-      options: ["Instrument, siden den er middelet handlingen utføres med", "Agens, siden den står som subjekt i setningen vi analyserer", "Patiens, siden det skjer noe i forbindelse med den", "Mål, siden døra er endepunktet for handlingen"],
+      options: ["Instrument, siden den er middelet handlingen utføres med", "Agens, siden den står som subjekt i setningen vi analyserer", "Patiens, siden det skjer noe med den i løpet av handlingen", "Mål, siden døra er endepunktet for handlingen"],
       explanation: "Riktig er instrument: setningen kan skrives om til «noen åpnet døra med hovednøkkelen». Agens er utelukket fordi en nøkkel ikke kan ville noe, og å begrunne med subjektsplassen er å bruke formen som belegg for betydningen.",
     },
     {
       question: "Hva skiller tema fra patiens?",
-      options: ["Tema flyttes eller lokaliseres uten å endres, patiens endres", "Tema er en levende deltaker, mens patiens alltid er en gjenstand", "Tema er alltid subjekt, mens patiens alltid er objekt", "Tema er alltid argument, mens patiens alltid er adjunkt"],
+      options: ["Tema flyttes eller lokaliseres uten å endres, patiens endres", "Tema er en levende deltaker, mens patiens alltid er en gjenstand", "Tema er alltid subjekt, mens patiens alltid er objekt", "Tema er alltid et argument, mens patiens alltid står som adjunkt"],
       explanation: "Riktig er at patiens blir annerledes, mens tema bare blir et annet sted eller blir omtalt. Både mennesker og gjenstander kan være begge deler, og begge roller kan stå på begge syntaktiske plasser.",
     },
     {
@@ -2498,7 +2498,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser det at «Nora spiste» er en fullstendig setning?",
-      options: ["Ingenting om argumentstatusen til objektet i «Nora spiste maten»", "At objektet i setningen «Nora spiste maten» må være et adjunkt her", "At verbet «spise» bare har ett argument i theta-gridet", "At obligatorishetstesten aldri gir et brukbart resultat"],
+      options: ["Ingenting om argumentstatusen til objektet i «Nora spiste maten»", "At objektet i setningen «Nora spiste maten» må være et adjunkt her", "At verbet «spise» bare har ett argument i theta-gridet", "At obligatorishetstesten aldri gir et brukbart resultat i analysen"],
       explanation: "Riktig er at obligatorishetstesten bare slutter én vei: at et ledd kan strykes, beviser ingenting. Mange argumenter kan strykes likevel, og testen er fortsatt nyttig — den er bare ikke gyldig i den andre retningen.",
     },
     {
@@ -2580,7 +2580,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en proto-rolle hos Dowty?",
-      options: ["Et knippe egenskaper et argument kan ha noen av", "En kategori som et argument enten tilhører eller ikke", "En rolle som gjelder bare for levende deltakere", "En rolle som bare finnes i passive setninger"],
+      options: ["Et knippe egenskaper et argument kan ha noen av", "En kategori som et argument enten tilhører eller ikke", "En rolle som gjelder bare for levende deltakere i hendelsen", "En rolle som bare finnes i passive setninger i norsk"],
       explanation: "Riktig er knippet: tilhørigheten er gradert, og et argument har et antall egenskaper. Å behandle proto-rollene som kategorier er nettopp den framstillingen Dowtys forslag skal erstatte.",
     },
     {
@@ -2625,7 +2625,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor holder Dowty «uavhengig eksistens» i parentes?",
-      options: ["Fordi han selv er usikker på om den hører til knippet", "Fordi den bare gjelder for setninger med tre argumenter", "Fordi den er den viktigste av de fem egenskapene", "Fordi den bare kan telles i passive setninger"],
+      options: ["Fordi han selv er usikker på om den hører til knippet", "Fordi den bare gjelder for setninger med tre argumenter", "Fordi den er den viktigste av de fem egenskapene i knippet", "Fordi den bare kan telles i passive setninger"],
       explanation: "Riktig er at Dowty markerer den som usikker, blant annet fordi den ikke handler om hva deltakeren gjør. Å nevne forbeholdet er et pluss-punkt; å bygge opptellingen på egenskapen er det ikke.",
     },
     {
@@ -2667,7 +2667,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
   'ling1100-6-3': [
     {
       question: "Hvilket trinn kommer først i tilordningsalgoritmen?",
-      options: ["Å se på verbet og avgjøre hva slags situasjon det beskriver", "Å oppgi rollen til det leddet som står som subjekt", "Å avgjøre om hvert av leddene i setningen er argument eller adjunkt", "Å telle antall ledd som oppgaven peker ut i setningen"],
+      options: ["Å se på verbet og avgjøre hva slags situasjon det beskriver", "Å oppgi rollen til det leddet som står som subjekt i setningen", "Å avgjøre om hvert av leddene i setningen er argument eller adjunkt", "Å telle antall ledd som oppgaven peker ut i setningen"],
       explanation: "Riktig er verbet: situasjonstypen bestemmer hvilke roller som overhodet er aktuelle. Å begynne med subjektet er nettopp fella — da lar man formen styre tilordningen.",
     },
     {
@@ -2687,7 +2687,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det tredje trinnet i opptellingsformen for proto-roller?",
-      options: ["Å si eksplisitt hvilke egenskaper du ikke teller, og hvorfor", "Å oppgi hvilken tematisk rolle leddet har på katalogen", "Å avgjøre om leddet er argument eller adjunkt i setningen", "Å oppgi antallet egenskaper uten å begrunne noen av dem nærmere"],
+      options: ["Å si eksplisitt hvilke egenskaper du ikke teller, og hvorfor", "Å oppgi hvilken tematisk rolle leddet har på katalogen", "Å avgjøre om leddet er et argument eller et adjunkt i setningen", "Å oppgi antallet egenskaper uten å begrunne noen av dem nærmere"],
       explanation: "Riktig er de ikke-talte egenskapene: det er dette som skiller en opptelling fra en avkryssing. Et svar som haker av alle åtte fordi setningen «føles» typisk, har brukt Dowtys navn på magefølelse.",
     },
     {
@@ -2697,7 +2697,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er svaret når «velte» er tvetydig mellom en villet handling og et uhell?",
-      options: ["Å oppgi begge lesningene og si hvilken man bygger på", "Å velge den villede lesningen, som er den vanligste", "Å svare at rollen avhenger av konteksten i setningen", "Å velge uhellslesningen, som er den svakeste påstanden"],
+      options: ["Å oppgi begge lesningene og si hvilken man bygger på", "Å velge den villede lesningen, siden den er den vanligste av de to", "Å svare at rollen avhenger av konteksten setningen står i", "Å velge uhellslesningen, som er den svakeste påstanden"],
       explanation: "Riktig er å skrive begge lesningene ut. «Det kommer an på konteksten» uten fortsettelse er slark: det oppgir verken hvilke lesninger som finnes eller hvilken rolle leddet har i noen av dem.",
     },
     {
@@ -2769,12 +2769,12 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er produktivitet i denne sammenhengen?",
-      options: ["At språkbrukere lager og forstår setninger de aldri har møtt", "At språkbrukere kan bøye ord de aldri har møtt tidligere", "At språk stadig tar opp nye ord fra andre språksamfunn", "At ett og samme ord kan brukes i mange helt ulike sammenhenger"],
+      options: ["At språkbrukere lager og forstår setninger de aldri har møtt", "At språkbrukere kan bøye ord de aldri har møtt tidligere", "At språk stadig tar opp nye ord fra andre språksamfunn gjennom lån", "At ett og samme ord kan brukes i mange helt ulike sammenhenger"],
       explanation: "Riktig er evnen til å håndtere nye setninger. Det er hovedargumentet for kompositsjonalitet: var betydningene lagret ferdig, måtte et endelig hode romme uendelig mange oppslag.",
     },
     {
       question: "Hva er systematisitet?",
-      options: ["At den som forstår én setning, forstår andre med samme deler", "At språk er bygget etter regler som lar seg skrive ned presist", "At betydningen til et ord er den samme i alle setninger", "At alle språk følger de samme grunnleggende reglene"],
+      options: ["At den som forstår én setning, forstår andre med samme deler", "At språk er bygget etter regler som lar seg skrive ned presist", "At betydningen til et ord er den samme i alle setninger det står i", "At alle språk følger de samme grunnleggende reglene"],
       explanation: "Riktig er at evnen kommer i mønstre: den som forstår «Hunden bet postbudet», forstår automatisk den omvendte setningen. Det er et selvstendig argument ved siden av produktiviteten.",
     },
     {
@@ -2824,7 +2824,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på kompositsjonalitet og gjennomsiktighet?",
-      options: ["Om helheten er regnet ut, eller om koblingen er lett å se", "Om uttrykket er fast, eller om det kan varieres fritt", "Om uttrykket er kort, eller om det er langt og omstendelig", "Om uttrykket er vanlig, eller om det er sjeldent i bruk"],
+      options: ["Om helheten er regnet ut, eller om koblingen er lett å se", "Om uttrykket ligger fast, eller om det kan varieres fritt i bruk", "Om uttrykket er kort, eller om det er langt og omstendelig", "Om uttrykket er vanlig, eller om det er sjeldent i vanlig språkbruk"],
       explanation: "Riktig er skillet mellom utregning og synlighet. Et uttrykk kan være gjennomsiktig uten å være kompositsjonelt: bildet gir mening i ettertid, men du kunne ikke regnet det ut på forhånd.",
     },
   ],
@@ -2836,7 +2836,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva beskriver det tematiske planet i to-plan-analysen?",
-      options: ["Bevegelse og plassering: hva som flytter seg, og hvor", "Hvem som handler, og hvem som blir berørt av handlingen", "Rekkefølgen delene kombineres i under oppbyggingen", "Hvilke ord i setningen som er argumenter og adjunkter"],
+      options: ["Bevegelse og plassering: hva som flytter seg, og hvor", "Hvem som handler, og hvem som blir berørt av handlingen", "Rekkefølgen delene kombineres i under oppbyggingen av setningen", "Hvilke ord i setningen som er argumenter, og hvilke som er adjunkter"],
       explanation: "Riktig er bevegelse og plassering, med rollene tema, kilde, mål og sted. Hvem som handler og hvem som berøres, hører til handlingsplanet — og det er nettopp derfor de to planene trengs.",
     },
     {
@@ -2846,7 +2846,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rotkategori gir hovedfunksjonen BE?",
-      options: ["State, siden en plassering ikke er noe som skjer", "Event, siden alle konseptuelle trær har hendelser", "Place, siden funksjonen tar et sted som argument", "Thing, siden funksjonen gjelder en gjenstand"],
+      options: ["State, siden en plassering ikke er noe som skjer", "Event, siden alle konseptuelle trær har hendelser", "Place, siden funksjonen tar et sted som sitt argument", "Thing, siden funksjonen gjelder en gjenstand i verden"],
       explanation: "Riktig er State: BE beskriver hvordan noe er, og setningen svarer ikke på «hva skjedde?». GO, STAY og CAUSE gir derimot Event.",
     },
     {
@@ -2891,7 +2891,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken struktur har «Reven løp inn i skogen»?",
-      options: ["GO med Path TO og et Place IN under seg", "GO med Path TO og en Thing plassert rett under seg", "BE med Place IN og en Thing under seg", "CAUSE med et innfelt GO og et Path TO"],
+      options: ["GO med Path TO og et Place IN under seg", "GO med Path TO og en Thing under seg", "BE med Place IN og en Thing under seg", "CAUSE med et innfelt GO og et Path TO"],
       explanation: "Riktig er det ekstra Place-laget: «inn i» sier både retning og innhold. Uten laget ville treet sagt at reven endte ved skogen, ikke inne i den — en betydningsforskjell som er lett å overse i tegningen.",
     },
     {
@@ -2918,7 +2918,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken maksime svarer på spørsmålet «er det sant?»",
-      options: ["Kvalitetsmaksimen, som gjelder sannhet og grunnlag", "Kvantitetsmaksimen, som gjelder mengden informasjon", "Relasjonsmaksimen, som gjelder om noe hører hjemme", "Måtemaksimen, som gjelder klarhet i framstillingen"],
+      options: ["Kvalitetsmaksimen, som gjelder sannhet og grunnlag", "Kvantitetsmaksimen, som gjelder mengden informasjon", "Relasjonsmaksimen, som gjelder om noe hører hjemme i samtalen", "Måtemaksimen, som gjelder klarhet i selve framstillingen"],
       explanation: "Riktig er kvalitet. De fire spørsmålene er hvor mye, er det sant, hører det hit, og er det klart sagt — ett per maksime, og de er verdt å kunne som en huskeregel.",
     },
     {
@@ -2958,7 +2958,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket trinn i Grices utledningsskjema bærer selve arbeidet?",
-      options: ["Trinnet som sier hva som ville vært galt ved bidraget", "Trinnet som slår fast at taleren har sagt noe bestemt", "Trinnet som konkluderer med hva som er implikert", "Trinnet som sier at taleren ikke har hindret slutningen"],
+      options: ["Trinnet som sier hva som ville vært galt ved bidraget", "Trinnet som slår fast at taleren har sagt noe bestemt", "Trinnet som konkluderer med hva som er implikert i ytringen", "Trinnet som sier at taleren ikke har hindret slutningen"],
       explanation: "Riktig er trinnet om hva som ellers ville vært galt. Uten det er skjemaet fem tomme linjer, og det er nettopp det trinnet som mangler i de fleste besvarelser.",
     },
     {
@@ -2983,7 +2983,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en gardering av måtemaksimen?",
-      options: ["«For å gjøre det kort» og liknende markører om framstillingen", "«Så vidt jeg vet» og liknende markører om kunnskapsgrunnlaget hos taleren", "«Litt på siden, men» og liknende markører om relevans", "«Uten å gå i detaljer» og liknende markører om mengde"],
+      options: ["«For å gjøre det kort» og liknende markører om framstillingen", "«Så vidt jeg vet» og liknende markører om kunnskapsgrunnlag", "«Litt på siden, men» og liknende markører om relevans", "«Uten å gå i detaljer» og liknende markører om mengde"],
       explanation: "Riktig er markøren om framstillingen, siden måtemaksimen gjelder formen. De øvrige svarene er garderinger, men av henholdsvis kvalitet, relasjon og kvantitet.",
     },
     {
@@ -3025,7 +3025,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil det si at begge implikaturtypene er sannhetsbetingelsesuavhengige?",
-      options: ["At innholdet formidles uten å inngå i det setningen påstår", "At innholdet kan trekkes tilbake uten at det blir motsigelse", "At innholdet varierer fra situasjon til situasjon i bruk", "At innholdet ikke kan gjengis med andre ord enn de brukte"],
+      options: ["At innholdet formidles uten å inngå i det setningen påstår", "At innholdet kan trekkes tilbake uten at det blir motsigelse", "At innholdet varierer fra situasjon til situasjon når uttrykket brukes", "At innholdet ikke kan gjengis med andre ord enn dem taleren brukte"],
       explanation: "Riktig er at innholdet ikke er en del av påstanden: «Hun er ung, men erfaren» er sann i samme situasjoner som varianten med «og». Kansellerbarhet er en annen egenskap, og bare den ene typen har den.",
     },
     {
@@ -3045,7 +3045,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken gruppe implikaturer er unntaket fra ikke-avtakbarhet?",
-      options: ["De som utledes fra måtemaksimen, siden de hviler på formen", "De som utledes fra kvalitetsmaksimen, siden de er ironiske", "De som utledes fra relasjonsmaksimen, siden de skifter tema", "De som utledes fra kvantitetsmaksimen, siden de er skalare"],
+      options: ["De som utledes fra måtemaksimen, siden de hviler på formen", "De som utledes fra kvalitetsmaksimen, siden de hviler på ironi", "De som utledes fra relasjonsmaksimen, siden de skifter tema", "De som utledes fra kvantitetsmaksimen, siden de er skalare"],
       explanation: "Riktig er de måtebaserte: de hviler nettopp på hvordan noe er sagt, og en annen formulering fjerner dem. De skalare implikaturene er derimot det klareste tilfellet av ikke-avtakbarhet.",
     },
     {
@@ -3060,7 +3060,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr ubestemmelighet?",
-      options: ["At én ytring kan gi opphav til et åpent sett av implikaturer", "At det er uklart om slutningen er en implikatur i det hele tatt", "At implikaturen varierer mellom ulike språk og kulturer", "At taleren selv ikke vet hva hun har implikert med ytringen"],
+      options: ["At én ytring kan gi opphav til et åpent sett av implikaturer", "At det er uklart om slutningen er en implikatur i det hele tatt", "At implikaturen varierer mellom språksamfunn og mellom kulturer", "At taleren selv ikke vet hva hun har implikert med ytringen"],
       explanation: "Riktig er det åpne settet: flere lesninger kan være like rimelige, og ingen er den ene riktige. Det er ikke en svakhet ved apparatet, men en beskrivelse av hva slags resultat en implikaturanalyse gir.",
     },
     {
@@ -3075,7 +3075,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem er Q-prinsippet orientert mot?",
-      options: ["Hører, siden det sikrer at hun får nok informasjon", "Taler, siden det sparer henne for unødig arbeid", "Begge parter likt, siden det gjelder hele samtalen", "Ingen av dem, siden det er et logisk og ikke et sosialt krav"],
+      options: ["Hører, siden det sikrer at hun får nok informasjon", "Taler, siden prinsippet sparer henne for unødig arbeid", "Begge parter likt, siden det gjelder hele samtalen", "Ingen av dem, siden det er et logisk og ikke et sosialt krav"],
       explanation: "Riktig er hørerorienteringen: Q tjener mottakerens interesse i å få nok. R er talerorientert og sparer henne for å si mer enn nødvendig, og spenningen mellom de to er poenget hos Horn.",
     },
     {
@@ -3090,7 +3090,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor snur skalaenes retning under negasjon?",
-      options: ["Fordi styrkeforholdet mellom leddene snur i den posisjonen", "Fordi negasjonen fjerner implikaturen fra setningen helt", "Fordi Q-prinsippet ikke virker i negerte setninger", "Fordi negasjonen gjør skalaen om til en konvensjonell slutning"],
+      options: ["Fordi styrkeforholdet mellom leddene snur i den posisjonen", "Fordi negasjonen fjerner implikaturen fra setningen fullstendig", "Fordi Q-prinsippet ikke virker i negerte setninger", "Fordi negasjonen gjør skalaen om til en konvensjonell slutning"],
       explanation: "Riktig er at «ingen» blir den sterkeste påstanden under negasjon, og Q virker på den nye ordningen. Det følger direkte av downward entailment, og det binder sammen semantikk- og pragmatikkhalvdelen.",
     },
     {
@@ -3147,7 +3147,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Q-koblingen?",
-      options: ["At Q-prinsippet gjør valget av et svakere ledd informativt", "At Horn-skalaen er ordnet etter et entailment-forhold mellom leddene", "At Q og R står i spenning med hverandre i enhver ytring", "At Q svarer til kvantitetsmaksimens første del hos Grice"],
+      options: ["At Q-prinsippet gjør valget av et svakere ledd informativt", "At Horn-skalaen er ordnet etter et entailment-forhold", "At Q og R står i spenning med hverandre i enhver ytring", "At Q svarer til kvantitetsmaksimens første del hos Grice"],
       explanation: "Riktig er at prinsippet er mekanismen og skalaen råstoffet. De øvrige påstandene er sanne, men de er ikke selve koblingen som den ene sensorveiledningen etterspør.",
     },
     {
@@ -3284,7 +3284,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Kan du sende meg saltet?» har interrogativ form, men fungerer som en anmodning. Hva viser det?",
-      options: ["At setningstypen er en indikator, men ikke avgjør kraften", "At setningstypen alltid avgjør hvilken kraft ytringen har", "At ytringen mangler illokusjonær kraft i det hele tatt", "At ytringen er en konstativ med en perlokusjonær bivirkning"],
+      options: ["At setningstypen er en indikator, men ikke avgjør kraften", "At setningstypen alltid avgjør hvilken illokusjonær kraft ytringen har", "At ytringen mangler enhver illokusjonær kraft i det hele tatt", "At ytringen er en konstativ med en perlokusjonær bivirkning"],
       explanation: "Riktig er at formen bare er en indikator; kraften leses av situasjonen. Ville formen avgjort, måtte ytringen vært et spørsmål om evne. Ytringen har tydelig kraft, og den er en anmodning, ikke en beskrivelse med bivirkning.",
     },
     {
@@ -3326,7 +3326,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har ekspressiver ingen tilpasningsretning?",
-      options: ["Fordi innholdet er forutsatt i stedet for påstått eller krevd", "Fordi de aldri handler om hendelser som har funnet sted i verden", "Fordi de utføres uten at mottakeren trenger å være til stede", "Fordi de alltid inneholder et performativt verb i presens"],
+      options: ["Fordi innholdet er forutsatt i stedet for påstått eller krevd", "Fordi de aldri handler om hendelser som har funnet sted i verden", "Fordi de utføres uten at mottakeren trenger å være til stede i rommet", "Fordi de alltid inneholder et performativt verb i presens"],
       explanation: "Riktig er at innholdet er presupponert: «Jeg beklager at jeg kom for sent» tar det for gitt at jeg kom for sent. Ekspressiver handler nettopp om noe som har skjedd, de er rettet mot en mottaker, og verbformen er ikke det som avgjør retningen.",
     },
     {
@@ -3336,22 +3336,22 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tilpasningsretningen til deklarasjoner?",
-      options: ["Begge retninger samtidig", "Bare ord til verden", "Bare verden til ord, slik som ved direktiver", "Ingen retning"],
+      options: ["Begge retninger samtidig", "Bare ord til verden, slik som ved assertiver", "Bare verden til ord, slik som ved direktiver", "Ingen retning i det hele tatt"],
       explanation: "Riktig er begge: ordene blir sanne fordi de sies, og verden endres fordi ordene sies. Ingen annen kategori har den egenskapen — enkeltretningene tilhører assertiver og direktiver, og fravær av retning tilhører ekspressiver.",
     },
     {
       question: "Hvilket spørsmål skal stilles først i framgangsmåten for å klassifisere en ytring etter Searle?",
-      options: ["Om ytringen endrer virkeligheten i kraft av talerens myndighet", "Om ytringen har tilpasningsretningen ord til verden eller verden til ord", "Om handlingen skal utføres av taleren eller av mottakeren", "Om ytringen er direkte eller indirekte framsatt"],
+      options: ["Om ytringen endrer virkeligheten i kraft av talerens myndighet", "Om ytringen har tilpasningsretningen ord til verden eller verden til ord", "Om det er taleren eller mottakeren som skal utføre selve handlingen", "Om ytringen er direkte eller indirekte framsatt"],
       explanation: "Riktig er myndighetsspørsmålet, som skiller ut deklarasjonene. De har begge tilpasningsretninger og ville blitt feilklassifisert om retningsspørsmålet kom først. Spørsmålet om hvem som utfører kommer sist, og direktheten avgjør ikke kategorien.",
     },
     {
       question: "Hva var Searles innvending mot Austins framgangsmåte?",
-      options: ["At Austin klassifiserte verb i stedet for handlinger", "At Austin overså at også vanlige påstander utfører handlinger", "At Austin ikke skilte mellom taler og mottaker", "At Austin ikke tok hensyn til høflighet i samtaler"],
+      options: ["At Austin klassifiserte verb i stedet for handlinger", "At Austin overså at også vanlige påstander utfører handlinger", "At Austin ikke skilte mellom taler og mottaker", "At Austin ikke tok hensyn til høflighet i vanlige samtaler"],
       explanation: "Riktig er at et ordforråd er tilfeldig og varierer mellom språk; kriteriet må ligge i handlingen selv. Austin oppdaget nettopp at ytringer utfører handlinger, og de to andre innvendingene er ikke Searles.",
     },
     {
       question: "Hva er en indirekte talehandling?",
-      options: ["En ytring der taleren utfører én handling ved å utføre en annen", "En ytring som er rettet til en tredjeperson i rommet", "En ytring der handlingen først får virkning et stykke ut i samtalen", "En ytring som er framsatt uten et performativt verb"],
+      options: ["En ytring der taleren utfører én handling ved å utføre en annen", "En ytring som er rettet til en tredjeperson i rommet i stedet for til mottakeren", "En ytring der handlingen først får virkning et stykke ut i samtalen", "En ytring som er framsatt uten noe performativt verb i setningen"],
       explanation: "Riktig er at én handling utføres gjennom en annen — «Kan du sende saltet?» er formelt et spørsmål og reelt en anmodning. Mottakerkrets og forsinket virkning er irrelevante, og en ytring uten performativt verb er bare en implisitt performativ.",
     },
     {
@@ -3391,7 +3391,7 @@ const quizData_ling1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor framsettes anmodninger så ofte indirekte?",
-      options: ["Fordi den indirekte formen demper trusselen mot mottakerens ansikt", "Fordi den indirekte formen gjør ytringen raskere å oppfatte for mottakeren", "Fordi språket mangler direkte former for anmodninger", "Fordi den indirekte formen endrer kategorien til assertiv"],
+      options: ["Fordi den indirekte formen demper trusselen mot mottakerens ansikt", "Fordi den indirekte formen gjør ytringen raskere å oppfatte for mottakeren", "Fordi språket mangler direkte former for anmodninger", "Fordi den indirekte formen endrer kategorien fra direktiv til assertiv"],
       explanation: "Riktig er dempingen: spørsmålsformen gir mottakeren en formell åpning for å si nei. Indirekte former er tvert imot mer krevende å tolke, imperativen finnes i språket, og kategorien avgjøres av den primære kraften og forblir en direktiv.",
     },
     {
