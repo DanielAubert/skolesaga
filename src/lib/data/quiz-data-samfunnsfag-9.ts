@@ -14,7 +14,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var en negativ konsekvens av industrialiseringen?",
-      options: ["Barnearbeid og dårlige arbeidsforhold", "Teknologisk utvikling", "Kraftig økt produksjon av varer til lave priser", "Nye transportmidler som tog og dampskip på hjul"],
+      options: ["Barnearbeid og dårlige arbeidsforhold", "Rask teknologisk utvikling på alle områder", "Kraftig økt produksjon av varer til lave priser", "Nye transportmidler som tog og dampskip på hjul"],
       explanation: "Industrialiseringen forte til barnearbeid, lange arbeidsdager og dårlige forhold i fabrikkene.",
     },
     {
@@ -31,7 +31,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   "samfunnsfag-9-1-2": [
     {
       question: "Hva betyr imperialisme?",
-      options: ["Nåren stat utvider sin makt over andre områder", "Nårfolk flytter til et nytt land", "Når et folk flytter frivillig til et helt nytt land", "Når et land river seg løs og blir selvstendig og fritt"],
+      options: ["Nåren stat utvider sin makt over andre områder", "Når to land inngår en gjensidig handelsavtale seg imellom", "Når et folk flytter frivillig til et helt nytt land", "Når et land river seg løs og blir selvstendig og fritt"],
       explanation: "Imperialisme er nåren stat utvider sin makt og innflytelse over andre områder og folk.",
     },
     {
@@ -90,7 +90,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en push-faktor?",
-      options: ["Noe som driver folk vekk fra et sted", "Noe som tiltrekker folk til et sted", "En rask og billig type transport mellom to store land", "Noe positivt som tiltrekker folk til et helt nytt sted"],
+      options: ["Noe som driver folk vekk fra et sted", "Antall mennesker som bor i et område per kvadratkilometer", "En rask og billig type transport mellom to store land", "Noe positivt som tiltrekker folk til et helt nytt sted"],
       explanation: "Push-faktorer er negative forhold som fårfolk til a flytte, som krig, fattigdom eller forfølgelse.",
     },
     {
@@ -100,7 +100,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en pull-faktor?",
-      options: ["Noe som tiltrekker folk til et sted", "Noe som driver folk vekk", "Noe negativt som driver folk vekk fra hjemstedet sitt", "En grense mellom land"],
+      options: ["Noe som tiltrekker folk til et sted", "En yrkesgruppe som flytter mye", "Noe negativt som driver folk vekk", "En grense mellom land"],
       explanation: "Pull-faktorer er positive forhold som tiltrekker folk, som arbeidsmuligheter, sikkerhet og utdanning.",
     },
     {
@@ -122,17 +122,17 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en ulempe med globalisering?",
-      options: ["Arbeidsplasser kan flyttes til lavkostland", "Mindre økonomisk vekst", "Klart mindre økonomisk vekst i verden totalt", "Ingen form for kulturutveksling mellom folkeslag"],
+      options: ["Arbeidsplasser kan flyttes til lavkostland", "At varene blir dyrere fordi transporten koster mer", "Klart mindre økonomisk vekst i verden totalt", "Ingen form for kulturutveksling mellom folkeslag"],
       explanation: "Bedrifter kan flytte produksjon til land med lavere lønninger, noe som kan føre til tap av arbeidsplasser lokalt.",
     },
     {
       question: "Hvahar skjedd med ekstrem fattigdom som følge av globalisering?",
-      options: ["Den har sunket dramatisk", "Den finnes ikke lenger", "Den har økt kraftig de siste tiårene", "Den har økt kraftig"],
+      options: ["Den har sunket dramatisk", "Den finnes ikke lenger", "Den har økt kraftig de siste tiårene", "Den er helt uendret"],
       explanation: "Ekstrem fattigdom har sunket fra ca. 36% i 1990 til under 10% i dag, delvis takket være økonomisk globalisering.",
     },
     {
       question: "Hva er en global verdikjede?",
-      options: ["Produksjon som involverer mange land", "Handel innad i ett land", "All handel som skjer bare innad i ett enkelt land", "En bestemt type internasjonal valuta man betaler med"],
+      options: ["Produksjon som involverer mange land", "En kjede av butikker som eies av samme selskap", "All handel som skjer bare innad i ett enkelt land", "En bestemt type internasjonal valuta man betaler med"],
       explanation: "En global verdikjede er nårproduksjonen av en vare involverer mange forskjellige land, fra råvarer til ferdig produkt.",
     },
   ],
@@ -154,7 +154,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det grønne skiftet?",
-      options: ["Overgangen fra fossil til fornybar energi", "A spise mer grønnsaker", "Å spise mer grønnsaker og mindre kjøtt i hverdagen", "Å male alle husene i landet grønne for miljøets skyld"],
+      options: ["Overgangen fra fossil til fornybar energi", "At jordbruksareal blir omgjort til skog og natur", "Å spise mer grønnsaker og mindre kjøtt i hverdagen", "Å male alle husene i landet grønne for miljøets skyld"],
       explanation: "Det grønne skiftet handler om overgangen fra fossile brensler til fornybar energi og baerekraftig økonomi.",
     },
     {
@@ -171,7 +171,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken type styresett har Norge?",
-      options: ["Parlamentarisk demokrati", "Presidentstyre", "Diktatur styrt av én sterk leder", "Presidentstyre med valgt president"],
+      options: ["Parlamentarisk demokrati", "Absolutt monarki med kongen som eneveldig", "Diktatur styrt av én sterk leder", "Presidentstyre med valgt president"],
       explanation: "Norge har parlamentarisk demokrati der regjeringen utgar fra Stortinget og måha støtte der.",
     },
     {
@@ -198,7 +198,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner menneskerettigheter?",
-      options: ["De er universelle og gjelder alle", "De gjelder bare i rike land", "De kan kjøpes for penger av dem som har råd", "De gjelder bare for folk som bor i rike land"],
+      options: ["De er universelle og gjelder alle", "De må vedtas på nytt av hvert lands parlament", "De kan kjøpes for penger av dem som har råd", "De gjelder bare for folk som bor i rike land"],
       explanation: "Menneskerettigheter er universelle, umistelige og gjelder alle mennesker uansett hvem de er.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   "samfunnsfag-9-3-3": [
     {
       question: "Hva er en borgerkrig?",
-      options: ["Vaepnet konflikt innad i et land", "Krig mellom to land", "Væpnet krig mellom to ulike land", "En fredelig protest ute i gatene"],
+      options: ["Vaepnet konflikt innad i et land", "En krig som varer under ett år", "Væpnet krig mellom to ulike land", "En fredelig protest ute i gatene"],
       explanation: "Borgerkrig er en vaepnet konflikt mellom grupper innad i samme land.",
     },
     {
@@ -235,7 +235,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Oslo-avtalen?",
-      options: ["Hemmelige fredsforhandlinger mellom Israel og PLO", "En militaeralianse", "En militærallianse mellom Norge og USA i Midtøsten", "En avtale om deling av vann mellom Israel og Jordan"],
+      options: ["Hemmelige fredsforhandlinger mellom Israel og PLO", "En handelsavtale om olje mellom Norge og landene i Midtøsten", "En militærallianse mellom Norge og USA i Midtøsten", "En avtale om deling av vann mellom Israel og Jordan"],
       explanation: "Oslo-avtalen (1993) var resultatet av hemmelige forhandlinger mellom Israel og PLO som Norge la til rette for.",
     },
     {
@@ -289,7 +289,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er EOS-avtalen?",
-      options: ["Avtale som gir Norge tilgang til EUs indre marked", "En avtale om fotball", "En klimaavtale som binder Norge til EUs utslippsmål", "En militæravtale som gir Norge felles forsvar med EU"],
+      options: ["Avtale som gir Norge tilgang til EUs indre marked", "En avtale om felles regler for fotball mellom europeiske land", "En klimaavtale som binder Norge til EUs utslippsmål", "En militæravtale som gir Norge felles forsvar med EU"],
       explanation: "EOS-avtalen gir Norge tilgang til EUs indre marked uten a være fullt medlem av EU.",
     },
     {
@@ -348,7 +348,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bestemte Kielfreden i 1814?",
-      options: ["At Norge ble overført fra Danmark til Sverige", "At Norge ble selvstendig", "At Norge ble delt i en dansk og en svensk del", "At Norge ble et fritt og selvstendig rike igjen"],
+      options: ["At Norge ble overført fra Danmark til Sverige", "At Danmark fikk beholde Island og Grønland", "At Norge ble delt i en dansk og en svensk del", "At Norge ble et fritt og selvstendig rike igjen"],
       explanation: "Ved Kielfreden i januar 1814 måtte Danmark avstå Norge til Sverige. Nordmennene svarte med å lage egen grunnlov på Eidsvoll.",
     },
   ],
@@ -424,7 +424,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Gulag i Stalins Sovjetunionen?",
-      options: ["Et system av fangeleirer for tvangsarbeid", "En femårsplan for jordbruket", "En femårsplan for å modernisere jordbruket", "Sovjetunionens folkevalgte parlament i Moskva"],
+      options: ["Et system av fangeleirer for tvangsarbeid", "Sovjetunionens hemmelige politi og etterretningstjeneste", "En femårsplan for å modernisere jordbruket", "Sovjetunionens folkevalgte parlament i Moskva"],
       explanation: "Gulag var systemet av fange- og arbeidsleirer der millioner ble internert. Det hemmelige politiet het NKVD.",
     },
     {
@@ -451,7 +451,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Holocaust?",
-      options: ["Det systematiske folkemordet på ca. 6 millioner jøder gjennomført av Nazi-Tyskland", "Et slag mellom Tyskland og Sovjetunionen", "Nazi-Tysklands storstilte propagandakampanje for å samle det tyske folket bak Hitler før krigen", "Den tyske bombekampanjen mot britiske storbyer som London for å knekke motstandsviljen i Storbritannia"],
+      options: ["Det systematiske folkemordet på ca. 6 millioner jøder gjennomført av Nazi-Tyskland", "Et av de aller største slagene mellom Tyskland og Sovjetunionen under hele østfrontkrigen", "Nazi-Tysklands storstilte propagandakampanje for å samle det tyske folket bak Hitler før krigen", "Den tyske bombekampanjen mot britiske storbyer som London for å knekke motstandsviljen i Storbritannia"],
       explanation: "Holocaust var det statsstyrte folkemordet på ca. 6 millioner jøder. Også romfolk, funksjonshemmede, homofile og andre grupper ble myrdet.",
     },
     {
@@ -478,7 +478,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med de norske jødene i november 1942?",
-      options: ["773 ble arrestert og deportert til Auschwitz, bare 38 overlevde", "De ble beskyttet av okkupasjonsmakten", "De ble beskyttet av okkupasjonsmakten og fikk bli boende uforstyrret i Norge", "Alle sammen klarte å flykte trygt over grensen til det nøytrale Sverige i tide"],
+      options: ["773 ble arrestert og deportert til Auschwitz, bare 38 overlevde", "De fikk beholde eiendommene sine, men mistet retten til å stemme", "De ble beskyttet av okkupasjonsmakten og fikk bli boende uforstyrret i Norge", "Alle sammen klarte å flykte trygt over grensen til det nøytrale Sverige i tide"],
       explanation: "773 norske jøder ble deportert med skipet Donau til Auschwitz, og bare 38 overlevde. Norsk politi deltok i arrestasjonene. Ca. 1 100 klarte å flykte til Sverige.",
     },
     {
@@ -490,7 +490,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   "samfunnsfag-9-4-6": [
     {
       question: "Hva er folkemord (genocid)?",
-      options: ["Bevisst og systematisk utryddelse av en folkegruppe", "Undertrykkelse av politiske partier", "Enhver væpnet krig som bryter ut mellom to selvstendige land uansett grunn eller omfang", "Enhver krig mellom to land"],
+      options: ["Bevisst og systematisk utryddelse av en folkegruppe", "Undertrykkelse av politiske partier", "Enhver væpnet krig mellom to selvstendige land", "Vold begått av enkeltpersoner mot tilfeldige ofre"],
       explanation: "Folkemord er handlinger begått med hensikt å helt eller delvis ødelegge en nasjonal, etnisk, rasemessig eller religiøs gruppe, definert i FNs folkemordkonvensjon fra 1948.",
     },
     {
@@ -505,7 +505,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket folkemord skjedde i Rwanda i 1994?",
-      options: ["Rundt 800 000 mennesker, hovedsakelig tutsier, ble drept på rundt hundre dager", "Et folkemord på den armenske minoriteten", "Massakren i Srebrenica der mange tusen bosniske muslimer ble drept under Balkan-krigene", "Et omfattende folkemord på den armenske minoriteten gjennomført av myndighetene i landet"],
+      options: ["Rundt 800 000 mennesker, hovedsakelig tutsier, ble drept på rundt hundre dager", "Drapene på kurdiske landsbyboere under Anfal-kampanjen i Irak sent på 1980-tallet", "Massakren i Srebrenica der mange tusen bosniske muslimer ble drept under Balkan-krigene", "Et omfattende folkemord på den armenske minoriteten gjennomført av myndighetene i landet"],
       explanation: "I Rwanda ble store deler av tutsi-minoriteten drept i 1994. Folkemordet på armenerne skjedde 1915-1923, og Srebrenica-massakren i Bosnia i 1995.",
     },
     {
@@ -522,7 +522,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et biom?",
-      options: ["En stor økologisk region med lignende klima, planter og dyr", "Et instrument for å måle nedbør", "En enkelt bestemt dyreart som lever spredt utover et stort geografisk område i naturen", "En spesiell type fjellkjede med et bestemt klima, planteliv og dyreliv langs skråningene"],
+      options: ["En stor økologisk region med lignende klima, planter og dyr", "Et instrument som brukes til å måle nedbørsmengden over lang tid", "En enkelt bestemt dyreart som lever spredt utover et stort geografisk område i naturen", "En spesiell type fjellkjede med et bestemt klima, planteliv og dyreliv langs skråningene"],
       explanation: "Biomer er store økologiske regioner som regnskog, savanne, ørken, taiga og tundra, definert av klima, planteliv og dyreliv.",
     },
     {
@@ -586,7 +586,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er proteksjonisme?",
-      options: ["At staten beskytter egen industri med toll og handelshindringer", "En type forsikring for bedrifter", "Et fullstendig statlig forbud mot all eksport av varer og tjenester ut av landets grenser", "En egen type forsikring som bedrifter kjøper for å beskytte seg mot tap i vanskelige tider"],
+      options: ["At staten beskytter egen industri med toll og handelshindringer", "At staten kjøper opp aksjemajoriteten i landets viktigste bedrifter", "Et fullstendig statlig forbud mot all eksport av varer og tjenester ut av landets grenser", "En egen type forsikring som bedrifter kjøper for å beskytte seg mot tap i vanskelige tider"],
       explanation: "Proteksjonisme er å beskytte egen industri med toll og regler. Det kan sikre lokale arbeidsplasser, men gir høyere priser og kan utløse handelskonflikter.",
     },
     {
@@ -603,7 +603,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke fem land har vetomakt i FNs sikkerhetsråd?",
-      options: ["USA, Russland, Kina, Frankrike og Storbritannia", "Norge, Sverige, Danmark, Finland og Island", "Norge, Sverige, Danmark, Finland og Island, altså de fem samarbeidende nordiske landene", "USA, Tyskland, Japan, India og Brasil"],
+      options: ["USA, Russland, Kina, Frankrike og Storbritannia", "Tyskland, Japan, Italia, Canada og Brasil", "Norge, Sverige, Danmark, Finland og Island", "USA, Tyskland, Japan, India og Brasil"],
       explanation: "De fem faste medlemmene av Sikkerhetsrådet har vetomakt og kan blokkere vedtak. Dette er omdiskutert fordi det kan lamme rådet.",
     },
     {
@@ -618,14 +618,14 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bidrar Norge i internasjonalt samarbeid?",
-      options: ["Gjennom FN-operasjoner, bistand på ca. 1 % av BNP, fredsdiplomati og NATO-medlemskap", "Norge deltar ikke i internasjonalt samarbeid", "Utelukkende gjennom eksport av olje og gass til andre land, ikke på noen andre måter", "Norge deltar egentlig ikke i noe internasjonalt samarbeid, men velger å stå helt utenfor"],
+      options: ["Gjennom FN-operasjoner, bistand på ca. 1 % av BNP, fredsdiplomati og NATO-medlemskap", "Bare gjennom å sende norske soldater til NATO-øvelser", "Utelukkende gjennom eksport av olje og gass til andre land, ikke på noen andre måter", "Norge deltar egentlig ikke i noe internasjonalt samarbeid, men velger å stå helt utenfor"],
       explanation: "Norge bidrar til FNs fredsbevarende operasjoner, gir ca. 1 % av BNP i bistand, driver fredsdiplomati og er NATO-medlem. Norge er ikke EU-medlem, men tilknyttet gjennom EØS.",
     },
   ],
   "samfunnsfag-9-5-5": [
     {
       question: "Hva er definisjonen på en flyktning etter FNs flyktningkonvensjon?",
-      options: ["En person som har flyktet fra hjemlandet på grunn av forfølgelse, krig eller vold", "Enhver som flytter til et annet land for å jobbe", "Enhver person som flytter frivillig til et annet land utelukkende for å finne seg en bedre jobb", "En person som reiser på en helt vanlig ferietur til utlandet for å oppleve nye steder og kultur"],
+      options: ["En person som har flyktet fra hjemlandet på grunn av forfølgelse, krig eller vold", "En person som er sendt ut av landet sitt fordi vedkommende har begått en forbrytelse", "Enhver person som flytter frivillig til et annet land utelukkende for å finne seg en bedre jobb", "En person som reiser på en helt vanlig ferietur til utlandet for å oppleve nye steder og kultur"],
       explanation: "En flyktning har flyktet fra hjemlandet på grunn av forfølgelse, krig eller vold. En asylsøker venter på svar om beskyttelse, og en migrant er alle som flytter.",
     },
     {
@@ -640,12 +640,12 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er internt fordrevne?",
-      options: ["Mennesker på flukt innenfor sitt eget land", "Flyktninger som har fått statsborgerskap", "Flyktninger som etter å ha bodd lenge i et nytt land har fått innvilget statsborgerskap der", "Personer som flytter for å studere"],
+      options: ["Mennesker på flukt innenfor sitt eget land", "Mennesker som venter på asylsøknaden sin", "Flyktninger som etter å ha bodd lenge i et nytt land har fått innvilget statsborgerskap der", "Personer som flytter for å studere"],
       explanation: "Internt fordrevne er mennesker på flukt som ikke har krysset en landegrense. De utgjør den største gruppen, ca. 62 av de over 110 millionene på flukt.",
     },
     {
       question: "Hva er eksempler på push-faktorer som driver mennesker på flukt?",
-      options: ["Krig, forfølgelse, fattigdom og klimaendringer", "Gode jobbmuligheter og utdanning", "Gode jobbmuligheter og tilgang til god utdanning som trekker folk mot bestemte mottakerland", "Familie i mottakerlandet"],
+      options: ["Krig, forfølgelse, fattigdom og klimaendringer", "Billige flybilletter og åpne grenser", "Gode jobbmuligheter og tilgang til god utdanning som trekker folk mot bestemte mottakerland", "Familie som allerede bor i mottakerlandet"],
       explanation: "Push-faktorer driver folk bort fra hjemlandet: krig, forfølgelse, fattigdom og naturkatastrofer. Pull-faktorer som sikkerhet og arbeid trekker dem mot bestemte land.",
     },
   ],
@@ -657,7 +657,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr parlamentarisme?",
-      options: ["At regjeringen må ha Stortingets tillit for å styre", "At folket stemmer direkte over alle lover", "At det er domstolene som velger statsministeren og resten av regjeringen etter et valg", "At domstolene velger statsministeren"],
+      options: ["At regjeringen må ha Stortingets tillit for å styre", "At folket stemmer direkte over alle lover", "At domstolene velger statsministeren og regjeringen", "At kongen utpeker statsministeren personlig"],
       explanation: "Parlamentarisme betyr at regjeringen er avhengig av tillit fra Stortinget. Får regjeringen flertallet mot seg, må den gå av.",
     },
     {
@@ -689,7 +689,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan finansieres norske politiske partier?",
-      options: ["Statlig partistøtte, medlemskontingent og rapporteringspliktige gaver", "Bare gjennom hemmelige donasjoner", "Av utenlandske stater som betaler partiene for å fremme sin egen politikk", "Gjennom egne lotterier og bingospill som partiene arrangerer for velgerne"],
+      options: ["Statlig partistøtte, medlemskontingent og rapporteringspliktige gaver", "Utelukkende gjennom hemmelige donasjoner fra anonyme og private givere", "Av utenlandske stater som betaler partiene for å fremme sin egen politikk", "Gjennom egne lotterier og bingospill som partiene arrangerer for velgerne"],
       explanation: "Partiene får statlig støtte basert på stemmetall, medlemskontingent og gaver som må rapporteres. Åpenheten skal hindre at rike givere kjøper innflytelse.",
     },
     {
@@ -706,7 +706,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   "samfunnsfag-9-6-3": [
     {
       question: "Hva er forholdstallsvalg?",
-      options: ["At partiene får mandater i forhold til hvor mange stemmer de får", "At den som får flest stemmer i et distrikt, tar alle mandatene", "At den som får flest stemmer i et distrikt, tar alle mandatene der alene", "At kongen fordeler mandatene mellom partiene etter hvor godt han liker dem"],
+      options: ["At partiene får mandater i forhold til hvor mange stemmer de får", "At hvert fylke får nøyaktig like mange mandater uansett folketall", "At den som får flest stemmer i et distrikt, tar alle mandatene der alene", "At kongen fordeler mandatene mellom partiene etter hvor godt han liker dem"],
       explanation: "I forholdstallsvalg fordeles mandatene proporsjonalt med stemmetallet. Dette gjør at Stortinget gjenspeiler folkets stemmegivning bedre enn flertallsvalg.",
     },
     {
@@ -721,12 +721,12 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem kan stemme ved kommunevalg, men ikke ved stortingsvalg?",
-      options: ["Utenlandske statsborgere som har bodd i Norge i tre år", "Ingen, reglene er helt like", "Alle turister som befinner seg i landet på selve valgdagen", "Ingen, reglene for hvem som kan stemme er nøyaktig helt like"],
+      options: ["Utenlandske statsborgere som har bodd i Norge i tre år", "Alle som er fylt 16 år og har fast bostedsadresse i kommunen", "Alle turister som befinner seg i landet på selve valgdagen", "Ingen, reglene for hvem som kan stemme er nøyaktig helt like"],
       explanation: "Ved kommunevalg kan også utenlandske statsborgere med tre års botid stemme. Ved stortingsvalg kreves norsk statsborgerskap.",
     },
     {
       question: "Hvordan er valgdeltakelsen i Norge?",
-      options: ["Ca. 78 % ved stortingsvalg og lavere ved kommunevalg", "Høyest blant de yngste velgerne", "Klart høyest blant de aller yngste velgerne under tjue år", "Under tretti prosent ved både stortingsvalg og kommunevalg"],
+      options: ["Ca. 78 % ved stortingsvalg og lavere ved kommunevalg", "Helt lik i alle aldersgrupper og i alle deler av landet", "Klart høyest blant de aller yngste velgerne under tjue år", "Under tretti prosent ved både stortingsvalg og kommunevalg"],
       explanation: "Valgdeltakelsen er ca. 78 % ved stortingsvalg og ca. 65 % ved kommunevalg. Eldre og personer med høyere utdanning stemmer oftere enn unge.",
     },
   ],
@@ -753,7 +753,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den strengeste ordinære fengselsstraffen i Norge?",
-      options: ["21 år, med mulighet for forvaring som kan forlenges", "Livstid uten mulighet for løslatelse", "Femti års fengsel for de aller mest alvorlige forbrytelsene", "Livstid i fengsel uten noen som helst mulighet for løslatelse"],
+      options: ["21 år, med mulighet for forvaring som kan forlenges", "Ti års fengsel, uansett hvor alvorlig selve lovbruddet er", "Femti års fengsel for de aller mest alvorlige forbrytelsene", "Livstid i fengsel uten noen som helst mulighet for løslatelse"],
       explanation: "Norge har ikke livstidsstraff eller dødsstraff. Maksimumsstraffen er 21 år, men forvaring kan forlenges så lenge den dømte regnes som farlig.",
     },
   ],
@@ -765,17 +765,17 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kildevern?",
-      options: ["Journalisters rett til å beskytte sine kilder", "Beskyttelse av drikkevannskilder", "Beskyttelse av drikkevannskilder mot forurensning og forgiftning", "Statens kontroll med mediene"],
+      options: ["Journalisters rett til å beskytte sine kilder", "Vern av kulturminner og gamle bygninger", "Beskyttelse av drikkevannet mot forurensning", "Statens kontroll med mediene"],
       explanation: "Kildevernet gir journalister rett til å holde kildene sine hemmelige, slik at folk tør å varsle om kritikkverdige forhold.",
     },
     {
       question: "Hvilke ytringer er IKKE beskyttet av ytringsfriheten i Norge?",
-      options: ["Trusler, hatefulle ytringer og ærekrenkelser", "Kritikk av regjeringen", "Upopulære meninger som de fleste andre er sterkt uenige i", "Kritikk av regjeringen og de politikerne som styrer landet"],
+      options: ["Trusler, hatefulle ytringer og ærekrenkelser", "Reportasjer som setter myndighetene i et dårlig lys", "Upopulære meninger som de fleste andre er sterkt uenige i", "Kritikk av regjeringen og de politikerne som styrer landet"],
       explanation: "Ytringsfriheten beskytter også upopulære meninger og kritikk av makthavere, men trusler, hatefulle ytringer mot grupper og usanne beskyldninger er forbudt.",
     },
     {
       question: "Hva er Vær Varsom-plakaten?",
-      options: ["Pressens egne etiske retningslinjer", "En advarsel på sosiale medier", "En lov om presse vedtatt av Stortinget", "En lov vedtatt av Stortinget"],
+      options: ["Pressens egne etiske retningslinjer", "En advarsel på sosiale medier", "En lov om presse vedtatt av Stortinget", "En plakat om brannsikkerhet"],
       explanation: "Vær Varsom-plakaten er etiske retningslinjer for norsk presse, håndhevet av Pressens Faglige Utvalg (PFU), ikke av staten.",
     },
     {
@@ -792,12 +792,12 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er primærsosialisering?",
-      options: ["Den første sosialiseringen som skjer i familien i barndommen", "Sosialiseringen som skjer på arbeidsplassen", "Sosialiseringen som skjer på arbeidsplassen når man blir voksen", "Opplæringen i normer og verdier som skjer på skolen blant lærere"],
+      options: ["Den første sosialiseringen som skjer i familien i barndommen", "Den tilpasningen som skjer når man flytter til et helt nytt land", "Sosialiseringen som skjer på arbeidsplassen når man blir voksen", "Opplæringen i normer og verdier som skjer på skolen blant lærere"],
       explanation: "Primærsosialiseringen skjer i familien, der barn lærer språk, grunnleggende verdier og følelsesmessig tilknytning. Sekundærsosialisering skjer i skole, blant venner og i medier.",
     },
     {
       question: "Hva er en rollekonflikt?",
-      options: ["Når forventningene fra ulike roller kolliderer", "En konflikt mellom to politiske partier", "En konflikt mellom to politiske partier på hver sin fløy", "At en person ikke har noen roller eller oppgaver i samfunnet"],
+      options: ["Når forventningene fra ulike roller kolliderer", "En konflikt mellom en arbeidsgiver og en arbeidstaker", "En konflikt mellom to politiske partier på hver sin fløy", "At en person ikke har noen roller eller oppgaver i samfunnet"],
       explanation: "Vi har mange roller samtidig (elev, venn, søsken), og rollekonflikt oppstår når forventningene kolliderer, for eksempel når venner og foreldre vil ulike ting.",
     },
     {
@@ -807,7 +807,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr sosial arv?",
-      options: ["At foreldrenes bakgrunn påvirker barnas muligheter", "At barn arver penger fra foreldrene", "At barn helt konkret arver penger og eiendom fra foreldrene sine", "At absolutt alle barn får nøyaktig samme utdanning og muligheter"],
+      options: ["At foreldrenes bakgrunn påvirker barnas muligheter", "At eldre generasjoner bestemmer hvilket yrke barna skal velge", "At barn helt konkret arver penger og eiendom fra foreldrene sine", "At absolutt alle barn får nøyaktig samme utdanning og muligheter"],
       explanation: "Sosial arv betyr at foreldres utdanning, økonomi og nettverk påvirker barnas muligheter. Velferdsstaten skal bidra til å utjevne slike forskjeller.",
     },
   ],
@@ -834,7 +834,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er desinformasjon?",
-      options: ["Bevisst feilinformasjon som spres for å villede", "Informasjon fra offentlige etater", "Informasjon som kommer fra offentlige etater og myndigheter", "All informasjon som er skrevet på engelsk i stedet for norsk"],
+      options: ["Bevisst feilinformasjon som spres for å villede", "Informasjon som er delt mer enn tusen ganger på nett", "Informasjon som kommer fra offentlige etater og myndigheter", "All informasjon som er skrevet på engelsk i stedet for norsk"],
       explanation: "Desinformasjon er bevisst spredning av feilinformasjon for å villede. Kildekritikk og digital kompetanse er viktige mottiltak.",
     },
   ],
@@ -861,7 +861,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er rehabilitering i strafferetten?",
-      options: ["Å hjelpe lovbrytere tilbake til et lovlydig liv", "Å slette strafferegisteret automatisk", "Å slette hele strafferegisteret automatisk etter noen år", "Å øke straffenivået slik at lovbrytere sitter lengre inne"],
+      options: ["Å hjelpe lovbrytere tilbake til et lovlydig liv", "Å sette lovbrytere i isolasjon under hele soningen", "Å slette hele strafferegisteret automatisk etter noen år", "Å øke straffenivået slik at lovbrytere sitter lengre inne"],
       explanation: "Rehabilitering handler om å hjelpe dømte tilbake til samfunnet gjennom utdanning, arbeidstrening og oppfølging. Norge vektlegger dette og har relativt lavt tilbakefall.",
     },
   ],
@@ -942,7 +942,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På hvilke områder har Norge utfordringer med bærekraftsmålene?",
-      options: ["Høyt forbruk og rollen som stor olje- og gassprodusent", "Demokrati og institusjoner", "Med likestilling mellom kjønnene, der Norge henger langt etter", "Med demokrati og sterke institusjoner, som Norge nesten mangler"],
+      options: ["Høyt forbruk og rollen som stor olje- og gassprodusent", "Med tilgang til rent vann og gode sanitærforhold i husholdningene", "Med likestilling mellom kjønnene, der Norge henger langt etter", "Med demokrati og sterke institusjoner, som Norge nesten mangler"],
       explanation: "Norge skårer høyt på helse, utdanning og likestilling, men har utfordringer med høyt forbruk (mål 12) og klima (mål 13) som stor petroleumsprodusent.",
     },
   ],
@@ -964,7 +964,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste menneskeskapte klimagassen?",
-      options: ["CO₂ (karbondioksid) fra forbrenning av fossil energi", "Vanndamp fra dusjing", "Oksygen, som slippes ut når biler og fabrikker brenner drivstoff", "Nitrogen, som er den vanligste gassen vi finner i lufta rundt oss"],
+      options: ["CO₂ (karbondioksid) fra forbrenning av fossil energi", "Vanndamp som slippes ut når vi dusjer og koker mat hjemme", "Oksygen, som slippes ut når biler og fabrikker brenner drivstoff", "Nitrogen, som er den vanligste gassen vi finner i lufta rundt oss"],
       explanation: "CO₂ fra forbrenning av olje, kull og gass er den viktigste menneskeskapte klimagassen og hovedårsaken til den forsterkede drivhuseffekten.",
     },
     {

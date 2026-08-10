@@ -9,7 +9,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god hypotese?",
-      options: ["Den er testbar og kan falsifiseres", "Den beskriver en mening", "Den er så generell at den ikke lar seg teste i praksis", "Den kan ikke testes"],
+      options: ["Den er testbar og kan falsifiseres", "Den beskriver en mening", "Den er for generell til å testes", "Den kan ikke testes"],
       explanation: "En god hypotese måkunne testes og potensielt vises feil.",
     },
     {
@@ -24,7 +24,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er kontrollgrupper viktige i eksperimenter?",
-      options: ["For å ha en baseline a sammenligne med", "For å gjøre eksperimentet større", "For å spare tid ved at man slipper å måle testgruppen så nøye", "De er ikke viktige"],
+      options: ["For å ha en baseline a sammenligne med", "For å gjøre eksperimentet større", "For å spare tid under målingene", "De er ikke viktige"],
       explanation: "Kontrollgrupper gir en baseline slik at vi vet om endringer skyldes det vi tester.",
     },
   ],
@@ -51,7 +51,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er variasjonsbredde?",
-      options: ["Forskjellen mellom høyeste og laveste verdi", "Den vanligste verdien", "Gjennomsnittet av alle verdiene i datasettet", "Det typiske avviket fra gjennomsnittsverdien"],
+      options: ["Forskjellen mellom høyeste og laveste verdi", "Den vanligste verdien som forekommer i datasettet", "Gjennomsnittet av alle verdiene i datasettet", "Det typiske avviket fra gjennomsnittsverdien"],
       explanation: "Variasjonsbredden er Max - Min og viser dataenes totale spredning.",
     },
   ],
@@ -78,7 +78,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken teknologisk revolusjon ga oss telefon og radio?",
-      options: ["Den elektriske revolusjon (1880-1920)", "Den digitale revolusjon (1970-2000)", "Jordbruksrevolusjonen i tidlig oldtid", "Den industrielle revolusjon (1760-1840)"],
+      options: ["Den elektriske revolusjon (1880-1920)", "Den digitale revolusjon (1970-2000)", "Jordbruksrevolusjonen i tidlig oldtid", "Industrielle revolusjon (1760-1840)"],
       explanation: "Den elektriske revolusjonen (1880-1920) ga oss elektrisk kraft, telefon og radio.",
     },
   ],
@@ -117,7 +117,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor trenger en LED motstand?",
-      options: ["For a begrense strømmen og unngå åt LED-en brenner", "For a oke lysstyrken", "For å lagre elektrisk energi mens kretsen er avslått", "For å endre fargen på lyset LED-en sender ut i kretsen"],
+      options: ["For a begrense strømmen og unngå åt LED-en brenner", "For å øke lysstyrken slik at LED-en lyser kraftigere", "For å lagre elektrisk energi mens kretsen er avslått", "For å endre fargen på lyset LED-en sender ut i kretsen"],
       explanation: "Uten motstand vil for mye strøm ga gjennom LED-en og ødelegge den.",
     },
     {
@@ -132,7 +132,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom setup() og loop() i Arduino?",
-      options: ["setup() kjører en gang, loop() kjører kontinuerlig", "setup() kjører kontinuerlig", "De to funksjonene gjør nøyaktig det samme og kan byttes ut fritt", "setup() kjøres kontinuerlig, mens loop() bare kjøres en enkelt gang"],
+      options: ["setup() kjører en gang, loop() kjører kontinuerlig", "Begge funksjonene kjøres bare én eneste gang ved oppstart av programmet", "De to funksjonene gjør nøyaktig det samme og kan byttes ut fritt", "setup() kjøres kontinuerlig, mens loop() bare kjøres en enkelt gang"],
       explanation: "setup() initialiserer og kjøres en gang, loop() inneholder hovedprogrammet som gjentas.",
     },
   ],
@@ -149,17 +149,17 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvabrukes PWM til?",
-      options: ["A simulære analog utgang for dimming og hastighet", "A kommunisere med andre enheter", "Å kommunisere med andre enheter over en datalinje", "Å lagre data permanent i minnet på mikrokontrolleren"],
+      options: ["A simulære analog utgang for dimming og hastighet", "A kommunisere med andre enheter", "Å kommunisere med andre enheter over en datalinje", "Å lagre data permanent i minnet"],
       explanation: "PWM varierer pulsbredden for a simulære verdier mellom 0 og 5V.",
     },
     {
       question: "Hva er forskjellen mellom analog og digital input?",
-      options: ["Digital har to tilstander, analog kan lese mange verdier", "Digital har mange verdier", "Analog input har bare to tilstander, enten høy eller lav", "Digital input kan lese mange ulike verdier langs en skala"],
+      options: ["Digital har to tilstander, analog kan lese mange verdier", "Analog input krever egen strømforsyning", "Analog input har bare to tilstander, enten høy eller lav", "Digital input kan lese mange ulike verdier langs en skala"],
       explanation: "Digital er HIGH/LOW, analog leser verdier fra 0-1023 påArduino.",
     },
     {
       question: "Hva gjør analogRead(A0)?",
-      options: ["Leser en analog verdi fra pinne A0", "Skriver en verdi til pinne A0", "Skriver en analog verdi ut til pinne A0", "Setter pinne A0 til digital"],
+      options: ["Leser en analog verdi fra pinne A0", "Nullstiller verdien på pinne A0", "Skriver en analog verdi ut til pinne A0", "Setter pinne A0 til digital"],
       explanation: "analogRead() leser en analog verdi fra 0-1023 fra den angitte pinnen.",
     },
   ],
@@ -203,12 +203,12 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen påtermoplast og herdeplast?",
-      options: ["Termoplast kan smeltes om, herdeplast kan ikke", "Termoplast er sterkere", "De to plasttypene oppfører seg helt likt ved oppvarming", "Termoplast er alltid sterkere fordi den ikke kan smeltes om"],
+      options: ["Termoplast kan smeltes om, herdeplast kan ikke", "Herdeplast kan smeltes om og støpes på nytt flere ganger", "De to plasttypene oppfører seg helt likt ved oppvarming", "Termoplast er alltid sterkere fordi den ikke kan smeltes om"],
       explanation: "Termoplast kan varmes og formes på nytt, herdeplast gjennomgar irreversibel reaksjon.",
     },
     {
       question: "Hva er styrke?",
-      options: ["Materialets evne til a motsta brudd", "Materialets evne til a motsta deformasjon", "Materialets vekt", "Materialets farge"],
+      options: ["Materialets evne til a motsta brudd", "Evnen til a motsta deformasjon", "Materialets vekt", "Materialets farge"],
       explanation: "Styrke er materialets evne til a tale belastning for det gåri stykker.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   "tof-1-9": [
     {
       question: "Hva er et Gantt-diagram?",
-      options: ["En grafisk tidsplan for prosjekter", "Et elektrisk kretsskjema", "Et elektrisk kretsskjema over komponentene", "En type flytdiagram som viser beslutninger"],
+      options: ["En grafisk tidsplan for prosjekter", "En liste over alle komponentene som inngår i produktet", "Et elektrisk kretsskjema over komponentene", "En type flytdiagram som viser beslutninger"],
       explanation: "Gantt-diagram viser oppgaver langs en tidsakse med stolper som indikerer varighet.",
     },
     {
@@ -230,7 +230,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et prosjekt?",
-      options: ["Tidsbegrenset innsats for a na et definert mal", "Ubegrenset tidsramme", "Fast, gjentakende driftsoppgave uten definert sluttdato", "Løpende linjearbeid med ubegrenset tidsramme og budsjett"],
+      options: ["Tidsbegrenset innsats for a na et definert mal", "Et arbeid som alltid utføres av én enkelt person alene", "Fast, gjentakende driftsoppgave uten definert sluttdato", "Løpende linjearbeid med ubegrenset tidsramme og budsjett"],
       explanation: "Prosjekter har klare mal, start og slutt, begrensede ressurser, og er unike.",
     },
     {
@@ -240,7 +240,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke hoveddeler bør en teknisk rapport ha?",
-      options: ["Innledning, metode, resultater, diskusjon, konklusjon", "Kun bilder og grafer", "Kun resultatdelen, uten metode, diskusjon og konklusjon", "Utelukkende rå kildekode, uten innledning og oppsummering"],
+      options: ["Innledning, metode, resultater, diskusjon, konklusjon", "Kun bilder og grafer, uten noen forklarende tekst rundt", "Kun resultatdelen, uten metode, diskusjon og konklusjon", "Utelukkende rå kildekode, uten innledning og oppsummering"],
       explanation: "En teknisk rapport følger en struktur med innledning, metode, resultater, diskusjon og konklusjon.",
     },
   ],
@@ -267,7 +267,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør en vitenskapelig poster inneholde?",
-      options: ["Tittel, bakgrunn, metode, resultater, konklusjon", "Bare bilder", "Kun illustrasjoner og bilder, uten forklarende tekst", "Utelukkende lange tekstavsnitt, uten figurer og grafer"],
+      options: ["Tittel, bakgrunn, metode, resultater, konklusjon", "Bare en fullstendig referanseliste over kildene som er brukt", "Kun illustrasjoner og bilder, uten forklarende tekst", "Utelukkende lange tekstavsnitt, uten figurer og grafer"],
       explanation: "En poster skal kunne forstås uten muntlig forklaring og inneholder alle hovedelementer.",
     },
   ],
@@ -294,7 +294,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er randomisering viktig?",
-      options: ["For a sikre at gruppene er sammenlignbare", "For å gjøre studien større", "For å få med flere deltakere og øke svarprosenten", "For å gjøre studien større og få et bredere datagrunnlag"],
+      options: ["For a sikre at gruppene er sammenlignbare", "For å redusere kostnadene ved å gjennomføre studien", "For å få med flere deltakere og øke svarprosenten", "For å gjøre studien større og få et bredere datagrunnlag"],
       explanation: "Randomisering fordeler konfunderende variabler likt mellom gruppene.",
     },
   ],
@@ -316,7 +316,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et 95% konfidensintervall?",
-      options: ["Et intervall der vi er 95% sikre påat den sanne verdien ligger", "Standardavviket som viser spredningen rundt gjennomsnittet", "P-verdien som forteller om resultatet er statistisk signifikant", "Selve gjennomsnittsverdien beregnet fra hele utvalget"],
+      options: ["Et intervall der vi er 95% sikre påat den sanne verdien ligger", "Standardavviket som viser spredningen rundt gjennomsnittet", "P-verdien som viser om resultatet er signifikant", "Selve gjennomsnittsverdien beregnet fra hele utvalget"],
       explanation: "Konfidensintervallet viser usikkerheten i estimatet og inkluderer sannsynligvis den sanne verdien.",
     },
     {
@@ -328,12 +328,12 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   "tof-2-3": [
     {
       question: "Hvor stor er en nanometer?",
-      options: ["En milliardtedel av en meter", "En milliontedel av en meter", "En tusendel av en meter, altsa én millimeter", "En tusendel av en meter"],
+      options: ["En milliardtedel av en meter", "En milliontedel av en meter", "En tusendel av en meter, altsa én millimeter", "En hundredel av en meter"],
       explanation: "En nanometer er 10^-9 meter, altsa en milliardtedel av en meter.",
     },
     {
       question: "Hvorfor har materialer andre egenskaper pånanoskala?",
-      options: ["Stort overflate/volum-forhold og kvanteeffekter", "De er lettere", "Fordi partiklene blir tyngre og får høyere tetthet", "Fordi de enkelte atomene blir fysisk større på nanoskala"],
+      options: ["Stort overflate/volum-forhold og kvanteeffekter", "De blir betydelig lettere fordi massen synker med størrelsen", "Fordi partiklene blir tyngre og får høyere tetthet", "Fordi de enkelte atomene blir fysisk større på nanoskala"],
       explanation: "Pa nanoskala dominerer overflateeffekter og kvanteeffekter materialenes oppforsel.",
     },
     {
@@ -343,7 +343,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvabrukes karbon-nanoror til?",
-      options: ["Komposittmaterialer og elektronikk", "Bygninger", "Som bærende bjelker i store byggkonstruksjoner", "Som næringsstoff og tilsetning i vanlige matvarer"],
+      options: ["Komposittmaterialer og elektronikk", "Som isolasjonsmateriale i vegger og tak", "Som bærende bjelker i store byggkonstruksjoner", "Som næringsstoff og tilsetning i vanlige matvarer"],
       explanation: "Karbon-nanoror er ekstremt sterke og gode ledere, brukt i avanserte materialer.",
     },
     {
@@ -402,7 +402,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser PET-skanning?",
-      options: ["Metabolsk aktivitet i kroppen", "Elektrisk aktivitet", "Tettheten av benvev og bruddskader i skjelettet", "Bare benstruktur"],
+      options: ["Metabolsk aktivitet i kroppen", "Elektrisk aktivitet", "Bruddskader i skjelettet", "Bare benstruktur"],
       explanation: "PET bruker radioaktive sporstoffer for å vise metabolsk aktivitet, f.eks. i svulster.",
     },
   ],
@@ -414,17 +414,17 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom veiledet og ikke-veiledet læring?",
-      options: ["Veiledet bruker merkede data, ikke-veiledet finner monstre selv", "Veiledet krever ingen data", "Ikke-veiledet læring gir alltid bedre resultater fordi den er raskere", "Veiledet læring krever ingen data, mens ikke-veiledet krever mye data"],
+      options: ["Veiledet bruker merkede data, ikke-veiledet finner monstre selv", "Veiledet læring kan bare brukes på bilder, aldri på tekst og tall", "Ikke-veiledet læring gir alltid bedre resultater fordi den er raskere", "Veiledet læring krever ingen data, mens ikke-veiledet krever mye data"],
       explanation: "Veiledet læring har fasit (merkede data), ikke-veiledet finner monstre i umerkede data.",
     },
     {
       question: "Hva er et nevralt nettverk?",
-      options: ["En AI-arkitektur inspirert av hjernen med lag av noder", "Et datanettverk", "Menneskets biologiske nervesystem med hjerne og ryggmarg", "Et fysisk datanettverk som kobler sammen maskiner med kabler"],
+      options: ["En AI-arkitektur inspirert av hjernen med lag av noder", "En metode for å lagre data i flere lag på en vanlig harddisk", "Menneskets biologiske nervesystem med hjerne og ryggmarg", "Et fysisk datanettverk som kobler sammen maskiner med kabler"],
       explanation: "Nevrale nettverk har input-, skjulte- og output-lag som prosesserer informasjon.",
     },
     {
       question: "Hva er algoritmisk bias?",
-      options: ["NårAI-systemer systematisk diskriminerer", "En type feil i koden", "En læringsmetode der modellen trener på merkede data over tid", "En tilfeldig feil i koden som gir uforutsigbare svar hver gang"],
+      options: ["NårAI-systemer systematisk diskriminerer", "En metode for å komprimere treningsdata før bruk", "En læringsmetode der modellen trener på merkede data over tid", "En tilfeldig feil i koden som gir uforutsigbare svar hver gang"],
       explanation: "Algoritmisk bias oppstar nårtreningsdata eller design fører til urettferdig behandling.",
     },
     {
@@ -436,7 +436,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   "tof-2-7": [
     {
       question: "Hva menes med grader av frihet (DOF) i robotikk?",
-      options: ["Antall uavhengige bevegelser en robot kan utføre", "Robotens størrelse", "Robotens fysiske størrelse og rekkevidde målt i meter", "Robotens totale vekt og hvor mye last den kan bære trygt"],
+      options: ["Antall uavhengige bevegelser en robot kan utføre", "Antall elektriske motorer roboten har innebygd i armen sin", "Robotens fysiske størrelse og rekkevidde målt i meter", "Robotens totale vekt og hvor mye last den kan bære trygt"],
       explanation: "DOF beskriver hvor mange uavhengige bevegelser roboten kan gjøre, typisk 6 for full kontroll.",
     },
     {
@@ -451,7 +451,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er lidar?",
-      options: ["En sensor som måler avstand med laser", "En type motor", "Et digitalt kamera som tar bilder i høy oppløsning", "En elektrisk motor som driver robotens hjul fremover"],
+      options: ["En sensor som måler avstand med laser", "En trykkfølsom sensor i robotens gripeklo", "Et digitalt kamera som tar bilder i høy oppløsning", "En elektrisk motor som driver robotens hjul fremover"],
       explanation: "Lidar bruker laserpulser for å lage detaljerte 3D-kart av omgivelsene.",
     },
     {
@@ -490,7 +490,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   "tof-2-9": [
     {
       question: "Hva kjennetegner en god problemstilling?",
-      options: ["Avgrenset, undersokbar og interessant", "Bred og generell", "Bred, generell og dekker hele fagfeltet", "Umulig å teste med tilgjengelige metoder"],
+      options: ["Avgrenset, undersokbar og interessant", "Formulert som et ja/nei-spørsmål uten rom for drøfting", "Bred, generell og dekker hele fagfeltet", "Umulig å teste med tilgjengelige metoder"],
       explanation: "En god problemstilling er spesifikk nok til a kunne undersøkes med tilgjengelige ressurser.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en milepael i et prosjekt?",
-      options: ["Et viktig sjekkpunkt som markerer fremgang", "Slutten påprosjektet", "En enkeltstående arbeidsoppgave uten særlig betydning", "Selve avslutningen og innleveringen av hele prosjektet"],
+      options: ["Et viktig sjekkpunkt som markerer fremgang", "En uforutsett hindring som stanser framdriften", "En enkeltstående arbeidsoppgave uten særlig betydning", "Selve avslutningen og innleveringen av hele prosjektet"],
       explanation: "Milepaler er viktige punkter som viser at prosjektet er pårett spor.",
     },
   ],
@@ -532,7 +532,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et abstract?",
-      options: ["Et kort sammendrag av hele artikkelen", "Referanselisten", "Referanselisten med alle kildene som er brukt", "Selve innledningen med bakgrunn og problemstilling"],
+      options: ["Et kort sammendrag av hele artikkelen", "Tabellen som viser alle måleresultatene i studien", "Referanselisten med alle kildene som er brukt", "Selve innledningen med bakgrunn og problemstilling"],
       explanation: "Abstractet oppsummerer bakgrunn, metode, resultater og konklusjon påca. 200 ord.",
     },
     {

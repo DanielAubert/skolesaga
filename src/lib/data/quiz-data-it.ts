@@ -19,12 +19,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket område har IKKE blitt påvirket av digitaliseringen?",
-      options: ["Alle områder har blitt påvirket av digitaliseringen", "Arbeidsliv", "Utelukkende offentlig sektor og statlige forvaltningsorganer", "Kun tradisjonelt håndverk og manuelt arbeid uten datamaskiner"],
+      options: ["Alle områder har blitt påvirket av digitaliseringen", "Arbeidslivet, som fortsatt fungerer akkurat som før datamaskinene kom", "Utelukkende offentlig sektor og statlige forvaltningsorganer", "Kun tradisjonelt håndverk og manuelt arbeid uten datamaskiner"],
       explanation: "Digitaliseringen har påvirket nesten alle områder av samfunnet, inkludert arbeidsliv, utdanning, helse og demokrati.",
     },
     {
       question: "Hva er et eksempel pådigital transformasjon i banktjenester?",
-      options: ["Nettbank og Vipps som gjør banktjenester tilgjengelige 24/7", "A besoke bankfilialen for a sjekke saldo", "At man sender et signert brev til banken for å be om en kontoutskrift", "At man besøker en fysisk bankfilial for å sjekke saldoen på kontoen sin"],
+      options: ["Nettbank og Vipps som gjør banktjenester tilgjengelige 24/7", "At man ringer banken for å få lest opp saldoen sin av en kunderådgiver", "At man sender et signert brev til banken for å be om en kontoutskrift", "At man besøker en fysisk bankfilial for å sjekke saldoen på kontoen sin"],
       explanation: "Digital transformasjon i bank betyr at tjenester som tidligere krevde fysisk oppmate na kan gjøres digitalt nårsom helst.",
     },
   ],
@@ -112,7 +112,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-1-5": [
     {
       question: "Hvabrukes JavaScript til pånettsider?",
-      options: ["A gjøre nettsider interaktive", "Å lagre data på serveren", "Å strukturere innholdet", "A lagre data påserveren"],
+      options: ["A gjøre nettsider interaktive", "Å lagre data permanent på serveren", "Å strukturere innholdet", "Å bestemme fargene på siden"],
       explanation: "JavaScript gjør nettsider interaktive ved a reagere påbrukerhandlinger, endre innhold, og manipulære DOM.",
     },
     {
@@ -149,12 +149,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør WHERE-klausulen i en SQL-sporring?",
-      options: ["Filtrerer rader basert påen betingelse", "Velger hvilke kolonner som vises", "Velger hvilke kolønner som vises", "Sorterer resultatene stigende"],
+      options: ["Filtrerer rader basert påen betingelse", "Velger hvilke kolonner som skal vises i resultatet", "Slår sammen data fra to eller flere tabeller", "Sorterer resultatene stigende"],
       explanation: "WHERE brukes til a filtrere rader som oppfyller en bestemt betingelse, f.eks. WHERE pris > 100.",
     },
     {
       question: "Hva er hensikten med normalisering?",
-      options: ["Redusere redundans og sikre dataintegritet", "Å gjøre databasen mye raskere", "Å komprimere dataene mer", "Å kryptere alle dataene"],
+      options: ["Redusere redundans og sikre dataintegritet", "Å gjøre databasen betydelig raskere å søke i", "Å komprimere dataene mer", "Å kryptere alle dataene"],
       explanation: "Normalisering organiserer data slik at informasjon ikke lagres flere steder, noe som holder dataene konsistente.",
     },
     {
@@ -171,7 +171,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr universell utforming?",
-      options: ["At produktet kan brukes av alle, uavhengig av funksjonsevne", "At nettsiden fungerer på alle nettlesere og enheter", "At man bruker allment kjente universelle symboler", "At designet ser helt likt ut over hele verden"],
+      options: ["At produktet kan brukes av alle, uavhengig av funksjonsevne", "At nettsiden fungerer likt på alle nettlesere og alle enheter", "At man bruker allment kjente universelle symboler i designet", "At designet ser helt likt ut over hele verden"],
       explanation: "Universell utforming sikrer at alle kan bruke produktet, inkludert personer med funksjonsnedsettelser.",
     },
     {
@@ -203,7 +203,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er phishing?",
-      options: ["Forsok påa lure noen til a oppgi sensitiv informasjon", "A hacke et nettverk", "En metode for a avlytte trafikk på et apent tradlost nettverk uten a bli oppdaget", "Et angrep der man oversvømmer en server med trafikk til den slutter a svare brukerne"],
+      options: ["Forsok påa lure noen til a oppgi sensitiv informasjon", "Å bryte seg inn i et nettverk ved å utnytte tekniske svakheter", "En metode for a avlytte trafikk på et apent tradlost nettverk uten a bli oppdaget", "Et angrep der man oversvømmer en server med trafikk til den slutter a svare brukerne"],
       explanation: "Phishing bruker falske e-poster eller nettsider for a lure folk til a oppgi passord eller annen sensitiv informasjon.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-1-9": [
     {
       question: "Hva er GDPR?",
-      options: ["EUs personvernforordning som regulærer behandling av personopplysninger", "En krypteringsstandard", "En internasjonal krypteringsstandard som beskytter data mens de sendes over internett", "En avtale mellom EU-land om a dele personopplysninger fritt over landegrensene i Europa"],
+      options: ["EUs personvernforordning som regulærer behandling av personopplysninger", "Et norsk register der alle bedrifter må melde inn hvilke data de lagrer om kundene", "En internasjonal krypteringsstandard som beskytter data mens de sendes over internett", "En avtale mellom EU-land om a dele personopplysninger fritt over landegrensene i Europa"],
       explanation: "GDPR (General Data Protection Regulation) er EUs personvernforordning som også gjelder i Norge gjennom personopplysningsloven.",
     },
     {
@@ -235,7 +235,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er opphavsrett?",
-      options: ["Beskyttelse av andsverk som gir skaperen enerett til bruk", "Rett til a kopiere alt påinternett", "En lisensavtale som gir deg lov til a bruke andres bilder sa lenge du oppgir kilden", "En rett til fritt a kopiere og dele alt innhold du finner publisert apent pa internett"],
+      options: ["Beskyttelse av andsverk som gir skaperen enerett til bruk", "En avgift forfatterne betaler til staten for å få gi ut bøkene sine", "En lisensavtale som gir deg lov til a bruke andres bilder sa lenge du oppgir kilden", "En rett til fritt a kopiere og dele alt innhold du finner publisert apent pa internett"],
       explanation: "Opphavsrett beskytter kreative verk og gir skaperen kontroll over hvordan verket brukes og distribueres.",
     },
     {
@@ -247,7 +247,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-1-10": [
     {
       question: "Hva er første fase i et IT-prosjekt?",
-      options: ["Planlegging - definere mal og krav", "Levering - presentere resultatet", "Utvikling - a begynne a skrive kode med en gang sa man raskt far noe fungerende", "Utvikling - skrive kode"],
+      options: ["Planlegging - definere mal og krav", "Levering - presentere resultatet", "Utvikling - a begynne a skrive kode med en gang sa man raskt far noe fungerende", "Testing - finne feil i koden"],
       explanation: "Planleggingsfasen er først, der man definerer mal, krav, tidsplan og fordeler oppgaver.",
     },
     {
@@ -257,12 +257,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvabrukes Git til?",
-      options: ["Versjonskontroll - spore endringer i kode", "A designe nettsider", "A designe brukergrensesnitt og layout for nettsider ved hjelp av ferdige maler", "A kjøre programmer"],
+      options: ["Versjonskontroll - spore endringer i kode", "Å redigere bilder og grafikk", "A designe brukergrensesnitt og layout for nettsider ved hjelp av ferdige maler", "Å kjøre ferdige programmer på maskinen"],
       explanation: "Git er et versjonskontrollsystem som sporer alle endringer i koden, slik at du kan ga tilbake til tidligere versjoner.",
     },
     {
       question: "Hva bør en god prosjektdokumentasjon inneholde?",
-      options: ["Malsetting, teknisk beskrivelse, brukerveiledning og refleksjon", "Bare prosjektloggen", "Utelukkende prosjektloggen med datoer og timer, som viser hvor mye tid som ble brukt", "Bare skjermbilder av det ferdige produktet slik at leseren ser hvordan resultatet ble"],
+      options: ["Malsetting, teknisk beskrivelse, brukerveiledning og refleksjon", "Bare den ferdige kildekoden, helt uten noen forklarende tekst rundt", "Utelukkende prosjektloggen med datoer og timer, som viser hvor mye tid som ble brukt", "Bare skjermbilder av det ferdige produktet slik at leseren ser hvordan resultatet ble"],
       explanation: "God dokumentasjon inkluderer hva prosjektet skal oppna, hvordan det er bygget, hvordan det brukes, og refleksjon over prosessen.",
     },
     {
@@ -274,12 +274,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-2-1": [
     {
       question: "Hva er forskjellen mellom en klasse og et objekt i OOP?",
-      options: ["Klassen er malen, objektet er en konkret instans av malen", "Objektet er malen, klassen er instansen", "Klasser finnes bare i Java, mens objekter er noe man utelukkende bruker i Python-kode", "Klasser finnes bare i Java"],
+      options: ["Klassen er malen, objektet er en konkret instans av malen", "Objektet er malen, klassen er instansen", "Klasser finnes bare i Java, mens objekter er noe man utelukkende bruker i Python-kode", "Objekter finnes bare i eldre språk"],
       explanation: "En klasse er en mal/oppskrift som definerer struktur, mens et objekt er en konkret instans med faktiske verdier.",
     },
     {
       question: "Hva er innkapsling i objektorientert programmering?",
-      options: ["A skjule interne detaljer og kun eksponere nødvendig funksjonalitet", "A dele kode mellom prosjekter", "A dele opp løsningen i sa mange klasser som mulig slik at hver klasse blir minst mulig", "A pakke all kildekoden sammen i en komprimert ZIP-fil før den distribueres til brukerne"],
+      options: ["A skjule interne detaljer og kun eksponere nødvendig funksjonalitet", "Å dele den samme koden mellom flere ulike prosjekter og utviklingsteam", "A dele opp løsningen i sa mange klasser som mulig slik at hver klasse blir minst mulig", "A pakke all kildekoden sammen i en komprimert ZIP-fil før den distribueres til brukerne"],
       explanation: "Innkapsling beskytter data fra uønsket endring og gjør koden enklære a vedlikeholde ved a skjule implementasjonsdetaljer.",
     },
     {
@@ -301,7 +301,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-2-2": [
     {
       question: "Hva er forskjellen mellom en stakk (stack) og en ko (queue)?",
-      options: ["Stakk er LIFO (sist inn, først ut), ko er FIFO (først inn, først ut)", "Stakk brukes bare for tall", "Stakk er FIFO (først inn, først ut), mens ko er LIFO (sist inn, først ut) ved uttak", "Stakk kan bare lagre tall, mens ko kan lagre alle typer verdier som tekst og objekter"],
+      options: ["Stakk er LIFO (sist inn, først ut), ko er FIFO (først inn, først ut)", "Stakk kan bare brukes når dataene skal lagres permanent på harddisken", "Stakk er FIFO (først inn, først ut), mens ko er LIFO (sist inn, først ut) ved uttak", "Stakk kan bare lagre tall, mens ko kan lagre alle typer verdier som tekst og objekter"],
       explanation: "Stakk fungerer som en stabel (siste påtoppen fjernes først), ko fungerer som en ventekoe (første i rekken betjenes først).",
     },
     {
@@ -328,12 +328,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-2-3": [
     {
       question: "Hva er hovedforskjellen mellom fossefallsmodellen og smidig utvikling?",
-      options: ["Fossefall er lineaer og sekvensielt, smidig er iterativ med hyppige leveranser", "Smidig har ingen planlegging", "De er egentlig like i praksis, siden begge deler prosjektet inn i de samme fem hovedfasene", "Smidig utvikling har ingen planlegging i det hele tatt, mens fossefall planlegger alt nøye"],
+      options: ["Fossefall er lineaer og sekvensielt, smidig er iterativ med hyppige leveranser", "Fossefall brukes bare til apputvikling, mens smidig brukes til alle andre systemer", "De er egentlig like i praksis, siden begge deler prosjektet inn i de samme fem hovedfasene", "Smidig utvikling har ingen planlegging i det hele tatt, mens fossefall planlegger alt nøye"],
       explanation: "Fossefall gårgjennom fasene en gang, mens smidig utvikling gjentar korte sykluser med kontinuerlig forbedring.",
     },
     {
       question: "Hva er enhetstesting (unit testing)?",
-      options: ["A teste enkeltfunksjoner eller komponenter isolert", "A teste bare brukergrensesnittet", "A teste hele systemet i sammenheng for a se om alle delene virker sammen mot slutten", "A teste hele systemet"],
+      options: ["A teste enkeltfunksjoner eller komponenter isolert", "A teste bare brukergrensesnittet", "A teste hele systemet i sammenheng for a se om alle delene virker sammen mot slutten", "Å måle hvor raskt systemet svarer under last"],
       explanation: "Enhetstesting verifiserer at individuelle funksjoner eller metoder fungerer korrekt, uavhengig av resten av systemet.",
     },
     {
@@ -343,7 +343,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er test-drevet utvikling (TDD)?",
-      options: ["A skrive tester for koden først, deretter implementere kode som består testene", "A teste etter all koding er ferdig", "A vente med a teste til all koden er ferdig skrevet, sa man tester det komplette produktet", "A la en egen testavdeling eller andre utviklere teste koden din etter at du har levert den"],
+      options: ["A skrive tester for koden først, deretter implementere kode som består testene", "Å la kunden teste programmet i full drift og melde fra om alle feilene de finner", "A vente med a teste til all koden er ferdig skrevet, sa man tester det komplette produktet", "A la en egen testavdeling eller andre utviklere teste koden din etter at du har levert den"],
       explanation: "TDD-syklusen: Skriv test (som feiler) -> Skriv kode for a besta -> Refaktorer. Dette sikrer testdekning.",
     },
     {
@@ -360,7 +360,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er responsive design?",
-      options: ["At nettsiden tilpasser seg automatisk til ulike skjermstørrelser", "At nettsiden har mange knapper", "At nettsiden reagerer og laster svaert raskt uansett hvor treg internettforbindelsen er", "At nettsiden har mange interaktive knapper og menyer som brukeren kan klikke seg gjennom"],
+      options: ["At nettsiden tilpasser seg automatisk til ulike skjermstørrelser", "At nettsiden svarer på brukerens klikk uten at siden må lastes på nytt", "At nettsiden reagerer og laster svaert raskt uansett hvor treg internettforbindelsen er", "At nettsiden har mange interaktive knapper og menyer som brukeren kan klikke seg gjennom"],
       explanation: "Responsive design bruker CSS media queries og fleksible layouter for a tilpasse visningen til mobil, nettbrett og desktop.",
     },
     {
@@ -382,7 +382,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-2-5": [
     {
       question: "Hva er forskjellen mellom veiledet og uveiledet læring?",
-      options: ["Veiledet læring bruker merkede data med fasit, uveiledet finner monster uten fasit", "Veiledet krever ingen data", "Uveiledet laering gir alltid mer nøyaktige resultater fordi den ikke trenger merkede data", "De er egentlig like, siden begge trener modeller pa nøyaktig samme mate med de samme dataene"],
+      options: ["Veiledet læring bruker merkede data med fasit, uveiledet finner monster uten fasit", "Veiledet læring krever ingen treningsdata i det hele tatt, bare regler skrevet av mennesker", "Uveiledet laering gir alltid mer nøyaktige resultater fordi den ikke trenger merkede data", "De er egentlig like, siden begge trener modeller pa nøyaktig samme mate med de samme dataene"],
       explanation: "Veiledet læring trenes pådata der vi vet riktig svar (f.eks. bilder merket katt/hund). Uveiledet finner monster selv.",
     },
     {
@@ -419,7 +419,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hashing?",
-      options: ["En enveisfunksjon som lager et unikt fingeravtrykk av data", "A komprimere filer", "En metode som komprimerer filer for å redusere lagringsplass uten å miste informasjon", "En prosess som deler store datasett opp i mindre biter og fordeler dem mellom servere"],
+      options: ["En enveisfunksjon som lager et unikt fingeravtrykk av data", "Å dele en fil i mindre pakker før den sendes over nettverket", "En metode som komprimerer filer for å redusere lagringsplass uten å miste informasjon", "En prosess som deler store datasett opp i mindre biter og fordeler dem mellom servere"],
       explanation: "Hashing produserer en fast-lengde streng fra input. Kan ikke reverseres, brukes til a verifisere integritet og lagre passord sikkert.",
     },
     {
@@ -436,17 +436,17 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-2-7": [
     {
       question: "Hva er de syv fasene i systemutviklingens livssyklus (SDLC)?",
-      options: ["Planlegging, Analyse, Design, Utvikling, Testing, Implementering, Vedlikehold", "Det finnes ingen faste faser", "Kun to faser: planlegging og koding, siden resten skjer automatisk underveis i prosjektet", "Bare design og testing, ettersom analyse og vedlikehold regnes som deler av selve utviklingen"],
+      options: ["Planlegging, Analyse, Design, Utvikling, Testing, Implementering, Vedlikehold", "Det finnes ingen faste faser, ettersom hvert prosjekt finner sin egen rekkefølge", "Kun to faser: planlegging og koding, siden resten skjer automatisk underveis i prosjektet", "Bare design og testing, ettersom analyse og vedlikehold regnes som deler av selve utviklingen"],
       explanation: "SDLC gir en strukturert tilnærming fra a forstå behovet til a drifte og vedlikeholde systemet over tid.",
     },
     {
       question: "Hva er en brukerhistorie (user story)?",
-      options: ["En kort beskrivelse av funksjonalitet frå brukerens perspektiv", "En lang teknisk dokumentasjon", "En rapport som brukeren sender inn når det oppstår en feil eller mangel i programvaren", "En omfattende og detaljert teknisk spesifikasjon som beskriver hele systemets arkitektur"],
+      options: ["En kort beskrivelse av funksjonalitet frå brukerens perspektiv", "En logg der utvikleren noterer ned hvor lang tid hver oppgave tok", "En rapport som brukeren sender inn når det oppstår en feil eller mangel i programvaren", "En omfattende og detaljert teknisk spesifikasjon som beskriver hele systemets arkitektur"],
       explanation: "Format: \"Som [rolle] ønsker jeg [funksjon] slik at [nytte]\". Holder fokus påbrukerverdi.",
     },
     {
       question: "Hva er forskjellen mellom funksjonelle og ikke-funksjonelle krav?",
-      options: ["Funksjonelle beskriver hva systemet gjør, ikke-funksjonelle beskriver kvalitetsegenskaper", "Funksjonelle handler om design", "Ikke-funksjonelle krav er uviktige detaljer som kan ignoreres så lenge systemet gjør det det skal", "Funksjonelle krav handler kun om systemets visuelle design, mens ikke-funksjonelle beskriver koden"],
+      options: ["Funksjonelle beskriver hva systemet gjør, ikke-funksjonelle beskriver kvalitetsegenskaper", "Funksjonelle krav gjelder bare maskinvaren, ikke programvaren", "Ikke-funksjonelle krav er uviktige detaljer som kan ignoreres så lenge systemet gjør det det skal", "Funksjonelle krav handler kun om systemets visuelle design, mens ikke-funksjonelle beskriver koden"],
       explanation: "Funksjonelle krav: \"Brukeren kan logge inn\". Ikke-funksjonelle krav: \"Systemet skal handtere 1000 samtidige brukere\".",
     },
     {
@@ -456,14 +456,14 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er risikostyring i prosjekter?",
-      options: ["A identifisere, analysere og handtere potensielle problemer", "A alltid velge det sikre alternativet", "Å ta bevisste sjanser i prosjektet for å oppnå raskere fremdrift og lavere kostnader", "Å ignorere mindre problemer underveis slik at teamet kan holde full fokus på hovedmålet"],
+      options: ["A identifisere, analysere og handtere potensielle problemer", "Å alltid velge det aller sikreste alternativet i enhver situasjon", "Å ta bevisste sjanser i prosjektet for å oppnå raskere fremdrift og lavere kostnader", "Å ignorere mindre problemer underveis slik at teamet kan holde full fokus på hovedmålet"],
       explanation: "Risikostyring innebærer a forutse problemer, vurdere sannsynlighet og konsekvens, og planlegge tiltak.",
     },
   ],
   "it-2-8": [
     {
       question: "Hva er et API?",
-      options: ["Et grensesnitt som lar ulike programmer kommunisere med hverandre", "Et programmeringsspråk", "En type database som lagrer og organiserer store mengder strukturert data", "En nettleser som lar brukeren hente og vise innhold fra ulike nettjenester"],
+      options: ["Et grensesnitt som lar ulike programmer kommunisere med hverandre", "Et eget programmeringsspråk laget spesielt for nettbaserte tjenester", "En type database som lagrer og organiserer store mengder strukturert data", "En nettleser som lar brukeren hente og vise innhold fra ulike nettjenester"],
       explanation: "API (Application Programming Interface) definerer hvordan programvare kan utveksle data og funksjonalitet.",
     },
     {
@@ -473,7 +473,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er JSON?",
-      options: ["Et lettvekt tekstformat for datautveksling", "Et programmeringsspråk", "Et programmeringsspråk som brukes til webutvikling", "En database for lagring av strukturert informasjon"],
+      options: ["Et lettvekt tekstformat for datautveksling", "En metode for å komprimere store datafiler før overføring", "Et programmeringsspråk som brukes til webutvikling", "En database for lagring av strukturert informasjon"],
       explanation: "JSON (JavaScript Object Notation) er et menneske- og maskinlesbart format for a strukturere data, mye brukt i API-er.",
     },
     {
@@ -483,14 +483,14 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvabrukes en API-nokkel til?",
-      options: ["A identifisere og autentisere klienten som bruker API-et", "A speede opp føresporsler", "Å formatere svarene fra API-et om til gyldig og lesbar JSON-struktur", "Å kryptere dataene som sendes mellom klienten og API-et under overføringen"],
+      options: ["A identifisere og autentisere klienten som bruker API-et", "Å gjøre forespørslene til API-et vesentlig raskere å behandle", "Å formatere svarene fra API-et om til gyldig og lesbar JSON-struktur", "Å kryptere dataene som sendes mellom klienten og API-et under overføringen"],
       explanation: "API-nokkler identifiserer hvem som bruker tjenesten, begrenser tilgang, og sporer bruk.",
     },
   ],
   "it-2-9": [
     {
       question: "Hva er forskjellen mellom IaaS, PaaS og SaaS?",
-      options: ["IaaS gir infrastruktur, PaaS gir plattform for utvikling, SaaS gir ferdig programvare", "SaaS krever mest teknisk kunnskap", "IaaS er den klart dyreste modellen fordi leverandøren styrer hele infrastrukturen for deg", "SaaS krever mest teknisk kunnskap fordi brukeren selv må sette opp servere og operativsystem"],
+      options: ["IaaS gir infrastruktur, PaaS gir plattform for utvikling, SaaS gir ferdig programvare", "IaaS og PaaS er to navn på nøyaktig den samme tjenesten", "IaaS er den klart dyreste modellen fordi leverandøren styrer hele infrastrukturen for deg", "SaaS krever mest teknisk kunnskap fordi brukeren selv må sette opp servere og operativsystem"],
       explanation: "IaaS: Du styrer alt over infrastrukturen. PaaS: Du fokuserer påkode. SaaS: Du bare bruker ferdig software.",
     },
     {
@@ -505,12 +505,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er serverless computing?",
-      options: ["A kjøre kode uten a administrere servere, betaler kun nårkoden kjører", "A bruke bare lokale servere", "Å bruke utelukkende lokale, fysiske servere i eget serverrom fremfor tjenester i skyen", "Å utvikle programvare offline på egen datamaskin før den til slutt lastes opp til en server"],
+      options: ["A kjøre kode uten a administrere servere, betaler kun nårkoden kjører", "Å kjøre programmene helt uten et operativsystem, direkte på maskinvaren", "Å bruke utelukkende lokale, fysiske servere i eget serverrom fremfor tjenester i skyen", "Å utvikle programvare offline på egen datamaskin før den til slutt lastes opp til en server"],
       explanation: "Serverless (som AWS Lambda) lar deg fokusere påkode mens skyleverandoren handterer all infrastruktur og skalering.",
     },
     {
       question: "Hvilke store skyleverandører finnes?",
-      options: ["AWS, Microsoft Azure, Google Cloud Platform", "Det finnes ingen store leverandører", "Bare mindre, lokale selskaper som drifter servere for én enkelt landsdel", "Bare lokale selskaper"],
+      options: ["AWS, Microsoft Azure, Google Cloud Platform", "Det finnes ingen store leverandører", "Bare mindre, lokale selskaper som drifter servere for én enkelt landsdel", "Bare offentlige etater tilbyr sky"],
       explanation: "De tre store er Amazon Web Services (AWS), Microsoft Azure og Google Cloud Platform (GCP).",
     },
   ],
@@ -532,7 +532,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er digitalt utenforskap?",
-      options: ["At grupper faller utenfor fordi de mangler digital kompetanse eller tilgang", "A velge a ikke bruke teknologi", "Å bevisst velge bort sosiale medier for å skjerme seg mot reklame og overvåking", "Å frivillig la være å bruke teknologi selv om man både mestrer den og har full tilgang"],
+      options: ["At grupper faller utenfor fordi de mangler digital kompetanse eller tilgang", "At eldre teknologi som faks fortsatt brukes i deler av offentlig sektor i dag", "Å bevisst velge bort sosiale medier for å skjerme seg mot reklame og overvåking", "Å frivillig la være å bruke teknologi selv om man både mestrer den og har full tilgang"],
       explanation: "Digitalt utenforskap rammer de som ikke mestrer eller har tilgang til teknologi samfunnet forutsetter.",
     },
     {

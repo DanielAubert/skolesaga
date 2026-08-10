@@ -9,7 +9,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebærer "den sosiologiske fantasien" ifølge C. Wright Mills?',
-    options: ["Evnen til å se sammenhengen mellom individuelle erfåringer og samfunnsstrukturer", "Evnen til å førestille seg fremtidige samfunn", "Evnen til å dikte opp nye sosiologiske teorier uten forankring i empiriske observasjoner", "Evnen til å forklare personlige problemer utelukkende ut fra individets egne valg og egenskaper"],
+    options: ["Evnen til å se sammenhengen mellom individuelle erfåringer og samfunnsstrukturer", "Evnen til å forestille seg nøyaktig hvordan framtidens samfunn kommer til å se ut", "Evnen til å dikte opp nye sosiologiske teorier uten forankring i empiriske observasjoner", "Evnen til å forklare personlige problemer utelukkende ut fra individets egne valg og egenskaper"],
     explanation: 'Den sosiologiske fantasien er evnen til å se sammenhengen mellom individuelle erfåringer og større samfunnsstrukturer, slik at vi forstår at personlige problemer ofte har sosiale årsaker.',
   },
   {
@@ -19,7 +19,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er normer i sosiologisk forstånd?',
-    options: ["Regler og forventninger som styrer atferd i samfunnet", "Politiske lover vedtatt av Stortinget", "Økonomiske strukturer som fordeler ressurser og makt mellom grupper i samfunnet", "Økonomiske strukturer i samfunnet"],
+    options: ["Regler og forventninger som styrer atferd i samfunnet", "Politiske lover vedtatt av Stortinget", "Økonomiske strukturer som fordeler ressurser og makt mellom grupper i samfunnet", "Ubevisste vaner vi ikke tenker over"],
     explanation: 'Normer er regler og forventninger som styrer atferd i samfunnet. De kan være formelle (lover) eller uformelle (skikk og bruk).',
   },
   {
@@ -33,12 +33,12 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-2': [
   {
     question: 'Hva er primærsosialisering?',
-    options: ["Den første sosialiseringen i barndømmen, hovedsakelig i familien", "Sosialisering gjennom skole og arbeidsliv", "Sosialiseringen som skjer gjennom skole og arbeidsliv etter at barndommen er over", "Sosialiseringen som skjer gjennom politiske partier og organisasjoner i voksen alder"],
+    options: ["Den første sosialiseringen i barndømmen, hovedsakelig i familien", "Den opplæringen som skjer i idrettslag og fritidsaktiviteter i ungdomstiden", "Sosialiseringen som skjer gjennom skole og arbeidsliv etter at barndommen er over", "Sosialiseringen som skjer gjennom politiske partier og organisasjoner i voksen alder"],
     explanation: 'Primærsosialisering er den første sosialiseringen som skjer i barndømmen, hovedsakelig i familien, der grunnleggende verdier, språk og sosiale ferdigheter læres.',
   },
   {
     question: 'Hva er habitus ifølge Pierre Bourdieu?',
-    options: ["Inkorporerte disposisjoner vi lærer gjennom oppveksten", "Bevisste valg vi tar i hverdagen", "Medfødte biologiske instinkter som styrer atferden vår uavhengig av oppvekst", "Formelle sosiale roller som er nedfelt i lover og tydelige regler i samfunnet"],
+    options: ["Inkorporerte disposisjoner vi lærer gjennom oppveksten", "De helt bevisste valgene vi tar i hverdagen, uavhengig av bakgrunn", "Medfødte biologiske instinkter som styrer atferden vår uavhengig av oppvekst", "Formelle sosiale roller som er nedfelt i lover og tydelige regler i samfunnet"],
     explanation: 'Habitus er inkorporerte disposisjoner vi lærer gjennom oppveksten. Ulik sosial bakgrunn gir ulik habitus som former smak, vaner og væremåte.',
   },
   {
@@ -53,7 +53,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er stigma i sosiologisk forstånd?',
-    options: ["Et negativt stempel som påvirker identitet og hvordan andre ser oss", "Et formelt medlemskap i en gruppe", "Et formelt registrert medlemskap i en gruppe eller organisasjon i samfunnet", "En positiv merkelapp som gir personen status og fordeler i møte med andre mennesker"],
+    options: ["Et negativt stempel som påvirker identitet og hvordan andre ser oss", "En medfødt personlighetstrekk som avgjør hvordan man oppfattes av andre", "Et formelt registrert medlemskap i en gruppe eller organisasjon i samfunnet", "En positiv merkelapp som gir personen status og fordeler i møte med andre mennesker"],
     explanation: 'Stigma er et negativt stempel som diskrediterer personen. Stigmatisering kan påvirke selvbilde, begrense muligheter og føre til at personen internaliserer andres negative syn.',
   },
 ],
@@ -62,7 +62,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-3': [
   {
     question: 'Hva er etnosentrisme?',
-    options: ["Å vurdere andre kulturer ut fra egen kulturs målestokk", "Å forstå kulturer på deres egne premisser", "Å studere sin egen kultur vitenskapelig og systematisk innenfra som forsker", "Å studere egen kultur vitenskapelig"],
+    options: ["Å vurdere andre kulturer ut fra egen kulturs målestokk", "Å forstå kulturer på deres egne premisser", "Å studere sin egen kultur vitenskapelig og systematisk innenfra som forsker", "Å blande sammen to ulike kulturer"],
     explanation: 'Etnosentrisme er å vurdere andre kulturer ut fra egen kulturs målestokk, ofte med nedvurdering av det som er annerledes.',
   },
   {
@@ -72,7 +72,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kulturell kapital ifølge Bourdieu?',
-    options: ["Kulturelle ressurser som gir fordeler, som utdanning, smak og væremåte", "Kontakter og nettverk", "Penger, eiendom og materielle verdier som gir kjøpekraft og økonomisk trygghet", "Politisk innflytelse og tilgang til beslutningsprosesser i samfunnets maktstrukturer"],
+    options: ["Kulturelle ressurser som gir fordeler, som utdanning, smak og væremåte", "Kontakter og sosiale nettverk som gir tilgang til jobber og nyttig informasjon", "Penger, eiendom og materielle verdier som gir kjøpekraft og økonomisk trygghet", "Politisk innflytelse og tilgang til beslutningsprosesser i samfunnets maktstrukturer"],
     explanation: 'Kulturell kapital er kulturelle ressurser som gir fordeler - utdanning, "riktig" smak, væremåte og språkbruk. De som har kulturell kapital verdsatt av makthaverne, har lettere for å lykkes.',
   },
   {
@@ -106,7 +106,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er neolokalitet?',
-    options: ["At påret etablærer eget hjem uavhengig av foreldrene", "At påret bor hos begge familier annenhver uke", "At bruden ved ekteskap flytter til og bosetter seg hos mannens familie og slekt", "At bruden flytter til mannens familie"],
+    options: ["At påret etablærer eget hjem uavhengig av foreldrene", "At påret bor hos begge familier annenhver uke", "At bruden ved ekteskap flytter til og bosetter seg hos mannens familie og slekt", "At paret bor sammen med mannens søsken"],
     explanation: 'Neolokalitet betyr at påret etablærer eget hjem uavhengig av begge foreldrefamilier. Dette er vanlig i Norge og andre vestlige land.',
   },
   {
@@ -120,7 +120,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-5': [
   {
     question: 'Hva bestemmer klassetilhørighet ifølge Karl Marx?',
-    options: ["Forholdet til produksjonsmidlene - om man eier eller selger arbeidskraft", "Politisk tilhørighet", "Den kulturelle smaken og hvilke vaner og preferanser man har med seg hjemmefra", "Den politiske tilhørigheten og hvilket parti man stemmer på ved valg i samfunnet"],
+    options: ["Forholdet til produksjonsmidlene - om man eier eller selger arbeidskraft", "Utdanningsnivået og hvilken yrkestittel man har oppnådd i arbeidslivet sitt", "Den kulturelle smaken og hvilke vaner og preferanser man har med seg hjemmefra", "Den politiske tilhørigheten og hvilket parti man stemmer på ved valg i samfunnet"],
     explanation: 'Ifølge Marx bestemmes klasse av forholdet til produksjonsmidlene. Borgerskapet eier produksjonsmidlene, mens arbeiderklassen selger sin arbeidskraft.',
   },
   {
@@ -130,12 +130,12 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva måler Gini-koeffisienten?',
-    options: ["Økonomisk ulikhet, fra 0 (perfekt likhet) til 1 (all inntekt til én person)", "Det gjennomsnittlige utdanningsnivået i befolkningen målt i antall skoleår", "Befolkningsvekst og hvordan innbyggertallet i et land endrer seg over tid", "Den generelle helsetilstanden i befolkningen målt ved forventet levealder"],
+    options: ["Økonomisk ulikhet, fra 0 (perfekt likhet) til 1 (all inntekt til én person)", "Det gjennomsnittlige utdanningsnivået i befolkningen målt i antall år på skole", "Befolkningsvekst og hvordan innbyggertallet i et land endrer seg over tid", "Den generelle helsetilstanden i befolkningen målt ved forventet levealder"],
     explanation: 'Gini-koeffisienten måler økonomisk ulikhet. 0 betyr perfekt likhet, 1 betyr at all inntekt går til én person. Norge har ca. 0,27.',
   },
   {
     question: 'Hva er sosial mobilitet?',
-    options: ["Bevegelse mellom posisjoner i det sosiale hierarkiet", "Økt bruk av sosiale medier", "Økt bruk av sosiale medier og digitale nettverk for å knytte nye kontakter", "Flytting mellom ulike land og landsdeler i jakt på arbeid eller bedre levekår"],
+    options: ["Bevegelse mellom posisjoner i det sosiale hierarkiet", "Daglig bruk av kollektivtransport til og fra arbeidsstedet", "Økt bruk av sosiale medier og digitale nettverk for å knytte nye kontakter", "Flytting mellom ulike land og landsdeler i jakt på arbeid eller bedre levekår"],
     explanation: 'Sosial mobilitet er bevegelse mellom posisjoner i det sosiale hierarkiet. Den kan være oppadgående eller nedadgående, og skje mellom generasjoner eller innenfor ett livsløp.',
   },
   {
@@ -159,7 +159,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med begrepet glasstaket?',
-    options: ["Et begrep for mulige usynlige barrierer som kan hindre kvinner i å nå toppstillinger", "En lovfestet og formell diskriminering som åpent forbyr kvinner å nå toppstillinger", "En fysisk og synlig barriere i arbeidslivets bygninger som stenger kvinner ute", "Menn som helt åpent og bevisst hindrer kvinner i å avansere i arbeidslivet"],
+    options: ["Et begrep for mulige usynlige barrierer som kan hindre kvinner i å nå toppstillinger", "En lovfestet og formell diskriminering som åpent forbyr kvinner å nå toppstillinger i arbeidslivet", "En fysisk og synlig barriere i arbeidslivets bygninger som stenger kvinner ute", "Menn som helt åpent og bevisst hindrer kvinner i å avansere i arbeidslivet"],
     explanation: 'Glasstaket er et begrep for mulige usynlige barrierer som kan hindre kvinner i å nå toppstillinger. Det er debatt om årsakene - noen peker på diskriminering, andre på ulike preferanser og karrierevalg.',
   },
   {
@@ -169,12 +169,12 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr interseksjonalitet?',
-    options: ["At kjønn, etnisitet, klasse og seksualitet kan samvirke og påvirke livserfåringer", "At kjønn er den eneste formen for ulikhet", "At kjønn er den eneste virkelige formen for sosial ulikhet man behøver å analysere", "At faktorer som klasse og etnisitet virker helt separat og aldri påvirker hverandre"],
+    options: ["At kjønn, etnisitet, klasse og seksualitet kan samvirke og påvirke livserfåringer", "At bare økonomisk klasse har betydning for hvilke muligheter mennesker får i livet sitt", "At kjønn er den eneste virkelige formen for sosial ulikhet man behøver å analysere", "At faktorer som klasse og etnisitet virker helt separat og aldri påvirker hverandre"],
     explanation: 'Interseksjonalitet analyserer hvordan kjønn, etnisitet, klasse og seksualitet samvirker. Begrepet er nyttig for å forstå sammensatte erfåringer, men er også omdiskutert i samfunnsdebatten.',
   },
   {
     question: 'Hva menes med "doing gender"?',
-    options: ["At kjønn er noe vi gjør i daglig interaksjon, ikke noe vi er", "At kjønn er medfødt og uforanderlig", "At kjønn er noe medfødt og uforanderlig som er fastlagt fra vi blir født", "At kjønn utelukkende handler om biologi som kromosomer, hormoner og anatomi"],
+    options: ["At kjønn er noe vi gjør i daglig interaksjon, ikke noe vi er", "At kjønnsroller er identiske i alle kulturer og til alle tider i historien", "At kjønn er noe medfødt og uforanderlig som er fastlagt fra vi blir født", "At kjønn utelukkende handler om biologi som kromosomer, hormoner og anatomi"],
     explanation: '"Doing gender" (West & Zimmerman) betyr at kjønn er noe vi gjør, ikke noe vi er. Vi "gjør" kjønn gjennom hvordan vi kler oss, snakker og oppfører oss i daglig interaksjon.',
   },
 ],
@@ -183,7 +183,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-7': [
   {
     question: 'Hva er de tre typene herredømme ifølge Max Weber?',
-    options: ["Tradisjonelt, karismatisk og legalt-rasjonelt", "Lokalt, nasjonalt og internasjonalt", "Økonomisk, politisk og kulturelt herredømme over samfunnets ressurser", "Økonomisk, politisk og kulturelt"],
+    options: ["Tradisjonelt, karismatisk og legalt-rasjonelt", "Lokalt, nasjonalt og internasjonalt", "Økonomisk, politisk og kulturelt herredømme over samfunnets ressurser", "Lovgivende, utøvende og dømmende"],
     explanation: 'Weber skiller mellom tradisjonelt herredømme (basert på sedvane), karismatisk herredømme (basert på lederens personlighet) og legalt-rasjonelt herredømme (basert på lover og regler).',
   },
   {
@@ -193,7 +193,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hegemoni ifølge Gramsci?',
-    options: ["Kulturelt og ideologisk herredømme der de herskendes ideer blir \"sunn fornuft\"", "Militær dominans der staten kontrollerer befolkningen gjennom voldsapparatet", "Formelt juridisk styre der lover og institusjoner sikrer eliters posisjon", "Økonomisk kontroll over produksjonsmidlene som binder arbeiderklassen"],
+    options: ["Kulturelt og ideologisk herredømme der de herskendes ideer blir \"sunn fornuft\"", "Militær dominans der staten kontrollerer befolkningen gjennom voldsapparatet sitt", "Formelt juridisk styre der lover og institusjoner sikrer eliters posisjon", "Økonomisk kontroll over produksjonsmidlene som binder arbeiderklassen"],
     explanation: 'Hegemoni er kulturelt og ideologisk herredømme. De herskendes ideer blir "sunn fornuft" som alle aksepterer, slik at makt utøves uten tvang.',
   },
   {
@@ -212,7 +212,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-8': [
   {
     question: 'Hva betyr agenda setting?',
-    options: ["At mediene bestemmer hva folk tenker på ved å velge hva som dekkes", "At mediene bestemmer hva folk mener", "At mediene bestemmer hvilke meninger folk faktisk skal ha om en sak", "At mediene bevisst lager falske nyheter for å villede publikum sitt"],
+    options: ["At mediene bestemmer hva folk tenker på ved å velge hva som dekkes", "At mediene selv setter dagsorden for hvilke saker Stortinget må behandle", "At mediene bestemmer hvilke meninger folk faktisk skal ha om en sak", "At mediene bevisst lager falske nyheter for å villede publikum sitt"],
     explanation: 'Agenda setting betyr at mediene bestemmer hva folk tenker på, om ikke hva de mener. Saker som får mye medieoppmerksomhet oppfattes som viktige.',
   },
   {
@@ -261,7 +261,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke positive konsekvenser kan globaliseringen ha?',
-    options: ["Økonomisk vekst, kulturutveksling, spredning av menneskerettigheter", "Ingen konsekvenser i det hele tatt", "Ingen målbare konsekvenser, siden landene forblir økonomisk uavhengige", "Bare negative virkninger, som økt ulikhet, utnytting og miljøødeleggelse"],
+    options: ["Økonomisk vekst, kulturutveksling, spredning av menneskerettigheter", "Raskere spredning av smittsomme sykdommer på tvers av alle landegrensene", "Ingen målbare konsekvenser, siden landene forblir økonomisk uavhengige", "Bare negative virkninger, som økt ulikhet, utnytting og miljøødeleggelse"],
     explanation: 'Globaliseringen kan føre til økonomisk vekst, færre i fattigdom, kulturutveksling og mangfold, tilgang til informasjon og spredning av menneskerettigheter.',
   },
 ],
@@ -270,7 +270,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-10': [
   {
     question: 'Hva kjennetegner kvantitative metoder?',
-    options: ["De gir numeriske data som kan analyseres statistisk, ofte fra mange informanter", "De brukes utelukkende i naturvitenskap og passer ikke for samfunnsforskning", "De gir dyp forståelse fra få informanter gjennom lange, åpne intervjuer", "De krever langvarig feltarbeid der forskeren lever tett på informantene"],
+    options: ["De gir numeriske data som kan analyseres statistisk, ofte fra mange informanter", "De brukes utelukkende i naturvitenskapen og passer derfor ikke for samfunnsforskning", "De gir dyp forståelse fra få informanter gjennom lange, åpne intervjuer", "De krever langvarig feltarbeid der forskeren lever tett på informantene"],
     explanation: 'Kvantitative metoder gir numeriske data som kan analyseres statistisk. De bruker ofte spørreundersøkelser til mange informanter og gir generaliserbare resultater.',
   },
   {

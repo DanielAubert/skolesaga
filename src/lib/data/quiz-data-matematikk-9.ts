@@ -112,7 +112,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-2-1': [
     {
       question: 'Hva betyr det å faktorisere et uttrykk?',
-      options: ['Å skrive det som et produkt av faktorer', 'Å multiplisere ut parenteser', 'Å legge sammen ledd', 'Å avrunde tallene'],
+      options: ['Å skrive det som et produkt av faktorer', 'Å multiplisere ut alle parentesene slik at uttrykket blir en sum av ledd', 'Å legge sammen ledd med samme variabel', 'Å avrunde alle tallene i uttrykket'],
       explanation: 'Faktorisering er å skrive et uttrykk som et produkt av faktorer — motsatt av å gange ut.',
     },
     {
@@ -166,7 +166,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-2-3': [
     {
       question: 'Hva er første steg når en likning inneholder brøker?',
-      options: ['Multiplisere alle ledd med fellesnevneren', 'Legge til 1 på begge sider', 'Forkorte brøkene', 'Snu likningen'],
+      options: ['Multiplisere alle ledd med fellesnevneren', 'Legge til 1 på begge sider av likhetstegnet før man regner videre', 'Forkorte hver enkelt brøk så langt det lar seg gjøre', 'Snu likningen så høyresiden kommer først'],
       explanation: 'Vi multipliserer alle ledd med fellesnevneren, slik at brøkene forsvinner.',
     },
     {
@@ -193,7 +193,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-2-4': [
     {
       question: 'Hva betyr symbolet $\\geq$?',
-      options: ['Større enn eller lik', 'Mindre enn', 'Større enn', 'Ulik'],
+      options: ['Større enn eller lik', 'Mindre enn, men ikke lik', 'Større enn, men ikke lik', 'Ulik, altså forskjellig fra'],
       explanation: '$\\geq$ betyr «større enn eller lik».',
     },
     {
@@ -208,7 +208,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Når må vi snu ulikhetstegnet?',
-      options: ['Ved multiplikasjon/divisjon med negativt tall', 'Ved addisjon', 'Ved subtraksjon', 'Aldri'],
+      options: ['Ved multiplikasjon/divisjon med negativt tall', 'Ved addisjon av samme tall på begge sider av ulikhetstegnet', 'Ved subtraksjon av samme tall på begge sider av tegnet', 'Aldri — tegnet skal alltid stå uendret'],
       explanation: 'Vi snur tegnet når vi ganger eller deler med et negativt tall.',
     },
     {
@@ -225,7 +225,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'I $f(x) = ax + b$, hva er $b$?',
-      options: ['Konstantleddet (der linjen krysser y-aksen)', 'Stigningstallet', 'Nullpunktet', 'Skjæringspunktet med x-aksen'],
+      options: ['Konstantleddet (der linjen krysser y-aksen)', 'Stigningstallet, altså hvor mye y øker per enhet x', 'Nullpunktet, altså der grafen er null', 'Skjæringspunktet mellom grafen og den vannrette x-aksen'],
       explanation: '$b$ er konstantleddet — der grafen krysser y-aksen.',
     },
     {
@@ -240,7 +240,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva slags graf har en lineær funksjon?',
-      options: ['En rett linje', 'En parabel', 'En sirkel', 'En kurve'],
+      options: ['En rett linje', 'En parabel som buer oppover', 'En sirkel med fast radius', 'En kurve som bøyer av'],
       explanation: 'Lineære funksjoner gir alltid en rett linje.',
     },
   ],
@@ -274,7 +274,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-3-3': [
     {
       question: 'Hva betyr en flat (horisontal) del av en graf?',
-      options: ['Verdien er konstant', 'Verdien øker', 'Verdien minker', 'Rask endring'],
+      options: ['Verdien er konstant', 'Verdien øker', 'Verdien minker jevnt over tid', 'Rask endring'],
       explanation: 'En flat graf betyr konstant verdi.',
     },
     {
@@ -328,7 +328,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-4-2': [
     {
       question: 'Hva kjennetegner formlike figurer?',
-      options: ['Like vinkler og samme forholdstall mellom sider', 'Samme areal', 'Samme omkrets', 'Like lange sider'],
+      options: ['Like vinkler og samme forholdstall mellom sider', 'Nøyaktig samme areal, selv om vinklene er forskjellige', 'Nøyaktig samme omkrets, uansett hvilken form figurene har', 'Parvis like lange sider, men ikke nødvendigvis like vinkler'],
       explanation: 'Formlike figurer har like vinkler og samme forholdstall mellom tilsvarende sider.',
     },
     {
@@ -382,17 +382,17 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-4-4': [
     {
       question: 'Hvilke verktøy bruker vi til geometriske konstruksjoner?',
-      options: ['Passer og umerket linjal', 'Gradskive og kalkulator', 'Linjal med målestokk', 'Vinkelhake og passer'],
+      options: ['Passer og umerket linjal', 'Gradskive, kalkulator og vinkelmåler', 'Linjal med målestokk', 'Vinkelhake og passer, uten linjal'],
       explanation: 'Konstruksjoner gjøres med passer og umerket linjal — uten å måle.',
     },
     {
       question: 'Hva er midtnormalen til et linjestykke AB?',
-      options: ['Linjen vinkelrett på AB gjennom midtpunktet', 'En linje parallell med AB', 'En vinkelhalveringslinje', 'En diagonal'],
+      options: ['Linjen vinkelrett på AB gjennom midtpunktet', 'En linje som går parallelt med AB gjennom midtpunktet', 'En vinkelhalveringslinje ut fra det ene endepunktet', 'En diagonal i en firkant over AB'],
       explanation: 'Midtnormalen står vinkelrett på AB og går gjennom midtpunktet.',
     },
     {
       question: 'Hva gjør en halveringslinje?',
-      options: ['Deler en vinkel i to like deler', 'Deler en side i to', 'Tegner en sirkel', 'Lager en rett vinkel'],
+      options: ['Deler en vinkel i to like deler', 'Deler en av sidene i to like deler', 'Tegner en sirkel rundt hjørnet', 'Lager en rett vinkel'],
       explanation: 'Halveringslinjen deler en vinkel i to like store deler.',
     },
     {
@@ -436,12 +436,12 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-5-2': [
     {
       question: 'Hva kjennetegner et serielån?',
-      options: ['Like store avdrag hver termin', 'Like store terminbeløp', 'Ingen renter', 'Bare ett avdrag'],
+      options: ['Like store avdrag hver termin', 'Like store terminbeløp gjennom hele lånetiden', 'Ingen renter i det hele tatt gjennom lånetiden', 'Bare ett avdrag til slutt'],
       explanation: 'Serielån har like store avdrag; terminbeløpet synker over tid.',
     },
     {
       question: 'Hva er terminbeløpet?',
-      options: ['Avdrag + rente', 'Bare avdrag', 'Bare rente', 'Restgjeld'],
+      options: ['Avdrag + rente', 'Bare avdraget', 'Bare renten på lånet', 'Den gjenstående restgjelden'],
       explanation: 'Terminbeløp $=$ avdrag $+$ rente.',
     },
     {
@@ -456,7 +456,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner et annuitetslån?',
-      options: ['Like store terminbeløp', 'Like store avdrag', 'Synkende terminbeløp', 'Stigende renter'],
+      options: ['Like store terminbeløp', 'Like store avdrag hver termin', 'Synkende terminbeløp', 'Stigende rentesats'],
       explanation: 'Annuitetslån har like store terminbeløp hele nedbetalingstiden.',
     },
   ],
@@ -473,7 +473,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen på faste og variable utgifter?',
-      options: ['Faste er like hver måned, variable varierer', 'Faste varierer, variable er like', 'Begge er like', 'Begge varierer'],
+      options: ['Faste er like hver måned, variable varierer', 'Faste varierer, variable er like', 'Begge utgiftstypene er like store hver eneste måned', 'Begge utgiftstypene varierer fra måned til måned'],
       explanation: 'Faste utgifter (husleie) er like hver måned; variable (mat, klær) varierer.',
     },
     {
@@ -522,7 +522,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilket diagram passer best for andeler av en helhet?',
-      options: ['Sektordiagram', 'Linjediagram', 'Histogram', 'Punktdiagram'],
+      options: ['Sektordiagram', 'Linjediagram over tid', 'Histogram med søyler', 'Punktdiagram med to variabler'],
       explanation: 'Sektordiagram (kakediagram) viser andeler som summer til 100 %.',
     },
     {
@@ -532,7 +532,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor kan et diagram med y-akse som starter på 950 villede?',
-      options: ['Små forskjeller ser dramatiske ut', 'Det er alltid feil å vise data', 'Tallene blir negative', 'Det viser for mange data'],
+      options: ['Små forskjeller ser dramatiske ut', 'Det er alltid feil å vise data i et diagram med akser', 'Alle tallene blir negative', 'Det viser altfor mange datapunkter samtidig'],
       explanation: 'Når y-aksen ikke starter på 0, ser små forskjeller mye større ut enn de er.',
     },
     {
@@ -618,14 +618,14 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva gir summen av to påfølgende trekanttall, $T_{n-1} + T_n$?',
-      options: ['Et kvadrattall $n^2$', 'Et femkanttall', 'Et primtall', 'Et oddetall'],
+      options: ['Et kvadrattall $n^2$', 'Et femkanttall', 'Et primtall uten unntak', 'Et oddetall, aldri et partall'],
       explanation: '$T_{n-1} + T_n = n^2$, et kvadrattall. F.eks. $T_2 + T_3 = 3 + 6 = 9 = 3^2$.',
     },
   ],
   '9-7-3': [
     {
       question: 'Når er formelen for et mønster lineær?',
-      options: ['Når de første differansene er konstante', 'Når de andre differansene er konstante', 'Når leddene er primtall', 'Når kvotienten er konstant'],
+      options: ['Når de første differansene er konstante', 'Når de andre differansene mellom leddene er konstante', 'Når alle leddene i følgen er primtall', 'Når kvotienten mellom to nabo-ledd er konstant'],
       explanation: 'Konstante første differanser gir en lineær formel $a_n = dn + c$.',
     },
     {
@@ -652,7 +652,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-7-4': [
     {
       question: 'Hva kjennetegner en rekursiv formel?',
-      options: ['Den beskriver hvert ledd ut fra de foregående', 'Den gir leddet direkte fra $n$', 'Den trenger ingen startverdi', 'Den gjelder bare kvadrattall'],
+      options: ['Den beskriver hvert ledd ut fra de foregående', 'Den gir leddet direkte fra $n$', 'Den trenger ingen oppgitt startverdi i det hele tatt', 'Den gjelder bare for kvadrattall'],
       explanation: 'En rekursiv formel beregner hvert ledd ut fra forrige ledd og trenger en startverdi.',
     },
     {
@@ -706,7 +706,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-8-2': [
     {
       question: 'Hva betyr det at to figurer er kongruente?',
-      options: ['De har nøyaktig samme form og størrelse', 'De har samme form, men ulik størrelse', 'De har samme areal', 'De har samme omkrets'],
+      options: ['De har nøyaktig samme form og størrelse', 'De har nøyaktig samme form, men ulik størrelse', 'De har nøyaktig samme areal, men kan ha ulik form', 'De har nøyaktig samme omkrets, men kan ha ulik form'],
       explanation: 'Kongruente figurer har nøyaktig samme form og størrelse.',
     },
     {
@@ -716,7 +716,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva må gjelde for vinkelen i SAS-setningen?',
-      options: ['Den må ligge mellom de to kjente sidene', 'Den må være rett', 'Den må være den største', 'Den kan ligge hvor som helst'],
+      options: ['Den må ligge mellom de to kjente sidene', 'Den må være en rett vinkel på nøyaktig 90 grader', 'Den må være den største vinkelen i trekanten', 'Den kan ligge hvor som helst'],
       explanation: 'I SAS må vinkelen ligge mellom de to kjente sidene.',
     },
     {
@@ -733,7 +733,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-8-3': [
     {
       question: 'Hva sier trekantutlikheten?',
-      options: ['Summen av to sider er alltid større enn den tredje', 'Alle sider er like lange', 'Vinkelsummen er $180°$', 'Hypotenusen er lengst'],
+      options: ['Summen av to sider er alltid større enn den tredje', 'Alle sidene i en trekant er alltid nøyaktig like lange', 'Vinkelsummen i trekanten er $180°$', 'Hypotenusen er alltid den lengste siden i enhver trekant'],
       explanation: 'I enhver trekant er summen av to sider større enn den tredje.',
     },
     {
@@ -743,7 +743,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en median i en trekant?',
-      options: ['Linjestykke fra et hjørne til midtpunktet på motstående side', 'Linjen vinkelrett på en side', 'Halveringslinjen til en vinkel', 'Den lengste siden'],
+      options: ['Linjestykke fra et hjørne til midtpunktet på motstående side', 'Linjen som står vinkelrett på en av sidene i trekanten fra hjørnet', 'Halveringslinjen til en av vinklene i trekanten, ut fra hjørnet', 'Den lengste av de tre sidene i trekanten'],
       explanation: 'En median går fra et hjørne til midtpunktet på den motstående siden.',
     },
     {
@@ -856,7 +856,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan defineres en uteligger (øvre)?',
-      options: ['Større enn $Q_3 + 1,5 \\cdot \\text{IQR}$', 'Større enn $Q_3$', 'Større enn medianen', 'Større enn gjennomsnittet'],
+      options: ['Større enn $Q_3 + 1,5 \\cdot \\text{IQR}$', 'Alt som er større enn $Q_3$', 'Større enn medianen i datasettet', 'Større enn gjennomsnittet av alle observasjonene'],
       explanation: 'En øvre uteligger ligger over $Q_3 + 1,5 \\cdot \\text{IQR}$.',
     },
     {
@@ -868,17 +868,17 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-10-2': [
     {
       question: 'Hva er problemet med en avkortet y-akse?',
-      options: ['Små forskjeller ser dramatiske ut', 'Tallene blir feil', 'Den viser for mye data', 'Den er alltid ulovlig'],
+      options: ['Små forskjeller ser dramatiske ut', 'Tallene på aksen blir feil', 'Den viser altfor mye data på én gang', 'Den er alltid ulovlig å bruke i statistikk'],
       explanation: 'Når y-aksen ikke starter på 0, overdrives små forskjeller.',
     },
     {
       question: 'Hva er cherry-picking?',
-      options: ['Å velge bare data som støtter det man vil vise', 'Å regne ut gjennomsnitt', 'Å lage et sektordiagram', 'Å bruke en kalkulator'],
+      options: ['Å velge bare data som støtter det man vil vise', 'Å regne ut gjennomsnittet av alle observasjonene', 'Å lage et sektordiagram i stedet for et søylediagram', 'Å bruke kalkulator i stedet for å regne det ut i hodet'],
       explanation: 'Cherry-picking er å velge ut bare de data eller tidsrom som passer.',
     },
     {
       question: 'Hva er forskjellen på korrelasjon og kausalitet?',
-      options: ['Korrelasjon er samvariasjon; kausalitet er at en forårsaker den andre', 'De betyr det samme', 'Kausalitet er samvariasjon', 'Korrelasjon betyr alltid årsak'],
+      options: ['Korrelasjon er samvariasjon; kausalitet er at en forårsaker den andre', 'De to begrepene betyr nøyaktig det samme', 'Kausalitet betyr samvariasjon, mens korrelasjon betyr en årsakssammenheng', 'Korrelasjon betyr alltid at den ene størrelsen er årsak til den andre endringen'],
       explanation: 'Korrelasjon = samvariasjon. Kausalitet = at A faktisk forårsaker B.',
     },
     {
@@ -888,14 +888,14 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Flere brannbiler henger sammen med større brannskade. Hva forklarer dette?',
-      options: ['Brannens størrelse (skjult variabel)', 'Brannbilene forårsaker skaden', 'Tilfeldighet', 'Skaden tilkaller bilene direkte'],
+      options: ['Brannens størrelse (skjult variabel)', 'Brannbilene selv forårsaker skaden på bygningen', 'Ren tilfeldighet uten sammenheng', 'Skaden tilkaller brannbilene direkte til stedet'],
       explanation: 'Store branner gir både mer skade og krever flere brannbiler — brannstørrelsen er skjult variabel.',
     },
   ],
   '9-10-3': [
     {
       question: 'Hva er framing (innramming)?',
-      options: ['Å presentere informasjon for å påvirke hvordan den oppfattes', 'Å regne ut median', 'Å tegne et diagram', 'Å samle inn data'],
+      options: ['Å presentere informasjon for å påvirke hvordan den oppfattes', 'Å regne ut medianen i et datasett der tallene er sortert etter størrelse', 'Å tegne et diagram som viser tallene fra en tabell', 'Å samle inn data fra et tilfeldig og representativt utvalg av befolkningen'],
       explanation: 'Framing er å presentere de samme tallene på en måte som påvirker inntrykket.',
     },
     {
@@ -932,7 +932,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr modulo-operatoren `%`?',
-      options: ['Resten ved divisjon', 'Multiplikasjon', 'Prosent', 'Potens'],
+      options: ['Resten ved divisjon', 'Multiplikasjon av to tall', 'Prosentandelen av et tall', 'Potens, altså opphøyd i'],
       explanation: '`%` gir resten ved divisjon, f.eks. `15 % 3 == 0`.',
     },
     {
@@ -954,7 +954,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en simulering?',
-      options: ['Å gjenta et tilfeldig forsøk mange ganger med datamaskin', 'Å regne teoretisk sannsynlighet', 'Å tegne et diagram', 'Å sortere tall'],
+      options: ['Å gjenta et tilfeldig forsøk mange ganger med datamaskin', 'Å regne ut den teoretiske sannsynligheten ved hjelp av en formel', 'Å tegne et diagram over alle resultatene fra et enkelt forsøk', 'Å sortere tallene i datasettet etter størrelse'],
       explanation: 'Simulering er å bruke datamaskinen til å gjenta et tilfeldig forsøk mange ganger.',
     },
     {
@@ -964,7 +964,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva sier store talls lov?',
-      options: ['Simulert sannsynlighet nærmer seg den teoretiske ved mange forsøk', 'Sannsynlighet er alltid eksakt', 'Flere forsøk gir større avvik', 'Sannsynligheter er tilfeldige'],
+      options: ['Simulert sannsynlighet nærmer seg den teoretiske ved mange forsøk', 'Sannsynligheten er alltid helt eksakt, uansett hvor mange forsøk man gjør', 'Flere forsøk gir alltid større avvik fra teorien', 'Sannsynligheter er helt tilfeldige tall'],
       explanation: 'Store talls lov: med mange forsøk nærmer den relative frekvensen seg den teoretiske sannsynligheten.',
     },
     {
@@ -996,7 +996,7 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er numerisk løsning av en likning?',
-      options: ['Å finne en tilnærmet løsning ved systematisk prøving', 'Å løse den eksakt med formel', 'Å tegne grafen', 'Å gjette ett tall'],
+      options: ['Å finne en tilnærmet løsning ved systematisk prøving', 'Å løse likningen helt eksakt ved hjelp av en kjent formel', 'Å tegne grafen til funksjonen', 'Å gjette på ett enkelt tall'],
       explanation: 'Numerisk løsning er å prøve mange verdier og finne den som gir minst avvik.',
     },
   ],
@@ -1030,12 +1030,12 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
   '9-12-2': [
     {
       question: 'Hva er Polyas fire steg for problemløsning?',
-      options: ['Forstå, planlegge, gjennomføre, se tilbake', 'Lese, regne, svare, levere', 'Tegne, måle, regne, sjekke', 'Gjette, prøve, feile, gi opp'],
+      options: ['Forstå, planlegge, gjennomføre, se tilbake', 'Lese oppgaven, regne ut, svare og levere besvarelsen', 'Tegne figur, måle, regne og sjekke', 'Gjette, prøve, feile og så til slutt gi opp'],
       explanation: 'Polya: forstå problemet, lag en plan, gjennomfør planen, se tilbake.',
     },
     {
       question: 'Hva betyr å jobbe baklengs?',
-      options: ['Starte med svaret og jobbe tilbake til utgangspunktet', 'Lese oppgaven fra slutten', 'Snu tallene', 'Regne fra høyre mot venstre'],
+      options: ['Starte med svaret og jobbe tilbake til utgangspunktet', 'Lese oppgaveteksten baklengs fra slutten', 'Snu alle tallene i oppgaven rundt før man begynner å regne', 'Regne fra høyre mot venstre i stedet for fra venstre mot høyre'],
       explanation: 'Å jobbe baklengs er å starte med det kjente resultatet og gjøre omvendte operasjoner.',
     },
     {
@@ -1050,34 +1050,34 @@ const quizData_matematikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en god grunn til å tegne en figur i en geometrioppgave?',
-      options: ['Det gjør sammenhenger lettere å se', 'Det er raskere enn å regne', 'Man slipper å bruke formler', 'Det gir automatisk svaret'],
+      options: ['Det gjør sammenhenger lettere å se', 'Det er alltid raskere enn å regne ut svaret', 'Man slipper å bruke formler', 'Det gir automatisk svaret'],
       explanation: 'En figur hjelper deg å se sammenhenger og identifisere rettvinklede trekanter osv.',
     },
   ],
   '9-12-3': [
     {
       question: 'Hvor mange deler er tentamen i matematikk vanligvis?',
-      options: ['To deler (med og uten hjelpemidler)', 'Én del', 'Tre deler', 'Fire deler'],
+      options: ['To deler (med og uten hjelpemidler)', 'Én sammenhengende del med alle hjelpemidler', 'Tre deler med hver sine hjelpemiddelregler', 'Fire deler fordelt over to eksamensdager'],
       explanation: 'Tentamen er vanligvis delt i Del 1 (uten hjelpemidler) og Del 2 (med hjelpemidler).',
     },
     {
       question: 'Hva er typisk for Del 1 av tentamen?',
-      options: ['Ingen kalkulator eller hjelpemidler', 'Fri bruk av kalkulator', 'Bare tekstoppgaver', 'Gruppearbeid'],
+      options: ['Ingen kalkulator eller hjelpemidler', 'Fri bruk av kalkulator og alle hjelpemidler', 'Bare tekstoppgaver uten regning', 'Gruppearbeid med en medelev'],
       explanation: 'Del 1 er uten hjelpemidler — tester grunnleggende ferdigheter.',
     },
     {
       question: 'Hvorfor bør du alltid vise fremgangsmåten?',
-      options: ['Du kan få delpoeng selv om sluttsvaret er feil', 'Det er ikke nødvendig', 'Bare sluttsvaret teller', 'For å bruke mer tid'],
+      options: ['Du kan få delpoeng selv om sluttsvaret er feil', 'Det er ikke nødvendig å vise noen som helst utregning', 'Bare det endelige sluttsvaret teller ved vurderingen', 'For å bruke opp mest mulig av tiden'],
       explanation: 'Delpoeng gis for riktig fremgangsmåte selv om sluttsvaret er feil.',
     },
     {
       question: 'Hvilke emner dekker en typisk tentamen i 9. klasse?',
-      options: ['Tallregning, algebra, geometri, statistikk og sannsynlighet', 'Bare algebra', 'Bare geometri', 'Bare statistikk'],
+      options: ['Tallregning, algebra, geometri, statistikk og sannsynlighet', 'Bare algebra og likninger, uten geometri, statistikk eller tallregning', 'Bare geometri og måling, uten algebra, statistikk eller tallregning', 'Bare statistikk og sannsynlighet, ikke algebra'],
       explanation: 'Tentamen dekker tallregning, algebra, geometri, statistikk og sannsynlighet.',
     },
     {
       question: 'Hva er en god forberedelse før tentamen?',
-      options: ['Repetere viktige formler og løse gamle oppgaver', 'Lese nye emner kvelden før', 'Hoppe over søvn', 'Bare lese teori'],
+      options: ['Repetere viktige formler og løse gamle oppgaver', 'Lese helt nye emner kvelden før selve prøvedagen', 'Hoppe over søvnen natten før', 'Bare lese teorien i boka'],
       explanation: 'Repeter formler (areal, volum, Pytagoras, prosent), løs gamle oppgaver og sov godt.',
     },
   ],

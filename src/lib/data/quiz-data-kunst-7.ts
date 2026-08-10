@@ -4,7 +4,7 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
   "kunst-7-1-1": [
     {
       question: "Hva er horisontlinjen i perspektivtegning?",
-      options: ["Linjen i øyehøyde der himmel og bakke ser ut til å møtes", "En loddrett linje midt i bildet", "Den nederste kanten av arket der bakken alltid begynner å tegnes", "Den ytterste rammen som markerer hvor selve tegneflaten slutter oppe"],
+      options: ["Linjen i øyehøyde der himmel og bakke ser ut til å møtes", "En loddrett linje midt i bildet som deler tegneflaten i to", "Den nederste kanten av arket der bakken alltid begynner å tegnes", "Den ytterste rammen som markerer hvor selve tegneflaten slutter oppe"],
       explanation: "Horisontlinjen ligger i øyehøyde, og det er på den forsvinningspunktene plasseres.",
     },
     {
@@ -14,7 +14,7 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med fargene på fjell langt borte, ifølge luftperspektivet?",
-      options: ["De blir blekere og mer blålige", "De blir sterkere og varmere", "De blir sterkere og varmere jo lenger unna", "De blir helt svarte"],
+      options: ["De blir blekere og mer blålige", "De får skarpere konturer", "De blir sterkere og varmere jo lenger unna", "De blir helt svarte"],
       explanation: "Luftperspektiv betyr at ting langt unna blir blekere, mer blålige og mindre skarpe på grunn av luften imellom.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er krokitegning?",
-      options: ["Raske skisser av mennesker i bevegelse eller positur", "Fargelegging av ferdige tegninger", "Veldig detaljerte portretter som tar lang tid å gjøre ferdig", "Fargelegging av ferdige omriss man har tegnet opp på forhånd"],
+      options: ["Raske skisser av mennesker i bevegelse eller positur", "Nøyaktig oppmåling av kroppen før man begynner å tegne", "Veldig detaljerte portretter som tar lang tid å gjøre ferdig", "Fargelegging av ferdige omriss man har tegnet opp på forhånd"],
       explanation: "Kroki er raske tegninger, ofte på få minutter, som trener deg i å fange kroppens holdning og proporsjoner.",
     },
     {
@@ -63,7 +63,7 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør en leirskulptur være hul før den brennes?",
-      options: ["Massiv leire kan sprekke eller eksplodere i ovnen", "Den skal fylles med vann", "Den blir mye penere og glattere å se på når den er hul", "Den skal senere fylles helt opp med vann for å bli tyngre"],
+      options: ["Massiv leire kan sprekke eller eksplodere i ovnen", "Den skal kunne fylles med sand for å stå støtt på bordet", "Den blir mye penere og glattere å se på når den er hul", "Den skal senere fylles helt opp med vann for å bli tyngre"],
       explanation: "Fuktighet og luft inne i tykk leire utvider seg ved brenning og kan få skulpturen til å sprekke.",
     },
     {
@@ -78,14 +78,14 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en assemblage?",
-      options: ["En skulptur satt sammen av funne gjenstander", "En skulptur hugget av én stein", "En skulptur hugget ut av én eneste stor stein", "En spesiell type leire som brukes til modellering"],
+      options: ["En skulptur satt sammen av funne gjenstander", "En skulptur støpt i bronse etter en ferdig modell", "En skulptur hugget ut av én eneste stor stein", "En spesiell type leire som brukes til modellering"],
       explanation: "Assemblage er å sette sammen ferdige gjenstander og ulike materialer til en ny skulptur.",
     },
   ],
   "kunst-7-2-2": [
     {
       question: "Hvilke av disse er naturlige fibre?",
-      options: ["Bomull, ull, silke og lin", "Polyester, nylon og akryl", "Plast og gummi", "Glass og metall"],
+      options: ["Bomull, ull, silke og lin", "Polyester, nylon og akryl fra fabrikk", "Plast og gummi", "Glass og metall"],
       explanation: "Bomull, ull, silke og lin kommer fra planter og dyr. Polyester, nylon og akryl er syntetiske fibre laget av olje.",
     },
     {
@@ -100,24 +100,24 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør trykkfoten på en symaskin?",
-      options: ["Holder stoffet på plass mot materen mens du syr", "Klipper av tråden", "Spoler opp ny tråd på spolen mens du syr videre", "Klipper automatisk av tråden når du er ferdig å sy"],
+      options: ["Holder stoffet på plass mot materen mens du syr", "Tres tråden gjennom nåløyet", "Spoler opp ny tråd på spolen mens du syr videre", "Klipper automatisk av tråden når du er ferdig å sy"],
       explanation: "Trykkfoten presser stoffet ned mot materen (matehundene) slik at stoffet mates jevnt fremover.",
     },
     {
       question: "Hva er upcycling av klær?",
-      options: ["Å sy om gamle klær til noe nytt og brukbart", "Å vaske klær på høy temperatur", "Å kjøpe helt nye klær på salg til en billigere pris", "Å vaske klær på veldig høy temperatur så de blir rene"],
+      options: ["Å sy om gamle klær til noe nytt og brukbart", "Å levere gamle klær til gjenvinning i en container", "Å kjøpe helt nye klær på salg til en billigere pris", "Å vaske klær på veldig høy temperatur så de blir rene"],
       explanation: "Upcycling betyr å gi gamle klær nytt liv - for eksempel sy en veske av en gammel olabukse.",
     },
   ],
   "kunst-7-3-1": [
     {
       question: "Hva er fordelen med vektorgrafikk?",
-      options: ["Den kan forstørres uten å bli kornete", "Den ser mest ut som et fotografi", "Den ser mest mulig ut som et ekte fotografi", "Den kan bare vises i svart-hvitt uten farger"],
+      options: ["Den kan forstørres uten å bli kornete", "Filstørrelsen blir alltid mye mindre enn i JPG", "Den ser mest mulig ut som et ekte fotografi", "Den kan bare vises i svart-hvitt uten farger"],
       explanation: "Vektorgrafikk er bygget av matematiske linjer og kurver, og kan skaleres opp uendelig uten kvalitetstap.",
     },
     {
       question: "Hva er pikselkunst?",
-      options: ["Bilder laget av synlige, små firkantede punkter", "Maleri med store pensler", "Fine skulpturer laget av farget og smeltet glass", "Vanlige bilder tatt med kameraet på en mobiltelefon"],
+      options: ["Bilder laget av synlige, små firkantede punkter", "Malerier laget med svært store og brede pensler på lerret", "Fine skulpturer laget av farget og smeltet glass", "Vanlige bilder tatt med kameraet på en mobiltelefon"],
       explanation: "Pikselkunst lages punkt for punkt med synlige piksler, kjent fra gamle dataspill.",
     },
     {
@@ -144,7 +144,7 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr firmitas?",
-      options: ["At bygningen er sterk og solid", "At bygningen er vakker", "At bygningen er vakker å se på", "At bygningen er nyttig å bruke"],
+      options: ["At bygningen er sterk og solid", "At bygningen er billig", "At bygningen er vakker å se på", "At bygningen er nyttig å bruke"],
       explanation: "Firmitas betyr styrke - bygningen må være solid konstruert og stå trygt.",
     },
     {
@@ -159,7 +159,7 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fasade?",
-      options: ["Utsiden av en bygning, særlig forsiden", "Innsiden av et rom", "Taket på et hus som beskytter mot regn", "Innsiden av et rom med vegger og møbler"],
+      options: ["Utsiden av en bygning, særlig forsiden", "Grunnmuren under bygningen", "Taket på et hus som beskytter mot regn", "Innsiden av et rom med vegger og møbler"],
       explanation: "Fasaden er bygningens ytre ansikt - det vi ser når vi står foran bygget.",
     },
   ],
@@ -198,12 +198,12 @@ const quizData_kunst_7: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr \"Refuse\", den første av de 5 R-ene for bærekraft?",
-      options: ["Å si nei takk til ting du ikke trenger", "Å resirkulere glass", "Å reparere sko og klær i stedet for å kaste dem straks", "Å kjøpe mer av det du liker mens det fortsatt er på tilbud"],
+      options: ["Å si nei takk til ting du ikke trenger", "Å resirkulere glass, papir og metall i egne dunker", "Å reparere sko og klær i stedet for å kaste dem straks", "Å kjøpe mer av det du liker mens det fortsatt er på tilbud"],
       explanation: "Refuse betyr å avvise - det mest bærekraftige er å la være å skaffe ting man ikke trenger.",
     },
     {
       question: "Hvorfor regnes bambus som et bærekraftig materiale?",
-      options: ["Det vokser svært raskt og kan høstes igjen og igjen", "Det kan aldri brytes ned", "Det må fraktes langt med fly, og det gjør bambusen ekstra miljøvennlig", "Det kan aldri brytes ned i naturen, så det varer nesten helt evig lenge"],
+      options: ["Det vokser svært raskt og kan høstes igjen og igjen", "Det dyrkes bare i drivhus med kunstig lys og mye varme", "Det må fraktes langt med fly, og det gjør bambusen ekstra miljøvennlig", "Det kan aldri brytes ned i naturen, så det varer nesten helt evig lenge"],
       explanation: "Bambus vokser ekstremt fort uten mye sprøytemidler, og er derfor en fornybar ressurs.",
     },
     {

@@ -4,7 +4,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-1": [
     {
       question: "Hva er demokrati?",
-      options: ["En styreform der folket har den øverste makten, direkte eller gjennom valgte representanter", "En styreform der én person tar alle beslutninger", "En styreform der militæret har den øverste makten og innfører lover uten å spørre befolkningen om råd", "En styreform der en liten gruppe eksperter og fagfolk styrer landet på vegne av folket, uten allmenne valg"],
+      options: ["En styreform der folket har den øverste makten, direkte eller gjennom valgte representanter", "En styreform der én enkelt person arver makten og tar alle beslutninger uten å spørre noen andre", "En styreform der militæret har den øverste makten og innfører lover uten å spørre befolkningen om råd", "En styreform der en liten gruppe eksperter og fagfolk styrer landet på vegne av folket, uten allmenne valg"],
       explanation: "Demokrati betyr folkestyre: Innbyggerne bestemmer hvordan landet skal styres, enten direkte eller gjennom valgte representanter.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er FNs barnekonvensjon?",
-      options: ["En FN-konvensjon fra 1989 som gir alle under 18 år særlige rettigheter", "En avtale om barnetrygd mellom de nordiske landene", "En norsk lov fra 1989 som kun gjelder barn med norsk statsborgerskap og fast bosted", "En nordisk avtale om felles barnetrygd og foreldrepermisjon mellom landene i Norden"],
+      options: ["En FN-konvensjon fra 1989 som gir alle under 18 år særlige rettigheter", "En internasjonal avtale som bare gjelder barn utenfor Europa", "En norsk lov fra 1989 som kun gjelder barn med norsk statsborgerskap og fast bosted", "En nordisk avtale om felles barnetrygd og foreldrepermisjon mellom landene i Norden"],
       explanation: "Barnekonvensjonen ble vedtatt i 1989 og gir barn (alle under 18 år) særlige rettigheter, blant annet ikke-diskriminering og barnets beste.",
     },
     {
@@ -58,7 +58,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-3": [
     {
       question: "Hva er bærekraftig utvikling?",
-      options: ["Å dekke dagens behov uten å ødelegge fremtidige generasjoners muligheter til å dekke sine", "Å prioritere økonomi foran miljø i alle saker", "Å stanse all økonomisk vekst umiddelbart, slik at samfunnet slutter å bruke ressurser helt", "Å prioritere økonomisk vekst foran natur og miljø i alle saker for å skape flest mulig jobber"],
+      options: ["Å dekke dagens behov uten å ødelegge fremtidige generasjoners muligheter til å dekke sine", "Å bruke opp ressursene raskt nå, mens vi fortsatt kan", "Å stanse all økonomisk vekst umiddelbart, slik at samfunnet slutter å bruke ressurser helt", "Å prioritere økonomisk vekst foran natur og miljø i alle saker for å skape flest mulig jobber"],
       explanation: "Bærekraftig utvikling handler om å dekke behovene til dagens generasjon uten å ødelegge for fremtidige generasjoner.",
     },
     {
@@ -73,24 +73,24 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en fornybar ressurs?",
-      options: ["Den fornyer seg selv over tid, forutsatt at vi ikke overutnytter den", "Den er alltid gratis å bruke", "Den finnes bare i havet og på havbunnen, og kan derfor ikke utvinnes noe sted på land", "Den kan bare brukes én eneste gang, og forsvinner helt så snart vi har tatt den i bruk"],
+      options: ["Den fornyer seg selv over tid, forutsatt at vi ikke overutnytter den", "Den er alltid gratis å bruke, fordi ingen kan ta betalt for det naturen fornyer selv", "Den finnes bare i havet og på havbunnen, og kan derfor ikke utvinnes noe sted på land", "Den kan bare brukes én eneste gang, og forsvinner helt så snart vi har tatt den i bruk"],
       explanation: "Fornybare ressurser — som solenergi, vannkraft, skog og fisk — fornyer seg selv, så lenge de forvaltes riktig og ikke overutnyttes.",
     },
     {
       question: "Hva menes med Norges «dobbeltrolle» i klimaspørsmålet?",
-      options: ["Norge er en stor olje- og gassprodusent og vil samtidig være en pådriver i klimapolitikken", "At Norge har to egne klimaministre som deler ansvaret for miljøpolitikken mellom seg", "At Norge produserer energi fra både vannkraft og vindkraft samtidig i samme land", "At Norge har to stemmer å avgi i FNs internasjonale klimaforhandlinger og møter"],
+      options: ["Norge er en stor olje- og gassprodusent og vil samtidig være en pådriver i klimapolitikken", "At Norge har to egne klimaministre som deler ansvaret for miljøpolitikken mellom seg", "At Norge produserer energi fra både vannkraft og vindkraft samtidig i samme land", "At Norge har to stemmer å avgi i FNs klimaforhandlinger, én for fastlandet og én for Svalbard"],
       explanation: "Norge er blitt rikt på olje- og gasseksport, samtidig som landet ønsker å være en miljø- og klimapådriver — en spenning det er ulike syn på i debatten.",
     },
   ],
   "samfunnsfag-10-4": [
     {
       question: "Hva er globalisering?",
-      options: ["Prosessen der verden blir mer sammenkoblet gjennom flyt av varer, mennesker, informasjon og ideer", "Prosessen der verdens selvstendige stater gradvis slås sammen til én stor felles verdensstat", "Prosessen der handel og kontakt mellom land opphører, og hvert land blir helt selvforsynt", "Prosessen der alle verdens land etter hvert får det samme styresettet og de samme lovene"],
+      options: ["Prosessen der verden blir mer sammenkoblet gjennom flyt av varer, mennesker, informasjon og ideer", "Prosessen der verdens selvstendige stater gradvis slås sammen til én stor felles verdensstat", "Prosessen der handel og kontakt mellom land opphører, slik at hvert enkelt land må bli helt selvforsynt", "Prosessen der alle verdens land etter hvert får det samme styresettet og de samme lovene"],
       explanation: "Globalisering er prosessen der verden knyttes tettere sammen gjennom økt flyt av varer, tjenester, kapital, mennesker, informasjon og ideer over landegrensene.",
     },
     {
       question: "Hva er en global verdikjede?",
-      options: ["At ulike deler av produksjonen av en vare skjer i ulike land", "En kjede av butikker som finnes i mange land", "En rangert liste over verdens rikeste land målt etter samlet verdiskaping", "En kjede av like butikker med samme merkenavn som finnes i mange ulike land"],
+      options: ["At ulike deler av produksjonen av en vare skjer i ulike land", "En transportrute der ferdige varer fraktes med skip fra fabrikklandet til kundene", "En rangert liste over verdens rikeste land målt etter samlet verdiskaping", "En kjede av like butikker med samme merkenavn som finnes i mange ulike land"],
       explanation: "I globale verdikjeder skjer design, råvareutvinning, produksjon og salg av et produkt i ulike land — som en mobiltelefon med mineraler, deler og montering fra flere verdensdeler.",
     },
     {
@@ -100,24 +100,24 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kulturell globalisering?",
-      options: ["Spredning av ideer, verdier, livsstiler og kulturuttrykk over landegrensene", "At kultur bare spres innenfor ett land", "En prosess der alle verdens kulturer smelter sammen og til slutt blir helt identiske", "At kulturuttrykk bare spres innenfor grensene til ett land og aldri når andre steder"],
+      options: ["Spredning av ideer, verdier, livsstiler og kulturuttrykk over landegrensene", "At turister tar med seg suvenirer hjem fra reisen", "En prosess der alle verdens kulturer smelter sammen og til slutt blir helt identiske", "At kulturuttrykk bare spres innenfor grensene til ett land og aldri når andre steder"],
       explanation: "Kulturell globalisering er spredning av kulturuttrykk over grensene — som filmer, musikk (f.eks. K-pop) og mat som når hele verden.",
     },
     {
       question: "Hva er en omstridt side ved globaliseringen?",
-      options: ["Virkningen på ulikhet — det er debatt om hvem som vinner og hvem som taper", "At den har stoppet all internasjonal handel", "At globaliseringen har ført til full stans i all handel og vareflyt mellom landene", "At globaliseringen har gjort all kommunikasjon mellom mennesker i ulike land umulig"],
+      options: ["Virkningen på ulikhet — det er debatt om hvem som vinner og hvem som taper", "At den har gjort alle land i verden like rike, slik at forskjellene mellom dem forsvant", "At globaliseringen har ført til full stans i all handel og vareflyt mellom landene", "At globaliseringen har gjort all kommunikasjon mellom mennesker i ulike land umulig"],
       explanation: "Globaliseringens virkning på ulikhet er omstridt: Mange har blitt løftet ut av fattigdom, samtidig som gevinster og ulemper er ujevnt fordelt.",
     },
   ],
   "samfunnsfag-10-5": [
     {
       question: "Hva er en konflikt?",
-      options: ["At to eller flere parter har motstridende interesser, mål eller verdier som fører til konfrontasjon", "Enhver vanlig samtale eller meningsutveksling mellom to eller flere personer i hverdagen", "Bare væpnede kriger som utkjempes mellom to eller flere selvstendige stater med hærer", "En idrettskonkurranse der lag eller utøvere kappes om å vinne etter fastsatte regler"],
+      options: ["At to eller flere parter har motstridende interesser, mål eller verdier som fører til konfrontasjon", "Enhver vanlig samtale eller meningsutveksling mellom to eller flere personer i hverdagen", "Bare væpnede kriger som utkjempes mellom to eller flere selvstendige stater med hærer", "En idrettskonkurranse der lag eller utøvere kappes om å vinne etter regler som er fastsatt på forhånd"],
       explanation: "Konflikt betyr motstridende interesser, mål eller verdier mellom parter — fra mellommenneskelige uenigheter til internasjonale kriger.",
     },
     {
       question: "Når og hvorfor ble FN opprettet?",
-      options: ["I 1945, etter andre verdenskrig, for å bevare internasjonal fred og sikkerhet", "I 1918, etter første verdenskrig, for å fordele koloniene", "I 1918, etter første verdenskrig, for å fordele koloniene mellom seiersmaktene", "I 1989, etter den kalde krigen, for å fremme frihandel og åpne markeder i verden"],
+      options: ["I 1945, etter andre verdenskrig, for å bevare internasjonal fred og sikkerhet", "I 1919, ved fredsoppgjøret i Versailles, for å kreve inn krigserstatning fra Tyskland", "I 1918, etter første verdenskrig, for å fordele koloniene mellom seiersmaktene", "I 1989, etter den kalde krigen, for å fremme frihandel og åpne markeder i verden"],
       explanation: "FN ble opprettet i 1945 etter andre verdenskrig for å bevare fred og sikkerhet, fremme menneskerettigheter og løse globale problemer. I dag har FN 193 medlemsland.",
     },
     {
@@ -127,7 +127,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er fredsbygging?",
-      options: ["Tiltak som skal hindre at konflikten blusser opp igjen og skape grunnlag for varig fred", "Å sende flere soldater til fronten", "Å sende flere soldater og mer utstyr til fronten for å vinne den pågående krigen raskere", "Å innføre en kort våpenhvile i noen dager slik at partene får en pause fra kampene en stund"],
+      options: ["Tiltak som skal hindre at konflikten blusser opp igjen og skape grunnlag for varig fred", "Å innføre økonomiske sanksjoner mot begge partene i konflikten til den ene siden gir opp", "Å sende flere soldater og mer utstyr til fronten for å vinne den pågående krigen raskere", "Å innføre en kort våpenhvile i noen dager slik at partene får en pause fra kampene en stund"],
       explanation: "Fredsbygging handler om mer enn å stoppe kamper: Det er alle tiltak som skal forhindre ny konflikt og bygge et samfunn med varig fred.",
     },
     {
@@ -144,7 +144,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke hovedoppgaver har Stortinget?",
-      options: ["Vedta lover, bevilge penger og kontrollere regjeringen", "Utnevne dommere og biskoper", "Utnevne dommere, biskoper og andre høye embetsmenn i staten", "Dømme i straffesaker og avsi rettskraftige dommer over lovbrytere"],
+      options: ["Vedta lover, bevilge penger og kontrollere regjeringen", "Fastsette renten og bestemme hvor mye penger som skal være i omløp i landet", "Utnevne dommere, biskoper og andre høye embetsmenn i staten", "Dømme i straffesaker og avsi rettskraftige dommer over lovbrytere"],
       explanation: "Stortinget er den lovgivende makten: Det vedtar lover og statsbudsjett og kontrollerer regjeringen.",
     },
     {
@@ -154,7 +154,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på posisjon og opposisjon?",
-      options: ["Posisjonen er partiene som danner regjering, opposisjonen er partiene som ikke gjør det", "Posisjonen sitter i Stortinget, opposisjonen i kommunestyrene", "Posisjonen har ansvar for å vedta lovene, mens opposisjonen dømmer i straffesaker og tvister", "Posisjonen sitter på Stortinget nasjonalt, mens opposisjonen bare styrer ute i kommunestyrene"],
+      options: ["Posisjonen er partiene som danner regjering, opposisjonen er partiene som ikke gjør det", "Posisjonen er partiene med flest stemmer, opposisjonen de under sperregrensen", "Posisjonen har ansvar for å vedta lovene, mens opposisjonen dømmer i straffesaker og tvister", "Posisjonen sitter på Stortinget nasjonalt, mens opposisjonen bare styrer ute i kommunestyrene"],
       explanation: "Etter valget danner ett eller flere partier regjering (posisjonen), mens de øvrige utgjør opposisjonen, som kontrollerer og utfordrer regjeringen — en viktig demokratisk funksjon.",
     },
     {
@@ -166,17 +166,17 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-7": [
     {
       question: "Hva er en fagforening?",
-      options: ["En organisasjon der arbeidstakere samler seg for å ivareta sine interesser", "En statlig etat som fastsetter lønninger", "En frivillig klubb for mennesker som deler samme hobby eller fritidsinteresse på fritiden", "En statlig etat som fastsetter lønningene i samfunnet og bestemmer hva alle skal tjene i året"],
+      options: ["En organisasjon der arbeidstakere samler seg for å ivareta sine interesser", "En sammenslutning av bedriftseiere som forhandler fram lavest mulig lønn til de ansatte", "En frivillig klubb for mennesker som deler samme hobby eller fritidsinteresse på fritiden", "En statlig etat som fastsetter lønningene i samfunnet og bestemmer hva alle skal tjene i året"],
       explanation: "En fagforening er en organisasjon av arbeidstakere som jobber for medlemmenes interesser — lønn, arbeidstid og trygge arbeidsforhold.",
     },
     {
       question: "Hva er en tariffavtale?",
-      options: ["En skriftlig avtale mellom fagforening og arbeidsgiverside om lønn og arbeidsvilkår", "En individuell bonusavtale for ledere", "En mellomstatlig avtale om tollsatser og handelsvilkår mellom to eller flere ulike land", "En individuell bonusavtale mellom en bedrift og en enkelt leder om ekstra betaling og goder"],
+      options: ["En skriftlig avtale mellom fagforening og arbeidsgiverside om lønn og arbeidsvilkår", "En avtale mellom to bedrifter om å holde prisene like", "En mellomstatlig avtale om tollsatser og handelsvilkår mellom to eller flere ulike land", "En individuell bonusavtale mellom en bedrift og en enkelt leder om ekstra betaling og goder"],
       explanation: "En tariffavtale er en skriftlig avtale mellom en fagforening og en arbeidsgiverorganisasjon om lønn, arbeidstid og andre vilkår, vanligvis for to år.",
     },
     {
       question: "Hva er velferdsstaten?",
-      options: ["Et system der staten sikrer innbyggernes grunnleggende velferd gjennom offentlige tjenester og ytelser", "En stat helt uten skatter og avgifter, der innbyggerne selv må betale for alt de trenger privat", "Et system der all velferd som helse, skole og trygd er privat og drives av kommersielle aktører", "Et system der bare de aller rikeste innbyggerne får tilgang til helsehjelp og gode tjenester"],
+      options: ["Et system der staten sikrer innbyggernes grunnleggende velferd gjennom offentlige tjenester og ytelser", "En stat helt uten skatter og avgifter, der innbyggerne selv må betale for alt de trenger privat", "Et system der all velferd som helse, skole og trygd er privat og drives av kommersielle aktører", "Et system der bare de aller rikeste innbyggerne får tilgang til helsehjelp, skolegang og andre tjenester"],
       explanation: "Velferdsstaten tar ansvar for grunnleggende velferd — utdanning, helse og økonomisk trygghet. Norge regnes som en av verdens mest utviklede velferdsstater.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-8": [
     {
       question: "Hvorfor kalles mediene «den fjerde statsmakt»?",
-      options: ["Fordi de fungerer som en uavhengig kontrollør av de tre statsmaktene", "Fordi staten eier alle mediene", "Fordi staten eier og styrer alle avisene, radiokanalene og TV-selskapene", "Fordi de formelt vedtar landets lover sammen med Stortinget og regjeringen"],
+      options: ["Fordi de fungerer som en uavhengig kontrollør av de tre statsmaktene", "Fordi de ble opprettet ved lov som et fjerde forvaltningsnivå ved siden av stat og kommune", "Fordi staten eier og styrer alle avisene, radiokanalene og TV-selskapene", "Fordi de formelt vedtar landets lover sammen med Stortinget og regjeringen"],
       explanation: "Mediene kontrollerer og gransker Stortinget, regjeringen og domstolene, informerer befolkningen og er arena for debatt — derfor kalles de den fjerde statsmakt.",
     },
     {
@@ -208,12 +208,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Vær Varsom-plakaten?",
-      options: ["Pressens etiske retningslinjer, utarbeidet av Norsk Presseforbund", "Reglene for kommentarfelt på sosiale medier", "Et sett regler for hvordan man skal oppføre seg i kommentarfelt på sosiale medier", "En offisiell advarselsplakat som henges opp ved farlige byggeplasser og anleggsområder"],
+      options: ["Pressens etiske retningslinjer, utarbeidet av Norsk Presseforbund", "En lov som gir journalister rett til å verne kildene sine", "Et sett regler for hvordan man skal oppføre seg i kommentarfelt på sosiale medier", "En offisiell advarselsplakat som henges opp ved farlige byggeplasser og anleggsområder"],
       explanation: "Vær Varsom-plakaten samler presseetikken i Norge — den beskriver pressens samfunnsrolle og krav til integritet og hensynsfull journalistikk.",
     },
     {
       question: "Hvorfor er kildekritikk spesielt viktig i en digital verden?",
-      options: ["Fordi informasjon flommer fra alle kanter, og alle kan publisere uten kvalitetskontroll", "Fordi papiravisene ikke lenger finnes, og all seriøs journalistikk har forsvunnet", "Fordi det bare er offentlige myndigheter som får lov til å publisere ting på nett", "Fordi alt innhold som legges ut på nettet per definisjon er usant og upålitelig"],
+      options: ["Fordi informasjon flommer fra alle kanter, og alle kan publisere uten kvalitetskontroll", "Fordi papiravisene ikke lenger finnes, og all seriøs journalistikk har forsvunnet", "Fordi det bare er offentlige myndigheter som får lov til å publisere noe som helst på nett", "Fordi alt innhold som legges ut på nettet per definisjon er usant og fullstendig upålitelig"],
       explanation: "Når alle kan publisere og informasjonsmengden er enorm, må du selv vurdere hvem som står bak, hva som er hensikten, og om innholdet kan bekreftes av andre kilder.",
     },
   ],
@@ -230,7 +230,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et urfolk?",
-      options: ["En folkegruppe som bodde i et område lenge før andre kom dit, og som har beholdt sin egen kultur", "En folkegruppe som ikke har noe eget språk eller egne tradisjoner igjen", "Den aller største folkegruppen i et land, målt i antall innbyggere", "Alle mennesker som tilfeldigvis er født innenfor et lands grenser"],
+      options: ["En folkegruppe som bodde i et område lenge før andre kom dit, og som har beholdt sin egen kultur", "En folkegruppe som verken har eget språk eller egne tradisjoner igjen etter århundrer i landet sitt", "Den aller største folkegruppen i et land, målt i antall innbyggere ved den siste offisielle folketellingen", "Alle mennesker som tilfeldigvis er født innenfor et lands grenser"],
       explanation: "Urfolk har bodd i et område lenge før andre folk kom dit og har beholdt egen kultur og egne tradisjoner. Samene er Norges og Skandinavias urfolk.",
     },
     {
@@ -240,7 +240,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en stereotypi?",
-      options: ["En forenklet og generaliserende forestilling om en hel gruppe mennesker", "En vitenskapelig beskrivelse av en kultur", "En type høyttaler som gjengir lyd fra to atskilte kanaler samtidig i rommet", "En grundig og vitenskapelig beskrivelse av en bestemt kultur og dens tradisjoner"],
+      options: ["En forenklet og generaliserende forestilling om en hel gruppe mennesker", "En enkeltpersons egen erfaring med ett menneske, som ikke sier noe om resten av gruppen", "En type høyttaler som gjengir lyd fra to atskilte kanaler samtidig i rommet", "En grundig og vitenskapelig beskrivelse av en bestemt kultur og dens tradisjoner"],
       explanation: "Stereotypier er forenklede forestillinger om grupper. De kan lede til fordommer og diskriminering, og motvirkes blant annet av kunnskap og møter mellom mennesker.",
     },
   ],
@@ -262,7 +262,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør en presentasjon på muntlig eksamen struktureres?",
-      options: ["Innledning, hoveddel og avslutning med tydelig problemstilling", "Uten noen plan — improvisasjon er best", "Bare som høytlesing av notatarket ditt fra første til siste setning uten stans", "Helt uten noen plan på forhånd, fordi ren improvisasjon gir det beste inntrykket"],
+      options: ["Innledning, hoveddel og avslutning med tydelig problemstilling", "Bare en avslutning, siden innledningen tar tid", "Bare som høytlesing av notatarket ditt fra første til siste setning uten stans", "Helt uten noen plan på forhånd, fordi ren improvisasjon gir det beste inntrykket"],
       explanation: "En god presentasjon har innledning (ca. 2 min), hoveddel (ca. 8–10 min) og avslutning (ca. 2 min), bygget rundt en tydelig problemstilling.",
     },
     {
@@ -284,24 +284,24 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner tropisk klima?",
-      options: ["Varmt hele året, finnes nær ekvator (0°–23,5° nord/sør)", "Fire tydelige årstider med snørike vintre", "Kaldt nesten hele året, med permafrost i bakken og lite plantevekst", "Fire tydelige årstider med varme somre og snørike, kalde vintre hvert år"],
+      options: ["Varmt hele året, finnes nær ekvator (0°–23,5° nord/sør)", "Svært varmt om dagen og minusgrader hver natt, med nesten ingen nedbør gjennom året", "Kaldt nesten hele året, med permafrost i bakken og lite plantevekst", "Fire tydelige årstider med varme somre og snørike, kalde vintre hvert år"],
       explanation: "Tropisk klima finnes i beltet rundt ekvator og er varmt hele året — her vokser blant annet regnskogene.",
     },
     {
       question: "Hva skiller dagens klimaendringer fra tidligere naturlige klimavariasjoner?",
-      options: ["Tempoet og at de i all hovedsak skyldes menneskelig aktivitet", "At de bare skjer på den nordlige halvkule", "At de gjør hele kloden gradvis kaldere i stedet for varmere over tid", "At de utelukkende skjer på den nordlige halvkule og ikke merkes lenger sør"],
+      options: ["Tempoet og at de i all hovedsak skyldes menneskelig aktivitet", "At de går så langsomt at ingen målestasjoner rekker å registrere dem i løpet av et liv", "At de gjør hele kloden gradvis kaldere i stedet for varmere over tid", "At de utelukkende skjer på den nordlige halvkule og ikke merkes lenger sør"],
       explanation: "Klimaet har alltid variert naturlig (f.eks. istider), men dagens endringer skiller seg ut i tempo og årsak — utslipp av klimagasser fra menneskelig aktivitet.",
     },
     {
       question: "Hvilke konsekvenser av klimaendringer observerer og forventer forskere?",
-      options: ["Stigende havnivå, mer ekstremvær og endringer i økosystemer", "Færre stormer og mindre nedbør overalt", "Færre kraftige stormer og mye mindre nedbør nesten overalt på jorda", "At havnivået synker jevnt over hele kloden etter hvert som isen smelter"],
+      options: ["Stigende havnivå, mer ekstremvær og endringer i økosystemer", "At isbreene i verden vokser og blir tykkere", "Færre kraftige stormer og mye mindre nedbør nesten overalt på jorda", "At havnivået synker jevnt over hele kloden etter hvert som isen smelter"],
       explanation: "Forskere observerer og forventer blant annet stigende havnivå, mer ekstremvær og endringer i økosystemer — med konsekvenser for mennesker også i Norge.",
     },
   ],
   "samfunnsfag-10-12": [
     {
       question: "Hva er naturressurser?",
-      options: ["Materialer, stoffer og energi fra naturen som mennesker bruker for å dekke sine behov", "Ferdige varer og produkter som er laget av mennesker inne på fabrikker", "Penger og verdier som staten sparer og forvalter i oljefondet", "Bare olje og gass som hentes opp fra havbunnen i Nordsjøen"],
+      options: ["Materialer, stoffer og energi fra naturen som mennesker bruker for å dekke sine behov", "Ferdige varer og produkter som er laget av mennesker inne på fabrikker", "Penger og verdier som staten sparer og forvalter i oljefondet", "Bare olje og gass som hentes opp fra havbunnen i Nordsjøen og Norskehavet av oljeselskapene"],
       explanation: "Naturressurser er materialer og energi fra naturen — alt fra skog og fisk til mineraler, olje og vannkraft.",
     },
     {
@@ -355,7 +355,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-14": [
     {
       question: "Hva betyr målestokken 1:50 000 på et kart?",
-      options: ["1 cm på kartet tilsvarer 50 000 cm (500 m) i virkeligheten", "1 cm på kartet tilsvarer 50 000 km i virkeligheten", "1 cm på kartet tilsvarer hele 50 000 kilometer ute i virkeligheten", "Kartet er tegnet 50 000 ganger større enn det virkelige terrenget er"],
+      options: ["1 cm på kartet tilsvarer 50 000 cm (500 m) i virkeligheten", "1 mm på kartet tilsvarer 50 000 meter, altså 50 km, i virkeligheten", "1 cm på kartet tilsvarer hele 50 000 kilometer ute i virkeligheten", "Kartet er tegnet 50 000 ganger større enn det virkelige terrenget er"],
       explanation: "Målestokk er forholdet mellom avstander på kartet og i virkeligheten: 1:50 000 betyr at 1 cm på kartet er 50 000 cm = 500 meter i terrenget.",
     },
     {
@@ -375,14 +375,14 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et choropleth-kart (flatemønsterkart)?",
-      options: ["Et tematisk kart der farger eller skravur viser forskjeller mellom områder", "Et historisk kart fra middelalderen", "Et historisk kart fra middelalderen der landegrensene er tegnet inn med gammel skravur", "Et sjøkart som viser havdyp og undervannsterreng med blå fargenyanser for hver dybdesone"],
+      options: ["Et tematisk kart der farger eller skravur viser forskjeller mellom områder", "Et kart der hver by er markert med en prikk som blir større jo flere innbyggere den har", "Et historisk kart fra middelalderen der landegrensene er tegnet inn med gammel skravur", "Et sjøkart som viser havdyp og undervannsterreng med blå fargenyanser for hver dybdesone"],
       explanation: "Choropleth-kart bruker farger eller skravur for å vise forskjeller mellom områder — for eksempel land farget etter inntektsnivå.",
     },
   ],
   "samfunnsfag-10-15": [
     {
       question: "Når blir en naturhendelse en naturkatastrofe?",
-      options: ["Når den fører til store ødeleggelser, tap av menneskeliv eller alvorlige samfunnsforstyrrelser", "Så snart naturen viser stor kraft, siden alle store naturhendelser regnes som katastrofer", "Når hendelsen rammer et annet land enn ditt eget og dermed regnes som internasjonal", "Når naturhendelsen varer i mer enn en hel uke uten opphold, uansett hvor den skjer"],
+      options: ["Når den fører til store ødeleggelser, tap av menneskeliv eller alvorlige samfunnsforstyrrelser", "Så snart naturen viser stor kraft, siden alle store naturhendelser regnes som katastrofer", "Når hendelsen rammer et annet land enn ditt eget og dermed regnes som internasjonal", "Når naturhendelsen varer i mer enn en hel uke uten opphold, uansett hvor i verden den rammer folk"],
       explanation: "En naturhendelse blir en katastrofe først når den rammer et sårbart samfunn og gir store ødeleggelser eller tap av liv.",
     },
     {
@@ -397,7 +397,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på forebygging av naturkatastrofer?",
-      options: ["Arealplanlegging som unngår bygging i flom- og skredutsatte områder", "Å vente til katastrofen skjer og så rydde opp", "Å flytte hele befolkningen inn til de store byene der beredskapstjenestene er samlet", "Å slutte å varsle om ekstremvær, slik at folk ikke blir unødig skremt av værmeldingene"],
+      options: ["Arealplanlegging som unngår bygging i flom- og skredutsatte områder", "Å vente til katastrofen har skjedd, og først da rydde opp og bygge opp igjen det ødelagte", "Å flytte hele befolkningen inn til de store byene der beredskapstjenestene er samlet", "Å slutte å varsle om ekstremvær, slik at folk ikke blir unødig skremt av værmeldingene"],
       explanation: "Forebygging skjer før hendelsen — blant annet gjennom arealplanlegging og bygningsstandarder som reduserer skadene når naturen slår til.",
     },
     {
@@ -429,7 +429,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor beskrives arealplanlegging som «demokrati i praksis»?",
-      options: ["Fordi planprosessene skal høre ulike interesser før folkevalgte organer beslutter", "Fordi alle saker avgjøres ved folkeavstemning", "Fordi bare grunneierne i området får lov til å uttale seg før planene endelig vedtas", "Fordi alle arealsaker i kommunen avgjøres direkte ved bindende folkeavstemning blant innbyggerne"],
+      options: ["Fordi planprosessene skal høre ulike interesser før folkevalgte organer beslutter", "Fordi kommunestyret må velges på nytt hver gang en ny arealplan skal vedtas i kommunen", "Fordi bare grunneierne i området får lov til å uttale seg før planene endelig vedtas", "Fordi alle arealsaker i kommunen avgjøres direkte ved bindende folkeavstemning blant innbyggerne"],
       explanation: "I planprosessene skal berørte interesser høres, og beslutningene tas av folkevalgte organer — en demokratisk avveining mellom motstridende hensyn.",
     },
   ],
@@ -446,17 +446,17 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke imperier brøt sammen som følge av første verdenskrig?",
-      options: ["Det osmanske, det østerriksk-ungarske, det russiske og det tyske", "Det spanske og det portugisiske", "Det spanske og det portugisiske kolonimperiet, som ble delt mellom seierherrene", "Det britiske og det franske imperiet, som begge mistet alle koloniene sine i krigen"],
+      options: ["Det osmanske, det østerriksk-ungarske, det russiske og det tyske", "Det japanske og det kinesiske keiserdømmet, som begge ble oppløst i fredsoppgjøret", "Det spanske og det portugisiske kolonimperiet, som ble delt mellom seierherrene", "Det britiske og det franske imperiet, som begge mistet alle koloniene sine i krigen"],
       explanation: "Krigen førte til at fire imperier falt: det osmanske riket, Østerrike-Ungarn, det russiske tsarriket og det tyske keiserriket — og nye nasjonalstater oppsto.",
     },
     {
       question: "Hva skjedde med verdensøkonomien i 1929?",
-      options: ["Børskrakket i USA utløste den store depresjonen", "Gullstandarden ble innført for første gang", "Gullstandarden for pengeverdi ble innført for aller første gang i de vestlige landene", "En lang periode med stabil vekst begynte"],
+      options: ["Børskrakket i USA utløste den store depresjonen", "Aksjekursene i USA nådde ny rekord", "Gullstandarden for pengeverdi ble innført for aller første gang i de vestlige landene", "En lang periode med stabil vekst begynte"],
       explanation: "Børskrakket i 1929 utløste den store depresjonen — en verdensomspennende økonomisk krise som preget mellomkrigstiden.",
     },
     {
       question: "Hva kjennetegnet mellomkrigstiden (1918–1939) i Europa?",
-      options: ["Store motsetninger med økonomisk krise og fremvekst av diktaturer i flere land", "Stabil fred og demokratisering i alle land", "Stabil fred, økonomisk framgang og demokratisering i alle europeiske land uten unntak", "At Europa var helt uten politiske spenninger fordi krigen hadde løst alle stridsspørsmål"],
+      options: ["Store motsetninger med økonomisk krise og fremvekst av diktaturer i flere land", "Rask økonomisk vekst uten arbeidsledighet, slik at ingen europeiske land opplevde uro", "Stabil fred, økonomisk framgang og demokratisering i alle europeiske land uten unntak", "At Europa var helt uten politiske spenninger fordi krigen hadde løst alle stridsspørsmål"],
       explanation: "Mellomkrigstiden var preget av uro: revolusjon i Russland, økonomisk krise etter 1929 og fremvekst av fascisme og nazisme i flere land.",
     },
   ],
@@ -468,17 +468,17 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde i Norge 9. april 1940?",
-      options: ["Tyskland angrep Norge i en overraskende invasjon", "Norge ble medlem av Folkeforbundet", "Norge erklærte selv krig mot Tyskland og sendte soldater sørover mot kontinentet", "Norge erklærte krig mot Tyskland"],
+      options: ["Tyskland angrep Norge i en overraskende invasjon", "Norge ble medlem av Folkeforbundet", "Norge erklærte selv krig mot Tyskland og sendte soldater sørover mot kontinentet", "Kong Haakon abdiserte og forlot landet"],
       explanation: "9. april 1940 angrep Tyskland Norge. Tross motstand i to måneder ble landet okkupert frem til frigjøringen i 1945.",
     },
     {
       question: "Hva var Holocaust?",
-      options: ["Det systematiske, statlig organiserte folkemordet på omtrent seks millioner jøder", "Et stort slag på østfronten", "En omfattende fredsavtale som ble undertegnet av stormaktene like etter krigens slutt", "Den systematiske bombingen av britiske storbyer som London under det tyske luftangrepet"],
+      options: ["Det systematiske, statlig organiserte folkemordet på omtrent seks millioner jøder", "Et enkelt stort slag på østfronten der tyske og sovjetiske styrker sto mot hverandre i 1943", "En omfattende fredsavtale som ble undertegnet av stormaktene like etter krigens slutt", "Den systematiske bombingen av britiske storbyer som London under det tyske luftangrepet"],
       explanation: "Holocaust (Shoah) var Nazi-Tysklands systematiske folkemord på omtrent seks millioner jøder, med røtter i langvarig antisemittisme.",
     },
     {
       question: "Omtrent hvor mange mennesker mistet livet i andre verdenskrig?",
-      options: ["Mellom 70 og 85 millioner", "Omtrent 10 millioner", "Omtrent 10 millioner mennesker til sammen", "Over 500 millioner"],
+      options: ["Mellom 70 og 85 millioner", "Rundt 5 millioner", "Omtrent 10 millioner mennesker til sammen", "Over 500 millioner"],
       explanation: "Andre verdenskrig var den mest ødeleggende konflikten i historien, med mellom 70 og 85 millioner døde.",
     },
     {
@@ -500,12 +500,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Berlin-blokaden (1948–1949)?",
-      options: ["Sovjetunionen stengte forbindelsene til Vest-Berlin, og vestmaktene forsynte byen med luftbro", "Byggingen av Berlinmuren i 1961 som fysisk delte byen i en østlig og en vestlig del", "En vestlig blokade av sovjetiske havner i Østersjøen for å presse fram innrømmelser", "En omfattende handelsavtale mellom øst og vest om fri vareflyt gjennom hele Berlin"],
+      options: ["Sovjetunionen stengte forbindelsene til Vest-Berlin, og vestmaktene forsynte byen med luftbro", "Byggingen av Berlinmuren i 1961 som fysisk delte byen i en østlig og en vestlig del", "En vestlig blokade av sovjetiske havner i Østersjøen for å presse fram innrømmelser", "En omfattende handelsavtale mellom øst og vest om fri vareflyt gjennom hele Berlin og Tyskland"],
       explanation: "Sovjetunionen stengte vei- og jernbaneforbindelsene til Vest-Berlin. USA og Storbritannia svarte med en luftbro som forsynte byen.",
     },
     {
       question: "Hva het reformpolitikken Gorbatsjov innførte i Sovjetunionen fra 1985?",
-      options: ["Glasnost (åpenhet) og perestrojka (omstrukturering)", "New Deal og Marshallplanen", "Détente og containment for å dempe spenningen mot Vesten", "New Deal og Marshallplanen for å få fart på økonomien igjen"],
+      options: ["Glasnost (åpenhet) og perestrojka (omstrukturering)", "Femårsplanene og kollektiviseringen av jordbruket i Sovjet", "Détente og containment for å dempe spenningen mot Vesten", "New Deal og Marshallplanen for å få fart på økonomien igjen"],
       explanation: "Mikhail Gorbatsjov innførte glasnost (mer åpenhet og ytringsfrihet) og perestrojka (økonomisk omstrukturering) — reformer som bidro til den kalde krigens slutt.",
     },
     {
@@ -532,24 +532,24 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mentes med «den tredje verden» under den kalde krigen?",
-      options: ["De nylig uavhengige landene som ikke tilhørte verken den vestlige eller den østlige blokken", "Alle landene som ligger på den sørlige halvkule av jordkloden, uansett økonomi og politikk", "Landene som tapte andre verdenskrig og derfor mistet sin plass i det internasjonale samfunn", "De tre rikeste og mektigste industrilandene i verden med størst innflytelse internasjonalt"],
+      options: ["De nylig uavhengige landene som ikke tilhørte verken den vestlige eller den østlige blokken", "Alle landene som ligger på den sørlige halvkule av jordkloden, uansett økonomi og politisk styresett", "Landene som tapte andre verdenskrig og derfor mistet sin plass i det internasjonale samfunn", "De tre rikeste og mektigste industrilandene i verden, med aller størst innflytelse internasjonalt"],
       explanation: "Verden ble delt i tre: den første (USA og Vesten), den andre (Sovjetunionen og Østblokken) og den tredje — de nye statene som ikke tilhørte noen av blokkene.",
     },
     {
       question: "Hvilke utfordringer sto mange nylig selvstendige stater overfor?",
-      options: ["Grenser trukket av kolonimaktene, svak økonomi og institusjoner som måtte bygges opp", "At de måtte gi territorium tilbake til kolonimaktene", "At de ikke fikk lov til å bli medlemmer av FN og dermed sto helt utenfor verdenssamfunnet", "At de måtte gi store landområder tilbake til de tidligere kolonimaktene som en betingelse"],
+      options: ["Grenser trukket av kolonimaktene, svak økonomi og institusjoner som måtte bygges opp", "At de ble pålagt av FN å betale tilbake all bistand de hadde mottatt før selvstendigheten", "At de ikke fikk lov til å bli medlemmer av FN og dermed sto helt utenfor verdenssamfunnet", "At de måtte gi store landområder tilbake til de tidligere kolonimaktene som en betingelse"],
       explanation: "Mange nye stater arvet kunstige grenser, ensidig økonomi og svake institusjoner fra kolonitiden — utfordringer som preget utviklingen videre.",
     },
   ],
   "samfunnsfag-10-21": [
     {
       question: "Hva var Marshallplanen?",
-      options: ["Økonomisk hjelp fra USA som var viktig for gjenoppbyggingen av Europa etter krigen", "En militær strategi under første verdenskrig", "En internasjonal avtale om trekking av fiskerigrenser og fordeling av fangst i Nordsjøen", "En militær forsvarsstrategi som de allierte fulgte på vestfronten under første verdenskrig"],
+      options: ["Økonomisk hjelp fra USA som var viktig for gjenoppbyggingen av Europa etter krigen", "Et amerikansk program for utveksling av studenter og forskere mellom USA og Europa etter krigen", "En internasjonal avtale om trekking av fiskerigrenser og fordeling av fangst i Nordsjøen", "En militær forsvarsstrategi som de allierte fulgte på vestfronten under første verdenskrig"],
       explanation: "Marshallplanen var amerikansk økonomisk hjelp etter andre verdenskrig, og den var avgjørende for gjenoppbyggingen — også i Norge.",
     },
     {
       question: "Når ble Ekofisk-feltet oppdaget, og hva betydde det for Norge?",
-      options: ["1969 — funnet startet oljeeventyret som forandret norsk økonomi", "1905 — det finansierte unionsoppløsningen", "1945 — funnet betalte for gjenoppbyggingen av Norge etter krigen", "1905 — funnet finansierte unionsoppløsningen og selvstendigheten fra Sverige"],
+      options: ["1969 — funnet startet oljeeventyret som forandret norsk økonomi", "1859 — funnet gjorde Norge til Europas største oljeprodusent alt på 1800-tallet", "1945 — funnet betalte for gjenoppbyggingen av Norge etter krigen", "1905 — funnet finansierte unionsoppløsningen og selvstendigheten fra Sverige"],
       explanation: "Ekofisk-feltet ble oppdaget i 1969, produksjonen startet i 1971, og oljen har siden gjort Norge til et av verdens rikeste land.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke store samfunnsendringer har preget Norge etter 1945?",
-      options: ["Utbygging av velferdsstaten, økt likestilling, EF/EU-debatter og innvandring", "At all industri ble lagt ned", "At Norge ble en koloni under en europeisk stormakt og mistet selvstyret sitt", "At byene ble avfolket mens hele befolkningen flyttet ut til landsbygda igjen"],
+      options: ["Utbygging av velferdsstaten, økt likestilling, EF/EU-debatter og innvandring", "At all industri ble lagt ned, slik at Norge gikk tilbake til jordbruk og fiske som hovednæring", "At Norge ble en koloni under en europeisk stormakt og mistet selvstyret sitt", "At byene ble avfolket mens hele befolkningen flyttet ut til landsbygda igjen"],
       explanation: "Etterkrigs-Norge er formet av velferdsstatens utbygging, likestillingskampen, de to EF/EU-folkeavstemningene og utviklingen mot et flerkulturelt samfunn.",
     },
   ],
@@ -581,7 +581,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan reagerte det norske samfunnet på 22. juli-angrepet?",
-      options: ["Med åpenhet, samhold og rosetog i stedet for frykt og hat", "Med unntakstilstand og portforbud i flere år", "Med unntakstilstand og portforbud som varte i flere år etter angrepet", "Med å stenge alle landegrenser permanent for å hindre nye terrorangrep"],
+      options: ["Med åpenhet, samhold og rosetog i stedet for frykt og hat", "Med krav om at alle politiske ungdomsorganisasjoner måtte legges ned umiddelbart", "Med unntakstilstand og portforbud som varte i flere år etter angrepet", "Med å stenge alle landegrenser permanent for å hindre nye terrorangrep"],
       explanation: "Norge svarte med åpenhet og samhold — blant annet rosetogene — og en kommisjon (Gjørv-kommisjonen) gjennomgikk hendelsene for å trekke lærdommer.",
     },
     {
@@ -591,7 +591,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket dilemma står demokratier overfor i kampen mot terror?",
-      options: ["Balansen mellom sikkerhetstiltak og borgernes frihet og rettigheter", "Om de skal ha et forsvar i det hele tatt", "Om demokratiet i det hele tatt skal ha et forsvar til å beskytte landet", "Om terrorisme i visse tilfeller bør være lovlig som en form for protest"],
+      options: ["Balansen mellom sikkerhetstiltak og borgernes frihet og rettigheter", "Om domstolene skal kunne dømme mistenkte uten at bevisene legges fram i retten", "Om demokratiet i det hele tatt skal ha et forsvar til å beskytte landet", "Om terrorisme i visse tilfeller bør være lovlig som en form for protest"],
       explanation: "Demokratier må veie effektive sikkerhetstiltak mot hensynet til frihet, personvern og rettssikkerhet — for strenge tiltak kan true verdiene de skal beskytte.",
     },
   ],
@@ -608,12 +608,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier 50/30/20-regelen om fordeling av pengene dine?",
-      options: ["Ca. 50 % til behov, 30 % til ønsker og 20 % til sparing", "50 % til klær, 30 % til mat og 20 % til transport", "At du hver måned skal klare å spare minst 50 % av alt du tjener", "50 % til klær og sko, 30 % til mat og 20 % til transport og reise"],
+      options: ["Ca. 50 % til behov, 30 % til ønsker og 20 % til sparing", "50 % til sparing, 30 % til behov, 20 % til ønsker", "At du hver måned skal klare å spare minst 50 % av alt du tjener", "50 % til klær og sko, 30 % til mat og 20 % til transport og reise"],
       explanation: "50/30/20-regelen er et enkelt utgangspunkt: omtrent halvparten til nødvendige utgifter, 30 % til ønsker og 20 % til sparing.",
     },
     {
       question: "Hva er Lånekassen?",
-      options: ["En statlig etat som gir lån og stipend til elever og studenter", "En gratis app fra staten som hjelper deg med å føre budsjett", "En privat bank som spesialiserer seg på boliglån til studenter", "Et statlig forsikringsselskap som dekker uhell under utdanning"],
+      options: ["En statlig etat som gir lån og stipend til elever og studenter", "En gratis app fra staten som hjelper deg med å føre ditt eget budsjett", "En privat bank som spesialiserer seg på boliglån til studenter", "Et statlig forsikringsselskap som dekker uhell under utdanning"],
       explanation: "Lånekassen er en statlig etat som gir lån og stipend til utdanning, slik at alle skal kunne studere uavhengig av familiens økonomi.",
     },
     {
@@ -645,7 +645,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan «kjøp nå, betal senere»-tilbud være risikable?",
-      options: ["De gjør det lett å bruke penger du ikke har, og kan føre til dyr gjeld", "De er alltid ulovlige og strengt forbudt for butikker å tilby kundene", "De gir alltid en lavere totalpris enn om du betaler alt med én gang", "De kan bare brukes av voksne kunder som har fylt minst 30 år gamle"],
+      options: ["De gjør det lett å bruke penger du ikke har, og kan føre til dyr gjeld", "De er alltid ulovlige og strengt forbudt for butikkene å tilby kundene sine", "De gir alltid en lavere totalpris enn om du betaler alt med én gang", "De kan bare brukes av voksne kunder som har fylt minst 30 år gamle"],
       explanation: "Delbetaling og utsatt betaling senker terskelen for kjøp og kan ende i høye renter og gebyrer — en vanlig vei inn i gjeldsproblemer.",
     },
   ],
@@ -662,7 +662,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er verneombudets rolle på arbeidsplassen?",
-      options: ["Å ivareta arbeidstakernes interesser i saker som angår arbeidsmiljøet", "Å vokte inngangen til bygget og sjekke hvem som slipper inn og ut", "Å fastsette lønnen til alle de ansatte på arbeidsplassen hvert år", "Å ansette nye medarbeidere og bestemme hvem som får jobbene"],
+      options: ["Å ivareta arbeidstakernes interesser i saker som angår arbeidsmiljøet", "Å vokte inngangen til bygget og sjekke hvem som slipper inn og ut", "Å fastsette lønnen til alle de ansatte på arbeidsplassen hvert år", "Å ansette nye medarbeidere og bestemme hvem som skal få de ledige jobbene"],
       explanation: "Verneombudet er arbeidstakernes representant i arbeidsmiljøspørsmål og skal påse at HMS ivaretas.",
     },
     {
@@ -672,7 +672,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er LO?",
-      options: ["Norges største hovedorganisasjon for arbeidstakere", "Et statlig tilsyn for arbeidsmiljø", "En hovedorganisasjon på arbeidsgiversiden i norsk arbeidsliv", "Et statlig tilsyn som kontrollerer arbeidsmiljøet i bedriftene"],
+      options: ["Norges største hovedorganisasjon for arbeidstakere", "Et fond som utbetaler dagpenger til arbeidsledige på vegne av staten", "En hovedorganisasjon på arbeidsgiversiden i norsk arbeidsliv", "Et statlig tilsyn som kontrollerer arbeidsmiljøet i bedriftene"],
       explanation: "LO (Landsorganisasjonen) er Norges største hovedorganisasjon på arbeidstakersiden.",
     },
   ],
@@ -689,12 +689,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er innovasjon?",
-      options: ["Å skape noe nytt som gir verdi — også forbedringer av eksisterende løsninger", "Å produsere mer av akkurat det samme produktet enn man gjorde tidligere", "Å senke prisene på gamle og eksisterende varer for å selge flere av dem", "Bare helt nye vitenskapelige oppfinnelser som ingen har laget før"],
+      options: ["Å skape noe nytt som gir verdi — også forbedringer av eksisterende løsninger", "Å produsere mer av akkurat det samme produktet enn man gjorde tidligere", "Å senke prisene på gamle og eksisterende varer for å få solgt unna flere av dem", "Bare helt nye vitenskapelige oppfinnelser som ingen andre i verden har laget før"],
       explanation: "Innovasjon betyr å skape noe nytt som gir verdi. Det trenger ikke være en helt ny oppfinnelse — det kan være en ny måte å gjøre ting på.",
     },
     {
       question: "Hvilken risiko tar en entreprenør som starter egen bedrift?",
-      options: ["Økonomisk risiko — bedriften kan gå med tap, og inntekten er usikker", "Risikoen for å måtte betale mindre skatt", "Ingen risiko i det hele tatt, siden staten dekker alle tap for gründere", "Bare risikoen for å få så mange kunder at bedriften ikke rekker over alt"],
+      options: ["Økonomisk risiko — bedriften kan gå med tap, og inntekten er usikker", "Risikoen for å måtte betale mindre skatt enn før, siden overskuddet ofte blir lavere", "Ingen risiko i det hele tatt, siden staten dekker alle tap for gründere", "Bare risikoen for å få så mange kunder at bedriften ikke rekker over alt"],
       explanation: "Entreprenøren tar initiativ og risiko: Mange nye bedrifter lykkes ikke, og inntekten er usikker — men gevinsten kan også bli stor.",
     },
     {
@@ -716,12 +716,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er inntektsskatt?",
-      options: ["Skatt på det du tjener, med høyere sats for høye inntekter (trinnskatt)", "En særskilt avgift på bensin og diesel som legges til på pumpeprisen", "Skatt du betaler på eiendommen og boligen du eier hvert eneste år", "Skatt på alle varer og tjenester du kjøper i butikken hver dag"],
+      options: ["Skatt på det du tjener, med høyere sats for høye inntekter (trinnskatt)", "En særskilt avgift på bensin og diesel som legges til på pumpeprisen", "Skatt du betaler på eiendommen og boligen du eier hvert eneste år", "Skatt på alle varer og tjenester du kjøper i butikken, lagt til i prisen"],
       explanation: "Inntektsskatt betales av inntekten din (ca. 22 % pluss trinnskatt for høyere inntekter) — i motsetning til f.eks. merverdiavgift på varer.",
     },
     {
       question: "Hvordan beskrives uenigheten om skattenivå i norsk politikk?",
-      options: ["Partiene har ulike syn: Noen vil ha høyere skatt og mer offentlig velferd, andre lavere skatt og mer privat valgfrihet", "Alle partier er enige om skattenivået", "Partiene er enige om at skattene skal senkes, men de er uenige om hvor raskt kuttene i offentlig velferd skal gjennomføres", "Alle partiene er egentlig enige om skattenivået, men de later som om de er uenige for å skille seg fra hverandre i valgkampen"],
+      options: ["Partiene har ulike syn: Noen vil ha høyere skatt og mer offentlig velferd, andre lavere skatt og mer privat valgfrihet", "Uenigheten i norsk politikk gjelder utelukkende hvor stor andel av skatteinntektene kommunene skal beholde, ikke selve skattenivået", "Partiene er enige om at skattene skal senkes, men de er uenige om hvor raskt kuttene i offentlig velferd skal gjennomføres", "Alle partiene er egentlig enige om skattenivået, men de later som om de er uenige for å skille seg fra hverandre i valgkampen"],
       explanation: "Skatt er et klassisk stridsspørsmål: Partier på venstresiden vil gjerne ha høyere skatt og sterkere fellesfinansiert velferd, mens partier på høyresiden vil senke skattene og gi mer rom for private løsninger. Begge posisjoner bygger på legitime verdier.",
     },
     {
@@ -733,7 +733,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-28": [
     {
       question: "Hvilke tre pilarer hviler den norske modellen på?",
-      options: ["Trepartssamarbeid, velferdsstat og regulert markedsøkonomi", "Kongehus, kirke og forsvar", "Bankvesenet, Oslo Børs og forsikringsbransjen, som styrer økonomien", "Oljenæringen, fiskeeksporten og vannkraften, som gir landet inntekter"],
+      options: ["Trepartssamarbeid, velferdsstat og regulert markedsøkonomi", "Kongehuset, statskirken og forsvaret, som binder samfunnet sammen", "Bankvesenet, Oslo Børs og forsikringsbransjen, som styrer økonomien", "Oljenæringen, fiskeeksporten og vannkraften, som gir landet inntekter"],
       explanation: "Den norske modellen bygger på trepartssamarbeidet mellom stat, arbeidsgivere og arbeidstakere, en omfattende velferdsstat og en regulert markedsøkonomi.",
     },
     {
@@ -787,7 +787,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-30": [
     {
       question: "Hva omfatter begrepet kultur?",
-      options: ["Alt det menneskeskapte i et samfunn: verdier, normer, språk, kunst, mat og tradisjoner", "Bare kunst, musikk og teater som fremføres på store scener for et publikum", "Bare religionen og de høytidene som feires innenfor et bestemt trossamfunn", "Bare den maten, klesdrakten og de folkedansene et land er kjent for utad"],
+      options: ["Alt det menneskeskapte i et samfunn: verdier, normer, språk, kunst, mat og tradisjoner", "Bare kunst, musikk og teater som fremføres på store scener for et publikum", "Bare religionen og de høytidene som feires innenfor et bestemt trossamfunn", "Bare den maten, klesdrakten og de folkedansene som et land er kjent for utad i andre land"],
       explanation: "Kultur er et vidt begrep som omfatter verdier, normer, skikker, språk, kunst, mat, tro og tradisjoner — alt som former hvordan vi tenker og handler.",
     },
     {
@@ -824,12 +824,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan oppnådde Norge dagens likestilling ifølge kapittelet?",
-      options: ["Gjennom generasjoners kamp og gradvise milepæler, som stemmerett og likestillingslov", "Ved at andre land bestemte det for Norge", "Likestillingen kom av seg selv over tid, uten at noen måtte kjempe eller ta initiativ", "Andre land bestemte gjennom internasjonale avtaler at Norge måtte innføre likestilling"],
+      options: ["Gjennom generasjoners kamp og gradvise milepæler, som stemmerett og likestillingslov", "Ved at Grunnloven av 1814 slo fast full likestilling mellom kvinner og menn fra første dag", "Likestillingen kom av seg selv over tid, uten at noen måtte kjempe eller ta initiativ", "Andre land bestemte gjennom internasjonale avtaler at Norge måtte innføre likestilling"],
       explanation: "Likestillingen er resultatet av generasjoners kamp — med milepæler som kvinners stemmerett (1913) og likestillingsloven (1978).",
     },
     {
       question: "Hva menes med kjønnsmangfold?",
-      options: ["At det finnes flere måter å oppleve og uttrykke kjønn på enn todelingen mann/kvinne", "At gutter og jenter går i forskjellige klasser på skolen for å lære best mulig", "At det finnes nøyaktig to kjønn, mann og kvinne, som alle mennesker hører til", "At alle mennesker på et tidspunkt i livet kommer til å skifte kjønn helt"],
+      options: ["At det finnes flere måter å oppleve og uttrykke kjønn på enn todelingen mann/kvinne", "At gutter og jenter går i forskjellige klasser på skolen for å lære best mulig", "At det finnes nøyaktig to kjønn, mann og kvinne, som hvert eneste menneske hører til", "At alle mennesker på et eller annet tidspunkt i livet kommer til å skifte kjønn helt"],
       explanation: "Kjønnsmangfold betyr at kjønnsidentitet og kjønnsuttrykk varierer — det skilles blant annet mellom biologisk kjønn, kjønnsidentitet og kjønnsuttrykk.",
     },
     {
@@ -841,7 +841,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-32": [
     {
       question: "Hva er psykisk helse?",
-      options: ["Hvordan du har det inni deg — tanker, følelser og evnen til å håndtere hverdagen", "Noe bare voksne har, mens barn og unge først utvikler det senere", "Evnen til å prestere godt på skolen og i alle fritidsaktiviteter", "Det samme som å være psykisk syk og trenge behandling fra lege"],
+      options: ["Hvordan du har det inni deg — tanker, følelser og evnen til å håndtere hverdagen", "Noe bare voksne har, mens barn og unge først utvikler det senere", "Evnen til å prestere godt på skolen og i alle fritidsaktiviteter", "Det samme som å være psykisk syk og trenge behandling fra lege eller psykolog i spesialisthelsetjenesten"],
       explanation: "Alle har en psykisk helse. God psykisk helse betyr ikke å alltid være glad, men å ha det grunnleggende bra og takle oppturer og nedturer.",
     },
     {
@@ -851,24 +851,24 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr livsmestring i LK20?",
-      options: ["Å utvikle kunnskap, ferdigheter og holdninger for å håndtere utfordringer og ta gode valg", "Å alltid klare seg helt på egen hånd og aldri be andre om hjelp når det blir vanskelig", "Å mestre absolutt alt perfekt hele tiden, uten noen gang å gjøre feil eller mislykkes", "Å unngå alle utfordringer i livet slik at man aldri kommer i en vanskelig situasjon"],
+      options: ["Å utvikle kunnskap, ferdigheter og holdninger for å håndtere utfordringer og ta gode valg", "Å alltid klare seg helt på egen hånd og aldri be andre om hjelp når det blir vanskelig", "Å mestre absolutt alt perfekt hele tiden, uten noen gang å gjøre en eneste feil eller mislykkes", "Å unngå alle utfordringer i livet, slik at man aldri havner i en eneste vanskelig situasjon"],
       explanation: "Livsmestring handler om verktøy for å takle livets utfordringer — ikke om å mestre alt perfekt.",
     },
     {
       question: "Hva bør du gjøre hvis du sliter psykisk over tid?",
-      options: ["Snakke med noen du stoler på og søke hjelp — det er et tegn på styrke", "Holde det for deg selv til det går over", "Vente til du er blitt voksen før du forteller noen om det du sliter med", "Slutte helt å sove og spise for å presse deg gjennom den vanskelige perioden"],
+      options: ["Snakke med noen du stoler på og søke hjelp — det er et tegn på styrke", "Holde det helt for deg selv og vente på at det går over av seg selv med tiden", "Vente til du er blitt voksen før du forteller noen om det du sliter med", "Slutte helt å sove og spise for å presse deg gjennom den vanskelige perioden"],
       explanation: "Du trenger ikke håndtere alt alene: Snakk med voksne du stoler på, helsesykepleier eller bruk hjelpetjenester. Å be om hjelp er styrke, ikke svakhet.",
     },
     {
       question: "Hvilke kilder til stress og press er vanlige blant unge?",
-      options: ["Skolepress, sosiale medier og forventninger fra omgivelsene", "At unge ikke har tilgang til internett", "At det er altfor lite å gjøre på skolen, så elevene kjeder seg gjennom dagen", "At ingen i det hele tatt stiller krav eller har forventninger til unge i dag"],
+      options: ["Skolepress, sosiale medier og forventninger fra omgivelsene", "At unge ikke har tilgang til internett og derfor mister kontakten med vennene sine", "At det er altfor lite å gjøre på skolen, så elevene kjeder seg gjennom dagen", "At ingen i det hele tatt stiller krav eller har forventninger til unge i dag"],
       explanation: "Vanlige stresskilder for unge er blant annet skolepress, prestasjonskrav, sosiale medier og forventninger fra omgivelsene.",
     },
   ],
   "samfunnsfag-10-33": [
     {
       question: "Hva er rusmidler?",
-      options: ["Stoffer som påvirker hjernen og endrer stemningsleie, tenkning eller atferd", "Energidrikker og kaffe", "Alle typer medisiner man kan kjøpe, uansett om de påvirker hjernen eller ikke", "Energidrikker og kaffe, som er de eneste stoffene som virkelig gir en rusfølelse"],
+      options: ["Stoffer som påvirker hjernen og endrer stemningsleie, tenkning eller atferd", "Alle stoffer som er ulovlige å selge i Norge, uansett hvordan de virker på kroppen", "Alle typer medisiner man kan kjøpe, uansett om de påvirker hjernen eller ikke", "Energidrikker og kaffe, som er de eneste stoffene som virkelig gir en rusfølelse"],
       explanation: "Rusmidler påvirker hjernen og endrer stemning, tenkning eller atferd. De deles inn i legale (som alkohol) og illegale rusmidler.",
     },
     {
@@ -888,7 +888,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan påvirker alkohol kroppen og dømmekraften?",
-      options: ["Den demper hemninger og svekker dømmekraft og reaksjonsevne", "Den skjerper sansene og gjør deg tryggere i trafikken", "Den skjerper sansene og reaksjonsevnen, så du blir tryggere i trafikken", "Den har ingen virkning på hjernen, men påvirker bare magen og fordøyelsen"],
+      options: ["Den demper hemninger og svekker dømmekraft og reaksjonsevne", "Den øker konsentrasjonen og skjerper hukommelsen", "Den skjerper sansene og reaksjonsevnen, så du blir tryggere i trafikken", "Den har ingen virkning på hjernen, men påvirker bare magen og fordøyelsen"],
       explanation: "Alkohol demper hemninger og svekker dømmekraften — noe som øker risikoen for ulykker og dårlige beslutninger.",
     },
   ],
@@ -900,17 +900,17 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer samtykke i seksuelle situasjoner?",
-      options: ["At begge parter frivillig og tydelig er med på det som skjer", "At man har samtykket én gang for alltid", "At den ene parten lar være å si nei høyt, selv om hen egentlig ikke vil", "At man har gitt samtykke én gang, og at det da gjelder for alle senere ganger"],
+      options: ["At begge parter frivillig og tydelig er med på det som skjer", "At foreldrene eller vennene til begge parter har godkjent forholdet på forhånd", "At den ene parten lar være å si nei høyt, selv om hen egentlig ikke vil", "At man har gitt samtykke én gang, og at det da gjelder for alle senere ganger"],
       explanation: "Samtykke betyr frivillig og reell vilje fra begge parter. Taushet eller press er ikke samtykke, og samtykke kan trekkes tilbake når som helst.",
     },
     {
       question: "Hva handler grensesetting om?",
-      options: ["Å kjenne, kommunisere og respektere personlige grenser — egne og andres", "Å sette opp regler bare for andre", "Å aldri kunne si nei til noen som ber deg om noe, for ikke å virke uhøflig eller kald", "Å bestemme og sette opp regler som bare gjelder for andre mennesker, ikke for deg selv"],
+      options: ["Å kjenne, kommunisere og respektere personlige grenser — egne og andres", "Å låse døra og holde seg mest mulig for seg selv", "Å aldri kunne si nei til noen som ber deg om noe, for ikke å virke uhøflig eller kald", "Å bestemme og sette opp regler som bare gjelder for andre mennesker, ikke for deg selv"],
       explanation: "Grensesetting er å kjenne og kommunisere egne grenser og respektere andres. Du trenger ikke begrunne grensene dine.",
     },
     {
       question: "Hvordan definerer Verdens helseorganisasjon seksualitet?",
-      options: ["Som en sentral del av det å være menneske, som omfatter identitet, orientering, intimitet og mer", "Som et rent medisinsk problem legen skal håndtere, uten sosiale eller emosjonelle sider", "Som noe som bare angår voksne mennesker, og som barn og unge ikke har noe forhold til", "Som noe som utelukkende handler om reproduksjon og det å få barn i et parforhold"],
+      options: ["Som en sentral del av det å være menneske, som omfatter identitet, orientering, intimitet og mer", "Som et rent medisinsk problem legen skal håndtere, uten sosiale eller emosjonelle sider", "Som noe som bare angår voksne mennesker, og som barn og unge ikke har noe forhold til i det hele tatt", "Som noe som utelukkende handler om reproduksjon og det å få barn sammen i et fast og etablert parforhold"],
       explanation: "WHO definerer seksualitet bredt — den omfatter kjønn, kjønnsidentitet, seksuell orientering, erotikk, nytelse, intimitet og reproduksjon.",
     },
     {
@@ -922,22 +922,22 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-35": [
     {
       question: "Hva er kvantitativ metode?",
-      options: ["Å samle inn tall og målbare data for å kartlegge omfang og mønstre i store grupper", "Å intervjue noen få personer i dybden", "Å observere en gruppe over tid uten å notere systematisk, og heller stole på magefølelsen", "Å intervjue noen få personer grundig for å forstå følelsene og opplevelsene deres i dybden"],
+      options: ["Å samle inn tall og målbare data for å kartlegge omfang og mønstre i store grupper", "Å lese seg opp på det andre forskere allerede har skrevet, uten å samle inn egne data", "Å observere en gruppe over tid uten å notere systematisk, og heller stole på magefølelsen", "Å intervjue noen få personer grundig for å forstå følelsene og opplevelsene deres i dybden"],
       explanation: "Kvantitativ metode bruker tall og målbare data — som spørreundersøkelser og statistikk — for å finne mønstre i store grupper.",
     },
     {
       question: "Hva er kvalitativ metode best egnet til?",
-      options: ["Å gå i dybden og forstå hvordan mennesker tenker og opplever noe", "Å lage statistikk over hele befolkningen", "Å telle nøyaktig hvor mange i befolkningen som mener det samme om en gitt sak", "Å lage bred statistikk og tabeller over holdninger i hele landets befolkning samtidig"],
+      options: ["Å gå i dybden og forstå hvordan mennesker tenker og opplever noe", "Å måle nøyaktig hvor lang tid en prosess tar", "Å telle nøyaktig hvor mange i befolkningen som mener det samme om en gitt sak", "Å lage bred statistikk og tabeller over holdninger i hele landets befolkning samtidig"],
       explanation: "Kvalitativ metode (som dybdeintervjuer) gir innsikt i hvordan mennesker tenker, opplever og begrunner — i dybden snarere enn i bredden.",
     },
     {
       question: "Hva er forskjellen på korrelasjon og kausalitet?",
-      options: ["Korrelasjon betyr at to ting henger sammen, kausalitet at den ene forårsaker den andre", "Kausalitet er svakere enn korrelasjon", "Kausalitet er en svakere og mer usikker sammenheng enn korrelasjon mellom to størrelser", "Korrelasjon forekommer bare i naturvitenskap som kjemi, mens kausalitet gjelder i samfunnsfag"],
+      options: ["Korrelasjon betyr at to ting henger sammen, kausalitet at den ene forårsaker den andre", "Korrelasjon og kausalitet er bare to ulike navn på nøyaktig den samme statistiske sammenhengen", "Kausalitet er en svakere og mer usikker sammenheng enn korrelasjon mellom to størrelser", "Korrelasjon forekommer bare i naturvitenskap som kjemi, mens kausalitet gjelder i samfunnsfag"],
       explanation: "At to ting endrer seg samtidig (korrelasjon) beviser ikke at den ene forårsaker den andre (kausalitet) — en vanlig felle i tolkning av statistikk.",
     },
     {
       question: "Hva brukes TONE-modellen til?",
-      options: ["Å vurdere om en kilde er troverdig, objektiv, nøyaktig og egnet", "Å beregne statistisk usikkerhet", "Å analysere musikk og lydspor ut fra tone, klang, rytme og virkemidler i et budskap", "Å beregne den statistiske usikkerheten og feilmarginen i resultater fra spørreundersøkelser"],
+      options: ["Å vurdere om en kilde er troverdig, objektiv, nøyaktig og egnet", "Å ordne kildene i en litteraturliste etter alfabet og utgivelsesår", "Å analysere musikk og lydspor ut fra tone, klang, rytme og virkemidler i et budskap", "Å beregne den statistiske usikkerheten og feilmarginen i resultater fra spørreundersøkelser"],
       explanation: "TONE-modellen er et kildekritisk verktøy: Troverdighet, Objektivitet, Nøyaktighet og Egnethet.",
     },
     {
@@ -949,7 +949,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
   "samfunnsfag-10-36": [
     {
       question: "Hva står PBE-modellen for?",
-      options: ["Påstand, begrunnelse og eksempel/belegg", "Påstand, bevisførsel og ettertanke", "Påstand, bevisførsel og ettertanke rundt en sak", "Problem, beslutning og evaluering"],
+      options: ["Påstand, begrunnelse og eksempel/belegg", "Planlegging, budsjett og evaluering", "Påstand, bevisførsel og ettertanke rundt en sak", "Problem, beslutning og evaluering"],
       explanation: "Et godt argument har tre deler: Påstand (det du hevder), Begrunnelse (hvorfor) og Eksempel/belegg (dokumentasjon).",
     },
     {
@@ -964,12 +964,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre appellformer brukes i retorikk?",
-      options: ["Etos (troverdighet), patos (følelser) og logos (fornuft)", "Innledning, hoveddel og avslutning", "Innledning, hoveddel og avslutning som deler av en fagtekst", "Tese, antitese og syntese som steg i en dialektisk tankeprosess"],
+      options: ["Etos (troverdighet), patos (følelser) og logos (fornuft)", "Sannhet, skjønnhet og godhet, de tre klassiske idealene fra antikken", "Innledning, hoveddel og avslutning som deler av en fagtekst", "Tese, antitese og syntese som steg i en dialektisk tankeprosess"],
       explanation: "De tre appellformene fra antikken er etos (avsenderens troverdighet), patos (følelser) og logos (logikk og fornuft).",
     },
     {
       question: "Hva kjennetegner en god drøfting av et samfunnsspørsmål?",
-      options: ["Den presenterer argumenter for og imot på en balansert måte før den konkluderer", "Den nevner bare argumentene for ett syn", "Den fremhever bare argumentene for det ene synet og lar konklusjonen være gitt på forhånd", "Den består i hovedsak av personlige følelser og synsing framfor faglige argumenter og belegg"],
+      options: ["Den presenterer argumenter for og imot på en balansert måte før den konkluderer", "Den lister opp fakta og årstall uten å ta stilling", "Den fremhever bare argumentene for det ene synet og lar konklusjonen være gitt på forhånd", "Den består i hovedsak av personlige følelser og synsing framfor faglige argumenter og belegg"],
       explanation: "God drøfting viser flere sider av saken, veier argumenter mot hverandre og trekker en begrunnet konklusjon — uansett tema.",
     },
   ],
@@ -986,7 +986,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller desinformasjon fra feilinformasjon?",
-      options: ["Desinformasjon spres bevisst for å villede, feilinformasjon spres uten ond hensikt", "Feilinformasjon er alltid verre", "Desinformasjon er alltid lovlig, mens feilinformasjon regnes som et lovbrudd i Norge", "Feilinformasjon er alltid mer skadelig enn desinformasjon fordi den sprer seg raskere"],
+      options: ["Desinformasjon spres bevisst for å villede, feilinformasjon spres uten ond hensikt", "Desinformasjon spres bare av utenlandske aktører, mens feilinformasjon oppstår innenlands", "Desinformasjon er alltid lovlig, mens feilinformasjon regnes som et lovbrudd i Norge", "Feilinformasjon er alltid mer skadelig enn desinformasjon fordi den sprer seg raskere"],
       explanation: "Desinformasjon er falsk informasjon spredt med hensikt for å påvirke; feilinformasjon er feil som spres i god tro.",
     },
     {
@@ -996,7 +996,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan unge delta i demokratiet før de har stemmerett?",
-      options: ["Gjennom elevråd, ungdomsråd, organisasjoner og samfunnsdebatt", "De har ingen mulighet til å delta", "De har ingen reell mulighet til å delta i demokratiet før de fyller 18 og får stemmerett", "Bare ved å vente til de fyller 18"],
+      options: ["Gjennom elevråd, ungdomsråd, organisasjoner og samfunnsdebatt", "Bare ved å betale kontingent til et parti", "De har ingen reell mulighet til å delta i demokratiet før de fyller 18 og får stemmerett", "Bare ved å vente til de fyller 18"],
       explanation: "Demokratisk medborgerskap er mer enn å stemme: Unge kan engasjere seg i elevråd, ungdomsråd, organisasjoner og debatt.",
     },
   ],
@@ -1023,7 +1023,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva spenner FNs 17 bærekraftsmål over?",
-      options: ["Grunnleggende behov, økonomi og infrastruktur, og miljø og samarbeid", "Bare økonomisk vekst", "Bare klimatiltak og reduksjon av utslipp fra industri, transport og energiproduksjon", "Bare økonomisk vekst og handel mellom rike og fattige land verden over til enhver tid"],
+      options: ["Grunnleggende behov, økonomi og infrastruktur, og miljø og samarbeid", "Bare tiltak i de fattigste landene, siden de rike landene alt har nådd målene", "Bare klimatiltak og reduksjon av utslipp fra industri, transport og energiproduksjon", "Bare økonomisk vekst og handel mellom rike og fattige land verden over til enhver tid"],
       explanation: "Målene dekker grunnleggende behov (fattigdom, helse, utdanning), økonomi og infrastruktur, samt miljø, klima og internasjonalt samarbeid.",
     },
   ],
@@ -1035,12 +1035,12 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du gjøre først i forberedelsestiden?",
-      options: ["Lese oppgaven nøye og merke nøkkelord som «drøft», «forklar» og «vurder»", "Lage lysbildene med en gang", "Lage ferdige lysbilder med en gang, før du har lest oppgaven og forstått hva den ber om", "Pugge hele læreboka utenat slik at du kan gjengi mest mulig fagstoff under presentasjonen"],
+      options: ["Lese oppgaven nøye og merke nøkkelord som «drøft», «forklar» og «vurder»", "Ringe læreren og be om å få vite hvilke spørsmål sensor kommer til å stille deg", "Lage ferdige lysbilder med en gang, før du har lest oppgaven og forstått hva den ber om", "Pugge hele læreboka utenat slik at du kan gjengi mest mulig fagstoff under presentasjonen"],
       explanation: "Start med å lese oppgaven nøye og merke nøkkelordene — deretter formulerer du problemstilling og samler stoff.",
     },
     {
       question: "Hvor lenge varer fagsamtalen vanligvis?",
-      options: ["15–20 minutter", "2–3 minutter", "Rundt 2–3 minutter", "Hele dagen"],
+      options: ["15–20 minutter", "45 minutter", "Rundt 2–3 minutter", "Hele dagen"],
       explanation: "Fagsamtalen varer vanligvis 15–20 minutter etter presentasjonen, og spørsmålene kan også gjelde andre deler av pensum.",
     },
     {
@@ -1050,7 +1050,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan fagsamtalen være en mulighet og ikke bare en trussel?",
-      options: ["Den gir deg sjansen til å vise forståelse og resonnement utover presentasjonen", "Sensor stiller bare ja/nei-spørsmål", "Sensor stiller bare enkle ja- og nei-spørsmål som du kan svare kort på uten å begrunne noe", "Den teller ikke med på den endelige karakteren, så du kan ta den helt med ro under samtalen"],
+      options: ["Den gir deg sjansen til å vise forståelse og resonnement utover presentasjonen", "Fagsamtalen holdes uten sensor til stede i rommet", "Sensor stiller bare enkle ja- og nei-spørsmål som du kan svare kort på uten å begrunne noe", "Den teller ikke med på den endelige karakteren, så du kan ta den helt med ro under samtalen"],
       explanation: "Fagsamtalen er der du kan vise at du virkelig forstår og kan anvende stoffet — den gir størst mulighet til å demonstrere kompetanse.",
     },
   ],
@@ -1062,7 +1062,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det viktigste prinsippet for eksamensforberedelse ifølge kapittelet?",
-      options: ["Å forstå sammenhenger og kunne drøfte, ikke bare pugge fakta", "Å memorere flest mulig årstall", "Å unngå å øve på tidligere eksamensspørsmål for ikke å bli låst i bestemte tankemønstre", "Å memorere flest mulig årstall og navn slik at du kan gjengi presise fakta under eksamen"],
+      options: ["Å forstå sammenhenger og kunne drøfte, ikke bare pugge fakta", "Å lese hele læreboka høyt for seg selv kvelden før selve eksamensdagen", "Å unngå å øve på tidligere eksamensspørsmål for ikke å bli låst i bestemte tankemønstre", "Å memorere flest mulig årstall og navn slik at du kan gjengi presise fakta under eksamen"],
       explanation: "«Forstå, ikke pugge»: Fokuser på sammenhenger og drøfting — det er det som skiller gode besvarelser fra middels.",
     },
     {
@@ -1072,7 +1072,7 @@ const quizData_samfunnsfag_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke nøkkelbegreper hører til temaet demokrati og styresett?",
-      options: ["Maktfordeling, rettsstat, ytringsfrihet og valgordning", "Tilbud, etterspørsel og inflasjon alene", "Fotosyntese, celledeling og økosystemer fra naturfagets del av læreplanen", "Tilbud, etterspørsel og inflasjon alene, uten kobling til politiske forhold"],
+      options: ["Maktfordeling, rettsstat, ytringsfrihet og valgordning", "Renter, sparing og eget husholdningsbudsjett", "Fotosyntese, celledeling og økosystemer fra naturfagets del av læreplanen", "Tilbud, etterspørsel og inflasjon alene, uten kobling til politiske forhold"],
       explanation: "Under demokrati og styresett hører begreper som demokrati, maktfordeling, rettsstat, ytringsfrihet, pressefrihet, valgordning og politiske partier.",
     },
     {

@@ -31,7 +31,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-1-2': [
     {
       question: 'Hva er et rasjonalt tall?',
-      options: ['Et tall som kan skrives som brøk $\\frac{p}{q}$ med heltall', 'Et tall med uendelig desimaler', 'Bare hele tall', 'Bare positive tall'],
+      options: ['Et tall som kan skrives som brøk $\\frac{p}{q}$ med heltall', 'Et tall med uendelig mange desimaler som aldri gjentar seg i noe mønster', 'Bare hele tall, altså tall som ikke har noen desimaler i det hele tatt', 'Bare positive tall som er større enn null'],
       explanation: 'Et rasjonalt tall kan skrives som $\\frac{p}{q}$ der $p, q$ er heltall og $q \\neq 0$.',
     },
     {
@@ -154,7 +154,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva forteller diskriminanten $D = b^2 - 4ac$ når $D = 0$?',
-      options: ['Én løsning (dobbeltrot)', 'To ulike løsninger', 'Ingen reelle løsninger', 'Uendelig mange løsninger'],
+      options: ['Én løsning (dobbeltrot)', 'To ulike reelle løsninger', 'Ingen reelle løsninger', 'Uendelig mange løsninger'],
       explanation: '$D = 0$ gir én løsning (dobbeltrot).',
     },
     {
@@ -166,7 +166,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-2-3': [
     {
       question: 'Hva er et likningssett?',
-      options: ['To eller flere likninger som løses samtidig', 'En likning med to ledd', 'En andregradslikning', 'En ulikhet'],
+      options: ['To eller flere likninger som løses samtidig', 'En likning som består av nøyaktig to ledd på hver side', 'En andregradslikning med én ukjent', 'En ulikhet med ett ulikhetstegn og én ukjent'],
       explanation: 'Et likningssett er flere likninger som skal tilfredsstilles samtidig.',
     },
     {
@@ -213,7 +213,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilket verktøy bruker vi til å løse andregradsulikheter?',
-      options: ['Fortegnsskjema', 'Abc-formelen alene', 'Vekstfaktor', 'Pytagoras'],
+      options: ['Fortegnsskjema', 'Abc-formelen alene', 'Vekstfaktoren', 'Pytagoras\' setning'],
       explanation: 'Vi finner nullpunktene og bruker et fortegnsskjema for å lese av løsningen.',
     },
   ],
@@ -252,7 +252,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr det at $a < 0$ i en andregradsfunksjon?',
-      options: ['Parabelen åpner nedover (toppunkt)', 'Parabelen åpner oppover (bunnpunkt)', 'Linjen synker', 'Det er ingen nullpunkter'],
+      options: ['Parabelen åpner nedover (toppunkt)', 'Parabelen åpner oppover (bunnpunkt)', 'Linjen synker mot høyre', 'Det finnes ingen nullpunkter i det hele tatt'],
       explanation: '$a < 0$ gir en parabel som åpner nedover med et toppunkt.',
     },
     {
@@ -274,7 +274,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-3-3': [
     {
       question: 'Hva er startverdien på en graf?',
-      options: ['Verdien når $x = 0$ (krysser y-aksen)', 'Nullpunktet', 'Toppunktet', 'Stigningstallet'],
+      options: ['Verdien når $x = 0$ (krysser y-aksen)', 'Nullpunktet, altså der grafen krysser x-aksen', 'Toppunktet, altså det høyeste punktet på grafen', 'Stigningstallet, altså hvor bratt grafen er'],
       explanation: 'Startverdien er $f(0)$, der grafen krysser y-aksen.',
     },
     {
@@ -301,7 +301,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-3-4': [
     {
       question: 'Hva er lineær regresjon?',
-      options: ['Å finne den rette linjen som passer best til datapunkter', 'Å løse en likning', 'Å tegne en parabel', 'Å faktorisere'],
+      options: ['Å finne den rette linjen som passer best til datapunkter', 'Å løse en likning med to ukjente størrelser', 'Å tegne en parabel som går gjennom alle datapunktene i settet', 'Å faktorisere uttrykket før man tegner grafen i koordinatsystemet'],
       explanation: 'Lineær regresjon finner linjen $y = ax + b$ som best beskriver dataene.',
     },
     {
@@ -316,12 +316,12 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen på interpolasjon og ekstrapolasjon?',
-      options: ['Interpolasjon er innenfor dataområdet, ekstrapolasjon er utenfor', 'De er det samme', 'Ekstrapolasjon er mer pålitelig', 'Interpolasjon er utenfor dataområdet'],
+      options: ['Interpolasjon er innenfor dataområdet, ekstrapolasjon er utenfor', 'De to begrepene betyr nøyaktig det samme i statistikken', 'Ekstrapolasjon er alltid mer pålitelig enn interpolasjon i en modell', 'Interpolasjon skjer utenfor dataområdet, mens ekstrapolasjon skjer innenfor'],
       explanation: 'Interpolasjon (innenfor) er pålitelig; ekstrapolasjon (utenfor) er mer usikker.',
     },
     {
       question: 'Hvilken metode finner regresjonslinjen ved å minimere kvadratavvik?',
-      options: ['Minste kvadraters metode', 'Abc-formelen', 'Fortegnsskjema', 'Pytagoras'],
+      options: ['Minste kvadraters metode', 'Abc-formelen for andregradslikninger', 'Fortegnsskjema for polynomer', 'Pytagoras\' setning'],
       explanation: 'Minste kvadraters metode minimerer summen av kvadrerte avvik fra linjen.',
     },
   ],
@@ -375,14 +375,14 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilket verktøy bruker vi for å finne en vinkel når vi kjenner sidene?',
-      options: ['Inverse trigonometriske funksjoner ($\\sin^{-1}$ osv.)', 'Vekstfaktor', 'Abc-formelen', 'Fortegnsskjema'],
+      options: ['Inverse trigonometriske funksjoner ($\\sin^{-1}$ osv.)', 'Vekstfaktoren i en prosentregning', 'Abc-formelen, som vi bruker til å løse andregradslikninger', 'Fortegnsskjema for å finne ut når uttrykket er positivt'],
       explanation: 'Vi bruker $\\sin^{-1}$, $\\cos^{-1}$ eller $\\tan^{-1}$ for å finne vinkelen.',
     },
   ],
   '10-4-3': [
     {
       question: 'Hva kjennetegner en vektor?',
-      options: ['Den har både lengde og retning', 'Den har bare verdi', 'Den er alltid positiv', 'Den er et heltall'],
+      options: ['Den har både lengde og retning', 'Den har bare en tallverdi, ingen retning', 'Den er alltid positiv, aldri negativ', 'Den er alltid et helt tall uten desimaler'],
       explanation: 'En vektor har både lengde (størrelse) og retning.',
     },
     {
@@ -451,7 +451,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen på permutasjoner og kombinasjoner?',
-      options: ['Permutasjoner: rekkefølge betyr noe; kombinasjoner: ikke', 'De er det samme', 'Kombinasjoner: rekkefølge betyr noe', 'Permutasjoner brukes bare på tall'],
+      options: ['Permutasjoner: rekkefølge betyr noe; kombinasjoner: ikke', 'De to begrepene betyr nøyaktig det samme', 'Kombinasjoner: rekkefølgen betyr noe, permutasjoner: ingenting', 'Permutasjoner brukes bare på tall, kombinasjoner bare på bokstaver'],
       explanation: 'I permutasjoner betyr rekkefølgen noe; i kombinasjoner gjør den ikke det.',
     },
     {
@@ -490,7 +490,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-5-3': [
     {
       question: 'Hva er en populasjon i en undersøkelse?',
-      options: ['Hele gruppen vi ønsker å si noe om', 'De vi faktisk spør', 'Antall spørsmål', 'Bare de som svarer'],
+      options: ['Hele gruppen vi ønsker å si noe om', 'De vi faktisk får spurt i undersøkelsen', 'Antall spørsmål i undersøkelsen til sammen', 'Bare de som faktisk svarer på undersøkelsen'],
       explanation: 'Populasjonen er hele gruppen vi vil si noe om; utvalget er de vi spør.',
     },
     {
@@ -505,7 +505,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er problemet med et ledende spørsmål?',
-      options: ['Det styrer svaret i en bestemt retning', 'Det er for kort', 'Det er for vanskelig', 'Det bruker tall'],
+      options: ['Det styrer svaret i en bestemt retning', 'Det er altfor kort formulert', 'Det er altfor vanskelig å forstå for de fleste', 'Det bruker tall i stedet for ord i spørsmålet'],
       explanation: 'Et ledende spørsmål er formulert slik at det påvirker svaret.',
     },
     {
@@ -581,7 +581,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner et serielån?',
-      options: ['Like store avdrag, synkende terminbeløp', 'Like store terminbeløp', 'Ingen renter', 'Bare ett avdrag'],
+      options: ['Like store avdrag, synkende terminbeløp', 'Terminbeløpet er like stort gjennom hele lånetiden', 'Ingen renter blir beregnet på lånet', 'Bare ett stort avdrag helt til slutt i lånetiden'],
       explanation: 'Serielån har like store avdrag; terminbeløpet synker over tid.',
     },
     {
@@ -591,7 +591,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen på nominell og effektiv rente?',
-      options: ['Effektiv rente inkluderer rentens rente og gebyrer', 'De er alltid like', 'Nominell rente er høyere', 'Effektiv rente ignorerer gebyrer'],
+      options: ['Effektiv rente inkluderer rentens rente og gebyrer', 'De to rentesatsene er alltid nøyaktig like store i et lån', 'Nominell rente er alltid høyere enn den effektive renten', 'Effektiv rente ser helt bort fra gebyrer og rentesrente'],
       explanation: 'Effektiv rente er den faktiske renten inkludert rentens rente og gebyrer.',
     },
   ],
@@ -608,7 +608,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner et rasjonalt tall sin desimalutvikling?',
-      options: ['Endelig eller periodisk', 'Alltid uendelig og ikke-periodisk', 'Alltid endelig', 'Aldri periodisk'],
+      options: ['Endelig eller periodisk', 'Alltid uendelig og ikke-periodisk', 'Alltid endelig uten unntak', 'Aldri periodisk'],
       explanation: 'Rasjonale tall har enten endelig eller periodisk desimalutvikling.',
     },
     {
@@ -652,7 +652,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-7-3': [
     {
       question: 'Hva er et primtall?',
-      options: ['Et tall > 1 som bare er delelig med 1 og seg selv', 'Et partall', 'Et tall med mange delere', 'Tallet 1'],
+      options: ['Et tall > 1 som bare er delelig med 1 og seg selv', 'Et partall som er delelig med to', 'Et tall som har mange ulike delere utenom seg selv', 'Tallet 1, som bare er delelig med seg selv og med 1'],
       explanation: 'Et primtall er større enn 1 og bare delelig med 1 og seg selv.',
     },
     {
@@ -765,7 +765,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kan vi forkorte i en algebraisk brøk?',
-      options: ['Bare faktorer, ikke ledd', 'Bare ledd', 'Alt i telleren', 'Bare tall'],
+      options: ['Bare faktorer, ikke ledd', 'Bare ledd, aldri faktorer', 'Alt som står i telleren', 'Bare tallene, ikke bokstavene'],
       explanation: 'Vi kan bare forkorte faktorer, ikke enkeltstående ledd.',
     },
     {
@@ -787,7 +787,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-9-1': [
     {
       question: 'Hva kjennetegner eksponentiell vekst?',
-      options: ['Vekst med fast prosent per periode', 'Vekst med fast beløp per periode', 'Konstant verdi', 'Lineær økning'],
+      options: ['Vekst med fast prosent per periode', 'Vekst med et fast beløp i hver periode', 'Helt konstant verdi i alle periodene', 'Lineær økning langs en helt rett linje'],
       explanation: 'Eksponentiell vekst øker med samme prosentandel hver periode.',
     },
     {
@@ -819,7 +819,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en horisontal asymptote?',
-      options: ['En vannrett linje grafen nærmer seg men aldri når', 'Et nullpunkt', 'Et toppunkt', 'En loddrett linje'],
+      options: ['En vannrett linje grafen nærmer seg men aldri når', 'Et nullpunkt der grafen krysser x-aksen', 'Et toppunkt der grafen snur og begynner å gå nedover', 'En loddrett linje som grafen nærmer seg men aldri når'],
       explanation: 'En horisontal asymptote er en vannrett linje grafen nærmer seg men aldri krysser.',
     },
     {
@@ -841,7 +841,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-9-3': [
     {
       question: 'Hvordan velger du mellom lineær og eksponentiell modell?',
-      options: ['Lik endring i enheter → lineær; lik prosent → eksponentiell', 'Alltid lineær', 'Alltid eksponentiell', 'Etter hvor mange data du har'],
+      options: ['Lik endring i enheter → lineær; lik prosent → eksponentiell', 'Alltid en lineær modell, uansett data', 'Alltid en eksponentiell modell, uansett hvordan dataene ser ut', 'Etter hvor mange datapunkter du har klart å samle inn på forhånd'],
       explanation: 'Er endringen et fast beløp velges lineær; er den en fast prosent velges eksponentiell.',
     },
     {
@@ -851,7 +851,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er tryggest: interpolering eller ekstrapolering?',
-      options: ['Interpolering (mellom datapunkt)', 'Ekstrapolering (utenfor datapunkt)', 'Begge er like trygge', 'Ingen av dem'],
+      options: ['Interpolering (mellom datapunkt)', 'Ekstrapolering (utenfor datapunkt)', 'Begge metodene er nøyaktig like trygge', 'Ingen av de to metodene'],
       explanation: 'Interpolering mellom datapunktene er tryggere enn ekstrapolering utenfor.',
     },
     {
@@ -861,14 +861,14 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et viktig prinsipp om matematiske modeller?',
-      options: ['Ingen modell er perfekt; den er en forenkling', 'Modeller er alltid eksakte', 'Modeller trenger ikke data', 'En modell gjelder for alle situasjoner'],
+      options: ['Ingen modell er perfekt; den er en forenkling', 'Modeller gir alltid helt eksakte svar', 'Modeller trenger ikke data i det hele tatt for å virke', 'En og samme modell gjelder for alle situasjoner uten unntak'],
       explanation: 'En modell er en forenkling av virkeligheten og har alltid begrensninger.',
     },
   ],
   '10-10-1': [
     {
       question: 'Hva betyr det at to figurer er kongruente?',
-      options: ['De har nøyaktig samme form og størrelse', 'De har samme form, ulik størrelse', 'De har samme areal', 'De har samme omkrets'],
+      options: ['De har nøyaktig samme form og størrelse', 'De har nøyaktig samme form, men ulik størrelse', 'De har nøyaktig samme areal, men ulik form', 'De har nøyaktig samme omkrets, men ulik form'],
       explanation: 'Kongruente figurer har nøyaktig samme form og størrelse.',
     },
     {
@@ -895,7 +895,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-10-2': [
     {
       question: 'Hva betyr det at to figurer er formlike?',
-      options: ['Like vinkler og samme forholdstall mellom sider', 'Samme størrelse', 'Samme areal', 'Like lange sider'],
+      options: ['Like vinkler og samme forholdstall mellom sider', 'Nøyaktig samme størrelse og form', 'Nøyaktig samme areal, uansett hvilken form figurene har', 'Parvis like lange sider, men ikke nødvendigvis like vinkler'],
       explanation: 'Formlike figurer har like vinkler og samme forholdstall mellom korresponderende sider.',
     },
     {
@@ -922,7 +922,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-11-1': [
     {
       question: 'Hva er en algoritme?',
-      options: ['En presis, endelig oppskrift for å løse et problem', 'En tilfeldig kode', 'En matematisk formel', 'En variabel'],
+      options: ['En presis, endelig oppskrift for å løse et problem', 'En tilfeldig kodesnutt uten fast struktur', 'En matematisk formel som gir svaret direkte i ett steg', 'En variabel som lagrer en bestemt verdi i programmet'],
       explanation: 'En algoritme er en presis, endelig fremgangsmåte for å løse et problem.',
     },
     {
@@ -932,7 +932,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva gjør Euklids algoritme?',
-      options: ['Finner største felles divisor (SFD)', 'Sorterer en liste', 'Finner primtall', 'Beregner gjennomsnitt'],
+      options: ['Finner største felles divisor (SFD)', 'Sorterer en liste med tall etter størrelse', 'Finner alle primtall under et gitt tall', 'Beregner gjennomsnittet av en tallmengde'],
       explanation: 'Euklids algoritme finner SFD ved gjentatt divisjon med rest.',
     },
     {
@@ -942,7 +942,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan fungerer boblesortering?',
-      options: ['Sammenligner og bytter naboer gjentatte ganger', 'Halverer søkeområdet', 'Velger tilfeldige tall', 'Deler i to like halvdeler'],
+      options: ['Sammenligner og bytter naboer gjentatte ganger', 'Halverer søkeområdet for hvert steg', 'Velger tilfeldige tall i lista og bytter dem om', 'Deler lista i to like store halvdeler hver gang'],
       explanation: 'Boblesortering sammenligner par av naboer og bytter dem til listen er sortert.',
     },
   ],
@@ -981,7 +981,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en Monte Carlo-simulering?',
-      options: ['Å bruke tilfeldige tall for å estimere et resultat', 'Å løse en likning eksakt', 'Å sortere en liste', 'Å tegne en parabel'],
+      options: ['Å bruke tilfeldige tall for å estimere et resultat', 'Å løse en likning helt eksakt ved hjelp av en formel', 'Å sortere en lang liste med tall etter stigende verdi', 'Å tegne en parabel i et koordinatsystem helt for hånd'],
       explanation: 'Monte Carlo bruker mange tilfeldige forsøk for å estimere f.eks. en sannsynlighet.',
     },
     {
@@ -1013,7 +1013,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr det å «vise utregning»?',
-      options: ['Skrive formel, sette inn tall og vise mellomregning', 'Bare skrive svaret', 'Bruke kalkulator', 'Tegne en figur'],
+      options: ['Skrive formel, sette inn tall og vise mellomregning', 'Bare skrive ned selve svaret', 'Bruke kalkulator og skrive av nøyaktig det skjermen viser', 'Tegne en figur i stedet for å regne ut svaret med tall'],
       explanation: 'Du må vise formel, innsetting og mellomregning, ikke bare svaret.',
     },
     {
@@ -1057,7 +1057,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   '10-12-3': [
     {
       question: 'Hva kjennetegner Del 2 av eksamen?',
-      options: ['Alle hjelpemidler er tillatt (kalkulator, GeoGebra)', 'Ingen hjelpemidler', 'Bare hoderegning', 'Kun 30 minutter'],
+      options: ['Alle hjelpemidler er tillatt (kalkulator, GeoGebra)', 'Ingen hjelpemidler er tillatt i det hele tatt på denne delen', 'Bare hoderegning helt uten papir, blyant og kalkulator', 'Kun 30 minutter til rådighet på hele denne delen av prøven'],
       explanation: 'På Del 2 kan du bruke kalkulator, GeoGebra, regneark og formelsamling.',
     },
     {

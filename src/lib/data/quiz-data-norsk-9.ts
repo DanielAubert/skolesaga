@@ -4,12 +4,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-1-1": [
     {
       question: "Hva er etos i retorikken?",
-      options: ["Appell til troverdighet og avsenderens karakter", "Appell til fornuft og fakta", "En form for argumentasjonsfeil der man forvrenger motpartens syn", "Appell til fornuft gjennom fakta, statistikk og logisk resonnement"],
+      options: ["Appell til troverdighet og avsenderens karakter", "Appell til det rette øyeblikket og situasjonen taleren står i", "En form for argumentasjonsfeil der man forvrenger motpartens syn", "Appell til fornuft gjennom fakta, statistikk og logisk resonnement"],
       explanation: "Etos handler om avsenderens troverdighet, kompetanse og karakter. Man bygger etos ved a vise erfaring, utdanning og aærlighet.",
     },
     {
       question: "Hvilken appellform brukes i utsagnet \"Forskning viser at 80% av ungdom bruker sosiale medier daglig\"?",
-      options: ["Logos - bruker fakta og statistikk", "Patos - appellærer til følelser", "Etos - viser til avsenderens troverdighet og faglige tyngde", "Etos - viser til troverdighet"],
+      options: ["Logos - bruker fakta og statistikk", "Patos - appellærer til følelser", "Etos - viser til avsenderens troverdighet og faglige tyngde", "Kairos - det rette øyeblikket"],
       explanation: "Logos appellærer til logikk og fornuft gjennom bruk av fakta, statistikk og konkrete tall.",
     },
     {
@@ -36,12 +36,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket utsagn er en kamuflert mening?",
-      options: ["Alle fornuftige mennesker forstår at...", "Klimaendringene påvirker temperaturen", "Norge fikk sin egen grunnlov på Eidsvoll i mai 1814", "Norge fikk sin grunnlov i 1814"],
+      options: ["Alle fornuftige mennesker forstår at...", "Klimaendringene påvirker temperaturen", "Norge fikk sin egen grunnlov på Eidsvoll i mai 1814", "Bergen har mest nedbør i Norge"],
       explanation: "Formuleringer som \"Alle vet at...\" eller \"Alle fornuftige mennesker forstår...\" er kamuflerte meninger som presenteres som om de var fakta.",
     },
     {
       question: "Hva er et stramannsargument?",
-      options: ["A forvrenge motstanderens syn for a lettere kunne angripe det", "Å bygge opp et grundig og saklig underbygget hovedargument", "Å bruke sine egne personlige erfaringer som bevis i en debatt", "Å bruke statistikk og tallmateriale som grunnlag i argumentasjonen"],
+      options: ["A forvrenge motstanderens syn for a lettere kunne angripe det", "Å bygge opp et grundig og saklig underbygget hovedargument", "Å bruke sine egne personlige erfaringer som bevis i en debatt", "Å bruke statistikk og tall som grunnlag i argumentasjonen"],
       explanation: "Et stramannsargument innebærer a tillegge motparten meninger de ikke har, for såa angripe denne forvrengte versjonen.",
     },
     {
@@ -58,7 +58,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-1-3": [
     {
       question: "Hva er hovedforskjellen mellom debatt og diskusjon?",
-      options: ["Debatt har klare standpunkter, diskusjon utforsker et tema sammen", "Debatt er alltid formell og planlagt, mens diskusjon er uformell", "Debatt foregår alltid muntlig, mens en diskusjon foregår skriftlig", "Det er egentlig ingen forskjell mellom en debatt og en diskusjon"],
+      options: ["Debatt har klare standpunkter, diskusjon utforsker et tema sammen", "Debatt er alltid formell og planlagt, mens diskusjon er uformell", "Debatt foregår alltid muntlig, mens diskusjon er skriftlig", "Det er egentlig ingen forskjell mellom en debatt og en diskusjon"],
       explanation: "I en debatt forsvarer deltakerne ulike standpunkter, mens en diskusjon er en mer apen samtale der malet kan være felles forståelse.",
     },
     {
@@ -90,7 +90,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er \"in medias res\"?",
-      options: ["A starte fortellingen midt i handlingen", "A avslutte med en overraskelse", "Å avslutte fortellingen med en uventet overraskelse", "Å la fortellingen ende med en åpen og uavklart slutt"],
+      options: ["A starte fortellingen midt i handlingen", "Å hoppe fram og tilbake i tid gjennom hele fortellingen", "Å avslutte fortellingen med en uventet overraskelse", "Å la fortellingen ende med en åpen og uavklart slutt"],
       explanation: "In medias res (latin: \"midt i tingene\") betyr a starte fortellingen midt i en hendelse for a fange leserens interesse umiddelbart.",
     },
     {
@@ -132,7 +132,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør en god avslutning i en artikkel inneholde?",
-      options: ["En oppsummering og eventuelt en oppfordring eller konklusjon", "Helt nye argumenter som ikke er nevnt tidligere i teksten", "Personlige meninger som legges frem uten noen form for begrunnelse", "En lang og detaljert kildeliste over alt som er brukt"],
+      options: ["En oppsummering og eventuelt en oppfordring eller konklusjon", "Helt nye argumenter som ikke er nevnt tidligere i teksten", "Personlige meninger lagt frem uten begrunnelse", "En lang og detaljert kildeliste over alt som er brukt"],
       explanation: "En god avslutning oppsummerer hovedpoengene og kan gi leseren noe a tenke pa, for eksempel en oppfordring til handling.",
     },
   ],
@@ -159,7 +159,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør du variere setningsbygningen i tekster?",
-      options: ["For å unngå monotoni og skape bedre flyt og effekt", "For å gjøre teksten lengre", "For å gjøre teksten betraktelig lengre enn nødvendig", "For å imponere leseren med et komplisert og avansert språk"],
+      options: ["For å unngå monotoni og skape bedre flyt og effekt", "For å følge sjangerkravene i alle norskfaglige tekster", "For å gjøre teksten betraktelig lengre enn nødvendig", "For å imponere leseren med et komplisert og avansert språk"],
       explanation: "Variasjon i setningslengde og -struktur gjør teksten mer interessant a lese. Korte setninger skaper spenning, lange gir detaljer.",
     },
   ],
@@ -181,7 +181,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ofret Odin for a fa visdom?",
-      options: ["Et oye - han ga det i Mimes bronn", "Hesten Sleipner", "Hammeren Mjølner - han la den ned i Mimes brønn", "Hesten Sleipner - han ga den til jotnene som gave"],
+      options: ["Et oye - han ga det i Mimes bronn", "Sin høyre arm - han la den i gapet på Fenrisulven", "Hammeren Mjølner - han la den ned i Mimes brønn", "Hesten Sleipner - han ga den til jotnene som gave"],
       explanation: "Odin ga sitt ene oye i Mimes bronn for a fa visdom. Han er derfor ofte fremstilt med bare ett oye.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-3-2": [
     {
       question: "Hva var hovedkonsekvensen av svartedauden for norsk språk?",
-      options: ["Skriftspråket forfalt og dansk tok over", "Runene ble tatt i bruk igjen", "Nynorsk ble oppfunnet av munkene som overlevde pesten", "Alle begynte a snakke svensk"],
+      options: ["Skriftspråket forfalt og dansk tok over", "Runene ble tatt i bruk igjen", "Nynorsk ble oppfunnet av munkene", "Alle begynte a snakke svensk"],
       explanation: "Svartedauden (1349) drepte halvparten av befolkningen, inkludert mange skrivekundige. Dette svekket skrifttradisjonen og banet vei for dansk som skriftspråk.",
     },
     {
@@ -213,7 +213,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Ivar Aasens motivasjon for a skape et nytt norsk skriftspråk?",
-      options: ["Han mente det norske folket hadde rett til et eget språk, ikke lånt fra Danmark", "Han ville tjene penger påboksalg", "Han ønsket først og fremst å tjene mye penger på salg av grammatikkbøker og ordlister", "Han ville bli berømt og huskes av ettertiden som en av landets aller største språkforskere"],
+      options: ["Han mente det norske folket hadde rett til et eget språk, ikke lånt fra Danmark", "Han fikk i oppdrag fra kongen i København å utarbeide et helt nytt norsk skriftspråk", "Han ønsket først og fremst å tjene mye penger på salg av grammatikkbøker og ordlister", "Han ville bli berømt og huskes av ettertiden som en av landets aller største språkforskere"],
       explanation: "Aasen mente det virkelige norske språket la i dialektene til vanlige folk, og at Norge fortjente et ekte norsk skriftspråk, ikke ett lånt fra Danmark.",
     },
   ],
@@ -225,22 +225,22 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er \"tjukk l\"?",
-      options: ["En L-lyd som ligner påen blanding av L og R, typisk for ostnorsk", "En skrivemåte pånynorsk", "En rullende, skarp R-lyd som er typisk for den bergenske bydialekten", "En bred, svensk uttale av vokalene som har smittet over selve grensen"],
+      options: ["En L-lyd som ligner påen blanding av L og R, typisk for ostnorsk", "En egen skrivemåte som bare brukes i nynorske ordbøker og lærebøker", "En rullende, skarp R-lyd som er typisk for den bergenske bydialekten", "En bred, svensk uttale av vokalene som har smittet over selve grensen"],
       explanation: "Tjukk l er en spesiell L-lyd som finnes i ostnorske og troenderske dialekter. Den ligner påen blanding mellom L og R.",
     },
     {
       question: "Hvorfor har Norge såmange dialekter?",
-      options: ["Geografien med fjell og fjorder skapte isolerte samfunn", "Folk ville være forskjellige med vilje", "Folk ville med vilje skille seg fra naboene og fant opp egne ord", "Det ble i sin tid bestemt og vedtatt av Stortinget i hovedstaden"],
+      options: ["Geografien med fjell og fjorder skapte isolerte samfunn", "Innvandring fra mange land har tilført norsk mange nye talemål", "Folk ville med vilje skille seg fra naboene og fant opp egne ord", "Det ble i sin tid bestemt og vedtatt av Stortinget i hovedstaden"],
       explanation: "Norges geografi med fjell, daler og fjorder skapte isolerte samfunn der språket utviklet seg forskjellig over tid.",
     },
     {
       question: "Hva er palatalisering i dialekter?",
-      options: ["En uttale der konsonanter blir \"mykere\", som \"mannj\" for \"mannen\"", "En grammatisk boeying", "En egen skrivemåte der man alltid dobler alle konsonantene i skriften", "En type enderim der to verselinjer slutter på nøyaktig den samme lyden"],
+      options: ["En uttale der konsonanter blir \"mykere\", som \"mannj\" for \"mannen\"", "En grammatisk bøying av substantivene etter både kjønn, tall og kasus", "En egen skrivemåte der man alltid dobler alle konsonantene i skriften", "En type enderim der to verselinjer slutter på nøyaktig den samme lyden"],
       explanation: "Palatalisering er typisk for troendersk og nordnorsk. Konsonanter uttales lenger frem i munnen, slik at \"mannen\" blir \"mannj\".",
     },
     {
       question: "Hva menes med at nordmenn har hoey \"dialektaksept\"?",
-      options: ["Det er akseptert a snakke dialekt i alle sammenhenger i Norge", "Dialekter måregistreres offisielt", "At bare noen få utvalgte dialekter er tillatt i det offentlige rom", "At alle norske dialekter må registreres offisielt hos staten hvert år"],
+      options: ["Det er akseptert a snakke dialekt i alle sammenhenger i Norge", "At bare dialekten i hovedstaden regnes som korrekt norsk talemål", "At bare noen få utvalgte dialekter er tillatt i det offentlige rom", "At alle norske dialekter må registreres offisielt hos staten hvert år"],
       explanation: "I Norge har dialektene hoey status, og det er helt normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i skolen.",
     },
   ],
@@ -252,22 +252,22 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedforskjellen mellom realisme og naturalisme?",
-      options: ["Naturalismen var mer pessimistisk og fokuserte påarv og miljø", "Realismen var mer pessimistisk", "Realismen var langt mer pessimistisk og handlet nesten bare om døden", "Det finnes ingen egentlig forskjell mellom de to litterære retningene"],
+      options: ["Naturalismen var mer pessimistisk og fokuserte påarv og miljø", "Naturalismen kom først, og realismen vokste fram som en reaksjon på den", "Realismen var langt mer pessimistisk og handlet nesten bare om døden", "Det finnes ingen egentlig forskjell mellom de to litterære retningene"],
       explanation: "Naturalismen gikk lenger enn realismen ved a mene at mennesket var fullstendig styrt av arv og miljø (determinisme) og fokuserte pålivets skyggeside.",
     },
     {
       question: "Hvorfor var \"Et dukkehjem\" av Ibsen såkontroversielt?",
-      options: ["Nora forlater mann og barn for a finne seg selv", "Det var skrevet pånynorsk", "Hele stykket var skrevet på landsmål og reint nynorsk", "Stykket inneholdt mye grov vold og flere blodige scener"],
+      options: ["Nora forlater mann og barn for a finne seg selv", "Stykket kritiserte åpenlyst kongehuset og statskirken", "Hele stykket var skrevet på landsmål og reint nynorsk", "Stykket inneholdt mye grov vold og flere blodige scener"],
       explanation: "Da Nora forlot mann og barn i slutten av stykket, sjokkerte det publikum. En mor som forlot familien var uhort påden tiden.",
     },
     {
       question: "Hvem var Amalie Skram?",
-      options: ["En naturalistisk forfatter kjent for romanen Hellemyrsfolket", "En dansk litteraturkritiker", "En romantisk dikter kjent for å skildre natur og nasjonalfølelse", "En dansk litteraturkritiker som anmeldte samtidens norske romaner"],
+      options: ["En naturalistisk forfatter kjent for romanen Hellemyrsfolket", "En svensk dramatiker fra samtiden", "En romantisk dikter kjent for å skildre natur og nasjonalfølelse", "En dansk litteraturkritiker som anmeldte samtidens norske romaner"],
       explanation: "Amalie Skram (1846-1905) var en av Nordens fremste naturalistiske forfattere, kjent for a skildre kvinners situasjon og psykiske lidelser.",
     },
     {
       question: "Hva er \"dukke-metaføren\" i Et dukkehjem?",
-      options: ["Norå har vært en dukke som andre har lekt med, aldri et selvstendig individ", "Et dukkehus som står påscenen", "Barnas mange leker og dukker som ligger strødd rundt omkring i stua i huset", "En reklamefigur som Nora selv bruker til å selge varer i butikken nede i byen"],
+      options: ["Norå har vært en dukke som andre har lekt med, aldri et selvstendig individ", "Et dukkehus som står plassert på scenen", "Barnas mange leker og dukker som ligger strødd rundt omkring i stua i huset", "En reklamefigur som Nora bruker til å selge varer i butikken"],
       explanation: "Metaføren viser hvordan Norå har gatt fra a være farens \"dukkebarn\" til Torvalds \"dukkekone\" - aldri et selvstendig menneske.",
     },
   ],
@@ -279,7 +279,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er autofiksjon?",
-      options: ["Litteratur der forfatteren skriver om sitt eget liv", "Boeker som skriver seg selv", "Litteratur som blir gitt ut helt uten en navngitt forfatter bak seg", "Bøker som på magisk vis skriver og forteller hele historien seg selv"],
+      options: ["Litteratur der forfatteren skriver om sitt eget liv", "Litteratur som utelukkende bygger på arkiv og historiske kilder", "Litteratur som blir gitt ut helt uten en navngitt forfatter bak seg", "Bøker som på magisk vis skriver og forteller hele historien seg selv"],
       explanation: "Autofiksjon er litteratur der forfatteren bruker sitt eget liv som materiale, men med litteraere virkemidler. Karl Ove Knausgards \"Min kamp\" er et kjent eksempel.",
     },
     {
@@ -311,7 +311,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et storyboard?",
-      options: ["En visuell plan der scenene tegnes opp for video", "En liste over lydeffekter", "Et ferdig manus med replikker skrevet for teater", "En lang liste over alle lydeffektene man skal bruke"],
+      options: ["En visuell plan der scenene tegnes opp for video", "En liste over lydeffekter", "Et ferdig manus med replikker skrevet for teater", "En lang liste over alle lydeffektene"],
       explanation: "Et storyboard er en visuell plan for video der scenene tegnes opp påforhhand. Det hjelper med a planlegge kameravinkler og handlingsforlop.",
     },
     {
@@ -321,7 +321,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør du bruke åpne spørsmål i podcast-intervjuer?",
-      options: ["Fordi de inviterer til lengre og mer utdypende svar", "Fordi gjesten kan svare ja eller nei", "Fordi gjesten da enkelt kan svare bare ja eller nei på dem", "Fordi åpne spørsmål er kortere og raskere å stille i studio"],
+      options: ["Fordi de inviterer til lengre og mer utdypende svar", "Fordi lukkede spørsmål gir intervjuet et mer profesjonelt preg", "Fordi gjesten da enkelt kan svare bare ja eller nei på dem", "Fordi åpne spørsmål er kortere og raskere å stille i studio"],
       explanation: "Aåpne spørsmål som begynner med \"hvordan\", \"hvorfor\" eller \"fortell om\" gir bedre svar enn ja/nei-spørsmål.",
     },
   ],
@@ -333,17 +333,17 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et ekkokammer?",
-      options: ["Når du bare omgir deg med folk som tenker likt og andre perspektiver filtreres bort", "Et rom med mye ekko", "Et fysisk rom med harde vegger som gir mye ekko og kraftig gjenlyd i selve lyden der inne", "Et lydtett podkaststudio der man tar opp episodene sine helt uten forstyrrende støy utenfra"],
+      options: ["Når du bare omgir deg med folk som tenker likt og andre perspektiver filtreres bort", "Et diskusjonsforum på nett der deltakerne bevisst oppsøker de motstridende synspunktene", "Et fysisk rom med harde vegger som gir mye ekko og kraftig gjenlyd i selve lyden der inne", "Et lydtett podkaststudio der man tar opp episodene sine helt uten forstyrrende støy utenfra"],
       explanation: "Ekkokammer oppstar nåralgoritmer og sosiale nettverk gjør at du bare ser meninger du allærede er enig i, og motstemmmer blir usynlige.",
     },
     {
       question: "Hva er falske nyheter?",
-      options: ["Usanne historier som spres som om de var ekte nyheter", "Nyheter som er kjedelige", "Nyheter som er så kjedelige at nesten ingen orker å lese dem", "Ekte nyheter som tilfeldigvis er skrevet på et fremmed språk"],
+      options: ["Usanne historier som spres som om de var ekte nyheter", "Nyheter som er lagt bak betalingsmur og bare når få lesere", "Nyheter som er så kjedelige at nesten ingen orker å lese dem", "Ekte nyheter som tilfeldigvis er skrevet på et fremmed språk"],
       explanation: "Falske nyheter er bevisst usann informasjon som presenteres som ekte nyheter for a villlede, påvirke meninger eller tjene penger.",
     },
     {
       question: "Hva er en filterboble?",
-      options: ["Nårinternett tilpasses deg personlig slik at du ikke ser annet innhold", "En sikkerhetsinnstilling", "Et fargefilter man legger på bildene man tar med kameraet på selve mobilen", "En type gjenbrukbar vannflaske med et innebygd rensefilter helt nede i lokket"],
+      options: ["Nårinternett tilpasses deg personlig slik at du ikke ser annet innhold", "En sikkerhetsinnstilling i nettleseren som blokkerer skadelige nettsider", "Et fargefilter man legger på bildene man tar med kameraet på selve mobilen", "En type gjenbrukbar vannflaske med et innebygd rensefilter helt nede i lokket"],
       explanation: "Filterbobler oppstar nåralgoritmer viser deg personlig tilpasset innhold basert påtidligere aktivitet, slik at du ikke ser andre perspektiver.",
     },
     {
@@ -370,7 +370,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du vurdere i det siste steget av en retorisk analyse?",
-      options: ["Om teksten er overbevisende, og om appellformene er i god balanse", "Om teksten er lang nok til formålet", "Om avsenderen er en veldig kjent og berømt person i offentligheten", "Om teksten er lang nok og grundig nok til å passe formålet sitt godt"],
+      options: ["Om teksten er overbevisende, og om appellformene er i god balanse", "Om avsenderen har brukt riktig sjanger og en ryddig oppbygning i teksten", "Om avsenderen er en veldig kjent og berømt person i offentligheten", "Om teksten er lang nok og grundig nok til å passe formålet sitt godt"],
       explanation: "I helhetsvurderingen spør du: Er teksten overbevisende? Hvem overbeviser den? Dominerer én appellform?",
     },
     {
@@ -382,7 +382,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-1-5": [
     {
       question: "«Du er for ung til å mene noe om dette.» Hvilken feilslutning er dette?",
-      options: ["Personangrep (ad hominem) - angriper personen i stedet for argumentet", "Stråmannsargument - forvrenger motpartens standpunkt", "Appell til tradisjon - hevder at noe er riktig bare fordi det alltid har vært gjort slik før", "Appell til tradisjon - slik har vi alltid gjort det"],
+      options: ["Personangrep (ad hominem) - angriper personen i stedet for argumentet", "Stråmannsargument - forvrenger motpartens standpunkt", "Appell til tradisjon - riktig fordi det alltid har vært gjort slik", "Skråplanargument - små steg fører uunngåelig til katastrofe"],
       explanation: "Ad hominem angriper personen (alderen) i stedet for å svare på selve argumentet.",
     },
     {
@@ -409,7 +409,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-1-6": [
     {
       question: "Hva er en «call to action» i en kampanjetekst?",
-      options: ["En tydelig oppfordring som forteller leseren nøyaktig hva de skal gjøre", "En lang faktadel med statistikk", "En lang og grundig faktadel der statistikk og tall bygger opp under påstandene i teksten", "En ryddig liste over kildene som er brukt, slik at leseren kan sjekke om påstandene stemmer"],
+      options: ["En tydelig oppfordring som forteller leseren nøyaktig hva de skal gjøre", "En kort og fengende overskrift som skal få leseren til å klikke seg videre inn", "En lang og grundig faktadel der statistikk og tall bygger opp under påstandene i teksten", "En ryddig liste over kildene som er brukt, slik at leseren kan sjekke om påstandene stemmer"],
       explanation: "Kampanjetekster skal få folk til å handle - derfor må oppfordringen være tydelig: signer, delta, gi.",
     },
     {
@@ -419,12 +419,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et godt slagord?",
-      options: ["Det er kort, lett å huske og oppsummerer budskapet", "Det er langt og detaljert med mange fakta", "Det inneholder mange fagbegreper som viser at avsenderen har grundig kunnskap om temaet", "Det stiller et åpent spørsmål uten svar"],
+      options: ["Det er kort, lett å huske og oppsummerer budskapet", "Det er langt og detaljert med mange fakta", "Det inneholder mange fagbegreper fra temaet", "Det stiller et åpent spørsmål uten svar"],
       explanation: "Slagord som «Din stemme teller» er korte, minneverdige og oppsummerer kampanjens budskap.",
     },
     {
       question: "Hvordan bør en tekst tilpasses når den skal publiseres i sosiale medier?",
-      options: ["Kort, visuell og engasjerende - gjerne 50-200 ord", "Som en akademisk artikkel med fotnoter", "Formell og grundig strukturert på mellom 300 og 800 ord med tydelige avsnitt og innledning", "Formell og strukturert på 300-800 ord"],
+      options: ["Kort, visuell og engasjerende - gjerne 50-200 ord", "Som en akademisk artikkel med fotnoter", "Formell og grundig strukturert på 300-800 ord", "Med mange emneknagger og lenker til kilder"],
       explanation: "Kanalen styrer formen: sosiale medier krever korte, visuelle og engasjerende tekster.",
     },
     {
@@ -436,17 +436,17 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-2-4": [
     {
       question: "Hva er en temasetning?",
-      options: ["En setning som forteller leseren hva avsnittet handler om", "En setning som alltid inneholder tekstens tema-ord", "En setning som alltid må inneholde tekstens sentrale tema-ord for at avsnittet skal regnes som gyldig", "Den siste setningen i en tekst"],
+      options: ["En setning som forteller leseren hva avsnittet handler om", "En setning som gjentar tittelen på teksten", "En setning som alltid må inneholde tekstens tema-ord", "Den siste setningen i en tekst"],
       explanation: "Temasetningen styrer leseren ved å presentere avsnittets hovedpoeng, vanligvis først i avsnittet.",
     },
     {
       question: "Når kan du bruke semikolon?",
-      options: ["Mellom to fullstendige setninger som henger tett sammen: «Hun ville reise; han ville bli.»", "Foran alle oppramsinger: «Han kjøpte; melk, brød og ost.»", "I stedet for komma i alle typer leddsetninger, slik at teksten får et mer avansert og formelt preg", "Rett etter en overskrift for å binde den sammen med det første avsnittet i den løpende brødteksten"],
+      options: ["Mellom to fullstendige setninger som henger tett sammen: «Hun ville reise; han ville bli.»", "Foran enhver oppramsing i en tekst: «Han kjøpte; melk, ferskt brød og gulost, alt på tilbud.»", "I stedet for komma i alle typer leddsetninger, slik at teksten får et mer avansert og formelt preg", "Rett etter en overskrift for å binde den sammen med det første avsnittet i den løpende brødteksten"],
       explanation: "Semikolon binder sammen to helsetninger med nær innholdsmessig sammenheng, uten konjunksjon.",
     },
     {
       question: "Hvilken funksjon har bindeordet «derimot»?",
-      options: ["Det viser kontrast mellom to setninger eller avsnitt", "Det legger til mer informasjon", "Det innleder et konkret eksempel som skal illustrere påstanden, i likhet med «for eksempel»", "Det viser en årsakssammenheng"],
+      options: ["Det viser kontrast mellom to setninger eller avsnitt", "Det legger til mer informasjon", "Det innleder et konkret eksempel, som «for eksempel»", "Det viser en årsakssammenheng"],
       explanation: "«Derimot» er et motsetningsord som viser kontrast, i likhet med «men» og «likevel».",
     },
     {
@@ -456,7 +456,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor skal det stå komma i setningen «Fordi det regnet ble de hjemme»?",
-      options: ["Etter leddsetningen: «Fordi det regnet, ble de hjemme.»", "Foran «fordi»: «, Fordi det regnet ble de hjemme.»", "Etter verbet «ble», slik at helsetningen deles i to: «Fordi det regnet ble, de hjemme.»", "Etter «ble»: «Fordi det regnet ble, de hjemme.»"],
+      options: ["Etter leddsetningen: «Fordi det regnet, ble de hjemme.»", "Foran «fordi»: «, Fordi det regnet ble de hjemme.»", "Etter verbet «ble», slik at helsetningen deles i to: «Fordi det regnet ble, de hjemme.»", "Ikke komma i det hele tatt i setningen"],
       explanation: "Når leddsetningen kommer først i setningen, settes det komma etter den.",
     },
   ],
@@ -468,7 +468,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Korleis bør passiv uttrykkjast på nynorsk?",
-      options: ["Med bli/verte + partisipp: «Boka blir lesen av mange»", "Med å + infinitiv: «Boka å lese av mange»", "Med s-passiv som på bokmål, der ein legg -s til verbet: «Boka leses av mange menneske»", "Med s-passiv: «Boka leses av mange»"],
+      options: ["Med bli/verte + partisipp: «Boka blir lesen av mange»", "Med å + infinitiv: «Boka å lese av mange»", "Med s-passiv som på bokmål, der ein legg -s til verbet: «Boka leses av mange menneske»", "Med presens partisipp: «Boka lesande av mange»"],
       explanation: "Nynorsk brukar lite s-passiv - bruk heller omskriving med bli/verte: «Boka blir lesen».",
     },
     {
@@ -490,17 +490,17 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-2-6": [
     {
       question: "Hva betyr ordet «essay» opprinnelig, og hva sier det om sjangeren?",
-      options: ["Det kommer fra fransk «essai» som betyr «forsøk» - et essay er et forsøk på å tenke gjennom et tema", "Det kommer fra engelsk og betyr «eksamen» - et essay er en prøveform", "Det kommer fra engelsk og betyr «eksamen» - derfor er essayet egentlig en streng prøveform på skolen", "Det kommer fra latin og betyr «sannhet» - derfor skal et essay bevise en påstand med sikre argumenter"],
+      options: ["Det kommer fra fransk «essai» som betyr «forsøk» - et essay er et forsøk på å tenke gjennom et tema", "Det kommer fra gresk og betyr «tale» - derfor er essayet i utgangspunktet en muntlig sjanger som framføres", "Det kommer fra engelsk og betyr «eksamen» - derfor er essayet egentlig en streng prøveform på skolen", "Det kommer fra latin og betyr «sannhet» - derfor skal et essay bevise en påstand med sikre argumenter"],
       explanation: "Essay betyr «forsøk» - sjangeren er utforskende, og prosessen er viktigere enn konklusjonen.",
     },
     {
       question: "Hva skiller en reflekterende tekst fra et debattinnlegg?",
-      options: ["Den reflekterende teksten kan utforske ulike syn uten å ta et klart standpunkt", "Den reflekterende teksten må alltid konkludere med et tydelig standpunkt", "Den reflekterende teksten må alltid ende med et tydelig standpunkt, akkurat som debattinnlegget gjør", "Debattinnlegget bruker «jeg», det gjør aldri den reflekterende teksten"],
+      options: ["Den reflekterende teksten kan utforske ulike syn uten å ta et klart standpunkt", "Den reflekterende teksten er alltid kortere enn debattinnlegget", "Den reflekterende teksten må alltid ende med et tydelig standpunkt, akkurat som debattinnlegget gjør", "Debattinnlegget bruker «jeg», det gjør aldri den reflekterende teksten"],
       explanation: "I motsetning til debattinnlegget trenger ikke den reflekterende teksten et klart standpunkt - den utforsker saken fra flere sider.",
     },
     {
       question: "Hvilken struktur følger en reflekterende tekst gjerne?",
-      options: ["Innledning, utforsking, fordypning og avslutning", "Sammendrag, analyse og terningkast", "Hvem, hva, hvor, når og hvorfor, altså de klassiske nyhetsspørsmålene fra en avisartikkel", "Påstand, bevis, motbevis og dom"],
+      options: ["Innledning, utforsking, fordypning og avslutning", "Sammendrag, analyse og terningkast", "Hvem, hva, hvor, når og hvorfor", "Påstand, bevis, motbevis og dom"],
       explanation: "Den reflekterende teksten presenterer temaet, utforsker det fra flere sider, går i dybden og samler trådene til slutt.",
     },
     {
@@ -517,12 +517,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-3-4": [
     {
       question: "Hva var samnorskprosjektet?",
-      options: ["Et forsøk på å smelte bokmål og nynorsk sammen til ett felles norsk skriftspråk", "Et prosjekt for å gjøre norsk likere svensk og dansk", "En politisk plan for gradvis å innføre engelsk som offisielt skriftspråk ved siden av norsk i Norge", "Et forsøk på å gjenopplive det norrøne språket fra vikingtida og bruke det som felles skriftspråk igjen"],
+      options: ["Et forsøk på å smelte bokmål og nynorsk sammen til ett felles norsk skriftspråk", "Et prosjekt for å gjøre norsk mest mulig likt svensk og dansk til et felles nordisk språk", "En politisk plan for gradvis å innføre engelsk som offisielt skriftspråk ved siden av norsk i Norge", "Et forsøk på å gjenopplive det norrøne språket fra vikingtida og bruke det som felles skriftspråk igjen"],
       explanation: "Samnorsk var ideen om at de to skriftspråkene gradvis skulle nærme seg hverandre og bli ett.",
     },
     {
       question: "Hva kjennetegnet rettskrivingsreformen i 1938?",
-      options: ["Den var den mest radikale - mange «folkelige» former som «bru» og «fram» ble obligatoriske i bokmål", "Den innførte engelske lånord i ordbøkene", "Den innførte en rekke engelske lånord i ordbøkene og moderniserte dermed hele det norske ordforrådet", "Den gjorde dansk til offisielt sidemål i skolen ved siden av bokmål, som et kompromiss mellom leirene"],
+      options: ["Den var den mest radikale - mange «folkelige» former som «bru» og «fram» ble obligatoriske i bokmål", "Den gjorde alle valgfrie sideformer i bokmål forbudt", "Den innførte en rekke engelske lånord i ordbøkene og moderniserte dermed hele det norske ordforrådet", "Den gjorde dansk til offisielt sidemål i skolen ved siden av bokmål, som et kompromiss mellom leirene"],
       explanation: "1938-reformen tvang radikale former inn i bokmål og vakte enorm motstand, særlig i Oslo.",
     },
     {
@@ -537,7 +537,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier språkloven av 2022 om nynorsk?",
-      options: ["Nynorsk har et særlig vern fordi det er i mindretall", "Nynorsk og bokmål skal slås sammen innen 2030", "Nynorsk og bokmål skal etter loven slås sammen til ett felles skriftspråk innen året 2030 er omme", "Nynorsk skal fases ut av offentlig sektor"],
+      options: ["Nynorsk har et særlig vern fordi det er i mindretall", "Nynorsk skal være hovedmål i alle statlige organer", "Nynorsk og bokmål skal etter loven slås sammen til ett felles skriftspråk innen året 2030 er omme", "Nynorsk skal fases ut av offentlig sektor"],
       explanation: "Språkloven slår fast at bokmål og nynorsk er likeverdige, og at nynorsk som mindretallsspråk har et særlig vern.",
     },
   ],
@@ -576,7 +576,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Uttrykket «det gir mening» har blitt vanlig i norsk. Hva er det et eksempel på?",
-      options: ["At engelsk påvirker norsk setningsstruktur («it makes sense»)", "At norsk har utviklet uttrykket helt uavhengig", "At norsk har utviklet dette uttrykket helt på egen hånd, uavhengig av engelsk eller andre nabospråk", "At dansk fortsatt påvirker norsk skriftspråk"],
+      options: ["At engelsk påvirker norsk setningsstruktur («it makes sense»)", "At uttrykket kommer fra tysk gjennom handelsspråket", "At norsk har utviklet uttrykket helt på egen hånd", "At dansk fortsatt påvirker norsk skriftspråk"],
       explanation: "Engelsk påvirker ikke bare ordforrådet - også setningsmønstre som «det gir mening» (fra «it makes sense») lånes inn.",
     },
     {
@@ -598,12 +598,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-4-3": [
     {
       question: "Hva menes med «det lyriske jeget» i et dikt?",
-      options: ["Stemmen som taler i diktet - ikke nødvendigvis forfatteren selv", "Forfatterens selvbiografiske fortelling", "Forfatterens egen selvbiografiske fortelling om sitt personlige liv", "Den bestemte personen som diktet er tilegnet og henvendt direkte til"],
+      options: ["Stemmen som taler i diktet - ikke nødvendigvis forfatteren selv", "Rytmen og verseføttene som hele diktet er bygd opp av fra start til slutt", "Forfatterens egen selvbiografiske fortelling om sitt personlige liv", "Den bestemte personen som diktet er tilegnet og henvendt direkte til"],
       explanation: "Det lyriske jeget er stemmen i diktet, som kan være en helt annen enn forfatteren.",
     },
     {
       question: "I Wergelands «Til en Gran» brukes granen som bilde på noe. Hva?",
-      options: ["Tålmodighet og styrke til å bære livets byrder", "Norges rikdom på skog og tømmer", "Norges enorme rikdom på skog og verdifullt tømmer for eksport", "Menneskets dype frykt for storm, ras og andre naturkatastrofer"],
+      options: ["Tålmodighet og styrke til å bære livets byrder", "Kjærligheten mellom to unge mennesker i en liten bygd", "Norges enorme rikdom på skog og verdifullt tømmer for eksport", "Menneskets dype frykt for storm, ras og andre naturkatastrofer"],
       explanation: "Granen som vokser stille og bærer alt uten å klage, blir et bilde på tålmodig styrke: «Gid jeg som du ... så rolig bar, hvad bæres maa!»",
     },
     {
@@ -618,7 +618,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er allitterasjon?",
-      options: ["Et lydvirkemiddel der flere ord begynner med samme lyd", "En strofe som gjentas som refreng", "En sammenligning mellom to ting som knyttes sammen med ordet «som»", "En hel strofe som gjentas uendret flere ganger som et fast refreng"],
+      options: ["Et lydvirkemiddel der flere ord begynner med samme lyd", "En overdrivelse som brukes for å gi teksten større effekt", "En sammenligning mellom to ting som knyttes sammen med ordet «som»", "En hel strofe som gjentas uendret flere ganger som et fast refreng"],
       explanation: "Allitterasjon (bokstavrim) er gjentakelse av forlyder, som «ville vinder» - et av diktets lydvirkemidler.",
     },
   ],
@@ -630,7 +630,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at en novelle begynner «in medias res»?",
-      options: ["Den starter midt i handlingen, uten lang innledning", "Den starter med en beskrivelse av miljøet", "Den starter med en grundig beskrivelse av miljøet og omgivelsene", "Den starter med et forord fra forfatteren"],
+      options: ["Den starter midt i handlingen, uten lang innledning", "Den starter med å presentere personene etter tur", "Den starter med en grundig beskrivelse av miljøet", "Den starter med et forord fra forfatteren"],
       explanation: "«In medias res» betyr «midt i tingene» - leseren kastes rett inn i handlingen.",
     },
     {
@@ -711,17 +711,17 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den omvendte pyramiden i journalistikk?",
-      options: ["En struktur der det viktigste kommer først og detaljene etterpå", "En struktur der konklusjonen kommer helt til slutt", "En organisasjonsmodell for hvordan selve redaksjonen og avdelingene er bygget opp", "En metode for å bygge opp spenning mot et klimaks"],
+      options: ["En struktur der det viktigste kommer først og detaljene etterpå", "En struktur der konklusjonen kommer helt til slutt", "En modell for hvordan redaksjonen er bygget opp", "En metode for å bygge opp spenning mot et klimaks"],
       explanation: "Nyhetsartikler åpner med det viktigste, slik at leseren raskt får med seg kjernen i saken.",
     },
     {
       question: "Samme fotballkamp får overskriftene «Norge tapte» og «Norge spilte sin beste kamp på årevis». Hva illustrerer dette?",
-      options: ["Vinkling - samme hendelse kan presenteres på ulike måter, selv om begge er sanne", "Falske nyheter - en av overskriftene må være løgn", "Falske nyheter - siden overskriftene er forskjellige, må minst én av dem være ren løgn", "Sensur - myndighetene har på forhånd bestemt og godkjent hvilke overskrifter avisene får bruke"],
+      options: ["Vinkling - samme hendelse kan presenteres på ulike måter, selv om begge er sanne", "Kildekritikk - leseren må selv undersøke hvilken av de to avisene det er som lyver", "Falske nyheter - siden overskriftene er forskjellige, må minst én av dem være ren løgn", "Sensur - myndighetene har på forhånd bestemt og godkjent hvilke overskrifter avisene får bruke"],
       explanation: "Vinkling betyr at redaksjonen velger perspektiv - begge overskriftene er sanne, men forteller ulike historier.",
     },
     {
       question: "Hva er «samtidig imøtegåelse» i Vær Varsom-plakaten?",
-      options: ["Den som anklages, har rett til å svare på kritikken i samme artikkel", "Leserne kan kommentere artikkelen umiddelbart", "At journalisten alltid må intervjue minst ti uavhengige kilder før en sak kan trykkes", "At to konkurrerende aviser er pålagt å publisere nøyaktig samme sak på nøyaktig samme tid"],
+      options: ["Den som anklages, har rett til å svare på kritikken i samme artikkel", "At leserne kan kommentere artikkelen umiddelbart i kommentarfeltet under", "At journalisten alltid må intervjue minst ti uavhengige kilder før en sak kan trykkes", "At to konkurrerende aviser er pålagt å publisere nøyaktig samme sak på nøyaktig samme tid"],
       explanation: "Balanse er et presseetisk prinsipp: den som blir anklaget, skal få komme til orde i samme sak.",
     },
     {
@@ -733,7 +733,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-5-4": [
     {
       question: "Hva er diegetisk lyd i film?",
-      options: ["Lyd som kommer fra filmens verden, som dialog og musikk fra en radio i scenen", "Musikk som er lagt på i etterarbeid", "Stemningsmusikk som er lagt på i etterarbeidet, og som ingen av karakterene kan høre", "Lydeffekter og understrekninger som kun publikum i salen hører, men ikke figurene i filmen"],
+      options: ["Lyd som kommer fra filmens verden, som dialog og musikk fra en radio i scenen", "All lyd som er spilt inn med mikrofon på selve innspillingsstedet under opptaket", "Stemningsmusikk som er lagt på i etterarbeidet, og som ingen av karakterene kan høre", "Lydeffekter og understrekninger som kun publikum i salen hører, men ikke figurene i filmen"],
       explanation: "Diegetisk lyd finnes i filmens verden - karakterene kan høre den. Soundtrack og voiceover er ikke-diegetisk.",
     },
     {
@@ -753,14 +753,14 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du unngå når du presenterer handlingen i en filmanmeldelse?",
-      options: ["Å avsløre for mye av handlingen (spoilere)", "Å bruke fagbegreper om kameraarbeid", "Å nevne navnet på regissøren og de mest sentrale skuespillerne i filmen", "Å si din egen mening om filmen"],
+      options: ["Å avsløre for mye av handlingen (spoilere)", "Å bruke fagbegreper om kameraarbeid", "Å nevne navnet på regissøren i filmen", "Å si din egen mening om filmen"],
       explanation: "Handlingsreferatet skal være kort (3-5 setninger) og uten spoilere som ødelegger filmopplevelsen.",
     },
   ],
   "norsk-9-6-1": [
     {
       question: "Hva må en setning minst inneholde?",
-      options: ["Et subjekt og et verbal", "Et subjekt og et objekt", "Et verbal og et adverbial", "Minst fem ord"],
+      options: ["Et subjekt og et verbal", "Et subjekt og et objekt", "Et verbal og adverbial", "Minst fem ord"],
       explanation: "En setning krever minst subjekt og verbal: «Hunden bjeffer.»",
     },
     {
@@ -770,7 +770,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en helsetning og en leddsetning?",
-      options: ["Helsetningen kan stå alene, leddsetningen er avhengig av en helsetning", "Leddsetningen kan stå alene, helsetningen kan ikke", "Helsetningen mangler alltid verbal, mens det er leddsetningen som har et verbal", "Leddsetningen kan stå helt alene som egen ytring, mens helsetningen aldri kan det"],
+      options: ["Helsetningen kan stå alene, leddsetningen er avhengig av en helsetning", "Helsetningen har alltid langt flere ord enn leddsetningen i samme periode", "Helsetningen mangler alltid verbal, mens det er leddsetningen som har et verbal", "Leddsetningen kan stå helt alene som egen ytring, mens helsetningen aldri kan det"],
       explanation: "En helsetning er fullstendig alene, mens en leddsetning trenger en helsetning å støtte seg på.",
     },
     {
@@ -787,7 +787,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-6-2": [
     {
       question: "Hva gjør determinativer i en setning?",
-      options: ["De bestemmer et substantiv nærmere og forteller hvilken eller hvor mange", "De beskriver hvordan en handling utføres", "De uttrykker plutselige følelser og spontane reaksjoner hos den som snakker", "De binder sammen to hele helsetninger til én lengre og mer sammensatt periode"],
+      options: ["De bestemmer et substantiv nærmere og forteller hvilken eller hvor mange", "De beskriver hvordan, hvor eller når en handling blir utført i selve setningen", "De uttrykker plutselige følelser og spontane reaksjoner hos den som snakker", "De binder sammen to hele helsetninger til én lengre og mer sammensatt periode"],
       explanation: "Determinativer som «min», «denne» og «alle» bestemmer substantivet nærmere.",
     },
     {
@@ -814,7 +814,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-6-3": [
     {
       question: "Hva er kravet for å kunne bruke semikolon mellom to utsagn?",
-      options: ["Begge deler må være fullstendige helsetninger som henger tett sammen", "Det må stå en konjunksjon rett etter semikolonet", "Den ene delen må være en lang oppramsing med minst tre ledd etter hverandre", "Den første delen må være et direkte spørsmål som den andre delen svarer tydelig på"],
+      options: ["Begge deler må være fullstendige helsetninger som henger tett sammen", "Det må stå en konjunksjon som «og» eller «men» rett etter selve semikolonet", "Den ene delen må være en lang oppramsing med minst tre ledd etter hverandre", "Den første delen må være et direkte spørsmål som den andre delen svarer tydelig på"],
       explanation: "Semikolon binder sammen to fullstendige helsetninger med nært innholdsfellesskap.",
     },
     {
@@ -824,7 +824,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes kolon til?",
-      options: ["Å innlede oppramsinger, forklaringer og direkte tale", "Å binde sammen to likestilte helsetninger", "Å markere et innskudd midt inne i en setning som utdyper noe nærmere", "Å avslutte direkte spørresetninger og understreke tvilen i et utsagn"],
+      options: ["Å innlede oppramsinger, forklaringer og direkte tale", "Å binde sammen to likestilte helsetninger uten bruk av konjunksjon", "Å markere et innskudd midt inne i en setning som utdyper noe nærmere", "Å avslutte direkte spørresetninger og understreke tvilen i et utsagn"],
       explanation: "Kolon innleder det som kommer: en oppramsing, en forklaring eller et sitat.",
     },
     {
@@ -878,12 +878,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva står bokstavene i SPRINT-modellen for?",
-      options: ["Sjanger, Personer, Ramme, Innhold, Nøkkelscener, Tema", "Subjekt, Predikat, Replikk, Innledning, Norm, Tekst", "Subjekt, Predikat, Replikk, Innledning, Norm og Tekst, altså de sentrale setningsleddene", "Setting, Plot, Rim, Intensjon, Narrativ, Tolkning"],
+      options: ["Sjanger, Personer, Ramme, Innhold, Nøkkelscener, Tema", "Sjanger, Publikum, Retorikk, Innhold, Norm, Tid", "Subjekt, Predikat, Replikk, Innledning, Norm, Tekst", "Setting, Plot, Rim, Intensjon, Narrativ, Tolkning"],
       explanation: "SPRINT-modellen gir en systematisk analyse: Sjanger, Personer, Ramme, Innhold, Nøkkelscener og Tema.",
     },
     {
       question: "Hvilke tre elementer inneholder en god analytisk påstand om en tekst?",
-      options: ["Påstand, tekstbevis (sitat) og forklaring", "Innledning, sammendrag og terningkast", "Et åpent spørsmål, et kort svar på spørsmålet, og en kilde du henter svaret fra", "Spørsmål, svar og kilde"],
+      options: ["Påstand, tekstbevis (sitat) og forklaring", "Innledning, sammendrag og terningkast", "Et åpent spørsmål, et kort svar på spørsmålet, og en kilde du henter svaret fra", "Tittel, forfatter og utgivelsesår"],
       explanation: "Du fremmer en påstand, dokumenterer den med sitat fra teksten, og forklarer hvordan sitatet støtter påstanden.",
     },
     {
@@ -900,7 +900,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva fokuserer sakprosaanalyse på, i motsetning til skjønnlitterær analyse?",
-      options: ["Argumentasjon, retorikk og avsenderens formål", "Metaforer, symboler og spenningskurve", "Rim, rytme og strofeform, som er de formmessige trekkene vi kjenner igjen fra lyrikken", "Personskildring og miljøbeskrivelse"],
+      options: ["Argumentasjon, retorikk og avsenderens formål", "Metaforer, symboler og spenningskurve", "Rim, rytme og strofeform fra lyrikken", "Personskildring og miljøbeskrivelse"],
       explanation: "Mens skjønnlitterær analyse ser på litterære virkemidler, fokuserer sakprosaanalyse på argumentasjon og hvordan teksten vil påvirke.",
     },
     {
@@ -910,7 +910,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke spørsmål hører til kontekstanalysen av en sakprosatekst?",
-      options: ["Hvem er avsenderen, hvor er teksten publisert, når og for hvem er den skrevet?", "Hvilke metaforer og symboler brukes i teksten?", "Hvordan spenningskurven er bygd opp med presentasjon, opptrapping og vendepunkt?", "Hvilket rimmønster og hvilken rytme teksten har fra første til siste verselinje?"],
+      options: ["Hvem er avsenderen, hvor er teksten publisert, når og for hvem er den skrevet?", "Hvilke metaforer, symboler og andre språklige bilder som er brukt i selve teksten?", "Hvordan spenningskurven er bygd opp med presentasjon, opptrapping og vendepunkt?", "Hvilket rimmønster og hvilken rytme teksten har fra første til siste verselinje?"],
       explanation: "Konteksten handler om avsender, publiseringssted, tidspunkt og mottakergruppe.",
     },
     {
@@ -927,7 +927,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Korleis er blokkmetoden bygd opp?",
-      options: ["Først analyserer du tekst A fullstendig, deretter tekst B, og samanliknar til slutt", "Du skriv to heilt separate analysar utan samanlikning", "Du samanliknar dei to tekstane punkt for punkt heilt frå starten av og gjennom heile analysen", "Du skriv to heilt separate analysar som aldri blir kopla saman i nokon felles samanlikningsdel"],
+      options: ["Først analyserer du tekst A fullstendig, deretter tekst B, og samanliknar til slutt", "Du vekslar mellom dei to tekstane for kvar einaste setning du skriv gjennom heile analysen", "Du samanliknar dei to tekstane punkt for punkt heilt frå starten av og gjennom heile analysen", "Du skriv to heilt separate analysar som aldri blir kopla saman i nokon felles samanlikningsdel"],
       explanation: "Blokkmetoden tek éin tekst om gongen og samanliknar i ein eigen del til slutt.",
     },
     {
@@ -981,7 +981,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Korleis bør eit avsnitt byggjast opp?",
-      options: ["Temasetning, utdjuping med forklaring og eksempel, og kommentar", "Spørsmål, svar og nytt spørsmål", "Eit passande sitat, kjeldetilvising til sitatet, og ein kort konklusjon på slutten", "Eit ope spørsmål, deretter svaret på spørsmålet, og til slutt eit heilt nytt spørsmål"],
+      options: ["Temasetning, utdjuping med forklaring og eksempel, og kommentar", "Ei lang oppramsing av alle dei fakta du kjenner til om emnet frå før", "Eit passande sitat, kjeldetilvising til sitatet, og ein kort konklusjon på slutten", "Eit ope spørsmål, deretter svaret på spørsmålet, og til slutt eit heilt nytt spørsmål"],
       explanation: "Eit godt avsnitt har temasetning som presenterer poenget, utdjuping med eksempel, og ein kommentar som viser samanhengen.",
     },
     {
@@ -991,7 +991,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kvifor tapar mange elevar poeng på eksamen?",
-      options: ["Dei svarar ikkje på det oppgåva faktisk spør om", "Dei skriv for tydelege temasetningar", "Dei skriv altfor tydelege temasetningar som gjer poenget for openbert for lesaren", "Dei brukar for mange fagomgrep"],
+      options: ["Dei svarar ikkje på det oppgåva faktisk spør om", "Dei brukar for få avsnitt i teksten", "Dei skriv altfor tydelege temasetningar", "Dei brukar for mange fagomgrep"],
       explanation: "Den vanlegaste feilen er å ikkje svare på oppgåva - sjekk undervegs at du held deg til det som blir spurt om.",
     },
     {
@@ -1013,7 +1013,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en god strategi i fagsamtalen?",
-      options: ["Lytt nøye, ta deg tid til å tenke, bruk fagbegreper og gi konkrete eksempler", "Svar så raskt som mulig på alle spørsmål", "Gjenta hele presentasjonen din en gang til, så sensor får høre poengene skikkelig", "Svar så raskt som overhodet mulig på alle spørsmål for å vise at du kan stoffet godt"],
+      options: ["Lytt nøye, ta deg tid til å tenke, bruk fagbegreper og gi konkrete eksempler", "Snakk mest mulig uten å stoppe, slik at sensor ikke rekker å stille flere spørsmål", "Gjenta hele presentasjonen din en gang til, så sensor får høre poengene skikkelig", "Svar så raskt som overhodet mulig på alle spørsmål for å vise at du kan stoffet godt"],
       explanation: "Fagsamtalen er en samtale, ikke et forhør - tenk deg om, bruk fagspråk og konkretiser med eksempler.",
     },
     {
@@ -1023,14 +1023,14 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor lang tid før muntlig eksamen får du vanligvis oppgaven?",
-      options: ["24 eller 48 timer, og du kan forberede deg med alle hjelpemidler", "Du får ikke vite temaet på forhånd", "Du får ikke vite temaet på forhånd i det hele tatt og må improvisere alt på stedet", "En hel måned i forveien, slik at du kan øve grundig inn hele framføringa på forhånd"],
+      options: ["24 eller 48 timer, og du kan forberede deg med alle hjelpemidler", "Rett før eksamen starter, slik at forberedelsen skjer i selve eksamenslokalet", "Du får ikke vite temaet på forhånd i det hele tatt og må improvisere alt på stedet", "En hel måned i forveien, slik at du kan øve grundig inn hele framføringa på forhånd"],
       explanation: "Oppgaven deles vanligvis ut 24 eller 48 timer før, og du kan bruke alle hjelpemidler i forberedelsen.",
     },
   ],
   "norsk-9-8-3": [
     {
       question: "Kva er plagiat?",
-      options: ["Å framstille andre sine ord eller idear som dine eigne", "Å sitere ei kjelde med hermeteikn og kjeldetilvising", "Å skrive om eit tema som fleire andre har skrive grundig om lenge før deg", "Å skrive om eit tema fleire har skrive om før"],
+      options: ["Å framstille andre sine ord eller idear som dine eigne", "Å sitere ei kjelde med hermeteikn og kjeldetilvising", "Å skrive om eit tema som fleire andre har skrive grundig om lenge før deg", "Å omsetje ein tekst frå engelsk til norsk"],
       explanation: "Plagiat er akademisk juks - du må alltid oppgi kjelde når du brukar andre sine ord eller idear.",
     },
     {
@@ -1040,12 +1040,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kva for spørsmål høyrer til kjeldekritikken?",
-      options: ["Kven har skrive dette, kvar er det publisert, når, og kvifor?", "Kor mykje kostar boka, og kvar kan eg kjøpe henne?", "Kor mange andre har lese akkurat denne teksten før meg, og kva meinte dei?", "Kor lang er teksten, og kor mange bilete har han?"],
+      options: ["Kven har skrive dette, kvar er det publisert, når, og kvifor?", "Kor mykje kostar boka, og kvar kan eg kjøpe henne?", "Kor mange andre har lese teksten før meg?", "Kor lang er teksten, og kor mange bilete har han?"],
       explanation: "Du vurderer kjelder ved å spørje kven (avsendar), kvar (publiseringsstad), når (aktualitet) og kvifor (formål).",
     },
     {
       question: "Kva betyr det å drøfte i ei fordypningsoppgåve?",
-      options: ["Å sjå ei sak frå fleire sider før du dreg din eigen konklusjon", "Å gjenfortelje det kjeldene seier utan eigne vurderingar", "Å skrive så kort og komprimert som mogleg om temaet for å spare tid og plass", "Å gjenfortelje nøyaktig det kjeldene seier utan å leggje til eigne vurderingar"],
+      options: ["Å sjå ei sak frå fleire sider før du dreg din eigen konklusjon", "Å velje éi side i saka og argumentere berre for henne", "Å skrive så kort og komprimert som mogleg om temaet for å spare tid og plass", "Å gjenfortelje nøyaktig det kjeldene seier utan å leggje til eigne vurderingar"],
       explanation: "Drøfting betyr å vege ulike syn mot kvarandre: kva seier kjeldene, kva er du einig og ueinig i, og kva konkluderer du med?",
     },
     {
@@ -1072,7 +1072,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når kan du bruke semikolon?",
-      options: ["Mellom to nært tilknytte helsetningar", "I staden for punktum i overskrifter", "I staden for punktum i overskrifter og titlar for å binde delane saman", "Etter kvar leddsetning"],
+      options: ["Mellom to nært tilknytte helsetningar", "Framfor kvar oppramsing i teksten", "I staden for punktum i overskrifter og titlar for å binde delane saman", "Etter kvar einaste leddsetning"],
       explanation: "Semikolon står mellom to helsetningar som heng tett saman i innhald.",
     },
     {

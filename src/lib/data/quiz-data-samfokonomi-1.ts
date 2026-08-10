@@ -4,7 +4,7 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
   "samfokonomi-1-1": [
     {
       question: "Hva er det grunnleggende økonomiske problemet?",
-      options: ["Knapphet – ubegrensede behov, men begrensede ressurser", "At staten krever inn for mye skatt", "At markedet fordeler ressursene ujevnt mellom rike og fattige", "At penger gradvis mister kjøpekraft over tid gjennom inflasjon"],
+      options: ["Knapphet – ubegrensede behov, men begrensede ressurser", "At staten krever inn altfor mye skatt fra innbyggerne og bedriftene", "At markedet fordeler ressursene ujevnt mellom rike og fattige", "At penger gradvis mister kjøpekraft over tid gjennom inflasjon"],
       explanation: "Knapphet er det grunnleggende problemet: vi har ubegrensede ønsker, men begrensede ressurser, og må derfor gjøre valg.",
     },
     {
@@ -41,12 +41,12 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forteller prisenes informasjonsfunksjon oss?",
-      options: ["Om knapphet og verdi i markedet", "Hvor mange selgere det finnes", "Hvilken farge og utforming selve varen faktisk har", "Hvilken farge varen har"],
+      options: ["Om knapphet og verdi i markedet", "Hvor mange selgere det finnes", "Hvilken farge og utforming selve varen faktisk har", "Hvem som produserte varen"],
       explanation: "Prisenes informasjonsfunksjon signaliserer knapphet og verdi til både forbrukere og produsenter.",
     },
     {
       question: "Hva skjer i et marked dersom prisen er satt lavere enn likevektsprisen?",
-      options: ["Det oppstår underskudd (etterspørsel større enn tilbud)", "Det oppstår overskudd av varer", "Markedet havner i likevekt der tilbud og etterspørsel er like store", "Tilbudet vokser nærmest uendelig mens etterspørselen faller helt bort"],
+      options: ["Det oppstår underskudd (etterspørsel større enn tilbud)", "Det oppstår et overskudd av varer som blir stående usolgt", "Markedet havner i likevekt der tilbud og etterspørsel er like store", "Tilbudet vokser nærmest uendelig mens etterspørselen faller helt bort"],
       explanation: "Under likevektsprisen ønsker kjøperne mer enn selgerne tilbyr, så det oppstår et underskudd og press oppover på prisen.",
     },
     {
@@ -63,12 +63,12 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr uttrykket «ceteris paribus»?",
-      options: ["Alt annet likt – andre faktorer holdes konstante", "Alle varer koster det samme", "At prisen alltid stiger uansett hva som skjer i markedet", "At tilbudet av varen er lik null i den aktuelle perioden"],
+      options: ["Alt annet likt – andre faktorer holdes konstante", "At alle varer i markedet koster nøyaktig det samme", "At prisen alltid stiger uansett hva som skjer i markedet", "At tilbudet av varen er lik null i den aktuelle perioden"],
       explanation: "Ceteris paribus betyr «alt annet likt»: vi ser på effekten av én faktor mens vi holder de andre konstante.",
     },
     {
       question: "Hvilken effekt skifter HELE etterspørselskurven (ikke en bevegelse langs den)?",
-      options: ["En endring i forbrukernes inntekt", "En endring i varens egen pris", "En endring i varens egen pris i markedet", "Ingenting kan skifte kurven"],
+      options: ["En endring i forbrukernes inntekt", "En endring i produsentenes produksjonskostnader", "En endring i varens egen pris i markedet", "Ingenting kan skifte kurven"],
       explanation: "Endringer i inntekt, priser på relaterte goder, preferanser eller forventninger skifter hele kurven; en endring i varens egen pris gir bare bevegelse langs kurven.",
     },
     {
@@ -90,22 +90,22 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner fullkommen konkurranse?",
-      options: ["Mange små aktører med homogene produkter, der ingen kan påvirke prisen", "Mange aktører som selger svært ulike og differensierte produkter", "Få store aktører som er gjensidig avhengige av hverandres valg", "Én enkelt tilbyder som alene setter prisen for hele markedet"],
+      options: ["Mange små aktører med homogene produkter, der ingen kan påvirke prisen", "Mange aktører som selger svært ulike og sterkt differensierte varer og tjenester", "Få store aktører som er gjensidig avhengige av hverandres valg", "Én enkelt tilbyder som alene setter prisen for hele markedet"],
       explanation: "Fullkommen konkurranse har mange små aktører, homogene produkter, fri etablering og perfekt informasjon; bedriftene er pristakere.",
     },
     {
       question: "Hva kjennetegner et monopol?",
-      options: ["Én tilbyder som betjener hele markedet og setter prisen", "Fri etablering helt uten barrierer for nye aktører", "Identiske og homogene produkter fra mange ulike produsenter", "Identiske produkter fra mange produsenter"],
+      options: ["Én tilbyder som betjener hele markedet og setter prisen", "Fri etablering helt uten barrierer for nye aktører", "Identiske og homogene produkter fra mange ulike produsenter", "Sterk priskonkurranse mellom likeverdige tilbydere"],
       explanation: "I et monopol er det én tilbyder uten nære substitutter, etableringsbarrierer hindrer andre, og monopolisten er prissetter.",
     },
     {
       question: "Hva kjennetegner et oligopol?",
-      options: ["Få store aktører som er gjensidig avhengige av hverandre", "Utelukkende offentlig eide bedrifter uten private eiere", "Én enkelt aktør som alene dominerer hele markedet", "Svært mange små og innbyrdes uavhengige aktører"],
+      options: ["Få store aktører som er gjensidig avhengige av hverandre", "Utelukkende offentlig eide bedrifter helt uten private eiere", "Én enkelt aktør som alene dominerer hele markedet", "Svært mange små og innbyrdes uavhengige aktører"],
       explanation: "Et oligopol har få store aktører der hver bedrifts beslutninger påvirker de andre – de er gjensidig avhengige.",
     },
     {
       question: "Hva blir resultatet i fullkommen konkurranse på lang sikt?",
-      options: ["Prisen presses ned mot marginalkostnaden, uten unormal profitt", "Bedriftene tjener store og varige ekstraoverskudd år etter år", "Prisen fastsettes av staten gjennom reguleringer og vedtak", "Én enkelt bedrift overtar etter hvert hele markedet alene"],
+      options: ["Prisen presses ned mot marginalkostnaden, uten unormal profitt", "Bedriftene tjener store og varige ekstraoverskudd år etter år framover", "Prisen fastsettes av staten gjennom reguleringer og vedtak", "Én enkelt bedrift overtar etter hvert hele markedet alene"],
       explanation: "Fri etablering gjør at unormal profitt forsvinner på lang sikt, og prisen presses ned mot marginalkostnaden.",
     },
   ],
@@ -127,7 +127,7 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor teller man bare «ferdige varer» i BNP?",
-      options: ["For å unngå dobbelttelling av råvarer og innsatsvarer", "Fordi ferdige varer er billigere", "Fordi staten og myndighetene krever at man teller det slik", "Fordi ferdige varer stort sett er billigere enn råvarene bak"],
+      options: ["For å unngå dobbelttelling av råvarer og innsatsvarer", "Fordi råvarer og innsatsvarer ikke har noen markedsverdi", "Fordi staten og myndighetene krever at man teller det slik", "Fordi ferdige varer stort sett er billigere enn råvarene bak"],
       explanation: "Man teller ferdige varer for å unngå dobbelttelling: verdien av råvarene er allerede inkludert i sluttproduktet.",
     },
     {
@@ -139,22 +139,22 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
   "samfokonomi-1-6": [
     {
       question: "Hva er konjunkturer?",
-      options: ["Kortsiktige svingninger i økonomien rundt den langsiktige trenden", "Den langsiktige veksttrenden i økonomiens produksjonskapasitet", "Et mål på hvor mye penger som til enhver tid er i omløp", "Den langsiktige veksttrenden i produksjonskapasiteten"],
+      options: ["Kortsiktige svingninger i økonomien rundt den langsiktige trenden", "Den langsiktige veksttrenden i økonomiens samlede produksjonskapasitet", "Et mål på hvor mye penger som til enhver tid er i omløp", "Den langsiktige veksttrenden i produksjonskapasiteten"],
       explanation: "Konjunkturer er kortsiktige svingninger rundt trenden, mens økonomisk vekst er den langsiktige økningen i produksjonskapasiteten.",
     },
     {
       question: "Hva kjennetegner en høykonjunktur (topp)?",
-      options: ["Lav arbeidsledighet og press på priser (inflasjon)", "Høy arbeidsledighet og ledig kapasitet", "Høy arbeidsledighet og mye ledig, uutnyttet kapasitet", "Negativ BNP-vekst der produksjonen krymper fra år til år"],
+      options: ["Lav arbeidsledighet og press på priser (inflasjon)", "Fallende priser og synkende lønninger over lengre tid", "Høy arbeidsledighet og mye ledig, uutnyttet kapasitet", "Negativ BNP-vekst der produksjonen krymper fra år til år"],
       explanation: "I en høykonjunktur er kapasiteten fullt utnyttet, arbeidsledigheten lav og det oppstår prispress og fare for overoppheting.",
     },
     {
       question: "Hvordan beregnes produksjonsgapet?",
-      options: ["Faktisk BNP − potensielt BNP", "Faktisk BNP + potensielt BNP", "Potensielt BNP − faktisk BNP", "Faktisk BNP delt på potensielt BNP"],
+      options: ["Faktisk BNP − potensielt BNP", "Faktisk BNP + potensielt BNP", "Potensielt BNP − faktisk BNP", "Forholdet mellom faktisk og potensielt BNP"],
       explanation: "Produksjonsgap = faktisk BNP − potensielt BNP. Et positivt gap tyder på høykonjunktur, et negativt på lavkonjunktur.",
     },
     {
       question: "Hva innebærer et negativt produksjonsgap?",
-      options: ["Lavkonjunktur med arbeidsledighet og uutnyttet kapasitet", "Høykonjunktur med inflasjonspress", "Høykonjunktur med sterkt inflasjonspress og overoppheting", "At økonomien befinner seg i perfekt balanse rundt trenden"],
+      options: ["Lavkonjunktur med arbeidsledighet og uutnyttet kapasitet", "At økonomien vokser klart raskere enn den langsiktige trenden", "Høykonjunktur med sterkt inflasjonspress og overoppheting", "At økonomien befinner seg i perfekt balanse rundt trenden"],
       explanation: "Et negativt produksjonsgap betyr at faktisk BNP er lavere enn potensielt BNP – typisk lavkonjunktur med ledig kapasitet og arbeidsledighet.",
     },
     {
@@ -171,7 +171,7 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre hovedfunksjoner har penger?",
-      options: ["Byttemiddel, måleenhet og verdioppbevaring", "Eksport, import og internasjonal handel", "Inntekt, kostnad og samlet resultat", "Sparing, låneopptak og investering"],
+      options: ["Byttemiddel, måleenhet og verdioppbevaring", "Eksport, import og internasjonal handel med utlandet", "Inntekt, kostnad og samlet resultat", "Sparing, låneopptak og investering"],
       explanation: "Penger fungerer som byttemiddel, måleenhet (regneenhet) og verdioppbevaring.",
     },
     {
@@ -181,7 +181,7 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er pengemengden M1 («smale penger»)?",
-      options: ["Sedler og mynt pluss innskudd på transaksjonskonti", "Statens samlede skatteinntekter", "Utelukkende innskudd på bundne sparekonti i bankene", "All samlet formue og alle eiendeler som finnes i landet"],
+      options: ["Sedler og mynt pluss innskudd på transaksjonskonti", "Statens samlede skatteinntekter i løpet av et helt år", "Utelukkende innskudd på bundne sparekonti i bankene", "All samlet formue og alle eiendeler som finnes i landet"],
       explanation: "M1 er de mest likvide pengene: sedler og mynt pluss innskudd på transaksjonskonti som brukes til daglige betalinger.",
     },
     {
@@ -198,7 +198,7 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er markedssvikt?",
-      options: ["Når markedet ikke gir et effektivt resultat på egen hånd", "Når en bedrift går konkurs", "Når staten fastsetter prisene direkte i stedet for markedet", "Når tilbud og etterspørsel møtes i et effektivt likevektspunkt"],
+      options: ["Når markedet ikke gir et effektivt resultat på egen hånd", "Når en enkelt bedrift i markedet går konkurs og legges ned", "Når staten fastsetter prisene direkte i stedet for markedet", "Når tilbud og etterspørsel møtes i et effektivt likevektspunkt"],
       explanation: "Markedssvikt oppstår når markedet alene ikke gir et samfunnsøkonomisk effektivt resultat, f.eks. ved fellesgoder eller forurensning.",
     },
     {
@@ -213,7 +213,7 @@ const quizData_samfokonomi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et progressivt inntektsskattesystem?",
-      options: ["Skattesatsen øker når inntekten øker", "Alle betaler samme kronebeløp", "Skattesatsen synker når inntekten øker", "Det finnes ingen skatt på inntekt"],
+      options: ["Skattesatsen øker når inntekten øker", "Alle betaler samme kronebeløp", "Skattesatsen synker når inntekten øker", "Det finnes ingen skatt på inntekt i det hele tatt"],
       explanation: "I et progressivt system stiger skattesatsen med inntekten, slik at de med høyere inntekt betaler en høyere andel.",
     },
   ],
