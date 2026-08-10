@@ -37,6 +37,7 @@ export const INSTITUSJONER: Institusjon[] = [
     image: '/images/institusjoner/uio.webp',
       imageHero: '/images/institusjoner/uio-hero.webp',
     subjects: [
+      { courseId: 'exfac03-nord', name: 'EXFAC03-NORD Examen facultatum, nordiske studier', icon: '🗂️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'svexfac03', name: 'SVEXFAC03 Examen facultatum, samfunnsvitenskapelig variant', icon: '🧭', color: 'from-slate-500 to-slate-700' },
       { courseId: 'juroff1500', name: 'JUROFF1500 Strafferett — juridisk innføring for ikke-jurister', icon: '📕', color: 'from-slate-500 to-slate-700' },
       { courseId: 'svmet1010', name: 'SVMET1010 Kvalitative metoder', icon: '🔍', color: 'from-slate-500 to-slate-700' },
