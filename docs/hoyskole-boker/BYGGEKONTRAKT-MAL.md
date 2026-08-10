@@ -328,6 +328,56 @@ er for knapp, fyll den med ekte fagstoff hentet fra forklaringen som allerede
 står der: «SUBJEKT» → «SUBJEKT, siden hele leddsetningen kan byttes mot «det»
 foran verbalet».
 
+## Ytterpunktene er ikke nok — mål RANG og STUBBER (nytt 10. august 2026)
+
+⚠ **Å ligge under 35 % i begge retninger beviser ingenting.** Ytterpunktmålingen
+ser bare rang 1 og rang 4. Den er blind for alt imellom, og det er der de fleste
+lekkasjene faktisk sitter.
+
+Målt i EXFAC03-HARK Del 6: fasiten lå på lengderang 3 i **62–95 %** av
+spørsmålene, og porten sa grønt. Katalogmålingen samme dag: **86 av 190 filer**
+passerer den gamle porten og klumper seg likevel på én rang. Verst er econ1310 —
+fasiten er nest lengst i **87 % av 562 spørsmål** og aldri lengst; gammel port
+målte 0 % «eneste lengst» og ga full godkjenning. «Kryss av det nest lengste»
+gir 87 % rett uten fagkunnskap. Det er en større lekkasje enn «velg det lengste».
+
+**Tre uavhengige mål — en fil kan være grønn på to og rød på det tredje:**
+
+| mål | hva det fanger | tak |
+|---|---|---|
+| ytterpunkt | fasiten systematisk lengst *eller* kortest | 35 % hver vei |
+| **rang** | fasiten klumper seg på én av de fire lengderangene | 40 % |
+| **stubbe** | ett alternativ er strykbart på form før det leses | 40 % |
+
+Kjør `npx tsx scripts/hoyskolebok/quiz-lengdesjekk.mjs <emne>` (etter wiring) —
+den rapporterer alle tre. `--streng` gir exit 1.
+
+**Stubbe** er et alternativ under halvparten av snittlengden til de tre andre.
+Runtime stokker rekkefølgen, så selve sloten lekker ingenting — men et alternativ
+som er åpenbart for tynt til å kunne være svaret, gjør spørsmålet til trevalg:
+gjetteren går fra 25 % til 33 %. Grunnlinjen i katalogen er median 25 % av
+spørsmålene, verste fil 83 %.
+
+**Grepet som virker, verifisert på 66 distraktorer i HARK Del 6:** gjør den gale
+påstanden mer **spesifikk** — ikke legg på fyllord. «En feil i tellingen» →
+«En feil i tellingen, som skyldes at materialet er ujevnt avskrevet i de eldste
+årgangene». Distraktoren blir samtidig bedre, fordi den nå sier eksplisitt det
+steget forklaringen retter. Ingen `explanation` måtte endres.
+
+**To maskinelle garantier som må stå i ethvert revisjonsskript:**
+
+1. Sammenlign alle `options[0]` før og etter og assertér at ingen fasit er rørt.
+   Da kan ingen forklaring komme i utakt med svaret sitt.
+2. Assertér at hver ny distraktorlengde er **under** sin fasit. Ellers forrykker
+   oppskrivingen rangfordelingen som bivirkning, og du bytter én lekkasje mot
+   en annen.
+
+⚠ **Ved lik lengde skal vekten fordeles, ikke tildeles.** 21 % av alle
+firevalgsspørsmål i katalogen har en distraktor med nøyaktig samme tegnlengde som
+fasiten. Første utkast av rangmålingen ga fasiten beste rang ved likhet, og det
+blåste opp rang 1 og tømte rang 4 — `bi-okonomi` sto som rød på det artefaktet
+alene. Deler fasiten lengde med k−1 andre, fordeles 1/k på hver aktuelle rang.
+
 Mål begge tall per fil før ferdigmelding. `quiz-lengdesjekk.mjs` leser
 `quiz-data-<emne>.ts` og virker først etter wiring, så bruk et staging-skript
 med samme metrikk under bygging.
