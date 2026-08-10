@@ -106,6 +106,29 @@ ned: målingen kan være grønn mens produktet lekker.
 tilfeldig variasjon gir lett 40 %. Taket på kapittelnivå er derfor **60 %**, ikke
 35 % — det skiller et utnyttbart mønster fra støy.
 
+## De to nivåene må rettes SAMMEN, ikke hver for seg
+
+Målt i `jus1111`: å rette de seks klyngekapitlene alene ville dratt filas rang 1
+fra 24 % ned til 18 % — skjevheten flyttes bare opp et nivå. Og motsatt: et jevnt
+filnivå kan bygges av noen få gjennomrettede kapitler mens resten står urørt.
+
+Oppskriften som virket: flytt N spørsmål vekk fra den overrepresenterte rangen i
+klyngekapitlene, og flytt like mange motsatt vei i kapitler med margin —
+**to per kapittel**, spredt på mange, så ingen giver selv får en ny klynge.
+I `jus1111` var N = 36, fordelt på 18 givende kapitler; høyeste verdi blant dem
+etterpå var 40 %.
+
+⚠ **Kompensasjonen krever NEDKORTING, som er den motsatte fellen av
+oppskriving.** Egne regler for den:
+
+- fjern **utdypning**, ikke innhold: «Kjøperen kan heve umiddelbart fordi det
+  foreligger en mangel, uten hensyn til at selgeren tilbyr å utbedre den for egen
+  kostnad» → «Kjøperen kan heve umiddelbart fordi det foreligger en mangel»
+- sikt på **fasitlengden minus 10–25 tegn**
+- **aldri ned til en bar etikett** — blir distraktoren uleselig kort, velg et
+  annet spørsmål
+- i jus: **behold hjemmelen**, kort ned det forklarende haleleddet
+
 ## Ferdigkrav
 
 ```bash
