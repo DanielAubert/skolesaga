@@ -6,12 +6,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-1-1': [
   {
     question: 'Hva er sosialisering?',
-    options: ["Prosessen der vi lærer normer, verdier og ferdigheter for å fungere i samfunnet", "Prosessen der staten overtar private bedrifter", "En politisk ideologi som går inn for felleseie av produksjonsmidlene og statlig styring", "Prosessen der staten gradvis overtar eierskapet til private bedrifter og fordeler goder"],
+    options: ["Prosessen der vi lærer normer, verdier og ferdigheter for å fungere i samfunnet", "Prosessen der staten overtar private bedrifter", "En politisk ideologi som går inn for felleseie av produksjonsmidlene", "Prosessen der staten gradvis overtar eierskapet til private bedrifter"],
     explanation: 'Sosialisering er prosessen der vi lærer samfunnets normer, verdier og ferdigheter slik at vi kan fungere sammen med andre. Den pågår hele livet.',
   },
   {
     question: 'Hva er primærsosialisering?',
-    options: ["Den grunnleggende sosialiseringen som skjer i familien i de første leveårene", "Sosialisering gjennom medier og internett", "Sosialiseringen som skjer på skolen der barn lærer regler og samspill med jevnaldrende", "Sosialiseringen som skjer gjennom medier, internett og sosiale plattformer i oppveksten"],
+    options: ["Den grunnleggende sosialiseringen som skjer i familien i de første leveårene", "Sosialisering gjennom medier og internett, som er den første formen barn møter", "Sosialiseringen som skjer på skolen der barn lærer regler og samspill med jevnaldrende", "Sosialiseringen som skjer gjennom medier, internett og sosiale plattformer i oppveksten"],
     explanation: 'Primærsosialisering er den grunnleggende sosialiseringen som skjer i familien i barnets første leveår. Her lærer vi språk, grunnleggende normer og verdier.',
   },
   {
@@ -40,12 +40,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sosial identitet?',
-    options: ["Identitet knyttet til gruppene vi tilhører og identifiserer oss med", "De egenskapene som gjør oss unike som individer", "Hvor sosial, utadvendt og omgjengelig man er i møte med andre mennesker i hverdagen", "Den identiteten og profilen man bygger opp og presenterer for andre på sosiale medier"],
+    options: ["Identitet knyttet til gruppene vi tilhører og identifiserer oss med", "De egenskapene som gjør oss unike som individer", "Hvor sosial og utadvendt man er i møte med andre mennesker", "Den profilen man bygger opp og viser fram på sosiale medier"],
     explanation: 'Sosial identitet handler om gruppene vi tilhører og identifiserer oss med - som familie, venner og nasjonalitet. Personlig identitet er derimot det som gjør oss unike som individer.',
   },
   {
     question: 'Hva er forskjellen på selvbilde og selvfølelse?',
-    options: ["Selvbilde er hvordan vi ser på oss selv, selvfølelse er hvordan vi føler om oss selv", "Selvbilde handler om utseende, selvfølelse om skoleprestasjoner", "De to begrepene betyr nøyaktig det samme og brukes helt om hverandre i psykologien i dag", "Selvfølelse er medfødt og uforanderlig, mens selvbilde er noe vi lærer gjennom oppdragelsen"],
+    options: ["Selvbilde er hvordan vi ser på oss selv, selvfølelse er hvordan vi føler om oss selv", "Selvbilde handler om utseende, selvfølelse om skoleprestasjoner", "De to begrepene betyr nøyaktig det samme og brukes om hverandre", "Selvfølelse er medfødt og uforanderlig, mens selvbilde er noe vi lærer"],
     explanation: 'Selvbilde er hvordan vi ser på oss selv - våre styrker, svakheter og egenskaper. Selvfølelse er hvordan vi føler om oss selv - om vi verdsetter og aksepterer oss selv.',
   },
   {
@@ -64,17 +64,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-1-3': [
   {
     question: 'Hva er et budsjett?',
-    options: ["En plan for inntekter og utgifter - hvordan du skal bruke pengene dine", "En oversikt over hva du har brukt penger på tidligere", "En type høyrentekonto i banken der sparepengene dine vokser trygt over tid", "Et lån med spesielt lav rente som du tar opp for å dekke faste månedlige utgifter"],
+    options: ["En plan for inntekter og utgifter - hvordan du skal bruke pengene dine", "En oversikt over hva du har brukt penger på tidligere", "En type høyrentekonto i banken der sparepengene vokser", "Et lån med lav rente som du tar opp for å dekke faste månedlige utgifter"],
     explanation: 'Et budsjett er en plan for hvordan du skal bruke pengene dine - en oversikt over forventede inntekter og utgifter. Et regnskap viser derimot hva du faktisk har brukt.',
   },
   {
     question: 'Hva er forskjellen på faste og variable utgifter?',
-    options: ["Faste utgifter er like hver måned, variable utgifter endrer seg fra måned til måned", "Faste utgifter betales kontant, variable med kort", "Faste utgifter er alltid store beløp hver måned, mens variable utgifter alltid er små og ubetydelige", "Faste utgifter må alltid betales kontant i butikk, mens variable utgifter alltid betales med bankkort"],
+    options: ["Faste utgifter er like hver måned, variable utgifter endrer seg fra måned til måned", "Faste utgifter betales kontant, variable med kort", "Faste utgifter er alltid store beløp, mens variable alltid er små", "Faste utgifter må betales kontant, variable alltid med bankkort"],
     explanation: 'Faste utgifter, som husleie, abonnementer og forsikring, er like hver måned. Variable utgifter, som mat, klær og underholdning, varierer fra måned til måned.',
   },
   {
     question: 'Hva er et nødfond?',
-    options: ["Sparepenger satt av til uforutsette utgifter, anbefalt 3-6 måneders utgifter", "Penger du låner av venner i nødsituasjoner", "Penger du låner av venner og familie når du havner i en akutt økonomisk nødsituasjon", "En forsikringsutbetaling du får utbetalt dersom du blir utsatt for en ulykke eller skade"],
+    options: ["Sparepenger satt av til uforutsette utgifter, anbefalt 3-6 måneders utgifter", "Penger du låner av venner i nødsituasjoner", "Penger du låner av venner og familie i en akutt nødsituasjon", "En forsikringsutbetaling du får dersom du blir utsatt for en ulykke"],
     explanation: 'Et nødfond er sparepenger du setter av til uforutsette utgifter, som om vaskemaskinen ryker eller du mister jobben. Det anbefales å ha 3-6 måneders utgifter i nødfond.',
   },
   {
@@ -84,7 +84,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Du har 2000 kr i månedlig inntekt og faste utgifter på 800 kr. Hva er et fornuftig første steg for å spare?',
-    options: ["Sette av et fast sparebeløp først, og bruke resten på variable utgifter", "Bruke alt og spare det som eventuelt blir til overs", "Ta opp et forbrukslån for å ha mer penger å investere med i aksjer og fond med en gang", "La være å betale de faste utgiftene den måneden slik at det blir mer penger igjen å spare"],
+    options: ["Sette av et fast sparebeløp først, og bruke resten på variable utgifter", "Bruke alt og spare det som eventuelt blir til overs", "Ta opp et forbrukslån for å ha mer penger å investere med", "La være å betale de faste utgiftene, slik at mer blir igjen"],
     explanation: 'Et godt prinsipp er å "betale seg selv først": Sett av sparebeløpet med en gang du får inntekt, og bruk resten. Sparer du bare det som blir til overs, blir det ofte ingenting.',
   },
 ],
@@ -98,7 +98,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er emosjonell appell i reklame?',
-    options: ["Reklame som spiller på følelser som glede, frykt og tilhørighet", "Reklame som bare presenterer fakta om produktet", "Reklame som er forbudt ved lov fordi den villeder forbrukerne på en urimelig måte", "Reklame som utelukkende presenterer nøytrale fakta og tekniske opplysninger om produktet"],
+    options: ["Reklame som spiller på følelser som glede, frykt og tilhørighet", "Reklame som bare presenterer fakta om produktet", "Reklame som er forbudt ved lov fordi den villeder forbrukerne", "Reklame som bare presenterer tekniske opplysninger om produktet"],
     explanation: 'Emosjonell appell er et reklamevirkemiddel som spiller på følelsene våre - glede, frykt, tilhørighet - i stedet for å gi saklig informasjon om produktet.',
   },
   {
@@ -108,7 +108,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er influencer-markedsføring?',
-    options: ["Markedsføring der kjente personer anbefaler produkter, ofte mot betaling", "Markedsføring som bare bruker fakta", "Betalt reklame som vises på TV i beste sendetid rett før og etter store nyhetssendinger", "Gratis vareprøver og smaksprøver som deles ut til kundene inne i butikken eller på stand"],
+    options: ["Markedsføring der kjente personer anbefaler produkter, ofte mot betaling", "Markedsføring som bare bruker fakta om produktet, og aldri kjente personer", "Betalt reklame som vises på TV i beste sendetid rett før og etter store nyhetssendinger", "Gratis vareprøver og smaksprøver som deles ut til kundene inne i butikken eller på stand"],
     explanation: 'Influencer-markedsføring er når kjente profiler i sosiale medier anbefaler produkter, ofte mot betaling. Slik reklame skal merkes tydelig, men kan være vanskelig å gjenkjenne.',
   },
   {
@@ -137,7 +137,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et eksempel på en digital grense?',
-    options: ["Å bestemme selv hva du deler på nett og hva slags bilder du sender", "Å ha skjermtid maks to timer om dagen", "Å begrense skjermtiden din til maksimalt to timer om dagen på telefon og nettbrett", "Å alltid bruke et sterkt og unikt passord på tjenestene du logger deg inn på nettet"],
+    options: ["Å bestemme selv hva du deler på nett og hva slags bilder du sender", "Å følge en fast regel om maksimalt to timers skjermtid hver eneste dag", "Å begrense skjermtiden din til maksimalt to timer om dagen på telefon og nettbrett", "Å alltid bruke et sterkt og unikt passord på tjenestene du logger deg inn på nettet"],
     explanation: 'Digitale grenser handler om hva du deler på nett, hvem du svarer og hva slags bilder du sender. Ingen har rett til å presse deg til å dele noe du ikke vil.',
   },
   {
@@ -156,7 +156,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kjønnsroller?',
-    options: ["Samfunnets forventninger til hvordan menn og kvinner skal oppføre seg", "Lovbestemte plikter for menn og kvinner", "Roller i teater og film som blir spilt av skuespillere av ulike kjønn på scenen", "Lovbestemte plikter og oppgaver som staten pålegger menn og kvinner hver for seg"],
+    options: ["Samfunnets forventninger til hvordan menn og kvinner skal oppføre seg", "Lovbestemte plikter for menn og kvinner", "Roller i teater og film som spilles av skuespillere", "Lovbestemte plikter som staten pålegger menn og kvinner"],
     explanation: 'Kjønnsroller er samfunnets forventninger til hvordan menn og kvinner skal oppføre seg. De varierer mellom kulturer og har endret seg over tid.',
   },
   {
@@ -166,7 +166,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kjønnsinkongruens?',
-    options: ["Når en person opplever at biologisk kjønn og kjønnsidentitet ikke samsvarer", "Når gutter og jenter velger ulike yrker", "Når to ulike personer i et forhold eller en gruppe rett og slett har forskjellig kjønn", "Når noen blir forskjellsbehandlet eller urettferdig behandlet nettopp på grunn av kjønnet sitt"],
+    options: ["Når en person opplever at biologisk kjønn og kjønnsidentitet ikke samsvarer", "Når gutter og jenter systematisk velger ulike yrker og utdanninger etter skolen", "Når to ulike personer i et forhold eller en gruppe rett og slett har forskjellig kjønn", "Når noen blir forskjellsbehandlet eller urettferdig behandlet nettopp på grunn av kjønnet sitt"],
     explanation: 'Kjønnsinkongruens er når en person opplever at det biologiske kjønnet og kjønnsidentiteten ikke samsvarer. Forskjellsbehandling på grunn av kjønn kalles derimot diskriminering.',
   },
   {
@@ -180,12 +180,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-1-7': [
   {
     question: 'Hva er digitale spor?',
-    options: ["Data som etterlates når vi bruker internett, som søkehistorikk, likes og lokasjon", "Fotspor av digitale enheter", "Skadelige virus og programmer som infiserer datamaskinen når vi er koblet til internett", "Fysiske fotspor og merker som selve de digitale enhetene setter i omgivelsene rundt oss"],
+    options: ["Data som etterlates når vi bruker internett, som søkehistorikk, likes og lokasjon", "Fotspor som digitale enheter setter igjen i det fysiske rommet der de brukes daglig", "Skadelige virus og programmer som infiserer datamaskinen når vi er koblet til internett", "Fysiske fotspor og merker som selve de digitale enhetene setter i omgivelsene rundt oss"],
     explanation: 'Digitale spor er data vi etterlater oss når vi bruker internett - søkehistorikk, likes, lokasjonsdata og klikkemønstre. Mange spor legges igjen uten at vi merker det.',
   },
   {
     question: 'Hva er personvern?',
-    options: ["Retten til å bestemme over opplysninger om deg selv og å ha et privatliv", "Antivirusprogram på datamaskinen", "Retten til å være helt anonym overalt og aldri måtte oppgi navnet eller identiteten sin", "Beskyttelse mot fysiske angrep, vold og innbrudd i hjemmet ditt fra utenforstående personer"],
+    options: ["Retten til å bestemme over opplysninger om deg selv og å ha et privatliv", "Antivirusprogrammet som beskytter datamaskinen mot virus", "Retten til å være helt anonym overalt og aldri måtte oppgi navnet eller identiteten sin", "Beskyttelse mot fysiske angrep, vold og innbrudd i hjemmet ditt fra utenforstående personer"],
     explanation: 'Personvern er retten til å bestemme over opplysninger om deg selv og ha et privatliv. Det er en grunnleggende rettighet som også gjelder digitalt.',
   },
   {
@@ -200,7 +200,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er mange tjenester på nett "gratis" for brukerne?',
-    options: ["Fordi selskapene tjener penger på brukernes data, blant annet gjennom målrettet reklame", "Fordi det er gratis å drive store nettjenester", "Fordi de store teknologiselskapene i hovedsak drives som veldedige stiftelser uten mål om økonomisk fortjeneste", "Fordi staten finansierer og driver de fleste store nettjenestene som en del av den offentlige digitale velferden"],
+    options: ["Fordi selskapene tjener penger på brukernes data, blant annet gjennom målrettet reklame", "Fordi det nesten ikke koster selskapene noe å drive store nettjenester når de først er bygget", "Fordi de store teknologiselskapene i hovedsak drives som veldedige stiftelser uten mål om økonomisk fortjeneste", "Fordi staten finansierer og driver de fleste store nettjenestene som en del av den offentlige digitale velferden"],
     explanation: 'Mange "gratis" tjenester tjener penger på brukernes data: De samler digitale spor og bruker dem til målrettet reklame. Derfor sies det ofte at "du betaler med dataene dine".',
   },
 ],
@@ -209,7 +209,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-1-8': [
   {
     question: 'Hva er forskjellen på feilinformasjon og desinformasjon?',
-    options: ["Feilinformasjon spres uten hensikt om å villede, desinformasjon spres bevisst for å manipulere", "Desinformasjon er lovlig, feilinformasjon er ulovlig", "Desinformasjon er en lovlig form for ytring, mens spredning av feilinformasjon er straffbart etter norsk lov", "Feilinformasjon regnes alltid som mer skadelig og farligere for samfunnet enn bevisst spredt desinformasjon gjør"],
+    options: ["Feilinformasjon spres uten hensikt om å villede, desinformasjon spres bevisst for å manipulere", "Desinformasjon er fullt lovlig å spre i Norge, mens feilinformasjon er straffbart etter norsk lov", "Desinformasjon er en lovlig form for ytring, mens spredning av feilinformasjon er straffbart etter norsk lov", "Feilinformasjon regnes alltid som mer skadelig og farligere for samfunnet enn bevisst spredt desinformasjon gjør"],
     explanation: 'Feilinformasjon er usann informasjon som spres uten intensjon om å villede. Desinformasjon er bevisst falsk informasjon spredt for å villede eller manipulere.',
   },
   {
@@ -219,17 +219,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et ekkokammer?',
-    options: ["Et miljø der du bare møter meninger du allerede er enig i", "En metode for faktasjekking", "Et fysisk rom med spesielt god akustikk der lyd og stemmer gir gjenklang", "En app som automatisk gjentar og sender ut de samme nyhetene flere ganger"],
+    options: ["Et miljø der du bare møter meninger du allerede er enig i", "En metode for å faktasjekke påstander i nyhetene", "Et fysisk rom med spesielt god akustikk der lyd og stemmer gir gjenklang", "En app som automatisk gjentar og sender ut de samme nyhetene flere ganger"],
     explanation: 'Et ekkokammer er et miljø - ofte på nett - der du hovedsakelig møter meninger du allerede er enig i. Det kan forsterke egne oppfatninger og gjøre oss mindre åpne for motargumenter.',
   },
   {
     question: 'Hva er en filterboble?',
-    options: ["At algoritmer viser deg innhold basert på dine tidligere preferanser", "Et filter som fjerner upassende bilder", "En avgrenset gruppe venner på nettet som deler stort sett de samme meningene og verdiene", "Et lite dataprogram du installerer selv for å blokkere reklame og sporing mens du surfer"],
+    options: ["At algoritmer viser deg innhold basert på dine tidligere preferanser", "Et filter som automatisk fjerner upassende bilder og videoer fra strømmen din", "En avgrenset gruppe venner på nettet som deler stort sett de samme meningene og verdiene", "Et lite dataprogram du installerer selv for å blokkere reklame og sporing mens du surfer"],
     explanation: 'En filterboble oppstår når algoritmer viser deg innhold basert på det du tidligere har likt og klikket på. Forskjellen fra ekkokammer er at filterbobler skapes av teknologien, ofte uten at du vet det.',
   },
   {
     question: 'Hva er clickbait?',
-    options: ["Overskrifter designet for å få deg til å klikke, ofte overdrevne eller villedende", "Reklame som følger deg rundt på nettet", "En type datavirus som sprer seg videre automatisk hver gang noen klikker på en infisert lenke", "Målrettet reklame som følger deg fra nettside til nettside basert på det du tidligere har søkt på"],
+    options: ["Overskrifter designet for å få deg til å klikke, ofte overdrevne eller villedende", "Reklame som følger deg rundt på nettet etter at du har sett på et produkt i en nettbutikk", "En type datavirus som sprer seg videre automatisk hver gang noen klikker på en infisert lenke", "Målrettet reklame som følger deg fra nettside til nettside basert på det du tidligere har søkt på"],
     explanation: 'Clickbait er overskrifter som er laget for å få deg til å klikke - ofte overdrevne, mystiske eller villedende. Innholdet svarer sjelden til forventningene overskriften skaper.',
   },
 ],
@@ -238,7 +238,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-2-1': [
   {
     question: 'Hva er speilingsteorien til G.H. Mead?',
-    options: ["At vi utvikler identitet ved å speile oss i andres reaksjoner på oss", "At vi kopierer det vi ser i mediene", "At vi over tid blir mer og mer like de menneskene vi omgås og tilbringer mye tid sammen med", "At vi former identiteten vår ved å kopiere og etterligne de rollemodellene vi ser i film og medier"],
+    options: ["At vi utvikler identitet ved å speile oss i andres reaksjoner på oss", "At vi kopierer atferden vi ser hos kjente personer i mediene rundt oss", "At vi over tid blir mer og mer like de menneskene vi omgås og tilbringer mye tid sammen med", "At vi former identiteten vår ved å kopiere og etterligne de rollemodellene vi ser i film og medier"],
     explanation: 'Speilingsteorien (G.H. Mead) sier at vi utvikler identitet ved å speile oss i andres reaksjoner. Hvordan andre møter oss, former hvordan vi ser på oss selv.',
   },
   {
@@ -248,17 +248,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en identitetskrise?',
-    options: ["Perioder i livet der vi søker å finne ut hvem vi er, særlig vanlig i ungdomsårene", "Når noen stjeler identiteten din på nett", "Situasjonen der man mister passet, førerkortet eller andre viktige ID-papirer og må skaffe nye", "En alvorlig psykisk lidelse som normalt krever behandling hos lege eller psykolog for å gå over"],
+    options: ["Perioder i livet der vi søker å finne ut hvem vi er, særlig vanlig i ungdomsårene", "Når noen stjeler identiteten din på nett og bruker den til å svindle andre mennesker", "Situasjonen der man mister passet, førerkortet eller andre viktige ID-papirer og må skaffe nye", "En alvorlig psykisk lidelse som normalt krever behandling hos lege eller psykolog for å gå over"],
     explanation: 'En identitetskrise er en periode der vi søker å finne ut hvem vi er. Det er en normal del av utviklingen og særlig vanlig i ungdomsårene.',
   },
   {
     question: 'Hva er kulturell identitet?',
-    options: ["Identitet formet av kulturelle verdier, tradisjoner og praksiser man har vokst opp med", "At man jobber i kultursektoren", "Den samlede identiteten og selvforståelsen som deles av alle innbyggerne i en hel nasjon", "At man er ansatt i og arbeider innenfor kultursektoren, som teater, museum eller bibliotek"],
+    options: ["Identitet formet av kulturelle verdier, tradisjoner og praksiser man har vokst opp med", "At man jobber i kultursektoren, for eksempel ved et teater, et museum eller et bibliotek", "Den samlede identiteten og selvforståelsen som deles av alle innbyggerne i en hel nasjon", "At man er ansatt i og arbeider innenfor kultursektoren, som teater, museum eller bibliotek"],
     explanation: 'Kulturell identitet er den delen av identiteten som formes av kulturelle verdier, tradisjoner og praksiser du har vokst opp med - som språk, mat, høytider og skikker.',
   },
   {
     question: 'Hvordan henger individ og samfunn sammen i identitetsutviklingen?',
-    options: ["Identiteten formes i et samspill mellom individets valg og samfunnets påvirkning", "Identiteten er kun individets eget valg, upåvirket av andre", "Identiteten bestemmes utelukkende av samfunnet, og individets egne valg spiller ingen reell rolle", "Identiteten er kun et resultat av individets frie valg og er helt upåvirket av familie og omgivelser"],
+    options: ["Identiteten formes i et samspill mellom individets valg og samfunnets påvirkning", "Identiteten er kun individets eget valg, upåvirket av andre", "Identiteten bestemmes utelukkende av samfunnet rundt individet", "Identiteten er kun et resultat av individets egne frie valg"],
     explanation: 'Identitet utvikles i et samspill: Vi gjør egne valg og har egne egenskaper, men formes samtidig av familie, venner, kultur og samfunnet rundt oss.',
   },
 ],
@@ -287,7 +287,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebærer multikulturalisme som perspektiv?',
-    options: ["At ulike kulturer skal kunne eksistere side om side med like rettigheter", "At én kultur skal være overordnet de andre", "At én bestemt kultur skal være overordnet og styrende for alle de andre kulturene i samfunnet", "At alle grupper i samfunnet på sikt må gi opp sin opprinnelige kultur til fordel for majoriteten"],
+    options: ["At ulike kulturer skal kunne eksistere side om side med like rettigheter", "At én bestemt kultur skal være overordnet alle de andre kulturene i samfunnet", "At én bestemt kultur skal være overordnet og styrende for alle de andre kulturene i samfunnet", "At alle grupper i samfunnet på sikt må gi opp sin opprinnelige kultur til fordel for majoriteten"],
     explanation: 'Multikulturalisme er ideen om at ulike kulturer skal kunne eksistere side om side med like rettigheter. Hvor godt dette fungerer i praksis, er omdiskutert - noen mener det fremmer mangfold, andre frykter parallellsamfunn.',
   },
 ],
@@ -296,7 +296,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-2-3': [
   {
     question: 'Hva er etnisitet?',
-    options: ["Opplevd fellesskap basert på antatt felles opphav, kultur, språk eller historie", "Det samme som statsborgerskap", "Den synlige hudfargen og de fysiske trekkene til en person, uavhengig av kultur og bakgrunn", "Nøyaktig det samme som formelt statsborgerskap i et bestemt land, med rettigheter og plikter"],
+    options: ["Opplevd fellesskap basert på antatt felles opphav, kultur, språk eller historie", "Det samme som statsborgerskap, altså hvilket land en person formelt er borger av", "Den synlige hudfargen og de fysiske trekkene til en person, uavhengig av kultur og bakgrunn", "Nøyaktig det samme som formelt statsborgerskap i et bestemt land, med rettigheter og plikter"],
     explanation: 'Etnisitet er et opplevd fellesskap basert på antatt felles opphav, kultur, språk, historie eller tradisjoner. Det er ikke det samme som statsborgerskap eller bosted.',
   },
   {
@@ -316,7 +316,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Kan en person ha flere nasjonale eller etniske tilhørigheter samtidig?',
-    options: ["Ja, mange opplever tilhørighet til flere kulturer og nasjoner samtidig", "Bare hvis man har dobbelt statsborgerskap", "Nei, hver person kan bare ha én nasjonal eller etnisk tilhørighet og må velge én av dem", "Ja, men bare dersom man formelt innehar dobbelt statsborgerskap i to ulike land samtidig"],
+    options: ["Ja, mange opplever tilhørighet til flere kulturer og nasjoner samtidig", "Bare hvis man har dobbelt statsborgerskap", "Nei, hver person kan bare ha én nasjonal eller etnisk tilhørighet", "Ja, men bare dersom man har dobbelt statsborgerskap i to land"],
     explanation: 'Mange mennesker opplever tilhørighet til flere kulturer eller nasjoner samtidig - for eksempel norsk-pakistansk eller norsk-samisk identitet. Identitet er ikke enten-eller.',
   },
 ],
@@ -335,7 +335,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er positiv særbehandling?',
-    options: ["Å gi fordeler til underrepresenterte grupper for å oppnå likestilling", "Å gi alle nøyaktig lik behandling", "Å gi absolutt alle grupper i samfunnet nøyaktig lik behandling uansett bakgrunn og utgangspunkt", "Å rose og skryte offentlig av medarbeidere som har gjort en god jobb, for å motivere dem videre"],
+    options: ["Å gi fordeler til underrepresenterte grupper for å oppnå likestilling", "Å behandle alle nøyaktig likt, uansett bakgrunn og utgangspunkt i samfunnet", "Å gi absolutt alle grupper i samfunnet nøyaktig lik behandling uansett bakgrunn og utgangspunkt", "Å rose og skryte offentlig av medarbeidere som har gjort en god jobb, for å motivere dem videre"],
     explanation: 'Positiv særbehandling, som kvotering, er å gi fordeler til underrepresenterte grupper for å oppnå likestilling. Virkemiddelet er omdiskutert: Tilhengere mener det utjevner skjevheter, motstandere mener det bryter med likebehandlingsprinsippet.',
   },
   {
@@ -354,17 +354,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-2-5': [
   {
     question: 'Hva er et urfolk?',
-    options: ["Folk som bodde i et område før dagens statsgrenser ble trukket og har opprettholdt egen kultur", "Folk som har innvandret for lenge siden", "Folkegrupper som innvandret til området for svært lenge siden, men etter at statsgrensene ble fastlagt", "Folkegrupper som ikke lenger har et eget levende språk, men fortsatt deler en felles historisk bakgrunn"],
+    options: ["Folk som bodde i et område før dagens statsgrenser ble trukket og har opprettholdt egen kultur", "Folk som innvandret til landet for svært lenge siden og som har blitt boende der i generasjoner", "Folkegrupper som innvandret til området for svært lenge siden, men etter at statsgrensene ble fastlagt", "Folkegrupper som ikke lenger har et eget levende språk, men fortsatt deler en felles historisk bakgrunn"],
     explanation: 'Urfolk er folk som har bodd i et område før dagens statsgrenser ble trukket, og som har opprettholdt sin egen kultur. Samene er Norges urfolk.',
   },
   {
     question: 'Hva er Sametinget?',
-    options: ["Et folkevalgt organ som representerer det samiske folket, opprettet i 1989", "En domstol for samiske saker", "En underliggende avdeling av Stortinget som forbereder saker som gjelder samiske forhold i Norge", "En stor årlig kulturfestival i Karasjok med samisk musikk, joik, kunst og tradisjonelle håndverk"],
+    options: ["Et folkevalgt organ som representerer det samiske folket, opprettet i 1989", "En egen domstol som behandler alle saker om samiske rettigheter i hele Norge", "En underliggende avdeling av Stortinget som forbereder saker som gjelder samiske forhold i Norge", "En stor årlig kulturfestival i Karasjok med samisk musikk, joik, kunst og tradisjonelle håndverk"],
     explanation: 'Sametinget er et folkevalgt organ som representerer det samiske folket i Norge. Det ble opprettet i 1989 og velges av og blant samer.',
   },
   {
     question: 'Hva var fornorskingspolitikken?',
-    options: ["Assimileringspolitikk overfor samer og kvener fra 1850-tallet til 1980-tallet", "Politikk for å lære innvandrere norsk i dag", "Politikk for å fremme og spre norsk språk, kultur og verdier til andre land og folk i utlandet", "Dagens politikk for å lære nyankomne innvandrere norsk språk og norske samfunnsforhold å kjenne"],
+    options: ["Assimileringspolitikk overfor samer og kvener fra 1850-tallet til 1980-tallet", "Dagens politikk for å lære innvandrere norsk språk og norsk samfunnskunnskap i Norge", "Politikk for å fremme og spre norsk språk, kultur og verdier til andre land og folk i utlandet", "Dagens politikk for å lære nyankomne innvandrere norsk språk og norske samfunnsforhold å kjenne"],
     explanation: 'Fornorskingspolitikken var statens assimileringspolitikk overfor samer og kvener fra 1850-tallet til 1980-tallet. Blant annet ble samisk språk forbudt i skolen.',
   },
   {
@@ -374,7 +374,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor regnes Alta-saken (1979-1981) som et vendepunkt?',
-    options: ["Den satte samiske rettigheter på dagsordenen og førte til endringer i samepolitikken", "Den stoppet all vannkraftutbygging i Norge", "Den ga det samiske folket en egen selvstyrt stat med grenser mot Norge, Sverige og Finland", "Den førte til at Sametinget ble vedtatt nedlagt fordi samiske krav ble avvist av Stortinget"],
+    options: ["Den satte samiske rettigheter på dagsordenen og førte til endringer i samepolitikken", "Den førte til at all videre vannkraftutbygging i Norge ble stanset", "Den ga det samiske folket en egen selvstyrt stat med grenser mot Norge, Sverige og Finland", "Den førte til at Sametinget ble vedtatt nedlagt fordi samiske krav ble avvist av Stortinget"],
     explanation: 'Alta-saken var en konflikt om kraftutbygging i samisk område. Selv om utbyggingen ble gjennomført, satte saken samiske rettigheter på dagsordenen og bidro til blant annet opprettelsen av Sametinget.',
   },
 ],
@@ -383,7 +383,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-2-6': [
   {
     question: 'Hva innebærer religionsfrihet?',
-    options: ["Retten til å tro eller ikke tro, praktisere sin religion og skifte religion", "At staten bestemmer hvilke religioner som er tillatt", "At all religiøs praksis og alle religiøse symboler er forbudt i det offentlige rom", "At staten alene avgjør hvilke religioner og livssyn som er lovlige å tro på i landet"],
+    options: ["Retten til å tro eller ikke tro, praktisere sin religion og skifte religion", "At staten bestemmer hvilke religioner som er tillatt", "At all religiøs praksis er forbudt i det offentlige rom", "At staten alene avgjør hvilke religioner som er lovlige"],
     explanation: 'Religionsfrihet er en grunnlovsfestet rettighet som innebærer at alle kan tro eller ikke tro, praktisere sin religion og skifte religion.',
   },
   {
@@ -393,7 +393,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sekularisering?',
-    options: ["Prosessen der religionens rolle i samfunnet minsker over tid", "At staten innfører en offisiell religion", "At staten innfører én offisiell statsreligion som alle innbyggere må følge", "Prosessen der stadig flere mennesker blir religiøse og oppsøker trossamfunn"],
+    options: ["Prosessen der religionens rolle i samfunnet minsker over tid", "At staten innfører en offisiell religion", "At staten innfører én offisiell statsreligion som alle må følge", "Prosessen der stadig flere mennesker blir religiøse"],
     explanation: 'Sekularisering er prosessen der religionens rolle i samfunnet minsker over tid - færre deltar i religiøse aktiviteter, og religion får mindre innflytelse på politikk og lovverk.',
   },
   {
@@ -403,7 +403,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med livssynsmangfold?',
-    options: ["At mange ulike religioner og livssyn er representert i samfunnet", "At livssyn er en privatsak som ikke skal diskuteres", "At alle innbyggere i samfunnet deler det samme religiøse livssynet og troen", "At staten kun gir økonomisk og politisk støtte til ett bestemt livssyn i landet"],
+    options: ["At mange ulike religioner og livssyn er representert i samfunnet", "At livssyn er en privatsak som ikke skal diskuteres", "At alle innbyggere deler det samme religiøse livssynet", "At staten bare støtter ett bestemt livssyn i landet"],
     explanation: 'Livssynsmangfold betyr at mange ulike religioner og livssyn er representert i et samfunn. Norge har blitt stadig mer livssynsmangfoldig gjennom innvandring og sekularisering.',
   },
 ],
@@ -446,7 +446,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en tariffavtale?',
-    options: ["Avtale mellom fagforening og arbeidsgiver om lønns- og arbeidsvilkår", "Den individuelle arbeidskontrakten din", "En mellomstatlig avtale om tollsatser og handelsvilkår mellom flere land", "Den individuelle arbeidskontrakten som hver ansatt selv inngår med sin sjef"],
+    options: ["Avtale mellom fagforening og arbeidsgiver om lønns- og arbeidsvilkår", "Den individuelle arbeidskontrakten din", "En mellomstatlig avtale om tollsatser og handelsvilkår", "Den individuelle arbeidskontrakten hver ansatt inngår selv"],
     explanation: 'En tariffavtale er en avtale mellom en fagforening og en arbeidsgiver(organisasjon) om lønns- og arbeidsvilkår. Den gjelder kollektivt for de ansatte som omfattes.',
   },
   {
@@ -456,7 +456,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebærer stillingsvern?',
-    options: ["Lovbeskyttelse som gjør at ansatte ikke kan sies opp uten saklig grunn", "Rett til å bytte stilling internt", "Retten til å bytte til en annen stilling internt i virksomheten når man vil", "En garanti som gjør at en ansatt aldri kan miste jobben under noen omstendighet"],
+    options: ["Lovbeskyttelse som gjør at ansatte ikke kan sies opp uten saklig grunn", "Retten til å bytte til en annen stilling internt i den samme virksomheten", "Retten til å bytte til en annen stilling internt i virksomheten når man vil", "En garanti som gjør at en ansatt aldri kan miste jobben under noen omstendighet"],
     explanation: 'Stillingsvern er lovbeskyttelsen som gjør at arbeidsgiver ikke kan si opp ansatte uten saklig grunn. Det gir trygghet, men betyr ikke at man aldri kan bli sagt opp.',
   },
   {
@@ -490,7 +490,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er AMU?',
-    options: ["Arbeidsmiljøutvalg - et samarbeidsorgan for HMS i større virksomheter", "En fagforening for unge arbeidstakere", "Arbeidsgivernes felles medlemsunion for forhandlinger med staten om lønn", "En landsomfattende fagforening som spesielt organiserer unge arbeidstakere"],
+    options: ["Arbeidsmiljøutvalg - et samarbeidsorgan for HMS i større virksomheter", "En fagforening for unge arbeidstakere", "Arbeidsgivernes felles union for lønnsforhandlinger med staten", "En landsomfattende fagforening for unge arbeidstakere"],
     explanation: 'AMU (arbeidsmiljøutvalg) er et samarbeidsorgan for HMS-arbeid med representanter fra både ledelse og ansatte, påkrevd i større virksomheter.',
   },
 ],
@@ -499,7 +499,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-3-3': [
   {
     question: 'Hva er frontfagsmodellen?',
-    options: ["At konkurranseutsatt industri forhandler lønn først og setter rammen for andre oppgjør", "At offentlig sektor forhandler først og bestemmer lønnsveksten for hele arbeidslivet", "At lederne og toppsjefene forhandler sin lønn først og setter rammen for resten", "At alle bransjer og sektorer forhandler lønn samtidig i ett samlet oppgjør"],
+    options: ["At konkurranseutsatt industri forhandler lønn først og setter rammen for andre oppgjør", "At offentlig sektor forhandler først og dermed bestemmer lønnsveksten for hele arbeidslivet", "At lederne og toppsjefene forhandler sin lønn først og setter rammen for resten", "At alle bransjer og sektorer forhandler lønn samtidig i ett samlet oppgjør"],
     explanation: 'Frontfagsmodellen innebærer at konkurranseutsatt industri (frontfaget) forhandler først. Resultatet setter rammen for lønnsveksten i andre bransjer, for å sikre konkurranseevnen.',
   },
   {
@@ -509,12 +509,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fredsplikt?',
-    options: ["Forbud mot streik og lockout mens en tariffavtale gjelder", "Plikt til å holde fred på arbeidsplassen", "Forbud mot å gå til krig mellom stater så lenge en fredsavtale gjelder", "Plikten alle ansatte har til å holde ro og god orden på arbeidsplassen"],
+    options: ["Forbud mot streik og lockout mens en tariffavtale gjelder", "Plikt til å holde fred på arbeidsplassen", "Forbud mot krig mellom stater mens en fredsavtale gjelder", "Plikten ansatte har til å holde ro og orden på jobben"],
     explanation: 'Fredsplikt betyr at det er forbudt å bruke streik eller lockout så lenge en tariffavtale gjelder. Arbeidskamp er bare lovlig i forbindelse med forhandlinger om ny avtale.',
   },
   {
     question: 'Hvilken rolle har Riksmekleren?',
-    options: ["Å mekle mellom partene i lønnsoppgjør for å unngå arbeidskonflikt", "Å dømme i arbeidsrettssaker", "Å dømme i arbeidsrettssaker og avgjøre om en streik har vært lovlig", "Å lede LO og forhandle lønn på vegne av arbeidstakerne i alle bransjer"],
+    options: ["Å mekle mellom partene i lønnsoppgjør for å unngå arbeidskonflikt", "Å dømme i arbeidsrettssaker mellom arbeidsgivere og de ansatte i bransjen", "Å dømme i arbeidsrettssaker og avgjøre om en streik har vært lovlig", "Å lede LO og forhandle lønn på vegne av arbeidstakerne i alle bransjer"],
     explanation: 'Riksmekleren mekler mellom partene når lønnsforhandlinger ikke fører frem, for å forsøke å unngå streik eller lockout.',
   },
   {
@@ -533,7 +533,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med glasstaket?',
-    options: ["Usynlige barrierer som hindrer kvinner i å nå toppstillinger", "Et fysisk tak av glass i moderne kontorbygg", "En lovbestemt regel om kjønnskvotering til styrer i store aksjeselskaper", "At kvinner selv ikke ønsker å bli ledere og derfor unngår toppstillinger"],
+    options: ["Usynlige barrierer som hindrer kvinner i å nå toppstillinger", "Et fysisk tak av glass i moderne kontorbygg", "En lovbestemt regel om kjønnskvotering til styrer", "At kvinner selv ikke ønsker å bli ledere i næringslivet"],
     explanation: 'Glasstaket er en metafor for usynlige barrierer - som holdninger, nettverk og forventninger - som kan hindre kvinner i å nå toppstillinger.',
   },
   {
@@ -548,7 +548,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke forklaringer brukes i debatten om kjønnsdelt arbeidsmarked?',
-    options: ["Både frie valg og preferanser, og strukturer som forventninger og kjønnsroller", "Bare diskriminering fra arbeidsgivere", "At forskjellene bare kan forklares med bevisst diskriminering fra arbeidsgivere", "At det ikke finnes noen faglige forklaringer på hvorfor arbeidsmarkedet er delt"],
+    options: ["Både frie valg og preferanser, og strukturer som forventninger og kjønnsroller", "Bare diskriminering fra arbeidsgiverne når de ansetter folk i nye stillinger og verv", "At forskjellene bare kan forklares med bevisst diskriminering fra arbeidsgivere", "At det ikke finnes noen faglige forklaringer på hvorfor arbeidsmarkedet er delt"],
     explanation: 'Debatten har flere perspektiver: Noen vektlegger at menn og kvinner gjør ulike frie valg, andre at kjønnsroller, forventninger og strukturer styrer valgene. Trolig spiller flere faktorer sammen.',
   },
 ],
@@ -562,7 +562,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er strukturell ledighet?',
-    options: ["Ledighet som skyldes varige endringer i næringsstrukturen, og som ofte krever omskolering", "Ledighet som skyldes lav etterspørsel i en midlertidig økonomisk nedgangsperiode", "Kortvarig ledighet som oppstår mellom jobber eller i ferieperioder om sommeren", "Ledighet som særlig rammer ansatte i offentlig sektor ved budsjettkutt"],
+    options: ["Ledighet som skyldes varige endringer i næringsstrukturen, og som ofte krever omskolering", "Ledighet som skyldes lav etterspørsel etter varer i en midlertidig økonomisk nedgangsperiode", "Kortvarig ledighet som oppstår mellom jobber eller i ferieperioder om sommeren", "Ledighet som særlig rammer ansatte i offentlig sektor ved budsjettkutt"],
     explanation: 'Strukturell ledighet skyldes varige endringer i næringsstrukturen - for eksempel at yrker forsvinner pga. teknologi. De ledige trenger ofte omskolering for å få ny jobb.',
   },
   {
@@ -572,12 +572,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor regnes langtidsledighet som særlig alvorlig?',
-    options: ["Fordi kompetanse svekkes og det blir vanskeligere å komme tilbake i arbeid", "Fordi dagpengene stiger jo lenger man går uten arbeid og belaster staten", "Fordi langtidsledighet i praksis bare rammer unge under 25 år som mister jobben", "Fordi den alltid skyldes at den ledige mangler grunnleggende utdanning og kompetanse"],
+    options: ["Fordi kompetanse svekkes og det blir vanskeligere å komme tilbake i arbeid", "Fordi dagpengene stiger jo lenger man går uten arbeid og belaster staten", "Fordi langtidsledighet bare rammer unge under 25 år", "Fordi den alltid skyldes at den ledige mangler utdanning"],
     explanation: 'Langtidsledighet (over ett år) er særlig alvorlig fordi kompetansen svekkes, selvtilliten kan rammes, og sjansen for å komme tilbake i jobb synker jo lenger ledigheten varer.',
   },
   {
     question: 'Hva er arbeidsavklaringspenger (AAP)?',
-    options: ["Ytelse fra Nav for personer med nedsatt arbeidsevne som trenger avklaring", "En pensjonsytelse som utbetales til arbeidstakere fra og med fylte 62 år", "Lønn man mottar fra Nav mens man er innkalt til jobbintervju og venter på svar", "Økonomisk støtte til bedrifter som velger å ansette langtidsledige arbeidssøkere"],
+    options: ["Ytelse fra Nav for personer med nedsatt arbeidsevne som trenger avklaring", "En pensjonsytelse som utbetales til arbeidstakere fra og med fylte 62 år", "Lønn man mottar fra Nav mens man venter på jobbintervju", "Økonomisk støtte til bedrifter som ansetter langtidsledige"],
     explanation: 'Arbeidsavklaringspenger er en ytelse fra Nav for personer som har nedsatt arbeidsevne på grunn av sykdom eller skade, og som trenger hjelp til å avklare mulighetene for å jobbe.',
   },
 ],
@@ -586,12 +586,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-3-6': [
   {
     question: 'Hva er automatisering?',
-    options: ["At maskiner og programvare tar over oppgaver som tidligere ble gjort av mennesker", "At lønninger fastsettes automatisk", "At arbeidstakere flytter mellom bedrifter for å tilegne seg ny og bredere yrkeskompetanse", "At produksjonen flyttes til lavkostland der lønns- og driftskostnadene er betydelig lavere"],
+    options: ["At maskiner og programvare tar over oppgaver som tidligere ble gjort av mennesker", "At lønningene i en bedrift fastsettes automatisk av datasystemer uten forhandlinger", "At arbeidstakere flytter mellom bedrifter for å tilegne seg ny og bredere yrkeskompetanse", "At produksjonen flyttes til lavkostland der lønns- og driftskostnadene er betydelig lavere"],
     explanation: 'Automatisering er at maskiner og programvare tar over oppgaver som tidligere ble utført av mennesker. Det kan fjerne noen jobber, men skaper også nye.',
   },
   {
     question: 'Hva er gig-økonomi?',
-    options: ["Korttidsoppdrag og frilansarbeid formidlet via digitale plattformer", "Bedrifter som bare ansetter unge", "Bransjen for produksjon og salg av musikk, konserter og strømmetjenester på nett", "Bedrifter som utelukkende rekrutterer og ansetter unge arbeidstakere under 25 år"],
+    options: ["Korttidsoppdrag og frilansarbeid formidlet via digitale plattformer", "Bedrifter som bare ansetter unge arbeidstakere", "Bransjen for produksjon og salg av musikk, konserter og strømmetjenester på nett", "Bedrifter som utelukkende rekrutterer og ansetter unge arbeidstakere under 25 år"],
     explanation: 'Gig-økonomi er korttidsoppdrag og frilansarbeid formidlet via plattformer som Uber og Foodora. Arbeiderne er ofte selvstendige oppdragstakere uten tradisjonelle arbeidstakerrettigheter.',
   },
   {
@@ -601,12 +601,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med grønn omstilling?',
-    options: ["Endring av samfunn og næringsliv mot mer bærekraftige løsninger", "At alle bedrifter maler lokalene grønne", "At alle bedrifter pålegges å male lokaler og fasader grønne som et miljøtiltak av staten", "At all forurensende industri stenges helt ned og legges ned uten noen form for omstilling"],
+    options: ["Endring av samfunn og næringsliv mot mer bærekraftige løsninger", "At alle bedrifter må male lokalene sine grønne for å vise miljøprofil", "At alle bedrifter pålegges å male lokaler og fasader grønne som et miljøtiltak av staten", "At all forurensende industri stenges helt ned og legges ned uten noen form for omstilling"],
     explanation: 'Grønn omstilling er endringen av samfunn og næringsliv mot mer bærekraftige løsninger - nye grønne næringer, utslippskutt og omstilling av eksisterende industri.',
   },
   {
     question: 'Hvorfor blir livslang læring viktigere i fremtidens arbeidsliv?',
-    options: ["Fordi teknologi og omstilling gjør at kompetansen må oppdateres gjennom hele arbeidslivet", "Fordi eldre ikke lenger får jobbe", "Fordi alle arbeidstakere etter hvert vil måtte fullføre en doktorgrad for å beholde jobben", "Fordi grunnskolen og videregående blir stadig kortere og gir mindre grunnleggende kunnskap"],
+    options: ["Fordi teknologi og omstilling gjør at kompetansen må oppdateres gjennom hele arbeidslivet", "Fordi eldre arbeidstakere ikke lenger får lov til å stå i jobben like lenge som de gjorde før", "Fordi alle arbeidstakere etter hvert vil måtte fullføre en doktorgrad for å beholde jobben", "Fordi grunnskolen og videregående blir stadig kortere og gir mindre grunnleggende kunnskap"],
     explanation: 'Teknologisk utvikling og omstilling gjør at arbeidsoppgaver endres raskt. Da må arbeidstakere oppdatere kompetansen sin gjennom hele arbeidslivet - livslang læring.',
   },
 ],
@@ -620,17 +620,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sosial dumping?',
-    options: ["At utenlandske arbeidere tilbys lønn og vilkår langt under norsk standard", "At norske arbeidere jobber i utlandet", "At folk kaster søppel og kasserte gjenstander ulovlig i naturen fremfor på godkjente mottak", "At lønningene i en bransje øker altfor raskt og dermed driver prisene og inflasjonen oppover"],
+    options: ["At utenlandske arbeidere tilbys lønn og vilkår langt under norsk standard", "At norske arbeidere reiser ut og tar jobber i utlandet til lavere lønn enn hjemme", "At folk kaster søppel og kasserte gjenstander ulovlig i naturen fremfor på godkjente mottak", "At lønningene i en bransje øker altfor raskt og dermed driver prisene og inflasjonen oppover"],
     explanation: 'Sosial dumping er at utenlandske arbeidere tilbys lønn og arbeidsvilkår langt under norsk standard. Det utnytter arbeiderne og undergraver konkurransen for seriøse bedrifter.',
   },
   {
     question: 'Hva er allmenngjøring av tariffavtaler?',
-    options: ["At tariffavtalens minstekrav gjøres gjeldende for alle i en bransje, også uorganiserte", "At alle må melde seg inn i fagforening", "At alle som jobber i en bransje pålegges ved lov å melde seg inn i en godkjent fagforening", "At innholdet i inngåtte tariffavtaler offentliggjøres slik at alle innbyggere kan lese dem"],
+    options: ["At tariffavtalens minstekrav gjøres gjeldende for alle i en bransje, også uorganiserte", "At alle som jobber i en bransje blir pålagt ved lov å melde seg inn i en fagforening der", "At alle som jobber i en bransje pålegges ved lov å melde seg inn i en godkjent fagforening", "At innholdet i inngåtte tariffavtaler offentliggjøres slik at alle innbyggere kan lese dem"],
     explanation: 'Allmenngjøring betyr at tariffavtalens minstekrav gjøres gjeldende for alle som jobber i en bransje, også de uorganiserte. Det er et virkemiddel mot sosial dumping.',
   },
   {
     question: 'Hva er et a-krimsenter?',
-    options: ["Tverrfaglig senter der etater samarbeider om å bekjempe arbeidslivskriminalitet", "En avdeling i politiet som etterforsker vold", "Et eget fengsel der personer dømt for økonomisk kriminalitet og skattesvindel soner straffen", "En egen avdeling i politiet som utelukkende etterforsker vold, trusler og andre voldslovbrudd"],
+    options: ["Tverrfaglig senter der etater samarbeider om å bekjempe arbeidslivskriminalitet", "En avdeling i politiet som etterforsker vold", "Et eget fengsel der personer dømt for skattesvindel soner", "En egen avdeling i politiet som etterforsker voldslovbrudd"],
     explanation: 'A-krimsentrene er tverrfaglige sentre der etater som politiet, Skatteetaten, Arbeidstilsynet og Nav samarbeider om å bekjempe arbeidslivskriminalitet.',
   },
   {
@@ -654,7 +654,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er mindretallsvern?',
-    options: ["At mindretallet har grunnleggende rettigheter som ikke kan stemmes bort av flertallet", "At mindretallet alltid får bestemme", "At mindretallet i en sak alltid får bestemme utfallet og overkjøre flertallets standpunkt", "At små og nystartede bedrifter beskyttes mot konkurranse fra de store etablerte selskapene"],
+    options: ["At mindretallet har grunnleggende rettigheter som ikke kan stemmes bort av flertallet", "At mindretallet alltid får bestemme i de sakene der flertallet ikke klarer å bli enige", "At mindretallet i en sak alltid får bestemme utfallet og overkjøre flertallets standpunkt", "At små og nystartede bedrifter beskyttes mot konkurranse fra de store etablerte selskapene"],
     explanation: 'Mindretallsvern betyr at mindretallet har grunnleggende rettigheter - som ytringsfrihet og rettssikkerhet - som ikke kan stemmes bort av flertallet. Demokrati er mer enn flertallsstyre.',
   },
   {
@@ -673,7 +673,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-4-2': [
   {
     question: 'Hva slags styreform har Norge?',
-    options: ["Konstitusjonelt monarki med parlamentarisme", "Absolutt monarki der kongen har all makt", "Direkte demokrati med hyppige folkeavstemninger", "Republikk med en folkevalgt president som statsoverhode"],
+    options: ["Konstitusjonelt monarki med parlamentarisme", "Absolutt monarki der kongen har all makt", "Direkte demokrati med folkeavstemninger", "Republikk med en folkevalgt president"],
     explanation: 'Norge er et konstitusjonelt monarki: Kongen er statsoverhode, men uten reell politisk makt. Samtidig har vi parlamentarisme, der regjeringen må ha Stortingets tillit.',
   },
   {
@@ -688,7 +688,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan er statsmakten delt etter maktfordelingsprinsippet?',
-    options: ["Lovgivende (Stortinget), utøvende (regjeringen) og dømmende (domstolene) makt", "Politi, militære og domstoler", "Statsmakten er delt mellom kongen, kirken og adelen slik den var i eldre stendersamfunn", "Statsmakten er delt mellom politiet, det militære forsvaret og de alminnelige domstolene"],
+    options: ["Lovgivende (Stortinget), utøvende (regjeringen) og dømmende (domstolene) makt", "Politiet, det militære og domstolene, som hver kontrollerer sin del av statsmakten", "Statsmakten er delt mellom kongen, kirken og adelen slik den var i eldre stendersamfunn", "Statsmakten er delt mellom politiet, det militære forsvaret og de alminnelige domstolene"],
     explanation: 'Maktfordelingsprinsippet deler statsmakten i tre: Stortinget gir lover (lovgivende), regjeringen styrer og gjennomfører (utøvende), og domstolene dømmer (dømmende). Slik hindres maktmisbruk.',
   },
   {
@@ -702,12 +702,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-4-3': [
   {
     question: 'Hvilken valgordning brukes ved stortingsvalg i Norge?',
-    options: ["Forholdstallsvalg, der mandatene fordeles proporsjonalt etter stemmetall", "Loddtrekning blant kandidatene", "Flertallsvalg i enkeltkretser der bare kandidaten med flest stemmer i hver krets blir valgt", "Loddtrekning blant de oppstilte kandidatene når stemmene er talt opp og fordelt på partiene"],
+    options: ["Forholdstallsvalg, der mandatene fordeles proporsjonalt etter stemmetall", "Loddtrekning blant alle kandidatene på partienes lister i hvert valgdistrikt", "Flertallsvalg i enkeltkretser der bare kandidaten med flest stemmer i hver krets blir valgt", "Loddtrekning blant de oppstilte kandidatene når stemmene er talt opp og fordelt på partiene"],
     explanation: 'Norge bruker forholdstallsvalg: Mandatene fordeles proporsjonalt etter partienes stemmetall i valgdistriktene. Dette gir små partier bedre representasjon enn flertallsvalg.',
   },
   {
     question: 'Hva er utjevningsmandater?',
-    options: ["19 mandater som sikrer at partienes mandattall bedre samsvarer med stemmetallet nasjonalt", "Ekstra mandater til det største partiet", "Mandater som fordeles ved tilfeldig trekning mellom partiene etter at stemmene er talt opp", "Mandater som er forbeholdt de minst folkerike distriktene for å styrke deres representasjon"],
+    options: ["19 mandater som sikrer at partienes mandattall bedre samsvarer med stemmetallet nasjonalt", "Ekstra mandater som automatisk tildeles det største partiet i landet etter hvert stortingsvalg", "Mandater som fordeles ved tilfeldig trekning mellom partiene etter at stemmene er talt opp", "Mandater som er forbeholdt de minst folkerike distriktene for å styrke deres representasjon"],
     explanation: 'De 19 utjevningsmandatene (ett per valgdistrikt) fordeles slik at partienes samlede mandattall bedre samsvarer med stemmeandelen nasjonalt. De 150 øvrige er distriktsmandater.',
   },
   {
@@ -717,7 +717,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvem har stemmerett ved stortingsvalg?',
-    options: ["Norske statsborgere som fyller 18 år innen utgangen av valgåret", "Alle bosatte i Norge over 18 år", "Alle som er fast bosatt i Norge og har fylt 18 år, uavhengig av hvilket statsborgerskap de har", "Norske statsborgere som har fylt 16 år innen utgangen av det året valget til Stortinget holdes"],
+    options: ["Norske statsborgere som fyller 18 år innen utgangen av valgåret", "Alle som er bosatt i Norge og har fylt 18 år, uansett statsborgerskap", "Alle som er fast bosatt i Norge og har fylt 18 år, uavhengig av hvilket statsborgerskap de har", "Norske statsborgere som har fylt 16 år innen utgangen av det året valget til Stortinget holdes"],
     explanation: 'Ved stortingsvalg har norske statsborgere som fyller 18 år innen utgangen av valgåret, stemmerett. Ved kommunevalg kan også utenlandske statsborgere med lang botid stemme.',
   },
   {
@@ -731,17 +731,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-4-4': [
   {
     question: 'Hva beskriver høyre-venstre-aksen i politikken?',
-    options: ["Skalaen fra ønske om mer statlig styring (venstre) til mer markedsløsninger (høyre)", "Hvor representantene sitter i stortingssalen i dag", "Partienes standpunkt til spørsmålet om norsk medlemskap i EU og videre europeisk integrasjon", "Skalaen fra by til distrikt, altså motsetningen mellom sentrale strøk og grisgrendte områder"],
+    options: ["Skalaen fra ønske om mer statlig styring (venstre) til mer markedsløsninger (høyre)", "Hvor representantene sitter i stortingssalen i dag", "Partienes standpunkt i spørsmålet om norsk EU-medlemskap", "Skalaen fra by til distrikt, altså sentrum mot utkant"],
     explanation: 'Høyre-venstre-aksen er den tradisjonelle politiske skalaen: Venstresiden ønsker gjerne mer statlig styring og omfordeling, høyresiden mer marked, privat eierskap og lavere skatter.',
   },
   {
     question: 'Hva kjennetegner sosialdemokratiet som politisk retning?',
-    options: ["Kombinerer markedsøkonomi med omfordeling og velferd gjennom demokratiske midler", "Ønsker å avskaffe privat eiendom gjennom revolusjon", "Vil avskaffe all privat eiendom gjennom en revolusjon og innføre full statlig planøkonomi", "Avviser det parlamentariske demokratiet til fordel for styring gjennom en sterk lederskikkelse"],
+    options: ["Kombinerer markedsøkonomi med omfordeling og velferd gjennom demokratiske midler", "Ønsker å avskaffe privat eiendom gjennom revolusjon", "Vil avskaffe all privat eiendom gjennom en revolusjon", "Avviser det parlamentariske demokratiet til fordel for én sterk leder"],
     explanation: 'Sosialdemokratiet kombinerer markedsøkonomi med omfordeling og velferdsstat, og søker gradvise reformer gjennom demokratiske midler. Arbeiderpartiet er et typisk sosialdemokratisk parti.',
   },
   {
     question: 'Hva er opposisjonen?',
-    options: ["Partiene som ikke sitter i regjering og som holder regjeringen ansvarlig", "Partier som er imot demokratiet", "Pressen og de frie mediene, som gransker og kontrollerer dem som sitter med makten", "De personene og organisasjonene som demonstrerer og protesterer offentlig mot staten"],
+    options: ["Partiene som ikke sitter i regjering og som holder regjeringen ansvarlig", "De partiene som er imot demokratiet som styreform og ønsker å avskaffe det", "Pressen og de frie mediene, som gransker og kontrollerer dem som sitter med makten", "De personene og organisasjonene som demonstrerer og protesterer offentlig mot staten"],
     explanation: 'Opposisjonen er partiene på Stortinget som ikke sitter i regjering. De fremmer alternativ politikk og kontrollerer og utfordrer regjeringen - en viktig demokratisk funksjon.',
   },
   {
@@ -751,7 +751,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et flerpartisystem?',
-    options: ["Et politisk system med mange partier representert i nasjonalforsamlingen", "At man kan stemme på flere partier samtidig", "Et politisk system der bare to store partier reelt har mulighet til å vinne makten ved valg", "En ordning der hver velger kan avgi stemme til flere ulike partier samtidig på samme stemmeseddel"],
+    options: ["Et politisk system med mange partier representert i nasjonalforsamlingen", "At velgerne kan stemme på flere ulike partier samtidig ved det samme valget", "Et politisk system der bare to store partier reelt har mulighet til å vinne makten ved valg", "En ordning der hver velger kan avgi stemme til flere ulike partier samtidig på samme stemmeseddel"],
     explanation: 'Et flerpartisystem har mange partier representert i nasjonalforsamlingen, slik som i Norge. Forholdstallsvalg bidrar til flerpartisystem, mens flertallsvalg ofte gir topartisystem.',
   },
 ],
@@ -760,7 +760,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-4-5': [
   {
     question: 'Hva er kommunestyret?',
-    options: ["Det øverste folkevalgte organet i kommunen, valgt av innbyggerne hvert fjerde år", "Et utvalg oppnevnt av staten", "Kommunens administrasjon, som ledes av kommunedirektøren og iverksetter vedtakene i praksis", "Den lokale domstolen i kommunen, som avgjør rettstvister mellom innbyggere og kommunen selv"],
+    options: ["Det øverste folkevalgte organet i kommunen, valgt av innbyggerne hvert fjerde år", "Et utvalg som staten oppnevner for å styre kommunen i hele perioden mellom to valg", "Kommunens administrasjon, som ledes av kommunedirektøren og iverksetter vedtakene i praksis", "Den lokale domstolen i kommunen, som avgjør rettstvister mellom innbyggere og kommunen selv"],
     explanation: 'Kommunestyret er kommunens øverste folkevalgte organ og velges direkte av innbyggerne hvert fjerde år. Det vedtar budsjett og bestemmer i de viktigste sakene.',
   },
   {
@@ -770,17 +770,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke oppgaver har fylkeskommunen?',
-    options: ["Videregående opplæring, kollektivtransport og regional utvikling", "Grunnskole og barnehage", "Grunnskole og barnehage, altså opplæring og omsorg for barn før de begynner på videregående", "Sykehus og fastleger, altså ansvaret for spesialisthelsetjenesten og den lokale legetjenesten"],
+    options: ["Videregående opplæring, kollektivtransport og regional utvikling", "Grunnskole, barnehage og eldreomsorg i kommunene", "Grunnskole og barnehage, altså opplæring og omsorg for barn før de begynner på videregående", "Sykehus og fastleger, altså ansvaret for spesialisthelsetjenesten og den lokale legetjenesten"],
     explanation: 'Fylkeskommunen har ansvar for blant annet videregående opplæring, kollektivtransport, fylkesveier og regional utvikling. Grunnskolen er kommunens ansvar, sykehusene statens.',
   },
   {
     question: 'Hva er lovpålagte oppgaver for kommunen?',
-    options: ["Oppgaver kommunen er pålagt ved lov å utføre, som grunnskole, barnehage og helsetjenester", "Oppgaver staten utfører i kommunen", "Oppgaver kommunen selv velger å tilby innbyggerne uten lovkrav, som kino, svømmehall og kulturhus", "Oppgaver staten utfører direkte i kommunen på vegne av departementene, som politi og sykehusdrift"],
+    options: ["Oppgaver kommunen er pålagt ved lov å utføre, som grunnskole, barnehage og helsetjenester", "Oppgaver som staten selv utfører ute i kommunene på vegne av alle de innbyggerne som bor der", "Oppgaver kommunen selv velger å tilby innbyggerne uten lovkrav, som kino, svømmehall og kulturhus", "Oppgaver staten utfører direkte i kommunen på vegne av departementene, som politi og sykehusdrift"],
     explanation: 'Lovpålagte oppgaver er oppgaver kommunen må utføre etter loven - som grunnskole, barnehage og helse- og omsorgstjenester. I tillegg kan kommunen påta seg frivillige oppgaver.',
   },
   {
     question: 'Hva er formannskapet?',
-    options: ["Et utvalg valgt av kommunestyret som forbereder saker og behandler hastesaker", "Kommunens eldste innbyggere", "Et rådgivende organ av kommunens eldste og mest erfarne innbyggere som gir råd i lokale saker", "Ordførerens private stab av rådgivere som håndterer daglig drift og forbereder pressekonferanser"],
+    options: ["Et utvalg valgt av kommunestyret som forbereder saker og behandler hastesaker", "Et rådgivende utvalg som er satt sammen av de aller eldste innbyggerne i kommunen", "Et rådgivende organ av kommunens eldste og mest erfarne innbyggere som gir råd i lokale saker", "Ordførerens private stab av rådgivere som håndterer daglig drift og forbereder pressekonferanser"],
     explanation: 'Formannskapet er et utvalg valgt av og blant kommunestyrets medlemmer. Det forbereder saker for kommunestyret og kan behandle hastesaker.',
   },
 ],
@@ -789,7 +789,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-4-6': [
   {
     question: 'Hva innebærer medborgerskap?',
-    options: ["Å være en aktiv deltaker i samfunnet med rettigheter, plikter og engasjement", "Å være medlem av et politisk parti", "Å være innmeldt medlem av et politisk parti og delta på partiets møter og lokale arrangementer", "Å være fast bosatt i en by med de rettighetene og godene bylivet gir sammenlignet med distriktene"],
+    options: ["Å være en aktiv deltaker i samfunnet med rettigheter, plikter og engasjement", "Å være betalende medlem av et politisk parti og møte på partiets medlemsmøter", "Å være innmeldt medlem av et politisk parti og delta på partiets møter", "Å være fast bosatt i en by med de rettighetene og godene bylivet gir sammenlignet med distriktene"],
     explanation: 'Medborgerskap handler om å være en aktiv deltaker i samfunnet - med rettigheter (som stemmerett), plikter (som å følge lover) og engasjement i fellesskapet. Det er mer enn formelt statsborgerskap.',
   },
   {
@@ -799,17 +799,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sivil ulydighet?',
-    options: ["Å bevisst bryte loven for å protestere mot urettferdighet, og akseptere straffen", "Hærverk mot offentlige bygg for egen vinning", "Hærverk og skadeverk mot offentlige bygg utført i det skjulte for egen vinning uten politisk hensikt", "Å la være å stemme ved valg fordi man er misfornøyd med alle de tilgjengelige partiene og kandidatene"],
+    options: ["Å bevisst bryte loven for å protestere mot urettferdighet, og akseptere straffen", "Hærverk mot offentlige bygninger som blir utført for å oppnå en fordel for en selv", "Hærverk og skadeverk mot offentlige bygg utført i det skjulte for egen vinning uten politisk hensikt", "Å la være å stemme ved valg fordi man er misfornøyd med alle de tilgjengelige partiene og kandidatene"],
     explanation: 'Sivil ulydighet er å bevisst og åpent bryte loven for å protestere mot noe man mener er urettferdig - og akseptere straffen. Virkemiddelet er omstridt, men har historisk spilt en rolle i flere demokratibevegelser.',
   },
   {
     question: 'Hva er sivilsamfunnet?',
-    options: ["Den delen av samfunnet som verken er stat eller marked - frivillige organisasjoner og foreninger", "Alle som ikke er i militæret", "Børsnoterte selskaper og private bedrifter som opererer i markedet for å skape overskudd til sine eiere", "Alle innbyggere i landet som ikke tjenestegjør i militæret eller andre deler av statens sikkerhetsapparat"],
+    options: ["Den delen av samfunnet som verken er stat eller marked - frivillige organisasjoner og foreninger", "Alle innbyggerne i et land som ikke gjør tjeneste i militæret, altså hele den sivile befolkningen", "Børsnoterte selskaper og private bedrifter som opererer i markedet for å skape overskudd til sine eiere", "Alle innbyggere i landet som ikke tjenestegjør i militæret eller andre deler av statens sikkerhetsapparat"],
     explanation: 'Sivilsamfunnet er den delen av samfunnet som verken er stat eller marked - frivillige organisasjoner, idrettslag, foreninger og bevegelser. Det er en viktig arena for demokratisk deltakelse.',
   },
   {
     question: 'Hva menes med sosial kapital?',
-    options: ["Tillit og nettverk som oppstår gjennom deltakelse i organisasjoner og fellesskap", "Penger man tjener på sosiale medier", "Pengene og inntektene enkeltpersoner tjener på annonser og samarbeid gjennom sosiale medier og plattformer", "Statens samlede formue og oppsparte midler, som oljefondet og verdiene fellesskapet forvalter for framtida"],
+    options: ["Tillit og nettverk som oppstår gjennom deltakelse i organisasjoner og fellesskap", "Pengene man kan tjene på å legge ut populært innhold i sosiale medier over lang tid", "Pengene og inntektene enkeltpersoner tjener på annonser og samarbeid gjennom sosiale medier og plattformer", "Statens samlede formue og oppsparte midler, som oljefondet og verdiene fellesskapet forvalter for framtida"],
     explanation: 'Sosial kapital er tilliten og nettverkene som bygges gjennom deltakelse i organisasjoner og fellesskap. Høy sosial kapital styrker både demokratiet og samfunnets evne til samarbeid.',
   },
 ],
@@ -818,7 +818,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-4-7': [
   {
     question: 'Hva menes med polarisering?',
-    options: ["Økende avstand mellom politiske grupper der \"vi mot dem\"-tenkning dominerer", "At velgerne samler seg i sentrum", "At stadig flere partier finner sammen om brede kompromisser og samarbeider tett på tvers av blokkene", "At velgerne beveger seg mot den politiske midten og de ytterliggående standpunktene mister oppslutning"],
+    options: ["Økende avstand mellom politiske grupper der \"vi mot dem\"-tenkning dominerer", "At velgerne samler seg om partiene i den politiske midten og blir stadig mer enige", "At stadig flere partier finner sammen om brede kompromisser og samarbeider tett på tvers av blokkene", "At velgerne beveger seg mot den politiske midten og de ytterliggående standpunktene mister oppslutning"],
     explanation: 'Polarisering er at avstanden mellom politiske grupper øker, og at "vi mot dem"-tenkning dominerer. Sterk polarisering kan gjøre kompromisser og saklig debatt vanskeligere.',
   },
   {
@@ -828,7 +828,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan desinformasjon true demokratiet?',
-    options: ["Den kan villede velgerne, svekke tilliten til institusjoner og forstyrre den offentlige debatten", "Desinformasjon finnes ikke i demokratier", "Den gjør befolkningen bedre informert fordi mengden tilgjengelig informasjon øker den samlede kunnskapen", "Desinformasjon forekommer bare i autoritære stater og utgjør ingen reell trussel i etablerte demokratier"],
+    options: ["Den kan villede velgerne, svekke tilliten til institusjoner og forstyrre den offentlige debatten", "Desinformasjon finnes ikke i demokratier, fordi ytringsfriheten sørger for at falske påstander stoppes", "Den gjør befolkningen bedre informert fordi mengden tilgjengelig informasjon øker den samlede kunnskapen", "Desinformasjon forekommer bare i autoritære stater og utgjør ingen reell trussel i etablerte demokratier"],
     explanation: 'Desinformasjon - bevisst feilinformasjon - kan villede velgere, svekke tilliten til medier og institusjoner og forgifte den offentlige debatten som demokratiet er avhengig av.',
   },
   {
@@ -838,7 +838,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er politisk ekstremisme?',
-    options: ["Ytterliggående holdninger som kan true demokratiske institusjoner og verdier", "Sterkt engasjement i lovlig politisk arbeid", "Aktivt medlemskap i små partier som sjelden når sperregrensen og kommer inn på Stortinget ved valg", "Rett og slett å være politisk uenig med regjeringen og kritisere dens politikk gjennom vanlige kanaler"],
+    options: ["Ytterliggående holdninger som kan true demokratiske institusjoner og verdier", "Sterkt engasjement i helt lovlig politisk arbeid, som partiarbeid og demonstrasjoner", "Aktivt medlemskap i små partier som sjelden når sperregrensen og kommer inn på Stortinget ved valg", "Rett og slett å være politisk uenig med regjeringen og kritisere dens politikk gjennom vanlige kanaler"],
     explanation: 'Politisk ekstremisme er ytterliggående holdninger som kan true demokratiet, særlig når vold aksepteres som virkemiddel. Ekstremisme finnes i flere varianter - både høyreekstremisme, venstreekstremisme og religiøs ekstremisme.',
   },
 ],
@@ -847,12 +847,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-5-1': [
   {
     question: 'Hva er en politisk ideologi?',
-    options: ["Et sammenhengende sett av ideer om hvordan samfunnet bør organiseres", "En vitenskapelig teori om naturen", "En konkret lov vedtatt av Stortinget som fastsetter regler og plikter for borgerne på et bestemt område", "En etterprøvbar vitenskapelig teori som forklarer sammenhenger i naturen gjennom observasjon og eksperiment"],
+    options: ["Et sammenhengende sett av ideer om hvordan samfunnet bør organiseres", "En vitenskapelig teori om naturen som kan etterprøves i vitenskapelige forsøk", "En konkret lov vedtatt av Stortinget som fastsetter regler og plikter for borgerne på et bestemt område", "En etterprøvbar vitenskapelig teori som forklarer sammenhenger i naturen gjennom observasjon og eksperiment"],
     explanation: 'En politisk ideologi er et sammenhengende sett av ideer om hvordan samfunnet bør organiseres - med verdier, mål og virkemidler. Partier bygger ofte på ideologier, men er ikke selv ideologier.',
   },
   {
     question: 'Hva betyr det at en ideologi er normativ?',
-    options: ["At den sier noe om hvordan samfunnet bør være, ikke bare hvordan det er", "At den er vedtatt som norm av FN", "At den formelt er vedtatt som en forpliktende norm av FN og dermed gjelder for medlemslandene", "At den følger normale og alminnelige regler som de fleste tar for gitt i det daglige samfunnslivet"],
+    options: ["At den sier noe om hvordan samfunnet bør være, ikke bare hvordan det er", "At den er vedtatt som en folkerettslig bindende norm av FNs generalforsamling", "At den formelt er vedtatt som en forpliktende norm av FN og dermed gjelder for medlemslandene", "At den følger normale og alminnelige regler som de fleste tar for gitt i det daglige samfunnslivet"],
     explanation: 'Normativ betyr at noe sier hvordan ting bør være. Ideologier er normative fordi de beskriver et ønsket samfunn, ikke bare hvordan samfunnet faktisk er.',
   },
   {
@@ -867,7 +867,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det nyttig å kjenne til ideologier når man følger politikken?',
-    options: ["Fordi de hjelper oss å forstå hvorfor partier foreslår ulike løsninger på samme problem", "Fordi alle politikere følger sin ideologi slavisk", "Fordi én bestemt ideologi er objektivt og vitenskapelig riktig, mens de øvrige bygger på feilslutninger", "Fordi alle politikere følger sin ideologi slavisk i enhver sak og aldri henter argumenter fra andre retninger"],
+    options: ["Fordi de hjelper oss å forstå hvorfor partier foreslår ulike løsninger på samme problem", "Fordi alle politikere alltid følger ideologien til partiet sitt slavisk i hver eneste sak", "Fordi én bestemt ideologi er objektivt og vitenskapelig riktig, mens de øvrige bygger på feilslutninger", "Fordi alle politikere følger sin ideologi slavisk i enhver sak og aldri henter argumenter fra andre retninger"],
     explanation: 'Ideologier fungerer som "kart" som forklarer hvorfor partier ser ulikt på samme sak. De fleste partier henter dessuten ideer fra flere ideologier, så kunnskapen hjelper oss å analysere - ikke å fasitsvare.',
   },
 ],
@@ -881,7 +881,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner konservatismen?',
-    options: ["Vektlegging av tradisjon, orden og gradvis endring fremfor radikale reformer", "Ønske om rask og radikal samfunnsendring", "Avskaffelse av privat eiendomsrett og felleseie av produksjonsmidlene for å oppnå økonomisk likhet", "Prinsipiell motstand mot alle nedarvede tradisjoner og institusjoner til fordel for helt nye ordninger"],
+    options: ["Vektlegging av tradisjon, orden og gradvis endring fremfor radikale reformer", "Ønske om rask og radikal samfunnsendring gjennom store og omfattende reformer", "Avskaffelse av privat eiendomsrett og felleseie av produksjonsmidlene for å oppnå økonomisk likhet", "Prinsipiell motstand mot alle nedarvede tradisjoner og institusjoner til fordel for helt nye ordninger"],
     explanation: 'Konservatismen vektlegger tradisjon, orden og erfaring, og foretrekker gradvis endring fremfor radikale reformer. Samfunnet ses som et fellesskap mellom generasjoner.',
   },
   {
@@ -891,7 +891,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skiller sosialdemokrati fra kommunisme?',
-    options: ["Sosialdemokratiet søker gradvis endring gjennom demokratiske midler, kommunismen er revolusjonær", "Sosialdemokratiet vil avskaffe demokratiet", "Sosialdemokratiet ønsker å avskaffe det parlamentariske demokratiet til fordel for direkte folkestyre", "Kommunismen godtar full privat eiendomsrett og markedsøkonomi på linje med de liberale partiene i vest"],
+    options: ["Sosialdemokratiet søker gradvis endring gjennom demokratiske midler, kommunismen er revolusjonær", "Sosialdemokratiet vil avskaffe det parlamentariske demokratiet, mens kommunismen ønsker å bevare det", "Sosialdemokratiet ønsker å avskaffe det parlamentariske demokratiet til fordel for direkte folkestyre", "Kommunismen godtar full privat eiendomsrett og markedsøkonomi på linje med de liberale partiene i vest"],
     explanation: 'Begge springer ut av sosialismen, men sosialdemokratiet søker gradvise reformer innenfor demokratiet og godtar markedsøkonomi. Kommunismen ønsker revolusjon og avskaffelse av privat eiendom.',
   },
   {
@@ -920,12 +920,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er feminisme som ideologi?',
-    options: ["En bevegelse og ideologi som arbeider for likestilling mellom kjønnene", "En ideologi om at kvinner skal styre alene", "En prinsipiell motstand mot menn som gruppe og et ønske om å redusere deres rolle i samfunnslivet", "En ideologi som mener kvinner alene bør styre samfunnet og at menn bør holdes utenfor maktposisjoner"],
+    options: ["En bevegelse og ideologi som arbeider for likestilling mellom kjønnene", "En ideologi som går inn for at kvinner alene skal styre samfunnet og politikken", "En prinsipiell motstand mot menn som gruppe og et ønske om å redusere deres rolle i samfunnslivet", "En ideologi som mener kvinner alene bør styre samfunnet og at menn bør holdes utenfor maktposisjoner"],
     explanation: 'Feminisme er en politisk bevegelse og ideologi som arbeider for likestilling mellom kjønnene. Det finnes flere retninger som er uenige om både analyser og virkemidler.',
   },
   {
     question: 'Hva er sentrum-periferi-skillelinjen i norsk politikk?',
-    options: ["Motsetningen mellom storby/sentrale strøk og distrikt/utkant i politiske spørsmål", "Motsetningen mellom unge og gamle velgere", "Motsetningen mellom unge og eldre velgere i saker som pensjon, utdanning og klima på tvers av landet", "Den personlige avstanden og de politiske uenighetene mellom partilederne i de ulike stortingspartiene"],
+    options: ["Motsetningen mellom storby/sentrale strøk og distrikt/utkant i politiske spørsmål", "Motsetningen mellom de unge og de eldre velgerne i så godt som alle politiske spørsmål", "Motsetningen mellom unge og eldre velgere i saker som pensjon, utdanning og klima på tvers av landet", "Den personlige avstanden og de politiske uenighetene mellom partilederne i de ulike stortingspartiene"],
     explanation: 'Sentrum-periferi er en varig skillelinje mellom sentrale strøk og distriktene - synlig i saker som landbrukspolitikk, desentralisering og EU-spørsmålet.',
   },
 ],
@@ -934,12 +934,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-5-4': [
   {
     question: 'Hva er populisme?',
-    options: ["En politisk stil basert på motsetningen mellom \"det ekte folket\" og \"en korrupt elite\"", "En økonomisk teori om popularitet", "Det samme som demokrati, altså folkestyre der flertallet bestemmer gjennom frie og hemmelige valg", "En økonomisk teori som forklarer hvorfor enkelte produkter og merkevarer blir populære i markedet"],
+    options: ["En politisk stil basert på motsetningen mellom \"det ekte folket\" og \"en korrupt elite\"", "En økonomisk teori om hvordan populariteten til en vare påvirker prisdannelsen i markedet", "Det samme som demokrati, altså folkestyre der flertallet bestemmer gjennom frie og hemmelige valg", "En økonomisk teori som forklarer hvorfor enkelte produkter og merkevarer blir populære i markedet"],
     explanation: 'Populisme er en politisk stil som baserer seg på motsetningen mellom "det ekte folket" og "en korrupt elite". Populister hevder å representere folkets egentlige vilje.',
   },
   {
     question: 'Hva er antielitisme?',
-    options: ["Kritikk av og motstand mot etablerte eliter som politikere, byråkrater og medier", "Støtte til de rikeste i samfunnet", "Aktiv støtte til de rikeste og mest velstående i samfunnet og deres innflytelse over politikken", "Motstand mot idrettseliten og profflagenes dominans framfor bredde- og mosjonsidretten i landet"],
+    options: ["Kritikk av og motstand mot etablerte eliter som politikere, byråkrater og medier", "Aktiv støtte til de aller rikeste og mest innflytelsesrike gruppene i hele samfunnet", "Aktiv støtte til de rikeste og mest velstående i samfunnet og deres innflytelse over politikken", "Motstand mot idrettseliten og profflagenes dominans framfor bredde- og mosjonsidretten i landet"],
     explanation: 'Antielitisme er kritikk av og motstand mot etablerte eliter - politikere, byråkrater, akademikere og medier. Det er et sentralt trekk ved populismen.',
   },
   {
@@ -949,7 +949,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er flertallstyranni?',
-    options: ["Når flertallet undertrykker mindretallets rettigheter uten demokratiske begrensninger", "Når mindretallet styrer over flertallet", "Når et lite mindretall styrer over det store flertallet og overkjører folkeviljen gjennom valg", "Når ingen partier eller kandidater oppnår rent flertall ved valget og det oppstår en fastlåst situasjon"],
+    options: ["Når flertallet undertrykker mindretallets rettigheter uten demokratiske begrensninger", "Når et lite mindretall styrer over hele flertallet uten noen demokratiske begrensninger", "Når et lite mindretall styrer over det store flertallet og overkjører folkeviljen gjennom valg", "Når ingen partier eller kandidater oppnår rent flertall ved valget og det oppstår en fastlåst situasjon"],
     explanation: 'Flertallstyranni er når flertallet overkjører mindretallets grunnleggende rettigheter. Demokratier beskytter seg mot dette med mindretallsvern, rettssikkerhet og maktfordeling.',
   },
   {
@@ -973,7 +973,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kreves for å endre Grunnloven?',
-    options: ["2/3 flertall på Stortinget, og det må være valg mellom forslag og vedtak", "Simpelt flertall på Stortinget", "En bindende folkeavstemning der et flertall av velgerne godkjenner endringen direkte", "Simpelt flertall på Stortinget i én og samme sesjon, akkurat som ved vedtak av vanlige lover"],
+    options: ["2/3 flertall på Stortinget, og det må være valg mellom forslag og vedtak", "Simpelt flertall på Stortinget i én enkelt behandling av grunnlovsforslaget", "En bindende folkeavstemning der et flertall av velgerne godkjenner endringen direkte", "Simpelt flertall på Stortinget i én og samme sesjon, akkurat som ved vedtak av vanlige lover"],
     explanation: 'Grunnlovsendringer krever 2/3 flertall på Stortinget, og forslaget må fremmes i én stortingsperiode og vedtas i den neste - slik at velgerne får sagt sitt ved valg imellom.',
   },
   {
@@ -983,7 +983,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skjedde med Grunnloven i 2014?',
-    options: ["Et eget menneskerettighetskapittel ble innført ved grunnlovsrevisjonen", "Norge fikk ny grunnlov fra EU", "Norge fikk en ny felles grunnlov fra EU som gjelder foran den norske fra 1814", "Grunnloven ble opphevet og erstattet av en helt ny grunnlov skrevet i moderne språkdrakt"],
+    options: ["Et eget menneskerettighetskapittel ble innført ved grunnlovsrevisjonen", "Norge fikk en helt ny grunnlov som var utformet etter mønster fra EU-retten", "Norge fikk en ny felles grunnlov fra EU som gjelder foran den norske fra 1814", "Grunnloven ble opphevet og erstattet av en helt ny grunnlov skrevet i moderne språkdrakt"],
     explanation: 'Ved grunnlovsrevisjonen i 2014 - 200 år etter 1814 - ble menneskerettighetsvernet styrket gjennom et eget menneskerettighetskapittel (kapittel E).',
   },
 ],
@@ -1002,17 +1002,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er spørretimen?',
-    options: ["En ukentlig seanse der stortingsrepresentanter stiller spørsmål til statsrådene", "Tiden der velgere kan ringe Stortinget", "En muntlig prøve der statsrådene må dokumentere at de behersker sitt eget fagfelt godt nok", "En kunnskapstest der nyvalgte representanter må svare på spørsmål om Stortingets arbeidsmåte"],
+    options: ["En ukentlig seanse der stortingsrepresentanter stiller spørsmål til statsrådene", "Den faste tiden hver uke der velgerne kan ringe inn til Stortinget med sine spørsmål", "En muntlig prøve der statsrådene må dokumentere at de behersker sitt eget fagfelt godt nok", "En kunnskapstest der nyvalgte representanter må svare på spørsmål om Stortingets arbeidsmåte"],
     explanation: 'Spørretimen er en ukentlig seanse der stortingsrepresentantene kan stille spørsmål direkte til statsrådene. Den er en del av Stortingets kontroll med regjeringen.',
   },
   {
     question: 'Hva er Riksrevisjonen?',
-    options: ["Stortingets organ for kontroll av statens pengebruk og økonomi", "Domstolen som behandler skattesaker", "Den særskilte domstolen som behandler tvister mellom skattytere og skattemyndighetene", "Regjeringens egen regnskapsfører som fører statens bøker og setter opp statsbudsjettet"],
+    options: ["Stortingets organ for kontroll av statens pengebruk og økonomi", "Den domstolen som behandler alle skattesaker mellom staten og borgerne", "Den særskilte domstolen som behandler tvister mellom skattytere og skattemyndighetene", "Regjeringens egen regnskapsfører som fører statens bøker og setter opp statsbudsjettet"],
     explanation: 'Riksrevisjonen er Stortingets kontrollorgan som reviderer statens regnskaper og undersøker om offentlige midler brukes slik Stortinget har bestemt.',
   },
   {
     question: 'Hva er en proposisjon?',
-    options: ["Et forslag fra regjeringen til Stortinget, for eksempel et lovforslag", "Stortingets svar til regjeringen", "En rettskraftig dom fra Høyesterett som fastslår hvordan en lov skal tolkes videre", "Stortingets formelle svar tilbake til regjeringen etter at en sak er ferdig behandlet"],
+    options: ["Et forslag fra regjeringen til Stortinget, for eksempel et lovforslag", "Stortingets formelle skriftlige svar tilbake til regjeringen i en enkelt sak", "En rettskraftig dom fra Høyesterett som fastslår hvordan en lov skal tolkes videre", "Stortingets formelle svar tilbake til regjeringen etter at en sak er ferdig behandlet"],
     explanation: 'En proposisjon er regjeringens formelle forslag til Stortinget - enten lovforslag (lovproposisjon) eller andre saker, som budsjettforslag.',
   },
 ],
@@ -1021,7 +1021,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-5-7': [
   {
     question: 'Hva er regjeringens rolle i det norske styringssystemet?',
-    options: ["Den utøvende makt som leder den daglige styringen av landet", "Den lovgivende makt som vedtar lover", "Den lovgivende makt som vedtar lovene og bevilger pengene over statsbudsjettet", "Den dømmende makt som avgjør rettstvister og setter presedens for lavere domstoler"],
+    options: ["Den utøvende makt som leder den daglige styringen av landet", "Den lovgivende makten som vedtar alle lovene som gjelder i landet", "Den lovgivende makt som vedtar lovene og bevilger pengene over statsbudsjettet", "Den dømmende makt som avgjør rettstvister og setter presedens for lavere domstoler"],
     explanation: 'Regjeringen er den utøvende makt: Den leder den daglige styringen av landet, gjennomfører Stortingets vedtak og foreslår nye lover og budsjetter.',
   },
   {
@@ -1036,12 +1036,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr det å stille kabinettspørsmål?',
-    options: ["At regjeringen truer med å gå av hvis den ikke får flertall i en bestemt sak", "At Stortinget spør regjeringen om møbler", "At statsministeren ber kongen om personlige råd før et vanskelig vedtak fattes i statsråd", "At opposisjonen samlet krever at det utpekes en helt ny statsminister fra deres egne rekker"],
+    options: ["At regjeringen truer med å gå av hvis den ikke får flertall i en bestemt sak", "At Stortinget stiller regjeringen spørsmål om innkjøpene av møbler til departementene", "At statsministeren ber kongen om personlige råd før et vanskelig vedtak fattes i statsråd", "At opposisjonen samlet krever at det utpekes en helt ny statsminister fra deres egne rekker"],
     explanation: 'Når regjeringen stiller kabinettspørsmål, knytter den sin egen skjebne til en sak: Får den ikke viljen sin i Stortinget, går den av. Det er et sterkt pressmiddel.',
   },
   {
     question: 'Hva er en regjeringsplattform?',
-    options: ["En politisk avtale mellom regjeringspartiene om hvilken politikk de skal føre", "Bygningen der regjeringen holder til", "Regjeringskvartalet og de øvrige bygningene der statsrådene og departementene holder til", "Regjeringens offisielle nettside der de legger ut nyheter og informerer om vedtakene sine"],
+    options: ["En politisk avtale mellom regjeringspartiene om hvilken politikk de skal føre", "Den bygningen i Oslo der regjeringen holder til og har alle kontorene sine samlet", "Regjeringskvartalet og de øvrige bygningene der statsrådene og departementene holder til", "Regjeringens offisielle nettside der de legger ut nyheter og informerer om vedtakene sine"],
     explanation: 'En regjeringsplattform er den politiske avtalen regjeringspartiene forhandler frem om hvilken politikk regjeringen skal føre - som Hurdalsplattformen eller Granavolden-plattformen.',
   },
 ],
@@ -1065,12 +1065,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken særlig rolle har Høyesterett?',
-    options: ["Å behandle prinsipielle saker og sette presedens for rettspraksis", "Å behandle alle saker i Norge", "Å vedta nye lover på områder der Stortinget selv ikke har rukket å behandle saken ferdig", "Å behandle absolutt alle rettssaker i Norge som første og eneste domstolsinstans i landet"],
+    options: ["Å behandle prinsipielle saker og sette presedens for rettspraksis", "Å behandle alle rettssaker som blir reist for domstolene her i landet", "Å vedta nye lover på områder der Stortinget selv ikke har rukket å behandle saken ferdig", "Å behandle absolutt alle rettssaker i Norge som første og eneste domstolsinstans i landet"],
     explanation: 'Høyesterett er Norges øverste domstol. Den behandler først og fremst prinsipielle saker, og avgjørelsene setter presedens - de blir retningsgivende for lavere domstoler.',
   },
   {
     question: 'Hvorfor er uavhengige domstoler viktige for rettssikkerheten?',
-    options: ["Fordi de beskytter borgerne mot overgrep fra staten og sikrer rettferdig behandling", "Fordi de kan instrueres av regjeringen", "Fordi de gjør den politiske styringen mer effektiv ved å avgjøre saker raskt uten lange prosesser", "Fordi de kan instrueres av regjeringen og dermed sørger for en mer enhetlig og forutsigbar politikk"],
+    options: ["Fordi de beskytter borgerne mot overgrep fra staten og sikrer rettferdig behandling", "Fordi de kan instrueres av regjeringen om hvordan hver enkelt sak skal avgjøres i retten", "Fordi de gjør den politiske styringen mer effektiv ved å avgjøre saker raskt uten lange prosesser", "Fordi de kan instrueres av regjeringen og dermed sørger for en mer enhetlig og forutsigbar politikk"],
     explanation: 'Uavhengige domstoler kan ikke instrueres av politikerne. Det sikrer at borgerne får en rettferdig behandling og er beskyttet mot maktovergrep - kjernen i rettssikkerheten.',
   },
 ],
@@ -1079,12 +1079,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-5-9': [
   {
     question: 'Hva er et partiprogram?',
-    options: ["Dokumentet som beskriver et partis politiske mål og standpunkter, vedtatt av landsmøtet", "TV-programmet der partilederne debatterer", "Den fullstendige medlemslisten til partiet som viser hvem som betaler kontingent hvert år", "TV-programmet der partilederne møtes til debatt og forsvarer sine standpunkter foran velgerne"],
+    options: ["Dokumentet som beskriver et partis politiske mål og standpunkter, vedtatt av landsmøtet", "Det faste TV-programmet der partilederne debatterer mot hverandre gjennom hele valgkampen", "Den fullstendige medlemslisten til partiet som viser hvem som betaler kontingent hvert år", "TV-programmet der partilederne møtes til debatt og forsvarer sine standpunkter foran velgerne"],
     explanation: 'Partiprogrammet beskriver partiets politiske mål og standpunkter. Det vedtas av landsmøtet og forplikter partiets representanter.',
   },
   {
     question: 'Hva er landsmøtet i et parti?',
-    options: ["Partiets øverste organ som vedtar program, velger leder og staker ut kursen", "Et møte mellom partiet og regjeringen", "Stortingets høytidelige åpning hvert år, der kongen leser trontalen for de folkevalgte", "Et felles møte for alle landets registrerte partier der de blir enige om felles kjøreregler"],
+    options: ["Partiets øverste organ som vedtar program, velger leder og staker ut kursen", "Et fast møte mellom partiledelsen og regjeringen om politikken i året som kommer", "Stortingets høytidelige åpning hvert år, der kongen leser trontalen for de folkevalgte", "Et felles møte for alle landets registrerte partier der de blir enige om felles kjøreregler"],
     explanation: 'Landsmøtet er partiets øverste organ. Det samles vanligvis hvert eller annethvert år for å vedta partiprogram, velge ledelse og trekke opp den politiske kursen.',
   },
   {
@@ -1099,7 +1099,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken rolle spiller ungdomspartiene?',
-    options: ["De rekrutterer og skolerer unge politikere og påvirker moderpartiets politikk", "De har ingen tilknytning til moderpartiene", "De har det avgjørende ordet når det skal bestemmes hvem som til slutt blir landets statsminister", "De stiller egne, atskilte lister ved stortingsvalg og konkurrerer dermed direkte med moderpartiet"],
+    options: ["De rekrutterer og skolerer unge politikere og påvirker moderpartiets politikk", "De har ingen formell tilknytning til moderpartiene og driver helt for seg selv", "De har det avgjørende ordet når det skal bestemmes hvem som til slutt blir landets statsminister", "De stiller egne, atskilte lister ved stortingsvalg og konkurrerer dermed direkte med moderpartiet"],
     explanation: 'Ungdomspartiene er partienes ungdomsorganisasjoner. De rekrutterer og skolerer unge politikere, og fungerer ofte som pådrivere overfor moderpartiet.',
   },
 ],
@@ -1108,27 +1108,27 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-5-10': [
   {
     question: 'Hva er en NOU?',
-    options: ["Norges offentlige utredninger - grundige analyser utarbeidet av offentlige utvalg", "Norges overordnede utenrikspolitikk", "En bestemt type stortingsvedtak som bare gjelder saker om statens økonomi og pengebruk", "En løpende nyhetsoppdatering fra utlandet som Utenriksdepartementet sender til Stortinget"],
+    options: ["Norges offentlige utredninger - grundige analyser utarbeidet av offentlige utvalg", "Norges overordnede utenrikspolitikk, slik den blir vedtatt av Stortinget hvert eneste år", "En bestemt type stortingsvedtak som bare gjelder saker om statens økonomi og pengebruk", "En løpende nyhetsoppdatering fra utlandet som Utenriksdepartementet sender til Stortinget"],
     explanation: 'NOU står for Norges offentlige utredninger - grundige analyser av et saksfelt, utarbeidet av utvalg nedsatt av regjeringen. De danner ofte grunnlag for lovforslag.',
   },
   {
     question: 'Hva er en høring i lovprosessen?',
-    options: ["At lovforslag sendes ut til berørte parter for skriftlige innspill", "En muntlig eksamen for byråkrater", "En rettssak der en domstol prøver om det nye lovforslaget er i strid med Grunnloven", "At Stortinget avholder en kulturell seanse med musikk og opplesning før en viktig debatt"],
+    options: ["At lovforslag sendes ut til berørte parter for skriftlige innspill", "En muntlig eksamen som byråkrater må ta før de får jobbe i departementene", "En rettssak der en domstol prøver om det nye lovforslaget er i strid med Grunnloven", "At Stortinget avholder en kulturell seanse med musikk og opplesning før en viktig debatt"],
     explanation: 'I en høring sendes lovforslaget ut til berørte parter - organisasjoner, etater, kommuner - som kan gi skriftlige innspill før regjeringen ferdigstiller forslaget.',
   },
   {
     question: 'Hva er en innstilling fra en stortingskomite?',
-    options: ["Komiteens vurdering og anbefaling til Stortinget i plenum", "Komiteens ansettelse av nye medlemmer", "Komiteens formelle ansettelse og opplæring av de nye medlemmene som kommer inn i komiteen", "Den endelige og ferdig vedtatte loven slik den blir kunngjort og lagt ut i Lovdata etterpå"],
+    options: ["Komiteens vurdering og anbefaling til Stortinget i plenum", "Komiteens ansettelse av nye medlemmer og rådgivere til komiteen", "Komiteens formelle ansettelse av de nye medlemmene", "Den endelige og ferdig vedtatte loven slik den blir kunngjort og lagt ut i Lovdata etterpå"],
     explanation: 'Etter komitebehandlingen avgir komiteen en innstilling - dens vurdering og anbefaling - som Stortinget i plenum debatterer og voterer over.',
   },
   {
     question: 'Hvor mange ganger behandles et lovforslag i Stortinget?',
-    options: ["To ganger (andre gangs behandling minst tre dager etter første)", "Til alle er enige", "Én gang, i ett samlet møte der forslaget både debatteres og voteres over med endelig virkning", "Fem ganger, én gang i hver av de fem sesjonene som utgjør en full stortingsperiode på fire år"],
+    options: ["To ganger (andre gangs behandling minst tre dager etter første)", "Så mange ganger som det trengs, til alle er enige", "Én gang, i ett samlet møte der forslaget både debatteres og voteres over med endelig virkning", "Fem ganger, én gang i hver av de fem sesjonene som utgjør en full stortingsperiode på fire år"],
     explanation: 'Lovvedtak krever to behandlinger i Stortinget, med minst tre dagers mellomrom. Deretter får loven kongelig sanksjon og kunngjøres.',
   },
   {
     question: 'Hva er riktig rekkefølge i lovprosessen?',
-    options: ["Utredning (NOU) → høring → proposisjon → komitebehandling → vedtak → sanksjon", "Vedtak → utredning → høring → proposisjon", "Proposisjon → utredning (NOU) → sanksjon → høring → komitébehandling → endelig vedtak", "Vedtak → utredning (NOU) → høring → proposisjon → komitébehandling → kongelig sanksjon"],
+    options: ["Utredning (NOU) → høring → proposisjon → komitebehandling → vedtak → sanksjon", "Vedtak i Stortinget → utredning (NOU) → høring → proposisjon → komitebehandling", "Proposisjon → utredning (NOU) → sanksjon → høring → komitébehandling → endelig vedtak", "Vedtak → utredning (NOU) → høring → proposisjon → komitébehandling → kongelig sanksjon"],
     explanation: 'Lovprosessen går fra utredning (ofte NOU), via høring og regjeringens proposisjon, til komitebehandling og vedtak i Stortinget, og til slutt kongelig sanksjon og kunngjøring i Lovdata.',
   },
 ],
@@ -1142,12 +1142,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Statsforvalteren?',
-    options: ["Statens representant i fylket som fører tilsyn med kommunene og behandler klager", "Lederen av fylkeskommunen", "Den øverste folkevalgte lederen av fylkeskommunen som styrer den regionale forvaltningen", "Kommunens administrative økonomisjef som setter opp budsjettet og fører kommunens regnskaper"],
+    options: ["Statens representant i fylket som fører tilsyn med kommunene og behandler klager", "Den øverste politiske lederen av fylkeskommunen, valgt av fylkestinget hvert fjerde år", "Den øverste folkevalgte lederen av fylkeskommunen som styrer den regionale forvaltningen", "Kommunens administrative økonomisjef som setter opp budsjettet og fører kommunens regnskaper"],
     explanation: 'Statsforvalteren (tidligere Fylkesmannen) er statens representant i fylket. Den fører tilsyn med kommunene, behandler klager og formidler nasjonal politikk.',
   },
   {
     question: 'Hva er forskjellen på rammetilskudd og øremerkede tilskudd?',
-    options: ["Rammetilskudd kan kommunen disponere fritt, øremerkede tilskudd er bundet til bestemte formål", "Rammetilskudd er bundet, øremerkede er frie", "Rammetilskudd gis bare til fylkeskommuner, mens øremerkede tilskudd bare gis til de minste utkantkommunene", "Begge typene tilskudd er bundet til bestemte formål og må rapporteres tilbake til departementet hvert kvartal"],
+    options: ["Rammetilskudd kan kommunen disponere fritt, øremerkede tilskudd er bundet til bestemte formål", "Rammetilskudd er bundet til bestemte formål, mens øremerkede tilskudd kan disponeres helt fritt", "Rammetilskudd gis bare til fylkeskommuner, mens øremerkede tilskudd bare gis til de minste utkantkommunene", "Begge typene tilskudd er bundet til bestemte formål og må rapporteres tilbake til departementet hvert kvartal"],
     explanation: 'Rammetilskudd er statlige overføringer kommunen disponerer fritt innenfor sine oppgaver. Øremerkede tilskudd må brukes til bestemte formål staten har fastsatt.',
   },
   {
@@ -1171,12 +1171,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er lobbyisme?',
-    options: ["Profesjonell påvirkning av politiske beslutninger på vegne av klienter eller interesser", "Ulovlig bestikkelse av politikere", "Å demonstrere i gatene og samle underskrifter for å legge press på beslutningstakerne utenfra", "Å stemme ved valg og på den måten påvirke hvilke partier som får makt i storting og kommunestyre"],
+    options: ["Profesjonell påvirkning av politiske beslutninger på vegne av klienter eller interesser", "Ulovlig bestikkelse av politikere og byråkrater for å få gjennomslag i en bestemt enkeltsak", "Å demonstrere i gatene og samle underskrifter for å legge press på beslutningstakerne utenfra", "Å stemme ved valg og på den måten påvirke hvilke partier som får makt i storting og kommunestyre"],
     explanation: 'Lobbyisme er profesjonell påvirkning av politiske beslutninger, ofte gjennom direkte kontakt med beslutningstakere. Det er lovlig, men reiser debatt om åpenhet og lik tilgang til makten.',
   },
   {
     question: 'Hva er korporatisme?',
-    options: ["Et system der store organisasjoner har formell innflytelse gjennom utvalg og trepartssamarbeid", "At bare bedrifter kan påvirke politikk", "Et forbud mot interesseorganisasjoner slik at bare enkeltpersoner kan påvirke politiske beslutninger", "Et system der bare bedrifter og næringsliv kan påvirke politikken, mens fagforeninger holdes utenfor"],
+    options: ["Et system der store organisasjoner har formell innflytelse gjennom utvalg og trepartssamarbeid", "At det bare er bedriftene og næringslivet som får lov til å påvirke den politikken myndighetene fører", "Et forbud mot interesseorganisasjoner slik at bare enkeltpersoner kan påvirke politiske beslutninger", "Et system der bare bedrifter og næringsliv kan påvirke politikken, mens fagforeninger holdes utenfor"],
     explanation: 'Korporatisme er et system der store interesseorganisasjoner har formalisert innflytelse på politikken - i Norge gjennom trepartssamarbeidet, offentlige utvalg og høringer.',
   },
   {
@@ -1186,7 +1186,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med "svingdører" i politikken?',
-    options: ["At politikere går over til lobbybransjen eller omvendt, noe som reiser habilitetsspørsmål", "At politikere bytter parti ofte", "At folkevalgte politikere bytter parti ofte og dermed endrer sammensetningen i stortingssalen", "At velgerne stadig skifter standpunkt fra en sak til en annen og gjør meningsmålingene ustabile"],
+    options: ["At politikere går over til lobbybransjen eller omvendt, noe som reiser habilitetsspørsmål", "At politikere ofte bytter parti i løpet av karrieren sin og tar med seg velgerne sine over", "At folkevalgte politikere bytter parti ofte og dermed endrer sammensetningen i stortingssalen", "At velgerne stadig skifter standpunkt fra en sak til en annen og gjør meningsmålingene ustabile"],
     explanation: '"Svingdører" beskriver at politikere og byråkrater går over til lobby- og PR-bransjen, eller omvendt. Det reiser spørsmål om habilitet og om innsidekunnskap gir enkelte aktører urimelige fordeler.',
   },
 ],
@@ -1200,7 +1200,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr det at menneskerettighetene er universelle?',
-    options: ["At de gjelder for alle mennesker uavhengig av statsborgerskap, kjønn eller religion", "At de er like gamle som universet", "At rettighetene gjelder i hele universet og også omfatter andre tenkende vesener enn mennesker", "At rettighetene bare gjelder i land som er medlemmer av FN og har ratifisert alle konvensjonene"],
+    options: ["At de gjelder for alle mennesker uavhengig av statsborgerskap, kjønn eller religion", "At de er like gamle som universet selv og har eksistert helt siden tidenes begynnelse", "At rettighetene gjelder i hele universet og også omfatter andre tenkende vesener enn mennesker", "At rettighetene bare gjelder i land som er medlemmer av FN og har ratifisert alle konvensjonene"],
     explanation: 'Universelle betyr at rettighetene gjelder alle mennesker, overalt - uavhengig av statsborgerskap, kjønn, religion eller andre kjennetegn.',
   },
   {
@@ -1210,7 +1210,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er naturrettstradisjonen?',
-    options: ["Tanken om at mennesker har medfødte rettigheter uavhengig av hva staten bestemmer", "At naturen har egne rettigheter", "Retten alle har til fri ferdsel i utmark og natur gjennom den norske allemannsretten", "Tanken om at naturen og dyrene har egne juridiske rettigheter uavhengig av menneskene"],
+    options: ["Tanken om at mennesker har medfødte rettigheter uavhengig av hva staten bestemmer", "At naturen i seg selv har egne rettigheter, på linje med de rettighetene mennesker har", "Retten alle har til fri ferdsel i utmark og natur gjennom den norske allemannsretten", "Tanken om at naturen og dyrene har egne juridiske rettigheter uavhengig av menneskene"],
     explanation: 'Naturretten er en filosofisk tradisjon som hevder at mennesker har medfødte rettigheter som eksisterer uavhengig av statens lover. Den ligger til grunn for menneskerettighetstenkningen.',
   },
   {
@@ -1234,7 +1234,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen på negative og positive rettigheter?',
-    options: ["Negative krever at staten avstår fra inngrep, positive krever at staten aktivt sørger for noe", "Negative rettigheter er dårlige, positive er gode", "Negative rettigheter er dårlige for samfunnet, mens positive rettigheter er gode og bør prioriteres", "Negative rettigheter gjelder ikke lenger i dag, mens positive rettigheter erstattet dem etter krigen"],
+    options: ["Negative krever at staten avstår fra inngrep, positive krever at staten aktivt sørger for noe", "Negative rettigheter er dårlige, positive er gode", "Negative rettigheter er dårlige for samfunnet, mens positive bør prioriteres", "Negative rettigheter gjelder ikke lenger, mens positive erstattet dem etter krigen"],
     explanation: 'Negative rettigheter krever at staten lar være å gripe inn (som ytringsfrihet). Positive rettigheter krever at staten aktivt leverer noe (som utdanning og helsetjenester).',
   },
   {
@@ -1258,22 +1258,22 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr ratifisering?',
-    options: ["Formell godkjenning av en internasjonal avtale som gjør den bindende for staten", "Å si opp en internasjonal avtale", "Å foreslå en helt ny konvensjon i FN som andre stater deretter inviteres til å slutte seg til", "Å si opp en internasjonal avtale slik at den ikke lenger er bindende for staten som trekker seg"],
+    options: ["Formell godkjenning av en internasjonal avtale som gjør den bindende for staten", "Å si opp en internasjonal avtale som staten tidligere har forpliktet seg til å følge", "Å foreslå en helt ny konvensjon i FN som andre stater deretter inviteres til å slutte seg til", "Å si opp en internasjonal avtale slik at den ikke lenger er bindende for staten som trekker seg"],
     explanation: 'Ratifisering er statens formelle godkjenning av en internasjonal avtale. Først ved ratifisering blir konvensjonen juridisk bindende for staten.',
   },
   {
     question: 'Hva er FNs menneskerettighetsråd?',
-    options: ["FN-organ med 47 medlemsland som overvåker menneskerettighetssituasjonen i verden", "Sikkerhetsrådets underavdeling for handel", "FNs øverste domstol som dømmer stater for brudd på folkeretten og menneskerettighetene", "Et FN-organ hvis eneste oppgave er å dele ut priser til land som fremmer menneskerettighetene"],
+    options: ["FN-organ med 47 medlemsland som overvåker menneskerettighetssituasjonen i verden", "Sikkerhetsrådets egen underavdeling for handel og økonomi", "FNs øverste domstol som dømmer stater for brudd på folkeretten og menneskerettighetene", "Et FN-organ hvis eneste oppgave er å dele ut priser til land som fremmer menneskerettighetene"],
     explanation: 'Menneskerettighetsrådet er FN-organet som overvåker menneskerettighetssituasjonen i verden. Det har 47 medlemsland og gjennomfører blant annet UPR-høringene.',
   },
   {
     question: 'Hva er UPR (Universal Periodic Review)?',
-    options: ["Regelmessig gjennomgang av alle FN-lands menneskerettighetspraksis", "En årlig FN-konferanse om klima", "FNs faste kontroll av det årlige budsjettet og hvordan medlemslandene betaler sine bidrag", "En årlig FN-konferanse om klima der medlemslandene forhandler om utslippskutt og klimatiltak"],
+    options: ["Regelmessig gjennomgang av alle FN-lands menneskerettighetspraksis", "En årlig FN-konferanse der alle medlemslandene forhandler om klimaet", "FNs faste kontroll av det årlige budsjettet og hvordan medlemslandene betaler sine bidrag", "En årlig FN-konferanse om klima der medlemslandene forhandler om utslippskutt og klimatiltak"],
     explanation: 'UPR er en ordning der alle FNs medlemsland regelmessig får sin menneskerettighetspraksis gjennomgått av de andre landene - også Norge.',
   },
   {
     question: 'Hva er Barnekonvensjonen?',
-    options: ["FN-konvensjon fra 1989 som fastsetter egne rettigheter for barn under 18 år", "En avtale om barnetrygd mellom land", "En norsk lov som regulerer driften av barnehager og retten til barnehageplass for alle barn", "En årlig internasjonal konferanse i FN der barn fra hele verden møtes for å diskutere sine saker"],
+    options: ["FN-konvensjon fra 1989 som fastsetter egne rettigheter for barn under 18 år", "En avtale mellom flere land om utbetaling av barnetrygd på tvers av landegrensene", "En norsk lov som regulerer driften av barnehager og retten til barnehageplass for alle barn", "En årlig internasjonal konferanse i FN der barn fra hele verden møtes for å diskutere sine saker"],
     explanation: 'FNs barnekonvensjon fra 1989 gir alle under 18 år egne rettigheter - som rett til beskyttelse, utdanning og til å bli hørt. Den er den mest ratifiserte menneskerettskonvensjonen.',
   },
 ],
@@ -1282,22 +1282,22 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-6-4': [
   {
     question: 'Hva er Europarådet?',
-    options: ["Europeisk organisasjon med 46 medlemsland som fremmer demokrati, menneskerettigheter og rettsstat", "Et råd for europeiske bedrifter", "EUs øverste besluttende organ der medlemslandenes stats- og regjeringssjefer fastsetter unionens kurs", "Et råd for europeiske bedrifter og næringsorganisasjoner som samordner handelspolitikken i verdensdelen"],
+    options: ["Europeisk organisasjon med 46 medlemsland som fremmer demokrati, menneskerettigheter og rettsstat", "Et samarbeidsråd for de største europeiske bedriftene, som skal fremme handel og næringsliv i Europa", "EUs øverste besluttende organ der medlemslandenes stats- og regjeringssjefer fastsetter unionens kurs", "Et råd for europeiske bedrifter og næringsorganisasjoner som samordner handelspolitikken i verdensdelen"],
     explanation: 'Europarådet er en europeisk organisasjon med 46 medlemsland som arbeider for demokrati, menneskerettigheter og rettsstat. Det er ikke det samme som EU.',
   },
   {
     question: 'Hva er EMK?',
-    options: ["Den europeiske menneskerettskonvensjonen fra 1950, juridisk bindende for medlemslandene", "En europeisk handelsavtale", "EUs felles valutaunion som innførte euroen som betalingsmiddel i store deler av verdensdelen", "En europeisk handelsavtale fra 1950 som fjernet toll og handelshindringer mellom medlemslandene"],
+    options: ["Den europeiske menneskerettskonvensjonen fra 1950, juridisk bindende for medlemslandene", "En europeisk handelsavtale om toll og frihandel mellom alle landene på det europeiske kontinentet", "EUs felles valutaunion som innførte euroen som betalingsmiddel i store deler av verdensdelen", "En europeisk handelsavtale fra 1950 som fjernet toll og handelshindringer mellom medlemslandene"],
     explanation: 'EMK er Den europeiske menneskerettskonvensjonen fra 1950. Den er juridisk bindende for alle Europarådets medlemsland, inkludert Norge.',
   },
   {
     question: 'Hva er EMD?',
-    options: ["Den europeiske menneskerettsdomstolen i Strasbourg som behandler klager om brudd på EMK", "En europeisk meklingsinstans for handelstvister", "Et norsk forvaltningsorgan som behandler klager fra borgere over vedtak fattet av statlige etater", "EUs egen domstol i Luxembourg som tolker unionens traktater og avgjør tvister mellom medlemslandene"],
+    options: ["Den europeiske menneskerettsdomstolen i Strasbourg som behandler klager om brudd på EMK", "En europeisk meklingsinstans som megler i handelstvister mellom medlemslandene i Europarådet", "Et norsk forvaltningsorgan som behandler klager fra borgere over vedtak fattet av statlige etater", "EUs egen domstol i Luxembourg som tolker unionens traktater og avgjør tvister mellom medlemslandene"],
     explanation: 'EMD er Den europeiske menneskerettsdomstolen i Strasbourg. Den behandler klager om brudd på EMK, og dommene er bindende for statene.',
   },
   {
     question: 'Hva innebærer individklageretten?',
-    options: ["At enkeltpersoner kan klage staten inn for EMD ved brudd på rettighetene", "At bare stater kan klage på hverandre", "At man kan klage naboen sin inn for FN dersom man mener rettighetene ens er blitt krenket", "At alle klager om rettighetsbrudd må sendes gjennom regjeringen før de kan behandles av domstolen"],
+    options: ["At enkeltpersoner kan klage staten inn for EMD ved brudd på rettighetene", "At det bare er stater som kan klage hverandre inn", "At man kan klage naboen sin inn for FN dersom man mener rettighetene ens er blitt krenket", "At alle klager om rettighetsbrudd må sendes gjennom regjeringen før de kan behandles av domstolen"],
     explanation: 'Individklageretten gir enkeltpersoner rett til å klage sin egen stat inn for EMD hvis de mener rettighetene etter EMK er krenket - etter at nasjonale rettsmidler er uttømt.',
   },
   {
@@ -1311,7 +1311,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-6-5': [
   {
     question: 'Hva er menneskerettsloven fra 1999?',
-    options: ["Norsk lov som gjør fem sentrale konvensjoner til norsk lov med forrang", "En lov som bare gjelder utlendinger", "FNs egen lov som gjelder direkte for Norge uten at Stortinget må vedta noe selv", "En lov som opphevet og erstattet Grunnloven som landets øverste rettskilde i 1999"],
+    options: ["Norsk lov som gjør fem sentrale konvensjoner til norsk lov med forrang", "En lov som bare gjelder for utenlandske borgere som oppholder seg i Norge", "FNs egen lov som gjelder direkte for Norge uten at Stortinget må vedta noe selv", "En lov som opphevet og erstattet Grunnloven som landets øverste rettskilde i 1999"],
     explanation: 'Menneskerettsloven fra 1999 inkorporerer fem sentrale menneskerettskonvensjoner (blant andre EMK og barnekonvensjonen) i norsk rett, med forrang foran annen lov.',
   },
   {
@@ -1326,7 +1326,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva sier Grunnloven paragraf 92?',
-    options: ["At myndighetene skal respektere og sikre menneskerettighetene", "At Norge skal være medlem av FN", "At Norge skal være fast medlem av FN og bidra til det internasjonale samarbeidet", "At skatter og avgifter skal vedtas på nytt av Stortinget for hvert enkelt budsjettår"],
+    options: ["At myndighetene skal respektere og sikre menneskerettighetene", "At Norge skal være medlem av FN og rette seg etter vedtakene der", "At Norge skal være fast medlem av FN og bidra til det internasjonale samarbeidet", "At skatter og avgifter skal vedtas på nytt av Stortinget for hvert enkelt budsjettår"],
     explanation: 'Grunnloven § 92 pålegger statens myndigheter å respektere og sikre menneskerettighetene slik de er nedfelt i Grunnloven og bindende traktater.',
   },
   {
@@ -1345,7 +1345,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Barneombudet?',
-    options: ["En uavhengig talsperson for barn og unges interesser i Norge", "En forelder med spesielt ansvar", "En egen domstol som avgjør rettssaker og tvister som handler om barn", "Et organ under FN som overvåker barns rettigheter i alle medlemsland"],
+    options: ["En uavhengig talsperson for barn og unges interesser i Norge", "En forelder som har fått et spesielt ansvar i barnas barnehage", "En egen domstol som avgjør rettssaker og tvister som handler om barn", "Et organ under FN som overvåker barns rettigheter i alle medlemsland"],
     explanation: 'Barneombudet er en uavhengig talsperson for barn og unges interesser i Norge. Norge var først i verden med å opprette et eget barneombud (1981).',
   },
   {
@@ -1369,7 +1369,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-6-7': [
   {
     question: 'Hva er en rettighetskollisjon?',
-    options: ["En situasjon der ulike menneskerettigheter trekker i motsatt retning og må veies mot hverandre", "En alvorlig trafikkulykke der personer med diplomatisk immunitet er involvert", "Når en tidligere lovfestet rettighet blir formelt avskaffet av myndighetene", "Når to stater er uenige om hvordan en internasjonal konvensjon skal tolkes"],
+    options: ["En situasjon der ulike menneskerettigheter trekker i motsatt retning og må veies mot hverandre", "En alvorlig trafikkulykke der personer med diplomatisk immunitet er innblandet på begge sider av saken", "Når en tidligere lovfestet rettighet blir formelt avskaffet av myndighetene", "Når to stater er uenige om hvordan en internasjonal konvensjon skal tolkes"],
     explanation: 'En rettighetskollisjon oppstår når rettigheter står mot hverandre - for eksempel ytringsfrihet mot vern mot hatefulle ytringer, eller religionsfrihet mot likestilling. Da må det gjøres en avveining.',
   },
   {
@@ -1413,7 +1413,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er "chilling effect"?',
-    options: ["At folk sensurerer seg selv av frykt for negative konsekvenser ved å ytre seg", "At kontroversielle ytringer automatisk fryses og skjules på sosiale medier", "En egen lovbestemmelse som forbyr kalde og uvennlige kommentarer på nett", "At den offentlige debatten blir mer saklig, rolig og lavmælt over tid"],
+    options: ["At folk sensurerer seg selv av frykt for negative konsekvenser ved å ytre seg", "At kontroversielle ytringer automatisk blir fryst og skjult på sosiale medier og nettforum", "En egen lovbestemmelse som forbyr kalde og uvennlige kommentarer på nett", "At den offentlige debatten blir mer saklig, rolig og lavmælt over tid"],
     explanation: 'Chilling effect (nedkjølingseffekt) er når folk lar være å ytre seg av frykt for hets, straff eller sosiale sanksjoner. Da svekkes den frie debatten selv uten formell sensur.',
   },
   {
@@ -1485,7 +1485,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-7-4': [
   {
     question: 'Hva er en algoritme i sosiale medier?',
-    options: ["Et dataprogram som bestemmer hvilket innhold du ser basert på din aktivitet", "En regel som fastsetter aldersgrenser for bruk av ulike plattformer", "Et system for å opprette og lagre trygge passord til brukerkontoen", "En type emneknagg som brukes til å merke og kategorisere innlegg"],
+    options: ["Et dataprogram som bestemmer hvilket innhold du ser basert på din aktivitet", "En regel som fastsetter aldersgrensene for bruk av de ulike sosiale plattformene", "Et system for å opprette og lagre trygge passord til brukerkontoen", "En type emneknagg som brukes til å merke og kategorisere innlegg"],
     explanation: 'Algoritmer i sosiale medier er dataprogrammer som velger ut hvilket innhold du får se, basert på hva du tidligere har likt, delt og sett på. Målet er ofte å maksimere tiden du bruker.',
   },
   {
@@ -1514,17 +1514,17 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-7-5': [
   {
     question: 'Hva er forskjellen på en primærkilde og en sekundærkilde?',
-    options: ["En primærkilde er førstehånds vitnesbyrd eller originaldokumenter, en sekundærkilde er fortolkninger basert på primærkilder", "En sekundærkilde er alltid mer pålitelig", "En primærkilde er en muntlig kilde som forteller om noe, mens en sekundærkilde alltid er en skriftlig kilde nedtegnet i et offentlig arkiv", "En primærkilde er en kilde myndighetene har godkjent som pålitelig, mens en sekundærkilde er upålitelig informasjon spredt i sosiale medier"],
+    options: ["En primærkilde er førstehånds vitnesbyrd eller originaldokumenter, en sekundærkilde er fortolkninger basert på primærkilder", "En sekundærkilde er alltid mer pålitelig enn en primærkilde, fordi den er blitt kontrollert og bearbeidet av flere fagfolk underveis", "En primærkilde er en muntlig kilde som forteller om noe, mens en sekundærkilde alltid er en skriftlig kilde nedtegnet i et offentlig arkiv", "En primærkilde er en kilde myndighetene har godkjent som pålitelig, mens en sekundærkilde er upålitelig informasjon spredt i sosiale medier"],
     explanation: 'En primærkilde er førstehånds vitnesbyrd eller originaldokumenter. En sekundærkilde er fortolkninger og analyser basert på primærkilder, som journalistikk og lærebøker.',
   },
   {
     question: 'Hva er laterallesing?',
-    options: ["En faktasjekkteknikk der man søker informasjon om kilden andre steder i stedet for å vurdere den innenfra", "Å lese en tekst fra høyre til venstre", "En teknikk der man vurderer en nettsides pålitelighet ut fra design, språk og kildehenvisninger nederst på selve siden man leser", "En metode der man sammenligner flere avsnitt i samme artikkel side om side for å avdekke indre motsigelser i argumentasjonen kilden bruker"],
+    options: ["En faktasjekkteknikk der man søker informasjon om kilden andre steder i stedet for å vurdere den innenfra", "Å lese en tekst fra høyre mot venstre i stedet for fra venstre mot høyre, slik at skjulte budskap kommer fram", "En teknikk der man vurderer en nettsides pålitelighet ut fra design, språk og kildehenvisninger nederst på selve siden man leser", "En metode der man sammenligner flere avsnitt i samme artikkel side om side for å avdekke indre motsigelser i argumentasjonen kilden bruker"],
     explanation: 'Laterallesing er å forlate nettsiden og undersøke hva andre kilder sier om avsenderen - i stedet for å vurdere siden ut fra hvordan den selv fremstår. Det er en effektiv faktasjekkteknikk.',
   },
   {
     question: 'Hva er bekreftelsesbias?',
-    options: ["Tendensen til å lettere tro på informasjon som bekrefter det vi allerede mener", "At journalister alltid bekrefter kilder", "En kildekritisk metode der man aktivt oppsøker informasjon som bekrefter og styrker den påstanden man ønsker å tro på", "Tendensen til at journalister bevisst velger å bekrefte kilder som støtter deres egen redaksjonelle linje før publisering"],
+    options: ["Tendensen til å lettere tro på informasjon som bekrefter det vi allerede mener", "At journalister alltid må bekrefte kildene sine hos minst én annen uavhengig kilde", "En kildekritisk metode der man aktivt oppsøker informasjon som bekrefter og styrker den påstanden man ønsker å tro på", "Tendensen til at journalister bevisst velger å bekrefte kilder som støtter deres egen redaksjonelle linje før publisering"],
     explanation: 'Bekreftelsesbias er tendensen til å lettere tro på og huske informasjon som bekrefter det vi allerede mener - og avvise det som utfordrer oss. Alle påvirkes av dette, uavhengig av politisk ståsted.',
   },
   {
@@ -1543,12 +1543,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-7-6': [
   {
     question: 'Hva er propaganda?',
-    options: ["Ensidig informasjon som bevisst brukes for å påvirke holdninger - den kan være sann, men partisk", "All politisk kommunikasjon", "Betalt reklame for kommersielle produkter og tjenester som selskaper bruker for å øke salget sitt i markedet", "Informasjon som alltid inneholder direkte usannheter og oppdiktede fakta, laget for å lure mottakeren fullstendig"],
+    options: ["Ensidig informasjon som bevisst brukes for å påvirke holdninger - den kan være sann, men partisk", "All politisk kommunikasjon fra myndigheter, partier og organisasjoner, uansett hva innholdet går ut på", "Betalt reklame for kommersielle produkter og tjenester som selskaper bruker for å øke salget sitt i markedet", "Informasjon som alltid inneholder direkte usannheter og oppdiktede fakta, laget for å lure mottakeren fullstendig"],
     explanation: 'Propaganda er ensidig informasjon som bevisst brukes for å påvirke holdninger. Den trenger ikke være usann - også sann, men skjevt fremstilt informasjon kan være propaganda.',
   },
   {
     question: 'Hva kjennetegner konspirasjonsteorier?',
-    options: ["Forklaringer basert på hemmelige sammensvergelser, ofte immune mot motbevis", "At de er offisielle statlige forklaringer", "De offisielle forklaringene fra myndigheter og fageksperter som legges frem etter store og uoversiktlige hendelser", "Rykter om skjulte planer som utelukkende oppstår og sprer seg i lukkede diktaturer uten fri presse og ytringsfrihet"],
+    options: ["Forklaringer basert på hemmelige sammensvergelser, ofte immune mot motbevis", "At de er de offisielle forklaringene som myndighetene selv gir på store hendelser", "De offisielle forklaringene fra myndigheter og fageksperter som legges frem etter store og uoversiktlige hendelser", "Rykter om skjulte planer som utelukkende oppstår og sprer seg i lukkede diktaturer uten fri presse og ytringsfrihet"],
     explanation: 'Konspirasjonsteorier forklarer hendelser som resultat av hemmelige sammensvergelser. De er ofte immune mot motbevis: Motargumenter tolkes som en del av konspirasjonen.',
   },
   {
@@ -1558,7 +1558,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en trollfabrikk?',
-    options: ["En organisert gruppe som systematisk sprer desinformasjon og propaganda på nett", "En fabrikk som lager leker", "En humoristisk nettside som lager ironiske innlegg og satire for å underholde og provosere leserne litt", "Et selskap som utvikler dataspill der spillerne kan spille som troll og andre skapninger i fantasiverdener"],
+    options: ["En organisert gruppe som systematisk sprer desinformasjon og propaganda på nett", "En fabrikk som produserer leker og figurer av troll for salg i norske suvenirbutikker", "En humoristisk nettside som lager ironiske innlegg og satire for å underholde og provosere leserne litt", "Et selskap som utvikler dataspill der spillerne kan spille som troll og andre skapninger i fantasiverdener"],
     explanation: 'En trollfabrikk er en organisert gruppe - ofte statsstøttet - som systematisk sprer desinformasjon og propaganda på nett, gjerne med falske profiler.',
   },
   {
@@ -1587,7 +1587,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke virkemidler har Datatilsynet?',
-    options: ["Det kan gi bøter og pålegg til virksomheter som bryter personvernreglene", "Det kan stenge internett i Norge", "Det kan idømme personer fengselsstraff og bøter direkte gjennom egne rettssaker mot dem som bryter personvernet", "Det kan stenge ned internett-tilgangen i hele Norge dersom et selskap gjentatte ganger bryter personvernreglene grovt"],
+    options: ["Det kan gi bøter og pålegg til virksomheter som bryter personvernreglene", "Det kan stenge ned hele internett i Norge dersom personvernreglene blir brutt", "Det kan idømme personer fengselsstraff og bøter direkte gjennom egne rettssaker mot dem som bryter personvernet", "Det kan stenge ned internett-tilgangen i hele Norge dersom et selskap gjentatte ganger bryter personvernreglene grovt"],
     explanation: 'Datatilsynet fører tilsyn med personvernreglene og kan gi pålegg om endringer og ilegge overtredelsesgebyrer (bøter) til virksomheter som bryter reglene.',
   },
   {
@@ -1601,7 +1601,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-8-1': [
   {
     question: 'Hva er en velferdsstat?',
-    options: ["En stat som tar ansvar for innbyggernes velferd gjennom offentlige ordninger", "En stat som bare hjelper de fattigste", "En stat som har avskaffet alle skatter og avgifter, og lar markedet alene sørge for innbyggernes velferd", "En stat der innbyggerne har blitt så velstående at ingen lenger trenger hjelp eller offentlige støtteordninger"],
+    options: ["En stat som tar ansvar for innbyggernes velferd gjennom offentlige ordninger", "En stat som bare gir hjelp til de aller fattigste innbyggerne, og ikke til andre", "En stat som har avskaffet alle skatter og avgifter, og lar markedet alene sørge for innbyggernes velferd", "En stat der innbyggerne har blitt så velstående at ingen lenger trenger hjelp eller offentlige støtteordninger"],
     explanation: 'En velferdsstat tar ansvar for innbyggernes velferd gjennom offentlige ordninger som helsetjenester, utdanning, pensjon og trygd.',
   },
   {
@@ -1611,12 +1611,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er folketrygden?',
-    options: ["Norges grunnleggende trygdeordning som gir rett til pensjon, sykepenger og andre ytelser", "Et fond bare for offentlig ansatte", "Et lukket pensjonsfond som utelukkende er forbeholdt personer som jobber i staten og offentlig sektor ellers", "En statlig bank der vanlige folk kan spare penger og få trygg avkastning uten risiko for å tape sparepengene"],
+    options: ["Norges grunnleggende trygdeordning som gir rett til pensjon, sykepenger og andre ytelser", "Et pensjonsfond som utelukkende gjelder for dem som er offentlig ansatte i stat og kommune", "Et lukket pensjonsfond som utelukkende er forbeholdt personer som jobber i staten og offentlig sektor ellers", "En statlig bank der vanlige folk kan spare penger og få trygg avkastning uten risiko for å tape sparepengene"],
     explanation: 'Folketrygden er Norges grunnleggende, obligatoriske trygdeordning. Den gir rett til ytelser som alderspensjon, sykepenger, dagpenger og uføretrygd, og finansieres gjennom skatter og avgifter.',
   },
   {
     question: 'Hva menes med omfordeling?',
-    options: ["At staten tar skatt etter evne og gir ytelser etter behov for å redusere ulikhet", "At rike land gir penger til fattige land", "At rike industriland overfører penger og bistand til fattige utviklingsland for å jevne ut global ulikhet", "At staten sørger for at alle innbyggere til slutt sitter igjen med nøyaktig like mye penger og formue hver"],
+    options: ["At staten tar skatt etter evne og gir ytelser etter behov for å redusere ulikhet", "At de rike landene overfører penger til fattige land gjennom bistand og hjelpearbeid", "At rike industriland overfører penger og bistand til fattige utviklingsland for å jevne ut global ulikhet", "At staten sørger for at alle innbyggere til slutt sitter igjen med nøyaktig like mye penger og formue hver"],
     explanation: 'Omfordeling skjer ved at staten krever inn skatt etter evne (de som tjener mer betaler mer) og gir ytelser og tjenester etter behov. Slik reduseres økonomisk ulikhet.',
   },
   {
@@ -1650,7 +1650,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke formål har skattesystemet utover å skaffe staten inntekter?',
-    options: ["Omfordeling mellom grupper og påvirkning av atferd, som avgifter på tobakk og utslipp", "Ingen - skatt handler bare om inntekter", "Ingen andre formål i det hele tatt, ettersom skattesystemet utelukkende handler om å skaffe staten nødvendige inntekter", "Å straffe og gjøre det mindre lønnsomt for folk å være i arbeid, slik at flere heller velger å motta ytelser fra staten"],
+    options: ["Omfordeling mellom grupper og påvirkning av atferd, som avgifter på tobakk og utslipp", "Ingen - skattesystemet handler utelukkende om å skaffe staten inntekter til statsbudsjettet", "Ingen andre formål i det hele tatt, ettersom skattesystemet utelukkende handler om å skaffe staten nødvendige inntekter", "Å straffe og gjøre det mindre lønnsomt for folk å være i arbeid, slik at flere heller velger å motta ytelser fra staten"],
     explanation: 'Skatter og avgifter skal også omfordele (progressiv skatt) og påvirke atferd - for eksempel gjør avgifter på tobakk, alkohol og utslipp det dyrere å velge det samfunnet vil ha mindre av.',
   },
 ],
@@ -1746,7 +1746,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-8-6': [
   {
     question: 'Hva måler Gini-koeffisienten?',
-    options: ["Økonomisk ulikhet, fra 0 (fullstendig likhet) til 1 (én person har alt)", "Et lands totale rikdom", "Den generelle prisveksten i samfunnet fra ett år til det neste, altså hvor mye inflasjonen utgjør", "Andelen av den yrkesaktive befolkningen som til enhver tid står uten arbeid og søker etter en jobb"],
+    options: ["Økonomisk ulikhet, fra 0 (fullstendig likhet) til 1 (én person har alt)", "Et lands totale rikdom, målt som den samlede nasjonalformuen i hele landet", "Den generelle prisveksten i samfunnet fra ett år til det neste, altså hvor mye inflasjonen utgjør", "Andelen av den yrkesaktive befolkningen som til enhver tid står uten arbeid og søker etter en jobb"],
     explanation: 'Gini-koeffisienten måler inntektsulikhet i et land: 0 betyr at alle har like mye, 1 at én person har alt. Norge ligger på ca. 0,27 - lavt i internasjonal sammenheng.',
   },
   {
@@ -1795,7 +1795,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor sammenligner forskere ulike velferdsmodeller?',
-    options: ["For å forstå hvordan ulike systemer påvirker ulikhet, fattigdom og økonomi", "Fordi alle modeller gir identiske resultater", "For å kåre én endelig vinnermodell som samtlige land i verden deretter er nødt til å kopiere", "Fordi alle velferdsmodellene til slutt gir helt identiske resultater for ulikhet og fattigdom"],
+    options: ["For å forstå hvordan ulike systemer påvirker ulikhet, fattigdom og økonomi", "Fordi alle modeller gir identiske resultater", "For å kåre én vinnermodell som alle land deretter må kopiere", "Fordi alle velferdsmodellene til slutt gir identiske resultater"],
     explanation: 'Sammenligning av velferdsmodeller viser hvordan ulike valg gir ulike resultater for ulikhet, fattigdom, skattenivå og økonomi. Hvilken balanse som er best, er til syvende og sist et verdispørsmål.',
   },
 ],
@@ -1824,7 +1824,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke hovedutfordringer står velferdsstaten overfor på lang sikt?',
-    options: ["Eldrebølge, økende forsørgelsesbyrde, utenforskap og press på finansieringen", "At skattene er for lave til å diskuteres", "At stadig færre innbyggere ønsker å motta ytelser, slik at ordningene gradvis mister sin betydning", "At skattenivået er blitt så lavt at det ikke lenger er noe å diskutere om finansieringen av velferden"],
+    options: ["Eldrebølge, økende forsørgelsesbyrde, utenforskap og press på finansieringen", "At skattene er for lave til å diskuteres", "At stadig færre innbyggere ønsker å motta ytelser fra staten", "At skattenivået er blitt så lavt at finansieringen ikke lenger diskuteres"],
     explanation: 'Velferdsstatens bærekraft utfordres av eldrebølgen, økende forsørgelsesbyrde og utenforskap. Mulige svar - som økt pensjonsalder, mer effektivisering eller høyere skatter - er politisk omdiskutert.',
   },
 ],
@@ -1949,7 +1949,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-9-5': [
   {
     question: 'Hva er biologisk mangfold?',
-    options: ["Variasjonen av arter, økosystemer og genetisk variasjon i naturen", "Mangfoldet av kulturer i et samfunn", "Det samlede antallet mennesker som til enhver tid lever på jordkloden", "Mangfoldet av kulturer, språk og religioner som finnes i et gitt samfunn"],
+    options: ["Variasjonen av arter, økosystemer og genetisk variasjon i naturen", "Mangfoldet av kulturer i et samfunn", "Det samlede antallet mennesker som lever på jordkloden", "Mangfoldet av kulturer, språk og religioner i et samfunn"],
     explanation: 'Biologisk mangfold er variasjonen i naturen på tre nivåer: mangfold av arter, av økosystemer og av gener innenfor artene.',
   },
   {
@@ -1998,7 +1998,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvem har ansvar for å gjøre forbruket mer bærekraftig?',
-    options: ["Ansvar diskuteres på flere nivåer: forbrukerne, næringslivet og myndighetene", "Bare staten og myndighetene, gjennom lover, avgifter og andre reguleringer", "Utelukkende den enkelte forbruker, gjennom valgene han eller hun tar i butikken", "Ingen har egentlig noe ansvar, ettersom forbruket styres av markedet på egen hånd"],
+    options: ["Ansvar diskuteres på flere nivåer: forbrukerne, næringslivet og myndighetene", "Bare staten og myndighetene, gjennom lover, avgifter og andre reguleringer", "Utelukkende den enkelte forbruker, gjennom valgene i butikken", "Ingen har egentlig noe ansvar, siden markedet styrer forbruket"],
     explanation: 'I debatten pekes det på flere nivåer: Forbrukerne kan velge annerledes, bedriftene kan produsere mer bærekraftig, og myndighetene kan regulere og avgiftsbelegge. Hvor hovedansvaret ligger, er omdiskutert.',
   },
 ],
@@ -2012,7 +2012,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er argumentet om historisk ansvar?',
-    options: ["At rike land bør ta mer ansvar fordi de har sluppet ut mest klimagasser over tid", "At historien ikke har betydning for klimapolitikken", "At det som har skjedd i historien ikke har noen betydning for dagens klimapolitikk", "At det er de fattige landene som står for det største historiske utslippet av klimagasser"],
+    options: ["At rike land bør ta mer ansvar fordi de har sluppet ut mest klimagasser over tid", "At historien ikke har betydning for klimapolitikken", "At det som har skjedd i historien ikke betyr noe for dagens klimapolitikk", "At det er de fattige landene som står for det største historiske utslippet"],
     explanation: 'Argumentet om historisk ansvar sier at rike, industrialiserte land bør ta en større del av byrden, fordi de står for mesteparten av de samlede utslippene gjennom historien.',
   },
   {
@@ -2075,7 +2075,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebærer prinsippet om ikke-intervensjon?',
-    options: ["At ingen stat skal blande seg inn i andre staters indre anliggender", "At stater ikke kan handle med hverandre", "At FN plikter å gripe militært inn i enhver konflikt som oppstår mellom to stater", "At stater ikke kan slutte seg til internasjonale traktater eller forsvarsallianser"],
+    options: ["At ingen stat skal blande seg inn i andre staters indre anliggender", "At stater ikke kan handle med hverandre", "At FN plikter å gripe militært inn i enhver konflikt mellom stater", "At stater ikke kan slutte seg til internasjonale traktater"],
     explanation: 'Ikke-intervensjonsprinsippet sier at stater ikke skal blande seg inn i andre staters indre anliggender. Det kan komme i spenning med ønsket om å beskytte menneskerettigheter internasjonalt.',
   },
   {
@@ -2123,7 +2123,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   'samfunnskunnskap-10-3': [
   {
     question: 'Hva er diplomati?',
-    options: ["Forhandlinger mellom stater for å løse konflikter fredelig", "Spionasje mellom land", "Handel med våpen og militært utstyr mellom stater som ledd i deres sikkerhetssamarbeid", "Bruk av militærmakt og væpnet styrke for å presse en annen stat til å gi etter for krav"],
+    options: ["Forhandlinger mellom stater for å løse konflikter fredelig", "Spionasje mellom land ved hjelp av hemmelige agenter og avlytting", "Handel med våpen og militært utstyr mellom stater som ledd i deres sikkerhetssamarbeid", "Bruk av militærmakt og væpnet styrke for å presse en annen stat til å gi etter for krav"],
     explanation: 'Diplomati er forhandlinger og dialog mellom stater for å løse konflikter og fremme samarbeid med fredelige midler.',
   },
   {
@@ -2201,7 +2201,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor regnes cyberangrep som en alvorlig sikkerhetstrussel?',
-    options: ["Fordi de kan ramme kritisk infrastruktur som strøm, vann, sykehus og betalingssystemer", "Fordi cyberangrep utelukkende rammer private borgeres e-postkontoer og sosiale medier", "Fordi slike angrep alltid utføres av enkeltpersoner uten tilknytning til stater eller nettverk", "De regnes ikke som en reell sikkerhetstrussel, siden digitale systemer alltid kan gjenopprettes"],
+    options: ["Fordi de kan ramme kritisk infrastruktur som strøm, vann, sykehus og betalingssystemer", "Fordi cyberangrep utelukkende rammer private borgeres e-postkontoer og sosiale medier", "Fordi slike angrep alltid utføres av enkeltpersoner uten tilknytning til stater", "De regnes ikke som en reell sikkerhetstrussel, siden systemer kan gjenopprettes"],
     explanation: 'Cyberangrep kan slå ut kritisk infrastruktur - strømforsyning, vannverk, sykehus og betalingssystemer - og kan utføres av både stater og kriminelle. Derfor er digital sikkerhet en sentral del av moderne beredskap.',
   },
 ],
@@ -2370,12 +2370,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan næringslivet utøve makt i samfunnet?',
-    options: ["Gjennom investeringsbeslutninger, lobbyvirksomhet og kontroll over arbeidsplasser", "Utelukkende gjennom å avgi sin stemme ved politiske valg som alle andre borgere", "Næringslivet har i praksis ingen reell makt over politikk eller lokalsamfunn i dag", "Ved å vedta lover og forskrifter direkte, uten å gå veien om Stortinget og regjeringen"],
+    options: ["Gjennom investeringsbeslutninger, lobbyvirksomhet og kontroll over arbeidsplasser", "Utelukkende gjennom å avgi sin stemme ved politiske valg som alle andre borgere", "Næringslivet har i praksis ingen reell makt over politikken i dag", "Ved å vedta lover og forskrifter direkte, uten om Stortinget"],
     explanation: 'Næringslivet har økonomisk makt: Beslutninger om investeringer og arbeidsplasser påvirker lokalsamfunn, og gjennom lobbyvirksomhet påvirkes politikken. Demokratiet balanserer denne makten med regulering og åpenhet.',
   },
   {
     question: 'Hva er maktmisbruk?',
-    options: ["Når makt brukes på urettferdig, ulovlig eller uetisk måte", "At noen har mer makt enn andre", "Enhver form for bruk av makt, uansett om den er lovlig og rettferdig", "At noen personer eller grupper har mer makt til rådighet enn andre har"],
+    options: ["Når makt brukes på urettferdig, ulovlig eller uetisk måte", "At det finnes personer som har mer makt enn andre i samfunnet", "Enhver form for bruk av makt, uansett om den er lovlig og rettferdig", "At noen personer eller grupper har mer makt til rådighet enn andre har"],
     explanation: 'Maktmisbruk er når makt brukes urettferdig, ulovlig eller uetisk - for eksempel korrupsjon eller forskjellsbehandling. Maktfordeling, frie medier og offentlighet er demokratiets vern mot maktmisbruk.',
   },
 ],

@@ -56,7 +56,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-1-1': [
     {
       question: "Hva betyr konstant skalaavkastning i produktfunksjonen $Y=F(K,L)$?",
-      options: ["At en dobling av både kapital og arbeidskraft dobler produksjonen", "At en dobling av kapitalen alene også dobler produksjonen, uavhengig av hvor mange arbeidere som finnes", "At produksjonen per arbeider er konstant over tid", "At kapitalslitet er en fast andel av kapitalen"],
+      options: ["At en dobling av både kapital og arbeidskraft dobler produksjonen", "At en dobling av kapitalen alene også dobler produksjonen, uavhengig av hvor mange arbeidere som finnes", "At produksjonen per arbeider holder seg konstant over tid, uansett kapital", "At kapitalslitet utgjør en fast andel av kapitalbeholdningen hvert år"],
       explanation: "Konstant skalaavkastning gjelder når begge innsatsfaktorene skaleres likt: $F(\\lambda K,\\lambda L)=\\lambda F(K,L)$. Dobling av kapitalen alene gir mindre enn dobling av produksjonen — det er nettopp derfor grenseproduktiviteten avtar.",
     },
     {
@@ -66,12 +66,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den økonomiske begrunnelsen for at $f''(k)<0$?",
-      options: ["Når bare kapitalen per arbeider øker, blir arbeidskraften den knappe faktoren", "Fordi maskiner slites ut over tid og må erstattes av nye investeringer i hver eneste periode", "Fordi spareraten er mindre enn 1", "Fordi befolkningen vokser"],
+      options: ["Når bare kapitalen per arbeider øker, blir arbeidskraften den knappe faktoren", "Fordi maskiner slites ut over tid og må erstattes av nye investeringer i hver eneste periode", "Fordi spareraten er mindre enn 1, slik at bare en del av produksjonen investeres", "Fordi befolkningen vokser, slik at kapitalen hele tiden må deles på stadig flere"],
       explanation: "Konkaviteten følger av at skalaantakelsen gjelder når BEGGE faktorene øker. Øker bare kapitalen, holdes arbeidskraften fast, og hver ny maskin per arbeider gir mindre tillegg. Slitasje og befolkningsvekst hører hjemme i utvanningsleddet, ikke i produktfunksjonens form.",
     },
     {
       question: "Hva sier bevegelsesligningen $\\Delta k = s f(k) - (n+\\delta)k$?",
-      options: ["Kapitalen per arbeider endres med investering per arbeider minus utvanning", "Produksjonen per arbeider er lik sparingen per arbeider fratrukket kapitalslitet i samme periode", "Samlet kapital vokser med spareraten fratrukket befolkningsveksten", "Konsumet per arbeider er lik produksjonen minus investeringene"],
+      options: ["Kapitalen per arbeider endres med investering per arbeider minus utvanning", "Produksjonen per arbeider er lik sparingen per arbeider fratrukket kapitalslitet i samme periode", "Samlet kapital vokser med spareraten fratrukket befolkningsveksten i hver periode", "Konsumet per arbeider er lik produksjonen minus investeringene"],
       explanation: "Ligningen er en bevegelsesligning for en beholdning målt per arbeider: tilførselen $sf(k)$ minus avgangen $(n+\\delta)k$. Den handler verken om nivået på $y$ eller om konsumet direkte.",
     },
     {
@@ -81,7 +81,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor havner $n$ og $\\delta$ i samme parentes?",
-      options: ["Begge senker kapitalen per arbeider proporsjonalt med $k$", "Begge er vekstrater som inngår direkte i produktfunksjonen og dermed bestemmer nivået på produksjonen", "Begge inngår i produktfunksjonen", "Begge bestemmes av spareraten"],
+      options: ["Begge senker kapitalen per arbeider proporsjonalt med $k$", "Begge er vekstrater som inngår direkte i produktfunksjonen og dermed bestemmer nivået på produksjonen", "Begge inngår direkte i produktfunksjonen som egne argumenter", "Begge bestemmes av spareraten i modellen"],
       explanation: "For brøken $K/L$ er det likegyldig om telleren krymper (slit) eller nevneren vokser (flere arbeidere) — begge deler krever samme type ekstra investering for å motvirkes. Derfor blir kravet ett samlet ledd, og strålen får helning $n+\\delta$.",
     },
     {
@@ -91,7 +91,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er «sparerate» et dekkende navn på parameteren $s$?",
-      options: ["Bare i en lukket økonomi, der sparing og investering nødvendigvis er like store", "Alltid, siden $s$ per definisjon er sparingen delt på inntekten, uansett hvordan investeringene finansieres", "Bare når befolkningsveksten er null", "Bare når kapitalslitet er null"],
+      options: ["Bare i en lukket økonomi, der sparing og investering nødvendigvis er like store", "Alltid, siden $s$ per definisjon er sparingen delt på inntekten, uansett hvordan investeringene finansieres", "Bare når befolkningsveksten er null, slik at kapitalen ikke må fordeles på flere arbeidere", "Bare når kapitalslitet er null, slik at ingen maskiner må erstattes"],
       explanation: "I en åpen økonomi kan kapitaloppbygging finansieres utenfra, gjennom direkteinvesteringer, lån eller bistand — da er $s$ strengt tatt en investeringsrate. Verken $n$ eller $\\delta$ har noe med saken å gjøre.",
     },
     {
@@ -116,7 +116,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Bevegelsesligningen for SAMLET kapital er $\\Delta K = sY - \\delta K$. Hvorfor står ikke $n$ i den?",
-      options: ["Fordi befolkningsvekst ikke ødelegger kapital — den fordeler den bare på flere", "Fordi $n$ er antatt lik null i totalversjonen", "Fordi befolkningsveksten allerede er regnet inn i kapitalslitet $\\delta$ i denne versjonen av ligningen", "Fordi samlet kapital er eksogen"],
+      options: ["Fordi befolkningsvekst ikke ødelegger kapital — den fordeler den bare på flere", "Fordi $n$ er antatt lik null i totalversjonen av ligningen", "Fordi befolkningsveksten allerede er regnet inn i kapitalslitet $\\delta$ i denne versjonen av ligningen", "Fordi samlet kapital er en eksogen størrelse som modellen ikke selv bestemmer her"],
       explanation: "Flere arbeidere endrer ikke kapitalbeholdningen i seg selv. Det er først når vi regner per arbeider at befolkningsveksten blir et krav til investeringene — derfor dukker $nk$ bare opp i per arbeider-versjonen.",
     },
     {
@@ -136,7 +136,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den første tingen forklaringsmalen krever at du gjør med en oppgitt relasjon?",
-      options: ["Definerer symbolene og sier hva de måler", "Løser ligningen for den endogene variabelen", "Tegner figuren som hører til", "Setter inn tallverdier for parametrene"],
+      options: ["Definerer symbolene og sier hva de måler", "Løser ligningen for den endogene variabelen", "Tegner figuren som hører til den aktuelle relasjonen", "Setter inn tallverdier for parametrene i relasjonen"],
       explanation: "Malen går: symboler, økonomisk logikk, fortegn og mekanisme, og hva som er eksogent — før regning og figur. Rekkefølgen er hele poenget, siden relasjonene oppgis uforklart.",
     },
     {
@@ -158,7 +158,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-1-2': [
     {
       question: "Hva kjennetegner steady state i vekstmodellen?",
-      options: ["Kapitalen per arbeider endrer seg ikke", "All produksjon i økonomien står helt stille, både målt per arbeider og målt samlet", "Sparingen er null", "Kapitalslitet er null"],
+      options: ["Kapitalen per arbeider endrer seg ikke", "All produksjon i økonomien står helt stille, både målt per arbeider og målt samlet", "Sparingen i økonomien er lik null hvert år", "Kapitalslitet er null, slik at ingen kapital forsvinner"],
       explanation: "Steady state betyr $\\Delta k = 0$: investeringen per arbeider dekker akkurat utvanningen. Produksjonen per arbeider står stille, men samlet produksjon vokser med raten $n$.",
     },
     {
@@ -173,7 +173,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken form har utvanningsleddet $(n+\\delta)k$ i fasediagrammet?",
-      options: ["En rett stråle fra origo med helning $n+\\delta$", "En konkav kurve fra origo, siden kravet avtar når kapitalbeholdningen blir stor", "En vannrett linje", "En konveks kurve"],
+      options: ["En rett stråle fra origo med helning $n+\\delta$", "En konkav kurve fra origo, siden kravet avtar når kapitalbeholdningen blir stor", "En vannrett linje, uavhengig av kapitalbeholdningen", "En konveks kurve som blir stadig brattere for høy $k$"],
       explanation: "Kravet er proporsjonalt med kapitalbeholdningen per arbeider, siden $k$ inngår lineært. Dobbelt så mye kapital betyr dobbelt så mye slitasje og dobbelt så mye å utstyre nye arbeidere med.",
     },
     {
@@ -183,17 +183,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr den vertikale avstanden mellom sparekurven og utvanningsstrålen?",
-      options: ["$\\Delta k$ — endringen i kapital per arbeider", "Produksjonen per arbeider, altså nivået på $f(k)$ i punktet man leser av", "Konsumet per arbeider", "Kapitalslitet"],
+      options: ["$\\Delta k$ — endringen i kapital per arbeider", "Produksjonen per arbeider, altså nivået på $f(k)$ i punktet man leser av", "Konsumet per arbeider i det punktet man leser av", "Kapitalslitet per arbeider i punktet"],
       explanation: "Avstanden er nettopp $s f(k) - (n+\\delta)k$, altså farten økonomien beveger seg med. Derfor kan fasediagrammet svare både på hvor økonomien ender og på hvor fort det går.",
     },
     {
       question: "Hvorfor krysser de to kurvene hverandre nøyaktig én gang utenom origo?",
-      options: ["Sparekurven starter brattest og flater ut, mens strålen holder helningen", "Fordi begge starter i origo", "Fordi spareraten er mindre enn 1", "Fordi begge kurvene starter i origo og derfor må møtes minst én gang til lenger ute på aksen"],
+      options: ["Sparekurven starter brattest og flater ut, mens strålen holder helningen", "Fordi begge kurvene starter i origo og stiger derfra", "Fordi spareraten er mindre enn 1, og kurven derfor ligger under produktfunksjonen", "Fordi begge kurvene starter i origo og derfor må møtes minst én gang til lenger ute på aksen"],
       explanation: "Konkaviteten gjør at sparekurvens helning avtar mens strålens er konstant, så strålen tar igjen sparekurven én gang — og siden helningen bare avtar videre, kan de ikke møtes igjen.",
     },
     {
       question: "Hvilken antakelse er avgjørende for at likevekten finnes i det hele tatt?",
-      options: ["Avtakende grenseproduktivitet, $f''(k)<0$", "At spareraten er konstant og uavhengig av inntektsnivået i økonomien", "At befolkningsveksten er positiv", "At kapitalslitet er positivt"],
+      options: ["Avtakende grenseproduktivitet, $f''(k)<0$", "At spareraten er konstant og uavhengig av inntektsnivået i økonomien", "At befolkningsveksten er positiv i hele forløpet", "At kapitalslitet er positivt i hver periode"],
       explanation: "Uten konkavitet, for eksempel med $f(k)=Ak$, blir begge kurvene rette linjer gjennom origo og kan bare krysse der. Da forsvinner hele apparatet med steady state og tilpasningsbane.",
     },
     {
@@ -203,17 +203,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser dynamikkpilene i fasediagrammet?",
-      options: ["Hvilken vei økonomien beveger seg i hvert intervall", "Hvor bratt produktfunksjonen er i hvert enkelt punkt langs den horisontale aksen", "Hvor stort konsumet er", "Hvordan spareraten endres over tid"],
+      options: ["Hvilken vei økonomien beveger seg i hvert intervall", "Hvor bratt produktfunksjonen er i hvert enkelt punkt langs den horisontale aksen", "Hvor stort konsumet per arbeider er i hvert enkelt punkt", "Hvordan spareraten endres over tid"],
       explanation: "Pilene er den grafiske formen på stabilitetsargumentet: mot høyre der sparekurven ligger over strålen, mot venstre der den ligger under. I modeller med flere skjæringspunkter er de den raskeste måten å avgjøre hvilke likevekter som er stabile.",
     },
     {
       question: "Hvorfor er likevekten $k^*$ stabil?",
-      options: ["Fordi $\\Delta k$ er positiv til venstre og negativ til høyre for $k^*$", "Fordi kurvene er kontinuerlige", "Fordi spareraten er eksogen", "Fordi spareraten er fast og uavhengig av inntektsnivået, slik at sparingen aldri endrer seg"],
+      options: ["Fordi $\\Delta k$ er positiv til venstre og negativ til høyre for $k^*$", "Fordi begge kurvene er kontinuerlige og glatte", "Fordi spareraten er eksogen og derfor ikke endrer seg når kapitalen endres", "Fordi spareraten er fast og uavhengig av inntektsnivået, slik at sparingen aldri endrer seg"],
       explanation: "Pilene peker mot likevekten fra begge sider, så økonomien vender tilbake etter en forstyrrelse. Stabilitetsargumentet er en egen del av svaret i denne sjangeren, ikke noe som følger av seg selv.",
     },
     {
       question: "Hvorfor er veksten sterkest i starten når økonomien ligger langt under $k^*$?",
-      options: ["Avstanden mellom sparekurven og strålen er størst der", "Spareraten er høyere når landet er fattig", "Befolkningsveksten er lavere når landet er fattig", "Kapitalslitet er lavere når kapitalbeholdningen er liten i absolutte tall"],
+      options: ["Avstanden mellom sparekurven og strålen er størst der", "Spareraten er høyere når landet er fattig enn når det er rikt", "Befolkningsveksten er lavere når landet er fattig enn senere", "Kapitalslitet er lavere når kapitalbeholdningen er liten i absolutte tall"],
       explanation: "Avstanden mellom kurvene ER $\\Delta k$, og den er størst langt til venstre. Bak dette ligger avtakende grenseproduktivitet: der kapitalen er knappest, gir hver ny enhet mest. Ingen av parametrene endrer seg underveis.",
     },
     {
@@ -223,7 +223,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken form har $k$-kurven i tidsbanediagrammet når økonomien starter under likevekten?",
-      options: ["Stigende og konkav mot en vannrett asymptote", "Stigende og rett", "Stigende og konveks uten grense, siden kapitalen fortsetter å bygges opp for alltid", "Vannrett hele veien"],
+      options: ["Stigende og konkav mot en vannrett asymptote", "Stigende og rett, uten å flate ut", "Stigende og konveks uten grense, siden kapitalen fortsetter å bygges opp for alltid", "Vannrett hele veien, uten noen bevegelse i kapitalen"],
       explanation: "Banen er brattest helt i starten og flater ut mot asymptoten $k^*$, som den nærmer seg uten å nå. Formen er den grafiske versjonen av at $\\Delta k$ krymper mot null.",
     },
     {
@@ -278,7 +278,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med «kort sikt» i vekstmodellen?",
-      options: ["Overgangsfasen, der $k$ er forhåndsbestemt og fortsatt beveger seg", "Perioden der prisene er faste, slik at det er etterspørselen som bestemmer produksjonen", "Ett kalenderår", "Perioden før spareraten endres"],
+      options: ["Overgangsfasen, der $k$ er forhåndsbestemt og fortsatt beveger seg", "Perioden der prisene er faste, slik at det er etterspørselen som bestemmer produksjonen", "Ett kalenderår, slik kort sikt vanligvis avgrenses i nasjonalregnskapet", "Perioden før spareraten rekker å endre seg"],
       explanation: "I vekstmodellen betyr kort sikt at kapitalintensiteten ikke har rukket å tilpasse seg: den kan ikke hoppe med mindre selve kapitalbeholdningen eller arbeidsstyrken hopper. Faste priser er kortsiktsbegrepet i Del 4, som er noe helt annet.",
     },
   ],
@@ -320,7 +320,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med VEKSTRATEN i samlet produksjon ved varig høyere befolkningsvekst?",
-      options: ["Den stiger, til den nye raten $n_1$", "Den faller, siden produksjonen per arbeider faller", "Den er uendret", "Den blir null"],
+      options: ["Den stiger, til den nye raten $n_1$", "Den faller, siden produksjonen per arbeider faller", "Den er uendret, både på kort og lang sikt", "Den blir null, slik at økonomien slutter å vokse"],
       explanation: "I den nye likevekten vokser $K$ og $Y$ med den nye befolkningsveksten. Landet blir fattigere per hode, men vokser raskere som samlet økonomi — dette er den nyansen oppfølgingsspørsmål ofte er ute etter.",
     },
     {
@@ -330,7 +330,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kapitalslitet øker varig. Hva skjer i figuren?",
-      options: ["Strålen blir brattere — samme figur som ved høyere befolkningsvekst", "Sparekurven skifter ned, siden mer av produksjonen går til å erstatte slitasje", "Sparekurven blir flatere mens strålen står stille", "Både sparekurven og strålen skifter nedover"],
+      options: ["Strålen blir brattere — samme figur som ved høyere befolkningsvekst", "Sparekurven skifter ned, siden mer av produksjonen går til å erstatte slitasje", "Sparekurven blir flatere mens utvanningsstrålen blir stående helt i ro", "Både sparekurven og utvanningsstrålen skifter nedover i hele diagrammet"],
       explanation: "Helningen er $n+\\delta$, så det er likegyldig for figuren om det er $n$ eller $\\delta$ som øker. Forskjellen mellom de to skiftene ligger utenfor figuren, i totalstørrelsene.",
     },
     {
@@ -345,7 +345,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Økonomien ligger i likevekt, og kapitalslitet øker varig. Hva skjer med $y$ i selve endringsøyeblikket?",
-      options: ["Ingenting — $k$ er forhåndsbestemt, så $y$ begynner bare å synke gradvis", "$y$ faller brått og fortsetter deretter å falle", "$y$ faller brått og stiger deretter igjen", "$y$ stiger brått, fordi investeringsbehovet øker og dermed også etterspørselen i økonomien"],
+      options: ["Ingenting — $k$ er forhåndsbestemt, så $y$ begynner bare å synke gradvis", "$y$ faller brått og fortsetter deretter å falle helt ned til det nye nivået", "$y$ faller brått og stiger deretter igjen", "$y$ stiger brått, fordi investeringsbehovet øker og dermed også etterspørselen i økonomien"],
       explanation: "Kapitalbeholdningen er bygget opp over år og hopper ikke fordi en parameter endres i dag. Det som endres umiddelbart, er fortegnet på $\\Delta k$ — nivåene begynner å bevege seg.",
     },
     {
@@ -355,32 +355,32 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med «kort sikt» i en skiftanalyse i vekstmodellen?",
-      options: ["Selve endringsøyeblikket og tiden rett etter, mens $k$ fortsatt beveger seg", "Perioden der prisene er faste, slik at det er samlet etterspørsel som bestemmer produksjonen", "De første tolv månedene etter endringen", "Perioden før den nye parameterverdien har trådt i kraft"],
+      options: ["Selve endringsøyeblikket og tiden rett etter, mens $k$ fortsatt beveger seg", "Perioden der prisene er faste, slik at det er samlet etterspørsel som bestemmer produksjonen", "De første tolv månedene etter at endringen fant sted", "Perioden før den nye parameterverdien har rukket å tre i kraft i hele økonomien"],
       explanation: "Det avgjørende ved kort sikt her er at kapitalintensiteten er forhåndsbestemt. Kortsiktsbegrepet med faste priser hører til konjunkturmodellene i Del 4 og betyr noe helt annet.",
     },
     {
       question: "Hva er forskjellen mellom et parametersjokk og et startverdisjokk?",
-      options: ["Parametersjokket flytter likevekten; startverdisjokket flytter bare økonomien bort fra den", "Startverdisjokket flytter likevekten; parametersjokket gjør ikke det", "Bare parametersjokk kan gi overgangsfaser, siden et startverdisjokk virker umiddelbart og fullt ut", "De er to navn på samme ting"],
+      options: ["Parametersjokket flytter likevekten; startverdisjokket flytter bare økonomien bort fra den", "Startverdisjokket flytter likevekten; parametersjokket gjør ikke det", "Bare parametersjokk kan gi overgangsfaser, siden et startverdisjokk virker umiddelbart og fullt ut", "De er to navn på nøyaktig samme ting, siden begge flytter økonomien til et nytt punkt i figuren"],
       explanation: "En endring i $s$, $n$ eller $\\delta$ gir ny $k^*$. Et brått hopp i $K$ eller $L$ — som krigsødeleggelser eller innvandring — flytter derimot bare startpunktet; likevekten blir liggende der den er.",
     },
     {
       question: "Et land mister mye realkapital i en naturkatastrofe, mens $s$, $n$ og $\\delta$ er uendret. Hva skjer på lang sikt?",
-      options: ["Økonomien vender tilbake til samme $k^*$ som før", "Økonomien ender i en varig lavere likevekt, siden kapitalen som gikk tapt aldri bygges opp igjen", "Økonomien ender i en varig høyere likevekt", "Likevekten blir ustabil"],
+      options: ["Økonomien vender tilbake til samme $k^*$ som før", "Økonomien ender i en varig lavere likevekt, siden kapitalen som gikk tapt aldri bygges opp igjen", "Økonomien ender i en varig høyere likevekt enn før katastrofen", "Likevekten blir ustabil etter katastrofen"],
       explanation: "Ingen parametre er endret, så $k^*$ er den samme. Katastrofen flytter startpunktet mot venstre, og økonomien vokser tilbake — raskest i begynnelsen, siden avstanden mellom kurvene er størst der.",
     },
     {
       question: "Hvorfor er avstanden mellom kurvene interessant i en skiftanalyse?",
-      options: ["Den er $\\Delta k$, altså farten økonomien beveger seg med", "Den er nivået på produksjonen per arbeider", "Den er forbruket per arbeider", "Den viser hvor mange år tilpasningen til den nye likevekten kommer til å ta"],
+      options: ["Den er $\\Delta k$, altså farten økonomien beveger seg med", "Den er nivået på produksjonen per arbeider i punktet man leser av", "Den er forbruket per arbeider i akkurat det punktet man leser av", "Den viser hvor mange år tilpasningen til den nye likevekten kommer til å ta"],
       explanation: "Avstanden gir farten, ikke tiden: stor avstand betyr at det skjer mye i starten, og farten dør ut når økonomien nærmer seg den nye likevekten. Hvor mange år tilpasningen tar, sier modellen ingenting presist om.",
     },
     {
       question: "Spareraten faller varig OG befolkningsveksten faller varig. Hva skjer med $k^*$?",
-      options: ["Effekten er ubestemt — de to skiftene trekker mot hverandre", "$k^*$ faller entydig", "$k^*$ stiger entydig", "$k^*$ er uendret, siden de to virkningene nøyaktig oppveier hverandre"],
+      options: ["Effekten er ubestemt — de to skiftene trekker mot hverandre", "$k^*$ faller entydig, siden begge skiftene trekker i samme retning", "$k^*$ stiger entydig, siden lavere befolkningsvekst dominerer", "$k^*$ er uendret, siden de to virkningene nøyaktig oppveier hverandre"],
       explanation: "Lavere sparerate senker $k^*$, lavere befolkningsvekst hever den. Riktig framgangsmåte er å behandle skiftene ett for ett, si at de trekker mot hverandre, og si hva utfallet avhenger av — nemlig de to endringenes relative størrelse.",
     },
     {
       question: "Hva menes med at et skift i sparekurven er «proporsjonalt»?",
-      options: ["Hele kurven ganges med forholdet $s_1/s_0$ og starter fortsatt i origo", "Kurven forskyves parallelt oppover med et fast beløp", "Kurven blir rett i stedet for konkav, siden den samme andelen spares ved alle nivåer på kapitalen", "Bare den høyre delen av kurven flyttes"],
+      options: ["Hele kurven ganges med forholdet $s_1/s_0$ og starter fortsatt i origo", "Kurven forskyves parallelt oppover med et fast beløp, likt for alle $k$", "Kurven blir rett i stedet for konkav, siden den samme andelen spares ved alle nivåer på kapitalen", "Bare den høyre delen av kurven flyttes oppover"],
       explanation: "Skiftet skalerer kurven; det forskyver den ikke. Derfor beholder den formen og går fortsatt gjennom origo — en kurve som ikke starter i origo, ville betydd en fast investering uavhengig av kapitalbeholdningen.",
     },
     {
@@ -452,7 +452,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor står $g$ i utvanningsleddet?",
-      options: ["Fordi nevneren i $K/(AL)$ vokser med $n+g$, så telleren må vokse like fort", "Fordi teknologisk fremgang gjør gammelt utstyr foreldet og dermed øker den effektive slitasjen på kapitalen", "Fordi høyere produktivitet gjør at det spares mindre", "Fordi produktivitetsvekst gir høyere kapitalslit"],
+      options: ["Fordi nevneren i $K/(AL)$ vokser med $n+g$, så telleren må vokse like fort", "Fordi teknologisk fremgang gjør gammelt utstyr foreldet og dermed øker den effektive slitasjen på kapitalen", "Fordi høyere produktivitet gjør at husholdningene sparer en mindre del av inntekten", "Fordi produktivitetsvekst i seg selv gir et høyere kapitalslit i hver periode"],
       explanation: "Leddet er regneteknisk, ikke fysisk: kapitalen skal fordeles på flere effektivitetsenheter. Teknologisk fremgang ødelegger ingenting i denne modellen.",
     },
     {
@@ -472,7 +472,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den eneste kilden til varig vekst i produksjonen per arbeider i dette pensumet?",
-      options: ["Teknologisk fremgang", "Høyere sparerate", "Lavere befolkningsvekst", "Lavere kapitalslit"],
+      options: ["Teknologisk fremgang", "Varig høyere sparerate", "Lavere befolkningsvekst", "Varig lavere kapitalslit"],
       explanation: "De tre andre hever nivået på velstandsbanen, men ikke helningen. Grunnen er avtakende avkastning på kapital: den kilden tørker ut, mens produktivitetsvekst ikke møter samme grense.",
     },
     {
@@ -482,7 +482,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er lavere $k^*$ per effektivitetsenhet IKKE et tegn på lavere velstand?",
-      options: ["Fordi nevneren $AL$ nå vokser raskere — det er en måleeffekt", "Fordi kapitalbeholdningen ikke har noen betydning for velstanden når teknologien først vokser", "Fordi spareraten kan økes for å motvirke det", "Fordi kapitalslitet samtidig faller"],
+      options: ["Fordi nevneren $AL$ nå vokser raskere — det er en måleeffekt", "Fordi kapitalbeholdningen ikke har noen betydning for velstanden når teknologien først vokser", "Fordi spareraten kan økes tilstrekkelig til å motvirke fallet", "Fordi kapitalslitet samtidig faller like mye"],
       explanation: "Kapitalen per arbeider, $K/L = k\\cdot A$, vokser tvert imot med $g$ på den nye banen. Størrelsen $k$ er en regneteknisk hjelpestørrelse, ikke et velferdsmål.",
     },
     {
@@ -492,12 +492,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med veksten i produksjonen per arbeider RETT ETTER at $g$ har økt?",
-      options: ["Den stiger umiddelbart, men ikke helt opp til den nye raten", "Den hopper rett opp til den nye raten $g_1$", "Den faller først, siden kapitalen per effektivitetsenhet faller, og tar seg opp igjen først etter tilpasningen", "Den er uendret til tilpasningen er ferdig"],
+      options: ["Den stiger umiddelbart, men ikke helt opp til den nye raten", "Den hopper rett opp til den nye raten $g_1$ allerede i endringsøyeblikket", "Den faller først, siden kapitalen per effektivitetsenhet faller, og tar seg opp igjen først etter tilpasningen", "Den er uendret helt til tilpasningen er ferdig"],
       explanation: "To krefter virker: $A$ vokser raskere (opp), mens $y=f(k)$ faller mot den nye likevekten (ned). Nettoresultatet er en umiddelbar økning som deretter nærmer seg $g_1$ etter hvert som fallet i $k$ dør ut.",
     },
     {
       question: "Hva skjer med NIVÅET på produksjonen per arbeider i selve øyeblikket $g$ øker?",
-      options: ["Ingenting — nivået er kontinuerlig, det er helningen som endres", "Det hopper opp, siden produktiviteten øker", "Det hopper ned, siden kapitalen per effektivitetsenhet faller", "Det hopper opp og deretter ned igjen, ettersom kapitalen per effektivitetsenhet tilpasser seg det nye nivået"],
+      options: ["Ingenting — nivået er kontinuerlig, det er helningen som endres", "Det hopper opp, siden produktiviteten øker", "Det hopper ned, siden kapitalen per effektivitetsenhet faller brått", "Det hopper opp og deretter ned igjen, ettersom kapitalen per effektivitetsenhet tilpasser seg det nye nivået"],
       explanation: "Både kapitalbeholdningen og produktivitetsnivået er forhåndsbestemte; det er vekstraten i $A$ som er endret, ikke nivået på $A$. Derfor knekker banen, den hopper ikke.",
     },
     {
@@ -512,17 +512,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med kapitalen per ARBEIDER, $K/L$, i steady state med produktivitetsvekst?",
-      options: ["Den vokser med raten $g$", "Den er konstant, akkurat som kapitalen per effektivitetsenhet", "Den vokser med $n+g$", "Den faller"],
+      options: ["Den vokser med raten $g$", "Den er konstant, akkurat som kapitalen per effektivitetsenhet", "Den vokser med raten $n+g$", "Den faller gradvis over tid"],
       explanation: "Kapitalen per arbeider er $k\\cdot A$: $k$ er konstant per effektivitetsenhet, og $A$ vokser med $g$. Hver arbeider får altså stadig mer utstyr.",
     },
     {
       question: "Spareraten øker varig i en økonomi med produktivitetsvekst. Hva skjer med den langsiktige vekstraten for produksjonen per arbeider?",
-      options: ["Den er uendret lik $g$", "Den stiger permanent, siden mer kapital gir mer produksjon hvert år", "Den faller permanent", "Den blir null"],
+      options: ["Den er uendret lik $g$", "Den stiger permanent, siden mer kapital gir mer produksjon hvert år", "Den faller permanent på lang sikt", "Den blir lik null på sikt"],
       explanation: "Vekstraten bestemmes utelukkende av $g$, som ikke er endret. Spareøkningen løfter nivået på banen: samme helning, forskjøvet oppover — med en overgangsfase der veksten er høyere enn $g$.",
     },
     {
       question: "Hva menes med en balansert vekstbane?",
-      options: ["Alle størrelser vokser med konstante rater, slik at forholdene mellom dem er stabile", "Alle størrelser står stille", "Sparing og investering er like store i hver enkelt periode, slik at ingenting hoper seg opp", "Befolkningsveksten er lik produktivitetsveksten"],
+      options: ["Alle størrelser vokser med konstante rater, slik at forholdene mellom dem er stabile", "Alle størrelser i økonomien står helt stille, både målt per arbeider og målt for økonomien samlet", "Sparing og investering er like store i hver enkelt periode, slik at ingenting hoper seg opp", "Befolkningsveksten er lik produktivitetsveksten"],
       explanation: "På en slik bane vokser $K$ og $Y$ med samme rate $n+g$, slik at $K/Y$ er konstant. Likevekt betyr her at forholdene står stille, ikke at nivåene gjør det.",
     },
     {
@@ -554,7 +554,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den grafiske tolkningen av gullregelen?",
-      options: ["Tangenten til $f(k)$ er parallell med utvanningsstrålen", "Sparekurven skjærer utvanningsstrålen i det punktet der forbruket er høyest", "Produktfunksjonen skjærer strålen", "Tangenten til $f(k)$ er vannrett"],
+      options: ["Tangenten til $f(k)$ er parallell med utvanningsstrålen", "Sparekurven skjærer utvanningsstrålen i det punktet der forbruket er høyest", "Produktfunksjonen skjærer utvanningsstrålen i det punktet", "Tangenten til $f(k)$ er vannrett, altså helt uten helning"],
       explanation: "Betingelsen sier at kurvens helning er lik strålens helning. Der er den vertikale avstanden mellom dem — altså forbruket — størst. At sparekurven skjærer strålen, kjennetegner enhver steady state, ikke gullregelpunktet.",
     },
     {
@@ -564,17 +564,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er gullregelpunktet et maksimum og ikke et minimum?",
-      options: ["Fordi $f''(k) < 0$, så forbrukskurven krummer nedover", "Fordi spareraten alltid ligger et sted mellom 0 og 1, slik at forbruket er positivt", "Fordi $f'(k) > 0$", "Fordi befolkningsveksten er positiv"],
+      options: ["Fordi $f''(k) < 0$, så forbrukskurven krummer nedover", "Fordi spareraten alltid ligger et sted mellom 0 og 1, slik at forbruket er positivt", "Fordi $f'(k) > 0$, slik at mer kapital alltid gir mer produksjon", "Fordi befolkningsveksten er positiv og dermed krever investeringer"],
       explanation: "Den andrederiverte av $c^*(k^*)=f(k^*)-(n+\\delta)k^*$ er $f''(k^*)$, som er negativ når produktfunksjonen er konkav. Det er samme antakelse som gir modellen en likevekt i det hele tatt.",
     },
     {
       question: "Hvorfor kan $s=1$ ikke være optimalt?",
-      options: ["Fordi hele produksjonen da spares, slik at forbruket er null", "Fordi kapitalen per arbeider da vokser uten grense og aldri finner noen likevekt", "Fordi likevekten da blir ustabil", "Fordi produksjonen per arbeider da faller"],
+      options: ["Fordi hele produksjonen da spares, slik at forbruket er null", "Fordi kapitalen per arbeider da vokser uten grense og aldri finner noen likevekt", "Fordi likevekten da blir ustabil og økonomien sprer seg bort fra den", "Fordi produksjonen per arbeider da faller"],
       explanation: "Med $s=1$ er kapital og produksjon per arbeider på sitt høyeste, men ingen forbruker noe. Ytterpunktet viser at «jo mer sparing, jo bedre» ikke kan holde som generell regel.",
     },
     {
       question: "Hvilken form har langsiktig forbruk per arbeider som funksjon av spareraten?",
-      options: ["Klokkeformet: null i begge ender, med en topp i mellom", "Stigende hele veien fra $s=0$ til $s=1$, siden mer kapital alltid gir mer å fordele", "Fallende hele veien fra $s=0$ til $s=1$", "Rett linje med positiv helning"],
+      options: ["Klokkeformet: null i begge ender, med en topp i mellom", "Stigende hele veien fra $s=0$ til $s=1$, siden mer kapital alltid gir mer å fordele", "Fallende hele veien fra $s=0$ til $s=1$", "En rett linje med positiv helning gjennom hele intervallet"],
       explanation: "Ved $s=0$ forvitrer kapitalen og forbruket går mot null; ved $s=1$ er forbruket null. Siden det er positivt i mellom, må kurven ha en topp — og den ligger ved gullregel-spareraten.",
     },
     {
@@ -641,12 +641,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-1-6': [
     {
       question: "Hva er grepet som gir vekstmodellen flere likevekter?",
-      options: ["Å la en parameter avhenge av inntektsnivået", "Å fjerne kapitalslitet fra bevegelsesligningen helt", "Å øke spareraten varig", "Å innføre produktivitetsvekst"],
+      options: ["Å la en parameter avhenge av inntektsnivået", "Å fjerne kapitalslitet fra bevegelsesligningen helt", "Å øke spareraten varig og for alle inntektsnivåer", "Å innføre produktivitetsvekst i produktfunksjonen"],
       explanation: "Da får én av de to kurvene et sprang, og «bare én kryssing»-argumentet faller bort. Produktivitetsvekst gjør bare strålen brattere og gir fortsatt én likevekt.",
     },
     {
       question: "Hvorfor har grunnmodellen bare én likevekt utenom origo?",
-      options: ["Fordi en konkav kurve og en rett stråle fra origo bare kan møtes én gang", "Fordi spareraten er mindre enn 1", "Fordi befolkningsveksten er konstant og positiv", "Fordi kapitalslitet er proporsjonalt med kapitalbeholdningen, slik at utvanningen vokser jevnt med $k$"],
+      options: ["Fordi en konkav kurve og en rett stråle fra origo bare kan møtes én gang", "Fordi spareraten er en fast andel mellom null og én", "Fordi befolkningsveksten er antatt konstant og positiv gjennom hele forløpet", "Fordi kapitalslitet er proporsjonalt med kapitalbeholdningen, slik at utvanningen vokser jevnt med $k$"],
       explanation: "Sparekurven starter brattere og flater ut, mens strålen holder helningen. Etter møtet blir avstanden bare større. Argumentet hviler på at parametrene er konstante — og det er nettopp det som brytes her.",
     },
     {
@@ -656,7 +656,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Med endogen befolkningsvekst: hvilken kurve får et sprang?",
-      options: ["Utvanningsstrålen, som knekker fra bratt til slakere", "Sparekurven, som hopper opp i terskelen", "Produktfunksjonen, som får en knekk oppover", "Ingen av dem — det er bare startpunktet for økonomien som flyttes til et annet sted på aksen"],
+      options: ["Utvanningsstrålen, som knekker fra bratt til slakere", "Sparekurven, som hopper opp i terskelen og blir liggende høyere", "Produktfunksjonen, som får en knekk oppover ved terskelverdien", "Ingen av dem — det er bare startpunktet for økonomien som flyttes til et annet sted på aksen"],
       explanation: "Befolkningsveksten står i helningen $n+\\delta$, så det er strålen som knekker: bratt der inntekten er lav, slakere der den er høy. Sparekurven er uendret.",
     },
     {
@@ -666,7 +666,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner terskelen $\\bar{k}$?",
-      options: ["Den er ustabil — dynamikkpilene peker bort fra den i begge retninger", "Den er den mest stabile av de tre likevektene", "Den er der forbruket per arbeider er høyest", "Den er der produksjonen per arbeider er høyest, siden den ligger mellom de to likevektene"],
+      options: ["Den er ustabil — dynamikkpilene peker bort fra den i begge retninger", "Den er den mest stabile av de tre likevektene, og økonomien søker mot den", "Den er der forbruket per arbeider er høyest", "Den er der produksjonen per arbeider er høyest, siden den ligger mellom de to likevektene"],
       explanation: "Starter økonomien litt under, glir den ned til lavlikevekten; litt over, vokser den opp til høylikevekten. Ingen økonomi blir liggende på terskelen.",
     },
     {
@@ -676,7 +676,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I intervallet mellom lavlikevekten og terskelen: hvilken vei peker dynamikkpilen?",
-      options: ["Mot venstre — sparekurven ligger under strålen der", "Mot høyre — sparekurven ligger over strålen der", "Ingen vei — $\\Delta k$ er null i hele intervallet", "Retningen kan ikke bestemmes uten at man kjenner tallverdiene på parametrene"],
+      options: ["Mot venstre — sparekurven ligger under strålen der", "Mot høyre — sparekurven ligger over strålen i hele intervallet", "Ingen vei — $\\Delta k$ er lik null i hele intervallet mellom punktene", "Retningen kan ikke bestemmes uten at man kjenner tallverdiene på parametrene"],
       explanation: "Her gjelder fortsatt den lave spareraten, og strålen har tatt igjen kurven. Det er nettopp denne pilen som forklarer hvorfor små løft dør ut.",
     },
     {
@@ -686,7 +686,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer etter et engangsløft som bringer økonomien godt forbi terskelen?",
-      options: ["Den vokser videre av seg selv opp til høylikevekten, uten at løftet gjentas", "Den blir liggende der løftet stanset", "Den glir gradvis tilbake til lavlikevekten", "Den vokser videre bare så lenge løftet vedvarer, og stanser når overføringen tar slutt"],
+      options: ["Den vokser videre av seg selv opp til høylikevekten, uten at løftet gjentas", "Den blir liggende der løftet stanset, uten videre vekst", "Den glir gradvis tilbake til lavlikevekten, slik den ville gjort uten løftet", "Den vokser videre bare så lenge løftet vedvarer, og stanser når overføringen tar slutt"],
       explanation: "Over terskelen tar den nye parameterverdien over, sparingen overstiger utvanningen, og pilen peker mot høyre helt fram til $k_H^*$. Løftet må være stort nok, én gang.",
     },
     {
@@ -696,7 +696,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva avgjør hvilken av de to likevektene et land ender i?",
-      options: ["Hvilken side av terskelen det starter på", "Hvor høy spareraten er over terskelen", "Hvor stort kapitalslitet er", "Hvor bratt produktfunksjonen er nær origo, siden det bestemmer veksten i starten"],
+      options: ["Hvilken side av terskelen det starter på", "Hvor høy spareraten er på oversiden av terskelen", "Hvor stort kapitalslitet er i hele intervallet", "Hvor bratt produktfunksjonen er nær origo, siden det bestemmer veksten i starten"],
       explanation: "Med flere likevekter får startpunktet varig betydning. To land med identiske parametre kan ende i helt ulike tilstander avhengig av hvor de begynte — noe som var umulig i grunnmodellen.",
     },
     {
@@ -711,7 +711,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er varianten med endogen befolkningsvekst en annen modell enn varianten med trappetrinnssparing?",
-      options: ["Nei — samme grep, bare en annen kurve som får spranget", "Ja, den bygger på en helt annen bevegelsesligning enn varianten med trappetrinnssparing", "Ja, den gir bare én likevekt", "Ja, den krever produktivitetsvekst"],
+      options: ["Nei — samme grep, bare en annen kurve som får spranget", "Ja, den bygger på en helt annen bevegelsesligning", "Ja, den gir bare én likevekt", "Ja, den krever produktivitetsvekst"],
       explanation: "Begge består i at en parameter avhenger av inntektsnivået. Hvilken kurve som får spranget, avgjør bare hvordan figuren ser ut — konklusjonen med to stabile likevekter og et ustabilt vippepunkt er den samme.",
     },
     {
@@ -743,7 +743,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-1-7': [
     {
       question: "Hva er steg 1 i løsningsoppskriften for en vekstoppgave?",
-      options: ["Å oversette de verbale egenskapene til relasjoner og fortegn", "Å tegne fasediagrammet og markere likevekten", "Å regne ut likevektsverdien for kapital per arbeider", "Å avgjøre hvilken av utvidelsesvriene oppgaven bruker, slik at du vet hvor analysen skal ende"],
+      options: ["Å oversette de verbale egenskapene til relasjoner og fortegn", "Å tegne fasediagrammet og markere likevekten før modellen er presentert", "Å regne ut likevektsverdien for kapital per arbeider før relasjonene er forklart", "Å avgjøre hvilken av utvidelsesvriene oppgaven bruker, slik at du vet hvor analysen skal ende"],
       explanation: "Kjeden starter med oversettelsen: ett strekpunkt om gangen blir én relasjon eller ett fortegn. Figuren kommer i steg 3, etter at modellen er presentert og begrunnet.",
     },
     {
@@ -758,7 +758,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skal det siste delspørsmålet ha et tidstak, selv om det er det vanskeligste?",
-      options: ["Fordi det vurderes mildere enn resten, så ekstra tid gir lite igjen", "Fordi det alltid teller minst av alle delspørsmålene", "Fordi det sjelden er mulig å svare riktig på det", "Fordi sensor leser det siste delspørsmålet mindre nøye enn de foregående delspørsmålene"],
+      options: ["Fordi det vurderes mildere enn resten, så ekstra tid gir lite igjen", "Fordi det alltid teller minst av alle delspørsmålene i oppgaven, uansett sett", "Fordi det sjelden er mulig å svare riktig på det", "Fordi sensor leser det siste delspørsmålet mindre nøye enn de foregående delspørsmålene"],
       explanation: "Sensorveiledningene sier at de bevisst kinkige avslutningsspørsmålene vurderes mildere. Ti minutter ekstra der er dårligere brukt enn ti minutter på et delspørsmål du kan svare fullt på.",
     },
     {
@@ -768,12 +768,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken setning må med hver gang du er i steady state?",
-      options: ["At per arbeider-størrelsene er konstante mens totalstørrelsene vokser", "At spareraten er eksogen", "At produktfunksjonen er konkav", "At likevekten er stabil, slik at økonomien nærmer seg den fra begge sider"],
+      options: ["At per arbeider-størrelsene er konstante mens totalstørrelsene vokser", "At spareraten er eksogen, og at det er den som bestemmer nivået på kapitalen", "At produktfunksjonen er konkav, slik at grenseproduktiviteten til kapitalen avtar", "At likevekten er stabil, slik at økonomien nærmer seg den fra begge sider"],
       explanation: "Det motsatte — at $K$ og $Y$ står stille — omtales i en sensorveiledning som positivt feil. Setningen koster deg fem sekunder og forebygger den enkleste tapte poengsummen i vekstblokken.",
     },
     {
       question: "En oppgave gir relasjonene i oppgaveteksten. Hva skal du gjøre med dem?",
-      options: ["Forklare dem, selv om du ikke trenger å utlede dem", "Gå rett til regningen, siden de er oppgitt", "Utlede dem på nytt fra grunnprinsipper", "Gjengi dem ordrett slik de står i oppgaveteksten, og gå deretter videre til figuren"],
+      options: ["Forklare dem, selv om du ikke trenger å utlede dem", "Gå rett til regningen, siden relasjonene allerede er oppgitt i teksten", "Utlede dem på nytt fra grunnprinsipper", "Gjengi dem ordrett slik de står i oppgaveteksten, og gå deretter videre til figuren"],
       explanation: "Relasjonene oppgis bevisst uforklart, og forklaringen er selve oppgaven — sensorens metaregel nummer én. Du slipper utledningen, men ikke forklaringen.",
     },
     {
@@ -783,32 +783,32 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Spareraten faller varig. Hva er den langsiktige effekten på forbruket per arbeider?",
-      options: ["Ubestemt — positiv hvis økonomien lå over gullregelnivået", "Entydig negativ, siden produksjonen per arbeider faller", "Entydig positiv, siden en større andel av produksjonen nå forbrukes hvert år", "Null, siden forbruket vender tilbake til utgangspunktet"],
+      options: ["Ubestemt — positiv hvis økonomien lå over gullregelnivået", "Entydig negativ, siden produksjonen per arbeider faller", "Entydig positiv, siden en større andel av produksjonen nå forbrukes hvert år", "Null, siden forbruket per arbeider vender tilbake til utgangspunktet"],
       explanation: "Både retningen og betingelsen speiles når skiftet snur: lå økonomien OVER gullregelnivået, gir lavere sparerate høyere langsiktig forbruk. Mange lærer «ubestemt» som frase og glemmer at betingelsen snur.",
     },
     {
       question: "Befolkningsveksten faller varig. Hva skjer med per arbeider-størrelsene?",
-      options: ["$k^*$, $y^*$ og forbruket per arbeider stiger alle tre", "$k^*$ stiger, men forbruket per arbeider er ubestemt", "Alle tre faller, siden det blir færre arbeidere til å produsere", "Alle tre er uendret"],
+      options: ["$k^*$, $y^*$ og forbruket per arbeider stiger alle tre", "$k^*$ stiger, men forbruket per arbeider er ubestemt uten mer informasjon", "Alle tre faller, siden det blir færre arbeidere til å produsere", "Alle tre er uendret, siden befolkningsveksten ikke står i produktfunksjonen"],
       explanation: "Strålen blir slakere, så $k^*$ og $y^*$ stiger. Forbruket er $(1-s)f(k^*)$ med uendret $s$, så også det stiger. Ubestemtheten oppstår bare når $s$ selv endres.",
     },
     {
       question: "Produktivitetsveksten øker varig. Hva er det viktigste skillet i svaret?",
-      options: ["Nivået per effektivitetsenhet faller, men banen for produksjonen per arbeider blir brattere", "Nivået stiger, men banen blir flatere", "Både nivå og bane faller", "Verken nivået eller banen endres — det er bare vekstraten i arbeidsstyrken som blir påvirket"],
+      options: ["Nivået per effektivitetsenhet faller, men banen for produksjonen per arbeider blir brattere", "Nivået per effektivitetsenhet stiger, men banen for produksjonen per arbeider blir flatere", "Både nivået per effektivitetsenhet og banen for produksjonen per arbeider faller", "Verken nivået eller banen endres — bare vekstraten i arbeidsstyrken"],
       explanation: "De to svarene peker i motsatt retning, og det er derfor spørsmålet skiller. Å bare gi det første ser ut som om økt produktivitetsvekst er skadelig, og det er feil — det lavere nivået er en måleeffekt.",
     },
     {
       question: "To skift trekker $k^*$ i motsatt retning. Hva er riktig framgangsmåte?",
-      options: ["Behandle skiftene ett for ett, si at de trekker mot hverandre, og si hva utfallet avhenger av", "Velge det skiftet som virker størst og se bort fra det andre", "Konkludere at ingenting skjer, siden effektene oppveier hverandre", "Unngå å konkludere i det hele tatt, siden modellen ikke kan brukes når to skift virker samtidig"],
+      options: ["Behandle skiftene ett for ett, si at de trekker mot hverandre, og si hva utfallet avhenger av", "Velge det skiftet som virker størst og se bort fra det andre", "Konkludere at ingenting skjer, siden de to skiftene nøyaktig oppveier hverandre og $k^*$ blir liggende", "Unngå å konkludere i det hele tatt, siden modellen ikke kan brukes når to skift virker samtidig"],
       explanation: "Å vise at du forstår begge mekanismene gir uttelling selv om summen ikke kan signeres. At effektene nøyaktig oppveier hverandre, er et spesialtilfelle du ikke kan påstå uten begrunnelse.",
     },
     {
       question: "Hva er det avgjørende du må gjøre når du har tegnet to kryssinger i fasediagrammet?",
-      options: ["Drøfte stabiliteten i hvert punkt og tegne dynamikkpilene", "Regne ut avstanden mellom de to likevektene", "Angi tallverdier for terskelen", "Tegne tidsbanen for begge likevektene samtidig, i samme diagram med tid horisontalt"],
+      options: ["Drøfte stabiliteten i hvert punkt og tegne dynamikkpilene", "Regne ut avstanden mellom de to likevektene langs den vannrette aksen", "Angi tallverdier for terskelen, slik at vippepunktet kan leses av", "Tegne tidsbanen for begge likevektene samtidig, i samme diagram med tid horisontalt"],
       explanation: "Å vise to kryssinger uten stabilitetsanalyse er den hyppigst flaggede feilen i denne sjangeren. Pilene ER argumentet for at terskelen er et vippepunkt.",
     },
     {
       question: "Kapitalslitet avhenger av inntektsnivået: høyt i fattige land, lavt i rike. Hvilken kurve får et sprang?",
-      options: ["Utvanningsstrålen, som knekker fra bratt til slakere", "Sparekurven, som hopper opp i terskelen", "Produktfunksjonen, som får en knekk", "Ingen av kurvene — dette gir bare ett skjæringspunkt, akkurat som i grunnmodellen"],
+      options: ["Utvanningsstrålen, som knekker fra bratt til slakere", "Sparekurven, som hopper opp i terskelen der kapitalslitet endres", "Produktfunksjonen, som får en knekk", "Ingen av kurvene — dette gir bare ett skjæringspunkt, akkurat som i grunnmodellen"],
       explanation: "Kapitalslitet står i helningen $n+\\delta$, så strålen knekker — akkurat som når befolkningsveksten avhenger av inntekten. Det er samme grep, og du trenger ikke ha sett varianten før.",
     },
     {
@@ -818,7 +818,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner malen utsatt eksamen har fulgt tre år på rad?",
-      options: ["Hele settet er vekstmodellen, bygget over samme oppgavekjede", "Hele settet er åpen økonomi med renteregel", "Settet er delt likt mellom vekst og åpen økonomi", "Settet består av kortsvarsoppgaver med korte, avgrensede spørsmål"],
+      options: ["Hele settet er vekstmodellen, bygget over samme oppgavekjede", "Hele settet er åpen økonomi med renteregel", "Settet er delt likt mellom vekst og åpen økonomi, med to oppgaver fra hver blokk", "Settet består av kortsvarsoppgaver med korte, avgrensede spørsmål"],
       explanation: "Kjeden er: oppsett med begrunnelser, likevekt grafisk, tilpasningsbane, ett eller to skift, og en utvidelsesvri til slutt. Skal du opp til utsatt eksamen, kan du øve nettopp denne kjeden.",
     },
     {
@@ -947,7 +947,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-2-2': [
     {
       question: "Hva menes med at produksjonen er tilbudsbestemt?",
-      options: ["At produksjonsnivået er bestemt av kapasiteten, fordi alle ressurser allerede er i bruk", "At bedriftene selv bestemmer prisene sine i stedet for å ta dem for gitt fra markedet, og derfor kan velge produksjonsnivå fritt", "At produksjonen bestemmes av hvor mye myndighetene tillater at det produseres", "At tilbudet av arbeidskraft er større enn etterspørselen etter den"],
+      options: ["At produksjonsnivået er bestemt av kapasiteten, fordi alle ressurser allerede er i bruk", "At bedriftene selv bestemmer prisene sine i stedet for å ta dem for gitt fra markedet, og derfor kan velge produksjonsnivå fritt", "At produksjonen bestemmes av hvor mye myndighetene tillater at det produseres i hver næring", "At tilbudet av arbeidskraft er større enn etterspørselen etter den"],
       explanation: "Når skranken binder på tilbudssiden, kan økt etterspørsel etter én ting bare møtes ved at noe annet produseres mindre. Dette er forutsetningen som ligger under hele vekstmodellen, selv om den sjelden skrives ned der.",
     },
     {
@@ -957,12 +957,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er sparing bra i vekstmodellen og et problem i Keynes-krysset?",
-      options: ["Fordi produksjonen er tilbudsbestemt i den ene modellen og etterspørselsbestemt i den andre", "Fordi vekstmodellen ser på en lukket økonomi uten utenrikshandel, mens Keynes-krysset er utviklet for en åpen økonomi med eksport og import", "Fordi vekstmodellen regner i faste priser mens Keynes-krysset regner i løpende", "Fordi den ene modellen er riktig og den andre er en forenkling som er blitt forlatt"],
+      options: ["Fordi produksjonen er tilbudsbestemt i den ene modellen og etterspørselsbestemt i den andre", "Fordi vekstmodellen ser på en lukket økonomi uten utenrikshandel, mens Keynes-krysset er utviklet for en åpen økonomi med eksport og import", "Fordi vekstmodellen regner i faste priser mens Keynes-krysset regner i løpende priser og dermed måler noe annet", "Fordi den ene modellen er riktig, mens den andre er en tidlig forenkling som faget siden har forlatt"],
       explanation: "Med ressursene i bruk er sparing en omdisponering fra konsumvarer til investeringsvarer; med ledige ressurser er den bortfall av etterspørsel som ingen tar over. Modellene er ikke uenige om et faktum — de beskriver ulike skranker.",
     },
     {
       question: "Hva sier gullregelforbeholdet?",
-      options: ["At høyere sparerate gir høyere produksjon per arbeider, men ikke nødvendigvis høyere forbruk per arbeider", "At det finnes en sparerate som gir maksimal produksjon per arbeider på lang sikt, og at spareraten derfor bør settes nettopp der", "At spareraten alltid bør settes så høyt som mulig på lang sikt", "At sparingen må være lik investeringen i enhver likevekt"],
+      options: ["At høyere sparerate gir høyere produksjon per arbeider, men ikke nødvendigvis høyere forbruk per arbeider", "At det finnes en sparerate som gir maksimal produksjon per arbeider på lang sikt", "At spareraten alltid bør settes så høyt som mulig på lang sikt", "At sparingen må være lik investeringen i enhver likevekt"],
       explanation: "Langsiktig konsum per arbeider er $(1-s)f(k^*)$: en større kake, men en mindre andel av den til forbruk. Hvilken effekt som vinner, avhenger av gullregelposisjonen — derfor kan fortegnet ikke signeres uten mer informasjon. Alternativet om maksimal produksjon er feil: produksjonen per arbeider stiger monotont med $s$; det er forbruket som har et maksimum.",
     },
     {
@@ -977,22 +977,22 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor fungerer «kort sikt mot lang sikt» likevel som tommelfingerregel?",
-      options: ["Fordi priser og lønninger er trege på kort sikt, mens de over tid tilpasser seg og presser produksjonen mot det tilbudssiden tillater", "Fordi vekstmodellen matematisk sett bare er utledet for perioder på over ti år, og derfor ikke sier noe meningsfullt om kortere horisonter", "Fordi konjunktursvingninger per definisjon varer under ett år", "Fordi kapitalbeholdningen er konstant på kort sikt"],
+      options: ["Fordi priser og lønninger er trege på kort sikt, mens de over tid tilpasser seg og presser produksjonen mot det tilbudssiden tillater", "Fordi vekstmodellen matematisk sett bare er utledet for perioder på over ti år", "Fordi konjunktursvingninger per definisjon varer under ett år", "Fordi kapitalbeholdningen er tilnærmet konstant på kort sikt"],
       explanation: "Tregheten i priser og lønninger er grunnen til at et etterspørselsfall gir ledighet i stedet for lavere priser på kort sikt. Over tid forsvinner den tregheten, og da binder kapasiteten.",
     },
     {
       question: "Hva er den dokumenterte forskjellen mellom en besvarelse der alt er riktig og en som viser reell innsikt, ifølge H2018-veiledningen?",
-      options: ["At kandidaten selv innfører begrepsparet tilbudsbestemt og etterspørselsbestemt, uten at oppgaven ber om det", "At kandidaten regner ut multiplikatoren eksplisitt og viser hvert steg i utregningen i stedet for bare å oppgi resultatet", "At kandidaten tegner begge figurene i stedet for bare den ene", "At kandidaten bruker flest mulig modeller i samme svar"],
+      options: ["At kandidaten selv innfører begrepsparet tilbudsbestemt og etterspørselsbestemt, uten at oppgaven ber om det", "At kandidaten regner ut multiplikatoren eksplisitt og viser hvert steg i utregningen i stedet for bare å oppgi resultatet", "At kandidaten tegner begge figurene i stedet for bare den ene, og stiller dem opp mot hverandre i det samme svaret", "At kandidaten bruker flest mulig modeller i det samme svaret, uansett tema"],
       explanation: "Oppgaveteksten lot bevisst være å nevne begrepsparet. Merk at det ikke gis premie for antall modeller — bare for at en ekstra modell tilfører noe.",
     },
     {
       question: "I hvilken retning leses sammenhengen $S = I$ i vekstmodellen?",
-      options: ["Fra sparing til investering: den sparte andelen $s$ av produksjonen blir investering", "Fra investering til sparing: investeringene er eksogent gitte, og det er inntekten som justerer seg helt til sparingen matcher dem", "Begge veier samtidig, siden det er en identitet", "Ingen av veiene — sammenhengen gjelder ikke i vekstmodellen"],
+      options: ["Fra sparing til investering: den sparte andelen $s$ av produksjonen blir investering", "Fra investering til sparing: investeringene er eksogent gitte, og det er inntekten som justerer seg helt til sparingen matcher dem", "Begge veier samtidig, siden $S = I$ er en identitet i begge modellene", "Ingen av veiene — sammenhengen gjelder ikke i vekstmodellen, men bare i Keynes-krysset med faste priser"],
       explanation: "I Keynes-krysset går kausaliteten motsatt vei: $I_0$ er gitt, og inntekten justerer seg til sparingen matcher den. Samme likhetstegn, motsatt fortolkning — og det er nettopp derfor konklusjonene om sparing spriker.",
     },
     {
       question: "Et land har full sysselsetting, men lite kapital per arbeider. Hvilken modell passer for å analysere virkningen av høyere sparerate?",
-      options: ["Vekstmodellen, siden det ikke finnes ledige ressurser å mobilisere med økt etterspørsel", "Keynes-krysset, siden fattige land mangler kjøpekraft og derfor først og fremst trenger et løft i samlet etterspørsel", "Keynes-krysset, siden spareraten er en av modellens parametre", "Ingen av modellene kan brukes på fattige land"],
+      options: ["Vekstmodellen, siden det ikke finnes ledige ressurser å mobilisere med økt etterspørsel", "Keynes-krysset, siden fattige land mangler kjøpekraft og derfor først og fremst trenger et løft i samlet etterspørsel", "Keynes-krysset, siden spareraten er en av parametrene som inngår i multiplikatoren i den modellen", "Ingen av modellene kan brukes på fattige land, siden begge forutsetter et utviklet markedssystem"],
       explanation: "Full sysselsetting betyr at kapasiteten binder. Mer etterspørsel ville gitt prispress, ikke mer produksjon. Skal produksjonen per arbeider opp, må kapitalen per arbeider opp.",
     },
     {
@@ -1002,7 +1002,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et produksjonsgap er negativt. Hva forteller det deg?",
-      options: ["At det finnes ledige ressurser, slik at etterspørselsmodellen er den relevante", "At kapitalbeholdningen per arbeider ligger under steady state-nivået $k^*$, slik at økonomien fortsatt er i en overgangsfase", "At landet har underskudd på handelsbalansen", "At spareraten ligger under gullregelnivået"],
+      options: ["At det finnes ledige ressurser, slik at etterspørselsmodellen er den relevante", "At kapitalbeholdningen per arbeider ligger under steady state-nivået $k^*$, slik at økonomien fortsatt er i en overgangsfase", "At landet har underskudd på handelsbalansen, altså at importen er større enn eksporten", "At spareraten ligger under gullregelnivået, slik at forbruket per arbeider kan økes"],
       explanation: "Negativt produksjonsgap betyr at faktisk produksjon ligger under normal utnyttelse — det er arbeidsledige og maskiner som står stille. De tre andre alternativene beskriver reelle forhold, men ikke det et produksjonsgap måler.",
     },
     {
@@ -1400,17 +1400,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bestemmer potensielt BNP?",
-      options: ["Tilbudssiden: arbeidsstyrke, produktivitet, kapital og lønns-/prisdannelse", "Etterspørselen etter varer og tjenester, slik den bestemmes av konsum, investeringer og offentlige kjøp", "Sentralbankens inflasjonsmål og rentesetting", "Nivået på offentlige kjøp og skatter i statsbudsjettet"],
+      options: ["Tilbudssiden: arbeidsstyrke, produktivitet, kapital og lønns-/prisdannelse", "Etterspørselen etter varer og tjenester, slik den bestemmes av konsum, investeringer og offentlige kjøp", "Sentralbankens inflasjonsmål og den rentesettingen banken bruker for å nå det", "Nivået på offentlige kjøp og på skattene, slik det fastsettes i statsbudsjettet"],
       explanation: "$Y^n$ er en tilbudssidestørrelse og svarer til likevektsledigheten. Etterspørselen bestemmer faktisk produksjon, ikke det bærekraftige nivået.",
     },
     {
       question: "Hvorfor står potensielt BNP i renteregelen?",
-      options: ["Fordi bare gapet mellom faktisk og bærekraftig nivå sier noe om prispresset", "Fordi banken har et lovpålagt mål om at produksjonen skal treffe potensielt BNP i hvert enkelt år", "Fordi $Y^n$ er lettere å måle enn faktisk produksjon", "Fordi $Y^n$ vokser over tid og gir regelen en trend"],
+      options: ["Fordi bare gapet mellom faktisk og bærekraftig nivå sier noe om prispresset", "Fordi banken har et lovpålagt mål om at produksjonen skal treffe potensielt BNP i hvert enkelt år", "Fordi $Y^n$ er lettere å måle enn faktisk produksjon, som revideres i ettertid", "Fordi $Y^n$ vokser over tid og gir regelen en trend"],
       explanation: "«Høy produksjon» er meningsløst uten referansenivå. Bare når $Y = Y^n$, er prispresset nøytralt — derfor er gapet den relevante størrelsen.",
     },
     {
       question: "Kan faktisk produksjon ligge over $Y^n$?",
-      options: ["Ja, men da tiltar lønns- og prisveksten", "Nei, $Y^n$ er et fysisk kapasitetstak", "Nei, banken hindrer det med renta", "Ja, og uten noen konsekvenser for prisveksten"],
+      options: ["Ja, men da tiltar lønns- og prisveksten", "Nei, $Y^n$ er et fysisk tak på kapasiteten", "Nei, banken hindrer det ved hjelp av renta", "Ja, og uten noen konsekvenser for prisveksten"],
       explanation: "$Y^n$ er ikke et tak. I en høykonjunktur ligger produksjonen over, med ledighet under likevektsledigheten og tiltakende prisvekst.",
     },
     {
@@ -1420,7 +1420,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor hever banken renta når krona svekkes?",
-      options: ["Importvarer blir dyrere, og bedret konkurranseevne øker aktiviteten", "Fordi kursen er et selvstendig mål i mandatet ved siden av inflasjonen", "Fordi svakere krone senker prisveksten og gir rom for tilstramming", "Fordi eksportbedriftene taper på svak krone og må skjermes"],
+      options: ["Importvarer blir dyrere, og bedret konkurranseevne øker aktiviteten", "Fordi kursen er et selvstendig mål i mandatet ved siden av inflasjonen", "Fordi svakere krone senker prisveksten og dermed gir rom for tilstramming", "Fordi eksportbedriftene taper på en svak krone og derfor må skjermes av banken"],
       explanation: "To grunner: direkte prisvirkning gjennom importleddet i konsumprisindeksen, og indirekte prispress via høyere aktivitet. Kursen er ikke et selvstendig mål.",
     },
     {
@@ -1430,7 +1430,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at «Phillips-kurven ligger inne i $g_Y$»?",
-      options: ["Bankens respons på gapet er begrunnet i at gapet skaper inflasjon", "At Phillips-kurven må settes inn i regelen ved regning før regelen i det hele tatt kan brukes", "$g_Y$ er tallmessig lik $\\beta$ i alle modellvarianter", "Renteregelen erstatter Phillips-kurven i den åpne modellen"],
+      options: ["Bankens respons på gapet er begrunnet i at gapet skaper inflasjon", "At Phillips-kurven må settes inn i regelen ved regning før regelen i det hele tatt kan brukes", "$g_Y$ er tallmessig lik $\\beta$ i alle modellvarianter", "Renteregelen erstatter Phillips-kurven fullstendig i den åpne modellen"],
       explanation: "Banken bryr seg om gapet fordi gapet gir prispress. Er $\\beta$ større, blir $g_Y$ større — men de er ikke samme tall.",
     },
     {
@@ -1445,12 +1445,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med fleksibel inflasjonsstyring?",
-      options: ["Inflasjonen nær målet over tid, med vekt også på stabil produksjon", "At inflasjonsmålet justeres opp og ned alt etter hvor økonomien befinner seg i konjunkturforløpet", "Renta settes fleksibelt uten noen systematisk regel", "Banken velger fritt mellom inflasjonsmål og valutakursmål"],
+      options: ["Inflasjonen nær målet over tid, med vekt også på stabil produksjon", "At inflasjonsmålet justeres opp og ned alt etter hvor økonomien befinner seg i konjunkturforløpet", "Renta settes fleksibelt uten noen systematisk regel", "Banken velger fritt mellom inflasjonsmål og valutakursmål fra år til år"],
       explanation: "«Fleksibel» viser til at banken tar hensyn til produksjon og sysselsetting på veien mot målet — ikke at målet selv flyttes.",
     },
     {
       question: "Hvorfor føres pengepolitikken gradvis framfor i store sprang?",
-      options: ["Fordi anslagene på $Y^n$ og på rentens virkning er usikre", "Fordi mandatet forbyr endringer større enn et kvart prosentpoeng", "Fordi renta bare kan endres åtte ganger i året", "Fordi gradvishet gjør at renteendringen virker raskere"],
+      options: ["Fordi anslagene på $Y^n$ og på rentens virkning er usikre", "Fordi mandatet forbyr endringer større enn et kvart prosentpoeng", "Fordi renta bare kan endres på et fast antall rentemøter i året", "Fordi gradvishet gjør at renteendringen virker raskere på økonomien"],
       explanation: "Usikkerhet om potensielt BNP og om gjennomslaget taler for små skritt. Store bevegelser kan dessuten skape ustabilitet.",
     },
     {
@@ -1465,12 +1465,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på $Z^i$ og $i$?",
-      options: ["$Z^i$ er grunnivået i regelen og eksogent, $i$ er renta som settes og er endogen", "$Z^i$ er realrenta i økonomien, mens $i$ er den nominelle renta bankene faktisk opererer med", "$Z^i$ er utenlandsk rente, $i$ er norsk rente", "$Z^i$ gjelder lang sikt, $i$ gjelder kort sikt"],
+      options: ["$Z^i$ er grunnivået i regelen og eksogent, $i$ er renta som settes og er endogen", "$Z^i$ er realrenta i økonomien, mens $i$ er den nominelle renta bankene faktisk opererer med", "$Z^i$ er den utenlandske renta, mens $i$ er den norske renta som settes her hjemme", "$Z^i$ gjelder lang sikt, $i$ gjelder kort sikt"],
       explanation: "$Z^i$ er konstantleddet, $i$ er resultatet av hele regelen. Utenlandsk rente heter $i^F$ og inngår i $Z^E$.",
     },
     {
       question: "Hva innebærer det at renta er endogen i denne modellen?",
-      options: ["Ethvert sjokk utløser automatisk en pengepolitisk respons", "At renta ikke lenger kan endres av sentralbanken, siden modellen bestemmer den", "Renta er alltid lik utenlandsk rente", "Renta bestemmes utelukkende av inflasjonen"],
+      options: ["Ethvert sjokk utløser automatisk en pengepolitisk respons", "At renta ikke lenger kan endres av sentralbanken, siden modellen bestemmer den", "Renta er til enhver tid lik den utenlandske renta, krone for krone", "Renta bestemmes utelukkende av inflasjonen"],
       explanation: "Regelen bestemmer renta sammen med IS. Å glemme responsen er en av de vanligste feilene i skiftanalyse.",
     },
     {
@@ -1495,7 +1495,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan ikke banken sikte mot et produksjonsnivå permanent over $Y^n$?",
-      options: ["Da ville ledigheten ligget under likevektsledigheten og prisveksten tiltatt år etter år", "Da ville arbeidsstyrken blitt fysisk oppbrukt, slik at ingen flere kunne settes i arbeid noe sted", "Da ville renta måtte bli negativ", "Da ville valutakursen blitt fastlåst"],
+      options: ["Da ville ledigheten ligget under likevektsledigheten og prisveksten tiltatt år etter år", "Da ville arbeidsstyrken blitt fysisk oppbrukt, slik at ingen flere kunne settes i arbeid noe sted", "Da ville renta måtte settes negativ i lange perioder", "Da ville valutakursen blitt fastlåst mot euroen"],
       explanation: "Vedvarende press i arbeidsmarkedet gir tiltakende lønns- og prisvekst, og inflasjonsmålet ville brutt sammen.",
     },
     {
@@ -1522,7 +1522,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bestemmes inflasjonen i systemet?",
-      options: ["Residualt, ved å sette likevektsproduksjonen inn i Phillips-kurven", "Samtidig med produksjonen, i krysningspunktet mellom IS og RR", "Av sentralbanken, siden banken har et inflasjonsmål", "Av valutakursen alene, gjennom prisene på importerte varer og tjenester i konsumkorgen"],
+      options: ["Residualt, ved å sette likevektsproduksjonen inn i Phillips-kurven", "Samtidig med produksjonen, i selve krysningspunktet mellom IS-kurven og RR-kurven", "Av sentralbanken direkte, siden banken har et inflasjonsmål å styre etter", "Av valutakursen alene, gjennom prisene på importerte varer og tjenester i konsumkorgen"],
       explanation: "Først finner IS og RR $Y$ og $i$; deretter gir PK inflasjonen. At $\\pi$ er residual, betyr ikke at den er uviktig — den ligger bak både $m$ og $g_Y$.",
     },
     {
@@ -1537,7 +1537,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På hvor mange steder i modellen virker parameteren β?",
-      options: ["Tre: i Phillips-kurven, i multiplikatoren og bak $g_Y$", "Ett: bare som Phillips-kurvens helning", "To: i Phillips-kurvens helning og i renteparitetsbetingelsen for valutakursen", "Fire: i alle relasjonene og i valutakursen"],
+      options: ["Tre: i Phillips-kurven, i multiplikatoren og bak $g_Y$", "Ett: bare som Phillips-kurvens helning, og ingen andre steder i modellen", "To: i Phillips-kurvens helning og i renteparitetsbetingelsen for valutakursen", "Fire: i alle de tre relasjonene og i tillegg i valutakursbetingelsen"],
       explanation: "β er PK-helningen, den sitter i multiplikatoren gjennom $a_3\\beta/Y^n$, og den ligger bak størrelsen på bankens respons $g_Y$.",
     },
     {
@@ -1547,7 +1547,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med RR-kurven når β øker?",
-      options: ["Den blir brattere, fordi banken svarer kraftigere på gapet", "Den blir flatere, fordi inflasjonen ordner seg selv", "Den skifter ned, fordi banken kan sette lavere rente", "Den er upåvirket, siden β ikke står noe sted i renteregelen slik den er skrevet"],
+      options: ["Den blir brattere, fordi banken svarer kraftigere på gapet", "Den blir flatere, fordi inflasjonen ordner seg selv", "Den skifter ned, fordi banken da kan nøye seg med en lavere rente", "Den er upåvirket, siden β ikke står noe sted i renteregelen slik den er skrevet"],
       explanation: "Et gitt gap gir mer inflasjon når β er stor, så banken velger en større $g_Y$ — og helningen er $g_Y/Y^n$.",
     },
     {
@@ -1557,12 +1557,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I grensetilfellet der banken ikke tolererer noe produksjonsgap, hvor mye stiger renta ved en etterspørselsimpuls?",
-      options: ["Om lag $\\Delta Z^D/(c_2+b_2+a_2\\kappa)$", "Om lag $m\\,\\Delta Z^D$", "Om lag $\\beta\\,\\Delta Z^D/Y^n$", "Den stiger ikke i det hele tatt, siden produksjonen er låst ved potensielt BNP"],
+      options: ["Om lag $\\Delta Z^D/(c_2+b_2+a_2\\kappa)$", "Om lag $m\\,\\Delta Z^D$", "Om lag $\\beta\\,\\Delta Z^D/Y^n$", "Renta stiger ikke i det hele tatt"],
       explanation: "Renta må stige akkurat nok til at de tre rentekanalene trekker ut like mye etterspørsel som impulsen la inn.",
     },
     {
       question: "Hvorfor blir virkningen på konsum og investeringer entydig i høy-β-tilfellet ved økte offentlige kjøp?",
-      options: ["Fordi inntektseffekten faller bort når produksjonen står stille", "Fordi renta ikke endrer seg og bare inntekten virker", "Fordi konsumet ikke er rentefølsomt i høy-β-tilfellet", "Fordi krona ikke lenger reagerer på renta når prisreaksjonen er sterk nok"],
+      options: ["Fordi inntektseffekten faller bort når produksjonen står stille", "Fordi renta ikke endrer seg i det hele tatt, slik at bare inntekten virker", "Fordi konsumet ikke er rentefølsomt i høy-β-tilfellet, bare inntektsfølsomt", "Fordi krona ikke lenger reagerer på renta når prisreaksjonen er sterk nok"],
       explanation: "I standardtilfellet trekker inntekt opp og rente ned, så fortegnet er ubestemt. Med uendret produksjon står bare renteeffekten igjen: begge faller.",
     },
     {
@@ -1572,12 +1572,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med full fortrengning?",
-      options: ["Økte offentlige kjøp motsvares av et like stort fall i de øvrige komponentene", "Staten overtar produksjonen fra privat sektor over tid", "Renta stiger så mye at produksjonen faller under utgangsnivået", "Importen stiger nøyaktig like mye som offentlige kjøp, slik at nettoeksporten bærer alt"],
+      options: ["Økte offentlige kjøp motsvares av et like stort fall i de øvrige komponentene", "Staten overtar produksjonen fra privat sektor over tid", "Renta stiger så mye at samlet produksjon faller under nivået den lå på før impulsen", "Importen stiger nøyaktig like mye som offentlige kjøp, slik at nettoeksporten bærer alt"],
       explanation: "Med $Y$ låst og $G$ opp må $C + I + (X-Q)$ falle tilsvarende. Utenfor grensetilfellet er fortrengningen delvis.",
     },
     {
       question: "Hvorfor minner høy-β-økonomien om en tilbudsbestemt økonomi?",
-      options: ["Produksjonsnivået er nesten låst, og etterspørselen flytter bare sammensetningen", "Fordi kapitalbeholdningen vokser raskere når prisene reagerer sterkt", "Fordi sentralbanken slutter å reagere på gapet", "Fordi Phillips-kurven forsvinner ut av modellen når prisreaksjonen blir sterk nok"],
+      options: ["Produksjonsnivået er nesten låst, og etterspørselen flytter bare sammensetningen", "Fordi kapitalbeholdningen vokser raskere når prisene reagerer sterkt på aktiviteten", "Fordi sentralbanken slutter å reagere på gapet", "Fordi Phillips-kurven forsvinner ut av modellen når prisreaksjonen blir sterk nok"],
       explanation: "Nettopp slik vekstmodellen beskriver lang sikt: nivået er gitt, og etterspørselen fordeler det. Kontrasten belønnes når den nevnes uoppfordret.",
     },
     {
@@ -1587,7 +1587,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at $Y$ og $i$ bestemmes simultant?",
-      options: ["Renta avhenger av produksjonen samtidig som produksjonen avhenger av renta", "At de begge er eksogene i modellen", "At de alltid endrer seg like mye i prosent", "At renta bestemmes først av regelen, og produksjonen deretter av IS-relasjonen"],
+      options: ["Renta avhenger av produksjonen samtidig som produksjonen avhenger av renta", "At de begge er eksogent gitte størrelser i modellen", "At de alltid endrer seg like mye målt i prosent når en eksogen størrelse skifter", "At renta bestemmes først av regelen, og produksjonen deretter av IS-relasjonen"],
       explanation: "Derfor kan du ikke skrive skiftanalysen som en enkel kjede: du må finne det nye krysningspunktet, og deretter forklare mekanismen.",
     },
     {
@@ -1597,12 +1597,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør du håndtere at et sett skriver renteregelens koeffisienter som $\\gamma$-er?",
-      options: ["Nevn at det er samme koeffisienter, og forklar notasjonen du bruker", "Bytt modell, siden $\\gamma$-formen er en annen teori", "Ignorer forskjellen uten å kommentere den", "Skriv om hele oppgaven til bokas notasjon uten å nevne omskrivingen for sensor"],
+      options: ["Nevn at det er samme koeffisienter, og forklar notasjonen du bruker", "Bytt modell, siden $\\gamma$-formen bygger på en annen teori enn den boka bruker", "Ignorer notasjonsforskjellen helt, uten å kommentere den noe sted i svaret", "Skriv om hele oppgaven til bokas notasjon uten å nevne omskrivingen for sensor"],
       explanation: "Settene tillater egen notasjon så lenge den forklares. Å varsle notasjonsvalget er et lite grep som viser oversikt.",
     },
     {
       question: "Ligger likevekten alltid ved $Y = Y^n$?",
-      options: ["Nei — banken veier hensyn og lukker ikke gapet fullstendig", "Ja, ellers ville ikke renteregelen vært oppfylt", "Ja, fordi Phillips-kurven krever det", "Nei, men bare i de tilfellene der prisimpulsen $Z^\\pi$ er ulik null"],
+      options: ["Nei — banken veier hensyn og lukker ikke gapet fullstendig", "Ja, ellers ville ikke renteregelen vært oppfylt i den nye likevekten", "Ja, fordi Phillips-kurven krever det", "Nei, men bare i de tilfellene der prisimpulsen $Z^\\pi$ er ulik null"],
       explanation: "Krysningspunktet mellom IS og RR kan ligge på begge sider av $Y^n$. Fleksibel inflasjonsstyring betyr nettopp at gapet tolereres delvis.",
     },
     {
@@ -1617,7 +1617,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det presist å skrive «nesten uendret» framfor «uendret» produksjon i høy-β-tilfellet?",
-      options: ["Med stor men endelig β finnes fortsatt et lite gap", "Fordi produksjonen alltid svinger litt tilfeldig rundt sin egen bane", "Fordi modellen ikke kan si noe om nivåer", "Fordi renta bare endres i små skritt"],
+      options: ["Med stor men endelig β finnes fortsatt et lite gap", "Fordi produksjonen alltid svinger litt tilfeldig", "Fordi modellen ikke kan si noe om nivåer", "Fordi renta bare endres i små skritt"],
       explanation: "Bare i grensetilfellet er gapet null. Utenfor grensen er både gapet og inflasjonsendringen små, men ikke null.",
     },
     {
@@ -1632,12 +1632,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når oppstår det en målkonflikt for sentralbanken i denne modellen?",
-      options: ["Ved prisimpulser utenfra, der inflasjon og aktivitet peker hver sin vei", "Ved rene etterspørselssjokk, der begge målene trues samtidig og i samme retning", "Alltid, siden banken har to mål", "Aldri, siden inflasjonsmålet har forrang"],
+      options: ["Ved prisimpulser utenfra, der inflasjon og aktivitet peker hver sin vei", "Ved rene etterspørselssjokk, der begge målene trues samtidig", "Alltid, siden banken har to mål å ivareta samtidig", "Aldri, siden inflasjonsmålet har forrang"],
       explanation: "Ved etterspørselssjokk peker begge hensyn samme vei. Ved en prisimpuls stiger inflasjonen mens aktiviteten svekkes, og da må banken veie.",
     },
     {
       question: "Hva er «komparativ statikk»?",
-      options: ["Å sammenligne likevekten før og etter en endring i noe eksogent", "Å regne ut hvor mange kvartaler tilpasningen til den nye likevekten tar", "Å sammenligne to lands økonomier", "Å holde alle variabler konstante i analysen"],
+      options: ["Å sammenligne likevekten før og etter en endring i noe eksogent", "Å regne ut hvor mange kvartaler tilpasningen tar", "Å sammenligne to lands økonomier", "Å holde alle variabler konstante i analysen"],
       explanation: "Uttrykket er insider-språk for «før mot etter». Vi spør hvor økonomien havner, ikke hvor lang tid den bruker dit.",
     },
   ],
@@ -1801,7 +1801,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-4-5': [
     {
       question: "Hva betyr det å dosere to virkemidler til samme produksjonseffekt?",
-      options: ["Å velge styrken slik at BNP-virkningen blir like stor i begge scenarioer", "Å bruke like mange kroner på hvert av de to virkemidlene", "Å sette renta og offentlige kjøp til samme prosentvise endring", "Å la sentralbanken og regjeringen handle samtidig og i samme retning gjennom hele forløpet"],
+      options: ["Å velge styrken slik at BNP-virkningen blir like stor i begge scenarioer", "Å bruke nøyaktig like mange kroner på hvert av de to virkemidlene i begge scenarioer", "Å sette renta og de offentlige kjøpene til nøyaktig den samme prosentvise endringen", "Å la sentralbanken og regjeringen handle samtidig og i samme retning gjennom hele forløpet"],
       explanation: "Doseringen er forutsetningen for sammenligningen: bare da skyldes forskjellene virkemidlenes egenskaper og ikke størrelsen på inngrepet.",
     },
     {
@@ -1821,7 +1821,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke komponenter er høyest i pengepolitikk-scenarioet?",
-      options: ["Konsum, investeringer og nettoeksport", "Bare nettoeksport", "Bare konsum", "Offentlige kjøp av varer og tjenester, sammen med nettoeksporten"],
+      options: ["Konsum, investeringer og nettoeksport", "Bare nettoeksporten, gjennom svakere krone", "Bare konsumet i husholdningene", "Offentlige kjøp av varer og tjenester, sammen med nettoeksporten"],
       explanation: "Lavere rente løfter konsum og investeringer, og den svakere krona løfter nettoeksporten. Offentlige kjøp er uendret.",
     },
     {
@@ -1831,7 +1831,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken sektor merker forskjellen mellom de to virkemidlene sterkest?",
-      options: ["Den konkurranseutsatte sektoren", "Offentlig sektor", "Finansnæringen", "Bygg- og anleggsnæringen, som lever av offentlige oppdrag"],
+      options: ["Den konkurranseutsatte sektoren", "Offentlig sektor, som får flere oppdrag", "Finansnæringen, som lever av renteforskjeller", "Bygg- og anleggsnæringen, som lever av offentlige oppdrag"],
       explanation: "Eksportbedrifter og importkonkurrerende næringer får en reell konkurranseevnebedring bare i pengepolitikk-scenarioet, selv om BNP er identisk.",
     },
     {
@@ -1841,17 +1841,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med investeringene i pengepolitikk-scenarioet etter et investeringsfall?",
-      options: ["Fallet blir mindre, men investeringene er fortsatt lavere enn før sjokket", "De blir høyere enn før sjokket, siden renta er lavere", "De er uendret fra før sjokket, siden BNP er tilbake", "De faller mer enn i finanspolitikk-scenarioet, siden renta gjør jobben alene"],
+      options: ["Fallet blir mindre, men investeringene er fortsatt lavere enn før sjokket", "De blir høyere enn før sjokket, siden den lavere renta mer enn oppveier fallet", "De er uendret fra før sjokket, siden BNP er tilbake", "De faller mer enn i finanspolitikk-scenarioet, siden renta gjør jobben alene"],
       explanation: "Rentekuttet henter tilbake en del av fallet i investeringsviljen, men ikke alt. Sammenlignet med finanspolitikk-scenarioet er de likevel høyere.",
     },
     {
       question: "Hvilket fortrinn har finanspolitikken ved et asymmetrisk sjokk?",
-      options: ["Den kan målrettes mot den sektoren som faktisk er rammet", "Den virker raskere enn renta i alle situasjoner", "Den svekker ikke budsjettbalansen", "Den flytter valutakursen mer presist enn et rentekutt gjør"],
+      options: ["Den kan målrettes mot den sektoren som faktisk er rammet", "Den virker raskere enn renta i alle situasjoner og alle faser", "Den svekker ikke budsjettbalansen", "Den flytter valutakursen mer presist enn et rentekutt gjør"],
       explanation: "Renta er én pris for alle og kan ikke skille mellom sektorer. Et rentekutt stimulerer også de delene av økonomien som går bra.",
     },
     {
       question: "Hvorfor kan hensynet til finansielle ubalanser tale for finanspolitikk?",
-      options: ["Lav rente over tid kan drive opp gjeld og eiendomspriser", "Fordi finanspolitikk ikke påvirker husholdningenes gjeld i det hele tatt", "Fordi renta ikke virker når gjelden er høy", "Fordi budsjettbalansen er et selvstendig mål i mandatet"],
+      options: ["Lav rente over tid kan drive opp gjeld og eiendomspriser", "Fordi finanspolitikk ikke berører husholdningenes gjeld", "Fordi renta ikke virker når gjelden er høy", "Fordi budsjettbalansen er et selvstendig mål i mandatet"],
       explanation: "Hensynet er et tilleggsargument i rentesettingen, ikke et mål på linje med inflasjonsmålet. Er gjelden høy, kan det tilsi at finanspolitikken bærer mer.",
     },
     {
@@ -1861,7 +1861,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er penge- og finanspolitikk ikke perfekte substitutter i denne modellen?",
-      options: ["Bare pengepolitikk gir kursvirkning, og bare finanspolitikk kan målrettes", "Fordi de to virkemidlene alltid gir ulik BNP", "Fordi finanspolitikken virker gjennom renta i tillegg til budsjettet", "Fordi pengepolitikken ikke virker på nettoeksporten i en liten, åpen økonomi"],
+      options: ["Bare pengepolitikk gir kursvirkning, og bare finanspolitikk kan målrettes", "Fordi de to virkemidlene alltid gir ulik BNP", "Fordi finanspolitikken virker gjennom renta i tillegg til budsjettet", "Fordi pengepolitikken ikke virker på nettoeksporten"],
       explanation: "De bidrar med noe forskjellig, og derfor kan en anbefaling ofte lande på en fordeling framfor et valg.",
     },
     {
@@ -1913,7 +1913,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er tidsbudsjettet en del av løsningsoppskriften?",
-      options: ["Fordi over halvparten av tiden bør gå til mekanisme og panser-åpning", "Fordi figuren tar mest tid å tegne nøyaktig", "Fordi relasjonsforklaringen bør ta minst halve tiden", "Fordi utregningene krever mest tid når du ikke har kalkulator tilgjengelig"],
+      options: ["Fordi over halvparten av tiden bør gå til mekanisme og panser-åpning", "Fordi figuren er den delen av svaret som tar mest tid å tegne nøyaktig", "Fordi relasjonsforklaringen alene bør ta minst halvparten av tiden din", "Fordi utregningene krever mest tid når du ikke har kalkulator tilgjengelig"],
       explanation: "Steg 5–6 er best betalt og kuttes oftest ved tidsnød. Ingenting i sjangeren krever utregninger.",
     },
     {
@@ -1938,22 +1938,22 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved et særnorsk lønnsoppgjør over handelspartnernes: hva skjer med renta?",
-      options: ["Ubestemt — prisimpulsen trekker opp, produksjonsfallet trekker ned", "Den stiger entydig, siden inflasjonen stiger", "Den faller entydig, siden produksjonen faller", "Den er uendret, siden de to leddene i renteregelen alltid veier presis like tungt"],
+      options: ["Ubestemt — prisimpulsen trekker opp, produksjonsfallet trekker ned", "Den stiger entydig, siden inflasjonen stiger og banken må stramme til", "Den faller entydig, siden produksjonen faller og banken må stimulere", "Den er uendret, siden de to leddene i renteregelen alltid veier presis like tungt"],
       explanation: "Dette er det ene standardsjokket der mønsteret er byttet om: produksjonen er entydig, renta ubestemt.",
     },
     {
       question: "Hva skjer med valutakurskanalen hvis $\\kappa$ faller mot null?",
-      options: ["Den forsvinner, siden kanalen er produktet $a_2\\kappa$", "Den blir sterkere, siden kursen blir mer stabil", "Den er upåvirket, siden $a_2$ er uendret", "Den snur fortegn og forsterker virkningen av renteøkningen på eksporten"],
+      options: ["Den forsvinner, siden kanalen er produktet $a_2\\kappa$", "Den blir sterkere, siden en mer stabil kurs gir større utslag", "Den er upåvirket, siden koeffisienten $a_2$ ikke er endret", "Den snur fortegn og forsterker virkningen av renteøkningen på eksporten"],
       explanation: "Kanalen er en kjede: rente → kurs → nettoeksport. Brytes første ledd, faller hele kanalen bort, og IS blir brattere.",
     },
     {
       question: "Hvilken av bokas konklusjoner faller bort dersom kursen ikke reagerer på renta?",
-      options: ["At penge- og finanspolitikk gir ulik valutakurs", "At renteregelen er en reaksjonsfunksjon", "At Phillips-kurven bestemmer inflasjonen residualt", "At potensielt BNP bestemmes av tilbudssiden"],
+      options: ["At penge- og finanspolitikk gir ulik valutakurs", "At renteregelen er en reaksjonsfunksjon og ikke en likevekt", "At Phillips-kurven bestemmer inflasjonen residualt", "At potensielt BNP bestemmes av forhold på tilbudssiden"],
       explanation: "Uten kursreaksjon gir et rentekutt ingen kronesvekkelse, og asymmetrien mellom virkemidlene forsvinner. De andre konklusjonene er uberørte.",
     },
     {
       question: "Du observerer: renta opp, krona svakere, produksjonen om lag uendret. Hvilket sjokk passer best?",
-      options: ["En kursimpuls som svekker krona", "Økte offentlige kjøp", "Et fall i privat etterspørsel", "En innenlandsk prisimpuls fra lønnsoppgjøret"],
+      options: ["En kursimpuls som svekker krona", "Økte offentlige kjøp av varer og tjenester", "Et fall i den private etterspørselen", "En innenlandsk prisimpuls fra lønnsoppgjøret"],
       explanation: "Bare et kurssjokk gir høyere rente sammen med svakere krone. Ved økte offentlige kjøp ville krona styrket seg, siden kursen der er en følge av renteøkningen.",
     },
     {
@@ -1968,7 +1968,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig håndtering når to sjokk trekker hver sin vei?",
-      options: ["Analyser hvert sjokk for seg, og si hva nettoresultatet avhenger av", "Velg det sjokket som virker sterkest og se bort fra det andre", "Konkluder at effektene nøytraliserer hverandre", "Slå impulsene sammen til én samlet impuls før du klassifiserer noe som helst"],
+      options: ["Analyser hvert sjokk for seg, og si hva nettoresultatet avhenger av", "Velg det sjokket som ser ut til å virke sterkest, og se bort fra det andre", "Konkluder at effektene nøytraliserer hverandre", "Slå impulsene sammen til én samlet impuls før du klassifiserer noe som helst"],
       explanation: "Entydige fortegn kan forsvinne når sjokk møtes. Da er svaret å si hvilke konklusjoner som overlever, og hva resten avhenger av.",
     },
     {
@@ -1978,7 +1978,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I grensetilfellet der prisreaksjonen er svært sterk og offentlige utgifter kuttes: hva skjer med konsumet?",
-      options: ["Det stiger, fordi renta faller og produksjonen er nesten uendret", "Det faller, fordi inntekten faller", "Ubestemt, som i standardtilfellet", "Det er uendret, siden det bare er offentlige kjøp som er endret i dette tilfellet"],
+      options: ["Det stiger, fordi renta faller og produksjonen er nesten uendret", "Det faller, fordi inntekten til husholdningene faller når utgiftene kuttes", "Ubestemt, akkurat som i standardtilfellet", "Det er uendret, siden det bare er offentlige kjøp som er endret i dette tilfellet"],
       explanation: "Med produksjonen tilnærmet låst er inntektseffekten borte, og bare renteeffekten står igjen. Fortegn som ellers var ubestemte, blir bestemte.",
     },
     {
@@ -2447,17 +2447,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formens hovedfelle?",
-      options: ["Å tømme sekken: gjengi alt om modellene i stedet for å svare på spørsmålet", "Å bruke for få minutter på relasjonsforklaringene tidlig, slik at analysen kommer i gang for sent", "Å tegne for mange figurer i stedet for å forklare mekanismene i ord", "Å velge én modell når oppgaven oppgir to relasjonssett i teksten"],
+      options: ["Å tømme sekken: gjengi alt om modellene i stedet for å svare på spørsmålet", "Å bruke for få minutter på relasjonsforklaringene tidlig, slik at analysen kommer i gang for sent", "Å tegne for mange figurer i stedet for å forklare mekanismene i ord underveis", "Å velge bare én av modellene når oppgaven oppgir to relasjonssett i oppgaveteksten"],
       explanation: "Uten deloppgaver finnes ingen ytre grense for hva som kan nevnes, og en usikker kandidat skriver mer. Men uttellingen følger relevans, ikke volum. Merk at det å avgrense — velge bort en modell og si hvorfor — er et faglig valg som gir uttelling, ikke en svakhet.",
     },
     {
       question: "Hvilken setning avslutter sensorveiledningene til begge de store drøftingsoppgavene i arkivet?",
-      options: ["Bruk modellene konstruktivt og informert, og ikke mist spørsmålet av syne", "Besvarelsen må vise at kandidaten kan alle modellene i pensum", "Regnetekniske feil vurderes mildere enn manglende forklaringer av de oppgitte relasjonene", "Kandidaten bør bruke minst to relasjonssett for å oppnå toppkarakter"],
+      options: ["Bruk modellene konstruktivt og informert, og ikke mist spørsmålet av syne", "Besvarelsen må vise at kandidaten kan alle modellene i pensum", "Regnetekniske feil vurderes mildere enn manglende forklaringer av de oppgitte relasjonene", "Kandidaten bør bruke minst to av relasjonssettene for å kunne oppnå toppkarakter"],
       explanation: "Formuleringen er ordrett den samme i begge veiledningene. Den praktiske formen er å skrive spørsmålet med egne ord først, og lese det igjen etter hver mellomtittel.",
     },
     {
       question: "Hvordan skal arbeidet fordeles mellom de to relasjonssettene?",
-      options: ["Hovedkursmodellen på lønn og priser, IS-RR-PK på aktivitet, rente og valutakurs", "Hovedkursmodellen på kort sikt, IS-RR-PK på lang sikt i den samme analysen", "Hovedkursmodellen på innenlandske sjokk, IS-RR-PK på sjokk som kommer utenfra", "Begge brukes på alle spørsmål, slik at konklusjonene kan kontrolleres mot hverandre"],
+      options: ["Hovedkursmodellen på lønn og priser, IS-RR-PK på aktivitet, rente og valutakurs", "Hovedkursmodellen på kort sikt, IS-RR-PK på lang sikt i den samme analysen", "Hovedkursmodellen på innenlandske sjokk, IS-RR-PK på de sjokkene som kommer utenfra", "Begge brukes på alle spørsmål, slik at konklusjonene kan kontrolleres mot hverandre"],
       explanation: "Hovedkursmodellen inneholder ingen produksjon og ingen rente; IS-RR-PK inneholder ingen sektorer og ingen lønnsdannelse. Å skrive én setning om arbeidsdelingen tar tjue sekunder og gir uttelling.",
     },
     {
@@ -2494,32 +2494,32 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-7-1': [
     {
       question: "Hva er sensorens viktigste enkeltregel i dette emnet?",
-      options: ["At relasjonene du bruker, skal forklares økonomisk — de oppgis uforklart med vilje", "At du skal kombinere så mange modeller som mulig i hvert svar, siden veiledningene premierer bredde framfor dybde i drøftingsoppgavene", "At alle svar skal oppgis med to desimalers nøyaktighet", "At du skal gjengi hele pensum for den modellen oppgaven nevner"],
+      options: ["At relasjonene du bruker, skal forklares økonomisk — de oppgis uforklart med vilje", "At du skal kombinere så mange modeller som mulig i hvert svar, siden veiledningene premierer bredde framfor dybde i drøftingsoppgavene", "At alle svar skal oppgis med to desimalers nøyaktighet, siden regnestykket er hovedsaken i settene", "At du skal gjengi hele pensum for den modellen oppgaven nevner, også det delspørsmålet ikke spør om"],
       explanation: "Relasjonssettene oppgis bevisst uten forklaring, og veiledningene sier gjentatte ganger at forklaringen forventes av kandidaten. Å regne på uforklarte ligninger gir ikke uttelling. Faget har for øvrig ingen tallregningsoppgaver, så desimalsvar er ikke tema.",
     },
     {
       question: "Hvilke fire spørsmål skal en fullgod relasjonsforklaring svare på?",
-      options: ["Hva symbolene er, hvilken adferd relasjonen beskriver, hvilken vei den virker og hvorfor, og hva som er gitt utenfra", "Hvem som utledet relasjonen, når, i hvilken lærebok og med hvilke data", "Hvor mange parametre relasjonen har, hvilke fortegn de er antatt å ha, hvor mange ledd som står på høyresiden, og hvilke av dem som er størst i tallverdi", "Hvilken figur den hører til, hvilken akse, hvilken helning og hvilket skjæringspunkt"],
+      options: ["Hva symbolene er, hvilken adferd relasjonen beskriver, hvilken vei den virker og hvorfor, og hva som er gitt utenfra", "Hvem som utledet relasjonen, når, i hvilken lærebok og med hvilke data", "Hvor mange parametre relasjonen har, hvilke fortegn de er antatt å ha, hvor mange ledd som står på høyresiden, og hvilke av dem som er størst i tallverdi", "Hvilken figur den hører til, hvilken akse den tegnes mot, hvilken helning kurven har og hvilket skjæringspunkt den gir"],
       explanation: "Malen er fire trinn: symbolene, den økonomiske logikken, fortegn og mekanisme, og skillet endogent mot eksogent. Det siste trinnet er det som oftest droppes.",
     },
     {
       question: "En kandidat skriver: «Renten avhenger av produksjonsgapet, og når gapet er positivt, stiger renten.» Hva er problemet?",
-      options: ["Det er parafrase, ikke forklaring — ingen adferd og ingen begrunnelse er gitt", "Fortegnet er feil; renten faller når gapet er positivt", "Produksjonsgapet hører ikke hjemme i renteregelen", "At kandidaten bruker ord i stedet for symboler — sensor forventer at fortegn og mekanismer uttrykkes som deriverte, ikke som setninger på norsk"],
+      options: ["Det er parafrase, ikke forklaring — ingen adferd og ingen begrunnelse er gitt", "Fortegnet er feil; renten faller når produksjonsgapet er positivt, fordi banken da vil stimulere aktiviteten", "Produksjonsgapet hører ikke hjemme i renteregelen, som bare skal inneholde inflasjonen og inflasjonsmålet", "At kandidaten bruker ord i stedet for symboler — sensor forventer at fortegn og mekanismer uttrykkes som deriverte, ikke som setninger på norsk"],
       explanation: "Påstanden er riktig, men den gjentar bare ligningen med ord. Forklaringen mangler at dette er sentralbankens valg og hvorfor banken reagerer på nettopp gapet. Det er ingenting galt i å bruke ord.",
     },
     {
       question: "Hvorfor er renteregelen en reaksjonsfunksjon og ikke en markedslikevekt?",
-      options: ["Fordi den beskriver hvordan sentralbanken selv velger å sette renten ut fra sitt mandat", "Fordi renten i modellen bestemmes av tilbudet av og etterspørselen etter penger, slik at regelen beskriver et marked som klarerer i likevekt", "Fordi den bare gjelder på lang sikt, når prisene har justert seg", "Fordi den inneholder eksogene variabler, og markedsligninger gjør aldri det"],
+      options: ["Fordi den beskriver hvordan sentralbanken selv velger å sette renten ut fra sitt mandat", "Fordi renten i modellen bestemmes av tilbudet av og etterspørselen etter penger, slik at regelen beskriver et marked som klarerer i likevekt", "Fordi den bare gjelder på lang sikt, når prisene har justert seg", "Fordi den inneholder eksogene variabler som inflasjonsmålet, og markedsligninger inneholder aldri slike"],
       explanation: "Regelen oppsummerer bankens avveining mellom inflasjonsmålet og hensynet til stabil produksjon og sysselsetting. Å behandle den som en markedsligning er en dokumentert felle.",
     },
     {
       question: "Hva er $Y^n$ i renteregelen?",
-      options: ["Produksjonsnivået som er forenlig med stabil inflasjon, bestemt av tilbudssiden", "Sentralbankens ønskede produksjonsnivå, som banken selv fastsetter for hvert år ut fra hvor sterk aktivitet den mener økonomien tåler", "Produksjonen i fjor, brukt som referanse for årets vekst", "Det høyeste produksjonsnivået økonomien fysisk kan nå"],
+      options: ["Produksjonsnivået som er forenlig med stabil inflasjon, bestemt av tilbudssiden", "Sentralbankens ønskede produksjonsnivå, som banken selv fastsetter for hvert år ut fra hvor sterk aktivitet den mener økonomien tåler", "Produksjonen i fjor, som sentralbanken bruker som referansepunkt når årets rente skal settes", "Det høyeste produksjonsnivået økonomien fysisk kan nå når alle maskiner og all arbeidskraft er i bruk"],
       explanation: "$Y^n$ svarer til likevektsledigheten og bestemmes av lønnsdannelse, matching, konkurranse og produktivitet. Renten flytter aktiviteten rundt $Y^n$, ikke $Y^n$ selv.",
     },
     {
       question: "Hvorfor står nettopp gapet mellom $Y$ og $Y^n$ i renteregelen, og ikke produksjonsnivået alene?",
-      options: ["Fordi det er avviket, ikke nivået, som forteller om prisveksten er på vei opp eller ned", "Fordi produksjonsnivået er ukjent for sentralbanken", "Fordi gapet alltid er positivt og derfor lettere å regne med", "Fordi nivået på produksjonen inngår i Phillips-kurven i stedet, og renteregelen derfor må bruke gapet for ikke å telle den samme informasjonen to ganger"],
+      options: ["Fordi det er avviket, ikke nivået, som forteller om prisveksten er på vei opp eller ned", "Fordi produksjonsnivået er ukjent for sentralbanken når renten settes", "Fordi gapet per definisjon alltid er positivt og derfor er lettere å regne med enn selve produksjonsnivået", "Fordi nivået på produksjonen inngår i Phillips-kurven i stedet, og renteregelen derfor må bruke gapet for ikke å telle den samme informasjonen to ganger"],
       explanation: "Phillips-kurven kobler gapet til inflasjonen, og banken har inflasjonen som mål. Gapet er altså en inflasjonsindikator — derfor reagerer banken på det.",
     },
     {
@@ -2529,7 +2529,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken kanal glemmes oftest når rentens virkning skal forklares?",
-      options: ["Valutakurskanalen, altså at sterkere krone svekker eksporten", "Konsumkanalen, altså at husholdningene bruker mindre", "Investeringskanalen, altså at færre prosjekter er lønnsomme", "Skattekanalen, altså at renteutgifter er fradragsberettigede, slik at en renteøkning delvis kompenseres over skatteseddelen"],
+      options: ["Valutakurskanalen, altså at sterkere krone svekker eksporten", "Konsumkanalen, altså at husholdningene bruker mindre", "Investeringskanalen, altså at færre prosjekter er lønnsomme når renten stiger", "Skattekanalen, altså at renteutgifter er fradragsberettigede, slik at en renteøkning delvis kompenseres over skatteseddelen"],
       explanation: "Veiledningene flagger nettopp valutakurskanalen som den som oftest mangler. Skattefradrag er ikke en av modellens kanaler.",
     },
     {
@@ -2539,12 +2539,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kronesvekkelse er ventet. Hva skjer med konsumprisveksten og med prisveksten på norske varer?",
-      options: ["Konsumprisveksten stiger direkte via importandelen; prisveksten på norske varer påvirkes bare indirekte og er ubestemt", "Begge stiger like mye og umiddelbart, siden en svakere krone løfter alle priser i økonomien proporsjonalt med kurssvekkelsen", "Begge er upåvirket, siden valutakursen er nominell", "Prisveksten på norske varer stiger direkte, mens konsumprisveksten er ubestemt"],
+      options: ["Konsumprisveksten stiger direkte via importandelen; prisveksten på norske varer påvirkes bare indirekte og er ubestemt", "Begge stiger like mye og umiddelbart, siden en svakere krone løfter alle priser i økonomien proporsjonalt med kurssvekkelsen", "Begge er upåvirket, siden valutakursen er en nominell størrelse og derfor ikke endrer prisene målt i kroner, verken ute eller hjemme", "Prisveksten på norske varer stiger direkte via importandelen, mens konsumprisveksten bare påvirkes indirekte og er ubestemt"],
       explanation: "Importvarer blir dyrere i kroner med én gang, med importandelen som vekt. Norske varepriser går via aktiviteten og Phillips-kurven, og retningen avhenger blant annet av sentralbankens respons.",
     },
     {
       question: "Hvorfor gir en brattere Phillips-kurve en mindre multiplikator?",
-      options: ["Fordi høyere aktivitet da gir sterkere lønns- og prisvekst, som svekker konkurranseevnen og trekker eksporten ned", "Fordi sentralbanken da slutter å reagere på produksjonsgapet", "Fordi importlekkasjen blir større når prisene stiger", "Fordi høyere aktivitet da gir høyere ledighet og lavere lønnsvekst, slik at norske varer blir billigere og eksporten forsterker oppgangen"],
+      options: ["Fordi høyere aktivitet da gir sterkere lønns- og prisvekst, som svekker konkurranseevnen og trekker eksporten ned", "Fordi sentralbanken da slutter å reagere på produksjonsgapet, slik at renten ligger fast gjennom hele forløpet og ikke demper utslaget", "Fordi importlekkasjen blir større når prisene stiger, slik at mer av etterspørselen går til utlandet", "Fordi høyere aktivitet da gir høyere ledighet og lavere lønnsvekst, slik at norske varer blir billigere og eksporten forsterker oppgangen"],
       explanation: "Kjeden er: høyere $Y$, lavere ledighet, høyere lønnsvekst, dyrere norske varer, lavere eksport. Alternativet med høyere ledighet snur kjeden feil vei — en dokumentert felle.",
     },
         {
@@ -2554,12 +2554,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at høyere $E$ innebærer svakere krone?",
-      options: ["At $E$ måler hvor mange kroner en enhet utenlandsk valuta koster", "At $E$ måler hvor mye utenlandsk valuta én krone kjøper", "At $E$ er en realvalutakurs justert for prisnivåforskjeller mellom Norge og handelspartnerne, slik at den måler konkurranseevne direkte", "At $E$ er sentralbankens styringsrente i valutamarkedet"],
+      options: ["At $E$ måler hvor mange kroner en enhet utenlandsk valuta koster", "At $E$ måler hvor mange enheter utenlandsk valuta én krone kjøper, slik at høyere $E$ betyr sterkere krone", "At $E$ er en realvalutakurs justert for prisnivåforskjeller mellom Norge og handelspartnerne, slik at den måler konkurranseevne direkte", "At $E$ er sentralbankens styringsrente i valutamarkedet, altså renten banken tilbyr på plasseringer i kroner"],
       explanation: "Konvensjonen er kroner per enhet utenlandsk valuta. Stiger $E$, må vi gi flere kroner, altså er krona svakere.",
     },
     {
       question: "Hva skjer med krona når rentenivået ute stiger, alt annet likt?",
-      options: ["Den svekkes, fordi utenlandske plasseringer blir mer attraktive", "Den styrkes, fordi rentedifferansen mot Norge øker og gjør det mer lønnsomt å plassere penger i kroner enn i utenlandsk valuta", "Den er upåvirket, siden bare norsk rente står i betingelsen", "Den styrkes på kort sikt og svekkes på lang sikt"],
+      options: ["Den svekkes, fordi utenlandske plasseringer blir mer attraktive", "Den styrkes, fordi rentedifferansen mot Norge øker og gjør det mer lønnsomt å plassere penger i kroner enn i utenlandsk valuta", "Den er upåvirket, siden bare den norske renten står i paritetsbetingelsen", "Den styrkes på kort sikt og svekkes igjen på lang sikt, når forventningene har justert seg"],
       explanation: "I $E = E^e + \\kappa(i^F-i)$ gir høyere $i^F$ høyere $E$, altså svakere krone. Motsatt styrker en uventet norsk renteøkning krona.",
     },
     {
@@ -2574,7 +2574,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er $k$ i hovedkursmodellen?",
-      options: ["Lønnsvekst utover det hovedkursen tilsier — ekstraordinær lønnsvekst", "Kapital per arbeider, slik symbolet brukes i vekstmodellen, der $k$ er den sentrale endogene variabelen i bevegelsesligningen", "Produktivitetsveksten i konkurranseutsatt sektor", "Konsumprisveksten korrigert for avgifter"],
+      options: ["Lønnsvekst utover det hovedkursen tilsier — ekstraordinær lønnsvekst", "Kapital per arbeider, slik symbolet brukes i vekstmodellen", "Produktivitetsveksten i konkurranseutsatt sektor", "Konsumprisveksten korrigert for avgifter"],
       explanation: "Symbolet $k$ har to betydninger i faget. I hovedkursmodellen er det den ekstraordinære lønnsveksten; positiv $k$ presser lønnsomheten i konkurranseutsatt sektor.",
     },
     {
@@ -2584,7 +2584,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor står ikke valutakursveksten $v$ i uttrykket for reallønnsveksten $w-\\pi$?",
-      options: ["Fordi $v$ løfter både konsumprisene og lønnsveksten i samme takt, slik at virkningene opphever hverandre", "Fordi valutakursen bare påvirker prisene på importvarer og ikke lønnsdannelsen, og derfor forsvinner ut av begge sider av regnestykket", "Fordi $v$ per definisjon er null i modellen", "Fordi reallønnen måles i utenlandsk valuta"],
+      options: ["Fordi $v$ løfter både konsumprisene og lønnsveksten i samme takt, slik at virkningene opphever hverandre", "Fordi valutakursen bare påvirker prisene på importvarer og ikke lønnsdannelsen", "Fordi $v$ per definisjon er null i modellen", "Fordi reallønnen måles i utenlandsk valuta"],
       explanation: "Kursveksten går inn i kroneprisene i konkurranseutsatt sektor, løfter lønnsveksten gjennom frontfaget, og løfter konsumprisene like mye. Nettovirkningen på kjøpekraften blir null i modellen.",
     },
     {
@@ -2599,7 +2599,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er poenget med å avslutte en relasjonsforklaring med hva som er endogent og eksogent?",
-      options: ["Det viser hva modellen bestemmer selv og hvor sjokkene treffer, og gjør resten av analysen lesbar", "Det er et rent formkrav uten faglig innhold, men veiledningene gir likevel uttelling for at skillet nevnes eksplisitt til slutt", "Det erstatter behovet for å forklare fortegnene", "Det avgjør hvilken figur som skal tegnes"],
+      options: ["Det viser hva modellen bestemmer selv og hvor sjokkene treffer, og gjør resten av analysen lesbar", "Det er et rent formkrav uten faglig innhold som veiledningene gir uttelling for", "Det erstatter behovet for å forklare fortegnene", "Det avgjør hvilken figur som skal tegnes i neste delspørsmål"],
       explanation: "Skillet er trinn fire i malen og det som oftest droppes. Uten det vet ikke leseren hvilke variabler analysen faktisk beveger.",
     },
     {
@@ -2609,7 +2609,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den korrekte presiseringen om totalstørrelsene i vekstmodellens likevekt?",
-      options: ["Per arbeider-størrelsene står stille, mens samlet kapital og produksjon vokser med befolkningsveksten", "Både per arbeider-størrelsene og totalstørrelsene står stille, siden ingenting endrer seg når økonomien først har nådd likevekten", "Per arbeider-størrelsene vokser, mens totalstørrelsene står stille", "Alt vokser med spareraten $s$"],
+      options: ["Per arbeider-størrelsene står stille, mens samlet kapital og produksjon vokser med befolkningsveksten", "Både per arbeider-størrelsene og totalstørrelsene står stille, siden ingenting endrer seg når økonomien først har nådd likevekten", "Per arbeider-størrelsene vokser, mens totalstørrelsene står stille", "Alt vokser med spareraten $s$, både per arbeider-størrelsene og totalstørrelsene, siden sparingen driver veksten"],
       explanation: "Sensorveiledningen kaller det positivt feil å hevde at samlet kapital og produksjon er konstante i steady state. De vokser med $n$, og med $n+g$ når det er produktivitetsvekst.",
     },
     {
@@ -2658,12 +2658,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr et krav om «kompensasjon for tapt kjøpekraft» i hovedkursmodellens språk?",
-      options: ["Et krav om positiv ekstraordinær lønnsvekst, altså $k > 0$", "Et krav om høyere produktivitetsvekst i skjermet sektor", "Et krav om at sentralbanken styrker krona", "Et krav om lavere importandel i konsumet, slik at prisvekst ute betyr mindre"],
+      options: ["Et krav om positiv ekstraordinær lønnsvekst, altså $k > 0$", "Et krav om høyere produktivitetsvekst i den skjermede sektoren", "Et krav om at sentralbanken styrker krona gjennom rentesettingen", "Et krav om lavere importandel i konsumet, slik at prisvekst ute betyr mindre"],
       explanation: "$k$ er lønnsvekst utover hovedkursen. Modellen viser at positiv $k$ løfter reallønnsveksten med $\\alpha k$, men også konsumprisveksten med $(1-\\alpha)k$, og svekker lønnsomheten i konkurranseutsatt sektor.",
     },
     {
       question: "En kronesvekkelse er en $Z^E$-impuls. Hvilke relasjoner treffer den?",
-      options: ["Både etterspørselsrelasjonen og renteregelen — derfor skifter to kurver samtidig", "Bare etterspørselsrelasjonen, siden kursen virker gjennom eksport og import og ikke gjennom pengepolitikken", "Bare renteregelen, siden bare sentralbanken reagerer på kursen", "Bare Phillips-kurven, siden svakere krone er et rent prissjokk"],
+      options: ["Både etterspørselsrelasjonen og renteregelen — derfor skifter to kurver samtidig", "Bare etterspørselsrelasjonen, siden kursen virker gjennom eksport og import og ikke gjennom pengepolitikken", "Bare renteregelen, siden det bare er sentralbanken som reagerer på kursendringer i modellen", "Bare Phillips-kurven, siden svakere krone er et rent prissjokk"],
       explanation: "Kurssvekkelsen bedrer konkurranseevnen (etterspørselen opp) og løfter importprisene, som banken må svare på direkte. Renten stiger entydig, mens produksjonsvirkningen er ubestemt.",
     },
     {
@@ -2675,7 +2675,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-7-4': [
     {
       question: "Hva skjer med samlet kapital og samlet produksjon når økonomien har nådd likevekt i vekstmodellen?",
-      options: ["De vokser med befolkningsveksten $n$, mens størrelsene per arbeider står stille", "De står stille, siden likevekt betyr at ingenting endrer seg", "De vokser med spareraten $s$, siden den bestemmer hvor mye kapital som bygges opp", "De faller gradvis, fordi kapitalslitet fortsetter uten investeringer"],
+      options: ["De vokser med befolkningsveksten $n$, mens størrelsene per arbeider står stille", "De står helt stille, siden likevekt betyr at ingenting i økonomien endrer seg mer", "De vokser med spareraten $s$, siden den bestemmer hvor mye kapital som bygges opp", "De faller gradvis, fordi kapitalslitet fortsetter selv om det ikke investeres mer"],
       explanation: "Med $k$ og $y$ konstante og $L$ voksende med $n$, vokser $K = kL$ og $Y = yL$ med $n$. Å hevde at de står stille er en av de feilene sensorveiledningene flagger sterkest.",
     },
     {
