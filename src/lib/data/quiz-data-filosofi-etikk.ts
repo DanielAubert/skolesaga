@@ -19,7 +19,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva studerer epistemologi?",
-      options: ["Kunnskap og hvordan vi oppnår den", "Hva som finnes i verden", "Hva som er moralsk rett og galt å gjøre", "Hva som er rett og galt"],
+      options: ["Kunnskap og hvordan vi oppnår den", "Hva som finnes i verden", "Hva som er moralsk rett og galt", "Hva som er rett og galt"],
       explanation: "Epistemologi, eller kunnskapsteori, undersøker hva kunnskap er, hvordan vi oppnår den, og hva som skiller kunnskap fra tro og meninger.",
     },
     {
@@ -46,12 +46,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mente Descartes med \"Cogito ergo sum\"?",
-      options: ["Jeg tenker, altså er jeg", "Jeg ser, altså vet jeg", "Jeg tviler, altså lærer jeg", "Jeg føler, altså lever jeg"],
+      options: ["Jeg tenker, altså er jeg", "Jeg ser, altså vet jeg noe", "Jeg tviler, altså lærer jeg", "Jeg føler, altså lever jeg"],
       explanation: "«Cogito ergo sum» betyr «jeg tenker, altsa er jeg». Selv om jeg tviler påalt, kan jeg ikke tvile påat jeg tviler - og dermed at jeg eksisterer som et tenkende vesen.",
     },
     {
       question: "Hva er bekreftelsesskjevhet?",
-      options: ["Vi søker informasjon som bekrefter det vi allærede tror", "Vi stoler for mye påeksperter", "At vi stoler altfor blindt på det ekspertene forteller oss", "At vi systematisk overvurderer hvor mye vi selv egentlig kan"],
+      options: ["Vi søker informasjon som bekrefter det vi allærede tror", "Vi stoler for mye på eksperter og lar dem avgjøre hva vi skal tro", "At vi stoler altfor blindt på det ekspertene forteller oss", "At vi systematisk overvurderer hvor mye vi selv egentlig kan"],
       explanation: "Bekreftelsesskjevhet er tendensen til a søke, tolke og huske informasjon påmater som bekrefter det vi allærede tror, og ignorere motstridende informasjon.",
     },
   ],
@@ -63,7 +63,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et paradigme ifølge Thomas Kuhn?",
-      options: ["Et felles rammeverk for en vitenskapelig disiplin", "En falsk antakelse i vitenskap", "En falsk grunnantakelse som holder vitenskapen tilbake", "Et avgjørende eksperiment som forandrer alt i et fagfelt"],
+      options: ["Et felles rammeverk for en vitenskapelig disiplin", "En falsk antakelse som vitenskapen bygger videre på uten å teste den", "En falsk grunnantakelse som holder vitenskapen tilbake", "Et avgjørende eksperiment som forandrer alt i et fagfelt"],
       explanation: "Et paradigme er ifølge Kuhn et felles rammeverk som inkluderer grunnleggende antagelser, aksepterte metoder, standardproblemer og eksempler pågod forskning.",
     },
     {
@@ -73,7 +73,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mener vitenskapelig realisme?",
-      options: ["Vellykkede teorier beskriver virkeligheten", "Vitenskap er bare et verktoy", "At vi aldri kan nå fram til den fulle sannheten", "At vitenskapelige teorier bare er nyttige verktøy"],
+      options: ["Vellykkede teorier beskriver virkeligheten", "At vitenskap bare er et verktøy for å forutsi hva som kommer til å skje", "At vi aldri kan nå fram til den fulle sannheten", "At vitenskapelige teorier bare er nyttige verktøy"],
       explanation: "Vitenskapelig realisme mener at vellykkede vitenskapelige teorier beskriver virkeligheten. Elektroner, gener og sorte hull eksisterer virkelig.",
     },
     {
@@ -95,7 +95,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er \"den gylne middelvei\" i Aristoteles' dydsetikk?",
-      options: ["Dyder ligger mellom to yttærligheter (laster)", "Man bør alltid velge kompromisser", "At en moderat form for lykke er det aller beste", "At man alltid bør velge et kompromiss mellom partene"],
+      options: ["Dyder ligger mellom to yttærligheter (laster)", "At man alltid bør velge kompromisset som ligger midt mellom ytterpunktene", "At en moderat form for lykke er det aller beste", "At man alltid bør velge et kompromiss mellom partene"],
       explanation: "Aristoteles mente at dyder ligger mellom to laster. For eksempel ligger mot mellom feighet og dumdristighet, og raushet mellom gjerrighet og sløseri.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er eudaimonia i Aristoteles' filosofi?",
-      options: ["Det gode liv/menneskelig blomstring", "Ære og berømmelse", "Kortvarig sanselig nytelse og fysisk velbehag", "Fullstendig fravær av smerte og all uro i sjelen"],
+      options: ["Det gode liv/menneskelig blomstring", "Ære og berømmelse i medborgernes øyne", "Kortvarig sanselig nytelse og fysisk velbehag", "Fullstendig fravær av smerte og all uro i sjelen"],
       explanation: "Eudaimonia betyr lykke eller menneskelig blomstring. For Aristoteles er dette menneskets høyeste mål - a leve et blomstrende, godt liv.",
     },
   ],
@@ -186,14 +186,14 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formålet med et tankeeksperiment?",
-      options: ["A teste intuisjoner og teorier gjennom hypotetiske scenarioer", "A unngå å gjøre ekte eksperimenter", "Å bevise vitenskapelige teorier endelig gjennom kontrollerte forsøk i laboratoriet", "Å underholde filosofistudenter med oppdiktede og underholdende fortellinger i timen"],
+      options: ["A teste intuisjoner og teorier gjennom hypotetiske scenarioer", "A unngå å gjøre ekte eksperimenter", "Å bevise vitenskapelige teorier endelig gjennom kontrollerte forsøk i laboratoriet", "Å underholde filosofistudenter med oppdiktede historier"],
       explanation: "Tankeeksperimenter er hypotetiske scenarioer som brukes til a teste intuisjoner og teorier. Eksempler inkluderer trolley-problemet og erfaringsmaskinen.",
     },
   ],
   "filosofi-etikk-1-1": [
     {
       question: "Hva kjennetegner et filosofisk spørsmål til forskjell fra et faktaspørsmål?",
-      options: ["Det kan ikke besvares ved å slå opp fakta eller gjøre målinger", "Det handler bare om naturvitenskap", "At det alltid har nøyaktig ett riktig svar som eksperter er fullstendig enige om", "At det kun kan stilles av profesjonelle filosofer med formell akademisk utdanning"],
+      options: ["Det kan ikke besvares ved å slå opp fakta eller gjøre målinger", "At det bare handler om naturvitenskap og kan avgjøres av forskere i et laboratorium", "At det alltid har nøyaktig ett riktig svar som eksperter er fullstendig enige om", "At det kun kan stilles av profesjonelle filosofer med formell akademisk utdanning"],
       explanation: "Filosofiske spørsmål som «Hva er tid?» krever refleksjon, argumentasjon og begrepsanalyse, ikke oppslag av fakta eller måling.",
     },
     {
@@ -203,7 +203,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at et filosofisk spørsmål har en normativ dimensjon?",
-      options: ["Det handler om hvordan ting bør være, ikke bare hvordan de er", "Det følger en bestemt norm i samfunnet", "At det følger en bestemt sosial norm som gjelder på et gitt sted til en gitt tid", "At det kan måles empirisk gjennom presise observasjoner og gjentatte eksperimenter"],
+      options: ["Det handler om hvordan ting bør være, ikke bare hvordan de er", "Det følger en bestemt norm i samfunnet", "At det følger en bestemt sosial norm som gjelder på et gitt sted til en gitt tid", "At det kan måles empirisk gjennom presise observasjoner"],
       explanation: "Mange filosofiske spørsmål er normative – de handler om hvordan vi bør handle eller hva et godt liv er, ikke bare om faktiske forhold.",
     },
     {
@@ -213,7 +213,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konseptuell (begreps)analyse som filosofisk metode?",
-      options: ["Å undersøke begrepers betydning, implikasjoner og forutsetninger", "Å gjennomføre laboratorieeksperimenter", "Å oversette klassiske filosofiske tekster fra gammelgresk til moderne norsk språk", "Å gjennomføre kontrollerte laboratorieeksperimenter for å teste hypoteser empirisk"],
+      options: ["Å undersøke begrepers betydning, implikasjoner og forutsetninger", "Å gjennomføre laboratorieeksperimenter", "Å oversette klassiske filosofiske tekster fra gammelgresk til moderne norsk språk", "Å gjennomføre kontrollerte forsøk for å teste hypotesene i praksis"],
       explanation: "Begrepsanalyse innebærer å klargjøre hva vi egentlig mener med begreper som «rettferdig» eller «sann».",
     },
   ],
@@ -225,39 +225,39 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Heraklits berømte prinsipp om virkeligheten?",
-      options: ["Alt flyter (panta rhei) – alt er i konstant endring", "Tall er virkelighetens grunnlag", "At alt som finnes til syvende og sist består av udelelige atomer i tomt rom", "At tall og matematiske forhold utgjør selve virkelighetens dypeste grunnlag"],
+      options: ["Alt flyter (panta rhei) – alt er i konstant endring", "At tall er virkelighetens grunnlag, slik pytagoreerne lærte det", "At alt som finnes til syvende og sist består av udelelige atomer i tomt rom", "At tall og matematiske forhold utgjør selve virkelighetens dypeste grunnlag"],
       explanation: "«Panta rhei» – alt flyter. For Heraklit er endring virkelighetens grunnleggende natur: du kan ikke stige ned i samme elv to ganger.",
     },
     {
       question: "Hva hevdet Parmenides om endring?",
-      options: ["Endring er en illusjon; virkeligheten er én, uforanderlig og evig", "Endring skyldes atomenes bevegelse", "At endring i virkeligheten styres av en fornuftig verdensorden kalt logos", "At endring er det eneste virkelig eksisterende; alt annet er stillstand og bedrag"],
+      options: ["Endring er en illusjon; virkeligheten er én, uforanderlig og evig", "At endring skyldes atomenes bevegelse i tomrommet, slik Demokrit hevdet", "At endring i virkeligheten styres av en fornuftig verdensorden kalt logos", "At endring er det eneste virkelig eksisterende; alt annet er stillstand og bedrag"],
       explanation: "Parmenides argumenterte for at det ikke-værende ikke kan eksistere, og at endring derfor er umulig – sansene bedrar oss.",
     },
     {
       question: "Hvilken fremsynt teori utviklet Demokrit?",
-      options: ["Atomteorien – alt består av udelelige partikler i tomt rom", "Læren om de fire elementene", "Læren om tallenes harmoni som virkelighetens innerste orden og prinsipp", "Læren om de fire grunnelementene jord, luft, ild og vann som byggesteiner"],
+      options: ["Atomteorien – alt består av udelelige partikler i tomt rom", "Læren om de fire elementene, slik Empedokles lærte det", "Læren om tallenes harmoni som virkelighetens innerste orden og prinsipp", "Læren om de fire grunnelementene jord, luft, ild og vann som byggesteiner"],
       explanation: "Demokrit mente virkeligheten består av udelelige atomer (gresk atomos = udelelig) som beveger seg i tomt rom.",
     },
     {
       question: "Hva menes med presokratikernes overgang «fra myte til logos»?",
-      options: ["Fra å forklare verden med guder og myter til rasjonell, naturlig forklaring", "Fra muntlig til skriftlig kultur", "Overgangen fra en muntlig fortellertradisjon til en skriftlig og lesende bokkultur", "Overgangen fra spørsmål om etikk og det gode liv til rene spørsmål om naturens vesen"],
+      options: ["Fra å forklare verden med guder og myter til rasjonell, naturlig forklaring", "Fra muntlig til skriftlig kultur, da grekerne tok alfabetet i bruk i diktningen", "Overgangen fra en muntlig fortellertradisjon til en skriftlig og lesende bokkultur", "Overgangen fra spørsmål om etikk og det gode liv til rene spørsmål om naturens vesen"],
       explanation: "Presokratikerne begynte å forklare naturen rasjonelt og observasjonsbasert i stedet for gjennom guders vilje – kimen til vitenskapelig tenkning.",
     },
   ],
   "filosofi-etikk-1-3": [
     {
       question: "Hva kjennetegner den sokratiske metoden?",
-      options: ["Å stille spørsmål som avdekker motsetninger i andres oppfatninger", "Å skrive ned all kunnskap systematisk", "Å gjennomføre kontrollerte eksperimenter for å teste påstander mot naturens fakta", "Å holde lange og velformulerte forelesninger der læreren overleverer ferdig kunnskap"],
+      options: ["Å stille spørsmål som avdekker motsetninger i andres oppfatninger", "Å skrive ned all kunnskap systematisk i verk som elevene siden kunne lese", "Å gjennomføre kontrollerte eksperimenter for å teste påstander mot naturens fakta", "Å holde lange og velformulerte forelesninger der læreren overleverer ferdig kunnskap"],
       explanation: "Sokrates utfordret folk til å definere begreper og avdekket gjennom spørsmål at de ofte ikke kunne forklare det de trodde de visste.",
     },
     {
       question: "Hvorfor vet vi det meste om Sokrates gjennom andre?",
-      options: ["Sokrates skrev aldri noe ned selv", "Hans skrifter gikk tapt i en brann", "Han skrev på et språk ingen forstår", "Han forbød folk å sitere ham"],
+      options: ["Sokrates skrev aldri noe ned selv", "Hans skrifter gikk tapt i en brann", "Han skrev på et språk ingen forstår", "Han forbød elevene sine å sitere ham"],
       explanation: "Sokrates skrev aldri noe ned; det vi vet om ham kommer hovedsakelig fra hans student Platon.",
     },
     {
       question: "Hva sa Sokrates om det gode livet?",
-      options: ["«Det uprøvde liv er ikke verdt å leve»", "«Mennesket er alle tings mål»", "«Jeg tenker, altså er jeg, og dette er det eneste jeg umulig kan tvile på»", "«Jeg tenker, altså er jeg»"],
+      options: ["«Det uprøvde liv er ikke verdt å leve»", "«Mennesket er alle tings mål»", "«Jeg tenker, det kan ingen tvile på»", "«Jeg tenker, altså er jeg»"],
       explanation: "Sokrates mente at et liv uten kritisk selvransakelse og refleksjon ikke er verdt å leve.",
     },
     {
@@ -274,12 +274,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "filosofi-etikk-1-4": [
     {
       question: "Hva er kjernen i Konfutsius' etikk, uttrykt med begrepet ren?",
-      options: ["Medmenneskelig godhet – å behandle andre med omsorg og respekt", "Søken etter indre opplysning", "Fravær av alt begjær og alle ønsker som veien til sinnsro og lykke", "Streng og betingelsesløs lydighet mot statens skrevne lover og forskrifter"],
+      options: ["Medmenneskelig godhet – å behandle andre med omsorg og respekt", "Søken etter indre opplysning gjennom meditasjon og et tilbaketrukket liv", "Fravær av alt begjær og alle ønsker som veien til sinnsro og lykke", "Streng og betingelsesløs lydighet mot statens skrevne lover og forskrifter"],
       explanation: "Ren (仁) betyr humanitet eller medmenneskelig godhet og er kjernen i Konfutsius' etikk.",
     },
     {
       question: "Hvordan skiller østlig filosofi seg ofte fra vestlig filosofi?",
-      options: ["Mer vekt på praktisk visdom og helhetlig tenkning", "Mer vekt på naturvitenskapelige eksperimenter", "Den bygger utelukkende på matematiske bevis og streng formell logisk slutning", "Den bruker bare matematiske bevis"],
+      options: ["Mer vekt på praktisk visdom og helhetlig tenkning", "Mer vekt på naturvitenskapelige eksperimenter", "Den bygger utelukkende på streng formell logikk", "Den bruker bare matematiske bevis"],
       explanation: "Østlig filosofi legger ofte mindre vekt på logisk abstraksjon og mer på praktisk livskunst og sammenhengen mellom menneske, natur og kosmos.",
     },
     {
@@ -289,7 +289,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva uttrykker det afrikanske begrepet Ubuntu?",
-      options: ["«Jeg er fordi vi er» – identitet er relasjonell", "At kunnskap kommer fra erfaring", "At naturen er hellig og at mennesket må leve i pakt med den", "At alt i virkeligheten er i konstant og uopphørlig forandring"],
+      options: ["«Jeg er fordi vi er» – identitet er relasjonell", "At all kunnskap kommer fra erfaring og ikke fra medfødte ideer", "At naturen er hellig og at mennesket må leve i pakt med den", "At alt i virkeligheten er i konstant og uopphørlig forandring"],
       explanation: "Ubuntu uttrykker at menneskelig identitet er grunnleggende relasjonell – vi blir til gjennom fellesskapet.",
     },
     {
@@ -306,7 +306,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bruker filosofer tankeeksperimenter fremfor empiriske forsøk?",
-      options: ["Mange filosofiske spørsmål kan ikke undersøkes empirisk", "De er billigere å gjennomføre", "Fordi tankeeksperimenter alltid gir helt sikre og udiskutable svar", "Fordi de er langt billigere og enklere å gjennomføre enn ekte forsøk"],
+      options: ["Mange filosofiske spørsmål kan ikke undersøkes empirisk", "De er billigere å gjennomføre, siden de verken krever utstyr eller laboratorium", "Fordi tankeeksperimenter alltid gir helt sikre og udiskutable svar", "Fordi de er langt billigere og enklere å gjennomføre enn ekte forsøk"],
       explanation: "Vi kan ikke observere empirisk hva som er rettferdig eller om vi har fri vilje, men vi kan forestille oss scenarier som klargjør intuisjonene våre.",
     },
     {
@@ -321,7 +321,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Det klassiske trolley-problemet (sporveiskiftet) er et eksempel på hva?",
-      options: ["Et tankeeksperiment som tester moralske intuisjoner", "En vitenskapelig hypotese", "Et strengt matematisk bevis som utleder en konklusjon fra gitte aksiomer", "En faktisk historisk hendelse med et sporvognsulykke som virkelig fant sted"],
+      options: ["Et tankeeksperiment som tester moralske intuisjoner", "En vitenskapelig hypotese som kan testes med målinger ute i felt", "Et strengt matematisk bevis som utleder en konklusjon fra gitte aksiomer", "En faktisk historisk hendelse med et sporvognsulykke som virkelig fant sted"],
       explanation: "Trolley-problemet er et tankeeksperiment der man tester intuisjoner om det er riktig å ofre én for å redde flere.",
     },
   ],
@@ -338,17 +338,17 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er ren gjetting ikke kunnskap, selv om gjetningen er sann?",
-      options: ["Det mangler begrunnelse – gode grunner for å tro det", "Det er for komplisert", "Fordi det da mangler selve sannheten – gjetningen treffer aldri riktig svar", "Fordi saken det gjettes om er altfor komplisert til at noen kan vite noe om den"],
+      options: ["Det mangler begrunnelse – gode grunner for å tro det", "Fordi spørsmålet er for komplisert til at en gjetning kan treffe riktig", "Fordi det da mangler selve sannheten – gjetningen treffer aldri riktig svar", "Fordi saken det gjettes om er altfor komplisert til at noen kan vite noe om den"],
       explanation: "En heldig gjetning kan være sann og trodd, men uten begrunnelse teller den ikke som kunnskap.",
     },
     {
       question: "Hva er forskjellen mellom kunnskap og mening?",
-      options: ["Kunnskap krever sannhet og begrunnelse, en mening trenger ikke det", "Kunnskap er alltid usikker", "Det er egentlig ingen reell forskjell; kunnskap og mening betyr det samme", "Kunnskap er alltid usikker og foreløpig, mens en mening er fast og sikker"],
+      options: ["Kunnskap krever sannhet og begrunnelse, en mening trenger ikke det", "Kunnskap er alltid usikker, og derfor ikke noe bedre enn en ren mening", "Det er egentlig ingen reell forskjell; kunnskap og mening betyr det samme", "Kunnskap er alltid usikker og foreløpig, mens en mening er fast og sikker"],
       explanation: "En mening kan være ubegrunnet eller usann, mens kunnskap forutsetter både sannhet og gode grunner.",
     },
     {
       question: "Hvorfor regnes JTB som vanskeligere enn det først virker?",
-      options: ["Det er omdiskutert om de tre betingelsene er tilstrekkelige for kunnskap", "Det er umulig å tro noe sant", "Fordi begrunnelse er noe mennesket aldri kan oppnå for noen som helst påstand", "Fordi ingen egentlig klarer å forstå hva det innebærer å tro på noe i det hele tatt"],
+      options: ["Det er omdiskutert om de tre betingelsene er tilstrekkelige for kunnskap", "Fordi det er umulig å tro noe som virkelig er sant om verden utenfor oss selv", "Fordi begrunnelse er noe mennesket aldri kan oppnå for noen som helst påstand", "Fordi ingen egentlig klarer å forstå hva det innebærer å tro på noe i det hele tatt"],
       explanation: "Senere filosofer (f.eks. Gettier) viste at man kan ha begrunnet sann tro som likevel ikke virker som ekte kunnskap.",
     },
   ],
@@ -365,12 +365,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Descartes' berømte konklusjon etter den metodiske tvilen?",
-      options: ["«Jeg tenker, altså er jeg» (Cogito ergo sum)", "«Mennesket er alle tings mål»", "«Gud er død, og vi mennesker er dem som har drept ham med vår tvil»", "«Mennesket er målestokken for alle ting, både de som er og de som ikke er»"],
+      options: ["«Jeg tenker, altså er jeg» (Cogito ergo sum)", "«Mennesket er alle tings mål», slik Protagoras formulerte det", "«Gud er død, og vi mennesker er dem som har drept ham med vår tvil»", "«Mennesket er målestokken for alle ting, både de som er og de som ikke er»"],
       explanation: "Descartes fant at selv om han kan tvile på alt, kan han ikke tvile på at han tviler – og det å tvile er å tenke.",
     },
     {
       question: "Hva er metodisk tvil hos Descartes?",
-      options: ["Å systematisk tvile på alt for å finne et sikkert fundament", "Å stole fullt ut på sansene", "Å prinsipielt aldri tvile på noe, men ta all mottatt kunnskap for gitt", "Å utelukkende tvile på matematikken, men stole trygt på alt annet man vet"],
+      options: ["Å systematisk tvile på alt for å finne et sikkert fundament", "Å stole fullt ut på sansene og bygge all kunnskap på det de viser oss", "Å prinsipielt aldri tvile på noe, men ta all mottatt kunnskap for gitt", "Å utelukkende tvile på matematikken, men stole trygt på alt annet man vet"],
       explanation: "Descartes tvilte bevisst på alt han kunne tvile på, for å finne noe absolutt sikkert å bygge kunnskapen på.",
     },
     {
@@ -397,12 +397,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor avviste Locke medfødte ideer?",
-      options: ["Hvis de fantes, burde alle – også barn og andre kulturer – ha dem", "Fordi matematikken motbeviser dem", "Fordi Gud etter Lockes syn uttrykkelig hadde forbudt slike ideer i menneskesinnet", "Fordi matematikkens sikre sannheter beviste at ideene måtte være medfødte likevel"],
+      options: ["Hvis de fantes, burde alle – også barn og andre kulturer – ha dem", "Fordi matematikken motbeviser dem", "Fordi Gud etter Lockes syn uttrykkelig hadde forbudt slike ideer i menneskesinnet", "Fordi matematikkens sannheter beviste at ideene var medfødte"],
       explanation: "Locke argumenterte for at medfødte ideer ville vært universelle, men det er de tydeligvis ikke.",
     },
     {
       question: "Hvilke to typer erfaring skilte Locke mellom?",
-      options: ["Ytre sanseerfaring (sensation) og indre refleksjon", "A priori og a posteriori", "Fornuftens innsikt (ratio) og guddommelig åpenbaring gitt gjennom troen", "Analytiske sannheter som gjelder per definisjon og syntetiske sannheter"],
+      options: ["Ytre sanseerfaring (sensation) og indre refleksjon", "Skillet mellom kunnskap a priori og kunnskap a posteriori", "Fornuftens innsikt (ratio) og guddommelig åpenbaring gitt gjennom troen", "Analytiske sannheter som gjelder per definisjon og syntetiske sannheter"],
       explanation: "Locke skilte mellom ytre sanseerfaring gjennom de fem sansene og indre refleksjon over egne mentale prosesser.",
     },
   ],
@@ -441,12 +441,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mente Kant med sin «kopernikanske revolusjon» i filosofien?",
-      options: ["At verden tilpasser seg vårt sinn, ikke omvendt", "At jorden går rundt solen", "At jorden ikke står i sentrum, men beveger seg i bane rundt solen", "At Gud på nytt må plasseres i sentrum for all menneskelig erkjennelse"],
+      options: ["At verden tilpasser seg vårt sinn, ikke omvendt", "At jorden går rundt solen", "At jorden ikke står i sentrum, men beveger seg i bane rundt solen", "At Gud må stå i sentrum for erkjennelsen"],
       explanation: "Slik Kopernikus snudde forholdet jord–sol, ville Kant vise at det er erfaringen som tilpasser seg sinnets strukturer.",
     },
     {
       question: "Hva er en analytisk påstand ifølge Kant?",
-      options: ["En påstand som er sann per definisjon", "En påstand basert på sanseerfaring", "En påstand om fremtidige hendelser som ennå ikke har funnet sted", "En påstand som alltid er usann"],
+      options: ["En påstand som er sann per definisjon", "En påstand basert på sanseerfaring", "En påstand om fremtidige hendelser", "En påstand som alltid er usann"],
       explanation: "Analytiske påstander (f.eks. «alle ungkarer er ugifte») er sanne per definisjon, uavhengig av erfaring.",
     },
     {
@@ -495,7 +495,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva hevder biosentrismen?",
-      options: ["At alt levende har egenverdi, ikke bare mennesker", "At bare mennesker har verdi", "At naturen i seg selv er helt uten verdi utover nytten for oss", "At det utelukkende er mennesket som har moralsk verdi i naturen"],
+      options: ["At alt levende har egenverdi, ikke bare mennesker", "At bare mennesker har verdi, og at dyr og planter er midler for oss", "At naturen i seg selv er helt uten verdi utover nytten for oss", "At det utelukkende er mennesket som har moralsk verdi i naturen"],
       explanation: "Biosentrismen hevder at planter, dyr og økosystemer har verdi i seg selv, uavhengig av nytten for mennesker.",
     },
     {
@@ -505,12 +505,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er miljøetiske spørsmål blitt mer presserende?",
-      options: ["På grunn av klimakrise og masseutryddelse av arter", "På grunn av færre dyr i dyrehager", "Fordi naturen nå er ferdig utforsket og alt om den er kjent", "Fordi alle mennesker er blitt enige om svarene på spørsmålene"],
+      options: ["På grunn av klimakrise og masseutryddelse av arter", "På grunn av at det er blitt færre dyr igjen i dyrehagene våre", "Fordi naturen nå er ferdig utforsket og alt om den er kjent", "Fordi alle mennesker er blitt enige om svarene på spørsmålene"],
       explanation: "Klimakrise og tap av biologisk mangfold gjør spørsmål om vårt ansvar overfor naturen stadig mer aktuelle.",
     },
     {
       question: "Hva innebærer det å ta hensyn til fremtidige generasjoner i miljøetikken?",
-      options: ["At dagens valg påvirker mennesker som ennå ikke er født", "At bare nålevende har verdi", "At det utelukkende er nålevende mennesker som har moralsk verdi", "At naturen forblir uendret uansett hva vi mennesker foretar oss"],
+      options: ["At dagens valg påvirker mennesker som ennå ikke er født", "At bare nålevende har verdi, siden framtidige mennesker ennå ikke finnes", "At det utelukkende er nålevende mennesker som har moralsk verdi", "At naturen forblir uendret uansett hva vi mennesker foretar oss"],
       explanation: "Miljøetikk reiser spørsmål om vårt ansvar overfor fremtidige generasjoner som vil arve konsekvensene av dagens handlinger.",
     },
   ],
@@ -554,7 +554,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner nasjonalismen (partikularismen) i denne debatten?",
-      options: ["Vi har særlige forpliktelser overfor våre landsmenn", "Alle mennesker er likeverdige uansett nasjonalitet", "Alle mennesker er fullt ut likeverdige uansett hvilken nasjonalitet de har", "Bistand til fattige land er en absolutt moralsk plikt for alle rike stater"],
+      options: ["Vi har særlige forpliktelser overfor våre landsmenn", "Alle mennesker er likeverdige uansett nasjonalitet", "Alle mennesker er fullt ut likeverdige uansett hvilken nasjonalitet de har", "Bistand til fattige land er en absolutt plikt"],
       explanation: "Nasjonalismen hevder at rettferdighet primært gjelder innenfor nasjonalstaten og at vi har særlige plikter overfor egne borgere.",
     },
     {
@@ -571,7 +571,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "filosofi-etikk-4-5": [
     {
       question: "Hva er ofte kjernen i et etisk dilemma?",
-      options: ["Et valg mellom to goder eller to onder", "Et valg som er åpenbart enkelt", "Et valg som ikke får noen konsekvenser uansett hva man velger", "Et valg bare maskiner kan ta"],
+      options: ["Et valg mellom to goder eller to onder", "Et valg som er åpenbart enkelt", "Et valg som ikke får noen konsekvenser", "Et valg bare maskiner kan ta"],
       explanation: "Et etisk dilemma innebærer typisk en konflikt mellom verdier – et valg mellom to gode eller to onde alternativer.",
     },
     {
@@ -591,7 +591,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det nyttig å vurdere et dilemma ut fra flere etiske teorier?",
-      options: ["Ulike teorier belyser ulike sider og gir et mer helhetlig bilde", "Fordi bare én teori er gyldig", "Fordi bare den etiske teorien som er mest utbredt, kan være gyldig", "For å kunne velge det svaret som passer aktøren best i situasjonen"],
+      options: ["Ulike teorier belyser ulike sider og gir et mer helhetlig bilde", "Fordi bare én av de etiske teoriene kan være gyldig, og resten er feil", "Fordi bare den etiske teorien som er mest utbredt, kan være gyldig", "For å kunne velge det svaret som passer aktøren best i situasjonen"],
       explanation: "Ved å vurdere ut fra nytteetikk, pliktetikk og dydsetikk får man fram ulike hensyn og en mer helhetlig analyse.",
     },
   ],
@@ -662,7 +662,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konsekvensetikk?",
-      options: ["Etikk som vurderer handlinger ut fra deres resultater", "Etikk som bare ser på intensjonen", "Etikk som vurderer handlingen ut fra aktørens karakter og dyder", "Etikk som bare ser på aktørens intensjon og gode vilje bak handlingen"],
+      options: ["Etikk som vurderer handlinger ut fra deres resultater", "Etikk som bare ser på intensjonen", "Etikk som vurderer handlingen ut fra aktørens karakter og dyder", "Etikk som bare ser på den gode viljen bak handlingen"],
       explanation: "Konsekvensetikken vurderer handlinger ut fra resultatene, ikke ut fra intensjon eller handlingens natur i seg selv.",
     },
     {
@@ -706,12 +706,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "fil-3-5": [
     {
       question: "Hva setter nærhetsetikken og omsorgsetikken i sentrum?",
-      options: ["Relasjoner, nærhet og omsorg for konkrete andre", "Universelle regler og upartiskhet", "Universelle regler og upartisk behandling av alle mennesker likt", "Maksimering av samlet nytte og lykke for flest mulig i samfunnet"],
+      options: ["Relasjoner, nærhet og omsorg for konkrete andre", "Universelle regler og upartiskhet, uavhengig av hvem den andre er", "Universelle regler og upartisk behandling av alle mennesker likt", "Maksimering av samlet nytte og lykke for flest mulig i samfunnet"],
       explanation: "Nærhetsetikk og omsorgsetikk utfordrer tradisjonell etikk ved å sette relasjoner og omsorg for konkrete mennesker i sentrum.",
     },
     {
       question: "Hva er sentralt i Levinas' etikk om «den Andres ansikt»?",
-      options: ["Møtet med den Andres ansikt skaper et umiddelbart ansvar", "At man skal kalkulere konsekvenser", "At man nøye skal kalkulere konsekvensene før man hjelper den Andre", "At man skal handle av respekt for en universell plikt overfor alle"],
+      options: ["Møtet med den Andres ansikt skaper et umiddelbart ansvar", "At man skal kalkulere konsekvensene før ansvaret i det hele tatt oppstår", "At man nøye skal kalkulere konsekvensene før man hjelper den Andre", "At man skal handle av respekt for en universell plikt overfor alle"],
       explanation: "For Levinas oppstår etikk i det direkte møtet med et annet menneskes sårbare ansikt, som plasserer et krav på meg før jeg velger det.",
     },
     {
@@ -733,12 +733,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "fil-5-1": [
     {
       question: "Hva er en «naturtilstand» i kontraktsteorien?",
-      options: ["En tenkt tilstand før staten eksisterer", "En tilstand av perfekt demokrati", "Livet på landsbygda i harmoni med den uberørte naturen", "En tilstand uten natur"],
+      options: ["En tenkt tilstand før staten eksisterer", "En tilstand av perfekt demokrati", "Livet på landsbygda nær naturen", "En tilstand uten natur"],
       explanation: "Naturtilstanden er en tenkt tilstand før staten finnes; ulike tenkere beskriver den svært forskjellig.",
     },
     {
       question: "Hvordan beskrev Hobbes naturtilstanden?",
-      options: ["Som kaos og «alles krig mot alle»", "Som uskyldig og fri", "Som et perfekt demokrati", "Som relativt fredelig med naturlige rettigheter"],
+      options: ["Som kaos og «alles krig mot alle»", "Som uskyldig og fri", "Som et perfekt demokrati", "Som fredelig under naturretten"],
       explanation: "Hobbes mente naturtilstanden var kaotisk og preget av krig, og at man derfor må gi nesten all makt til en sterk suveren.",
     },
     {
@@ -760,12 +760,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "fil-5-2": [
     {
       question: "Hva er negativ frihet?",
-      options: ["Fravær av ytre tvang – at ingen hindrer deg", "Evnen til selvrealisering", "Frihet som utelukkende tilkommer staten og dens myndigheter", "En form for frihet som er skadelig for både individ og samfunn"],
+      options: ["Fravær av ytre tvang – at ingen hindrer deg", "Evnen til selvrealisering og til å bli den man egentlig er", "Frihet som utelukkende tilkommer staten og dens myndigheter", "En form for frihet som er skadelig for både individ og samfunn"],
       explanation: "Negativ frihet er fravær av ytre hindringer: du er fri når ingen hindrer deg.",
     },
     {
       question: "Hva er positiv frihet?",
-      options: ["Evne til selvbestemmelse og å realisere sitt sanne selv", "Fravær av all lovgivning", "At loven forbyr alle former for inngrep i den private sfæren", "Fravær av ytre tvang og innblanding fra staten i menneskers valg"],
+      options: ["Evne til selvbestemmelse og å realisere sitt sanne selv", "Fravær av all lovgivning, slik at ingen regler binder den enkelte", "At loven forbyr alle former for inngrep i den private sfæren", "Fravær av ytre tvang og innblanding fra staten i menneskers valg"],
       explanation: "Positiv frihet handler om reell evne til selvbestemmelse – f.eks. at staten aktivt sikrer muligheter som utdanning.",
     },
     {
@@ -775,7 +775,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner menneskerettigheter?",
-      options: ["De er universelle rettigheter som tilhører alle mennesker", "De gjelder bare borgere av ett land", "De er goder man kan kjøpe, selge og overføre på et fritt marked", "De er rettigheter som først inntrer ved myndighetsalder for voksne"],
+      options: ["De er universelle rettigheter som tilhører alle mennesker", "De gjelder bare dem som er statsborgere i det landet som har gitt dem", "De er goder man kan kjøpe, selge og overføre på et fritt marked", "De er rettigheter som først inntrer ved myndighetsalder for voksne"],
       explanation: "Menneskerettigheter er universelle og tilhører alle mennesker i kraft av å være menneske.",
     },
     {
@@ -792,7 +792,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er flertallstyranni?",
-      options: ["Flertallets undertrykkelse av et mindretall", "At mindretallet styrer", "At domstolene alene overtar all makt fra de folkevalgte organene", "At ingen instans i det hele tatt utøver styring over befolkningen"],
+      options: ["Flertallets undertrykkelse av et mindretall", "At mindretallet styrer", "At domstolene alene overtar all makt fra de folkevalgte organene", "At ingen instans i det hele tatt styrer"],
       explanation: "Flertallstyranni betegner faren for at flertallet i et demokrati undertrykker mindretallets rettigheter.",
     },
     {
@@ -829,7 +829,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er maximin-strategien i Rawls' teori?",
-      options: ["Å gjøre den verst stilte situasjonen så god som mulig", "Å maksimere samlet nytte uansett fordeling", "Å redusere statens størrelse og oppgaver til et absolutt minimum", "Å maksimere de aller rikestes samlede inntekt og formue i samfunnet"],
+      options: ["Å gjøre den verst stilte situasjonen så god som mulig", "Å maksimere samlet nytte uansett fordeling", "Å redusere statens størrelse og oppgaver til et absolutt minimum", "Å maksimere de rikestes samlede inntekt"],
       explanation: "Maximin betyr å maksimere minimumsposisjonen – bak sløret velger man prinsipper som gjør den verste situasjonen best mulig.",
     },
     {
@@ -856,12 +856,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med begrepet «den Andre» hos Beauvoir?",
-      options: ["At kvinner er blitt definert som avvik fra en mannlig norm", "At alle mennesker er like", "At intet menneske i det hele tatt kan defineres i forhold til en norm", "At menn historisk er blitt definert som mindreverdige avvik fra kvinnen"],
+      options: ["At kvinner er blitt definert som avvik fra en mannlig norm", "At alle mennesker er like, og at kjønn derfor ikke betyr noe for identiteten", "At intet menneske i det hele tatt kan defineres i forhold til en norm", "At menn historisk er blitt definert som mindreverdige avvik fra kvinnen"],
       explanation: "Beauvoir beskrev hvordan kvinnen historisk er definert som «den Andre» – et avvik fra mannen som regnes som normen.",
     },
     {
       question: "Hva menes med «feministiske bølger»?",
-      options: ["Ulike historiske faser i feministisk aktivisme", "En type demonstrasjon", "Et fast radioprogram som tar opp kvinnesak og likestillingsspørsmål", "En bestemt type organisert demonstrasjon med paroler og opptog i gatene"],
+      options: ["Ulike historiske faser i feministisk aktivisme", "En type demonstrasjon som gjentar seg med jevne mellomrom hvert år", "Et fast radioprogram som tar opp kvinnesak og likestillingsspørsmål", "En bestemt type organisert demonstrasjon med paroler og opptog i gatene"],
       explanation: "Feministiske bølger viser til ulike faser, fra kampen for stemmerett til senere bevegelser som #MeToo.",
     },
   ],
@@ -878,7 +878,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva svarer eksistensialismen ungdommen som spør «Hvem er jeg egentlig?»",
-      options: ["Du er ikke noe på forhånd – du blir den du velger å bli", "Bare samfunnet bestemmer hvem du er", "Din identitet er fastlagt og gitt allerede fra fødselen av", "Det er utelukkende samfunnet rundt deg som bestemmer hvem du er"],
+      options: ["Du er ikke noe på forhånd – du blir den du velger å bli", "Bare samfunnet bestemmer hvem du er, gjennom rollen du blir tildelt", "Din identitet er fastlagt og gitt allerede fra fødselen av", "Det er utelukkende samfunnet rundt deg som bestemmer hvem du er"],
       explanation: "Ifølge eksistensialismen er du ikke noe på forhånd; du former din identitet gjennom dine valg og handlinger.",
     },
     {
@@ -949,7 +949,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "fil-6-4": [
     {
       question: "Hva er «det absurde» ifølge Camus?",
-      options: ["Konflikten mellom menneskets behov for mening og verdens taushet", "At alt har en klar mening", "En form for humor der livets tilfeldigheter fremstår som komiske og meningsløse", "En logisk selvmotsigelse der premissene fører til en umulig og ugyldig konklusjon"],
+      options: ["Konflikten mellom menneskets behov for mening og verdens taushet", "At alt i tilværelsen har en klar mening som mennesket kan finne fram til", "En form for humor der livets tilfeldigheter fremstår som komiske og meningsløse", "En logisk selvmotsigelse der premissene fører til en umulig og ugyldig konklusjon"],
       explanation: "Det absurde oppstår i møtet mellom vårt ønske om mening og universets likegyldige taushet.",
     },
     {
@@ -964,7 +964,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Camus' poeng med hverdagens rutine (stå opp, jobbe, spise, sove)?",
-      options: ["Spør man stadig «hvorfor?», ender man til slutt i taushet – det absurde", "At rutiner gir livet full mening", "At de daglige rutinene i seg selv gir livet en fullstendig og varig mening", "At mennesket bør bryte ut av rutinene og slutte helt å arbeide og pliktoppfylle"],
+      options: ["Spør man stadig «hvorfor?», ender man til slutt i taushet – det absurde", "At rutinene gir livet full mening så lenge man slutter å stille spørsmål", "At de daglige rutinene i seg selv gir livet en fullstendig og varig mening", "At mennesket bør bryte ut av rutinene og slutte helt å arbeide og pliktoppfylle"],
       explanation: "Fortsetter man å spørre «hvorfor?» til hvert svar, ender man i taushet uten en endelig kosmisk mening – det absurde.",
     },
     {
@@ -991,7 +991,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en mulig konsekvens av at «Gud er død» ifølge Nietzsche?",
-      options: ["En krise om hva vi skal bygge våre liv og verdier på", "At mennesket slipper å foreta noen frie valg lenger", "At tilværelsen straks blir enklere og lettere å leve", "At vitenskapen mister sin verdi og blir helt overflødig"],
+      options: ["En krise om hva vi skal bygge våre liv og verdier på", "At mennesket slipper å foreta noen frie valg lenger", "At tilværelsen straks blir enklere og lettere å leve", "At vitenskapen mister all sin verdi"],
       explanation: "Når den tradisjonelle meningskilden faller bort, oppstår spørsmålet om hva mennesket skal bygge sine verdier på.",
     },
     {
@@ -1126,24 +1126,24 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et problem med den pragmatiske sannhetsteorien (sant = det som fungerer)?",
-      options: ["Noe kan fungere i praksis uten å være sant (f.eks. placebo)", "Den krever guddommelig åpenbaring", "Den kan bare anvendes på naturvitenskapelige og tekniske påstander", "Den krever at man kjenner hele virkeligheten før noe kan kalles sant"],
+      options: ["Noe kan fungere i praksis uten å være sant (f.eks. placebo)", "Den forutsetter en guddommelig åpenbaring som avgjør hva som fungerer", "Den kan bare anvendes på naturvitenskapelige og tekniske påstander", "Den krever at man kjenner hele virkeligheten før noe kan kalles sant"],
       explanation: "Den pragmatiske teorien sier en påstand er sann hvis den fungerer, men noe kan virke uten å være sant – som placeboeffekten.",
     },
     {
       question: "Hvorfor bruker vi i praksis ofte flere sannhetsteorier samtidig?",
-      options: ["Ingen enkelt teori dekker alle typer påstander like godt", "Fordi de alle er like gale", "Fordi den samme påstanden alltid er sann og usann på én gang", "Fordi alle teoriene motsier hverandre og gjør sannhet umulig å nå"],
+      options: ["Ingen enkelt teori dekker alle typer påstander like godt", "Fordi de alle er like gale, og ingen av dem holder mål ved prøving", "Fordi den samme påstanden alltid er sann og usann på én gang", "Fordi alle teoriene motsier hverandre og gjør sannhet umulig å nå"],
       explanation: "Hver teori har styrker og svakheter, så i praksis kombinerer vi dem avhengig av hvilken type påstand vi vurderer.",
     },
   ],
   "fil-8-1": [
     {
       question: "Hva handler demarkasjonsproblemet om?",
-      options: ["Å skille mellom vitenskap og pseudovitenskap", "Å skille mellom etikk og estetikk", "Å skille mellom sanne og falske påstander innenfor logikk", "Å fastsette hvilke land som har rett til bestemte territorier"],
+      options: ["Å skille mellom vitenskap og pseudovitenskap", "Å skille mellom etikkens spørsmål og estetikkens spørsmål", "Å skille mellom sanne og falske påstander innenfor logikk", "Å fastsette hvilke land som har rett til bestemte territorier"],
       explanation: "Demarkasjonsproblematikken handler om hva som skiller vitenskap (f.eks. astronomi) fra pseudovitenskap (f.eks. astrologi).",
     },
     {
       question: "Hva innebærer falsifiserbarhet som kriterium for vitenskap?",
-      options: ["At en teori i prinsippet må kunne motbevises", "At en teori må kunne bevises endelig", "At en teori må ha vist seg holdbar gjennom lang tid", "At en teori må være akseptert av flertallet av forskere"],
+      options: ["At en teori i prinsippet må kunne motbevises", "At en teori må kunne bevises endelig og en gang for alle", "At en teori må ha vist seg holdbar gjennom lang tid", "At en teori må være akseptert av flertallet av forskere"],
       explanation: "Falsifiserbarhet (fra Popper) betyr at en vitenskapelig teori må kunne testes og i prinsippet motbevises.",
     },
     {
@@ -1165,12 +1165,12 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "fil-8-2": [
     {
       question: "Hva er kropp-sinn-problemet?",
-      options: ["Spørsmålet om forholdet mellom det mentale og det fysiske", "Et spørsmål om kosthold", "Spørsmålet om hvilket kosthold som gir best mental yteevne", "Spørsmålet om hvordan man best trener både kropp og hukommelse"],
+      options: ["Spørsmålet om forholdet mellom det mentale og det fysiske", "Et spørsmål om kosthold og hvordan maten påvirker kroppens vekt", "Spørsmålet om hvilket kosthold som gir best mental yteevne", "Spørsmålet om hvordan man best trener både kropp og hukommelse"],
       explanation: "Kropp-sinn-problemet handler om forholdet mellom det mentale (tanker, følelser) og det fysiske (hjerne, nevroner).",
     },
     {
       question: "Hva hevder Descartes' dualisme?",
-      options: ["Kropp og sinn er to forskjellige substanser", "Sinnet finnes ikke", "At alt som eksisterer i bunn og grunn er av materiell natur", "At alt som eksisterer egentlig er av mental og åndelig natur"],
+      options: ["Kropp og sinn er to forskjellige substanser", "At sinnet ikke finnes i det hele tatt, bare det vi kan observere utenfra", "At alt som eksisterer i bunn og grunn er av materiell natur", "At alt som eksisterer egentlig er av mental og åndelig natur"],
       explanation: "Descartes' dualisme hevder at kroppen er materiell og sinnet immaterielt – to ulike substanser.",
     },
     {
@@ -1192,17 +1192,17 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
   "fil-8-3": [
     {
       question: "Hva undersøker språkfilosofi?",
-      options: ["Forholdet mellom språk og virkelighet, og hva mening er", "Hvordan datamaskiner lagrer tekst", "Hvordan man mest effektivt lærer seg å beherske fremmedspråk", "Hvordan datamaskiner lagrer og behandler tekst som binærkode"],
+      options: ["Forholdet mellom språk og virkelighet, og hva mening er", "Hvordan datamaskiner lagrer tekst og gjør den søkbar i store databaser", "Hvordan man mest effektivt lærer seg å beherske fremmedspråk", "Hvordan datamaskiner lagrer og behandler tekst som binærkode"],
       explanation: "Språkfilosofi utforsker hvordan språk fungerer, hva mening er, og hvordan språk former vår forståelse av verden.",
     },
     {
       question: "Hva mente tidlige Wittgenstein om språkets formål i Tractatus?",
-      options: ["Språket avbilder virkeligheten; setninger er bilder av fakta", "Mening avhenger bare av bruk", "At språket i sin natur er meningsløst og ikke kan si noe sant", "At språk grunnleggende sett bare er lyder uten forbindelse til fakta"],
+      options: ["Språket avbilder virkeligheten; setninger er bilder av fakta", "At mening bare avhenger av hvordan ordene faktisk brukes av folk", "At språket i seg selv er meningsløst og ikke sier noe sant", "At språk grunnleggende sett bare er lyder uten forbindelse til fakta"],
       explanation: "I Tractatus (1921) mente Wittgenstein at språkets formål er å avbilde virkeligheten, og setninger er bilder av fakta.",
     },
     {
       question: "Hva er sen Wittgensteins begrep om mening?",
-      options: ["Mening avhenger av bruk – språk er et «språkspill»", "Mening er fast og uforanderlig", "At mening egentlig ikke finnes, siden ord bare avbilder ren fakta", "At mening er fast, uforanderlig og bestemt av tingenes indre vesen"],
+      options: ["Mening avhenger av bruk – språk er et «språkspill»", "At mening er fast og uforanderlig, uavhengig av hvordan ordene brukes", "At mening egentlig ikke finnes, siden ord bare avbilder ren fakta", "At mening er fast, uforanderlig og bestemt av tingenes indre vesen"],
       explanation: "I Philosophical Investigations (1953) mente Wittgenstein at mening avhenger av hvordan ord brukes – språk er en form for handling, et språkspill.",
     },
     {
@@ -1212,7 +1212,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor mente noen filosofer at filosofiske problemer skyldes språk?",
-      options: ["De oppstår når vi misbruker eller misforstår språket", "Fordi ord aldri har mening", "Fordi språk grunnleggende sett er unødvendig for klar tenkning", "Fordi ordene vi bruker aldri kan bære noen fast og stabil mening"],
+      options: ["De oppstår når vi misbruker eller misforstår språket", "Fordi ord aldri har mening, men bare er lyder vi gjentar etter hverandre", "Fordi språk grunnleggende sett er unødvendig for klar tenkning", "Fordi ordene vi bruker aldri kan bære noen fast og stabil mening"],
       explanation: "Flere filosofer, særlig Wittgenstein, mente at mange filosofiske problemer oppstår ved misbruk eller misforståelse av språket.",
     },
   ],
@@ -1251,7 +1251,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør innledningen i et filosofisk essay inneholde?",
-      options: ["Problemstilling og en klar tese", "Hele argumentet i detalj", "En underholdende vits som fanger leserens oppmerksomhet raskt", "Bare konklusjonen"],
+      options: ["Problemstilling og en klar tese", "Hele argumentet i detalj", "En underholdende vits", "Bare konklusjonen"],
       explanation: "Innledningen presenterer problemstillingen, forklarer hvorfor den er viktig, og angir din tese.",
     },
     {
@@ -1261,7 +1261,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er rekkefølgen i hoveddelen av et godt filosofisk essay?",
-      options: ["Redegjørelse, argumentasjon, innvendinger og tilsvar", "Konklusjon før innledning", "En helt fri og tilfeldig rekkefølge uten noen logisk oppbygning", "Konklusjonen først, deretter innledningen, og til slutt selve drøftingen"],
+      options: ["Redegjørelse, argumentasjon, innvendinger og tilsvar", "Konklusjon før innledning", "En helt fri og tilfeldig rekkefølge uten noen logisk oppbygning", "Konklusjonen først, så innledningen, så drøftingen"],
       explanation: "Hoveddelen redegjør for relevante posisjoner, argumenterer for egen tese, presenterer innvendinger og gir tilsvar.",
     },
     {

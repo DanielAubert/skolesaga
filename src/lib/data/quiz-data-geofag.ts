@@ -63,7 +63,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer ved en divergerende plategrense?",
-      options: ["Platene beveger seg fra hverandre og ny havbunn dannes", "Platene glir sidelengs", "Den ene platen dykker ned under den andre og smelter i dypet igjen", "Platene presses mot hverandre og kolliderer sa fjellkjeder foldes opp"],
+      options: ["Platene beveger seg fra hverandre og ny havbunn dannes", "Platene glir sidelengs forbi hverandre langs en forkastning uten at ny skorpe dannes", "Den ene platen dykker ned under den andre og smelter i dypet igjen", "Platene presses mot hverandre og kolliderer sa fjellkjeder foldes opp"],
       explanation: "Ved divergerende grenser, som Midtatlanterhavets rygg, beveger platene seg fra hverandre og ny skorpe dannes.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har Ildringen såmange vulkaner og jordskjelv?",
-      options: ["Fordi den følger kanten av Stillehavsplaten som subduseres", "Fordi det er flest oyer der", "Fordi det ligger mest hav der som demper og skjuler bevegelsene", "Fordi det finnes flest vulkanske oyer der fra tidligere utbrudd"],
+      options: ["Fordi den følger kanten av Stillehavsplaten som subduseres", "Fordi det er flest øyer der, og øyer skaper i seg selv vulkaner og jordskjelv", "Fordi det ligger mest hav der som demper og skjuler bevegelsene", "Fordi det finnes flest vulkanske oyer der fra tidligere utbrudd"],
       explanation: "Ildringen følger subduksjonssonene rundt Stillehavet, der jordskjelv og vulkanisme er intense.",
     },
   ],
@@ -144,7 +144,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en esker?",
-      options: ["En lang rygg av sortert grus avsatt i tunnel under isen", "En strømlinjeformet haug formet av is", "En sirkelformet fordypning i fjellet der en isbre samler seg og starter", "En strommlinjeformet, avrundet haug av losmasse som isen formet ovenfra"],
+      options: ["En lang rygg av sortert grus avsatt i tunnel under isen", "En strømlinjeformet fjellknaus som isen har slipt glatt på oversiden", "En sirkelformet fordypning i fjellet der en isbre samler seg og starter", "En strommlinjeformet, avrundet haug av losmasse som isen formet ovenfra"],
       explanation: "Eskere dannes i smeltevanntunneler under isbreen. Sortert sand og grus avsettes og danner lange, smale rygger.",
     },
     {
@@ -154,12 +154,12 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en botn?",
-      options: ["En sirkelformet fordypning i fjellet der en isbre starter", "En type fjord", "En flat slette bygget opp av finkornet materiale avsatt av en elv", "En rygg av usortert stein og grus som isbreen la igjen ved fronten sin"],
+      options: ["En sirkelformet fordypning i fjellet der en isbre starter", "En type fjord som er kortere og smalere enn de andre fjordene på kysten", "En flat slette bygget opp av finkornet materiale avsatt av en elv", "En rygg av usortert stein og grus som isbreen la igjen ved fronten sin"],
       explanation: "En botn dannes ved toppen av en isbre der snoe akkumulæres og is erøderer ut en sirkelformet fordypning.",
     },
     {
       question: "Hva er morene?",
-      options: ["Materiale transportert og avsatt av en isbre", "En vulkansk landform", "En vulkansk landform bygget opp av storknet lava og aske", "En sedimentaer bergart dannet av sammenpresset sand og grus"],
+      options: ["Materiale transportert og avsatt av en isbre", "En vulkansk landform som dannes når glødende aske raser nedover fjellsiden", "En vulkansk landform bygget opp av storknet lava og aske", "En sedimentaer bergart dannet av sammenpresset sand og grus"],
       explanation: "Morene er usortert materiale fra leire til store blokker som er transportert og avsatt av isbreer.",
     },
   ],
@@ -203,7 +203,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner høytrykk?",
-      options: ["Synkende luft og stabilt, fint vær", "Stigende luft og nedbor", "Stigende, fuktig luft som avkjoles og gir skyer og nedbor", "Kraftige stormer"],
+      options: ["Synkende luft og stabilt, fint vær", "Stigende luft og nedbor", "Stigende fuktig luft gir skyer", "Kraftige stormer"],
       explanation: "I et høytrykk synker luften, varmes opp og torker ut, noe som gir stabilt, fint vær.",
     },
     {
@@ -213,7 +213,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en okklusjon?",
-      options: ["Nåren kaldfront tar igjen en varmfront", "En type høytrykk", "En type stabilt hoytrykk med synkende luft og fint, klart vaer", "En tropisk storm"],
+      options: ["Nåren kaldfront tar igjen en varmfront", "En type høytrykk", "Et stabilt høytrykk med synkende luft", "En tropisk storm"],
       explanation: "En okklusjon oppstar nåren kaldfront tar igjen en varmfront i et lavtrykk.",
     },
   ],
@@ -247,7 +247,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-10": [
     {
       question: "Hva viser høydekurvene på et topografisk kart?",
-      options: ["Linjer som forbinder punkter med samme høyde", "Grenser mellom bergarttyper", "Grensene mellom ulike bergarttyper i berggrunnen under overflaten", "Retningen og styrken pa vannstrommene i elver og bekker i omradet"],
+      options: ["Linjer som forbinder punkter med samme høyde", "Grenser mellom bergarttyper", "Grensene mellom ulike bergarttyper i berggrunnen under overflaten", "Retningen på vannstrømmene i elvene"],
       explanation: "Høydekurver (koter) forbinder punkter med samme høyde over havet.",
     },
     {
@@ -306,17 +306,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et godt ledefossil?",
-      options: ["Stor geografisk utbredelse og kort eksistenstid", "Lever lenge og finnes i få geografiske områder", "Snever geografisk utbredelse og svært lang eksistenstid", "Er sjeldent og vanskelig å kjenne igjen i felt"],
+      options: ["Stor geografisk utbredelse og kort eksistenstid", "Lever svært lenge og finnes bare i noen få geografiske områder", "Snever utbredelse og svært lang eksistenstid", "Er sjeldent og vanskelig å kjenne igjen i felt"],
       explanation: "Gode ledefossiler har stor utbredelse, kort eksistenstid, er lett gjenkjennelige og hyppige.",
     },
     {
       question: "Hvilken masseutryddelse var den største i jordens historie?",
-      options: ["Perm-Trias (252 mill årsiden)", "Kritt-Paleogen (66 mill årsiden)", "Ordovicium-Silur", "Trias-Jura"],
+      options: ["Perm-Trias (252 mill årsiden)", "Kritt-Paleogen (66 mill år)", "Ordovicium-Silur", "Trias-Jura"],
       explanation: "Perm-Trias-utryddelsen tok livet av 96% av marine arter og 70% av landdyr.",
     },
     {
       question: "Hva er permineralisering?",
-      options: ["Mineraler fyller porer i bein eller tre", "Organisk materiale erstattes av karbon", "Organismen råtner bort og etterlater kun et hult avtrykk", "Organismer etterlater avtrykk"],
+      options: ["Mineraler fyller porer i bein eller tre", "Organisk materiale erstattes av karbon", "Organismen råtner og etterlater hulrom", "Organismer etterlater avtrykk"],
       explanation: "Ved permineralisering fyller mineraler porene i organisk materiale og forsterker strukturen.",
     },
     {
@@ -328,7 +328,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-2-3": [
     {
       question: "Hva dannet den kaledonske fjellkjeden?",
-      options: ["Kollisjon mellom Baltika og Laurentia", "Vulkansk aktivitet", "Gjentatte istider gravde ut og formet hele fjellkjeden", "Istidenes erosjon"],
+      options: ["Kollisjon mellom Baltika og Laurentia", "Vulkansk aktivitet", "Istider gravde ut hele fjellkjeden", "Istidenes erosjon"],
       explanation: "Den kaledonske fjellkjeden ble dannet for 500-400 millioner årsiden ved kontinentkollisjon.",
     },
     {
@@ -338,7 +338,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et skyvedekke?",
-      options: ["En bergartspakke skjovet horisontalt over store avstander", "En vulkansk struktur bygd opp av størknet lava og aske", "En helt vanlig fjelltype dannet ved oppknusing av grunnfjellet", "En morenemasse avsatt av isbreer under siste istid"],
+      options: ["En bergartspakke skjovet horisontalt over store avstander", "En vulkansk struktur bygd opp av størknet lava og aske", "En vanlig fjelltype dannet ved oppknusing av grunnfjell", "En morenemasse avsatt av isbreer under siste istid"],
       explanation: "Skyvedekker ble dannet under den kaledonske fjellkjededannelsen da bergarter ble presset ostover.",
     },
     {
@@ -348,7 +348,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan ble fjordene dannet?",
-      options: ["Isbreer gravde ut eksisterende daler som ble oversvommet av hav", "Kraftige jordskjelv sprakk opp landet og dannet dype havviker", "Store meteorittnedslag laget dype krater som fyltes med havvann", "Langvarig vulkansk aktivitet skapte dype daler som fyltes med hav"],
+      options: ["Isbreer gravde ut eksisterende daler som ble oversvommet av hav", "Kraftige jordskjelv sprakk opp landet og dannet dype havviker", "Store meteorittnedslag laget dype krater som fyltes med havvann", "Vulkansk aktivitet skapte dype daler som fyltes med hav"],
       explanation: "Fjordene er U-daler gravd ut av isbreer og senere oversvommet av hav etter istiden.",
     },
   ],
@@ -365,7 +365,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er permafrost?",
-      options: ["Grunn som er frossen i minst to sammenhengende år", "Snoe som ikke smelter", "Frosset sjøvann som danner varig havis langs kysten", "Et lag med snø på overflaten som aldri rekker å smelte bort"],
+      options: ["Grunn som er frossen i minst to sammenhengende år", "Snø som ikke smelter, men pakkes sammen til is gjennom mange vintre", "Frosset sjøvann som danner varig havis langs kysten", "Et lag med snø på overflaten som aldri rekker å smelte bort"],
       explanation: "Permafrost er grunn som holder seg under 0C i minst to sammenhengende år.",
     },
     {
@@ -429,7 +429,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan påvirker klimaendringer naturfårene i Norge?",
-      options: ["Mer nedbor gir økt flom- og skredfare", "Bare mer snoskredfare", "Mindre nedbør gir generelt lavere flom- og skredfare", "Ingen merkbar endring i naturfarene i årene fremover"],
+      options: ["Mer nedbor gir økt flom- og skredfare", "Bare mer snøskredfare, mens flom- og jordskredfaren er uendret", "Mindre nedbør gir generelt lavere flom- og skredfare", "Ingen merkbar endring i naturfarene i årene fremover"],
       explanation: "Klimaendringer gir mer intens nedbor, høyere temperaturer og økt risiko for flom og skred.",
     },
   ],
@@ -463,7 +463,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-2-8": [
     {
       question: "Hva er en klimaproxy?",
-      options: ["En indirekte maling av fortidens klima", "En temperaturmåler", "Et værvarsel for de nærmeste dagene og ukene", "En datamodell som beregner fremtidig klimautvikling"],
+      options: ["En indirekte maling av fortidens klima", "En temperaturmåler som registrerer dagens klima der den står", "Et værvarsel for de nærmeste dagene og ukene", "En datamodell som beregner fremtidig klimautvikling"],
       explanation: "En klimaproxy er en indirekte maling som reflekterer fortidens klimaforhold.",
     },
     {
@@ -473,7 +473,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Milankovitch-sykluser?",
-      options: ["Astronomiske faktorer som påvirker klimaet", "Vulkanske sykluser", "Variasjoner i solflekkaktivitet som endrer solas utstråling", "Endringer i store havstrømmer som flytter varme rundt jorden"],
+      options: ["Astronomiske faktorer som påvirker klimaet", "Vulkanske sykluser der gjentatte utbrudd styrer klimaet over lange tidsrom", "Variasjoner i solflekkaktivitet som endrer solas utstråling", "Endringer i store havstrømmer som flytter varme rundt jorden"],
       explanation: "Milankovitch-sykluser er endringer i jordbane, aksehelning og presesjon som påvirker klima.",
     },
     {
@@ -527,7 +527,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er XRF?",
-      options: ["En metode for kjemisk analyse av bergarter", "En dateringsmetode", "En digital karttype for geologisk kartlegging", "En type GPS som brukes til posisjonering i felt"],
+      options: ["En metode for kjemisk analyse av bergarter", "En dateringsmetode som bestemmer alderen på bergarter", "En digital karttype for geologisk kartlegging", "En type GPS som brukes til posisjonering i felt"],
       explanation: "XRF (rontgenfluorescens) brukes til a bestemme kjemisk sammensetning av bergarter.",
     },
     {
@@ -537,7 +537,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er feltdagbok viktig?",
-      options: ["For a dokumentere observasjoner og sikre reproduserbarhet", "For a male temperaturer", "For a tegne detaljerte topografiske kart med hoydekoter over hele feltomradet", "For a male lufttemperatur og nedbormengde gjennom hele feltarbeidsperioden noyaktig"],
+      options: ["For a dokumentere observasjoner og sikre reproduserbarhet", "For å måle temperaturen i bergartene på hvert enkelt prøvepunkt i felt", "For a tegne detaljerte topografiske kart med hoydekoter over hele feltomradet", "For a male lufttemperatur og nedbormengde gjennom hele feltarbeidsperioden noyaktig"],
       explanation: "Feltdagboken dokumenterer alt som gjøres i felt og sikrer at andre kan gjenta arbeidet.",
     },
   ],
@@ -549,12 +549,12 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en positiv tilbakekobling i jordsystemet?",
-      options: ["En prosess som forsterker den opprinnelige endringen", "En prosess som demper den opprinnelige endringen", "En prosess som demper og motvirker den opprinnelige endringen og stabiliserer systemet", "En prosess uten effekt på systemet"],
+      options: ["En prosess som forsterker den opprinnelige endringen", "En prosess som demper den opprinnelige endringen", "En prosess som stabiliserer systemet", "En prosess uten effekt på systemet"],
       explanation: "Positiv tilbakekobling forsterker endringen, f.eks. issmelting som reduserer refleksjon og dermed øker oppvarmingen ytterligere.",
     },
     {
       question: "Hvilke to hovedkilder driver jordsystemet med energi?",
-      options: ["Solstråling og jordens indre varme", "Månens gravitasjon og vind", "Vulkanutbrudd og havbølger som alene driver alle prosessene i jordsystemet", "Vulkaner og bølger alene"],
+      options: ["Solstråling og jordens indre varme", "Månens gravitasjon og vind", "Vulkanutbrudd og havbølger alene", "Vulkaner og bølger alene"],
       explanation: "Jordsystemet drives av ekstern energi fra solen og intern energi fra radioaktiv nedbrytning og restvarme i jordens indre.",
     },
     {
@@ -598,17 +598,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-1-3": [
     {
       question: "Hva omfatter geosfæren?",
-      options: ["Alle faste materialer på jorden, fra overflaten til kjernen", "Luftlaget rundt jorden", "Alt liv på jorden og samspillet mellom organismene i alle økosystemer", "Luftlaget som omgir jorden med alle gassene fra bakken og opp i høyden"],
+      options: ["Alle faste materialer på jorden, fra overflaten til kjernen", "Luftlaget rundt jorden, altså nitrogenet og oksygenet som ligger over overflaten", "Alt liv på jorden og samspillet mellom organismene i alle økosystemer", "Luftlaget som omgir jorden med alle gassene fra bakken og opp i høyden"],
       explanation: "Geosfæren omfatter alle faste materialer – bergarter, mineraler og jord – fra jordoverflaten helt inn til kjernen.",
     },
     {
       question: "Hva omfatter hydrosfæren?",
-      options: ["Alt vann på jorden i flytende, fast og gassform", "Vanndamp i atmosfæren alene", "Kun vanndampen som finnes i atmosfæren, uten hav, elver og grunnvann", "Bare isbreene og den permanente snøen som ligger i polare og høye strøk"],
+      options: ["Alt vann på jorden i flytende, fast og gassform", "Vanndamp i atmosfæren alene, slik den viser seg som skyer og tåke", "Kun vanndampen som finnes i atmosfæren, uten hav, elver og grunnvann", "Bare isbreene og den permanente snøen som ligger i polare og høye strøk"],
       explanation: "Hydrosfæren omfatter alt vann i alle faser: hav, innsjøer, elver, grunnvann, isbreer, snø og vanndamp.",
     },
     {
       question: "Hva er biosfæren?",
-      options: ["Summen av alle økosystemer og levende organismer på jorden", "Det øverste laget av atmosfæren", "Bare planteriket med alle grønne organismer som driver fotosyntese", "Det øverste laget av atmosfæren der ozonlaget beskytter mot UV-stråling"],
+      options: ["Summen av alle økosystemer og levende organismer på jorden", "Det øverste laget av atmosfæren, der lufta er så tynn at den går over i verdensrommet", "Bare planteriket med alle grønne organismer som driver fotosyntese", "Det øverste laget av atmosfæren der ozonlaget beskytter mot UV-stråling"],
       explanation: "Biosfæren er summen av alt liv på jorden og organismenes samspill med hverandre og de andre sfærene.",
     },
     {
@@ -635,7 +635,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på samspill mellom biosfæren og atmosfæren?",
-      options: ["Planter tar opp CO₂ fra atmosfæren gjennom fotosyntese", "Magma stiger opp fra mantelen", "Isbreer skurer og eroderer landskapet og danner brede U-daler", "Magma stiger opp fra mantelen og størkner til ny magmatisk bergart"],
+      options: ["Planter tar opp CO₂ fra atmosfæren gjennom fotosyntese", "Magma stiger opp fra mantelen og samler seg i magmakamre under vulkanene", "Isbreer skurer og eroderer landskapet og danner brede U-daler", "Magma stiger opp fra mantelen og størkner til ny magmatisk bergart"],
       explanation: "Fotosyntesen er et tydelig samspill: planter (biosfæren) fjerner CO₂ fra atmosfæren og frigjør oksygen.",
     },
     {
@@ -672,7 +672,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva driver i hovedsak jordens energibalanse?",
-      options: ["Balansen mellom innkommende solstråling og utgående jordstråling", "Bare jordens indre varme", "Bare jordens indre varme fra radioaktiv nedbrytning og restvarme i kjernen", "Månens tiltrekning som styrer tidevann og bevegelser i havet og atmosfæren"],
+      options: ["Balansen mellom innkommende solstråling og utgående jordstråling", "Bare jordens indre varme, som strømmer ut gjennom skorpen og setter temperaturen ved overflaten", "Bare jordens indre varme fra radioaktiv nedbrytning og restvarme i kjernen", "Månens tiltrekning som styrer tidevann og bevegelser i havet og atmosfæren"],
       explanation: "Energibalansen bestemmes av forholdet mellom solenergien jorden mottar og varmestrålingen den sender ut igjen til verdensrommet.",
     },
   ],
@@ -684,7 +684,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kløv hos et mineral?",
-      options: ["Mineralets tendens til å bryte langs bestemte plan", "Mineralets smeltepunkt", "Mineralets karakteristiske farge slik den ser ut på en frisk bruddflate", "Mineralets vekt i forhold til volumet, altså tettheten eller egenvekten"],
+      options: ["Mineralets tendens til å bryte langs bestemte plan", "Mineralets smeltepunkt", "Mineralets karakteristiske farge slik den ser ut på en frisk bruddflate", "Mineralets vekt i forhold til volumet"],
       explanation: "Kløv er tendensen til å brekke langs bestemte krystallografiske plan der bindingene er svakere, f.eks. glimmer som kløver i tynne flak.",
     },
     {
@@ -706,17 +706,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-2-2": [
     {
       question: "Hva er magma?",
-      options: ["En naturlig smeltemasse av silikater og gasser under jordoverflaten", "Smeltet bergart som har nådd overflaten", "Smeltet bergart som har trengt gjennom skorpen og nådd jordoverflaten", "Fast, uendret bergart som ligger nede i mantelen uten å ha vært smeltet"],
+      options: ["En naturlig smeltemasse av silikater og gasser under jordoverflaten", "Smeltet bergart som har nådd overflaten og renner utover som glødende strømmer", "Smeltet bergart som har trengt gjennom skorpen og nådd jordoverflaten", "Fast, uendret bergart som ligger nede i mantelen uten å ha vært smeltet"],
       explanation: "Magma er en smeltemasse av silikater, oksider og flyktige stoffer som finnes i magmakamre under jordoverflaten. Når den når overflaten, kalles den lava.",
     },
     {
       question: "Hva indikerer en fanerittisk tekstur i en magmatisk bergart?",
-      options: ["Langsom avkjøling dypt nede, slik at store krystaller dannes", "At bergarten aldri var smeltet", "At bergarten er sedimentær og bygd opp av sammenkittede korn og partikler", "At bergarten aldri har vært smeltet, men er omdannet i fast tilstand av trykk"],
+      options: ["Langsom avkjøling dypt nede, slik at store krystaller dannes", "At bergarten aldri var smeltet, og at krystallene derfor ikke har fått vokst fram", "At bergarten er sedimentær og bygd opp av sammenkittede korn og partikler", "At bergarten aldri har vært smeltet, men er omdannet i fast tilstand av trykk"],
       explanation: "Fanerittisk tekstur (store, synlige krystaller) tyder på langsom avkjøling dypt under jorden, slik som i granitt (intrusiv bergart).",
     },
     {
       question: "Hva indikerer en afanittisk tekstur?",
-      options: ["Rask avkjøling ved eller nær overflaten gir små krystaller", "Svært langsom avkjøling i dypet", "Svært langsom avkjøling dypt nede i jorden gir store og synlige krystaller", "At den er dannet ved at løse sedimenter er avsatt og sammenkittet over tid"],
+      options: ["Rask avkjøling ved eller nær overflaten gir små krystaller", "Svært langsom avkjøling i dypet under et tykt lokk av overliggende bergarter", "Svært langsom avkjøling dypt nede i jorden gir store og synlige krystaller", "At den er dannet av løse sedimenter som er kittet sammen"],
       explanation: "Afanittisk tekstur har så små krystaller at de ikke synes for det blotte øye, noe som skyldes rask avkjøling, f.eks. i basalt.",
     },
     {
@@ -726,19 +726,19 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er granitt grovkornet mens basalt er finkornet?",
-      options: ["Granitt avkjøles langsomt i dypet, basalt avkjøles raskt på overflaten", "Basalt dannes av sedimenter", "Granitt avkjøles raskt på overflaten, mens basalt avkjøles langsomt dypt nede i jordskorpen", "Granitt inneholder mye kalk fra skjell, mens basalt bygges opp av avsatte leir- og sandkorn"],
+      options: ["Granitt avkjøles langsomt i dypet, basalt avkjøles raskt på overflaten", "Basalt dannes av sedimenter, og kornstørrelsen speiler derfor sedimentene den kom fra", "Granitt avkjøles raskt på overflaten, mens basalt avkjøles langsomt dypt nede i jordskorpen", "Granitt inneholder mye kalk fra skjell, mens basalt bygges opp av avsatte leir- og sandkorn"],
       explanation: "Langsom avkjøling gir tid til at store krystaller vokser (granitt), mens rask avkjøling gir små krystaller (basalt).",
     },
   ],
   "geofag-1-2-3": [
     {
       question: "Hva er diagenese?",
-      options: ["Prosessen der løse sedimenter omdannes til fast bergart", "Smelting av bergarter til magma", "Prosessen der bergarter smelter til flytende magma dypt nede i jordas indre", "Prosessen der fjell brytes ned i løse partikler gjennom forvitring og erosjon"],
+      options: ["Prosessen der løse sedimenter omdannes til fast bergart", "Smelting av bergarter til magma", "Prosessen der bergarter smelter til flytende magma dypt nede i jordas indre", "Prosessen der fjell brytes ned i løse partikler"],
       explanation: "Diagenese omfatter kompaksjon og sementering som binder løse sedimenter sammen til fast sedimentær bergart.",
     },
     {
       question: "Hvordan dannes en evaporitt?",
-      options: ["Ved fordampning av vann som feller ut mineraler", "Ved høyt trykk i mantelen", "Ved langsom avkjøling av magma dypt nede der store krystaller får tid til å vokse", "Ved avkjøling av magma"],
+      options: ["Ved fordampning av vann som feller ut mineraler", "Ved høyt trykk i mantelen", "Ved langsom avkjøling av magma i dypet", "Ved avkjøling av magma"],
       explanation: "Evaporitter er kjemiske sedimentære bergarter som dannes når vann fordamper og oppløste mineraler felles ut, f.eks. kalsitt, gips og steinsalt.",
     },
     {
@@ -753,19 +753,19 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan sedimentære strukturer som lagdeling og rifler fortelle oss?",
-      options: ["Om miljøet og forholdene da sedimentene ble avsatt", "Om jordens indre temperatur", "Hvor høy temperaturen er i jordas indre kjerne og hvor tykk mantelen under er", "Om bergartens smeltepunkt"],
+      options: ["Om miljøet og forholdene da sedimentene ble avsatt", "Om jordens indre temperatur", "Temperaturen i kjernen og mantelens tykkelse", "Om bergartens smeltepunkt"],
       explanation: "Sedimentære strukturer gir informasjon om avsetningsmiljøet, f.eks. strømretning, vanndybde og energinivå da sedimentene ble lagt ned.",
     },
   ],
   "geofag-1-2-4": [
     {
       question: "Hva er metamorfose?",
-      options: ["Omdanning av bergarter i fast tilstand ved endret trykk og temperatur", "Smelting av bergarter til magma", "Nedbryting av fjell ved forvitring og erosjon på og nær jordoverflaten over tid", "Smelting av bergarter til flytende magma som deretter størkner til nye krystaller"],
+      options: ["Omdanning av bergarter i fast tilstand ved endret trykk og temperatur", "Smelting av bergarter til magma nede i jordskorpen når temperaturen stiger nok", "Nedbryting av fjell ved forvitring og erosjon på og nær jordoverflaten over tid", "Smelting av bergarter til flytende magma som deretter størkner til nye krystaller"],
       explanation: "Metamorfose er omdanning av bergarter i fast tilstand som følge av endringer i temperatur, trykk og/eller kjemisk miljø – bergarten smelter ikke.",
     },
     {
       question: "Hva er foliasjon i en metamorf bergart?",
-      options: ["Parallell orientering av plate- eller nåleformede mineraler", "Fossiler i bergarten", "Avrundede og sorterte sandkorn som er avsatt lagvis i et rennende vannmiljø", "Store hulrom og gassbobler som ble dannet da gass slapp ut av størknende lava"],
+      options: ["Parallell orientering av plate- eller nåleformede mineraler", "Fossiler i bergarten som er bevart gjennom omdanningen og ligger lagvis", "Avrundede og sorterte sandkorn som er avsatt lagvis i et rennende vannmiljø", "Store hulrom og gassbobler som ble dannet da gass slapp ut av størknende lava"],
       explanation: "Foliasjon er en lagdelt eller skifrig tekstur som dannes når mineraler orienteres vinkelrett på trykkretningen under metamorfosen.",
     },
     {
@@ -775,7 +775,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke faktorer driver metamorfose?",
-      options: ["Økt trykk, økt temperatur og kjemisk aktive væsker", "Bare fordampning av vann", "Bare langsom fordampning av vann som feller ut oppløste mineraler som salt", "Langsom avkjøling av magma som gir tid til at store krystaller vokser i dypet"],
+      options: ["Økt trykk, økt temperatur og kjemisk aktive væsker", "Bare fordampning av vann fra porene, slik at bergarten tørker inn og blir hard", "Bare langsom fordampning av vann som feller ut oppløste mineraler som salt", "Langsom avkjøling av magma som gir tid til at store krystaller vokser i dypet"],
       explanation: "Metamorfose drives av økt temperatur, økt trykk og noen ganger kjemisk aktive væsker, ofte i forbindelse med fjellkjededannelse og platebevegelser.",
     },
     {
@@ -787,12 +787,12 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-2-5": [
     {
       question: "Hva beskriver bergartskretsløpet?",
-      options: ["Hvordan bergarter omdannes mellom magmatiske, sedimentære og metamorfe typer", "Bare hvordan sedimenter dannes", "Bare hvordan løse sedimenter avsettes lagvis og presses sammen til fast bergart", "Hvordan magma stiger opp fra mantelen og bryter fram som lava ved vulkanutbrudd"],
+      options: ["Hvordan bergarter omdannes mellom magmatiske, sedimentære og metamorfe typer", "Bare hvordan sedimenter dannes når fjell forvitrer og brytes ned til løse korn og partikler", "Bare hvordan løse sedimenter avsettes lagvis og presses sammen til fast bergart", "Hvordan magma stiger opp fra mantelen og bryter fram som lava ved vulkanutbrudd"],
       explanation: "Bergartskretsløpet er den kontinuerlige omdanningen mellom de tre bergartsgruppene, drevet av jordens indre og ytre krefter.",
     },
     {
       question: "Hvordan kan en magmatisk bergart bli til en sedimentær bergart?",
-      options: ["Gjennom forvitring, erosjon, transport, avsetning og diagenese", "Gjennom metamorfose under høyt trykk", "Gjennom oppsmelting til magma dypt nede som deretter størkner til ny bergart", "Gjennom metamorfose i fast tilstand under svært høyt trykk og høy temperatur"],
+      options: ["Gjennom forvitring, erosjon, transport, avsetning og diagenese", "Gjennom metamorfose under høyt trykk nede i en fjellkjede som foldes opp", "Gjennom oppsmelting til magma dypt nede som deretter størkner til ny bergart", "Gjennom metamorfose i fast tilstand under svært høyt trykk og høy temperatur"],
       explanation: "En magmatisk bergart forvitrer og eroderes til sedimenter, som transporteres, avsettes og omdannes til sedimentær bergart gjennom diagenese.",
     },
     {
@@ -802,7 +802,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke krefter driver bergartskretsløpet?",
-      options: ["Jordens indre varme og ytre prosesser som forvitring og erosjon", "Ingen krefter – det skjer tilfeldig", "Bare solstråling som varmer opp overflaten og setter i gang bergartsomdanning", "Bare månens tiltrekning på jordas overflate som drar på skorpen og sedimentene"],
+      options: ["Jordens indre varme og ytre prosesser som forvitring og erosjon", "Ingen krefter driver det – omdanningen skjer helt tilfeldig og uten noe mønster", "Bare solstråling som varmer opp overflaten og setter i gang bergartsomdanning", "Bare månens tiltrekning på jordas overflate som drar på skorpen og sedimentene"],
       explanation: "Kretsløpet drives av jordens indre energi (platetektonikk, vulkanisme) og ytre prosesser drevet av sol og tyngdekraft (forvitring, erosjon, avsetning).",
     },
     {
@@ -814,17 +814,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-3-1": [
     {
       question: "Hva er kontinentaldrift?",
-      options: ["Teorien om at kontinentene har beveget seg horisontalt over geologisk tid", "En forklaring på vulkanutbrudd alene", "Teorien om at hele jorden gradvis krymper og at fjellene folder seg opp av dette", "En forklaring på hvorfor vulkaner bryter ut, uavhengig av kontinentenes plassering"],
+      options: ["Teorien om at kontinentene har beveget seg horisontalt over geologisk tid", "En forklaring på vulkanutbrudd alene, der magmaen i dypet er den eneste drivkraften", "Teorien om at hele jorden gradvis krymper og at fjellene folder seg opp av dette", "En forklaring på hvorfor vulkaner bryter ut, uavhengig av kontinentenes plassering"],
       explanation: "Kontinentaldrift er teorien, foreslått av Alfred Wegener, om at kontinentene har flyttet seg horisontalt over jordens overflate.",
     },
     {
       question: "Hva var Pangea?",
-      options: ["Et superkontinent som inneholdt nesten alt landareal", "Et eldgammelt hav", "Et eldgammelt verdenshav som en gang omsluttet hele jordas landmasse", "En enorm fjellkjede som strakte seg gjennom flere av dagens kontinenter"],
+      options: ["Et superkontinent som inneholdt nesten alt landareal", "Et eldgammelt hav som skilte de nordlige landmassene fra de sørlige", "Et eldgammelt verdenshav som en gang omsluttet hele jordas landmasse", "En enorm fjellkjede som strakte seg gjennom flere av dagens kontinenter"],
       explanation: "Pangea var et superkontinent for ca. 335–175 millioner år siden som samlet nesten alt landareal i én landmasse.",
     },
     {
       question: "Hvilket bevis brukte Wegener for kontinentaldrift?",
-      options: ["Kontinentene passer sammen som puslespillbiter, og fossiler og fjell stemmer overens", "At havene var fulle av salt", "At verdenshavene inneholdt store mengder oppløst salt fra forvitrede gamle fjellkjeder", "At kraftige jordskjelv og vulkanutbrudd forekommer spredt jevnt over hele jordoverflaten"],
+      options: ["Kontinentene passer sammen som puslespillbiter, og fossiler og fjell stemmer overens", "At havene var fulle av salt, og at saltmengden viste jordens alder", "At verdenshavene inneholdt store mengder oppløst salt fra forvitrede gamle fjellkjeder", "At kraftige jordskjelv og vulkanutbrudd forekommer spredt jevnt over hele jordoverflaten"],
       explanation: "Wegener pekte på kystlinjene som passer sammen, like fossiler og fjellkjeder på adskilte kontinenter, og spor etter gamle istider.",
     },
     {
@@ -834,34 +834,34 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva førte til at teorien om kontinentaldrift senere ble akseptert?",
-      options: ["Oppdagelsen av havbunnspredning og platetektonikk ga en mekanisme", "Kontinentene sluttet å bevege seg", "At forskerne fant restene av selve superkontinentet Pangea igjen på havbunnen", "At kontinentene til slutt sluttet helt å bevege seg og la seg fast på sine plasser"],
+      options: ["Oppdagelsen av havbunnspredning og platetektonikk ga en mekanisme", "Kontinentene sluttet å bevege seg, og målinger viste at avstandene mellom dem lå fast", "At forskerne fant restene av selve superkontinentet Pangea igjen på havbunnen", "At kontinentene til slutt sluttet helt å bevege seg og la seg fast på sine plasser"],
       explanation: "Funn av havbunnspredning og magnetiske striper på havbunnen ga mekanismen som manglet, og teorien ble en del av platetektonikken.",
     },
   ],
   "geofag-1-3-2": [
     {
       question: "Hva er litosfæren delt inn i?",
-      options: ["Tektoniske plater som beveger seg på astenosfæren", "Et eneste sammenhengende skall", "Bare to store halvkuler som er atskilt av en dyp sprekk langs ekvator", "Ett eneste sammenhengende og ubrutt skall som omslutter hele jordkloden"],
+      options: ["Tektoniske plater som beveger seg på astenosfæren", "Et eneste sammenhengende skall", "Bare to store halvkuler som er atskilt av en dyp sprekk langs ekvator", "Ett ubrutt skall rundt hele jordkloden"],
       explanation: "Litosfæren er delt inn i tektoniske plater som beveger seg på den underliggende, plastiske astenosfæren.",
     },
     {
       question: "Hva er forskjellen på oseanisk og kontinental skorpe?",
-      options: ["Oseanisk skorpe er tynnere og tettere enn kontinental skorpe", "Kontinental skorpe finnes bare under havet", "De to skorpetypene har nøyaktig samme tetthet og tykkelse over hele jordkloden", "Oseanisk skorpe er tykkere og lettere enn den tynne og tette kontinentale skorpen"],
+      options: ["Oseanisk skorpe er tynnere og tettere enn kontinental skorpe", "Kontinental skorpe finnes bare under havet", "De to skorpetypene har nøyaktig samme tetthet og tykkelse over hele jordkloden", "Oseanisk skorpe er tykkere og lettere enn kontinental"],
       explanation: "Oseanisk skorpe er tynn (5–10 km) og tett (basaltisk), mens kontinental skorpe er tykkere (30–70 km) og mindre tett (granittisk).",
     },
     {
       question: "Hva er isostasi?",
-      options: ["At litosfæren flyter i likevekt på astenosfæren", "At platene står helt stille", "At fjell og fjellkjeder aldri eroderer, men beholder sin opprinnelige høyde over tid", "At fjell aldri eroderer"],
+      options: ["At litosfæren flyter i likevekt på astenosfæren", "At platene står helt stille", "At fjellkjeder beholder høyden over tid", "At fjell aldri eroderer"],
       explanation: "Isostasi er prinsippet om at litosfæren flyter i likevekt på astenosfæren – lett kontinental skorpe flyter høyere enn tyngre oseanisk skorpe.",
     },
     {
       question: "Hvorfor flyter kontinental skorpe høyere enn oseanisk skorpe?",
-      options: ["Kontinental skorpe er mindre tett (lettere)", "De har samme tetthet, men ulik temperatur", "Kontinental skorpe er tyngre og tettere enn den lettere oseaniske skorpen", "Kontinental skorpe er tyngre"],
+      options: ["Kontinental skorpe er mindre tett (lettere)", "De har samme tetthet, men ulik temperatur", "Kontinental skorpe er tyngre og tettere", "Kontinental skorpe er tyngre"],
       explanation: "Fordi kontinental skorpe er mindre tett enn oseanisk skorpe, flyter den høyere på astenosfæren – på samme måte som lette gjenstander flyter høyere i vann.",
     },
     {
       question: "Hva driver i hovedsak bevegelsen av de tektoniske platene?",
-      options: ["Konveksjonsstrømmer i mantelen og krefter som slab pull og ridge push", "Månens tiltrekning alene", "De kraftige vindene i atmosfæren som blåser over kontinentene og skyver på platene", "Månens tiltrekning alene, som drar i platene og skaper tidevann i jordas indre lag"],
+      options: ["Konveksjonsstrømmer i mantelen og krefter som slab pull og ridge push", "Månens tiltrekning alene, som drar platene rundt i takt med at månen går i bane", "De kraftige vindene i atmosfæren som blåser over kontinentene og skyver på platene", "Månens tiltrekning alene, som drar i platene og skaper tidevann i jordas indre lag"],
       explanation: "Platene drives av konveksjon i mantelen sammen med slab pull (synkende plater) og ridge push (oppstigning ved midthavsrygger).",
     },
   ],
@@ -888,7 +888,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan dannes når en divergerende grense oppstår inne på et kontinent?",
-      options: ["En kontinental rift som over tid kan utvikles til et nytt hav", "En dyphavsgrav", "En dyp havgrav der den ene platen synker ned under den andre og smelter", "En bue av vulkaner som dannes over en plate som skyves ned i mantelen under"],
+      options: ["En kontinental rift som over tid kan utvikles til et nytt hav", "En dyphavsgrav som utgjør den dypeste delen av havbunnen langs plategrensa", "En dyp havgrav der den ene platen synker ned under den andre og smelter", "En bue av vulkaner som dannes over en plate som skyves ned i mantelen under"],
       explanation: "En kontinental rift (f.eks. Øst-Afrika-riften) kan over tid utvide seg, fylles med vann og bli til et nytt hav.",
     },
   ],
@@ -922,7 +922,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-3-5": [
     {
       question: "Hva skjer ved en transform plategrense?",
-      options: ["To plater glir horisontalt forbi hverandre langs en forkastning", "En plate synker ned under en annen", "Den ene platen synker ned under den andre og smelter i mantelen", "Ny skorpe dannes idet magma stiger opp og størkner mellom platene"],
+      options: ["To plater glir horisontalt forbi hverandre langs en forkastning", "En plate synker ned under en annen", "Den ene platen synker ned under den andre og smelter i mantelen", "Ny skorpe dannes når magma størkner mellom platene"],
       explanation: "Ved transforme grenser glir platene horisontalt forbi hverandre, og det dannes verken ny eller ødelegges gammel skorpe.",
     },
     {
@@ -932,17 +932,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er slab pull?",
-      options: ["Gravitasjonskraften fra en kald, tung plate som synker ned i mantelen", "Friksjonskraften fra vinden som drar havoverflaten over platene", "Trykket fra magma som stiger opp og skyver platene fra hverandre ved en rygg", "Tiltrekningen fra månen som løfter litosfæren ved høyvann"],
+      options: ["Gravitasjonskraften fra en kald, tung plate som synker ned i mantelen", "Friksjonskraften fra vinden som drar havoverflaten over platene", "Trykket fra magma som stiger opp og skyver platene fra hverandre", "Tiltrekningen fra månen som løfter litosfæren ved høyvann"],
       explanation: "Slab pull er kraften som oppstår når en kald, tung litosfæreplate synker ned i mantelen og drar resten av platen med seg.",
     },
     {
       question: "Hvorfor er transforme grenser ofte forbundet med jordskjelv?",
-      options: ["Spenninger bygges opp når platene låser seg, og frigjøres plutselig", "Havbunnen synker raskt ned og drar platene med i et brått fall", "Det dannes store mengder magma som trenger opp og sprenger skorpa der", "Platene smelter sammen langs grensa og river opp berget rundt"],
+      options: ["Spenninger bygges opp når platene låser seg, og frigjøres plutselig", "Havbunnen synker raskt ned og drar platene med seg i et brått fall nedover", "Det dannes store mengder magma som sprenger skorpa der", "Platene smelter sammen langs grensa og river opp berget rundt"],
       explanation: "Når platene glir forbi hverandre, kan de hekte seg fast og bygge opp spenning som plutselig utløses som jordskjelv.",
     },
     {
       question: "Hvilken drivkraft regnes i dag som viktigst for platebevegelsene?",
-      options: ["Slab pull fra synkende plater", "Tidevannskreftene", "Erosjon på land som gradvis flytter platene", "Erosjon på land"],
+      options: ["Slab pull fra synkende plater", "Tidevannskreftene", "Erosjon som flytter platene", "Erosjon på land"],
       explanation: "Slab pull, der tunge subduserende plater drar resten av platen med seg, regnes som den viktigste drivkraften bak platebevegelsene.",
     },
   ],
@@ -1030,7 +1030,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-4-4": [
     {
       question: "Hva er en tsunami?",
-      options: ["En serie lange bølger forårsaket av stor forflytning av vann", "En form for tidevann som følger månens gang rundt jorden", "En vanlig vindbølge som bygges opp av kraftig kuling over havet", "En sterk havstrøm som fører varmt vann langs kysten"],
+      options: ["En serie lange bølger forårsaket av stor forflytning av vann", "En form for tidevann som følger månens gang rundt jorden", "En vanlig vindbølge som bygges opp av kraftig kuling", "En sterk havstrøm som fører varmt vann langs kysten"],
       explanation: "En tsunami er lange bølger som oftest skyldes undersjøiske jordskjelv, skred eller vulkanutbrudd som plutselig forflytter store vannmasser.",
     },
     {
@@ -1045,7 +1045,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er en tsunami farlig selv om bølgen virker lav ute på dypt hav?",
-      options: ["Den har enorm energi og bølgelengde som bygger seg opp ved kysten", "Den synker raskt sammen og mister all energien før den når land", "Den fører med seg giftige vulkanske gasser som sprer seg over land", "Den er like farlig ute på åpent hav som den er inne ved kysten"],
+      options: ["Den har enorm energi og bølgelengde som bygger seg opp ved kysten", "Den synker raskt sammen og mister all energien før den når land", "Den fører med seg giftige vulkanske gasser inn over land", "Den er like farlig ute på åpent hav som den er inne ved kysten"],
       explanation: "På åpent hav er tsunamien knapt merkbar, men dens enorme energi og lange bølgelengde gjør at vannmassen tårner seg opp og flommer langt inn over land.",
     },
     {
@@ -1111,7 +1111,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-5-2": [
     {
       question: "Hva er kjemisk forvitring?",
-      options: ["Nedbrytning av bergarter gjennom kjemiske reaksjoner som endrer mineralene", "Oppsmelting av bergarter til magma som senere størkner til ny bergart", "Mekanisk oppsprekking av bergarter uten at mineralenes sammensetning endres", "Fjerning og transport av forvitret materiale med elver, is og vind"],
+      options: ["Nedbrytning av bergarter gjennom kjemiske reaksjoner som endrer mineralene", "Oppsmelting av bergarter til magma som senere størkner til ny bergart", "Mekanisk oppsprekking av bergarter uten at mineralene endres", "Fjerning og transport av forvitret materiale med elver, is og vind"],
       explanation: "Kjemisk forvitring bryter ned bergarter ved kjemiske reaksjoner med vann, syrer eller gasser, slik at mineralenes sammensetning endres.",
     },
     {
@@ -1126,12 +1126,12 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer ved oksidasjon av jernholdige mineraler?",
-      options: ["De reagerer med oksygen og får rødbrune rustfarger", "De løses helt opp i vann", "De trekker til seg vann som fryser i sprekker og sprenger dem i biter", "De løses fullstendig opp i surt regnvann og forsvinner fra bergoverflaten"],
+      options: ["De reagerer med oksygen og får rødbrune rustfarger", "De løses helt opp i vann", "De trekker til seg vann som fryser i sprekker og sprenger dem i biter", "De løses fullstendig opp i surt regnvann"],
       explanation: "Oksidasjon er en kjemisk reaksjon der jernholdige mineraler reagerer med oksygen og «ruster», noe som gir karakteristiske rødbrune farger.",
     },
     {
       question: "Hvorfor går kjemisk forvitring raskere i varmt og fuktig klima?",
-      options: ["Høy temperatur og mye vann øker reaksjonshastigheten", "Reaksjonene er uavhengige av klima", "Tørt klima med lite vann gir de raskeste kjemiske forvitringsprosessene", "Kulde fremmer kjemiske reaksjoner"],
+      options: ["Høy temperatur og mye vann øker reaksjonshastigheten", "Reaksjonene er uavhengige av klima", "Tørt klima gir raskest kjemisk forvitring", "Kulde fremmer kjemiske reaksjoner"],
       explanation: "Kjemiske reaksjoner går raskere ved høy temperatur og rikelig tilgang på vann, derfor er kjemisk forvitring mest intens i tropiske, fuktige strøk.",
     },
   ],
@@ -1148,7 +1148,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bidrar lav til biologisk forvitring?",
-      options: ["Lavsyrer løser mineraler i bergoverflaten", "Lav transporterer sedimenter", "Lav produserer varme som smelter ytterste laget av bergarten gradvis bort", "Lav fryser vann i sprekker"],
+      options: ["Lavsyrer løser mineraler i bergoverflaten", "Lav transporterer sedimenter", "Lav smelter berget med varmen sin", "Lav fryser vann i sprekker"],
       explanation: "Lav skiller ut organiske syrer (lavsyrer) som løser opp mineraler i bergoverflaten og dermed forvitrer bergarten kjemisk.",
     },
     {
@@ -1180,7 +1180,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke faktorer styrer om en partikkel transporteres eller avsettes?",
-      options: ["Strømhastighet og partikkelstørrelse", "Bare partikkelens farge", "Kun lufttrykket over vannflaten, uavhengig av hvor sterk strømmen er", "Lufttrykket alene"],
+      options: ["Strømhastighet og partikkelstørrelse", "Bare partikkelens farge", "Kun lufttrykket over vannflaten", "Lufttrykket alene"],
       explanation: "Når strømmen er sterk nok, holdes partikler i bevegelse; når hastigheten avtar under en terskel, avsettes partiklene – grovest materiale først.",
     },
     {
@@ -1224,7 +1224,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en endemorene?",
-      options: ["En rygg av morenemateriale avsatt ved brefronten", "En lang grusrygg fra smeltevann", "En lang, buktende grusrygg avsatt av smeltevann i en tunnel under breen", "En dyp og langstrakt innsjø dannet der breen har erodert ut fjellgrunnen"],
+      options: ["En rygg av morenemateriale avsatt ved brefronten", "En lang grusrygg fra smeltevann", "En lang, buktende grusrygg avsatt av smeltevann i en tunnel under breen", "En dyp, langstrakt innsjø gravd av breen"],
       explanation: "En endemorene markerer hvor brefronten lå over tid, og består av morenemateriale skjøvet sammen ved isens ytterkant.",
     },
     {
@@ -1256,17 +1256,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en meander?",
-      options: ["En sving eller bue i et elveløp med lav gradient", "En grusrygg fra smeltevann", "En bratt foss der elva har stor gradient og fossefall", "En innsjø som er dannet ved erosjon fra en bevegelig is"],
+      options: ["En sving eller bue i et elveløp med lav gradient", "En grusrygg som smeltevann under isen har lagt igjen i landskapet", "En bratt foss der elva har stor gradient og fossefall", "En innsjø som er dannet ved erosjon fra en bevegelig is"],
       explanation: "En meander er en sving i elveløpet som dannes når elven har lav gradient og eroderer i yttersvingen mens den avsetter i innersvingen.",
     },
     {
       question: "Hvor avsetter en elv mest materiale, og hva dannes der?",
-      options: ["Ved utløpet der farten avtar – et elvedelta", "I yttersvingen av en meander", "I yttersvingen av en meander der strømmen er raskest", "Høyt oppe i fjellet der elva starter med bratt gradient"],
+      options: ["Ved utløpet der farten avtar – et elvedelta", "I yttersvingen av en meander, der det bygges opp en banke av grus", "I yttersvingen av en meander der strømmen er raskest", "Høyt oppe i fjellet der elva starter med bratt gradient"],
       explanation: "Når elven når et hav eller en innsjø, bremser den, mister transportkraft og avsetter sedimenter som bygger opp et elvedelta.",
     },
     {
       question: "Hvorfor eroderer elven mest i yttersvingen av en meander?",
-      options: ["Vannet strømmer raskest der og graver i bredden", "Elven renner oppover der", "Elven renner tregest der og bygger opp banker av grus", "Det avsettes mest materiale der fordi farten er lavest"],
+      options: ["Vannet strømmer raskest der og graver i bredden", "Elven renner oppover der, og motstrømmen river løs materiale fra bredden", "Elven renner tregest der og bygger opp banker av grus", "Det avsettes mest materiale der fordi farten er lavest"],
       explanation: "I yttersvingen er strømmen raskest og eroderer bredden, mens vannet i innersvingen er tregere og avsetter sand og grus.",
     },
   ],
@@ -1315,7 +1315,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer når landhevning og havnivåendringer virker samtidig?",
-      options: ["Den relative kystlinjen endres avhengig av hva som dominerer", "Ingenting skjer med kystlinjen", "Havet forsvinner helt fordi landhevningen alltid er sterkest av de to", "Landet synker alltid raskere enn havnivået kan stige i slike tilfeller"],
+      options: ["Den relative kystlinjen endres avhengig av hva som dominerer", "Ingenting skjer med kystlinjen", "Havet forsvinner helt fordi landhevningen alltid er sterkest av de to", "Landet synker alltid raskere enn havnivået stiger"],
       explanation: "Den relative kystlinjen avhenger av balansen mellom landhevning (land opp) og havnivåstigning (vann opp); i Norge har landhevningen ofte dominert.",
     },
     {
@@ -1359,7 +1359,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er albedo?",
-      options: ["Andelen innkommende solstråling som reflekteres tilbake til verdensrommet", "Mengden langbølget varmestråling jorden sender ut mot verdensrommet", "Den totale mengden nedbør som faller i et område i løpet av et år", "Lufttrykket ved havnivå målt i hektopascal på en gitt værstasjon"],
+      options: ["Andelen innkommende solstråling som reflekteres tilbake til verdensrommet", "Mengden langbølget varmestråling som jorden sender ut mot verdensrommet om natten", "Den totale mengden nedbør som faller i et område i løpet av et år", "Lufttrykket ved havnivå målt i hektopascal på en gitt værstasjon"],
       explanation: "Albedo er refleksjonsevnen til en overflate. Snø og is har høy albedo (reflekterer mye), mens mørke hav og skog har lav albedo.",
     },
     {
@@ -1413,39 +1413,39 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle spiller Milankovitch-syklusene for istidene?",
-      options: ["De endrer solinnstrålingen og kan utløse istider over titusener av år", "De har ingen effekt på klimaet", "De utløser jordskjelv langs plategrensene og forsterker den vulkanske aktiviteten", "De påvirker kun havnivået direkte og har ingen betydning for temperaturen på land"],
+      options: ["De endrer solinnstrålingen og kan utløse istider over titusener av år", "De har ingen effekt på klimaet, som styres av forhold nede på jorda", "De utløser jordskjelv langs plategrensene og forsterker den vulkanske aktiviteten", "De påvirker kun havnivået direkte og har ingen betydning for temperaturen på land"],
       explanation: "Endringer i jordens bane og helling påvirker hvor mye solenergi ulike områder mottar, og dette har bidratt til veksling mellom istider og mellomistider.",
     },
     {
       question: "Hvilken naturlig faktor kan gi midlertidig avkjøling av klimaet?",
-      options: ["Store vulkanutbrudd som sender aske og partikler høyt opp i atmosfæren", "Økt solinnstråling", "Redusert skydekke som slipper mer sollys ned og senker den globale albedoeffekten", "Økt solinnstråling over flere tiår som varmer opp både atmosfæren og havoverflaten"],
+      options: ["Store vulkanutbrudd som sender aske og partikler høyt opp i atmosfæren", "Økt solinnstråling i de periodene da sola sender ut mer energi enn den ellers gjør", "Redusert skydekke som slipper mer sollys ned og senker den globale albedoeffekten", "Økt solinnstråling over flere tiår som varmer opp både atmosfæren og havoverflaten"],
       explanation: "Store vulkanutbrudd kan slynge partikler høyt opp i atmosfæren, reflektere sollys og gi en midlertidig global avkjøling.",
     },
     {
       question: "Hva forteller iskjerner oss om tidligere klima?",
-      options: ["De inneholder luftbobler og lag som avslører fortidens temperatur og CO₂-nivå", "De forteller om jordens indre", "De måler dagens lufttrykk og fuktighet direkte i de øverste lagene av atmosfæren", "De forteller om sammensetningen og temperaturen i jordens indre kjerne og mantel"],
+      options: ["De inneholder luftbobler og lag som avslører fortidens temperatur og CO₂-nivå", "De forteller om jordens indre, ved at trykket i isen speiler bevegelsene i mantelen", "De måler dagens lufttrykk og fuktighet direkte i de øverste lagene av atmosfæren", "De forteller om sammensetningen og temperaturen i jordens indre kjerne og mantel"],
       explanation: "Iskjerner inneholder årlige lag og innesluttede luftbobler som lar forskere rekonstruere fortidens temperatur og atmosfærens sammensetning.",
     },
     {
       question: "Hvorfor er det viktig å kjenne til naturlige klimavariasjoner?",
-      options: ["For å kunne skille naturlig variasjon fra menneskeskapt klimaendring", "For å bevise at klimaet aldri endrer seg", "For å måle styrken på jordskjelv og forutsi når det neste store utbruddet kommer", "For å kunne forutsi været i morgen og lage nøyaktige varsler for den kommende uka"],
+      options: ["For å kunne skille naturlig variasjon fra menneskeskapt klimaendring", "For å bevise at klimaet aldri endrer seg, og at dagens oppvarming derfor er innbilt", "For å måle styrken på jordskjelv og forutsi når det neste store utbruddet kommer", "For å kunne forutsi været i morgen og lage nøyaktige varsler for den kommende uka"],
       explanation: "Kunnskap om naturlige variasjoner gjør det mulig å vurdere dagens raske oppvarming opp mot bakgrunnen og se den menneskeskapte påvirkningen tydeligere.",
     },
   ],
   "geofag-1-7-5": [
     {
       question: "Hvorfor har Norge et mildere klima enn breddegraden skulle tilsi?",
-      options: ["Den nordatlantiske strøm fører varmt vann nordover langs kysten", "Det er lite hav rundt Norge", "Det er svært lite hav rundt Norge, så landmassene holder godt på sommervarmen", "Norge har mange aktive vulkaner som varmer opp både grunnen og lufta over kysten"],
+      options: ["Den nordatlantiske strøm fører varmt vann nordover langs kysten", "Det er lite hav rundt Norge, og det tørre innlandsklimaet gir derfor milde vintre", "Det er svært lite hav rundt Norge, så landmassene holder godt på sommervarmen", "Norge har mange aktive vulkaner som varmer opp både grunnen og lufta over kysten"],
       explanation: "Den nordatlantiske strøm (forlengelsen av Golfstrømmen) frakter varmt vann nordover og gir Norge et uvanlig mildt klima for sin breddegrad.",
     },
     {
       question: "Hva kjennetegner klimaet på Vestlandet sammenlignet med Østlandet?",
-      options: ["Vestlandet er mildere og våtere; Østlandet har mer kontinentalt klima", "Vestlandet er tørrere og kaldere", "Vestlandet er tørrere og kaldere, mens Østlandet får mildt og fuktig kystklima", "De to landsdelene har nøyaktig samme klima med lik nedbør og temperatur hele året"],
+      options: ["Vestlandet er mildere og våtere; Østlandet har mer kontinentalt klima", "Vestlandet er tørrere og kaldere fordi fjellkjeden stenger nedbøren ute hele året", "Vestlandet er tørrere og kaldere, mens Østlandet får mildt og fuktig kystklima", "De to landsdelene har nøyaktig samme klima med lik nedbør og temperatur hele året"],
       explanation: "Vestlandet får mye nedbør og milde vintre på grunn av havet og fjellene, mens Østlandet har mer kontinentalt klima med kaldere vintre og mindre nedbør.",
     },
     {
       question: "Hvorfor er det mye nedbør på Vestlandet?",
-      options: ["Fuktig havluft tvinges opp over fjellene og avgir nedbør", "Fjellene hindrer all nedbør", "Det råder tørt ørkenklima der fordi fjellene stenger all fuktig havluft ute helt", "Fjellene hindrer all nedbør i å nå kysten og sender den videre inn mot innlandet"],
+      options: ["Fuktig havluft tvinges opp over fjellene og avgir nedbør", "Fjellene hindrer nedbøren ved å presse havlufta nedover", "Det råder tørt ørkenklima der fordi fjellene stenger all fuktig havluft ute helt", "Fjellene hindrer all nedbør i å nå kysten og sender den videre inn mot innlandet"],
       explanation: "Fuktig luft fra Atlanterhavet presses opp over de bratte vestlandsfjellene, kjøles ned og slipper store mengder nedbør på losiden.",
     },
     {
@@ -1455,7 +1455,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan påvirker fjellene de regionale klimaforskjellene i Norge?",
-      options: ["De skaper regnskygge slik at innlandet blir tørrere enn kysten", "De gir mest nedbør i innlandet", "De gir mest nedbør i innlandet mens kysten ligger tørr i regnskyggen på losiden", "De har ingen betydning for klimaet, som styres bare av breddegrad og havstrømmer"],
+      options: ["De skaper regnskygge slik at innlandet blir tørrere enn kysten", "De gir mest nedbør i innlandet, fordi lufta først stiger når den kommer så langt", "De gir mest nedbør i innlandet mens kysten ligger tørr i regnskyggen på losiden", "De har ingen betydning for klimaet, som styres bare av breddegrad og havstrømmer"],
       explanation: "Fjellkjedene gir mye nedbør på losiden (kysten) og regnskygge på lesiden (innlandet), som derfor blir tørrere og mer kontinentalt.",
     },
   ],
@@ -1477,7 +1477,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er ozonlaget i stratosfæren viktig?",
-      options: ["Det absorberer skadelig UV-stråling fra solen", "Det varmer opp jordoverflaten", "Det gir oss oksygenet vi puster inn og fyller på med frisk luft ved bakken", "Det gir oss oksygen å puste"],
+      options: ["Det absorberer skadelig UV-stråling fra solen", "Det varmer opp jordoverflaten", "Det fyller på med frisk luft ved bakken", "Det gir oss oksygen å puste"],
       explanation: "Ozonlaget i stratosfæren absorberer mye av solens skadelige UV-stråling og beskytter dermed livet på jorden.",
     },
     {
@@ -1489,7 +1489,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-8-2": [
     {
       question: "Hva er lufttrykk?",
-      options: ["Kraften luften utøver per flateenhet, målt i hektopascal", "Mengden vanndamp i luften", "Mengden vanndamp luften inneholder, oppgitt som relativ fuktighet i prosent", "Temperaturen i atmosfæren målt i grader celsius ved en bestemt høyde over havet"],
+      options: ["Kraften luften utøver per flateenhet, målt i hektopascal", "Mengden vanndamp i luften, oppgitt som antall gram vann per kubikkmeter luft", "Mengden vanndamp luften inneholder, oppgitt som relativ fuktighet i prosent", "Temperaturen i atmosfæren målt i grader celsius ved en bestemt høyde over havet"],
       explanation: "Lufttrykk er kraften luftsøylen utøver per flateenhet, målt i hektopascal (hPa). Normalt trykk ved havnivå er ca. 1013 hPa.",
     },
     {
@@ -1509,7 +1509,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forteller tette isobarer på et værkart oss?",
-      options: ["Stor trykkgradient og dermed sterk vind", "Svak vind og rolig vær", "Høy temperatur og opphold fordi trykket er jevnt fordelt over hele værkartet", "Mye nedbør uansett"],
+      options: ["Stor trykkgradient og dermed sterk vind", "Svak vind og rolig vær", "Opphold og varme ved jevnt trykk", "Mye nedbør uansett"],
       explanation: "Tette isobarer betyr at trykket endrer seg raskt over kort avstand (stor trykkgradient), noe som gir kraftig vind.",
     },
   ],
@@ -1521,17 +1521,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er duggpunktet?",
-      options: ["Temperaturen der lufta blir mettet med vanndamp (100 % relativ fuktighet)", "Temperaturen der vann fryser", "Temperaturen der flytende vann fryser til is og danner rim på kalde overflater", "Det høyeste lufttrykket som kan måles i et kraftig høytrykk over et landområde"],
+      options: ["Temperaturen der lufta blir mettet med vanndamp (100 % relativ fuktighet)", "Temperaturen der vann fryser, altså null grader celsius under vanlig lufttrykk", "Temperaturen der flytende vann fryser til is og danner rim på kalde overflater", "Det høyeste lufttrykket som kan måles i et kraftig høytrykk over et landområde"],
       explanation: "Duggpunktet er temperaturen der lufta er mettet med vanndamp; avkjøles lufta videre, begynner vanndampen å kondensere.",
     },
     {
       question: "Hvordan dannes skyer?",
-      options: ["Fuktig luft stiger, avkjøles til duggpunktet og vanndamp kondenserer", "Vann fordamper direkte til is", "Tørr luft synker mot bakken, varmes opp og presser vanndampen ut som skydråper", "Sola varmer opp støvpartikler i lufta som klumper seg sammen og danner skydekket"],
+      options: ["Fuktig luft stiger, avkjøles til duggpunktet og vanndamp kondenserer", "Vann fordamper direkte til is høyt oppe i lufta og legger seg der som et skylag", "Tørr luft synker mot bakken, varmes opp og presser vanndampen ut som skydråper", "Sola varmer opp støvpartikler i lufta som klumper seg sammen og danner skydekket"],
       explanation: "Når fuktig luft stiger og avkjøles til duggpunktet, kondenserer vanndampen rundt små partikler og danner skydråper.",
     },
     {
       question: "Hva er nedbør?",
-      options: ["Vann som faller fra atmosfæren som regn, snø, hagl eller sludd", "Vind som blåser over havet", "Fordampning av vann fra bakken og havet som tilfører atmosfæren fuktig luft", "Vind som blåser inn over havet og fører fuktig luft videre mot land og fjell"],
+      options: ["Vann som faller fra atmosfæren som regn, snø, hagl eller sludd", "Vind som blåser over havet og river med seg små vanndråper opp i lufta", "Fordampning av vann fra bakken og havet som tilfører atmosfæren fuktig luft", "Vind som blåser inn over havet og fører fuktig luft videre mot land og fjell"],
       explanation: "Nedbør oppstår når skydråper eller iskrystaller vokser seg store nok til å falle til bakken som regn, snø, hagl eller sludd.",
     },
     {
@@ -1543,22 +1543,22 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-8-4": [
     {
       question: "Hva er en front i meteorologien?",
-      options: ["Grenseflaten mellom to luftmasser med ulik temperatur og fuktighet", "Et område med høyt trykk", "En bestemt type sky som dannes høyt oppe langs grensen mellom to trykksystemer", "Et utstrakt område med høyt lufttrykk der lufta synker og gir klart, stabilt vær"],
+      options: ["Grenseflaten mellom to luftmasser med ulik temperatur og fuktighet", "Et område med høyt trykk der isobarene ligger tett inntil hverandre på værkartet", "En bestemt type sky som dannes høyt oppe langs grensen mellom to trykksystemer", "Et utstrakt område med høyt lufttrykk der lufta synker og gir klart, stabilt vær"],
       explanation: "En front er grensen mellom to luftmasser med ulik temperatur og fuktighet; her tvinges varm luft opp over kald luft og det dannes nedbør.",
     },
     {
       question: "Hva skjer ved en okklusjon?",
-      options: ["En kaldfront tar igjen en varmfront og løfter den varme lufta opp fra bakken", "To høytrykk smelter sammen", "Lufta synker ned mot bakken, varmes opp og blir så tørr at skyene løser seg opp", "Havoverflaten fryser til is når kald luft strømmer inn og senker vanntemperaturen"],
+      options: ["En kaldfront tar igjen en varmfront og løfter den varme lufta opp fra bakken", "To høytrykk smelter sammen til ett stort område med synkende luft og vedvarende klarvær", "Lufta synker ned mot bakken, varmes opp og blir så tørr at skyene løser seg opp", "Havoverflaten fryser til is når kald luft strømmer inn og senker vanntemperaturen"],
       explanation: "En okklusjon dannes når den raskere kaldfronten tar igjen varmfronten i et lavtrykk, slik at den varme lufta presses helt opp fra bakken.",
     },
     {
       question: "Hvilket vær følger ofte med en kaldfront?",
-      options: ["Kraftige byger og raskt skiftende vær", "Tørt og stabilt vær i flere dager", "Langvarig, jevnt lett regn som faller stille over et bredt belte i mange timer", "Langvarig, jevnt lett regn"],
+      options: ["Kraftige byger og raskt skiftende vær", "Tørt og stabilt vær i flere dager", "Jevnt lett regn over et bredt belte", "Langvarig, jevnt lett regn"],
       explanation: "Ved en kaldfront skyves den varme lufta bratt oppover, noe som gir kraftige byger, tordenvær og raskt skiftende vær.",
     },
     {
       question: "Hvor dannes lavtrykkene som gir mye av været vårt?",
-      options: ["Langs polarfronten der varm og kald luft møtes", "Midt i store høytrykk", "Midt inne i store høytrykk der lufta synker og gir stabilt, skyfritt og tørt vær", "I stratosfæren"],
+      options: ["Langs polarfronten der varm og kald luft møtes", "Midt i store høytrykk", "Midt inne i store høytrykk der lufta synker", "I stratosfæren"],
       explanation: "Lavtrykkene utvikler seg langs polarfronten der varm og kald luft møtes, og de følger et livsløp fra dannelse til okklusjon.",
     },
     {
@@ -1570,7 +1570,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-8-5": [
     {
       question: "Hva viser et synoptisk værkart?",
-      options: ["Værsituasjonen over et stort område på et bestemt tidspunkt", "Bare temperaturen ett sted", "Klimaet og gjennomsnittsværet over en periode på flere titalls til hundre år", "Jordens indre struktur med kjerne, mantel og skorpe fremstilt i et tverrsnitt"],
+      options: ["Værsituasjonen over et stort område på et bestemt tidspunkt", "Bare temperaturen på ett enkelt sted, målt time for time gjennom hele døgnet", "Klimaet og gjennomsnittsværet over en periode på flere titalls til hundre år", "Jordens indre struktur med kjerne, mantel og skorpe fremstilt i et tverrsnitt"],
       explanation: "Et synoptisk værkart viser værsituasjonen samtidig over et stort område, med isobarer, fronter, trykksystemer og nedbør.",
     },
     {
@@ -1580,12 +1580,12 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan lages moderne værvarsler?",
-      options: ["Ved å kombinere observasjoner med matematiske modeller kjørt på datamaskiner", "Ved å spørre folk hva de tror", "Kun ved å studere skyene på himmelen og tolke formen og bevegelsen deres for hånd", "Ved å studere stjernenes og planetenes posisjon og tolke dem som varsler om været"],
+      options: ["Ved å kombinere observasjoner med matematiske modeller kjørt på datamaskiner", "Ved å spørre folk hva de tror været blir, og bruke svarene som grunnlag for varselet", "Kun ved å studere skyene på himmelen og tolke formen og bevegelsen deres for hånd", "Ved å studere stjernenes og planetenes posisjon og tolke dem som varsler om været"],
       explanation: "Værvarsler bygger på store mengder observasjoner som mates inn i numeriske værmodeller som beregner atmosfærens utvikling.",
     },
     {
       question: "Hvorfor blir værvarsler mer usikre jo lenger fram i tid de gjelder?",
-      options: ["Små feil i startdataene vokser over tid i et kaotisk system", "Atmosfæren slutter å bevege seg", "Værstasjonene slås gradvis av jo lenger fram i tid varselet gjelder", "Observasjonsdataene forsvinner helt fra modellen etter det første døgnet"],
+      options: ["Små feil i startdataene vokser over tid i et kaotisk system", "Atmosfæren slutter å bevege seg etter noen dager, så modellen mister grunnlaget sitt", "Værstasjonene slås gradvis av jo lenger fram i tid varselet gjelder", "Observasjonsdataene forsvinner helt fra modellen etter det første døgnet"],
       explanation: "Atmosfæren er et kaotisk system der bittesmå unøyaktigheter i startdataene forsterkes over tid, så varslene blir gradvis mer usikre.",
     },
     {
@@ -1602,7 +1602,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er evapotranspirasjon?",
-      options: ["Summen av fordampning fra overflater og transpirasjon fra planter", "Vann som fryser til is", "Prosessen der vanndamp i lufta fryser til iskrystaller høyt oppe i atmosfæren", "Bare den nedbøren som faller direkte på plantenes blader og fordamper igjen raskt"],
+      options: ["Summen av fordampning fra overflater og transpirasjon fra planter", "Vann som fryser til is i jorda og binder fuktigheten så plantene ikke når den", "Prosessen der vanndamp i lufta fryser til iskrystaller høyt oppe i atmosfæren", "Bare den nedbøren som faller direkte på plantenes blader og fordamper igjen raskt"],
       explanation: "Evapotranspirasjon er den totale overføringen av vann til atmosfæren gjennom fordampning fra overflater og transpirasjon (vannavgivelse) fra planter.",
     },
     {
@@ -1624,17 +1624,17 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-9-2": [
     {
       question: "Hva er grunnvannsspeilet?",
-      options: ["Den øvre grensen av den mettede sonen der alle porer er fylt med vann", "Grensen mellom to bergarter", "Den øverste, blanke isflaten på toppen av en isbre der smeltevann samler seg", "Den synlige vannoverflaten av en innsjø eller et tjern oppe på selve landoverflaten"],
+      options: ["Den øvre grensen av den mettede sonen der alle porer er fylt med vann", "Grensen mellom to bergarter, der den ene ligger avsatt rett oppå den andre i dypet", "Den øverste, blanke isflaten på toppen av en isbre der smeltevann samler seg", "Den synlige vannoverflaten av en innsjø eller et tjern oppe på selve landoverflaten"],
       explanation: "Grunnvannsspeilet er den øvre grensen av den mettede sonen; over det er porene delvis fylt med luft (umettet sone).",
     },
     {
       question: "Hva er porøsitet?",
-      options: ["Forholdet mellom volumet av hulrom og totalvolumet i et materiale", "Et mål på hvor raskt vann strømmer", "Den totale mengden vann som til enhver tid renner gjennom en elv eller et vassdrag", "Et mål på hvor raskt vann kan strømme gjennom materialet fra ett punkt til et annet"],
+      options: ["Forholdet mellom volumet av hulrom og totalvolumet i et materiale", "Et mål på hvor raskt vann strømmer, altså hvor mange liter som passerer per sekund", "Den totale mengden vann som til enhver tid renner gjennom en elv eller et vassdrag", "Et mål på hvor raskt vann kan strømme gjennom materialet fra ett punkt til et annet"],
       explanation: "Porøsitet er andelen hulrom (porer) i et materiale og forteller hvor mye vann det kan lagre.",
     },
     {
       question: "Hva beskriver permeabilitet?",
-      options: ["Hvor lett vann kan strømme gjennom et porøst materiale", "Hvor mye vann materialet kan lagre", "Hvor mye vann materialet kan lagre i porene sine når det er helt mettet med vann", "Bergartens farge og utseende, som brukes til å skille mineraler fra hverandre i felt"],
+      options: ["Hvor lett vann kan strømme gjennom et porøst materiale", "Hvor mye vann materialet kan lagre før det begynner å lekke ut igjen nedover", "Hvor mye vann materialet kan lagre i porene sine når det er helt mettet med vann", "Bergartens farge og utseende, som brukes til å skille mineraler fra hverandre i felt"],
       explanation: "Permeabilitet (hydraulisk konduktivitet) er et mål på hvor lett vann strømmer gjennom materialet. Sand og grus har høy permeabilitet.",
     },
     {
@@ -1651,12 +1651,12 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
   "geofag-1-9-3": [
     {
       question: "Hva er vannføring (Q) i en elv?",
-      options: ["Volumet vann som passerer et tverrsnitt per tidsenhet, målt i m³/s", "Vannets temperatur", "Den totale lengden på elva fra kilden i fjellet og helt ned til utløpet i havet", "Temperaturen til vannet i elva målt ved overflaten på et bestemt sted og tidspunkt"],
+      options: ["Volumet vann som passerer et tverrsnitt per tidsenhet, målt i m³/s", "Vannets temperatur, oppgitt som gjennomsnitt for hele elvestrekningen gjennom året", "Den totale lengden på elva fra kilden i fjellet og helt ned til utløpet i havet", "Temperaturen til vannet i elva målt ved overflaten på et bestemt sted og tidspunkt"],
       explanation: "Vannføring er volumet vann som passerer et tverrsnitt per sekund (m³/s), og beregnes som tverrsnittsareal × middelhastighet.",
     },
     {
       question: "Hva er et nedbørfelt for en elv?",
-      options: ["Området der all nedbør som ikke fordamper drenerer til elven", "Havet utenfor elvemunningen", "Havområdet utenfor elvemunningen der ferskvann og saltvann blandes ved utløpet", "Bare selve elveløpet, altså den smale kanalen der vannet faktisk renner mot havet"],
+      options: ["Området der all nedbør som ikke fordamper drenerer til elven", "Havet utenfor elvemunningen, der elva legger igjen sedimentene sine på bunnen", "Havområdet utenfor elvemunningen der ferskvann og saltvann blandes ved utløpet", "Bare selve elveløpet, altså den smale kanalen der vannet faktisk renner mot havet"],
       explanation: "Nedbørfeltet er landområdet der all nedbør som ikke fordamper, samler seg og renner til samme elv eller innsjø.",
     },
     {
@@ -1666,7 +1666,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en mulig konsekvens av vassdragsregulering for vannkraft?",
-      options: ["Endret vannføring og påvirkning på livet i og langs elva", "At elva forsvinner helt", "At elva begynner å renne oppover mot kilden når vannet slippes ut gjennom turbinene", "At elva forsvinner helt fordi alt vannet blir stående permanent i magasinet bak demningen"],
+      options: ["Endret vannføring og påvirkning på livet i og langs elva", "At elva forsvinner helt og blir til en tørr steinur nedenfor kraftverket", "At elva begynner å renne oppover mot kilden når vannet slippes ut gjennom turbinene", "At elva forsvinner helt fordi alt vannet blir stående permanent i magasinet bak demningen"],
       explanation: "Regulering endrer den naturlige vannføringen og kan påvirke fisk, vegetasjon og økosystemer langs vassdraget, samtidig som den gir fornybar energi.",
     },
     {
@@ -1683,34 +1683,34 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer drikkevannskvalitet i Norge?",
-      options: ["Drikkevannsforskriften med grenseverdier for ulike parametere", "Plan- og bygningsloven", "Genteknologiloven, som setter rammene for hvordan mikroorganismer i vann kan endres", "Veitrafikkloven, som regulerer avrenning fra veier og hindrer forurensning av drikkevann"],
+      options: ["Drikkevannsforskriften med grenseverdier for ulike parametere", "Plan- og bygningsloven, som setter kravene til vannkvalitet i norske vannverk", "Genteknologiloven, som setter rammene for hvordan mikroorganismer i vann kan endres", "Veitrafikkloven, som regulerer avrenning fra veier og hindrer forurensning av drikkevann"],
       explanation: "Drikkevannsforskriften setter grenseverdier for mikrobiologiske, kjemiske og fysiske parametere, og vannverket er ansvarlig for at de overholdes.",
     },
     {
       question: "Hvilken rolle spiller vannkraft i Norges energiforsyning?",
-      options: ["Den er en stor, fornybar kilde til elektrisitet", "Den er Norges minste energikilde", "Den brukes ikke lenger i Norge fordi magasinene er tømt og turbinene stengt ned", "Den er en fossil energikilde"],
+      options: ["Den er en stor, fornybar kilde til elektrisitet", "Den er Norges minste energikilde", "Den brukes ikke lenger fordi magasinet er tømt", "Den er en fossil energikilde"],
       explanation: "Vannkraft er ryggraden i norsk kraftproduksjon og er en fornybar energikilde som utnytter høydeforskjeller og vannføring i vassdragene.",
     },
     {
       question: "Hva er en utfordring for bærekraftig vannforvaltning?",
-      options: ["Å balansere bruk av vann mot vern av økosystemer og vannkvalitet", "At vann er en ubegrenset ressurs uten konflikter", "At vann er en helt ubegrenset ressurs uten konflikter mellom ulike brukergrupper", "At det aldri finnes nok bruk av vannet, så ressursen alltid står ubenyttet og går tapt"],
+      options: ["Å balansere bruk av vann mot vern av økosystemer og vannkvalitet", "At vann er en ubegrenset ressurs uten konflikter", "At vann er en helt ubegrenset ressurs uten konflikter mellom ulike brukergrupper", "At det aldri finnes nok bruk av vannet, så det går tapt"],
       explanation: "Bærekraftig forvaltning må veie behov for drikkevann, kraft og næring mot å bevare vannkvalitet og økosystemer for framtidige generasjoner.",
     },
     {
       question: "Hvordan kan jordbruk bidra til eutrofiering av vassdrag?",
-      options: ["Avrenning av gjødsel tilfører fosfor og nitrogen til vannet", "Jordbruk fjerner næring fra vannet", "Jordbruk har ingen målbar effekt på vassdrag så lenge det gjødsles jevnt over hele året", "Jordbruk har ingen effekt på vann"],
+      options: ["Avrenning av gjødsel tilfører fosfor og nitrogen til vannet", "Jordbruk fjerner næring fra vannet", "Jordbruk har ingen målbar effekt når det gjødsles jevnt", "Jordbruk har ingen effekt på vann"],
       explanation: "Når gjødsel fra jorder renner ut i vassdrag, tilføres ekstra fosfor og nitrogen som driver algevekst og eutrofiering.",
     },
   ],
   "geofag-1-10-1": [
     {
       question: "Hva er vitenskapelig metode?",
-      options: ["En systematisk tilnærming med observasjon, hypotese, testing og revisjon", "Å samle data uten å analysere", "Å akseptere alle påstander som sanne så lenge de høres rimelige og logiske ut", "Å gjette en forklaring uten å teste den mot observasjoner eller data i etterkant"],
+      options: ["En systematisk tilnærming med observasjon, hypotese, testing og revisjon", "Å samle inn så mye data som mulig uten å analysere dem eller stille noen hypotese", "Å akseptere alle påstander som sanne så lenge de høres rimelige og logiske ut", "Å gjette en forklaring uten å teste den mot observasjoner eller data i etterkant"],
       explanation: "Vitenskapelig metode bygger kunnskap systematisk gjennom observasjoner, hypotesedannelse, testing og eventuell revisjon av forklaringene.",
     },
     {
       question: "Hva kjennetegner en god hypotese i geofag?",
-      options: ["Den er spesifikk, basert på observasjoner og kan i prinsippet motbevises", "Den trenger ikke være presis", "Den kan aldri testes fordi den handler om prosesser som ligger langt tilbake i tid", "Den er bygd på tro og overbevisning framfor observasjoner man kan etterprøve i felt"],
+      options: ["Den er spesifikk, basert på observasjoner og kan i prinsippet motbevises", "Den trenger ikke være presis, så lenge den peker i retning av noe man ønsker å finne", "Den kan aldri testes fordi den handler om prosesser som ligger langt tilbake i tid", "Den er bygd på tro og overbevisning framfor observasjoner man kan etterprøve i felt"],
       explanation: "En god hypotese er en foreløpig, testbar forklaring som er spesifikk, bygger på observasjoner og kan motbevises (falsifiseres).",
     },
     {
@@ -1720,19 +1720,19 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig å vurdere kilder og usikkerhet i geofaglige undersøkelser?",
-      options: ["For å vite hvor pålitelige dataene og konklusjonene er", "For å gjøre rapporten lengre", "For å gjøre rapporten lengre og mer omfattende enn den egentlig trenger å være", "For å skjule feilkilder slik at konklusjonene virker sikrere enn de faktisk er"],
+      options: ["For å vite hvor pålitelige dataene og konklusjonene er", "For å gjøre rapporten lengre ved å fylle på med forbehold i hvert eneste avsnitt", "For å gjøre rapporten lengre og mer omfattende enn den egentlig trenger å være", "For å skjule feilkilder slik at konklusjonene virker sikrere enn de faktisk er"],
       explanation: "Å vurdere kilder og usikkerhet gjør at man vet hvor pålitelige resultatene er, og skiller godt underbygde konklusjoner fra usikre antakelser.",
     },
     {
       question: "Hva er en teori i vitenskapelig forstand?",
-      options: ["En godt underbygd forklaring støttet av mange observasjoner og tester", "Et udokumentert rykte", "Et udokumentert rykte som spres videre uten at det er undersøkt eller etterprøvd", "En løs gjetning som ennå ikke er testet mot observasjoner eller data på noen måte"],
+      options: ["En godt underbygd forklaring støttet av mange observasjoner og tester", "Et udokumentert rykte som forskere bruker i mangel av bedre svar", "Et udokumentert rykte som spres videre uten at det er undersøkt eller etterprøvd", "En løs gjetning som ennå ikke er testet mot observasjoner eller data på noen måte"],
       explanation: "En vitenskapelig teori er en grundig testet og bredt støttet forklaring på et fenomen, ikke bare en gjetning, som platetektonikk eller evolusjon.",
     },
   ],
   "geofag-1-10-2": [
     {
       question: "Hva er en blotning i geofag?",
-      options: ["Et sted der berggrunnen er synlig og tilgjengelig for observasjon", "Et lag med løsmasser over berget", "Et lag med løsmasser som dekker berget og skjuler det for direkte observasjon i felt", "En type geologisk måleinstrument som brukes til å bestemme strøk og fall på en flate"],
+      options: ["Et sted der berggrunnen er synlig og tilgjengelig for observasjon", "Et lag med løsmasser over berget", "Et lag med løsmasser som dekker berget og skjuler det for direkte observasjon i felt", "Et geologisk måleinstrument for strøk og fall"],
       explanation: "En blotning er et sted der berggrunnen er blottlagt, f.eks. klipper, elvebredder eller veiskjæringer, og kan studeres direkte.",
     },
     {
@@ -1742,24 +1742,24 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig å dokumentere observasjoner systematisk i en feltbok?",
-      options: ["Så andre kan forstå og etterprøve arbeidet senere", "For å fylle opp boken", "Det er egentlig ikke nødvendig, siden man husker alle observasjonene godt nok selv", "Det er ikke nødvendig"],
+      options: ["Så andre kan forstå og etterprøve arbeidet senere", "For å fylle opp boken", "Det er ikke nødvendig – man husker det selv", "Det er ikke nødvendig"],
       explanation: "Systematisk dokumentasjon i feltbok sikrer at observasjonene er etterprøvbare og kan brukes pålitelig i senere analyse og rapportering.",
     },
     {
       question: "Hvilket utstyr er typisk nyttig ved geofaglig feltarbeid?",
-      options: ["Kompass, geologihammer, lupe og kart/GPS", "Kun en mobiltelefon", "Bare en kalkulator for å regne ut alle vinkler og avstander direkte i felten", "Bare en kalkulator"],
+      options: ["Kompass, geologihammer, lupe og kart/GPS", "Kun en mobiltelefon", "En kalkulator for vinkler og avstander", "Bare en kalkulator"],
       explanation: "Vanlig feltutstyr omfatter kompass (for strøk og fall), geologihammer, lupe, kart og GPS for å observere, måle og stedfeste funn.",
     },
     {
       question: "Hvorfor er sikkerhetsvurdering viktig ved feltarbeid?",
-      options: ["Feltarbeid kan innebære farer som bratt terreng, vær og rasfare", "Sikkerhet er irrelevant for geologer", "For å gjøre feltarbeidet tregere og mer omstendelig enn det egentlig trenger å være", "Sikkerhet er irrelevant for geologer fordi berggrunnen aldri utgjør noen fare i seg selv"],
+      options: ["Feltarbeid kan innebære farer som bratt terreng, vær og rasfare", "Sikkerhet er irrelevant for geologer", "For å gjøre feltarbeidet tregere og mer omstendelig enn det egentlig trenger å være", "Sikkerhet er irrelevant fordi berggrunnen aldri er farlig"],
       explanation: "Feltarbeid foregår ofte i krevende terreng med skiftende vær og potensiell rasfare, så risikovurdering og planlegging er nødvendig for tryggheten.",
     },
   ],
   "geofag-1-10-3": [
     {
       question: "Hva viser et topografisk kart?",
-      options: ["Terrengets form gjennom høydekurver samt natur- og menneskeskapte elementer", "Jordens indre struktur", "Jordas indre lagdeling fra skorpe via mantel og ned til den flytende ytre kjernen", "Værsituasjonen med nedbør, vindretning og temperaturvariasjoner gjennom hele døgnet"],
+      options: ["Terrengets form gjennom høydekurver samt natur- og menneskeskapte elementer", "Jordens indre struktur, der dybden ned til hvert av lagene er tegnet inn som kurver", "Jordas indre lagdeling fra skorpe via mantel og ned til den flytende ytre kjernen", "Værsituasjonen med nedbør, vindretning og temperaturvariasjoner gjennom hele døgnet"],
       explanation: "Et topografisk kart viser terrengets form med høydekurver i tillegg til elver, sjøer, veier og bygninger.",
     },
     {
@@ -1779,7 +1779,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan et geologisk kart vise som et vanlig topografisk kart ikke gjør?",
-      options: ["Hvilke bergarter og geologiske strukturer som finnes i området", "Bare veier og bygninger", "Bare plasseringen av veier, bygninger og andre menneskeskapte anlegg i området", "Værvarselet for området med forventet nedbør, vind og temperatur de neste dagene"],
+      options: ["Hvilke bergarter og geologiske strukturer som finnes i området", "Bare veier og bygninger, uten noe av terrengformen som ligger under dem", "Bare plasseringen av veier, bygninger og andre menneskeskapte anlegg i området", "Værvarselet for området med forventet nedbør, vind og temperatur de neste dagene"],
       explanation: "Et geologisk kart viser fordelingen av bergarter, løsmasser, forkastninger og andre geologiske strukturer i tillegg til topografien.",
     },
   ],
@@ -1791,7 +1791,7 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en digital terrengmodell (DTM)?",
-      options: ["En rasterbasert modell der hver celle har en høydeverdi", "En tabell med temperaturer", "En tabell med målte lufttemperaturer for ulike stasjoner gjennom et døgn", "Et satellittbilde som viser skydekket og nedbørsområdene over et landskap"],
+      options: ["En rasterbasert modell der hver celle har en høydeverdi", "En tabell med temperaturer for hvert punkt i terrenget, ordnet etter høyde", "En tabell med målte lufttemperaturer for ulike stasjoner gjennom et døgn", "Et satellittbilde som viser skydekket og nedbørsområdene over et landskap"],
       explanation: "En digital terrengmodell representerer terrengoverflaten som et rutenett der hver celle inneholder høyde over havet, og brukes blant annet til helningsanalyse.",
     },
     {
@@ -1801,29 +1801,29 @@ const quizData_geofag: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan en DTM brukes til i geofag?",
-      options: ["Beregne helning og analysere skred- og flomfare", "Bestemme bergarters alder", "Måle lufttemperatur og nedbør ved ulike stasjoner over tid", "Telle antall innbyggere i tettstedene innenfor kartutsnittet"],
+      options: ["Beregne helning og analysere skred- og flomfare", "Bestemme bergarters alder ut fra hvor høyt i terrenget de ligger", "Måle lufttemperatur og nedbør ved ulike stasjoner over tid", "Telle antall innbyggere i tettstedene innenfor kartutsnittet"],
       explanation: "Med en DTM kan man beregne helning, eksposisjon og dreneringsmønstre, noe som er nyttig for å vurdere blant annet skred- og flomfare.",
     },
     {
       question: "Hvorfor må man vurdere kvaliteten på digitale geodata?",
-      options: ["Unøyaktige eller utdaterte data kan gi feil konklusjoner", "Digitale data er alltid feilfrie", "Digitale geodata er alltid feilfrie og trenger derfor ingen kvalitetsvurdering", "Digitale kartdata trenger aldri oppdatering fordi terrenget ligger fast over tid"],
+      options: ["Unøyaktige eller utdaterte data kan gi feil konklusjoner", "Digitale data er alltid feilfrie fordi maskinen regner uten å gjøre feil", "Digitale geodata er alltid feilfrie og trenger derfor ingen kvalitetsvurdering", "Digitale kartdata trenger aldri oppdatering fordi terrenget ligger fast over tid"],
       explanation: "Digitale geodata kan ha begrenset oppløsning, feil eller være utdaterte, så man må vurdere kvalitet og begrensninger før man stoler på analysene.",
     },
   ],
   "geofag-1-10-5": [
     {
       question: "Hva er et abstrakt (sammendrag) i en geofaglig rapport?",
-      options: ["Et kort sammendrag av formål, metode, hovedresultater og konklusjon", "En liste over kilder", "En tabell med alle innsamlede rådata før de er bearbeidet og analysert", "En fullstendig alfabetisk liste over alle kildene som er brukt i arbeidet"],
+      options: ["Et kort sammendrag av formål, metode, hovedresultater og konklusjon", "En liste over de kildene som er brukt, satt opp i den rekkefølgen de ble lest", "En tabell med alle innsamlede rådata før de er bearbeidet og analysert", "En fullstendig alfabetisk liste over alle kildene som er brukt i arbeidet"],
       explanation: "Et abstrakt er et kort sammendrag (typisk 100–300 ord) som gir leseren rask oversikt over hele arbeidet.",
     },
     {
       question: "Hvorfor bør data presenteres i egnede grafer og tabeller?",
-      options: ["Det gjør resultatene oversiktlige og lettere å tolke", "For å gjøre rapporten vanskeligere", "Det er aldri nødvendig så lenge rådataene finnes i et vedlegg bakerst", "For å gjøre rapporten mer omfattende og vanskeligere for leseren å tolke"],
+      options: ["Det gjør resultatene oversiktlige og lettere å tolke", "For å gjøre rapporten vanskeligere å lese for dem som ikke kan faget fra før", "Det er aldri nødvendig så lenge rådataene finnes i et vedlegg bakerst", "For å gjøre rapporten mer omfattende og vanskeligere for leseren å tolke"],
       explanation: "Godt valgte grafer og tabeller gjør store datamengder oversiktlige og hjelper leseren å se mønstre og sammenhenger.",
     },
     {
       question: "Hvorfor er det viktig å referere kilder korrekt i en rapport?",
-      options: ["For å gi kreditt og la andre etterprøve grunnlaget", "For å skjule hvor informasjonen kommer fra", "Det er ikke nødvendig så lenge påstandene virker rimelige og troverdige", "For å fylle opp sidene slik at rapporten framstår lengre og mer omfattende"],
+      options: ["For å gi kreditt og la andre etterprøve grunnlaget", "For å skjule hvor informasjonen kommer fra, slik at arbeidet virker mer originalt", "Det er ikke nødvendig så lenge påstandene virker rimelige og troverdige", "For å fylle opp sidene slik at rapporten framstår lengre og mer omfattende"],
       explanation: "Korrekte kildehenvisninger gir kreditt til opphavspersonene, viser at påstandene er underbygd og lar leseren etterprøve dem.",
     },
     {

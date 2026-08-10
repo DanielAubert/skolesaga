@@ -51,7 +51,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer under prosessering av pre-mRNA hos eukaryoter?",
-      options: ["Introner fjernes og eksoner spleises sammen", "Eksoner fjernes og introner beholdes", "Det ferdige mRNA-et oversettes umiddelbart til en kjede av aminosyrer", "mRNA oversettes til protein"],
+      options: ["Introner fjernes og eksoner spleises sammen", "Eksoner fjernes og introner beholdes", "mRNA-et oversettes straks til aminosyrer", "mRNA oversettes til protein"],
       explanation: "Hos eukaryoter spleises pre-mRNA: de ikke-kodende intronene fjernes, og de kodende eksonene settes sammen. I tillegg legges 5'-kappe og poly-A-hale til.",
     },
   ],
@@ -85,7 +85,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-1-4": [
     {
       question: "Hva er et operon?",
-      options: ["En enhet hos prokaryoter med promotor, operator og flere strukturgener", "Et område med ikke-kodende DNA", "Et enkelt strukturgen hos eukaryoter med sin egen promotor og terminator", "Et ferdig protein satt sammen av flere aminosyrekjeder etter translasjon"],
+      options: ["En enhet hos prokaryoter med promotor, operator og flere strukturgener", "Et område med ikke-kodende DNA som ligger mellom genene og aldri leses av", "Et enkelt strukturgen hos eukaryoter med sin egen promotor og terminator", "Et ferdig protein satt sammen av flere aminosyrekjeder etter translasjon"],
       explanation: "Et operon er en funksjonell genenhet hos prokaryoter som transkriberes som ett polycistronisk mRNA og reguleres samlet.",
     },
     {
@@ -132,7 +132,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er en mutasjon i en kjønnscelle viktigere for evolusjon enn en mutasjon i en kroppscelle?",
-      options: ["Kjønnscellemutasjoner kan arves videre til avkommet", "Kroppscellemutasjoner endrer hele populasjonen", "Mutasjoner i kroppsceller arves alltid videre til individets avkom", "Kroppscellemutasjoner arves alltid videre"],
+      options: ["Kjønnscellemutasjoner kan arves videre til avkommet", "Kroppscellemutasjoner endrer hele populasjonen", "Mutasjoner i kroppsceller arves til avkommet", "Kroppscellemutasjoner arves alltid videre"],
       explanation: "Bare mutasjoner i kjønnsceller (gameter) føres videre til neste generasjon og kan dermed påvirke evolusjonen. Kroppscellemutasjoner arves ikke.",
     },
   ],
@@ -154,7 +154,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på genotype og fenotype?",
-      options: ["Genotype er den genetiske sammensetningen, fenotype er de synlige egenskapene", "Genotype er de synlige trekkene, fenotype er allelene", "De to begrepene betyr nøyaktig det samme og kan brukes fritt om hverandre i genetikken", "Genotype gjelder utelukkende for planter, mens fenotype bare gjelder for dyr og mennesker"],
+      options: ["Genotype er den genetiske sammensetningen, fenotype er de synlige egenskapene", "Genotype er de synlige trekkene, fenotype er allelene", "De to begrepene betyr nøyaktig det samme og kan brukes fritt om hverandre i genetikken", "Genotype gjelder bare planter, mens fenotype bare gjelder dyr"],
       explanation: "Genotypen er hvilke alleler individet har (f.eks. Aa), mens fenotypen er det observerbare uttrykket (f.eks. fargen).",
     },
     {
@@ -176,7 +176,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er recessive kjønnsbundne sykdommer som fargeblindhet vanligere hos gutter?",
-      options: ["Gutter har bare ett X-kromosom, så ett recessivt allel slår igjennom", "Allelet ligger på Y-kromosomet", "Allelet for fargeblindhet ligger på Y-kromosomet som bare gutter har", "Jenter mangler X-kromosom helt og kan derfor aldri bli fargeblinde selv"],
+      options: ["Gutter har bare ett X-kromosom, så ett recessivt allel slår igjennom", "Allelet ligger på Y-kromosomet", "Allelet for fargeblindhet ligger på Y-kromosomet som bare gutter har", "Jenter mangler X-kromosom og blir derfor aldri fargeblinde"],
       explanation: "Gutter (XY) har bare ett X-kromosom. Et recessivt allel på X-et maskeres ikke og kommer til uttrykk. Jenter (XX) trenger to kopier.",
     },
     {
@@ -193,12 +193,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-1-8": [
     {
       question: "Hva er et genom?",
-      options: ["Den totale mengden genetisk materiale (DNA) i en organisme", "Mengden RNA i en celle", "Et enkelt gen som koder for oppskriften på ett bestemt protein", "Et ferdig, foldet protein bygd opp av en lang rekke aminosyrer"],
+      options: ["Den totale mengden genetisk materiale (DNA) i en organisme", "Den samlede mengden RNA som finnes i en celle på et gitt tidspunkt", "Et enkelt gen som koder for oppskriften på ett bestemt protein", "Et ferdig, foldet protein bygd opp av en lang rekke aminosyrer"],
       explanation: "Genomet er alt DNA i en organisme. Menneskets genom omfatter rundt 3,2 milliarder basepar fordelt på 23 kromosompar.",
     },
     {
       question: "Hva er hovedfunksjonen til guide-RNA i CRISPR-Cas9?",
-      options: ["Lede Cas9-enzymet til en bestemt DNA-sekvens", "Lime sammen DNA-fragmenter", "Klippe over begge DNA-trådene direkte på målstedet", "Lime sammen DNA-fragmentene etter at kuttet er utført"],
+      options: ["Lede Cas9-enzymet til en bestemt DNA-sekvens", "Lime sammen DNA-fragmenter til én sammenhengende tråd", "Klippe over begge DNA-trådene på målstedet", "Lime sammen DNA-fragmentene etter at kuttet er utført"],
       explanation: "Guide-RNA er komplementært til målsekvensen og styrer Cas9-nukleasen dit, slik at Cas9 kan kutte DNA-et på riktig sted.",
     },
     {
@@ -208,12 +208,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bioinformatikk?",
-      options: ["Bruk av databehandling for å analysere biologiske data som DNA-sekvenser", "Dyrking av celler i laboratoriet", "En laboratoriemetode for å forsterke og mangfoldiggjøre bestemte DNA-fragmenter", "Dyrking og formering av levende celler under kontrollerte forhold i et laboratorium"],
+      options: ["Bruk av databehandling for å analysere biologiske data som DNA-sekvenser", "Dyrking av celler i laboratoriet for å studere hvordan de vokser og deler seg", "En laboratoriemetode for å forsterke og mangfoldiggjøre bestemte DNA-fragmenter", "Dyrking og formering av levende celler under kontrollerte forhold i et laboratorium"],
       explanation: "Bioinformatikk kombinerer biologi og informatikk for å lagre, sammenligne og analysere store mengder biologiske data, særlig sekvensdata.",
     },
     {
       question: "Hvilken etisk problemstilling er særlig knyttet til CRISPR-redigering av kjønnsceller?",
-      options: ["Endringene arves videre til kommende generasjoner", "Den kan ikke endre DNA i det hele tatt", "Metoden fungerer utelukkende på planteceller og ikke på dyr", "Den greier ikke å endre DNA-sekvensen i cellen i det hele tatt"],
+      options: ["Endringene arves videre til kommende generasjoner", "Den kan ikke endre DNA i det hele tatt, bare lese av sekvensen", "Metoden fungerer utelukkende på planteceller og ikke på dyr", "Den greier ikke å endre DNA-sekvensen i cellen i det hele tatt"],
       explanation: "Redigering av kjønnsceller (kimbanen) gir arvelige endringer som påvirker fremtidige generasjoner, noe som reiser store etiske spørsmål.",
     },
   ],
@@ -240,19 +240,19 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedoppgaven til tykktarmen?",
-      options: ["Suge opp vann og salter fra tarminnholdet", "Ta opp det meste av næringsstoffene", "Ta opp mesteparten av næringsstoffene fra fordøyd mat", "Bryte ned proteiner med enzymer"],
+      options: ["Suge opp vann og salter fra tarminnholdet", "Ta opp det meste av næringsstoffene", "Ta opp mesteparten av den fordøyde maten", "Bryte ned proteiner med enzymer"],
       explanation: "Tykktarmen tar opp vann og salter fra det ufordøyde innholdet og former avføringen. Mesteparten av næringsopptaket skjer i tynntarmen.",
     },
   ],
   "biologi-2-2-2": [
     {
       question: "Hva er glykogen?",
-      options: ["Kroppens forgrenede korttidslager av glukose, særlig i lever og muskler", "Et fettlager under huden", "Et transportprotein i blodplasmaet som frakter glukose fra tarmen og videre ut til alle cellene", "Kroppens rette, ugreinede langtidslager av fett som samles opp under huden og rundt indre organer"],
+      options: ["Kroppens forgrenede korttidslager av glukose, særlig i lever og muskler", "Et fettlager under huden", "Et transportprotein i blodplasmaet som frakter glukose fra tarmen og videre ut til alle cellene", "Kroppens rette, ugreinede langtidslager av fett under huden"],
       explanation: "Glykogen er et forgrenet polysakkarid av glukoseenheter som lagres i lever og muskler og frigjøres ved behov for energi.",
     },
     {
       question: "Hva menes med essensielle aminosyrer?",
-      options: ["Aminosyrer kroppen ikke kan lage selv og som må komme fra kosten", "Aminosyrer kroppen alltid kan lage selv", "Aminosyrer kroppen alltid kan bygge selv fra andre aminosyrer, og som derfor aldri trengs i kosten", "Aminosyrer som bare finnes i fett"],
+      options: ["Aminosyrer kroppen ikke kan lage selv og som må komme fra kosten", "Aminosyrer kroppen alltid kan lage selv", "Aminosyrer kroppen bygger selv fra andre aminosyrer", "Aminosyrer som bare finnes i fett"],
       explanation: "Essensielle aminosyrer kan ikke syntetiseres i kroppen og må tilføres via maten. Mennesket har 9 slike.",
     },
     {
@@ -262,24 +262,24 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er essensielle fettsyrer?",
-      options: ["Flerumettede fettsyrer kroppen ikke kan lage selv, som linolsyre", "Fettsyrer kroppen alltid lager selv", "Mettede fettsyrer som kroppen alltid kan lage selv fra overskudd av karbohydrater og protein i kosten", "Mettet fett fra kjøtt og meieriprodukter som lagres direkte i fettvevet som langtidsreserve av energi"],
+      options: ["Flerumettede fettsyrer kroppen ikke kan lage selv, som linolsyre", "Fettsyrer kroppen alltid lager selv", "Mettede fettsyrer som kroppen alltid kan lage selv fra overskudd av karbohydrater og protein i kosten", "Mettet fett fra kjøtt og melk som lagres i fettvevet"],
       explanation: "Essensielle fettsyrer (omega-6 linolsyre og omega-3 alfa-linolensyre) må tilføres gjennom kosten fordi kroppen ikke kan lage dem.",
     },
     {
       question: "Hvorfor trenger kroppen vitaminer selv om de ikke gir energi?",
-      options: ["De fungerer som hjelpestoffer i livsviktige kjemiske reaksjoner", "De er kroppens viktigste energikilde", "De erstatter vannet cellene mister, og holder væskebalansen mellom det indre og ytre cellemiljøet stabil", "De bygger opp muskelmasse direkte"],
+      options: ["De fungerer som hjelpestoffer i livsviktige kjemiske reaksjoner", "De er kroppens viktigste energikilde", "De erstatter vannet cellene mister og holder væskebalansen", "De bygger opp muskelmasse direkte"],
       explanation: "Vitaminer er organiske forbindelser som inngår som koenzymer og hjelpestoffer i stoffskiftet, selv om de ikke leverer energi.",
     },
   ],
   "biologi-2-2-3": [
     {
       question: "Hva er hovedfunksjonen til hjerteklaffene?",
-      options: ["Sikre at blodet bare strømmer i én retning", "Rense blodet for avfallsstoffer", "Å trekke seg kraftig sammen slik at blodet pumpes ut i kroppens store pulsårer med høyt trykk", "Pumpe blodet ut i kroppen"],
+      options: ["Sikre at blodet bare strømmer i én retning", "Rense blodet for avfallsstoffer", "Å trekke seg sammen og presse blodet videre ut", "Pumpe blodet ut i kroppen"],
       explanation: "Hjerteklaffene åpner og lukker seg slik at blodet strømmer i riktig retning og ikke renner tilbake.",
     },
     {
       question: "Hva betyr systole i hjertesyklusen?",
-      options: ["Sammentrekning av hjertemuskelen", "Avslapping av hjertemuskelen", "Fyllingsfasen i forkamrene, når blodet strømmer inn fra de store venene", "Fyllingsfasen i forkamrene"],
+      options: ["Sammentrekning av hjertemuskelen", "Avslapping av hjertemuskelen", "Fasen når blodet strømmer inn", "Fyllingsfasen i forkamrene"],
       explanation: "Systole er sammentrekningsfasen da hjertekamrene presser blodet ut. Diastole er avslappingsfasen da kamrene fylles.",
     },
     {
@@ -289,24 +289,24 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser et elektrokardiogram (EKG)?",
-      options: ["Hjertets elektriske aktivitet over tid", "Mengden oksygen i blodet", "Antallet røde blodceller per liter blod i kroppen", "Antallet røde blodceller"],
+      options: ["Hjertets elektriske aktivitet over tid", "Mengden oksygen i blodet", "Antall røde blodceller per liter blod", "Antallet røde blodceller"],
       explanation: "EKG registrerer de elektriske signalene som styrer hjerteslagene, og brukes til å oppdage rytmeforstyrrelser og skader.",
     },
     {
       question: "Hva starter normalt hvert hjerteslag?",
-      options: ["Sinusknuten (sinoatrialknuten)", "Venstre hjertekammer", "Venstre hjertekammer, som presser blodet ut i aorta", "Aortaklaffen"],
+      options: ["Sinusknuten (sinoatrialknuten)", "Venstre hjertekammer", "Venstre kammers sammentrekning", "Aortaklaffen"],
       explanation: "Sinusknuten i høyre forkammer er hjertets naturlige pacemaker og setter i gang den elektriske impulsen for hvert slag.",
     },
   ],
   "biologi-2-2-4": [
     {
       question: "Hva er hematokrit?",
-      options: ["Andelen røde blodceller av det totale blodvolumet", "Antall hvite blodceller per liter", "Blodets evne til å levre seg og danne propp ved en skade", "Mengden oksygen som transporteres bundet til hemoglobinet"],
+      options: ["Andelen røde blodceller av det totale blodvolumet", "Antallet hvite blodceller som finnes i hver liter blod", "Blodets evne til å levre seg og danne propp ved en skade", "Mengden oksygen som transporteres bundet til hemoglobinet"],
       explanation: "Hematokrit er prosentandelen røde blodceller i blodet, bestemt ved å sentrifugere en blodprøve.",
     },
     {
       question: "Hvorfor er kapillærenes vegg svært tynn (ett cellelag)?",
-      options: ["For å muliggjøre effektiv utveksling av stoffer mellom blod og vev", "For å hindre all stofftransport", "For å hindre all stofftransport slik at oksygen og næring holdes inne i blodåren", "For å pumpe blodet raskere videre ved at den tynne veggen selv trekker seg sammen"],
+      options: ["For å muliggjøre effektiv utveksling av stoffer mellom blod og vev", "For å hindre all stofftransport, slik at blodet holder seg helt rent hele veien", "For å hindre all stofftransport slik at oksygen og næring holdes inne i blodåren", "For å pumpe blodet raskere videre ved at den tynne veggen selv trekker seg sammen"],
       explanation: "Kapillærveggen består av et enkelt lag endotelceller, slik at oksygen, næring og avfallsstoffer lett kan utveksles med vevet.",
     },
     {
@@ -321,14 +321,14 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er funksjonen til blodplatene (trombocyttene)?",
-      options: ["Bidra til at blodet levrer seg ved skade", "Bekjempe virus med antistoffer", "Produsere insulin som regulerer blodsukkeret", "Transportere oksygen fra lungene ut til vevet"],
+      options: ["Bidra til at blodet levrer seg ved skade", "Bekjempe virus ved å lage antistoffer mot dem", "Produsere insulin som regulerer blodsukkeret", "Transportere oksygen fra lungene ut til vevet"],
       explanation: "Blodplater er cellefragmenter som klumper seg ved skade og setter i gang koagulasjonen som stanser blødning.",
     },
   ],
   "biologi-2-2-5": [
     {
       question: "Hvor i lungene foregår selve gassutvekslingen?",
-      options: ["I alveolene (lungeblærene)", "I strupehodet", "I luftrøret, der lufta føres nedover", "I bronkiene, der lufta greiner seg utover"],
+      options: ["I alveolene (lungeblærene)", "I strupehodet, der stemmebåndene sitter", "I luftrøret, der lufta føres nedover", "I bronkiene, der lufta greiner seg utover"],
       explanation: "Gassutvekslingen skjer over de tynne veggene i alveolene, der oksygen tas opp og karbondioksid avgis.",
     },
     {
@@ -343,29 +343,29 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier Daltons lov om partialtrykk?",
-      options: ["En gass' partialtrykk er proporsjonalt med dens andel av gassblandingen", "Gasser løses bedre jo varmere det er", "At alle gasser i en blanding alltid har nøyaktig samme trykk uansett hvor stor andel de utgjør", "At en gass løser seg bedre i væske jo varmere væsken blir, fordi molekylene beveger seg raskere"],
+      options: ["En gass' partialtrykk er proporsjonalt med dens andel av gassblandingen", "At gasser løses bedre jo varmere det er, og at trykket derfor ikke betyr noe", "At alle gasser i en blanding alltid har nøyaktig samme trykk uansett hvor stor andel de utgjør", "At en gass løser seg bedre i væske jo varmere væsken blir, fordi molekylene beveger seg raskere"],
       explanation: "Partialtrykket til en gass i en blanding tilsvarer den andelen gassen utgjør av totaltrykket, ifølge Daltons lov.",
     },
     {
       question: "Hvilken egenskap ved alveolene gjør gassutvekslingen effektiv?",
-      options: ["Stor samlet overflate og svært tynn vegg", "Lav overflate og høyt trykk", "Tykk muskelvegg som pumper lufta aktivt inn", "Manglende blodforsyning slik at gassene ikke tas opp"],
+      options: ["Stor samlet overflate og svært tynn vegg", "Liten samlet overflate og høyt trykk i lungene", "Tykk muskelvegg som pumper lufta aktivt inn", "Manglende blodforsyning slik at gassene ikke tas opp"],
       explanation: "Lungene har millioner av alveoler med enorm samlet overflate og en tynn vegg, noe som gir kort diffusjonsavstand og effektiv utveksling.",
     },
   ],
   "biologi-2-2-6": [
     {
       question: "Hva er kooperativ binding i hemoglobin?",
-      options: ["At binding av det første oksygenet gjør det lettere å binde de neste", "At hemoglobin bare kan binde ett oksygen", "At oksygen aldri klarer å binde seg til hemoglobinet, slik at gassen fraktes fritt oppløst i blodet", "At oksygen aldri binder til hemoglobin"],
+      options: ["At binding av det første oksygenet gjør det lettere å binde de neste", "At hemoglobin bare kan binde ett oksygen", "At oksygen fraktes fritt oppløst i blodet i stedet", "At oksygen aldri binder til hemoglobin"],
       explanation: "Når hemoglobin binder det første O₂-molekylet, endrer det form slik at affiniteten øker og de neste O₂ bindes lettere. Dette gir S-formet bindingskurve.",
     },
     {
       question: "Hva viser oksygenbindingskurven?",
-      options: ["Hvor mettet hemoglobin er ved ulike oksygenpartialtrykk", "Blodtrykket ved ulike pulsverdier", "Hvor mye karbondioksid blodet inneholder ved ulike verdier av surhetsgrad", "Hvordan blodtrykket endrer seg ved ulike pulsverdier under hvile og arbeid"],
+      options: ["Hvor mettet hemoglobin er ved ulike oksygenpartialtrykk", "Blodtrykket ved ulike pulsverdier", "Hvor mye karbondioksid blodet inneholder ved ulike verdier av surhetsgrad", "Hvordan blodtrykket endrer seg under hvile og arbeid"],
       explanation: "Kurven viser sammenhengen mellom oksygenpartialtrykk (pO₂) og hvor mettet hemoglobinet er med oksygen.",
     },
     {
       question: "Hva er Bohr-effekten?",
-      options: ["Økt CO₂ og lavere pH reduserer hemoglobinets affinitet for oksygen", "Hemoglobin slutter å virke ved lav temperatur", "At karbondioksid binder seg lettere til hemoglobinet i lungene, der partialtrykket av CO₂ er høyest", "Oksygen binder hardere når pH synker"],
+      options: ["Økt CO₂ og lavere pH reduserer hemoglobinets affinitet for oksygen", "Hemoglobin slutter å virke ved lav temperatur", "At karbondioksid binder lettest til hemoglobinet i lungene", "Oksygen binder hardere når pH synker"],
       explanation: "Bohr-effekten gjør at hemoglobin slipper mer oksygen i aktivt vev med mye CO₂ og lav pH, der oksygen trengs mest.",
     },
     {
@@ -414,22 +414,22 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et aksjonspotensial?",
-      options: ["En rask endring i membranpotensialet fra ca. –70 mV til +30 mV", "En kjemisk binding mellom to nevroner", "En kjemisk binding som dannes mellom to nevroner der de møtes i synapsespalten mellom cellene", "En konstant spenning over membranen"],
+      options: ["En rask endring i membranpotensialet fra ca. –70 mV til +30 mV", "En kjemisk binding mellom to nevroner", "En kjemisk binding som dannes i synapsespalten", "En konstant spenning over membranen"],
       explanation: "Aksjonspotensialet er en kortvarig depolarisering av nervecellemembranen som forplanter seg langs aksonet som et nervesignal.",
     },
     {
       question: "Hva er en synapse?",
-      options: ["Koblingspunktet der signaler overføres mellom to nerveceller", "Et beskyttende lag rundt aksonet", "Blodkaret i hjernen som forsyner nervecellene med oksygen og næringsstoffer", "Det fettholdige isolasjonslaget som omgir aksonet og gir raskere ledning av signalet"],
+      options: ["Koblingspunktet der signaler overføres mellom to nerveceller", "Et beskyttende lag rundt aksonet", "Blodkaret i hjernen som forsyner nervecellene med oksygen og næringsstoffer", "Det fettholdige isolasjonslaget rundt aksonet"],
       explanation: "Synapsen er kontaktstedet mellom to nevroner (eller nevron og effektorcelle), der signalet overføres, ofte ved hjelp av signalstoffer.",
     },
     {
       question: "Hva skjer i en kjemisk synapse når signalet skal overføres?",
-      options: ["Det frigjøres nevrotransmittere som binder reseptorer på mottakercellen", "Aksjonspotensialet hopper direkte over uten kjemikalier", "DNA-et i mottakercellen kopieres slik at det dannes nye reseptorer til å motta signalet", "Mottakercellen deler seg i to for å kunne føre signalet videre til neste nervecelle i banen"],
+      options: ["Det frigjøres nevrotransmittere som binder reseptorer på mottakercellen", "Aksjonspotensialet hopper direkte over uten kjemikalier", "DNA-et i mottakercellen kopieres slik at det dannes nye reseptorer til å motta signalet", "Mottakercellen deler seg i to for å føre signalet videre"],
       explanation: "Når aksjonspotensialet når synapsen, frigjøres nevrotransmittere som diffunderer over synapsespalten og binder reseptorer på neste celle.",
     },
     {
       question: "Hvilken funksjon har myelinskjeden rundt aksonet?",
-      options: ["Den øker hastigheten på signaloverføringen", "Den produserer nevrotransmittere", "Den lagrer næringsstoffer som nervecellen bruker under aktivitet", "Den bremser nervesignalet"],
+      options: ["Den øker hastigheten på signaloverføringen", "Den produserer nevrotransmittere", "Den lagrer næring for nervecellen", "Den bremser nervesignalet"],
       explanation: "Myelinskjeden isolerer aksonet slik at aksjonspotensialet «hopper» mellom Ranviers innsnøringer (saltatorisk ledning) og går mye raskere.",
     },
   ],
@@ -441,7 +441,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hjernebarken (cortex cerebri)?",
-      options: ["Det ytre laget av grå substans i storhjernen", "Den innerste hvite substansen", "Den øverste delen av ryggmargen som formidler reflekser videre opp", "Et hulrom fylt med væske"],
+      options: ["Det ytre laget av grå substans i storhjernen", "Den innerste hvite substansen", "Den øverste delen av ryggmargen", "Et hulrom fylt med væske"],
       explanation: "Hjernebarken er et 2–4 mm tykt ytre lag av grå substans (nevronenes cellelegemer), sterkt foldet for å øke overflaten.",
     },
     {
@@ -451,7 +451,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er funksjonen til cerebrospinalvæsken (CSF)?",
-      options: ["Beskytte og støtte hjernen og ryggmargen", "Transportere oksygen i blodet", "Å lede elektriske nervesignaler mellom hjernen og ryggmargen", "Lede elektriske signaler"],
+      options: ["Beskytte og støtte hjernen og ryggmargen", "Transportere oksygen i blodet", "Å lede nervesignaler til ryggmargen", "Lede elektriske signaler"],
       explanation: "Cerebrospinalvæsken omgir hjernen og ryggmargen, demper støt, gir oppdrift og transporterer næring og avfallsstoffer.",
     },
     {
@@ -483,19 +483,19 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør det parasympatiske nervesystemet?",
-      options: ["Fremmer ro, fordøyelse og energilagring", "Forbereder kroppen på flukt", "Forbereder kroppen på kamp eller flukt ved å øke puls og blodtrykk", "Stenger ned fordøyelsen"],
+      options: ["Fremmer ro, fordøyelse og energilagring", "Forbereder kroppen på flukt", "Forbereder kroppen på kamp ved økt puls", "Stenger ned fordøyelsen"],
       explanation: "Det parasympatiske systemet («rest and digest») senker puls, fremmer fordøyelse og bidrar til hvile og restitusjon.",
     },
   ],
   "biologi-2-3-4": [
     {
       question: "Hva er sensorisk transduksjon?",
-      options: ["Omdanning av en stimulus til et elektrisk nervesignal", "Lagring av sanseinntrykk i hjernen", "Lagring av sanseinntrykk i hjernebarken slik at vi kan huske dem senere", "Sending av ekstra blod til sanseorganene slik at de reagerer på stimulus"],
+      options: ["Omdanning av en stimulus til et elektrisk nervesignal", "Lagring av sanseinntrykk i hjernen i form av kjemiske spor", "Lagring av sanseinntrykk i hjernebarken slik at vi kan huske dem senere", "Sending av ekstra blod til sanseorganene slik at de reagerer på stimulus"],
       explanation: "Sensorisk transduksjon er prosessen der en sansereseptor omdanner lys, lyd, trykk eller kjemisk stimulus til et elektrisk signal.",
     },
     {
       question: "Hvilke celler omdanner lyd til nervesignaler i det indre øret?",
-      options: ["Hårcellene", "Stavcellene", "Tappene", "Plasmacellene"],
+      options: ["Hårcellene", "Stavcellene", "Tappcellene", "Plasmacellene"],
       explanation: "Hårcellene i sneglehuset har stereocilier som bøyes av lydbølger og dermed utløser nervesignaler.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor oppfatter vi sterkere stimulus som kraftigere, selv om hvert aksjonspotensial er like stort?",
-      options: ["Sterkere stimulus gir høyere frekvens av aksjonspotensialer", "Hvert aksjonspotensial blir større", "Signalet skifter retning i nervecellen når stimulusen øker i styrke", "Hvert enkelt aksjonspotensial blir større når stimulusen er sterkere"],
+      options: ["Sterkere stimulus gir høyere frekvens av aksjonspotensialer", "Hvert aksjonspotensial blir større, slik at signalet bærer mer informasjon", "Signalet skifter retning i nervecellen når stimulusen øker i styrke", "Hvert enkelt aksjonspotensial blir større når stimulusen er sterkere"],
       explanation: "Aksjonspotensialer følger «alt-eller-intet». Styrken kodes i stedet av hvor ofte de avfyres (frekvensen) og hvor mange reseptorer som aktiveres.",
     },
   ],
@@ -527,24 +527,24 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er negativ tilbakekobling i hormonsystemet?",
-      options: ["At sluttproduktet hemmer videre produksjon av hormonet", "At hormonet forsterker sin egen produksjon", "At to ulike hormoner alltid stiger samtidig og forsterker hverandre", "At hormonet forsterker sin egen produksjon slik at nivået stiger raskt"],
+      options: ["At sluttproduktet hemmer videre produksjon av hormonet", "At hormonet forsterker sin egen produksjon i kjertelen som skilte det ut", "At to ulike hormoner alltid stiger samtidig og forsterker hverandre", "At hormonet forsterker sin egen produksjon slik at nivået stiger raskt"],
       explanation: "Negativ tilbakekobling stabiliserer nivåene: når et hormon (eller dets effekt) blir høyt nok, hemmes den videre frigjøringen.",
     },
     {
       question: "Hvilken kjertel kalles ofte «den overordnede kjertelen» fordi den styrer flere andre?",
-      options: ["Hypofysen", "Bukspyttkjertelen", "Binyrene", "Skjoldbruskkjertelen"],
+      options: ["Hypofysen", "Bukspyttkjertelen", "Binyrebarken", "Skjoldbruskkjertelen"],
       explanation: "Hypofysen skiller ut hormoner som styrer mange andre kjertler, og den styres selv av hypothalamus.",
     },
     {
       question: "Hvorfor virker hormoner langsommere men mer langvarig enn nervesignaler?",
-      options: ["De fraktes med blodet og påvirker mange celler over tid", "De er elektriske og raske", "De brytes ned umiddelbart etter at de er skilt ut i blodbanen", "De virker bare på én enkelt celle om gangen tett ved kjertelen"],
+      options: ["De fraktes med blodet og påvirker mange celler over tid", "De er elektriske signaler som ledes raskt langs nervetrådene", "De brytes ned umiddelbart etter at de er skilt ut i blodbanen", "De virker bare på én enkelt celle om gangen tett ved kjertelen"],
       explanation: "Hormoner transporteres med blodet til mange målceller og gir en tregere, men mer utbredt og vedvarende respons enn raske nervesignaler.",
     },
   ],
   "biologi-2-3-6": [
     {
       question: "Hva er homeostase?",
-      options: ["Evnen til å opprettholde et stabilt indre miljø", "Nedbrytning av næringsstoffer", "Dannelsen av nye celler ved deling slik at kroppen kan vokse", "Nedbrytningen av næringsstoffer til energi i cellenes stoffskifte"],
+      options: ["Evnen til å opprettholde et stabilt indre miljø", "Nedbrytning av næringsstoffer", "Dannelsen av nye celler ved deling slik at kroppen kan vokse", "Nedbrytningen av næringsstoffer til energi"],
       explanation: "Homeostase er kroppens dynamiske regulering for å holde indre forhold (temperatur, pH, blodsukker osv.) stabile tross ytre endringer.",
     },
     {
@@ -554,7 +554,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør insulin med blodsukkeret?",
-      options: ["Senker det ved å fremme opptak og lagring av glukose", "Hever det ved å frigjøre glukose", "Hever det ved å frigjøre lagret glukose fra glykogenet i leveren", "Omdanner det til protein som bygger opp musklene etter et måltid"],
+      options: ["Senker det ved å fremme opptak og lagring av glukose", "Hever det ved å frigjøre glukose", "Hever det ved å frigjøre lagret glukose fra glykogenet i leveren", "Omdanner det til protein som bygger muskler"],
       explanation: "Insulin frigjøres ved høyt blodsukker og stimulerer celler til å ta opp glukose og lagre den som glykogen, slik at nivået synker.",
     },
     {
@@ -571,7 +571,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-3-7": [
     {
       question: "Hvilken hjernebane er sentral i belønningssystemet?",
-      options: ["Den mesolimbiske dopaminbanen", "Ryggmargsrefleksen", "Synsbarken bakerst i storhjernen", "Ryggmargsrefleksen ved smertestimuli"],
+      options: ["Den mesolimbiske dopaminbanen", "Ryggmargsrefleksen i nedre del av ryggen", "Synsbarken bakerst i storhjernen", "Ryggmargsrefleksen ved smertestimuli"],
       explanation: "Belønningssystemet bygger på den mesolimbiske banen fra ventral tegmental area (VTA) til nucleus accumbens, der dopamin frigjøres.",
     },
     {
@@ -598,12 +598,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-4-1": [
     {
       question: "Hva er spermatogenese?",
-      options: ["Dannelsen av haploide sædceller i testiklene", "Dannelsen av eggceller i eggstokkene", "Befruktningen der en sædcelle smelter sammen med et egg", "Dannelsen av haploide eggceller ved meiose i eggstokkene"],
+      options: ["Dannelsen av haploide sædceller i testiklene", "Dannelsen av eggceller i eggstokkene under fosterlivet", "Befruktningen der en sædcelle smelter sammen med et egg", "Dannelsen av haploide eggceller ved meiose i eggstokkene"],
       explanation: "Spermatogenese er prosessen der diploide spermatogonier gjennom meiose og modning danner haploide sædceller.",
     },
     {
       question: "Hva er resultatet av befruktning?",
-      options: ["En diploid zygote dannes når sæd- og eggcelle smelter sammen", "En kjønnscelle deler seg ved meiose", "To haploide celler dannes idet kjønnscellen deler seg ved meiose", "Et helt nytt sett av haploide eggceller produseres i eggstokkene"],
+      options: ["En diploid zygote dannes når sæd- og eggcelle smelter sammen", "En kjønnscelle deler seg ved meiose og fordobler kromosomtallet", "To haploide celler dannes idet kjønnscellen deler seg ved meiose", "Et helt nytt sett av haploide eggceller produseres i eggstokkene"],
       explanation: "Ved befruktning smelter en haploid sædcelle (n=23) og en haploid eggcelle (n=23) sammen til en diploid zygote (2n=46).",
     },
     {
@@ -618,14 +618,14 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det biologisk gunstig at kjønnsceller er haploide?",
-      options: ["Så zygoten får riktig diploid kromosomtall etter befruktning", "Fordi haploide celler ikke kan dele seg", "Fordi haploide celler ikke lenger kan gjennomgå videre celledeling", "Så zygoten blir tetraploid og dermed får ekstra kopier av hvert kromosom"],
+      options: ["Så zygoten får riktig diploid kromosomtall etter befruktning", "Fordi haploide celler ikke kan dele seg og derfor er ferdig utviklet", "Fordi haploide celler ikke lenger kan gjennomgå videre celledeling", "Så zygoten blir tetraploid og dermed får ekstra kopier av hvert kromosom"],
       explanation: "Når to haploide kjønnsceller (n) smelter sammen, gjenopprettes det diploide kromosomtallet (2n) i zygoten, slik at det holder seg konstant mellom generasjoner.",
     },
   ],
   "biologi-2-4-2": [
     {
       question: "Hva skjer under gastrulasjonen?",
-      options: ["Det dannes tre kimlag: ektoderm, mesoderm og endoderm", "Morkaken brytes ned", "Fosteret fødes etter at organene er ferdig utviklet og modnet", "Egget befruktes av en sædcelle og zygoten begynner å dele seg raskt"],
+      options: ["Det dannes tre kimlag: ektoderm, mesoderm og endoderm", "Morkaken brytes ned og løsner helt fra veggen inne i livmoren", "Fosteret fødes etter at organene er ferdig utviklet og modnet", "Egget befruktes av en sædcelle og zygoten begynner å dele seg raskt"],
       explanation: "Gastrulasjonen i uke 3 reorganiserer celler til de tre kimlagene som senere danner alle kroppens vev og organer.",
     },
     {
@@ -635,7 +635,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når starter fosterperioden?",
-      options: ["Rundt uke 9 etter befruktning", "Ved befruktningen", "Allerede i uke 1 like etter eggløsningen", "Straks etter befruktningen når zygoten dannes"],
+      options: ["Rundt uke 9 etter befruktning", "Ved befruktningen av eggcellen", "Allerede i uke 1 like etter eggløsningen", "Straks etter befruktningen når zygoten dannes"],
       explanation: "Fosterperioden (uke 9–38) følger etter embryonalperioden og preges av vekst og modning av organene som allerede er anlagt.",
     },
     {
@@ -652,7 +652,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-4-3": [
     {
       question: "Hva regulerer HPG-aksen (hypothalamus–hypofyse–gonade-aksen)?",
-      options: ["Den hormonelle styringen av reproduksjonen", "Kroppstemperaturen", "Blodsukkernivået via insulin og glukagon fra bukspyttkjertelen", "Kroppstemperaturen gjennom svetting og regulering fra hypothalamus"],
+      options: ["Den hormonelle styringen av reproduksjonen", "Kroppstemperaturen", "Blodsukkernivået via insulin og glukagon fra bukspyttkjertelen", "Kroppstemperaturen gjennom svetting"],
       explanation: "Hypothalamus frigir GnRH, som får hypofysen til å skille ut FSH og LH, som igjen styrer gonadenes produksjon av kjønnshormoner.",
     },
     {
@@ -679,7 +679,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-4-4": [
     {
       question: "Hva er et fiksert handlingsmønster (FAP)?",
-      options: ["En medfødt atferdssekvens som utløses av en bestemt nøkkelstimulus", "En enkel refleks styrt av ryggmargen uten involvering av hjernen", "En atferd som læres helt fra bunnen gjennom gjentatt erfaring og prøving", "En helt tilfeldig bevegelse uten noen utløsende årsak eller nøkkelstimulus"],
+      options: ["En medfødt atferdssekvens som utløses av en bestemt nøkkelstimulus", "En enkel refleks styrt av ryggmargen uten involvering av hjernen", "En atferd som læres helt fra bunnen gjennom gjentatt prøving", "En helt tilfeldig bevegelse uten utløsende årsak"],
       explanation: "Et fiksert handlingsmønster er en artsspesifikk, medfødt atferd som settes i gang av en spesifikk nøkkelstimulus og gjennomføres fullt ut.",
     },
     {
@@ -699,7 +699,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er operant betinging?",
-      options: ["Atferd endres avhengig av om den belønnes eller straffes", "En nøytral stimulus kobles til en refleks", "Preging i en kritisk periode tidlig i livet som er vanskelig å reversere", "En nøytral stimulus kobles til en ubetinget refleks gjennom gjentatt kobling"],
+      options: ["Atferd endres avhengig av om den belønnes eller straffes", "En nøytral stimulus kobles til en refleks", "Preging i en kritisk periode tidlig i livet som er vanskelig å reversere", "En nøytral stimulus kobles til en ubetinget refleks"],
       explanation: "Ved operant betinging (Skinner) øker atferd som belønnes i frekvens, mens atferd som straffes avtar – læring gjennom konsekvenser.",
     },
   ],
@@ -716,24 +716,24 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er artsdannelse (speciasjon)?",
-      options: ["Prosessen der nye arter oppstår, ofte via reproduktiv isolasjon", "Sammensmelting av to arter til én", "Prosessen der to atskilte arter smelter sammen og blir til én felles art igjen", "Prosessen der en hel art dør ut på grunn av tap av leveområde eller miljøendringer"],
+      options: ["Prosessen der nye arter oppstår, ofte via reproduktiv isolasjon", "Sammensmelting av to nærstående arter til én ny art med felles arvestoff", "Prosessen der to atskilte arter smelter sammen og blir til én felles art igjen", "Prosessen der en hel art dør ut på grunn av tap av leveområde eller miljøendringer"],
       explanation: "Artsdannelse skjer når populasjoner blir reproduktivt isolerte og utvikler seg uavhengig til de blir egne arter.",
     },
     {
       question: "Hvilken rolle spiller mutasjoner i evolusjon?",
-      options: ["De er kilden til ny genetisk variasjon som seleksjonen kan virke på", "De gir alltid bedre egenskaper", "De stanser all pågående evolusjon ved å fjerne den genetiske variasjonen helt", "De forekommer aldri spontant i naturen, men bare i laboratorier med bestråling"],
+      options: ["De er kilden til ny genetisk variasjon som seleksjonen kan virke på", "De gir alltid bedre egenskaper, slik at hver eneste mutasjon er en forbedring", "De stanser all pågående evolusjon ved å fjerne den genetiske variasjonen helt", "De forekommer aldri spontant i naturen, men bare i laboratorier med bestråling"],
       explanation: "Mutasjoner skaper ny genetisk variasjon. Naturlig seleksjon virker så på denne variasjonen, men de fleste mutasjoner er nøytrale eller skadelige.",
     },
     {
       question: "Hvorfor regnes fossiler som et viktig bevis for evolusjon?",
-      options: ["De viser hvordan livsformer har endret seg gjennom geologisk tid", "De beviser at arter aldri endrer seg", "De viser hvordan fremtidige arter kommer til å se ut lenge før de har oppstått", "De beviser at arter aldri endrer seg, men holder seg helt uforandret gjennom tiden"],
+      options: ["De viser hvordan livsformer har endret seg gjennom geologisk tid", "De beviser at arter aldri endrer seg, siden ingen mellomformer er funnet", "De viser hvordan fremtidige arter kommer til å se ut lenge før de har oppstått", "De beviser at arter aldri endrer seg, men holder seg helt uforandret gjennom tiden"],
       explanation: "Fossiler dokumenterer endringer i livsformer over millioner av år og viser overgangsformer som støtter evolusjonsteorien.",
     },
   ],
   "biologi-2-4-6": [
     {
       question: "Hva er seksuell seleksjon?",
-      options: ["Seleksjon som virker gjennom forskjeller i parringssuksess", "Tilfeldig genflyt mellom populasjoner", "En form for seleksjon som kun forekommer hos planter og ikke hos dyr", "Tilfeldig genflyt mellom ulike populasjoner uten kobling til parringssuksess"],
+      options: ["Seleksjon som virker gjennom forskjeller i parringssuksess", "Tilfeldig genflyt mellom populasjoner som lever i nærheten av hverandre", "En form for seleksjon som kun forekommer hos planter og ikke hos dyr", "Tilfeldig genflyt mellom ulike populasjoner uten kobling til parringssuksess"],
       explanation: "Seksuell seleksjon favoriserer egenskaper som øker sjansen for å skaffe partner og pare seg, selv om de ikke nødvendigvis øker overlevelsen.",
     },
     {
@@ -743,12 +743,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forklarer slektskapseleksjon (kin selection)?",
-      options: ["Hvordan altruistisk atferd mot slektninger kan utvikles evolusjonært", "Hvorfor arter aldri hjelper hverandre", "Hvorfor hanner nesten alltid er større og sterkere enn hunnene hos en art", "Hvordan nye arter dannes gjennom reproduktiv isolasjon mellom populasjoner"],
+      options: ["Hvordan altruistisk atferd mot slektninger kan utvikles evolusjonært", "Hvorfor individer av samme art aldri hjelper hverandre når det koster noe", "Hvorfor hanner nesten alltid er større og sterkere enn hunnene hos en art", "Hvordan nye arter dannes gjennom reproduktiv isolasjon mellom populasjoner"],
       explanation: "Slektskapseleksjon forklarer altruisme: ved å hjelpe slektninger fremmer individet kopier av sine egne gener, selv om det koster noe.",
     },
     {
       question: "Hva er feromoner?",
-      options: ["Kjemiske signalstoffer dyr bruker til kommunikasjon", "Synlige fargemønstre", "En type lydsignal dyr bruker til å varsle om fare eller tiltrekke partnere", "Et fordøyelsesenzym som brytes ned næringsstoffer i tarmen etter et måltid"],
+      options: ["Kjemiske signalstoffer dyr bruker til kommunikasjon", "Synlige fargemønstre som dyr bruker for å kommunisere med hverandre", "En type lydsignal dyr bruker til å varsle om fare eller tiltrekke partnere", "Et fordøyelsesenzym som brytes ned næringsstoffer i tarmen etter et måltid"],
       explanation: "Feromoner er kjemiske stoffer som skilles ut og påvirker atferden til andre individer av samme art, f.eks. ved parring eller markering.",
     },
     {
@@ -760,17 +760,17 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-5-1": [
     {
       question: "Hva er en populasjon?",
-      options: ["En gruppe individer av samme art i samme område til samme tid", "Alle artene i et økosystem", "Alle dyr på hele jorden regnet under ett uavhengig av art og leveområde", "Et enkelt individ av en art som lever alene i et bestemt geografisk område"],
+      options: ["En gruppe individer av samme art i samme område til samme tid", "Alle artene som lever sammen i ett og samme økosystem til samme tid", "Alle dyr på hele jorden regnet under ett uavhengig av art og leveområde", "Et enkelt individ av en art som lever alene i et bestemt geografisk område"],
       explanation: "En populasjon er individer av samme art som lever i samme område samtidig og kan utveksle gener gjennom reproduksjon.",
     },
     {
       question: "Hva kjennetegner eksponentiell vekst?",
-      options: ["Populasjonen øker med en konstant prosentandel per tidsenhet", "Veksten flater ut ved bæreevnen", "Veksten flater ut og stabiliserer seg når populasjonen når miljøets bæreevne", "Populasjonen holder seg helt konstant fra en tidsenhet til den neste over tid"],
+      options: ["Populasjonen øker med en konstant prosentandel per tidsenhet", "Veksten flater ut ved bæreevnen og blir liggende der uten å synke igjen", "Veksten flater ut og stabiliserer seg når populasjonen når miljøets bæreevne", "Populasjonen holder seg helt konstant fra en tidsenhet til den neste over tid"],
       explanation: "Ved eksponentiell vekst ($N_t = N_0 \\cdot e^{rt}$) vokser populasjonen raskere og raskere når ressursene er ubegrensede.",
     },
     {
       question: "Hva er bæreevnen (K) til et miljø?",
-      options: ["Det maksimale antallet individer miljøet kan opprettholde over tid", "Startstørrelsen til populasjonen", "Startstørrelsen populasjonen hadde da den først etablerte seg i området", "Vekstraten regnet per individ i populasjonen under ubegrensede ressurser"],
+      options: ["Det maksimale antallet individer miljøet kan opprettholde over tid", "Startstørrelsen til populasjonen, altså antallet individer før veksten begynner", "Startstørrelsen populasjonen hadde da den først etablerte seg i området", "Vekstraten regnet per individ i populasjonen under ubegrensede ressurser"],
       explanation: "Bæreevnen K er den øvre grensen for hvor mange individer ressursene i et område kan opprettholde over tid.",
     },
     {
@@ -797,7 +797,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor øker ofte dødeligheten i en populasjon når tettheten blir høy?",
-      options: ["Konkurransen om ressurser og spredning av sykdom øker", "Ressursene blir ubegrensede", "Fødselsraten stiger alltid ved høy tetthet og gir dermed enda flere avkom", "Predatorene i området forsvinner helt og reduserer presset på populasjonen"],
+      options: ["Konkurransen om ressurser og spredning av sykdom øker", "Ressursene blir ubegrensede når det blir flere individer i området", "Fødselsraten stiger alltid ved høy tetthet og gir dermed enda flere avkom", "Predatorene i området forsvinner helt og reduserer presset på populasjonen"],
       explanation: "Høy tetthet gir hardere konkurranse om mat og plass og lettere smittespredning, slik at dødeligheten stiger og veksten bremses.",
     },
     {
@@ -819,12 +819,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en arts økologiske nisje?",
-      options: ["Artens totale rolle og krav i økosystemet", "Antall individer i populasjonen", "Det totale antallet individer arten har i sin populasjon", "Den bestemte typen byttedyr som arten spiser i økosystemet"],
+      options: ["Artens totale rolle og krav i økosystemet", "Antall individer i populasjonen på et gitt tidspunkt", "Det totale antallet individer arten har i sin populasjon", "Den bestemte typen byttedyr som arten spiser i økosystemet"],
       explanation: "Den økologiske nisjen omfatter alle de abiotiske og biotiske forholdene en art trenger og dens rolle i økosystemet.",
     },
     {
       question: "Hva er parasittisme?",
-      options: ["En parasitt lever på/i en vert og skader den (+/–)", "En art spiser en annen helt opp umiddelbart", "En nøytral relasjon der ingen av de to artene blir påvirket (0/0)", "Der en art fanger og fortærer en annen art fullstendig og umiddelbart"],
+      options: ["En parasitt lever på/i en vert og skader den (+/–)", "En art spiser en annen helt opp umiddelbart etter angrepet", "En nøytral relasjon der ingen av de to artene blir påvirket (0/0)", "Der en art fanger og fortærer en annen art fullstendig og umiddelbart"],
       explanation: "Ved parasittisme henter parasitten næring fra verten over tid, til skade for verten – en (+/–)-interaksjon der verten sjelden dør med en gang.",
     },
     {
@@ -834,7 +834,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier konkurranseutelukkingsprinsippet?",
-      options: ["To arter med helt lik nisje kan ikke leve sammen permanent", "To arter med lik nisje lever alltid godt sammen", "Konkurranse mellom arter forekommer aldri i naturlige økosystemer", "To arter med helt lik nisje kan alltid leve stabilt sammen permanent"],
+      options: ["To arter med helt lik nisje kan ikke leve sammen permanent", "To arter med lik nisje lever alltid godt sammen og deler ressursene", "Konkurranse mellom arter forekommer aldri i naturlige økosystemer", "To arter med helt lik nisje kan alltid leve stabilt sammen permanent"],
       explanation: "Hvis to arter har identisk nisje og konkurrerer om samme begrensede ressurs, vil den ene utkonkurrere den andre eller nisjene må deles opp.",
     },
   ],
@@ -895,7 +895,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-5-6": [
     {
       question: "Hvilke tre nivåer omfatter biologisk mangfold (biodiversitet)?",
-      options: ["Genetisk mangfold, artsmangfold og økosystemmangfold", "Bare antall individer", "Kun det totale antallet individer summert over alle artene", "Kun antallet ulike arter som finnes innenfor et gitt område"],
+      options: ["Genetisk mangfold, artsmangfold og økosystemmangfold", "Bare antallet individer som til sammen finnes innenfor området", "Kun det totale antallet individer i alle artene", "Kun antallet ulike arter som finnes innenfor et gitt område"],
       explanation: "Biodiversitet måles på tre nivåer: variasjon innen arter (genetisk), antall arter (arts-) og variasjon av økosystemer.",
     },
     {
@@ -905,17 +905,17 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er rødlista?",
-      options: ["En vitenskapelig oversikt over arter med risiko for å dø ut", "En liste over alle vanlige arter", "En fullstendig oversikt over alle de vanlige og livskraftige artene", "En oversikt over hvilke naturområder som er vernet og fredet ved lov"],
+      options: ["En vitenskapelig oversikt over arter med risiko for å dø ut", "En liste over alle de vanlige artene som er trygge og ikke står i fare", "En fullstendig oversikt over alle de vanlige og livskraftige artene", "En oversikt over hvilke naturområder som er vernet og fredet ved lov"],
       explanation: "Rødlista vurderer hvilke arter som har risiko for å dø ut i et område. I Norge utarbeides den av Artsdatabanken.",
     },
     {
       question: "Hvorfor er genetisk mangfold viktig for en art?",
-      options: ["Det gir bedre evne til å tilpasse seg endringer og motstå sykdom", "Det gjør alle individer helt like", "Det hindrer at arten kan endre seg og utvikle seg gjennom evolusjon", "Det har ingen praktisk betydning for artens overlevelse på lang sikt"],
+      options: ["Det gir bedre evne til å tilpasse seg endringer og motstå sykdom", "Det gjør alle individer helt like, slik at arten står sterkere samlet", "Det hindrer at arten kan endre seg og utvikle seg gjennom evolusjon", "Det har ingen praktisk betydning for artens overlevelse på lang sikt"],
       explanation: "Genetisk variasjon gir råmateriale for tilpasning. Arter med lite genetisk mangfold er mer sårbare for sykdom og miljøendringer.",
     },
     {
       question: "Hvordan kan fremmede (introduserte) arter true biologisk mangfold?",
-      options: ["De kan utkonkurrere eller spise hjemmehørende arter", "De gjør lokale arter sterkere", "De har ingen effekt på hjemmehørende arter eller på økosystemet", "De øker alltid det biologiske mangfoldet ved å tilføre nye arter"],
+      options: ["De kan utkonkurrere eller spise hjemmehørende arter", "De gjør de lokale artene sterkere gjennom hardere konkurranse", "De har ingen effekt på hjemmehørende arter eller på økosystemet", "De øker alltid det biologiske mangfoldet ved å tilføre nye arter"],
       explanation: "Fremmede arter kan mangle naturlige fiender og utkonkurrere, spise eller smitte hjemmehørende arter, og dermed redusere mangfoldet.",
     },
   ],
@@ -949,12 +949,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-6-1": [
     {
       question: "Hva gjør et restriksjonsenzym?",
-      options: ["Gjenkjenner en spesifikk DNA-sekvens og klipper DNA-et der", "Limer sammen DNA-fragmenter", "Limer sammen løse DNA-fragmenter til én sammenhengende tråd", "Kopierer DNA-tråden eksponentielt slik som i en PCR-reaksjon"],
+      options: ["Gjenkjenner en spesifikk DNA-sekvens og klipper DNA-et der", "Limer sammen DNA-fragmenter etter at de er klippet fra hverandre", "Limer sammen løse DNA-fragmenter til én sammenhengende tråd", "Kopierer DNA-tråden eksponentielt slik som i en PCR-reaksjon"],
       explanation: "Restriksjonsenzymer kutter DNA ved bestemte gjenkjenningssekvenser og er sentrale verktøy for å klippe og lime gener i genteknologi.",
     },
     {
       question: "Hva er hovedoppgaven til DNA-ligase i genteknologi?",
-      options: ["Koble sammen DNA-fragmenter med fosfodiesterbindinger", "Fjerne nitrogenbaser", "Klippe DNA-tråden i mindre biter ved bestemte sekvenser", "Kopiere DNA-tråden opp i mange identiske kopier ved PCR"],
+      options: ["Koble sammen DNA-fragmenter med fosfodiesterbindinger", "Fjerne nitrogenbasene fra DNA-tråden slik at bare sukkerkjeden står igjen", "Klippe DNA-tråden i mindre biter ved bestemte sekvenser", "Kopiere DNA-tråden opp i mange identiske kopier ved PCR"],
       explanation: "DNA-ligase «limer» sammen DNA-fragmenter ved å danne fosfodiesterbindinger, f.eks. når et gen settes inn i en vektor.",
     },
     {
@@ -976,7 +976,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-6-2": [
     {
       question: "Hva er CRISPR-Cas9 basert på?",
-      options: ["Bakteriers naturlige immunforsvar mot virus", "Mitokondrienes energiproduksjon", "Plantenes fotosyntese der lysenergi omdannes til kjemisk energi", "Menneskets immunforsvar"],
+      options: ["Bakteriers naturlige immunforsvar mot virus", "Mitokondrienes energiproduksjon", "Plantenes fotosyntese med lysenergi", "Menneskets immunforsvar"],
       explanation: "CRISPR-Cas9 stammer fra et forsvarssystem bakterier bruker mot virus, og er tilpasset som et presist genredigeringsverktøy.",
     },
     {
@@ -1003,7 +1003,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-6-3": [
     {
       question: "Hva brukes PCR (polymerase chain reaction) til?",
-      options: ["Å lage mange kopier av en bestemt DNA-sekvens", "Å oversette DNA til protein", "Å klippe langt DNA opp i mange mindre fragmenter", "Å fjerne skadelige mutasjoner fra et bestemt gen"],
+      options: ["Å lage mange kopier av en bestemt DNA-sekvens", "Å oversette DNA-sekvensen direkte til et ferdig protein", "Å klippe langt DNA opp i mange mindre fragmenter", "Å fjerne skadelige mutasjoner fra et bestemt gen"],
       explanation: "PCR amplifiserer (kopierer) en valgt DNA-sekvens eksponentielt, slik at man får nok DNA til analyse fra en liten startprøve.",
     },
     {
@@ -1013,12 +1013,12 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes en varmestabil DNA-polymerase (Taq) i PCR?",
-      options: ["Den tåler de høye temperaturene under denatureringen", "Den virker bare ved romtemperatur", "Den lager RNA-tråder ut fra en DNA-mal i stedet for DNA", "Den kutter DNA-et i biter mellom hver eneste PCR-syklus"],
+      options: ["Den tåler de høye temperaturene under denatureringen", "Den virker bare ved romtemperatur og stopper når det blir varmt", "Den lager RNA-tråder ut fra en DNA-mal i stedet for DNA", "Den kutter DNA-et i biter mellom hver eneste PCR-syklus"],
       explanation: "Taq-polymerase fra en varmekjær bakterie tåler de høye temperaturene i denatureringssteget, slik at den ikke ødelegges mellom syklusene.",
     },
     {
       question: "Hva bestemmer Sanger-sekvensering?",
-      options: ["Rekkefølgen av nukleotider i et DNA-fragment", "Antall kromosomer i en celle", "Cellens forbruk av energi og mengden ATP den bruker", "Den totale mengden protein som finnes i en vevsprøve"],
+      options: ["Rekkefølgen av nukleotider i et DNA-fragment", "Antallet kromosomer som finnes i hver enkelt celle", "Cellens forbruk av energi og mengden ATP den bruker", "Den totale mengden protein som finnes i en vevsprøve"],
       explanation: "Sanger-sekvensering (kjedetermineringsmetoden) bruker fluorescensmerkede dideoksynukleotider for å lese av basesekvensen i et DNA-fragment.",
     },
     {
@@ -1030,27 +1030,27 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-6-4": [
     {
       question: "Hvilke to egenskaper definerer en stamcelle?",
-      options: ["Selvfornyelse og evne til å differensiere til andre celletyper", "At den mangler cellekjerne og dermed også arvematerialet sitt", "At den utelukkende produserer antistoffer mot fremmede stoffer", "At den bare kan dø raskt uten noen gang å dele seg videre"],
+      options: ["Selvfornyelse og evne til å differensiere til andre celletyper", "At den mangler cellekjerne og dermed også hele arvematerialet sitt", "At den utelukkende produserer antistoffer mot fremmede stoffer", "At den bare kan dø raskt uten noen gang å dele seg videre"],
       explanation: "En stamcelle kan både fornye seg selv (dele seg og gi nye stamceller) og differensiere til mer spesialiserte celletyper.",
     },
     {
       question: "Hva er induserte pluripotente stamceller (iPSC)?",
-      options: ["Voksne celler omprogrammert til en pluripotent tilstand", "Celler hentet direkte fra embryoer", "Bakterieceller som har fått satt inn et menneskelig gen", "Fullstendig ferdig spesialiserte muskelceller uten delingsevne"],
+      options: ["Voksne celler omprogrammert til en pluripotent tilstand", "Celler hentet direkte fra embryoer", "Bakterieceller som har fått satt inn et menneskelig gen", "Ferdig spesialiserte muskelceller uten delingsevne"],
       explanation: "iPSC lages ved å omprogrammere voksne, differensierte celler tilbake til en pluripotent tilstand ved hjelp av bestemte transkripsjonsfaktorer.",
     },
     {
       question: "Hva betyr det at en stamcelle er pluripotent?",
-      options: ["Den kan utvikle seg til nesten alle celletyper i kroppen", "Den danner et helt nytt individ alene", "Den har mistet evnen til å dele seg og fornye seg videre", "Den kan alene utvikle seg til et helt nytt, ferdig individ"],
+      options: ["Den kan utvikle seg til nesten alle celletyper i kroppen", "Den danner et helt nytt individ alene", "Den har mistet evnen til å dele seg og fornye seg videre selv", "Den kan alene utvikle seg til et helt nytt individ"],
       explanation: "Pluripotente stamceller kan gi opphav til celler fra alle de tre kimlagene, men ikke til et helt nytt individ (det er totipotente celler).",
     },
     {
       question: "Hvorfor er iPSC etisk fordelaktig sammenlignet med embryonale stamceller?",
-      options: ["De lages fra pasientens egne voksne celler uten å bruke embryoer", "De mangler helt evnen til å differensiere til andre celletyper", "De fører alltid til kreft og er derfor uansett uforsvarlige å bruke", "De krever langt flere embryoer enn embryonale stamceller gjør"],
+      options: ["De lages fra pasientens egne voksne celler uten å bruke embryoer", "De mangler helt evnen til å differensiere til andre celletyper", "De fører alltid til kreft og er derfor uforsvarlige", "De krever langt flere embryoer enn embryonale stamceller gjør"],
       explanation: "iPSC lages fra voksne celler, slik at man unngår den etiske problematikken ved å bruke embryoer, og de kan dessuten matche pasientens eget vev.",
     },
     {
       question: "Hva er et mål med regenerativ medisin?",
-      options: ["Erstatte eller reparere skadet vev ved hjelp av stamceller", "Å lage ekstra kromosomer slik at cellene blir mer robuste", "Å fjerne alle stamceller fra kroppen for å hindre celledeling", "Å stanse all celledeling fullstendig i det skadde vevet"],
+      options: ["Erstatte eller reparere skadet vev ved hjelp av stamceller", "Å lage ekstra kromosomer slik at cellene blir mer robuste", "Å fjerne alle stamceller for å hindre celledeling", "Å stanse all celledeling fullstendig i det skadde vevet"],
       explanation: "Regenerativ medisin bruker stamceller til å erstatte, gjenoppbygge eller reparere skadet eller sykt vev, f.eks. ved organskade.",
     },
   ],
@@ -1067,7 +1067,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva regulerer genteknologiloven i Norge?",
-      options: ["Fremstilling, import, utsetting og bruk av GMO", "Bare matvareprisene", "Innkreving av skatt og avgifter fra norsk landbruk", "Bare fastsetting av prisene på matvarer i butikkene"],
+      options: ["Fremstilling, import, utsetting og bruk av GMO", "Bare matvareprisene som bøndene får betalt for varene sine", "Innkreving av skatt og avgifter fra norsk landbruk", "Bare fastsetting av prisene på matvarer i butikkene"],
       explanation: "Genteknologiloven (1993) regulerer all fremstilling og bruk av genmodifiserte organismer i Norge og krever blant annet vurdering av etikk og bærekraft.",
     },
     {
@@ -1094,7 +1094,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er preimplantasjonsdiagnostikk (PGD)?",
-      options: ["Genetisk undersøkelse av embryoer fra IVF før de settes inn i livmoren", "En form for cellegiftbehandling som brukes mot kreftsvulster", "Sekvensering av hele genomet til et voksent, ferdig individ", "En metode for å klone dyr ved å overføre en cellekjerne"],
+      options: ["Genetisk undersøkelse av embryoer fra IVF før de settes inn i livmoren", "En form for cellegiftbehandling som brukes mot flere typer kreftsvulster", "Sekvensering av hele genomet til et voksent, ferdig individ", "En metode for å klone dyr ved å overføre en cellekjerne"],
       explanation: "PGD undersøker embryoer fra prøverørsbefruktning genetisk før innsetting, slik at man kan velge bort embryoer med alvorlige arvelige sykdommer.",
     },
     {
@@ -1111,7 +1111,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
   "biologi-2-6-7": [
     {
       question: "Hva kjennetegner en god vitenskapelig hypotese?",
-      options: ["Den er testbar og kan falsifiseres", "Den trenger ikke kunne testes", "Den kan aldri motbevises uansett hvilke forsøk man gjør", "Den kan aldri motbevises"],
+      options: ["Den er testbar og kan falsifiseres", "Den trenger ikke kunne testes", "Den kan aldri motbevises av noe forsøk", "Den kan aldri motbevises"],
       explanation: "En god hypotese er en testbar, falsifiserbar forklaring – det må være mulig å gjøre en observasjon eller et forsøk som kan motbevise den.",
     },
     {
@@ -1126,7 +1126,7 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den uavhengige variabelen i et eksperiment?",
-      options: ["Den variabelen forskeren bevisst endrer for å se effekten", "En variabel som bevisst holdes helt konstant hele tiden", "En tilfeldig feilkilde som forstyrrer selve målingene", "Den variabelen som måles som resultat av forsøket"],
+      options: ["Den variabelen forskeren bevisst endrer for å se effekten", "En variabel som bevisst holdes helt konstant gjennom hele forsøket", "En tilfeldig feilkilde som forstyrrer selve målingene", "Den variabelen som måles som resultat av forsøket"],
       explanation: "Den uavhengige variabelen er det forskeren manipulerer, mens den avhengige variabelen er det man måler som respons.",
     },
     {
@@ -1143,17 +1143,17 @@ const quizData_biologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er fagfellevurdering (peer review)?",
-      options: ["Uavhengige eksperter vurderer en artikkel før den publiseres", "At publikum stemmer over hvilke resultater som skal godtas", "At forfatteren selv godkjenner og kvalitetssikrer sin egen artikkel", "En metode for å samle inn og registrere data i et forsøk"],
+      options: ["Uavhengige eksperter vurderer en artikkel før den publiseres", "At publikum stemmer over hvilke resultater som skal godtas", "At forfatteren selv godkjenner sin egen artikkel", "En metode for å samle inn og registrere data i et forsøk"],
       explanation: "Fagfellevurdering er kvalitetssikring der uavhengige eksperter på feltet gransker en artikkel for å vurdere kvalitet og holdbarhet før publisering.",
     },
     {
       question: "Hva er en metaanalyse?",
-      options: ["En statistisk sammenstilling av resultater fra flere studier av samme spørsmål", "Et enkeltstående eksperiment", "Et grundig planlagt enkeltstående eksperiment der én forsker samler inn alle data selv under kontrollerte laboratorieforhold", "En kvalitativ intervjuundersøkelse der forskeren tolker deltakernes egne opplevelser av et fenomen uten statistisk behandling"],
+      options: ["En statistisk sammenstilling av resultater fra flere studier av samme spørsmål", "Et enkeltstående eksperiment", "Et grundig planlagt enkeltstående eksperiment der én forsker samler inn alle data selv under kontrollerte laboratorieforhold", "En kvalitativ intervjustudie der forskeren tolker det deltakerne sier"],
       explanation: "En metaanalyse kombinerer data fra mange uavhengige studier for å gi et samlet, mer pålitelig bilde av et forskningsspørsmål.",
     },
     {
       question: "Hvorfor er det viktig å oppgi kilder i en vitenskapelig rapport?",
-      options: ["For å gi kreditt og la andre etterprøve grunnlaget", "For å skjule hvor informasjonen kommer fra", "For å gjøre rapporten mer omfattende og gi et inntrykk av at forfatteren har lest svært mye litteratur om emnet", "For å gjøre rapporten lengre"],
+      options: ["For å gi kreditt og la andre etterprøve grunnlaget", "For å skjule hvor informasjonen kommer fra", "For å gi inntrykk av at forfatteren har lest mye", "For å gjøre rapporten lengre"],
       explanation: "Kildehenvisninger gir andre mulighet til å etterprøve påstandene, gir kreditt til opphavspersonene og er en del av god forskningsetikk.",
     },
     {
