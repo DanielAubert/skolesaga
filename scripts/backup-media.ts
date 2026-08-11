@@ -42,6 +42,32 @@ const KILDER = ['audio', 'images'];
 const DEST = process.env.MEDIA_BACKUP_DIR
   || path.join(os.homedir(), 'Desktop', 'Skolesaga-mediebackup');
 
+/**
+ * Ligger backupen et sted som faktisk synkroniseres bort fra maskinen?
+ *
+ * ⚠ Dette MÅ sjekkes, ikke antas. Skriptet skrev en stund «ligger på samme
+ * maskin» selv om mappa lå på et Skrivebord med iCloud-synk på — altså en
+ * advarsel som var usann. Og den motsatte feilen er verre: slår noen av
+ * Skrivebord-synk, slutter backupen stille å være en backup.
+ */
+function skysynket(p: string): string | null {
+  const hjem = os.homedir();
+  if (p.startsWith(path.join(hjem, 'Library', 'Mobile Documents'))) return 'iCloud Drive';
+  // Skrivebord/Dokumenter-synk speiler mappene inn under CloudDocs.
+  for (const m of ['Desktop', 'Documents']) {
+    if (p.startsWith(path.join(hjem, m))
+        && fs.existsSync(path.join(hjem, 'Library', 'Mobile Documents',
+                                   'com~apple~CloudDocs', m))) {
+      return `iCloud Drive (${m}-synk)`;
+    }
+  }
+  for (const [mappe, navn] of [['Dropbox', 'Dropbox'], ['Google Drive', 'Google Drive'],
+                               ['OneDrive', 'OneDrive']] as const) {
+    if (p.includes(`/${mappe}`)) return navn;
+  }
+  return null;
+}
+
 export function backupMedia(stille = false): boolean {
   const speil = path.join(DEST, 'speil');
   const finnes = KILDER.filter((d) => fs.existsSync(path.join(PUBLIC_DIR, d)));
@@ -94,9 +120,11 @@ export function backupMedia(stille = false): boolean {
       + ` · ${(overført / 1048576).toFixed(0)} MB overført`
       + ` · ${((Date.now() - før) / 1000).toFixed(0)}s`);
     console.log(`   ${speil}`);
-    if (!process.env.MEDIA_BACKUP_DIR) {
-      console.log('   ⚠ Ligger på samme maskin som originalene. Sett MEDIA_BACKUP_DIR'
-        + ' til ekstern disk eller skymappe for ekte sikkerhet.');
+    const sky = skysynket(speil);
+    if (sky) console.log(`   ☁︎ synkroniseres til ${sky} — altså også utenfor maskinen`);
+    else {
+      console.log('   ⚠ Ligger BARE på denne maskinen. Sett MEDIA_BACKUP_DIR til en'
+        + ' ekstern disk eller en synkronisert skymappe.');
     }
   }
   return true;
