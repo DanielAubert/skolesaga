@@ -79,7 +79,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Ungdomsskole',
     ageRange: '13–14 år',
     gradient: 'from-sky-400 to-blue-500',
-    image: '/images/grades/8-klasse.png',
+    image: '/images/grades/8-klasse.webp',
     subjects: [
       { courseId: '8', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-hero.webp' },
       { courseId: 'norsk-8', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.webp' },
@@ -98,7 +98,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Ungdomsskole',
     ageRange: '14–15 år',
     gradient: 'from-blue-400 to-indigo-500',
-    image: '/images/grades/9-klasse.png',
+    image: '/images/grades/9-klasse.webp',
     subjects: [
       { courseId: '9', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-hero.webp' },
       { courseId: 'norsk-9', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.webp' },
@@ -117,7 +117,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Ungdomsskole',
     ageRange: '15–16 år',
     gradient: 'from-indigo-400 to-violet-500',
-    image: '/images/grades/10-klasse.jpg',
+    image: '/images/grades/10-klasse.webp',
     subjects: [
       { courseId: '10', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-hero.webp' },
       { courseId: 'norsk-10', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.webp' },
@@ -136,7 +136,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Videregående trinn 1',
     ageRange: '16–17 år',
     gradient: 'from-purple-400 to-fuchsia-500',
-    image: '/images/grades/vg1.png',
+    image: '/images/grades/vg1.webp',
     subjects: [
       { courseId: '1p', name: 'Matematikk 1P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-1p-hero.webp' },
       { courseId: '1t', name: 'Matematikk 1T', icon: '📐', color: 'from-indigo-500 to-violet-600', image: '/images/textbook/1t/course-hero.webp' },
@@ -165,7 +165,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Videregående trinn 2',
     ageRange: '17–18 år',
     gradient: 'from-fuchsia-400 to-pink-500',
-    image: '/images/grades/vg2.png',
+    image: '/images/grades/vg2.webp',
     subjects: [
       // Fellesfag
       { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg2.png' },
@@ -207,7 +207,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Videregående trinn 3',
     ageRange: '18–19 år',
     gradient: 'from-pink-400 to-rose-500',
-    image: '/images/grades/vg3.png',
+    image: '/images/grades/vg3.webp',
     subjects: [
       // Fellesfag
       { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg3.png' },

@@ -112,7 +112,7 @@ export default function HomePage() {
                   grade="8. klasse"
                   subtitle="13–14 år"
                   gradient="bg-gradient-to-br from-sky-400 to-blue-500"
-                  image="/images/grades/8-klasse.png"
+                  image="/images/grades/8-klasse.webp"
                 />
               </div>
               <div className="w-56">
@@ -121,7 +121,7 @@ export default function HomePage() {
                   grade="9. klasse"
                   subtitle="14–15 år"
                   gradient="bg-gradient-to-br from-blue-400 to-indigo-500"
-                  image="/images/grades/9-klasse.png"
+                  image="/images/grades/9-klasse.webp"
                 />
               </div>
               <div className="w-56">
@@ -130,7 +130,7 @@ export default function HomePage() {
                   grade="10. klasse"
                   subtitle="15–16 år"
                   gradient="bg-gradient-to-br from-indigo-400 to-violet-500"
-                  image="/images/grades/10-klasse.jpg"
+                  image="/images/grades/10-klasse.webp"
                 />
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function HomePage() {
                   grade="VG1"
                   subtitle="16–17 år"
                   gradient="bg-gradient-to-br from-purple-400 to-fuchsia-500"
-                  image="/images/grades/vg1.png"
+                  image="/images/grades/vg1.webp"
                 />
               </div>
               <div className="w-56">
@@ -159,7 +159,7 @@ export default function HomePage() {
                   grade="VG2"
                   subtitle="17–18 år"
                   gradient="bg-gradient-to-br from-fuchsia-400 to-pink-500"
-                  image="/images/grades/vg2.png"
+                  image="/images/grades/vg2.webp"
                 />
               </div>
               <div className="w-56">
@@ -168,7 +168,7 @@ export default function HomePage() {
                   grade="VG3"
                   subtitle="18–19 år"
                   gradient="bg-gradient-to-br from-pink-400 to-rose-500"
-                  image="/images/grades/vg3.png"
+                  image="/images/grades/vg3.webp"
                 />
               </div>
             </div>
