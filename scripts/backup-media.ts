@@ -30,6 +30,7 @@
  * mot at maskinen går tapt. Sett MEDIA_BACKUP_DIR til en ekstern disk eller en
  * synkronisert skymappe for at den skal være verdt navnet.
  */
+import { createClient } from '@supabase/supabase-js';
 import { execFileSync } from 'child_process';
 import * as fs from 'fs';
 import * as os from 'os';
@@ -101,6 +102,60 @@ export function backupMedia(stille = false): boolean {
   return true;
 }
 
+/**
+ * Er Supabase Storage faktisk en komplett kopi?
+ *
+ * Storage er den ENESTE kopien utenfor denne maskinen, og upload-skriptet
+ * sletter aldri — bare upsert-er — så bøtta fungerer som et append-only-arkiv.
+ * Målt 11. august 2026: 2 619 lokale filer, 2 863 i Storage, 0 manglende
+ * mediefiler, 246 filer bevart i Storage etter at de var slettet lokalt.
+ *
+ * ⚠ Dette beskytter mot tapt maskin og lokal sletting — IKKE mot at
+ * Supabase-kontoen eller prosjektet går tapt. Da ryker produksjon og backup
+ * samtidig. En kopi hos en annen leverandør er det eneste som dekker det.
+ */
+export async function verifiserStorage(): Promise<boolean> {
+  for (const l of fs.readFileSync(path.join(ROOT, '.env.local'), 'utf-8').split('\n')) {
+    const m = l.match(/^([A-Z_]+)=(.*)$/);
+    if (m && !process.env[m[1]]) process.env[m[1]] = m[2].trim().replace(/^["']|["']$/g, '');
+  }
+  const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
+  const fjern = new Map<string, number>();
+  async function walk(p: string, d = 0) {
+    const { data } = await sb.storage.from('media').list(p, { limit: 1000 });
+    for (const o of data ?? []) {
+      const full = p ? `${p}/${o.name}` : o.name;
+      const sz = (o.metadata as any)?.size;
+      if (sz !== undefined) fjern.set(full, sz);
+      else if (d < 6) await walk(full, d + 1);
+    }
+  }
+  for (const d of KILDER) await walk(d);
+  const lok = new Map<string, number>();
+  const gå = (dir: string) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const f = path.join(dir, e.name);
+      if (e.isDirectory()) gå(f);
+      else if (!e.name.startsWith('.') && !e.name.endsWith('.md'))
+        lok.set(path.relative(PUBLIC_DIR, f).split(path.sep).join('/'), fs.statSync(f).size);
+    }
+  };
+  for (const d of KILDER) { const r = path.join(PUBLIC_DIR, d); if (fs.existsSync(r)) gå(r); }
+
+  const mangler = [...lok.keys()].filter((k) => !fjern.has(k));
+  const ulik = [...lok.entries()].filter(([k, v]) => fjern.has(k) && fjern.get(k) !== v);
+  console.log(`\n🔎 Storage: ${fjern.size} filer · lokalt: ${lok.size}`);
+  if (mangler.length || ulik.length) {
+    console.error(`⛔ ${mangler.length} mediefil(er) MANGLER i Storage, ${ulik.length} har ulik størrelse`);
+    [...mangler, ...ulik.map(([k]) => k)].slice(0, 10).forEach((m) => console.error(`   ${m}`));
+    console.error('   Kjør: npx tsx scripts/upload-media-storage.ts\n');
+    return false;
+  }
+  console.log('   ✅ komplett — hver lokale mediefil finnes i Storage med samme størrelse');
+  console.log(`   ${[...fjern.keys()].filter((k) => !lok.has(k)).length} filer bevart i Storage etter lokal sletting`);
+  return true;
+}
+
 function snapshot(medLyd: boolean) {
   const dato = new Date().toISOString().slice(0, 10);
   const mapper = medLyd ? ['images', 'audio'] : ['images'];
@@ -120,4 +175,7 @@ function snapshot(medLyd: boolean) {
 if (require.main === module) {
   const ok = backupMedia();
   if (ok && process.argv.includes('--snapshot')) snapshot(process.argv.includes('--snapshot-lyd'));
+  if (process.argv.includes('--verifiser-storage')) {
+    verifiserStorage().then((ok2) => process.exit(ok2 ? 0 : 1));
+  }
 }
