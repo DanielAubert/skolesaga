@@ -8,6 +8,7 @@
  * Kjør: npx tsx scripts/upload-media-storage.ts
  */
 import { createClient } from '@supabase/supabase-js';
+import { backupMedia } from './backup-media';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -147,6 +148,11 @@ async function main() {
   fs.writeFileSync(manifestPath, JSON.stringify(manifest));
 
   console.log(`\nFerdig: ${uploaded} lastet opp, ${skipped} hoppet over, ${failed} feilet`);
+
+  // Backup KJØRES ALLTID, også når ingenting ble lastet opp — da fanger den opp
+  // filer som er endret lokalt uten å ha blitt publisert ennå. Kjøres FØR
+  // vekt-vakten avslutter prosessen, slik at et blokkert bilde likevel er sikret.
+  backupMedia();
 
   if (tunge.length > 0) {
     console.error(`\n⛔ ${tunge.length} bilde(r) BLE IKKE LASTET OPP — over vekttaket:\n`);
