@@ -44,7 +44,7 @@ export const COURSE_IMAGES: Record<string, string> = {
   // VG1
   '1p': '/images/subjects/matematikk-1p-hero.webp',
   '1t': '/images/textbook/1t/course-hero.webp',
-  'norsk-vg1': '/images/courses/norsk-vg1.png',
+  'norsk-vg1': '/images/courses/norsk-vg1.webp',
   'engelsk-vg1': '/images/subjects/engelsk-vg1-hero.webp',
   'nat-vg1': '/images/subjects/naturfag-vg1-hero.webp',
   'samfunnskunnskap': '/images/subjects/samfunnskunnskap-hero.webp',
@@ -55,28 +55,28 @@ export const COURSE_IMAGES: Record<string, string> = {
   'fransk-1': '/images/subjects/fransk-1-hero.webp',
 
   // VG2
-  'norsk-vg2': '/images/courses/norsk-vg2.png',
+  'norsk-vg2': '/images/courses/norsk-vg2.webp',
   'historie-vg2': '/images/subjects/historie-vg2-hero.webp',
-  'kroppsoving-vg2': '/images/textbook-covers/kroppsoving-vg2-hero.png',
+  'kroppsoving-vg2': '/images/textbook-covers/kroppsoving-vg2-hero.webp',
   '2p': '/images/subjects/matematikk-2p-hero.webp',
-  '2py': '/images/courses/matematikk-2p-y.png',
+  '2py': '/images/courses/matematikk-2p-y.webp',
   's1': '/images/subjects/matematikk-s1-hero.webp',
   'r1': '/images/subjects/matematikk-r1-hero.webp',
   'fys1': '/images/subjects/fysikk1-hero.webp',
   'kjemi1': '/images/subjects/kjemi1-hero.webp',
-  'biologi-1': '/images/textbook-covers/biologi-1-hero.png',
-  'geofag-1': '/images/textbook-covers/geofag-1-hero.png',
+  'biologi-1': '/images/textbook-covers/biologi-1-hero.webp',
+  'geofag-1': '/images/textbook-covers/geofag-1-hero.webp',
 
   // VG3
-  'norsk-vg3': '/images/courses/norsk-vg3.png',
+  'norsk-vg3': '/images/courses/norsk-vg3.webp',
   'historie-vg3': '/images/subjects/historie-vg3-hero.webp',
-  'kroppsoving-vg3': '/images/textbook-covers/kroppsoving-vg3-hero.png',
+  'kroppsoving-vg3': '/images/textbook-covers/kroppsoving-vg3-hero.webp',
   's2': '/images/subjects/matematikk-s2-hero.webp',
   'r2': '/images/subjects/matematikk-r2-hero.webp',
   'fysikk2': '/images/subjects/fysikk2-hero.webp',
   'kjemi2': '/images/subjects/kjemi2-hero.webp',
-  'biologi-2': '/images/textbook-covers/biologi-2-hero.png',
-  'geofag-2': '/images/textbook-covers/geofag-2-hero.png',
+  'biologi-2': '/images/textbook-covers/biologi-2-hero.webp',
+  'geofag-2': '/images/textbook-covers/geofag-2-hero.webp',
 };
 
 /**

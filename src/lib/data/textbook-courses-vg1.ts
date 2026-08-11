@@ -15,7 +15,7 @@ export const COURSE_NORSK_VG1: TextbookCourse = {
   description: 'Norsk for VG1 - nyere skjønnlitteratur, kulturmøter, retorikk, språk og skriving (LK20)',
   curriculum: 'LK20',
   icon: '📚',
-  coverImage: '/images/courses/norsk-vg1.png',
+  coverImage: '/images/courses/norsk-vg1.webp',
     chapters: [
     // KAPITTEL 1: RETORIKK OG SAKPROSA (1.1-1.5)
     { id: 'norsk-vg1-1-1', linkedChapterId: 'norsk-vg1-1-1-narrativ', coverImage: '/images/textbook/norsk-vg1/covers/norsk-vg1-1-1-cover.webp', number: '1.1', title: 'Retorikk og argumentasjon', description: 'Lær om retoriske appellformer (etos, patos, logos) og hvordan de brukes i argumentasjon og overtalelse.', estimatedMinutes: 55, exerciseCount: 11, topics: ['Etos', 'Patos', 'Logos', 'Argumentasjon', 'Appellformer'], competenceGoals: ['gjøre rede for og reflektere over bruken av retoriske appellformer og språklige virkemidler i sakprosatekster'] },

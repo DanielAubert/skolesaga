@@ -22,7 +22,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Barneskole',
     ageRange: '10–11 år',
     gradient: 'from-lime-400 to-green-500',
-    image: '/images/grades/5-klasse.jpg',
+    image: '/images/grades/5-klasse.webp',
     subjects: [
       { courseId: '5', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600', image: '/images/subjects/matematikk-hero.webp' },
       { courseId: 'norsk-5', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.webp' },
@@ -41,7 +41,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Barneskole',
     ageRange: '11–12 år',
     gradient: 'from-green-400 to-emerald-500',
-    image: '/images/grades/6-klasse.jpg',
+    image: '/images/grades/6-klasse.webp',
     subjects: [
       { courseId: '6', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600', image: '/images/subjects/matematikk-hero.webp' },
       { courseId: 'norsk-6', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.webp' },
@@ -60,7 +60,7 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Barneskole',
     ageRange: '12–13 år',
     gradient: 'from-emerald-400 to-teal-500',
-    image: '/images/grades/7-klasse.jpg',
+    image: '/images/grades/7-klasse.webp',
     subjects: [
       { courseId: '7', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600', image: '/images/subjects/matematikk-hero.webp' },
       { courseId: 'norsk-7', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.webp' },
@@ -140,7 +140,7 @@ const GRADE_CONFIG: Record<string, {
     subjects: [
       { courseId: '1p', name: 'Matematikk 1P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-1p-hero.webp' },
       { courseId: '1t', name: 'Matematikk 1T', icon: '📐', color: 'from-indigo-500 to-violet-600', image: '/images/textbook/1t/course-hero.webp' },
-      { courseId: 'norsk-vg1', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg1.png' },
+      { courseId: 'norsk-vg1', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg1.webp' },
       { courseId: 'engelsk-vg1', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-vg1-hero.webp' },
       { courseId: 'nat-vg1', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-vg1-hero.webp' },
       { courseId: 'samfunnskunnskap', name: 'Samfunnskunnskap', icon: '🏛️', color: 'from-amber-500 to-orange-600', image: '/images/subjects/samfunnskunnskap-hero.webp' },
@@ -168,12 +168,12 @@ const GRADE_CONFIG: Record<string, {
     image: '/images/grades/vg2.webp',
     subjects: [
       // Fellesfag
-      { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg2.png' },
+      { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg2.webp' },
       { courseId: 'historie-vg2', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg2-hero.webp' },
       { courseId: 'kroppsoving-vg2', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600', image: '/images/textbook-covers/kroppsoving-vg2-hero.webp' },
       // Matematikk
       { courseId: '2p', name: 'Matematikk 2P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-2p-hero.webp' },
-      { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/courses/matematikk-2p-y.png' },
+      { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/courses/matematikk-2p-y.webp' },
       { courseId: 's1', name: 'Matematikk S1', icon: '📐', color: 'from-purple-500 to-violet-600', image: '/images/subjects/matematikk-s1-hero.webp' },
       { courseId: 'r1', name: 'Matematikk R1', icon: '📐', color: 'from-rose-500 to-pink-600', image: '/images/subjects/matematikk-r1-hero.webp' },
       // Programfag realfag
@@ -210,7 +210,7 @@ const GRADE_CONFIG: Record<string, {
     image: '/images/grades/vg3.webp',
     subjects: [
       // Fellesfag
-      { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg3.png' },
+      { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg3.webp' },
       { courseId: 'historie-vg3', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg3-hero.webp' },
       { courseId: 'religion-etikk', name: 'Religion og etikk', icon: '🕊️', color: 'from-purple-500 to-violet-600', image: '/images/subjects/religion-etikk-hero.webp' },
       { courseId: 'kroppsoving-vg3', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600', image: '/images/textbook-covers/kroppsoving-vg3-hero.webp' },

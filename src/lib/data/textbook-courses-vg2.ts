@@ -15,7 +15,7 @@ export const COURSE_NORSK_VG2: TextbookCourse = {
   description: 'Norsk for VG2 - norrøn litteratur, litteraturhistorie 1500-1850, språkhistorie og retorikk',
   curriculum: 'LK20',
   icon: '📖',
-  coverImage: '/images/courses/norsk-vg2.png',
+  coverImage: '/images/courses/norsk-vg2.webp',
     chapters: [
     // ENHET 1: NORRØN TID OG MIDDELALDER (1.1-1.5)
     { id: 'norsk-vg2-1-1', number: '1.1', title: 'Innføring i norrøn tid (800-1350)', description: 'Lær om vikingtiden og den norrøne kulturen som la grunnlaget for vår litterære arv.', estimatedMinutes: 60, exerciseCount: 11, topics: ['Vikingtid', 'Norrøn kultur', 'Kristning', 'Samfunnsstruktur'], competenceGoals: ['lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid'], linkedChapterId: 'norsk-vg2-1-1-narrativ', coverImage: 'https://images.unsplash.com/photo-1608823468206-5be309dc29cf?w=800&h=400&fit=crop' },

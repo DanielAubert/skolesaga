@@ -15,7 +15,7 @@ export const COURSE_NORSK_VG3: TextbookCourse = {
   description: 'Norsk for VG3 - språkhistorie, samtidslitteratur, akademisk skriving og eksamensforberedelse',
   curriculum: 'LK20',
   icon: '📚',
-  coverImage: '/images/courses/norsk-vg3.png',
+  coverImage: '/images/courses/norsk-vg3.webp',
   chapters: [
     // === Kapittel 1: Det moderne gjennombruddet (1870-1900) ===
     { id: 'norsk-vg3-1-1', linkedChapterId: 'norsk-vg3-1-1-narrativ', number: '1.1', title: 'Georg Brandes og problemdiktningen', description: 'Georg Brandes\' programerklæring og starten på det moderne gjennombruddet i nordisk litteratur.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Realisme', 'Brandes', 'Problemdiktning'], competenceGoals: ['analysere og tolke romaner, noveller, drama, lyrikk og sakprosa på bokmål og nynorsk fra 1850 til i dag'], coverImage: 'https://images.unsplash.com/photo-1608823468206-5be309dc29cf?w=800&h=400&fit=crop' },
