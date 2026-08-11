@@ -1325,7 +1325,7 @@ export const COURSE_KROPPSOVING_VG2: TextbookCourse = {
   description: 'Kroppsøving - avansert trening, idrettspsykologi og helse',
   curriculum: 'LK20',
   icon: '🏋️',
-  coverImage: '/images/textbook-covers/kroppsoving-vg2-hero.png',
+  coverImage: '/images/textbook-covers/kroppsoving-vg2-hero.webp',
   chapters: [
     // Kapittel 1: Treningslære
     { id: 'kroppsoving-vg2-1-1', number: '1.1', title: 'Treningsadaptasjon og superkompensasjon', description: 'Lær om hvordan kroppen tilpasser seg trening og superkompensasjonsprinsippet.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Treningsadaptasjon', 'Superkompensasjon', 'Overtrenning'], competenceGoals: ['anvende treningsprinsipper for å utvikle egen kropp'], coverImage: 'https://images.unsplash.com/photo-1546418172-f9c9b6ab0c4a?w=800&h=400&fit=crop', linkedChapterId: 'kroppsoving-vg2-1-1-narrativ' },

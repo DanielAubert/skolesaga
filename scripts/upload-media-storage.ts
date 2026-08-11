@@ -15,6 +15,34 @@ const ROOT = path.join(__dirname, '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const SOURCE_DIRS = ['audio', 'images'];
 const BUCKET = 'media';
+
+// ── VEKTVAKT ────────────────────────────────────────────────────────────────
+// 11. august 2026 lå katalogen 118 % over Supabase-kvoten for cached egress.
+// Årsaken var at bilder ble servert i full oppløsning: forsiden lastet 45,4 MB
+// fordi trinnkortene var PNG-er på 2816 px som vises på 224 px, og
+// norsk-vg1s kapittelliste lastet 126 MB i kapittelforsider.
+//
+// Grunnen til at det kunne skje er strukturell: sidene bruker rå <img> med
+// `eslint-disable @next/next/no-img-element`, som kobler ut Next.js'
+// bildeoptimalisering. Filen sendes nøyaktig slik den ligger, uansett hvor
+// liten den vises. Ingenting fanget det opp.
+//
+// Dette skriptet er det obligatoriske steget for alt nytt medieinnhold, og er
+// derfor riktig sted å stoppe det. Vakten gjelder bare filer som FAKTISK skal
+// lastes opp (nye eller endrede) — allerede opplastede originaler blokkerer
+// ikke senere kjøringer.
+//
+// Konverter med:  cwebp -q 82 -resize 1200 0 fil.png -o fil.webp
+// Overstyr med:   npx tsx scripts/upload-media-storage.ts --tillat-tunge
+const VEKTTAK: Record<string, number> = {
+  '.png': 500 * 1024,
+  '.jpg': 500 * 1024,
+  '.jpeg': 500 * 1024,
+  '.webp': 500 * 1024,
+  '.gif': 500 * 1024,
+  '.svg': 200 * 1024,
+};
+const TILLAT_TUNGE = process.argv.includes('--tillat-tunge');
 const CONCURRENCY = 8;
 
 const CONTENT_TYPES: Record<string, string> = {
@@ -73,6 +101,7 @@ async function main() {
   let skipped = 0;
   let failed = 0;
   const failures: string[] = [];
+  const tunge: { key: string; size: number; tak: number }[] = [];
   const queue = [...files];
 
   async function worker() {
@@ -85,7 +114,13 @@ async function main() {
         skipped++;
         continue;
       }
-      const contentType = CONTENT_TYPES[path.extname(file).toLowerCase()];
+      const ext = path.extname(file).toLowerCase();
+      const tak = VEKTTAK[ext];
+      if (tak && size > tak && !TILLAT_TUNGE) {
+        tunge.push({ key, size, tak });
+        continue;
+      }
+      const contentType = CONTENT_TYPES[ext];
       const body = fs.readFileSync(file);
       // Lyd er i praksis uforanderlig (30 dager); forsidebilder kan regenereres (7 dager)
       const cacheControl = key.startsWith('audio/') ? '2592000' : '604800';
@@ -112,6 +147,18 @@ async function main() {
   fs.writeFileSync(manifestPath, JSON.stringify(manifest));
 
   console.log(`\nFerdig: ${uploaded} lastet opp, ${skipped} hoppet over, ${failed} feilet`);
+
+  if (tunge.length > 0) {
+    console.error(`\n⛔ ${tunge.length} bilde(r) BLE IKKE LASTET OPP — over vekttaket:\n`);
+    for (const t of tunge.sort((a, b) => b.size - a.size).slice(0, 20)) {
+      console.error(`   ${(t.size / 1024).toFixed(0).padStart(6)} KB  (tak ${(t.tak / 1024).toFixed(0)} KB)  ${t.key}`);
+    }
+    if (tunge.length > 20) console.error(`   … og ${tunge.length - 20} til`);
+    console.error(`\n   Konverter:  cwebp -q 82 -resize 1200 0 public/<fil>.png -o public/<fil>.webp`);
+    console.error(`   og oppdater referansene i kapitteldataene (bokmål OG nynorsk).`);
+    console.error(`   Må et bilde være stort, kjør med --tillat-tunge.\n`);
+    process.exit(1);
+  }
   if (failures.length > 0) {
     console.log('Feilede filer:');
     failures.slice(0, 20).forEach((f) => console.log(`  ${f}`));

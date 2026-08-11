@@ -140,7 +140,7 @@ export const COURSE_BIOLOGI_1: TextbookCourse = {
   description: 'Biologi 1 - celler, anatomi, homeostase, mikroorganismer og økologi',
   curriculum: 'LK20',
   icon: '🧬',
-  coverImage: '/images/textbook-covers/biologi-1-hero.png',
+  coverImage: '/images/textbook-covers/biologi-1-hero.webp',
   chapters: [
     // Kapittel 1: Cellebiologi (1.1-1.6)
     { id: 'biologi-1-1-1', number: '1.1', title: 'Celleteori og celler som livets grunnenhet', description: 'Celleteoriens historiske utvikling og cellens rolle.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Celleteori', 'Livsprosesser', 'Mikroskopi'], competenceGoals: ['beskrive cellens oppbygging'], coverImage: 'https://images.unsplash.com/photo-1611748418152-59735e43780e?w=800&h=400&fit=crop', linkedChapterId: 'biologi-1-1-1-narrativ' },
@@ -214,7 +214,7 @@ export const COURSE_BIOLOGI_2: TextbookCourse = {
   description: 'Biologi 2 - molekylærbiologi, fysiologi, økologi, bioteknologi og vitenskapelig metode',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/textbook-covers/biologi-2-hero.png',
+  coverImage: '/images/textbook-covers/biologi-2-hero.webp',
   chapters: [
     // Seksjon 1: Molekylærbiologi og genetikk
     { id: 'biologi-2-1-1', number: '1.1', title: 'DNA-struktur og replikasjon', description: 'Nukleotider, dobbeltheliks, semikonservativ replikasjon og enzymer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['DNA', 'Replikasjon', 'Helikase', 'Polymerase'], competenceGoals: ['gjøre rede for DNA-struktur og replikasjon'], coverImage: 'https://images.unsplash.com/photo-1611748418152-59735e43780e?w=800&h=400&fit=crop', linkedChapterId: 'biologi-2-1-1-narrativ' },
@@ -422,7 +422,7 @@ export const COURSE_GEOFAG_1: TextbookCourse = {
   description: 'Geofag 1 - jordens oppbygging, platetektonikk, klima og landformer',
   curriculum: 'LK20',
   icon: '🌍',
-  coverImage: '/images/textbook-covers/geofag-1-hero.png',
+  coverImage: '/images/textbook-covers/geofag-1-hero.webp',
   chapters: [
     // Del 1: Jordens system og sfærer
     { id: 'geofag-1-1-1', number: '1.1', title: 'Introduksjon til jordsystemet', description: 'Jorden som system og sfærene.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Jordsystem', 'Sfærer'], competenceGoals: ['beskrive jordens oppbygging'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geofag-1-1-1-narrativ' },
@@ -494,7 +494,7 @@ export const COURSE_GEOFAG_2: TextbookCourse = {
   description: 'Geofag 2 - jordsystemer, atmosfære, hav, klima, energi og naturfare',
   curriculum: 'LK20',
   icon: '🗺️',
-  coverImage: '/images/textbook-covers/geofag-2-hero.png',
+  coverImage: '/images/textbook-covers/geofag-2-hero.webp',
   sectionNames: {
     '1': 'Jordas historie og geologi',
     '2': 'Vann, is og klima',

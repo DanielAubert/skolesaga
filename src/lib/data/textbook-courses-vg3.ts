@@ -322,7 +322,7 @@ export const COURSE_KROPPSOVING_VG3: TextbookCourse = {
   description: 'Kroppsøving - livslang bevegelsesglede, selvstendighet og helse',
   curriculum: 'LK20',
   icon: '🎯',
-  coverImage: '/images/textbook-covers/kroppsoving-vg3-hero.png',
+  coverImage: '/images/textbook-covers/kroppsoving-vg3-hero.webp',
   sectionNames: {
     '1': 'Bevegelsesglede, mestring og friluftsliv',
     '2': 'Trening, helse og livsløp',
