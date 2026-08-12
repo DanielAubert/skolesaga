@@ -63,6 +63,52 @@ MONSTRE = [
     (rf"\b[Øø]verste\s+{SUBST}\w*|\b[Nn]ederste\s+{SUBST}\w*", "øverste/nederste"),
 ]
 
+# ── BOKSTAVFORMEN ───────────────────────────────────────────────────────────
+# Fram til 12. august 2026 fanget porten bare ORDFORMEN («alternativ to», «det
+# siste alternativet»). IN1900 hadde 155 forklaringer på bokstavform —
+# «Alternativ b) er forvekslet med fordelingen», «og d) glemmer at
+# flervalgsskallet finnes» — nøyaktig samme feil: bokstaven peker på en
+# plassering, og plasseringen er tilfeldig etter stokking. En hel bok sto rød
+# uten at porten kunne se det.
+#
+# ⚠ MÅ KJØRE PÅ LATEX-STRIPPET TEKST. Et første forsøk mot rå tekst meldte 458
+# treff i 61 filer; 446 av dem var matematikk — `f(a)`, `8a/(27Rb)`, `p(a)` —
+# der «a)» er en parentes i en formel, ikke et alternativ. Porten ville ha
+# druknet ekte funn i falske, og blitt slått av. Etter stripping: 12.
+MATTE = re.compile(r"\$[^$]*\$|\\\([^)]*\\\)|\\\[[^]]*\\]"
+                   # Kode teller også som støy: `adder(a, b)` og
+                   # `self.assertEqual(a, b)` ga treff i it/it-2 der «b)» bare er
+                   # slutten på en parameterliste.
+                   r"|`[^`]*`|\w+\([^)]*\)")
+BOKSTAVMONSTRE = [
+    (r"[Aa]lternativ(?:et|ene)?\s+[a-e]\)", "alternativ + bokstav"),
+    # Bar bokstav teller bare der den står som et setningsledd og etterfølges av
+    # et ord — «a) definerer negativ frihet». Uten den innrammingen treffer
+    # mønsteret enhver parentes.
+    (r"(?:^|[.,;:!?]\s+|\b(?:og|mens|men|eller)\s+)[a-e]\)\s*[a-zæøå]", "bar bokstav"),
+]
+
+# ⚠ EN REKKE AV BOKSTAVER ER OPPGAVELEDD, IKKE ALTERNATIVER.
+# «Skriv underspørsmålene ut som a), b), c) på hver sin linje» (JUROFF1500) og
+# «en besvarelse kan treffe a), b) og d)» (PSY1010) handler om EKSAMENSOPPGAVENS
+# deloppgaver. De er stabile under stokking og skal stå. Kjennetegnet er at
+# bokstavene opptrer i rekke; en ekte alternativreferanse står alene i setningen.
+REKKE_ETTER = re.compile(r"\A[a-e]\)[,;]?\s*(?:og\s+|eller\s+)?[a-e]\)")
+REKKE_FOR = re.compile(r"[a-e]\)[,;]?\s*(?:og\s+|eller\s+)?\Z")
+# «uklare parameternavn (som a, b, c)» — enkeltbokstaver med komma, ikke parentes.
+LISTE_FOR = re.compile(r"\b[a-e],\s*(?:[a-e],\s*)*\Z")
+
+
+def _er_rekke(tekst, i, j):
+    """Står bokstaven i en oppregning av oppgaveledd framfor alene i setningen?"""
+    # ⚠ Utsnittene FØR må slutte på i, ikke i+2. Et første forsøk tok med
+    # bokstaven selv, så «a) definerer negativ frihet» matchet seg selv som en
+    # rekke — og alle seks ekte funnene i STV1100 ble tause. En vokter som
+    # skjuler det den skal fange er verre enn ingen vokter.
+    return bool(REKKE_ETTER.search(tekst[j - 2:j + 14])
+                or REKKE_FOR.search(tekst[max(0, i - 14):i])
+                or LISTE_FOR.search(tekst[max(0, i - 14):i]))
+
 
 def kilder(emne=None):
     """Alle filer som kan inneholde quiz-forklaringer, per emne.
@@ -202,11 +248,18 @@ def main():
         kilder_tekst = list(forklaringer(s))
         kilder_tekst += [(f, t) for f, t in kapittelforklaringer(emne)]
         for felt, tekst in kilder_tekst:
-            for rx, navn in MONSTRE:
-                for m in re.finditer(rx, tekst):
-                    i = m.start()
-                    utdrag = " ".join(tekst[max(0, i - 70):i + 70].split())
-                    funn.append((navn, utdrag))
+            renset = MATTE.sub(" ", tekst)
+            for kilde, monstre in ((tekst, MONSTRE), (renset, BOKSTAVMONSTRE)):
+                for rx, navn in monstre:
+                    for m in re.finditer(rx, kilde):
+                        if navn == "bar bokstav":
+                            b = re.search(r"[a-e]\)", m.group(0))
+                            if _er_rekke(kilde, m.start() + b.start(),
+                                         m.start() + b.end()):
+                                continue
+                        i = m.start()
+                        utdrag = " ".join(kilde[max(0, i - 70):i + 70].split())
+                        funn.append((navn, utdrag))
         if funn:
             tot += len(funn)
             print(f"\n{emne}: {len(funn)} posisjonsreferanser")
