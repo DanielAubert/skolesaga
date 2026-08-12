@@ -279,7 +279,7 @@ const quizData_svmet1010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den sikreste måten å begrunne et kvalitativt metodevalg på?",
       options: ["Å si hva den kvantitative varianten av undersøkelsen ville gitt i stedet, og hvorfor det ikke er nok", "Å vise til at kvalitative metoder er godt egnet til å studere mennesker og deres livsverden på nært hold", "Å vise til at flere sentrale pensumforfattere anbefaler metoden for denne typen spørsmål", "Å vise til at metoden er praktisk gjennomførbar innenfor rammene prosjektet har"],
-      explanation: "Riktig svar er å nevne hva alternativet ville gitt. De to neste er sanne, men de kunne stått i en hvilken som helst besvarelse om et hvilket som helst tema, og en begrunnelse som kan flyttes fritt er ikke en begrunnelse. Gjennomførbarhet er et reelt hensyn, men det sier ikke at metoden passer spørsmålet.",
+      explanation: "Riktig svar er å nevne hva alternativet ville gitt. At kvalitative metoder er godt egnet til å studere mennesker på nært hold, og at pensumforfattere anbefaler metoden, er sanne påstander, men de kunne stått i en hvilken som helst besvarelse om et hvilket som helst tema, og en begrunnelse som kan flyttes fritt er ikke en begrunnelse. Gjennomførbarhet er et reelt hensyn, men det sier ikke at metoden passer spørsmålet.",
     },
   ],
   'svmet1010-1-2': [
@@ -376,7 +376,7 @@ const quizData_svmet1010: Record<string, QuizQuestion[]> = {
     {
       question: "Hvem skal avgjøre om kvalitative funn kan overføres til en ny situasjon?",
       options: ["Det er et drøftingsspørsmål i faget, med gode argumenter for både forsker og leser", "Forskeren alene, siden bare hun kjenner materialet og de betingelsene det ble til under", "Leseren, siden forskeren ikke har noe ansvar for hvordan funnene brukes videre", "Ingen av dem, siden overføring krever en ny undersøkelse i den nye situasjonen"],
-      explanation: "Riktig svar er at dette er en reell faglig uenighet Fangen tar opp uten å avslutte. De to neste er hver sin posisjon fremstilt som fasit, og de utelater den andre sidens beste argument. Å kreve en ny undersøkelse ville gjøre begrepet overflødig.",
+      explanation: "Riktig svar er at dette er en reell faglig uenighet Fangen tar opp uten å avslutte. Svarene som utpeker forskeren alene eller leseren alene, er hver sin posisjon fremstilt som fasit, og de utelater den andre sidens beste argument. Å kreve en ny undersøkelse ville gjøre begrepet overflødig.",
     },
     {
       question: "Hva gjør en tykk beskrivelse tykk?",
@@ -413,7 +413,7 @@ const quizData_svmet1010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er et tema, sammenlignet med en problemstilling?",
       options: ["Området studien ligger i, som avgrenser saksfeltet men ikke kan besvares", "Det ene spørsmålet undersøkelsen er innrettet for å kunne besvare empirisk", "De konkrete spørsmålene datainnsamlingen i praksis skal gi svar på", "Den påstanden studien setter opp på forhånd for å kunne etterprøve den"],
-      explanation: "Riktig svar er at temaet avgrenser et område og ikke kan besvares. Distraktoren om det ene spørsmålet beskriver problemstillingen, som er nivået under; distraktoren om de konkrete spørsmålene beskriver forskningsspørsmålene, som er nivået under der igjen. Den siste distraktoren beskriver en hypotese, som hører hjemme i et etterprøvende design.",
+      explanation: "Riktig svar er at temaet avgrenser et område og ikke kan besvares. Distraktoren om det ene spørsmålet beskriver problemstillingen, som er nivået under; distraktoren om de konkrete spørsmålene beskriver forskningsspørsmålene, som er nivået under der igjen. Distraktoren om påstanden som settes opp på forhånd, beskriver en hypotese, som hører hjemme i et etterprøvende design.",
     },
     {
       question: "Hva er problemstillingens funksjon i et forskningsopplegg hos Tellmann og Leseth?",

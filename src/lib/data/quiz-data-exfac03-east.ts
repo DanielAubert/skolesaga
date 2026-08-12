@@ -35,7 +35,7 @@ const quizData_exfac03east: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken temaklynge står i flest av de 21 spørsmålene?",
       options: ["Kjønn, familie og ulikhet, med 5 av 21 spørsmål i 5 av 7 terminer", "Modernisering og statens rolle, med 5 av 21 spørsmål fordelt over hele perioden", "Øst-Asia som region, med 5 av 21 spørsmål og med to ordrett gjentatte formuleringer", "Imperialisme og kolonitid, med 4 av 21 spørsmål og en detaljert momentliste i materialet"],
-      explanation: "Riktig svar er kjønn, familie og ulikhet med 5 av 21 spørsmål. Både region-klyngen og moderniseringsklyngen står i 4 av 21 spørsmål hver, og de to nære alternativene tester nettopp forvekslingen av toppen med de to neste. De tre tyngste klyngene dekker til sammen 13 av 21 spørsmål.",
+      explanation: "Riktig svar er kjønn, familie og ulikhet med 5 av 21 spørsmål. Både regionklyngen og moderniseringsklyngen står i 4 av 21 spørsmål hver, og alternativene som oppgir 5 for dem, tester nettopp forvekslingen av den største klyngen med de nest største. De tre tyngste klyngene dekker til sammen 13 av 21 spørsmål.",
     },
     {
       question: "Hva sier terminmønsteret i materialet om når emnet eksamineres?",
@@ -1089,7 +1089,7 @@ const quizData_exfac03east: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er det sterkeste argumentet for at staten var én betingelse blant flere, ikke årsaken?",
       options: ["At de samme virkemidlene ga svært ulike utfall i ulike land", "At staten grep aktivt inn i alle landene", "At veksten begynte kort tid etter at de statlige tiltakene ble satt i verk", "At tallene for vekst i perioden er usikre og vanskelige å sammenligne mellom land med ulike statistikkbyråer"],
-      explanation: "Like virkemidler med ulike utfall peker mot at noe annet også måtte være til stede. De to neste svarene er derimot argumenter på den motsatte siden, og det siste er et kildeproblem og ikke et argument om årsak.",
+      explanation: "Like virkemidler med ulike utfall peker mot at noe annet også måtte være til stede. At staten grep aktivt inn i alle landene, og at veksten kom kort tid etter at tiltakene ble satt i verk, er derimot argumenter på den motsatte siden, og påstanden om usikre og lite sammenlignbare veksttall er et kildeproblem og ikke et argument om årsak.",
     },
     {
       question: "Hva må et årsaksargument navngi for å være mer enn en samtidighetsobservasjon?",
@@ -1494,7 +1494,7 @@ const quizData_exfac03east: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er robust om Taiwans demokratisering?",
       options: ["At unntakstilstanden ble opphevet i 1987 og valgordningene utvidet gjennom 1990-tallet", "At den fulgte automatisk av den økonomiske veksten, slik alle rike samfunn før eller siden opplever", "At den ble innført etter krav fra utenlandske myndigheter", "At den ikke har funnet sted i noen egentlig forstand"],
-      explanation: "Forløpet er dokumentert og skrives i indikativ, med årsaker. De to neste svarene er forklaringer som må begrunnes, og det siste er faktisk galt.",
+      explanation: "Forløpet er dokumentert og skrives i indikativ, med årsaker. At demokratiseringen fulgte automatisk av den økonomiske veksten, og at den kom etter krav fra utenlandske myndigheter, er forklaringer som må begrunnes, mens påstanden om at den ikke har funnet sted, er faktisk gal.",
     },
     {
       question: "Hvordan behandler boka Taiwans folkerettslige status?",

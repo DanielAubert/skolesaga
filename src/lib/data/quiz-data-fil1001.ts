@@ -391,7 +391,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den beste innvendingen mot Blacks tankeeksperiment?",
       options: ["At beskrivelsen med to kuler ikke lar seg begrunne innenfra scenarioet", "At helt like gjenstander aldri forekommer i den virkelige verden vi kjenner", "At et univers som bare inneholder to gjenstander, er fysisk umulig å tenke seg", "At vi ikke kan vite hvilken kule som er hvilken"],
-      explanation: "Den sterke innvendingen angriper beskrivelsen, ikke stipulasjonene: alt som kan sies kvalitativt om den ene, gjelder også den andre, så tellingen kan være noe vi legger til utenfra. De to neste alternativene omgår premissene, og det siste blander epistemisk uskjelnbarhet med antallet ting.",
+      explanation: "Den sterke innvendingen angriper beskrivelsen, ikke stipulasjonene: alt som kan sies kvalitativt om den ene, gjelder også den andre, så tellingen kan være noe vi legger til utenfra. Innvendingene om at helt like gjenstander aldri forekommer i virkeligheten, og at et univers med bare to gjenstander er fysisk umulig, omgår premissene, mens svaret om at vi ikke kan vite hvilken kule som er hvilken, blander epistemisk uskjelnbarhet med antallet ting.",
     },
     {
       question: "Hva er Blacks svar til den som sier at scenarioet like gjerne beskriver én kule?",
@@ -473,7 +473,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilket av Humes punkter mot designargumentet lar argumentet stå, men begrenser rekkevidden?",
       options: ["At konklusjonen bare gir en designer stor nok til oppgaven", "At universet like gjerne ligner en organisme som en maskin", "At vi ikke har erfart at univers blir laget", "At naturens orden kan forklares uten noen designer"],
-      explanation: "Dette punktet aksepterer analogien for argumentets skyld og viser at den ikke gir teismens allmektige, allvitende og gode Gud — den utelukker heller ikke flere eller udyktige designere. De to neste punktene angriper selve analogien, ikke rekkevidden.",
+      explanation: "Dette punktet aksepterer analogien for argumentets skyld og viser at den ikke gir teismens allmektige, allvitende og gode Gud — den utelukker heller ikke flere eller udyktige designere. Punktene om at universet like gjerne ligner en organisme, og at vi ikke har erfart at univers blir laget, angriper selve analogien, ikke rekkevidden.",
     },
     {
       question: "Hva er fine-tuning-argumentet?",

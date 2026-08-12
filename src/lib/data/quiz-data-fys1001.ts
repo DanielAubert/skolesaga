@@ -771,7 +771,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken form på energiregnskapet med friksjon anbefaler boka?",
       options: ["$E_1 = E_2 + R\\cdot s$", "$E_1 + R\\cdot s = E_2$", "$E_1 = E_2 - R\\cdot s$", "$E_1 = E_2$, siden friksjonen ikke er en mekanisk kraft"],
-      explanation: "Skriv «det du startet med = det du har igjen + det friksjonen tok», altså $E_1 = E_2 + R\\cdot s$, med tre positive ledd. De to neste alternativene gir feil fortegn og dermed for stor sluttfart.",
+      explanation: "Skriv «det du startet med = det du har igjen + det friksjonen tok», altså $E_1 = E_2 + R\\cdot s$, med tre positive ledd. Formene der friksjonsleddet er flyttet over til startenergien, $E_1 + R\\cdot s = E_2$, eller trekkes fra på høyre side, $E_1 = E_2 - R\\cdot s$, gir feil fortegn og dermed for stor sluttfart.",
     },
     {
       question: "Et legeme glir 4,0 m langs et skråplan med helning $30^\\circ$. Hvor stor er høydeforskjellen?",
@@ -841,7 +841,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "En kloss dyttes oppover et skråplan og stopper. Hvilket regnskap er riktig?",
       options: ["$\\tfrac12 mv^2 = mgh + R\\cdot s$", "$\\tfrac12 mv^2 + R\\cdot s = mgh$", "$\\tfrac12 mv^2 = mgh - R\\cdot s$", "$\\tfrac12 mv^2 = mgh$"],
-      explanation: "Startenergien må dekke både løftet i høyden og det friksjonen tar, så begge tapspostene står på høyre side. De to neste alternativene gir for stor høyde, og det siste ser bort fra friksjonen.",
+      explanation: "Startenergien må dekke både løftet i høyden og det friksjonen tar, så begge tapspostene står på høyre side. Formene der friksjonsleddet er flyttet over til startenergien, eller der det trekkes fra $mgh$, gir for stor høyde, og regnskapet helt uten $R\\cdot s$ ser bort fra friksjonen.",
     },
     {
       question: "Hvilken kraft holdes utenfor energiregnskapet fordi den står vinkelrett på bevegelsen?",

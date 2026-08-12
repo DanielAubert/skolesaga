@@ -1089,7 +1089,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Usortert array med $n$ heltall. Hva er lavest mulig kjøretid for å finne et duplikat?",
       options: ["$O(n)$ forventet, med et hash-set over elementene", "$O(n \\log n)$, ved å sortere og skanne", "$O(n^2)$, ved å sammenligne alle par", "$O(\\log n)$, ved binærsøk etter hvert element"],
-      explanation: "Ett gjennomløp med $O(1)$ forventet oppslag gir lineær forventet kjøretid, og $O(n)$ er samtidig nedre grense siden hvert element må leses minst én gang. De to neste alternativene er korrekte løsninger, men lavere i poengtrappen.",
+      explanation: "Ett gjennomløp med $O(1)$ forventet oppslag gir lineær forventet kjøretid, og $O(n)$ er samtidig nedre grense siden hvert element må leses minst én gang. Å sortere og skanne, og å sammenligne alle par, er korrekte løsninger, men lavere i poengtrappen.",
     },
     {
       question: "Hvorfor står ordet «forventet» i kjøretiden til en hash-basert løsning?",
@@ -1211,7 +1211,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skjer når en bladnode slettes fra et binært søketre?",
       options: ["Noden fjernes, og ingen andre noder berøres", "Barnet til noden løftes opp og tar dens plass", "Etterfølgeren kopieres inn og slettes lenger nede", "Hele subtreet under forelderen bygges opp på nytt"],
-      explanation: "Bladnoden har ingen barn, så hullet trenger ikke å fylles av noe. De to neste alternativene er de to andre slettetilfellene — ett barn og to barn — og de er riktige svar på et annet spørsmål enn dette.",
+      explanation: "Bladnoden har ingen barn, så hullet trenger ikke å fylles av noe. Å løfte opp barnet og å kopiere inn etterfølgeren er de to andre slettetilfellene — ett barn og to barn — og de er riktige svar på et annet spørsmål enn dette.",
     },
     {
       question: "Hva leverer du som sluttilstand når en håndkjøringsoppgave gjelder et binært søketre?",

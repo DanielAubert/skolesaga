@@ -498,7 +498,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     {
       question: "Hva forklarer systemnivået dårlig?",
       options: ["Tidspunktet, altså hvorfor akkurat denne staten handlet akkurat nå", "Hvorfor mønstre gjentar seg på tvers av svært ulike stater", "Hvorfor stater med ulik innretning handler likt i samme ytre situasjon", "Hvorfor maktfordelingen mellom statene endrer seg over tid"],
-      explanation: "Riktig svar er timingen: systemnivåforklaringer gjelder enhver stat i samme posisjon og sier lite om hvorfor akkurat denne, akkurat nå. De to neste alternativene er tvert imot nettopp det systemnivået forklarer godt, og som er dets styrke.",
+      explanation: "Riktig svar er timingen: systemnivåforklaringer gjelder enhver stat i samme posisjon og sier lite om hvorfor akkurat denne, akkurat nå. At mønstre gjentar seg på tvers av svært ulike stater, og at stater med ulik innretning handler likt i samme ytre situasjon, er tvert imot nettopp det systemnivået forklarer godt, og som er dets styrke.",
     },
     {
       question: "Hvor ofte er analysenivåene navngitt i selve oppgaveteksten i eksamensarkivet?",
@@ -530,7 +530,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den vanligste innvendingen mot infant-industry-argumentet?",
       options: ["At den beskyttede næringen blir en organisert interesse med noe å tape på endring", "At beskyttelse alltid gjør varen dyrere for forbrukerne i det landet som beskytter", "At argumentet forutsetter at staten kan forutse hvilke næringer som vil lykkes", "At internasjonale handelsavtaler forbyr enhver form for midlertidig beskyttelse"],
-      explanation: "Riktig svar er at beskyttelsen sjelden fjernes, fordi den beskyttede næringen blir en organisert interesse. Det er en politisk innvending mot et økonomisk argument, og nettopp den typen kobling faget premierer. De to neste alternativene er reelle poenger, men treffer ikke midlertidigheten.",
+      explanation: "Riktig svar er at beskyttelsen sjelden fjernes, fordi den beskyttede næringen blir en organisert interesse. Det er en politisk innvending mot et økonomisk argument, og nettopp den typen kobling faget premierer. At beskyttelse gjør varen dyrere for forbrukerne, og at staten må kunne forutse hvilke næringer som vil lykkes, er reelle poenger, men de treffer ikke midlertidigheten.",
     },
     {
       question: "Hva kjennetegner den økonomiske liberalismen?",
@@ -2046,7 +2046,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er polity-dimensjonen av europeisering?",
       options: ["Europeisering av institusjonene og reglene, altså selve forvaltningsapparatet", "Europeisering av de politiske prosessene, altså hvem som deltar og hvor", "Europeisering av den konkrete politikken, altså regelverket på saksfeltet", "Europeisering av borgernes holdninger, altså hva folk mener om unionen"],
-      explanation: "Riktig svar er institusjonene og reglene. De to neste alternativene beskriver politics og policy, som er de to andre dimensjonene. Holdningsendring er ikke en av de tre, selv om den kan følge av dem.",
+      explanation: "Riktig svar er institusjonene og reglene. Svaret om de politiske prosessene beskriver politics, og svaret om regelverket på saksfeltet beskriver policy — de to andre dimensjonene. Holdningsendring er ikke en av de tre, selv om den kan følge av dem.",
     },
     {
       question: "Hva er politics-dimensjonen av europeisering?",
@@ -2106,7 +2106,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan leser realismen tilpasningen i et ikke-medlem?",
       options: ["Som prisen for adgang til et marked landet er avhengig av", "Som en gjensidig gevinst der begge parter kommer bedre ut enn før", "Som en følge av at felles faglige standarder er blitt det selvfølgelige", "Som et første skritt på veien mot fullt medlemskap i unionen på sikt"],
-      explanation: "Riktig svar er at tilpasningen leses som prisen for adgang. Perspektivet forventer da at tilpasningen er dypest der avhengigheten er størst. De to neste alternativene beskriver liberal institusjonalisme og konstruktivisme.",
+      explanation: "Riktig svar er at tilpasningen leses som prisen for adgang. Perspektivet forventer da at tilpasningen er dypest der avhengigheten er størst. Svaret om gjensidig gevinst beskriver liberal institusjonalisme, og svaret om felles faglige standarder som det selvfølgelige beskriver konstruktivisme.",
     },
     {
       question: "Hva er realismens blindsone når det gjelder europeisering?",
@@ -2693,7 +2693,7 @@ const quizData_stv1200: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er feil #9?",
       options: ["Å identifisere perspektivet godt, men la motkritikken bli en presentasjon", "Å bruke bare én av teoritradisjonene der oppgaven uttrykkelig ber om minst to", "Å blande sammen begrepene integrasjon og europeisering i EU-stoffet", "Å svare på flere av oppgavesettets spørsmål enn oppgaven ber om"],
-      explanation: "Riktig svar er kronikkoppgavens egen feil. Varsellampen er enkel: hvis siste del av besvarelsen kunne vært skrevet uten å ha lest vedlegget, er den ikke en motkritikk. Feil #4 og #8 er de to neste alternativene.",
+      explanation: "Riktig svar er kronikkoppgavens egen feil. Varsellampen er enkel: hvis siste del av besvarelsen kunne vært skrevet uten å ha lest vedlegget, er den ikke en motkritikk. Å bruke bare én teoritradisjon der oppgaven ber om minst to, og å blande sammen integrasjon og europeisering, er feil #4 og #8.",
     },
     {
       question: "Hvilket trekk peker sterkest mot at en tekst resonnerer realistisk?",

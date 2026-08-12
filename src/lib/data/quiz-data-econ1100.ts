@@ -2168,7 +2168,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er FOB (1) for $L=\\ln x+\\ln y-\\lambda(p_1x+p_2y-m)$?",
       options: ["$\\dfrac1x-\\lambda p_1=0$", "$\\dfrac1x-\\lambda p_2=0$", "$\\ln x-\\lambda p_1=0$", "$-\\dfrac{1}{x^2}-\\lambda p_1=0$"],
-      explanation: "Den deriverte av $\\ln x$ er $1/x$, og leddet $-\\lambda p_1x$ bidrar med $-\\lambda p_1$. Den siste distraktoren deriverer én gang for mye.",
+      explanation: "Den deriverte av $\\ln x$ er $1/x$, og leddet $-\\lambda p_1x$ bidrar med $-\\lambda p_1$. Svaret med $-\\dfrac{1}{x^2}$ deriverer én gang for mye.",
     },
     {
       question: "Hva er $\\lambda$ i Lagrange-metoden?",

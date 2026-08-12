@@ -1706,7 +1706,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er det viktigste motargumentet mot universelle ordninger?",
       options: ["At mye av pengene går til mottakere som ville klart seg uten dem", "At de krever at mottakeren dokumenterer sin egen økonomi for en saksbehandler", "At de skaper et tydelig skille mellom mottakere og resten av befolkningen", "At de gjør det umulig å beregne ytelsen ut fra tidligere inntekt"],
-      explanation: "Kostnadsargumentet er kjernen: en gitt sum kunne i prinsippet gitt mer utjevning om den var målrettet. De to neste alternativene beskriver innvendinger mot behovsprøving, altså det motsatte, og det siste er faktisk uriktig.",
+      explanation: "Kostnadsargumentet er kjernen: en gitt sum kunne i prinsippet gitt mer utjevning om den var målrettet. Kravet om å dokumentere egen økonomi for en saksbehandler og skillet mellom mottakere og resten av befolkningen er innvendinger mot behovsprøving, altså det motsatte, og påstanden om at ytelsen ikke lar seg beregne ut fra tidligere inntekt, er faktisk uriktig.",
     },
     {
       question: "Hva er den vanligste innvendingen mot selve typologien?",
@@ -1731,7 +1731,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilket begrepsapparat eier Esping-Andersen i denne delen av faget?",
       options: ["De tre regimene, de-kommodifisering, de-familisering og stratifisering", "Universalisme, behovsprøving, relativ fattigdom, vedvarende lavinntekt og velferdsmåling", "Rammetilskudd, øremerkede tilskudd og inntektssystemet", "Politisk lojalitet, partipolitisk nøytralitet og faglig uavhengighet"],
-      explanation: "Typologien og de tre dimensjonene den bygger på, er Esping-Andersens bidrag. De to neste settene begreper hører til henholdsvis velferdsstatslitteraturen og Del 1, og det siste tilhører forvaltningens verdier.",
+      explanation: "Typologien og de tre dimensjonene den bygger på, er Esping-Andersens bidrag. Universalisme, behovsprøving og fattigdomsmåling hører til velferdsstatslitteraturen, tilskuddsformene og inntektssystemet hører til Del 1, og lojalitet, nøytralitet og faglig uavhengighet tilhører forvaltningens verdier.",
     },
     {
       question: "En kandidat skriver: «Esping-Andersen har tre regimer: det sosialdemokratiske i Norden, det liberale i angelsaksiske land og det konservative i Kontinental-Europa.» Hvilken feil er dette?",

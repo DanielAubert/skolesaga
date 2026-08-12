@@ -956,7 +956,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kjennetegner semantisk flertydighet?",
       options: ["Et enkeltord eller en fast ordgruppe har flere betydninger, uavhengig av setningen ordet står i", "Setningsbygningen tillater flere lesninger, selv om hvert enkelt ord er entydig i seg selv", "Det står åpent hva ytringen viser tilbake til eller skal utrette i sin egen sammenheng", "Betydningen av ordet har en gråsone der språkbruken alene ikke avgjør om begrepet dekker tilfellet"],
-      explanation: "Riktig svar er at problemet sitter i ordet selv og lar seg reparere ved å bytte ord. De to neste beskriver syntaktisk og pragmatisk flertydighet, mens det siste beskriver vaghet — en gråsone er ikke flere betydninger.",
+      explanation: "Riktig svar er at problemet sitter i ordet selv og lar seg reparere ved å bytte ord. Svaret om setningsbygning som tillater flere lesninger, beskriver syntaktisk flertydighet, og svaret om hva ytringen viser tilbake til i sin egen sammenheng, beskriver pragmatisk flertydighet, mens gråsonesvaret beskriver vaghet — en gråsone er ikke flere betydninger.",
     },
     {
       question: "Hva kjennetegner syntaktisk flertydighet?",
@@ -966,7 +966,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kjennetegner pragmatisk flertydighet?",
       options: ["Ordene og setningsbygningen er klare, men hva ytringen viser til i sin sammenheng står åpent", "Et enkeltord har flere ordboksbetydninger som teksten selv ikke velger mellom for leseren", "Setningen kan leses på to måter fordi et forbehold kan rekke til ett eller til begge leddene", "Begrepet dekker klart noen tilfeller, klart ikke andre, og har en bred gråsone imellom"],
-      explanation: "Riktig svar er at problemet oppstår i sammenhengen og ikke lar seg diagnostisere på setningen alene. De to neste beskriver semantisk og syntaktisk flertydighet, og det siste beskriver vaghet.",
+      explanation: "Riktig svar er at problemet oppstår i sammenhengen og ikke lar seg diagnostisere på setningen alene. Svaret om enkeltordet med flere ordboksbetydninger beskriver semantisk flertydighet, svaret om forbeholdet som kan rekke til ett eller begge ledd, beskriver syntaktisk flertydighet, og gråsonesvaret beskriver vaghet.",
     },
     {
       question: "Hvordan viser du at et begrep er vagt?",
@@ -1571,7 +1571,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "Hva retter et standpunktargument seg mot?",
       options: ["Konklusjonen, ved å gi en selvstendig grunn uten å gå veien om motpartens premisser", "Premisset, ved å bestride at det er sant eller tilstrekkelig godt begrunnet", "Koblingen mellom premiss og konklusjon, ved å bestride at premisset har noen betydning", "Formen på slutningen, ved å vise at konklusjonen ikke følger logisk av premissene"],
-      explanation: "Riktig svar er at argumentet setter en egen grunn ved siden av motpartens, i motsatt retning. De to neste beskriver holdbarhets- og relevansargumenter, og det siste beskriver et angrep på slutningsformen.",
+      explanation: "Riktig svar er at argumentet setter en egen grunn ved siden av motpartens, i motsatt retning. Å bestride at premisset er sant eller godt nok begrunnet, er et holdbarhetsargument, og å bestride at premisset har betydning for konklusjonen, er et relevansargument, mens svaret om at konklusjonen ikke følger logisk, beskriver et angrep på slutningsformen.",
     },
     {
       question: "Hva retter et holdbarhetsargument seg mot?",
@@ -2042,7 +2042,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken formulering beskriver best hva en drøfting av bindende kraft bør lande på?",
       options: ["At de to lesningene svarer på ulike spørsmål, og at valget avhenger av hvilket man stiller", "At den psykologiske lesningen er riktig fordi den kan undersøkes empirisk i praksis", "At den normative lesningen er riktig fordi retten ellers ikke ville forpliktet noen", "At spørsmålet ikke lar seg besvare, og at man derfor bør la det stå åpent i besvarelsen"],
-      explanation: "Riktig svar er at en begrunnet fordeling mellom forklaringsspørsmål og vurderingsspørsmål er en fullgod landing. De to neste er mulige standpunkter, men formulert uten den begrunnelsen som kreves. Å la spørsmålet stå åpent er derimot å unnlate å ta standpunkt der oppgaven ber om det.",
+      explanation: "Riktig svar er at en begrunnet fordeling mellom forklaringsspørsmål og vurderingsspørsmål er en fullgod landing. Å utrope den psykologiske eller den normative lesningen til den riktige er mulige standpunkter, men de er formulert uten den begrunnelsen som kreves. Å la spørsmålet stå åpent er derimot å unnlate å ta standpunkt der oppgaven ber om det.",
     },
   ],
   'jfexfac04-4-3': [
@@ -2281,7 +2281,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kjennetegner en konsekvensinnvending?",
       options: ["Den sier at teorien fører til noe som ikke lar seg godta", "Den sier at teorien ikke kan brukes fordi den ikke lar seg gjennomføre", "Den sier at teorien tar noe for gitt", "Den sier at teorien er formulert av en forfatter som ikke er på pensum"],
-      explanation: "Riktig svar er at konsekvensinnvendingen angriper det teorien fører til. Rettighetsproblemet er den fremste. De to neste beskriver gjennomførings- og forutsetningsinnvendingen, og å skille de tre formene er første grep i en holdbarhetsvurdering.",
+      explanation: "Riktig svar er at konsekvensinnvendingen angriper det teorien fører til. Rettighetsproblemet er den fremste. Svaret om at teorien ikke lar seg gjennomføre, beskriver gjennomføringsinnvendingen, og svaret om at teorien tar noe for gitt, beskriver forutsetningsinnvendingen, og å skille de tre formene er første grep i en holdbarhetsvurdering.",
     },
     {
       question: "Hvorfor er det upresist å si at rettighetsproblemet viser at utilitarismen ikke bryr seg om enkeltmennesker?",
@@ -3460,7 +3460,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "H2022-veiledningen sier at det teller positivt å konstatere at legaldefinisjoner er normative og ikke deskriptive — men hva må analysen gjøre videre?",
       options: ["Bestemme definisjonsmåten, altså hvordan definisjonen faktisk er bygget opp", "Slå fast at definisjonen dermed også må være en kvalifikasjonsnorm i lovens forstand", "Gjennomgå de øvrige leddene i bestemmelsen med samme grundighet som dette", "Fastslå hvilken av de tre pensumtradisjonenes terminologi som er den riktige"],
-      explanation: "Riktig svar er å bestemme definisjonsmåten. H2022-veiledningen kaller det første poenget relativt overfladisk, og det er nettopp derfor registeret kaller stoppen feil #4. Den andre distraktoren er feil #7, som setter likhetstegn mellom kvalifikasjonsnorm og legaldefinisjon; den tredje er feil #14, uttømmende opplisting; og valget av terminologi skal ikke trekke, ifølge både H2022 og H2024.",
+      explanation: "Riktig svar er å bestemme definisjonsmåten. H2022-veiledningen kaller det første poenget relativt overfladisk, og det er nettopp derfor registeret kaller stoppen feil #4. Svaret om at definisjonen dermed må være en kvalifikasjonsnorm, er feil #7, som setter likhetstegn mellom kvalifikasjonsnorm og legaldefinisjon; svaret om å gjennomgå de øvrige leddene med samme grundighet er feil #14, uttømmende opplisting; og valget av terminologi skal ikke trekke, ifølge både H2022 og H2024.",
     },
     {
       question: "Hvorfor er det galt å skrive at skandinavisk rettsrealisme «derfor ikke kan kritisere retten» fordi den er non-kognitivistisk?",
@@ -3515,7 +3515,7 @@ const quizData_jfexfac04: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er hovedgrepet som skiller en dristig lesning fra en søkt lesning av en lovtekst?",
       options: ["At den dristige lesningen er forankret i ordlyd, system eller formål, og at prisen oppgis", "At den dristige lesningen leder til den konklusjonen sensorveiledningen for terminen legger opp til", "At den dristige lesningen holder seg innenfor én av de tre pensumtradisjonenes terminologi", "At den dristige lesningen bare gjelder ledd der bestemmelsen selv åpner for skjønn"],
-      explanation: "Riktig svar er forankringen pluss at prisen oppgis. V2022-veiledningen godtar ulike tolkninger så lenge de ikke er søkte, og det er forankringen som avgjør. Den andre distraktoren snur saken på hodet: konklusjonen er nettopp ikke det avgjørende. Terminologivalget skal ikke trekke, og skjønnsledd har ingen særstilling i tolkningsspørsmålet.",
+      explanation: "Riktig svar er forankringen pluss at prisen oppgis. V2022-veiledningen godtar ulike tolkninger så lenge de ikke er søkte, og det er forankringen som avgjør. Svaret om å lande på den konklusjonen sensorveiledningen legger opp til, snur saken på hodet: konklusjonen er nettopp ikke det avgjørende. Terminologivalget skal ikke trekke, og skjønnsledd har ingen særstilling i tolkningsspørsmålet.",
     },
     {
       question: "Hvilken av varsellampene fanger opp at et fagord er brukt uten dekning?",

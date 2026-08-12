@@ -2370,7 +2370,7 @@ const quizData_ma1301: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken kontroll av en Pell-løsning kan ikke lure deg?",
       options: ["Innsetting: $x^2-Dy^2$ skal bli nøyaktig $1$", "At $x/y$ ligger nær $\\sqrt D$ i desimalverdi", "At $x$ og $y$ er relativt primiske tall", "At $y$ er mindre enn periodens lengde $k$"],
-      explanation: "Innsettingen tar tjue sekunder og fanger alle regnefeil oppover i tabellen. De to neste kontrollene er riktige, men de utelukker ikke en nær-løsning.",
+      explanation: "Innsettingen tar tjue sekunder og fanger alle regnefeil oppover i tabellen. Kontrollene av at $x/y$ ligger nær $\\sqrt D$, og at $x$ og $y$ er relativt primiske, er riktige, men de utelukker ikke en nær-løsning.",
     },
   ],
   'ma1301-7-2': [

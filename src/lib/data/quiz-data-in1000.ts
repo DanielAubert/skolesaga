@@ -1498,7 +1498,7 @@ const quizData_in1000: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver dette ut?\n\n```python\nclass Sal:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = plasser\n\n    def hent_navn(self):\n        return self._navn\n\n    def __str__(self):\n        return self._navn + \"/\" + str(self._plasser)\n\nsaler = {}\ns1 = Sal(\"Speilsal\", 20)\ns2 = Sal(\"Speilsal\", 8)\nsaler[s1.hent_navn()] = s1\nsaler[s2.hent_navn()] = s2\nfor n in saler:\n    print(n, saler[n])\nprint(len(saler))\n```",
       options: ["Speilsal Speilsal/8\n1", "Speilsal Speilsal/20\n1", "Speilsal Speilsal/20\nSpeilsal Speilsal/8\n2", "Speilsal Speilsal/8\n2"],
-      explanation: "En ordbok kan aldri ha to like nøkler, så den andre innsettingen overskriver den første uten en advarsel. Siste distraktor er svaret hvis man tror begge objektene ligger der.",
+      explanation: "En ordbok kan aldri ha to like nøkler, så den andre innsettingen overskriver den første uten en advarsel. Svaret som skriver ut én linje, men oppgir lengden 2, er svaret hvis man tror begge objektene ligger der.",
     },
     {
       question: "Hva er forskjellen på `__str__` og en vanlig skriv-metode?",

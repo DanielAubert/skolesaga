@@ -2730,7 +2730,7 @@ const quizData_juroff1500: Record<string, QuizQuestion[]> = {
     {
       question: "Hva innebærer tanken om at straff skal være siste utvei?",
       options: ["At en handling ikke bør kriminaliseres dersom målet kan nås med et mindre inngripende tiltak, som gebyr eller tilbakekall av en tillatelse", "At straffen ikke bør settes strengere enn nødvendig innenfor den strafferammen straffebudet allerede har fastsatt for lovbruddet", "At påtalemyndigheten ikke bør reise tiltale før andre etterforskningsskritt i saken er forsøkt og uttømt", "At retten ikke bør idømme ubetinget fengsel før den har vurdert om betinget fengsel kan brukes i stedet"],
-      explanation: "Siste utvei-tanken gjelder selve kriminaliseringen: spørsmålet er om handlingen i det hele tatt skal være straffbar. Den første distraktoren gjelder utmålingen innenfor rammen, som er et annet spørsmål, mens de to siste beskriver påtale- og reaksjonsvalg og ikke lovgiverens beslutning.",
+      explanation: "Siste utvei-tanken gjelder selve kriminaliseringen: spørsmålet er om handlingen i det hele tatt skal være straffbar. Svaret om at straffen ikke bør settes strengere enn nødvendig innenfor rammen, gjelder utmålingen, som er et annet spørsmål, mens svarene om når tiltale bør reises og om betinget framfor ubetinget fengsel, beskriver påtale- og reaksjonsvalg og ikke lovgiverens beslutning.",
     },
     {
       question: "Hvorfor sies avskrekkingskanalen å bære dårligere enn moraldanningskanalen ved impulshandlinger?",

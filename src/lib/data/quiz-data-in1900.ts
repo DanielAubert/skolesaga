@@ -3041,7 +3041,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver dette ut?\n\n```python\nimport numpy as np\n\nS = np.zeros(3)\nI = np.zeros(3)\nS[0], I[0] = 100.0, 10.0\nfor n in range(2):\n    S[n+1] = S[n] - 0.001*S[n]*I[n]\n    I[n+1] = I[n] + 0.001*S[n]*I[n] - 0.2*I[n]\nprint(f'{S[1]:.3f} {I[1]:.3f}')\nprint(f'{S[2]:.3f} {I[2]:.3f}')\n```",
       options: ["`99.000 9.000` og deretter `98.109 8.091`", "`99.000 8.990` og deretter `98.110 8.074`", "`99.000 11.000` og deretter `97.911 12.089`", "`101.000 9.000` og deretter `101.909 8.109`"],
-      explanation: "Begge linjene i løkka leser `S[n]` og `I[n]`, altså verdiene fra forrige steg, så første steg gir $100 - 1 = 99$ og $10 + 1 - 2 = 9$. Den første distraktoren er felle #2: den bruker den allerede oppdaterte `S[n+1]` i smitteleddet. Den andre glemmer friskmeldingsleddet `- 0.2*I[n]`, så de smittede bare vokser, og den siste har byttet fortegn i `S`-linja slik at de mottakelige øker.",
+      explanation: "Begge linjene i løkka leser `S[n]` og `I[n]`, altså verdiene fra forrige steg, så første steg gir $100 - 1 = 99$ og $10 + 1 - 2 = 9$. Svaret `99.000 8.990` er felle #2: det bruker den allerede oppdaterte `S[n+1]` i smitteleddet. Svaret der de smittede vokser til `11.000`, glemmer friskmeldingsleddet `- 0.2*I[n]`, og svaret som starter på `101.000`, har byttet fortegn i `S`-linja slik at de mottakelige øker.",
     },
     {
       question: "Hva skriver dette ut?\n\n```python\nlinje = 'Storhaug;12;73;9\\n'\nfelt = linje.strip().split(';')\nprint(len(felt), felt[1], int(felt[1]) + int(felt[-1]))\n```",

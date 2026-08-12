@@ -622,7 +622,7 @@ const quizData_tdt4120: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken av rekurrensene under gir $\\Theta(n\\lg n)$?",
       options: ["$T(n) = 2T(n/2) + \\Theta(n)$", "$T(n) = 2T(n/2) + \\Theta(n^2)$", "$T(n) = 4T(n/2) + \\Theta(n)$", "$T(n) = T(n-1) + \\Theta(n)$"],
-      explanation: "$n^{\\log_2 2} = n$ er like stor som $f(n)$, altså tilfelle 2 med $k = 0$ og svar $n\\lg n$ — dette er `Merge-Sort`-rekurrensen. De to neste gir $\\Theta(n^2)$ ved henholdsvis tilfelle 3 og tilfelle 1, og den siste gir $\\Theta(n^2)$ ved iterasjon.",
+      explanation: "$n^{\\log_2 2} = n$ er like stor som $f(n)$, altså tilfelle 2 med $k = 0$ og svar $n\\lg n$ — dette er `Merge-Sort`-rekurrensen. $T(n) = 2T(n/2) + \\Theta(n^2)$ gir $\\Theta(n^2)$ ved tilfelle 3, $T(n) = 4T(n/2) + \\Theta(n)$ gir $\\Theta(n^2)$ ved tilfelle 1, og $T(n) = T(n-1) + \\Theta(n)$ gir $\\Theta(n^2)$ ved iterasjon.",
     },
   ],
   'tdt4120-2-1': [

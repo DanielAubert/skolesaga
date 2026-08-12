@@ -51,9 +51,16 @@ MONSTRE = [
     (rf"[Dd]e[tn]\s+(?:første|andre|tredje|fjerde|femte)\s+{SUBST}\w*", "det N-te alternativet"),
     (rf"[Dd]e\s+(?:to|tre)\s+(?:første|siste|neste|foregående)\s+{SUBST}\w*", "de N første/siste/neste"),
     (rf"[Dd]e\s+(?:to|tre)\s+neste\b", "de N neste"),
-    (rf"[Ss]iste\s+{SUBST}\w*", "siste alternativ"),
-    (rf"[Nn]este\s+{SUBST}\w*|[Ff]oregående\s+{SUBST}\w*", "neste/foregående"),
-    (rf"[Øø]verste\s+{SUBST}\w*|[Nn]ederste\s+{SUBST}\w*", "øverste/nederste"),
+    # ⚠ \b FORAN ORDET, ellers treffer mønsteret INNI et annet ord. JUROFF1500
+    # hadde «var det eneste alternativet like risikabelt» — «eneste» slutter på
+    # «neste», og porten leste det som en plassering. Det er motsatt av en
+    # plasseringsreferanse: «det eneste alternativet» er nettopp det saken
+    # gjelder (handlingsalternativet), og setningen betyr det samme uansett
+    # stokking. Samme felle: «det reneste alternativet» (econ1210).
+    # En port som melder et avvik ingen har lov til å rette, blir ikke lest.
+    (rf"\b[Ss]iste\s+{SUBST}\w*", "siste alternativ"),
+    (rf"\b[Nn]este\s+{SUBST}\w*|\b[Ff]oregående\s+{SUBST}\w*", "neste/foregående"),
+    (rf"\b[Øø]verste\s+{SUBST}\w*|\b[Nn]ederste\s+{SUBST}\w*", "øverste/nederste"),
 ]
 
 
