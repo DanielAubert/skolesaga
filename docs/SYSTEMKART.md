@@ -155,6 +155,21 @@ og Storage, som aldri sletter.
 
 ## Fallgruver som har kostet tid før
 
+- **`du` lyver om backupstørrelsen.** Speilet i iCloud viste 1,5 GB mot 2,4 GB
+  lokalt, og så ut som en halv backup. Filantallet var identisk (2 626), og
+  logisk størrelse målt med `stat -f%z` stemte eksakt: 1 767 MB lyd og 735 MB
+  bilder. `du` teller diskblokker, og iCloud lagrer komprimert. **Mål logisk
+  størrelse, ikke diskbruk, når du kontrollerer en backup.**
+
+- **`StartInterval` i launchd teller bare mens maskinen er våken.** Med 818
+  sove-/vekkehendelser gikk brukerdata-backupen et helt døgn uten å kjøre — mens
+  `launchctl list` viste den som lastet med exit 0. Byttet til
+  `StartCalendarInterval`, som tar igjen en tapt kjøring ved oppvåkning.
+
+- **En plist uten `</plist>` avvises stille.** `launchctl load` svarte bare
+  «Input/output error», og den gamle konfigurasjonen ble stående. `plutil -lint`
+  sier hva som er galt; kjør den alltid etter å ha skrevet en plist.
+
 - **En backup-jobb som feiler stille.** Den daglige dumpen lyktes én gang —
   26. juli, da bucketen ble opprettet — og feilet så hver natt i 16 dager uten
   at noe varslet. Årsaken: Supabase svarer HTTP 400 når bucketen finnes fra før,
