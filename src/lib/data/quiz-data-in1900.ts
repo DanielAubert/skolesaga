@@ -5,7 +5,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan er vektingen mellom de to eksamenene i IN1900?",
       options: ["Midtveis teller 25 % og den avsluttende 75 %", "Midtveis teller 40 % og den avsluttende 60 %", "Midtveis teller 50 % og den avsluttende 50 %", "Midtveis teller 20 % og den avsluttende 80 %"],
-      explanation: "Midtveiseksamen i oktober gir maks 25 poeng og teller 25 %; den avsluttende i desember gir maks 75 poeng og teller 75 %. De to summerer til 100. Alternativ b) er forvekslet med fordelingen mellom flervalg og kodeskriving samlet sett, som er omtrent 40 mot 60.",
+      explanation: "Midtveiseksamen i oktober gir maks 25 poeng og teller 25 %; den avsluttende i desember gir maks 75 poeng og teller 75 %. De to summerer til 100. Svaret 40/60 er forvekslet med fordelingen mellom flervalg og kodeskriving samlet sett, som er omtrent 40 mot 60.",
     },
     {
       question: "Hvilken form har midtveiseksamen?",
@@ -20,7 +20,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Du er usikker på et flervalgsspørsmål og har ett minutt igjen. Hva lønner seg?",
       options: ["Å gjette — blankt og feil gir begge null poeng", "Å la det stå blankt — feil svar gir minuspoeng", "Å la det stå blankt — blankt gir et halvt poeng", "Å gjette bare hvis du kan utelukke tre alternativer"],
-      explanation: "Fra 2024/2025 er ordningen med minuspoeng fjernet, og blankt og feil gir likt: null. Å gjette er derfor gratis. Alternativ b) beskriver den gamle ordningen fra tiden før 2019, og d) gjør et gratis valg unødvendig strengt.",
+      explanation: "Fra 2024/2025 er ordningen med minuspoeng fjernet, og blankt og feil gir likt: null. Å gjette er derfor gratis. Svaret om at feil svar gir minuspoeng, beskriver den gamle ordningen fra tiden før 2019, og kravet om å utelukke tre alternativer først gjør et gratis valg unødvendig strengt.",
     },
     {
       question: "Hvilke fem temaer har forekommet i **hvert eneste** av de åtte avsluttende settene 2018–2025?",
@@ -30,7 +30,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor stor andel av poengene på den **avsluttende** eksamenen er fritekst-kodeskriving?",
       options: ["Om lag 75–85 %", "Om lag 40–50 %", "Om lag 25–35 %", "Om lag 95–100 %"],
-      explanation: "Flervalgsskallet på de 4–7 første oppgavene utgjør 15–25 % av de 75 poengene; resten er kodeskriving. Alternativ b) forveksler dette med den samlede fordelingen når begge eksamenene regnes med, og d) glemmer at flervalgsskallet finnes også på den avsluttende.",
+      explanation: "Flervalgsskallet på de 4–7 første oppgavene utgjør 15–25 % av de 75 poengene; resten er kodeskriving. Anslaget 40–50 % forveksler dette med den samlede fordelingen når begge eksamenene regnes med, og anslaget 95–100 % glemmer at flervalgsskallet finnes også på den avsluttende.",
     },
     {
       question: "Hva sier de offisielle løsningsforslagene om kode som er delvis riktig?",
@@ -45,7 +45,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva gjelder for rekursjon — at en funksjon kaller seg selv — i dette emnet?",
       options: ["Det er utenfor pensum og markeres som uønsket i fasit", "Det er pensum, men gir bare halv uttelling", "Det er pensum, og forventes brukt på rekurrente rekker", "Det er utenfor pensum, men gir full uttelling hvis koden virker"],
-      explanation: "Rekursjon er utenfor pensum, og løsningsforslagene markerer det eksplisitt som uønsket. Rekurrente rekker — der neste ledd regnes ut fra det forrige — løses alltid med løkke som tar vare på de siste verdiene. Alternativ c) er nettopp fellen: den typen oppgave frister til rekursjon.",
+      explanation: "Rekursjon er utenfor pensum, og løsningsforslagene markerer det eksplisitt som uønsket. Rekurrente rekker — der neste ledd regnes ut fra det forrige — løses alltid med løkke som tar vare på de siste verdiene. Svaret om at rekursjon forventes brukt på rekurrente rekker, er nettopp fellen: den typen oppgave frister til rekursjon.",
     },
     {
       question: "Hva er en «matche-tabell» («match the values») på eksamen?",
@@ -55,7 +55,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor holder midtveiseksamen seg til kjernen av grunnleggende Python?",
       options: ["Fordi samme sett brukes i emnene IN-KJM1900 og IN-GEO1900", "Fordi den holdes så tidlig at bare de første forelesningene er pensum", "Fordi den rettes automatisk og derfor ikke kan teste kode i det hele tatt", "Fordi den bare teller 25 % og derfor gjøres enklere med vilje"],
-      explanation: "Midtveissettet deles med parallellemnene, og må derfor holde seg til det som er felles pensum i alle tre emnene. Alternativ c) er feil på et vesentlig punkt: en flervalgseksamen tester kode hele veien — den tester bare **lesing** av kode i stedet for skriving.",
+      explanation: "Midtveissettet deles med parallellemnene, og må derfor holde seg til det som er felles pensum i alle tre emnene. Svaret om at automatisk retting ikke kan teste kode i det hele tatt, er feil på et vesentlig punkt: en flervalgseksamen tester kode hele veien — den tester bare **lesing** av kode i stedet for skriving.",
     },
     {
       question: "Hva er tidsanslagene i kapitteloverskriftene i denne boka?",
@@ -525,311 +525,311 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'x': 1, 'y': 2}\nd['x'] = d['x'] + d['y']\nprint(d)\n```",
       options: ["`{'x': 3, 'y': 2}`", "`{'x': 1, 'y': 2}`", "`{'x': 3, 'y': 3}`", "`{'x': 1, 'y': 3}`"],
-      explanation: "Høyresiden regnes ut først: `1 + 2` er 3, og `'x'` får den nye verdien. `'y'` røres ikke. Alternativ b) er svaret om du tror linja bare leser verdiene, og c)/d) er svarene om du tror tilordningen treffer feil nøkkel. Python skriver ordboka med krøllparenteser, kolon og mellomrom.",
+      explanation: "Høyresiden regnes ut først: `1 + 2` er 3, og `'x'` får den nye verdien. `'y'` røres ikke. Svaret `{'x': 1, 'y': 2}` er det du får om du tror linja bare leser verdiene, mens `{'x': 3, 'y': 3}` og `{'x': 1, 'y': 3}` er svarene om du tror tilordningen treffer feil nøkkel. Python skriver ordboka med krøllparenteser, kolon og mellomrom.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'b': 2, 'a': 1, 'c': 3}\nfor k in d:\n    print(k, end=' ')\n```",
       options: ["`b a c ` (med mellomrom til slutt, alt på én linje)", "`a b c ` (med mellomrom til slutt, alt på én linje)", "`2 1 3 ` (med mellomrom til slutt, alt på én linje)", "`b a c` (med linjeskift mellom hver bokstav)"],
-      explanation: "En `for`-løkke rett på en ordbok går over **nøklene**, i innsettingsrekkefølge — altså `b`, `a`, `c`, ikke alfabetisk. Alternativ c) er fellen der løkkevariabelen forveksles med verdien, og d) glemmer at `end=' '` erstatter linjeskiftet med et mellomrom.",
+      explanation: "En `for`-løkke rett på en ordbok går over **nøklene**, i innsettingsrekkefølge — altså `b`, `a`, `c`, ikke alfabetisk. Svaret `2 1 3 ` er fellen der løkkevariabelen forveksles med verdien, og svaret med linjeskift mellom bokstavene glemmer at `end=' '` erstatter linjeskiftet med et mellomrom.",
     },
     {
       question: "Hva skriver `print(list(d.values()))` ut når `d = {'b': 2, 'a': 1, 'c': 3}`?",
       options: ["`[2, 1, 3]`", "`[1, 2, 3]`", "`[3, 2, 1]`", "`['b', 'a', 'c']`"],
-      explanation: "`.values()` gir verdiene i innsettingsrekkefølge, og `list` gjør dem om til en vanlig liste. Alternativ b) sorterer, som en ordbok aldri gjør av seg selv, c) snur rekkefølgen, og d) er det `list(d.keys())` ville gitt.",
+      explanation: "`.values()` gir verdiene i innsettingsrekkefølge, og `list` gjør dem om til en vanlig liste. Svaret `[1, 2, 3]` sorterer, som en ordbok aldri gjør av seg selv, `[3, 2, 1]` snur rekkefølgen, og `['b', 'a', 'c']` er det `list(d.keys())` ville gitt.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'sol': 3, 'vind': 16}\nfor k, v in d.items():\n    print(k, v)\n```",
       options: ["`sol 3` på første linje og `vind 16` på andre", "`3 sol` på første linje og `16 vind` på andre", "`sol vind` på første linje og `3 16` på andre", "`('sol', 3)` på første linje og `('vind', 16)` på andre"],
-      explanation: "`.items()` gir paret nøkkel først, verdi etterpå, og `print` med to argumenter setter ett mellomrom mellom dem. Alternativ b) snur paret, c) er det to separate løkker ville gitt, og d) er formen du får om du skriver `print(par)` uten å pakke ut.",
+      explanation: "`.items()` gir paret nøkkel først, verdi etterpå, og `print` med to argumenter setter ett mellomrom mellom dem. Svaret `3 sol` / `16 vind` snur paret, svaret `sol vind` / `3 16` er det to separate løkker ville gitt, og svaret med `('sol', 3)` er formen du får om du skriver `print(par)` uten å pakke ut.",
     },
     {
       question: "Hva skriver `print(3 in d, 'sol' in d)` ut når `d = {'sol': 3, 'vind': 16}`?",
       options: ["`False True`", "`True True`", "`True False`", "`False False`"],
-      explanation: "`in` på en ordbok ser **bare** på nøklene. Tallet 3 er en verdi og gir derfor `False`, mens `'sol'` er en nøkkel og gir `True`. Alternativ b) er svaret om du tror `in` også leter i verdiene — vil du det, må du skrive `3 in d.values()`.",
+      explanation: "`in` på en ordbok ser **bare** på nøklene. Tallet 3 er en verdi og gir derfor `False`, mens `'sol'` er en nøkkel og gir `True`. Svaret `True True` er det du får om du tror `in` også leter i verdiene — vil du det, må du skrive `3 in d.values()`.",
     },
     {
       question: "Hva skjer når siste linje kjøres?\n\n```python\nd = {'x': 1}\nprint(d['z'])\n```",
       options: ["Programmet stopper med feilen `KeyError: 'z'`", "Programmet skriver `None` og fortsetter videre", "Programmet skriver `0` og fortsetter videre", "Programmet lager nøkkelen `'z'` med verdien `None`"],
-      explanation: "Oppslag på en nøkkel som ikke finnes, gir alltid `KeyError` med nøkkelen i meldingen, og programmet stopper. Alternativ b) beskriver `d.get('z')`, som gir `None` uten å stoppe. Alternativ c) og d) er ren ønsketenkning: et oppslag legger aldri til noe.",
+      explanation: "Oppslag på en nøkkel som ikke finnes, gir alltid `KeyError` med nøkkelen i meldingen, og programmet stopper. Svaret om at programmet skriver `None` og går videre, beskriver `d.get('z')`, som gir `None` uten å stoppe. Svarene om at det skrives `0`, eller at nøkkelen `'z'` opprettes, er ren ønsketenkning: et oppslag legger aldri til noe.",
     },
     {
       question: "Hva skriver `print(d.get('mai', 0.0), d.get('juni', 0.0))` ut når `d = {'mai': 12.4}`?",
       options: ["`12.4 0.0`", "`12.4 None`", "`12.4 0`", "`None 0.0`"],
-      explanation: "`.get` gir verdien når nøkkelen finnes, og standardverdien når den mangler — her `0.0`, som skrives med desimalpunkt fordi den er et flyttall. Alternativ b) er svaret om du glemmer at standardverdien er oppgitt, og c) skriver den som heltall.",
+      explanation: "`.get` gir verdien når nøkkelen finnes, og standardverdien når den mangler — her `0.0`, som skrives med desimalpunkt fordi den er et flyttall. Svaret `12.4 None` er det du får om du glemmer at standardverdien er oppgitt, og `12.4 0` skriver den som heltall.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'mai': 12.4}\nprint(d.get('juni'))\nprint(d)\n```",
       options: ["`None` på første linje og `{'mai': 12.4}` på andre", "`None` på første linje og `{'mai': 12.4, 'juni': None}` på andre", "`0` på første linje og `{'mai': 12.4}` på andre", "Programmet stopper med `KeyError` før noe skrives ut"],
-      explanation: "Uten andre argument gir `.get` verdien `None` når nøkkelen mangler, og den **endrer ikke** ordboka. Alternativ b) er fellen der man tror `.get` setter inn nøkkelen, og d) forveksler `.get` med vanlig oppslag i hakeparentes.",
+      explanation: "Uten andre argument gir `.get` verdien `None` når nøkkelen mangler, og den **endrer ikke** ordboka. Svaret der `'juni': None` dukker opp i ordboka, er fellen der man tror `.get` setter inn nøkkelen, og svaret om `KeyError` forveksler `.get` med vanlig oppslag i hakeparentes.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nnavn = ['a', 'b', 'c', 'd']\ntall = [10, 20]\nprint(dict(zip(navn, tall)))\n```",
       options: ["`{'a': 10, 'b': 20}`", "`{'a': 10, 'b': 20, 'c': None, 'd': None}`", "`{'a': 10, 'b': 20, 'c': 0, 'd': 0}`", "`{10: 'a', 20: 'b'}`"],
-      explanation: "`zip` stopper ved den korteste sekvensen, så bare to par lages og `'c'`/`'d'` forsvinner uten advarsel (felle #17). Alternativ b) og c) er fellen der man tror `zip` fyller ut, og d) bytter om hva som blir nøkkel — rekkefølgen på argumentene avgjør det.",
+      explanation: "`zip` stopper ved den korteste sekvensen, så bare to par lages og `'c'`/`'d'` forsvinner uten advarsel (felle #17). Svarene der `'c'` og `'d'` er med som `None` eller 0, er fellen der man tror `zip` fyller ut, og svaret `{10: 'a', 20: 'b'}` bytter om hva som blir nøkkel — rekkefølgen på argumentene avgjør det.",
     },
     {
       question: "Hva skriver `print(d, len(d))` ut når `d = {'p': 1, 'q': 2, 'p': 9}`?",
       options: ["`{'p': 9, 'q': 2} 2`", "`{'p': 1, 'q': 2} 2`", "`{'p': 1, 'q': 2, 'p': 9} 3`", "`{'q': 2, 'p': 9} 2`"],
-      explanation: "Nøkler er unike: den siste `'p'` overskriver den første, så verdien blir 9 — men **plassen** beholdes fra første gang nøkkelen ble satt inn. Alternativ b) lar den første vinne, c) tror en nøkkel kan stå to ganger, og d) flytter `'p'` bakerst.",
+      explanation: "Nøkler er unike: den siste `'p'` overskriver den første, så verdien blir 9 — men **plassen** beholdes fra første gang nøkkelen ble satt inn. Svaret `{'p': 1, 'q': 2} 2` lar den første vinne, `{'p': 1, 'q': 2, 'p': 9} 3` tror en nøkkel kan stå to ganger, og `{'q': 2, 'p': 9} 2` flytter `'p'` bakerst.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndata = {'nord': {'u1': 2, 'u2': 4, 'u3': 6}, 'sor': {'u1': 8}}\nprint(len(data), len(data['nord']))\n```",
       options: ["`2 3`", "`3 2`", "`2 4`", "`4 2`"],
-      explanation: "`len` teller alltid parene på det nivået du peker på: to stasjoner ytterst, tre uker inne i `'nord'`. Alternativ b) bytter om nivåene, og c)/d) teller alle tallene i hele strukturen. Å blande nivåene er felle #20.",
+      explanation: "`len` teller alltid parene på det nivået du peker på: to stasjoner ytterst, tre uker inne i `'nord'`. Svaret `3 2` bytter om nivåene, og `2 4` og `4 2` teller alle tallene i hele strukturen. Å blande nivåene er felle #20.",
     },
     {
       question: "Hva skjer når siste linje kjøres?\n\n```python\ndata = {'a': {'x': 1}}\ndata['b']['x'] = 2\n```",
       options: ["Programmet stopper med feilen `KeyError: 'b'`", "Programmet lager `{'a': {'x': 1}, 'b': {'x': 2}}` uten feil", "Programmet stopper med feilen `KeyError: 'x'`", "Programmet lager `{'a': {'x': 1}, 'b': 2}` uten feil"],
-      explanation: "Uttrykket regnes fra venstre: Python må finne `data['b']` for å vite hva `['x']` skal settes inn i, og den nøkkelen finnes ikke. Alternativ b) er felle #20 — innsetting oppretter aldri et nivå den må gå gjennom; kuren er `if 'b' not in data: data['b'] = {}`.",
+      explanation: "Uttrykket regnes fra venstre: Python må finne `data['b']` for å vite hva `['x']` skal settes inn i, og den nøkkelen finnes ikke. Svaret om at Python selv lager det manglende `'b'`-nivået, er felle #20 — innsetting oppretter aldri et nivå den må gå gjennom; kuren er `if 'b' not in data: data['b'] = {}`.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nrader = [['a', 'u1', 2], ['a', 'u2', 4], ['b', 'u1', 8]]\ndata = {}\nfor x, y, v in rader:\n    if x not in data:\n        data[x] = {}\n    data[x][y] = v\nprint(data)\n```",
       options: ["`{'a': {'u1': 2, 'u2': 4}, 'b': {'u1': 8}}`", "`{'a': {'u1': 2}, 'a': {'u2': 4}, 'b': {'u1': 8}}`", "`{'a': {'u2': 4}, 'b': {'u1': 8}}`", "`{'u1': {'a': 2, 'b': 8}, 'u2': {'a': 4}}`"],
-      explanation: "Dette er standardmønsteret for å bygge en nøstet ordbok: den indre ordboka opprettes bare første gang en ytre nøkkel dukker opp, så begge `'a'`-radene havner i samme indre ordbok. Alternativ b) tror en nøkkel kan gjentas, c) er svaret om `data[x] = {}` sto uten testen, og d) bytter om nivåene.",
+      explanation: "Dette er standardmønsteret for å bygge en nøstet ordbok: den indre ordboka opprettes bare første gang en ytre nøkkel dukker opp, så begge `'a'`-radene havner i samme indre ordbok. Svaret med `'a'` oppført to ganger tror en nøkkel kan gjentas, svaret der bare `{'u2': 4}` står igjen under `'a'` er det du får om `data[x] = {}` sto uten testen, og svaret med ukene ytterst bytter om nivåene.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nantall = {}\nfor tegn in 'kokkelimonke':\n    antall[tegn] = antall.get(tegn, 0) + 1\nprint(antall['k'], len(antall))\n```",
       options: ["`4 7`", "`3 7`", "`4 12`", "`7 4`"],
-      explanation: "Ordet har fire `k`-er, og sju ulike bokstaver (`k`, `o`, `e`, `l`, `i`, `m`, `n`). Alternativ b) mister en `k`, c) forveksler antall ulike nøkler med lengden på ordet, og d) bytter om de to tallene. `len` på en telle-ordbok gir alltid antall **ulike** nøkler.",
+      explanation: "Ordet har fire `k`-er, og sju ulike bokstaver (`k`, `o`, `e`, `l`, `i`, `m`, `n`). Svaret `3 7` mister en `k`, `4 12` forveksler antall ulike nøkler med lengden på ordet, og `7 4` bytter om de to tallene. `len` på en telle-ordbok gir alltid antall **ulike** nøkler.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {}\nd['z'] = 1\nd['a'] = 2\nd['m'] = 3\nprint(list(d))\n```",
       options: ["`['z', 'a', 'm']`", "`['a', 'm', 'z']`", "`[1, 2, 3]`", "`['z', 1, 'a', 2, 'm', 3]`"],
-      explanation: "Fra Python 3.7 bevarer en ordbok innsettingsrekkefølgen, og `list(d)` gir **nøklene** — samme regel som `for k in d`. Alternativ b) sorterer alfabetisk, c) gir verdiene, og d) blander nøkler og verdier om hverandre.",
+      explanation: "Fra Python 3.7 bevarer en ordbok innsettingsrekkefølgen, og `list(d)` gir **nøklene** — samme regel som `for k in d`. Svaret `['a', 'm', 'z']` sorterer alfabetisk, `[1, 2, 3]` gir verdiene, og `['z', 1, 'a', 2, 'm', 3]` blander nøkler og verdier om hverandre.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndata = {'nord': {'u1': 2, 'u2': 4}, 'sor': {'u1': 8, 'u2': 1}}\ntotal = 0\nfor omr in data:\n    for uke in data[omr]:\n        total += data[omr][uke]\nprint(total)\n```",
       options: ["`15`", "`6`", "`9`", "`4`"],
-      explanation: "Den ytre løkka gir områdenavnene, den indre går over `data[omr]` og gir ukenavnene, og `data[omr][uke]` er tallet: $2 + 4 + 8 + 1 = 15$. Alternativ b) og c) summerer bare ett område, og d) teller antall tall i stedet for å legge dem sammen.",
+      explanation: "Den ytre løkka gir områdenavnene, den indre går over `data[omr]` og gir ukenavnene, og `data[omr][uke]` er tallet: $2 + 4 + 8 + 1 = 15$. Svarene 6 og 9 summerer bare ett område hver, og svaret 4 teller antall tall i stedet for å legge dem sammen.",
     },
     {
       question: "Hva skriver `print(list(d.items())[1])` ut når `d = {'sol': 3, 'vind': 16}`?",
       options: ["`('vind', 16)`", "`('sol', 3)`", "`'vind'`", "`16`"],
-      explanation: "`.items()` gir parene i innsettingsrekkefølge, og `[1]` plukker det **andre** paret — indeksering starter på 0. Et par skrives ut som en tuppel, med parenteser og fnutter rundt strengen. Alternativ b) er par nummer 0, mens c) og d) er hver sin halvdel av riktig par.",
+      explanation: "`.items()` gir parene i innsettingsrekkefølge, og `[1]` plukker det **andre** paret — indeksering starter på 0. Et par skrives ut som en tuppel, med parenteser og fnutter rundt strengen. Svaret `('sol', 3)` er par nummer 0, mens `'vind'` og `16` er hver sin halvdel av riktig par.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'x': [1, 2], 'y': [3]}\nd['x'].append(7)\nprint(len(d), len(d['x']))\n```",
       options: ["`2 3`", "`2 2`", "`3 3`", "`3 2`"],
-      explanation: "`d['x']` gir selve lista, ikke en kopi, så `append` endrer det som ligger i ordboka: lista får tre elementer. Ordboka har fortsatt to nøkler. Alternativ b) glemmer at `append` virket, og c)/d) teller nivåene feil — felle #20.",
+      explanation: "`d['x']` gir selve lista, ikke en kopi, så `append` endrer det som ligger i ordboka: lista får tre elementer. Ordboka har fortsatt to nøkler. Svaret `2 2` glemmer at `append` virket, og `3 3` og `3 2` teller nivåene feil — felle #20.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'a': 1}\nd['b'] = d.get('b', 0) + 5\nd['a'] = d.get('a', 0) + 5\nprint(d)\n```",
       options: ["`{'a': 6, 'b': 5}`", "`{'a': 5, 'b': 5}`", "`{'b': 5, 'a': 6}`", "`{'a': 1, 'b': 5}`"],
-      explanation: "`'b'` mangler, så `.get` gir 0 og verdien blir 5; `'a'` finnes med verdien 1, så den blir 6. Utskriftsrekkefølgen er innsettingsrekkefølgen, og `'a'` ble satt inn først. Alternativ c) er fellen der man tror en oppdatert nøkkel flytter seg bakerst.",
+      explanation: "`'b'` mangler, så `.get` gir 0 og verdien blir 5; `'a'` finnes med verdien 1, så den blir 6. Utskriftsrekkefølgen er innsettingsrekkefølgen, og `'a'` ble satt inn først. Svaret `{'b': 5, 'a': 6}` er fellen der man tror en oppdatert nøkkel flytter seg bakerst.",
     },
     {
       question: "Hva skriver `print(maal[2022], len(maal))` ut når `maal = {2021: 5.1, 2022: 6.3}`?",
       options: ["`6.3 2`", "`5.1 2`", "Programmet stopper med feilen `IndexError`", "Programmet stopper med feilen `KeyError: 2022`"],
-      explanation: "Heltall er lovlige nøkler, og `maal[2022]` er derfor et oppslag på **nøkkelen** 2022, ikke på posisjon 2022. Alternativ b) leser det som posisjon 1 i en liste, mens c) og d) er fellene der man tror heltallsnøkler er ulovlige eller ikke finnes.",
+      explanation: "Heltall er lovlige nøkler, og `maal[2022]` er derfor et oppslag på **nøkkelen** 2022, ikke på posisjon 2022. Svaret `5.1 2` leser det som posisjon 1 i en liste, mens svarene om `IndexError` og `KeyError` er fellene der man tror heltallsnøkler er ulovlige eller ikke finnes.",
     },
   ],
   'in1900-1-6': [
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef f(x):\n    return x + 1\n    return x + 100\n\nprint(f(2), f(2.0))\n```",
       options: ["`3 3.0`", "`3 3`", "`103 103.0`", "`3.0 3.0`"],
-      explanation: "`return` avslutter funksjonen straks, så den andre `return`-linja kjøres aldri. Heltall inn gir heltall ut, flyttall inn gir flyttall ut. Alternativ b) glemmer datatypen, c) tror begge `return`-linjene virker, og d) gjør begge svarene til flyttall.",
+      explanation: "`return` avslutter funksjonen straks, så den andre `return`-linja kjøres aldri. Heltall inn gir heltall ut, flyttall inn gir flyttall ut. Svaret `3 3` glemmer datatypen, `103 103.0` tror begge `return`-linjene virker, og `3.0 3.0` gjør begge svarene til flyttall.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef skriv(x):\n    print(x * 2)\n\nsvar = skriv(3)\nprint(svar)\n```",
       options: ["`6` på første linje og `None` på andre", "`6` på første linje og `6` på andre", "`6` på første linje og `0` på andre", "Bare `6`, siden `svar` ikke har noen verdi"],
-      explanation: "Funksjonen skriver ut, men har ingen `return`, så den leverer `None` tilbake. Alternativ b) forveksler «å skrive ut» med «å returnere» — den vanligste misforståelsen om funksjoner. Alternativ d) overser at `None` er en verdi som `print` gjerne skriver ut.",
+      explanation: "Funksjonen skriver ut, men har ingen `return`, så den leverer `None` tilbake. Svaret der `6` skrives to ganger, forveksler «å skrive ut» med «å returnere» — den vanligste misforståelsen om funksjoner. Svaret om at bare `6` skrives, overser at `None` er en verdi som `print` gjerne skriver ut.",
     },
     {
       question: "Hva skriver `print(g(10), g(10, 1), g(b=10, a=1))` ut for `def g(a, b=3): return a - b`?",
       options: ["`7 9 -9`", "`7 9 9`", "`7 11 -9`", "`13 9 -9`"],
-      explanation: "Første kall bruker standardverdien 3, andre kall overstyrer den med 1, og tredje kall setter `a` til 1 og `b` til 10 — navngitte argumenter går til parameteren med det navnet uansett rekkefølge. Alternativ b) snur fortegnet i siste kall, c) forveksler minus med pluss, og d) bruker feil standardverdi.",
+      explanation: "Første kall bruker standardverdien 3, andre kall overstyrer den med 1, og tredje kall setter `a` til 1 og `b` til 10 — navngitte argumenter går til parameteren med det navnet uansett rekkefølge. Svaret `7 9 9` snur fortegnet i siste kall, `7 11 -9` forveksler minus med pluss, og `13 9 -9` bruker feil standardverdi.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef logg(v, hist=[]):\n    hist.append(v)\n    return hist\n\nprint(logg(1))\nprint(logg(2))\n```",
       options: ["`[1]` på første linje og `[1, 2]` på andre", "`[1]` på første linje og `[2]` på andre", "`[1]` på første linje og `[1]` på andre", "Programmet stopper med `TypeError` på andre kall"],
-      explanation: "En liste som standardverdi lages **én gang**, ved `def`-linja, og deles derfor mellom kallene — felle #21. Alternativ b) er det de fleste forventer, og det du får med den trygge formen `hist=None` pluss `if hist is None: hist = []` inne i funksjonen.",
+      explanation: "En liste som standardverdi lages **én gang**, ved `def`-linja, og deles derfor mellom kallene — felle #21. Svaret `[1]` og så `[2]` er det de fleste forventer, og det du får med den trygge formen `hist=None` pluss `if hist is None: hist = []` inne i funksjonen.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef par(n):\n    return n * 2, n * 3\n\nx = par(4)\nprint(x)\na, b = par(4)\nprint(a, b)\n```",
       options: ["`(8, 12)` på første linje og `8 12` på andre", "`8 12` på første linje og `8 12` på andre", "`[8, 12]` på første linje og `8 12` på andre", "`(8, 12)` på første linje og `(8, 12)` på andre"],
-      explanation: "Komma etter `return` gir en tuppel, som skrives ut med parenteser og komma-mellomrom. Pakkes den ut i to navn, skriver `print` de to tallene med ett mellomrom mellom. Alternativ c) forveksler tuppel med liste — en tuppel har parenteser, ikke hakeparenteser.",
+      explanation: "Komma etter `return` gir en tuppel, som skrives ut med parenteser og komma-mellomrom. Pakkes den ut i to navn, skriver `print` de to tallene med ett mellomrom mellom. Svaret `[8, 12]` forveksler tuppel med liste — en tuppel har parenteser, ikke hakeparenteser.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nn = 7\n\ndef endre():\n    n = 2\n    return n\n\nprint(endre(), n)\n```",
       options: ["`2 7`", "`2 2`", "`7 7`", "`7 2`"],
-      explanation: "Tilordningen inne i funksjonen lager en **lokal** variabel; den globale `n` er urørt — felle #13. Alternativ b) er svaret om du tror funksjonen endrer den globale, og d) bytter om rekkefølgen `print` skriver argumentene i.",
+      explanation: "Tilordningen inne i funksjonen lager en **lokal** variabel; den globale `n` er urørt — felle #13. Svaret `2 2` er det du får om du tror funksjonen endrer den globale, og `7 2` bytter om rekkefølgen `print` skriver argumentene i.",
     },
     {
       question: "Hva skjer når programmet kjøres?\n\n```python\nantall = 1\n\ndef opp():\n    antall = antall + 1\n    return antall\n\nprint(opp())\n```",
       options: ["Programmet stopper med `UnboundLocalError`", "Programmet skriver `2`, og den globale `antall` blir 2", "Programmet skriver `2`, men den globale `antall` er 1", "Programmet stopper med `NameError` på `def`-linja"],
-      explanation: "Likhetstegnet gjør `antall` lokal i hele funksjonen — også på høyresiden, der den ennå ikke har fått verdi. Alternativ b) og c) forutsetter at høyresiden leser den globale, som den ikke gjør. Kuren i denne boka er å sende telleren inn som argument og returnere den nye verdien.",
+      explanation: "Likhetstegnet gjør `antall` lokal i hele funksjonen — også på høyresiden, der den ennå ikke har fått verdi. Begge svarene om at programmet skriver `2`, forutsetter at høyresiden leser den globale, som den ikke gjør. Kuren i denne boka er å sende telleren inn som argument og returnere den nye verdien.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef utvid(liste):\n    liste.append(5)\n    return len(liste)\n\nverdier = [1, 2]\nprint(utvid(verdier), verdier)\n```",
       options: ["`3 [1, 2, 5]`", "`3 [1, 2]`", "`2 [1, 2, 5]`", "`3 [5]`"],
-      explanation: "`append` endrer selve lista som ble sendt inn, så endringen er synlig utenfor funksjonen også. Alternativ b) er svaret om du tror en funksjon aldri kan endre argumentet sitt, og c) teller lengden før tillegget. Merk at dette ikke motsier felle #13: der gjaldt det **tilordning**, her endres innholdet.",
+      explanation: "`append` endrer selve lista som ble sendt inn, så endringen er synlig utenfor funksjonen også. Svaret `3 [1, 2]` er det du får om du tror en funksjon aldri kan endre argumentet sitt, og `2 [1, 2, 5]` teller lengden før tillegget. Merk at dette ikke motsier felle #13: der gjaldt det **tilordning**, her endres innholdet.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef bytt(liste):\n    liste = [9, 9]\n    return liste\n\nverdier = [1, 2]\nbytt(verdier)\nprint(verdier)\n```",
       options: ["`[1, 2]`", "`[9, 9]`", "`[1, 2, 9, 9]`", "`None`"],
-      explanation: "`liste = [9, 9]` er en **tilordning**: den kobler bare det lokale navnet til en ny liste, og originalen er urørt. Alternativ b) er fellen — sammenlign med `liste.append(9)`, som ville endret originalen. Returverdien blir dessuten aldri tatt vare på.",
+      explanation: "`liste = [9, 9]` er en **tilordning**: den kobler bare det lokale navnet til en ny liste, og originalen er urørt. Svaret `[9, 9]` er fellen — sammenlign med `liste.append(9)`, som ville endret originalen. Returverdien blir dessuten aldri tatt vare på.",
     },
     {
       question: "Hva skriver `print(h(3), h(0))` ut når `h = lambda x: 2 * x + 1`?",
       options: ["`7 1`", "`7 0`", "`6 1`", "`8 2`"],
-      explanation: "En `lambda` returnerer verdien av uttrykket etter kolon, så `h(3)` er $2 \\cdot 3 + 1 = 7$ og `h(0)` er 1. Alternativ b) glemmer leddet `+ 1` i det andre kallet, og c) glemmer det i det første. En `lambda` er akkurat like mye en funksjon som en `def`.",
+      explanation: "En `lambda` returnerer verdien av uttrykket etter kolon, så `h(3)` er $2 \\cdot 3 + 1 = 7$ og `h(0)` er 1. Svaret `7 0` glemmer leddet `+ 1` i det andre kallet, og `6 1` glemmer det i det første. En `lambda` er akkurat like mye en funksjon som en `def`.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef kvadrat(x):\n    return x * x\n\nk = kvadrat\nprint(k(5))\n```",
       options: ["`25`", "Programmet stopper med `TypeError`", "`<class 'function'>`", "Programmet stopper med `NameError`"],
-      explanation: "Et funksjonsnavn uten parenteser er en verdi som kan lagres i en variabel, og `k` peker deretter på samme funksjon. Alternativ c) er hva `print(type(kvadrat))` ville gitt. At funksjoner kan sendes rundt slik, er hele grunnlaget for numeriske metoder senere i boka.",
+      explanation: "Et funksjonsnavn uten parenteser er en verdi som kan lagres i en variabel, og `k` peker deretter på samme funksjon. Svaret `<class 'function'>` er hva `print(type(kvadrat))` ville gitt. At funksjoner kan sendes rundt slik, er hele grunnlaget for numeriske metoder senere i boka.",
     },
     {
       question: "Hva skriver `print(bruk(abs, -3), bruk(lambda t: t + 1, 3))` ut for `def bruk(f, x): return f(x) * 2`?",
       options: ["`6 8`", "`6 7`", "`-6 8`", "`3 4`"],
-      explanation: "Første kall gir `abs(-3) * 2` som er 6, andre gir `(3 + 1) * 2` som er 8. Alternativ b) glemmer å gange med 2 i det andre kallet, og c) glemmer at `abs` fjerner fortegnet. Merk at `abs` sendes inn uten parenteser — det er funksjonen selv som skal videre.",
+      explanation: "Første kall gir `abs(-3) * 2` som er 6, andre gir `(3 + 1) * 2` som er 8. Svaret `6 7` glemmer å gange med 2 i det andre kallet, og `-6 8` glemmer at `abs` fjerner fortegnet. Merk at `abs` sendes inn uten parenteser — det er funksjonen selv som skal videre.",
     },
     {
       question: "Hva skriver `print(eval('2*y + 4'))` ut når `y = 3`?",
       options: ["`10`", "`2*y + 4`", "Programmet stopper med `NameError`", "`'2*y + 4'`"],
-      explanation: "`eval` regner ut uttrykket som står i teksten, med de variablene som finnes akkurat da — her $2 \\cdot 3 + 4 = 10$. Alternativ b) og d) er svarene om du tror teksten bare skrives ut, og c) forutsetter at `y` ikke finnes, som den gjør.",
+      explanation: "`eval` regner ut uttrykket som står i teksten, med de variablene som finnes akkurat da — her $2 \\cdot 3 + 4 = 10$. Svarene som gjengir `2*y + 4` som tekst, med eller uten fnutter, er det du får om du tror teksten bare skrives ut, og svaret om `NameError` forutsetter at `y` ikke finnes, som den gjør.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef forste_over(verdier, grense):\n    for v in verdier:\n        if v > grense:\n            return v\n    return -1\n\nprint(forste_over([1, 5, 9], 4), forste_over([1, 2], 4))\n```",
       options: ["`5 -1`", "`9 -1`", "`5 0`", "`14 -1`"],
-      explanation: "`return` inne i løkka avslutter funksjonen straks den finner den **første** verdien over grensen — derfor 5 og ikke 9. Finner løkka ingenting, kjøres `return -1` etterpå. Alternativ b) er svaret om du tror løkka går ferdig, og d) om du tror verdiene summeres.",
+      explanation: "`return` inne i løkka avslutter funksjonen straks den finner den **første** verdien over grensen — derfor 5 og ikke 9. Finner løkka ingenting, kjøres `return -1` etterpå. Svaret `9 -1` er det du får om du tror løkka går ferdig, og `14 -1` om du tror verdiene summeres.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef sum_til(n):\n    total = 0\n    for i in range(n + 1):\n        total += i\n        return total\n\nprint(sum_til(4))\n```",
       options: ["`0`", "`10`", "`4`", "`1`"],
-      explanation: "`return` står **inne i** løkka, med samme innrykk som `total += i`, så funksjonen avsluttes etter første runde — der `i` er 0 og `total` fortsatt 0. Alternativ b) er svaret den riktige koden ville gitt, med `return` utenfor løkka. Dette er en innrykksfeil, felle #24.",
+      explanation: "`return` står **inne i** løkka, med samme innrykk som `total += i`, så funksjonen avsluttes etter første runde — der `i` er 0 og `total` fortsatt 0. Svaret `10` er det den riktige koden ville gitt, med `return` utenfor løkka. Dette er en innrykksfeil, felle #24.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef vis(a, b, c=0):\n    print(a, b, c)\n\nvis(1, c=2, b=3)\n```",
       options: ["`1 3 2`", "`1 2 3`", "`1 3 0`", "Programmet stopper med `TypeError`"],
-      explanation: "Posisjonsargumentet 1 går til `a`, og de navngitte går til parametrene med de navnene: `c` blir 2 og `b` blir 3. `print` skriver dem i **parametrenes** rekkefølge, ikke i kallets. Alternativ b) leser kallet fra venstre uten å se på navnene, og c) overser at `c` er overstyrt.",
+      explanation: "Posisjonsargumentet 1 går til `a`, og de navngitte går til parametrene med de navnene: `c` blir 2 og `b` blir 3. `print` skriver dem i **parametrenes** rekkefølge, ikke i kallets. Svaret `1 2 3` leser kallet fra venstre uten å se på navnene, og `1 3 0` overser at `c` er overstyrt.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef teller(d, k):\n    d[k] = d.get(k, 0) + 1\n    return d\n\nordbok = {}\nteller(ordbok, 'x')\nteller(ordbok, 'x')\nprint(ordbok)\n```",
       options: ["`{'x': 2}`", "`{'x': 1}`", "`{}`", "`{'x': 2, 'x': 2}`"],
-      explanation: "Innsetting i en ordbok endrer objektet som ble sendt inn, så begge kallene virker på samme ordbok. Returverdien tas aldri vare på, men det trengs heller ikke. Alternativ b) er svaret om bare ett kall talte, og c) om du tror funksjonen jobber på en kopi.",
+      explanation: "Innsetting i en ordbok endrer objektet som ble sendt inn, så begge kallene virker på samme ordbok. Returverdien tas aldri vare på, men det trengs heller ikke. Svaret `{'x': 1}` er det du får om bare ett kall talte, og `{}` om du tror funksjonen jobber på en kopi.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef deler(t):\n    return t // 4, t % 4\n\nprint(deler(13))\nprint(deler(13)[0])\n```",
       options: ["`(3, 1)` på første linje og `3` på andre", "`3 1` på første linje og `3` på andre", "`(3, 1)` på første linje og `1` på andre", "`(3.25, 1)` på første linje og `3.25` på andre"],
-      explanation: "`13 // 4` er 3 og `13 % 4` er 1, og tuppelen skrives med parenteser. Indeks 0 plukker det første elementet. Alternativ c) teller fra 1, og d) forveksler `//` med `/`, som ville gitt flyttall.",
+      explanation: "`13 // 4` er 3 og `13 % 4` er 1, og tuppelen skrives med parenteser. Indeks 0 plukker det første elementet. Svaret der andre linje blir `1`, teller indekser fra 1, og svaret med `3.25` forveksler `//` med `/`, som ville gitt flyttall.",
     },
   ],
   'in1900-1-7': [
     {
       question: "Hva skriver `for i in range(2, 6): print(i, end='')` ut?",
       options: ["`2345`", "`23456`", "`2 3 4 5`", "`012345`"],
-      explanation: "`range(2, 6)` gir 2, 3, 4, 5 — stoppverdien 6 er aldri med (felle #1). `end=''` fjerner både linjeskiftet og gir ingen skilletegn, så sifrene henger sammen. Alternativ b) tar med stoppverdien, c) antar mellomrom, og d) starter på 0.",
+      explanation: "`range(2, 6)` gir 2, 3, 4, 5 — stoppverdien 6 er aldri med (felle #1). `end=''` fjerner både linjeskiftet og gir ingen skilletegn, så sifrene henger sammen. Svaret `23456` tar med stoppverdien, `2 3 4 5` antar mellomrom, og `012345` starter på 0.",
     },
     {
       question: "Hva skriver `print(x[2], x[-3])` ut når `x = [5, 6, 7, 8]`?",
       options: ["`7 6`", "`7 7`", "`6 6`", "`8 6`"],
-      explanation: "Indeks 2 er tredje element, altså 7. Negativ indeks teller fra `-1` bakerst: `-1` er 8, `-2` er 7, `-3` er 6. Alternativ b) er svaret om du tror `-3` teller fra `0`, og d) om du leser `x[2]` som «det andre fra slutten».",
+      explanation: "Indeks 2 er tredje element, altså 7. Negativ indeks teller fra `-1` bakerst: `-1` er 8, `-2` er 7, `-3` er 6. Svaret `7 7` er det du får om du tror `-3` teller fra `0`, og `8 6` om du leser `x[2]` som «det andre fra slutten».",
     },
     {
       question: "Hva skriver `print(x[1:3])` ut når `x = [5, 6, 7, 8]`?",
       options: ["`[6, 7]`", "`[6, 7, 8]`", "`6 7`", "`[5, 6, 7]`"],
-      explanation: "Et utsnitt tar med fra og med 1 til, men ikke med, 3 — altså to elementer. Utsnitt gir en **liste**, og lister skrives med hakeparenteser og mellomrom etter kommaet (felle #18). Alternativ b) tar med stoppindeksen, og c) glemmer at resultatet er en liste.",
+      explanation: "Et utsnitt tar med fra og med 1 til, men ikke med, 3 — altså to elementer. Utsnitt gir en **liste**, og lister skrives med hakeparenteser og mellomrom etter kommaet (felle #18). Svaret `[6, 7, 8]` tar med stoppindeksen, og `6 7` glemmer at resultatet er en liste.",
     },
     {
       question: "Hva skriver `print([1, 2] + [3])` ut?",
       options: ["`[1, 2, 3]`", "`[4, 5]`", "`6`", "`[1, 2, [3]]`"],
-      explanation: "`+` på lister betyr **skjøting**, ikke elementvis addisjon (felle #5). Alternativ b) er hva elementvis addisjon ville gitt om det fantes — det kommer først med NumPy-tabeller i [kap. 4.1](/in1900/in1900-4-1). Alternativ c) er summen av alle tallene.",
+      explanation: "`+` på lister betyr **skjøting**, ikke elementvis addisjon (felle #5). Svaret `[4, 5]` er hva elementvis addisjon ville gitt om det fantes — det kommer først med NumPy-tabeller i [kap. 4.1](/in1900/in1900-4-1). Svaret `6` er summen av alle tallene.",
     },
     {
       question: "Hva skriver `print(sum([1, 2, 3]) * 2)` ut?",
       options: ["`12`", "`[1, 2, 3, 1, 2, 3]`", "`[2, 4, 6]`", "`6`"],
-      explanation: "`sum` gir ett tall, 6, og deretter ganges tallet med 2. Alternativ b) er hva `[1, 2, 3] * 2` ville gitt — gjentakelse av lista. Alternativ c) er elementvis multiplikasjon, som lister ikke har, og d) glemmer siste ledd.",
+      explanation: "`sum` gir ett tall, 6, og deretter ganges tallet med 2. Svaret `[1, 2, 3, 1, 2, 3]` er hva `[1, 2, 3] * 2` ville gitt — gjentakelse av lista. Svaret `[2, 4, 6]` er elementvis multiplikasjon, som lister ikke har, og svaret `6` glemmer å gange summen med 2.",
     },
     {
       question: "Hva skriver `print(9 // 4, 9 % 4, -9 // 4)` ut?",
       options: ["`2 1 -3`", "`2 1 -2`", "`2.25 1 -2.25`", "`2 1 -2.25`"],
-      explanation: "`//` runder **nedover**, også for negative tall: −2,25 blir −3 (felle #15). `%` gir resten 1. Alternativ b) er svaret om du tror `//` kutter mot null slik `int()` gjør, og c)/d) forveksler `//` med `/`, som alltid gir flyttall.",
+      explanation: "`//` runder **nedover**, også for negative tall: −2,25 blir −3 (felle #15). `%` gir resten 1. Svaret `2 1 -2` er det du får om du tror `//` kutter mot null slik `int()` gjør, og de to svarene med `-2.25` forveksler `//` med `/`, som alltid gir flyttall.",
     },
     {
       question: "Hva skriver `print(3 ** 2 ** 2)` ut?",
       options: ["`81`", "`9`", "`12`", "`729`"],
-      explanation: "`**` regnes **fra høyre**, så uttrykket er $3^{(2^2)} = 3^4 = 81$ (felle #15). Alternativ d) er $(3^2)^2 \\cdot 9$, b) er $3^2$, og c) er svaret om du ganger eksponentene. Potensen binder også sterkere enn unært minus.",
+      explanation: "`**` regnes **fra høyre**, så uttrykket er $3^{(2^2)} = 3^4 = 81$ (felle #15). Svaret 729 er $(3^2)^2 \\cdot 9$, svaret 9 er $3^2$, og svaret 12 er det du får om du ganger eksponentene. Potensen binder også sterkere enn unært minus.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(j, end='')\n```",
       options: ["`001012`", "`012012`", "`000111`", "`0110122`"],
-      explanation: "Den indre grensen avhenger av `i` (felle #12): for `i = 1` skrives `0`, for `i = 2` skrives `01`, for `i = 3` skrives `012`. Til sammen `001012`. Alternativ b) antar tre indre runder hver gang, og c) antar at det er `i` som skrives.",
+      explanation: "Den indre grensen avhenger av `i` (felle #12): for `i = 1` skrives `0`, for `i = 2` skrives `01`, for `i = 3` skrives `012`. Til sammen `001012`. Svaret `012012` antar tre indre runder hver gang, og `000111` antar at det er `i` som skrives.",
     },
     {
       question: "Hva skriver `for i in range(4, 0, -1): print(i, end=' ')` ut?",
       options: ["`4 3 2 1 ` (med mellomrom til slutt)", "`4 3 2 1 0 ` (med mellomrom til slutt)", "`3 2 1 0 ` (med mellomrom til slutt)", "`1 2 3 4 ` (med mellomrom til slutt)"],
-      explanation: "Med negativt steg teller `range` nedover, og stoppverdien 0 er fortsatt **eksklusiv**. Alternativ b) tar med stoppverdien, c) starter feil sted, og d) snur rekkefølgen. Merk at `end=' '` også skriver et mellomrom etter siste tall.",
+      explanation: "Med negativt steg teller `range` nedover, og stoppverdien 0 er fortsatt **eksklusiv**. Svaret som ender på 0 tar med stoppverdien, svaret som begynner på 3 starter feil sted, og svaret `1 2 3 4 ` snur rekkefølgen. Merk at `end=' '` også skriver et mellomrom etter siste tall.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\na = [1, 2, 3]\nb = [9, 8]\nfor p, q in zip(a, b):\n    print(p + q, end=' ')\n```",
       options: ["`10 10 ` (med mellomrom til slutt)", "`10 10 3 ` (med mellomrom til slutt)", "`10 10 11 ` (med mellomrom til slutt)", "`1 9 2 8 ` (med mellomrom til slutt)"],
-      explanation: "`zip` stopper ved den korteste sekvensen (felle #17), så løkka går to runder: $1 + 9 = 10$ og $2 + 8 = 10$. Tallet 3 blir aldri brukt. Alternativ b) og c) er fellene der `zip` antas å fylle ut den korteste lista.",
+      explanation: "`zip` stopper ved den korteste sekvensen (felle #17), så løkka går to runder: $1 + 9 = 10$ og $2 + 8 = 10$. Tallet 3 blir aldri brukt. Svarene med tre tall — `10 10 3 ` og `10 10 11 ` — er fellene der `zip` antas å fylle ut den korteste lista.",
     },
     {
       question: "Hva skriver `for i, v in enumerate(['a', 'b']): print(i, v, end=';')` ut?",
       options: ["`0 a;1 b;`", "`1 a;2 b;`", "`a 0;b 1;`", "`0 a; 1 b;`"],
-      explanation: "`enumerate` gir indeksen **først** og starter på 0 (felle #17). `print` med to argumenter setter ett mellomrom mellom dem, mens `end=';'` gir semikolon uten mellomrom etter. Alternativ c) snur paret, og d) legger inn et mellomrom som ikke skrives.",
+      explanation: "`enumerate` gir indeksen **først** og starter på 0 (felle #17). `print` med to argumenter setter ett mellomrom mellom dem, mens `end=';'` gir semikolon uten mellomrom etter. Svaret `a 0;b 1;` snur paret, og `0 a; 1 b;` legger inn et mellomrom som ikke skrives.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nn = 7\nk = 0\nwhile n > 0:\n    n = n - 2\n    k += 1\nprint(n, k)\n```",
       options: ["`-1 4`", "`1 3`", "`0 4`", "`-1 3`"],
-      explanation: "`n` går 7, 5, 3, 1, −1. Etter fjerde runde er `n` lik −1, og betingelsen `n > 0` er usann. Alternativ b) stopper en runde for tidlig — men ved `n = 1` er `1 > 0` fortsatt sant. Alternativ c) antar at løkka treffer 0 nøyaktig, som den ikke gjør med steg 2 fra et oddetall.",
+      explanation: "`n` går 7, 5, 3, 1, −1. Etter fjerde runde er `n` lik −1, og betingelsen `n > 0` er usann. Svaret `1 3` stopper en runde for tidlig — men ved `n = 1` er `1 > 0` fortsatt sant. Svaret `0 4` antar at løkka treffer 0 nøyaktig, som den ikke gjør med steg 2 fra et oddetall.",
     },
     {
       question: "Hva skriver `print(len(d), 2 in d)` ut når `d = {'a': 1, 'b': 2}`?",
       options: ["`2 False`", "`2 True`", "`4 False`", "`2 None`"],
-      explanation: "`len` teller parene, altså 2. `in` på en ordbok ser **bare** på nøklene, og 2 er en verdi — derfor `False`. Alternativ b) er fellen der man tror `in` også leter i verdiene; det krever `2 in d.values()`. Alternativ c) teller nøkler og verdier hver for seg.",
+      explanation: "`len` teller parene, altså 2. `in` på en ordbok ser **bare** på nøklene, og 2 er en verdi — derfor `False`. Svaret `2 True` er fellen der man tror `in` også leter i verdiene; det krever `2 in d.values()`. Svaret `4 False` teller nøkler og verdier hver for seg.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'a': 1}\nd['b'] = d.get('b', 0) + 3\nprint(d)\n```",
       options: ["`{'a': 1, 'b': 3}`", "`{'a': 1, 'b': 0}`", "`{'a': 1}`", "`{'a': 4, 'b': 3}`"],
-      explanation: "`.get('b', 0)` gir 0 fordi nøkkelen mangler, og verdien blir 3. Nye nøkler legges bakerst, i innsettingsrekkefølge. Alternativ b) glemmer leddet `+ 3`, og c) forutsetter at `.get` alene ville lagt til nøkkelen — det gjør den ikke, men tilordningen gjør det.",
+      explanation: "`.get('b', 0)` gir 0 fordi nøkkelen mangler, og verdien blir 3. Nye nøkler legges bakerst, i innsettingsrekkefølge. Svaret `{'a': 1, 'b': 0}` glemmer leddet `+ 3`, og `{'a': 1}` forutsetter at `.get` alene ville lagt til nøkkelen — det gjør den ikke, men tilordningen gjør det.",
     },
     {
       question: "Hva skriver `print(s[1:4], s[-1])` ut når `s = 'python'`?",
       options: ["`yth n`", "`ytho n`", "`yth h`", "`'yth' 'n'`"],
-      explanation: "Utsnittet tar tegn 1, 2 og 3 — stoppindeksen 4 er ikke med. `s[-1]` er siste tegn. Strenger skrives **uten** fnutter når de er argument til `print`; fnutter kommer bare med inne i en liste eller ordbok (alternativ d). Alternativ b) tar med stoppindeksen.",
+      explanation: "Utsnittet tar tegn 1, 2 og 3 — stoppindeksen 4 er ikke med. `s[-1]` er siste tegn. Strenger skrives **uten** fnutter når de er argument til `print`; fnutter kommer bare med inne i en liste eller ordbok, slik svaret `'yth' 'n'` feilaktig viser dem. Svaret `ytho n` tar med stoppindeksen.",
     },
     {
       question: "Hva skriver `print(f'{7:4d}|{2.5:6.1f}|')` ut?",
       options: ["`   7|   2.5|`", "`7   |2.5   |`", "`   7|  2.50|`", "`0007|   2.5|`"],
-      explanation: "Bredden fyller ut med mellomrom **foran** tall (høyrejustering): `7` er ett tegn i et felt på 4, og `2.5` er tre tegn i et felt på 6. Alternativ b) venstrejusterer, som bare gjelder strenger, og c) bruker to desimaler der `.1f` ba om én (felle #16).",
+      explanation: "Bredden fyller ut med mellomrom **foran** tall (høyrejustering): `7` er ett tegn i et felt på 4, og `2.5` er tre tegn i et felt på 6. Svaret `7   |2.5   |` venstrejusterer, som bare gjelder strenger, og `   7|  2.50|` bruker to desimaler der `.1f` ba om én (felle #16).",
     },
     {
       question: "Hva skriver `print('a', 'b', sep='-', end='!')` ut?",
       options: ["`a-b!`", "`a b!`", "`a-b-!`", "`a-b` med linjeskift etter"],
-      explanation: "`sep` bytter ut mellomrommet **mellom** argumentene, `end` bytter ut linjeskiftet **etter** hele utskriften. Alternativ c) bruker separatoren også til slutt, som den ikke gjør, og d) overser at `end` fjerner linjeskiftet (felle #16).",
+      explanation: "`sep` bytter ut mellomrommet **mellom** argumentene, `end` bytter ut linjeskiftet **etter** hele utskriften. Svaret `a-b-!` bruker separatoren også til slutt, som den ikke gjør, og svaret med linjeskift etter overser at `end` fjerner linjeskiftet (felle #16).",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ny = 2\ndef f():\n    y = 9\n    return y + 1\nprint(f(), y)\n```",
       options: ["`10 2`", "`10 9`", "`3 2`", "`10 10`"],
-      explanation: "Tilordningen inne i funksjonen lager en **lokal** `y` (felle #13), så funksjonen returnerer 10 mens den globale `y` fortsatt er 2. Alternativ b) og d) er svarene om du tror funksjonen endrer den globale, og c) om du tror funksjonen leser den globale verdien.",
+      explanation: "Tilordningen inne i funksjonen lager en **lokal** `y` (felle #13), så funksjonen returnerer 10 mens den globale `y` fortsatt er 2. Svarene `10 9` og `10 10` er det du får om du tror funksjonen endrer den globale, og `3 2` om du tror funksjonen leser den globale verdien.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef g(liste):\n    liste.append(4)\n    return sum(liste)\nx = [1, 2]\nprint(g(x), x)\n```",
       options: ["`7 [1, 2, 4]`", "`7 [1, 2]`", "`3 [1, 2, 4]`", "`7 [4]`"],
-      explanation: "`append` endrer selve lista som ble sendt inn, så endringen er synlig utenfor — dette er unntaket fra scope-regelen, som bare gjelder tilordning. Summen blir $1 + 2 + 4 = 7$. Alternativ b) antar at funksjonen jobber på en kopi, og c) summerer før tillegget.",
+      explanation: "`append` endrer selve lista som ble sendt inn, så endringen er synlig utenfor — dette er unntaket fra scope-regelen, som bare gjelder tilordning. Summen blir $1 + 2 + 4 = 7$. Svaret `7 [1, 2]` antar at funksjonen jobber på en kopi, og `3 [1, 2, 4]` summerer før tillegget.",
     },
     {
       question: "Hva skriver `print(y[1][0], len(y[1]))` ut når `y = [[1, 2], [3, 4, 5]]`?",
       options: ["`3 3`", "`1 2`", "`3 2`", "`2 3`"],
-      explanation: "`y[1]` er den andre indre lista, `[3, 4, 5]`; første element der er 3, og lengden er 3. At begge tallene ble 3 er tilfeldig — `len` teller på det nivået du peker på. Alternativ b) leser rad 0, og c) teller lengden på feil rad.",
+      explanation: "`y[1]` er den andre indre lista, `[3, 4, 5]`; første element der er 3, og lengden er 3. At begge tallene ble 3 er tilfeldig — `len` teller på det nivået du peker på. Svaret `1 2` leser rad 0, og `3 2` teller lengden på feil rad.",
     },
     {
       question: "Hva skriver `print(y[0] + y[1][:1])` ut når `y = [[1, 2], [3, 4, 5]]`?",
       options: ["`[1, 2, 3]`", "`[1, 2, 3, 4, 5]`", "`[1, 2, [3]]`", "`6`"],
-      explanation: "`y[1][:1]` er et **utsnitt** og gir lista `[3]`, ikke tallet 3. To lister skjøtes med `+`. Alternativ c) er fellen der man tror en liste legges inn som ett element, og d) forutsetter at `+` summerer tall (felle #5 og #18 i samme uttrykk).",
+      explanation: "`y[1][:1]` er et **utsnitt** og gir lista `[3]`, ikke tallet 3. To lister skjøtes med `+`. Svaret `[1, 2, [3]]` er fellen der man tror en liste legges inn som ett element, og svaret `6` forutsetter at `+` summerer tall (felle #5 og #18 i samme uttrykk).",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(3):\n    total = total + i * 2\nprint(total)\n```",
       options: ["`6`", "`12`", "`4`", "`0`"],
-      explanation: "`range(3)` gir 0, 1, 2, og summen av det dobbelte er $0 + 2 + 4 = 6$. Alternativ b) er svaret om løkka gikk til og med 3, og c) om startverdien var glemt. Merk at `print` står utenfor løkka, så den skriver bare én gang.",
+      explanation: "`range(3)` gir 0, 1, 2, og summen av det dobbelte er $0 + 2 + 4 = 6$. Svaret 12 er det du får om løkka gikk til og med 3, og svaret 4 om startverdien var glemt. Merk at `print` står utenfor løkka, så den skriver bare én gang.",
     },
     {
       question: "Hva skriver `print(list(range(0, 7, 3)))` ut?",
       options: ["`[0, 3, 6]`", "`[0, 3, 6, 9]`", "`[0, 3, 6, 7]`", "`[3, 6]`"],
-      explanation: "Steget er 3, og stoppverdien 7 er eksklusiv — 9 ville uansett vært for stort. Alternativ b) og c) tar med en verdi for mye, og d) glemmer at `range` starter på startverdien. Merk at `list` må til for at et `range`-objekt skal vises som en liste.",
+      explanation: "Steget er 3, og stoppverdien 7 er eksklusiv — 9 ville uansett vært for stort. Svarene `[0, 3, 6, 9]` og `[0, 3, 6, 7]` tar med en verdi for mye, og `[3, 6]` glemmer at `range` starter på startverdien. Merk at `list` må til for at et `range`-objekt skal vises som en liste.",
     },
     {
       question: "Hva skriver `print(10 / 5, 10 // 5)` ut?",
@@ -839,27 +839,27 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nd = {'x': 3, 'y': 1}\nfor k in d:\n    print(k, end='')\nprint(sum(d.values()))\n```",
       options: ["`xy4`", "`x y 4`", "`31 4`", "`xy 4`"],
-      explanation: "Løkka går over **nøklene** og skriver dem uten skilletegn, siden `end=''`. Deretter skriver `print` summen av verdiene, 4, på samme linje — fordi forrige `print` aldri avsluttet linja. Alternativ c) er fellen der løkkevariabelen forveksles med verdien.",
+      explanation: "Løkka går over **nøklene** og skriver dem uten skilletegn, siden `end=''`. Deretter skriver `print` summen av verdiene, 4, på samme linje — fordi forrige `print` aldri avsluttet linja. Svaret `31 4` er fellen der løkkevariabelen forveksles med verdien.",
     },
     {
       question: "Hva skriver `print(tekst.split(','), len(tekst.split(',')))` ut når `tekst = 'a,b,,c'`?",
       options: ["`['a', 'b', '', 'c'] 4`", "`['a', 'b', 'c'] 3`", "`['a', 'b', ' ', 'c'] 4`", "`'a b  c' 4`"],
-      explanation: "`.split(',')` deler på hvert komma, også der det ikke står noe mellom to av dem — resultatet blir en tom streng `''` som eget felt. Alternativ b) er fellen der man tror tomme felt hoppes over, og c) forveksler tom streng med mellomrom.",
+      explanation: "`.split(',')` deler på hvert komma, også der det ikke står noe mellom to av dem — resultatet blir en tom streng `''` som eget felt. Svaret `['a', 'b', 'c'] 3` er fellen der man tror tomme felt hoppes over, og `['a', 'b', ' ', 'c'] 4` forveksler tom streng med mellomrom.",
     },
     {
       question: "Hva skriver `print(h(7), h(7, 4))` ut for `def h(n, m=3): return n % m`?",
       options: ["`1 3`", "`1 1`", "`2 3`", "`3 1`"],
-      explanation: "Første kall bruker standardverdien 3, så $7 \\bmod 3 = 1$; andre kall setter `m` til 4, og $7 \\bmod 4 = 3$. Alternativ d) bytter om de to kallene, og c) regner $7 // 3$ i stedet for resten.",
+      explanation: "Første kall bruker standardverdien 3, så $7 \\bmod 3 = 1$; andre kall setter `m` til 4, og $7 \\bmod 4 = 3$. Svaret `3 1` bytter om de to kallene, og `2 3` regner $7 // 3$ i stedet for resten.",
     },
     {
       question: "Hva skriver `print(x[::-1], x[3:])` ut når `x = [1, 2, 3]`?",
       options: ["`[3, 2, 1] []`", "`[3, 2, 1] [3]`", "`[1, 2, 3] []`", "`[3, 2, 1]` og deretter `IndexError`"],
-      explanation: "`[::-1]` snur lista, og `x[3:]` starter etter siste element og gir en **tom liste** — et utsnitt utenfor kanten er lovlig og gir ikke feilmelding (felle #18). Alternativ d) forveksler utsnitt med indeksering: `x[3]` ville derimot gitt `IndexError`.",
+      explanation: "`[::-1]` snur lista, og `x[3:]` starter etter siste element og gir en **tom liste** — et utsnitt utenfor kanten er lovlig og gir ikke feilmelding (felle #18). Svaret som ender i `IndexError` forveksler utsnitt med indeksering: `x[3]` ville derimot gitt `IndexError`.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nk = 0\nfor i in range(3):\n    for j in range(2):\n        k += 1\nprint(k)\n```",
       options: ["`6`", "`5`", "`3`", "`9`"],
-      explanation: "Den ytre løkka går tre runder og den indre to per ytre runde, altså $3 \\cdot 2 = 6$ oppdateringer. Når den indre grensen er fast, blir totalen et rektangel; er den `range(i)`, blir den en trekant (felle #12). Alternativ b) og c) teller bare den ene løkka.",
+      explanation: "Den ytre løkka går tre runder og den indre to per ytre runde, altså $3 \\cdot 2 = 6$ oppdateringer. Når den indre grensen er fast, blir totalen et rektangel; er den `range(i)`, blir den en trekant (felle #12). Svarene 5 og 3 teller bare den ene løkka.",
     },
   ],
   'in1900-2-1': [
@@ -1050,42 +1050,42 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Variabelen `x` er 5, og programmet kjører linja `assert x > 0`. Hva skjer?",
       options: ["Ingenting skjer, og programmet fortsetter på neste linje", "Programmet skriver `True` og fortsetter på neste linje", "Programmet stopper og skriver `AssertionError` i terminalen", "Programmet skriver `x > 0` og fortsetter på neste linje"],
-      explanation: "En `assert` med en sann påstand er helt taus: den skriver ingenting og returnerer ingenting, og programmet går videre som om linja ikke sto der. Alternativ b) og d) forutsetter at `assert` skriver ut noe — det gjør den aldri. Alternativ c) er det som skjer når påstanden er **usann**.",
+      explanation: "En `assert` med en sann påstand er helt taus: den skriver ingenting og returnerer ingenting, og programmet går videre som om linja ikke sto der. Svarene om at det skrives `True` eller `x > 0`, forutsetter at `assert` skriver ut noe — det gjør den aldri. Svaret om `AssertionError` er det som skjer når påstanden er **usann**.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef test_f():\n    expected = 6\n    computed = 2*3\n    tol = 1e-10\n    assert abs(expected - computed) < tol, 'feil'\n\ntest_f()\nprint('A')\n```",
       options: ["Bare `A` — testen er stille når den går gjennom", "Bare `feil` — meldingen skrives ut av `assert`", "Både `True` og `A`, på hver sin linje i terminalen", "Ingenting — `assert` stopper programmet på den linja"],
-      explanation: "Avviket er `abs(6 - 6)`, altså 0, som er mindre enn toleransen, så `assert` gjør ingenting og `print('A')` kjøres. Meldingen `'feil'` vises bare hvis påstanden er usann (b), og `assert` skriver aldri `True` (c). Alternativ d) er svaret hvis du tror `assert` alltid avbryter.",
+      explanation: "Avviket er `abs(6 - 6)`, altså 0, som er mindre enn toleransen, så `assert` gjør ingenting og `print('A')` kjøres. Meldingen `'feil'` vises bare hvis påstanden er usann, og `assert` skriver aldri `True`. Svaret om at ingenting skrives ut, er det du får hvis du tror `assert` alltid avbryter.",
     },
     {
       question: "Hva skriver `print(0.1 + 0.2 == 0.3)` ut, og hvorfor?",
       options: ["`False`, fordi summen blir 0.30000000000000004", "`True`, fordi 0.1 og 0.2 til sammen blir 0.3", "`False`, fordi `==` aldri virker mellom to tall", "`0.30000000000000004`, altså selve summen av de to"],
-      explanation: "Flyttall er tilnærminger, og summen av tilnærmingene til 0,1 og 0,2 blir litt større enn tilnærmingen til 0,3. `==` krever at hvert siffer stemmer og gir derfor `False`. Alternativ c) er en overdrivelse: `==` virker helt fint mellom heltall, og er bit-for-bit-eksakt også for flyttall — det er nettopp derfor det svarer `False` her. Alternativ d) forveksler sammenligningen med selve summen.",
+      explanation: "Flyttall er tilnærminger, og summen av tilnærmingene til 0,1 og 0,2 blir litt større enn tilnærmingen til 0,3. `==` krever at hvert siffer stemmer og gir derfor `False`. Svaret om at `==` aldri virker mellom to tall, er en overdrivelse: `==` virker helt fint mellom heltall, og er bit-for-bit-eksakt også for flyttall — det er nettopp derfor det svarer `False` her. Svaret `0.30000000000000004` forveksler sammenligningen med selve summen.",
     },
     {
       question: "Hvilken linje er den riktige sjekken i en testfunksjon?",
       options: ["`assert abs(expected - computed) < tol, msg`", "`assert abs(expected - computed) > tol, msg`", "`assert expected - computed < tol, msg`", "`assert expected == computed, msg`"],
-      explanation: "Fasiten er standardformen: absoluttverdien av avviket skal være **mindre** enn toleransen. Alternativ b) har snudd ulikheten og tester at svaret er galt. Alternativ c) mangler `abs`, så et hvilket som helst negativt avvik slipper gjennom. Alternativ d) er feil #11 — likhetstegn på flyttall.",
+      explanation: "Fasiten er standardformen: absoluttverdien av avviket skal være **mindre** enn toleransen. Linja med `> tol` har snudd ulikheten og tester at svaret er galt. Linja uten `abs` slipper gjennom et hvilket som helst negativt avvik. Linja med `expected == computed` er feil #11 — likhetstegn på flyttall.",
     },
     {
       question: "En rekke som kuttes etter få ledd avviker med om lag $3 \\cdot 10^{-5}$ fra den eksakte verdien. Hvilken toleranse er fornuftig i testfunksjonen?",
       options: ["`tol = 1e-4`, litt over det avviket metoden faktisk har", "`tol = 1e-12`, så nær maskinens nøyaktighet som mulig", "`tol = 0`, slik at bare helt eksakt like tall godtas", "`tol = 1e-1`, med god margin ned til alle slags avvik"],
-      explanation: "Toleransen skal ligge like over avviket metoden faktisk har, og $10^{-4}$ er nærmeste trygge valg over $3 \\cdot 10^{-5}$. Alternativ b) og c) melder feil på helt riktig kode, siden metoden aldri kan bli så nøyaktig. Alternativ d) er så løs at den også ville sluppet gjennom en kode med reell feil, og en test som aldri feiler er ikke en test.",
+      explanation: "Toleransen skal ligge like over avviket metoden faktisk har, og $10^{-4}$ er nærmeste trygge valg over $3 \\cdot 10^{-5}$. `tol = 1e-12` og `tol = 0` melder feil på helt riktig kode, siden metoden aldri kan bli så nøyaktig. `tol = 1e-1` er så løs at den også ville sluppet gjennom en kode med reell feil, og en test som aldri feiler er ikke en test.",
     },
     {
       question: "Hva skjer når programmet kjøres?\n\n```python\ns = 0\nfor k in range(3):\n    s += k\n    print(s, end='-')\nassert s == 5, 'feil sum'\nprint('slutt')\n```",
       options: ["`0-1-3-` skrives, og deretter en `AssertionError`", "`0-1-3-slutt` skrives, og ingen feilmelding i det hele tatt", "`0-1-2-` skrives, og deretter en `AssertionError`", "`1-3-6-` skrives, og deretter en `AssertionError`"],
-      explanation: "Løkka legger til 0, 1 og 2, så `s` er 0, 1 og 3 etter de tre rundene, og `end='-'` samler dem på én linje. Summen blir 3, ikke 5, så `assert` avbryter og `print('slutt')` nås aldri. Alternativ c) skriver løkkevariabelen i stedet for summen, og d) starter summeringen på 1.",
+      explanation: "Løkka legger til 0, 1 og 2, så `s` er 0, 1 og 3 etter de tre rundene, og `end='-'` samler dem på én linje. Summen blir 3, ikke 5, så `assert` avbryter og `print('slutt')` nås aldri. Svaret `0-1-2-` skriver løkkevariabelen i stedet for summen, og `1-3-6-` starter summeringen på 1.",
     },
     {
       question: "Hvilken linje starter en testfunksjon slik oppgaveteksten ber om?",
       options: ["`def test_sum_rekke():` — helt uten argumenter", "`def test_sum_rekke(x, N):` — med to argumenter", "`def sum_rekke_test(x):` — med navnet bakerst", "`def test_sum_rekke:` — helt uten parenteser"],
-      explanation: "En testfunksjon heter `test_` pluss navnet på det som testes og har tomme parenteser: testverdiene velges inne i funksjonen. Alternativ b) er en helt vanlig funksjon, ikke en testfunksjon. Alternativ c) bryter navnekonvensjonen sensor ser etter. Alternativ d) er en syntaksfeil — `def` krever parenteser.",
+      explanation: "En testfunksjon heter `test_` pluss navnet på det som testes og har tomme parenteser: testverdiene velges inne i funksjonen. Linja med to argumenter er en helt vanlig funksjon, ikke en testfunksjon. Linja `def sum_rekke_test(x):` bryter navnekonvensjonen sensor ser etter. Linja uten parenteser er en syntaksfeil — `def` krever parenteser.",
     },
     {
       question: "Hva skriver en testfunksjon ut når alle sjekkene går gjennom?",
       options: ["Ingenting — den er helt taus når alt stemmer", "Teksten `True`, én gang per `assert`-linje i den", "Meldingen `msg` som står i `assert`-linja bakerst", "Verdien `None`, som er det funksjonen returnerer"],
-      explanation: "En testfunksjon kommuniserer ved å stoppe programmet, ikke ved å skrive ut. Går alt bra, skjer ingenting. Alternativ b) og c) forutsetter at `assert` skriver noe. Alternativ d) blander sammen retur og utskrift: funksjonen returnerer riktignok `None`, men den verdien skrives ikke ut med mindre du selv ber om det.",
+      explanation: "En testfunksjon kommuniserer ved å stoppe programmet, ikke ved å skrive ut. Går alt bra, skjer ingenting. Svarene om at `True` eller meldingen `msg` skrives ut, forutsetter at `assert` skriver noe. Svaret om `None` blander sammen retur og utskrift: funksjonen returnerer riktignok `None`, men den verdien skrives ikke ut med mindre du selv ber om det.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nexpected = 10.0\ncomputed = 4.0\ntol = 1e-10\nprint(expected - computed < tol)\nprint(computed - expected < tol)\n```",
@@ -1095,44 +1095,44 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver `print(sqrt(2)**2 == 2)` ut, når `sqrt` er importert fra `math`?",
       options: ["`False`, fordi resultatet blir 2.0000000000000004", "`True`, fordi kvadratroten opphøyd i andre er 2", "`False`, fordi `**` alltid gir et helt tall tilbake", "`True`, fordi Python runder av før den sammenligner"],
-      explanation: "Kvadratroten av 2 lagres som en tilnærming, og kvadratet av tilnærmingen ligger ett siste siffer over 2. `==` fanger den forskjellen. Alternativ c) gir riktig svar av gal grunn — `**` gir flyttall når grunntallet er et flyttall. Alternativ d) beskriver noe Python ikke gjør: det finnes ingen automatisk avrunding før en sammenligning.",
+      explanation: "Kvadratroten av 2 lagres som en tilnærming, og kvadratet av tilnærmingen ligger ett siste siffer over 2. `==` fanger den forskjellen. Svaret om at `**` alltid gir et helt tall tilbake, treffer riktig konklusjon av gal grunn — `**` gir flyttall når grunntallet er et flyttall. Svaret om at Python runder av først, beskriver noe Python ikke gjør: det finnes ingen automatisk avrunding før en sammenligning.",
     },
     {
       question: "Hvilken importsetning henter kvadratrot og eksponentialfunksjon fra `math`?",
       options: ["`from math import sqrt, exp`", "`import sqrt, exp from math`", "`from sqrt, exp import math`", "`import math.sqrt, math.exp`"],
-      explanation: "Formen er `from modul import navn`: modulen står først, deretter navnene. Alternativ b) er feil #10 — importsetningen skrevet i motsatt rekkefølge, en klassisk felle i «finn feilen»-oppgaver. Alternativ c) bytter om modul og navn, og d) er ikke gyldig syntaks for å importere enkeltfunksjoner.",
+      explanation: "Formen er `from modul import navn`: modulen står først, deretter navnene. Linja `import sqrt, exp from math` er feil #10 — importsetningen skrevet i motsatt rekkefølge, en klassisk felle i «finn feilen»-oppgaver. Linja `from sqrt, exp import math` bytter om modul og navn, og `import math.sqrt, math.exp` er ikke gyldig syntaks for å importere enkeltfunksjoner.",
     },
     {
       question: "En testfunksjon setter `expected` til nøyaktig det samme uttrykket som står inne i funksjonen den tester. Hva er problemet?",
       options: ["Testen går gjennom selv om formelen er helt feil", "Testen kan ikke bruke `exp` og `log` på begge sider", "To like uttrykk gir alltid avvik i det siste sifferet", "Verdien i `expected` må være et helt tall i en test"],
-      explanation: "Fasiten må komme fra en uavhengig kilde — håndregning, en kjent eksakt verdi eller `math` — ellers sammenligner du koden med seg selv, og feil i formelen oppdages aldri. Alternativ b) og d) er oppdiktede regler. Alternativ c) er galt: nøyaktig samme uttrykk regnet på samme måte gir nøyaktig samme flyttall.",
+      explanation: "Fasiten må komme fra en uavhengig kilde — håndregning, en kjent eksakt verdi eller `math` — ellers sammenligner du koden med seg selv, og feil i formelen oppdages aldri. Påstandene om at `exp` og `log` ikke kan stå på begge sider, og at fasiten må være et helt tall, er oppdiktede regler. Påstanden om at to like uttrykk alltid avviker i siste siffer, er galt: nøyaktig samme uttrykk regnet på samme måte gir nøyaktig samme flyttall.",
     },
     {
       question: "Hva skjer når programmet kjøres?\n\n```python\nfasit = [1.0, 2.0, 9.0]\nregnet = [1.0, 2.0, 3.0]\ntol = 1e-10\nfor e, c in zip(fasit, regnet):\n    print(e, end=' ')\n    assert abs(e - c) < tol, 'avvik'\nprint('ferdig')\n```",
       options: ["`1.0 2.0 9.0 ` skrives, og deretter en `AssertionError`", "`1.0 2.0 ` skrives, og deretter en `AssertionError`", "`1.0 2.0 9.0 ferdig` skrives, uten noen feilmelding", "Ingen utskrift, siden `assert` feiler i tredje runde"],
-      explanation: "`print` står **før** `assert` i løkkekroppen, så tallet 9.0 rekker å bli skrevet før sjekken feiler i tredje runde. Alternativ b) er svaret hvis du tror `assert` kjøres først. Alternativ c) overser at 9 og 3 er ulike, og d) overser at de to første rundene fullførte.",
+      explanation: "`print` står **før** `assert` i løkkekroppen, så tallet 9.0 rekker å bli skrevet før sjekken feiler i tredje runde. Svaret `1.0 2.0 ` er det du får hvis du tror `assert` kjøres først. Svaret uten feilmelding overser at 9 og 3 er ulike, og svaret uten utskrift overser at de to første rundene fullførte.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ntider = [0.0, 1.0, 2.0]\nfasit = [5.0, 7.0]\nfor t, e in zip(tider, fasit):\n    print(t, e)\n```",
       options: ["To linjer: `0.0 5.0` og så `1.0 7.0`", "Tre linjer, der den siste blir `2.0 None`", "To linjer: `0.0 5.0` og så `2.0 7.0`", "Tre linjer, der den siste blir hoppet over"],
-      explanation: "`zip` stopper ved den korteste sekvensen, så tallet 2.0 blir aldri brukt, og løkka går to runder. Dette er feil #17 — `zip` fyller ikke ut den korte lista med `None` (b) og hopper ikke over noe underveis (d). Alternativ c) parer feil elementer: `zip` tar dem i rekkefølge, ikke fra hver sin ende.",
+      explanation: "`zip` stopper ved den korteste sekvensen, så tallet 2.0 blir aldri brukt, og løkka går to runder. Dette er feil #17 — `zip` fyller ikke ut den korte lista med `None`, og hopper ikke over noe underveis. Svaret med parene `0.0 5.0` og `2.0 7.0` parer feil elementer: `zip` tar dem i rekkefølge, ikke fra hver sin ende.",
     },
   ],
   'in1900-3-2': [
     {
       question: "Summen $\\sum_{k=0}^{N} x^k/k!$ skal implementeres. Hvilken løkkelinje er riktig?",
       options: ["`for k in range(N+1):`", "`for k in range(N):`", "`for k in range(1, N):`", "`for k in range(0, N, 2):`"],
-      explanation: "Summen går til **og med** $N$, og stoppverdien i `range` er eksklusiv, så øvre grense må være `N+1`. Alternativ b) er felle #1, av-én-feilen: den mister det siste leddet. Alternativ c) hopper i tillegg over ledd null, og d) tar bare annethvert ledd.",
+      explanation: "Summen går til **og med** $N$, og stoppverdien i `range` er eksklusiv, så øvre grense må være `N+1`. Linja `for k in range(N):` er felle #1, av-én-feilen: den mister det siste leddet. Linja `for k in range(1, N):` hopper i tillegg over ledd null, og `for k in range(0, N, 2):` tar bare annethvert ledd.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ns = 0\nfor k in range(4):\n    s += 2*k\nprint(s)\n```",
       options: ["`12`", "`20`", "`6`", "`8`"],
-      explanation: "`range(4)` gir 0, 1, 2 og 3, så summen er $0+2+4+6 = 12$. Alternativ b) er svaret hvis du tror løkka går til og med 4. Alternativ c) summerer bare `k` uten faktoren 2, og d) tar bare det siste leddet.",
+      explanation: "`range(4)` gir 0, 1, 2 og 3, så summen er $0+2+4+6 = 12$. Svaret 20 er det du får hvis du tror løkka går til og med 4. Svaret 6 summerer bare `k` uten faktoren 2, og svaret 8 tar bare det siste leddet.",
     },
     {
       question: "Hva er `factorial(0)`?",
       options: ["1", "0", "En feilmelding", "Ikke definert"],
-      explanation: "Fakultet av null er definert som 1, og det er derfor ledd nummer null i eksponentialrekka blir $x^0/0! = 1$. Alternativ b) er den vanligste gjetningen. `factorial` gir bare feil for negative tall og for flyttall, ikke for null.",
+      explanation: "Fakultet av null er definert som 1, og det er derfor ledd nummer null i eksponentialrekka blir $x^0/0! = 1$. Svaret 0 er den vanligste gjetningen. `factorial` gir bare feil for negative tall og for flyttall, ikke for null.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nprint(-1**2, (-1)**2)\n```",
@@ -1142,159 +1142,159 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor skal `s = 0` stå i en funksjon som summerer en rekke?",
       options: ["Før løkka", "Inne i løkka, som første linje", "Etter løkka, før `return`", "Som argument til funksjonen"],
-      explanation: "Akkumulatoren nullstilles én gang, før løkka begynner. Alternativ b) nullstiller summen hver runde, så funksjonen returnerer bare siste ledd. Alternativ c) sletter alt du har summert. Alternativ d) ville krevd at den som kaller funksjonen sender inn en startverdi, og det ber ingen oppgave om.",
+      explanation: "Akkumulatoren nullstilles én gang, før løkka begynner. Står `s = 0` inne i løkka, nullstilles summen hver runde, så funksjonen returnerer bare siste ledd. Står den etter løkka, sletter den alt du har summert. Som argument til funksjonen ville den krevd at den som kaller funksjonen sender inn en startverdi, og det ber ingen oppgave om.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef sum_til(N):\n    s = 0\n    for k in range(N+1):\n        s += k\n        return s\n\nprint(sum_til(4))\n```",
       options: ["`0`", "`10`", "`4`", "`1`"],
-      explanation: "`return` står **inne** i løkka, så funksjonen avbrytes allerede i første runde, der `k` er 0 og `s` er 0. Alternativ b) er svaret når `return` står riktig, altså etter løkka. Alternativ c) og d) forutsetter at løkka rekker flere runder.",
+      explanation: "`return` står **inne** i løkka, så funksjonen avbrytes allerede i første runde, der `k` er 0 og `s` er 0. Svaret 10 er det du får når `return` står riktig, altså etter løkka. Svarene 4 og 1 forutsetter at løkka rekker flere runder.",
     },
     {
       question: "Rekka $\\sinh x = \\sum_{n=0}^{N} x^{2n+1}/(2n+1)!$ skal implementeres. Hvilken linje er leddet?",
       options: ["`s += x**(2*n+1) / factorial(2*n+1)`", "`s += x**(2*n+1) / factorial(n)`", "`s += x**n / factorial(2*n+1)`", "`s += x**(2*n) / factorial(2*n)`"],
-      explanation: "Uttrykket $2n+1$ skal stå **både** i eksponenten og i fakultetet — det er den vanligste kontrollen i oddetallsrekker. Alternativ b) og c) har ulik indeksering i teller og nevner. Alternativ d) er partallsvarianten, som hører til cosinusrekka.",
+      explanation: "Uttrykket $2n+1$ skal stå **både** i eksponenten og i fakultetet — det er den vanligste kontrollen i oddetallsrekker. Linjene med `factorial(n)` og med `x**n` har ulik indeksering i teller og nevner. Linja med `2*n` begge steder er partallsvarianten, som hører til cosinusrekka.",
     },
     {
       question: "Hvilken importsetning er gyldig i Python?",
       options: ["`from math import factorial`", "`import factorial from math`", "`from factorial import math`", "`import math factorial`"],
-      explanation: "Formen er `from modul import navn`, altså modulen først. Alternativ b) er felle #10 — importsetningen skrevet i motsatt rekkefølge, en klassisk plantet feil i «finn feilen»-oppgaver. Alternativ c) bytter om de to navnene, og d) er ikke gyldig syntaks.",
+      explanation: "Formen er `from modul import navn`, altså modulen først. Linja `import factorial from math` er felle #10 — importsetningen skrevet i motsatt rekkefølge, en klassisk plantet feil i «finn feilen»-oppgaver. Linja `from factorial import math` bytter om de to navnene, og `import math factorial` er ikke gyldig syntaks.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nfrom math import factorial\nprint(factorial(4) / factorial(3))\n```",
       options: ["`4.0`", "`4`", "`24`", "`1.0`"],
-      explanation: "$4! = 24$ og $3! = 6$, og $24/6 = 4$. Fordi `/` alltid gir flyttall, skrives svaret som `4.0` med punktum. Alternativ b) er svaret hvis du tror divisjonen gir heltall — det ville krevd `//`. Alternativ c) er bare telleren.",
+      explanation: "$4! = 24$ og $3! = 6$, og $24/6 = 4$. Fordi `/` alltid gir flyttall, skrives svaret som `4.0` med punktum. Svaret `4` er det du får hvis du tror divisjonen gir heltall — det ville krevd `//`. Svaret `24` er bare telleren.",
     },
     {
       question: "Hvor mange ledd har summen $\\sum_{k=1}^{N}$ når $N = 6$?",
       options: ["6", "7", "5", "12"],
-      explanation: "Summen starter på 1 og går til og med 6, altså seks ledd, og løkka skrives `for k in range(1, N+1):`. Alternativ b) er antall ledd når summen starter på 0 — det er nettopp forskjellen på de to startverdiene. Alternativ c) glemmer at både 1 og 6 er med.",
+      explanation: "Summen starter på 1 og går til og med 6, altså seks ledd, og løkka skrives `for k in range(1, N+1):`. Svaret 7 er antall ledd når summen starter på 0 — det er nettopp forskjellen på de to startverdiene. Svaret 5 glemmer at både 1 og 6 er med.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nfor k in range(3):\n    print((-1)**k, end=' ')\n```",
       options: ["`1 -1 1 `", "`-1 1 -1 `", "`1 1 1 `", "`0 1 2 `"],
-      explanation: "Partall gir 1, oddetall gir $-1$, og `k` går 0, 1, 2. Legg merke til det avsluttende mellomrommet: `end=' '` erstatter linjeskiftet. Alternativ b) starter feil vei og svarer til `(-1)**(k+1)`. Alternativ d) skriver løkkevariabelen i stedet for potensen.",
+      explanation: "Partall gir 1, oddetall gir $-1$, og `k` går 0, 1, 2. Legg merke til det avsluttende mellomrommet: `end=' '` erstatter linjeskiftet. Svaret `-1 1 -1 ` starter feil vei og svarer til `(-1)**(k+1)`. Svaret `0 1 2 ` skriver løkkevariabelen i stedet for potensen.",
     },
     {
       question: "En rekurrens $T_{n+1} = 2xT_n - T_{n-1}$ skal løses. Hva er riktig rekkefølge inne i løkka?",
       options: ["Regn ny verdi, flytt så lagrene", "Flytt lagrene, regn så ny verdi", "Flytt lagrene to ganger etter hverandre", "La funksjonen kalle seg selv per ledd"],
-      explanation: "Den nye verdien må regnes ut mens **begge** de gamle fortsatt finnes; derfor en hjelpevariabel først. Alternativ b) overskriver `T_forrige` før den er brukt, så formelen får feil tall. Alternativ d) er en teknikk som ligger utenfor pensum i IN1900 og markeres uønsket i fasit.",
+      explanation: "Den nye verdien må regnes ut mens **begge** de gamle fortsatt finnes; derfor en hjelpevariabel først. Å flytte lagrene først overskriver `T_forrige` før den er brukt, så formelen får feil tall. Å la funksjonen kalle seg selv er en teknikk som ligger utenfor pensum i IN1900 og markeres uønsket i fasit.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\na = 1.0\nb = 2.0\nfor k in range(2):\n    c = a + b\n    a = b\n    b = c\nprint(a, b)\n```",
       options: ["`3.0 5.0`", "`5.0 8.0`", "`2.0 3.0`", "`5.0 3.0`"],
-      explanation: "Første runde gir `c = 3.0`, `a = 2.0`, `b = 3.0`. Andre runde gir `c = 5.0`, `a = 3.0`, `b = 5.0`. Alternativ b) er verdiene etter tre runder, og c) etter bare én. Alternativ d) har byttet om de to variablene — hjelpevariabelen `c` finnes nettopp for at flyttingen skal skje i riktig rekkefølge.",
+      explanation: "Første runde gir `c = 3.0`, `a = 2.0`, `b = 3.0`. Andre runde gir `c = 5.0`, `a = 3.0`, `b = 5.0`. Svaret `5.0 8.0` er verdiene etter tre runder, og `2.0 3.0` etter bare én. Svaret `5.0 3.0` har byttet om de to variablene — hjelpevariabelen `c` finnes nettopp for at flyttingen skal skje i riktig rekkefølge.",
     },
     {
       question: "Hvilken rekke trenger flest ledd for å treffe ti riktige desimaler?",
       options: ["$\\sum x^{2n+1}/(2n+1)$", "$\\sum x^k/k!$", "$\\sum x^{2n+1}/(2n+1)!$", "$\\sum (-1)^k x^{2k}/(2k)!$"],
-      explanation: "Nevneren i alternativ a) vokser bare lineært, mens de tre andre har fakultet i nevneren og konvergerer svært raskt. Det er derfor invers tangens hyperbolicus trenger titalls ledd der eksponentialrekka klarer seg med under ti.",
+      explanation: "Nevneren i rekka $\\sum x^{2n+1}/(2n+1)$ vokser bare lineært, mens de tre andre har fakultet i nevneren og konvergerer svært raskt. Det er derfor invers tangens hyperbolicus trenger titalls ledd der eksponentialrekka klarer seg med under ti.",
     },
     {
       question: "En testfunksjon skal sjekke en rekke som er kuttet etter få ledd, med avvik rundt $10^{-5}$. Hvilken toleranse passer?",
       options: ["`tol = 1e-4`", "`tol = 1e-12`", "`tol = 0`", "`tol = 1e-1`"],
-      explanation: "Toleransen skal ligge like over det avviket metoden faktisk har. Alternativ b) og c) melder feil på helt riktig kode, siden rekka aldri kan bli så nøyaktig med få ledd. Alternativ d) er så løs at den også ville sluppet gjennom kode med en reell feil.",
+      explanation: "Toleransen skal ligge like over det avviket metoden faktisk har. `tol = 1e-12` og `tol = 0` melder feil på helt riktig kode, siden rekka aldri kan bli så nøyaktig med få ledd. `tol = 1e-1` er så løs at den også ville sluppet gjennom kode med en reell feil.",
     },
     {
       question: "Hva gir `chebyshev(2, 0.5)` når $T_0 = 1$, $T_1 = x$ og $T_{n+1} = 2xT_n - T_{n-1}$?",
       options: ["-0.5", "0.5", "1.0", "-1.0"],
-      explanation: "$T_2 = 2\\cdot 0{,}5\\cdot 0{,}5 - 1 = 0{,}5 - 1 = -0{,}5$. Alternativ b) glemmer å trekke fra $T_0$. Alternativ c) er $T_0$ selv, og d) er $T_3$ — svaret du får hvis løkka går én runde for mye.",
+      explanation: "$T_2 = 2\\cdot 0{,}5\\cdot 0{,}5 - 1 = 0{,}5 - 1 = -0{,}5$. Svaret 0.5 glemmer å trekke fra $T_0$. Svaret 1.0 er $T_0$ selv, og svaret -1.0 er $T_3$ — svaret du får hvis løkka går én runde for mye.",
     },
     {
       question: "Hva er første ledd i rekka $\\sum_{n=0}^{N} x^{2n+1}/(2n+1)!$?",
       options: ["$x$", "1", "$x^2/2$", "$x^3/6$"],
-      explanation: "Med $n = 0$ er eksponenten 1 og nevneren $1! = 1$, så leddet er $x$ selv. Dette er en gratis kontroll på eksamen: gir funksjonen din noe annet for $N = 0$, er indekseringen gal. Alternativ d) er ledd nummer **én**, ikke null.",
+      explanation: "Med $n = 0$ er eksponenten 1 og nevneren $1! = 1$, så leddet er $x$ selv. Dette er en gratis kontroll på eksamen: gir funksjonen din noe annet for $N = 0$, er indekseringen gal. Svaret $x^3/6$ er ledd nummer **én**, ikke null.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nfrom math import factorial\ns = 0\nfor k in range(3):\n    s += 1 / factorial(k)\nprint(s)\n```",
       options: ["`2.5`", "`3.0`", "`1.5`", "`2.0`"],
-      explanation: "Leddene er $1/0! = 1$, $1/1! = 1$ og $1/2! = 0{,}5$, altså 2,5 til sammen. Alternativ c) glemmer ett av de to leddene med nevner 1. Alternativ b) og d) forutsetter feil verdi av `factorial(0)`, som er 1 og ikke 0.",
+      explanation: "Leddene er $1/0! = 1$, $1/1! = 1$ og $1/2! = 0{,}5$, altså 2,5 til sammen. Svaret `1.5` glemmer ett av de to leddene med nevner 1. Svarene `3.0` og `2.0` forutsetter feil verdi av `factorial(0)`, som er 1 og ikke 0.",
     },
   ],
   'in1900-3-3': [
     {
       question: "Hva skriver programmet ut?\n\n```python\ns = 0\nfor k in range(1, 4):\n    s += (-1)**k * k\nprint(s)\n```",
       options: ["`-2`", "`2`", "`6`", "`0`"],
-      explanation: "Leddene er $-1$, $+2$ og $-3$, altså $-2$ til sammen. Alternativ b) har snudd fortegnet og svarer til `(-1)**(k+1)`. Alternativ c) glemmer fortegnsfaktoren helt, og d) forutsetter at leddene kansellerer.",
+      explanation: "Leddene er $-1$, $+2$ og $-3$, altså $-2$ til sammen. Svaret `2` har snudd fortegnet og svarer til `(-1)**(k+1)`. Svaret `6` glemmer fortegnsfaktoren helt, og `0` forutsetter at leddene kansellerer.",
     },
     {
       question: "En oppgave sier «summer leddene fra $n = 0$ til og med $n = N$». Hvilken løkkelinje er riktig?",
       options: ["`for n in range(N+1):`", "`for n in range(N):`", "`for n in range(1, N):`", "`for n in range(N-1):`"],
-      explanation: "«Til og med $N$» krever `range(N+1)`, siden stoppverdien er eksklusiv. Alternativ b) er felle #1 og mister siste ledd. Alternativ c) hopper i tillegg over ledd null, og d) mister to ledd.",
+      explanation: "«Til og med $N$» krever `range(N+1)`, siden stoppverdien er eksklusiv. Linja `for n in range(N):` er felle #1 og mister siste ledd. Linja `for n in range(1, N):` hopper i tillegg over ledd null, og `for n in range(N-1):` mister to ledd.",
     },
     {
       question: "Rekka $\\sum_{n=0}^{N} x^{2n}/(2n)!$ skal implementeres. Hvilket ledd er riktig?",
       options: ["`s += x**(2*n) / factorial(2*n)`", "`s += x**(2*n) / factorial(n)`", "`s += x**n / factorial(2*n)`", "`s += x**(2*n+1) / factorial(2*n+1)`"],
-      explanation: "Uttrykket `2*n` skal stå både i eksponenten og i fakultetet. Alternativ b) og c) har ulik indeksering i teller og nevner. Alternativ d) er oddetallsvarianten, som hører til sinus hyperbolicus.",
+      explanation: "Uttrykket `2*n` skal stå både i eksponenten og i fakultetet. Linjene med `factorial(n)` og med `x**n` har ulik indeksering i teller og nevner. Linja med `2*n+1` begge steder er oddetallsvarianten, som hører til sinus hyperbolicus.",
     },
     {
       question: "Hva skjer når denne funksjonen kalles med `N = 4`?\n\n```python\ndef rekke(N):\n    s = 0\n    for k in range(N+1):\n        s += k\n        return s\n```",
       options: ["Den returnerer 0", "Den returnerer 10", "Den returnerer 4", "Den gir en feilmelding"],
-      explanation: "`return` står inne i løkka, så funksjonen avbrytes i første runde der `k` og `s` begge er 0. Alternativ b) er svaret når `return` står riktig, altså etter løkka. Alternativ d) forutsetter en feil som ikke oppstår — koden er syntaktisk gyldig.",
+      explanation: "`return` står inne i løkka, så funksjonen avbrytes i første runde der `k` og `s` begge er 0. Svaret 10 er det du får når `return` står riktig, altså etter løkka. Svaret om en feilmelding forutsetter en feil som ikke oppstår — koden er syntaktisk gyldig.",
     },
     {
       question: "Hvor skal `s = 0` stå?",
       options: ["Før løkka", "Som første linje inne i løkka", "Rett før `return`", "I funksjonssignaturen"],
-      explanation: "Akkumulatoren nullstilles én gang, før løkka. Alternativ b) nullstiller hver runde og gir bare siste ledd. Alternativ c) sletter hele summen. Alternativ d) ville gjort startverdien til noe den som kaller funksjonen må sende inn.",
+      explanation: "Akkumulatoren nullstilles én gang, før løkka. Inne i løkka nullstilles den hver runde, og funksjonen gir bare siste ledd. Rett før `return` sletter linja hele summen. I funksjonssignaturen ville startverdien blitt noe den som kaller funksjonen må sende inn.",
     },
     {
       question: "En rekke kuttet etter få ledd avviker med om lag $5\\cdot 10^{-7}$. Hvilken toleranse passer i testfunksjonen?",
       options: ["`1e-6`", "`1e-12`", "`1e-16`", "`1e-1`"],
-      explanation: "Toleransen skal ligge like over avviket metoden faktisk har. Alternativ b) og c) melder feil på helt riktig kode. Alternativ d) er så løs at kode med reelle feil også ville sluppet gjennom, og en test som aldri feiler er ikke en test.",
+      explanation: "Toleransen skal ligge like over avviket metoden faktisk har. `1e-12` og `1e-16` melder feil på helt riktig kode. `1e-1` er så løs at kode med reelle feil også ville sluppet gjennom, og en test som aldri feiler er ikke en test.",
     },
     {
       question: "Hva gir `arcsin_rekke(x, 0)` når rekka er $\\sum_{n=0}^{N} \\frac{(2n)!}{4^n (n!)^2(2n+1)}x^{2n+1}$?",
       options: ["$x$", "1", "0", "$x^3/6$"],
-      explanation: "Med $n = 0$ er $0! = 1$, $4^0 = 1$ og $2n+1 = 1$, så leddet er $x$ selv. Dette er gratiskontrollen for oddetallsrekker. Alternativ b) er svaret for partallsrekker, og d) er ledd nummer én.",
+      explanation: "Med $n = 0$ er $0! = 1$, $4^0 = 1$ og $2n+1 = 1$, så leddet er $x$ selv. Dette er gratiskontrollen for oddetallsrekker. Svaret 1 er det du får for partallsrekker, og $x^3/6$ er ledd nummer én.",
     },
     {
       question: "Hvilken importsetning er riktig?",
       options: ["`from math import asin`", "`import asin from math`", "`from asin import math`", "`import math as asin`"],
-      explanation: "Modulen står først: `from modul import navn`. Alternativ b) er felle #10, importsetningen i motsatt rekkefølge. Alternativ c) bytter om navnene. Alternativ d) er gyldig syntaks, men gir modulen et nytt navn og importerer ingen funksjon.",
+      explanation: "Modulen står først: `from modul import navn`. Linja `import asin from math` er felle #10, importsetningen i motsatt rekkefølge. Linja `from asin import math` bytter om navnene. Linja `import math as asin` er gyldig syntaks, men gir modulen et nytt navn og importerer ingen funksjon.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nfrom math import factorial\nfor n in range(3):\n    print(factorial(2*n+1), end=' ')\n```",
       options: ["`1 6 120 `", "`1 2 24 `", "`1 3 5 `", "`0 6 120 `"],
-      explanation: "Med $n = 0, 1, 2$ er $2n+1$ lik 1, 3 og 5, og fakultetene er 1, 6 og 120. Alternativ b) regner `factorial(2*n)`. Alternativ c) skriver oddetallet i stedet for fakultetet. Merk mellomrommet til slutt, som `end=' '` gir.",
+      explanation: "Med $n = 0, 1, 2$ er $2n+1$ lik 1, 3 og 5, og fakultetene er 1, 6 og 120. Svaret `1 2 24 ` regner `factorial(2*n)`. Svaret `1 3 5 ` skriver oddetallet i stedet for fakultetet. Merk mellomrommet til slutt, som `end=' '` gir.",
     },
     {
       question: "En rekurrens $T_{n+1} = 2xT_n - T_{n-1}$ skal løses med løkke. Hvilken oppdatering er riktig?",
       options: ["`T_neste = 2*x*T_denne - T_forrige`, så flytt lagrene", "Flytt lagrene, så `T_denne = 2*x*T_denne - T_forrige`", "`T_forrige = 2*x*T_denne - T_forrige`, uten flytting", "La funksjonen kalle seg selv for hvert ledd"],
-      explanation: "Den nye verdien må regnes ut mens begge de gamle finnes, derfor hjelpevariabelen først. Alternativ b) overskriver `T_forrige` før den brukes. Alternativ c) mister `T_denne`. Alternativ d) er en teknikk utenfor pensum i IN1900 som markeres uønsket i fasit.",
+      explanation: "Den nye verdien må regnes ut mens begge de gamle finnes, derfor hjelpevariabelen først. Å flytte lagrene først overskriver `T_forrige` før den brukes. Å skrive resultatet rett inn i `T_forrige` uten flytting mister `T_denne`. Å la funksjonen kalle seg selv er en teknikk utenfor pensum i IN1900 som markeres uønsket i fasit.",
     },
     {
       question: "Hva er riktig løkkegrense i en rekurrens som skal gi $T_n$, når $T_0$ og $T_1$ allerede er satt?",
       options: ["`for k in range(1, n):`", "`for k in range(1, n+1):`", "`for k in range(n+1):`", "`for k in range(2, n):`"],
-      explanation: "Med $T_1$ på plass trengs $n-1$ steg for å nå $T_n$, altså `range(1, n)`. Alternativ b) gir ett steg for mye og returnerer $T_{n+1}$. Alternativ c) starter på 0 og gir to for mye. Alternativ d) gir ett for lite.",
+      explanation: "Med $T_1$ på plass trengs $n-1$ steg for å nå $T_n$, altså `range(1, n)`. Linja `for k in range(1, n+1):` gir ett steg for mye og returnerer $T_{n+1}$. Linja `for k in range(n+1):` starter på 0 og gir to for mye. Linja `for k in range(2, n):` gir ett for lite.",
     },
     {
       question: "Oppgaven sier: «summer leddene til det siste leddet er mindre enn `eps`». Hvilken løkketype passer?",
       options: ["`while`, siden antall runder er ukjent", "`for`, med `range(eps)` som grense", "`for`, med `range(1/eps)` som grense", "En løkke er unødvendig her"],
-      explanation: "Når stoppkriteriet er en størrelse og ikke et antall, er `while` riktig, og leddnummeret telles opp for hånd. Alternativ b) og c) prøver å gjøre om en toleranse til et antall runder, som `range` uansett ikke godtar for flyttall.",
+      explanation: "Når stoppkriteriet er en størrelse og ikke et antall, er `while` riktig, og leddnummeret telles opp for hånd. De to `for`-svarene, med `range(eps)` og `range(1/eps)`, prøver å gjøre om en toleranse til et antall runder, som `range` uansett ikke godtar for flyttall.",
     },
     {
       question: "Hvorfor må `ledd` settes til en verdi større enn `eps` før en `while abs(ledd) > eps:`-løkke?",
       options: ["Ellers kjører løkka aldri", "Ellers blir summen for stor", "Ellers får `eps` feil datatype", "Ellers stopper løkka aldri"],
-      explanation: "`while` sjekker betingelsen før første runde, så en for liten startverdi gjør at kroppen aldri kjøres. Startverdien er ikke selv et ledd i summen — den overskrives på første linje inne i løkka. Alternativ d) beskriver det motsatte problemet.",
+      explanation: "`while` sjekker betingelsen før første runde, så en for liten startverdi gjør at kroppen aldri kjøres. Startverdien er ikke selv et ledd i summen — den overskrives på første linje inne i løkka. Svaret om at løkka aldri stopper, beskriver det motsatte problemet.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ns = 0\nledd = 1.0\nk = 0\nwhile abs(ledd) > 0.3:\n    ledd = 0.5**k\n    s += ledd\n    k += 1\nprint(k, s)\n```",
       options: ["`3 1.75`", "`2 1.5`", "`4 1.875`", "`3 0.25`"],
-      explanation: "Leddene er 1, 0.5 og 0.25. Etter det tredje er `abs(ledd)` lik 0.25, som ikke er større enn 0.3, så løkka stopper med `k` lik 3 og summen 1.75. Alternativ b) glemmer at leddet som utløser stoppen også ble lagt til, og d) skriver siste ledd i stedet for summen.",
+      explanation: "Leddene er 1, 0.5 og 0.25. Etter det tredje er `abs(ledd)` lik 0.25, som ikke er større enn 0.3, så løkka stopper med `k` lik 3 og summen 1.75. Svaret `2 1.5` glemmer at leddet som utløser stoppen også ble lagt til, og `3 0.25` skriver siste ledd i stedet for summen.",
     },
     {
       question: "En testfunksjon setter `expected` til nøyaktig samme uttrykk som funksjonen den tester. Hva er galt?",
       options: ["Testen går gjennom selv om formelen er feil", "Testen kan ikke bruke `math` på begge sider", "Like uttrykk gir alltid avvik i siste siffer", "Fasiten må alltid være et helt tall"],
-      explanation: "Fasiten må komme fra en uavhengig kilde — `math`, en kjent eksplisitt formel eller håndregning. Ellers sammenligner du koden med seg selv. Alternativ c) er galt: samme uttrykk regnet på samme måte gir nøyaktig samme flyttall.",
+      explanation: "Fasiten må komme fra en uavhengig kilde — `math`, en kjent eksplisitt formel eller håndregning. Ellers sammenligner du koden med seg selv. Påstanden om at like uttrykk alltid avviker i siste siffer, er galt: samme uttrykk regnet på samme måte gir nøyaktig samme flyttall.",
     },
     {
       question: "Hvilken av rekkene trenger flest ledd for ti riktige desimaler?",
       options: ["$\\sum x^{2n+1}/(2n+1)$", "$\\sum x^{2n+1}/(2n+1)!$", "$\\sum x^{2n}/(2n)!$", "$\\sum x^k/k!$"],
-      explanation: "Bare alternativ a) mangler fakultet i nevneren, så leddene minker lineært i stedet for eksplosivt. Invers tangens hyperbolicus trenger derfor titalls ledd der de tre andre klarer seg med under tjue.",
+      explanation: "Bare rekka $\\sum x^{2n+1}/(2n+1)$ mangler fakultet i nevneren, så leddene minker lineært i stedet for eksplosivt. Invers tangens hyperbolicus trenger derfor titalls ledd der de tre andre klarer seg med under tjue.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef f(n, x):\n    if n == 0:\n        return 1.0\n    a = 1.0\n    b = x\n    for k in range(1, n):\n        c = 2*x*b - a\n        a = b\n        b = c\n    return b\n\nprint(f(2, 2.0), f(3, 2.0))\n```",
       options: ["`7.0 26.0`", "`2.0 7.0`", "`26.0 97.0`", "`7.0 7.0`"],
-      explanation: "Med $x = 2$ er $T_2 = 2\\cdot 2\\cdot 2 - 1 = 7$ og $T_3 = 2\\cdot 2\\cdot 7 - 2 = 26$. Alternativ b) ligger ett steg bak, og c) ett steg foran — begge er typiske av-én-feil på løkkegrensen.",
+      explanation: "Med $x = 2$ er $T_2 = 2\\cdot 2\\cdot 2 - 1 = 7$ og $T_3 = 2\\cdot 2\\cdot 7 - 2 = 26$. Svaret `2.0 7.0` ligger ett steg bak, og `26.0 97.0` ett steg foran — begge er typiske av-én-feil på løkkegrensen.",
     },
     {
       question: "I formelen $P_{n+1} = ((2n+1)xP_n - nP_{n-1})/(n+1)$ løkker du med variabelen `k`. Hvilken variabel skal stå i koeffisientene?",
@@ -1304,12 +1304,12 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nfrom math import factorial\ns = 0\nfor k in range(4):\n    s += 2**k / factorial(k)\nprint(f'{s:.4f}')\n```",
       options: ["`6.3333`", "`6.0000`", "`7.0000`", "`5.0000`"],
-      explanation: "Leddene er 1, 2, 2 og 4/3, altså 6,3333. Alternativ b) glemmer det siste leddet, som er felle #1 i praksis. Alternativ c) er verdien med ett ledd for mye, og d) forutsetter feil verdi av `factorial(0)`.",
+      explanation: "Leddene er 1, 2, 2 og 4/3, altså 6,3333. Svaret `6.0000` glemmer det siste leddet, som er felle #1 i praksis. Svaret `7.0000` er verdien med ett ledd for mye, og `5.0000` forutsetter feil verdi av `factorial(0)`.",
     },
     {
       question: "Hva er den vanligste konsekvensen av `range(N)` i stedet for `range(N+1)` i en rekkesum?",
       options: ["Ett ledd mangler, og testen feiler", "Programmet stopper med `IndexError`", "Summen blir dobbelt så stor", "Løkka går uendelig lenge"],
-      explanation: "`range` er eksklusiv i den øvre enden, så du mister systematisk siste ledd. Alternativ b) hører til lister og arrayer, ikke til en ren sum. Alternativ d) kan bare skje med `while`. Feilen er stille — den gir feil svar, ikke feilmelding.",
+      explanation: "`range` er eksklusiv i den øvre enden, så du mister systematisk siste ledd. Svaret om `IndexError` hører til lister og arrayer, ikke til en ren sum. Svaret om en uendelig løkke kan bare skje med `while`. Feilen er stille — den gir feil svar, ikke feilmelding.",
     },
   ],
   'in1900-4-1': [
@@ -2042,7 +2042,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skiller sekantmetoden fra Newtons metode?",
       options: ["Sekanten trenger to startverdier, men ingen derivert som egen funksjon", "Sekanten trenger én startverdi og den deriverte som funksjon", "Sekanten trenger to startverdier og den deriverte i begge", "Sekanten trenger én startverdi og et intervall der funksjonen skifter fortegn"],
-      explanation: "Sekantmetoden erstatter tangenten med linjen gjennom de to siste punktene, så den klarer seg uten den deriverte, men må ha to punkter å starte med. Alternativ b) beskriver Newton. Å kreve både to punkter og den deriverte er ingen av metodene, og fortegnsskifte i et intervall er halveringsmetoden.",
+      explanation: "Sekantmetoden erstatter tangenten med linjen gjennom de to siste punktene, så den klarer seg uten den deriverte, men må ha to punkter å starte med. Svaret om én startverdi og den deriverte som funksjon beskriver Newton. Å kreve både to punkter og den deriverte er ingen av metodene, og fortegnsskifte i et intervall er halveringsmetoden.",
     },
     {
       question: "Hva gjør linja `x0, x1 = x1, x_ny` i sekantmetoden?",
@@ -2084,12 +2084,12 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nx = np.zeros(4)\nx[0] = 1.0\nfor n in range(3):\n    x[n+1] = 2*x[n] + 1\nprint(x)\n```",
       options: ["`[ 1.  3.  7. 15.]`", "`[1, 3, 7, 15]`", "`[ 0.  1.  3.  7.]`", "`[ 1.  3.  7. 15.  0.]`"],
-      explanation: "Tre runder fyller `x[1]`, `x[2]` og `x[3]` fra startverdien 1. Tabellen skrives med punktum fordi `np.zeros` gir flyttall, og uten komma fordi det er et array og ikke en liste. Alternativ c) er hva du får om startverdien mangler, og d) har en plass for mye.",
+      explanation: "Tre runder fyller `x[1]`, `x[2]` og `x[3]` fra startverdien 1. Tabellen skrives med punktum fordi `np.zeros` gir flyttall, og uten komma fordi det er et array og ikke en liste. Svaret `[ 0.  1.  3.  7.]` er hva du får om startverdien mangler, og `[ 1.  3.  7. 15.  0.]` har en plass for mye.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\na = np.zeros(4)\nb = np.zeros(4)\na[0] = 2.0\nb[0] = 1.0\nfor n in range(3):\n    b[n+1] = b[n] + a[n]\n    a[n+1] = a[n] + b[n+1]\nprint(a)\n```",
       options: ["`[ 2.  5. 13. 34.]`", "`[ 2.  3.  5.  8.]`", "`[ 1.  3.  8. 21.]`", "`[ 2.  5. 12. 30.]`"],
-      explanation: "Linja for `a[n+1]` bruker den **ferske** `b[n+1]` fra linja over, så første runde gir $2 + 3 = 5$ og ikke $2 + 1 = 3$. Alternativ b) er hva du får med den gamle `b[n]`, c) er innholdet i `b` og ikke i `a`, og d) er samme mønster med en regnefeil i tredje runde.",
+      explanation: "Linja for `a[n+1]` bruker den **ferske** `b[n+1]` fra linja over, så første runde gir $2 + 3 = 5$ og ikke $2 + 1 = 3$. Svaret `[ 2.  3.  5.  8.]` er hva du får med den gamle `b[n]`, `[ 1.  3.  8. 21.]` er innholdet i `b` og ikke i `a`, og `[ 2.  5. 12. 30.]` er samme mønster med en regnefeil i tredje runde.",
     },
     {
       question: "Hva skjer hvis du glemmer linja `x[0] = x0` før løkka?",
@@ -2139,7 +2139,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nx = np.zeros(3)\nv = np.zeros(3)\nx[0] = 1.0\nfor n in range(2):\n    v[n+1] = v[n] - 0.1*x[n]\n    x[n+1] = x[n] + 0.1*v[n+1]\nprint(np.round(x, 4))\n```",
       options: ["`[1.     0.99   0.9701]`", "`[1.     1.     1.    ]`", "`[1.     0.99   0.98  ]`", "`[1.     0.9    0.8   ]`"],
-      explanation: "Farten oppdateres først og brukes med én gang: `v[1]` blir $-0{,}1$, så `x[1]` blir $1 - 0{,}01 = 0{,}99$. Alternativ b) er hva du får med linjene i motsatt rekkefølge, siden `v[n+1]` da leses som 0. De to siste svarer til å bruke farten uendret eller å trekke fra hele `0.1` hver runde.",
+      explanation: "Farten oppdateres først og brukes med én gang: `v[1]` blir $-0{,}1$, så `x[1]` blir $1 - 0{,}01 = 0{,}99$. Svaret `[1.     1.     1.    ]` er hva du får med linjene i motsatt rekkefølge, siden `v[n+1]` da leses som 0. De to siste svarer til å bruke farten uendret eller å trekke fra hele `0.1` hver runde.",
     },
     {
       question: "Du halverer $\\Delta t$ og dobler $N$ slik at sluttiden er den samme. Feilen i sluttverdien halveres. Hva sier det om metoden?",
@@ -2171,27 +2171,27 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "En differenslikning skal simuleres med `N` skritt. Hvor mange plasser trenger tabellen?",
       options: ["`N+1`", "`N`", "`N-1`", "`2*N`"],
-      explanation: "Startverdien er også en verdi, så `N` skritt gir `N+1` verdier og tabellen lages med `np.zeros(N+1)`. Alternativ b) gir `IndexError` på siste runde, som er felle #1. Alternativ c) og d) treffer verken antall skritt eller antall verdier.",
+      explanation: "Startverdien er også en verdi, så `N` skritt gir `N+1` verdier og tabellen lages med `np.zeros(N+1)`. Med `N` plasser får du `IndexError` på siste runde, som er felle #1. Verken `N-1` eller `2*N` treffer antall skritt eller antall verdier.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.zeros(4)\nx[0] = 1.0\nfor n in range(2):\n    x[n+1] = 2*x[n] + 1\nprint(x)\n```",
       options: ["`[1. 3. 7. 0.]`", "`[1. 3. 7. 15.]`", "`[1. 2. 5. 0.]`", "`[0. 1. 3. 7.]`"],
-      explanation: "Løkka gjør to oppdateringer, så bare `x[1]` og `x[2]` fylles ut, og `x[3]` blir stående som 0.0. Alternativ b) forutsetter tre oppdateringer. Alternativ c) glemmer å legge til 1, og d) forskyver hele tabellen ett hakk.",
+      explanation: "Løkka gjør to oppdateringer, så bare `x[1]` og `x[2]` fylles ut, og `x[3]` blir stående som 0.0. Svaret `[1. 3. 7. 15.]` forutsetter tre oppdateringer. Svaret `[1. 2. 5. 0.]` glemmer å legge til 1, og `[0. 1. 3. 7.]` forskyver hele tabellen ett hakk.",
     },
     {
       question: "I systemet $y_{n+1} = y_n + a y_n$, $x_{n+1} = x_n + y_{n+1}$ — hvilken linje må stå først i løkka?",
       options: ["`y[n+1] = ...`", "`x[n+1] = ...`", "Rekkefølgen spiller ingen rolle", "Begge må stå i hver sin løkke"],
-      explanation: "Uttrykket for $x_{n+1}$ bruker $y_{n+1}$, altså en indeks $n+1$ på høyre side, så `y[n+1]` må være beregnet først. Alternativ b) leser en plass som ennå er 0.0. Alternativ d) er feil: begge oppdateres i samme runde.",
+      explanation: "Uttrykket for $x_{n+1}$ bruker $y_{n+1}$, altså en indeks $n+1$ på høyre side, så `y[n+1]` må være beregnet først. Står `x[n+1] = ...` først, leser den en plass som ennå er 0.0. Svaret om at de må stå i hver sin løkke er feil: begge oppdateres i samme runde.",
     },
     {
       question: "Hvor skal startverdien `x[0] = x0` stå?",
       options: ["Før løkka", "Som første linje inne i løkka", "Etter løkka, før `return`", "Som argument til `np.zeros`"],
-      explanation: "Startverdien settes én gang, før løkka begynner. Alternativ b) tilbakestiller plass 0 i hver runde. Alternativ c) kommer for sent — hele forløpet er da regnet ut fra 0. Alternativ d) blander sammen antall plasser og innholdet i dem.",
+      explanation: "Startverdien settes én gang, før løkka begynner. Inne i løkka tilbakestiller linja plass 0 i hver runde. Etter løkka kommer den for sent — hele forløpet er da regnet ut fra 0. Som argument til `np.zeros` blander den sammen antall plasser og innholdet i dem.",
     },
     {
       question: "Hva skjer med `x = np.zeros(N)` og `for n in range(N):`?",
       options: ["`IndexError` på siste runde", "Tabellen får en null på slutten", "Programmet gir riktig svar", "Løkka går uendelig lenge"],
-      explanation: "Siste runde har `n = N-1` og skriver til `x[N]`, som ikke finnes i en tabell med `N` plasser. Alternativ b) er det som skjer i den motsatte feilen — riktig tabellstørrelse med for kort løkke — og den er verre, fordi den ikke gir noen feilmelding.",
+      explanation: "Siste runde har `n = N-1` og skriver til `x[N]`, som ikke finnes i en tabell med `N` plasser. Svaret om en null på slutten er det som skjer i den motsatte feilen — riktig tabellstørrelse med for kort løkke — og den er verre, fordi den ikke gir noen feilmelding.",
     },
     {
       question: "Hva er `x.argmax()`?",
@@ -2201,52 +2201,52 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nA = np.zeros(3)\nB = np.zeros(3)\nA[0] = 10.0\nB[0] = 4.0\nfor n in range(2):\n    d = 0.5*(A[n] - B[n])\n    A[n+1] = A[n] - d\n    B[n+1] = B[n] + d\nprint(A[2], B[2], A[2] + B[2])\n```",
       options: ["`7.0 7.0 14.0`", "`7.75 6.25 14.0`", "`8.5 5.5 14.0`", "`7.0 7.0 13.5`"],
-      explanation: "Første skritt gir `d = 3.0`, så A faller til 7.0 og B stiger til 7.0. Andre skritt gir `d = 0.0`, og begge står stille. Alternativ b) og c) forutsetter at overføringen bare er en brøkdel av differansen. Summen er 14.0 hele veien, fordi det som forlater A kommer til B — det er bevaringssjekken.",
+      explanation: "Første skritt gir `d = 3.0`, så A faller til 7.0 og B stiger til 7.0. Andre skritt gir `d = 0.0`, og begge står stille. Svarene `7.75 6.25 14.0` og `8.5 5.5 14.0` forutsetter at overføringen bare er en brøkdel av differansen. Summen er 14.0 hele veien, fordi det som forlater A kommer til B — det er bevaringssjekken.",
     },
     {
       question: "Hva må gjelde for tidsaksen i plott-deloppgaven?",
       options: ["Den må ha like mange punkter som tabellene", "Den må alltid gå fra 0 til 1", "Den må lages med `range(N)`", "Den må være et NumPy-array"],
-      explanation: "`plt.plot(t, x)` krever at `t` og `x` er like lange; ellers stopper kallet med en feil om ulik dimensjon. Alternativ c) gir `N` punkter mot tabellens `N+1`. En vanlig liste fungerer fint som førsteakse, så alternativ d) er unødvendig strengt.",
+      explanation: "`plt.plot(t, x)` krever at `t` og `x` er like lange; ellers stopper kallet med en feil om ulik dimensjon. En tidsakse laget med `range(N)` gir `N` punkter mot tabellens `N+1`. En vanlig liste fungerer fint som førsteakse, så kravet om et NumPy-array er unødvendig strengt.",
     },
     {
       question: "Hvilken linje mangler når figuren viser to kurver uten at man kan se hvilken som er hvilken?",
       options: ["`plt.legend()`", "`plt.title('Figur')`", "`plt.grid()`", "`plt.axis('equal')`"],
-      explanation: "`label=` i hvert `plot`-kall lagrer navnene, men de vises først når `plt.legend()` kalles. Alternativ b) gir figuren en overskrift, ikke kurvene navn. Alternativ c) og d) endrer bare hvordan rutenettet og aksene ser ut.",
+      explanation: "`label=` i hvert `plot`-kall lagrer navnene, men de vises først når `plt.legend()` kalles. `plt.title('Figur')` gir figuren en overskrift, ikke kurvene navn. `plt.grid()` og `plt.axis('equal')` endrer bare hvordan rutenettet og aksene ser ut.",
     },
     {
       question: "I en smittemodell der ingen forsvinner, hva er den beste kontrollen uten fasit?",
       options: ["At $S + I + R$ er konstant", "At $I$ alltid vokser", "At $S$ ender på null", "At alle tabellene er like lange"],
-      explanation: "Når ingen forsvinner ut av modellen, må summen være den samme på hvert tidspunkt — driver den, har du mistet et ledd eller brukt feil verdi. Alternativ b) og c) er ikke sanne i modellen. Alternativ d) er riktig, men sier ingenting om regnestykket.",
+      explanation: "Når ingen forsvinner ut av modellen, må summen være den samme på hvert tidspunkt — driver den, har du mistet et ledd eller brukt feil verdi. At $I$ alltid vokser, og at $S$ ender på null, er ikke sant i modellen. At alle tabellene er like lange er riktig, men sier ingenting om regnestykket.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.zeros(6)\nx[0] = 100.0\nfor n in range(5):\n    x[n+1] = 0.5*x[n]\nprint(x[3], x.size, x[-1])\n```",
       options: ["`12.5 6 3.125`", "`12.5 5 6.25`", "`25.0 6 3.125`", "`12.5 6 0.0`"],
-      explanation: "Halveringene gir 100, 50, 25, 12.5, 6.25 og 3.125, så `x[3]` er 12.5 og `x[-1]` er den sjette verdien, 3.125. Alternativ b) forveksler `x.size` med antall oppdateringer. Alternativ d) forutsetter at siste plass aldri ble fylt — men fem oppdateringer fyller nettopp opp en tabell med seks plasser.",
+      explanation: "Halveringene gir 100, 50, 25, 12.5, 6.25 og 3.125, så `x[3]` er 12.5 og `x[-1]` er den sjette verdien, 3.125. Svaret `12.5 5 6.25` forveksler `x.size` med antall oppdateringer. Svaret `12.5 6 0.0` forutsetter at siste plass aldri ble fylt — men fem oppdateringer fyller nettopp opp en tabell med seks plasser.",
     },
     {
       question: "Rovdyr–byttedyr-modellen har likevekt der begge endringene er null. Hva er likevektsverdien for byttedyr når $B' = aB - bBR$ og $R' = cBR - dR$?",
       options: ["$B = d/c$", "$B = a/b$", "$B = c/d$", "$B = b/a$"],
-      explanation: "Rovdyrlikningen står stille når $cBR = dR$, altså $B = d/c$. Alternativ b) er likevektsverdien for **rovdyr**, som følger av byttedyrlikningen — de to forveksles lett fordi hver bestand bestemmes av den andres likning.",
+      explanation: "Rovdyrlikningen står stille når $cBR = dR$, altså $B = d/c$. Svaret $B = a/b$ er likevektsverdien for **rovdyr**, som følger av byttedyrlikningen — de to forveksles lett fordi hver bestand bestemmes av den andres likning.",
     },
     {
       question: "Hva viser en fasekurve som ikke et tidsplott viser?",
       options: ["Om systemet nærmer seg en likevekt", "Hvor lang en svingning er i tid", "Startverdien til hver størrelse", "Hvor mange skritt simuleringen tok"],
-      explanation: "En spiral innover betyr dempede svingninger mot likevekt, en lukket løkke betyr vedvarende svingninger. Alternativ b) er nettopp det fasekurven **mister**, siden ingen av aksene er tid. Startverdien ser du i begge plottetypene.",
+      explanation: "En spiral innover betyr dempede svingninger mot likevekt, en lukket løkke betyr vedvarende svingninger. Hvor lang en svingning er i tid, er nettopp det fasekurven **mister**, siden ingen av aksene er tid. Startverdien ser du i begge plottetypene.",
     },
     {
       question: "En simulering av den diskrete logistiske likningen gir uregelmessige verdier for en stor `r`. Hva er mest sannsynlig?",
       options: ["Det er en egenskap ved modellen", "Tabellen er for kort", "Startverdien mangler", "Løkkegrensen er feil"],
-      explanation: "Den diskrete logistiske likningen gir rolig vekst, periodiske svingninger eller uregelmessig forløp avhengig av `r` alene. Alternativ b), c) og d) er reelle feil, men de ville gitt feil svar for **alle** parametere — ikke bare for store `r`.",
+      explanation: "Den diskrete logistiske likningen gir rolig vekst, periodiske svingninger eller uregelmessig forløp avhengig av `r` alene. For kort tabell, manglende startverdi og feil løkkegrense er alle reelle feil, men de ville gitt feil svar for **alle** parametere — ikke bare for store `r`.",
     },
     {
       question: "Hva er den mest robuste måten å unngå feil oppdateringsrekkefølge på?",
       options: ["Regn begge endringene i egne variabler først", "Skriv alltid `x` før `y`", "Bruk to løkker etter hverandre", "Sett alle startverdier til null"],
-      explanation: "Regner du `dx` og `dy` fra de gamle verdiene før noen tabell skrives, kan rekkefølgen aldri bli feil. Alternativ b) er tilfeldig og virker bare noen ganger. Alternativ c) er en reell feil: den andre løkka ville brukt ferdige verdier fra den første.",
+      explanation: "Regner du `dx` og `dy` fra de gamle verdiene før noen tabell skrives, kan rekkefølgen aldri bli feil. Regelen om alltid å skrive `x` før `y` er tilfeldig og virker bare noen ganger. To løkker etter hverandre er en reell feil: den andre løkka ville brukt ferdige verdier fra den første.",
     },
     {
       question: "Hva returnerer `simuler(x0, y0, N)` når den slutter med `return x, y`?",
       options: ["En tuppel med to tabeller", "To separate funksjonskall", "En tabell med to kolonner", "Bare den første tabellen"],
-      explanation: "`return x, y` gir en tuppel, som pakkes ut med `x, y = simuler(...)`. Alternativ c) beskriver et 2D-array, som er noe annet — det får du fra ODE-løseren i Del 7, ikke fra denne malen.",
+      explanation: "`return x, y` gir en tuppel, som pakkes ut med `x, y = simuler(...)`. Svaret om en tabell med to kolonner beskriver et 2D-array, som er noe annet — det får du fra ODE-løseren i Del 7, ikke fra denne malen.",
     },
   ],
   'in1900-7-1': [
@@ -2561,42 +2561,42 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er bokas standardsignatur for høyresiden i en ODE?",
       options: ["`def f(t, u):`", "`def f(u, t):`", "`def f(u):`", "`def f(t, u, p):`"],
-      explanation: "Fra 2023 er tiden første argument, og det er bokstandarden. Alternativ b) er den gamle formen fra 2020–2022 og er felle #14. Alternativ c) mangler tiden, som løseren alltid sender med. Alternativ d) går ikke: løseren kaller `f` med nøyaktig to argumenter.",
+      explanation: "Fra 2023 er tiden første argument, og det er bokstandarden. Signaturen `def f(u, t):` er den gamle formen fra 2020–2022 og er felle #14. Signaturen `def f(u):` mangler tiden, som løseren alltid sender med. Signaturen `def f(t, u, p):` går ikke: løseren kaller `f` med nøyaktig to argumenter.",
     },
     {
       question: "For et system med tre likninger — hva er `u.shape` etter `solve((0, 10), 200)`?",
       options: ["`(201, 3)`", "`(200, 3)`", "`(3, 201)`", "`(201,)`"],
-      explanation: "Radene er tidspunkter og kolonnene komponenter, og 200 skritt gir 201 punkter. Alternativ b) er av-én-feilen. Alternativ c) har byttet om aksene. Alternativ d) er formen for en skalar likning.",
+      explanation: "Radene er tidspunkter og kolonnene komponenter, og 200 skritt gir 201 punkter. Formen `(200, 3)` er av-én-feilen. Formen `(3, 201)` har byttet om aksene. Formen `(201,)` hører til en skalar likning.",
     },
     {
       question: "Hvordan pakker du ut komponent nummer 1 gjennom hele tidsforløpet?",
       options: ["`u[:, 1]`", "`u[1]`", "`u[1, :]`", "`u[:][1]`"],
-      explanation: "Kolon på første plass betyr alle rader, altså hele tidsforløpet for kolonne 1. Alternativ b) og c) gir begge rad 1 — hele tilstanden ved tidspunkt 1. Alternativ d) ender opp med det samme som b).",
+      explanation: "Kolon på første plass betyr alle rader, altså hele tidsforløpet for kolonne 1. `u[1]` og `u[1, :]` gir begge rad 1 — hele tilstanden ved tidspunkt 1. `u[:][1]` ender opp med nøyaktig det samme.",
     },
     {
       question: "Hva returnerer høyresiden i et system med fire likninger?",
       options: ["En liste med fire deriverte", "Et enkelt tall, som for en skalar", "Fire separate returverdier", "Hele løsningstabellen `u`"],
-      explanation: "`return [dS, dE, dI, dD]` — én liste, i samme rekkefølge som utpakkingen. Alternativ b) er formen for en skalar likning. Alternativ c) finnes ikke i Python; flere verdier blir automatisk en tuppel, som er mindre entydig enn lista sensor ser etter.",
+      explanation: "`return [dS, dE, dI, dD]` — én liste, i samme rekkefølge som utpakkingen. Å returnere ett enkelt tall er formen for en skalar likning. Fire separate returverdier finnes ikke i Python; flere verdier blir automatisk en tuppel, som er mindre entydig enn lista sensor ser etter.",
     },
     {
       question: "Hvor mange argumenter tar `set_initial_condition` for et system med to likninger?",
       options: ["Ett, en liste med to tall", "To, ett per komponent", "Tre, med antall likninger i tillegg", "Ingen, den leser fra høyresiden"],
-      explanation: "Startverdien er én liste: `set_initial_condition([1.0, 0.0])`. Alternativ b) gir `TypeError`. Metoden teller selv hvor mange likninger systemet har ut fra lengden på lista, så alternativ c) og d) er unødvendige.",
+      explanation: "Startverdien er én liste: `set_initial_condition([1.0, 0.0])`. Å sende ett argument per komponent gir `TypeError`. Metoden teller selv hvor mange likninger systemet har ut fra lengden på lista, så både et eget argument for antall likninger og å lese startverdien fra høyresiden er unødvendig.",
     },
     {
       question: "Hva er den kritiske forskjellen mellom forlengs og baklengs Euler?",
       options: ["Hvilket tidspunkt stigningstallet tas fra", "Hvor mange punkter løsningen får til slutt", "Om metoden skrives som en subklasse", "Hvilket bibliotek som må importeres først"],
-      explanation: "Forlengs Euler bruker $f(t_n, u_n)$, baklengs bruker $f(t_{n+1}, u_{n+1})$ — og siden den nye verdien er ukjent, må en likning løses. Alternativ b) er likt for begge. Begge kan skrives som subklasser, så alternativ c) skiller ikke.",
+      explanation: "Forlengs Euler bruker $f(t_n, u_n)$, baklengs bruker $f(t_{n+1}, u_{n+1})$ — og siden den nye verdien er ukjent, må en likning løses. Antall punkter i løsningen er likt for begge. Begge kan dessuten skrives som subklasser, så det skiller dem heller ikke.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nt = np.linspace(0, 2, 5)\nprint(len(t), t[1] - t[0], t[-1])\n```",
       options: ["`5 0.5 2.0`", "`4 0.5 2.0`", "`5 0.4 2.0`", "`5 0.5 1.5`"],
-      explanation: "Fem punkter over et intervall av lengde 2 gir fire mellomrom, altså steglengde 0,5, og siste punkt er endepunktet 2,0. Alternativ b) forveksler punkter med intervaller, og c) deler intervallet på antall punkter i stedet for antall intervaller.",
+      explanation: "Fem punkter over et intervall av lengde 2 gir fire mellomrom, altså steglengde 0,5, og siste punkt er endepunktet 2,0. Svaret `4 0.5 2.0` forveksler punkter med intervaller, og `5 0.4 2.0` deler intervallet på antall punkter i stedet for antall intervaller.",
     },
     {
       question: "En subklasse av `ODESolver` skal implementere en ny metode. Hva skriver du?",
       options: ["Bare `advance`", "Hele klassen på nytt", "`solve` og `advance`", "`__init__` og `solve`"],
-      explanation: "Basisklassen har allerede konstruktør, startbetingelse og `solve`; det eneste som skiller to metoder er hvordan ett skritt regnes. Alternativ b), c) og d) gjør om igjen kode som virker, koster tid, og innfører nye steder å gjøre feil.",
+      explanation: "Basisklassen har allerede konstruktør, startbetingelse og `solve`; det eneste som skiller to metoder er hvordan ett skritt regnes. Å skrive hele klassen på nytt, eller å ta med `solve` og `__init__` i tillegg, gjør om igjen kode som virker, koster tid, og innfører nye steder å gjøre feil.",
     },
     {
       question: "Hva skal `advance` gjøre med den nye verdien?",
@@ -2611,17 +2611,17 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor kan ikke en modellparameter sendes som et tredje argument til `f`?",
       options: ["Løseren kaller `f` med to argumenter", "Parametere må alltid være globale", "Python tillater ikke tre argumenter", "Løseren leser navnene fra høyresiden"],
-      explanation: "Kallet skjer inne i `solve`, med tid og tilstand, så et tredje argument gir `TypeError`. De to lovlige måtene er variabler over funksjonen eller en klasse med `__call__(self, t, u)`. Alternativ b) og c) er oppdiktede regler.",
+      explanation: "Kallet skjer inne i `solve`, med tid og tilstand, så et tredje argument gir `TypeError`. De to lovlige måtene er variabler over funksjonen eller en klasse med `__call__(self, t, u)`. Påstandene om at parametere alltid må være globale, og at Python ikke tillater tre argumenter, er oppdiktede regler.",
     },
     {
       question: "Hva er en god fornuftssjekk i en epidemimodell der ingen forsvinner?",
       options: ["At summen av gruppene er konstant", "At alle gruppene vokser hele veien", "At `u.shape` er kvadratisk i formen", "At tidsaksen starter på null"],
-      explanation: "Er hver person alltid i nøyaktig én gruppe, må summen være befolkningsstørrelsen på hvert tidspunkt. Driver den, har du mistet et ledd. Alternativ b) er ikke sant i modellen, og de to siste sier ingenting om regnestykket.",
+      explanation: "Er hver person alltid i nøyaktig én gruppe, må summen være befolkningsstørrelsen på hvert tidspunkt. Driver den, har du mistet et ledd. At alle gruppene vokser hele veien, er ikke sant i modellen, og verken formen på `u.shape` eller at tidsaksen starter på null sier noe om regnestykket.",
     },
     {
       question: "Hva er feil i `plt.plot(t, u[0], label='S')` for et system?",
       options: ["`u[0]` er tilstanden ved tid 0", "Argumentet `label` skal hete `name`", "Tidsaksen `t` må stå sist", "`plot` tar bare to argumenter"],
-      explanation: "`u[0]` er én rad — like mange tall som systemet har likninger — mens kurven er kolonnen `u[:, 0]`. Alternativ b) er feil argumentnavn, c) snur rekkefølgen, og d) er galt siden `label` er et lovlig nøkkelargument.",
+      explanation: "`u[0]` er én rad — like mange tall som systemet har likninger — mens kurven er kolonnen `u[:, 0]`. Påstanden om at `label` skal hete `name`, er feil argumentnavn, påstanden om at `t` må stå sist snur rekkefølgen, og påstanden om at `plot` bare tar to argumenter er gal, siden `label` er et lovlig nøkkelargument.",
     },
     {
       question: "Hvor mange skritt og punkter gir `solver.solve((0, 5), 100)`?",
@@ -2641,12 +2641,12 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "En løsning som skal falle mot en likevekt eksploderer i stedet, med en stor steglengde. Hva er mest sannsynlig?",
       options: ["Metoden er ustabil for dette skrittet", "Startverdien er glemt i oppsettet", "Høyresiden returnerer feil datatype", "Tidsaksen har for få punkter"],
-      explanation: "Eksplisitte metoder har en stabilitetsgrense: er problemet stivt og skrittet for stort, vokser løsningen i stedet for å falle. Løsningen er flere skritt eller en implisitt metode. Alternativ b) og c) ville gitt feil svar for alle steglengder, ikke bare store.",
+      explanation: "Eksplisitte metoder har en stabilitetsgrense: er problemet stivt og skrittet for stort, vokser løsningen i stedet for å falle. Løsningen er flere skritt eller en implisitt metode. En glemt startverdi eller feil datatype fra høyresiden ville gitt feil svar for alle steglengder, ikke bare store.",
     },
     {
       question: "Hva er `t[u[:, 2].argmax()]`?",
       options: ["Tidspunktet der komponent 2 er størst", "Den største verdien komponent 2 har", "Antall punkter i hele tidsaksen", "Verdien av komponent 2 helt til slutt"],
-      explanation: "`argmax` gir indeksen til den største verdien, og den indeksen slås opp i tidsaksen. Alternativ b) får du med `u[:, 2].max()`. Skillet er praktisk viktig når oppgaven spør «på hvilken dag var smittetoppen».",
+      explanation: "`argmax` gir indeksen til den største verdien, og den indeksen slås opp i tidsaksen. Den største verdien komponent 2 har, får du med `u[:, 2].max()`. Skillet er praktisk viktig når oppgaven spør «på hvilken dag var smittetoppen».",
     },
   ],
   'in1900-8-1': [
@@ -3058,12 +3058,12 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\na = [3, 1]\nb = np.array([3, 1])\nprint(a * 2, b * 2)\n```",
       options: ["`[3, 1, 3, 1] [6 2]`", "`[6, 2] [6 2]`", "`[3, 1, 3, 1] [3 1 3 1]`", "`[6, 2] [3 1 3 1]`"],
-      explanation: "På en liste gjentar `* 2` innholdet; på et array dobler den hvert element. Legg merke til at lister skrives med komma og arrayer uten. Alternativ b) behandler lista som et array, c) behandler arrayet som en liste, og d) blander de to.",
+      explanation: "På en liste gjentar `* 2` innholdet; på et array dobler den hvert element. Legg merke til at lister skrives med komma og arrayer uten. Svaret `[6, 2] [6 2]` behandler lista som et array, `[3, 1, 3, 1] [3 1 3 1]` behandler arrayet som en liste, og `[6, 2] [3 1 3 1]` blander de to.",
     },
     {
       question: "En stykkvis funksjon er skrevet som en klasse med `__call__`. Hva må stå **etter** løkka over grensene?",
       options: ["`return self.a[-1]`", "`return None`", "`return self.b[-1]`", "`raise ValueError`"],
-      explanation: "Verdier over siste grense treffer ingen `if`, og da må den siste funksjonsverdien returneres. Uten linja gir funksjonen `None` for alle store argumenter — en stille feil. Alternativ c) returnerer en grense i stedet for en verdi.",
+      explanation: "Verdier over siste grense treffer ingen `if`, og da må den siste funksjonsverdien returneres. Uten linja gir funksjonen `None` for alle store argumenter — en stille feil. Linja `return self.b[-1]` returnerer en grense i stedet for en verdi.",
     },
     {
       question: "Hvorfor kan en klasse med `if`-tester i `__call__` ikke evalueres på et helt NumPy-array?",
@@ -3073,7 +3073,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den avgjørende forskjellen mellom `t[n]` og `t[n+1]` i en implisitt ODE-metode?",
       options: ["`t[n+1]` er det som gjør metoden implisitt", "`t[n+1]` gir raskere konvergens i `root`", "`t[n]` gir `IndexError` på siste skritt", "Det er ingen praktisk forskjell"],
-      explanation: "Baklengs Euler bruker stigningstallet ved punktet du skal **til**. Skriver du `t[n]`, har du laget en tungvint variant av forlengs Euler, og hele stabiliteten forsvinner. Alternativ c) er galt: tidsaksen har `N+1` punkter, så `t[n+1]` finnes alltid.",
+      explanation: "Baklengs Euler bruker stigningstallet ved punktet du skal **til**. Skriver du `t[n]`, har du laget en tungvint variant av forlengs Euler, og hele stabiliteten forsvinner. Påstanden om at `t[n]` gir `IndexError` på siste skritt, er gal: tidsaksen har `N+1` punkter, så `t[n+1]` finnes alltid.",
     },
     {
       question: "En eksplisitt løser sprenger på et stivt system mens en implisitt gir riktig svar, med samme antall skritt. Hva er forklaringen?",

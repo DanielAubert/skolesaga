@@ -27,10 +27,49 @@
  */
 import { createClient } from '@supabase/supabase-js';
 import { execFileSync } from 'child_process';
+import * as crypto from 'crypto';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 import * as zlib from 'zlib';
+
+/**
+ * AES-256-CBC i OpenSSLs eget filformat, men uten å starte OpenSSL.
+ *
+ * ⚠ HVORFOR IKKE `openssl`-underprosessen LENGER ─────────────────────────────
+ * Fram til 12. august 2026 krypterte skriptet ved å pipe gzip-dataene inn i
+ * `openssl enc` via `execFileSync(..., { input })`. Fra terminalen virket det.
+ * Under launchd HANG det: prosessen sto 9,5 minutter med 0,01 s CPU, sovende på
+ * stdin, uten å skrive ett byte — og siden jobben aldri returnerte, ble det
+ * heller ingen feilmelding og ingen kjørelogg. En backup som henger ser ut som
+ * en backup som går.
+ *
+ * Formatet er bevisst identisk med `openssl enc -aes-256-cbc -pbkdf2 -iter
+ * 200000 -salt`: magien «Salted__», 8 tilfeldige salt-bytes, deretter
+ * PBKDF2-SHA256 → 32 nøkkelbytes + 16 IV-bytes. Eldre dumper kan derfor
+ * fortsatt dekrypteres, både av dette skriptet og av openssl på kommandolinjen.
+ */
+const MAGI = Buffer.from('Salted__', 'ascii');
+const ITER = 200000;
+
+function nøkkelOgIv(passord: string, salt: Buffer) {
+  const ut = crypto.pbkdf2Sync(passord, salt, ITER, 48, 'sha256');
+  return { nøkkel: ut.subarray(0, 32), iv: ut.subarray(32, 48) };
+}
+
+function krypter(data: Buffer, passord: string): Buffer {
+  const salt = crypto.randomBytes(8);
+  const { nøkkel, iv } = nøkkelOgIv(passord, salt);
+  const c = crypto.createCipheriv('aes-256-cbc', nøkkel, iv);
+  return Buffer.concat([MAGI, salt, c.update(data), c.final()]);
+}
+
+function dekrypter(fil: Buffer, passord: string): Buffer {
+  if (!fil.subarray(0, 8).equals(MAGI)) throw new Error('mangler Salted__-header');
+  const { nøkkel, iv } = nøkkelOgIv(passord, fil.subarray(8, 16));
+  const d = crypto.createDecipheriv('aes-256-cbc', nøkkel, iv);
+  return Buffer.concat([d.update(fil.subarray(16)), d.final()]);
+}
 
 const ROOT = path.join(__dirname, '..');
 const DEST = process.env.MEDIA_BACKUP_DIR
@@ -38,10 +77,17 @@ const DEST = process.env.MEDIA_BACKUP_DIR
 const OPPBEVARING_DAGER = 30;
 
 // Tabellene som IKKE kan gjenskapes fra git eller innholdsdumpen.
+//
+// ⚠ `geogebra_progress` sto her fram til 12. august 2026 og ga en advarsel ved
+// hver kjøring: tabellen finnes ikke i databasen. Den kom inn fordi lista over
+// delte tabeller ble laget med grep etter `.from('…')` — og treffet i
+// `src/hooks/use-geogebra-progress.ts` er UTKOMMENTERT kode. Hooken lagrer bare
+// i localStorage, så ingenting er ødelagt; tabellen har aldri eksistert.
+// Samme feilkilde gjelder lista i CLAUDE.md, som fortsatt nevner den.
 const TABELLER = [
   'users', 'unlocked_courses', 'user_credits', 'teacher_subscriptions',
   'quiz_results', 'classes', 'class_memberships', 'organizations',
-  'challenges', 'challenge_players', 'geogebra_progress', 'user_saved_items',
+  'challenges', 'challenge_players', 'user_saved_items',
 ];
 
 /**
@@ -70,10 +116,18 @@ function lastEnv() {
 }
 
 async function dump() {
+  // ⚠ Tidsstempler per steg. Jobben brukte 14 minutter under launchd og under
+  // ett minutt fra terminalen, og uten måling er det umulig å vite hvilket
+  // steg som står stille. Gjett aldri på en treg backup — mål den.
+  const t0 = Date.now();
+  const tid = (merke: string) =>
+    console.log(`   [${((Date.now() - t0) / 1000).toFixed(1)}s] ${merke}`);
   lastEnv();
+  tid('.env.local lest');
   if (!process.env.BACKUP_ENCRYPTION_KEY) {
     const fraRing = nøkkelFraNøkkelring();
     if (fraRing) process.env.BACKUP_ENCRYPTION_KEY = fraRing;
+    tid('nøkkelring svarte');
   }
   const nøkkel = process.env.BACKUP_ENCRYPTION_KEY;
   if (!nøkkel || nøkkel.length < 16) {
@@ -86,6 +140,7 @@ async function dump() {
 
   const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!);
+  tid('Supabase-klient klar');
 
   const data: Record<string, unknown[]> = {};
   for (const t of TABELLER) {
@@ -115,10 +170,21 @@ async function dump() {
   fs.mkdirSync(mappe, { recursive: true });
   const fil = path.join(mappe, `brukerdata-${dato}.json.gz.enc`);
 
+  tid('alle tabeller hentet');
   const rå = zlib.gzipSync(Buffer.from(JSON.stringify(data)));
-  execFileSync('openssl', ['enc', '-aes-256-cbc', '-pbkdf2', '-iter', '200000',
-    '-salt', '-out', fil, '-pass', 'env:BACKUP_ENCRYPTION_KEY'], { input: rå });
+  const kryptert = krypter(rå, nøkkel);
+  // Selvkontroll FØR skriving: en dump vi ikke kan dekryptere er verdiløs, og
+  // det oppdages ellers først den dagen den skal brukes.
+  // `rå` er allerede gzippet; dekrypteringen skal gi nøyaktig den bufferen
+  // tilbake. Et første forsøk gunzippet dekrypteringen først og sammenlignet
+  // med `rå` — to ulike ting, så kontrollen slo ut hver gang.
+  if (!dekrypter(kryptert, nøkkel).equals(rå)) {
+    console.error('\n⛔ Krypteringen kunne ikke reverseres. Skriver ingenting.\n');
+    process.exit(1);
+  }
+  fs.writeFileSync(fil, kryptert, { mode: 0o600 });
 
+  tid('kryptert og skrevet');
   console.log(`\n🔐 ${sum} rader · ${(fs.statSync(fil).size / 1024).toFixed(0)} KB kryptert`);
   console.log(`   ${fil}`);
 
@@ -136,9 +202,7 @@ function gjenopprett(fil: string) {
   if (!process.env.BACKUP_ENCRYPTION_KEY) { console.error('⛔ BACKUP_ENCRYPTION_KEY mangler'); process.exit(1); }
   let data: Record<string, unknown[]>;
   try {
-    const ut = execFileSync('openssl', ['enc', '-d', '-aes-256-cbc', '-pbkdf2', '-iter', '200000',
-      '-in', fil, '-pass', 'env:BACKUP_ENCRYPTION_KEY'],
-      { maxBuffer: 512 * 1024 * 1024, stdio: ['pipe', 'pipe', 'pipe'] });
+    const ut = dekrypter(fs.readFileSync(fil), process.env.BACKUP_ENCRYPTION_KEY!);
     data = JSON.parse(zlib.gunzipSync(ut).toString());
   } catch {
     // ⚠ Feil nøkkel MÅ si fra tydelig. Første utkast lot openssl feile stille,

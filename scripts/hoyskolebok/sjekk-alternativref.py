@@ -81,7 +81,10 @@ MATTE = re.compile(r"\$[^$]*\$|\\\([^)]*\\\)|\\\[[^]]*\\]"
                    # slutten på en parameterliste.
                    r"|`[^`]*`|\w+\([^)]*\)")
 BOKSTAVMONSTRE = [
-    (r"[Aa]lternativ(?:et|ene)?\s+[a-e]\)", "alternativ + bokstav"),
+    # «alternativa» er nynorsk flertall. Uten den formen sto to nynorskfeil
+    # (nn/9-1-2, nn/10-7-3) usynlige for porten mens bokmålstvillingene deres
+    # var grønne — en blindsone som bare rammer nynorsklesere.
+    (r"[Aa]lternativ(?:et|ene|a)?\s+[a-e]\)", "alternativ + bokstav"),
     # Bar bokstav teller bare der den står som et setningsledd og etterfølges av
     # et ord — «a) definerer negativ frihet». Uten den innrammingen treffer
     # mønsteret enhver parentes.

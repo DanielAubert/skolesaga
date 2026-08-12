@@ -336,12 +336,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken funksjon har utdrag a) (om negativ frihet) i Berlins argument?",
       options: ["Definisjon/premiss — det fastlegger hva negativ frihet er", "En ren illustrasjon av den positive frihetens innhold hos Berlin", "Et direkte motargument rettet mot Berlin selv", "En historisk digresjon helt uten funksjon i teksten"],
-      explanation: "a) definerer negativ frihet (fravær av hindring påført av andre) og bærer det sentrale poenget — grunnmuren i den negative delen.",
+      explanation: "Utdrag a) definerer negativ frihet (fravær av hindring påført av andre) og bærer det sentrale poenget — grunnmuren i den negative delen.",
     },
     {
       question: "Hvilken funksjon har utdrag b) (empirisk vs. egentlig selv)?",
       options: ["Kritisk premiss — det avdekker faren i positiv frihet", "Berlins endelige konklusjon om at all frihet i praksis er umulig", "En helt nøytral definisjon av positiv frihet uten kritisk brodd", "En ren illustrasjon av hvordan negativ frihet arter seg"],
-      explanation: "b) viser mekanismen bak «tvang til frihet» — det er broen fra beskrivelse til advarsel, ikke en nøytral definisjon.",
+      explanation: "Utdrag b) viser mekanismen bak «tvang til frihet» — det er broen fra beskrivelse til advarsel, ikke en nøytral definisjon.",
     },
     {
       question: "Hva er forskjellen på personlig og politisk frihet i despot-caset?",
@@ -448,7 +448,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er funksjonen til utdrag c) (om den liberale despoten) i Pettits argument?",
       options: ["Anvendelse/illustrasjon — det viser hvor ikke-dominans slår Berlin", "En helt nøytral og rent beskrivende definisjon av selve frihetsbegrepet", "Et direkte motargument rettet mot Pettit selv", "En historisk digresjon uten funksjon i teksten"],
-      explanation: "c) anvender dominansbegrepet på despoten og avslører grensen for Berlins negative frihet.",
+      explanation: "Utdrag c) anvender dominansbegrepet på despoten og avslører grensen for Berlins negative frihet.",
     },
     {
       question: "«Deres frihet er en gave han kan ta tilbake» — hva uttrykker dette?",
@@ -565,7 +565,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er funksjonen til utdrag b) (om bemyndigelse som kan trekkes tilbake)?",
       options: ["Kritisk premiss mot kontraktsmyndighet — kontroll > samtykke", "En helt nøytral og rent beskrivende definisjon av selve staten som sådan", "En ren illustrasjon av hvordan veldedighet fungerer", "Et direkte argument til støtte for éngangssamtykke"],
-      explanation: "b) innfører det subtile poenget: løpende, tilbaketrekkbar bemyndigelse fjerner dominans, ikke opprinnelig ja.",
+      explanation: "Utdrag b) innfører det subtile poenget: løpende, tilbaketrekkbar bemyndigelse fjerner dominans, ikke opprinnelig ja.",
     },
     {
       question: "Hva følger av ikke-dominans for velferdsstaten?",
@@ -2397,7 +2397,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "I modell 1s SIT-del: hva er forskjellen på utdrag a) og b)?",
       options: ["a) motiverer sløret (upartiskhet), b) motiverer maximin (rasjonalitet under uvisse)", "Utdrag a) gjelder Lockes kontraktteori, mens utdrag b) gjelder Rawls' utgangsposisjon", "De uttrykker nøyaktig samme poeng, nemlig at partene bak sløret velger prinsipper de er tjent med selv", "Utdrag b) motiverer selve sløret gjennom upartiskhet, mens a) begrunner maximin under radikal uvisshet"],
-      explanation: "Å skille de to premissene er A-grepet. Å smelte dem sammen er feil #7. a) begrunner hvorfor sløret trengs; b) begrunner valgregelen under sløret.",
+      explanation: "Å skille de to premissene er A-grepet. Å smelte dem sammen er feil #7. Utdrag a) begrunner hvorfor sløret trengs; utdrag b) begrunner valgregelen under sløret.",
     },
     {
       question: "Hvilken akse er tyngst i en Berlin vs. Pettit-sammenligning (modell 2)?",
@@ -2766,7 +2766,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "I prøve 2s SIT-del: hva skiller utdrag a) (om at velgerne ikke skal kjenne sin plass) fra b) (om å sikre seg mot det verste)?",
       options: ["a) motiverer sløret, b) motiverer maximin", "b) motiverer sløret, a) motiverer maximin", "De er samme poeng: begge begrunner uvitenhetssløret", "De begrunner begge maximin-regelen"],
-      explanation: "a) begrunner uvitenhetssløret (upartiskhet); b) begrunner maximin (rasjonalitet under uvisse). Å smelte dem sammen er feil #7.",
+      explanation: "Utdrag a) begrunner uvitenhetssløret (upartiskhet); utdrag b) begrunner maximin (rasjonalitet under uvisse). Å smelte dem sammen er feil #7.",
     },
     {
       question: "Hva må ANV-svaret om veldedighet (prøve 3b) gjøre?",
