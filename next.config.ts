@@ -8,13 +8,13 @@ const cspDirectives = [
   // Styles: self + inline (required by Tailwind/React)
   "style-src 'self' 'unsafe-inline'",
   // Images: self + data URIs + external image sources
-  "img-src 'self' data: blob: https://images.unsplash.com https://img.youtube.com https://xerfxuoxqdptoxkiefju.supabase.co",
+  "img-src 'self' data: blob: https://*.google-analytics.com https://images.unsplash.com https://img.youtube.com https://xerfxuoxqdptoxkiefju.supabase.co",
   // Fonts: self only (Next.js bundles fonts at build time)
   "font-src 'self'",
   // Audio/video: self + Supabase Storage (lydbøker ligger i media-bucketen)
   "media-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co",
   // API connections: self + Supabase + Feide/Dataporten + Google Analytics + Google OAuth
-  "connect-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co https://auth.dataporten.no https://www.googletagmanager.com https://cdn.jsdelivr.net https://accounts.google.com https://oauth2.googleapis.com",
+  "connect-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co https://auth.dataporten.no https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://cdn.jsdelivr.net https://accounts.google.com https://oauth2.googleapis.com",
   // Iframes: YouTube + Vimeo
   "frame-src https://www.youtube-nocookie.com https://www.youtube.com https://player.vimeo.com https://www.geogebra.org",
   // Workers: self (PWA service worker)

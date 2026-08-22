@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle2, XCircle, Circle } from 'lucide-react';
@@ -45,10 +46,12 @@ export function MultipleChoiceExercise({
   // Hvis vi ser som en annen elev, deaktiver interaksjon
   const isReadOnly = !!viewingAsStudentId;
 
-  // Last lagret svar fra database
+  // Last lagret svar fra database (kun for innloggede — ellers gir API-et 401)
+  const { status: authStatus } = useSession();
   useEffect(() => {
+    if (authStatus === 'loading') return;
     const loadSavedAnswer = async () => {
-      if (!courseId) {
+      if (!courseId || authStatus !== 'authenticated') {
         setIsLoading(false);
         return;
       }
@@ -81,7 +84,7 @@ export function MultipleChoiceExercise({
     };
 
     loadSavedAnswer();
-  }, [courseId, chapterId, exerciseId, viewingAsStudentId]);
+  }, [courseId, chapterId, exerciseId, viewingAsStudentId, authStatus]);
 
   const handleSelect = async (optionId: string) => {
     if (isSubmitted || isReadOnly) return;

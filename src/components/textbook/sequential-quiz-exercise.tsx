@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -45,8 +46,14 @@ export function SequentialQuizExercise({
 
   const isReadOnly = !!viewingAsStudentId;
 
-  // Last lagret tilstand fra API
+  // Last lagret tilstand fra API (kun for innloggede — ellers gir API-et 401)
+  const { status: authStatus } = useSession();
   useEffect(() => {
+    if (authStatus === 'loading') return;
+    if (authStatus !== 'authenticated') {
+      setIsLoadingState(false);
+      return;
+    }
     const loadSaved = async () => {
       const savedResults: Record<number, QuestionResult> = {};
       let loadedCount = 0;
@@ -86,7 +93,7 @@ export function SequentialQuizExercise({
     };
 
     loadSaved();
-  }, [exerciseId, chapterId, courseId, viewingAsStudentId, questions.length]);
+  }, [exerciseId, chapterId, courseId, viewingAsStudentId, questions.length, authStatus]);
 
   const saveAnswer = useCallback(async (questionIndex: number, selId: string, correct: boolean) => {
     if (isReadOnly) return;

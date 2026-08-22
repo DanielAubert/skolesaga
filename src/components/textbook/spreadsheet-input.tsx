@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -85,8 +86,10 @@ export function SpreadsheetInput({
     );
   }, [dbLoadedCells, template, initialRows, initialCols]);
 
-  // Load from database on mount
+  // Load from database on mount (kun for innloggede — ellers gir API-et 401)
+  const { status: authStatus } = useSession();
   useEffect(() => {
+    if (authStatus !== 'authenticated') return;
     const loadFromDatabase = async () => {
       try {
         const params = new URLSearchParams({
@@ -110,7 +113,7 @@ export function SpreadsheetInput({
     };
 
     loadFromDatabase();
-  }, [courseId, chapterId, exerciseId]);
+  }, [courseId, chapterId, exerciseId, authStatus]);
 
   const [cells, setCells] = useState<SpreadsheetCell[][]>(getInitialData);
   const [activeCell, setActiveCell] = useState<{ row: number; col: number } | null>(null);

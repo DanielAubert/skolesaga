@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect, useCallback } from 'react';
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import {
@@ -494,10 +495,13 @@ export function CanvasDrawing({
   }, [isResizing]);
 
   // Last inn lagret tegning fra database eller localStorage
+  const { status: authStatus } = useSession();
   useEffect(() => {
+    if (authStatus === 'loading') return;
     const loadSavedDrawing = async () => {
-      // Prøv å hente fra database først
+      // Prøv å hente fra database først (kun for innloggede — ellers gir API-et 401)
       try {
+        if (authStatus !== 'authenticated') throw new Error('not-authenticated');
         const params = new URLSearchParams({
           courseId,
           chapterId,
@@ -529,7 +533,9 @@ export function CanvasDrawing({
           }
         }
       } catch (error) {
-        console.error('Error loading from database:', error);
+        if (!(error instanceof Error && error.message === 'not-authenticated')) {
+          console.error('Error loading from database:', error);
+        }
       }
 
       // Fallback til localStorage
@@ -550,7 +556,7 @@ export function CanvasDrawing({
     };
 
     loadSavedDrawing();
-  }, [courseId, chapterId, exerciseId, viewingAsStudentId]);
+  }, [courseId, chapterId, exerciseId, viewingAsStudentId, authStatus]);
 
   return (
     <div
