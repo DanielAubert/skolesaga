@@ -32,8 +32,10 @@ for (const id of registry.chapterIds) {
   (perKurs[kurs] = perKurs[kurs] || {})[id] = chapters[id];
   index.kurs[id] = kurs;
 }
+const zlib = require('zlib');
 for (const [kurs, kap] of Object.entries(perKurs)) {
-  fs.writeFileSync(path.join(kursDir, kurs + '.json'), JSON.stringify(kap));
+  // gzip (17.9.2026): rå bunter ga 764 MB funksjon på Vercel (grense 250 MB); gz er ~6× mindre
+  fs.writeFileSync(path.join(kursDir, kurs + '.json.gz'), zlib.gzipSync(JSON.stringify(kap), { level: 6 }));
 }
 fs.writeFileSync(path.join(dir, '_index.json'), JSON.stringify(index));
 console.log(`Skrev ${Object.keys(perKurs).length} kursbunter til _kurs/ og _index.json`);

@@ -42,7 +42,7 @@ function getKurs(kurs: string): Record<string, TextbookChapter> {
   let k = kursCache.get(kurs);
   if (!k) {
     try {
-      k = JSON.parse(fs.readFileSync(path.join(CHAPTER_DIR, '_kurs', kurs + '.json'), 'utf-8'));
+      k = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(CHAPTER_DIR, '_kurs', kurs + '.json.gz'))).toString('utf-8'));
     } catch {
       k = {};
     }

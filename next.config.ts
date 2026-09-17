@@ -39,14 +39,15 @@ const nextConfig: NextConfig = {
     ],
   },
   outputFileTracingIncludes: {
-    '/**': ['./src/lib/data/chapters/_index.json', './src/lib/data/chapters/_kurs/*.json'],
+    '/**': ['./src/lib/data/chapters/_index.json', './src/lib/data/chapters/_kurs/*.json.gz'],
   },
   turbopack: {
     root: __dirname, // Explicitly set root to prevent parent directory inference
   },
   images: {
     // 17.9.2026: bilder går via /media/… med ?v=<bygg> (medie-proxy med lang cache)
-    localPatterns: [{ pathname: '/media/**' }],
+    // NB: når localPatterns finnes, må ALLE lokale bildestier være med — '/**' dekker forsidebilder m.m.
+    localPatterns: [{ pathname: '/media/**' }, { pathname: '/**' }],
     remotePatterns: [
       {
         protocol: 'https',
