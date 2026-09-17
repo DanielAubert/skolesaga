@@ -1,0 +1,410 @@
+{
+  "id": "matok-7-2",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "7.2",
+  "title": "Profitt som funksjon av pris eller kvantum",
+  "description": "Å maksimere profitt når pris, etterspørsel og kostnad er gitt ved funksjoner.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse",
+    "bestemme og utforske profitt som funksjon av pris eller kvantum når pris per eining, etterspurnad og produksjonskostnader er gitt ved funksjonar, og tolke resultata"
+  ],
+  "content": [
+    {
+      "id": "matok-7-2-section-intro",
+      "type": "text",
+      "content": "## Hvor er profitten størst?\n\nI kapittel 7.1 satte vi opp profittfunksjonen $O(x) = I(x) - K(x)$ og fant når bedriften går i balanse. Men en bedrift vil sjelden bare unngå underskudd — den vil tjene **mest mulig**.\n\nDa spør vi: hvilken $x$ gir den største verdien av $O(x)$?\n\nDette er et optimeringsproblem, og verktøyet er derivasjon fra kapittel 6. Profitten vokser så lenge $O'(x) > 0$ og synker når $O'(x) < 0$. I toppen snur det, og der er $O'(x) = 0$.\n\nI dette kapittelet gjør vi det samme to veier: vi lar **kvantumet** $x$ være den frie variabelen, og vi lar **prisen** $p$ være den frie variabelen. De to spørsmålene har ikke samme svar."
+    },
+    {
+      "id": "matok-7-2-teorem-maks",
+      "type": "theorem",
+      "title": "Størst mulig profitt",
+      "content": "Profitten $O$ har et **toppunkt** der\n\n$$O'(x) = 0 \\qquad \\text{og} \\qquad O''(x) < 0$$\n\n**Slik gjør vi det:**\n\n1. Sett opp $O(x) = I(x) - K(x)$.\n2. Deriver: finn $O'(x)$.\n3. Løs likningen $O'(x) = 0$. Løsningene er **kandidater**.\n4. Forkast kandidater som ligger utenfor gyldighetsområdet (for eksempel negative antall).\n5. **Andrederiverttest:** regn ut $O''$ i kandidaten. Er den negativ, har vi et toppunkt — altså størst profitt, ikke minst.\n6. Regn ut $O$ i kandidaten, og svar i hele setninger med benevning.\n\nNB: Steg 5 er ikke pynt. At $O'(x) = 0$ betyr bare at det flater ut — det kan like gjerne være et bunnpunkt. Uten testen vet vi ikke om vi har funnet det beste eller det verste punktet."
+    },
+    {
+      "id": "matok-7-2-fig-profittgraf",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-7-2-profittgraf.png",
+      "alt": "Koordinatsystem med antall enheter x fra 0 til 80 langs den vannrette aksen og kroner fra minus 400 til 500 langs den loddrette. En grønn parabel merket O av x åpner nedover. Den starter i minus 350 på den loddrette aksen, krysser x-aksen ved 10, stiger til et toppunkt i punktet (40, 450) som er markert med en prikk og stiplede hjelpelinjer opp til 450 på y-aksen og ned til 40 på x-aksen, og synker deretter og krysser x-aksen igjen ved 70.",
+      "caption": "En typisk profittfunksjon: negativ til venstre for det første dekningspunktet, størst i toppunktet, negativ igjen etter det andre. Tallene i figuren er valgt for å vise formen — de er **ikke** bryggeriets tall fra Eksempel 1.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-7-2-profittgraf.json (+ matok-7-2-profittgraf.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-7-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Størst profitt ved gitt kvantum",
+      "problem": "Mikrobryggeriet fra kapittel 7.1 har profittfunksjonen\n\n$$O(x) = -0{,}2x^2 + 180x - 5000$$\n\nder $x$ er antall kasser øl per uke og $O(x)$ er i kroner.\n\nHvor mange kasser bør bryggeriet produsere per uke for å tjene mest mulig, og hvor stor blir profitten da?",
+      "solution": "**Hva vet vi?** Profittfunksjonen $O(x) = -0{,}2x^2 + 180x - 5000$.\n\n**Hva må vi finne?** Den $x$-verdien som gir størst $O(x)$.\n\n**Steg 1 — vi deriverer.** Vi deriverer ledd for ledd:\n\n$$O'(x) = -0{,}2 \\cdot 2x + 180$$\n$$O'(x) = -0{,}4x + 180$$\n\n**Steg 2 — vi løser $O'(x) = 0$:**\n\n$$-0{,}4x + 180 = 0 \\qquad | \\; - 180$$\n$$-0{,}4x = -180 \\qquad | \\; : (-0{,}4)$$\n$$x = 450$$\n\n**Steg 3 — gyldighetsområdet.** Bryggeriet kan ikke produsere et negativt antall kasser, så vi trenger $x > 0$. Kandidaten $x = 450$ er gyldig.\n\n**Steg 4 — andrederiverttest.** Vi deriverer én gang til:\n\n$$O''(x) = -0{,}4$$\n\nDen andrederiverte er negativ for alle $x$, og dermed også i $x = 450$. Da er $x = 450$ et **toppunkt** — vi har funnet størst profitt og ikke minst.\n\n**Steg 5 — vi regner ut profitten:**\n\n$$O(450) = -0{,}2 \\cdot 450^2 + 180 \\cdot 450 - 5000$$\n$$O(450) = -0{,}2 \\cdot 202\\,500 + 81\\,000 - 5000$$\n$$O(450) = -40\\,500 + 81\\,000 - 5000$$\n$$O(450) = 35\\,500$$\n\n**Svar:** Bryggeriet bør produsere 450 kasser i uken. Da blir profitten 35 500 kr per uke.\n\nNB: I kapittel 7.1 fant vi i en tabell at 450 kasser ga den største verdien blant $0, 50, 100, \\ldots$ Derivasjonen gir det samme svaret — men nå vet vi at det er det aller største, ikke bare det største i tabellen."
+    },
+    {
+      "id": "matok-7-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-2-ex-1",
+        "number": "7.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bedrift har profittfunksjonen $O(x) = -0{,}1x^2 + 60x - 4000$ kroner, der $x$ er antall enheter per måned.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $O'(x)$.",
+            "solution": "$O'(x) = -0{,}2x + 60$",
+            "expressionAnswer": "-0.2x+60"
+          },
+          {
+            "label": "b",
+            "task": "Hvilket antall enheter gir størst profitt?",
+            "solution": "$-0{,}2x + 60 = 0$ gir $x = 300$.",
+            "answer": 300
+          },
+          {
+            "label": "c",
+            "task": "Vis med andrederiverttesten at du har funnet et toppunkt.",
+            "solution": "$O''(x) = -0{,}2 < 0$ for alle $x$, altså også i $x = 300$. Punktet er derfor et toppunkt."
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor er den største profitten (i kroner)?",
+            "solution": "$O(300) = -0{,}1 \\cdot 90\\,000 + 18\\,000 - 4000 = -9000 + 18\\,000 - 4000 = 5000$",
+            "answer": 5000
+          },
+          {
+            "label": "e",
+            "task": "Hva forteller $O(0) = -4000$ om bedriften?",
+            "solution": "Produserer bedriften ingenting, taper den 4000 kr. Det er de faste kostnadene, som må betales uansett."
+          }
+        ],
+        "solution": "a) $O'(x) = -0{,}2x + 60$, b) 300 enheter, c) $O''(x) = -0{,}2 < 0$, d) 5000 kr, e) $-4000$ kr er de faste kostnadene.",
+        "hints": [
+          "Deriver ledd for ledd.",
+          "Andrederiverttesten: er $O''$ negativ, er det et toppunkt."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-2-ex-2",
+        "number": "7.2.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et snekkerverksted har kostnadene $K(x) = 0{,}25x^2 + 30x + 1200$ kroner ved å lage $x$ krakker i måneden. Hver krakk selges for 130 kr.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $I(x)$.",
+            "solution": "$I(x) = 130x$",
+            "expressionAnswer": "130x"
+          },
+          {
+            "label": "b",
+            "task": "Vis at $O(x) = -0{,}25x^2 + 100x - 1200$.",
+            "solution": "$O(x) = 130x - (0{,}25x^2 + 30x + 1200) = -0{,}25x^2 + 100x - 1200$"
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange krakker gir størst profitt?",
+            "solution": "$O'(x) = -0{,}5x + 100 = 0$ gir $x = 200$. $O''(x) = -0{,}5 < 0$, altså toppunkt.",
+            "answer": 200
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor er den største profitten (i kroner)?",
+            "solution": "$O(200) = -0{,}25 \\cdot 40\\,000 + 20\\,000 - 1200 = -10\\,000 + 20\\,000 - 1200 = 8800$",
+            "answer": 8800
+          },
+          {
+            "label": "e",
+            "task": "Regn ut $O(150)$ og $O(250)$. Hva legger du merke til?",
+            "solution": "$O(150) = 8175$ og $O(250) = 8175$. De to verdiene er like, fordi 150 og 250 ligger like langt fra toppunktet $x = 200$ — parabelen er symmetrisk om toppunktet."
+          }
+        ],
+        "solution": "a) $I(x) = 130x$, b) $O(x) = -0{,}25x^2 + 100x - 1200$, c) 200 krakker, d) 8800 kr, e) begge gir 8175 kr — parabelen er symmetrisk om $x = 200$.",
+        "hints": [
+          "Husk minustegnet foran hele parentesen.",
+          "I e): hvor langt fra 200 ligger 150 og 250?"
+        ],
+        "competenceGoals": [
+          "bestemme og utforske profitt som funksjon av pris eller kvantum når pris per eining, etterspurnad og produksjonskostnader er gitt ved funksjonar, og tolke resultata"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-2-section-pris",
+      "type": "text",
+      "content": "## Når prisen er den frie variabelen\n\nHittil har vi latt bedriften bestemme hvor mye den skal produsere, og gått ut fra at alt blir solgt til en fast pris. Ofte er det motsatt: bedriften bestemmer **prisen**, og markedet bestemmer hvor mye som blir solgt.\n\nSetter butikken prisen høyt, selger den få. Setter den prisen lavt, selger den mange. Sammenhengen mellom pris og salg kaller vi **etterspørselen**."
+    },
+    {
+      "id": "matok-7-2-def-ettersporsel",
+      "type": "definition",
+      "title": "Etterspørselsfunksjonen",
+      "content": "**Etterspørselsfunksjonen** $q(p)$ forteller hvor mange enheter som blir solgt når prisen er $p$ kroner per enhet.\n\nEn etterspørselsfunksjon er **synkende**: høyere pris gir lavere salg. En enkel modell er den lineære\n\n$$q(p) = a - bp, \\qquad a > 0, \\; b > 0$$\n\nNår vi kjenner $q(p)$, følger de andre funksjonene av seg selv:\n\n$$I(p) = p \\cdot q(p) \\qquad \\text{(inntekt = pris} \\cdot \\text{antall)}$$\n$$O(p) = I(p) - K(p)$$\n\nNB: Her er $p$ den frie variabelen. Vi deriverer derfor med hensyn på $p$, ikke på $x$."
+    },
+    {
+      "id": "matok-7-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Prisen som gir størst inntekt — og prisen som gir størst profitt",
+      "problem": "En nettbutikk selger en ryggsekk. Salget per uke avhenger av prisen $p$ (i kroner) slik:\n\n$$q(p) = 2000 - 20p$$\n\nButikken betaler 20 kr til leverandøren for hver ryggsekk den selger, og har ingen andre kostnader.\n\na) Finn prisen som gir størst inntekt.\n\nb) Finn prisen som gir størst profitt.\n\nc) Sammenlign de to svarene.",
+      "solution": "**a)** Inntekten er pris ganger antall:\n\n$$I(p) = p \\cdot q(p)$$\n$$I(p) = p(2000 - 20p)$$\n$$I(p) = 2000p - 20p^2$$\n\nVi deriverer og setter lik null:\n\n$$I'(p) = 2000 - 40p$$\n$$2000 - 40p = 0 \\qquad | \\; + 40p$$\n$$2000 = 40p \\qquad | \\; : 40$$\n$$p = 50$$\n\nAndrederiverttest: $I''(p) = -40 < 0$, altså toppunkt.\n\n$$I(50) = 2000 \\cdot 50 - 20 \\cdot 50^2 = 100\\,000 - 50\\,000 = 50\\,000$$\n\n**Svar:** Prisen 50 kr gir størst inntekt, 50 000 kr per uke. Da selges $q(50) = 2000 - 1000 = 1000$ ryggsekker.\n\n**b)** Nå må vi trekke fra kostnadene. Butikken betaler 20 kr per solgte ryggsekk, og antall solgte er $q(p)$:\n\n$$K(p) = 20 \\cdot q(p)$$\n$$K(p) = 20(2000 - 20p)$$\n$$K(p) = 40\\,000 - 400p$$\n\n$$O(p) = I(p) - K(p)$$\n$$O(p) = 2000p - 20p^2 - (40\\,000 - 400p)$$\n$$O(p) = 2000p - 20p^2 - 40\\,000 + 400p$$\n$$O(p) = -20p^2 + 2400p - 40\\,000$$\n\nVi deriverer og setter lik null:\n\n$$O'(p) = -40p + 2400$$\n$$-40p + 2400 = 0$$\n$$p = 60$$\n\nAndrederiverttest: $O''(p) = -40 < 0$, altså toppunkt.\n\n$$O(60) = -20 \\cdot 60^2 + 2400 \\cdot 60 - 40\\,000$$\n$$O(60) = -72\\,000 + 144\\,000 - 40\\,000$$\n$$O(60) = 32\\,000$$\n\n**Svar:** Prisen 60 kr gir størst profitt, 32 000 kr per uke. Da selges $q(60) = 2000 - 1200 = 800$ ryggsekker.\n\n**c)** Prisen som gir størst profitt (60 kr) er **høyere** enn prisen som gir størst inntekt (50 kr).\n\nGrunnen er at hver ryggsekk koster butikken 20 kr. Ved 50 kr selger den 200 flere sekker enn ved 60 kr, men de 200 ekstra sekkene koster også penger å skaffe. Inntekten blir større, men det som blir igjen, blir mindre:\n\n$$O(50) = -20 \\cdot 2500 + 2400 \\cdot 50 - 40\\,000 = 30\\,000$$\n\n![Koordinatsystem med pris p fra 0 til 110 kroner og kroner per uke fra 0 til 60000. En blå parabel merket I av p har toppunkt i det markerte punktet (50, 50000). En lavere grønn parabel merket O av p har toppunkt i det markerte punktet (60, 32000). Stiplede hjelpelinjer går fra begge toppunktene ned til prisaksen ved 50 og 60.](/images/content/matematikk-okonomi/matok-7-2-to-toppunkter.png)\n\n*Toppunktet i profitten ligger til HØYRE for toppunktet i inntekten: butikken bør ta 60 kr, ikke 50. Å jage størst mulig omsetning er ikke det samme som å tjene mest.*\n\n**Svar:** Butikken bør ta 60 kr. Å jage størst mulig omsetning er ikke det samme som å tjene mest mulig."
+    },
+        {
+      "id": "matok-7-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-2-ex-3",
+        "number": "7.2.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift selger hodetelefoner. Antall solgte per uke ved prisen $p$ kroner er\n\n$$q(p) = 800 - 4p$$\n\nHvert par koster bedriften 50 kr i innkjøp.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at $I(p) = 800p - 4p^2$.",
+            "solution": "$I(p) = p \\cdot q(p) = p(800 - 4p) = 800p - 4p^2$"
+          },
+          {
+            "label": "b",
+            "task": "Hvor stor blir inntekten hvis prisen settes til 40 kr (i kroner)?",
+            "solution": "$I(40) = 800 \\cdot 40 - 4 \\cdot 1600 = 32\\,000 - 6400 = 25\\,600$",
+            "answer": 25600
+          },
+          {
+            "label": "c",
+            "task": "Hvilken pris gir størst inntekt (i kroner)?",
+            "solution": "$I'(p) = 800 - 8p = 0$ gir $p = 100$. $I''(p) = -8 < 0$, altså toppunkt.",
+            "answer": 100
+          },
+          {
+            "label": "d",
+            "task": "Vis at $O(p) = -4p^2 + 1000p - 40\\,000$, og finn prisen som gir størst profitt (i kroner).",
+            "solution": "$O(p) = (p - 50)q(p) = (p - 50)(800 - 4p) = -4p^2 + 1000p - 40\\,000$. $O'(p) = -8p + 1000 = 0$ gir $p = 125$, og $O''(p) = -8 < 0$.",
+            "answer": 125
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange par selges ved hver av de to prisene, og hvor stor blir profitten ved den beste prisen?",
+            "solution": "$q(100) = 400$ par og $q(125) = 300$ par. $O(125) = -4 \\cdot 15\\,625 + 125\\,000 - 40\\,000 = 22\\,500$ kr."
+          }
+        ],
+        "solution": "a) $I(p) = 800p - 4p^2$, b) 25 600 kr, c) 100 kr, d) 125 kr, e) 400 par mot 300 par; størst profitt er 22 500 kr.",
+        "hints": [
+          "Profitten kan skrives som (pris minus innkjøpspris) ganger antall solgte.",
+          "Deriver med hensyn på $p$ — det er prisen som er den frie variabelen."
+        ],
+        "competenceGoals": [
+          "bestemme og utforske profitt som funksjon av pris eller kvantum når pris per eining, etterspurnad og produksjonskostnader er gitt ved funksjonar, og tolke resultata"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-2-section-enhetskostnad",
+      "type": "text",
+      "content": "## Minste enhetskostnad\n\nEt annet spørsmål bedrifter stiller, er: *ved hvilken produksjonsmengde produserer vi mest mulig effektivt?* Da leter vi ikke etter størst profitt, men etter **minst enhetskostnad** — den produksjonsmengden der hver enhet koster minst mulig å lage.\n\nMetoden er den samme, men nå leter vi etter et **bunnpunkt**: $K_e'(x) = 0$ og $K_e''(x) > 0$."
+    },
+    {
+      "id": "matok-7-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 (Del 2): Minste enhetskostnad",
+      "problem": "Gartneriet fra kapittel 7.1 har kostnadene\n\n$$K(x) = 0{,}5x^2 + 60x + 9000$$\n\nkroner per uke ved $x$ kasser tomater.\n\na) Finn produksjonsmengden som gir minst enhetskostnad, og hvor stor enhetskostnaden er da.\n\nb) Tomatene selges for 300 kr per kasse. Finn produksjonsmengden som gir størst profitt, og sammenlign med a).",
+      "solution": "**a)** Enhetskostnaden er kostnaden delt på antallet:\n\n$$K_e(x) = \\frac{K(x)}{x} = \\frac{0{,}5x^2 + 60x + 9000}{x}$$\n$$K_e(x) = 0{,}5x + 60 + \\frac{9000}{x}$$\n\nVi skriver om til potensform og deriverer:\n\n$$K_e(x) = 0{,}5x + 60 + 9000x^{-1}$$\n$$K_e'(x) = 0{,}5 - 9000x^{-2} = 0{,}5 - \\frac{9000}{x^2}$$\n\nSå løser vi $K_e'(x) = 0$:\n\n$$0{,}5 - \\frac{9000}{x^2} = 0$$\n$$\\frac{9000}{x^2} = 0{,}5$$\n$$x^2 = \\frac{9000}{0{,}5} = 18\\,000$$\n$$x = \\sqrt{18\\,000} = 60\\sqrt{5} \\approx 134{,}16$$\n\n(Den negative løsningen forkaster vi — antall kasser må være positivt.)\n\n**Alternativ 2 (CAS):**\n\n```\nK_e(x):=0.5x+60+9000/x\nLøs(K_e'(x)=0, x)\n```\n\nAndrederiverttest: $K_e''(x) = \\dfrac{18\\,000}{x^3}$, som er positiv for alle $x > 0$. Altså et **bunnpunkt** — vi har funnet minst enhetskostnad.\n\n$$K_e(134{,}16) \\approx 194{,}16$$\n\nGartneriet kan ikke pakke 0,16 kasse. Vi sjekker de to nabotallene:\n\n$$K_e(134) \\approx 194{,}1642 \\qquad K_e(135) \\approx 194{,}1667$$\n\n**Svar:** 134 kasser gir lavest enhetskostnad, om lag 194 kr per kasse.\n\n**b)** Profitten er\n\n$$O(x) = 300x - (0{,}5x^2 + 60x + 9000)$$\n$$O(x) = -0{,}5x^2 + 240x - 9000$$\n\n$$O'(x) = -x + 240$$\n$$-x + 240 = 0$$\n$$x = 240$$\n\nAndrederiverttest: $O''(x) = -1 < 0$, altså toppunkt.\n\n$$O(240) = -0{,}5 \\cdot 57\\,600 + 240 \\cdot 240 - 9000$$\n$$O(240) = -28\\,800 + 57\\,600 - 9000$$\n$$O(240) = 19\\,800$$\n\n![To paneler ved siden av hverandre med samme tallmerkede x-akse fra 50 til 350 kasser (tall hver 50. kasse). Panel A viser enhetskostnaden Kₑ av x, med kroner per kasse fra 160 til 280 på den loddrette aksen, som en blå kurve med et markert bunnpunkt et stykke til venstre i panelet, merket «minst ved x = 134» og «194 kr». Panel B viser profitten O av x som en grønn kurve med et markert toppunkt lenger til høyre, merket «størst ved x = 240» og «19 800 kr».](/images/content/matematikk-okonomi/matok-7-2-to-maal.png)\n\n*De to målene ligger på forskjellige steder langs den samme x-aksen: minst kostnad per kasse ved 134 kasser, størst samlet profitt ved 240.*\n\n**Svar:** 240 kasser gir størst profitt, 19 800 kr per uke.\n\nNB: Legg merke til at de to svarene ikke er like. Ved 240 kasser er ikke gartneriet så «effektivt» som det kunne vært — hver kasse koster mer enn 194 kr å produsere. Men prisen er 300 kr, og de ekstra kassene mellom 134 og 240 gir fortsatt mer inn enn de koster. **Minst kostnad per enhet og størst samlet profitt er to forskjellige mål.**"
+    },
+        {
+      "id": "matok-7-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-2-ex-4",
+        "number": "7.2.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift har kostnadene $K(x) = 0{,}4x^2 + 50x + 6250$ kroner ved $x$ enheter per dag.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at $K_e(x) = 0{,}4x + 50 + \\dfrac{6250}{x}$.",
+            "solution": "$K_e(x) = \\frac{0{,}4x^2 + 50x + 6250}{x} = 0{,}4x + 50 + \\frac{6250}{x}$"
+          },
+          {
+            "label": "b",
+            "task": "Finn $K_e'(x)$.",
+            "solution": "$K_e'(x) = 0{,}4 - \\dfrac{6250}{x^2}$"
+          },
+          {
+            "label": "c",
+            "task": "Hvilken produksjonsmengde gir minst enhetskostnad?",
+            "solution": "$0{,}4 - \\frac{6250}{x^2} = 0$ gir $x^2 = 15\\,625$, altså $x = 125$ (den negative løsningen forkastes). $K_e''(x) = \\frac{12\\,500}{x^3} > 0$, altså bunnpunkt.",
+            "answer": 125
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor er den minste enhetskostnaden (i kroner)?",
+            "solution": "$K_e(125) = 0{,}4 \\cdot 125 + 50 + \\frac{6250}{125} = 50 + 50 + 50 = 150$",
+            "answer": 150
+          },
+          {
+            "label": "e",
+            "task": "Regn ut $K'(125)$. Hva legger du merke til?",
+            "solution": "$K'(x) = 0{,}8x + 50$, så $K'(125) = 100 + 50 = 150$. Grensekostnaden er nøyaktig lik enhetskostnaden i det punktet der enhetskostnaden er minst. Det gjelder alltid: så lenge det koster mindre å lage én enhet til enn gjennomsnittet, trekker den ekstra enheten gjennomsnittet ned.",
+            "answer": 150
+          }
+        ],
+        "solution": "a) $K_e(x) = 0{,}4x + 50 + \\frac{6250}{x}$, b) $K_e'(x) = 0{,}4 - \\frac{6250}{x^2}$, c) 125 enheter, d) 150 kr, e) $K'(125) = 150$ — grensekostnad er lik enhetskostnad i minimum.",
+        "hints": [
+          "Deriver $\\frac{6250}{x} = 6250x^{-1}$.",
+          "I e): sammenlign med svaret i d)."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 (Del 2): Når kostnadene vokser eksponentielt",
+      "problem": "En bedrift monterer elbiler. Kostnadene ved å montere $x$ biler i måneden er\n\n$$K(x) = 200x \\cdot 1{,}02^x + 200$$\n\nder $K(x)$ er i tusen kroner. Hver bil selges for 700 000 kr.\n\nHvor mange biler bør bedriften montere i måneden?",
+      "solution": "**Hva vet vi?** Alle beløp er i tusen kroner, så prisen per bil er 700.\n\n$$I(x) = 700x$$\n$$O(x) = 700x - 200x \\cdot 1{,}02^x - 200$$\n\n**Hva må vi finne?** Den $x$-verdien som gir størst $O(x)$.\n\nDenne funksjonen kan vi ikke derivere og løse for hånd på rimelig tid — produktet $x \\cdot 1{,}02^x$ krever produktregelen, og likningen som kommer ut, har ingen eksakt løsning. Derfor bruker vi CAS.\n\nI GeoGebra CAS skriver vi:\n\n```\nO(x):=700x-200x*1.02^x-200\nNLøs(O'(x)=0, x)\n```\n\nCAS gir $x \\approx 36{,}05$.\n\nAndrederiverttest i CAS:\n\n```\nO''(36.05)\n```\n\ngir om lag $-21{,}9$. Negativ andrederivert betyr **toppunkt**.\n\nBedriften monterer hele biler, så vi sjekker nabotallene:\n\n$$O(36) \\approx 10\\,312{,}8 \\qquad O(37) \\approx 10\\,302{,}9$$\n\n![Koordinatsystem med antall biler x fra 0 til 60 og tusen kroner fra minus 2000 til 12000. En blå kurve merket O(x) stiger fra minus 200, når en flat topp ved det markerte punktet x lik 36,05 og synker deretter. En tekst sier at kurven er flat rundt toppen: O(36) og O(37) skiller bare 10.](/images/content/matematikk-okonomi/matok-7-2-eksponentiell.png)\n\n*Den eksponentielle faktoren $1{,}02^x$ gjør at hver ny bil koster litt mer å montere enn den forrige. Når kostnaden for den neste passerer prisen, snur profitten — og kurven er så flat rundt toppen at 36 og 37 biler nesten er like gode.*\n\n**Svar:** Bedriften bør montere 36 biler i måneden. Profitten blir da om lag 10 313 000 kr, altså cirka 10,3 millioner kroner.\n\nNB: Legg merke til hvorfor profitten snur. Prisen per bil er den samme uansett, men faktoren $1{,}02^x$ gjør at hver ny bil koster litt mer å montere enn den forrige. Når kostnaden for den neste bilen passerer 700 000 kr, lønner det seg ikke lenger å montere flere."
+    },
+        {
+      "id": "matok-7-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-2-ex-5",
+        "number": "7.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En verftsbedrift bygger småbåter. Kostnadene ved å bygge $x$ båter i året er\n\n$$K(x) = 120x \\cdot 1{,}03^x + 500$$\n\nder $K(x)$ er i tusen kroner. Hver båt selges for 400 000 kr. Bruk CAS.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $O(x)$.",
+            "solution": "$O(x) = 400x - 120x \\cdot 1{,}03^x - 500$ (i tusen kroner)"
+          },
+          {
+            "label": "b",
+            "task": "Bruk CAS til å finne den $x$-verdien der $O'(x) = 0$. Rund av til to desimaler.",
+            "solution": "`NLøs(O'(x)=0, x)` gir $x \\approx 23{,}11$.",
+            "answer": 23.11
+          },
+          {
+            "label": "c",
+            "task": "Vis med andrederiverttesten at punktet gir størst profitt.",
+            "solution": "$O''(23{,}11) \\approx -18{,}8$. Den andrederiverte er negativ, altså er punktet et toppunkt."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange båter bør bedriften bygge i året, når den bare kan bygge hele båter?",
+            "solution": "$O(23) \\approx 3252{,}9$ og $O(24) \\approx 3245{,}6$ (i tusen kroner). 23 båter gir størst profitt, om lag 3,25 millioner kroner.",
+            "answer": 23
+          },
+          {
+            "label": "e",
+            "task": "Bruk CAS til å finne dekningspunktene, og forklar hva de forteller.",
+            "solution": "`NLøs(O(x)=0, x)` med startverdier på hver side gir $x \\approx 1{,}83$ og $x \\approx 39{,}65$. Bedriften går med overskudd når den bygger mellom 2 og 39 båter i året. Færre enn 2 dekker ikke de faste kostnadene på 500 000 kr, og flere enn 39 blir så dyrt per båt at kostnadene overstiger inntektene."
+          }
+        ],
+        "solution": "a) $O(x) = 400x - 120x \\cdot 1{,}03^x - 500$, b) $x \\approx 23{,}11$, c) $O'' < 0$, d) 23 båter (≈ 3,25 mill. kr), e) dekningspunkter ved ca. 1,83 og 39,65 båter.",
+        "hints": [
+          "Definer $O$ i CAS først, så kan du skrive $O'(x)$ direkte.",
+          "NLøs trenger en startverdi når det er flere løsninger."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Spørsmål | Funksjon | Vi leter etter |\n|---|---|---|\n| Hvor mange enheter gir mest penger? | $O(x)$ | toppunkt: $O'(x) = 0$, $O''(x) < 0$ |\n| Hvilken pris gir mest penger? | $O(p)$ | toppunkt: $O'(p) = 0$, $O''(p) < 0$ |\n| Hvilken pris gir størst omsetning? | $I(p)$ | toppunkt: $I'(p) = 0$, $I''(p) < 0$ |\n| Når produserer vi mest effektivt? | $K_e(x)$ | bunnpunkt: $K_e'(x) = 0$, $K_e''(x) > 0$ |\n\n**Tre ting du skal huske:**\n\n1. **Andrederiverttesten hører med.** $O'(x) = 0$ alene sier bare at det flater ut.\n2. **Sjekk gyldighetsområdet.** Negative antall og negative priser forkaster vi, og der oppgaven handler om hele enheter, sjekker du de to nabotallene.\n3. **Størst inntekt er ikke størst profitt.** Prisen som gir mest omsetning, er lavere enn prisen som gir mest igjen på bunnlinjen."
+    },
+    {
+      "id": "matok-7-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-2-ex-6",
+        "number": "7.2.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bedriften fra oppgave 7.2.4 har $K(x) = 0{,}4x^2 + 50x + 6250$ kroner ved $x$ enheter per dag. Vi fant at enhetskostnaden er minst ved 125 enheter, der den er 150 kr. Bedriften selger nå varen for 250 kr per enhet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at $O(x) = -0{,}4x^2 + 200x - 6250$.",
+            "solution": "$O(x) = 250x - (0{,}4x^2 + 50x + 6250) = -0{,}4x^2 + 200x - 6250$"
+          },
+          {
+            "label": "b",
+            "task": "Hvilken produksjonsmengde gir størst profitt?",
+            "solution": "$O'(x) = -0{,}8x + 200 = 0$ gir $x = 250$. $O''(x) = -0{,}8 < 0$, altså toppunkt.",
+            "answer": 250
+          },
+          {
+            "label": "c",
+            "task": "Hvor stor er den største profitten (i kroner)?",
+            "solution": "$O(250) = -0{,}4 \\cdot 62\\,500 + 50\\,000 - 6250 = -25\\,000 + 50\\,000 - 6250 = 18\\,750$",
+            "answer": 18750
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor er enhetskostnaden ved den produksjonsmengden du fant i b) (i kroner)?",
+            "solution": "$K_e(250) = 0{,}4 \\cdot 250 + 50 + \\frac{6250}{250} = 100 + 50 + 25 = 175$",
+            "answer": 175
+          },
+          {
+            "label": "e",
+            "task": "En leder i bedriften sier: «Vi bør produsere 125 enheter, for da er vi mest effektive.» Drøft påstanden. Regn ut $O(125)$ i svaret ditt.",
+            "solution": "$O(125) = -0{,}4 \\cdot 15\\,625 + 25\\,000 - 6250 = -6250 + 25\\,000 - 6250 = 12\\,500$ kr, altså 6250 kr mindre enn ved 250 enheter. Lederen har rett i at enhetskostnaden er lavest ved 125 enheter (150 kr mot 175 kr), men det er ikke det samme som at bedriften tjener mest. Hver enhet mellom 125 og 250 koster mindre å lage enn de 250 kronene den selges for, så samlet profitt fortsetter å vokse. Målet for en bedrift er som regel størst mulig samlet profitt, ikke lavest mulig kostnad per enhet."
+          }
+        ],
+        "solution": "a) $O(x) = -0{,}4x^2 + 200x - 6250$, b) 250 enheter, c) 18 750 kr, d) 175 kr, e) 125 enheter gir bare 12 500 kr — lavest enhetskostnad er ikke det samme som størst profitt.",
+        "hints": [
+          "I d) bruker du $K_e(x)$ fra oppgave 7.2.4.",
+          "I e): hva tjener bedriften på hver enhet mellom 125 og 250?"
+        ],
+        "competenceGoals": [
+          "bestemme og utforske profitt som funksjon av pris eller kvantum når pris per eining, etterspurnad og produksjonskostnader er gitt ved funksjonar, og tolke resultata"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Profittmaksimering",
+      "definition": "Å finne den produksjonsmengden eller prisen som gir størst mulig profitt. Vi løser $O' = 0$ og bekrefter med andrederiverttesten at $O'' < 0$."
+    },
+    {
+      "term": "Andrederiverttest",
+      "definition": "Metoden for å avgjøre om et punkt der den deriverte er null, er et toppunkt eller et bunnpunkt: $O''<0$ gir toppunkt (maksimum), $O''>0$ gir bunnpunkt (minimum)."
+    },
+    {
+      "term": "Etterspørselsfunksjon",
+      "definition": "$q(p)$ — antall enheter som blir solgt ved prisen $p$. Den er synkende: jo høyere pris, jo færre solgte enheter."
+    },
+    {
+      "term": "Gyldighetsområde",
+      "definition": "De verdiene av den frie variabelen som gir mening i situasjonen, for eksempel $x > 0$ for et antall og $p > 0$ for en pris. Kandidater utenfor gyldighetsområdet forkastes med begrunnelse."
+    },
+    {
+      "term": "Minste enhetskostnad",
+      "definition": "Den produksjonsmengden der $K_e(x) = K(x)/x$ er minst. I dette punktet er grensekostnaden $K'(x)$ nøyaktig lik enhetskostnaden."
+    }
+  ]
+}

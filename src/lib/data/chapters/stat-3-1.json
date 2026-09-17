@@ -1,0 +1,394 @@
+{
+  "id": "stat-3-1",
+  "courseId": "statistikk",
+  "chapterNumber": "3.1",
+  "title": "Populasjon og utvalg",
+  "description": "Forskjellen på populasjon og utvalg, og hvorfor vi trenger utvalg.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-3-1-section-innledning",
+      "type": "text",
+      "content": "## Vi kan ikke spørre alle\n\nSå langt har vi regnet på tall vi hadde. Nå spør vi hvor tallene kommer fra —\nog hvorfor det avgjør hvor mye de er verdt.\n\nNesten all statistikk vi møter, bygger på at noen få er spurt eller målt, og at\nsvaret deres brukes til å si noe om mange flere. En meningsmåling spør omtrent\n$1\\,000$ personer og sier noe om over fire millioner stemmeberettigede.\nReisevaneundersøkelsen spør noen tusen og sier noe om hele landets reisevaner.\n\nDet kan høres dristig ut. Poenget med dette kapittelet er å vise at det er\nforsvarlig — **når utvalget er trukket riktig** — og hvorfor det går galt når\ndet ikke er det."
+    },
+    {
+      "id": "stat-3-1-def-populasjon",
+      "type": "definition",
+      "content": "- **Populasjonen** er alle enhetene vi ønsker å si noe om.\n- En **enhet** er den enkelte tingen vi måler på: en person, en husstand, en\n  skole, en laksefilet, en dag.\n- **Utvalget** er de enhetene vi faktisk undersøker.\n- **Utvalgsstørrelsen** $n$ er antall enheter i utvalget.\n- **Utvalgsrammen** er den listen vi trekker fra — for eksempel folkeregisteret,\n  en medlemsliste eller et telefonregister.\n\n**NB:** Populasjonen er ikke «alle mennesker». Den er nøyaktig den gruppen\nspørsmålet handler om, og den må avgrenses **før** dataene samles inn:\n«elever ved Nordbyen ungdomsskole skoleåret 2026/27», ikke «ungdom».\n\n**Utvalgsrammen er sjelden identisk med populasjonen**, og forskjellen er en\nfeilkilde i seg selv. Trekker vi fra et telefonregister, mangler de som ikke\nstår der; trekker vi fra en medlemsliste, mangler alle som ikke er medlemmer.\nVi kommer tilbake til dette i kapittel 3.3.",
+      "title": "Populasjon, enhet og utvalg"
+    },
+    {
+      "id": "stat-3-1-def-parameter",
+      "type": "definition",
+      "content": "Et tall som beskriver **populasjonen**, kalles en **parameter**. Et tall som\nbeskriver **utvalget**, kalles et **estimat** (eller en observator).\n\n| Størrelse | I populasjonen (parameter) | I utvalget (estimat) |\n|---|---|---|\n| Gjennomsnitt | $\\mu$ (my) | $\\bar{x}$ |\n| Standardavvik | $\\sigma$ (sigma) | $s$ |\n| Andel | $p$ | $\\hat{p}$ (p-hatt) |\n\nParameteren er et **fast tall** som vi som regel aldri får vite. Estimatet er\net tall vi **regner ut**, og det endrer seg fra utvalg til utvalg.\n\nDette er den samme forskjellen som i kapittel 1.3: $\\sigma$ deler på $n$ fordi\nvi da beskriver hele materialet, mens $s$ deler på $n - 1$ fordi utvalget skal\nsi noe om noe større. Nå ser vi hvorfor skillet finnes.\n\n**Skrivemåten $\\hat{p}$** leses «p-hatt» og betyr «vårt anslag på $p$».",
+      "title": "Parameter og estimat"
+    },
+    {
+      "id": "stat-3-1-fig-populasjon-parameter",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-3-1-populasjon-parameter.png",
+      "alt": "Et rektangel fylt med 320 prikker i et rutenett på 10 rader og 32 kolonner. Over rektangelet står Populasjon: N = 2400 husstander — p er ukjent til venstre, og Utvalg: n = 150 til høyre. Én av seksten prikker er blå — 20 av de 320 — og de blå ligger spredt ut over hele rektangelet; andelen er den samme som 150 av 2400. En pil kommer inn fra høyre og peker på én av de blå prikkene, merket enhet: én husstand. Under rektangelet, til høyre, står tre linjer: estimat: p-hatt = 96/150 = 0,64; parameter (populasjon): my, sigma, p; estimat (utvalg): x-strek, s, p-hatt. Symbolene er skrevet som tegn i figuren.",
+      "caption": "Parameteren hører til populasjonen og er et fast tall vi sjelden får vite. Estimatet hører til utvalget, regnes ut, og endrer seg fra utvalg til utvalg. Rutenettet viser ANDELEN — én av seksten prikker er blå, som svarer til 150 av 2400.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-3-1-populasjon-parameter.json"
+    },
+    {
+      "id": "stat-3-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Fra utvalg til anslag",
+      "problem": "En kommune har $2\\,400$ husstander. Kommunen vil vite hvor stor andel som\nsorterer matavfall. De trekker $150$ husstander fra eiendomsregisteret og\nspør dem. $96$ svarer at de sorterer.\n\na) Hva er populasjonen, enheten, utvalgsrammen og utvalget?\n\nb) Finn estimatet $\\hat{p}$.\n\nc) Anslå hvor mange av de $2\\,400$ husstandene som sorterer.\n\nd) Hva er parameteren i denne undersøkelsen, og kjenner vi den?",
+      "solution": "**a)** Vi tar begrepene i tur og orden:\n\n- **Populasjon:** alle $2\\,400$ husstandene i kommunen.\n- **Enhet:** én husstand. (Ikke én person — spørsmålet gjelder husstanden.)\n- **Utvalgsramme:** eiendomsregisteret, altså listen de trakk fra.\n- **Utvalg:** de $150$ husstandene som ble trukket. Her er $n = 150$.\n\n**b)** Estimatet er andelen i utvalget:\n\n$$\\hat{p} = \\frac{\\text{antall som sorterer}}{n} = \\frac{96}{150} = 0{,}64$$\n\n**Svar b):** $\\hat{p} = 0{,}64$, altså $64\\ \\%$ av de spurte.\n\n**c)** Vi antar at andelen i populasjonen er omtrent den samme som i utvalget,\nog ganger opp:\n\n$$0{,}64 \\cdot 2\\,400 = 1\\,536$$\n\n**Svar c):** Omtrent $1\\,500$ husstander.\n\n*(Vi runder av. Å svare «$1\\,536$ husstander» ville gitt inntrykk av en\nnøyaktighet vi ikke har — anslaget bygger på $150$ svar.)*\n\n**d)** **Parameteren** er $p$, den sanne andelen blant alle $2\\,400$\nhusstandene.\n\nDen kjenner vi **ikke**, og vi får den ikke vite uten å spørre alle. Det vi har,\ner ett anslag på den, regnet ut fra ett bestemt utvalg. Hadde kommunen trukket\n$150$ andre husstander, ville de fått et litt annet tall.\n\n**Svar d):** Parameteren er $p$. Den er ukjent, og $\\hat{p} = 0{,}64$ er vårt\nanslag på den."
+    },
+    {
+      "id": "stat-3-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "For hver situasjon: beskriv populasjonen, enheten, utvalgsrammen og utvalget,\nog si hva som er parameteren.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En skole med $450$ elever spør $60$ tilfeldig valgte elever om de sykler til skolen.",
+            "solution": "Populasjon: alle $450$ elevene. Enhet: én elev. Utvalgsramme: skolens elevliste. Utvalg: de $60$ som ble trukket. Parameter: $p$, andelen av alle $450$ som sykler."
+          },
+          {
+            "label": "b",
+            "task": "Et meieri måler fettinnholdet i $20$ tilfeldig valgte pakker fra en produksjon på $50\\,000$ pakker.",
+            "solution": "Populasjon: alle $50\\,000$ pakkene. Enhet: én pakke. Utvalgsramme: produksjonspartiet. Utvalg: de $20$ målte pakkene. Parameter: $\\mu$, gjennomsnittlig fettinnhold i hele produksjonen (og gjerne $\\sigma$ ved siden av)."
+          },
+          {
+            "label": "c",
+            "task": "En avis spør sine lesere på nettsiden hva de mener om en ny bomring. $4\\,300$ svarer.",
+            "solution": "Populasjon: uklar — avisen vil trolig si noe om innbyggerne i byen, men utvalgsrammen er bare de som besøker nettsiden, og utvalget er de som velger å svare. Enhet: én person. Parameter: $p$, andelen i byen som er positive. **Her er utvalget selvrekruttert**, og $4\\,300$ svar gjør det ikke bedre — bare større. Mer om dette i kapittel 3.2."
+          },
+          {
+            "label": "d",
+            "task": "SSB henter lønnsopplysninger for alle lønnstakere i Norge fra A-ordningen.",
+            "solution": "Her er det ingen utvalg: alle enhetene er med. Det kalles en **totaltelling**. Da er tallet vi regner ut, selve parameteren, og ikke et estimat."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er det viktig å avgrense populasjonen før dataene samles inn?",
+            "solution": "Fordi avgrensningen bestemmer hvem som kan være med i utvalget, og dermed hva konklusjonen gjelder for. Avgrenses populasjonen etterpå, kan man — bevisst eller ubevisst — velge den gruppen som passer med svaret man fikk."
+          }
+        ],
+        "solution": "a) elever, b) pakker, c) selvrekruttert utvalg, uklar populasjon, d) totaltelling — ikke estimat, e) avgrensningen bestemmer hva konklusjonen gjelder",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-1-section-utvalgsvariasjon",
+      "type": "text",
+      "content": "## Utvalgsvariasjon\n\nTrekker vi to utvalg fra samme populasjon, med nøyaktig samme metode, får vi to\nlitt ulike svar. Ikke fordi noen har gjort noe galt, men fordi det er ulike\nenheter som havnet i de to utvalgene.\n\nDenne variasjonen kalles **utvalgsvariasjon**, og den er selve grunnen til at\nstatistikk trenger et mål på usikkerhet.\n\nTo ting er verdt å merke seg med en gang:\n\n1. Estimatene samler seg **rundt** parameteren. De bommer, men de bommer ikke\n   systematisk i én retning — så lenge utvalget er trukket tilfeldig.\n2. Spredningen **avtar når $n$ vokser**. Større utvalg gir svar som ligger\n   tettere rundt det sanne tallet."
+    },
+    {
+      "id": "stat-3-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Tjue utvalg fra den samme populasjonen",
+      "problem": "I en tenkt populasjon er den sanne andelen $p = 0{,}40$. Vi trekker $20$ utvalg\npå $n = 100$, og deretter $20$ utvalg på $n = 400$, og regner ut $\\hat{p}$ hver\ngang. Resultatene er tegnet i figuren under.\n\nDe tjue andelene med $n = 100$ ble\n\n$$0{,}45;\\ 0{,}38;\\ 0{,}34;\\ 0{,}43;\\ 0{,}38;\\ 0{,}37;\\ 0{,}53;\\ 0{,}37;\\ 0{,}38;\\ 0{,}37;$$\n$$0{,}38;\\ 0{,}46;\\ 0{,}45;\\ 0{,}41;\\ 0{,}36;\\ 0{,}40;\\ 0{,}40;\\ 0{,}48;\\ 0{,}36;\\ 0{,}37$$\n\na) Hvor mye spriker anslagene med $n = 100$?\n\nb) Med $n = 400$ ble minste andel $0{,}345$ og største $0{,}4375$. Sammenlign.\n\nc) Hva sier dette om et enkelt meningsmålingsresultat?",
+      "solution": "**a)** Vi finner variasjonsbredden (kapittel 1.3):\n\n$$0{,}53 - 0{,}34 = 0{,}19$$\n\n**Svar a):** Anslagene spenner fra $34\\ \\%$ til $53\\ \\%$ — et spenn på\n$19$ prosentpoeng, selv om **alle** kommer fra den samme populasjonen med\n$p = 0{,}40$, og selv om alle er trukket helt riktig.\n\nGjennomsnittet av de tjue anslagene er $0{,}4035$ — altså svært nær den sanne\nverdien $0{,}40$. Metoden bommer ikke systematisk; det er det enkelte utvalget\nsom spriker.\n\n**b)** Med $n = 400$:\n\n$$0{,}4375 - 0{,}345 = 0{,}0925$$\n\n**Svar b):** Variasjonsbredden er omtrent halvert, fra $0{,}19$ til $0{,}09$.\n\n**Her ser vi at** en firedobling av utvalget halverte spredningen. Det er ikke\ntilfeldig, og vi kommer tilbake til hvorfor i eksempel 3.\n\n**c)** At ett enkelt resultat kan ligge et godt stykke fra sannheten, uten at\nnoen har gjort noe galt.\n\nSer du en måling der et parti går fram $2$ prosentpoeng, kan det være en reell\nendring — eller det kan være nøyaktig det som skjedde mellom utvalg nummer $5$\nog utvalg nummer $7$ i figuren, der ingenting hadde endret seg i det hele tatt.\n\n**Svar c):** Ett måleresultat er ett trekk fra en fordeling av mulige\nresultater. Det skal alltid leses sammen med en feilmargin, og helst sammen med\nflere målinger over tid."
+    },
+    {
+      "id": "stat-3-1-fig-utvalgsvariasjon",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-3-1-utvalgsvariasjon.png",
+      "alt": "Punktdiagram over tjue utvalg fra samme populasjon. Den vannrette aksen viser utvalgsnummer fra 0 til 21, den loddrette aksen viser andelen fra 0 til 0,6 med tall for hver tidel. En vannrett stiplet grå linje går gjennom hele figuren ved andelen 0,40, den sanne verdien i populasjonen. Tjue blå punkter viser anslagene fra utvalg på hundre enheter; de ligger spredt mellom 0,34 og 0,53. Tjue røde punkter viser anslagene fra utvalg på fire hundre enheter; de er tegnet litt til høyre for hvert blått punkt, slik at de ikke dekker hverandre, og de ligger tydelig tettere samlet, mellom 0,345 og 0,4375, og klemmer seg rundt den stiplede linja. En tegnforklaring nede til høyre viser at blått er n lik 100 og rødt er n lik 400.",
+      "caption": "Samme populasjon, samme metode, tjue ganger. De blå anslagene ($n = 100$)\nspriker dobbelt så mye som de røde ($n = 400$), og begge grupper samler seg\nrundt den sanne verdien $0{,}40$.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-3-1-utvalgsvariasjon.json"
+    },
+    {
+      "id": "stat-3-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 (digitale verktøy).** I et regneark kan du trekke et tilfeldig utvalg\nmed `=TILFELDIGMELLOM(1;100)`. Lar vi tallene $1$–$55$ bety «ja» og $56$–$100$\nbety «nei», simulerer vi en populasjon med $p = 0{,}55$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag $25$ slike celler, og tell hvor mange som ble «ja». Regn ut $\\hat{p}$.",
+            "solution": "Med `=TILFELDIGMELLOM(1;100)` i $25$ celler og `=ANTALL.HVIS(A1:A25;\"<=55\")/25` får du andelen. En kjøring ga $0{,}560$. Tallet ditt blir et annet — det er hele poenget."
+          },
+          {
+            "label": "b",
+            "task": "Gjenta ti ganger. Hva er den minste og den største andelen du får?",
+            "solution": "Ti kjøringer med $n = 25$ ga $0{,}560$; $0{,}760$; $0{,}720$; $0{,}480$; $0{,}640$; $0{,}760$; $0{,}520$; $0{,}440$; $0{,}640$; $0{,}480$ — altså fra $0{,}44$ til $0{,}76$, en variasjonsbredde på $0{,}32$."
+          },
+          {
+            "label": "c",
+            "task": "Gjør det samme med $n = 100$ og med $n = 400$. Hva skjer med variasjonsbredden?",
+            "solution": "Ti kjøringer med $n = 100$ ga en variasjonsbredde på $0{,}120$ (fra $0{,}500$ til $0{,}620$), og med $n = 400$ ble den $0{,}0325$ (fra $0{,}5275$ til $0{,}5600$). Spredningen synker kraftig når $n$ vokser. Tallene dine blir ikke de samme, men mønsteret blir det. **NB:** en andel fra et utvalg på $400$ er alltid et helt antall firehundredeler, så både andelene og variasjonsbredden må være multipler av $\\frac{1}{400} = 0{,}0025$ — et svar som $0{,}033$ kan ikke stamme fra en virkelig kjøring.\n\n![En tallinje merket andel «ja» i utvalget fra 0,40 til 0,80. En grønn stiplet loddrett strek ved 0,55 er merket sann andel. Tre vannrette bjelker viser hvor mye ti kjøringer spredte seg for hver utvalgsstørrelse: en lang blå fra 0,44 til 0,76 merket n lik 25 med variasjonsbredde 0,32, en kortere rød fra 0,50 til 0,62 merket n lik 100 med variasjonsbredde 0,12, og en svært kort oransje fra 0,5275 til 0,56 merket n lik 400 med variasjonsbredde 0,0325.](/images/content/statistikk/stat-3-1-tre-utvalgsstorrelser.png)\n\n*Samme populasjon, tre utvalgsstørrelser. Alle tre treffer rundt den sanne andelen 0,55, men spennet krymper kraftig når $n$ vokser — og det er hele innholdet i teoremet om $\\sqrt{n}$. Merk at forholdene mellom de tre spennene her er 2,67 og 3,69 der teoremet om $\\sqrt{n}$ gir 2: variasjonsbredden av bare ti kjøringer er et ustabilt mål, men retningen er entydig.*",
+            "answer": [
+              0.12,
+              0.0325
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Regn ut gjennomsnittet av de ti andelene for hver $n$. Hva ligger de nær?",
+            "solution": "De ligger nær $0{,}55$, den sanne andelen. I kjøringen over: $0{,}600$ for $n = 25$, $0{,}543$ for $n = 100$ og $0{,}544$ for $n = 400$. Metoden treffer i gjennomsnitt, også når det enkelte anslaget bommer."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er en slik simulering nyttig, når vi jo vet svaret på forhånd?",
+            "solution": "Nettopp fordi vi vet svaret. I virkeligheten har vi bare ett utvalg og kjenner ikke $p$. Simuleringen lar oss se hvor langt fra sannheten ett enkelt utvalg kan havne — og dermed hvor mye usikkerhet som ligger i en enkelt måling."
+          }
+        ],
+        "solution": "b) omtrent $0{,}44$–$0{,}76$ for $n = 25$, c) variasjonsbredden faller fra $0{,}32$ til $0{,}12$ til $0{,}0325$, d) nær $0{,}55$, e) den viser usikkerheten i én enkelt måling",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-3-1-theorem-rot-n",
+      "type": "theorem",
+      "content": "Spredningen mellom utvalgene avtar ikke med $n$, men med $\\sqrt{n}$.\n\nFor en andel er den teoretiske spredningen\n\n$$\\sqrt{\\frac{p(1-p)}{n}}$$\n\nog for et gjennomsnitt er den $\\dfrac{\\sigma}{\\sqrt{n}}$. Begge begrunnes i\nkapittel 5.7 og brukes i kapittel 7.\n\n**Tommelfingerregel for feilmargin.** Er utvalget tilfeldig trukket, ligger den\nsanne andelen med omtrent $95\\ \\%$ sikkerhet innenfor\n\n$$\\hat{p} \\pm \\frac{1}{\\sqrt{n}}$$\n\nRegelen er litt for forsiktig når andelen er langt fra $50\\ \\%$; den eksakte\nformelen kommer i kapittel 3.3.\n\n**Konsekvensen er ubehagelig, men viktig:** for å halvere feilmarginen må\nutvalget **firedobles**. Det er derfor nesten alle meningsmålinger har mellom\n$600$ og $1\\,200$ svar — under det blir marginen for stor, over det blir prisen\nhøy og gevinsten liten.",
+      "title": "Presisjonen vokser med $\\sqrt{n}$"
+    },
+    {
+      "id": "stat-3-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Hva koster presisjon?",
+      "problem": "Et analysebyrå vurderer fire utvalgsstørrelser.\n\na) Finn den grove feilmarginen $\\frac{1}{\\sqrt{n}}$ for $n = 100$, $400$,\n$1\\,000$ og $2\\,500$.\n\nb) Hvor mye må utvalget økes for å gå fra $5$ til $2{,}5$ prosentpoeng?\n\nc) Byrået spør: «Hvor mange av landets fire millioner velgere må vi ha med?»\nHva er svaret?",
+      "solution": "**a)** Vi setter inn i formelen, ett tall om gangen:\n\n$$n = 100: \\quad \\frac{1}{\\sqrt{100}} = \\frac{1}{10} = 0{,}100 = 10{,}0 \\text{ prosentpoeng}$$\n\n$$n = 400: \\quad \\frac{1}{\\sqrt{400}} = \\frac{1}{20} = 0{,}050 = 5{,}0 \\text{ prosentpoeng}$$\n\n$$n = 1\\,000: \\quad \\frac{1}{\\sqrt{1000}} = 0{,}0316 = 3{,}2 \\text{ prosentpoeng}$$\n\n$$n = 2\\,500: \\quad \\frac{1}{\\sqrt{2500}} = \\frac{1}{50} = 0{,}020 = 2{,}0 \\text{ prosentpoeng}$$\n\n**Svar a):** $10{,}0$; $5{,}0$; $3{,}2$ og $2{,}0$ prosentpoeng.\n\n**b)** Vi vil at $\\frac{1}{\\sqrt{n}}$ skal bli $0{,}025$:\n\n$$\\frac{1}{\\sqrt{n}} = 0{,}025$$\n\n$$\\sqrt{n} = \\frac{1}{0{,}025} = 40 \\qquad \\text{(vi bytter om brøkene)}$$\n\n$$n = 40^2 = 1\\,600$$\n\n**Svar b):** Fra $400$ til $1\\,600$ — utvalget må firedobles for at marginen\nskal halveres.\n\n**c)** Ingen. Populasjonens størrelse står ikke i formelen.\n\nDet som bestemmer presisjonen, er hvor mange vi **spør**, ikke hvor stor\ngruppen vi spør om, er. Et utvalg på $1\\,000$ gir like god presisjon i en\nkommune med $20\\,000$ innbyggere som i et land med fire millioner\nstemmeberettigede.\n\n**Svar c):** Antallet i populasjonen har ingen betydning så lenge utvalget er\nen liten del av den. Det er $n$ som teller.\n\n**NB:** Dette overrasker de fleste. Tenk på en suppegryte: for å smake om\nsuppen er passe salt, rører du om og tar én skje. Skjeen trenger ikke være\nstørre fordi gryta er det — men du **må** røre om, ellers smaker du bare på\ntoppen. Omrøringen er den tilfeldige trekkingen."
+    },
+    {
+      "id": "stat-3-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En skole med $450$ elever spurte $60$ tilfeldig trukne elever om de sykler til\nskolen. $27$ svarte ja.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\hat{p}$.",
+            "solution": "$\\hat{p} = \\frac{27}{60} = 0{,}45$, altså $45\\ \\%$.",
+            "answer": 0.45
+          },
+          {
+            "label": "b",
+            "task": "Anslå hvor mange av de $450$ elevene som sykler.",
+            "solution": "$0{,}45 \\cdot 450 = 202{,}5 \\approx 200$ elever. Vi runder av — anslaget bygger på $60$ svar og fortjener ikke tre gjeldende sifre.",
+            "answer": 202.5
+          },
+          {
+            "label": "c",
+            "task": "Hvor stor andel av populasjonen er faktisk spurt?",
+            "solution": "$\\frac{60}{450} = 0{,}1333\\ldots \\approx 13{,}3\\ \\%$.",
+            "answer": 13.33
+          },
+          {
+            "label": "d",
+            "task": "Finn den grove feilmarginen og oppgi et intervall for $p$.",
+            "solution": "$\\frac{1}{\\sqrt{60}} = 0{,}1291\\ldots \\approx 12{,}9$ prosentpoeng. Intervallet blir $45 \\pm 12{,}9$, altså fra $32{,}1\\ \\%$ til $57{,}9\\ \\%$.",
+            "answer": 12.9
+          },
+          {
+            "label": "e",
+            "task": "Rektor sier: «Nesten halvparten sykler.» Er utsagnet dekkende?",
+            "solution": "Delvis. $45\\ \\%$ er anslaget, men intervallet spenner fra en tredel til nesten seks av ti. Med $n = 60$ vet skolen rett og slett ikke om det er «nesten halvparten» eller «en tredel». En dekkende formulering er: «Om lag $45$ prosent av de $60$ spurte sykler; usikkerheten er stor med så få svar.»"
+          }
+        ],
+        "solution": "a) $0{,}45$, b) omtrent $200$ elever, c) $13{,}3\\ \\%$, d) $\\pm 12{,}9$ prosentpoeng, altså $32{,}1$–$57{,}9\\ \\%$, e) ikke dekkende uten usikkerheten",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Utvalg eller totaltelling?",
+      "problem": "En kommune med $12\\,000$ innbyggere vil undersøke hvor fornøyde folk er med\nrenovasjonen. Hvert svar koster omtrent $180$ kroner å samle inn.\n\na) Hva koster en totaltelling?\n\nb) Hva koster et utvalg på $400$, og hvilken feilmargin gir det?\n\nc) Når er totaltelling likevel det riktige?",
+      "solution": "**a)** $$12\\,000 \\cdot 180 \\text{ kr} = 2\\,160\\,000 \\text{ kr}$$\n\n**Svar a):** Over to millioner kroner — og da har vi antatt at alle svarer, noe\ningen gjør.\n\n**b)** $$400 \\cdot 180 \\text{ kr} = 72\\,000 \\text{ kr}$$\n\nDet er $\\frac{72\\,000}{2\\,160\\,000} = 0{,}033 = 3{,}3\\ \\%$ av kostnaden ved\nen totaltelling. Feilmarginen blir\n\n$$\\frac{1}{\\sqrt{400}} = 0{,}05 = 5 \\text{ prosentpoeng}$$\n\n**Svar b):** $72\\,000$ kroner og en margin på omtrent $5$ prosentpoeng.\n\n**Her ser vi at** $3\\ \\%$ av pengene gir et svar som er godt nok til de fleste\nbeslutninger. Det er derfor utvalg brukes: ikke fordi de er bedre, men fordi de\ner gode nok til en brøkdel av prisen — og fordi pengene som spares, kan brukes\npå å få **høy svarprosent** i det utvalget man har.\n\n**c)** Totaltelling er riktig når\n\n- **hver enkelt enhet skal ha et resultat**: karakterer, skattelikning, valg.\n  Her er ikke poenget å anslå et gjennomsnitt, men å avgjøre noe for hver\n  enkelt.\n- **populasjonen er liten**: en klasse på $28$ elever trenger ikke utvalg.\n- **dataene finnes allerede**: SSB henter lønn fra A-ordningen og folketall fra\n  folkeregisteret. Da koster totaltellingen nesten ingenting.\n- **små undergrupper skal sammenlignes**: skal tallene brytes ned på $30$\n  bydeler, må hver bydel ha nok svar for seg. Da vokser kravet til $n$ fort.\n\n**Svar c):** Når hver enhet skal ha sitt eget resultat, når populasjonen er\nliten, når dataene alt finnes, eller når materialet skal deles i mange små\ngrupper.\n\n**Andre muligheter:** En mellomting er å hente registerdata for alle, og bare\nspørre et utvalg om det registrene ikke vet. Det er slik mye offentlig\nstatistikk lages i dag."
+    },
+    {
+      "id": "stat-3-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En organisasjon med $12\\,000$ medlemmer skal gjennomføre en undersøkelse.\nHvert svar koster $180$ kroner.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva koster det å spørre $1\\,000$ medlemmer?",
+            "solution": "$1\\,000 \\cdot 180 = 180\\,000$ kroner.",
+            "answer": 180000
+          },
+          {
+            "label": "b",
+            "task": "Hvilken grov feilmargin gir $n = 1\\,000$?",
+            "solution": "$\\frac{1}{\\sqrt{1000}} = 0{,}0316 \\approx 3{,}2$ prosentpoeng.",
+            "answer": 3.2
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye ville det kostet å komme ned i $1{,}6$ prosentpoeng?",
+            "solution": "Marginen skal halveres, så utvalget må firedobles: $n = 4\\,000$. Det koster $4\\,000 \\cdot 180 = 720\\,000$ kroner — $540\\,000$ kroner mer for $1{,}6$ prosentpoeng.",
+            "answer": 720000
+          },
+          {
+            "label": "d",
+            "task": "Organisasjonen vil bryte svarene ned på seks regioner. Hvilket nytt krav gir det?",
+            "solution": "Hver region må ha nok svar for seg. Skal hver region ha omtrent $3{,}2$ prosentpoeng margin, trengs $1\\,000$ svar **per region**, altså $6\\,000$ til sammen. Nedbryting er dyrt, og det er den vanligste grunnen til at et utvalg må være større enn $1\\,000$."
+          },
+          {
+            "label": "e",
+            "task": "Er det bedre å bruke $720\\,000$ kroner på $4\\,000$ svar enn $180\\,000$ på $1\\,000$?",
+            "solution": "Ikke uten videre. Med $1\\,000$ svar og resten av pengene brukt på purring, oversettelse og oppfølging av dem som ikke svarer, blir resultatet ofte bedre enn med $4\\,000$ svar og lav svarprosent. Systematisk skjevhet fra frafall forsvinner ikke av at utvalget er stort — den bare blir like stor i et større materiale. Dette er tema i kapittel 3.3."
+          }
+        ],
+        "solution": "a) $180\\,000$ kr, b) $3{,}2$ prosentpoeng, c) $720\\,000$ kr, d) nedbryting krever nok svar per gruppe, e) ikke uten videre — svarprosent slår størrelse",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** En tenkt populasjon består av $2\\,000$\nhusholdninger med strømforbruk som har $\\mu = 16\\,000$ kWh og\n$\\sigma = 4\\,000$ kWh.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Trekk tolv utvalg på $n = 10$ og regn ut gjennomsnittet i hvert. Hvor mye spriker de?",
+            "solution": "I en kjøring ble standardavviket mellom de tolv gjennomsnittene $1\\,814$ kWh. Med så små utvalg spriker anslagene mye."
+          },
+          {
+            "label": "b",
+            "task": "Gjør det samme med $n = 50$ og $n = 200$.",
+            "solution": "Samme kjøring ga $594$ kWh for $n = 50$ og $227$ kWh for $n = 200$. Spredningen faller kraftig når utvalget vokser."
+          },
+          {
+            "label": "c",
+            "task": "Sammenlign med den teoretiske spredningen $\\frac{\\sigma}{\\sqrt{n}}$.",
+            "solution": "$\\frac{4000}{\\sqrt{10}} = 1\\,265$, $\\frac{4000}{\\sqrt{50}} = 566$ og $\\frac{4000}{\\sqrt{200}} = 283$ kWh. De simulerte tallene ligger i samme størrelsesorden. At de ikke treffer nøyaktig, er ventet: tolv utvalg er i seg selv et lite materiale å måle spredning på.",
+            "answer": [
+              1265,
+              566,
+              283
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Hvor stort må utvalget være for at gjennomsnittene skal spre seg med omtrent $200$ kWh?",
+            "solution": "$\\frac{4000}{\\sqrt{n}} = 200$ gir $\\sqrt{n} = \\frac{4000}{200} = 20$ og $n = 400$.",
+            "answer": 400
+          },
+          {
+            "label": "e",
+            "task": "Hva ville skjedd med disse tallene hvis populasjonen hadde vært $200\\,000$ husholdninger i stedet for $2\\,000$?",
+            "solution": "Ingenting av betydning. $\\frac{\\sigma}{\\sqrt{n}}$ inneholder ikke populasjonsstørrelsen. Så lenge utvalget er en liten del av populasjonen, er det $n$ og $\\sigma$ som bestemmer presisjonen."
+          }
+        ],
+        "solution": "a) om lag $1\\,800$ kWh, b) om lag $600$ og $230$ kWh, c) $1\\,265$, $566$ og $283$ kWh, d) $n = 400$, e) ingen betydning",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "hints": [
+          "$\\frac{\\sigma}{\\sqrt{n}}$ er spredningen mellom utvalgsgjennomsnittene."
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-3-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Et nettsted skriver: «I vår undersøkelse svarte\n$18\\,000$ personer. Dette er den største undersøkelsen som er gjort om saken,\nog resultatet er derfor svært pålitelig.»",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er riktig i resonnementet?",
+            "solution": "At et stort $n$ gir liten **utvalgsvariasjon**. Med $18\\,000$ svar er den tilfeldige feilmarginen under ett prosentpoeng ($\\frac{1}{\\sqrt{18000}} = 0{,}0075$)."
+          },
+          {
+            "label": "b",
+            "task": "Hva er galt?",
+            "solution": "At størrelse ikke retter opp **skjevhet**. Svarene kom fra dem som valgte å svare på et nettsted. De skiller seg trolig fra befolkningen i alder, interesse for saken og meninger. Et skjevt utvalg blir ikke riktig av å bli stort — anslaget bommer like mye, bare med mindre tilfeldig variasjon rundt bommen."
+          },
+          {
+            "label": "c",
+            "task": "Hva ville du heller hatt: $18\\,000$ selvrekrutterte svar eller $800$ tilfeldig trukne? Begrunn.",
+            "solution": "De $800$ tilfeldig trukne. Der er feilmarginen omtrent $3{,}5$ prosentpoeng, men anslaget sikter mot riktig sted. De $18\\,000$ har nesten ingen tilfeldig feil og en ukjent systematisk feil — og en ukjent feil kan man ikke regne med."
+          },
+          {
+            "label": "d",
+            "task": "Finn en formulering nettstedet kunne brukt som er dekkende.",
+            "solution": "For eksempel: «$18\\,000$ av leserne våre har svart. Undersøkelsen er ikke et tilfeldig utvalg av befolkningen, og tallene kan ikke brukes til å si hva folk flest mener.»"
+          },
+          {
+            "label": "e",
+            "task": "Under hvilke forhold kunne en så stor selvrekruttert undersøkelse likevel være verdifull?",
+            "solution": "Når populasjonen ER nettstedets lesere, og spørsmålet handler om dem. Eller når formålet ikke er å anslå en andel, men å samle inn erfaringer, finne varianter av et fenomen, eller teste om noe i det hele tatt forekommer.\n\n**Andre muligheter:** materialet kan veies mot kjente fordelinger av alder og kjønn, men veiing retter bare opp skjevhet i de egenskapene man veier på — ikke i meningene."
+          }
+        ],
+        "solution": "a) liten tilfeldig feil, b) størrelse retter ikke skjevhet, c) de $800$ tilfeldig trukne, d) dekkende formulering, e) når populasjonen er leserne, eller ved utforskende formål",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "isInvestigation": true
+      }
+    },
+    {
+      "id": "stat-3-1-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Begrep | Betydning |\n|---|---|\n| Populasjon | Alle enhetene vi vil si noe om |\n| Utvalg | De enhetene vi faktisk undersøker, $n$ i tallet |\n| Utvalgsramme | Listen vi trekker fra — sjelden helt lik populasjonen |\n| Parameter | Tall som beskriver populasjonen: $\\mu$, $\\sigma$, $p$ |\n| Estimat | Tall regnet ut fra utvalget: $\\bar{x}$, $s$, $\\hat{p}$ |\n| Utvalgsvariasjon | At estimatet endrer seg fra utvalg til utvalg |\n| Feilmargin (grovt) | $\\dfrac{1}{\\sqrt{n}}$ for en andel |\n| Totaltelling | Alle enhetene er med — da er tallet parameteren selv |\n\n### Husk\n- Parameteren er fast og ukjent. Estimatet regnes ut og varierer.\n- Utvalgsvariasjon er ikke en feil; den er en egenskap ved å trekke et utvalg.\n- Presisjonen vokser med $\\sqrt{n}$: firedoble utvalget for å halvere\n  feilmarginen.\n- **Populasjonens størrelse betyr nesten ingenting** — det er $n$ som teller.\n- Et stort utvalg fjerner tilfeldig variasjon, men aldri systematisk skjevhet."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Populasjon",
+      "definition": "Alle enhetene vi ønsker å si noe om. Må avgrenses før dataene samles inn."
+    },
+    {
+      "term": "Utvalg",
+      "definition": "De enhetene som faktisk undersøkes. Antallet kalles utvalgsstørrelsen n."
+    },
+    {
+      "term": "Utvalgsramme",
+      "definition": "Listen utvalget trekkes fra. Forskjellen mellom ramme og populasjon er en feilkilde."
+    },
+    {
+      "term": "Parameter",
+      "definition": "Et fast, som regel ukjent tall som beskriver populasjonen: μ, σ eller p."
+    },
+    {
+      "term": "Estimat",
+      "definition": "Et tall regnet ut fra utvalget som anslag på en parameter: x̄, s eller p-hatt."
+    },
+    {
+      "term": "Utvalgsvariasjon",
+      "definition": "At estimatet endrer seg fra utvalg til utvalg, selv med samme metode. Avtar med kvadratroten av n."
+    }
+  ]
+}

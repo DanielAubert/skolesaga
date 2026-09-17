@@ -1,0 +1,475 @@
+{
+  "id": "stat-7-1",
+  "courseId": "statistikk",
+  "chapterNumber": "7.1",
+  "title": "Punktestimat",
+  "description": "Estimering av forventningsverdi, andel og standardavvik fra et utvalg.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+  ],
+  "content": [
+    {
+      "id": "stat-7-1-section-intro",
+      "type": "text",
+      "content": "# Punktestimat\n\nI seksjon 5 og 6 fikk vi alltid modellen servert: «forventningsverdien er $\\mu = 500$ ml», «andelen er $p = 0{,}30$». Ut fra den regnet vi sannsynligheter.\n\nI virkeligheten er det motsatt vei. Ingen forteller oss hva $\\mu$ er. SSB vet ikke på forhånd hva nordmenn bruker av strøm; et meningsmålingsbyrå vet ikke hva andelen er som vil stemme på et parti. Det de gjør, er å **spørre noen få og regne ut fra dem**.\n\nDette kapittelet handler om akkurat det skrittet: fra data til tall om virkeligheten.\n\n| | ukjent — det vi vil vite | målt — det vi har |\n|---|---|---|\n| forventningsverdi | $\\mu$ | gjennomsnittet $\\bar{x}$ |\n| andel | $p$ | utvalgsandelen $\\hat{p}$ |\n| standardavvik | $\\sigma$ | utvalgsstandardavviket $s$ |\n\nTallene i venstre kolonne kalles **parametere**. De er faste, men ukjente. Tallene i høyre kolonne regner vi ut av utvalget vårt, og de kalles **punktestimater** — ett enkelt tall som er vår beste gjetning på parameteren.\n\nHatten over $p$ leses «p-hatt», og betyr nettopp *estimat for* $p$. Symbolet sier altså i seg selv om tallet er målt eller ukjent."
+    },
+    {
+      "id": "stat-7-1-fig-populasjon-utvalg",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-1-populasjon-utvalg.png",
+      "alt": "Et skjema med tre avrundede bokser i ring. Øverst står en blå boks merket populasjon, med symbolene my, sigma og p under navnet og teksten ukjente parametre. En grå pil går ned til høyre til en grønn boks merket utvalg, med teksten n enheter, trukket tilfeldig. Fra utvalget peker en grå pil mot venstre til en oransje boks merket observatorer, med symbolene x med strek over, s og p med hatt, og teksten regnet av utvalget. Fra observatorene går en rød pil skrått opp tilbake til populasjonen. Under skjemaet står: vi trekker n enheter fra populasjonen, regner observatorene av utvalget, og den røde pila tilbake er estimeringen — my svarer til x med strek, sigma til s, og p til p med hatt.",
+      "caption": "Grunnbildet for hele seksjon 7. Parametrene $\\mu$, $\\sigma$ og $p$ hører til **populasjonen** og er ukjente. Observatorene $\\bar{x}$, $s$ og $\\hat{p}$ regnes av **utvalget** og er kjente — og den røde pila tilbake er estimeringen: $\\bar{x}$ estimerer $\\mu$, $s$ estimerer $\\sigma$, $\\hat{p}$ estimerer $p$.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-1-populasjon-utvalg.json"
+    },
+    {
+      "id": "stat-7-1-def-punktestimat",
+      "type": "definition",
+      "title": "Punktestimat",
+      "content": "Et **punktestimat** er ett tall, regnet ut av et utvalg, som vi bruker som gjetning på en ukjent parameter i populasjonen.\n\nDe tre vi trenger i dette faget:\n\n$$\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i \\quad \\text{ er estimat for } \\quad \\mu$$\n\n$$\\hat{p} = \\frac{x}{n} \\quad \\text{ er estimat for } \\quad p$$\n\n$$s = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2} \\quad \\text{ er estimat for } \\quad \\sigma$$\n\nI formelen for $\\hat{p}$ er $x$ **antallet** i utvalget som har egenskapen vi teller, og $n$ er hvor mange vi undersøkte.\n\n**NB:** Et punktestimat er *ett* tall, uten noe mål på hvor sikkert det er. Derfor kommer konfidensintervallet i de neste to kapitlene — det er samme estimat, men med usikkerheten skrevet på."
+    },
+    {
+      "id": "stat-7-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Strømforbruk i en kommune",
+      "problem": "En kommune vil vite hvor mye strøm en husholdning bruker i året. De trekker tilfeldig 12 husholdninger og henter forbruket (i kWh):\n\n$$16\\,200 \\quad 14\\,800 \\quad 19\\,500 \\quad 12\\,300 \\quad 17\\,600 \\quad 15\\,100$$\n\n$$21\\,400 \\quad 13\\,900 \\quad 18\\,200 \\quad 16\\,800 \\quad 14\\,200 \\quad 20\\,100$$\n\na) Finn et punktestimat for $\\mu$, det gjennomsnittlige forbruket i kommunen.\nb) Finn et punktestimat for $\\sigma$.\nc) Hva betyr de to tallene — hvilket sier noe om husholdninger, og hvilket om kommunen?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Vi har $n = 12$ målinger. *Hva skal vi finne?* Estimater for $\\mu$ og $\\sigma$.\n\n**a)** Vi skriver formelen tom først, og setter så inn:\n\n$$\\bar{x} = \\frac{1}{n}\\sum x_i = \\frac{200\\,100}{12} = 16\\,675$$\n\nPunktestimatet for $\\mu$ er altså\n\n$$\\mu \\approx \\bar{x} = 16\\,675 \\text{ kWh}$$\n\n**b)** Her er de tolv husholdningene et **utvalg**, ikke hele kommunen. Da deler vi på $n - 1 = 11$ (kapittel 5.7):\n\n$$s = \\sqrt{\\frac{1}{n-1}\\sum (x_i - \\bar{x})^2} = \\sqrt{\\frac{84\\,422\\,500}{11}} \\approx 2770 \\text{ kWh}$$\n\n```\nregneark:   =GJENNOMSNITT(A1:A12)   gir 16675\n            =STDAV.S(A1:A12)        gir 2770,3\n```\n\nPunktestimatet for $\\sigma$ er altså $s \\approx 2770$ kWh.\n\n**c)** De to tallene svarer på to forskjellige spørsmål:\n\n- $\\bar{x} = 16\\,675$ kWh er gjetningen på **midtpunktet** — hva en typisk husholdning bruker.\n- $s \\approx 2770$ kWh er gjetningen på **spredningen** — hvor mye husholdningene skiller seg fra hverandre. Noen bruker godt over 20 000 kWh, andre godt under 13 000.\n\n**Svar:** a) $\\mu \\approx 16\\,675$ kWh. b) $\\sigma \\approx 2770$ kWh. c) $\\bar{x}$ estimerer midtpunktet, $s$ estimerer spredningen mellom husholdninger.\n\n**NB:** Legg merke til at ingen av de tolv husholdningene brukte nøyaktig 16 675 kWh. Estimatet er ikke en måling — det er et regnet tall som skal gjelde for *alle* husholdningene i kommunen."
+    },
+    {
+      "id": "stat-7-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. Åtte tilfeldig valgte pasienter ventet disse antall minutter på et legesenter:\n\n$$21 \\quad 17 \\quad 25 \\quad 19 \\quad 23 \\quad 16 \\quad 28 \\quad 19$$\n\nRund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn punktestimatet for $\\mu$, den gjennomsnittlige ventetiden ved senteret.",
+            "solution": "$\\bar{x} = \\frac{21 + 17 + 25 + 19 + 23 + 16 + 28 + 19}{8} = \\frac{168}{8} = 21$ minutter",
+            "answer": 21
+          },
+          {
+            "label": "b",
+            "task": "Finn summen av de kvadrerte avvikene. Kontroller først at avvikene summerer til 0.",
+            "solution": "Avvik: $0,\\ -4,\\ 4,\\ -2,\\ 2,\\ -5,\\ 7,\\ -2$ — summen er 0. Kvadrater: $0, 16, 16, 4, 4, 25, 49, 4$, til sammen 118.",
+            "answer": 118
+          },
+          {
+            "label": "c",
+            "task": "Finn punktestimatet for $\\sigma$.",
+            "solution": "$s = \\sqrt{\\frac{118}{8-1}} = \\sqrt{\\frac{118}{7}} \\approx \\sqrt{16{,}857} \\approx 4{,}11$ minutter",
+            "answer": 4.11
+          },
+          {
+            "label": "d",
+            "task": "Hvilke regnearkfunksjoner gir de to estimatene?",
+            "solution": "`=GJENNOMSNITT(A1:A8)` gir 21 og `=STDAV.S(A1:A8)` gir 4,11. `STDAV.P` ville vært feil her, for de åtte pasientene er et utvalg.",
+            "answer": 4.11
+          },
+          {
+            "label": "e",
+            "task": "Er ventetiden til en enkelt pasient sikrere anslått enn 21 minutter, eller mindre sikker? Svar med én setning.",
+            "solution": "Mindre sikker. Enkeltpasienter varierer med omtrent 4 minutter rundt gjennomsnittet ($s \\approx 4{,}11$), så 21 minutter er et anslag på snittet, ikke et løfte til den enkelte."
+          }
+        ],
+        "hints": [
+          "Åtte pasienter er et utvalg fra alle pasienter — derfor $n - 1$ i nevneren."
+        ],
+        "solution": "a) 21 minutter, b) 118, c) $\\approx 4{,}11$ minutter, d) `GJENNOMSNITT` og `STDAV.S`, e) mindre sikker",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-1-section-standardfeil",
+      "type": "text",
+      "content": "## Hvor mye bommer estimatet?\n\nEt punktestimat uten usikkerhet er halvferdig informasjon. Sier noen at gjennomsnittsforbruket er 16 675 kWh, er neste spørsmål alltid: *hvor nær er det?*\n\nSvaret har vi allerede, fra kapittel 5.7. Estimatet $\\bar{X}$ er selv en stokastisk variabel, og\n\n$$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$$\n\nDette tallet — hvor mye estimatet svinger fra utvalg til utvalg — kalles **standardfeilen** til estimatet. Ordet «feil» er litt misvisende: ingen har gjort noe galt. Det er prisen for å spørre noen få i stedet for alle.\n\nSiden vi sjelden kjenner $\\sigma$ heller, bruker vi $s$ i stedet. Da er standardfeilen selv et estimat — og det er helt vanlig praksis."
+    },
+    {
+      "id": "stat-7-1-theorem-standardfeil",
+      "type": "theorem",
+      "title": "Standardfeil for gjennomsnitt og for andel",
+      "content": "**Gjennomsnitt.** For et utvalg på $n$ uavhengige målinger:\n\n$$SE(\\bar{x}) = \\frac{\\sigma}{\\sqrt{n}} \\approx \\frac{s}{\\sqrt{n}}$$\n\n**Andel.** For $n$ uavhengige forsøk der hvert har sannsynlighet $p$:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{p(1-p)}{n}} \\approx \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nBegge går mot 0 når $n$ vokser, og begge krymper med $\\sqrt{n}$: for å halvere usikkerheten må utvalget **firedobles**.",
+      "proof": "Formelen for gjennomsnittet er teoremet fra kapittel 5.7. Andelsformelen følger av den binomiske fordelingen.\n\nLa $X$ være antallet i utvalget som har egenskapen. Da er $X$ binomisk fordelt med $n$ forsøk og sannsynlighet $p$, og fra kapittel 5.5 vet vi at\n\n$$\\text{Var}(X) = n \\cdot p(1-p)$$\n\nEstimatoren er $\\hat{p} = \\dfrac{X}{n}$. Vi bruker regelen $\\text{Var}(aX) = a^2 \\cdot \\text{Var}(X)$ med $a = \\dfrac{1}{n}$:\n\n$$\\text{Var}(\\hat{p}) = \\frac{1}{n^2}\\cdot n\\,p(1-p) = \\frac{p(1-p)}{n}$$\n\nStandardavviket er kvadratroten av dette:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{p(1-p)}{n}}$$\n\nAt estimatet sikter riktig, ser vi på samme måte: $E(X) = np$, så $E(\\hat{p}) = \\frac{1}{n}\\cdot np = p$."
+    },
+    {
+      "id": "stat-7-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Andelen med elbil",
+      "problem": "En undersøkelse spør 600 tilfeldig valgte husholdninger om de har elbil. 138 svarer ja.\n\na) Finn punktestimatet for andelen $p$ av husholdninger med elbil.\nb) Finn standardfeilen til estimatet.\nc) Kan vi si at «omtrent én av fire husholdninger har elbil»?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $n = 600$ spurte og $x = 138$ ja-svar. *Hva skal vi finne?* $\\hat{p}$ og standardfeilen.\n\n**a)** Vi setter inn i formelen:\n\n$$\\hat{p} = \\frac{x}{n} = \\frac{138}{600} = 0{,}23$$\n\nAltså 23 %.\n\n**b)** Først en kontroll av at formelen kan brukes: både $n\\hat{p} = 138$ og $n(1-\\hat{p}) = 462$ er godt over 5.\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = \\sqrt{\\frac{0{,}23 \\cdot 0{,}77}{600}} = \\sqrt{\\frac{0{,}1771}{600}} = \\sqrt{0{,}000295} \\approx 0{,}0172$$\n\nAltså omtrent 1,7 prosentpoeng.\n\n**c)** «Én av fire» er 25 %. Estimatet vårt er 23 %, og det svinger typisk med 1,7 prosentpoeng fra utvalg til utvalg. 25 % ligger bare\n\n$$\\frac{25 - 23}{1{,}7} \\approx 1{,}2$$\n\nstandardfeil unna — altså godt innenfor det som er vanlig slingring. Vi kan derfor ikke utelukke at den sanne andelen er 25 %, men vårt beste anslag er 23 %.\n\n**Svar:** a) $\\hat{p} = 0{,}23$, altså 23 %. b) $SE(\\hat{p}) \\approx 0{,}017$, altså 1,7 prosentpoeng. c) Ja, det er en forsvarlig omtrentlig formulering — 25 % ligger godt innenfor usikkerheten.\n\n**NB — prosent og prosentpoeng.** Standardfeilen på 1,7 er **prosentpoeng**, ikke prosent. Den skal legges til og trekkes fra 23 %-tallet, ikke ganges med det."
+    },
+    {
+      "id": "stat-7-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kommune spør 400 tilfeldig valgte innbyggere om de har brukt biblioteket siste år. 96 svarer ja. Rund av til to desimaler der det trengs.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\hat{p}$.",
+            "solution": "$\\hat{p} = \\frac{96}{400} = 0{,}24$, altså 24 %.",
+            "answer": 0.24
+          },
+          {
+            "label": "b",
+            "task": "Kontroller at $n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$.",
+            "solution": "$400 \\cdot 0{,}24 = 96$ og $400 \\cdot 0{,}76 = 304$. Begge er godt over 5.",
+            "answer": 96
+          },
+          {
+            "label": "c",
+            "task": "Finn $SE(\\hat{p})$, både som desimaltall og i prosentpoeng.",
+            "solution": "$SE = \\sqrt{\\frac{0{,}24 \\cdot 0{,}76}{400}} = \\sqrt{0{,}000456} \\approx 0{,}0214$, altså 2,14 prosentpoeng.",
+            "answer": 0.0214
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange må spørres for at standardfeilen skal bli høyst 0,01 (ett prosentpoeng)? Bruk $\\hat{p} = 0{,}24$.",
+            "solution": "$\\sqrt{\\frac{0{,}1824}{n}} \\le 0{,}01 \\Rightarrow \\frac{0{,}1824}{n} \\le 0{,}0001 \\Rightarrow n \\ge 1824$. Minst 1824 personer.",
+            "answer": 1824
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange ganger så mange måtte spørres i d) som i oppgaven? Passer det med $\\sqrt{n}$-regelen?",
+            "solution": "$\\frac{1824}{400} = 4{,}56$ ganger så mange. Standardfeilen skulle ned fra 2,14 til 1,00, altså med faktoren 2,14 — og $2{,}14^2 \\approx 4{,}56$. Det passer: utvalget må ganges med kvadratet av den ønskede forbedringen.",
+            "answer": 4.56
+          }
+        ],
+        "hints": [
+          "I d): kvadrer begge sider av ulikheten for å få $n$ ut av rottegnet."
+        ],
+        "solution": "a) 0,24, b) 96 og 304, c) $\\approx 0{,}0214$ = 2,14 prosentpoeng, d) minst 1824, e) 4,56 ganger — kvadratet av forbedringen",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-1-warning-s-mot-se",
+      "type": "warning",
+      "title": "Ikke bland $s$ og standardfeilen",
+      "content": "Dette er den vanligste forvekslingen i hele seksjonen, og de to tallene svarer på helt ulike spørsmål:\n\n| | hva det måler | i eksempel 1 |\n|---|---|---|\n| $s$ | hvor mye **enkeltmålingene** varierer | 2770 kWh |\n| $SE(\\bar{x}) = \\frac{s}{\\sqrt{n}}$ | hvor mye **estimatet** varierer | 800 kWh |\n\nMåler vi flere husholdninger, blir $s$ **ikke** mindre — husholdninger er akkurat like forskjellige som før. Det er bare estimatet som blir sikrere.\n\n**Kjennetegn:** spør oppgaven om en enkelt husholdning, er det $s$ som gjelder. Spør den om gjennomsnittet eller om kommunen som helhet, er det standardfeilen.\n\nFor andeler gjelder det samme: $SE(\\hat{p})$ sier hvor mye *målingen på 23 %* svinger, ikke hvor forskjellige husholdningene er."
+    },
+    {
+      "id": "stat-7-1-fig-s-mot-standardfeil",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-1-s-mot-standardfeil.png",
+      "alt": "To klokkeformede kurver i samme koordinatsystem. Den vannrette aksen er merket kWh og viser minus 9000, minus 6000, minus 3000, 0, 3000, 6000 og 9000; 0 svarer til gjennomsnittet 16 675 kWh. Den oransje kurven er lav og bred og strekker seg over hele aksen. Den blå kurven er høy og smal og faller ned mot null allerede ved omtrent minus 3000 og 3000. Begge har toppunkt i 0. Den loddrette aksen er merket tetthet ganger 1000 og viser 0,1 til 0,6 — tetthetene er ganget med tusen for at aksen skal bli lesbar. Øverst til venstre står enkelthusholdninger, s er lik 2770 kWh i oransje og gjennomsnittet av 12, SE er lik 800 kWh i blått.",
+      "caption": "$s$ og standardfeilen måler to forskjellige ting. $s = 2770$ kWh sier hvor mye **enkelthusholdninger** spriker; standardfeilen $\\frac{s}{\\sqrt{12}} \\approx 800$ kWh sier hvor mye **gjennomsnittet av tolv** spriker. Samme midtpunkt, tre og en halv gang så smal kurve.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-1-s-mot-standardfeil.json"
+    },
+    {
+      "id": "stat-7-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Fra gjennomsnitt til total",
+      "problem": "Kommunen fra eksempel 1 har 4200 husholdninger. Fra utvalget har vi $\\bar{x} = 16\\,675$ kWh og $s \\approx 2770$ kWh.\n\na) Finn standardfeilen til $\\bar{x}$.\nb) Finn et punktestimat for det **samlede** strømforbruket i kommunen.\nc) Finn standardfeilen til dette estimatet, og oppgi svaret i GWh ($1 \\text{ GWh} = 10^6 \\text{ kWh}$).",
+      "solution": "**Løsning:**\n\n**a)** Vi bruker $s$ i stedet for den ukjente $\\sigma$:\n\n$$SE(\\bar{x}) = \\frac{s}{\\sqrt{n}} \\approx \\frac{2770}{\\sqrt{12}} \\approx \\frac{2770}{3{,}464} \\approx 800 \\text{ kWh}$$\n\n**b)** Totalen er antall husholdninger ganger gjennomsnittet per husholdning:\n\n$$T \\approx N \\cdot \\bar{x} = 4200 \\cdot 16\\,675 = 70\\,035\\,000 \\text{ kWh} \\approx 70{,}0 \\text{ GWh}$$\n\n**c)** Totalen er $\\bar{x}$ ganget med en fast konstant $N = 4200$. Vi bruker $SD(aX) = |a| \\cdot SD(X)$ fra kapittel 5.3:\n\n$$SE(T) = N \\cdot SE(\\bar{x}) \\approx 4200 \\cdot 800 = 3\\,360\\,000 \\text{ kWh} \\approx 3{,}4 \\text{ GWh}$$\n\n*(Regner vi uten avrunding underveis, blir det 3,36 GWh.)*\n\n**Svar:** a) $\\approx 800$ kWh. b) $\\approx 70{,}0$ GWh. c) $\\approx 3{,}4$ GWh.\n\n**Tolkning:** Kommunen kan planlegge med omtrent 70 GWh, men bør vite at anslaget lett kan bomme med noen GWh. Vil de ha et sikrere tall, hjelper det ikke å regne mer nøyaktig på de tolv — de må måle flere husholdninger."
+    },
+    {
+      "id": "stat-7-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En videregående skole har 1850 elever. Skolen spør 40 tilfeldig valgte elever hvor mye de brukte på skolebøker og utstyr sist skoleår, og finner $\\bar{x} = 1240$ kr og $s = 310$ kr.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn punktestimatet for $\\mu$, gjennomsnittsutgiften ved skolen.",
+            "solution": "$\\mu \\approx \\bar{x} = 1240$ kr. Estimatet er tallet vi målte.",
+            "answer": 1240
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen til $\\bar{x}$.",
+            "solution": "$SE(\\bar{x}) = \\frac{310}{\\sqrt{40}} \\approx \\frac{310}{6{,}325} \\approx 49{,}02$ kr",
+            "answer": 49.02
+          },
+          {
+            "label": "c",
+            "task": "Finn et punktestimat for elevenes samlede utgifter ved skolen.",
+            "solution": "$T \\approx 1850 \\cdot 1240 = 2\\,294\\,000$ kr, altså omtrent 2,29 millioner kroner.",
+            "answer": 2294000
+          },
+          {
+            "label": "d",
+            "task": "Finn standardfeilen til totalen.",
+            "solution": "$SE(T) = 1850 \\cdot 49{,}02 \\approx 90\\,700$ kr, altså omtrent 0,09 millioner kroner.",
+            "answer": 90678
+          },
+          {
+            "label": "e",
+            "task": "Skolen vil at standardfeilen til gjennomsnittet skal være under 25 kr. Hvor mange elever må de spørre?",
+            "solution": "$\\frac{310}{\\sqrt{n}} \\le 25 \\Rightarrow \\sqrt{n} \\ge \\frac{310}{25} = 12{,}4 \\Rightarrow n \\ge 153{,}76$, altså minst 154 elever.",
+            "answer": 154
+          }
+        ],
+        "hints": [
+          "Totalen er gjennomsnittet ganget med en fast konstant — og konstanten kommer rett ut av standardavviket."
+        ],
+        "solution": "a) 1240 kr, b) $\\approx 49{,}02$ kr, c) $\\approx 2\\,294\\,000$ kr, d) $\\approx 90\\,700$ kr, e) minst 154 elever",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-1-section-godt-estimat",
+      "type": "text",
+      "content": "## Hva gjør et estimat godt?\n\nVi kunne gjettet på $\\mu$ på mange måter. I stedet for gjennomsnittet kunne vi brukt medianen, eller midt mellom den minste og den største målingen. Hvorfor er det $\\bar{x}$ vi velger?\n\nTo krav avgjør:\n\n1. **Estimatet skal ikke bomme systematisk.** Vi sier at estimatoren er **forventningsrett** når $E(\\bar{X}) = \\mu$ — den treffer i gjennomsnitt, selv om hvert enkelt utvalg bommer litt. Både $\\bar{x}$, $\\hat{p}$ og $s^2$ har denne egenskapen (kapittel 5.7).\n2. **Estimatet skal bomme lite.** Av flere forventningsrette estimatorer velger vi den med minst standardfeil. Gjennomsnittet slår for eksempel «midt mellom minste og største måling», som blir kastet rundt av én enkelt uteligger.\n\n**NB — en liten ærlighet:** $s^2$ er forventningsrett for $\\sigma^2$, men $s$ er strengt tatt ikke helt forventningsrett for $\\sigma$, fordi kvadratroten «bøyer» litt. Skjevheten er liten og blir borte når $n$ vokser, og vi bruker $s$ som estimat for $\\sigma$ uten videre."
+    },
+    {
+      "id": "stat-7-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Estimering i regneark",
+      "problem": "En eiendomsmegler har kvadratmeterprisen (i kroner) for 20 tilfeldig valgte leiligheter solgt i en bydel:\n\n| | | | | |\n|---|---|---|---|---|\n| 48 500 | 52 300 | 45 900 | 61 200 | 55 400 |\n| 49 800 | 58 100 | 43 700 | 51 600 | 56 800 |\n| 47 200 | 62 500 | 50 300 | 53 900 | 46 400 |\n| 59 700 | 44 800 | 54 600 | 57 300 | 50 900 |\n\na) Bruk regneark til å finne $\\bar{x}$, $s$ og standardfeilen.\nb) Estimer andelen leiligheter i bydelen som koster over 55 000 kr per kvadratmeter.\nc) Hvilket av de to estimatene er sikrest, målt i forhold til sin egen størrelse?",
+      "solution": "**Løsning:**\n\n**a)** Vi legger de 20 tallene i A1:A20 og skriver:\n\n```\n=GJENNOMSNITT(A1:A20)      gir 52 545\n=STDAV.S(A1:A20)           gir 5583,3\n=ANTALL(A1:A20)            gir 20\n=STDAV.S(A1:A20)/ROT(20)   gir 1248,5\n```\n\nAltså\n\n$$\\bar{x} = 52\\,545 \\text{ kr} \\qquad s \\approx 5583 \\text{ kr} \\qquad SE(\\bar{x}) \\approx 1249 \\text{ kr}$$\n\n**b)** Vi teller hvor mange som er over 55 000:\n\n```\n=ANTALL.HVIS(A1:A20;\">55000\")   gir 7\n```\n\n$$\\hat{p} = \\frac{7}{20} = 0{,}35$$\n\nKontrollen: $n\\hat{p} = 7$ og $n(1-\\hat{p}) = 13$, begge over 5 — akkurat innenfor. Standardfeilen:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{0{,}35 \\cdot 0{,}65}{20}} = \\sqrt{0{,}011375} \\approx 0{,}107$$\n\nAltså nesten 11 prosentpoeng.\n\n**c)** Vi sammenligner hver standardfeil med sitt eget estimat:\n\n$$\\frac{1249}{52\\,545} \\approx 0{,}024 = 2{,}4 \\,\\% \\qquad \\text{mot} \\qquad \\frac{0{,}107}{0{,}35} \\approx 0{,}306 = 30{,}6 \\,\\%$$\n\nGjennomsnittet er altså mye sikrere anslått enn andelen.\n\n**Svar:** a) $\\bar{x} = 52\\,545$ kr, $s \\approx 5583$ kr, $SE \\approx 1249$ kr. b) $\\hat{p} = 0{,}35$ med $SE \\approx 0{,}107$. c) Gjennomsnittet — standardfeilen er 2,4 % av estimatet mot 30,6 % for andelen.\n\n**Hvorfor er andelen så mye dårligere?** Fordi vi kastet bort informasjon. Da vi delte leilighetene i «over» og «under» 55 000, ble en pris på 62 500 og en på 55 100 like — begge ble bare «over». Tjue tall som forteller mye, ble tjue tall som forteller lite. **Vil du estimere en andel presist, trenger du langt større utvalg enn til et gjennomsnitt.**"
+    },
+    {
+      "id": "stat-7-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør for hvert utsagn om tallet er en PARAMETER (ukjent størrelse i populasjonen) eller et PUNKTESTIMAT (regnet ut av et utvalg), og skriv riktig symbol.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Blant de 800 spurte svarte 216 at de sykler til jobb.»",
+            "solution": "Punktestimat. $\\hat{p} = \\frac{216}{800} = 0{,}27$."
+          },
+          {
+            "label": "b",
+            "task": "«Andelen av alle yrkesaktive i landet som sykler til jobb.»",
+            "solution": "Parameter. Dette er $p$ — den faste, ukjente størrelsen undersøkelsen prøver å treffe."
+          },
+          {
+            "label": "c",
+            "task": "«Maskinen er bygget for å fylle poser med forventningsverdi 500 gram.»",
+            "solution": "Parameter. $\\mu = 500$ gram er en oppgitt egenskap ved prosessen, ikke noe vi har regnet ut av data."
+          },
+          {
+            "label": "d",
+            "task": "«De 30 veide posene hadde en snittvekt på 497,6 gram og $s = 4{,}2$ gram.»",
+            "solution": "Punktestimater, begge to: $\\bar{x} = 497{,}6$ gram estimerer $\\mu$, og $s = 4{,}2$ gram estimerer $\\sigma$."
+          },
+          {
+            "label": "e",
+            "task": "Regn standardfeilen til snittvekten i d), og forklar hvorfor 497,6 ikke i seg selv beviser at maskinen fyller for lite.",
+            "solution": "$SE = \\frac{4{,}2}{\\sqrt{30}} \\approx 0{,}77$ gram. Avviket fra 500 er 2,4 gram, altså omtrent 3 standardfeil — det er ganske mye, men et enkelt utvalg svinger, og spørsmålet om det er bevis nok, er nettopp det hypotesetesten i kapittel 7.5 skal svare på.",
+            "answer": 0.77
+          }
+        ],
+        "hints": [
+          "Spør: er tallet MÅLT i et utvalg, eller er det en egenskap ved hele populasjonen?"
+        ],
+        "solution": "a) estimat, $\\hat{p} = 0{,}27$. b) parameter, $p$. c) parameter, $\\mu$. d) estimater, $\\bar{x}$ og $s$. e) $SE \\approx 0{,}77$ gram.",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift måler fyllmengden i flasker. Standardavviket er kjent fra mange års produksjon: $\\sigma = 12$ ml. De vil estimere forventningsverdien $\\mu$ ved å måle $n$ flasker.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange flasker må måles for at standardfeilen skal bli høyst 3 ml?",
+            "solution": "$\\frac{12}{\\sqrt{n}} \\le 3 \\Rightarrow \\sqrt{n} \\ge 4 \\Rightarrow n \\ge 16$. Minst 16 flasker.",
+            "answer": 16
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange for høyst 2 ml?",
+            "solution": "$\\sqrt{n} \\ge \\frac{12}{2} = 6 \\Rightarrow n \\ge 36$. Minst 36 flasker.",
+            "answer": 36
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange for høyst 1,5 ml?",
+            "solution": "$\\sqrt{n} \\ge \\frac{12}{1{,}5} = 8 \\Rightarrow n \\ge 64$. Minst 64 flasker.",
+            "answer": 64
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange for høyst 1 ml?",
+            "solution": "$\\sqrt{n} \\ge 12 \\Rightarrow n \\ge 144$. Minst 144 flasker.",
+            "answer": 144
+          },
+          {
+            "label": "e",
+            "task": "Sett de fire svarene i en tabell. Hva skjer med antallet hver gang kravet halveres?",
+            "solution": "| krav | 3 ml | 2 ml | 1,5 ml | 1 ml |\n|---|---|---|---|---|\n| $n$ | 16 | 36 | 64 | 144 |\n\nFra 3 ml til 1,5 ml (halvering) går $n$ fra 16 til 64 — firedobling. Fra 2 ml til 1 ml går $n$ fra 36 til 144 — firedobling igjen. Å halvere standardfeilen koster fire ganger så mange målinger.",
+            "answer": 4
+          }
+        ],
+        "hints": [
+          "Løs ulikheten $\\frac{\\sigma}{\\sqrt{n}} \\le k$ for $n$: gang med $\\sqrt{n}$, del på $k$, kvadrer."
+        ],
+        "solution": "a) 16, b) 36, c) 64, d) 144, e) antallet firedobles hver gang kravet halveres",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-1-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En **parameter** ($\\mu$, $\\sigma$, $p$) er en fast, ukjent størrelse i populasjonen. Et **punktestimat** ($\\bar{x}$, $s$, $\\hat{p}$) er ett tall regnet ut av et utvalg, og det er tilfeldig.\n- $\\bar{x}$ estimerer $\\mu$, $s$ estimerer $\\sigma$ (med $n-1$ i nevneren), og $\\hat{p} = \\frac{x}{n}$ estimerer $p$.\n- **Standardfeilen** sier hvor mye estimatet svinger fra utvalg til utvalg:\n\n$$SE(\\bar{x}) \\approx \\frac{s}{\\sqrt{n}} \\qquad SE(\\hat{p}) \\approx \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\n- Ikke bland $s$ (spredning mellom enkeltmålinger) med $SE$ (spredning i estimatet). Flere målinger krymper bare den siste.\n- Å **halvere** standardfeilen krever **fire ganger** så stort utvalg.\n- Et godt estimat er **forventningsrett** (bommer ikke systematisk) og har liten standardfeil.\n- I regneark: `GJENNOMSNITT`, `STDAV.S`, `ANTALL.HVIS` og `ROT` er alt vi trenger.\n\nI kapittel 7.2 tar vi neste skritt: i stedet for å oppgi estimatet og standardfeilen hver for seg, pakker vi dem sammen til ett intervall med et uttalt konfidensnivå."
+    },
+    {
+      "id": "stat-7-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En nettbutikk har registrert leveringstiden (i dager) for 24 tilfeldig valgte bestillinger:\n\n| | | | | | |\n|---|---|---|---|---|---|\n| 3,2 | 4,1 | 2,8 | 5,0 | 3,7 | 4,4 |\n| 3,1 | 2,6 | 4,8 | 3,9 | 3,4 | 4,2 |\n| 2,9 | 5,3 | 3,6 | 4,0 | 3,3 | 4,6 |\n| 2,7 | 3,8 | 4,3 | 3,5 | 5,1 | 3,0 |\n\nLegg tallene i regneark og svar. Rund av til tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\bar{x}$ og $s$, og oppgi hvilke funksjoner du brukte.",
+            "solution": "`=GJENNOMSNITT(A1:A24)` gir $\\bar{x} \\approx 3{,}804$ dager og `=STDAV.S(A1:A24)` gir $s \\approx 0{,}792$ dager.",
+            "answer": 3.804
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen til $\\bar{x}$.",
+            "solution": "`=STDAV.S(A1:A24)/ROT(24)` gir $SE \\approx \\frac{0{,}792}{4{,}899} \\approx 0{,}162$ dager.",
+            "answer": 0.162
+          },
+          {
+            "label": "c",
+            "task": "Butikken lover levering innen 4,5 dager. Estimer andelen bestillinger som bryter løftet, og finn standardfeilen til den andelen.",
+            "solution": "`=ANTALL.HVIS(A1:A24;\">4,5\")` gir 5, så $\\hat{p} = \\frac{5}{24} \\approx 0{,}208$. $SE(\\hat{p}) = \\sqrt{\\frac{0{,}208 \\cdot 0{,}792}{24}} \\approx 0{,}083$. Merk at $n\\hat{p} = 5$ — akkurat på grensen for at formelen skal kunne brukes.",
+            "answer": 0.208
+          },
+          {
+            "label": "d",
+            "task": "Regn også `=STDAV.P(A1:A24)`. Hvor stor er forskjellen fra `STDAV.S` i prosent, og hvilken skulle brukes her?",
+            "solution": "`STDAV.P` gir $\\approx 0{,}775$. Forholdet er $\\frac{0{,}792}{0{,}775} \\approx 1{,}0215$, altså 2,2 % — som er $\\sqrt{\\frac{24}{23}}$. `STDAV.S` er riktig, for de 24 bestillingene er et utvalg fra alle bestillinger.",
+            "answer": 0.775
+          },
+          {
+            "label": "e",
+            "task": "Butikken vil kunne oppgi gjennomsnittlig leveringstid med en standardfeil under 0,05 dager. Hvor mange bestillinger må de undersøke, og hva sier svaret om kostnaden ved presisjon?",
+            "solution": "$\\frac{0{,}792}{\\sqrt{n}} \\le 0{,}05 \\Rightarrow \\sqrt{n} \\ge 15{,}84 \\Rightarrow n \\ge 250{,}9$, altså minst 251 bestillinger. Det er over ti ganger så mange som i dag, for å gjøre standardfeilen omtrent tre ganger mindre — presisjon koster kvadratisk.",
+            "answer": 251
+          }
+        ],
+        "hints": [
+          "Skriv leveringstidene i én kolonne, og bruk `ROT(ANTALL(...))` i nevneren så formelen tåler at du legger til flere tall."
+        ],
+        "solution": "a) $\\bar{x} \\approx 3{,}804$, $s \\approx 0{,}792$, b) $SE \\approx 0{,}162$, c) $\\hat{p} \\approx 0{,}208$ med $SE \\approx 0{,}083$, d) 0,775 — 2,2 % forskjell, `STDAV.S` er riktig, e) minst 251",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-1-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene. Husk at det holder med ett moteksempel for å motbevise en påstand.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Et utvalg på 1000 fra hele Norge gir mer usikre tall enn et utvalg på 1000 fra en kommune, fordi Norge er mye større.» Drøft.",
+            "solution": "Påstanden er feil. I standardfeilen $\\frac{\\sigma}{\\sqrt{n}}$ finnes ikke populasjonsstørrelsen i det hele tatt — bare spredningen $\\sigma$ og utvalgsstørrelsen $n$. Et utvalg på 1000 er like presist i et land på fem millioner som i en kommune på 5000, så lenge utvalget er tilfeldig trukket. (Er $\\sigma$ større i landet enn i kommunen, er det spredningen som gjør tallet usikrere — ikke folketallet.)"
+          },
+          {
+            "label": "b",
+            "task": "En måling med 1000 spurte gir $\\hat{p} = 0{,}30$. Regn standardfeilen, og sammenlign med en måling på 250 spurte som gir samme andel.",
+            "solution": "$SE_{1000} = \\sqrt{\\frac{0{,}3 \\cdot 0{,}7}{1000}} \\approx 0{,}0145 = 1{,}45$ prosentpoeng. $SE_{250} = \\sqrt{\\frac{0{,}21}{250}} \\approx 0{,}0290 = 2{,}90$ prosentpoeng. Firedoblet utvalg halverte standardfeilen — nøyaktig $\\sqrt{4} = 2$ ganger.",
+            "answer": 0.0145
+          },
+          {
+            "label": "c",
+            "task": "For hvilken verdi av $\\hat{p}$ er standardfeilen størst, når $n$ er fast? Regn ut $SE$ for $\\hat{p} = 0{,}1$, $0{,}3$ og $0{,}5$ med $n = 1000$.",
+            "solution": "Produktet $\\hat{p}(1-\\hat{p})$ er størst når $\\hat{p} = 0{,}5$. Med $n = 1000$: $\\hat{p} = 0{,}1$ gir 0,95 prosentpoeng, $\\hat{p} = 0{,}3$ gir 1,45 og $\\hat{p} = 0{,}5$ gir 1,58. Derfor regner byråene ofte med $\\hat{p} = 0{,}5$ når de planlegger utvalgsstørrelsen — da er de på den sikre siden uansett hva svaret blir.",
+            "answer": 0.5
+          },
+          {
+            "label": "d",
+            "task": "«Vi spurte 5000 av våre egne kunder, så utvalget er så stort at tallet må være riktig.» Hva er feilen?",
+            "solution": "Standardfeilen måler bare den tilfeldige slingringen ved å trekke et utvalg. Den sier ingenting om **skjevhet** i hvem som ble spurt. Egne kunder er ikke et tilfeldig utvalg av befolkningen, og et skjevt utvalg blir ikke riktigere av å bli større — bommen blir bare mer presist målt. Store utvalg fjerner tilfeldig feil, ikke systematisk feil."
+          },
+          {
+            "label": "e",
+            "task": "To elever estimerer $\\mu$ fra de samme ti målingene. Den ene bruker gjennomsnittet, den andre midt mellom minste og største måling. Begge er forventningsrette for en symmetrisk fordeling. Hvilken vil du velge, og hvorfor?",
+            "solution": "Gjennomsnittet. Begge sikter riktig, men midtpunktet mellom ytterpunktene bygger på bare to av de ti tallene og blir kastet rundt av én uteligger. Gjennomsnittet bruker all informasjonen og har derfor mindre standardfeil. Kravet «forventningsrett» er ikke nok alene — vi vil også ha minst mulig spredning."
+          }
+        ],
+        "hints": [
+          "I a): let etter populasjonsstørrelsen i formelen for standardfeilen. Finner du den ikke, kan den heller ikke bety noe."
+        ],
+        "solution": "a) Feil — $N$ står ikke i formelen. b) 1,45 mot 2,90 prosentpoeng. c) $\\hat{p} = 0{,}5$ gir størst SE (1,58 pp). d) Skjevt utvalg blir ikke bedre av å være stort. e) Gjennomsnittet — samme forventning, mindre spredning.",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Parameter",
+      "definition": "En fast, men ukjent størrelse ved populasjonen — for eksempel $\\mu$, $\\sigma$ eller $p$. Den endrer seg ikke når vi trekker et nytt utvalg."
+    },
+    {
+      "term": "Punktestimat",
+      "definition": "Ett tall, regnet ut av et utvalg, brukt som gjetning på en parameter. $\\bar{x}$ for $\\mu$, $s$ for $\\sigma$ og $\\hat{p} = \\frac{x}{n}$ for $p$."
+    },
+    {
+      "term": "Standardfeil",
+      "definition": "Standardavviket til estimatet: hvor mye det svinger fra utvalg til utvalg. $SE(\\bar{x}) \\approx \\frac{s}{\\sqrt{n}}$ og $SE(\\hat{p}) \\approx \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$."
+    },
+    {
+      "term": "Forventningsrett estimator",
+      "definition": "En estimator som treffer parameteren i gjennomsnitt, altså $E(\\bar{X}) = \\mu$. Den bommer i hvert enkelt utvalg, men ikke systematisk i noen retning."
+    },
+    {
+      "term": "Prosentpoeng",
+      "definition": "Enheten for differanser mellom prosenttall. En andel på 23 % med standardfeil 1,7 prosentpoeng slingrer mellom omtrent 21,3 % og 24,7 % — ikke 1,7 % av 23."
+    }
+  ]
+}

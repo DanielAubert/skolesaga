@@ -1,0 +1,400 @@
+{
+  "id": "stat-2-2",
+  "courseId": "statistikk",
+  "chapterNumber": "2.2",
+  "title": "Korrelasjonskoeffisienten",
+  "description": "Pearsons r: utregning, tolkning og fallgruver.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+  ],
+  "content": [
+    {
+      "id": "stat-2-2-section-innledning",
+      "type": "text",
+      "content": "## Fra skjønn til tall\n\nI kapittel 2.1 leste vi spredningsplott med øynene og sa «sterk», «moderat» og\n«svak». Nå skal vi regne ut tallet som sier det samme — **Pearsons\nkorrelasjonskoeffisient** $r$ — og se hvor det kommer fra.\n\nTanken bak $r$ er enkel, og den er verdt å forstå før formelen kommer: vi ser\nikke på hvor stor $x$ og $y$ er, men på **hvor langt fra sitt eget gjennomsnitt\nhver av dem ligger**."
+    },
+    {
+      "id": "stat-2-2-section-kvadranter",
+      "type": "text",
+      "content": "## Ideen: avvik ganget med avvik\n\nTegn to hjelpelinjer i spredningsplottet: en loddrett linje ved $\\bar{x}$ og en\nvannrett linje ved $\\bar{y}$. De deler figuren i fire felt.\n\nFor hvert punkt regner vi ut de to avvikene $x_i - \\bar{x}$ og $y_i - \\bar{y}$,\nog ganger dem sammen. Fortegnet på produktet forteller hvilket felt punktet\nligger i:\n\n| Punktet ligger | $x_i - \\bar{x}$ | $y_i - \\bar{y}$ | Produktet |\n|---|---|---|---|\n| oppe til høyre | $+$ | $+$ | $+$ |\n| nede til venstre | $-$ | $-$ | $+$ |\n| oppe til venstre | $-$ | $+$ | $-$ |\n| nede til høyre | $+$ | $-$ | $-$ |\n\n**Her ser vi at** punkter som «følger» en stigende sammenheng — begge verdiene\nover snittet, eller begge under — gir **positive** produkter. Punkter som går\nmotsatt vei, gir **negative**.\n\nSummerer vi alle produktene, får vi et tall som er stort og positivt når\npunktene stiger, stort og negativt når de faller, og nær null når feltene\nopphever hverandre.\n\nEtt problem gjenstår: summen vokser både med antall punkter og med\nmåleenhetene. Bytter vi kroner mot tusen kroner, blir summen tusen ganger\nmindre — uten at figuren har endret form. Derfor **deler** vi summen på noe som\nvokser like fort, og da står vi igjen med et rent tall mellom $-1$ og $1$."
+    },
+    {
+      "id": "stat-2-2-fig-kvadranter",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-2-2-kvadranter.png",
+      "alt": "Spredningsplott over antall ansatte og omsetning i åtte butikker. Den\nvannrette aksen viser antall ansatte fra 0 til 18, den loddrette aksen viser\nomsetning i millioner kroner fra 0 til 11. Åtte blå punkter er tegnet: 2 og 3,\n4 og 5, 6 og 4, 8 og 7, 10 og 6, 12 og 9, 14 og 8, 16 og 10. En stiplet\nloddrett linje står ved 9 ansatte, og en stiplet vannrett linje står ved 6,5\nmillioner. De to linjene deler figuren i\nfire felt. Feltet oppe til høyre og feltet nede til venstre er merket med pluss\nog inneholder til sammen seks punkter. Feltet oppe til venstre og feltet nede\ntil høyre er merket med minus og inneholder ett punkt hver: punktet 8 og 7, og\npunktet 10 og 6.",
+      "caption": "De to stiplede linjene står ved $\\bar{x} = 9$ og $\\bar{y} = 6{,}5$. Seks av de\nåtte punktene ligger i pluss-feltene, to i minus-feltene — derfor blir $r$\npositiv og høy, men ikke $1$.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-2-2-kvadranter.json"
+    },
+    {
+      "id": "stat-2-2-theorem-formel",
+      "type": "theorem",
+      "content": "For $n$ tallpar $(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)$ er\n\n$$r = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2 \\cdot \\sum (y_i - \\bar{y})^2}}$$\n\n**Telleren** er summen av produktene fra forrige avsnitt — den bestemmer\nfortegnet.\n\n**Nevneren** er så stor som telleren i det hele tatt kan bli. Derfor er\n\n$$-1 \\le r \\le 1$$\n\nalltid oppfylt, og $r = \\pm 1$ bare når alle punktene ligger nøyaktig på én rett\nlinje.\n\n**Samme formel, skrevet med standardavvik.** Deler vi både over og under\nbrøkstreken på $n - 1$, får vi\n\n$$r = \\frac{s_{xy}}{s_x \\cdot s_y}$$\n\nder $s_x$ og $s_y$ er utvalgsstandardavvikene fra kapittel 1.3, og\n$s_{xy} = \\frac{1}{n-1}\\sum (x_i - \\bar{x})(y_i - \\bar{y})$ kalles\n**kovariansen**.\n\n**NB:** Faktoren $n - 1$ står både over og under brøkstreken og forkorter bort.\nDerfor spiller det ingen rolle for $r$ om vi regner med $\\sigma$ (deler på $n$)\neller med $s$ (deler på $n - 1$) — $r$ blir det samme tallet.",
+      "title": "Korrelasjonskoeffisienten $r$"
+    },
+    {
+      "id": "stat-2-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – $r$ for hånd, med avvikstabell",
+      "problem": "En kjede har åtte butikker. Tabellen viser antall ansatte og omsetningen i fjor.\n\n| Ansatte $x$ | 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 |\n|---|---|---|---|---|---|---|---|---|\n| Omsetning $y$ (mill. kr) | 3 | 5 | 4 | 7 | 6 | 9 | 8 | 10 |\n\nRegn ut korrelasjonskoeffisienten for hånd.",
+      "solution": "**Steg 1 — gjennomsnittene.** Alt i formelen måles fra gjennomsnittene, så de\nmå vi ha først.\n\n$$\\bar{x} = \\frac{2 + 4 + 6 + 8 + 10 + 12 + 14 + 16}{8} = \\frac{72}{8} = 9$$\n\n$$\\bar{y} = \\frac{3 + 5 + 4 + 7 + 6 + 9 + 8 + 10}{8} = \\frac{52}{8} = 6{,}5$$\n\nVi deler på $8$ fordi det er $8$ butikker.\n\n**Steg 2 — avvikstabellen.** Én rad per butikk, og vi fyller kolonne for\nkolonne. Tre nye kolonner: produktet, og de to kvadratene.\n\n| $x_i$ | $y_i$ | $x_i - \\bar{x}$ | $y_i - \\bar{y}$ | $(x_i-\\bar{x})(y_i-\\bar{y})$ | $(x_i-\\bar{x})^2$ | $(y_i-\\bar{y})^2$ |\n|---|---|---|---|---|---|---|\n| 2 | 3 | $-7$ | $-3{,}5$ | $24{,}5$ | $49$ | $12{,}25$ |\n| 4 | 5 | $-5$ | $-1{,}5$ | $7{,}5$ | $25$ | $2{,}25$ |\n| 6 | 4 | $-3$ | $-2{,}5$ | $7{,}5$ | $9$ | $6{,}25$ |\n| 8 | 7 | $-1$ | $0{,}5$ | $-0{,}5$ | $1$ | $0{,}25$ |\n| 10 | 6 | $1$ | $-0{,}5$ | $-0{,}5$ | $1$ | $0{,}25$ |\n| 12 | 9 | $3$ | $2{,}5$ | $7{,}5$ | $9$ | $6{,}25$ |\n| 14 | 8 | $5$ | $1{,}5$ | $7{,}5$ | $25$ | $2{,}25$ |\n| 16 | 10 | $7$ | $3{,}5$ | $24{,}5$ | $49$ | $12{,}25$ |\n| **Sum** | | **0** | **0** | **78** | **168** | **42** |\n\n*(Kontroll som har et poeng: de to avvikskolonnene skal begge summere til $0$.\nGjør de ikke det, er gjennomsnittet eller et avvik regnet feil — og da er det\ningen vits i å gå videre.)*\n\nLegg merke til de to radene med negativt produkt: butikkene med $8$ og $10$\nansatte er de to punktene som ligger i minus-feltene i figuren over.\n\n**Steg 3 — sett inn i formelen.** Først formelen tom:\n\n$$r = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2 \\cdot \\sum (y_i - \\bar{y})^2}}$$\n\nSå med tallene fra sumraden:\n\n$$r = \\frac{78}{\\sqrt{168 \\cdot 42}} = \\frac{78}{\\sqrt{7056}} = \\frac{78}{84}$$\n\n$$r = \\frac{78}{84} = \\frac{13}{14} = 0{,}9285\\ldots \\approx 0{,}929$$\n\n**Svar:** $r \\approx 0{,}929$. Det er en sterk positiv lineær sammenheng mellom\nantall ansatte og omsetning.\n\n**Tolkning:** Butikker med flere ansatte omsetter for mer — men ikke helt\nregelmessig. To av de åtte butikkene bryter mønsteret (den med $8$ ansatte\nomsetter mer enn den med $10$), og det er nettopp derfor $r$ ikke er $1$.\n\n**NB:** Det er uvanlig at $\\sqrt{168 \\cdot 42}$ går opp i et helt tall. Gjør\nden ikke det, regner vi bare videre med desimaler — svaret skal uansett rundes\nav til to eller tre desimaler."
+    },
+    {
+      "id": "stat-2-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 (uten hjelpemidler).** Fem personer har oppgitt hvor mange\ntreningsøkter de har i uka, og hvilepulsen sin.\n\n| Treningsøkter $x$ | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|\n| Hvilepuls $y$ | 72 | 74 | 70 | 68 | 66 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\bar{x}$ og $\\bar{y}$.",
+            "solution": "$\\bar{x} = \\frac{1+2+3+4+5}{5} = \\frac{15}{5} = 3$ og $\\bar{y} = \\frac{72+74+70+68+66}{5} = \\frac{350}{5} = 70$.",
+            "answer": [
+              3,
+              70
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Sett opp avvikstabellen og finn $\\sum (x_i-\\bar{x})(y_i-\\bar{y})$.",
+            "solution": "Avvikene i $x$ er $-2, -1, 0, 1, 2$ og i $y$ er de $2, 4, 0, -2, -4$. Produktene blir $-4, -4, 0, -2, -8$, og summen er $-4-4+0-2-8 = -18$.",
+            "answer": -18
+          },
+          {
+            "label": "c",
+            "task": "Finn $\\sum (x_i-\\bar{x})^2$ og $\\sum (y_i-\\bar{y})^2$.",
+            "solution": "$4+1+0+1+4 = 10$ og $4+16+0+4+16 = 40$.",
+            "answer": [
+              10,
+              40
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Regn ut $r$.",
+            "solution": "$r = \\frac{-18}{\\sqrt{10 \\cdot 40}} = \\frac{-18}{\\sqrt{400}} = \\frac{-18}{20} = -0{,}9$.",
+            "answer": -0.9
+          },
+          {
+            "label": "e",
+            "task": "Tolk svaret. Kan vi si at trening senker hvilepulsen?",
+            "solution": "$r = -0{,}9$ er en sterk negativ lineær sammenheng: de som trener mest, har lavest hvilepuls i dette materialet. Men $n = 5$ er svært lite, og tallene sier ingenting om årsak — det kan like gjerne være at de som har god kondisjon fra før, orker å trene oftere. Se kapittel 2.4."
+          }
+        ],
+        "solution": "a) $\\bar{x} = 3$, $\\bar{y} = 70$, b) $-18$, c) $10$ og $40$, d) $r = -0{,}9$, e) sterk negativ sammenheng, men ingen årsak",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "hints": [
+          "Avvikskolonnene skal summere til $0$ — bruk det som kontroll."
+        ]
+      }
+    },
+    {
+      "id": "stat-2-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Kovarians, standardavvik og måleenhet",
+      "problem": "Vi bruker butikktallene fra eksempel 1, der vi fant\n\n$$\\sum (x_i-\\bar{x})(y_i-\\bar{y}) = 78, \\qquad \\sum (x_i-\\bar{x})^2 = 168,\n\\qquad \\sum (y_i-\\bar{y})^2 = 42$$\n\na) Finn kovariansen $s_{xy}$ og standardavvikene $s_x$ og $s_y$, og vis at\n$r = \\dfrac{s_{xy}}{s_x \\cdot s_y}$ gir det samme svaret som før.\n\nb) Omsetningen føres om fra millioner kroner til kroner. Hva skjer med\n$s_{xy}$, og hva skjer med $r$?",
+      "solution": "**a)** Alle tre størrelsene deles på $n - 1 = 7$, siden de åtte butikkene er et\nutvalg (kapittel 1.3).\n\n**Kovariansen** — formelen tom, så med tall:\n\n$$s_{xy} = \\frac{1}{n-1}\\sum (x_i-\\bar{x})(y_i-\\bar{y}) = \\frac{78}{7}\n= 11{,}142\\ldots$$\n\n**Standardavvikene:**\n\n$$s_x = \\sqrt{\\frac{168}{7}} = \\sqrt{24} = 4{,}898\\ldots$$\n\n$$s_y = \\sqrt{\\frac{42}{7}} = \\sqrt{6} = 2{,}449\\ldots$$\n\nProduktet av de to blir et helt tall, fordi $24 \\cdot 6 = 144$:\n\n$$s_x \\cdot s_y = \\sqrt{24} \\cdot \\sqrt{6} = \\sqrt{144} = 12$$\n\nNå setter vi inn:\n\n$$r = \\frac{s_{xy}}{s_x \\cdot s_y} = \\frac{78/7}{12} = \\frac{78}{84}\n= 0{,}9285\\ldots \\approx 0{,}929$$\n\n**Svar a):** $s_{xy} = \\frac{78}{7} \\approx 11{,}14$, $s_x = \\sqrt{24} \\approx 4{,}90$ og $s_y = \\sqrt{6} \\approx 2{,}45$ — og $r \\approx 0{,}929$,\nnøyaktig som i eksempel 1.\n\n**b)** Én million kroner er $1\\,000\\,000$ kroner, så hver $y$-verdi ganges med\n$10^6$. Da ganges hvert avvik $y_i - \\bar{y}$ med $10^6$ også.\n\n**Kovariansen** inneholder avviket én gang, så den ganges med $10^6$:\n\n$$s_{xy} = 11{,}142\\ldots \\cdot 10^6 \\approx 11\\,142\\,857$$\n\n**Standardavviket $s_y$** inneholder avviket én gang under rottegnet etter\nkvadreringen, så også det ganges med $10^6$:\n\n$$s_y = 2{,}449\\ldots \\cdot 10^6$$\n\n$s_x$ er uendret — vi har ikke rørt antall ansatte.\n\n**Korrelasjonen** har $10^6$ både i telleren og i nevneren:\n\n$$r = \\frac{11{,}142\\ldots \\cdot 10^6}{4{,}898\\ldots \\cdot 2{,}449\\ldots\n\\cdot 10^6} = \\frac{11{,}142\\ldots}{12} \\approx 0{,}929$$\n\n**Svar b):** Kovariansen blir en million ganger større, mens $r$ er nøyaktig\ndet samme.\n\n**Her ser vi at** kovariansen ikke kan brukes til å sammenligne to ulike\nmaterialer — den avhenger av hvilken enhet vi måler i. Det er nettopp derfor vi\ndeler på $s_x \\cdot s_y$: divisjonen gjør tallet enhetsløst, og dermed\nsammenlignbart."
+    },
+    {
+      "id": "stat-2-2-tip-verktoy",
+      "type": "tip",
+      "content": "**Regneark.** Legg $x$ i kolonne A og $y$ i kolonne B, og skriv i en ledig celle:\n\n```\n=KORRELASJON(A2:A9;B2:B9)\n```\n\nFor butikkene i eksempel 1 svarer regnearket $0{,}9285714\\ldots$ — nøyaktig\ndet samme som håndregningen.\n\n**GeoGebra.**\n\n```\nL1 = {2, 4, 6, 8, 10, 12, 14, 16}\nL2 = {3, 5, 4, 7, 6, 9, 8, 10}\nKorrelasjonskoeffisient(L1, L2)\n```\n\n**Kalkulator.** De fleste kalkulatorer med statistikkmodus har $r$ under\nregresjon; slå opp i bruksanvisningen hvilke taster som gjelder for din.\n\nPå eksamen er regnearket hovedverktøyet i Del 2. Regn likevel ett eksempel for\nhånd i ny og ne — det er utregningen som forklarer hva tallet betyr.",
+      "title": "$r$ med verktøy"
+    },
+    {
+      "id": "stat-2-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vurder hver av påstandene. Er de riktige? Begrunn.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«$r = 0{,}62$ betyr at $62\\ \\%$ av punktene ligger på linja.»",
+            "solution": "Galt. $r$ er ikke en prosentandel av punktene. $r = 0{,}62$ betyr en moderat positiv lineær sammenheng — punktskyen stiger, men er bred."
+          },
+          {
+            "label": "b",
+            "task": "«$r = -0{,}95$ er en svakere sammenheng enn $r = 0{,}80$, siden $-0{,}95 < 0{,}80$.»",
+            "solution": "Galt. Styrken måles med tallverdien $\\lvert r \\rvert$, og $\\lvert -0{,}95 \\rvert = 0{,}95 > 0{,}80$. Minustegnet sier bare at sammenhengen er fallende."
+          },
+          {
+            "label": "c",
+            "task": "«$r$ endrer seg hvis vi bytter om hva som står på førsteaksen og andreaksen.»",
+            "solution": "Galt. Formelen er symmetrisk i $x$ og $y$: bytter vi dem om, bytter både telleren og nevneren bare om på faktorene. $r$ er den samme. (Regresjonslinja i kapittel 2.3 er derimot **ikke** den samme.)"
+          },
+          {
+            "label": "d",
+            "task": "«$r = 1{,}2$ betyr en ekstra sterk sammenheng.»",
+            "solution": "Galt — $r$ kan aldri bli større enn $1$. Et slikt svar er en regnefeil eller en tastefeil, og skal føre til at utregningen sjekkes på nytt."
+          },
+          {
+            "label": "e",
+            "task": "«Er $r$ nær $0$, finnes det ingen sammenheng mellom variablene.»",
+            "solution": "Galt. $r$ nær $0$ betyr bare at ingen **rett linje** beskriver punktene. Sammenhengen kan være krum og likevel helt entydig, slik som gjødseleksempelet i kapittel 2.1."
+          }
+        ],
+        "solution": "Alle fem påstandene er gale — se begrunnelsene",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ]
+      }
+    },
+    {
+      "id": "stat-2-2-warning-fallgruver",
+      "type": "warning",
+      "content": "1. **$r$ sier ikke hvor bratt linja er.** To materialer kan begge ha $r = 1$ og\n   likevel ha helt ulike stigningstall. $r$ måler hvor godt punktene følger\n   linja, ikke hvor mye $y$ endrer seg.\n2. **$r$ sier ikke om formen er rett.** En perfekt bue kan gi $r = 0$.\n3. **$r$ tåler ikke uteliggere.** Ett enkelt punkt langt ute kan dra $r$ fra\n   nær null til nær én — eller motsatt.\n4. **$r$ sier ingenting om årsak.** Det er tema i kapittel 2.4.\n\nAlle fire fellene har samme motgift: **se på spredningsplottet.**",
+      "title": "NB: Fire ting $r$ ikke sier"
+    },
+    {
+      "id": "stat-2-2-fig-samme-r",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-2-2-samme-r.png",
+      "alt": "To spredningsplott med nøyaktig samme, tallsatte akser: den vannrette merket x og tallsatt 1 til 6, den loddrette merket y og tallsatt 6, 12, 18, 24, 30 og 36. I panel A ligger fem punkter på en slak blå linje som stiger fra rundt 10,5 til 12,5 når x går fra 1 til 5; teksten i panelet sier r = 1, stigningstall 0,5. I panel B ligger fem punkter på en mye brattere grønn linje som stiger fra 15 til 35 over det samme x-området; teksten sier r = 1, stigningstall 5. Med tall på begge akser kan Δy delt på Δx leses av i begge panelene.",
+      "caption": "Begge har $r = 1$ — punktene ligger nøyaktig på linja i begge — men linja i B er ti ganger så bratt. $r$ måler hvor godt punktene følger linja, ikke hvor mye $y$ endrer seg.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-2-2-samme-r.json"
+    },
+    {
+      "id": "stat-2-2-fig-uteligger",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-2-2-uteligger.png",
+      "alt": "Spredningsplott over besøk og kjøpsbeløp i en nettbutikk. Den vannrette\naksen viser antall besøk på nettsiden fra 0 til 30, den loddrette aksen viser\nkjøpsbeløp i kroner fra 0 til 3500. Ti blå punkter ligger samlet i en klump\nhelt til venstre, mellom 2 og 7 besøk og mellom 350 og 700 kroner, uten noen\nretning oppover eller nedover. Ett enkelt rødt punkt ligger langt oppe til\nhøyre, ved 28 besøk og 3100 kroner, langt fra alle de andre. Det røde punktet\ner merket med etiketten bedriftskunde, som står i fri luft et lite stykke til\nvenstre for punktet.",
+      "caption": "Ti kunder i en klump uten retning, og én bedriftskunde alene oppe til høyre.\nDet ene røde punktet tar $r$ fra $-0{,}186$ til $0{,}964$.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-2-2-uteligger.json"
+    },
+    {
+      "id": "stat-2-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Én uteligger snur konklusjonen",
+      "problem": "En nettbutikk har registrert hvor mange ganger hver kunde besøkte nettsiden i\nløpet av en måned, og hvor mye kunden handlet for.\n\n| Besøk | 2 | 3 | 3 | 4 | 4 | 5 | 5 | 6 | 6 | 7 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Beløp (kr) | 520 | 410 | 640 | 350 | 700 | 480 | 610 | 390 | 560 | 450 |\n\nSå legges en ellevte kunde inn: en bedriftskunde med $28$ besøk og\n$3\\,100$ kroner.\n\na) Hva er $r$ uten bedriftskunden, og hva er $r$ med?\n\nb) Hvilken konklusjon ville en som bare så på $r$, trekke?\n\nc) Hva bør butikken gjøre?",
+      "solution": "**a)** Vi legger tallene i regnearket og bruker `=KORRELASJON(...)` på de to\nutvalgene.\n\nUten bedriftskunden ($n = 10$):\n\n$$r = -0{,}1855\\ldots \\approx -0{,}186$$\n\nMed bedriftskunden ($n = 11$):\n\n$$r = 0{,}9635\\ldots \\approx 0{,}964$$\n\n**Svar a):** $r$ går fra $-0{,}186$ til $0{,}964$ når **ett** punkt legges til.\n\n**b)** En som bare leste tallet $0{,}964$, ville konkludert: «Sterk positiv\nsammenheng — kunder som besøker siden ofte, handler for mye mer. Vi bør få folk\ntil å besøke siden oftere.»\n\nSer vi på figuren, holder ikke konklusjonen. De ti vanlige kundene viser ingen\nsammenheng i det hele tatt; punktskyen er en klump. Hele korrelasjonen kommer\nfra den ene bedriftskunden, som både besøker siden ofte **og** handler mye —\nfordi det er en bedrift, ikke fordi besøkene fører til kjøp.\n\n**Svar b):** At flere besøk gir større kjøp — en konklusjon som bygger på ett\neneste punkt.\n\n**c)** Butikken bør gjøre tre ting, i denne rekkefølgen:\n\n1. **Se på figuren.** Da oppdages uteliggeren med én gang.\n2. **Finne ut hva punktet er.** Er det en tastefeil, skal det rettes. Er det en\n   ekte, men annerledes kunde, hører den ikke hjemme i samme materiale.\n3. **Rapportere begge tallene** hvis kunden beholdes: «$r = 0{,}96$ for alle\n   $11$ kundene, men $r = -0{,}19$ for de $10$ privatkundene.»\n\n**Svar c):** Skille bedriftskunder fra privatkunder og analysere gruppene hver\nfor seg.\n\n**Andre muligheter:** Uteliggeren kan også håndteres ved å bruke en metode som\ner robust mot enkeltpunkter, eller ved å samle inn flere bedriftskunder — én\nenhet kan uansett aldri bære en konklusjon alene."
+    },
+    {
+      "id": "stat-2-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 (digitale verktøy).** Tolv kommuner har oppgitt andelen av de voksne\nsom har fagbrev, og arbeidsledigheten.\n\n| Fagbrev (%) | 18,2 | 19,5 | 20,1 | 21,4 | 22,0 | 22,8 | 23,5 | 24,1 | 25,0 | 26,2 | 27,4 | 28,6 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Ledighet (%) | 3,8 | 3,5 | 3,6 | 3,2 | 3,3 | 2,9 | 3,0 | 2,7 | 2,6 | 2,4 | 2,2 | 2,0 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag et spredningsplott og finn $r$. Rund av til tre desimaler.",
+            "solution": "`=KORRELASJON(A2:A13;B2:B13)` gir $r = -0{,}9889\\ldots \\approx -0{,}989$. Punktene faller jevnt og ligger tett rundt en rett linje.\n\n![Et spredningsplott med tolv blå punkter. Den vannrette aksen er merket fagbrev (%) og tallsatt 0, 4, 8, 12, 16, 20, 24, 28 og 32; den loddrette er merket ledighet (%) og tallsatt 0, 1, 2, 3 og 4. De tolv kommunene ligger nesten på en rett, synkende linje fra 18,2 prosent fagbrev og 3,8 prosent ledighet ned til 28,6 prosent fagbrev og 2,0 prosent ledighet. Under punktskyen står tolv kommuner: r = −0,989.](/images/content/statistikk/stat-2-2-tolv-kommuner.png)\n\n*Spredningsplottet for de tolv kommunene. Punktene faller jevnt fra venstre mot høyre og ligger tett rundt en rett linje — det er nettopp det $r = -0{,}989$ sier.*",
+            "answer": -0.989
+          },
+          {
+            "label": "b",
+            "task": "Beskriv sammenhengen med ord.",
+            "solution": "Sterk negativ lineær sammenheng: kommuner med høy andel fagbrev har lav arbeidsledighet i dette materialet."
+          },
+          {
+            "label": "c",
+            "task": "En trettende kommune legges til: $34{,}5\\ \\%$ fagbrev og $4{,}6\\ \\%$ ledighet. Hva blir $r$ nå?",
+            "solution": "Med den nye kommunen blir $r = -0{,}0686\\ldots \\approx -0{,}069$.\n\n![To spredningsplott merket A og B med nøyaktig samme akser: vannrett andel med fagbrev i prosent, tallsatt 20, 25, 30 og 35, loddrett arbeidsledighet i prosent, tallsatt 2, 3, 4 og 5. I A ligger de tolv kommunene nesten på en rett, synkende linje fra 18 prosent fagbrev og 3,8 prosent ledighet ned til 29 prosent fagbrev og 2,0 prosent ledighet; i panelet står tolv kommuner: r = −0,989. I B er den trettende kommunen lagt til som et rødt punkt oppe til høyre, på 34,5 prosent fagbrev og 4,6 prosent ledighet, langt utenfor de andre på begge akser; i panelet står med den trettende: r = −0,069.](/images/content/statistikk/stat-2-2-trettende-kommune.png)\n\n*De samme tolv kommunene i begge paneler, med nøyaktig samme akser. I B er den trettende lagt til som et rødt punkt oppe til høyre, langt utenfor de andre på begge akser — og $r$ faller fra $-0{,}989$ til $-0{,}069$.*\n\nSammenhengen forsvinner nesten helt.",
+            "answer": -0.069
+          },
+          {
+            "label": "d",
+            "task": "Forklar hvorfor ett punkt kan endre $r$ så mye.",
+            "solution": "Punktet ligger langt utenfor de andre på begge akser, og avvikene $x_i - \\bar{x}$ og $y_i - \\bar{y}$ blir derfor store. Produktet av to store avvik dominerer hele summen i telleren — og dette produktet er positivt, mens alle de andre er negative."
+          },
+          {
+            "label": "e",
+            "task": "Hva ville du gjort med den trettende kommunen?",
+            "solution": "Først sjekket at tallene er riktige. Er de det, må kommunen undersøkes: en kommune kan ha både mange fagbrev og høy ledighet hvis en stor industribedrift nettopp har lagt ned. Da hører den med i materialet, men konklusjonen må endres — sammenhengen er ikke så entydig som de tolv første antydet. Begge tallene bør uansett rapporteres."
+          }
+        ],
+        "solution": "a) $r \\approx -0{,}989$, c) $r \\approx -0{,}069$, d) store avvik i begge variabler dominerer telleren, e) kontroller tallet og rapporter begge verdiene",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Samme $r$, ulik virkelighet",
+      "problem": "a) To modeller gir tallparene\n\n$$A: (1;\\ 10{,}5),\\ (2;\\ 11),\\ (3;\\ 11{,}5),\\ (4;\\ 12),\\ (5;\\ 12{,}5)$$\n$$B: (1;\\ 15),\\ (2;\\ 20),\\ (3;\\ 25),\\ (4;\\ 30),\\ (5;\\ 35)$$\n\nFinn $r$ i begge og forklar hva det viser.\n\nb) Boligmaterialet fra kapittel 2.1 hadde $r = 0{,}971$ for alle ti boligene.\nHva blir $r$ hvis vi bare ser på de fem boligene mellom $64$ og\n$92\\ \\text{m}^2$ — altså $(64;\\ 3{,}2)$, $(70;\\ 3{,}9)$, $(78;\\ 3{,}8)$,\n$(85;\\ 4{,}5)$ og $(92;\\ 4{,}3)$?",
+      "solution": "**a)** I begge tilfellene ligger punktene nøyaktig på en rett linje: i A øker\n$y$ med $0{,}5$ hver gang $x$ øker med $1$, i B øker $y$ med $5$.\n\n$$r_A = 1 \\qquad \\text{og} \\qquad r_B = 1$$\n\n**Svar a):** Begge har $r = 1$, selv om linja i B er ti ganger så bratt.\n\n**Her ser vi at** $r$ måler hvor godt punktene følger linja, ikke hvor mye $y$\nendrer seg. Skal vi si noe om hvor mye $y$ endrer seg per enhet $x$, trenger vi\n**stigningstallet** — og det finner vi i kapittel 2.3.\n\n**b)** Vi regner med regneark:\n\n$$r = 0{,}8689\\ldots \\approx 0{,}869$$\n\n![Spredningsplott over bruksareal og pris for ti boliger. Den vannrette aksen viser bruksareal i kvadratmeter fra 0 til 120, den loddrette pris i millioner kroner fra 0 til 6. Et gult loddrett bånd dekker arealene fra 64 til 92 kvadratmeter. De fem boligene inne i båndet — (64; 3,2), (70; 3,9), (78; 3,8), (85; 4,5) og (92; 4,3) — er tegnet som store blå punkter, mens de fem utenfor — (45; 2,7), (52; 2,8), (58; 3,4), (100; 5,1) og (112; 5,2) — er nedtonet i grått. I figuren står tallene r = 0,971 for alle ti og r = 0,869 for de fem i båndet, og at x-området krymper fra 67 til 28 kvadratmeter.](/images/content/statistikk/stat-2-2-avgrenset-omrade.png)\n\n*Ingen tallverdi er endret — bare hvor bredt x spenner. Når materialet begrenses til de fem midterste boligene, faller r fra 0,971 til 0,869.*\n\n**Svar b):** $r$ faller fra $0{,}971$ til $0{,}869$ når vi bare beholder de fem\nmidterste boligene.\n\n**Hvorfor?** Punktene ligger like langt fra linja som før — vi har ikke endret\nett eneste tall. Men $x$-verdiene spenner nå bare over $28\\ \\text{m}^2$ i\nstedet for $67$. Da blir avvikene $x_i - \\bar{x}$ små, mens den tilfeldige\nvariasjonen i pris er den samme. Støyen utgjør en større del av det vi måler,\nog $r$ synker.\n\n**Slik leser du kritisk:** En lav $r$ kan skyldes at utvalget dekker et for\nsmalt område, ikke at sammenhengen er svak. Spør alltid hvilket område\n$x$-verdiene dekker."
+    },
+    {
+      "id": "stat-2-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 (uten hjelpemidler).** For hvert tilfelle: bestem $r$, eller forklar\nhvorfor $r$ ikke kan bestemmes.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$x = 1, 2, 3, 4, 5$ og $y = 3x - 2$.",
+            "solution": "$y$-verdiene blir $1, 4, 7, 10, 13$. Punktene ligger nøyaktig på en stigende rett linje, så $r = 1$.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "$x = 1, 2, 3, 4, 5$ og $y = -0{,}2x + 9$.",
+            "solution": "$y$-verdiene blir $8{,}8;\\ 8{,}6;\\ 8{,}4;\\ 8{,}2;\\ 8{,}0$. Punktene ligger nøyaktig på en fallende rett linje, så $r = -1$. Merk at linja er nesten flat — $r$ bryr seg ikke om det.",
+            "answer": -1
+          },
+          {
+            "label": "c",
+            "task": "$x = 1, 2, 3, 4, 5$ og $y = 4$ for alle.",
+            "solution": "Alle avvikene $y_i - \\bar{y}$ er null, så $\\sum (y_i-\\bar{y})^2 = 0$ og nevneren i formelen blir null. $r$ er **ikke definert**. Det gir mening: når $y$ ikke varierer, finnes det ingen samvariasjon å måle."
+          },
+          {
+            "label": "d",
+            "task": "To materialer har $r_1 = 0{,}9$ og $r_2 = -0{,}9$. Hvilket har den sterkeste lineære sammenhengen?",
+            "solution": "Ingen av dem — de er like sterke. $\\lvert 0{,}9 \\rvert = \\lvert -0{,}9 \\rvert$. Det ene stiger, det andre faller."
+          },
+          {
+            "label": "e",
+            "task": "Et materiale har $r = 0{,}95$. Hvor mye øker $y$ når $x$ øker med $1$?",
+            "solution": "Det kan ikke avgjøres. $r$ sier at punktene ligger tett rundt en stigende linje, men ikke hvor bratt linja er. Til det trengs stigningstallet fra regresjonen i kapittel 2.3."
+          }
+        ],
+        "solution": "a) $r = 1$, b) $r = -1$, c) ikke definert, d) like sterke, e) kan ikke avgjøres av $r$ alene",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ]
+      }
+    },
+    {
+      "id": "stat-2-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** En by har talt sykkelturer og registrert\nsykkelskader i ni år.\n\n| Sykkelturer (tusen) | 120 | 135 | 148 | 160 | 178 | 195 | 210 | 232 | 255 |\n|---|---|---|---|---|---|---|---|---|---|\n| Registrerte skader | 42 | 44 | 47 | 46 | 51 | 54 | 55 | 60 | 63 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn korrelasjonen mellom antall turer og antall skader.",
+            "solution": "`=KORRELASJON(A2:A10;B2:B10)` gir $r = 0{,}9924\\ldots \\approx 0{,}992$ — svært sterk positiv sammenheng.",
+            "answer": 0.992
+          },
+          {
+            "label": "b",
+            "task": "En avis skriver: «Sykling er blitt farligere — skadene øker år for år.» Er slutningen holdbar?",
+            "solution": "Nei. Antall skader øker, men det gjør antall turer også. Skal vi si noe om hvor farlig det er å sykle, må vi regne skader **per tur**, ikke antall skader. Dette er antall-mot-andel-fella fra kapittel 1.6."
+          },
+          {
+            "label": "c",
+            "task": "Lag en ny kolonne med skader per $100\\,000$ turer, og finn korrelasjonen mellom antall turer og denne raten.",
+            "solution": "Raten regnes som $\\frac{\\text{skader}}{\\text{turer i tusen}} \\cdot 100$ og gir $35{,}0$; $32{,}6$; $31{,}8$; $28{,}8$; $28{,}7$; $27{,}7$; $26{,}2$; $25{,}9$; $24{,}7$. Korrelasjonen mellom antall turer og raten er $r = -0{,}9558\\ldots \\approx -0{,}956$.",
+            "answer": -0.956
+          },
+          {
+            "label": "d",
+            "task": "Hva er nå konklusjonen, og hvorfor er den motsatt av avisens?",
+            "solution": "Skaderaten **faller** jevnt: fra $35$ til under $25$ skader per $100\\,000$ turer. Sykling er altså blitt tryggere per tur, samtidig som det samlede antallet skader har økt fordi det sykles mye mer. Avisen målte antall, konklusjonen krever andel."
+          },
+          {
+            "label": "e",
+            "task": "Hvilke forbehold må stå i en slik analyse?",
+            "solution": "At bare **registrerte** skader er med — endres registreringspraksis, endres tallene uten at noe reelt skjer. At antall turer er et anslag fra tellinger. Og at ni år er få observasjoner, slik at en enkelt hendelse (en ny sykkelvei, en spesielt mild vinter) kan slå tydelig ut."
+          }
+        ],
+        "solution": "a) $r \\approx 0{,}992$, b) nei — antall mot andel, c) $r \\approx -0{,}956$, d) skaderaten faller, e) registreringspraksis, anslag og få år",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "hints": [
+          "Rate $=$ antall skader delt på antall turer."
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** En elev skriver i en rapport: «Vi fant $r = 0{,}87$\nmellom antall timer lest og karakter. Sammenhengen er sterk, så lesing virker.»",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilke opplysninger mangler før $r$-verdien kan vurderes?",
+            "solution": "Antall elever $n$, hvordan de ble valgt ut, hvordan lesetimene ble målt (husket i ettertid, eller loggført?), hvilket område lesetimene dekker, og selve spredningsplottet."
+          },
+          {
+            "label": "b",
+            "task": "Sett opp tre ulike forklaringer på et slikt funn, der bare den ene er «lesing virker».",
+            "solution": "1. Lesing gir bedre karakter (det eleven antar). 2. De som allerede får gode karakterer, liker faget og leser derfor mer — årsaken går motsatt vei. 3. En tredje faktor, for eksempel hvor mye ro eleven har hjemme, øker både lesetid og karakter. Alle tre gir samme $r$."
+          },
+          {
+            "label": "c",
+            "task": "Elevens materiale har $n = 8$. Hvilken betydning har det?",
+            "solution": "Stor. Med få par kan $r$ bli høy ved ren tilfeldighet, og ett enkelt punkt kan bære hele sammenhengen. Åtte par er nok til å formulere en hypotese, ikke til å konkludere."
+          },
+          {
+            "label": "d",
+            "task": "Foreslå hvordan undersøkelsen kunne vært lagt opp for å si noe om årsak.",
+            "solution": "Ved å måle samme elev over tid, eller ved et forsøk der utvalget tilfeldig deles i to grupper som får ulik mengde strukturert lesetid, og der alt annet er likt. Tilfeldig fordeling er det som gjør at de to gruppene blir like i alt annet — det er poenget med et slikt forsøk."
+          },
+          {
+            "label": "e",
+            "task": "Skriv om elevens setning slik at den er dekkende for det som faktisk er målt.",
+            "solution": "For eksempel: «Blant de $8$ elevene i utvalget var det en sterk positiv samvariasjon ($r = 0{,}87$) mellom oppgitt lesetid og karakter. Materialet er for lite til å si noe om årsak, og andre forklaringer er ikke utelukket.»"
+          }
+        ],
+        "solution": "a) $n$, utvalg, måling, område og figur, b) tre likeverdige forklaringer, c) $n = 8$ er for lite, d) forsøk med tilfeldig fordeling, e) omskrevet setning uten årsakspåstand",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "isInvestigation": true
+      }
+    },
+    {
+      "id": "stat-2-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Begrep | Formel eller regel |\n|---|---|\n| Korrelasjonskoeffisienten | $r = \\dfrac{\\sum (x_i-\\bar{x})(y_i-\\bar{y})}{\\sqrt{\\sum (x_i-\\bar{x})^2 \\cdot \\sum (y_i-\\bar{y})^2}}$ |\n| Med standardavvik | $r = \\dfrac{s_{xy}}{s_x \\cdot s_y}$ |\n| Verdiområde | $-1 \\le r \\le 1$ |\n| Retning | Fortegnet til $r$ |\n| Styrke | Tallverdien $\\lvert r \\rvert$ |\n| Regneark | `=KORRELASJON(A2:A9;B2:B9)` |\n| GeoGebra | `Korrelasjonskoeffisient(L1, L2)` |\n\n### Framgangsmåte for hånd\n1. Regn ut $\\bar{x}$ og $\\bar{y}$.\n2. Sett opp avvikstabellen med kolonnene $x_i-\\bar{x}$, $y_i-\\bar{y}$,\n   produktet og de to kvadratene.\n3. Kontroller at begge avvikskolonnene summerer til $0$.\n4. Sett sumradens tre tall inn i formelen.\n\n### Husk\n- $n - 1$ forkortes bort, så $\\sigma$ eller $s$ gir samme $r$.\n- $r$ er symmetrisk: det spiller ingen rolle hvilken variabel som kalles $x$.\n- $r$ er uten benevning og endres ikke av måleenhet.\n- Én uteligger kan snu $r$ helt. Ett smalt $x$-område kan senke $r$ uten at\n  sammenhengen er svakere.\n- Se alltid på spredningsplottet."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Korrelasjonskoeffisienten r",
+      "definition": "r = Σ(xᵢ−x̄)(yᵢ−ȳ) delt på kvadratroten av Σ(xᵢ−x̄)²·Σ(yᵢ−ȳ)². Alltid mellom −1 og 1."
+    },
+    {
+      "term": "Kovarians",
+      "definition": "Gjennomsnittlig produkt av avvikene, sₓᵧ. Telleren i r, men avhengig av måleenhet."
+    },
+    {
+      "term": "Avvikstabell",
+      "definition": "Tabellen med kolonnene xᵢ−x̄, yᵢ−ȳ, produktet og de to kvadratene. Begge avvikskolonnene skal summere til null."
+    },
+    {
+      "term": "Uteligger",
+      "definition": "Punkt som ligger langt fra resten av punktskyen. Store avvik i begge variabler gir stort bidrag til telleren, og ett slikt punkt kan snu r."
+    },
+    {
+      "term": "Avgrenset område",
+      "definition": "Når x-verdiene bare dekker et smalt intervall, blir r lavere uten at sammenhengen er svakere."
+    }
+  ]
+}

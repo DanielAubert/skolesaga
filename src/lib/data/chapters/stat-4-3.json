@@ -1,0 +1,502 @@
+{
+  "id": "stat-4-3",
+  "courseId": "statistikk",
+  "chapterNumber": "4.3",
+  "title": "Sannsynlighetsmodeller",
+  "description": "Uniforme og ikke-uniforme modeller, diskrete og kontinuerlige modeller, og hvordan vi lager en modell.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+  ],
+  "keyTerms": [
+    {
+      "term": "Sannsynlighetsmodell",
+      "definition": "Et utfallsrom sammen med en regel som gir hver hendelse en sannsynlighet. Modellen er vår beskrivelse av forsøket — ikke forsøket selv."
+    },
+    {
+      "term": "Uniform modell",
+      "definition": "En modell der alle utfallene har samme sannsynlighet. Da er $P(A) = \\frac{|A|}{|S|}$."
+    },
+    {
+      "term": "Diskret modell",
+      "definition": "En modell der utfallene kan listes opp ett for ett (terningkast, antall kunder, antall riktige)."
+    },
+    {
+      "term": "Kontinuerlig modell",
+      "definition": "En modell der utfallene fyller et helt intervall (ventetid, høyde, vekt). Sannsynligheten er da et areal under tetthetsfunksjonen."
+    },
+    {
+      "term": "Tetthetsfunksjon",
+      "definition": "Kurven $f$ i en kontinuerlig modell. Arealet under kurven fra $a$ til $b$ er sannsynligheten for et utfall mellom $a$ og $b$, og hele arealet under kurven er 1."
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-3-section-intro",
+      "type": "text",
+      "content": "# Modellen er noe vi lager\n\nI kapittel 4.1 skrev vi «terningen er rettferdig». Det var en antakelse. En ekte terning er aldri helt symmetrisk, og et ekte pengestykke lander litt oftere på den ene siden. Når vi likevel regner med $\\frac{1}{6}$ og $\\frac{1}{2}$, er det fordi vi har valgt en **modell** — en forenklet beskrivelse som er god nok til formålet.\n\nDette er ikke juks. Det er slik all anvendt matematikk virker: vi bytter virkeligheten mot noe vi kan regne på, og så vurderer vi etterpå om byttet var forsvarlig. Derfor hører to spørsmål sammen i statistikk:\n\n1. Hva sier modellen?\n2. Er modellen rimelig her?\n\nKapittelet handler om begge."
+    },
+    {
+      "id": "stat-4-3-def-modell",
+      "type": "definition",
+      "title": "Sannsynlighetsmodell",
+      "content": "En **sannsynlighetsmodell** for et stokastisk forsøk består av\n\n1. et utfallsrom $S$, og\n2. en regel som gir hver hendelse $A$ i $S$ et tall $P(A)$,\n\nslik at disse tre kravene er oppfylt:\n\n- $0 \\le P(A) \\le 1$ for alle hendelser $A$\n- $P(S) = 1$ — noe skjer alltid\n- $P(A \\cup B) = P(A) + P(B)$ når $A$ og $B$ er disjunkte\n\nDet tredje kravet er det som gjør at vi kan legge sammen sannsynligheter for ting som ikke kan skje samtidig."
+    },
+    {
+      "id": "stat-4-3-note-sum-1",
+      "type": "note",
+      "title": "Kontrollen du alltid kan gjøre",
+      "content": "I en diskret modell følger det av kravene at sannsynlighetene til alle utfallene til sammen må bli nøyaktig 1:\n\n$$P(u_1) + P(u_2) + \\ldots + P(u_n) = 1$$\n\nSummerer de til $0{,}98$ eller $1{,}05$, er noe galt — enten i modellen eller i regningen. Gjør denne kontrollen hver gang du setter opp en fordeling."
+    },
+    {
+      "id": "stat-4-3-def-uniform",
+      "type": "definition",
+      "title": "Uniform modell",
+      "content": "En modell er **uniform** dersom alle utfallene i $S$ har samme sannsynlighet. Har $S$ da $n$ utfall, er sannsynligheten for hvert enkelt utfall $\\frac{1}{n}$, og for en hendelse $A$:\n\n$$P(A) = \\frac{|A|}{|S|}$$\n\nDette er «gunstige delt på mulige» fra kapittel 4.1 — men nå vet vi hva forutsetningen heter. **Formelen gjelder bare i en uniform modell.**"
+    },
+    {
+      "id": "stat-4-3-fig-rutenett",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-3-rutenett-toterninger.png",
+      "alt": "Et rutenett med seks rader og seks kolonner. Radene er merket 1 til 6 langs venstre side under overskriften «terning 1», og kolonnene er merket 1 til 6 langs toppen under overskriften «terning 2». I hver celle står summen av radtallet og kolonnetallet, fra 2 øverst til venstre til 12 nederst til høyre. De femten cellene der summen er 8 eller mer, er farget grønne. De danner en trappeform i nedre høyre hjørne av rutenettet.",
+      "caption": "De 36 utfallene ved kast med to terninger. Hver celle er ett utfall, og alle 36 er like sannsynlige. De grønne cellene er de 15 utfallene der summen er minst 8.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-3-rutenett-toterninger.json"
+    },
+    {
+      "id": "stat-4-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "Vi kaster to terninger og ser på summen av øynene.\n\na) Forklar hvorfor vi bruker et utfallsrom med 36 utfall og ikke ett med 11.\nb) Bestem sannsynligheten for at summen blir minst 8.\nc) Bestem sannsynligheten for at summen blir 7.",
+      "solution": "**Løsning:**\n\na) Summen kan bli $2, 3, \\ldots, 12$ — altså 11 forskjellige verdier. Men disse 11 verdiene er **ikke like sannsynlige**: summen 2 kan bare skje på én måte $(1,1)$, mens summen 7 kan skje på seks måter.\n\nDerfor bruker vi i stedet tallparet som utfall:\n\n$$S = \\{(1,1),\\ (1,2),\\ \\ldots,\\ (6,6)\\} \\qquad |S| = 6 \\cdot 6 = 36$$\n\nDisse 36 utfallene *er* like sannsynlige, og da har vi en uniform modell der $P(A) = \\frac{|A|}{|S|}$ gjelder.\n\nb) Vi teller de gunstige utfallene i rutenettet over — cellene der summen er 8 eller mer. Vi teller rad for rad:\n\nrad 2: 1 celle $\\quad$ rad 3: 2 celler $\\quad$ rad 4: 3 celler $\\quad$ rad 5: 4 celler $\\quad$ rad 6: 5 celler\n\n$$1 + 2 + 3 + 4 + 5 = 15$$\n\nGrunnmengden er de 36 utfallene:\n\n$$P(\\text{minst 8}) = \\frac{15}{36} = \\frac{5}{12} \\approx 0{,}417$$\n\nc) Summen 7 får vi av parene $(1,6), (2,5), (3,4), (4,3), (5,2)$ og $(6,1)$ — altså 6 utfall.\n\n$$P(\\text{sum 7}) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167$$\n\n**Svar:** a) Fordi de 11 summene ikke er like sannsynlige, mens de 36 tallparene er det. b) $\\frac{5}{12} \\approx 0{,}417$, altså i overkant av 41 %. c) $\\frac{1}{6} \\approx 0{,}167$."
+    },
+    {
+      "id": "stat-4-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 1. Vi kaster to terninger. Bruk den uniforme modellen med 36 utfall, og oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at summen blir 12.",
+            "solution": "Bare $(6,6)$: $\\frac{1}{36}$",
+            "expressionAnswer": "1/36"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at summen blir 5.",
+            "solution": "$(1,4), (2,3), (3,2), (4,1)$: $\\frac{4}{36} = \\frac{1}{9}$",
+            "expressionAnswer": "1/9"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at begge terningene viser det samme.",
+            "solution": "$(1,1)$ til $(6,6)$: $\\frac{6}{36} = \\frac{1}{6}$",
+            "expressionAnswer": "1/6"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at summen blir høyst 4.",
+            "solution": "$(1,1), (1,2), (2,1), (1,3), (3,1), (2,2)$: $\\frac{6}{36} = \\frac{1}{6}$",
+            "expressionAnswer": "1/6"
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at minst én av terningene viser sekser.",
+            "solution": "Komplementet er «ingen sekser», som har $5 \\cdot 5 = 25$ utfall: $1 - \\frac{25}{36} = \\frac{11}{36}$",
+            "expressionAnswer": "11/36"
+          }
+        ],
+        "hints": [
+          "Grunnmengden er 36 i alle deloppgavene — det er bare antall gunstige celler som endrer seg.",
+          "I e): bruk komplementet. «Ingen sekser» betyr fem valg på hver terning."
+        ],
+        "solution": "a) $\\frac{1}{36}$, b) $\\frac{1}{9}$, c) $\\frac{1}{6}$, d) $\\frac{1}{6}$, e) $\\frac{11}{36}$",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-3-section-ikkeuniform",
+      "type": "text",
+      "content": "## Når utfallene ikke er like sannsynlige\n\nDe fleste virkelige forsøk er ikke uniforme. En værmelding, en fotballkamp, et lykkehjul med ulike sektorer — her må hvert utfall få sin egen sannsynlighet. Modellen settes da opp som en **fordelingstabell**:\n\n| Utfall | $u_1$ | $u_2$ | $\\ldots$ | $u_n$ |\n|---|---|---|---|---|\n| Sannsynlighet | $p_1$ | $p_2$ | $\\ldots$ | $p_n$ |\n\nDet eneste kravet er at hver $p$ ligger mellom 0 og 1, og at de til sammen blir 1. Sannsynligheten for en hendelse er summen av sannsynlighetene til utfallene i hendelsen."
+    },
+    {
+      "id": "stat-4-3-fig-kioskfordeling",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-3-kioskfordeling.png",
+      "alt": "Søylediagram med fire søyler over antall varer 1, 2, 3 og 4. Den loddrette aksen viser sannsynlighet fra 0 til 0,50. Søylehøydene er 0,45, 0,30, 0,18 og 0,07, og hver søyle er merket med verdien sin. I figuren står regnestykket 0,45 pluss 0,30 pluss 0,18 pluss 0,07 er lik 1.",
+      "caption": "En ikke-uniform fordeling. Søylene har ulik høyde, men høydene må alltid summere til 1 — det er kontrollen som gjør en tabell til en sannsynlighetsmodell.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-3-kioskfordeling.json"
+    },
+    {
+      "id": "stat-4-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "Et lykkehjul på et lokalt loppemarked er delt i fire felt med ulik størrelse. Fordelingen er slik:\n\n| Felt | Rød | Blå | Grønn | Gul |\n|---|---|---|---|---|\n| Sannsynlighet | 0,40 | 0,25 | 0,20 | $p$ |\n\na) Bestem $p$.\nb) Bestem sannsynligheten for at hjulet ikke stopper på rødt.\nc) Bestem sannsynligheten for at hjulet stopper på blått eller gult.\nd) Kan vi regne $P(\\text{blå}) = \\frac{1}{4}$ fordi det er fire felt?",
+      "solution": "**Løsning:**\n\na) Hjulet stopper alltid på ett av de fire feltene, så sannsynlighetene må summere til 1. Vi setter opp likningen med formelen tom først:\n\n$$P(\\text{rød}) + P(\\text{blå}) + P(\\text{grønn}) + P(\\text{gul}) = 1$$\n\n$$0{,}40 + 0{,}25 + 0{,}20 + p = 1$$\n\nVi regner ut summen av de tre kjente:\n\n$$0{,}85 + p = 1$$\n\nVi trekker fra $0{,}85$ på begge sider:\n\n$$p = 1 - 0{,}85 = 0{,}15$$\n\nb) Her bruker vi komplementsetningen fra kapittel 4.2:\n\n$$P(\\text{ikke rød}) = 1 - P(\\text{rød}) = 1 - 0{,}40 = 0{,}60$$\n\n(Vi *kunne* lagt sammen $0{,}25 + 0{,}20 + 0{,}15 = 0{,}60$ i stedet. Samme svar, flere skritt.)\n\nc) Blå og gul kan ikke skje samtidig — de er disjunkte. Da kan vi legge sammen:\n\n$$P(\\text{blå} \\cup \\text{gul}) = P(\\text{blå}) + P(\\text{gul}) = 0{,}25 + 0{,}15 = 0{,}40$$\n\nd) Nei. $\\frac{1}{4}$ ville krevd at modellen er uniform, altså at de fire feltene er like store. Her er de ikke det — tabellen sier uttrykkelig at rødt felt er større enn de andre. Formelen «gunstige delt på mulige» gjelder ikke her.\n\n![To lykkehjul side om side. Det venstre er delt i fire ulike sektorer med klokka fra toppen: rød med sannsynlighet 0,40 og sentralvinkel 144 grader, blå med 0,25 og 90 grader, grønn med 0,20 og 72 grader og gul med 0,15 og 54 grader. Hver sektor er merket med farge og sannsynlighet. Det høyre hjulet er delt i fire like sektorer på 90 grader hver, alle merket 0,25. Under hjulene står henholdsvis: hjulet i eksempel 2, ulike felt, og: hvis modellen var uniform, 1/4 på hver.](/images/content/statistikk/stat-4-3-lykkehjul.png)\n\n*Sentralvinkelen er andelen ganger 360 grader. Hjulet i eksempel 2 har fire ulike felt, så $P(\\text{blå}) = 0{,}25$ kommer av feltets størrelse — ikke av at det er fire felt. Hjulet til høyre viser hva en uniform modell ville betydd.*\n\n**Svar:** a) $p = 0{,}15$. b) $0{,}60$. c) $0{,}40$. d) Nei — modellen er ikke uniform."
+    },
+    {
+      "id": "stat-4-3-warning-fire-muligheter",
+      "type": "warning",
+      "title": "«Det er to muligheter, så det er 50 %»",
+      "content": "Dette er trolig den vanligste feilen i sannsynlighetsregning. At noe *kan* gå to veier, sier ingenting om hvor ofte hver vei velges. Sannsynligheten for at det snør i Kristiansand i morgen er ikke $\\frac{1}{2}$ fordi det enten snør eller ikke snør.\n\nSpør alltid: **er det noen grunn til at utfallene skulle være like sannsynlige?** Symmetri i en terning er en slik grunn. «Jeg kommer ikke på flere muligheter» er det ikke."
+    },
+    {
+      "id": "stat-4-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kiosk registrerer hvor mange varer hver kunde kjøper. Modellen er\n\n| Antall varer | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| Sannsynlighet | 0,45 | 0,30 | $q$ | 0,07 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem $q$.",
+            "solution": "$0{,}45 + 0{,}30 + q + 0{,}07 = 1$ gir $q = 1 - 0{,}82 = 0{,}18$",
+            "answer": 0.18
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at en kunde kjøper minst 3 varer.",
+            "solution": "$0{,}18 + 0{,}07 = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at en kunde kjøper høyst 2 varer.",
+            "solution": "$1 - 0{,}25 = 0{,}75$ (eller $0{,}45 + 0{,}30$)",
+            "answer": 0.75
+          },
+          {
+            "label": "d",
+            "task": "Er modellen uniform? Svar ja eller nei.",
+            "solution": "Nei — de fire sannsynlighetene er ulike.",
+            "multipleChoiceOptions": [
+              "nei",
+              "ja"
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Av 400 kunder, hvor mange venter vi kjøper nøyaktig 2 varer?",
+            "solution": "$0{,}30 \\cdot 400 = 120$ kunder",
+            "answer": 120
+          }
+        ],
+        "hints": [
+          "Kontrollen er alltid den samme: summen av alle sannsynlighetene skal bli 1.",
+          "I e): en sannsynlighet ganget med antall forsøk gir det forventede antallet."
+        ],
+        "solution": "a) $0{,}18$, b) $0{,}25$, c) $0{,}75$, d) nei, e) $120$",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-3-section-kontinuerlig",
+      "type": "text",
+      "content": "## Når utfallene ikke kan telles\n\nVentetiden på en buss er ikke $1$ eller $2$ minutter — den kan være $2{,}41$ minutter, eller $2{,}4137$. Utfallene fyller et helt intervall, og da kan de ikke listes opp. Modellen kalles **kontinuerlig**.\n\nHer virker ikke «gunstige delt på mulige», for det finnes uendelig mange utfall. I stedet tegner vi en kurve $f$ over intervallet, og lar **arealet under kurven** være sannsynligheten."
+    },
+    {
+      "id": "stat-4-3-def-tetthet",
+      "type": "definition",
+      "title": "Kontinuerlig modell og tetthetsfunksjon",
+      "content": "I en kontinuerlig modell beskrives sannsynligheten av en **tetthetsfunksjon** $f$ med disse egenskapene:\n\n- $f(x) \\ge 0$ for alle $x$\n- Hele arealet under kurven er $1$\n- $P(a \\le X \\le b)$ er arealet under kurven mellom $a$ og $b$\n\nEr tettheten konstant over et intervall, kalles modellen **uniform kontinuerlig**, og arealet er rett og slett et rektangel: $\\text{bredde} \\cdot \\text{høyde}$."
+    },
+    {
+      "id": "stat-4-3-fig-tetthet",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-3-tetthet-buss.png",
+      "alt": "Et koordinatsystem. Vannrett akse er merket «minutter» med tallene 2, 4, 6, 8, 10 og 12, og loddrett akse er merket «tetthet» og starter på 0, med tallene 0,02, 0,04, 0,06, 0,08, 0,10, 0,12 og 0,14 — høyden 0,10 er altså tallsatt. En blå vannrett linje ligger i høyden 0,10 fra 0 til 10 på den vannrette aksen, merket f over sin høyre ende. Området mellom linja og den vannrette aksen fra 0 til 3 er farget gult og merket A. Det gule området er et rektangel med bredde 3 og høyde 0,10.",
+      "caption": "Tetthetsfunksjonen for ventetiden på en buss som går hvert tiende minutt. Hele arealet under kurven er $10 \\cdot 0{,}10 = 1$. Det gule arealet $A$ er sannsynligheten for å vente mindre enn 3 minutter.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-3-tetthet-buss.json"
+    },
+    {
+      "id": "stat-4-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "En bybuss går hvert tiende minutt. Du kommer til holdeplassen på et tilfeldig tidspunkt, uten å se på rutetabellen. La $X$ være ventetiden i minutter.\n\na) Forklar hvorfor $f(x) = 0{,}10$ for $0 \\le x \\le 10$ er en rimelig tetthetsfunksjon, og vis at hele arealet er 1.\nb) Bestem sannsynligheten for at du venter mindre enn 3 minutter.\nc) Bestem sannsynligheten for at du venter mellom 4 og 9 minutter.\nd) Bestem sannsynligheten for at du venter nøyaktig 5 minutter.",
+      "solution": "**Løsning:**\n\na) Du kommer på et tilfeldig tidspunkt, og bussen er like «nær» uansett hvor i timinuttersperioden du treffer. Ingen del av intervallet er mer sannsynlig enn en annen like lang del — derfor er tettheten konstant.\n\nHøyden må velges slik at hele arealet blir 1. Området er et rektangel med bredde 10:\n\n$$\\text{areal} = \\text{bredde} \\cdot \\text{høyde} = 10 \\cdot 0{,}10 = 1$$\n\nb) Vi spør om $P(X < 3)$, altså arealet fra 0 til 3. Det er rektangelet som er gult i figuren over.\n\n$$P(X < 3) = \\text{bredde} \\cdot \\text{høyde} = 3 \\cdot 0{,}10 = 0{,}30$$\n\nc) Nå er bredden $9 - 4 = 5$:\n\n$$P(4 \\le X \\le 9) = 5 \\cdot 0{,}10 = 0{,}50$$\n\nd) Et enkelt punkt har ingen bredde. Rektangelet blir da uendelig smalt:\n\n$$P(X = 5) = 0 \\cdot 0{,}10 = 0$$\n\nDette virker rart første gang: sannsynligheten er $0$, men det *kan* skje at ventetiden blir nøyaktig 5,000… minutter. I en kontinuerlig modell betyr altså ikke sannsynlighet 0 at noe er umulig — det betyr at akkurat den verdien har null bredde blant uendelig mange muligheter. Det er derfor vi alltid spør om et *intervall* i kontinuerlige modeller.\n\n**Svar:** a) Tettheten er konstant fordi ingen del av perioden er mer sannsynlig; arealet er $10 \\cdot 0{,}10 = 1$. b) $0{,}30$. c) $0{,}50$. d) $0$."
+    },
+    {
+      "id": "stat-4-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 3. En ferge går hvert 20. minutt. Du kommer til fergeleiet på et tilfeldig tidspunkt. La $X$ være ventetiden i minutter, med konstant tetthet på intervallet fra 0 til 20.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilken verdi må tettheten $f(x)$ ha for at hele arealet skal bli 1?",
+            "solution": "$20 \\cdot h = 1$ gir $h = \\frac{1}{20} = 0{,}05$",
+            "answer": 0.05
+          },
+          {
+            "label": "b",
+            "task": "Bestem $P(X < 5)$.",
+            "solution": "$5 \\cdot 0{,}05 = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Bestem $P(X > 15)$.",
+            "solution": "Bredden er $20 - 15 = 5$: $5 \\cdot 0{,}05 = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "d",
+            "task": "Bestem $P(8 \\le X \\le 12)$.",
+            "solution": "Bredden er $12 - 8 = 4$: $4 \\cdot 0{,}05 = 0{,}20$",
+            "answer": 0.2
+          },
+          {
+            "label": "e",
+            "task": "Bestem $P(X = 10)$.",
+            "solution": "Et punkt har null bredde: $0$",
+            "answer": 0
+          }
+        ],
+        "hints": [
+          "Sannsynligheten er arealet av et rektangel: bredde ganger høyde.",
+          "Høyden er den samme i hele intervallet — det er bredden som endrer seg."
+        ],
+        "solution": "a) $0{,}05$, b) $0{,}25$, c) $0{,}25$, d) $0{,}20$, e) $0$",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-3-section-lage-modell",
+      "type": "text",
+      "content": "## Hvor sannsynlighetene kommer fra\n\nNår du skal lage en modell, henter du tallene fra én av tre kilder:\n\n**1. Symmetri (teoretisk).** Terningen har seks like sider, kortstokken 52 like kort. Symmetrien gir en uniform modell uten at vi trenger data.\n\n**2. Data (empirisk).** Vi har ingen symmetri å støtte oss på, men vi har observasjoner. Da bruker vi de relative frekvensene som sannsynligheter — for eksempel andelen av kundene som betalte kontant i fjor. Store talls lov er begrunnelsen: med nok observasjoner ligger den relative frekvensen nær sannsynligheten.\n\n**3. Vurdering (subjektiv).** For engangshendelser finnes verken symmetri eller gjentatte forsøk. «Sannsynligheten for at prosjektet blir ferdig i tide er 70 %» er et fagfolks anslag. Det kan være godt begrunnet, men det er en vurdering, og bør merkes som det.\n\nUansett kilde gjelder det samme til slutt: **modellen må vurderes mot virkeligheten.** Passer den ikke, er det modellen som skal endres — ikke dataene."
+    },
+    {
+      "id": "stat-4-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "Vurder om en uniform modell er rimelig i hvert tilfelle. Begrunn.\n\na) En rettferdig terning kastes. $S$ er de seks sidene.\nb) Vi trekker en tilfeldig dag i et år og spør hvilken ukedag det er. $S$ er de sju ukedagene.\nc) Vi spør en tilfeldig person i Norge om hvilken landsdel hun bor i. $S$ er de fem landsdelene.\nd) En stiftemaskin kastes i været. $S$ er $\\{\\text{lander på siden},\\ \\text{lander på enden}\\}$.",
+      "solution": "**Løsning:**\n\nVi stiller det samme spørsmålet hver gang: *finnes det en symmetri eller en annen grunn til at utfallene skulle være like sannsynlige?*\n\na) Ja. Terningen er symmetrisk — alle sider er like store og like tunge. Uniform modell er rimelig, og hvert utfall får $\\frac{1}{6}$.\n\nb) Nesten. Et år har 365 dager, og $365 = 52 \\cdot 7 + 1$. Én ukedag forekommer altså 53 ganger og de øvrige 52 ganger. Avviket er lite ($\\frac{53}{365} \\approx 0{,}145$ mot $\\frac{52}{365} \\approx 0{,}142$), så den uniforme modellen er en god tilnærming — men den er ikke helt eksakt. Her er det riktig å si begge deler.\n\nc) Nei. Landsdelene har svært ulikt folketall; Østlandet har langt flere innbyggere enn Nord-Norge. Her må vi bruke en **empirisk** modell med folketallene fra SSB som grunnlag, ikke $\\frac{1}{5}$ på hver.\n\nd) Nei. En stiftemaskin er ikke symmetrisk, og vi har ingen grunn til å tro at de to måtene å lande på er like sannsynlige. Her finnes bare én farbar vei: kast den mange ganger og bruk de relative frekvensene — altså en **empirisk** modell.\n\n**Svar:** a) ja (symmetri), b) god tilnærming, men ikke eksakt, c) nei — bruk folketall, d) nei — bruk et forsøk."
+    },
+    {
+      "id": "stat-4-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør om en uniform modell er rimelig, og si hvilken av de tre kildene (symmetri, data, vurdering) du ville bygd modellen på.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vi trekker ett lodd fra en bøtte med 500 like lodd, nummerert fra 1 til 500.",
+            "solution": "Uniform, bygd på symmetri: loddene er like, så hvert har sannsynlighet $\\frac{1}{500}$."
+          },
+          {
+            "label": "b",
+            "task": "Vi spør om en tilfeldig nybil registrert i Norge i fjor var elbil eller ikke.",
+            "solution": "Ikke uniform. Bygd på data: andelen elbiler blant nyregistrerte biler hentes fra registerstatistikk."
+          },
+          {
+            "label": "c",
+            "task": "Vi spør om en tilfeldig elev i en klasse er født i januar.",
+            "solution": "Ikke uniform over de tolv månedene i streng forstand, men nær nok til at $\\frac{1}{12}$ er en brukbar tilnærming. Vil man være nøyaktig, bygger man på fødselsstatistikk, altså data."
+          },
+          {
+            "label": "d",
+            "task": "Vi spør om et nytt medisinsk hjelpemiddel blir godkjent i løpet av to år.",
+            "solution": "Ikke uniform. Her finnes verken symmetri eller mange like forsøk — anslaget må bygges på vurdering, gjerne støttet av hvor ofte liknende søknader er blitt godkjent."
+          },
+          {
+            "label": "e",
+            "task": "Vi trekker ett kort fra en godt stokket kortstokk og spør om det er ruter.",
+            "solution": "Uniform, bygd på symmetri: 52 like sannsynlige kort, 13 av dem ruter, altså $\\frac{13}{52} = \\frac{1}{4}$."
+          }
+        ],
+        "hints": [
+          "Spør: finnes det en fysisk symmetri? Har vi data? Eller må noen bruke skjønn?"
+        ],
+        "solution": "a) uniform/symmetri, b) ikke uniform/data, c) tilnærmet uniform, ellers data, d) ikke uniform/vurdering, e) uniform/symmetri",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-3-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En **sannsynlighetsmodell** er et utfallsrom pluss en regel som gir hver hendelse en sannsynlighet. Kravene er $0 \\le P(A) \\le 1$, $P(S) = 1$ og addisjon for disjunkte hendelser.\n- I en **uniform** modell er alle utfall like sannsynlige, og $P(A) = \\frac{|A|}{|S|}$. Formelen gjelder **bare** da.\n- I en **ikke-uniform diskret** modell settes fordelingen opp i en tabell. Kontroller alltid at sannsynlighetene summerer til 1.\n- I en **kontinuerlig** modell er sannsynligheten arealet under tetthetsfunksjonen. Hele arealet er 1, og $P(X = a) = 0$ for ethvert enkelt punkt.\n- Sannsynlighetene kommer fra **symmetri**, **data** eller **vurdering** — og modellen skal alltid vurderes mot virkeligheten.\n- Velg utfallsrom slik at utfallene blir like sannsynlige når du kan: 36 tallpar er lettere å regne med enn 11 summer."
+    },
+    {
+      "id": "stat-4-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En kommune deler ut kulturmidler etter loddtrekning blant søknadene. Det kom inn 80 søknader: 24 fra idrettslag, 20 fra kor og korps, 16 fra teatergrupper og resten fra andre. Én søknad trekkes.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange søknader kom fra «andre»?",
+            "solution": "$80 - 24 - 20 - 16 = 20$",
+            "answer": 20
+          },
+          {
+            "label": "b",
+            "task": "Sett opp sannsynlighetsmodellen som en fordeling, og vis at sannsynlighetene summerer til 1. Hva er $P(\\text{idrettslag})$? Oppgi forkortet brøk.",
+            "solution": "$\\frac{24}{80} = \\frac{3}{10}$, $\\frac{20}{80} = \\frac{1}{4}$, $\\frac{16}{80} = \\frac{1}{5}$, $\\frac{20}{80} = \\frac{1}{4}$. Summen er $\\frac{24+20+16+20}{80} = \\frac{80}{80} = 1$.",
+            "expressionAnswer": "3/10"
+          },
+          {
+            "label": "c",
+            "task": "Er modellen uniform over de fire gruppene? Er den uniform over de 80 søknadene?",
+            "solution": "Ikke over gruppene — de har ulik sannsynlighet. Over de 80 søknadene er den uniform: hver søknad har sannsynlighet $\\frac{1}{80}$."
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at søknaden kommer fra kor og korps eller fra en teatergruppe. Oppgi forkortet brøk.",
+            "solution": "Disjunkte grupper: $\\frac{20}{80} + \\frac{16}{80} = \\frac{36}{80} = \\frac{9}{20}$",
+            "expressionAnswer": "9/20"
+          },
+          {
+            "label": "e",
+            "task": "Kommunen trekker fire søknader, én for hver av fire potter, og legger søknaden tilbake mellom hver trekning. Bestem sannsynligheten for at ingen av de fire trekningene gir et idrettslag. Skriv svaret som en potens av en forkortet brøk.",
+            "solution": "$P(\\text{ikke idrettslag}) = 1 - \\frac{3}{10} = \\frac{7}{10}$ i hver trekning. Fire uavhengige trekninger gir $\\left(\\frac{7}{10}\\right)^4$.",
+            "expressionAnswer": "(7/10)^4"
+          }
+        ],
+        "hints": [
+          "I b): sett opp alle fire brøkene med 80 under brøkstreken før du forkorter.",
+          "I e): når søknaden legges tilbake, er modellen den samme i hver trekning."
+        ],
+        "solution": "a) 20, b) $\\frac{3}{10}$, summen er 1, c) ikke over gruppene, men uniform over de 80 søknadene, d) $\\frac{9}{20}$, e) $\\left(\\frac{7}{10}\\right)^4 = \\frac{2401}{10\\,000} = 0{,}2401$",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — regneark).** En skole registrerte hvor mange elever som kom for sent hver av 200 skoledager:\n\n| Antall for sent | 0 | 1 | 2 | 3 | 4 eller flere |\n|---|---|---|---|---|---|\n| Antall dager | 62 | 71 | 43 | 18 | 6 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Legg tallene i et regneark og lag en empirisk sannsynlighetsmodell. Antall dager står i B2:B6 og totalen i \\$B\\$7, og sannsynlighetene skal stå i C2:C6. Skriv formelen du bruker i den første cellen, C2.",
+            "solution": "`=B2/$B$7` i C2, kopiert nedover til C6. Dollartegnene låser totalen slik at den ikke flytter seg når formelen kopieres."
+          },
+          {
+            "label": "b",
+            "task": "Hva blir sannsynligheten for at ingen kommer for sent en tilfeldig dag? Svar med tre desimaler.",
+            "solution": "$\\frac{62}{200} = 0{,}310$",
+            "answer": 0.31
+          },
+          {
+            "label": "c",
+            "task": "Hva blir sannsynligheten for at minst to kommer for sent? Svar med tre desimaler.",
+            "solution": "$\\frac{43 + 18 + 6}{200} = \\frac{67}{200} = 0{,}335$",
+            "answer": 0.335
+          },
+          {
+            "label": "d",
+            "task": "Skriv en formel som kontrollerer at modellen er gyldig, og oppgi hvilket tall den skal gi.",
+            "solution": "`=SUMMER(C2:C6)` skal gi $1$. Summen av alle sannsynlighetene i en diskret modell er alltid 1.",
+            "answer": 1
+          },
+          {
+            "label": "e",
+            "task": "Skolen vil bruke modellen på neste skoleår. Nevn to forhold som kan gjøre den mindre gyldig da.",
+            "solution": "For eksempel: nye rutetider for buss eller bane; ny skolestart eller nytt fraværsreglement; andre elever på skolen; andre årstider i registreringsperioden enn i det nye året. Modellen bygger på at forholdene er de samme."
+          }
+        ],
+        "hints": [
+          "Empirisk modell: hver sannsynlighet er antall dager delt på 200.",
+          "Merk hvordan \\$-tegnene låser cellen \\$B\\$7 ved kopiering."
+        ],
+        "solution": "a) `=B2/$B$7`, b) $0{,}310$, c) $0{,}335$, d) `=SUMMER(C2:C6)` skal gi 1, e) endrede forhold gjør modellen mindre gyldig",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-4-3-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-3-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** I en debatt om samferdsel sier en deltaker: «Det er like sannsynlig at pengene går til vei som til bane — det er jo to muligheter.»",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilken forutsetning bryter deltakeren?",
+            "solution": "Forutsetningen om at utfallene er like sannsynlige. At noe kan gå to veier, gir ikke i seg selv $\\frac{1}{2}$ på hver."
+          },
+          {
+            "label": "b",
+            "task": "Hvilken av de tre kildene til sannsynlighet (symmetri, data, vurdering) er den eneste farbare her? Begrunn.",
+            "solution": "Vurdering, eventuelt støttet av data om tidligere bevilgninger. Det finnes ingen fysisk symmetri, og beslutningen er en engangshendelse som ikke gjentas under like vilkår."
+          },
+          {
+            "label": "c",
+            "task": "En annen deltaker svarer: «Historisk har 68 % av midlene gått til vei, så sannsynligheten er 0,68.» Vurder dette svaret.",
+            "solution": "Det er bedre begrunnet, men ikke uten videre riktig. Historiske andeler er data om fortiden; de gjelder framover bare hvis forholdene er de samme. Politiske prioriteringer kan endre seg, og da er den empiriske modellen ikke gyldig."
+          },
+          {
+            "label": "d",
+            "task": "Forklar forskjellen på «vi vet ikke hva som skjer» og «de to utfallene er like sannsynlige».",
+            "solution": "Det første er en uttalelse om vår kunnskap, det andre om modellen. Uvitenhet gir ingen tall. Å sette $\\frac{1}{2}$ fordi man ikke vet, er å utgi en mangel på informasjon for en måling."
+          },
+          {
+            "label": "e",
+            "task": "Foreslå hvordan en journalist kunne framstilt uvissheten redelig.",
+            "solution": "For eksempel ved å si hva som faktisk er kjent (tidligere fordeling, uttalte prioriteringer, hvem som bestemmer) og understreke at utfallet er usikkert, uten å sette et tall som ser ut som en måling."
+          }
+        ],
+        "hints": [
+          "Skille mellom hva vi ikke vet og hva modellen påstår."
+        ],
+        "solution": "a) Kravet om like sannsynlige utfall. b) Vurdering, eventuelt støttet av data. c) Bedre, men gyldig bare hvis forholdene er uendret. d) Uvitenhet er ikke det samme som en uniform modell. e) Egen omskriving.",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

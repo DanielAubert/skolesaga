@@ -1,0 +1,479 @@
+{
+  "id": "stat-6-3",
+  "courseId": "statistikk",
+  "chapterNumber": "6.3",
+  "title": "Normalfordeling med digitale verktøy",
+  "description": "Regneark og GeoGebra for sannsynligheter og kvantiler i normalfordelingen.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+    "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+  ],
+  "content": [
+    {
+      "id": "stat-6-3-section-intro",
+      "type": "text",
+      "content": "# Normalfordeling med digitale verktøy\n\nTabellen i kapittel 6.2 virker, men den har tre svakheter:\n\n1. Den gjelder bare for $Z$, så vi må standardisere først.\n2. Den er avrundet — vi fikk 86,84 der det riktige svaret er 86,845.\n3. Den har bare noen få verdier, så vi må velge nærmeste og leve med avviket.\n\nMed et digitalt verktøy forsvinner alle tre. Vi skriver inn $\\mu$ og $\\sigma$ direkte, og får svaret med så mange desimaler vi vil.\n\n**Men tabellen er ikke bortkastet.** Standardiseringen er fortsatt måten du *forstår* hva verktøyet gjør, og $z$-verdien er et nyttig tall i seg selv. Dessuten: på en Del 1-oppgave uten hjelpemidler er tabellen og 68–95–99,7-regelen alt du har."
+    },
+    {
+      "id": "stat-6-3-section-regneark",
+      "type": "text",
+      "content": "## Regneark\n\nRegneark har ferdige funksjoner for normalfordelingen. Disse fire dekker alt vi trenger:\n\n| Formel | Gir |\n|---|---|\n| `=NORM.FORDELING.N(x; μ; σ; SANN)` | $P(X \\le x)$ — arealet fra venstre |\n| `=NORM.INVERS.N(p; μ; σ)` | grensen $x$ med $P(X \\le x) = p$ |\n| `=NORM.S.FORDELING.N(z; SANN)` | $P(Z \\le z)$ — det tabellen gir |\n| `=NORM.S.INVERS(p)` | $z$-verdien med $P(Z \\le z) = p$ |\n\nDe to øverste er de vi bruker mest: de går rett på $X$, uten at vi standardiserer i det hele tatt. De to nederste er tabellen fra kapittel 6.2, bare uten avrunding.\n\n**Om den siste parameteren `SANN`:** den ber om det *kumulative* — arealet fram til $x$. Skriver du `USANN` i stedet, får du høyden på kurven, altså $f(x)$. Den trenger du nesten aldri. Husk: det er arealet som er sannsynligheten, ikke høyden.\n\n**NB:** Funksjonsnavnene varierer litt mellom programmer og versjoner. Finner du ikke `NORM.FORDELING.N`, prøv `NORMFORDELING` — eller skriv `=NORM` i en celle og se hva programmet foreslår."
+    },
+    {
+      "id": "stat-6-3-section-geogebra",
+      "type": "text",
+      "content": "## GeoGebra\n\nGeoGebra har de samme to funksjonene, og skrives inn i inntastingsfeltet:\n\n```\nFordelingNormal(83, 3, 86)\nInversNormalfordeling(83, 3, 0.9)\n```\n\nRekkefølgen er $\\mu$, $\\sigma$, og deretter verdien:\n\n- `FordelingNormal(μ, σ, x)` gir $P(X \\le x)$\n- `InversNormalfordeling(μ, σ, p)` gir grensen $x$ med $P(X \\le x) = p$\n\nLegg merke til at GeoGebra vil ha **punktum** som desimaltegn i kommandoene (`0.9`, ikke `0,9`), mens svaret kommer med komma.\n\nAlternativt kan du regne arealet som et integral, slik vi gjorde i kapittel 5.6 — det er nøyaktig samme sak:\n\n```\nf(x) = 1 / (3 sqrt(2 pi)) exp(-(x - 83)^2 / (2 * 3^2))\nIntegral(f, 80, 86)\n```\n\nDen veien er lengre, men den viser hva `Normalfordeling` egentlig gjør: den regner arealet under tetthetskurven.\n\n**NB:** Uansett verktøy — skriv alltid opp **hva du ba om**, ikke bare svaret. En besvarelse som bare inneholder tallet 0,1587, uten kommandoen eller formelen som ga det, er ikke en løsning. Sensor skal kunne se hvilken sannsynlighet du har regnet."
+    },
+    {
+      "id": "stat-6-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1: De tre spørsmålstypene med verktøy",
+      "problem": "Bremselengden $X$ i meter for en bilmodell er normalfordelt med $\\mu = 83$ m og $\\sigma = 3$ m.\n\nBruk digitale verktøy og finn\na) $P(X \\le 86)$\nb) $P(X > 86)$\nc) $P(80 \\le X \\le 86)$",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu = 83$ og $\\sigma = 3$. Vi skriver dem inn direkte — ingen standardisering.\n\n**a)** «Mindre enn eller lik» er akkurat det funksjonen gir:\n\n```\nRegneark:   =NORM.FORDELING.N(86; 83; 3; SANN)\nGeoGebra:   FordelingNormal(83, 3, 86)\n```\n\n$$P(X \\le 86) = 0{,}8413$$\n\n**b)** «Større enn» finnes det ingen egen funksjon for. Vi bruker komplementet, som alltid:\n\n$$P(X > 86) = 1 - P(X \\le 86)$$\n\n```\nRegneark:   =1 - NORM.FORDELING.N(86; 83; 3; SANN)\nGeoGebra:   1 - FordelingNormal(83, 3, 86)\n```\n\n$$P(X > 86) = 1 - 0{,}8413 = 0{,}1587$$\n\n**c)** Et intervall er differansen mellom to arealer fra venstre — øvre minus nedre:\n\n$$P(80 \\le X \\le 86) = P(X \\le 86) - P(X \\le 80)$$\n\n```\nRegneark:   =NORM.FORDELING.N(86; 83; 3; SANN) - NORM.FORDELING.N(80; 83; 3; SANN)\nGeoGebra:   FordelingNormal(83, 3, 86) - FordelingNormal(83, 3, 80)\n```\n\n$$P(80 \\le X \\le 86) = 0{,}8413 - 0{,}1587 = 0{,}6827$$\n\n![En klokkeformet kurve over en vannrett akse merket meter, med verdiene 74 til 98. Toppen ligger i 83. To grå stiplede loddrette streker står i 80 og 86. Området under kurven til venstre for 86 er lyst gult, området mellom 80 og 86 er sterkere grønt, og området til høyre for 86 er turkist. Til høyre i figuren står fire tekstlinjer: a P av X mindre enn eller lik 86 er lik 0,8413 i svart, b P av X større enn eller lik 86 er lik 0,1587 i turkis, c P av 80 mindre enn eller lik X mindre enn eller lik 86 er lik 0,6827 i grønt, og til slutt a er gult pluss grønt. Fargen på hver linje viser hvilket felt svaret hører til.](/images/content/statistikk/stat-6-3-tre-sporsmalstyper.png)\n\n*De tre spørsmålstypene i ett bilde, for bremselengden med $\\mu = 83$ m og $\\sigma = 3$ m. Aksen er i meter, ikke i $z$: verktøyet går rett på $X$ og standardiserer for deg. Det grønne området er differansen mellom det gule og det som ligger til venstre for 80.*\n\n**Svar:** a) $0{,}8413$. b) $0{,}1587$. c) $0{,}6827$.\n\n**Kontroll mot kapittel 6.2:** i eksempel 2 der fikk vi 0,1587 for b) med tabellen — identisk. Og c) er nettopp $\\mu \\pm \\sigma$, siden $80 = 83 - 3$ og $86 = 83 + 3$. Svaret 0,6827 er derfor 68–95–99,7-regelens første linje, nå med full nøyaktighet.\n\n**NB:** Legg merke til at de tre oversettelsene er de *samme* som med tabell. Verktøyet fjerner standardiseringen, men ikke tenkningen: du må fortsatt vite hvilken vei ulikheten går, og at «mellom» er en differanse."
+    },
+    {
+      "id": "stat-6-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Del 2 — gjør den samme.** En tappemaskin fyller flasker. Fyllmengden $X$ i milliliter er normalfordelt med $\\mu = 500$ ml og $\\sigma = 6$ ml. Skriv opp formelen eller kommandoen du bruker, og svar med fire desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(X \\le 508)$.",
+            "solution": "`=NORM.FORDELING.N(508; 500; 6; SANN)` gir $P(X \\le 508) = 0{,}9088$.",
+            "answer": 0.9088
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X > 512)$.",
+            "solution": "`=1 - NORM.FORDELING.N(512; 500; 6; SANN)` gir $P(X > 512) = 0{,}0228$.",
+            "answer": 0.0228
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(494 \\le X \\le 506)$.",
+            "solution": "`=NORM.FORDELING.N(506; 500; 6; SANN) - NORM.FORDELING.N(494; 500; 6; SANN)` gir $0{,}6827$. (Grensene er $\\mu \\pm \\sigma$.)",
+            "answer": 0.6827
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X < 490)$.",
+            "solution": "`=NORM.FORDELING.N(490; 500; 6; SANN)` gir $0{,}0478$.",
+            "answer": 0.0478
+          },
+          {
+            "label": "e",
+            "task": "Av 5000 flasker — hvor mange venter vi inneholder mindre enn 490 ml?",
+            "solution": "$5000 \\cdot 0{,}0478 = 239$ flasker.",
+            "answer": 239
+          }
+        ],
+        "hints": [
+          "«Større enn» er alltid $1 - $ funksjonsverdien, og «mellom» er øvre minus nedre.",
+          "Husk `SANN` som siste parameter — uten den får du høyden på kurven, ikke arealet."
+        ],
+        "solution": "a) 0,9088, b) 0,0228, c) 0,6827, d) 0,0478, e) 239 flasker",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-3-def-kvantil",
+      "type": "definition",
+      "title": "Kvantil",
+      "content": "**$p$-kvantilen** til en fordeling er tallet $x_p$ som har sannsynligheten $p$ under seg:\n\n$$P(X \\le x_p) = p$$\n\nNavnet varierer med hvordan $p$ oppgis:\n\n- Oppgis $p$ i prosent, kalles tallet en **prosentil**. 90-prosentilen er tallet med 90 % under seg.\n- $0{,}25$-kvantilen er **nedre kvartil** $Q_1$, $0{,}75$-kvantilen er **øvre kvartil** $Q_3$ (kapittel 1.4).\n- $0{,}5$-kvantilen er **medianen**. For en normalfordeling er den alltid lik $\\mu$, fordi kurven er symmetrisk.\n\nÅ finne en kvantil er å gå **motsatt vei** av det vi gjorde i eksempel 1: arealet er kjent, og grensen er ukjent. Det er samme spørsmål som «bestem $k$ slik at $P(X \\le k) = 0{,}90$» i kapittel 6.2 — bare at verktøyet gjør oppslaget og tilbakeregningen i én operasjon:\n\n```\nRegneark:   =NORM.INVERS.N(0,90; μ; σ)\nGeoGebra:   InversNormalfordeling(μ, σ, 0.9)\n```"
+    },
+    {
+      "id": "stat-6-3-fig-kvantil-pilene",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-3-kvantil-pilene.png",
+      "alt": "En klokkeformet standardnormalkurve. Den vannrette aksen er merket z og viser minus 3 til 3; den loddrette er merket f av z og viser 0,1 til 0,4. Området under kurven fra venstre fram til en grå stiplet loddrett strek litt til høyre for toppen er fylt med gult og merket areal p. Den stiplede streken er merket grensen x med p som senket skrift. Over kurven går to piler i hver sin høyde: en blå pil fra grensen mot venstre, merket FordelingNormal, og over den en grønn pil fra venstre mot grensen, merket InversNormalfordeling.",
+      "caption": "De to kommandoene går hver sin vei. `FordelingNormal` tar **grensen** og gir **arealet**; `InversNormalfordeling` tar **arealet** og gir **grensen**. Blander du dem, får du et svar som ser rimelig ut, men svarer på det motsatte spørsmålet.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-3-kvantil-pilene.json"
+    },
+    {
+      "id": "stat-6-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Kvantilen med verktøy",
+      "problem": "Bremselengden er normalfordelt med $\\mu = 83$ m og $\\sigma = 3$ m, som i eksempel 1.\n\na) Bestem $k$ slik at $P(X \\le k) = 0{,}90$.\nb) Bestem $k$ slik at $P(X \\le k) = 0{,}99$.\nc) Bestem $k$ slik at $P(X > k) = 0{,}01$.",
+      "solution": "**Løsning:**\n\n**a)** Sannsynligheten er gitt, grensen er ukjent — altså en kvantil:\n\n```\nRegneark:   =NORM.INVERS.N(0,90; 83; 3)\nGeoGebra:   InversNormalfordeling(83, 3, 0.9)\n```\n\n$$k = 86{,}8447 \\approx 86{,}8$$\n\n**b)** Samme kommando med 0,99:\n\n```\nRegneark:   =NORM.INVERS.N(0,99; 83; 3)\n```\n\n$$k = 89{,}9790 \\approx 90{,}0$$\n\n**c)** Her står ulikheten motsatt vei. Funksjonen vil alltid ha arealet **fra venstre**, så vi må skrive om først:\n\n$$P(X > k) = 0{,}01 \\quad \\Longrightarrow \\quad P(X \\le k) = 1 - 0{,}01 = 0{,}99$$\n\nDet er nøyaktig samme spørsmål som i b):\n\n$$k = 89{,}9790 \\approx 90{,}0$$\n\n**Svar:** a) $k \\approx 86{,}8$ m. b) $k \\approx 90{,}0$ m. c) $k \\approx 90{,}0$ m.\n\n**Sammenligning med tabellen:** i kapittel 6.2 fikk vi 86,84 for a), fordi vi måtte velge $z = 1{,}28$ der det riktige er 1,2816. Forskjellen er 5 millimeter på en bremselengde — uten praktisk betydning, men verdt å vite om: **tabellsvar og verktøysvar skal ikke forventes å være like i siste desimal.**\n\n**NB:** Legg merke til at b) og c) har samme svar. Det er ikke en tilfeldighet, men hele poenget med omskrivingen: «1 % over» og «99 % under» er to måter å beskrive den samme grensen på. Skriv alltid om til «under» før du taster."
+    },
+    {
+      "id": "stat-6-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 — gjør den samme.** Høyden $X$ i centimeter til 16 år gamle jenter er normalfordelt med $\\mu = 167$ cm og $\\sigma = 6$ cm. Svar med én desimal.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn 25-prosentilen og 75-prosentilen, altså $Q_1$ og $Q_3$.",
+            "solution": "`=NORM.INVERS.N(0,25; 167; 6)` gir $Q_1 = 163{,}0$ cm, og `=NORM.INVERS.N(0,75; 167; 6)` gir $Q_3 = 171{,}0$ cm.",
+            "answer": 163.0
+          },
+          {
+            "label": "b",
+            "task": "Finn medianen, og forklar svaret uten å regne.",
+            "solution": "$167{,}0$ cm. Normalkurven er symmetrisk om $\\mu$, så halvparten ligger under $\\mu$ — medianen må være $\\mu$.",
+            "answer": 167
+          },
+          {
+            "label": "c",
+            "task": "Finn 90-prosentilen.",
+            "solution": "`=NORM.INVERS.N(0,90; 167; 6)` gir $174{,}7$ cm.",
+            "answer": 174.7
+          },
+          {
+            "label": "d",
+            "task": "Finn grensen $k$ med $P(X > k) = 0{,}01$.",
+            "solution": "Vi skriver om: $P(X \\le k) = 0{,}99$. `=NORM.INVERS.N(0,99; 167; 6)` gir $k = 181{,}0$ cm.",
+            "answer": 181.0
+          },
+          {
+            "label": "e",
+            "task": "Hvor bred er kvartilbredden $Q_3 - Q_1$, og hvor mange standardavvik er det?",
+            "solution": "Vi regner med de uavrundede kvartilene: $Q_3 - Q_1 = 171{,}047 - 162{,}953 = 8{,}094 \\approx 8{,}1$ cm. (Regner du i stedet med de avrundede tallene fra a), får du $171{,}0 - 163{,}0 = 8{,}0$ cm — derfor runder vi av til slutt, ikke underveis.) Det er $\\frac{8{,}094}{6} = 1{,}349$ standardavvik — forholdet er det samme for enhver normalfordeling.",
+            "answer": 8.1
+          }
+        ],
+        "hints": [
+          "`NORM.INVERS.N` vil alltid ha arealet fra venstre — skriv om «over» til «under» først.",
+          "I e): del kvartilbredden på $\\sigma$."
+        ],
+        "solution": "a) $Q_1 = 163{,}0$ cm og $Q_3 = 171{,}0$ cm, b) 167,0 cm, c) 174,7 cm, d) 181,0 cm, e) 8,1 cm, altså 1,35 standardavvik",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Garantitid",
+      "problem": "Levetiden $X$ i timer for en LED-pære er normalfordelt med $\\mu = 1200$ timer og $\\sigma = 100$ timer.\n\na) Finn andelen pærer som svikter før 1000 timer.\nb) Produsenten vil gi en garanti som høyst 5 % av pærene utløser. Hvor mange timers garanti kan han gi?\nc) Bedriften selger 50 000 pærer. Hvor mange reklamasjoner må den regne med hvis garantien settes til 1000 timer?",
+      "solution": "**Løsning:**\n\n**a)** «Svikter før 1000 timer» er $P(X < 1000)$:\n\n```\nRegneark:   =NORM.FORDELING.N(1000; 1200; 100; SANN)\n```\n\n$$P(X < 1000) = 0{,}0228$$\n\nAltså 2,3 % av pærene.\n\n**b)** *Hva vet vi?* At arealet til venstre for garantitiden skal være 0,05. *Hva må vi finne?* Selve grensen — altså en kvantil:\n\n```\nRegneark:   =NORM.INVERS.N(0,05; 1200; 100)\nGeoGebra:   InversNormalfordeling(1200, 100, 0.05)\n```\n\n$$t = 1035{,}51$$\n\nProdusenten bør oppgi garantien i hele hundre timer, og må da runde **nedover**:\n\n$$t = 1000 \\text{ timer}$$\n\n*(Runder han oppover til 1100 timer, blir andelen som utløser garantien $P(X < 1100) = 0{,}1587$, altså nesten 16 % — tre ganger så mye som han var villig til å godta.)*\n\n**c)** Fra a) er andelen 0,0228:\n\n$$50\\,000 \\cdot 0{,}0228 = 1140$$\n\n**Svar:** a) $2{,}3$ %. b) 1035 timer, i praksis 1000 timer. c) Omtrent 1140 pærer.\n\n**Tolkning:** Legg merke til hvor følsom garantien er. Fra 1000 til 1100 timer — en økning på under 10 % i lovet levetid — sjudobler antall reklamasjoner, fra 1140 til nesten 8000. Det er halens bratthet som gjør det: nær $\\mu$ ligger sannsynlighetene tett, langt ute ligger de tynt."
+    },
+    {
+      "id": "stat-6-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 — gjør den samme.** Levetiden $X$ i kilometer for et sykkeldekk er normalfordelt med $\\mu = 4200$ km og $\\sigma = 350$ km.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn andelen dekk som er utslitt før 3500 km.",
+            "solution": "`=NORM.FORDELING.N(3500; 4200; 350; SANN)` gir $0{,}0228$, altså 2,3 %.",
+            "answer": 0.0228
+          },
+          {
+            "label": "b",
+            "task": "Finn andelen dekk som varer lenger enn 5000 km.",
+            "solution": "`=1 - NORM.FORDELING.N(5000; 4200; 350; SANN)` gir $0{,}0111$, altså 1,1 %.",
+            "answer": 0.0111
+          },
+          {
+            "label": "c",
+            "task": "Produsenten godtar at 2 % av dekkene utløser garantien. Hvilken garantigrense gir det?",
+            "solution": "`=NORM.INVERS.N(0,02; 4200; 350)` gir $3481$ km. Rundet nedover til noe brukbart: 3400 eller 3500 km.",
+            "answer": 3481
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(3800 \\le X \\le 4600)$.",
+            "solution": "`=NORM.FORDELING.N(4600; 4200; 350; SANN) - NORM.FORDELING.N(3800; 4200; 350; SANN)` gir $0{,}7469$.",
+            "answer": 0.7469
+          },
+          {
+            "label": "e",
+            "task": "Garantien settes til 3400 km. Hvor mange reklamasjoner må produsenten regne med per 12 000 dekk?",
+            "solution": "$P(X < 3400) = 0{,}0111$, så $12\\,000 \\cdot 0{,}0111 = 133$ dekk.",
+            "answer": 133
+          }
+        ],
+        "hints": [
+          "«Garantigrense med 2 % reklamasjon» betyr at arealet til venstre for grensen skal være 0,02.",
+          "Rund alltid en garantigrense nedover — oppover flytter du reklamasjonene oppover også."
+        ],
+        "solution": "a) 0,0228, b) 0,0111, c) 3481 km, i praksis 3400 km, d) 0,7469, e) omtrent 133 dekk",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-3-section-midterste",
+      "type": "text",
+      "content": "## De midterste $p$ prosentene\n\nEn oppgavetype går igjen i kvalitetskontroll: *hvilket intervall rommer de midterste 90 % av verdiene?*\n\nHer er det to grenser å finne, og nøkkelen er å fordele resten **likt på begge sider**. Skal 90 % ligge inne, må 10 % ligge utenfor — 5 % i hver hale:\n\n$$\\text{nedre grense: } P(X \\le a) = 0{,}05 \\qquad \\text{øvre grense: } P(X \\le b) = 0{,}95$$\n\nMerk at den øvre grensen har $0{,}95$ under seg, ikke $0{,}05$. En vanlig feil er å taste 0,05 begge ganger.\n\n**Regelen:** skal de midterste $p$ ligge inne, er halene $\\frac{1 - p}{2}$ hver, og du taster $\\frac{1-p}{2}$ og $\\frac{1+p}{2}$.\n\n| Midterste | Nedre | Øvre |\n|---|---|---|\n| 50 % | 0,25 | 0,75 |\n| 80 % | 0,10 | 0,90 |\n| 90 % | 0,05 | 0,95 |\n| 95 % | 0,025 | 0,975 |\n| 99 % | 0,005 | 0,995 |"
+    },
+    {
+      "id": "stat-6-3-fig-midterste-90",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-3-midterste-90.png",
+      "alt": "Standardnormalkurven i et koordinatsystem med den vannrette aksen merket z og tallene minus 3, minus 2, minus 1, 1, 2 og 3. Området under kurven mellom de to stiplede loddrette strekene, som står litt til venstre for minus 1,5 og litt til høyre for 1,5, er fylt med gult, og teksten 90 prosent står midt i det gule feltet. Halen til venstre for den venstre stiplede streken er fylt med rødt, og halen til høyre for den høyre stiplede streken er også fylt med rødt. Over hver av de to røde halene står teksten 5 prosent.",
+      "caption": "De midterste 90 % av en normalfordeling. Grensene ligger $1{,}645$ standardavvik fra $\\mu$ hver vei, og de to røde halene er 5 % hver. Legg merke til at resten alltid fordeles **likt** på begge sider — det er derfor du taster 0,05 og 0,95, ikke 0,05 og 0,90.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-3-midterste-90.json"
+    },
+    {
+      "id": "stat-6-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4: De midterste 90 prosentene",
+      "problem": "En dreiebenk lager aksler med diameter $X$ i millimeter, normalfordelt med $\\mu = 20{,}00$ mm og $\\sigma = 0{,}05$ mm.\n\na) Finn intervallet som inneholder diameteren til de midterste 90 % av akslene.\nb) Finn kvartilbredden $Q_3 - Q_1$.\nc) Toleransekravet er $20{,}00 \\pm 0{,}10$ mm. Hvor stor andel av akslene godkjennes?",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* At 90 % skal ligge inne, altså 10 % utenfor — 5 % i hver hale.\n\nNedre grense har 0,05 under seg:\n\n```\nRegneark:   =NORM.INVERS.N(0,05; 20; 0,05)\n```\n\n$$a = 19{,}9178$$\n\nØvre grense har 0,95 under seg:\n\n```\nRegneark:   =NORM.INVERS.N(0,95; 20; 0,05)\n```\n\n$$b = 20{,}0822$$\n\nIntervallet er $[19{,}918;\\ 20{,}082]$ mm.\n\n*(Kontroll: grensene ligger like langt fra $\\mu = 20{,}00$ — $0{,}0822$ mm hver vei. Det må de, siden kurven er symmetrisk og halene er like store. Er de ikke det, har du tastet feil.)*\n\n**b)** Kvartilene er $0{,}25$- og $0{,}75$-kvantilene:\n\n$$Q_1 = 19{,}9663 \\qquad Q_3 = 20{,}0337$$\n\n$$Q_3 - Q_1 = 20{,}0337 - 19{,}9663 = 0{,}0674 \\text{ mm}$$\n\n**c)** Toleransen $20{,}00 \\pm 0{,}10$ betyr intervallet fra 19,90 til 20,10:\n\n```\nRegneark:   =NORM.FORDELING.N(20,1; 20; 0,05; SANN) - NORM.FORDELING.N(19,9; 20; 0,05; SANN)\n```\n\n$$P(19{,}90 \\le X \\le 20{,}10) = 0{,}9545$$\n\n**Svar:** a) $[19{,}918;\\ 20{,}082]$ mm. b) $0{,}0674$ mm. c) $95{,}45$ %.\n\n**Tolkning:** I c) er toleransegrensene $\\mu \\pm 2\\sigma$, og vi kjenner igjen 0,9545 fra 68–95–99,7-regelen. Om lag 4,5 % av akslene — 45 av hver tusen — må kastes eller etterarbeides."
+    },
+    {
+      "id": "stat-6-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 — gjør den samme.** Fødselsvekten $X$ i gram er normalfordelt med $\\mu = 3600$ g og $\\sigma = 500$ g. Svar i hele gram.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn intervallet som inneholder vekten til de midterste 50 % av barna.",
+            "solution": "`=NORM.INVERS.N(0,25; 3600; 500)` gir 3263 g og `=NORM.INVERS.N(0,75; 3600; 500)` gir 3937 g. Intervallet er $[3263,\\ 3937]$ g.",
+            "answer": 3263
+          },
+          {
+            "label": "b",
+            "task": "Finn intervallet som inneholder de midterste 80 %.",
+            "solution": "0,10 og 0,90 gir $[2959,\\ 4241]$ g.",
+            "answer": 2959
+          },
+          {
+            "label": "c",
+            "task": "Finn intervallet som inneholder de midterste 95 %.",
+            "solution": "0,025 og 0,975 gir $[2620,\\ 4580]$ g.",
+            "answer": 2620
+          },
+          {
+            "label": "d",
+            "task": "Hvor bredt er hvert av de tre intervallene, og hva sier sammenligningen?",
+            "solution": "674 g, 1282 g og 1960 g. Å gå fra å fange de midterste 50 % til de midterste 95 % nesten tredobler bredden. Jo større andel du vil ha med, jo mye bredere må intervallet være — fordi halene er tynne, må du strekke deg langt for å få med de siste prosentene.",
+            "answer": 1960
+          },
+          {
+            "label": "e",
+            "task": "Barn under 2500 g regnes som lav fødselsvekt. Hvor stor andel er det i denne modellen?",
+            "solution": "`=NORM.FORDELING.N(2500; 3600; 500; SANN)` gir $0{,}0139$, altså 1,4 %.",
+            "answer": 0.0139
+          }
+        ],
+        "hints": [
+          "Halene er $\\frac{1-p}{2}$ hver. Tast $\\frac{1-p}{2}$ og $\\frac{1+p}{2}$.",
+          "Kontroller alltid at de to grensene ligger like langt fra $\\mu$."
+        ],
+        "solution": "a) $[3263,\\ 3937]$ g, b) $[2959,\\ 4241]$ g, c) $[2620,\\ 4580]$ g, d) 674, 1282 og 1960 g — bredden vokser raskt, e) 1,4 %",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Velg riktig formel.** La $X$ være normalfordelt med $\\mu = 70$ og $\\sigma = 12$. Skriv regnearkformelen som gir svaret. Du skal ikke regne ut tallene.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sannsynligheten for at $X$ er høyst 85.",
+            "solution": "`=NORM.FORDELING.N(85; 70; 12; SANN)`"
+          },
+          {
+            "label": "b",
+            "task": "Sannsynligheten for at $X$ er over 85.",
+            "solution": "`=1 - NORM.FORDELING.N(85; 70; 12; SANN)`"
+          },
+          {
+            "label": "c",
+            "task": "Verdien med 95 % av fordelingen under seg.",
+            "solution": "`=NORM.INVERS.N(0,95; 70; 12)`"
+          },
+          {
+            "label": "d",
+            "task": "Verdien med 5 % av fordelingen over seg.",
+            "solution": "`=NORM.INVERS.N(0,95; 70; 12)` — samme formel som i c), fordi «5 % over» og «95 % under» beskriver den samme grensen."
+          },
+          {
+            "label": "e",
+            "task": "Sannsynligheten for at $X$ ligger mellom 60 og 80.",
+            "solution": "`=NORM.FORDELING.N(80; 70; 12; SANN) - NORM.FORDELING.N(60; 70; 12; SANN)`"
+          }
+        ],
+        "hints": [
+          "Spør først: er det arealet som er ukjent, eller grensen? `FORDELING` finner areal, `INVERS` finner grense.",
+          "Alt skrives om til «fra venstre» før du taster."
+        ],
+        "solution": "a) `NORM.FORDELING.N(85; 70; 12; SANN)`, b) `1 - ` det samme, c) og d) `NORM.INVERS.N(0,95; 70; 12)`, e) differansen mellom to `NORM.FORDELING.N`",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-3-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- `=NORM.FORDELING.N(x; μ; σ; SANN)` og `FordelingNormal(μ, σ, x)` gir $P(X \\le x)$ — arealet fra venstre, direkte på $X$, uten standardisering.\n- `=NORM.INVERS.N(p; μ; σ)` og `InversNormalfordeling(μ, σ, p)` går motsatt vei: fra areal til grense. Tallet kalles en **kvantil**.\n- De tre oversettelsene er de samme som med tabell: «større enn» er $1 - $ verdien, «mellom» er øvre minus nedre, og alt skrives om til «fra venstre» før du taster.\n- **Kvantiler:** 0,5-kvantilen er medianen (lik $\\mu$ for en normalfordeling), 0,25 og 0,75 er kvartilene, og $p \\cdot 100$ gir prosentilen.\n- **De midterste $p$:** halene er $\\frac{1-p}{2}$ hver. Tast $\\frac{1-p}{2}$ og $\\frac{1+p}{2}$ — ikke $\\frac{1-p}{2}$ og $p$.\n- Kontroller alltid at de to grensene ligger **like langt fra $\\mu$**.\n- **Skriv alltid opp formelen eller kommandoen**, ikke bare tallet. Et svar uten framgangsmåte er ikke en løsning.\n- Tabellsvar og verktøysvar kan avvike i siste desimal. Det er tabellen som er avrundet, ikke verktøyet som tar feil.\n\nI kapittel 6.4 kommer det store spørsmålet: *hvorfor* dukker normalfordelingen opp i så mange forskjellige sammenhenger?"
+    },
+    {
+      "id": "stat-6-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave, Del 2.** En fabrikk støper sjokoladeplater. Vekten $X$ i gram er normalfordelt med $\\mu = 102$ g og $\\sigma = 1{,}8$ g. Platene merkes «100 g». Sjokolade koster fabrikken 0,085 kr per gram.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn andelen plater som veier mindre enn merkevekten.",
+            "solution": "`=NORM.FORDELING.N(100; 102; 1,8; SANN)` gir $0{,}1333$, altså 13,3 %.",
+            "answer": 0.1333
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(100 \\le X \\le 104)$.",
+            "solution": "`=NORM.FORDELING.N(104; 102; 1,8; SANN) - NORM.FORDELING.N(100; 102; 1,8; SANN)` gir $0{,}7335$.",
+            "answer": 0.7335
+          },
+          {
+            "label": "c",
+            "task": "Finn vekten som bare 1 promille av platene ligger under.",
+            "solution": "`=NORM.INVERS.N(0,001; 102; 1,8)` gir $96{,}44$ g.",
+            "answer": 96.44
+          },
+          {
+            "label": "d",
+            "task": "Myndighetene krever at høyst 0,5 % av platene har undervekt. Hvilken $\\mu$ må maskinen stilles inn på, og hva koster omleggingen per million plater?",
+            "solution": "Vi krever `NORM.INVERS.N(0,005; μ; 1,8)` $= 100$. Siden $z$-verdien for 0,005 er $-2{,}576$, blir $\\mu = 100 + 2{,}576 \\cdot 1{,}8 = 104{,}64$ g. Det er $104{,}64 - 102 = 2{,}64$ gram ekstra per plate, altså $1\\,000\\,000 \\cdot 2{,}64 \\cdot 0{,}085 \\approx 224\\,000$ kr per million plater.",
+            "answer": 104.64
+          },
+          {
+            "label": "e",
+            "task": "Alternativet er en ny støpemaskin som holder $\\mu = 102$ g. Hvor liten må $\\sigma$ da være for å oppfylle kravet, og hvilken løsning ville du anbefalt?",
+            "solution": "Vi krever $\\frac{100 - 102}{\\sigma} = -2{,}576$, altså $\\sigma = \\frac{2}{2{,}576} = 0{,}776$ g — under halvparten av dagens. Løsning d) koster 224 000 kr per million plater i all framtid; e) koster en engangsinvestering. Er årsproduksjonen for eksempel 5 millioner plater, sparer e) over én million kroner i året, og maskinen er trolig nedbetalt raskt. Jeg ville anbefalt e), forutsatt at leverandøren kan dokumentere at $\\sigma$ faktisk blir så lav.",
+            "answer": 0.776
+          }
+        ],
+        "hints": [
+          "I d) og e) er sannsynligheten 0,005 kravet, og du løser for $\\mu$ eller $\\sigma$ med $z = -2{,}576$.",
+          "Regn alltid om til kroner før du sammenligner to tiltak."
+        ],
+        "solution": "a) 0,1333, b) 0,7335, c) 96,44 g, d) $\\mu = 104{,}64$ g, omtrent 224 000 kr per million plater, e) $\\sigma = 0{,}776$ g — ny maskin lønner seg ved stort volum",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-3-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-3-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting — verktøyet gir alltid et svar.** Vurder påstandene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En elev modellerer årsinntekten i Norge som normalfordelt med $\\mu = 620\\,000$ kr og $\\sigma = 400\\,000$ kr, og regner ut `=NORM.FORDELING.N(0; 620000; 400000; SANN)`. Hva får han, og hva forteller det?",
+            "solution": "Han får $0{,}0606$ — modellen påstår at 6 % av befolkningen har **negativ** inntekt. Det er umulig, og det avslører at normalfordelingen er feil modell her. Inntektsfordelinger er høyreskjeve: de har en lang hale oppover og en hard grense nedover. Verktøyet protesterer ikke; det regner arealet under den kurven du ba om, uansett hvor meningsløs den er."
+          },
+          {
+            "label": "b",
+            "task": "«Siden verktøyet gir svar med ti desimaler, er svaret nøyaktig.» Drøft.",
+            "solution": "Nei. Desimalene forteller bare hvor nøyaktig verktøyet regner på **modellen** — ikke hvor godt modellen passer virkeligheten. Er $\\mu$ og $\\sigma$ anslått fra 20 målinger, er de selv usikre, og da er det meningsløst å oppgi svaret med mer enn to–tre desimaler. Nøyaktighet i regningen kan aldri rette opp usikkerhet i forutsetningene."
+          },
+          {
+            "label": "c",
+            "task": "Når er tabellen fra kapittel 6.2 bedre enn verktøyet?",
+            "solution": "Når du ikke har verktøy — for eksempel på en Del 1-oppgave. Og som forståelsesverktøy: $z$-verdien sier direkte hvor uvanlig en verdi er, og gjør det mulig å sammenligne to helt ulike fordelinger (oppgave 7 i kapittel 6.2). `NORM.FORDELING.N` gir et tall, men ingen følelse for hvor langt ute i halen du er."
+          },
+          {
+            "label": "d",
+            "task": "En elev skal finne $P(X > 85)$ og taster `=NORM.FORDELING.N(85; 70; 12; SANN)`. Hva blir feilen, og hvordan ville du oppdaget den?",
+            "solution": "Han får $0{,}8944$ i stedet for $0{,}1056$ — altså svaret på det motsatte spørsmålet. En rimelighetssjekk avslører det umiddelbart: 85 ligger **over** $\\mu = 70$, så sannsynligheten for å komme over 85 må være mindre enn 0,5. Alle svar over 0,5 for en grense over $\\mu$ er feil vei."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er det likevel et krav at framgangsmåten står i besvarelsen, når verktøyet gir svaret?",
+            "solution": "Fordi svaret alene ikke kan kontrolleres. Formelen viser hvilken sannsynlighet du faktisk regnet, hvilke $\\mu$ og $\\sigma$ du brukte, og hvilken vei ulikheten gikk — det er der alle feilene sitter. I tillegg er det framgangsmåten som viser at du forsto oppgaven; et tall kan være gjettet, tastet feil eller hentet fra feil rad."
+          }
+        ],
+        "hints": [
+          "Skill mellom regnenøyaktighet og modellgyldighet.",
+          "Er grensen over $\\mu$, må «større enn»-sannsynligheten være mindre enn 0,5."
+        ],
+        "solution": "a) 0,0606 negativ inntekt — normalmodellen passer ikke på skjeve fordelinger, b) nei — desimaler sier ikke noe om modellen, c) på Del 1, og som forståelse, d) 0,8944 er svaret på det motsatte spørsmålet, e) formelen er det eneste som kan kontrolleres",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "NORM.FORDELING.N",
+      "definition": "Regnearkfunksjonen `=NORM.FORDELING.N(x; μ; σ; SANN)`, som gir $P(X \\le x)$ — arealet under normalkurven fra venstre og fram til $x$."
+    },
+    {
+      "term": "NORM.INVERS.N",
+      "definition": "Regnearkfunksjonen `=NORM.INVERS.N(p; μ; σ)`, som går motsatt vei: den gir grensen $x$ med $P(X \\le x) = p$."
+    },
+    {
+      "term": "Kvantil",
+      "definition": "Tallet $x_p$ med sannsynligheten $p$ under seg, altså $P(X \\le x_p) = p$. Oppgis $p$ i prosent, kalles tallet en prosentil."
+    },
+    {
+      "term": "Kvartil",
+      "definition": "$0{,}25$-kvantilen ($Q_1$) og $0{,}75$-kvantilen ($Q_3$). For en normalfordeling ligger de $0{,}6745$ standardavvik fra $\\mu$ hver vei."
+    },
+    {
+      "term": "De midterste p prosentene",
+      "definition": "Intervallet med $p$ av fordelingen inne og $\\frac{1-p}{2}$ i hver hale. Grensene finnes med kvantilene $\\frac{1-p}{2}$ og $\\frac{1+p}{2}$."
+    }
+  ]
+}

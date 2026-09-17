@@ -1,0 +1,487 @@
+{
+  "id": "stat-6-5",
+  "courseId": "statistikk",
+  "chapterNumber": "6.5",
+  "title": "Normaltilnærming til binomisk fordeling",
+  "description": "Når og hvordan binomiske sannsynligheter kan regnes med normalfordelingen.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+    "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+  ],
+  "content": [
+    {
+      "id": "stat-6-5-section-intro",
+      "type": "text",
+      "content": "# Normaltilnærming til binomisk fordeling\n\nI kapittel 5.4 og 5.5 regnet vi binomiske sannsynligheter. Det gikk greit så lenge $n$ var liten: tabellen dekket $n = 10$, og formelen var til å leve med.\n\nMen se på dette spørsmålet:\n\n> Et parti har 40 % oppslutning. I en måling med 1000 spurte — hva er sannsynligheten for at høyst 380 svarer at de stemmer partiet?\n\nMed den binomiske formelen må vi regne ut og legge sammen **381 ledd**, hvert med en binomialkoeffisient av typen $\\binom{1000}{273}$. Det lar seg gjøre i et regneark, men ikke for hånd — og lenge fantes det ingen regneark.\n\nLøsningen kom fra en observasjon: **når $n$ blir stor, ser den binomiske fordelingen ut som en klokke.** Og en klokke kan vi regne på."
+    },
+    {
+      "id": "stat-6-5-section-hvorfor",
+      "type": "text",
+      "content": "## Hvorfor binomisk ligner normal\n\nDette er ikke tilfeldig — det følger direkte av sentralgrensesetningen fra kapittel 6.4.\n\nTenk på en binomisk situasjon: $n$ uavhengige forsøk, hvert med sannsynlighet $p$ for suksess. La\n\n$$X_i = \\begin{cases} 1 & \\text{hvis forsøk nr. } i \\text{ er en suksess} \\\\ 0 & \\text{ellers} \\end{cases}$$\n\nDa er antall suksesser rett og slett **summen**:\n\n$$X = X_1 + X_2 + \\cdots + X_n$$\n\nOg summen av mange uavhengige variabler er tilnærmet normalfordelt. Det er nøyaktig det sentralgrensesetningen sier.\n\nDen binomiske fordelingen er altså ikke et nytt tilfelle — den er det samme tilfellet som heisen med 50 passasjerer i kapittel 6.4, bare med den enkleste tenkelige enkeltvariabelen: én som bare kan være 0 eller 1.\n\nForventningsverdi og standardavvik har vi allerede fra kapittel 5.5:\n\n$$\\mu = np \\qquad \\text{og} \\qquad \\sigma = \\sqrt{np(1-p)}$$"
+    },
+    {
+      "id": "stat-6-5-fig-binomisk-normal",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-5-binomisk-mot-normal.png",
+      "alt": "Et søylediagram med 19 blå søyler av bredde 1 over den vannrette aksen, som er merket x og har tallene 4, 8, 12, 16, 20, 24, 28 og 32. Den loddrette aksen er merket P av X er lik x. Søylene står fra 11 til 29, er lave ytterst og høyest ved 20, der høyden er omtrent 0,125. Formen er symmetrisk om 20. En oransje klokkeformet kurve er tegnet oppå søylene og følger søyletoppene svært tett hele veien, med toppunkt ved 20. Øverst til venstre står en tegnforklaring: blå rute for binomisk og oransje rute for normalkurven.",
+      "caption": "Den binomiske fordelingen for $n = 40$ og $p = 0{,}50$ (blå søyler), med normalkurven for $\\mu = np = 20$ og $\\sigma = \\sqrt{np(1-p)} = 3{,}16$ tegnet oppå. Søylene har bredde 1, så hver søyles **areal** er lik høyden — og da kan sannsynligheten leses som areal under kurven, akkurat som for en kontinuerlig fordeling.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-5-binomisk-mot-normal.json"
+    },
+    {
+      "id": "stat-6-5-theorem-tilnaerming",
+      "type": "theorem",
+      "title": "Normaltilnærming til binomisk fordeling",
+      "content": "La $X$ være binomisk fordelt med $n$ forsøk og suksessannsynlighet $p$.\n\nDersom\n\n$$np \\ge 5 \\qquad \\text{og} \\qquad n(1-p) \\ge 5$$\n\nkan $X$ regnes som tilnærmet normalfordelt med\n\n$$\\mu = np \\qquad \\text{og} \\qquad \\sigma = \\sqrt{np(1-p)}$$\n\n**Hva kriteriet betyr:** begge halene må ha plass. Er $np$ lite, klumper fordelingen seg opp mot 0 og blir skjev — og en skjev fordeling kan ikke være en klokke. Det samme skjer i den andre enden når $n(1-p)$ er lite.\n\nKriteriet er en tommelfingerregel på linje med $n \\ge 30$ i kapittel 6.4. Noen bøker krever 10 i stedet for 5. Jo nærmere $p$ er 0,5, jo raskere blir tilnærmingen god: ved $p = 0{,}5$ er fordelingen symmetrisk fra første stund."
+    },
+    {
+      "id": "stat-6-5-section-korreksjon",
+      "type": "text",
+      "content": "## Heltallskorreksjonen\n\nNå møter vi et problem som ikke fantes i kapittel 6.4: vi erstatter noe som **teller** med noe som **måler**.\n\n$X$ er et helt tall — 45 pakker, ikke 45,3. Normalfordelingen kjenner ingen slik begrensning.\n\nSe på figuren over. Søylen for $x = 20$ dekker strekningen fra 19,5 til 20,5 — den er én enhet bred, med senter i 20. Skal vi finne arealet som svarer til $P(X \\le 20)$, må vi altså ta arealet under kurven fram til **20,5**, ikke til 20. Gjør vi det siste, mister vi halve den siste søylen.\n\nDenne halve enheten kalles **heltallskorreksjonen**, og den skal alltid med:\n\n| Binomisk spørsmål | Regnes som |\n|---|---|\n| $P(X \\le k)$ | $P(Y \\le k + 0{,}5)$ |\n| $P(X < k)$ | $P(Y \\le k - 0{,}5)$ |\n| $P(X \\ge k)$ | $P(Y \\ge k - 0{,}5)$ |\n| $P(X > k)$ | $P(Y \\ge k + 0{,}5)$ |\n| $P(X = k)$ | $P(k - 0{,}5 \\le Y \\le k + 0{,}5)$ |\n| $P(a \\le X \\le b)$ | $P(a - 0{,}5 \\le Y \\le b + 0{,}5)$ |\n\n**Huskeregelen:** flytt grensen slik at hele søylen kommer med i det du spør om. Spør du om «høyst 45», skal søyle nummer 45 være med — altså ut til 45,5. Spør du om «minst 50», skal søyle nummer 50 med — altså fra 49,5.\n\n**NB:** Den siste raden i tabellen er verdt å merke seg spesielt. For en kontinuerlig variabel er $P(Y = 40) = 0$ (kapittel 5.6), så uten korreksjonen ville normaltilnærmingen svart 0 på hvert eneste «hvor sannsynlig er akkurat $k$?»-spørsmål. Med korreksjonen blir svaret arealet av et smalt bånd — og det stemmer godt."
+    },
+    {
+      "id": "stat-6-5-fig-heltallskorreksjon",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-5-heltallskorreksjon.png",
+      "alt": "Et nærbilde av noen få søyler fra den binomiske fordelingen for n er lik 40 og p er lik 0,5. Den vannrette aksen er finmerket med 17, 18, 19, 19,5, 20, 20,5, 21, 22 og 23. Hver søyle er én enhet bred og strekker seg en halv enhet til hver side av sitt eget heltall. Søylene til og med den venstre halvdelen av søyla over 20 er blå; den høyre halvdelen, fra 20 til 20,5, er rød. Søylene fra 20,5 og oppover er grønne. En glatt oransje normalkurve går gjennom søyletoppene, og en grå stiplet loddrett strek står i 20,5. Øverst står teksten P av X mindre enn eller lik 20 går over til P av Y mindre enn eller lik 20,5, og rett over den røde halve søyla står denne halve søyla mister du uten korreksjon.",
+      "caption": "Heltallskorreksjonen sett på nært hold. Søyla over 20 strekker seg fra 19,5 til 20,5, så hele søyla er med i $P(X \\le 20)$. Stopper du normalkurven ved 20 i stedet for 20,5, mister du den røde halvdelen — og jo mindre $n$ er, desto mer betyr den.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-5-heltallskorreksjon.json"
+    },
+    {
+      "id": "stat-6-5-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Med og uten korreksjon",
+      "problem": "En bedrift vet at 40 % av kundene som får et tilbud, takker ja. Tilbudet sendes til 100 kunder. La $X$ være antall kunder som takker ja.\n\na) Vis at normaltilnærmingen kan brukes, og finn $\\mu$ og $\\sigma$.\nb) Finn $P(X \\le 45)$ med normaltilnærmingen.\nc) Sammenlign med den eksakte binomiske verdien 0,8689.",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* Fordelingen er binomisk med $n = 100$ og $p = 0{,}40$.\n\nVi sjekker kriteriet:\n\n$$np = 100 \\cdot 0{,}40 = 40 \\ge 5 \\quad \\checkmark$$\n\n$$n(1-p) = 100 \\cdot 0{,}60 = 60 \\ge 5 \\quad \\checkmark$$\n\nBegge er godt over 5, så tilnærmingen kan brukes.\n\n$$\\mu = np = 100 \\cdot 0{,}40 = 40$$\n\n$$\\sigma = \\sqrt{np(1-p)} = \\sqrt{100 \\cdot 0{,}40 \\cdot 0{,}60} = \\sqrt{24} \\approx 4{,}90$$\n\n**b)** Vi skriver om med heltallskorreksjonen. «Høyst 45» betyr at søyle nummer 45 skal være med:\n\n$$P(X \\le 45) \\approx P(Y \\le 45{,}5)$$\n\nSå standardiserer vi, som i kapittel 6.2:\n\n$$z = \\frac{45{,}5 - 40}{4{,}899} = \\frac{5{,}5}{4{,}899} = 1{,}12$$\n\n$$P(Y \\le 45{,}5) = P(Z \\le 1{,}12) = 0{,}8686$$\n\n```\nRegneark:   =NORM.FORDELING.N(45,5; 40; ROT(24); SANN)\n```\n\ngir 0,8692.\n\n**c)** Den eksakte verdien er 0,8689. Avviket er\n\n$$|0{,}8692 - 0{,}8689| = 0{,}0003$$\n\n**Hva om vi hadde glemt korreksjonen?** Da hadde vi regnet\n\n$$z = \\frac{45 - 40}{4{,}899} = 1{,}02 \\quad \\Longrightarrow \\quad P(Y \\le 45) = 0{,}8463$$\n\nog bommet med $0{,}0226$ — nesten hundre ganger så mye.\n\n**Svar:** a) $np = 40$ og $n(1-p) = 60$, begge over 5; $\\mu = 40$ og $\\sigma \\approx 4{,}90$. b) $\\approx 0{,}869$. c) Avviket er 0,0003 med korreksjon, mot 0,0226 uten.\n\n**NB:** Legg merke til at halvenheten ikke er en detalj. Her flyttet den svaret med over to prosentpoeng. Jo mindre $\\sigma$ er, jo mer betyr den — for da er én enhet en stor del av spredningen."
+    },
+    {
+      "id": "stat-6-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** I en produksjon er 30 % av enhetene av høyeste kvalitetsklasse. Det produseres 200 enheter. La $X$ være antall enheter i høyeste klasse. Bruk normaltilnærmingen med heltallskorreksjon.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at tilnærmingen kan brukes, og finn $\\mu$ og $\\sigma$.",
+            "solution": "$np = 200 \\cdot 0{,}30 = 60 \\ge 5$ og $n(1-p) = 140 \\ge 5$. $\\mu = 60$ og $\\sigma = \\sqrt{200 \\cdot 0{,}3 \\cdot 0{,}7} = \\sqrt{42} \\approx 6{,}48$.",
+            "answer": 6.48
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\le 70)$.",
+            "solution": "$P(X \\le 70) \\approx P(Y \\le 70{,}5)$. $z = \\frac{70{,}5 - 60}{6{,}481} = 1{,}62$, som gir $0{,}9474$. (Eksakt binomisk: 0,9458.)",
+            "answer": 0.9474
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\ge 50)$.",
+            "solution": "$P(X \\ge 50) \\approx P(Y \\ge 49{,}5)$. $z = \\frac{49{,}5 - 60}{6{,}481} = -1{,}62$, så $P = 1 - 0{,}0526 = 0{,}9474$. (Eksakt: 0,9494.)",
+            "answer": 0.9474
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 60)$.",
+            "solution": "$P(X = 60) \\approx P(59{,}5 \\le Y \\le 60{,}5)$, som gir $0{,}0615$. (Eksakt: 0,0615 — praktisk talt identisk.)",
+            "answer": 0.0615
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(54 \\le X \\le 66)$.",
+            "solution": "$P(53{,}5 \\le Y \\le 66{,}5)$, som gir $0{,}6841$. (Eksakt: 0,6842.)",
+            "answer": 0.6841
+          }
+        ],
+        "hints": [
+          "Flytt alltid grensen en halv enhet slik at hele søylen kommer med.",
+          "«Minst 50» starter på 49,5, «høyst 70» slutter på 70,5."
+        ],
+        "solution": "a) $\\mu = 60$ og $\\sigma \\approx 6{,}48$, b) 0,9474, c) 0,9474, d) 0,0615, e) 0,6841",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-5-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Minst, og nøyaktig",
+      "problem": "Samme situasjon som i eksempel 1: $n = 100$ og $p = 0{,}40$, altså $\\mu = 40$ og $\\sigma \\approx 4{,}90$.\n\na) Finn $P(X \\ge 50)$.\nb) Finn $P(X = 40)$.",
+      "solution": "**Løsning:**\n\n**a)** «Minst 50» betyr at søyle nummer 50 skal være med. Søylen starter i 49,5:\n\n$$P(X \\ge 50) \\approx P(Y \\ge 49{,}5)$$\n\n$$z = \\frac{49{,}5 - 40}{4{,}899} = \\frac{9{,}5}{4{,}899} = 1{,}94$$\n\n$$P(Y \\ge 49{,}5) = 1 - P(Z \\le 1{,}94) = 1 - 0{,}9738 = 0{,}0262$$\n\n*(Eksakt binomisk: 0,0271. Uten korreksjon ville vi fått 0,0206 — altså 24 % for lavt.)*\n\n**b)** Her spør vi om **nøyaktig** 40. For normalfordelingen er sannsynligheten for én enkelt verdi 0, så uten korreksjonen ville svaret blitt 0. Med korreksjonen blir det arealet av søylen fra 39,5 til 40,5:\n\n$$P(X = 40) \\approx P(39{,}5 \\le Y \\le 40{,}5)$$\n\n$$z_1 = \\frac{39{,}5 - 40}{4{,}899} = -0{,}10 \\qquad z_2 = \\frac{40{,}5 - 40}{4{,}899} = 0{,}10$$\n\n$$P = 0{,}5398 - 0{,}4602 = 0{,}0796$$\n\n```\nRegneark:   =NORM.FORDELING.N(40,5; 40; ROT(24); SANN)\n            - NORM.FORDELING.N(39,5; 40; ROT(24); SANN)\n```\n\ngir 0,0813.\n\n**Svar:** a) $\\approx 0{,}026$. b) $\\approx 0{,}081$.\n\n**Kontroll mot det eksakte:** den binomiske formelen gir\n\n$$P(X = 40) = \\binom{100}{40} \\cdot 0{,}40^{40} \\cdot 0{,}60^{60} = 0{,}0812$$\n\nTilnærmingen bommer altså i fjerde desimal. Til et regnestykke som ellers ville krevd en binomialkoeffisient med 100 i, er det ikke verst.\n\n**NB:** Forskjellen mellom tabelloppslag og verktøy gir her et lite avvik (0,0796 mot 0,0813), fordi $z$-verdiene $\\pm 0{,}10$ er kraftig avrundet. Når båndet er smalt, er tabellen med to desimaler for grov — bruk verktøy på denne typen."
+    },
+    {
+      "id": "stat-6-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** I en kommune er 85 % av innbyggerne vaksinert. Det trekkes ut 800 tilfeldige innbyggere. La $X$ være antall vaksinerte blant dem. Bruk verktøy og normaltilnærming med heltallskorreksjon.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at tilnærmingen kan brukes, og finn $\\mu$ og $\\sigma$.",
+            "solution": "$np = 680 \\ge 5$ og $n(1-p) = 120 \\ge 5$. $\\mu = 680$ og $\\sigma = \\sqrt{800 \\cdot 0{,}85 \\cdot 0{,}15} = \\sqrt{102} \\approx 10{,}10$.",
+            "answer": 10.1
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\ge 700)$.",
+            "solution": "$P(Y \\ge 699{,}5)$: $z = \\frac{699{,}5 - 680}{10{,}0995} = 1{,}93$, så $P = 1 - 0{,}9732 = 0{,}0268$. (Eksakt: 0,0247.)",
+            "answer": 0.0268
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\le 660)$.",
+            "solution": "$P(Y \\le 660{,}5)$: $z = -1{,}93$, så $P = 0{,}0268$. (Eksakt: 0,0286.)",
+            "answer": 0.0268
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(670 \\le X \\le 690)$.",
+            "solution": "$P(669{,}5 \\le Y \\le 690{,}5)$, som gir $0{,}7015$. (Eksakt: 0,7016.)",
+            "answer": 0.7015
+          },
+          {
+            "label": "e",
+            "task": "Finn grensen som bare 5 % av utvalgene kommer under.",
+            "solution": "`=NORM.INVERS.N(0,05; 680; ROT(102))` gir $663{,}39$. Vi spør om grensen $k$ der $P(X < k) \\approx 0{,}05$. Siden $X$ bare tar heltallsverdier, er $P(X < k) = P(X \\le k - 1)$, og heltallskorreksjonen flytter grensen en halv enhet oppover: $P(X \\le k - 1) \\approx P(Y \\le k - 0{,}5)$. Vi setter derfor $k - 0{,}5 \\le 663{,}39$, som gir $k \\le 663{,}89$, altså $k = 663$. Under 663 vaksinerte i utvalget skjer i færre enn 5 % av trekningene. (Kontroll med den eksakte binomiske fordelingen: $P(X \\le 662) = 0{,}0435 < 0{,}05$ og $P(X \\le 663) = 0{,}0531 > 0{,}05$.)",
+            "answer": 663
+          }
+        ],
+        "hints": [
+          "Sjekk kriteriet først — begge sider.",
+          "«Minst 700» starter på 699,5; «høyst 660» slutter på 660,5."
+        ],
+        "solution": "a) $\\mu = 680$ og $\\sigma \\approx 10{,}10$, b) 0,0268, c) 0,0268, d) 0,7015, e) omtrent 663",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-5-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Meningsmåling",
+      "problem": "Anta at halvparten av velgerne, altså $p = 0{,}50$, er for et forslag. Et byrå spør 1000 tilfeldige velgere. La $X$ være antall som sier ja.\n\na) Finn $\\mu$ og $\\sigma$.\nb) Finn sannsynligheten for at minst 540 av de spurte sier ja.\nc) Finn sannsynligheten for at minst 520 sier ja.\nd) Hva forteller svarene om hvor mye vi kan stole på en enkelt måling?",
+      "solution": "**Løsning:**\n\n**a)** $$\\mu = np = 1000 \\cdot 0{,}50 = 500$$\n\n$$\\sigma = \\sqrt{np(1-p)} = \\sqrt{1000 \\cdot 0{,}5 \\cdot 0{,}5} = \\sqrt{250} \\approx 15{,}81$$\n\n*(Kriteriet: $np = 500$ og $n(1-p) = 500$, begge langt over 5.)*\n\n**b)** «Minst 540» starter på 539,5:\n\n$$z = \\frac{539{,}5 - 500}{15{,}811} = \\frac{39{,}5}{15{,}811} = 2{,}50$$\n\n$$P(X \\ge 540) \\approx 1 - P(Z \\le 2{,}50) = 1 - 0{,}9938 = 0{,}0062$$\n\n**c)** «Minst 520» starter på 519,5:\n\n$$z = \\frac{519{,}5 - 500}{15{,}811} = 1{,}23$$\n\n$$P(X \\ge 520) \\approx 1 - 0{,}8907 = 0{,}1093$$\n\n*(Med verktøy: 0,1087. Eksakt binomisk: 0,1087.)*\n\n**d)** Se på hva tallene sier. Den sanne oppslutningen er nøyaktig 50 %. Likevel:\n\n- I omtrent **11 %** av målingene vil minst 52 % svare ja.\n- I omtrent **0,6 %** vil minst 54 % svare ja.\n\n**Svar:** a) $\\mu = 500$ og $\\sigma \\approx 15{,}8$. b) $\\approx 0{,}006$. c) $\\approx 0{,}109$. d) Se under.\n\n**Tolkning:** En måling som viser 52 % er ikke noe bevis for flertall. Den kan like gjerne være et tilfeldig utslag av at 1000 mennesker ble spurt i stedet for alle. Standardavviket på 15,8 personer tilsvarer 1,6 prosentpoeng, og to standardavvik — det som skal til før vi begynner å bli overrasket — er over 3 prosentpoeng.\n\nDet er derfor målinger oppgis med **feilmargin**. Hvordan den regnes ut, tar vi i kapittel 7.3."
+    },
+    {
+      "id": "stat-6-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2.** Et parti har en oppslutning på 25 %. Et byrå spør 600 tilfeldige velgere, og $X$ er antall som sier de vil stemme partiet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\mu$ og $\\sigma$.",
+            "solution": "$\\mu = 600 \\cdot 0{,}25 = 150$ og $\\sigma = \\sqrt{600 \\cdot 0{,}25 \\cdot 0{,}75} = \\sqrt{112{,}5} \\approx 10{,}61$.",
+            "answer": 10.61
+          },
+          {
+            "label": "b",
+            "task": "Finn sannsynligheten for at minst 170 svarer at de vil stemme partiet.",
+            "solution": "$P(Y \\ge 169{,}5)$: $z = \\frac{169{,}5 - 150}{10{,}607} = 1{,}84$, så $P = 1 - 0{,}9671 = 0{,}0329$ med tabellen. (Regner verktøyet med uavrundet $z = 1{,}8385$, blir svaret $0{,}0330$. Eksakt binomisk: 0,0343.)",
+            "answer": [
+              0.0329,
+              0.033
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Finn sannsynligheten for at høyst 135 svarer det.",
+            "solution": "$P(Y \\le 135{,}5)$: $z = -1{,}37$, så $P = 0{,}0858$. (Eksakt: 0,0847.)",
+            "answer": 0.0858
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(140 \\le X \\le 160)$.",
+            "solution": "$P(139{,}5 \\le Y \\le 160{,}5)$, som gir $0{,}6778$. (Eksakt: 0,6778.)",
+            "answer": 0.6778
+          },
+          {
+            "label": "e",
+            "task": "Målingen viser 170 av 600. Hvilken oppslutning i prosent er det, og er resultatet overraskende?",
+            "solution": "$\\frac{170}{600} = 0{,}283$, altså 28,3 %. Fra b) skjer et slikt utslag i omtrent 3 % av målingene selv om den sanne oppslutningen er 25 %. Det er lite, men ikke uhørt — resultatet er en indikasjon på framgang, ikke et bevis for den.",
+            "answer": 28.3
+          }
+        ],
+        "hints": [
+          "Sjekk kriteriet, regn $\\mu$ og $\\sigma$, og flytt så grensen en halv enhet.",
+          "I e): sammenlign det målte med hva modellen sier er sannsynlig."
+        ],
+        "solution": "a) $\\mu = 150$ og $\\sigma \\approx 10{,}61$, b) 0,0330, c) 0,0858, d) 0,6778, e) 28,3 % — skjer i omtrent 3 % av målingene",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-5-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Den andre veien — finn antallet",
+      "problem": "Vi fortsetter med meningsmålingen fra eksempel 3: $n = 1000$, $p = 0{,}50$, altså $\\mu = 500$ og $\\sigma \\approx 15{,}81$.\n\nFinn det minste antallet $k$ slik at $P(X \\ge k) \\le 0{,}05$.\n\nMed andre ord: hvor mange ja-svar skal til før resultatet er blant de 5 % mest ekstreme, gitt at den sanne oppslutningen er 50 %?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* At arealet til høyre skal være høyst 0,05. *Hva må vi finne?* Grensen — altså en kvantil, som i kapittel 6.3.\n\n**Skritt 1 — skriv om til «fra venstre».** $P(X \\ge k) \\le 0{,}05$ betyr at arealet til venstre er minst 0,95:\n\n```\nRegneark:   =NORM.INVERS.N(0,95; 500; ROT(250))\n```\n\n$$y = 526{,}0$$\n\n**Skritt 2 — ta hensyn til heltallskorreksjonen.** Grensen 526,0 er en grense for den *kontinuerlige* variabelen $Y$. For den binomiske gjelder $P(X \\ge k) \\approx P(Y \\ge k - 0{,}5)$, så vi må ha\n\n$$k - 0{,}5 \\ge 526{,}0 \\quad \\Longrightarrow \\quad k \\ge 526{,}5$$\n\n**Skritt 3 — rund av til et helt antall.** $X$ teller mennesker, så $k$ må være et helt tall. Det minste hele tallet over 526,5 er\n\n$$k = 527$$\n\n**Kontroll (eksakt binomisk):**\n\n$$P(X \\ge 527) = 0{,}0468 \\le 0{,}05 \\quad \\checkmark$$\n\n$$P(X \\ge 526) = 0{,}0534 > 0{,}05$$\n\nAltså er 527 riktig, og 526 ville vært for lavt.\n\n**Svar:** $k = 527$, altså minst 52,7 % ja-svar i utvalget.\n\n**Tolkning:** Får byrået 527 ja-svar eller flere, er det et resultat som inntreffer i under 5 % av målingene dersom befolkningen i virkeligheten er delt på midten. Da begynner vi å tvile på at den er det.\n\n**Dette er hypotesetesting.** Vi har nettopp regnet ut et *forkastningsområde* uten å kalle det det. I kapittel 7.6 får framgangsmåten navn — men regnestykket er nøyaktig dette.\n\n**NB:** Rund **alltid** av i den retningen som gjør kravet oppfylt. Her måtte vi oppover, fordi 526 ville gitt en for stor sannsynlighet. Runder du feil vei, bryter svaret det kravet oppgaven stiller."
+    },
+    {
+      "id": "stat-6-5-warning-svikt",
+      "type": "warning",
+      "title": "Når tilnærmingen svikter — målt",
+      "content": "Kriteriet er ikke en formalitet. Her er hva som skjer når det brytes.\n\nLa $n = 40$ og $p = 0{,}05$ — for eksempel antall defekte i en sending på 40, når 5 % er defekte. Da er\n\n$$np = 40 \\cdot 0{,}05 = 2 \\qquad \\text{(under 5 — kriteriet er brutt)}$$\n\n$$\\mu = 2 \\qquad \\sigma = \\sqrt{40 \\cdot 0{,}05 \\cdot 0{,}95} \\approx 1{,}38$$\n\nVi regner $P(X \\le 1)$ på begge måter:\n\n| Metode | Svar |\n|---|---|\n| Eksakt binomisk | 0,3991 |\n| Normal med heltallskorreksjon | 0,3584 |\n\nTilnærmingen bommer med 4 prosentpoeng — over 10 % relativt. Og det blir verre: normalmodellen gir\n\n$$P(Y < 0) = 0{,}073$$\n\nDen påstår altså at det er 7 % sannsynlighet for et **negativt antall defekte**. Det er umulig, og det er selve symptomet: kurven er for bred for et område som starter i 0. Fordelingen er skjev, ikke klokkeformet.\n\n**Regelen:** er $np$ eller $n(1-p)$ under 5, skal du regne eksakt binomisk. Det er dessuten den enkleste veien i dag — `=BINOM.FORDELING.N(...)` i et regneark gjør det på ett tastetrykk."
+    },
+    {
+      "id": "stat-6-5-fig-svikt-p005",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-5-svikt-p005.png",
+      "alt": "Et søylediagram der alle søylene er klemt opp mot venstre side av figuren, rundt verdien 2 på den vannrette aksen. Aksen er merket k og viser også negative verdier: minus 8 helt til venstre, der den loddrette aksen står, og deretter minus 6, minus 4, minus 2, 0, 2, 4, 6, 8 og 10. En oransje klokkekurve er lagt over søylene, men kurven fortsetter til venstre forbi 0 og ned mot minus 4. Det området, der kurven ligger over negative verdier, er fylt med rødt. Tekstene P av Y mindre enn 0 er lik 0,073 og negativt antall står ved det røde feltet.",
+      "caption": "Når tilnærmingen svikter. Med $n = 40$ og $p = 0{,}05$ er $np = 2$, altså under 5, og den binomiske fordelingen er presset mot 0. Normalkurven fortsetter forbi 0 og gir sannsynligheten 0,073 til et **negativt** antall defekte — en umulighet. Kriteriene $np \\ge 5$ og $n(1-p) \\ge 5$ finnes nettopp for å hindre dette.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-5-svikt-p005.json"
+    },
+    {
+      "id": "stat-6-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Oversettelse.** La $X$ være binomisk fordelt med $n = 100$ og $p = 0{,}40$, og la $Y$ være den normalfordelte variabelen med $\\mu = 40$ og $\\sigma \\approx 4{,}90$. Skriv om hvert uttrykk med heltallskorreksjon. Du skal ikke regne ut tallene.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$P(X \\le 45)$",
+            "solution": "$P(Y \\le 45{,}5)$ — søyle 45 skal være med."
+          },
+          {
+            "label": "b",
+            "task": "$P(X \\ge 50)$",
+            "solution": "$P(Y \\ge 49{,}5)$ — søyle 50 skal være med."
+          },
+          {
+            "label": "c",
+            "task": "$P(X = 40)$",
+            "solution": "$P(39{,}5 \\le Y \\le 40{,}5)$ — hele søyle 40, og bare den."
+          },
+          {
+            "label": "d",
+            "task": "$P(35 \\le X \\le 45)$",
+            "solution": "$P(34{,}5 \\le Y \\le 45{,}5)$ — begge endesøylene skal være med."
+          },
+          {
+            "label": "e",
+            "task": "$P(X < 50)$",
+            "solution": "$P(Y \\le 49{,}5)$. Her er det lett å bomme: $X < 50$ betyr $X \\le 49$ fordi $X$ er et helt tall, og søyle 49 slutter i 49,5. Legg merke til at svaret er det motsatte av b) — og at grensen 49,5 er den samme i begge, slik den må være."
+          }
+        ],
+        "hints": [
+          "Tegn søylene og spør: hvilke av dem skal være med i det jeg spør om?",
+          "Grensen legges i kanten av den ytterste søylen som skal med."
+        ],
+        "solution": "a) $P(Y \\le 45{,}5)$, b) $P(Y \\ge 49{,}5)$, c) $P(39{,}5 \\le Y \\le 40{,}5)$, d) $P(34{,}5 \\le Y \\le 45{,}5)$, e) $P(Y \\le 49{,}5)$",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Kan tilnærmingen brukes?** Regn ut $np$ og $n(1-p)$, og avgjør om normaltilnærmingen kan brukes.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$n = 30$ og $p = 0{,}50$",
+            "solution": "$np = 15$ og $n(1-p) = 15$. Begge over 5 — tilnærmingen kan brukes, og siden $p = 0{,}5$ er fordelingen symmetrisk, så den er god.",
+            "answer": 15
+          },
+          {
+            "label": "b",
+            "task": "$n = 60$ og $p = 0{,}05$",
+            "solution": "$np = 3$ og $n(1-p) = 57$. $np$ er under 5 — tilnærmingen kan **ikke** brukes. Regn eksakt binomisk.",
+            "answer": 3
+          },
+          {
+            "label": "c",
+            "task": "$n = 400$ og $p = 0{,}01$",
+            "solution": "$np = 4$ og $n(1-p) = 396$. $np$ er under 5 — kan ikke brukes, selv om $n$ er stor. Det er $np$ som teller, ikke $n$ alene.",
+            "answer": 4
+          },
+          {
+            "label": "d",
+            "task": "$n = 80$ og $p = 0{,}95$",
+            "solution": "$np = 76$, men $n(1-p) = 4$. Den øvre halen har ikke plass — kan ikke brukes. Merk at det er den *lille* av de to som avgjør.",
+            "answer": 4
+          },
+          {
+            "label": "e",
+            "task": "I b): regn $P(X \\le 2)$ både eksakt og med tilnærmingen, og mål avviket. Eksakt binomisk gir 0,4174.",
+            "solution": "$\\mu = 3$ og $\\sigma = \\sqrt{60 \\cdot 0{,}05 \\cdot 0{,}95} = \\sqrt{2{,}85} \\approx 1{,}688$. Tilnærmingen gir $P(Y \\le 2{,}5) = 0{,}3835$. Avviket er $0{,}4174 - 0{,}3835 = 0{,}034$, altså over 3 prosentpoeng — nettopp det kriteriet advarte mot.",
+            "answer": 0.3835
+          }
+        ],
+        "hints": [
+          "Regn begge produktene hver gang, og se på den minste.",
+          "Stor $n$ hjelper ikke hvis $p$ er svært liten eller svært stor."
+        ],
+        "solution": "a) ja (15 og 15), b) nei ($np = 3$), c) nei ($np = 4$), d) nei ($n(1-p) = 4$), e) 0,3835 mot 0,4174 — avvik 0,034",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-5-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En binomisk variabel er en **sum** av $n$ uavhengige 0/1-variabler. Derfor gjelder sentralgrensesetningen, og derfor ligner den binomiske fordelingen en klokke når $n$ er stor.\n- **Tilnærmingen:** $X$ regnes som normalfordelt med $\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$.\n- **Kriteriet:** $np \\ge 5$ **og** $n(1-p) \\ge 5$. Det er den minste av de to som avgjør — stor $n$ hjelper ikke alene.\n- **Heltallskorreksjonen** skal alltid med: flytt grensen en halv enhet slik at hele søylen kommer med. «Høyst $k$» blir $k + 0{,}5$, «minst $k$» blir $k - 0{,}5$, og «nøyaktig $k$» blir båndet fra $k - 0{,}5$ til $k + 0{,}5$.\n- Uten korreksjonen bommer svaret systematisk — i eksempel 1 med 0,023 i stedet for 0,0003.\n- Brytes kriteriet, blir fordelingen skjev og tilnærmingen dårlig. Da regner vi **eksakt binomisk**.\n- Regningen etterpå er nøyaktig som i kapittel 6.2 og 6.3: standardiser, eller bruk `NORM.FORDELING.N` direkte.\n\n**Hvorfor lærer vi dette når regnearket kan regne eksakt binomisk?** Fordi tilnærmingen er broen til resten av faget. Konfidensintervall for en andel (kapittel 7.3) og hypotesetest for en andel (kapittel 7.6) bygger begge på at antallet suksesser er tilnærmet normalfordelt. Uten den koblingen ville en meningsmåling ikke kunne oppgi noen feilmargin i det hele tatt.\n\nMed dette er seksjon 6 ferdig. Vi har en modell for enkeltverdier (normalfordelingen), for gjennomsnitt (sentralgrensesetningen) og for andeler (normaltilnærmingen) — og i kapittel 7 snur vi hele apparatet: der er det fordelingen som er ukjent, og dataene som skal fortelle oss om den."
+    },
+    {
+      "id": "stat-6-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave, Del 2.** I en by reiser 12 % av innbyggerne kollektivt til jobb. Et transportselskap spør 2500 tilfeldige yrkesaktive. La $X$ være antall som reiser kollektivt.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at normaltilnærmingen kan brukes, og finn $\\mu$ og $\\sigma$.",
+            "solution": "$np = 2500 \\cdot 0{,}12 = 300 \\ge 5$ og $n(1-p) = 2200 \\ge 5$. $\\mu = 300$ og $\\sigma = \\sqrt{2500 \\cdot 0{,}12 \\cdot 0{,}88} = \\sqrt{264} \\approx 16{,}25$.",
+            "answer": 16.25
+          },
+          {
+            "label": "b",
+            "task": "Finn sannsynligheten for at minst 330 svarer at de reiser kollektivt.",
+            "solution": "$P(Y \\ge 329{,}5)$: $z = \\frac{329{,}5 - 300}{16{,}248} = 1{,}82$, som gir $1 - 0{,}9656 = 0{,}0347$. (Eksakt binomisk: 0,0360.)",
+            "answer": 0.0347
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(280 \\le X \\le 320)$.",
+            "solution": "$P(279{,}5 \\le Y \\le 320{,}5)$, som gir $0{,}7929$. (Eksakt: 0,7930.)",
+            "answer": 0.7929
+          },
+          {
+            "label": "d",
+            "task": "Finn antallet som bare 1 % av undersøkelsene kommer over.",
+            "solution": "`=NORM.INVERS.N(0,99; 300; ROT(264))` gir $337{,}8$, og med heltallskorreksjon $338{,}3$ — altså 338 personer. (Den eksakte binomiske kvantilen er også 338.)",
+            "answer": 338
+          },
+          {
+            "label": "e",
+            "task": "Undersøkelsen viser 330 av 2500. Selskapet melder at «andelen kollektivreisende har økt fra 12 % til 13,2 %». Vurder påstanden.",
+            "solution": "$\\frac{330}{2500} = 0{,}132$, altså 13,2 % i utvalget. Men fra b) vet vi at et utslag på minst 330 skjer i omtrent 3,5 % av undersøkelsene **selv om den sanne andelen fortsatt er 12 %**. Målingen er altså et svakt tegn på økning, ikke et bevis. Skal selskapet kunne si at andelen har økt, må det enten ha en større undersøkelse eller gjenta målingen — og formelt bør påstanden prøves med en hypotesetest (kapittel 7.6). Formuleringen «har økt» er uansett for sterk for ett måleresultat.",
+            "answer": 13.2
+          }
+        ],
+        "hints": [
+          "Sjekk kriteriet, regn $\\mu$ og $\\sigma$, og bruk heltallskorreksjon på alle grensene.",
+          "I e): spør hvor sannsynlig resultatet er *dersom ingenting har endret seg*."
+        ],
+        "solution": "a) $\\mu = 300$ og $\\sigma \\approx 16{,}25$, b) 0,0347, c) 0,7929, d) 338 personer, e) 13,2 % i utvalget — men et slikt utslag skjer i 3,5 % av målingene uten noen reell økning",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-5-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Heltallskorreksjonen er en detalj som ikke betyr noe i praksis.» Drøft.",
+            "solution": "Det kommer an på $\\sigma$. Korreksjonen flytter grensen en halv enhet, og hvor mye det betyr, avhenger av hvor stor en halv enhet er i forhold til spredningen. I eksempel 1 var $\\sigma \\approx 4{,}9$, og korreksjonen endret svaret med 0,023 — fra et avvik på 0,0226 til 0,0003. Er $\\sigma = 50$, betyr den nesten ingenting. Er $\\sigma = 2$, er den avgjørende. Regelen er derfor enkel: ta den alltid med, så slipper du å vurdere."
+          },
+          {
+            "label": "b",
+            "task": "«Siden regneark kan regne eksakt binomisk, er normaltilnærmingen overflødig.» Drøft.",
+            "solution": "Som regnemetode er den langt på vei erstattet — `BINOM.FORDELING.N` er både enklere og riktigere. Men tilnærmingen er ikke bare en regnemetode: den er grunnlaget for feilmargin, konfidensintervall for andeler og hypotesetest for andeler. Alle disse bygger på at antall suksesser er tilnærmet normalfordelt, og på at $\\sigma = \\sqrt{np(1-p)}$ måler usikkerheten i en måling. Uten den koblingen kunne vi regne enkeltsannsynligheter, men ikke si noe om hvor presis en undersøkelse er."
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor krever kriteriet **begge** produktene, og ikke bare at $n$ er stor?",
+            "solution": "Fordi det er avstanden fra $\\mu$ til kanten som avgjør om fordelingen får plass til å være symmetrisk. Ligger $\\mu = np$ tett på 0, blir venstre hale klemt mot null og fordelingen høyreskjev. Ligger $\\mu$ tett på $n$, skjer det motsatte. Med $n = 400$ og $p = 0{,}01$ er $n$ stor, men $np = 4$ — fordelingen er da samlet om 0 til 10, og er tydelig skjev."
+          },
+          {
+            "label": "d",
+            "task": "Et byrå spør 1000 velgere og finner 52 % oppslutning for et forslag. En avis skriver «flertall for forslaget». Drøft.",
+            "solution": "Overskriften går lenger enn tallene. Fra eksempel 3 vet vi at hvis den sanne oppslutningen er nøyaktig 50 %, vil omtrent 11 % av målingene vise minst 52 %. Et slikt utslag er altså helt vanlig uten at det finnes noe flertall. Avisen forveksler det som er målt i utvalget med det som gjelder i befolkningen — og utelater usikkerheten, som her er rundt 1,6 prosentpoeng per standardavvik."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er $\\sigma = \\sqrt{np(1-p)}$ størst når $p = 0{,}5$, og hva betyr det for meningsmålinger?",
+            "solution": "Produktet $p(1-p)$ er størst når de to faktorene er like, altså ved $p = 0{,}5$, der det er 0,25. Ved $p = 0{,}1$ er det 0,09, og ved $p = 0{,}01$ bare 0,0099. Det betyr at usikkerheten i en måling er størst for de jevnstore alternativene — et parti på 50 % har større absolutt usikkerhet enn et parti på 3 %. Derfor bruker byråene $p = 0{,}5$ når de skal oppgi én feilmargin for hele målingen: det gir det mest forsiktige anslaget."
+          }
+        ],
+        "hints": [
+          "Skill mellom hva som er målt i utvalget og hva som gjelder i befolkningen.",
+          "I e): regn ut $p(1-p)$ for noen verdier av $p$ og se etter mønsteret."
+        ],
+        "solution": "a) Betyr mest når $\\sigma$ er liten — ta den alltid med. b) Som regnemetode nesten, men ikke som grunnlag for feilmargin og hypotesetest. c) Fordi det er den minste halen som avgjør om formen blir symmetrisk. d) 11 % av målingene viser minst 52 % selv uten flertall. e) $p(1-p)$ er størst ved $p = 0{,}5$, som gir den mest forsiktige feilmarginen.",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Normaltilnærming",
+      "definition": "Å regne binomiske sannsynligheter med normalfordelingen, med $\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$."
+    },
+    {
+      "term": "Kriteriet np ≥ 5",
+      "definition": "Tommelfingerregelen for når tilnærmingen kan brukes: både $np \\ge 5$ og $n(1-p) \\ge 5$. Det er den minste av de to som avgjør."
+    },
+    {
+      "term": "Heltallskorreksjon",
+      "definition": "Halvenheten som legges til eller trekkes fra grensen, slik at hele søylen kommer med: $P(X \\le k) \\approx P(Y \\le k + 0{,}5)$ og $P(X \\ge k) \\approx P(Y \\ge k - 0{,}5)$."
+    },
+    {
+      "term": "Feilmargin",
+      "definition": "Uttrykk for hvor mye et måleresultat i et utvalg kan avvike fra den sanne andelen i befolkningen. Den bygger på $\\sigma = \\sqrt{np(1-p)}$ og regnes ut i kapittel 7.3."
+    }
+  ]
+}

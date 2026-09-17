@@ -1,0 +1,274 @@
+{
+  "id": "matok-3-5",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "3.5",
+  "title": "Pris som funksjon av kvantum",
+  "description": "Fra lineær etterspørsel q(p) til omvendt funksjon p(q), og hva stigningstallet betyr.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"
+  ],
+  "keyTerms": [
+    { "term": "Etterspørselsfunksjon", "definition": "$q(p)$ — hvor mange enheter som blir solgt ved prisen $p$. Er den lineær, skrives den $q(p) = c - d \\cdot p$ med $d > 0$." },
+    { "term": "Omvendt funksjon", "definition": "Den funksjonen som gjør det motsatte. Den omvendte til $q$ heter $q^{-1}$, og i økonomi skriver vi den $p(q)$ — prisen som funksjon av kvantum." },
+    { "term": "Prisfølsomhet", "definition": "Stigningstallet i $q(p)$: hvor mange færre enheter som blir solgt for hver krone prisen settes opp." },
+    { "term": "Inntektsfunksjon", "definition": "$I(q) = q \\cdot p(q)$ — antall enheter ganget med prisen de selges for." },
+    { "term": "Definisjonsmengde", "definition": "De verdiene modellen gjelder for. Her kreves både $q \\geq 0$ og $p \\geq 0$, og i tillegg bør vi holde oss nær de prisene som faktisk er målt." }
+  ],
+  "content": [
+    {
+      "id": "matok-3-5-intro",
+      "type": "text",
+      "content": "## To spørsmål om det samme\n\nEt bakeri kan stille spørsmålet på to måter:\n\n- «Hvis vi tar **45 kroner** for kaken, hvor mange selger vi?»\n- «Hvis vi vil selge **600 kaker**, hva må prisen være?»\n\nDet er nøyaktig den samme sammenhengen begge gangene. Men de to spørsmålene gir to forskjellige funksjoner:\n\n$$q(p) \\quad \\text{— kvantum som funksjon av pris}$$\n$$p(q) \\quad \\text{— pris som funksjon av kvantum}$$\n\nDen ene er den **omvendte funksjonen** til den andre: den gjør det motsatte.\n\nHvorfor bry seg med begge? Fordi den som skal regne ut **inntekten**, trenger $p(q)$. Inntekten er antall enheter ganget med prisen, og skal den bli en funksjon av produksjonen, må prisen uttrykkes ved $q$. Det er derfor dette kapittelet er broen over til kapittel 6 og 7, der vi finner det produksjonstallet som gir størst overskudd.\n\nI dette kapittelet er $q(p)$ alltid **lineær**. Da er regningen enkel — det er tolkningen som krever ettertanke."
+    },
+    {
+      "id": "matok-3-5-def-ettersporsel",
+      "type": "definition",
+      "title": "Lineær etterspørsel",
+      "content": "En **lineær etterspørselsfunksjon** har formen\n\n$$q(p) = c - d \\cdot p$$\n\nder $c$ og $d$ er positive tall.\n\n- $c$ er hvor mange som ville tatt varen hvis den var gratis ($p = 0$).\n- $d$ er **prisfølsomheten**: hvor mange færre enheter som blir solgt for hver krone prisen settes opp.\n\nStigningstallet er $-d$, altså **negativt**. Det er ikke en matematisk tilfeldighet: høyere pris gir færre kjøpere. En etterspørselsfunksjon med positivt stigningstall ville sagt at folk kjøper mer jo dyrere det blir — og da er det som regel modellen, ikke kundene, det er noe galt med."
+    },
+    {
+      "id": "matok-3-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fra to målinger til en etterspørselsfunksjon",
+      "problem": "Et bakeri har prøvd to priser på en kake. Ved $30$ kroner solgte de $900$ kaker i måneden. Ved $45$ kroner solgte de $600$.\n\nFinn en lineær etterspørselsfunksjon $q(p)$.",
+      "solution": "**Hva vet vi?** To punkter: $(30,\\ 900)$ og $(45,\\ 600)$. Legg merke til at **prisen er førstekoordinaten** — det er den som er den frie variabelen her. **Hva må vi finne?** En rett linje gjennom de to punktene.\n\n**Steg 1 — stigningstallet.** Vi bruker formelen for stigningstall:\n\n$$a = \\frac{q_2 - q_1}{p_2 - p_1} = \\frac{600 - 900}{45 - 30} = \\frac{-300}{15} = -20$$\n\n**Tolkningen, i to trinn.** Først generelt: hver gang $p$ øker med 1, synker $q$ med 20. Så i bakeriets språk: **for hver krone prisen settes opp, selger de 20 færre kaker i måneden.**\n\n**Steg 2 — hele funksjonen.** Vi tar utgangspunkt i punktet $(30,\\ 900)$:\n\n$$q(p) = 900 - 20(p - 30)$$\n$$q(p) = 900 - 20p + 600$$\n$$q(p) = 1500 - 20p$$\n\n**Kontroll i det andre punktet:**\n\n$$q(45) = 1500 - 20 \\cdot 45 = 1500 - 900 = 600$$\n\nså det stemmer.\n\n**Svar:** $q(p) = 1500 - 20p$.\n\nDe to tallene har hver sin betydning: $1500$ er hvor mange kaker bakeriet ville blitt kvitt gratis, og $20$ er prisfølsomheten. Ved $p = 75$ kroner er $q = 0$ — da er det ingen kjøpere igjen."
+    },
+    {
+      "id": "matok-3-5-fig-ettersporsel",
+      "type": "dynamic-plot",
+      "title": "Etterspørselen $q(p)$ — pris langs førsteaksen",
+      "description": "En rett, fallende linje. Ved prisen null er salget 1500 kaker; ved prisen 30 kroner er det 900 kaker; ved 45 kroner er det 600 kaker; og ved 75 kroner er salget null. De to målte punktene (30 | 900) og (45 | 600) er markert på linja.",
+      "xRange": [0, 80],
+      "yRange": [0, 1600],
+      "xLabel": "p (kroner)",
+      "yLabel": "q (antall kaker)",
+      "functions": [
+        { "label": "$q(p) = 1500 - 20p$", "expression": "1500-20*x", "style": "solid" }
+      ],
+      "points": [
+        { "x": 30, "y": 900, "label": "(30 | 900)" },
+        { "x": 45, "y": 600, "label": "(45 | 600)" }
+      ],
+      "height": 360
+    },
+    {
+      "id": "matok-3-5-teorem-omvendt",
+      "type": "theorem",
+      "title": "Å finne $p(q)$",
+      "content": "Den omvendte funksjonen til $q$ heter $q^{-1}$ («q invers»). I økonomi gir vi den navnet $p(q)$, fordi den svarer på hva **prisen** må være.\n\nVi finner den ved å **løse likningen for $p$** — med samme operasjon på begge sider, akkurat som ellers:\n\n$$q = c - d \\cdot p \\qquad | + d \\cdot p$$\n$$q + d \\cdot p = c \\qquad | - q$$\n$$d \\cdot p = c - q \\qquad | : d$$\n$$p(q) = \\frac{c - q}{d}$$\n\nNB: Vi **bytter ikke om på bokstavene**. Det er en oppskrift som brukes i matematikkfag der alt heter $x$ og $y$, men her har bokstavene betydning: $p$ er pris i kroner og $q$ er antall enheter. De to funksjonene $q(p)$ og $p(q)$ beskriver den samme sammenhengen, sett fra hver sin side.\n\n**Kontrollen er alltid den samme:** sett et tall inn i den ene og svaret inn i den andre. Kommer du tilbake dit du startet, er den omvendte riktig."
+    },
+    {
+      "id": "matok-3-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Den omvendte funksjonen",
+      "problem": "Bakeriet fra Eksempel 1 har $q(p) = 1500 - 20p$. Finn $p(q)$, og bruk den til å svare på: hva må prisen være hvis de vil selge $600$ kaker?",
+      "solution": "**Hva må vi finne?** Et uttrykk der $p$ står alene på venstre side.\n\nVi løser likningen for $p$:\n\n$$q = 1500 - 20p \\qquad | + 20p$$\n$$q + 20p = 1500 \\qquad | - q$$\n$$20p = 1500 - q \\qquad | : 20$$\n$$p = \\frac{1500 - q}{20}$$\n\nVi deler opp brøken, så uttrykket blir lettere å lese:\n\n$$p(q) = \\frac{1500}{20} - \\frac{q}{20} = 75 - \\frac{q}{20}$$\n\n**Kontroll.** I Eksempel 1 fant vi at prisen $45$ kroner gir $600$ kaker. Setter vi $q = 600$ inn i den omvendte, må vi komme tilbake til $45$:\n\n$$p(600) = 75 - \\frac{600}{20} = 75 - 30 = 45$$\n\nså det stemmer.\n\n**Svar:** $p(q) = 75 - \\dfrac{q}{20}$, og prisen må være $45$ kroner for å selge $600$ kaker.\n\nLegg merke til hva tallene betyr nå: $75$ er den prisen der salget er null (den høyeste prisen noen vil betale i modellen), og $\\frac{1}{20}$ sier hvor mye prisen må ned for hver ekstra kake bakeriet vil bli kvitt."
+    },
+    {
+      "id": "matok-3-5-fig-omvendt",
+      "type": "dynamic-plot",
+      "title": "Den omvendte $p(q)$ — kvantum langs førsteaksen",
+      "description": "Samme sammenheng som forrige figur, men nå med antall kaker langs førsteaksen og pris langs andreaksen. Linja starter på 75 kroner ved null kaker og faller til null kroner ved 1500 kaker. Punktene (600 | 45) og (900 | 30) er markert — de samme to målingene som før, med koordinatene byttet om.",
+      "xRange": [0, 1600],
+      "yRange": [0, 80],
+      "xLabel": "q (antall kaker)",
+      "yLabel": "p (kroner)",
+      "functions": [
+        { "label": "$p(q) = 75 - \\frac{q}{20}$", "expression": "75-x/20", "style": "solid" }
+      ],
+      "points": [
+        { "x": 600, "y": 45, "label": "(600 | 45)" },
+        { "x": 900, "y": 30, "label": "(900 | 30)" }
+      ],
+      "height": 360
+    },
+    {
+      "id": "matok-3-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-5-oppg-1",
+        "number": "3.5.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En nettbutikk selger $q(p) = 800 - 4p$ enheter i uka når prisen er $p$ kroner.",
+        "subTasks": [
+          { "label": "a", "task": "Hvor mange enheter selges ved prisen 50 kroner?", "solution": "$q(50) = 800 - 4 \\cdot 50 = 800 - 200 = 600$ enheter.", "answer": 600 },
+          { "label": "b", "task": "Hvor mange selges ved 150 kroner?", "solution": "$q(150) = 800 - 600 = 200$ enheter.", "answer": 200 },
+          { "label": "c", "task": "Hva er den høyeste prisen butikken kan ta og fortsatt selge noe?", "solution": "$800 - 4p = 0$ gir $4p = 800$ og $p = 200$ kroner. Ved 200 kroner er salget null, så prisen må være under 200 kroner.", "answer": 200 },
+          { "label": "d", "task": "Hva forteller tallet 4 i uttrykket?", "solution": "At salget synker med 4 enheter for hver krone prisen settes opp — prisfølsomheten. Setter butikken prisen opp 10 kroner, selger de 40 færre enheter." },
+          { "label": "e", "task": "Regn ut inntekten ($q \\cdot p$) ved 50, 100 og 150 kroner. Hvilken av de tre prisene gir størst inntekt?", "solution": "Ved 50 kr: $600 \\cdot 50 = 30\\,000$ kr. Ved 100 kr: $400 \\cdot 100 = 40\\,000$ kr. Ved 150 kr: $200 \\cdot 150 = 30\\,000$ kr. Prisen 100 kroner gir størst inntekt av de tre.", "answer": [30000, 40000, 30000] }
+        ],
+        "solution": "a) 600 enheter, b) 200 enheter, c) 200 kroner, d) salget synker med 4 enheter per krone, e) 30 000 / 40 000 / 30 000 kr — 100 kroner gir mest",
+        "hints": ["Sett prisen inn for $p$ i uttrykket.", "I e): inntekt er antall ganger pris."],
+        "competenceGoals": ["bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hva de to stigningstallene betyr",
+      "problem": "Bakeriet har $q(p) = 1500 - 20p$ og $p(q) = 75 - \\frac{q}{20}$.\n\na) Hva er stigningstallet i hver av dem, og hva betyr de?\n\nb) Hva er sammenhengen mellom de to tallene?",
+      "solution": "**a)** I $q(p) = 1500 - 20p$ er stigningstallet $-20$. Enheten er **antall kaker per krone**:\n\n> Setter bakeriet prisen opp med én krone, selger de 20 færre kaker.\n\nI $p(q) = 75 - \\frac{q}{20}$ er stigningstallet $-\\frac{1}{20} = -0{,}05$. Enheten er **kroner per kake**:\n\n> Skal bakeriet selge én kake til, må prisen ned med 5 øre.\n\n**b)** De to tallene er hverandres omvendte:\n\n$$-20 \\qquad \\text{og} \\qquad -\\frac{1}{20}$$\n\nGanger vi dem sammen, får vi $(-20) \\cdot \\left(-\\frac{1}{20}\\right) = 1$.\n\n**Svar:** a) $-20$ kaker per krone og $-0{,}05$ kroner per kake. b) De er hverandres omvendte; produktet er 1.\n\n**Hvorfor må det være slik?** Se på enhetene. Det ene tallet måles i *kaker per krone*, det andre i *kroner per kake*. Snur du en brøk på hodet, snur enheten seg med. Det er den samme sammenhengen sett fra hver sin side — akkurat som at «tre kroner per kilo» og «ett tredjedels kilo per krone» sier det samme.\n\nNB: Det er lett å blande de to tallene. Spør deg alltid: **hva er det jeg endrer, og hva er det jeg vil vite?** Endrer du prisen og vil vite salget, bruker du $-20$. Endrer du salget og vil vite prisen, bruker du $-0{,}05$."
+    },
+    {
+      "id": "matok-3-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-5-oppg-2",
+        "number": "3.5.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som Eksempel 1 og 2. En kulturscene har prøvd to billettpriser. Ved $400$ kroner ble det solgt $1200$ billetter, ved $550$ kroner ble det solgt $900$.",
+        "subTasks": [
+          { "label": "a", "task": "Finn stigningstallet, og tolk det.", "solution": "$a = \\frac{900 - 1200}{550 - 400} = \\frac{-300}{150} = -2$. For hver krone billettprisen settes opp, selges det 2 færre billetter.", "answer": -2 },
+          { "label": "b", "task": "Finn $q(p)$.", "solution": "$q(p) = 1200 - 2(p - 400) = 1200 - 2p + 800 = 2000 - 2p$. Kontroll: $q(550) = 2000 - 1100 = 900$ — så det stemmer.", "expressionAnswer": "2000-2p" },
+          { "label": "c", "task": "Finn $p(q)$.", "solution": "$q = 2000 - 2p$ gir $2p = 2000 - q$ og $p(q) = 1000 - \\frac{q}{2}$. Kontroll: $p(900) = 1000 - 450 = 550$ — så det stemmer.", "expressionAnswer": "1000-q/2" },
+          { "label": "d", "task": "Salen rommer $1400$ personer. Hva må billettprisen være for at salen blir full?", "solution": "$p(1400) = 1000 - 700 = 300$ kroner.", "answer": 300 },
+          { "label": "e", "task": "Hva er den høyeste prisen modellen sier at noen vil betale, og hvor mange ville kommet gratis?", "solution": "Høyeste pris: $q(p) = 0$ gir $p = 1000$ kroner. Gratis: $q(0) = 2000$ personer — men salen rommer bare 1400, så modellen sier mer enn lokalet klarer.", "answer": [1000, 2000] }
+        ],
+        "solution": "a) $-2$ — 2 færre billetter per krone, b) $q(p) = 2000 - 2p$, c) $p(q) = 1000 - \\frac{q}{2}$, d) 300 kroner, e) 1000 kroner, og 2000 ville kommet gratis",
+        "hints": ["Prisen er førstekoordinaten i $q(p)$.", "I c): løs likningen for $p$ — ikke bytt om bokstavene."],
+        "competenceGoals": ["bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-5-oppg-3",
+        "number": "3.5.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Finn $p(q)$, og oppgi stigningstallet i begge funksjonene.",
+        "subTasks": [
+          { "label": "a", "task": "$q(p) = 800 - 4p$", "solution": "$4p = 800 - q$ gir $p(q) = 200 - \\frac{q}{4}$. Stigningstall: $-4$ og $-\\frac{1}{4} = -0{,}25$.", "expressionAnswer": "200-q/4" },
+          { "label": "b", "task": "$q(p) = 5000 - 50p$", "solution": "$50p = 5000 - q$ gir $p(q) = 100 - \\frac{q}{50}$. Stigningstall: $-50$ og $-0{,}02$.", "expressionAnswer": "100-q/50" },
+          { "label": "c", "task": "$q(p) = 1200 - 15p$", "solution": "$15p = 1200 - q$ gir $p(q) = 80 - \\frac{q}{15}$. Stigningstall: $-15$ og $-\\frac{1}{15} \\approx -0{,}0667$.", "expressionAnswer": "80-q/15" },
+          { "label": "d", "task": "$q(p) = 240 - 0{,}8p$", "solution": "$0{,}8p = 240 - q$ gir $p(q) = \\frac{240 - q}{0{,}8} = 300 - 1{,}25q$. Stigningstall: $-0{,}8$ og $-1{,}25$.", "expressionAnswer": "300-1.25*q" },
+          { "label": "e", "task": "Kontroller i hvert tilfelle at produktet av de to stigningstallene er 1.", "solution": "a) $(-4) \\cdot \\left(-0{,}25\\right) = 1$. b) $(-50) \\cdot (-0{,}02) = 1$. c) $(-15) \\cdot \\left(-\\frac{1}{15}\\right) = 1$. d) $(-0{,}8) \\cdot (-1{,}25) = 1$. Det må bli slik: den omvendte funksjonen har alltid det omvendte stigningstallet.", "answer": 1 }
+        ],
+        "solution": "a) $200 - \\frac{q}{4}$, b) $100 - \\frac{q}{50}$, c) $80 - \\frac{q}{15}$, d) $300 - 1{,}25q$, e) produktet er 1 i alle fire",
+        "hints": ["Flytt $p$-leddet over, og del til slutt på tallet foran $p$.", "I d): $\\frac{240}{0{,}8} = 300$ og $\\frac{1}{0{,}8} = 1{,}25$."],
+        "competenceGoals": ["bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-5-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Inntekten når prisen avhenger av mengden",
+      "problem": "Bakeriet har $p(q) = 75 - \\frac{q}{20}$.\n\na) Sett opp inntektsfunksjonen $I(q)$.\n\nb) Hvor mange kaker gir størst inntekt, og hvor stor er den?\n\nc) Hva må prisen være da?",
+      "solution": "**a)** Inntekten er antall enheter ganget med prisen de selges for:\n\n$$I(q) = q \\cdot p(q)$$\n$$I(q) = q\\left(75 - \\frac{q}{20}\\right)$$\n\nVi ganger ut parentesen:\n\n$$I(q) = 75q - \\frac{q^{2}}{20}$$\n\nDette er en **andregradsfunksjon** med negativ koeffisient foran $q^2$, så grafen er en parabel med toppunkt.\n\n**b)** Nullpunktene finner vi ved å faktorisere:\n\n$$q\\left(75 - \\frac{q}{20}\\right) = 0$$\n\nNullregelen gir $q = 0$ eller $75 - \\frac{q}{20} = 0$, altså $q = 1500$.\n\nParabelen er symmetrisk om midten mellom nullpunktene:\n\n$$q = \\frac{0 + 1500}{2} = 750$$\n\n$$I(750) = 75 \\cdot 750 - \\frac{750^{2}}{20} = 56\\,250 - \\frac{562\\,500}{20} = 56\\,250 - 28\\,125 = 28\\,125$$\n\n**c)**\n\n$$p(750) = 75 - \\frac{750}{20} = 75 - 37{,}5 = 37{,}5$$\n\n**Svar:** a) $I(q) = 75q - \\dfrac{q^2}{20}$. b) $750$ kaker gir størst inntekt, $28\\,125$ kroner. c) Prisen må være $37{,}50$ kroner.\n\n**Hvorfor finnes det et toppunkt i det hele tatt?** Fordi to krefter drar mot hverandre. Setter bakeriet prisen opp, tjener de mer på hver kake — men selger færre. Setter de prisen ned, selger de flere — men tjener mindre på hver. Et sted imellom ligger det beste punktet, og her er det midt mellom de to ytterpunktene.\n\nNB: **Størst inntekt er ikke det samme som størst overskudd.** Kakene koster noe å lage, og da flytter det beste punktet seg. Det regner vi på i kapittel 7 — og da bruker vi derivasjon i stedet for symmetri, fordi funksjonene sjelden er så snille som denne."
+    },
+    {
+      "id": "matok-3-5-fig-inntekt",
+      "type": "dynamic-plot",
+      "title": "Inntekten $I(q)$",
+      "description": "En parabel som åpner nedover. Den starter i null når ingen kaker selges, stiger til toppunktet 28 125 kroner ved 750 kaker, og faller tilbake til null ved 1500 kaker. Toppunktet er markert.",
+      "xRange": [0, 1600],
+      "yRange": [0, 32000],
+      "xLabel": "q (antall kaker)",
+      "yLabel": "I (kroner)",
+      "functions": [
+        { "label": "$I(q) = 75q - \\frac{q^2}{20}$", "expression": "75*x-x^2/20", "style": "solid" }
+      ],
+      "points": [
+        { "x": 750, "y": 28125, "label": "(750 | 28 125)" }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-3-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-5-oppg-4",
+        "number": "3.5.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et gartneri selger $q(p) = 4500 - 30p$ blomsterkasser i sesongen når prisen er $p$ kroner.",
+        "subTasks": [
+          { "label": "a", "task": "Finn $p(q)$.", "solution": "$30p = 4500 - q$ gir $p(q) = 150 - \\frac{q}{30}$.", "expressionAnswer": "150-q/30" },
+          { "label": "b", "task": "Gartneriet vurderer å sette prisen opp med 10 kroner. Hvor mange færre kasser selger de da?", "solution": "Stigningstallet i $q(p)$ er $-30$, så $10 \\cdot 30 = 300$ færre kasser. Kontroll: $q(100) = 1500$ og $q(110) = 1200$.", "answer": 300 },
+          { "label": "c", "task": "Gartneriet vil selge 150 flere kasser. Hvor mye må prisen ned?", "solution": "Stigningstallet i $p(q)$ er $-\\frac{1}{30}$, så prisen må ned $\\frac{150}{30} = 5$ kroner. Kontroll: $p(1500) = 100$ og $p(1650) = 95$.", "answer": 5 },
+          { "label": "d", "task": "Sett opp inntektsfunksjonen $I(q)$, og finn hvor mange kasser som gir størst inntekt.", "solution": "$I(q) = q\\left(150 - \\frac{q}{30}\\right) = 150q - \\frac{q^2}{30}$. Nullpunktene er $q = 0$ og $q = 4500$, så toppunktet ligger i $q = 2250$. Da er $I = 150 \\cdot 2250 - \\frac{2250^2}{30} = 337\\,500 - 168\\,750 = 168\\,750$ kroner.", "answer": 2250 },
+          { "label": "e", "task": "Hva må prisen være for å selge det antallet, og hva er inntekten?", "solution": "$p(2250) = 150 - 75 = 75$ kroner, og inntekten er $2250 \\cdot 75 = 168\\,750$ kroner — det samme som i d), slik det skal være.", "answer": [75, 168750] }
+        ],
+        "solution": "a) $p(q) = 150 - \\frac{q}{30}$, b) 300 færre, c) 5 kroner ned, d) 2250 kasser, e) 75 kroner og 168 750 kroner",
+        "hints": ["I b) og c): pass på hvilken av de to funksjonene spørsmålet gjelder.", "Toppunktet i en parabel ligger midt mellom nullpunktene."],
+        "competenceGoals": ["bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-5-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Hvor gjelder modellen?",
+      "problem": "Bakeriet har $q(p) = 1500 - 20p$. En medarbeider setter inn $p = 100$ og får $q = -500$.\n\nHva er galt, og hvilket område gjelder modellen for?",
+      "solution": "**Hva er galt:** $-500$ kaker gir ingen mening. Man kan ikke selge et negativt antall.\n\nFeilen er ikke i regningen — den er riktig. Feilen er at funksjonen ble brukt **utenfor sitt gyldighetsområde**.\n\n**Hvilket område gjelder?** To krav må være oppfylt samtidig:\n\n**Krav 1 — antallet kan ikke være negativt:** $q \\geq 0$\n\n$$1500 - 20p \\geq 0 \\qquad | + 20p$$\n$$1500 \\geq 20p \\qquad | : 20$$\n$$75 \\geq p$$\n\n**Krav 2 — prisen kan ikke være negativ:** $p \\geq 0$.\n\nTil sammen:\n\n$$0 \\leq p \\leq 75 \\qquad \\text{og} \\qquad 0 \\leq q \\leq 1500$$\n\n![Et koordinatsystem med pris p i kroner fra 0 til 110 vannrett og antall q fra −700 til 1600 loddrett. En blå rett linje merket «q(p) = 1500 − 20p» starter i 1500 ved p lik 0, krysser den vannrette aksen ved p lik 75 og fortsetter ned under aksen. Området mellom linja og aksen fra p lik 0 til p lik 75 er farget grønt og merket «modellen gjelder her». En grå stiplet loddrett linje står ved p lik 75 og er merket «p = 75». Til høyre for den står «utenfor modellen: q < 0» i rødt. Punktet (100 | −500) er markert med en åpen ring.](/images/content/matematikk-okonomi/matok-3-5-gyldighetsomrade.png)\n\n*Modellen gir tall for alle priser, men bare tallene i det grønne området har mening. Ved $p = 100$ er svaret $-500$ kaker — regningen er riktig, men spørsmålet ligger utenfor gyldighetsområdet.*\n\n**Svar:** Modellen gjelder for priser fra og med 0 til og med 75 kroner, som svarer til et salg fra og med 0 til og med 1500 kaker. Ved $p = 100$ er vi utenfor, og svaret er meningsløst.\n\n**NB — det viktigste forbeholdet er ikke matematisk.** Bakeriet har bare målt **to** priser: 30 og 45 kroner. At sammenhengen er lineær akkurat der, betyr ikke at den er det ved 5 kroner eller ved 70. Kanskje kommer det helt nye kundegrupper når kaken er billig, og kanskje forsvinner de siste kundene brått når den blir dyr.\n\nInnenfor 30–45 kroner er modellen en **måling**. Utenfor er den en **antakelse**. Begge deler kan være nyttige, men de er ikke like sterke, og en anbefaling bør si hvilken av de to den bygger på."
+    },
+        {
+      "id": "matok-3-5-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n**De to funksjonene:**\n\n| | Uttrykk | Svarer på | Stigningstall |\n|---|---|---|---|\n| Etterspørsel | $q(p) = c - d \\cdot p$ | hvor mye selges ved denne prisen? | $-d$ (enheter per krone) |\n| Omvendt | $p(q) = \\dfrac{c - q}{d}$ | hva må prisen være for å selge så mye? | $-\\dfrac{1}{d}$ (kroner per enhet) |\n\nDe to stigningstallene er hverandres omvendte, og produktet er 1.\n\n**Framgangsmåten:**\n1. Er to målinger gitt, finn stigningstallet $\\frac{q_2 - q_1}{p_2 - p_1}$ og sett opp $q(p)$.\n2. Kontroller i det punktet du ikke brukte.\n3. Løs likningen for $p$ — med samme operasjon på begge sider. Da har du $p(q)$.\n4. Kontroller: sett et tall inn i den ene og svaret inn i den andre.\n5. Trenger du inntekten: $I(q) = q \\cdot p(q)$.\n6. Si hvilket område modellen gjelder for.\n\n**Inntektsfunksjonen** blir en parabel som åpner nedover, med nullpunkter i $q = 0$ og $q = c$. Toppunktet ligger midt mellom dem, i $q = \\frac{c}{2}$ — altså på halvparten av det som ville blitt gitt bort gratis.\n\n**Vanlige feil:**\n- Å bytte om bokstavene i stedet for å løse for $p$. Bokstavene betyr noe her.\n- Å bruke feil stigningstall: «prisen opp 10 kroner» hører til $q(p)$, «selge 150 flere» hører til $p(q)$.\n- Å bruke modellen utenfor gyldighetsområdet og få negative antall eller negative priser.\n- Å forveksle størst inntekt med størst overskudd. Kostnadene kommer i kapittel 6 og 7."
+    },
+    {
+      "id": "matok-3-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-5-oppg-5",
+        "number": "3.5.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kafé har prøvd to priser på dagens kaffe. Ved $20$ kroner solgte de $600$ kopper i uka, ved $35$ kroner solgte de $450$.",
+        "subTasks": [
+          { "label": "a", "task": "Finn $q(p)$ og $p(q)$.", "solution": "$a = \\frac{450 - 600}{35 - 20} = \\frac{-150}{15} = -10$. $q(p) = 600 - 10(p - 20) = 800 - 10p$. Kontroll: $q(35) = 450$ — så det stemmer. Videre gir $10p = 800 - q$ at $p(q) = 80 - \\frac{q}{10}$.", "expressionAnswer": ["800-10p", "80-q/10"] },
+          { "label": "b", "task": "Sett opp $I(q)$, og finn antall kopper som gir størst inntekt.", "solution": "$I(q) = q\\left(80 - \\frac{q}{10}\\right) = 80q - \\frac{q^2}{10}$. Nullpunktene er 0 og 800, så toppunktet ligger i $q = 400$. Da er $I = 32\\,000 - 16\\,000 = 16\\,000$ kroner, og prisen $p(400) = 40$ kroner.", "answer": 400 },
+          { "label": "c", "task": "Hver kopp koster kaféen 12 kroner i kaffe, melk og kopp. Sett opp overskuddsfunksjonen $O(q)$.", "solution": "$O(q) = I(q) - 12q = 80q - \\frac{q^2}{10} - 12q = 68q - \\frac{q^2}{10}$", "expressionAnswer": "68q-q^2/10" },
+          { "label": "d", "task": "Hvor mange kopper gir størst overskudd, og hva må prisen være da?", "solution": "$O(q) = q\\left(68 - \\frac{q}{10}\\right)$ har nullpunkter i $q = 0$ og $q = 680$, så toppunktet ligger i $q = 340$. Da er $O = 68 \\cdot 340 - \\frac{340^2}{10} = 23\\,120 - 11\\,560 = 11\\,560$ kroner, og prisen $p(340) = 80 - 34 = 46$ kroner.", "answer": [340, 46] },
+          { "label": "e", "task": "Sammenlikn svarene i b) og d). Hvorfor er ikke prisen den samme? Og hva vil du si om at begge prisene ligger utenfor de to som ble målt?", "solution": "Størst inntekt gir 400 kopper til 40 kroner; størst overskudd gir 340 kopper til 46 kroner. Prisen er høyere når kostnadene tas med, fordi de siste koppene koster 12 kroner å lage og bidrar for lite til at det lønner seg — det er bedre å selge litt færre, litt dyrere. At begge prisene ligger over de målte 20 og 35 kronene, er et reelt forbehold: modellen er en forlengelse ut over det kaféen faktisk har prøvd. Anbefalingen bør derfor være å teste 46 kroner i noen uker og måle på nytt, ikke å legge om prisen for godt på grunnlag av to målinger." }
+        ],
+        "solution": "a) $q(p) = 800 - 10p$ og $p(q) = 80 - \\frac{q}{10}$, b) 400 kopper til 40 kroner, 16 000 kr, c) $O(q) = 68q - \\frac{q^2}{10}$, d) 340 kopper til 46 kroner, 11 560 kr, e) høyere pris når kostnadene tas med; begge prisene ligger utenfor måleområdet",
+        "hints": ["I c): trekk fra kostnaden per kopp ganget med antall kopper.", "Toppunktet i $O$ ligger midt mellom nullpunktene, akkurat som i $I$."],
+        "competenceGoals": ["bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-5-oppg-6",
+        "number": "3.5.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En nettbutikk har testet fem priser på en vare og målt salget per uke:\n\n| Pris (kr) | 249 | 299 | 349 | 399 | 449 |\n|---|---|---|---|---|---|\n| Antall solgt | 420 | 360 | 300 | 240 | 180 |\n\nLegg tallene i et regneark med pris i kolonne A og antall i kolonne B.",
+        "subTasks": [
+          { "label": "a", "task": "Vis at punktene ligger på en rett linje, og finn $q(p)$.", "solution": "Salget synker med nøyaktig 60 enheter for hver prisøkning på 50 kroner, hele veien. Stigningstallet er $\\frac{180 - 420}{449 - 249} = \\frac{-240}{200} = -1{,}2$. Med punktet $(249,\\ 420)$: $q(p) = 420 - 1{,}2(p - 249) = 718{,}8 - 1{,}2p$. Kontroll i alle fem punktene gir avvik 0.", "expressionAnswer": "718.8-1.2p" },
+          { "label": "b", "task": "Finn $p(q)$.", "solution": "$1{,}2p = 718{,}8 - q$ gir $p(q) = \\frac{718{,}8 - q}{1{,}2} = 599 - \\frac{5q}{6}$. Kontroll: $p(300) = 599 - 250 = 349$ — så det stemmer.", "expressionAnswer": "599-5*q/6" },
+          { "label": "c", "task": "Legg til en kolonne C med inntekten (`=A2*B2`). Hvilken av de fem prisene gir størst inntekt?", "solution": "104 580 · 107 640 · 104 700 · 95 760 · 80 820 kroner. Prisen 299 kroner gir størst inntekt av de fem testede.", "answer": 107640 },
+          { "label": "d", "task": "Sett opp $I(q)$, og regn ut hvilket antall og hvilken pris som gir størst inntekt etter modellen.", "solution": "$I(q) = q\\left(599 - \\frac{5q}{6}\\right) = 599q - \\frac{5q^2}{6}$. Nullpunktene er $q = 0$ og $q = \\frac{599 \\cdot 6}{5} = 718{,}8$, så toppunktet ligger i $q = 359{,}4$. Da er $I \\approx 107\\,640{,}30$ kroner og $p = \\frac{599}{2} = 299{,}50$ kroner.", "answer": [359.4, 299.5] },
+          { "label": "e", "task": "Varen koster butikken 150 kroner i innkjøp. Finn prisen som gir størst overskudd, og vurder hvor mye butikken bør stole på svaret.", "solution": "$O(q) = I(q) - 150q = 449q - \\frac{5q^2}{6}$, med nullpunkter i $q = 0$ og $q = \\frac{449 \\cdot 6}{5} = 538{,}8$. Toppunktet ligger i $q = 269{,}4$, som gir $O \\approx 60\\,480{,}30$ kroner og prisen $p = \\frac{749}{2} = 374{,}50$ kroner. Svaret er verdt å stole på mer enn vanlig, av to grunner: prisen 374,50 kroner ligger midt inne i det testede området 249–449 kroner, og alle fem målingene ligger nøyaktig på linja. Forbeholdene som gjenstår, er at målingene er fra én periode (sesong, kampanjer og konkurrenter kan endre bildet), og at modellen ikke sier noe om hva som skjer med kundelojaliteten på sikt.", "multipleChoiceOptions": [
+            "374,50 kroner. Svaret er relativt pålitelig: prisen ligger innenfor det testede området 249–449 kroner, og alle fem målingene ligger nøyaktig på linja — men målingene er fra én periode.",
+            "374,50 kroner, men svaret er ubrukelig fordi prisen ligger utenfor det testede området.",
+            "299,50 kroner — samme pris som gir størst inntekt, siden innkjøpsprisen er den samme uansett antall.",
+            "150 kroner, fordi prisen alltid bør settes lik innkjøpsprisen for å maksimere salget."
+          ] }
+        ],
+        "solution": "a) $q(p) = 718{,}8 - 1{,}2p$, b) $p(q) = 599 - \\frac{5q}{6}$, c) 299 kroner gir 107 640 kr, d) $q = 359{,}4$ og $p = 299{,}50$ kr, e) 374,50 kroner — innenfor testområdet, så svaret er relativt pålitelig",
+        "hints": ["Sjekk stigningstallet mellom hvert par av nabopunkter — er det det samme, er punktene på linje.", "I e): overskuddet er inntekten minus innkjøpsprisen ganget med antallet."],
+        "competenceGoals": ["bestemme pris som funksjon av kvantum når kvantum som funksjon av pris er ein lineær funksjon"],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": []
+}

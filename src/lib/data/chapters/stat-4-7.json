@@ -1,0 +1,490 @@
+{
+  "id": "stat-4-7",
+  "courseId": "statistikk",
+  "chapterNumber": "4.7",
+  "title": "Sannsynlighetstre",
+  "description": "Flertrinnsforsøk med og uten tilbakelegging, og trediagram som regneverktøy.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+  ],
+  "keyTerms": [
+    {
+      "term": "Sannsynlighetstre",
+      "definition": "En tegning av et flertrinnsforsøk der hvert trinn er en forgrening. Tallet på hver gren er den betingede sannsynligheten for det steget, gitt alt som har skjedd før."
+    },
+    {
+      "term": "Gang langs en vei",
+      "definition": "Sannsynligheten for en hel vei gjennom treet er produktet av grensannsynlighetene. Dette er produktsetningen anvendt flere ganger."
+    },
+    {
+      "term": "Summer mellom veier",
+      "definition": "Fører flere veier fram til det vi spør om, legger vi sammen veiproduktene. Veiene er disjunkte, så addisjonssetningen gjelder."
+    },
+    {
+      "term": "Med tilbakelegging",
+      "definition": "Det trukne legges tilbake før neste trekning. Sannsynlighetene er da de samme i hvert trinn, og trinnene er uavhengige."
+    },
+    {
+      "term": "Uten tilbakelegging",
+      "definition": "Det trukne legges ikke tilbake. Både telleren og nevneren endrer seg i neste trinn, og trinnene er avhengige."
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-7-section-intro",
+      "type": "text",
+      "content": "# Når forsøket har flere trinn\n\nDe fleste virkelige forsøk består av flere steg etter hverandre: du trekker to kuler, kaster tre terninger, tar en prøve og eventuelt en ny. Da blir utfallsrommet fort stort, og opptelling blir tungvint.\n\n**Sannsynlighetstreet** er redskapet for slike forsøk. Det er egentlig bare produktsetningen fra kapittel 4.5 tegnet opp — men det tegnede formatet gjør at du ser alle veiene, og at du ikke glemmer noen."
+    },
+    {
+      "id": "stat-4-7-def-tre",
+      "type": "definition",
+      "title": "Sannsynlighetstre",
+      "content": "Et **sannsynlighetstre** tegnes fra venstre mot høyre. Hvert trinn i forsøket er en forgrening, og på hver gren skriver vi den betingede sannsynligheten for det steget, **gitt** alt som allerede har skjedd.\n\nTre regler styrer alt:\n\n1. **Grenene ut fra samme punkt summerer til 1.** Ett av de mulige utfallene må jo skje.\n2. **Gang langs en vei.** Sannsynligheten for en hel vei er produktet av grensannsynlighetene på den.\n3. **Summer mellom veier.** Fører flere veier fram til det du spør om, legger du sammen veiproduktene.\n\nKontrollen til slutt: alle veiproduktene i hele treet skal summere til 1."
+    },
+    {
+      "id": "stat-4-7-fig-tre",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-7-tre-kuler.png",
+      "alt": "Et sannsynlighetstre som vokser mot høyre. Rotnoden er merket 3 R, 5 B — det posen inneholder. Fra den går to grener: en øvre merket R: 3/8 til noden for rød kule først og en nedre merket B: 5/8 til noden for blå kule først. Fra R-noden går to grener: en øvre merket R: 2/7 som ender i punktet RR med verdien 3/28, og en nedre merket B: 5/7 som ender i punktet RB med verdien 15/56. Fra B-noden går to grener: en øvre merket R: 3/7 som ender i punktet BR med verdien 15/56, og en nedre merket B: 4/7 som ender i punktet BB med verdien 5/14. Veiene til RB og BR er tegnet i rødt, de to andre i svart.",
+      "caption": "Trekking av to kuler uten tilbakelegging fra en pose med 3 røde ($R$) og 5 blå ($B$). Tallet på hver gren er den betingede sannsynligheten for det trinnet; tallet ved endepunktet er produktet langs veien. De to røde veiene gir én kule av hver farge.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-7-tre-kuler.json"
+    },
+    {
+      "id": "stat-4-7-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "I en pose ligger 3 røde og 5 blå kuler. Vi trekker to kuler etter hverandre uten å legge tilbake.\n\na) Forklar tallene på grenene i treet over.\nb) Bestem sannsynligheten for at begge kulene er røde.\nc) Bestem sannsynligheten for at kulene har ulik farge.\nd) Bestem sannsynligheten for at minst én kule er rød.",
+      "solution": "**Løsning:**\n\na) **Første trinn.** Posen har 8 kuler, 3 av dem røde:\n\n$$P(R_1) = \\frac{3}{8} \\qquad P(B_1) = \\frac{5}{8}$$\n\nDisse summerer til $\\frac{8}{8} = 1$, som regel 1 krever.\n\n**Andre trinn, øvre gren.** Her har vi allerede trukket en rød. Da ligger det 7 kuler igjen, og bare 2 av dem er røde:\n\n$$P(R_2 \\mid R_1) = \\frac{2}{7} \\qquad P(B_2 \\mid R_1) = \\frac{5}{7}$$\n\n**Andre trinn, nedre gren.** Her har vi trukket en blå. Det ligger fortsatt 7 kuler igjen, men nå er 3 røde og 4 blå:\n\n$$P(R_2 \\mid B_1) = \\frac{3}{7} \\qquad P(B_2 \\mid B_1) = \\frac{4}{7}$$\n\nDet er dette som er kjernen i «uten tilbakelegging»: **både telleren og nevneren endrer seg**, og de endrer seg ulikt etter hva som ble trukket først.\n\nb) Vi ganger langs den øverste veien:\n\n$$P(RR) = \\frac{3}{8} \\cdot \\frac{2}{7} = \\frac{6}{56} = \\frac{3}{28} \\approx 0{,}107$$\n\nc) «Ulik farge» nås av to veier: først rød så blå, eller først blå så rød. Vi regner hver vei for seg:\n\n$$P(RB) = \\frac{3}{8} \\cdot \\frac{5}{7} = \\frac{15}{56}$$\n\n$$P(BR) = \\frac{5}{8} \\cdot \\frac{3}{7} = \\frac{15}{56}$$\n\nVeiene utelukker hverandre, så vi legger sammen. Vi venter med å forkorte til summen er ferdig:\n\n$$P(\\text{ulik farge}) = \\frac{15}{56} + \\frac{15}{56} = \\frac{30}{56} = \\frac{15}{28} \\approx 0{,}536$$\n\nd) «Minst én rød» har komplementet «ingen rød», altså den nederste veien $BB$:\n\n$$P(BB) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$$\n\n$$P(\\text{minst én rød}) = 1 - \\frac{5}{14} = \\frac{14}{14} - \\frac{5}{14} = \\frac{9}{14} \\approx 0{,}643$$\n\n**Kontroll:** alle fire veiproduktene skal summere til 1.\n\n$$\\frac{6}{56} + \\frac{15}{56} + \\frac{15}{56} + \\frac{20}{56} = \\frac{56}{56} = 1$$\n\n**Svar:** b) $\\frac{3}{28} \\approx 0{,}107$. c) $\\frac{15}{28} \\approx 0{,}536$. d) $\\frac{9}{14} \\approx 0{,}643$."
+    },
+    {
+      "id": "stat-4-7-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 1. I en pose ligger 4 grønne og 6 gule kuler. Vi trekker to kuler uten tilbakelegging. Tegn treet først. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at begge er grønne.",
+            "solution": "$\\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15}$",
+            "expressionAnswer": "2/15"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at begge er gule.",
+            "solution": "$\\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$",
+            "expressionAnswer": "1/3"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at kulene har ulik farge.",
+            "solution": "$\\frac{4}{10} \\cdot \\frac{6}{9} + \\frac{6}{10} \\cdot \\frac{4}{9} = \\frac{24}{90} + \\frac{24}{90} = \\frac{48}{90} = \\frac{8}{15}$",
+            "expressionAnswer": "8/15"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at minst én er grønn.",
+            "solution": "$1 - \\frac{1}{3} = \\frac{2}{3}$",
+            "expressionAnswer": "2/3"
+          },
+          {
+            "label": "e",
+            "task": "Kontroller treet: hva blir summen av alle fire veiproduktene?",
+            "solution": "$\\frac{12}{90} + \\frac{24}{90} + \\frac{24}{90} + \\frac{30}{90} = \\frac{90}{90} = 1$",
+            "answer": 1
+          }
+        ],
+        "hints": [
+          "Etter første trekning er det 9 kuler igjen — og antallet av fargen du trakk, er redusert med én.",
+          "I d): komplementet til «minst én grønn» er «begge gule»."
+        ],
+        "solution": "a) $\\frac{2}{15}$, b) $\\frac{1}{3}$, c) $\\frac{8}{15}$, d) $\\frac{2}{3}$, e) $1$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-7-section-tilbakelegging",
+      "type": "text",
+      "content": "## Med eller uten tilbakelegging\n\nForskjellen mellom de to er hele forskjellen mellom avhengige og uavhengige trinn:\n\n| | Med tilbakelegging | Uten tilbakelegging |\n|---|---|---|\n| Antall igjen i posen | uendret | én mindre for hvert trekk |\n| Grensannsynlighetene i trinn 2 | **samme** som i trinn 1 | **avhenger** av hva som ble trukket |\n| Trinnene er | uavhengige | avhengige |\n| Treet | samme tall på begge grenpar | ulike tall på grenparene |\n\n**NB:** Les oppgaveteksten nøye. «Legger kula tilbake», «noterer og legger tilbake» betyr med tilbakelegging. «Trekker to kuler», «trekker to kort» uten mer betyr som regel uten tilbakelegging — du kan ikke trekke den samme kula to ganger i samme håndgrep."
+    },
+    {
+      "id": "stat-4-7-fig-tre-uten-tilbakelegging",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-7-tre-uten-tilbakelegging.png",
+      "alt": "Et sannsynlighetstre for to trekk uten tilbakelegging fra en pose med 3 røde og 5 blå kuler. Første trinn har grenene R 3/8 og B 5/8. På andre trinn står 2/7 og 5/7 øverst mot 3/7 og 4/7 nederst — ULIKE tall. De to veiene som gir ulik farge, RB og BR, er uthevet i rødt.",
+      "caption": "Trekk uten tilbakelegging. Se på andre trinn: der ligger 2/7 og 5/7 øverst mot 3/7 og 4/7 nederst — og det er den ene raden i tabellen man ikke kan lese uten å se treet.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-7-tre-uten-tilbakelegging.json"
+    },
+    {
+      "id": "stat-4-7-fig-tre-med-tilbakelegging",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-7-tre-med-tilbakelegging.png",
+      "alt": "Et sannsynlighetstre for to trekk med tilbakelegging fra en pose med 3 røde og 5 blå kuler. Første trinn har grenene R 3/8 og B 5/8. På andre trinn står 3/8 og 5/8 begge steder — SAMME tall. De to veiene som gir ulik farge, RB og BR, er uthevet i rødt.",
+      "caption": "Trekk med tilbakelegging. Se på andre trinn: der ligger 3/8 og 5/8 begge steder — og det er den ene raden i tabellen man ikke kan lese uten å se treet.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-7-tre-med-tilbakelegging.json"
+    },
+    {
+      "id": "stat-4-7-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "Vi bruker samme pose som i eksempel 1 — 3 røde og 5 blå kuler — men nå legger vi kula tilbake før vi trekker den andre.\n\na) Bestem sannsynligheten for at begge er røde.\nb) Bestem sannsynligheten for at kulene har ulik farge.\nc) Sammenlign med svarene i eksempel 1 og forklar forskjellen.",
+      "solution": "**Løsning:**\n\nNå er posen den samme i begge trinn: 8 kuler, 3 røde. Grensannsynlighetene i trinn 2 er derfor de samme som i trinn 1, uansett hvilken vei vi kom.\n\na) $$P(RR) = \\frac{3}{8} \\cdot \\frac{3}{8} = \\frac{9}{64} \\approx 0{,}141$$\n\nb) To veier fører fram:\n\n$$P(RB) = \\frac{3}{8} \\cdot \\frac{5}{8} = \\frac{15}{64} \\qquad P(BR) = \\frac{5}{8} \\cdot \\frac{3}{8} = \\frac{15}{64}$$\n\n$$P(\\text{ulik farge}) = \\frac{15}{64} + \\frac{15}{64} = \\frac{30}{64} = \\frac{15}{32} \\approx 0{,}469$$\n\nc) Vi setter svarene ved siden av hverandre:\n\n| | Uten tilbakelegging | Med tilbakelegging |\n|---|---|---|\n| begge røde | $\\frac{3}{28} \\approx 0{,}107$ | $\\frac{9}{64} \\approx 0{,}141$ |\n| ulik farge | $\\frac{15}{28} \\approx 0{,}536$ | $\\frac{15}{32} \\approx 0{,}469$ |\n\nUten tilbakelegging er «begge røde» **mindre** sannsynlig. Grunnen er at når vi først har tatt en av de tre røde, er det bare 2 røde igjen av 7 — andelen røde har sunket fra $\\frac{3}{8} = 0{,}375$ til $\\frac{2}{7} \\approx 0{,}286$. Å ta en rød gjør det vanskeligere å ta en til.\n\nAv samme grunn er «ulik farge» **mer** sannsynlig uten tilbakelegging: å ta en rød først gjør de blå relativt flere.\n\n**Svar:** a) $\\frac{9}{64} \\approx 0{,}141$. b) $\\frac{15}{32} \\approx 0{,}469$. c) Uten tilbakelegging trekker trekningen mot ulike farger, fordi den fargen du allerede har tatt, blir sjeldnere i posen."
+    },
+    {
+      "id": "stat-4-7-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Samme pose som i oppgave 1 — 4 grønne og 6 gule kuler — men nå med tilbakelegging. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at begge er grønne.",
+            "solution": "$\\frac{4}{10} \\cdot \\frac{4}{10} = \\frac{16}{100} = \\frac{4}{25}$",
+            "expressionAnswer": "4/25"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at begge er gule.",
+            "solution": "$\\frac{6}{10} \\cdot \\frac{6}{10} = \\frac{36}{100} = \\frac{9}{25}$",
+            "expressionAnswer": "9/25"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at kulene har ulik farge.",
+            "solution": "$\\frac{24}{100} + \\frac{24}{100} = \\frac{48}{100} = \\frac{12}{25}$",
+            "expressionAnswer": "12/25"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at minst én er grønn.",
+            "solution": "$1 - \\frac{9}{25} = \\frac{16}{25}$",
+            "expressionAnswer": "16/25"
+          },
+          {
+            "label": "e",
+            "task": "Ble «begge grønne» mer eller mindre sannsynlig enn i oppgave 1? Svar «mer» eller «mindre».",
+            "solution": "Mer: $\\frac{4}{25} = 0{,}16$ mot $\\frac{2}{15} \\approx 0{,}133$. Med tilbakelegging er den grønne andelen fortsatt $\\frac{4}{10}$ i andre trekning.",
+            "multipleChoiceOptions": [
+              "mer",
+              "mindre"
+            ]
+          }
+        ],
+        "hints": [
+          "Med tilbakelegging er posen uendret — bruk de samme brøkene i begge trinn.",
+          "Kontroll: de fire veiproduktene skal fortsatt summere til 1."
+        ],
+        "solution": "a) $\\frac{4}{25}$, b) $\\frac{9}{25}$, c) $\\frac{12}{25}$, d) $\\frac{16}{25}$, e) mer",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-7-section-flere-trinn",
+      "type": "text",
+      "content": "## Flere enn to trinn\n\nReglene er de samme uansett hvor mange trinn forsøket har — treet blir bare bredere. Med tre trinn og to utfall i hvert får treet $2 \\cdot 2 \\cdot 2 = 8$ veier.\n\nDet er nettopp her komplementet blir uunnværlig. «Minst én» over tre eller fire trinn krever at du summerer mange veier, mens «ingen» som regel er én eneste vei."
+    },
+    {
+      "id": "stat-4-7-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "Fra posen med 3 røde og 5 blå kuler trekker vi nå tre kuler uten tilbakelegging.\n\na) Bestem sannsynligheten for at alle tre er blå.\nb) Bestem sannsynligheten for at minst én er rød.\nc) Bestem sannsynligheten for at alle tre er røde.",
+      "solution": "**Løsning:**\n\na) Vi følger én vei gjennom treet og ganger grensannsynlighetene. Posen minker for hvert trekk:\n\n| Trekk | Blå igjen | Kuler igjen | Grensannsynlighet |\n|---|---|---|---|\n| 1 | 5 | 8 | $\\frac{5}{8}$ |\n| 2 | 4 | 7 | $\\frac{4}{7}$ |\n| 3 | 3 | 6 | $\\frac{3}{6}$ |\n\n$$P(BBB) = \\frac{5}{8} \\cdot \\frac{4}{7} \\cdot \\frac{3}{6} = \\frac{60}{336}$$\n\nVi forkorter til slutt. Både $60$ og $336$ er delelige med $12$:\n\n$$\\frac{60}{336} = \\frac{5}{28} \\approx 0{,}179$$\n\nb) Å summere alle veiene med minst én rød ville krevd sju veier. Komplementet er én vei — nemlig den vi nettopp regnet:\n\n$$P(\\text{minst én rød}) = 1 - P(BBB) = \\frac{28}{28} - \\frac{5}{28} = \\frac{23}{28} \\approx 0{,}821$$\n\nc) Nå er det de røde som minker, og det er bare 3 av dem:\n\n$$P(RRR) = \\frac{3}{8} \\cdot \\frac{2}{7} \\cdot \\frac{1}{6} = \\frac{6}{336} = \\frac{1}{56} \\approx 0{,}018$$\n\nLegg merke til det siste leddet: etter to røde er det bare én rød igjen av 6 kuler. Hadde vi trukket fire kuler, ville $P(RRRR) = 0$ — posen har jo bare tre røde.\n\n![Et sannsynlighetstre med tre nivåer for tre trekk uten tilbakelegging fra en pose med 3 røde og 5 blå kuler. Treet har åtte veier. Grensannsynlighetene synker etter hvert som posen tømmes, og alle brøkene på et trinn har samme nevner — 8 på første trinn, 7 på andre og 6 på tredje, altså antallet kuler som er igjen: 5/8, så 4/7, så 3/6 langs den nederste veien. Veien BBB er uthevet i rødt med veiproduktet 5/28. Nederst står: minst én rød er lik 1 minus P av BBB, altså 1 minus 5/28 er lik 23/28.](/images/content/statistikk/stat-4-7-tre-tre-trinn.png)\n\n*Med tre trinn har treet åtte veier, og sju av dem gir minst én rød. Da er komplementet $1 - \\frac{5}{28} = \\frac{23}{28}$ langt raskere enn å legge sammen de sju.*\n\n**Svar:** a) $\\frac{5}{28} \\approx 0{,}179$. b) $\\frac{23}{28} \\approx 0{,}821$. c) $\\frac{1}{56} \\approx 0{,}018$."
+    },
+    {
+      "id": "stat-4-7-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En eske inneholder 9 lyspærer, og 2 av dem er defekte. Vi trekker tre pærer uten tilbakelegging. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at ingen av pærene er defekte.",
+            "solution": "$\\frac{7}{9} \\cdot \\frac{6}{8} \\cdot \\frac{5}{7} = \\frac{210}{504} = \\frac{5}{12}$",
+            "expressionAnswer": "5/12"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at minst én er defekt.",
+            "solution": "$1 - \\frac{5}{12} = \\frac{7}{12}$",
+            "expressionAnswer": "7/12"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at begge de defekte er blant de tre trukne.",
+            "solution": "Tre rekkefølger (DDH, DHD, HDD), hver med sannsynlighet $\\frac{2}{9} \\cdot \\frac{1}{8} \\cdot \\frac{7}{7} = \\frac{14}{504}$. Til sammen $\\frac{42}{504} = \\frac{1}{12}$.",
+            "expressionAnswer": "1/12"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at nøyaktig én er defekt.",
+            "solution": "$1 - \\frac{5}{12} - \\frac{1}{12} = \\frac{6}{12} = \\frac{1}{2}$",
+            "expressionAnswer": "1/2"
+          },
+          {
+            "label": "e",
+            "task": "Hva er sannsynligheten for at alle tre er defekte?",
+            "solution": "$0$ — esken inneholder bare to defekte pærer.",
+            "answer": 0
+          }
+        ],
+        "hints": [
+          "I a): 7 hele pærer av 9, så 6 av 8, så 5 av 7.",
+          "I c) og d): kontroller at a), c) og d) summerer til 1."
+        ],
+        "solution": "a) $\\frac{5}{12}$, b) $\\frac{7}{12}$, c) $\\frac{1}{12}$, d) $\\frac{1}{2}$, e) $0$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-7-section-ujevnt",
+      "type": "text",
+      "content": "## Trær der grenene stopper ulikt\n\nTreet trenger ikke være symmetrisk. I mange virkelige forsøk avsluttes noen veier tidlig, mens andre fortsetter. Består du prøven i første forsøk, er det ingen andre runde å tegne.\n\nFramgangsmåten er likevel den samme: gang langs veiene, summer mellom dem, og kontroller at alle endepunktene summerer til 1."
+    },
+    {
+      "id": "stat-4-7-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "En elev skal ta teoriprøven til førerkortet. Sannsynligheten for å bestå i første forsøk er $0{,}70$. Stryker han, leser han mer og går opp på nytt; sannsynligheten for å bestå i andre forsøk er da $0{,}85$. Han gir seg uansett etter to forsøk.\n\na) Tegn treet og bestem sannsynligheten for at han består i løpet av de to forsøkene.\nb) Bestem sannsynligheten for at han stryker begge ganger.\nc) Bestem sannsynligheten for at han trengte to forsøk, gitt at han til slutt besto.",
+      "solution": "**Løsning:**\n\nTreet har tre endepunkter, ikke fire: består han første gang, stopper veien der.\n\n| Vei | Regnestykke | Sannsynlighet |\n|---|---|---|\n| Består i første forsøk | $0{,}70$ | $0{,}70$ |\n| Stryker, så består | $0{,}30 \\cdot 0{,}85$ | $0{,}255$ |\n| Stryker, så stryker | $0{,}30 \\cdot 0{,}15$ | $0{,}045$ |\n\n**Kontroll:** $0{,}70 + 0{,}255 + 0{,}045 = 1$.\n\na) To veier fører til «består». Vi legger dem sammen:\n\n$$P(\\text{består}) = 0{,}70 + 0{,}30 \\cdot 0{,}85 = 0{,}70 + 0{,}255 = 0{,}955$$\n\nb) Det er den siste veien:\n\n$$P(\\text{stryker begge}) = 0{,}30 \\cdot 0{,}15 = 0{,}045$$\n\n(Vi kunne også tatt $1 - 0{,}955 = 0{,}045$. Samme svar, og en god kontroll.)\n\nc) Nå betinger vi. Grunnmengden er ikke lenger alle elever, men **de som besto** — altså $0{,}955$. Av dem er det bare veien «stryker, så består» som trengte to forsøk:\n\n$$P(\\text{to forsøk} \\mid \\text{besto}) = \\frac{0{,}255}{0{,}955} \\approx 0{,}267$$\n\nHele forskjellen på b) og c) ligger igjen i nevneren: $1$ mot $0{,}955$.\n\n![Et sannsynlighetstre med TRE endepunkter. Fra startpunktet, merket 1. forsøk, går to grener: en øvre merket består 0,70, som ender med én gang i endepunktet består i 1. forsøk med verdien 7/10, og en nedre merket stryker 0,30. Fra stryker-noden går to nye grener: består 0,85, som ender i består i 2. forsøk med verdien 51/200, og stryker 0,15, som ender i stryker begge med verdien 9/200. De to veiene som fører til bestått, er uthevet i rødt. Nederst står: P(består) = 0,70 + 0,255 = 0,955 og P(to forsøk | består) = 0,255 delt på 0,955 = 0,267.](/images/content/statistikk/stat-4-7-asymmetrisk-tre.png)\n\n*Treet er asymmetrisk: består han første gang, stopper veien der, og treet får tre endepunkter i stedet for fire. Veiproduktene 7/10, 51/200 og 9/200 er 0,70, 0,255 og 0,045 — og de summerer til 1.*\n\n**Svar:** a) $0{,}955$, altså 95,5 %. b) $0{,}045$. c) $\\approx 0{,}267$, altså omtrent 27 % av dem som består, trengte to forsøk."
+    },
+    {
+      "id": "stat-4-7-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 4. En bedrift kontrollerer ferdige deler. Sannsynligheten for at en del godkjennes i første kontroll er $0{,}80$. Blir den ikke godkjent, justeres den og kontrolleres på nytt; da godkjennes den med sannsynlighet $0{,}60$. Blir den ikke godkjent i andre kontroll, kastes den. Svar med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at en del godkjennes etter justering.",
+            "solution": "$0{,}20 \\cdot 0{,}60 = 0{,}120$",
+            "answer": 0.12
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at en del godkjennes i det hele tatt.",
+            "solution": "$0{,}80 + 0{,}120 = 0{,}920$",
+            "answer": 0.92
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at en del kastes.",
+            "solution": "$0{,}20 \\cdot 0{,}40 = 0{,}080$, eller $1 - 0{,}920$",
+            "answer": 0.08
+          },
+          {
+            "label": "d",
+            "task": "Bedriften lager 12 500 deler. Hvor mange må de regne med å kaste?",
+            "solution": "$0{,}080 \\cdot 12\\,500 = 1000$",
+            "answer": 1000
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at en del måtte justeres, gitt at den ble godkjent.",
+            "solution": "$\\frac{0{,}120}{0{,}920} \\approx 0{,}130$",
+            "answer": 0.13
+          }
+        ],
+        "hints": [
+          "Treet har tre endepunkter — godkjent med én gang, godkjent etter justering, kastet.",
+          "Kontroll: de tre veiene skal summere til 1.",
+          "I e): nevneren er alle godkjente deler, ikke alle deler."
+        ],
+        "solution": "a) $0{,}120$, b) $0{,}920$, c) $0{,}080$, d) $1000$, e) $\\approx 0{,}130$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-7-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Et **sannsynlighetstre** tegner et flertrinnsforsøk. På hver gren står den betingede sannsynligheten gitt alt som har skjedd før.\n- **Grenene ut fra samme punkt summerer til 1.** Er de ikke det, mangler du et utfall eller har regnet feil.\n- **Gang langs en vei, summer mellom veier.** Kontroller til slutt at alle veiproduktene summerer til 1.\n- **Uten tilbakelegging** endrer både teller og nevner seg for hvert trinn, og trinnene er avhengige. **Med tilbakelegging** er hvert trinn likt, og trinnene er uavhengige.\n- **«Minst én» regnes via komplementet.** «Ingen» er som regel én vei, mens «minst én» er mange.\n- Treet trenger ikke være symmetrisk: noen veier kan stoppe tidlig.\n- Skal du betinge på noe som har skjedd, er nevneren summen av veiene som oppfyller betingelsen."
+    },
+    {
+      "id": "stat-4-7-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En skoleklasse har 12 jenter og 8 gutter. Tre elever trekkes tilfeldig til en komité, uten at noen kan trekkes to ganger. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at alle tre er jenter.",
+            "solution": "$\\frac{12}{20} \\cdot \\frac{11}{19} \\cdot \\frac{10}{18} = \\frac{1320}{6840} = \\frac{11}{57}$",
+            "expressionAnswer": "11/57"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at alle tre er gutter.",
+            "solution": "$\\frac{8}{20} \\cdot \\frac{7}{19} \\cdot \\frac{6}{18} = \\frac{336}{6840} = \\frac{14}{285}$",
+            "expressionAnswer": "14/285"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at komiteen har minst én jente.",
+            "solution": "$1 - \\frac{14}{285} = \\frac{271}{285}$",
+            "expressionAnswer": "271/285"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at komiteen har både jenter og gutter.",
+            "solution": "$1 - \\frac{11}{57} - \\frac{14}{285} = 1 - \\frac{55}{285} - \\frac{14}{285} = \\frac{216}{285} = \\frac{72}{95}$",
+            "expressionAnswer": "72/95"
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor vi ikke kan regne $\\left(\\frac{12}{20}\\right)^3$ i a).",
+            "solution": "Fordi elevene trekkes uten tilbakelegging. Etter at én jente er trukket, er det 11 jenter av 19 igjen, ikke 12 av 20. Trinnene er avhengige, og da gjelder ikke potensregelen for uavhengige forsøk."
+          }
+        ],
+        "hints": [
+          "Klassen har $12 + 8 = 20$ elever. For hvert trekk minker både telleren og nevneren.",
+          "I d): komplementet er «alle jenter» eller «alle gutter», og de to er disjunkte."
+        ],
+        "solution": "a) $\\frac{11}{57}$, b) $\\frac{14}{285}$, c) $\\frac{271}{285}$, d) $\\frac{72}{95}$, e) uten tilbakelegging er trinnene avhengige",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-7-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — programmering).** Programmet under regner ut sannsynligheten for å trekke tre blå kuler etter hverandre uten tilbakelegging, fra en pose med $r$ røde og $b$ blå.\n\n```python\nfrom fractions import Fraction\n\ndef alle_blaa(r, b, n):\n    p = Fraction(1)\n    for k in range(n):\n        p = p * Fraction(b - k, r + b - k)\n    return p\n\nprint(alle_blaa(3, 5, 3))\n```",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva skriver programmet ut for `alle_blaa(3, 5, 3)`? Oppgi forkortet brøk.",
+            "solution": "$\\frac{5}{8} \\cdot \\frac{4}{7} \\cdot \\frac{3}{6} = \\frac{5}{28}$",
+            "expressionAnswer": "5/28"
+          },
+          {
+            "label": "b",
+            "task": "Forklar hva `b - k` og `r + b - k` står for.",
+            "solution": "`b - k` er antall blå kuler som er igjen før trekk nummer $k+1$, og `r + b - k` er antall kuler i posen på samme tidspunkt. Begge minker med 1 for hvert trekk fordi vi ikke legger tilbake."
+          },
+          {
+            "label": "c",
+            "task": "Hva blir `alle_blaa(3, 5, 6)`? Forklar svaret.",
+            "solution": "$0$. Posen har bare 5 blå kuler, så i sjette trekk blir faktoren $\\frac{5 - 5}{8 - 5} = \\frac{0}{3} = 0$, og hele produktet blir null.",
+            "answer": 0
+          },
+          {
+            "label": "d",
+            "task": "Skriv om siste linje slik at den gir sannsynligheten for minst én rød blant tre trekk. Oppgi verdien som forkortet brøk.",
+            "solution": "`print(1 - alle_blaa(3, 5, 3))` gir $1 - \\frac{5}{28} = \\frac{23}{28}$",
+            "expressionAnswer": "23/28"
+          },
+          {
+            "label": "e",
+            "task": "Hvordan måtte løkka endres for å gjelde med tilbakelegging? Hva ville `alle_blaa(3, 5, 3)` gitt da? Oppgi forkortet brøk.",
+            "solution": "Faktoren måtte vært `Fraction(b, r + b)` uten `- k`, siden posen er uendret. Da blir svaret $\\left(\\frac{5}{8}\\right)^3 = \\frac{125}{512}$.",
+            "expressionAnswer": "125/512"
+          }
+        ],
+        "hints": [
+          "`Fraction` gir eksakte brøker i stedet for desimaltall.",
+          "Se hva som skjer med telleren når $k$ blir like stor som antall blå kuler."
+        ],
+        "solution": "a) $\\frac{5}{28}$, b) blå igjen og kuler igjen før hvert trekk, c) $0$, d) $\\frac{23}{28}$, e) fjern `- k`; $\\frac{125}{512}$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "tool": "python",
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "stat-4-7-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-7-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Et forsikringsselskap reklamerer: «Vi godkjenner 9 av 10 skademeldinger.» En kunde som har fått avslag, klager, og selskapet opplyser at 4 av 10 klager fører fram.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Tegn treet og bestem sannsynligheten for at en tilfeldig skademelding til slutt blir godkjent, dersom alle som får avslag, klager. Svar med to desimaler.",
+            "solution": "$0{,}90 + 0{,}10 \\cdot 0{,}40 = 0{,}90 + 0{,}04 = 0{,}94$\n\n![Et sannsynlighetstre med TRE endepunkter. Fra roten, merket melding, går en øvre gren merket godkjent 0,90, som ender med én gang i endepunktet godkjent med veiproduktet 9/10, og en nedre gren merket avslag 0,10. Fra avslag-noden går to nye grener: fører fram 0,40, som ender i etter klage med veiproduktet 1/25, og fører ikke fram 0,60, som ender i avslag med veiproduktet 3/50. De to veiene som ender i godkjenning er uthevet i rødt. Nederst står: P(godkjent til slutt) = 0,90 + 0,04 = 0,94 og P(avslag til slutt) = 0,06.](/images/content/statistikk/stat-4-7-tre-skademelding.png)\n\n*Treet er asymmetrisk: en melding som godkjennes med én gang, stopper der, så treet har tre endepunkter og ikke fire. Veiproduktene 9/10, 1/25 og 3/50 er 0,90, 0,04 og 0,06 — og de summerer til 1.*",
+            "answer": 0.94
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at en skademelding til slutt får avslag.",
+            "solution": "$0{,}10 \\cdot 0{,}60 = 0{,}06$",
+            "answer": 0.06
+          },
+          {
+            "label": "c",
+            "task": "I virkeligheten klager bare halvparten av dem som får avslag. Hva blir da sannsynligheten for endelig godkjenning?",
+            "solution": "$0{,}90 + 0{,}10 \\cdot 0{,}50 \\cdot 0{,}40 = 0{,}90 + 0{,}02 = 0{,}92$",
+            "answer": 0.92
+          },
+          {
+            "label": "d",
+            "task": "Selskapet skriver «9 av 10 godkjennes» i reklamen. Er tallet i a) eller det opprinnelige tallet mest opplysende for en kunde? Drøft.",
+            "solution": "Det kommer an på hva kunden lurer på. Vil hun vite sjansen for å få dekning til slutt, er tallet fra a) eller c) mest relevant. Vil hun vite om hun må belage seg på en klagerunde, er 0,90 opplysende. Reklamens tall er ikke feil, men det skjuler at nesten en tiendedel må klage for å nå fram."
+          },
+          {
+            "label": "e",
+            "task": "At 4 av 10 klager fører fram, kan tolkes på to måter. Nevn begge, og si hva som skiller dem.",
+            "solution": "Den ene tolkningen er at selskapet er raust og retter opp egne feil. Den andre er at selskapet i utgangspunktet avslår for mange — hvis 40 % av avslagene var gale, er den første vurderingen ikke god nok. Tallet alene skiller ikke mellom dem; man måtte sett på hvorfor klagene fører fram, og om det er systematiske feil i førstegangsvurderingen."
+          }
+        ],
+        "hints": [
+          "Andre trinn i treet gjelder bare dem som fikk avslag.",
+          "I c) kommer det inn et ekstra trinn: klager kunden i det hele tatt?"
+        ],
+        "solution": "a) $0{,}94$, b) $0{,}06$, c) $0{,}92$, d) og e) drøftes",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

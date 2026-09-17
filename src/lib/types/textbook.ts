@@ -127,6 +127,8 @@ export interface ExampleBlock extends BaseContentBlock {
   solutionContent?: ExampleSolutionBlock[];  // Løsning med nestede blokker (f.eks. fortegnsskjema)
   steps?: string[];              // Stegvis løsning
   solutionVideo?: string;        // YouTube video ID
+  solutionBunnyId?: string;      // Bunny Stream-GUID for videogjennomgang av eksempelet (filmmotoren)
+  videoUtkast?: boolean;         // true = filmen er lastet opp som utkast (ikke dømt av Daniel ennå)
 }
 
 // Innholdsblokker som kan brukes i eksempel-løsninger
@@ -155,7 +157,9 @@ export interface TipBlock extends BaseContentBlock {
 export interface VideoBlock extends BaseContentBlock {
   type: 'video';
   title?: string;
-  youtubeId: string;
+  youtubeId?: string;              // YouTube-video (eldre innhold)
+  bunnyVideoId?: string;           // Bunny Stream-GUID — lærebokvideoer laget med filmmotoren (17.9.2026)
+  videoUtkast?: boolean;           // true = utkast, ikke dømt ennå
   description?: string;
 }
 
@@ -401,6 +405,8 @@ export interface TextbookExercise {
   explanation?: string;          // Ekstra forklaring utover løsningen
   solutionSteps?: string[];
   solutionVideo?: string;        // YouTube video ID for løsningsforslag
+  solutionBunnyId?: string;      // Bunny Stream-GUID for løsningsfilm (filmmotoren, samme som eksamenssett)
+  videoUtkast?: boolean;         // true = utkast, ikke dømt ennå
   hideInlineSolution?: boolean;  // Skjul "Vis løsning"-knappen (for repetisjonsoppgaver)
 
   // Innlevering

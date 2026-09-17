@@ -1,0 +1,455 @@
+{
+  "id": "stat-5-5",
+  "courseId": "statistikk",
+  "chapterNumber": "5.5",
+  "title": "Binomisk fordeling med tabeller og digitale verktøy",
+  "description": "Sannsynlighetstabeller, regneark og GeoGebra for P(X = k), P(X ≤ k) og P(X ≥ k); forventning og varians.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+    "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+  ],
+  "content": [
+    {
+      "id": "stat-5-5-section-intro",
+      "type": "text",
+      "content": "# Binomisk fordeling med tabeller og digitale verktøy\n\nI kapittel 5.4 regnet vi $P(X = k)$ for hånd, ett ledd om gangen. Det går fint så lenge vi bare trenger ett ledd. Men hva om spørsmålet er *«minst 8 av 12 består»*? Da må vi summere fem ledd. Og *«minst 100 av 145»*? Da er det 46 ledd, og håndregning er utelukket.\n\nHeldigvis trenger vi ikke regne dem. **Sannsynlighetstabeller** og **digitale verktøy** gir oss summen direkte. Det eneste vi må kunne, er å oversette spørsmålet i oppgaveteksten til det oppslaget verktøyet faktisk tilbyr."
+    },
+    {
+      "id": "stat-5-5-section-kumulativ",
+      "type": "text",
+      "content": "## Alt er bygget på $P(X \\le k)$\n\nBåde tabeller og verktøy er bygget rundt **én** størrelse: den kumulative sannsynligheten\n\n$$P(X \\le k) = P(X = 0) + P(X = 1) + \\cdots + P(X = k)$$\n\nAlle andre spørsmål skrives om til denne. Det er verdt å lære oversettelsen godt — den er den samme uansett hvilket verktøy du bruker:\n\n| Spørsmålet | Skrives | Slås opp som |\n|---|---|---|\n| høyst $k$ | $P(X \\le k)$ | $P(X \\le k)$ |\n| færre enn $k$ | $P(X < k)$ | $P(X \\le k - 1)$ |\n| minst $k$ | $P(X \\ge k)$ | $1 - P(X \\le k - 1)$ |\n| mer enn $k$ | $P(X > k)$ | $1 - P(X \\le k)$ |\n| nøyaktig $k$ | $P(X = k)$ | $P(X \\le k) - P(X \\le k - 1)$ |\n| mellom $a$ og $b$ | $P(a \\le X \\le b)$ | $P(X \\le b) - P(X \\le a - 1)$ |\n\n**NB — den vanligste feilen:** i «minst $k$» er det $k - 1$ som skal inn i oppslaget, ikke $k$. Grunnen er at $X = k$ selv hører til «minst $k$», og derfor ikke skal trekkes fra. Tenk alltid: *hva er det motsatte?* Det motsatte av «minst 8» er «høyst 7»."
+    },
+    {
+      "id": "stat-5-5-fig-kumulativ-binomisk",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-5-kumulativ-binomisk.png",
+      "alt": "Et søylediagram over den binomiske fordelingen for n er lik 10 og p er lik 0,25. Under den vannrette aksen står verdiene 0 til 10, og den loddrette aksen er merket P av X er lik k. Søylene over 0, 1, 2 og 3 er grønne og har høydene omtrent 0,06, 0,19, 0,28 og 0,25. Søylene over 4 til 10 er blå og synker raskt fra omtrent 0,15 ned mot null. Teksten P av X mindre enn eller lik 3 er lik 0,7759 står over de grønne søylene, og teksten P av X større enn eller lik 4 er lik 0,2241 står over de blå.",
+      "caption": "De to spørsmålene deler de samme elleve søylene i to. Søyla for $k = 4$ hører til det blå området — $P(X \\ge 4)$ tar **med** 4. Det er nettopp her $k-1$-feilen oppstår: $P(X \\ge 4) = 1 - P(X \\le 3)$, ikke $1 - P(X \\le 4)$.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-5-kumulativ-binomisk.json"
+    },
+    {
+      "id": "stat-5-5-section-tabell",
+      "type": "text",
+      "content": "## Sannsynlighetstabellen\n\nEn binomisk sannsynlighetstabell gir $P(X \\le k)$ for et fast antall forsøk. Her er tabellen for $n = 10$:\n\n| $k$ | $p = 0{,}10$ | $p = 0{,}25$ | $p = 0{,}50$ | $p = 0{,}75$ |\n|---|---|---|---|---|\n| 0 | 0,3487 | 0,0563 | 0,0010 | 0,0000 |\n| 1 | 0,7361 | 0,2440 | 0,0107 | 0,0000 |\n| 2 | 0,9298 | 0,5256 | 0,0547 | 0,0004 |\n| 3 | 0,9872 | 0,7759 | 0,1719 | 0,0035 |\n| 4 | 0,9984 | 0,9219 | 0,3770 | 0,0197 |\n| 5 | 0,9999 | 0,9803 | 0,6230 | 0,0781 |\n| 6 | 1,0000 | 0,9965 | 0,8281 | 0,2241 |\n| 7 | 1,0000 | 0,9996 | 0,9453 | 0,4744 |\n| 8 | 1,0000 | 1,0000 | 0,9893 | 0,7560 |\n| 9 | 1,0000 | 1,0000 | 0,9990 | 0,9437 |\n| 10 | 1,0000 | 1,0000 | 1,0000 | 1,0000 |\n\nSlik leser du den: gå inn i kolonnen for riktig $p$, gå ned til raden for riktig $k$, og les av $P(X \\le k)$.\n\n**To ting å merke seg:**\n\n- Tallene i en kolonne **vokser nedover** og ender på 1,0000. Det må de — når $k$ når $n$, har vi tatt med alle utfallene.\n- 1,0000 i tabellen betyr «1 når vi runder av til fire desimaler», ikke at sannsynligheten er nøyaktig 1. For $p = 0{,}10$ og $k = 6$ er den egentlige verdien 0,99999."
+    },
+    {
+      "id": "stat-5-5-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Oppslag i tabellen",
+      "problem": "Isak gjetter på 10 flervalgsspørsmål med 4 alternativer hver. La $X$ være antall riktige.\n\nBruk tabellen over til å finne\na) $P(X \\le 3)$\nb) $P(X \\ge 4)$\nc) $P(X = 3)$\nd) $P(2 \\le X \\le 4)$",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Fordelingen er binomisk, med\n\n$$n = 10$$\n\n$$p = \\frac{1}{4} = 0{,}25$$\n\nVi skal altså bruke kolonnen $p = 0{,}25$ hele veien.\n\n**a)** «Høyst 3 riktige» er oppslaget slik det står. Vi går til raden $k = 3$:\n\n$$P(X \\le 3) = 0{,}7759$$\n\n**b)** «Minst 4 riktige». Det motsatte er «høyst 3», altså det vi nettopp fant:\n\n$$P(X \\ge 4) = 1 - P(X \\le 3) = 1 - 0{,}7759 = 0{,}2241$$\n\n*(Legg merke til at det er $k - 1 = 3$ vi slår opp, ikke 4.)*\n\n**c)** «Nøyaktig 3 riktige» er differansen mellom to nabooppslag:\n\n$$P(X = 3) = P(X \\le 3) - P(X \\le 2) = 0{,}7759 - 0{,}5256 = 0{,}2503$$\n\nKontroll med formelen fra kapittel 5.4:\n\n$$P(X = 3) = \\binom{10}{3} \\cdot 0{,}25^3 \\cdot 0{,}75^7 = 120 \\cdot 0{,}015625 \\cdot 0{,}13348 \\approx 0{,}2503$$\n\nSamme svar — tabellen og formelen er to veier til det samme.\n\n**d)** «Mellom 2 og 4, begge tatt med». Vi tar alt til og med 4, og trekker fra alt til og med 1:\n\n$$P(2 \\le X \\le 4) = P(X \\le 4) - P(X \\le 1) = 0{,}9219 - 0{,}2440 \\approx 0{,}678$$\n\n**Svar:** a) $0{,}7759$ b) $0{,}2241$ c) $0{,}2503$ d) $\\approx 0{,}678$\n\n*(Regner vi uten avrunding, blir d) 0,67785. Når vi trekker to tabellverdier fra hverandre, mister vi alltid litt presisjon — svar derfor med tre desimaler her.)*\n\n**Tolkning av b):** Gjetter du på ti flervalgsspørsmål, er sannsynligheten for å få minst 4 riktige omtrent 22 %. Gjetting er altså ikke helt håpløst — men det er heller ikke noen strategi."
+    },
+    {
+      "id": "stat-5-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vi kaster en mynt 10 ganger. La $X$ være antall kron, så $n = 10$ og $p = 0{,}50$. Bruk tabellen i kapittelet og svar med fire desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(X \\le 4)$.",
+            "solution": "Direkte fra kolonnen $p = 0{,}50$, rad $k = 4$: $P(X \\le 4) = 0{,}3770$.",
+            "answer": 0.377
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\ge 6)$.",
+            "solution": "Det motsatte er «høyst 5»: $P(X \\ge 6) = 1 - P(X \\le 5) = 1 - 0{,}6230 = 0{,}3770$.",
+            "answer": 0.377
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor er svarene i a) og b) like?",
+            "solution": "Fordelingen er symmetrisk om 5 når $p = 0{,}50$. Å få høyst 4 kron er like sannsynlig som å få minst 6 kron — det er samme situasjon sett fra mynt-siden."
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 5)$.",
+            "solution": "$P(X = 5) = P(X \\le 5) - P(X \\le 4) = 0{,}6230 - 0{,}3770 = 0{,}2460$ (eksakt 0,2461)",
+            "answer": 0.246
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(3 \\le X \\le 7)$.",
+            "solution": "$P(X \\le 7) - P(X \\le 2) = 0{,}9453 - 0{,}0547 = 0{,}8906$",
+            "answer": 0.8906
+          }
+        ],
+        "hints": [
+          "Skriv alltid om til $P(X \\le \\ldots)$ først, og sjekk om det er $k$ eller $k - 1$ som skal slås opp."
+        ],
+        "solution": "a) 0,3770, b) 0,3770, c) symmetri om 5, d) 0,2460, e) 0,8906",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-5-section-verktoy",
+      "type": "text",
+      "content": "## Regneark og GeoGebra\n\nEn tabell dekker bare noen få verdier av $n$ og $p$. Digitale verktøy dekker alle.\n\n**I regneark** er det én funksjon, og et siste argument som avgjør hva du får:\n\n| Du vil ha | Formel |\n|---|---|\n| $P(X = k)$ | `=BINOM.FORDELING.N(k; n; p; USANN)` |\n| $P(X \\le k)$ | `=BINOM.FORDELING.N(k; n; p; SANN)` |\n\nDet siste argumentet er hele forskjellen: `USANN` gir det enkelte leddet, `SANN` gir summen til og med $k$. (I eldre regneark heter funksjonen `BINOM.FORDELING`, og i engelsk versjon `BINOM.DIST`.)\n\n**I GeoGebra** skriver du kommandoen rett i inntastingsfeltet:\n\n```\nFordelingBinomial(10, 0.25, 3, false)    gir P(X = 3)\nFordelingBinomial(10, 0.25, 3, true)     gir P(X <= 3)\n```\n\nArgumentene er i rekkefølgen $n$, $p$, $k$ og så sann/usann for kumulativ.\n\n**På kalkulator** heter funksjonene som regel `binompdf(n, p, k)` for $P(X = k)$ og `binomcdf(n, p, k)` for $P(X \\le k)$ — *pdf* for det enkelte leddet, *cdf* for summen.\n\n**NB:** Uansett verktøy må du selv gjøre oversettelsen i tabellen over. Ingen av dem har en knapp for «minst 8»."
+    },
+    {
+      "id": "stat-5-5-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Minst 8 av 12 består",
+      "problem": "Ved en trafikkstasjon består 74 % av kandidatene oppkjøringen. En trafikkskole melder opp 12 elever, og vi antar at forutsetningene for binomisk fordeling er oppfylt.\n\nFinn sannsynligheten for at minst 8 av de 12 består.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Fordelingen er binomisk, med\n\n$$n = 12$$\n\n$$p = 0{,}74$$\n\n*Hva må vi finne?* $P(X \\ge 8)$ — i klartekst: sannsynligheten for at antall elever som består, er minst 8.\n\n**Steg 1 — oversett.** Det motsatte av «minst 8» er «høyst 7»:\n\n$$P(X \\ge 8) = 1 - P(X \\le 7)$$\n\n**Steg 2 — slå opp.** Tabellen i kapittelet dekker ikke $p = 0{,}74$, så vi bruker verktøy:\n\n```\nregneark:   =1 - BINOM.FORDELING.N(7; 12; 0,74; SANN)\nGeoGebra:   1 - FordelingBinomial(12, 0.74, 7, true)\n```\n\nOppslaget gir $P(X \\le 7) = 0{,}1790$, og dermed\n\n$$P(X \\ge 8) = 1 - 0{,}1790 = 0{,}8210$$\n\n**Svar:** $P(X \\ge 8) \\approx 0{,}821$, altså omtrent 82 %.\n\n**NB:** Hadde vi slått opp $P(X \\le 8)$ i stedet for $P(X \\le 7)$, hadde vi fått $1 - 0{,}3824 = 0{,}6176$ — et helt annet og galt svar. Vi ville da ha regnet ut $P(X \\ge 9)$, altså utelatt de tilfellene der nøyaktig 8 består. Det er denne ene indeksen som avgjør oppgaven."
+    },
+    {
+      "id": "stat-5-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En quiz har 20 spørsmål med fire svaralternativer hver. Mari gjetter på alle. La $X$ være antall riktige, så $n = 20$ og $p = 0{,}25$. Bruk digitale verktøy og svar med fire desimaler. Skriv opp formelen du taster inn.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(X \\le 5)$.",
+            "solution": "`=BINOM.FORDELING.N(5; 20; 0,25; SANN)` gir $P(X \\le 5) = 0{,}6172$.",
+            "answer": 0.6172
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 5)$.",
+            "solution": "`=BINOM.FORDELING.N(5; 20; 0,25; USANN)` gir $P(X = 5) = 0{,}2023$.",
+            "answer": 0.2023
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\ge 8)$.",
+            "solution": "$P(X \\ge 8) = 1 - P(X \\le 7) = 1 - 0{,}8982 = 0{,}1018$",
+            "answer": 0.1018
+          },
+          {
+            "label": "d",
+            "task": "For å bestå må Mari ha minst 12 riktige. Finn sannsynligheten for at hun består ved ren gjetting.",
+            "solution": "$P(X \\ge 12) = 1 - P(X \\le 11) = 1 - 0{,}9991 = 0{,}0009$",
+            "answer": 0.0009
+          },
+          {
+            "label": "e",
+            "task": "Kommenter svaret i d) med én setning.",
+            "solution": "Sannsynligheten er under én promille — omtrent 1 av 1070. Ren gjetting er i praksis ingen vei til å bestå en slik prøve."
+          }
+        ],
+        "hints": [
+          "Husk indeksen: «minst 8» slås opp som $1 - P(X \\le 7)$."
+        ],
+        "solution": "a) 0,6172, b) 0,2023, c) 0,1018, d) 0,0009, e) i praksis umulig å bestå på gjetting",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-5-theorem-np",
+      "type": "theorem",
+      "title": "Forventningsverdi og varians i binomisk fordeling",
+      "content": "Når $X$ er binomisk fordelt med $n$ forsøk og suksessannsynlighet $p$, gjelder\n\n$$\\mu = E(X) = n \\cdot p$$\n\n$$\\text{Var}(X) = n \\cdot p \\cdot (1 - p)$$\n\n$$\\sigma = SD(X) = \\sqrt{n \\cdot p \\cdot (1 - p)}$$\n\nHer trenger vi altså ikke fordelingstabellen i det hele tatt — tre tall inn, svaret ut.\n\n**Hvorfor $np$?** Gjør du 100 forsøk der hvert lykkes med sannsynlighet 0,3, er det rimelig å vente omtrent 30 suksesser. Formelen sier nøyaktig det: forventet antall er antall forsøk ganger sjansen per forsøk.\n\n**Når er variansen størst?** Uttrykket $p(1-p)$ er størst når $p = 0{,}5$, og går mot 0 når $p$ nærmer seg 0 eller 1. Det er rimelig: et forsøk som nesten alltid lykkes, er forutsigbart. Et forsøk som er femti–femti, er så uforutsigbart som det går an å bli."
+    },
+    {
+      "id": "stat-5-5-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Turister i en butikk",
+      "problem": "En souvenirbutikk i Bergen vet at 70 % av kundene er turister. En dag kommer det 145 kunder. La $X$ være antall turister blant dem.\n\na) Finn $E(X)$ og $SD(X)$.\nb) Finn $P(X \\ge 100)$.\nc) Er svaret i b) rimelig i forhold til svaret i a)?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Fordelingen er binomisk, med\n\n$$n = 145$$\n\n$$p = 0{,}70$$\n\n**a)** Vi skriver formelen tom først, og setter så inn:\n\n$$\\mu = E(X) = n \\cdot p = 145 \\cdot 0{,}70 = 101{,}5$$\n\n$$\\text{Var}(X) = n \\cdot p \\cdot (1 - p) = 145 \\cdot 0{,}70 \\cdot 0{,}30 = 30{,}45$$\n\n$$\\sigma = SD(X) = \\sqrt{30{,}45} \\approx 5{,}52$$\n\nVi venter altså omtrent 101–102 turister, med et typisk avvik på rundt 5,5.\n\n**b)** «Minst 100». Det motsatte er «høyst 99»:\n\n$$P(X \\ge 100) = 1 - P(X \\le 99)$$\n\n```\nregneark:   =1 - BINOM.FORDELING.N(99; 145; 0,7; SANN)\nGeoGebra:   1 - FordelingBinomial(145, 0.7, 99, true)\n```\n\n$$P(X \\ge 100) = 1 - 0{,}3547 = 0{,}6453$$\n\n**c)** Ja. Grensen 100 ligger like *under* forventningsverdien 101,5 — bare omtrent $\\frac{101{,}5 - 100}{5{,}52} \\approx 0{,}27$ standardavvik unna. At det er litt mer enn 50 % sannsynlig å havne over en grense som ligger litt under midten, er nøyaktig som ventet. Svaret 0,645 består altså rimelighetssjekken.\n\n![En klokkeformet kurve over en vannrett akse merket antall, med verdiene 80 til 120. Toppen ligger litt til høyre for 100. En grå stiplet strek går opp til toppen og er merket μ er lik 101,5. En rød stiplet strek står litt til venstre for den, ved 100, og er merket grensen 100. Hele området under kurven fra 100 og oppover er fylt med gult, og det gule feltet dekker litt mer enn halve arealet.](/images/content/statistikk/stat-5-5-turister-n145.png)\n\n*Hvorfor $P(X \\ge 100)$ må ligge litt over 0,5: grensen 100 ligger under forventningsverdien $\\mu = 101{,}5$, men bare med knapt et kvart standardavvik ($\\sigma \\approx 5{,}5$). Det gule feltet er derfor litt større enn halve klokka — akkurat den rimelighetsvurderingen deloppgaven ber om.*\n\n**Svar:** a) $E(X) = 101{,}5$ og $SD(X) \\approx 5{,}52$. b) $P(X \\ge 100) \\approx 0{,}645$. c) Ja — grensen ligger like under $\\mu$.\n\n**NB:** Dette er en god vane. Regn alltid ut $\\mu = np$ først, også når oppgaven ikke spør om den. Da vet du omtrent hvor svaret skal ligge, og du oppdager tasteflis med én gang."
+    },
+    {
+      "id": "stat-5-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kommune vet at 12 % av innbyggerne har lånt en bok på biblioteket den siste måneden. Det trekkes ut 50 tilfeldige innbyggere. La $X$ være antall av dem som har lånt en bok.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $E(X)$.",
+            "solution": "$\\mu = n \\cdot p = 50 \\cdot 0{,}12 = 6$",
+            "answer": 6
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\text{Var}(X)$ og $SD(X)$.",
+            "solution": "$\\text{Var}(X) = 50 \\cdot 0{,}12 \\cdot 0{,}88 = 5{,}28$ og $SD(X) = \\sqrt{5{,}28} \\approx 2{,}30$",
+            "answer": 5.28
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\le 4)$.",
+            "solution": "`=BINOM.FORDELING.N(4; 50; 0,12; SANN)` gir $0{,}2680$.",
+            "answer": 0.268
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X \\ge 10)$.",
+            "solution": "$P(X \\ge 10) = 1 - P(X \\le 9) = 1 - 0{,}9292 = 0{,}0708$",
+            "answer": 0.0708
+          },
+          {
+            "label": "e",
+            "task": "I det virkelige utvalget var det 13 som hadde lånt en bok. Ligger det innenfor det vi kunne vente? Bruk $\\mu$ og $\\sigma$ i svaret.",
+            "solution": "$13$ ligger $\\frac{13 - 6}{2{,}30} \\approx 3{,}0$ standardavvik over forventningen. Det er svært langt ute — et resultat vi sjelden ser hvis andelen virkelig er 12 %. Det gir grunn til å tvile på tallet 12 %, eller på at utvalget var tilfeldig. (Hvordan man tester slikt formelt, kommer i kapittel 7.)",
+            "answer": 3
+          }
+        ],
+        "hints": [
+          "Regn ut $\\mu = np$ først, så vet du hvor svarene bør ligge."
+        ],
+        "solution": "a) 6, b) 5,28 og $\\approx 2{,}30$, c) 0,2680, d) 0,0708, e) ca. 3 standardavvik over — svært uvanlig",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-5-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Overbooking i teatersalen",
+      "problem": "Et teater har 200 seter. Erfaringen er at 5 % av dem som har kjøpt billett, ikke møter opp. Teatret vurderer derfor å selge 210 billetter. La $X$ være antall som møter opp.\n\na) Finn $E(X)$ og $SD(X)$ når det selges 210 billetter.\nb) Finn sannsynligheten for at flere enn 200 møter opp, slik at noen ikke får plass.\nc) Hvor mange billetter bør teatret selge hvis denne sannsynligheten skal være under 5 %?",
+      "solution": "**Løsning:**\n\n**a)** Hver billettkjøper møter opp med sannsynlighet $1 - 0{,}05 = 0{,}95$, uavhengig av de andre. Fordelingen er binomisk, med\n\n$$n = 210$$\n\n$$p = 0{,}95$$\n\n$$\\mu = E(X) = 210 \\cdot 0{,}95 = 199{,}5$$\n\n$$\\text{Var}(X) = 210 \\cdot 0{,}95 \\cdot 0{,}05 = 9{,}975$$\n\n$$\\sigma = SD(X) = \\sqrt{9{,}975} \\approx 3{,}16$$\n\n**b)** «Flere enn 200» er $P(X > 200)$, som slås opp som $1 - P(X \\le 200)$:\n\n```\nregneark:   =1 - BINOM.FORDELING.N(200; 210; 0,95; SANN)\n```\n\n$$P(X > 200) = 1 - 0{,}6074 = 0{,}3926$$\n\nNesten 40 %. Det er altfor høyt — omtrent hver tredje forestilling ville hatt gjester uten sete.\n\n*(Rimelighetssjekk: $\\mu = 199{,}5$ ligger bare et halvt sete under grensen på 200, og $\\sigma \\approx 3{,}2$. At sannsynligheten for å komme over grensen da er i nærheten av 40 %, stemmer godt.)*\n\n**c)** Vi prøver oss fram med færre billetter. Med $n = 205$ blir $\\mu = 205 \\cdot 0{,}95 = 194{,}75$, og\n\n$$P(X > 200) = 1 - P(X \\le 200) = 1 - 0{,}9776 = 0{,}0224$$\n\nDet er under 5 %. Teatret bør altså selge omtrent 205 billetter, ikke 210.\n\n**Svar:** a) $E(X) = 199{,}5$ og $SD(X) \\approx 3{,}16$. b) $\\approx 0{,}393$. c) Omtrent 205 billetter.\n\n**NB:** Her ser vi hvorfor $\\sigma$ er uunnværlig. Forventningsverdien alene sa 199,5 — trygt under 200. Men et typisk avvik på drøye 3 seter betyr at «trygt under» ikke er trygt i det hele tatt."
+    },
+    {
+      "id": "stat-5-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et flyselskap vet at 4 % av passasjerene ikke møter til avgang. Flyet har 180 seter, og selskapet selger 185 billetter. La $X$ være antall som møter opp. Svar med fire desimaler der ikke annet står.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Oppgi $n$ og $p$.",
+            "solution": "$n = 185$ og $p = 1 - 0{,}04 = 0{,}96$.",
+            "answer": 0.96
+          },
+          {
+            "label": "b",
+            "task": "Finn $E(X)$.",
+            "solution": "$\\mu = 185 \\cdot 0{,}96 = 177{,}6$",
+            "answer": 177.6
+          },
+          {
+            "label": "c",
+            "task": "Finn $SD(X)$ med to desimaler.",
+            "solution": "$\\text{Var}(X) = 185 \\cdot 0{,}96 \\cdot 0{,}04 = 7{,}104$ og $SD(X) = \\sqrt{7{,}104} \\approx 2{,}67$",
+            "answer": 2.67
+          },
+          {
+            "label": "d",
+            "task": "Finn sannsynligheten for at flere enn 180 møter opp.",
+            "solution": "$P(X > 180) = 1 - P(X \\le 180) = 1 - 0{,}8657 = 0{,}1343$",
+            "answer": 0.1343
+          },
+          {
+            "label": "e",
+            "task": "Selskapet vil at denne sannsynligheten skal være under 2 %. Prøv med 183 billetter, og så med 182. Hvor mange billetter bør selges?",
+            "solution": "Med $n = 183$: $\\mu = 175{,}68$ og $P(X > 180) = 1 - 0{,}9786 = 0{,}0214$ — så vidt over 2 %. Med $n = 182$: $\\mu = 174{,}72$ og $P(X > 180) = 1 - 0{,}9949 = 0{,}0051$, godt under grensen. Selskapet bør selge 182 billetter.",
+            "answer": 0.0051
+          }
+        ],
+        "hints": [
+          "Pass på at $p$ er sannsynligheten for å MØTE OPP, ikke for å utebli."
+        ],
+        "solution": "a) $n = 185$, $p = 0{,}96$, b) 177,6, c) $\\approx 2{,}67$, d) 0,1343, e) 183 gir 0,0214 (for høyt), 182 gir 0,0051 — selg 182",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Oversett hvert spørsmål til et oppslag i formen $P(X \\le \\ldots)$. Du skal ikke regne ut noe tall — bare skrive om.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Høyst 6 av 20.»",
+            "solution": "$P(X \\le 6)$ — allerede på riktig form."
+          },
+          {
+            "label": "b",
+            "task": "«Minst 9 av 20.»",
+            "solution": "$P(X \\ge 9) = 1 - P(X \\le 8)$"
+          },
+          {
+            "label": "c",
+            "task": "«Færre enn 4 av 20.»",
+            "solution": "$P(X < 4) = P(X \\le 3)$"
+          },
+          {
+            "label": "d",
+            "task": "«Flere enn 15 av 20.»",
+            "solution": "$P(X > 15) = 1 - P(X \\le 15)$"
+          },
+          {
+            "label": "e",
+            "task": "«Mellom 7 og 12 av 20, begge tatt med.»",
+            "solution": "$P(7 \\le X \\le 12) = P(X \\le 12) - P(X \\le 6)$"
+          }
+        ],
+        "hints": [
+          "Spør alltid: hører grenseverdien selv med i hendelsen? Det avgjør om det er $k$ eller $k - 1$ som skal inn."
+        ],
+        "solution": "a) $P(X \\le 6)$, b) $1 - P(X \\le 8)$, c) $P(X \\le 3)$, d) $1 - P(X \\le 15)$, e) $P(X \\le 12) - P(X \\le 6)$",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-5-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Tabeller og verktøy gir **kumulative** sannsynligheter $P(X \\le k)$. Alt annet skrives om til dette.\n- Oversettelsen er det du må kunne: «minst $k$» blir $1 - P(X \\le k - 1)$, «flere enn $k$» blir $1 - P(X \\le k)$, «nøyaktig $k$» blir $P(X \\le k) - P(X \\le k - 1)$.\n- **Regneark:** `=BINOM.FORDELING.N(k; n; p; SANN)` for $P(X \\le k)$, `USANN` for $P(X = k)$.\n- **GeoGebra:** `FordelingBinomial(n, p, k, true)` for $P(X \\le k)$, `false` for $P(X = k)$.\n- **Kalkulator:** `binomcdf(n, p, k)` og `binompdf(n, p, k)`.\n- For binomisk fordeling har vi ferdige formler: $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $SD(X) = \\sqrt{np(1-p)}$.\n- Regn alltid $\\mu = np$ først som **rimelighetssjekk**, også når oppgaven ikke ber om det.\n\nSå langt har alle variablene vært diskrete — de har telt noe. I kapittel 5.6 slipper vi tellingen og ser på variabler som *måler*."
+    },
+    {
+      "id": "stat-5-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Bygg din egen binomiske tabell. Lag et regneark der du skriver $n$ i celle B1 og $p$ i celle B2, og der kolonne A inneholder $k = 0, 1, 2, \\ldots, n$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag kolonne B med $P(X = k)$ ved formelen `=BINOM.FORDELING.N(A5;$B$1;$B$2;USANN)`, kopiert nedover. Sett $n = 10$ og $p = 0{,}25$, og kontroller at kolonnen summerer til 1.",
+            "solution": "Summen av alle $P(X = k)$ er 1,0000 — det er summekravet fra kapittel 5.1.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Lag kolonne C med $P(X \\le k)$ (`SANN` i stedet for `USANN`), og sammenlign med tabellen i kapittelet.",
+            "solution": "Kolonnen blir 0,0563 · 0,2440 · 0,5256 · 0,7759 · 0,9219 · 0,9803 · 0,9965 · 0,9996 · 1,0000 · 1,0000 · 1,0000 — akkurat kolonnen $p = 0{,}25$ i tabellen.",
+            "answer": 0.7759
+          },
+          {
+            "label": "c",
+            "task": "Lag et søylediagram av kolonne B. Endre $p$ til 0,50 og så til 0,75. Hva skjer med formen på diagrammet?",
+            "solution": "Ved $p = 0{,}25$ heller fordelingen mot venstre (toppen ved $k = 2$–3), ved $p = 0{,}50$ er den symmetrisk om 5, og ved $p = 0{,}75$ speilvendt mot høyre (toppen ved $k = 7$–8). Toppen ligger alltid nær $np$.\n\n![Tre søylediagram merket A, B og C med nøyaktig samme akser: vannrett k fra 0 til 10 med tall for hver andre, loddrett P av X lik k med tallene 0,1, 0,2 og 0,3. A er p lik 0,25: søylene stiger til toppen ved k lik 2 med 0,282 og faller raskt mot høyre, så fordelingen heller mot venstre. B er p lik 0,50: fordelingen er symmetrisk om k lik 5, som er høyest med 0,246. C er p lik 0,75: speilbildet av A, med toppen ved k lik 8 med 0,282 og halen mot venstre. Søyler lavere enn 0,005 er for lave til å tegnes og er utelatt.](/images/content/statistikk/stat-5-5-binomisk-tre-p.png)\n\n*Samme n = 10, tre verdier av p, og NØYAKTIG samme akser i alle tre — uten det kan ikke formene sammenlignes. Toppen ligger alltid nær $np$: 2,5 i A, 5 i B og 7,5 i C. A og C er speilbilder av hverandre, fordi 0,75 er 1 − 0,25.*"
+          },
+          {
+            "label": "d",
+            "task": "Legg inn $\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$ i to celler. Sett $p = 0{,}50$ og la $n$ vokse: 10, 40, 160. Hva skjer med $\\sigma$ i forhold til $n$?",
+            "solution": "$\\sigma$ blir 1,58 · 3,16 · 6,32. Når $n$ firedobles, dobles $\\sigma$ — spredningen vokser som $\\sqrt{n}$, ikke som $n$. Relativt til $\\mu$ blir fordelingen derfor smalere og smalere: $\\frac{\\sigma}{\\mu}$ går fra 0,316 til 0,158 til 0,079.",
+            "answer": 6.32
+          },
+          {
+            "label": "e",
+            "task": "Behold $n = 160$ og $p = 0{,}50$. Finn $P(70 \\le X \\le 90)$ og kommenter resultatet i lys av svaret i d).",
+            "solution": "$P(70 \\le X \\le 90) = P(X \\le 90) - P(X \\le 69) = 0{,}9517 - 0{,}0483 = 0{,}9034$. Intervallet er $\\mu \\pm 10$, altså omtrent $\\mu \\pm 1{,}58\\sigma$, og fanger drøye 90 % av sannsynligheten. Jo større $n$, desto sikrere blir vi på at andelen ligger nær 0,50.",
+            "answer": 0.9034
+          }
+        ],
+        "hints": [
+          "Bruk absolutte referanser (`$B$1`, `$B$2`) til $n$ og $p$, så kan du endre dem ett sted og se hele tabellen oppdatere seg."
+        ],
+        "solution": "a) summen er 1, b) kolonnen gjengir tabellen for $p = 0{,}25$, c) toppen følger $np$, d) $\\sigma$ vokser som $\\sqrt{n}$ (1,58 / 3,16 / 6,32), e) 0,9034",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar",
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-5-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder utsagnene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En elev skriver `=1 - BINOM.FORDELING.N(8; 12; 0,74; SANN)` for å finne $P(X \\ge 8)$. Hva blir galt, og hvor stor blir feilen?",
+            "solution": "Formelen regner $1 - P(X \\le 8) = P(X \\ge 9) = 0{,}6176$, ikke $P(X \\ge 8) = 0{,}8210$. Eleven har utelatt tilfellet $X = 8$, og feilen er $0{,}8210 - 0{,}6176 = 0{,}2034$ — over 20 prosentpoeng. Riktig argument er $7$, ikke $8$.",
+            "answer": 0.2034
+          },
+          {
+            "label": "b",
+            "task": "«$E(X) = np$ betyr at $np$ alltid er et mulig antall.» Vurder påstanden.",
+            "solution": "Gal. $E(X) = 145 \\cdot 0{,}70 = 101{,}5$, og et antall kunder kan ikke være 101,5. Forventningsverdien er et gjennomsnitt, ikke et utfall — akkurat som 3,5 for et terningkast."
+          },
+          {
+            "label": "c",
+            "task": "To binomiske fordelinger har $n = 100$. Den ene har $p = 0{,}5$, den andre $p = 0{,}95$. Hvilken har størst standardavvik, og hvorfor er det rimelig?",
+            "solution": "$\\sigma_1 = \\sqrt{100 \\cdot 0{,}5 \\cdot 0{,}5} = 5$ og $\\sigma_2 = \\sqrt{100 \\cdot 0{,}95 \\cdot 0{,}05} \\approx 2{,}18$. Den med $p = 0{,}5$ har størst spredning. Et forsøk som nesten alltid lykkes, gir nesten alltid det samme antallet suksesser, og er derfor mer forutsigbart.",
+            "answer": 5
+          },
+          {
+            "label": "d",
+            "task": "Et oppslag gir $P(X \\le 12) = 0{,}84$ og $P(X \\le 11) = 0{,}91$. Hva vet du umiddelbart?",
+            "solution": "At noe er galt. Kumulative sannsynligheter kan aldri synke når $k$ vokser, for $P(X \\le 12)$ inneholder alt $P(X \\le 11)$ inneholder, og mer til. Enten er tallene byttet om, eller så er de slått opp med ulike $n$ eller $p$."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor gir tabellen 1,0000 for $p = 0{,}10$ allerede ved $k = 6$, selv om $X$ kan bli så stor som 10?",
+            "solution": "Fordi $P(X \\le 6) = 0{,}99999$, som avrundet til fire desimaler blir 1,0000. Sannsynligheten for 7 eller flere er ikke null — den er bare mindre enn 0,00002. Avrunding i en tabell skjuler alltid noe, og for svært små sannsynligheter må man regne, ikke slå opp."
+          }
+        ],
+        "hints": [
+          "I d): tenk på hva $P(X \\le k)$ betyr som en sum. Kan en sum bli mindre når du legger til et ledd?"
+        ],
+        "solution": "a) Feil indeks — 0,6176 i stedet for 0,8210, feil 0,2034. b) Gal — $\\mu$ er et gjennomsnitt. c) $p = 0{,}5$ gir $\\sigma = 5$ mot 2,18. d) Kumulative verdier kan ikke synke. e) Avrunding — den egentlige verdien er 0,99999.",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Kumulativ sannsynlighet",
+      "definition": "$P(X \\le k)$ — summen av sannsynlighetene for alle verdier til og med $k$. Dette er den eneste størrelsen tabeller og digitale verktøy gir direkte."
+    },
+    {
+      "term": "Sannsynlighetstabell",
+      "definition": "Tabell som gir $P(X \\le k)$ for et fast antall forsøk $n$ og noen utvalgte verdier av $p$. Verdiene vokser nedover og ender på 1."
+    },
+    {
+      "term": "E(X) = np",
+      "definition": "Forventet antall suksesser i en binomisk fordeling: antall forsøk ganger sannsynligheten for suksess i ett forsøk."
+    },
+    {
+      "term": "SD(X) = √(np(1−p))",
+      "definition": "Standardavviket i en binomisk fordeling. Størst når $p = 0{,}5$, og nær 0 når $p$ ligger nær 0 eller 1."
+    }
+  ]
+}

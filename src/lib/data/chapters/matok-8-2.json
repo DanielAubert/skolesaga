@@ -1,0 +1,400 @@
+{
+  "id": "matok-8-2",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "8.2",
+  "title": "Gjennomføring og presentasjon",
+  "description": "Å analysere med matematiske modeller og presentere funn.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+  ],
+  "content": [
+    {
+      "id": "matok-8-2-section-intro",
+      "type": "text",
+      "content": "## Fra plan til funn\n\nI kapittel 8.1 «Planlegging av et selvstendig arbeid» laget vi planen: problemstilling, data og modellvalg. Nå skal arbeidet gjennomføres.\n\nFasene 3 og 4 har fire trinn:\n\n1. **Tilpass modellen til dataene**, og kontrollér den mot hvert eneste målepunkt.\n2. **Fastsett gyldighetsområdet** — hvor langt modellen kan brukes.\n3. **Regn ut svaret** på problemstillingen.\n4. **Vurder hvor sikkert det er**, og presentér funnene.\n\nTrinn 4 er det som skiller et arbeid med en modell fra et arbeid med **forståelse** av modellen. Et tall uten forbehold er sjelden riktig, og et tall med gode forbehold er nesten alltid nyttig.\n\nVi følger strømprosjektet fra kapittel 8.1 hele veien."
+    },
+    {
+      "id": "matok-8-2-section-tilpasse",
+      "type": "text",
+      "content": "## Å tilpasse en modell — og kontrollere den\n\nRegresjon gir alltid et svar. Regnearket protesterer ikke om du ber det legge en rett linje gjennom punkter som ligger i en bue. Derfor kommer kontrollen **før** vi bruker modellen til noe.\n\n**Skritt 1. Se på tallene før du regner.** Er avstanden i $x$ jevn, regner vi ut\n\n- **differansene** mellom nabomålingene i $y$ — er de tilnærmet like, passer en **lineær** modell,\n- **forholdstallene** mellom nabomålingene — er de tilnærmet like, passer en **eksponentiell** modell.\n\n**Skritt 2. Tegn dataene.** Øyet finner en krumning raskere enn et tall gjør.\n\n**Skritt 3. Kjør regresjonen**, og skriv opp modellen med en avrunding som passer dataene.\n\n**Skritt 4. Sammenlign modellen med **alle** målingene**, ikke bare med det høyeste og laveste. Se særlig etter et **mønster** i avvikene: er de først positive, så negative, så positive igjen, er modellformen feil — uansett hvor god forklaringsgraden ser ut.\n\nNB: Forklaringsgraden $R^2$ måler hvor mye av variasjonen modellen fanger, men den ser ikke mønsteret i avvikene. En krum sammenheng kan gi $R^2 = 0{,}98$ på en rett linje og likevel være feil modell. Det ser du i oppgave 8.2.5."
+    },
+    {
+      "id": "matok-8-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Modellen for strømforbruket",
+      "problem": "I strømprosjektet er det målt hvor mye strøm husholdningen bruker per døgn ved ulike døgnmiddeltemperaturer:\n\n| Temperatur (°C) | −10 | −5 | 0 | 5 | 10 | 15 |\n|---|---|---|---|---|---|---|\n| Forbruk (kWh/døgn) | 62 | 54 | 45 | 37 | 28 | 21 |\n\na) Undersøk om en lineær modell passer.\n\nb) Finn modellen med regresjon, og kontrollér den mot alle målingene.\n\nc) Tolk stigningstallet og konstantleddet.",
+      "solution": "**a)** Temperaturene ligger jevnt med 5 grader mellom hver, så vi kan se på differansene i forbruk:\n\n$$54 - 62 = -8, \\quad 45 - 54 = -9, \\quad 37 - 45 = -8, \\quad 28 - 37 = -9, \\quad 21 - 28 = -7$$\n\nDifferansene ligger mellom $-9$ og $-7$, altså nesten like. Forholdstallene er derimot $54 : 62 \\approx 0{,}87$ og $21 : 28 = 0{,}75$ — de er ikke like.\n\n**Svar:** En lineær modell passer.\n\n**b)** Vi kjører lineær regresjon i regneark. Med temperaturen i kolonne A og forbruket i kolonne B:\n\n```\n=STIGNINGSTALL(B2:B7; A2:A7)\n=SKJÆRINGSPUNKT(B2:B7; A2:A7)\n=RKVADRAT(B2:B7; A2:A7)\n```\n\nDet gir stigningstall $-1{,}66286\\ldots$, konstantledd $45{,}32381\\ldots$ og $R^2 = 0{,}99909$. Vi runder av til to desimaler:\n\n$$F(x) = -1{,}66x + 45{,}32$$\n\nder $x$ er døgnmiddeltemperaturen i grader og $F(x)$ er forbruket i kWh per døgn.\n\n**Kontroll mot alle seks målingene:**\n\n| $x$ | Modell $F(x)$ | Måling | Residual (måling − modell) |\n|---|---|---|---|\n| −10 | 61,92 | 62 | +0,08 |\n| −5 | 53,62 | 54 | +0,38 |\n| 0 | 45,32 | 45 | −0,32 |\n| 5 | 37,02 | 37 | −0,02 |\n| 10 | 28,72 | 28 | −0,72 |\n| 15 | 20,42 | 21 | +0,58 |\n\nDen største residualen er $0{,}72$ kWh på et forbruk rundt 28 kWh, altså under 3 %. Fortegnene veksler ($+$, $+$, $-$, $-$, $-$, $+$) uten noe tydelig mønster, og det er slik det skal se ut når modellformen er riktig.\n\n![Koordinatsystem med temperatur i grader celsius fra minus 15 til 20 langs den vannrette aksen og forbruk i kilowattimer fra 0 til 80 langs den loddrette. Seks blå målepunkter ligger nesten på en rett linje som synker mot høyre. En rød rett linje merket F går gjennom punktene fra øverst til venstre til nederst til høyre og fortsetter et stykke utenfor målepunktene i begge ender. To loddrette stiplede grå linjer står ved minus 10 grader og ved 15 grader, altså ved det ytterste målepunktet i hver ende, og mellom dem står teksten måleområde.](/images/content/matematikk-okonomi/matok-8-2-modell.png)\n\n*Målingene og regresjonslinjen $F(x) = -1{,}66x + 45{,}32$. De stiplede linjene markerer **måleområdet** fra $-10$ til $15$ grader. Linjen er tegnet et stykke utenfor i begge ender for å vise hva en framskrivning er — og hvorfor den må begrunnes særskilt.*\n\n**Svar:** $F(x) = -1{,}66x + 45{,}32$, og $R^2 = 0{,}999$.\n\n**c)** **Stigningstallet** $-1{,}66$ betyr at forbruket synker med $1{,}66$ kWh per døgn for hver grad det blir varmere ute — eller motsatt: **én grad kaldere koster husholdningen om lag $1{,}66$ kWh ekstra i døgnet.**\n\n**Konstantleddet** $45{,}32$ er forbruket ved $0$ °C, altså $45{,}32$ kWh per døgn.\n\n**Svar:** Én grad kaldere gir om lag 1,7 kWh mer i døgnet, og ved null grader bruker husholdningen om lag 45 kWh i døgnet.\n\nNB: Konstantleddet har en mening her fordi $x = 0$ ligger **inne** i måleområdet. Hadde alle målingene vært mellom 10 og 25 grader, ville $F(0)$ vært en ren framskrivning, og da skal konstantleddet ikke tolkes som noe annet enn et regnetall."
+    },
+        {
+      "id": "matok-8-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-8-2-ex-1",
+        "number": "8.2.1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En annen husholdning har målt sitt eget forbruk:\n\n| Temperatur (°C) | −8 | −3 | 2 | 7 | 12 | 17 |\n|---|---|---|---|---|---|---|\n| Forbruk (kWh/døgn) | 48 | 41 | 35 | 28 | 22 | 15 |\n\nBruk regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Undersøk differansene, og avgjør om en lineær modell passer.",
+            "solution": "Differansene er $-7$, $-6$, $-7$, $-6$ og $-7$. De er nesten like, og temperaturene ligger jevnt med 5 grader mellom hver. En lineær modell passer."
+          },
+          {
+            "label": "b",
+            "task": "Finn den lineære modellen med regresjon. Rund koeffisientene av til to desimaler.",
+            "solution": "Regresjonen gir stigningstall $-1{,}30857\\ldots$ og konstantledd $37{,}38857\\ldots$, altså $F(x) = -1{,}31x + 37{,}39$. Forklaringsgraden er $R^2 = 0{,}9995$."
+          },
+          {
+            "label": "c",
+            "task": "Kontrollér modellen mot alle seks målingene, og oppgi det største avviket.",
+            "solution": "Modellverdiene er $47{,}87$, $41{,}32$, $34{,}77$, $28{,}22$, $21{,}67$ og $15{,}12$ mot målingene 48, 41, 35, 28, 22 og 15. Residualene (måling − modell) er $+0{,}13$, $-0{,}32$, $+0{,}23$, $-0{,}22$, $+0{,}33$ og $-0{,}12$. Den største er $0{,}33$ kWh. Fortegnene veksler uten mønster, så modellformen er riktig.",
+            "answer": 0.33
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye bruker denne husholdningen per døgn ved 10 grader?",
+            "solution": "$F(10) = -1{,}31 \\cdot 10 + 37{,}39 = -13{,}1 + 37{,}39 = 24{,}29$ kWh.",
+            "answer": 24.29
+          },
+          {
+            "label": "e",
+            "task": "Sammenlign stigningstallet med $-1{,}66$ fra eksempelhusholdningen, og tolk forskjellen.",
+            "solution": "Denne husholdningen bruker $1{,}31$ kWh mer per grad kaldere, mot $1{,}66$ for den første. Den reagerer altså **mindre** på kulde. Det kan bety en mindre bolig, bedre isolasjon, en varmepumpe som yter mer effektivt, eller en annen oppvarmingskilde i tillegg til strøm. Tallet forteller hvor mye av forbruket som er oppvarming; det sier ingenting om hvem som bruker mest strøm totalt."
+          }
+        ],
+        "solution": "a) differansene er $-7$, $-6$, $-7$, $-6$, $-7$ — lineær passer, b) $F(x) = -1{,}31x + 37{,}39$, $R^2 = 0{,}9995$, c) største avvik 0,33 kWh, d) 24,29 kWh, e) denne husholdningen reagerer mindre på kulde enn den første.",
+        "hints": [
+          "Se på differansene før du kjører regresjonen.",
+          "I regneark: `STIGNINGSTALL`, `SKJÆRINGSPUNKT` og `RKVADRAT`."
+        ],
+        "competenceGoals": [
+          "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-8-2-section-gyldighet",
+      "type": "text",
+      "content": "## Gyldighetsområdet\n\nEn modell er tilpasset til dataene den ble laget av. Utenfor det området er den en **gjetning** — en velbegrunnet en, men fortsatt en gjetning.\n\nDerfor hører tre setninger med i ethvert arbeid:\n\n1. **Hvor går måleområdet?** Fra den minste til den største $x$-verdien i datasettet.\n2. **Hva sier modellen utenfor?** Regn det ut, og se om svaret er mulig i det hele tatt.\n3. **Hvor langt tør jeg framskrive, og hvorfor?** Litt utenfor er ofte forsvarlig. Langt utenfor er det nesten aldri.\n\nEn rett linje har en innebygd svakhet: den fortsetter i det uendelige. Alle lineære modeller for noe fysisk vil derfor til slutt gi umulige verdier — negativt forbruk, negative priser, negativt antall. Det er ikke en feil ved regresjonen; det er en grense for hvor langt modellen rekker."
+    },
+    {
+      "id": "matok-8-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor langt rekker modellen?",
+      "problem": "Modellen fra eksempel 1 er $F(x) = -1{,}66x + 45{,}32$, laget av målinger mellom $-10$ og $15$ grader.\n\na) Hva sier modellen ved $-15$ grader, og er svaret brukbart?\n\nb) Ved hvilken temperatur gir modellen null forbruk?\n\nc) Hvor går gyldighetsområdet?",
+      "solution": "**a)** Vi setter inn $x = -15$:\n\n$$F(-15) = -1{,}66 \\cdot (-15) + 45{,}32 = 24{,}90 + 45{,}32 = 70{,}22$$\n\n**Svar:** Modellen sier om lag 70 kWh per døgn. Verdien ligger 5 grader utenfor måleområdet, men den er i samme størrelsesorden som det målte ($62$ kWh ved $-10$ grader), og forbruket er fortsatt positivt. Det er en forsvarlig framskrivning **hvis vi sier fra om at den er en framskrivning**. Vi bør legge til et forbehold: ved svært lav temperatur går ofte en varmepumpe over til ren elektrisk varme, og da stiger forbruket **raskere** enn den rette linjen sier. Modellen kan derfor undervurdere.\n\n**b)** Vi løser likningen $F(x) = 0$:\n\n$$-1{,}66x + 45{,}32 = 0 \\qquad | \\; + 1{,}66x$$\n$$45{,}32 = 1{,}66x \\qquad | \\; : 1{,}66$$\n$$x = \\frac{45{,}32}{1{,}66} \\approx 27{,}3$$\n\n**Svar:** Modellen sier at forbruket er null ved om lag $27{,}3$ grader, og negativt over det.\n\nDet er umulig. En husholdning bruker strøm til varmtvann, matlaging, lys og apparater uansett hvor varmt det er ute. Det riktige er at forbruket flater ut mot et **grunnforbruk**, mens den rette linjen fortsetter nedover.\n\n**c)**\n\n![Koordinatsystem med temperatur fra minus 15 til 30 grader celsius langs den vannrette aksen og forbruk i kilowattimer fra 0 til 70 langs den loddrette. En rød rett linje merket F(x) faller fra venstre mot høyre. To grå stiplede loddrette linjer ved minus 10 og 15 grader avgrenser måleområdet, som er merket. Til høyre for 15 grader fortsetter linjen som grå stiplet og treffer null ved det markerte punktet 27,3 grader, merket «0 kWh ved 27,3». En grønn vannrett linje merket «grunnforbruk» ligger ved 12 kilowattimer.](/images/content/matematikk-okonomi/matok-8-2-gyldighet.png)\n\n*Modellen forlenget: den sier at forbruket blir NULL ved 27,3 °C. I virkeligheten flater forbruket ut mot et grunnforbruk (kjøleskap, varmtvann) — den rette linja slutter å gjelde et godt stykke før den treffer aksen.*\n\n**Svar:** Gyldighetsområdet er måleområdet, altså $-10 \\le x \\le 15$, med en forsiktig utvidelse noen få grader nedover og et uttrykkelig forbehold. Oppover er modellen ubrukelig lenge før den når $27{,}3$ grader, for utflatingen mot grunnforbruket begynner allerede når oppvarmingen slås av.\n\nNB: Legg merke til at vi fant grensen ved å **regne på modellen selv**, ikke ved å slå den opp. Å finne nullpunktet og spørre «er dette mulig?» er en rask og effektiv test på enhver lineær modell for en fysisk størrelse."
+    },
+        {
+      "id": "matok-8-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-8-2-ex-2",
+        "number": "8.2.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk modellen $F(x) = -1{,}31x + 37{,}39$ fra oppgave 8.2.1. Målingene lå mellom $-8$ og $17$ grader.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mye bruker husholdningen per døgn ved $-6$ grader?",
+            "solution": "$F(-6) = -1{,}31 \\cdot (-6) + 37{,}39 = 7{,}86 + 37{,}39 = 45{,}25$ kWh.",
+            "answer": 45.25
+          },
+          {
+            "label": "b",
+            "task": "Hvor mye bruker den ved $4$ grader?",
+            "solution": "$F(4) = -5{,}24 + 37{,}39 = 32{,}15$ kWh.",
+            "answer": 32.15
+          },
+          {
+            "label": "c",
+            "task": "Hva sier modellen ved $20$ grader, og hvorfor må svaret behandles forsiktig?",
+            "solution": "$F(20) = -26{,}2 + 37{,}39 = 11{,}19$ kWh. Verdien ligger utenfor måleområdet $[-8, 17]$, og ved 20 grader er oppvarmingen som regel helt av. Da flater forbruket ut mot grunnforbruket i stedet for å fortsette nedover, så modellen anslår trolig for lavt.",
+            "answer": 11.19
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye strøm bruker husholdningen i januar, hvis døgnmiddeltemperaturen er $-4$ grader alle 31 døgnene?",
+            "solution": "$F(-4) = 5{,}24 + 37{,}39 = 42{,}63$ kWh per døgn. Over 31 døgn: $42{,}63 \\cdot 31 \\approx 1321{,}5$ kWh, altså om lag 1320 kWh.",
+            "answer": 1321.5
+          },
+          {
+            "label": "e",
+            "task": "Spotprisen i januar var 98 øre/kWh. Hva kostet strømmen i januar, uten nettleie og merverdiavgift?",
+            "solution": "$1321{,}5 \\cdot 0{,}98 \\approx 1295$ kr.",
+            "answer": 1295
+          }
+        ],
+        "solution": "a) 45,25 kWh, b) 32,15 kWh, c) 11,19 kWh — utenfor måleområdet, trolig for lavt, d) om lag 1320 kWh, e) om lag 1295 kr.",
+        "hints": [
+          "Sjekk alltid om $x$-verdien ligger innenfor måleområdet før du tolker svaret.",
+          "Månedsforbruket er døgnforbruket ganger antall døgn i måneden."
+        ],
+        "competenceGoals": [
+          "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-8-2-section-regne",
+      "type": "text",
+      "content": "## Å regne ut svaret på problemstillingen\n\nNå har vi en modell vi stoler på innenfor et område vi kjenner. Da kan vi svare på det vi spurte om.\n\nI strømprosjektet var spørsmålet: *hvor mye betalte husholdningen for strøm gjennom året, og hvor mye av variasjonen skyldes prisen kontra forbruket?*\n\nRegnestykket har tre ledd, og alle tre er kjent stoff:\n\n1. **Forbruket per måned** finner vi av modellen: døgnforbruket ved månedens middeltemperatur, ganget med antall døgn.\n2. **Kostnaden per måned** er forbruket ganget med månedens pris — en ren prosent- og enhetsregning fra kapittel 1 «Prosent, rente og prisvekst».\n3. **Årssummen** får vi ved å legge sammen, og så legge til nettleie og merverdiavgift.\n\nUnderveis får vi svaret på andre del av problemstillingen nesten gratis: den **forbruksvektede** snittprisen sammenlignet med den uveide."
+    },
+    {
+      "id": "matok-8-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 (Del 2): Årsregnskapet i regneark",
+      "problem": "Regn ut årsforbruk og årskostnad for husholdningen i strømprosjektet.\n\nDøgnmiddeltemperaturen per måned (°C) er $-4$, $-3$, $1$, $6$, $11$, $15$, $17$, $16$, $12$, $7$, $2$, $-2$, og spotprisene (øre/kWh) er $98$, $91$, $76$, $55$, $42$, $31$, $28$, $39$, $52$, $68$, $84$, $103$. Nettleien er 45 øre/kWh, og merverdiavgiften 25 %.",
+      "solution": "**Regnearket.** Vi lager én rad per måned. Med dagene i kolonne B, temperaturen i C og prisen i D:\n\n```\n      A       B       C       D        E                  F              G\n1     måned   dager   temp    pris     kWh_per_døgn       kWh_mnd        kr\n2     jan     31      -4      98       =45,32-1,66*C2     =E2*B2         =F2*D2/100\n```\n\nFormlene fylles nedover til rad 13, og til slutt summerer vi.\n\n| Måned | Døgn | Temp | kWh/døgn | kWh | Pris | Kostnad |\n|---|---|---|---|---|---|---|\n| jan | 31 | −4 | 51,96 | 1610,8 | 98 | 1579 kr |\n| feb | 28 | −3 | 50,30 | 1408,4 | 91 | 1282 kr |\n| mar | 31 | 1 | 43,66 | 1353,5 | 76 | 1029 kr |\n| apr | 30 | 6 | 35,36 | 1060,8 | 55 | 583 kr |\n| mai | 31 | 11 | 27,06 | 838,9 | 42 | 352 kr |\n| jun | 30 | 15 | 20,42 | 612,6 | 31 | 190 kr |\n| jul | 31 | 17 | 17,10 | 530,1 | 28 | 148 kr |\n| aug | 31 | 16 | 18,76 | 581,6 | 39 | 227 kr |\n| sep | 30 | 12 | 25,40 | 762,0 | 52 | 396 kr |\n| okt | 31 | 7 | 33,70 | 1044,7 | 68 | 710 kr |\n| nov | 30 | 2 | 42,00 | 1260,0 | 84 | 1058 kr |\n| des | 31 | −2 | 48,64 | 1507,8 | 103 | 1553 kr |\n| **Sum** | | | | **12 571** | | **9108 kr** |\n\n**Nettleien:**\n\n$$12\\,571 \\cdot 0{,}45 \\approx 5657$$\n\n**Sum med merverdiavgift.** Vi ganger med vekstfaktoren $1{,}25$:\n\n$$(9108 + 5657) \\cdot 1{,}25 = 14\\,765 \\cdot 1{,}25 \\approx 18\\,456$$\n\n**Svar:** Husholdningen brukte om lag 12 600 kWh og betalte om lag 18 500 kr for strøm gjennom året.\n\n**Andre del av problemstillingen.** Den forbruksvektede snittprisen er\n\n$$\\frac{9108 \\text{ kr}}{12\\,571 \\text{ kWh}} = 0{,}7245 \\text{ kr/kWh} = 72{,}45 \\text{ øre/kWh}$$\n\nmens det uveide gjennomsnittet av de tolv månedsprisene er $63{,}92$ øre/kWh.\n\n$$\\frac{72{,}45 - 63{,}92}{63{,}92} \\approx 0{,}133$$\n\n![To søylediagrammer ved siden av hverandre med månedsnummer langs x-aksen i begge (tall for hver andre måned) og tallmerkede y-akser. Panel A viser månedsforbruket i kilowattimer, merket 500, 1000 og 1500: høyest i januar (om lag 1610) og desember (om lag 1510), lavest i juli (om lag 530). Panel B viser spotprisen i øre per kilowattime, merket 25, 50, 75, 100 og 125: samme form, høyest i januar (98) og desember (103), lavest i juli (28).](/images/content/matematikk-okonomi/matok-8-2-arsregnskap.png)\n\n*Dette er selve funnet: pris og forbruk svinger **i takt**. Derfor blir den forbruksvektede snittprisen 72,45 øre/kWh, mens det uveide gjennomsnittet av de tolv månedsprisene bare er 63,92 øre/kWh.*\n\n**Svar:** Husholdningen betalte i praksis om lag 13 % mer per kilowattime enn den uveide gjennomsnittsprisen skulle tilsi. Grunnen er at forbruket er størst nettopp i de månedene strømmen er dyrest — pris og forbruk svinger i takt, og det forsterker regningen.\n\nNB: Dette er selve funnet i arbeidet, og det er et funn som ikke står i noen tabell. Legg merke til at det kom fra å **sammenligne to måter å regne et gjennomsnitt på** — ikke fra en komplisert modell."
+    },
+        {
+      "id": "matok-8-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-8-2-ex-3",
+        "number": "8.2.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk husholdningen fra oppgave 8.2.1, med modellen $F(x) = -1{,}31x + 37{,}39$. Nettleien er 45 øre/kWh og merverdiavgiften 25 %. Bruk regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv regnearkformelen som regner døgnforbruket når temperaturen står i celle C2.",
+            "solution": "`=37,39-1,31*C2`"
+          },
+          {
+            "label": "b",
+            "task": "Regn ut forbruket i januar (31 døgn, $-4$ °C) og i juli (31 døgn, $17$ °C).",
+            "solution": "Januar: $F(-4) = 42{,}63$ kWh per døgn, altså $42{,}63 \\cdot 31 \\approx 1321{,}5$ kWh. Juli: $F(17) = -22{,}27 + 37{,}39 = 15{,}12$ kWh per døgn, altså $15{,}12 \\cdot 31 \\approx 468{,}7$ kWh."
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange ganger så mye strøm bruker husholdningen i januar som i juli?",
+            "solution": "$1321{,}5 : 468{,}7 \\approx 2{,}82$. Husholdningen bruker altså nesten tre ganger så mye i januar som i juli.",
+            "answer": 2.82
+          },
+          {
+            "label": "d",
+            "task": "Spotprisen var 98 øre/kWh i januar og 28 øre/kWh i juli. Hvor mange ganger så dyr blir januarregningen som juliregningen (bare spotdelen)?",
+            "solution": "Januar: $1321{,}5 \\cdot 0{,}98 \\approx 1295$ kr. Juli: $468{,}7 \\cdot 0{,}28 \\approx 131$ kr. Forholdet er $1295 : 131 \\approx 9{,}9$, altså nesten ti ganger så dyrt.",
+            "answer": 9.9
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor forholdet i d) er så mye større enn forholdet i c).",
+            "solution": "I c) varierer bare forbruket, med et forhold på om lag $2{,}8$. I d) varierer **både** forbruket og prisen, og de to svinger i takt: januar har både høyest forbruk og høyest pris. Prisforholdet alene er $98 : 28 = 3{,}5$, og de to virkningene ganges sammen: $2{,}8 \\cdot 3{,}5 \\approx 9{,}9$. Det er derfor strømregningen svinger mye kraftigere gjennom året enn forbruket gjør — og det er nettopp poenget den uveide gjennomsnittsprisen skjuler."
+          }
+        ],
+        "solution": "a) `=37,39-1,31*C2`, b) om lag 1321 kWh og 469 kWh, c) om lag 2,8 ganger, d) om lag 9,9 ganger, e) forbruk og pris svinger i takt, og de to forholdstallene ganges sammen.",
+        "hints": [
+          "Månedsforbruket er døgnforbruket ganger antall døgn.",
+          "I e): regn ut prisforholdet for seg, og gang det med forbruksforholdet."
+        ],
+        "competenceGoals": [
+          "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-8-2-section-presentere",
+      "type": "text",
+      "content": "## Å presentere funnene\n\nEn presentasjon er ikke en oppramsing av alt du gjorde. Den er det leseren trenger for å tro på svaret.\n\n**Fem krav til en figur:**\n\n1. Den viser noe teksten ikke sier like godt.\n2. Begge aksene har navn **og enhet**.\n3. Måleområdet er synlig når figuren viser en modell — og en framskrivning er merket som framskrivning.\n4. Den har en bildetekst som sier hva leseren skal se.\n5. Den viser dataene, ikke bare modellen.\n\n**Fire krav til konklusjonen:**\n\n1. Den svarer på problemstillingen, med samme ord som problemstillingen brukte.\n2. Den har enhet på alle tall.\n3. Den har en avrunding som passer datagrunnlaget. Har du seks målinger, skriver du «om lag 18 500 kr», ikke «18 456,23 kr».\n4. Den sier hva svaret **ikke** gjelder for.\n\n**Om avrunding.** Et svar kan ikke være mer nøyaktig enn tallene det er regnet av. Modellen er laget av seks målinger avlest i hele kilowattimer; da er et årsforbruk på «12 571 kWh» falsk presisjon. «Om lag 12 600 kWh» er ærlig."
+    },
+    {
+      "id": "matok-8-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 (Del 2): Følsomhet, og et ferdig resultatavsnitt",
+      "problem": "Årskostnaden i eksempel 3 ble om lag 18 500 kr, bygd på to usikre ting: prisene og modellens stigningstall.\n\na) Hvor mye endrer svaret seg hvis prisnivået blir 20 % høyere eller lavere?\n\nb) Hvor mye endrer årsforbruket seg hvis stigningstallet er $0{,}2$ kWh per grad større eller mindre?\n\nc) Skriv resultatavsnittet til arbeidet.",
+      "solution": "**a)** Nettleien er fast, så bare spotdelen på 9108 kr endrer seg.\n\n20 % lavere pris:\n\n$$(9108 \\cdot 0{,}8 + 5657) \\cdot 1{,}25 = (7286 + 5657) \\cdot 1{,}25 \\approx 16\\,179$$\n\n20 % høyere pris:\n\n$$(9108 \\cdot 1{,}2 + 5657) \\cdot 1{,}25 = (10\\,929 + 5657) \\cdot 1{,}25 \\approx 20\\,733$$\n\n**Svar:** Årskostnaden ligger mellom om lag 16 200 kr og 20 700 kr. En prisendring på 20 % gir altså en endring i regningen på om lag 12 % — mindre enn 20 %, fordi nettleien og avgiften ikke følger spotprisen.\n\n**b)** Vi regner årsforbruket på nytt med stigningstall $-1{,}46$ og $-1{,}86$:\n\n| Stigningstall | Årsforbruk | Endring |\n|---|---|---|\n| $-1{,}46$ | 13 049 kWh | $+3{,}8$ % |\n| $-1{,}66$ | 12 571 kWh | 0 |\n| $-1{,}86$ | 12 093 kWh | $-3{,}8$ % |\n\n**Svar:** En usikkerhet på $0{,}2$ kWh per grad i stigningstallet gir under 4 % utslag på årsforbruket. Modellusikkerheten er altså **mindre** enn prisusikkerheten.\n\n**c) Resultatavsnittet:**\n\n> Husholdningen brukte om lag 12 600 kWh strøm gjennom året og betalte om lag 18 500 kr inkludert nettleie og merverdiavgift. Forbruket følger utetemperaturen tett: en lineær modell forklarer 99,9 % av variasjonen i døgnforbruket, og hver grad kaldere gir om lag 1,7 kWh ekstra i døgnet.\n>\n> Hovedfunnet er at pris og forbruk svinger i takt. Den forbruksvektede snittprisen var 72,5 øre/kWh, mens det uveide gjennomsnittet av de tolv månedsprisene var 63,9 øre/kWh — en forskjell på om lag 13 %. En husholdning som anslår årsregningen ved å gange forbruket med den uveide gjennomsnittsprisen, vil altså systematisk regne for lavt.\n>\n> Svaret er mest følsomt for prisnivået: 20 % høyere eller lavere spotpris endrer årskostnaden med om lag 12 %, til mellom 16 200 kr og 20 700 kr. Usikkerheten i selve forbruksmodellen er mindre, under 4 %.\n>\n> Tallene gjelder én husholdning i ett prisområde i ett år. De kan ikke overføres til andre boliger uten nye målinger, og modellen er bare kontrollert mellom $-10$ og $15$ grader. Ved strengere kulde vil forbruket trolig stige raskere enn den rette linjen viser, fordi varmepumper yter dårligere når det blir kaldt.\n\nNB: Se hvor mye av avsnittet som er forbehold — omtrent en tredel. Det er ikke svakhet, det er presisjon. Et resultat uten grenser er et resultat ingen kan bruke."
+    },
+    {
+      "id": "matok-8-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-8-2-ex-4",
+        "number": "8.2.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "I strømprosjektet var årsforbruket om lag 12 571 kWh, spotkostnaden 9108 kr og nettleien 5657 kr, før 25 % merverdiavgift.\n\nHusholdningen vurderer å senke innetemperaturen. En vanlig tommelfingerregel er at forbruket synker om lag 5 % per grad lavere innetemperatur. Bruk regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange kilowattimer sparer husholdningen ved 5 % lavere forbruk?",
+            "solution": "$12\\,571 \\cdot 0{,}05 \\approx 629$ kWh.",
+            "answer": 629
+          },
+          {
+            "label": "b",
+            "task": "Hvor mye sparer den i kroner, medregnet nettleie og merverdiavgift?",
+            "solution": "Både spotkostnaden og nettleien synker med 5 %: $0{,}05 \\cdot (9108 + 5657) = 738$ kr før avgift, og $738 \\cdot 1{,}25 \\approx 923$ kr med merverdiavgift.",
+            "answer": 923
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye sparer den ved to grader lavere, altså 10 % lavere forbruk?",
+            "solution": "$0{,}10 \\cdot (9108 + 5657) \\cdot 1{,}25 \\approx 1846$ kr, og $12\\,571 \\cdot 0{,}10 \\approx 1257$ kWh.",
+            "answer": 1846
+          },
+          {
+            "label": "d",
+            "task": "En varmepumpe koster 28 000 kr og antas å kutte forbruket med 25 %. Hvor mange år tar det før den har betalt seg, hvis prisene holder seg?",
+            "solution": "Årlig besparelse: $0{,}25 \\cdot (9108 + 5657) \\cdot 1{,}25 \\approx 4614$ kr. Nedbetalingstiden er $28\\,000 : 4614 \\approx 6{,}1$ år.",
+            "answer": 6.1
+          },
+          {
+            "label": "e",
+            "task": "Drøft minst to grunner til at svaret i d) er usikkert.",
+            "solution": "For det første forutsetter regnestykket at **strømprisen holder seg**. Blir spotprisen 20 % lavere, faller den årlige besparelsen fra 4614 kr til\n\n$$0{,}25 \\cdot (9108 \\cdot 0{,}8 + 5657) \\cdot 1{,}25 \\approx 4045$$\n\naltså med om lag 12 %, ikke 20 % — nettleien følger nemlig ikke spotprisen (samme regnemåte som i eksempel 4 a). Nedbetalingstiden blir da $28\\,000 : 4045 \\approx 6{,}9$ år. For det andre er kuttet på 25 % et anslag som avhenger av klimaet på stedet, hvor godt huset er isolert, og hvordan pumpen brukes — en varmepumpe yter dårligst nettopp når det er kaldest og besparelsen skulle vært størst. For det tredje er ikke vedlikehold, strømbruk til selve pumpen og levetid regnet med. For det fjerde burde pengene vært sammenlignet på samme tidspunkt: 28 000 kr i dag mot besparelser spredt over seks år er strengt tatt en nåverdiberegning (kapittel 2 «Nåverdi og framtidsverdi»), og med en positiv rente blir nedbetalingstiden litt lengre enn 6,1 år."
+          }
+        ],
+        "solution": "a) om lag 629 kWh, b) om lag 923 kr, c) om lag 1846 kr, d) om lag 6,1 år, e) usikker pris (20 % lavere spotpris gir om lag 6,9 år), usikkert kutt, utelatte kostnader, og beløpene burde vært nåverdiberegnet.",
+        "hints": [
+          "Både spotkostnaden og nettleien følger forbruket — det er bare fastleddet som ikke gjør det.",
+          "Nedbetalingstid er investering delt på årlig besparelse."
+        ],
+        "competenceGoals": [
+          "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-8-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Trinn | Det du må kunne vise |\n|---|---|\n| Modellvalg | Differanser eller forholdstall regnet ut **før** regresjonen |\n| Tilpasning | Modellen med avrunding som passer dataene, og $R^2$ |\n| Kontroll | Alle målepunktene sammenlignet med modellen, og avvikene sett etter **mønster** |\n| Gyldighetsområde | Måleområdet oppgitt, og hva modellen sier utenfor det |\n| Beregning | Føring som kan følges, riktige enheter hele veien |\n| Følsomhet | Hva svaret blir hvis de usikreste tallene endrer seg |\n| Presentasjon | Figur med enheter og måleområde, og en konklusjon med forbehold |\n\n**Tre feil som går igjen:**\n\n1. **Å stole på $R^2$ alene.** Forklaringsgraden ser ikke mønsteret i avvikene. Se på residualene.\n2. **Å framskrive langt utenfor måleområdet** uten å si fra. En rett linje ender alltid i noe umulig.\n3. **Falsk presisjon.** Seks målinger gir ikke fire gjeldende siffer i svaret.\n\nMed dette er faget rundt: fra prosentregningen i kapittel 1 «Prosent, rente og prisvekst», gjennom modellene i kapittel 3 «Funksjoner i økonomi» og kapittel 7 «Marked, profitt og modeller», til et arbeid der du selv velger spørsmålet, tallene og metoden — og står inne for svaret."
+    },
+    {
+      "id": "matok-8-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-8-2-ex-5",
+        "number": "8.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En nettbutikk har hatt denne omsetningen, i tusen kroner:\n\n| År | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|\n| Omsetning | 100 | 121 | 146 | 177 | 214 | 259 |\n\nEn elev kjører lineær regresjon og får $y = 31{,}57x + 59{,}0$ med $R^2 = 0{,}981$, og konkluderer med at omsetningen vokser med om lag 31 600 kr i året. Bruk regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut differansene og forholdstallene mellom nabomålingene.",
+            "solution": "Differansene er 21, 25, 31, 37 og 45 — de vokser jevnt. Forholdstallene er $1{,}210$, $1{,}207$, $1{,}212$, $1{,}209$ og $1{,}210$ — de er nesten identiske."
+          },
+          {
+            "label": "b",
+            "task": "Hvilken modellform passer, og hvorfor er elevens konklusjon feil?",
+            "solution": "Konstante forholdstall betyr **eksponentiell** vekst, ikke lineær. Elevens konklusjon om «31 600 kr i året» er feil fordi veksten ikke er et fast kronebeløp — den er en fast prosent. Året etter år 6 vokser omsetningen med om lag 54 000 kr, ikke 31 600 kr."
+          },
+          {
+            "label": "c",
+            "task": "Regn ut residualene til den lineære modellen, og forklar hva fortegnsmønsteret avslører.",
+            "solution": "Modellverdiene er $90{,}57$, $122{,}14$, $153{,}71$, $185{,}29$, $216{,}86$ og $248{,}43$. Residualene (måling minus modell) er $+9{,}43$, $-1{,}14$, $-7{,}71$, $-8{,}29$, $-2{,}86$ og $+10{,}57$. Fortegnene er $+$, $-$, $-$, $-$, $-$, $+$ — en systematisk U. Modellen ligger for høyt i midten og for lavt i endene, og det er nøyaktig det som skjer når man legger en rett linje gjennom en kurve som krummer oppover.\n\n![Koordinatsystem med år 1 til 6 langs x-aksen og omsetning i tusen kroner fra 0 til 280. Seks blå målepunkter ligger i (1, 100), (2, 121), (3, 146), (4, 177), (5, 214) og (6, 259). En rød rett linje merket y = 31,57x + 59,0 går gjennom punktskyen: den ligger over punktene i midten og under dem i begge ender.](/images/content/matematikk-okonomi/matok-8-2-nettbutikk-lineaer.png)\n\n*Den lineære modellen fra oppgave 8.2.5. Linja skjærer tydelig over målingene i midten og under dem i endene — men $R^2 = 0{,}981$ ser ikke det.*\n\n![Søylediagram med år 1 til 6 langs x-aksen og residual i tusen kroner fra minus 12 til 12. Søylene er +9,43, −1,14, −7,71, −8,29, −2,86 og +10,57. Den første og den siste peker opp, de fire i midten peker ned. En vannrett nullinje går gjennom.](/images/content/matematikk-okonomi/matok-8-2-residualplott.png)\n\n*Residualplottet til den samme modellen. Fortegnene $+,\\ -,\\ -,\\ -,\\ -,\\ +$ er en systematisk U — modellen ligger for høyt i midten og for lavt i endene. Det er nøyaktig det som skjer når en rett linje legges gjennom noe som krummer oppover.*"
+          },
+          {
+            "label": "d",
+            "task": "Finn den eksponentielle modellen, og oppgi den prosentvise veksten per år.",
+            "solution": "Eksponentiell regresjon gir $y = 82{,}64 \\cdot 1{,}2096^x$. Vekstfaktoren $1{,}2096$ svarer til om lag 21 % vekst per år (kapittel 1 «Prosent, rente og prisvekst»). Kontroll: $82{,}64 \\cdot 1{,}2096 \\approx 100{,}0$ for $x = 1$, og $82{,}64 \\cdot 1{,}2096^6 \\approx 258{,}9$ for $x = 6$ — begge treffer målingene.",
+            "answer": 21
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor $R^2 = 0{,}981$ ikke var nok til å oppdage feilen, og hva eleven skulle gjort i stedet.",
+            "solution": "$R^2$ måler hvor stor **andel** av variasjonen modellen fanger. Når dataene vokser kraftig, er det meste av variasjonen en generell stigning, og en hvilken som helst stigende linje fanger mesteparten av den. Derfor kan $R^2$ være høy selv om formen er feil. Det $R^2$ ikke ser, er **rekkefølgen** på avvikene — et tall kan ikke inneholde et mønster. Eleven skulle ha regnet ut differanser og forholdstall før regresjonen, tegnet punktene, og sett på residualenes fortegn etterpå. Hver av de tre ville avslørt at modellen var feil."
+          }
+        ],
+        "solution": "a) differanser 21, 25, 31, 37, 45 og forholdstall om lag 1,21 hele veien, b) eksponentiell — veksten er en fast prosent, ikke et fast beløp, c) residualmønsteret $+,-,-,-,-,+$ avslører krumning, d) $y = 82{,}64 \\cdot 1{,}2096^x$, om lag 21 % vekst per år, e) $R^2$ ser ikke mønsteret i residualene.",
+        "hints": [
+          "Regn differanser og forholdstall FØR du velger modell.",
+          "Et systematisk fortegnsmønster i residualene betyr alltid at modellformen er feil."
+        ],
+        "competenceGoals": [
+          "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+            {
+      "id": "matok-8-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-8-2-ex-6",
+        "number": "8.2.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Gjennomfør og presentér det selvstendige arbeidet du planla i kapittel 8.1 «Planlegging av et selvstendig arbeid» — eller et av temaene derfra.\n\nOppgaven har ingen fasit, men hvert punkt under skal kunne besvares med noe konkret fra ditt eget arbeid.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis modellvalget: hvilke tall regnet du ut før du valgte modellform, og hva sa de?",
+            "solution": "Vurderingen: differanser (lineær?) eller forholdstall (eksponentiell?) skal stå **utregnet**, ikke bare nevnt. Er $x$-verdiene ujevnt fordelt, må det sies, for da kan ikke differansene sammenlignes direkte. Et arbeid som begynner med «jeg kjørte regresjon» uten dette steget, har hoppet over det viktigste valget."
+          },
+          {
+            "label": "b",
+            "task": "Vis kontrollen: sammenlign modellen med alle målepunktene, og kommentér avvikenes mønster.",
+            "solution": "Vurderingen: tabell med måling, modellverdi og avvik for **hvert** punkt. Kommentaren skal handle om fortegnsmønsteret, ikke bare om avvikenes størrelse. Vekslende fortegn uten system støtter modellformen; en systematisk U eller en stigende trend i avvikene motbeviser den."
+          },
+          {
+            "label": "c",
+            "task": "Oppgi gyldighetsområdet, og regn ut minst ett sted der modellen gir et umulig svar.",
+            "solution": "Vurderingen: måleområdet oppgitt som et intervall med enhet, og ett konkret regnestykke som viser hvor modellen bryter sammen — for eksempel nullpunktet til en synkende lineær modell, eller en eksponentiell modell som gir et urimelig stort tall etter få år. Svaret skal si hvor langt du tør framskrive, og hvorfor."
+          },
+          {
+            "label": "d",
+            "task": "Gjør en følsomhetsanalyse: hvilket tall er svaret mest følsomt for, og hvor mye endrer svaret seg?",
+            "solution": "Vurderingen: minst to av de usikre tallene varieres, hver for seg, med en begrunnet margin (for eksempel $\\pm 20$ % på en pris eller $\\pm 0{,}2$ på et stigningstall). Svaret oppgis som et **intervall**, og du skal kunne si hvilken usikkerhet som dominerer. Et arbeid som bare oppgir ett tall, har ikke vist at det vet hvor usikkerheten ligger."
+          },
+          {
+            "label": "e",
+            "task": "Skriv resultatavsnittet: svar på problemstillingen med enheter og passende avrunding, og si hva svaret ikke gjelder for.",
+            "solution": "Vurderingen: konklusjonen skal bruke de samme ordene som problemstillingen, ha enhet på alle tall, og en avrunding som står i forhold til datagrunnlaget (ikke fire gjeldende siffer på grunnlag av seks målinger). Minst én setning skal si hva svaret **ikke** gjelder for — hvilket sted, hvilken periode, hvilken gruppe. Og minst én figur skal følge med, med navn og enhet på begge akser, måleområdet synlig, og en bildetekst som sier hva leseren skal se."
+          }
+        ],
+        "solution": "Ingen fasit — arbeidet vurderes mot kriterietabellen i oppsummeringen. Løsningene over sier hva hvert punkt krever.",
+        "hints": [
+          "Gå tilbake til planen fra kapittel 8.1 og sjekk at problemstillingen står uendret — har du endret den underveis, skal det sies.",
+          "Skriv forbeholdene mens du regner, ikke til slutt. Da husker du hvilke de var."
+        ],
+        "competenceGoals": [
+          "planleggje og gjennomføre eit sjølvstendig arbeid knytt til samfunnsøkonomiske tema og forhold og bruke matematiske modellar til å analysere og presentere funn"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Residual",
+      "definition": "Forskjellen mellom en måling og modellverdien i samme punkt. Et systematisk mønster i residualenes fortegn betyr at modellformen er feil, uansett hvor høy forklaringsgraden er."
+    },
+    {
+      "term": "Forklaringsgrad",
+      "definition": "$R^2$ — hvor stor andel av variasjonen i dataene modellen fanger. Den sier ingenting om rekkefølgen på avvikene, og kan derfor være høy også for feil modellform."
+    },
+    {
+      "term": "Måleområde",
+      "definition": "Intervallet fra den minste til den største $x$-verdien i datasettet. Innenfor det er modellen tilpasset data; utenfor er den en framskrivning som må begrunnes."
+    },
+    {
+      "term": "Følsomhetsanalyse",
+      "definition": "Å regne svaret på nytt med andre verdier for de usikreste tallene, og oppgi resultatet som et intervall. Den viser hvilken usikkerhet som betyr mest."
+    },
+    {
+      "term": "Falsk presisjon",
+      "definition": "Å oppgi flere gjeldende siffer enn datagrunnlaget bærer — for eksempel «18 456,23 kr» når modellen er laget av seks avlesninger i hele enheter."
+    }
+  ]
+}

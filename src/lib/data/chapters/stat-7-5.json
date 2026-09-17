@@ -1,0 +1,447 @@
+{
+  "id": "stat-7-5",
+  "courseId": "statistikk",
+  "chapterNumber": "7.5",
+  "title": "Test av et gjennomsnitt",
+  "description": "Hypotesetest for μ med normalfordeling — ensidig og tosidig.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+  ],
+  "content": [
+    {
+      "id": "stat-7-5-section-intro",
+      "type": "text",
+      "content": "# Test av et gjennomsnitt\n\nI kapittel 7.4 testet vi påstander om **andeler**, og regnet p-verdiene med den binomiske fordelingen. Nå skal vi teste påstander om et **gjennomsnitt**: «pærene varer 1200 timer», «flaskene inneholder 500 ml», «reisetiden er 32 minutter».\n\nHele tankegangen er den samme — fem skritt, p-verdi mot signifikansnivå. Det nye er at vi regner med normalfordelingen, fordi vi vet fra kapittel 6 hvordan $\\bar{X}$ oppfører seg:\n\n$$E(\\bar{X}) = \\mu \\qquad SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$$\n\nog at $\\bar{X}$ er tilnærmet normalfordelt når $n$ er stor nok — uansett hvordan enkeltmålingene er fordelt. Det er sentralgrensesetningen som gjør denne testen mulig i praksis.\n\nSpørsmålet vi skal svare på, er hver gang det samme: **hvor mange standardfeil ligger det målte gjennomsnittet fra den påståtte verdien?**"
+    },
+    {
+      "id": "stat-7-5-theorem-ztest",
+      "type": "theorem",
+      "title": "Testobservatoren z",
+      "content": "Skal vi teste $H_0: \\mu = \\mu_0$ ut fra et utvalg med gjennomsnitt $\\bar{x}$, regner vi\n\n$$z = \\frac{\\bar{x} - \\mu_0}{\\frac{\\sigma}{\\sqrt{n}}}$$\n\nNår $H_0$ er sann, er $z$ tilnærmet standard normalfordelt. Tallet $z$ sier **hvor mange standardfeil** det målte gjennomsnittet ligger fra den påståtte verdien.\n\np-verdien avhenger av hvilken alternativ hypotese vi har:\n\n| $H_1$ | p-verdi |\n|---|---|\n| $\\mu > \\mu_0$ | $P(Z \\ge z)$ |\n| $\\mu < \\mu_0$ | $P(Z \\le z)$ |\n| $\\mu \\ne \\mu_0$ | $2 \\cdot P(Z \\ge \\lvert z \\rvert)$ |\n\nDe tilhørende **kritiske verdiene** er\n\n| $\\alpha$ | ensidig | tosidig |\n|---|---|---|\n| 0,10 | 1,282 | 1,645 |\n| 0,05 | **1,645** | **1,960** |\n| 0,01 | 2,326 | 2,576 |\n\nEr $\\sigma$ ukjent, brukes $s$ — forsvarlig når $n \\ge 30$, akkurat som i kapittel 7.2."
+    },
+    {
+      "id": "stat-7-5-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Varer pærene så lenge som lovet?",
+      "problem": "En produsent oppgir at lyspærene deres varer i gjennomsnitt 1200 timer. Standardavviket er kjent fra produksjonen: $\\sigma = 90$ timer. Et forbrukerorgan tester 40 tilfeldige pærer og måler gjennomsnittet $\\bar{x} = 1168$ timer. De mistenker at pærene varer kortere enn lovet.\n\na) Sett opp hypoteser.\nb) Regn ut $z$.\nc) Finn p-verdien og konkluder på 5 %-nivå.\nd) Hva blir konklusjonen på 1 %-nivå?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu_0 = 1200$ t, $\\sigma = 90$ t, $n = 40$, $\\bar{x} = 1168$ t.\n\n**a)** Mistanken er at levetiden er **kortere**, så testen er venstresidig:\n\n$$H_0: \\mu = 1200 \\qquad H_1: \\mu < 1200$$\n\n**b)** Først standardfeilen:\n\n$$\\frac{\\sigma}{\\sqrt{n}} = \\frac{90}{\\sqrt{40}} \\approx \\frac{90}{6{,}325} \\approx 14{,}23$$\n\nSå testobservatoren — formelen tom først, så med tall:\n\n$$z = \\frac{\\bar{x} - \\mu_0}{\\frac{\\sigma}{\\sqrt{n}}} = \\frac{1168 - 1200}{14{,}23} = \\frac{-32}{14{,}23} \\approx -2{,}25$$\n\nDet målte gjennomsnittet ligger altså 2,25 standardfeil **under** den påståtte verdien. Minustegnet betyr «under», og det skal være der — det er selve retningen i testen.\n\n**c)** Siden $H_1$ peker nedover, er p-verdien arealet i venstre hale:\n\n$$p = P(Z \\le -2{,}25) = 0{,}0122$$\n\nVi sammenligner:\n\n$$0{,}0122 \\le 0{,}05$$\n\n$H_0$ forkastes.\n\n![Standardnormalkurven over en akse merket z fra minus 3 til 3. Området under kurven helt til venstre, fram til en grå stiplet strek ved minus 2,25, er fylt med gult. En rød stiplet strek står ved minus 1,645, til høyre for den grå. Tekstene z er lik minus 2,25 og p er lik 0,0122 står over det gule feltet, Den røde streken går helt opp forbi kurven, og teksten kritisk grense minus 1,645 står like over den, i fri luft.](/images/content/statistikk/stat-7-5-venstrehale.png)\n\n*Venstresidig test. Testobservatoren $z = -2{,}25$ ligger til venstre for den kritiske grensen $-1{,}645$, altså inne i forkastningsområdet, og $p = 0{,}0122 < 0{,}05$. De to måtene å avgjøre på gir samme svar, slik de alltid gjør.*\n\n**Konklusjon i kontekst:** Testen gir grunnlag for å si at pærene i gjennomsnitt varer kortere enn de 1200 timene produsenten oppgir. Var påstanden riktig, ville et utvalg på 40 pærer gitt et gjennomsnitt på 1168 timer eller lavere i bare omtrent 1 av 100 tester.\n\n**d)** På 1 %-nivå: $0{,}0122 > 0{,}01$, så $H_0$ **beholdes**. Testen er signifikant på 5 %-nivå, men ikke på 1 %-nivå.\n\n**Svar:** a) $H_0: \\mu = 1200$ mot $H_1: \\mu < 1200$. b) $z \\approx -2{,}25$. c) $p \\approx 0{,}0122$, $H_0$ forkastes på 5 %-nivå. d) På 1 %-nivå beholdes $H_0$.\n\n**NB — fortegnet på $z$ er informasjon.** Et negativt $z$ betyr at målingen ligger under $\\mu_0$. Hadde vi fått $z = +2{,}25$ i denne oppgaven, ville p-verdien vært $P(Z \\le 2{,}25) = 0{,}988$ — altså det motsatte av signifikant. Pærene ville da vart *lenger* enn lovet, og det er ikke det vi tester."
+    },
+    {
+      "id": "stat-7-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. Et treningssenter hevder at medlemmene i gjennomsnitt trener 60 minutter per økt. Standardavviket er kjent: $\\sigma = 8$ minutter. En undersøkelse av 64 tilfeldige økter gir $\\bar{x} = 62{,}1$ minutter. Senteret vil vise at snittet er **høyere** enn 60.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$.",
+            "solution": "$H_0: \\mu = 60$ mot $H_1: \\mu > 60$. Høyresidig test."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen.",
+            "solution": "$\\frac{\\sigma}{\\sqrt{n}} = \\frac{8}{\\sqrt{64}} = \\frac{8}{8} = 1{,}0$ minutt",
+            "answer": 1
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $z$.",
+            "solution": "$z = \\frac{62{,}1 - 60}{1{,}0} = 2{,}10$",
+            "answer": 2.1
+          },
+          {
+            "label": "d",
+            "task": "Finn p-verdien og konkluder på 5 %-nivå.",
+            "solution": "$p = P(Z \\ge 2{,}10) = 1 - 0{,}9821 = 0{,}0179$. Siden $0{,}0179 \\le 0{,}05$, forkastes $H_0$ — treningstiden er i snitt lengre enn 60 minutter.",
+            "answer": 0.0179
+          },
+          {
+            "label": "e",
+            "task": "Hvilket gjennomsnitt måtte de målt for akkurat å forkaste på 5 %-nivå?",
+            "solution": "Kritisk $z$ er 1,645, så grensen er $\\bar{x} = 60 + 1{,}645 \\cdot 1{,}0 = 61{,}645$ minutter. Alt over dette gir forkastning.",
+            "answer": 61.645
+          }
+        ],
+        "hints": [
+          "Standardfeilen blir akkurat 1 her, så $z$ er rett og slett avviket i minutter."
+        ],
+        "solution": "a) $H_0: \\mu = 60$, $H_1: \\mu > 60$. b) 1,0 min. c) $z = 2{,}10$. d) $p \\approx 0{,}0179$, forkast. e) 61,6 minutter.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-5-section-tosidig",
+      "type": "text",
+      "content": "## Tosidig test — når begge retninger teller\n\nEn fyllmaskin skal ikke fylle for lite. Men den skal heller ikke fylle for mye — det koster penger, og kundene skal få det de betaler for, verken mer eller mindre. Her er **begge** avvik et problem, og testen blir **tosidig**:\n\n$$H_0: \\mu = 500 \\qquad H_1: \\mu \\ne 500$$\n\nDa må signifikansnivået deles på to, med $\\frac{\\alpha}{2}$ i hver hale. Det er derfor grensen flyttes fra 1,645 til 1,96 når $\\alpha = 0{,}05$ — og det er den samme 1,96 som i konfidensintervallet i kapittel 7.2. Det er ingen tilfeldighet; vi kommer tilbake til sammenhengen i eksempel 3.\n\np-verdien regnes ved å ta halen på den siden observasjonen falt, og så **gange med 2**:\n\n$$p = 2 \\cdot P(Z \\ge \\lvert z \\rvert)$$\n\nAbsoluttverdien gjør at det ikke spiller noen rolle hvilken vei avviket gikk — vi spør bare hvor langt unna vi er."
+    },
+    {
+      "id": "stat-7-5-fig-tosidig",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-5-tosidig.png",
+      "alt": "En symmetrisk klokkeformet kurve med toppen over null. To områder under kurven er skravert gult: alt til venstre for minus 1,96 og alt til høyre for 1,96, hvert merket 2,5 prosent. Stiplede loddrette hjelpelinjer går fra aksen opp til kurven ved begge grensene. Det store midtområdet mellom grensene er umerket og merket behold H0. Den vannrette aksen er merket z og går fra minus 4 til 4. Øverst til venstre står kurveetiketten fordelingen til z når H0 er sann i oransje, og tallene minus 1,96 og 1,96 står i en egen rad under aksen, hvert i sin egen kolonne.",
+      "caption": "Tosidig forkastningsområde på 5 %-nivå: 2,5 % i hver hale, med grensene $\\pm 1{,}96$. Sammenlign med figuren i kapittel 7.4, der hele de 5 prosentene lå i én hale og grensen derfor var 1,645.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-5-tosidig.json"
+    },
+    {
+      "id": "stat-7-5-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Fyller maskinen riktig?",
+      "problem": "En maskin skal fylle 500 ml i hver flaske. Kvalitetsavdelingen måler 30 tilfeldige flasker og finner $\\bar{x} = 497{,}6$ ml og $s = 4{,}2$ ml. Både for lite og for mye er uønsket.\n\na) Sett opp hypoteser, og forklar hvorfor testen er tosidig.\nb) Regn ut $z$.\nc) Finn p-verdien og konkluder på 1 %-nivå.\nd) Regn ut et 95 % konfidensintervall, og sammenlign med konklusjonen.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu_0 = 500$ ml, $n = 30$, $\\bar{x} = 497{,}6$ ml, $s = 4{,}2$ ml. Her er $\\sigma$ ukjent, men $n = 30$, så vi bruker $s$.\n\n**a)** Avvik i begge retninger er et problem:\n\n$$H_0: \\mu = 500 \\qquad H_1: \\mu \\ne 500$$\n\n**b)** Standardfeilen:\n\n$$\\frac{s}{\\sqrt{n}} = \\frac{4{,}2}{\\sqrt{30}} \\approx \\frac{4{,}2}{5{,}477} \\approx 0{,}767 \\text{ ml}$$\n\nTestobservatoren:\n\n$$z = \\frac{\\bar{x} - \\mu_0}{\\frac{s}{\\sqrt{n}}} = \\frac{497{,}6 - 500}{0{,}767} = \\frac{-2{,}4}{0{,}767} \\approx -3{,}13$$\n\nAvviket er altså over tre standardfeil.\n\n**c)** Tosidig p-verdi:\n\n$$p = 2 \\cdot P(Z \\ge 3{,}13) = 2 \\cdot 0{,}00087 = 0{,}0017$$\n\n$$0{,}0017 \\le 0{,}01$$\n\n$H_0$ forkastes, også på 1 %-nivå.\n\n**Konklusjon i kontekst:** Maskinen fyller ikke 500 ml i gjennomsnitt. Avviket er så stort at det ikke med rimelighet kan forklares av tilfeldig variasjon mellom flasker — maskinen bør justeres.\n\n**d)** Konfidensintervallet:\n\n$$497{,}6 \\pm 1{,}96 \\cdot 0{,}767 = 497{,}6 \\pm 1{,}50$$\n\n$$[496{,}1,\\ 499{,}1]$$\n\nVerdien 500 ligger **utenfor** intervallet — samme konklusjon som testen ga.\n\n**Svar:** a) $H_0: \\mu = 500$ mot $H_1: \\mu \\ne 500$, tosidig fordi begge avvik er uønsket. b) $z \\approx -3{,}13$. c) $p \\approx 0{,}0017$, $H_0$ forkastes også på 1 %-nivå. d) $[496{,}1,\\ 499{,}1]$ — 500 ligger utenfor, i tråd med testen.\n\n**NB:** Intervallet gir i tillegg noe testen ikke gir: en **størrelse** på avviket. Maskinen fyller trolig mellom 1 og 4 ml for lite. Det er den opplysningen produksjonssjefen trenger for å avgjøre om det haster."
+    },
+    {
+      "id": "stat-7-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En pakkemaskin skal legge 250 gram i hver pakke. Et utvalg på 40 pakker gir $\\bar{x} = 252{,}3$ gram og $s = 6{,}4$ gram. Både under- og overvekt er uønsket.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$.",
+            "solution": "$H_0: \\mu = 250$ mot $H_1: \\mu \\ne 250$. Tosidig."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen.",
+            "solution": "$\\frac{6{,}4}{\\sqrt{40}} \\approx \\frac{6{,}4}{6{,}325} \\approx 1{,}012$ gram",
+            "answer": 1.012
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $z$.",
+            "solution": "$z = \\frac{252{,}3 - 250}{1{,}012} = \\frac{2{,}3}{1{,}012} \\approx 2{,}27$",
+            "answer": 2.27
+          },
+          {
+            "label": "d",
+            "task": "Finn den tosidige p-verdien og konkluder på 5 %-nivå og 1 %-nivå.",
+            "solution": "$p = 2 \\cdot P(Z \\ge 2{,}27) = 2 \\cdot 0{,}0116 = 0{,}0232$. På 5 %-nivå: $0{,}0232 \\le 0{,}05$, forkast $H_0$ — maskinen fyller for mye. På 1 %-nivå: $0{,}0232 > 0{,}01$, behold $H_0$.",
+            "answer": 0.0232
+          },
+          {
+            "label": "e",
+            "task": "Finn 95 %- og 99 %-konfidensintervallene, og vis at de gir samme svar som testene i d).",
+            "solution": "95 %: $252{,}3 \\pm 1{,}96 \\cdot 1{,}012 = [250{,}3,\\ 254{,}3]$ — 250 ligger utenfor, altså forkastning, som i d). 99 %: $252{,}3 \\pm 2{,}576 \\cdot 1{,}012 = [249{,}7,\\ 254{,}9]$ — 250 ligger innenfor, altså ingen forkastning, også som i d).",
+            "answer": 250.3
+          }
+        ],
+        "hints": [
+          "Tosidig p-verdi: finn halen for $\\lvert z \\rvert$ og gang med 2."
+        ],
+        "solution": "a) tosidig om $\\mu = 250$. b) $\\approx 1{,}012$ g. c) $z \\approx 2{,}27$. d) $p \\approx 0{,}0232$ — forkast på 5 %, behold på 1 %. e) $[250{,}3,\\ 254{,}3]$ og $[249{,}7,\\ 254{,}9]$.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-5-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Konfidensintervall og tosidig test er samme sak",
+      "problem": "Et utvalg på 36 målinger gir $\\bar{x} = 104{,}8$ og $s = 12{,}0$.\n\na) Finn 95 % konfidensintervallet for $\\mu$.\nb) Test $H_0: \\mu = 100$ mot $H_1: \\mu \\ne 100$ på 5 %-nivå.\nc) Test $H_0: \\mu = 101$ på samme måte.\nd) Formuler sammenhengen du ser.",
+      "solution": "**Løsning:**\n\n**a)** Standardfeilen:\n\n$$\\frac{s}{\\sqrt{n}} = \\frac{12{,}0}{\\sqrt{36}} = \\frac{12{,}0}{6} = 2{,}0$$\n\n$$104{,}8 \\pm 1{,}96 \\cdot 2{,}0 = 104{,}8 \\pm 3{,}92$$\n\n$$[100{,}88,\\ 108{,}72]$$\n\n**b)** Med $\\mu_0 = 100$:\n\n$$z = \\frac{104{,}8 - 100}{2{,}0} = 2{,}40$$\n\n$$p = 2 \\cdot P(Z \\ge 2{,}40) = 2 \\cdot 0{,}0082 = 0{,}0164 \\le 0{,}05$$\n\n$H_0$ forkastes. Og legg merke til: 100 ligger **utenfor** intervallet i a).\n\n**c)** Med $\\mu_0 = 101$:\n\n$$z = \\frac{104{,}8 - 101}{2{,}0} = 1{,}90$$\n\n$$p = 2 \\cdot P(Z \\ge 1{,}90) = 2 \\cdot 0{,}0287 = 0{,}0574 > 0{,}05$$\n\n$H_0$ beholdes. Og 101 ligger **innenfor** intervallet.\n\n**d)** Sammenhengen er eksakt:\n\n> **En tosidig test på 5 %-nivå forkaster $H_0: \\mu = \\mu_0$ nøyaktig når $\\mu_0$ ligger utenfor 95 % konfidensintervallet.**\n\nDet er ikke to metoder, men to måter å skrive den samme regningen på. Konfidensintervallet er hele mengden av $\\mu_0$-verdier som **ikke** ville blitt forkastet.\n\n![Et vannrett blått linjestykke med endestreker over en akse merket my, med verdiene 98 til 110. Den loddrette aksen har én rad, merket 95 prosent KI. Linjestykket går fra 100,88 til 108,72, med et svart punkt i 104,8 merket x med strek over er lik 104,8. Tre loddrette streker krysser det: en rød i 100, som ligger like til venstre for linjestykkets venstre ende, og to grønne i 101 og 105, som begge ligger inne i det. Tallene 100, 101 og 105 står i samme farge rett over hver sin strek. Nede til venstre står tegnforklaringen rød rute for H0 forkastes og grønn rute for H0 beholdes.](/images/content/statistikk/stat-7-5-intervall-mot-nullhypoteser.png)\n\n*Konfidensintervallet er mengden av nullhypoteser som ikke forkastes. $\\mu_0 = 100$ ligger utenfor, og testen forkaster. $\\mu_0 = 101$ og $\\mu_0 = 105$ ligger innenfor, og testen beholder. Det er ikke to metoder, men to måter å skrive den samme regningen på.*\n\n**Svar:** a) $[100{,}88,\\ 108{,}72]$. b) $z = 2{,}40$, $p \\approx 0{,}0164$ — forkast. c) $z = 1{,}90$, $p \\approx 0{,}0574$ — behold. d) Tosidig test på nivå $\\alpha$ og konfidensintervall på nivå $1 - \\alpha$ gir alltid samme svar.\n\n**NB:** Sammenhengen gjelder **tosidig** test. En ensidig test på 5 %-nivå svarer til et ensidig intervall, og der passer ikke 1,96 lenger, men 1,645."
+    },
+    {
+      "id": "stat-7-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kommune har lenge hatt en gjennomsnittlig reisetid til jobb på 32 minutter, med kjent standardavvik $\\sigma = 7{,}5$ minutter. Etter at en ny vei åpnet, måler de 45 tilfeldige reiser og finner $\\bar{x} = 30{,}1$ minutter. De vil vise at reisetiden har gått **ned**.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$.",
+            "solution": "$H_0: \\mu = 32$ mot $H_1: \\mu < 32$. Venstresidig test."
+          },
+          {
+            "label": "b",
+            "task": "Regn ut $z$.",
+            "solution": "$\\frac{7{,}5}{\\sqrt{45}} \\approx 1{,}118$ og $z = \\frac{30{,}1 - 32}{1{,}118} = \\frac{-1{,}9}{1{,}118} \\approx -1{,}70$",
+            "answer": -1.7
+          },
+          {
+            "label": "c",
+            "task": "Finn p-verdien og konkluder på 5 %-nivå.",
+            "solution": "$p = P(Z \\le -1{,}70) \\approx 0{,}0446 \\le 0{,}05$. $H_0$ forkastes — målingene taler for at reisetiden har gått ned.",
+            "answer": 0.0446
+          },
+          {
+            "label": "d",
+            "task": "Finn forkastningsområdet uttrykt i minutter.",
+            "solution": "Kritisk $z$ er $-1{,}645$, så grensen er $32 - 1{,}645 \\cdot 1{,}118 \\approx 30{,}16$ minutter. Alt under dette gir forkastning, og 30,1 ligger så vidt innenfor.",
+            "answer": 30.16
+          },
+          {
+            "label": "e",
+            "task": "Hva ville konklusjonen blitt hvis testen var tosidig?",
+            "solution": "Tosidig p-verdi: $2 \\cdot 0{,}0446 = 0{,}0892 > 0{,}05$, så $H_0$ ville blitt beholdt. Valget av ensidig test er altså avgjørende her — og nettopp derfor må det tas før dataene ses.",
+            "answer": 0.0892
+          }
+        ],
+        "hints": [
+          "Kritisk verdi omregnes til minutter ved $\\mu_0 \\pm z \\cdot \\frac{\\sigma}{\\sqrt{n}}$."
+        ],
+        "solution": "a) $H_0: \\mu = 32$, $H_1: \\mu < 32$. b) $z \\approx -1{,}70$. c) $p \\approx 0{,}0446$, forkast. d) $\\bar{x} \\le 30{,}16$ min. e) Tosidig $p \\approx 0{,}089$ — da beholdes $H_0$.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-5-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Testen i regneark og GeoGebra",
+      "problem": "Vi bruker tallene fra eksempel 1: $\\mu_0 = 1200$, $\\sigma = 90$, $n = 40$, $\\bar{x} = 1168$.\n\na) Sett opp regnearket som regner $z$ og p-verdien.\nb) Gjør det samme i GeoGebra.\nc) Hvor stort måtte utvalget vært for at det samme avviket skulle gitt forkastning på 1 %-nivå?",
+      "solution": "**Løsning:**\n\n**a)** Vi legger inn de fire tallene og regner videre på dem:\n\n```\nA1: 1200      (mu0)\nA2: 90        (sigma)\nA3: 40        (n)\nA4: 1168      (xbar)\n\nA5: =A2/ROT(A3)              gir 14,2302     (standardfeilen)\nA6: =(A4-A1)/A5              gir -2,2487     (z)\nA7: =NORM.S.FORDELING.N(A6;SANN)   gir 0,01227 (p-verdi, venstresidig)\n```\n\nFor en høyresidig test bruker vi `=1-NORM.S.FORDELING.N(A6;SANN)`, og for en tosidig `=2*(1-NORM.S.FORDELING.N(ABS(A6);SANN))`.\n\n**b)** I GeoGebra kan vi gå direkte på fordelingen til $\\bar{X}$, uten å standardisere:\n\n```\nFordelingNormal(1200, 90/sqrt(40), 1168)      gir 0.0123\n```\n\nKommandoen gir $P(\\bar{X} \\le 1168)$ når forventningsverdien er 1200 og standardavviket er $\\frac{90}{\\sqrt{40}}$ — altså p-verdien direkte.\n\n**c)** Vi trenger $\\lvert z \\rvert \\ge 2{,}326$ med samme avvik $\\bar{x} - \\mu_0 = -32$:\n\n$$\\frac{32}{\\frac{90}{\\sqrt{n}}} \\ge 2{,}326$$\n\n$$\\frac{32\\sqrt{n}}{90} \\ge 2{,}326$$\n\n$$\\sqrt{n} \\ge \\frac{2{,}326 \\cdot 90}{32} = 6{,}542$$\n\n$$n \\ge 42{,}8$$\n\nAltså 43 pærer.\n\n**Svar:** a) `=NORM.S.FORDELING.N(z;SANN)` gir venstresidig p-verdi. b) `FordelingNormal(1200, 90/sqrt(40), 1168)`. c) 43 pærer.\n\n**NB — samme data, sterkere konklusjon.** Legg merke til hva c) egentlig sier: avviket på 32 timer er nøyaktig like stort som før. Det som endrer seg med flere målinger, er hvor sikre vi er på at avviket er ekte. **Signifikans er ikke et mål på effektens størrelse, men på hvor godt vi har målt den.**"
+    },
+    {
+      "id": "stat-7-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift tester $H_0: \\mu = 250$ mot $H_1: \\mu \\ne 250$ med $n = 36$ og kjent $\\sigma = 12$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn standardfeilen.",
+            "solution": "$\\frac{12}{\\sqrt{36}} = \\frac{12}{6} = 2{,}0$",
+            "answer": 2
+          },
+          {
+            "label": "b",
+            "task": "Finn forkastningsområdet på 5 %-nivå, uttrykt i $\\bar{x}$.",
+            "solution": "Grensene er $250 \\pm 1{,}96 \\cdot 2{,}0 = 250 \\pm 3{,}92$, altså $\\bar{x} < 246{,}08$ eller $\\bar{x} > 253{,}92$.",
+            "answer": 253.92
+          },
+          {
+            "label": "c",
+            "task": "Utvalget gir $\\bar{x} = 254{,}5$. Hva blir konklusjonen?",
+            "solution": "254,5 ligger over 253,92, altså i forkastningsområdet. $H_0$ forkastes. (Kontroll: $z = \\frac{4{,}5}{2{,}0} = 2{,}25$ og $p = 2 \\cdot 0{,}0122 = 0{,}0244 \\le 0{,}05$.)",
+            "answer": 2.25
+          },
+          {
+            "label": "d",
+            "task": "Finn forkastningsområdet på 1 %-nivå, og avgjør om $\\bar{x} = 254{,}5$ fortsatt gir forkastning.",
+            "solution": "Grensene er $250 \\pm 2{,}576 \\cdot 2{,}0 = 250 \\pm 5{,}15$, altså under 244,85 eller over 255,15. Nå ligger 254,5 **innenfor** — $H_0$ beholdes på 1 %-nivå.",
+            "answer": 255.15
+          },
+          {
+            "label": "e",
+            "task": "Forklar med én setning hvorfor forkastningsområdet blir mindre når $\\alpha$ blir mindre.",
+            "solution": "Fordi et lavere $\\alpha$ betyr at vi krever sterkere holdepunkter før vi forkaster, og da må området med «overraskende» utfall snevres inn."
+          }
+        ],
+        "hints": [
+          "Forkastningsområdet i originalenheter: $\\mu_0 \\pm z_{\\text{kritisk}} \\cdot \\frac{\\sigma}{\\sqrt{n}}$."
+        ],
+        "solution": "a) 2,0. b) under 246,08 eller over 253,92. c) forkast ($z = 2{,}25$). d) $[244{,}85,\\ 255{,}15]$ — behold. e) strengere krav gir smalere område.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et utvalg gir 95 % konfidensintervallet $[100{,}88,\\ 108{,}72]$ for $\\mu$. Bruk sammenhengen mellom intervall og tosidig test.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ville $H_0: \\mu = 100$ blitt forkastet på 5 %-nivå?",
+            "solution": "Ja. 100 ligger utenfor intervallet, altså forkastes $H_0$ i en tosidig test på 5 %-nivå."
+          },
+          {
+            "label": "b",
+            "task": "Ville $H_0: \\mu = 105$ blitt forkastet?",
+            "solution": "Nei. 105 ligger godt inne i intervallet."
+          },
+          {
+            "label": "c",
+            "task": "Ville $H_0: \\mu = 108$ blitt forkastet?",
+            "solution": "Nei. 108 ligger innenfor, om enn nær øvre grense. Regner vi p-verdien ut, får vi $z = \\frac{104{,}8 - 108}{2{,}0} = -1{,}60$ og $p = 2 \\cdot P(Z \\ge 1{,}60) \\approx 0{,}11$ — altså godt over 0,05, selv om 108 ligger nær grensen."
+          },
+          {
+            "label": "d",
+            "task": "For hvilke verdier av $\\mu_0$ ville $H_0$ blitt beholdt?",
+            "solution": "Nøyaktig for $100{,}88 \\le \\mu_0 \\le 108{,}72$. Konfidensintervallet **er** mengden av de nullhypotesene som ikke forkastes."
+          },
+          {
+            "label": "e",
+            "task": "Et 99 %-intervall fra de samme dataene blir $[99{,}65,\\ 109{,}95]$. Hvilke av testene i a)–c) ville endret svar på 1 %-nivå?",
+            "solution": "Bare a). Med 99 %-intervallet ligger 100 innenfor, så $H_0: \\mu = 100$ ville blitt beholdt på 1 %-nivå. De to andre var allerede innenfor.",
+            "answer": 100
+          }
+        ],
+        "hints": [
+          "Regelen: $\\mu_0$ utenfor intervallet gir forkastning, $\\mu_0$ innenfor gir at $H_0$ beholdes."
+        ],
+        "solution": "a) ja, b) nei, c) nei, d) $100{,}88 \\le \\mu_0 \\le 108{,}72$, e) bare a)",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-5-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Testobservatoren for et gjennomsnitt:\n\n$$z = \\frac{\\bar{x} - \\mu_0}{\\frac{\\sigma}{\\sqrt{n}}}$$\n\n  Den sier hvor mange standardfeil målingen ligger fra den påståtte verdien.\n- p-verdien: $P(Z \\ge z)$ ved $H_1: \\mu > \\mu_0$, $P(Z \\le z)$ ved $\\mu < \\mu_0$, og $2 \\cdot P(Z \\ge \\lvert z \\rvert)$ ved $\\mu \\ne \\mu_0$.\n- Kritiske verdier på 5 %-nivå: **1,645 ensidig** og **1,96 tosidig**. Ved tosidig test deles $\\alpha$ i to haler.\n- Forkastningsområdet i originalenheter: $\\mu_0 \\pm z_{\\text{kritisk}} \\cdot \\frac{\\sigma}{\\sqrt{n}}$.\n- Er $\\sigma$ ukjent, brukes $s$ når $n \\ge 30$.\n- **En tosidig test på nivå $\\alpha$ forkaster nøyaktig når $\\mu_0$ ligger utenfor konfidensintervallet på nivå $1 - \\alpha$.** Intervallet er mengden av nullhypoteser som ikke forkastes.\n- Konklusjonen skrives i kontekst, og p-verdien oppgis som tall.\n- Samme avvik gir mindre p-verdi når $n$ vokser. Signifikans måler hvor godt vi har målt, ikke hvor stor effekten er.\n\nI kapittel 7.6 gjør vi testen for en andel, der vi kan velge mellom eksakt binomisk regning og normaltilnærming."
+    },
+    {
+      "id": "stat-7-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En pakkemaskin skal fylle 250 gram. Kvalitetsavdelingen veier 36 tilfeldige pakker (i gram):\n\n| | | | | | |\n|---|---|---|---|---|---|\n| 248,6 | 251,2 | 247,9 | 252,4 | 249,8 | 250,6 |\n| 246,7 | 253,1 | 249,1 | 251,8 | 248,2 | 252,7 |\n| 250,4 | 247,3 | 251,5 | 249,5 | 253,6 | 246,9 |\n| 250,8 | 248,9 | 252,1 | 249,2 | 247,6 | 251,1 |\n| 250,2 | 248,4 | 252,9 | 249,9 | 247,1 | 251,7 |\n| 250,5 | 248,8 | 253,4 | 246,4 | 251,3 | 249,4 |\n\nTest på 5 %-nivå om maskinen fyller riktig. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp hypotesene, og begrunn ensidig eller tosidig.",
+            "solution": "$H_0: \\mu = 250$ mot $H_1: \\mu \\ne 250$. Tosidig, fordi både for lette og for tunge pakker er et problem for en maskin som skal treffe en bestemt vekt."
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\bar{x}$ og $s$ med regneark.",
+            "solution": "`=GJENNOMSNITT(A1:A36)` gir $\\bar{x} \\approx 250{,}03$ g og `=STDAV.S(A1:A36)` gir $s \\approx 2{,}04$ g.",
+            "answer": 250.03
+          },
+          {
+            "label": "c",
+            "task": "Regn ut standardfeilen og $z$.",
+            "solution": "$\\frac{2{,}04}{\\sqrt{36}} = \\frac{2{,}04}{6} = 0{,}34$ g og $z = \\frac{250{,}03 - 250}{0{,}34} \\approx 0{,}09$. (Uten avrunding underveis: $z \\approx 0{,}08$.)",
+            "answer": 0.09
+          },
+          {
+            "label": "d",
+            "task": "Finn p-verdien og konkluder i kontekst.",
+            "solution": "$p = 2 \\cdot P(Z \\ge 0{,}09) = 2 \\cdot 0{,}4641 \\approx 0{,}93$. Langt over 0,05, så $H_0$ beholdes. Det er ingen holdepunkter for at maskinen fyller feil — gjennomsnittet ligger 0,03 gram fra målet, som er nesten ingenting sammenlignet med standardfeilen på 0,34 gram.",
+            "answer": 0.93
+          },
+          {
+            "label": "e",
+            "task": "Finn 95 %-intervallet, og forklar hva det legger til utover testen. Hva ville vært konklusjonen hvis kravet var at maskinen skal treffe innenfor 0,2 gram?",
+            "solution": "$250{,}03 \\pm 1{,}96 \\cdot 0{,}34 = [249{,}36,\\ 250{,}70]$. Intervallet sier at $\\mu$ trolig ligger mellom 249,4 og 250,7 gram — testen sa bare at 250 ikke kan utelukkes. Skal maskinen treffe innenfor 0,2 gram, er utvalget for lite til å avgjøre det: intervallet er bredere enn kravet, og vi kan verken bekrefte eller avkrefte at kravet holdes. Da må flere pakker veies.",
+            "answer": 249.36
+          }
+        ],
+        "hints": [
+          "Legg alle 36 vektene i én kolonne, og bygg regnearket slik at $z$ oppdateres hvis du legger til flere målinger."
+        ],
+        "solution": "a) tosidig om $\\mu = 250$, b) $\\bar{x} \\approx 250{,}03$, $s \\approx 2{,}04$, c) $SE = 0{,}34$, $z \\approx 0{,}09$, d) $p \\approx 0{,}93$ — behold $H_0$, e) $[249{,}36,\\ 250{,}70]$ — for tynt grunnlag for et krav på 0,2 gram",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-5-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** En bedrift måler et gjennomsnitt som ligger 1,0 enhet over $\\mu_0 = 250$. Standardavviket er $\\sigma = 12$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut $z$ og tosidig p-verdi for $n = 25$, $n = 100$ og $n = 2500$.",
+            "solution": "$n = 25$: $SE = 2{,}4$, $z = 0{,}42$, $p \\approx 0{,}68$. $n = 100$: $SE = 1{,}2$, $z = 0{,}83$, $p \\approx 0{,}40$. $n = 2500$: $SE = 0{,}24$, $z = 4{,}17$, $p \\approx 0{,}00003$.",
+            "answer": 4.17
+          },
+          {
+            "label": "b",
+            "task": "Hvor stort må $n$ være for at avviket på 1,0 skal bli signifikant på 5 %-nivå (tosidig)?",
+            "solution": "Kravet er $\\frac{1{,}0}{\\frac{12}{\\sqrt{n}}} \\ge 1{,}96$, altså $\\sqrt{n} \\ge 23{,}52$ og $n \\ge 553{,}2$. Minst 554 målinger.",
+            "answer": 554
+          },
+          {
+            "label": "c",
+            "task": "Avviket er 1,0 gram på en pakke som skal veie 250 gram. Er det praktisk viktig?",
+            "solution": "Det er et avvik på $\\frac{1{,}0}{250} = 0{,}4\\ \\%$. For de fleste formål er det uten betydning — men med 2500 målinger ville testen kalt det «svært signifikant». Statistisk signifikans og praktisk betydning er to forskjellige spørsmål, og bare det første besvares av p-verdien.",
+            "answer": 0.4
+          },
+          {
+            "label": "d",
+            "task": "«Testen var ikke signifikant, så maskinen fyller riktig.» Hva er feilen, og hva burde bedriften se på i stedet?",
+            "solution": "Å beholde $H_0$ er ikke det samme som å bekrefte den. Med $n = 25$ ville testen ikke oppdaget selv et avvik på 4 gram med særlig sikkerhet. Bedriften bør se på konfidensintervallet: det viser hvilke avvik som fortsatt er forenlige med dataene, og dermed hvor lite vi egentlig vet."
+          },
+          {
+            "label": "e",
+            "task": "Bedriften tester hver uke gjennom et helt år på 5 %-nivå, og maskinen er hele tiden riktig innstilt. Hvor mange ganger vil de i gjennomsnitt få «signifikant avvik»?",
+            "solution": "$52 \\cdot 0{,}05 = 2{,}6$ ganger i året. Å justere maskinen hver gang testen slår ut, ville altså gjøre den dårligere, ikke bedre — man justerer da etter tilfeldig støy. Dette er en av grunnene til at kvalitetskontroll bruker kontrollkort med flere signaler, ikke en enkelt test.",
+            "answer": 2.6
+          }
+        ],
+        "hints": [
+          "I b): sett opp $\\frac{\\lvert \\bar{x} - \\mu_0 \\rvert}{\\sigma/\\sqrt{n}} \\ge 1{,}96$ og løs for $n$."
+        ],
+        "solution": "a) $p \\approx 0{,}68$, $0{,}40$ og $0{,}00003$. b) minst 554. c) 0,4 % — signifikant er ikke viktig. d) Behold er ikke bekreftelse; se på intervallet. e) 2,6 falske alarmer i året.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Testobservator z",
+      "definition": "$z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}}$ — antall standardfeil mellom det målte gjennomsnittet og den påståtte verdien. Standard normalfordelt når $H_0$ er sann."
+    },
+    {
+      "term": "Ensidig test",
+      "definition": "Test der bare én retning er interessant ($H_1: \\mu > \\mu_0$ eller $\\mu < \\mu_0$). Hele $\\alpha$ ligger i én hale, og kritisk verdi på 5 %-nivå er 1,645."
+    },
+    {
+      "term": "Tosidig test",
+      "definition": "Test der begge retninger teller ($H_1: \\mu \\ne \\mu_0$). $\\alpha$ deles i to haler, p-verdien ganges med 2, og kritisk verdi på 5 %-nivå er 1,96."
+    },
+    {
+      "term": "Kritisk verdi",
+      "definition": "Grensen for forkastningsområdet. I originalenheter: $\\mu_0 \\pm z_{\\text{kritisk}} \\cdot \\frac{\\sigma}{\\sqrt{n}}$."
+    },
+    {
+      "term": "Sammenhengen test–intervall",
+      "definition": "En tosidig test på nivå $\\alpha$ forkaster $H_0: \\mu = \\mu_0$ nøyaktig når $\\mu_0$ ligger utenfor konfidensintervallet på nivå $1-\\alpha$."
+    }
+  ]
+}

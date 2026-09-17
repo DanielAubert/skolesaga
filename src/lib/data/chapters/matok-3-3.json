@@ -1,0 +1,248 @@
+{
+  "id": "matok-3-3",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "3.3",
+  "title": "Den naturlige logaritmen",
+  "description": "ln som omvendt av e^x, logaritmeregler og å løse likninger med ukjent eksponent.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"
+  ],
+  "keyTerms": [
+    { "term": "Naturlig logaritme", "definition": "$\\ln a$ er det tallet $e$ må opphøyes i for å bli $a$. Definert bare for $a > 0$." },
+    { "term": "Omvendt funksjon", "definition": "En funksjon som gjør det motsatte av en annen. $\\ln x$ er den omvendte til $e^x$: $\\ln\\left(e^{x}\\right) = x$ og $e^{\\ln x} = x$." },
+    { "term": "Potensregelen for logaritmer", "definition": "$\\ln\\left(a^{k}\\right) = k \\cdot \\ln a$. Den er arbeidshesten: den henter eksponenten ned som faktor." },
+    { "term": "Logaritmelikning", "definition": "En likning der den ukjente står inne i en logaritme. Løses ved å opphøye $e$ i begge sider." },
+    { "term": "Definisjonsmengde", "definition": "De $x$-verdiene funksjonen er definert for. For $\\ln x$ er det $x > 0$ — logaritmen av null eller et negativt tall finnes ikke." }
+  ],
+  "content": [
+    {
+      "id": "matok-3-3-intro",
+      "type": "text",
+      "content": "## Operasjonen som henter eksponenten ned\n\nI 3.2 stanset vi tre ganger på det samme stedet.\n\n$$1{,}035^{\\,t} = 2 \\qquad 0{,}86^{\\,t} = \\frac{100\\,000}{380\\,000} \\qquad 1{,}07^{\\,t} = \\frac{A(t)}{50\\,000}$$\n\nHver gang sto den ukjente **oppe i eksponenten**, og hver gang måtte vi sette opp en tabell og lete.\n\nDet er ikke fordi vi regnet feil. Det er fordi vi manglet et verktøy.\n\nTenk på hvordan vi ellers løser likninger: vi gjør **den motsatte operasjonen på begge sider**. Er noe lagt til, trekker vi fra. Er noe ganget, deler vi. Er noe kvadrert, tar vi kvadratroten. Hver operasjon har en motsatt.\n\nOgså $e^{\\,x}$ har en motsatt operasjon. Den heter **den naturlige logaritmen**, skrives $\\ln$, og er hele innholdet i dette kapittelet. Når vi har den, kan vi løse alle likningene over på tre linjer."
+    },
+    {
+      "id": "matok-3-3-def-ln",
+      "type": "definition",
+      "title": "Den naturlige logaritmen",
+      "content": "For et tall $a > 0$ er\n\n$$\\ln a = \\text{det tallet } e \\text{ må opphøyes i for å bli } a$$\n\nMed andre ord:\n\n$$e^{\\ln a} = a \\qquad \\text{og} \\qquad \\ln\\left(e^{\\,x}\\right) = x$$\n\nDe to likhetene sier det samme to veier: $\\ln$ og $e^{\\,x}$ **gjør det motsatte av hverandre**. Gjør du det ene og så det andre, er du tilbake der du startet.\n\n$\\ln a$ er bare definert for $a > 0$. Grunnen er enkel: $e^{\\,x}$ er alltid positiv, så det finnes ikke noe tall $e$ kan opphøyes i for å bli null eller negativt.\n\nNB: Logaritmen er **et tall**, ikke en operasjon vi må regne ut. $\\ln 20$ er et svar på samme måte som $\\sqrt{2}$ er et svar. Trenger vi desimalene, henter vi dem på kalkulatoren: $\\ln 20 \\approx 2{,}9957$."
+    },
+    {
+      "id": "matok-3-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Logaritmer du kan regne i hodet",
+      "problem": "Regn ut uten kalkulator.\n\na) $\\ln 1$    b) $\\ln e$    c) $\\ln\\left(e^{5}\\right)$    d) $\\ln\\left(\\frac{1}{e}\\right)$    e) $e^{\\ln 7}$",
+      "solution": "Spørsmålet er hver gang det samme: **hvilken eksponent må $e$ ha?**\n\n**a)** $e^{0} = 1$, så\n$$\\ln 1 = 0$$\n\n**b)** $e^{1} = e$, så\n$$\\ln e = 1$$\n\n**c)** Her står eksponenten allerede der:\n$$\\ln\\left(e^{5}\\right) = 5$$\n\n**d)** Vi skriver om brøken til potensform først — samme knep som i 3.1:\n$$\\frac{1}{e} = e^{-1} \\qquad \\Longrightarrow \\qquad \\ln\\left(\\frac{1}{e}\\right) = -1$$\n\n**e)** Her er de to operasjonene satt rett etter hverandre, og de opphever hverandre:\n$$e^{\\ln 7} = 7$$\n\n**Svar:** a) $0$, b) $1$, c) $5$, d) $-1$, e) $7$.\n\nNB til d): Logaritmen av et tall **mellom 0 og 1** er negativ. Det er ikke det samme som at logaritmen av et negativt tall finnes — den gjør ikke det. Selve tallet inni må være positivt; svaret kan gjerne være negativt."
+    },
+    {
+      "id": "matok-3-3-fig-ln-og-eksp",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-3-3-ln-og-eksp.png",
+      "alt": "Et koordinatsystem med lik målestokk på begge akser, x og y fra −2 til 5. En blå kurve merket «y = e opphøyd i x» går gjennom punktet (0, 1) og stiger stadig brattere. En grønn kurve merket «y = ln x» går gjennom punktet (1, 0), er bare tegnet for positive x og stiger stadig saktere. En grå stiplet rett linje merket «y = x» går gjennom origo. De to kurvene ligger som speilbilder av hverandre om den stiplede linja.",
+      "caption": "$\\ln$ gjør det motsatte av $e^{\\,x}$: kurvene er speilbilder om linja $y = x$. Rutene er kvadratiske, så speilingen er like tydelig for øyet som den er i regningen.",
+      "kommentar": "Grafmotor-spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/matematikk-okonomi/matok-3-3-ln-og-eksp.json"
+    },
+    {
+      "id": "matok-3-3-tekst-omvendt",
+      "type": "text",
+      "content": "## Hva figuren viser\n\nAt $\\ln$ **gjør det motsatte** av $e^{\\,x}$, ser vi rett i grafene: de er speilbilder av hverandre om linja $y = x$.\n\n- $e^{\\,x}$ går gjennom $(0, 1)$. $\\ln x$ går gjennom $(1, 0)$ — de samme to tallene, byttet om.\n- $e^{\\,x}$ er definert for alle $x$ og gir alltid et positivt svar. $\\ln x$ er definert bare for positive $x$, men kan gi alle svar.\n- $e^{\\,x}$ stiger stadig brattere. $\\ln x$ stiger stadig saktere.\n\nDen siste egenskapen er verdt en økonomisk kommentar. $\\ln x$ vokser uten stopp, men ufattelig sakte: for å komme fra $\\ln x = 10$ til $\\ln x = 11$ må $x$ ganges med $e \\approx 2{,}718$. Derfor dukker logaritmen opp i modeller med **avtakende utbytte** — som annonsekronene vi møter igjen i kapittel 6."
+    },
+    {
+      "id": "matok-3-3-fig-ln-langt",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-3-3-ln-langt.png",
+      "alt": "Et koordinatsystem med x fra 0 til 150 vannrett og ln x fra −1 til 6 loddrett. En grønn kurve merket «y = ln x» stiger bratt nær null og blir så nesten flat. Tre punkter er markert: (1 | 0), (20 | 3,00) og (150 | 5,01).",
+      "caption": "Samme funksjon som i figuren over, men i et helt annet vindu. $\\ln x$ vokser uten stopp — men for å komme fra 3 til 5 må $x$ gå fra 20 til 150.",
+      "kommentar": "Grafmotor-spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/matematikk-okonomi/matok-3-3-ln-langt.json"
+    },
+    {
+      "id": "matok-3-3-teorem-regler",
+      "type": "theorem",
+      "title": "Logaritmereglene",
+      "content": "For alle $a > 0$ og $b > 0$ og alle tall $k$:\n\n$$\\ln(a \\cdot b) = \\ln a + \\ln b$$\n\n$$\\ln\\left(\\frac{a}{b}\\right) = \\ln a - \\ln b$$\n\n$$\\ln\\left(a^{\\,k}\\right) = k \\cdot \\ln a$$\n\nI tillegg er $\\ln 1 = 0$ og $\\ln e = 1$.\n\nDen tredje regelen er den vi kommer til å bruke mest. Den gjør nemlig nøyaktig det vi trenger: **den henter eksponenten ned som faktor.**\n\n**ADVARSEL — den vanligste feilen i hele kapittelet:**\n\n$$\\ln(a + b) \\ \\neq \\ \\ln a + \\ln b$$\n\nReglene gjelder for **produkt**, ikke for sum. Prøv med tall: $\\ln(2 + 3) = \\ln 5 \\approx 1{,}609$, mens $\\ln 2 + \\ln 3 \\approx 1{,}792$. Det er to forskjellige tall. En sum inni en logaritme lar seg ikke deles opp — punktum."
+    },
+    {
+      "id": "matok-3-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Reglene i bruk",
+      "problem": "a) Skriv $\\ln 2 + \\ln 3$ som én logaritme, og kontroller med kalkulator.\n\nb) Skriv $\\ln\\left(1{,}05^{12}\\right)$ uten eksponent.\n\nc) En kollega skriver $\\ln(100 + 50) = \\ln 100 + \\ln 50$. Har hun rett?",
+      "solution": "**a)** Sum av logaritmer blir logaritmen av produktet:\n\n$$\\ln 2 + \\ln 3 = \\ln(2 \\cdot 3) = \\ln 6$$\n\nKontroll: $\\ln 2 \\approx 0{,}693147$ og $\\ln 3 \\approx 1{,}098612$. Summen er $1{,}791759$, og $\\ln 6 \\approx 1{,}791759$ — så det stemmer.\n\n**b)** Her bruker vi potensregelen og henter eksponenten ned:\n\n$$\\ln\\left(1{,}05^{12}\\right) = 12 \\cdot \\ln 1{,}05$$\n\n$$12 \\cdot 0{,}048790 \\approx 0{,}585482$$\n\n(Kontroll: $1{,}05^{12} \\approx 1{,}795856$, og $\\ln 1{,}795856 \\approx 0{,}585482$ — så det stemmer.)\n\n**c)** Nei. Her står det en **sum** inni logaritmen, og da gjelder ingen av reglene. Vi regner ut begge sider:\n\n$$\\ln(100 + 50) = \\ln 150 \\approx 5{,}0106$$\n$$\\ln 100 + \\ln 50 \\approx 4{,}6052 + 3{,}9120 = 8{,}5172$$\n\nTallene er ikke i nærheten av hverandre.\n\n**Svar:** a) $\\ln 6$. b) $12 \\ln 1{,}05 \\approx 0{,}5855$. c) Nei — reglene gjelder for produkt, ikke for sum.\n\nNB til c): Det kollegaen kunne gjort, er $\\ln(100 \\cdot 50) = \\ln 100 + \\ln 50$. Forskjellen mellom $+$ og $\\cdot$ inni parentesen er hele forskjellen."
+    },
+    {
+      "id": "matok-3-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-3-oppg-1",
+        "number": "3.3.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut uten kalkulator. Svarene er hele tall.",
+        "subTasks": [
+          { "label": "a", "task": "$\\ln 1$", "solution": "$e^0 = 1$, så $\\ln 1 = 0$.", "answer": 0 },
+          { "label": "b", "task": "$\\ln e$", "solution": "$e^1 = e$, så $\\ln e = 1$.", "answer": 1 },
+          { "label": "c", "task": "$\\ln\\left(e^{3}\\right)$", "solution": "Eksponenten står allerede der: $\\ln\\left(e^3\\right) = 3$.", "answer": 3 },
+          { "label": "d", "task": "$\\ln\\left(\\dfrac{1}{e^{2}}\\right)$", "solution": "$\\frac{1}{e^2} = e^{-2}$, så svaret er $-2$.", "answer": -2 },
+          { "label": "e", "task": "$e^{\\ln 5}$", "solution": "De to operasjonene opphever hverandre: $e^{\\ln 5} = 5$.", "answer": 5 }
+        ],
+        "solution": "a) 0, b) 1, c) 3, d) $-2$, e) 5",
+        "hints": ["Spør deg selv: hvilken eksponent må $e$ ha for å bli dette tallet?", "Skriv om brøker til potensform: $\\frac{1}{e^n} = e^{-n}$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-3-oppg-2",
+        "number": "3.3.2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv om med logaritmereglene.",
+        "subTasks": [
+          { "label": "a", "task": "Skriv $\\ln 5 + \\ln 4$ som én logaritme.", "solution": "$\\ln 5 + \\ln 4 = \\ln(5 \\cdot 4) = \\ln 20 \\approx 2{,}9957$", "expressionAnswer": "ln(20)" },
+          { "label": "b", "task": "Skriv $\\ln 30 - \\ln 6$ som én logaritme.", "solution": "$\\ln 30 - \\ln 6 = \\ln\\left(\\frac{30}{6}\\right) = \\ln 5 \\approx 1{,}6094$", "expressionAnswer": "ln(5)" },
+          { "label": "c", "task": "Skriv $\\ln\\left(x^{4}\\right)$ uten eksponent.", "solution": "$\\ln\\left(x^4\\right) = 4 \\ln x$", "expressionAnswer": "4*ln(x)" },
+          { "label": "d", "task": "Skriv $3 \\ln 2$ som én logaritme.", "solution": "$3 \\ln 2 = \\ln\\left(2^3\\right) = \\ln 8 \\approx 2{,}0794$", "expressionAnswer": "ln(8)" },
+          { "label": "e", "task": "Skriv $\\ln\\left(1{,}06^{25}\\right)$ uten eksponent, og regn ut verdien med fire desimaler.", "solution": "$\\ln\\left(1{,}06^{25}\\right) = 25 \\cdot \\ln 1{,}06 \\approx 25 \\cdot 0{,}058269 \\approx 1{,}4567$", "answer": 1.4567 }
+        ],
+        "solution": "a) $\\ln 20$, b) $\\ln 5$, c) $4 \\ln x$, d) $\\ln 8$, e) $25 \\ln 1{,}06 \\approx 1{,}4567$",
+        "hints": ["Sum av logaritmer blir logaritmen av produktet.", "Potensregelen virker begge veier: $k \\ln a = \\ln\\left(a^k\\right)$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-3-teorem-metode",
+      "type": "theorem",
+      "title": "Å løse likninger med $e$ og $\\ln$",
+      "content": "Det er to typer, og de løses hver sin vei — men prinsippet er det samme som for alle likninger: **samme operasjon på begge sider**.\n\n**Type 1 — den ukjente står i eksponenten.** Da tar vi $\\ln$ på begge sider:\n\n$$e^{\\,x} = 20 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$\\ln\\left(e^{\\,x}\\right) = \\ln 20$$\n$$x = \\ln 20$$\n\n**Type 2 — den ukjente står inne i en logaritme.** Da opphøyer vi $e$ i begge sider:\n\n$$\\ln x = 2{,}5 \\qquad |\\ \\text{opphøy } e \\text{ i begge sider}$$\n$$e^{\\ln x} = e^{2{,}5}$$\n$$x = e^{2{,}5}$$\n\nNB: Skriv **alltid** den mellomste linja. Det er der operasjonen faktisk skjer, og det er den som viser at $\\ln$ og $e$ opphever hverandre. Hopper du rett fra $\\ln x = 2{,}5$ til $x = e^{2{,}5}$, ser det ut som en regel du har pugget. Skriver du linja, ser det ut som det er — den motsatte operasjonen på begge sider, akkurat som når du deler bort en faktor.\n\n**Har den ukjente et grunntall som ikke er $e$** — for eksempel $1{,}035^{\\,t} = 2$ — tar vi $\\ln$ på begge sider og bruker så potensregelen til å hente eksponenten ned."
+    },
+    {
+      "id": "matok-3-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Ukjent i eksponenten",
+      "problem": "Løs likningene.\n\na) $e^{\\,x} = 20$\n\nb) $1{,}035^{\\,t} = 2$",
+      "solution": "**a)** Den ukjente står i eksponenten, så vi tar $\\ln$ på begge sider:\n\n$$e^{\\,x} = 20 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$\\ln\\left(e^{\\,x}\\right) = \\ln 20$$\n$$x = \\ln 20 \\approx 2{,}9957$$\n\n**Kontroll:** $e^{2{,}9957} \\approx 20$ — så det stemmer.\n\n**b)** Her er grunntallet $1{,}035$, ikke $e$. Vi tar $\\ln$ på begge sider likevel:\n\n$$1{,}035^{\\,t} = 2 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$\\ln\\left(1{,}035^{\\,t}\\right) = \\ln 2$$\n\nNå bruker vi potensregelen på venstresiden. Det er den som henter $t$ ned fra eksponenten:\n\n$$t \\cdot \\ln 1{,}035 = \\ln 2 \\qquad | : \\ln 1{,}035$$\n$$t = \\frac{\\ln 2}{\\ln 1{,}035}$$\n\n$$t \\approx \\frac{0{,}693147}{0{,}034401} \\approx 20{,}1488$$\n\n**Svar:** a) $x = \\ln 20 \\approx 2{,}9957$. b) $t = \\dfrac{\\ln 2}{\\ln 1{,}035} \\approx 20{,}15$.\n\nDette er doblingstiden fra 3.2 Eksempel 4. Der fant vi «mellom 20 og 21 år» ved å prøve oss fram i en tabell med fire linjer. Nå er svaret eksakt, og regningen tok tre linjer.\n\n**NB — den vanligste feilen her:** $\\dfrac{\\ln 2}{\\ln 1{,}035}$ er **ikke** det samme som $\\ln\\left(\\dfrac{2}{1{,}035}\\right)$. Den ene er en brøk av to logaritmer, den andre er logaritmen av en brøk. Regn dem ut, så ser du: $20{,}15$ mot $0{,}6587$."
+    },
+    {
+      "id": "matok-3-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-3-oppg-3",
+        "number": "3.3.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som Eksempel 3 a). Løs likningene. Oppgi svaret med fire desimaler.",
+        "subTasks": [
+          { "label": "a", "task": "$e^{\\,x} = 50$", "solution": "$\\ln\\left(e^{\\,x}\\right) = \\ln 50$ gir $x = \\ln 50 \\approx 3{,}9120$", "answer": 3.912 },
+          { "label": "b", "task": "$e^{\\,x} = 0{,}4$", "solution": "$x = \\ln 0{,}4 \\approx -0{,}9163$. Svaret er negativt fordi $0{,}4 < 1$.", "answer": -0.9163 },
+          { "label": "c", "task": "$4e^{\\,x} = 100$", "solution": "Vi deler på 4 først: $e^{\\,x} = 25$. Så $x = \\ln 25 \\approx 3{,}2189$.", "answer": 3.2189 },
+          { "label": "d", "task": "$e^{\\,0{,}05x} = 3$", "solution": "$\\ln\\left(e^{0{,}05x}\\right) = \\ln 3$ gir $0{,}05x = \\ln 3$, og $x = \\frac{\\ln 3}{0{,}05} \\approx 21{,}9722$.", "answer": 21.9722 },
+          { "label": "e", "task": "$e^{\\,0{,}08t} = 2$", "solution": "$0{,}08t = \\ln 2$ gir $t = \\frac{\\ln 2}{0{,}08} \\approx 8{,}6643$.", "answer": 8.6643 }
+        ],
+        "solution": "a) 3,9120, b) $-0{,}9163$, c) 3,2189, d) 21,9722, e) 8,6643",
+        "hints": ["Rydd først: er det et tall foran $e$, deler du det bort før du tar $\\ln$.", "I d) og e): hele eksponenten blir stående igjen etter at $\\ln$ har opphevet $e$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-3-oppg-4",
+        "number": "3.3.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som Eksempel 3 b). Løs for $t$, og oppgi svaret med fire desimaler.",
+        "subTasks": [
+          { "label": "a", "task": "$1{,}07^{\\,t} = 2$", "solution": "$t \\ln 1{,}07 = \\ln 2$ gir $t = \\frac{\\ln 2}{\\ln 1{,}07} \\approx 10{,}2448$", "answer": 10.2448 },
+          { "label": "b", "task": "$1{,}04^{\\,t} = 1{,}5$", "solution": "$t = \\frac{\\ln 1{,}5}{\\ln 1{,}04} \\approx 10{,}3380$", "answer": 10.338 },
+          { "label": "c", "task": "$0{,}92^{\\,t} = 0{,}5$", "solution": "$t = \\frac{\\ln 0{,}5}{\\ln 0{,}92} \\approx 8{,}3130$. (Her er både teller og nevner negative, så svaret blir positivt.)", "answer": 8.313 },
+          { "label": "d", "task": "Varebilen fra 3.2: løs $380\\,000 \\cdot 0{,}86^{\\,t} = 100\\,000$.", "solution": "Vi deler på $380\\,000$ på begge sider: $0{,}86^{\\,t} = \\frac{100\\,000}{380\\,000} \\approx 0{,}263158$. Så $t = \\frac{\\ln 0{,}263158}{\\ln 0{,}86} \\approx 8{,}8514$ år.", "answer": 8.8514 },
+          { "label": "e", "task": "Sammenlikn svaret i d) med tabellsvaret i 3.2 Eksempel 2. Stemmer de overens?", "solution": "Ja. Tabellen ga at verdien passerte $100\\,000$ kroner mellom $t = 8$ og $t = 9$, og den eksakte verdien $8{,}85$ ligger nettopp der — så det stemmer. Forskjellen er at tabellen bare kunne si «mellom to hele år», mens logaritmen gir det nøyaktige tidspunktet." }
+        ],
+        "solution": "a) 10,2448, b) 10,3380, c) 8,3130, d) 8,8514 år, e) ja — det eksakte svaret 8,85 ligger mellom 8 og 9, slik tabellen anga",
+        "hints": ["Ta $\\ln$ på begge sider, og bruk så $\\ln\\left(a^{t}\\right) = t \\ln a$.", "I d): del bort startverdien først, akkurat som i doblingstidsregningen."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Ukjent inne i logaritmen",
+      "problem": "Løs likningene.\n\na) $\\ln x = 2{,}5$\n\nb) $3 + 2 \\ln x = 11$",
+      "solution": "**a)** Den ukjente står inne i logaritmen, så vi opphøyer $e$ i begge sider:\n\n$$\\ln x = 2{,}5 \\qquad |\\ \\text{opphøy } e \\text{ i begge sider}$$\n$$e^{\\ln x} = e^{2{,}5}$$\n$$x = e^{2{,}5} \\approx 12{,}1825$$\n\nDen midterste linja er der jobben gjøres: $e^{\\ln x}$ **er** $x$, fordi de to operasjonene opphever hverandre.\n\n**b)** Her må vi **rydde først** — logaritmen skal stå alene før vi opphøyer:\n\n$$3 + 2\\ln x = 11 \\qquad | -3$$\n$$2\\ln x = 8 \\qquad | : 2$$\n$$\\ln x = 4 \\qquad |\\ \\text{opphøy } e \\text{ i begge sider}$$\n$$e^{\\ln x} = e^{4}$$\n$$x = e^{4} \\approx 54{,}5982$$\n\n**Kontroll:** $3 + 2 \\cdot \\ln\\left(e^{4}\\right) = 3 + 2 \\cdot 4 = 11$ — så det stemmer.\n\n**Svar:** a) $x = e^{2{,}5} \\approx 12{,}18$. b) $x = e^{4} \\approx 54{,}60$.\n\nNB: Rekkefølgen i b) er den samme som i alle andre likninger: **rydd til logaritmen står alene, og opphøy så.** Å opphøye $e$ mens det fortsatt står et $+3$ utenfor, hjelper ingenting — for $e^{3 + 2\\ln x}$ er ikke noe enklere enn det vi startet med."
+    },
+    {
+      "id": "matok-3-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-3-oppg-5",
+        "number": "3.3.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs likningene. Skriv den linja der du opphøyer $e$ i begge sider. Oppgi svaret med fire desimaler der det ikke er eksakt.",
+        "subTasks": [
+          { "label": "a", "task": "$\\ln x = 3$", "solution": "$e^{\\ln x} = e^{3}$ gir $x = e^{3} \\approx 20{,}0855$", "answer": 20.0855 },
+          { "label": "b", "task": "$2 \\ln x + 1 = 7$", "solution": "$2\\ln x = 6$ og $\\ln x = 3$. Så $e^{\\ln x} = e^3$ og $x = e^3 \\approx 20{,}0855$.", "answer": 20.0855 },
+          { "label": "c", "task": "$\\ln(2x) = 4$", "solution": "$e^{\\ln(2x)} = e^{4}$ gir $2x = e^4$, og $x = \\frac{e^4}{2} \\approx 27{,}2991$.", "answer": 27.2991 },
+          { "label": "d", "task": "$\\ln x + \\ln 4 = \\ln 20$", "solution": "Venstresiden skrives som én logaritme: $\\ln(4x) = \\ln 20$. Opphøyer vi $e$ i begge sider, får vi $4x = 20$ og $x = 5$.", "answer": 5 },
+          { "label": "e", "task": "$\\ln x = -1$. Finnes det en løsning? Begrunn.", "solution": "Ja. $e^{\\ln x} = e^{-1}$ gir $x = e^{-1} \\approx 0{,}3679$, som er positivt — altså innenfor definisjonsmengden $x > 0$. Kravet er at TALLET INNI logaritmen er positivt, ikke at logaritmens VERDI er det. For alle $x$ mellom 0 og 1 er $\\ln x$ negativ.", "answer": 0.3679 }
+        ],
+        "solution": "a) $e^3 \\approx 20{,}0855$, b) $e^3 \\approx 20{,}0855$, c) $\\frac{e^4}{2} \\approx 27{,}2991$, d) $x = 5$, e) ja, $x = e^{-1} \\approx 0{,}3679$",
+        "hints": ["Rydd til logaritmen står alene før du opphøyer $e$.", "I d): slå sammen til én logaritme på venstresiden først."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Tilbake til 69,3-tallet",
+      "problem": "I kapittel 1.5 fant vi et merkelig mønster: med kontinuerlig rente er produktet av renten i prosent og doblingstiden i år alltid omtrent $69{,}3$. Vis hvorfor.",
+      "solution": "**Hva vet vi?** Med kontinuerlig rente er kapitalen $K_0 \\cdot e^{\\,r\\,t}$, der $r$ er renten som desimaltall. **Hva må vi finne?** Doblingstiden, uttrykt ved $r$.\n\nVi setter opp likningen for dobling:\n\n$$K_0 \\cdot e^{\\,r\\,t} = 2 \\cdot K_0 \\qquad | : K_0$$\n$$e^{\\,r\\,t} = 2 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$\\ln\\left(e^{\\,r\\,t}\\right) = \\ln 2$$\n$$r \\cdot t = \\ln 2 \\qquad | : r$$\n$$t = \\frac{\\ln 2}{r}$$\n\nDette er **doblingstidsformelen for kontinuerlig rente**, og den er eksakt.\n\nNå ganger vi doblingstiden med renten i **prosent**. Renten i prosent er $p = 100r$, så\n\n$$p \\cdot t = 100r \\cdot \\frac{\\ln 2}{r} = 100 \\cdot \\ln 2$$\n\nHer forkortes $r$ bort — og det er nettopp derfor produktet er det samme uansett rentenivå. Til slutt setter vi inn tallet:\n\n$$100 \\cdot \\ln 2 \\approx 100 \\cdot 0{,}693147 = 69{,}3147$$\n\n**Svar:** Produktet er $100 \\ln 2 \\approx 69{,}31$, uavhengig av renten.\n\nMysteriet fra 1.5 var altså tallet $\\ln 2$ hele tiden. Og tommelfingerregelen «$\\frac{72}{p}$» er en avrunding oppover av $\\frac{69{,}3}{p}$ — 72 er valgt fordi det lar seg dele på 2, 3, 4, 6, 8, 9 og 12, ikke fordi det er mer riktig."
+    },
+    {
+      "id": "matok-3-3-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Definisjonen:** $\\ln a$ er den eksponenten $e$ må ha for å bli $a$. Bare definert for $a > 0$.\n\n$$e^{\\ln a} = a \\qquad\\qquad \\ln\\left(e^{\\,x}\\right) = x$$\n\n**Reglene:**\n\n| Regel | |\n|---|---|\n| $\\ln(a \\cdot b)$ | $= \\ln a + \\ln b$ |\n| $\\ln\\left(\\frac{a}{b}\\right)$ | $= \\ln a - \\ln b$ |\n| $\\ln\\left(a^{k}\\right)$ | $= k \\cdot \\ln a$ |\n| $\\ln 1 = 0$ | $\\ln e = 1$ |\n\n**De to likningstypene:**\n\n| Den ukjente står | Operasjon på begge sider | Eksempel |\n|---|---|---|\n| i eksponenten | ta $\\ln$ | $e^{\\,x} = 20 \\Rightarrow x = \\ln 20$ |\n| inne i logaritmen | opphøy $e$ | $\\ln x = 4 \\Rightarrow x = e^{4}$ |\n\nOg har den ukjente et annet grunntall enn $e$: ta $\\ln$ på begge sider, og bruk potensregelen til å hente eksponenten ned.\n\n$$b^{\\,t} = c \\quad \\Longrightarrow \\quad t \\ln b = \\ln c \\quad \\Longrightarrow \\quad t = \\frac{\\ln c}{\\ln b}$$\n\n**Arbeidsmåten:**\n1. Rydd så logaritmen — eller potensen — står alene.\n2. Gjør den motsatte operasjonen på begge sider, og **skriv linja der du gjør det**.\n3. Regn ut.\n4. Kontroller ved å sette svaret inn i den opprinnelige likningen.\n\n**Vanlige feil:**\n- $\\ln(a + b) = \\ln a + \\ln b$. **Galt.** Reglene gjelder produkt, ikke sum.\n- $\\dfrac{\\ln c}{\\ln b} = \\ln\\left(\\dfrac{c}{b}\\right)$. **Galt.** En brøk av logaritmer er ikke logaritmen av en brøk.\n- Å opphøye $e$ før logaritmen står alene.\n- Å tro at $\\ln x$ ikke kan være negativ. Den kan det — for alle $x$ mellom 0 og 1."
+    },
+    {
+      "id": "matok-3-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-3-oppg-6",
+        "number": "3.3.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En prisindeks står i 100 i dag og stiger med $3{,}2\\,\\%$ i året, slik at $P(t) = 100 \\cdot 1{,}032^{\\,t}$.\n\nLag et regneark med årstall i kolonne A og indeksen i kolonne B (`=100*1,032^A2`). Den naturlige logaritmen heter `LN()` i regnearket, og $e^{x}$ heter `EKSP()`.",
+        "subTasks": [
+          { "label": "a", "task": "Hva er indeksen etter 5 år og etter 10 år? Rund av til to desimaler.", "solution": "$P(5) = 100 \\cdot 1{,}032^5 \\approx 117{,}06$ og $P(10) \\approx 137{,}02$.", "answer": [117.06, 137.02] },
+          { "label": "b", "task": "Regn ut nøyaktig når prisnivået er doblet. Bruk formelen $t = \\frac{\\ln 2}{\\ln 1{,}032}$, eller `=LN(2)/LN(1,032)` i regnearket.", "solution": "$t = \\frac{\\ln 2}{\\ln 1{,}032} = \\frac{0{,}693147}{0{,}031499} \\approx 22{,}0056$ år.", "answer": 22.0056 },
+          { "label": "c", "task": "Kontroller svaret i b) mot regnearket: hva er $P(22)$ og $P(23)$?", "solution": "$P(22) \\approx 199{,}96$ og $P(23) \\approx 206{,}36$. Indeksen passerer 200 like etter $t = 22$ — så det stemmer med $22{,}01$.", "answer": [199.96, 206.36] },
+          { "label": "d", "task": "Når er prisnivået tredoblet? Hvor mange ganger så lang tid tar det som doblingen?", "solution": "$t = \\frac{\\ln 3}{\\ln 1{,}032} \\approx 34{,}8781$ år. Forholdet er $\\frac{34{,}8781}{22{,}0056} \\approx 1{,}585$ — som er $\\frac{\\ln 3}{\\ln 2}$. Tredoblingen tar altså bare omtrent halvannen ganger så lang tid som doblingen, ikke halvannen ganger fordi tre er halvannen ganger to, men fordi logaritmene forholder seg slik.", "answer": 34.8781 },
+          { "label": "e", "task": "En avisartikkel skriver: «Prisene dobles på 22 år. Etter 44 år er de altså firedoblet, og etter 66 år er de seksdoblet.» Vurder de to påstandene.", "solution": "Den første er riktig, den andre er feil. Etter 44 år har prisene doblet seg to ganger, altså firedoblet seg — det stemmer ($2 \\cdot 2 = 4$). Etter 66 år har de doblet seg tre ganger, altså ÅTTEdoblet seg ($2 \\cdot 2 \\cdot 2 = 8$), ikke seksdoblet. Journalisten legger doblingene sammen i stedet for å gange dem. Kontroll: $1{,}032^{66} \\approx 8{,}00$.", "multipleChoiceOptions": [
+            "Første påstand riktig, andre feil: etter 66 år har prisene doblet seg tre ganger, altså åttedoblet seg ($2^3 = 8$), ikke seksdoblet.",
+            "Begge påstandene er riktige — tre doblingsperioder gir tre ganger doblingen, altså seksdobling.",
+            "Begge påstandene er feil, for doblingstiden endrer seg etter hvert som indeksen stiger.",
+            "Første påstand er feil, andre riktig: firedobling krever mer enn to doblingsperioder."
+          ] }
+        ],
+        "solution": "a) 117,06 og 137,02, b) ca. 22,0056 år, c) 199,96 og 206,36 — stemmer, d) ca. 34,8781 år, forholdet er $\\frac{\\ln 3}{\\ln 2} \\approx 1{,}585$, e) første riktig, andre feil — det blir åttedobling, ikke seksdobling",
+        "hints": ["I regnearket er `LN(2)/LN(1,032)` noe helt annet enn `LN(2/1,032)`.", "I e): doblinger GANGES sammen, de legges ikke sammen."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": []
+}

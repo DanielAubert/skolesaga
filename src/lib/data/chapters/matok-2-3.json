@@ -1,0 +1,468 @@
+{
+  "id": "matok-2-3",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "2.3",
+  "title": "Sparing og lån over tid",
+  "description": "Sparing med faste innskudd, serielån og avbetaling — modellert i regneark.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+  ],
+  "content": [
+    {
+      "id": "matok-2-3-section-intro",
+      "type": "text",
+      "content": "# Sparing og lån over tid\n\nSå langt har vi flyttet **enkeltbeløp** i tid. Men de fleste avtaler i økonomien består av *mange* beløp: du sparer et fast beløp hver måned, du betaler ned et lån hver termin, du kjøper en vare på avbetaling og betaler i tolv rater.\n\nPrinsippet er heldigvis det samme. Hvert beløp flyttes fra sitt eget tidspunkt, og så legges de sammen. Det nye er bare at det er mange av dem — og da blir **regnearket** verktøyet. Et regneark kan gjøre den samme regningen 12, 120 eller 360 ganger uten å klage, og det lar oss se hva som skjer rad for rad.\n\nI kapittel 4.1 skal vi finne en formel som gjør mange av disse summene om til én linje. I dette kapittelet bygger vi dem i stedet ut, ett år om gangen, slik at vi ser hva formelen egentlig gjør."
+    },
+    {
+      "id": "matok-2-3-def-begreper",
+      "type": "definition",
+      "title": "Termin, sparebeløp, avdrag og restgjeld",
+      "content": "- Et **fast sparebeløp** er et like stort innskudd som settes inn hver termin. Vi skriver det $a$.\n- **Etterskuddsvis** sparing betyr at innskuddet kommer på **slutten** av hver termin, **forskuddsvis** at det kommer i **begynnelsen**. Er ikke annet sagt, regner vi etterskuddsvis.\n- I et lån er **restgjelden** det som står igjen av lånet, **avdraget** er den delen av innbetalingen som reduserer gjelden, og **terminbeløpet** er det du faktisk betaler: avdrag pluss renter.\n\n$$\\text{terminbeløp} = \\text{avdrag} + \\text{renter av restgjelden}$$\n\n- I et **serielån** er avdraget like stort hver termin. Da synker restgjelden jevnt, rentene synker, og terminbeløpet synker.\n- I et **annuitetslån** er terminbeløpet like stort hver termin. Da må avdraget vokse etter hvert som rentene synker. Annuitetslån tar vi i kapittel 4.2, når vi har geometriske rekker.\n- **Avbetaling** er et kjøp der du betaler en del kontant og resten i faste terminbeløp. Det er i praksis et lån fra selgeren."
+    },
+    {
+      "id": "matok-2-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1 — sparing med faste innskudd",
+      "problem": "Hanne setter inn $20\\,000$ kr på en sparekonto på slutten av hvert år i 5 år. Renten er $3{,}5\\,\\%$. Hvor mye står på kontoen rett etter det siste innskuddet?",
+      "solution": "**Løsning:**\n\n**Hva vet vi?** $a = 20\\,000$ kr, $p = 3{,}5$ og 5 innskudd.\n**Hva må vi finne?** Framtidsverdien av alle innskuddene i år 5.\n\nDette er Eksempel 3 i kapittel 2.1 én gang til — bare med fem beløp i stedet for to. Vi begynner med å skrive opp **hvor lenge hvert innskudd står**:\n\n| innskudd | kommer i år | står i | framtidsverdi |\n|---|---|---|---|\n| 1 | 1 | 4 år | $20\\,000 \\cdot 1{,}035^4 = 22\\,950{,}46$ kr |\n| 2 | 2 | 3 år | $20\\,000 \\cdot 1{,}035^3 = 22\\,174{,}36$ kr |\n| 3 | 3 | 2 år | $20\\,000 \\cdot 1{,}035^2 = 21\\,424{,}50$ kr |\n| 4 | 4 | 1 år | $20\\,000 \\cdot 1{,}035^1 = 20\\,700{,}00$ kr |\n| 5 | 5 | 0 år | $20\\,000 \\cdot 1{,}035^0 = 20\\,000{,}00$ kr |\n| | | **Sum** | $107\\,249{,}32$ kr |\n\nLegg merke til den siste raden. Det siste innskuddet kommer på slutten av år 5, altså akkurat når vi teller opp. Det har ikke rukket å få rente i det hele tatt, og står derfor med $1{,}035^0 = 1$.\n\nVi summerer kolonnen:\n\n$22\\,950{,}46 + 22\\,174{,}36 + 21\\,424{,}50 + 20\\,700{,}00 + 20\\,000{,}00 = 107\\,249{,}32$\n\n![En tidslinje med årene 0 til 5. Fra hvert av årene 1, 2, 3, 4 og 5 peker en pil opp merket 20 000. Pilene i år 1 til 4 er blå, pila i år 5 er grønn. Over tidslinja går fire buede blå piler fram til år 5, merket «· 1,035 opphøyd i 4», «· 1,035 opphøyd i 3», «· 1,035 opphøyd i 2» og «· 1,035 opphøyd i 1». Pilene blir kortere jo seinere innskuddet kommer. Ved den grønne pila i år 5 står «· 1,035 opphøyd i 0 = 1». Under står «det siste innskuddet rekker ikke å få rente» og «til sammen 107 249,32 kr».](/images/content/matematikk-okonomi/matok-2-3-tidslinje-sparing.png)\n\n*Fem like innskudd, men fem ulike pillengder: det første innskuddet står i 4 år, det siste i 0 år. Derfor kan vi ikke gange hele beløpet med samme vekstfaktor.*\n\n**Svar:** Det står omtrent $107\\,249$ kr på kontoen.\n\nHanne har selv satt inn $5 \\cdot 20\\,000\\text{ kr} = 100\\,000$ kr, så rentene er $7\\,249{,}32$ kr.\n\n**NB:** Summen kan også skrives med vekstfaktoren utenfor:\n\n$20\\,000 \\cdot \\left(1{,}035^4 + 1{,}035^3 + 1{,}035^2 + 1{,}035 + 1\\right) = 20\\,000 \\cdot 5{,}362466$\n\nParentesen er en **geometrisk rekke**, og i kapittel 4.1 finner vi en formel som gir summen direkte. Inntil da regner vi den ut ledd for ledd, eller lar regnearket gjøre det."
+    },
+        {
+      "id": "matok-2-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-2-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et fast beløp settes inn på slutten av hvert år. Hvor mye står på kontoen rett etter det siste innskuddet? Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$10\\,000$ kr i året i 4 år, rente $3\\,\\%$",
+            "solution": "$10000 \\cdot \\left(1{,}03^3 + 1{,}03^2 + 1{,}03 + 1\\right) \\approx 41\\,836{,}27$ kr",
+            "answer": 41836.27
+          },
+          {
+            "label": "b",
+            "task": "$25\\,000$ kr i året i 6 år, rente $4{,}5\\,\\%$",
+            "solution": "$25000 \\cdot \\left(1{,}045^5 + \\cdots + 1\\right) \\approx 167\\,922{,}29$ kr",
+            "answer": 167922.29
+          },
+          {
+            "label": "c",
+            "task": "$15\\,000$ kr i året i 10 år, rente $5\\,\\%$",
+            "solution": "$15000 \\cdot \\left(1{,}05^9 + \\cdots + 1\\right) \\approx 188\\,668{,}39$ kr",
+            "answer": 188668.39
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye av svaret i c) er innskudd, og hvor mye er renter?",
+            "solution": "Innskudd: $10 \\cdot 15000 = 150\\,000$ kr. Renter: $188668{,}39 - 150000 = 38\\,668{,}39$ kr.",
+            "answer": [
+              150000,
+              38668.39
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Hvor mye står på kontoen i c) hvis hun sparer i 20 år i stedet for 10? Hvor mye av det er renter?",
+            "solution": "$\\approx 495\\,989{,}31$ kr. Innskudd $300\\,000$ kr, renter $195\\,989{,}31$ kr — rentene er mer enn fem ganger så store som etter 10 år, selv om innskuddene bare er doblet.","answer":[495989.31,195989.31]
+          }
+        ],
+        "hints": [
+          "Det siste innskuddet får ingen rente og står med vekstfaktor $1$.",
+          "Det første innskuddet står i $n - 1$ år, ikke $n$ år."
+        ],
+        "solution": "a) $41\\,836{,}27$ kr, b) $167\\,922{,}29$ kr, c) $188\\,668{,}39$ kr, d) $150\\,000$ kr innskudd og $38\\,668{,}39$ kr renter, e) $495\\,989{,}31$ kr, hvorav $195\\,989{,}31$ kr er renter",
+        "competenceGoals": [
+          "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-2-3-section-regneark",
+      "type": "text",
+      "content": "## Sparing modellert i regneark\n\nTabellen i Eksempel 1 er grei med fem innskudd. Med tjue eller tre hundre blir den uoverkommelig, og da bytter vi til den **rekursive** framgangsmåten: vi regner ut hva som står på kontoen ved slutten av hvert år, ut fra hva som sto året før.\n\nOppskriften per rad er:\n\n$$\\text{utgående saldo} = \\text{inngående saldo} + \\text{renter av inngående saldo} + \\text{innskudd}$$\n\nDette er nøyaktig det et regneark er laget for. Kolonnene blir:\n\n| A | B | C | D | E |\n|---|---|---|---|---|\n| år | inngående saldo | renter | innskudd | utgående saldo |\n\nog formelen i én rad viser til raden over. Når den første raden er riktig, kan hele resten dras nedover."
+    },
+    {
+      "id": "matok-2-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2 — samme sparing i regneark",
+      "problem": "En bedrift setter av $30\\,000$ kr på slutten av hvert år i 10 år. Renten er $4\\,\\%$.\n\na) Sett opp regnearkmodellen og vis de tre første årene.\n\nb) Hvor mye står på kontoen etter 10 år, og hvor mye er renter?",
+      "solution": "**Løsning:**\n\na) Vi legger år 1 i rad 2. Inngående saldo det første året er $0$ kr, siden kontoen er tom før det første innskuddet.\n\nFormlene i rad 2 blir:\n\n```\nA2: 1\nB2: 0\nC2: =B2*0,04\nD2: 30000\nE2: =B2+C2+D2\n```\n\nI rad 3 er den eneste nyheten at inngående saldo er utgående saldo fra året før:\n\n```\nA3: =A2+1\nB3: =E2\nC3: =B3*0,04\nD3: 30000\nE3: =B3+C3+D3\n```\n\nRad 3 kan nå dras nedover til rad 11 (år 10).\n\n| år | inngående | renter | innskudd | utgående |\n|---|---|---|---|---|\n| 1 | $0{,}00$ | $0{,}00$ | $30\\,000$ | $30\\,000{,}00$ |\n| 2 | $30\\,000{,}00$ | $1\\,200{,}00$ | $30\\,000$ | $61\\,200{,}00$ |\n| 3 | $61\\,200{,}00$ | $2\\,448{,}00$ | $30\\,000$ | $93\\,648{,}00$ |\n\nb) Vi drar formlene ned til år 10 og leser av siste rad:\n\n| år | inngående | renter | innskudd | utgående |\n|---|---|---|---|---|\n| 9 | $276\\,426{,}79$ | $11\\,057{,}07$ | $30\\,000$ | $317\\,483{,}86$ |\n| 10 | $317\\,483{,}86$ | $12\\,699{,}35$ | $30\\,000$ | $360\\,183{,}21$ |\n\nBedriften har satt inn $10 \\cdot 30\\,000\\text{ kr} = 300\\,000$ kr, så rentene er\n\n$360\\,183{,}21\\text{ kr} - 300\\,000\\text{ kr} = 60\\,183{,}21\\text{ kr}$\n\n**Svar:** Det står omtrent $360\\,183$ kr på kontoen, og $60\\,183$ kr av det er renter.\n\n*(Føres ikke)* Kontroll med metoden fra Eksempel 1: $30\\,000 \\cdot \\left(1{,}04^9 + 1{,}04^8 + \\cdots + 1\\right) \\approx 360\\,183{,}21$ kr. Samme svar — den rekursive modellen og summen av framtidsverdier er to måter å regne det samme på.\n\n**NB:** Hadde innskuddene kommet i **begynnelsen** av hvert år (forskuddsvis), ville hvert av dem stått ett år lenger. Da ganger vi hele svaret med vekstfaktoren én gang til:\n\n$360\\,183{,}21 \\cdot 1{,}04 \\approx 374\\,590{,}54$\n\nAltså rundt $14\\,400$ kr mer, uten at bedriften har satt inn en krone ekstra. Les derfor alltid oppgaveteksten nøye: *når* kommer innskuddet?"
+    },
+    {
+      "id": "matok-2-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-2-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Mia setter inn $40\\,000$ kr på slutten av hvert år i 8 år. Renten er $3{,}8\\,\\%$. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mye står på kontoen rett etter det siste innskuddet?",
+            "solution": "$40000 \\cdot \\left(1{,}038^7 + \\cdots + 1\\right) \\approx 365\\,952{,}96$ kr",
+            "answer": 365952.96
+          },
+          {
+            "label": "b",
+            "task": "Hvor mye har hun satt inn selv?",
+            "solution": "$8 \\cdot 40000 = 320\\,000$ kr",
+            "answer": 320000
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye er renter?",
+            "solution": "$365952{,}96 - 320000 = 45\\,952{,}96$ kr",
+            "answer": 45952.96
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye ville stått på kontoen hvis innskuddene kom i begynnelsen av hvert år i stedet?",
+            "solution": "Hvert innskudd står ett år lenger: $365952{,}96 \\cdot 1{,}038 \\approx 379\\,859{,}17$ kr",
+            "answer": 379859.17
+          },
+          {
+            "label": "e",
+            "task": "Forklar med én setning hvorfor svaret i d) er større, selv om hun setter inn like mye.",
+            "solution": "Fordi hvert innskudd da står ett år lenger og dermed får ett år ekstra med rente — hele beløpet ganges med vekstfaktoren én gang til.",
+            "multipleChoiceOptions": [
+              "Fordi hvert innskudd står ett år lenger og får ett år ekstra med rente.",
+              "Fordi renten er høyere når man sparer forskuddsvis.",
+              "Fordi hun setter inn ni innskudd i stedet for åtte.",
+              "Fordi rentene blir tilskrevet oftere når innskuddet kommer først."
+            ]
+          }
+        ],
+        "hints": [
+          "Det siste innskuddet får ingen rente når sparingen er etterskuddsvis.",
+          "I d) trenger du ikke regne alt på nytt — gang svaret i a) med vekstfaktoren."
+        ],
+        "solution": "a) $365\\,952{,}96$ kr, b) $320\\,000$ kr, c) $45\\,952{,}96$ kr, d) $379\\,859{,}17$ kr, e) fordi hvert innskudd da står ett år lenger",
+        "competenceGoals": [
+          "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-2-3-section-serielan",
+      "type": "text",
+      "content": "## Serielån\n\nEt lån er den samme modellen speilvendt: nå er det banken som har penger til gode, og du som betaler inn.\n\nI et **serielån** er avdraget like stort hver termin. Låner du $K_0$ kroner og skal betale ned over $n$ terminer, er\n\n$$\\text{avdrag} = \\frac{K_0}{n}$$\n\nRentene regnes hver termin av **restgjelden** — altså av det som faktisk står ubetalt. Siden restgjelden synker jevnt, synker rentene også, og terminbeløpet blir mindre og mindre.\n\nOppstillingen som viser dette rad for rad, kalles en **nedbetalingsplan**. Den har alltid de samme kolonnene:\n\n| A | B | C | D | E |\n|---|---|---|---|---|\n| termin | restgjeld | renter | avdrag | terminbeløp |"
+    },
+    {
+      "id": "matok-2-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3 — nedbetalingsplan for et serielån",
+      "problem": "Et firma låner $600\\,000$ kr som skal betales ned med like store avdrag over 5 år. Renten er $5\\,\\%$ per år.\n\na) Sett opp nedbetalingsplanen.\n\nb) Hvor mye betaler firmaet i renter til sammen?",
+      "solution": "**Løsning:**\n\na) **Hva vet vi?** $K_0 = 600\\,000$ kr, $n = 5$ og $p = 5$.\n\nVi finner avdraget først, for det er likt hvert år:\n\n$\\text{avdrag} = \\frac{600\\,000\\text{ kr}}{5} = 120\\,000\\text{ kr}$\n\nDeretter regner vi én rad om gangen. Rentene det første året er $5\\,\\%$ av hele lånet:\n\n$0{,}05 \\cdot 600\\,000\\text{ kr} = 30\\,000\\text{ kr}$\n\n$\\text{terminbeløp} = 120\\,000\\text{ kr} + 30\\,000\\text{ kr} = 150\\,000\\text{ kr}$\n\nEtter det første avdraget er restgjelden $600\\,000 - 120\\,000 = 480\\,000$ kr, og det er *denne* vi regner renter av i år 2:\n\n$0{,}05 \\cdot 480\\,000\\text{ kr} = 24\\,000\\text{ kr}$\n\nSlik fortsetter vi:\n\n| år | restgjeld ved start | renter | avdrag | terminbeløp |\n|---|---|---|---|---|\n| 1 | $600\\,000$ kr | $30\\,000$ kr | $120\\,000$ kr | $150\\,000$ kr |\n| 2 | $480\\,000$ kr | $24\\,000$ kr | $120\\,000$ kr | $144\\,000$ kr |\n| 3 | $360\\,000$ kr | $18\\,000$ kr | $120\\,000$ kr | $138\\,000$ kr |\n| 4 | $240\\,000$ kr | $12\\,000$ kr | $120\\,000$ kr | $132\\,000$ kr |\n| 5 | $120\\,000$ kr | $6\\,000$ kr | $120\\,000$ kr | $126\\,000$ kr |\n\nEtter det siste avdraget er restgjelden $0$ kr, og lånet er gjort opp.\n\n![Et stolpediagram med fem stolper, én for hvert av årene 1 til 5. Loddrett akse viser kroner fra 0 til 160 000. Hver stolpe er delt i to: en oransje del nederst som er rentene, og en blå del over som er avdraget. Den blå delen er like høy i alle fem stolpene, 120 000 kr. Den oransje delen synker fra 30 000 kr i år 1 til 24 000, 18 000, 12 000 og 6 000 kr i år 5. Hele stolpen — terminbeløpet — synker dermed fra 150 000 kr til 126 000 kr.](/images/content/matematikk-okonomi/matok-2-3-soyler-serielan.png)\n\n*Serielånet: avdraget står stille, rentene synker med nøyaktig 6 000 kr hvert år, og terminbeløpet synker like mye. Det er dette vi mener med at serielånet er lineært.*\n\nb) Vi summerer rentekolonnen:\n\n$30\\,000 + 24\\,000 + 18\\,000 + 12\\,000 + 6\\,000 = 90\\,000$\n\n**Svar:** Firmaet betaler $90\\,000$ kr i renter, og $690\\,000$ kr til sammen.\n\n**NB:** Legg merke til at rentene synker med nøyaktig $6\\,000$ kr hvert år. Det er ikke tilfeldig: restgjelden synker med $120\\,000$ kr hvert år, og $5\\,\\%$ av $120\\,000$ kr er $6\\,000$ kr. I et serielån danner både rentene og terminbeløpene en rekke som synker like mye hver gang — de er **lineære**. Det gjør serielånet lett å regne på for hånd."
+    },
+        {
+      "id": "matok-2-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-2-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift tar opp et serielån på $900\\,000$ kr som skal betales ned over 6 år. Renten er $4{,}4\\,\\%$ per år, og terminene er årlige.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stort er avdraget hvert år?",
+            "solution": "$\\frac{900000}{6} = 150\\,000$ kr",
+            "answer": 150000
+          },
+          {
+            "label": "b",
+            "task": "Hvor stort er terminbeløpet det første året?",
+            "solution": "Renter: $0{,}044 \\cdot 900000 = 39\\,600$ kr. Terminbeløp: $150000 + 39600 = 189\\,600$ kr.",
+            "answer": 189600
+          },
+          {
+            "label": "c",
+            "task": "Hvor stort er terminbeløpet det siste året?",
+            "solution": "Restgjelden ved start av år 6 er $150\\,000$ kr. Renter: $0{,}044 \\cdot 150000 = 6\\,600$ kr. Terminbeløp: $156\\,600$ kr.",
+            "answer": 156600
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye betaler bedriften i renter til sammen?",
+            "solution": "$39600 + 33000 + 26400 + 19800 + 13200 + 6600 = 138\\,600$ kr",
+            "answer": 138600
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor terminbeløpet synker med nøyaktig $6\\,600$ kr hvert år.",
+            "solution": "Avdraget er fast, så bare renteleddet endrer seg. Restgjelden synker med $150\\,000$ kr hvert år, og $4{,}4\\,\\%$ av $150\\,000$ kr er $6\\,600$ kr.",
+            "multipleChoiceOptions": [
+              "Fordi restgjelden synker med $150\\,000$ kr hvert år, og $4{,}4\\,\\%$ av det er $6\\,600$ kr.",
+              "Fordi avdraget synker med $6\\,600$ kr hvert år.",
+              "Fordi renten synker med $0{,}44$ prosentpoeng hvert år.",
+              "Fordi bedriften betaler ekstra avdrag underveis."
+            ]
+          }
+        ],
+        "hints": [
+          "Avdraget er lånet delt på antall terminer.",
+          "Rentene regnes av restgjelden ved starten av året, ikke av hele lånet."
+        ],
+        "solution": "a) $150\\,000$ kr, b) $189\\,600$ kr, c) $156\\,600$ kr, d) $138\\,600$ kr, e) fordi restgjelden synker med $150\\,000$ kr i året, og $4{,}4\\,\\%$ av det er $6\\,600$ kr",
+        "competenceGoals": [
+          "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-2-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4 — avbetaling",
+      "problem": "En sykkel koster $24\\,000$ kr kontant. Butikken tilbyr avbetaling: $4\\,000$ kr ved kjøp og deretter $1\\,850$ kr i måneden i 12 måneder.\n\na) Hvor mye betaler kunden til sammen, og hva koster kreditten i kroner?\n\nb) Hvilken månedsrente svarer dette til? Bruk regneark.\n\nc) Hva er den effektive årsrenten?",
+      "solution": "**Løsning:**\n\na) Samlet betaling:\n\n$4\\,000\\text{ kr} + 12 \\cdot 1\\,850\\text{ kr} = 4\\,000\\text{ kr} + 22\\,200\\text{ kr} = 26\\,200\\text{ kr}$\n\nKredittkostnaden er differansen mot kontantprisen:\n\n$26\\,200\\text{ kr} - 24\\,000\\text{ kr} = 2\\,200\\text{ kr}$\n\n**Svar:** Kunden betaler $26\\,200$ kr, og kreditten koster $2\\,200$ kr.\n\nb) **Hva vet vi?** Kunden betaler $4\\,000$ kr med en gang, så det hun egentlig låner, er\n\n$24\\,000\\text{ kr} - 4\\,000\\text{ kr} = 20\\,000\\text{ kr}$\n\nRenten er den månedsrenten som gjør **nåverdien av de tolv terminbeløpene lik lånebeløpet**:\n\n$$\\frac{1\\,850}{1 + i} + \\frac{1\\,850}{(1 + i)^2} + \\cdots + \\frac{1\\,850}{(1 + i)^{12}} = 20\\,000$$\n\nDenne likningen kan vi ikke løse med de metodene vi har. Men vi kan prøve oss fram i et regneark: legg månedene $1$ til $12$ i kolonne A, terminbeløpet i kolonne B og nåverdien `=B2/(1+$E$1)^A2` i kolonne C, med renten i celle `$E$1`. Summen i kolonne C skal bli $20\\,000$ kr.\n\n| månedsrente $i$ | nåverdi av terminbeløpene |\n|---|---|\n| 1,50 % | $20\\,178{,}88$ kr |\n| 1,60 % | $20\\,053{,}75$ kr |\n| 1,65 % | $19\\,991{,}61$ kr |\n\nNåverdien passerer $20\\,000$ kr mellom $1{,}60\\,\\%$ og $1{,}65\\,\\%$, og en finere prøving gir $i \\approx 1{,}6432\\,\\%$.\n\n**Svar:** Månedsrenten er omtrent $1{,}64\\,\\%$.\n\nc) Den effektive årsrenten regner vi som i kapittel 1.4, med $m = 12$ terminer:\n\n$\\left(1 + 0{,}016432\\right)^{12} = 1{,}216018$\n\nVi leser vekstfaktoren: den ligger $0{,}216018$ over 1.\n\n**Svar:** Den effektive årsrenten er omtrent $21{,}6\\,\\%$.\n\n**NB:** $2\\,200$ kr høres lite ut — det er under ti prosent av sykkelprisen. Men pengene lånes bare i gjennomsnitt et halvt år, og målt som årsrente blir det over $21\\,\\%$. Det er derfor loven krever at **effektiv rente** oppgis i all markedsføring av kreditt: det er det eneste tallet som kan sammenlignes med andre lån."
+    },
+    {
+      "id": "matok-2-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-2-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En vaskemaskin koster $18\\,000$ kr kontant. Butikken tilbyr avbetaling: $3\\,000$ kr ved kjøp og deretter $1\\,620$ kr i måneden i 10 måneder.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mye betaler kunden til sammen?",
+            "solution": "$3000 + 10 \\cdot 1620 = 19\\,200$ kr",
+            "answer": 19200
+          },
+          {
+            "label": "b",
+            "task": "Hva koster kreditten i kroner?",
+            "solution": "$19200 - 18000 = 1\\,200$ kr",
+            "answer": 1200
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange prosent av kontantprisen utgjør kredittkostnaden? Rund av til to desimaler.",
+            "solution": "$\\frac{1200}{18000} \\cdot 100\\,\\% \\approx 6{,}67\\,\\%$",
+            "answer": 6.67
+          },
+          {
+            "label": "d",
+            "task": "**Regneark.** Hvilken månedsrente svarer avtalen til? Kunden låner $18000 - 3000 = 15\\,000$ kr. Rund av til to desimaler.",
+            "solution": "Vi finner den $i$ som gir $\\frac{1620}{1+i} + \\cdots + \\frac{1620}{(1+i)^{10}} = 15\\,000$. Prøving i regneark gir $i \\approx 1{,}4243\\,\\%$, altså omtrent $1{,}42\\,\\%$ per måned.",
+            "answer": 1.42
+          },
+          {
+            "label": "e",
+            "task": "Hva er den effektive årsrenten? Rund av til én desimal.",
+            "solution": "$\\left(1 + 0{,}014243\\right)^{12} \\approx 1{,}184961$, altså omtrent $18{,}5\\,\\%$",
+            "answer": 18.5
+          }
+        ],
+        "hints": [
+          "Kunden låner kontantprisen minus det hun betaler ved kjøp.",
+          "I d): lag en kolonne med nåverdien av hvert terminbeløp og juster renten til summen blir $15\\,000$ kr.",
+          "I e): $m = 12$, som i kapittel 1.4."
+        ],
+        "solution": "a) $19\\,200$ kr, b) $1\\,200$ kr, c) omtrent $6{,}67\\,\\%$, d) omtrent $1{,}42\\,\\%$ per måned, e) omtrent $18{,}5\\,\\%$",
+        "competenceGoals": [
+          "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-2-3-example-5",
+      "type": "example",
+      "title": "Eksempel 5 — hvor mye må jeg spare?",
+      "problem": "Et sameie skal ha $500\\,000$ kr til nytt tak om 12 år, og setter av et fast beløp på slutten av hvert år. Renten er $4\\,\\%$. Hvor mye må de sette av hvert år?",
+      "solution": "**Løsning:**\n\n**Hva vet vi?** Målet er $500\\,000$ kr etter 12 innskudd, $p = 4$.\n**Hva må vi finne?** Det faste beløpet $a$.\n\nVi setter opp det samme regnestykket som i Eksempel 1, men nå med $a$ som ukjent:\n\n$a \\cdot 1{,}04^{11} + a \\cdot 1{,}04^{10} + \\cdots + a \\cdot 1{,}04 + a = 500\\,000$\n\nVi setter $a$ utenfor parentesen:\n\n$a \\cdot \\left(1{,}04^{11} + 1{,}04^{10} + \\cdots + 1{,}04 + 1\\right) = 500\\,000$\n\nParentesen er et tall vi kan regne ut — i regneark, eller ledd for ledd:\n\n$a \\cdot 15{,}025805 = 500\\,000$\n\nFor å få $a$ alene deler vi på $15{,}025805$ på begge sider:\n\n$a = \\frac{500\\,000}{15{,}025805}$\n\n$a = 33\\,276{,}09$\n\n**Svar:** Sameiet må sette av omtrent $33\\,277$ kr hvert år. (Her runder vi **opp**, for målet skal nås.)\n\nVi kontrollerer i regnearket: med $33\\,000$ kr i året får de $495\\,851{,}58$ kr — for lite. Med $33\\,500$ kr i året får de $503\\,364{,}48$ kr — nok.\n\n**NB:** Legg merke til hva som skjedde: så snart beløpet var likt hvert år, kunne vi sette det utenfor parentesen, og da sto det bare igjen **én** likning med **én** ukjent. Parentesen — summen av vekstfaktorene — er et tall som bare avhenger av renten og antall år. Det er dette tallet vi får en formel for i kapittel 4.1."
+    },
+    {
+      "id": "matok-2-3-calc-sparing",
+      "type": "finance-calculator",
+      "calculatorType": "annuity-fv",
+      "title": "Prøv selv: sparing med faste innskudd",
+      "description": "Sett inn det årlige innskuddet, renten og antall år, og se hva sparingen vokser til. Kalkulatoren regner etterskuddsvis, altså med innskudd på slutten av hvert år. Formelen bak den utleder vi i kapittel 4.1.",
+      "defaults": {
+        "a": 30000,
+        "r": 4,
+        "n": 10
+      }
+    },
+    {
+      "id": "matok-2-3-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Sparing med faste innskudd:** hvert innskudd flyttes fram fra sitt eget tidspunkt, og framtidsverdiene legges sammen. Ved etterskuddsvis sparing står det siste innskuddet i $0$ år.\n- **Forskuddsvis** sparing gir ett år ekstra rente på alt: gang hele svaret med vekstfaktoren.\n- **Regnearkmodellen** for sparing: utgående saldo $=$ inngående saldo $+$ renter $+$ innskudd, med inngående saldo hentet fra raden over.\n- **Serielån:** avdraget er fast, $\\frac{K_0}{n}$. Rentene regnes av restgjelden, så både rentene og terminbeløpet synker like mye hver termin.\n- **Nedbetalingsplanen** har kolonnene termin, restgjeld, renter, avdrag og terminbeløp. Restgjelden skal være $0$ etter siste avdrag — det er kontrollen din.\n- **Avbetaling** er et lån fra selgeren. Kredittkostnaden er samlet betaling minus kontantprisen, og renten er den som gjør nåverdien av terminbeløpene lik det som lånes.\n- Skal vi finne **renten eller det faste beløpet**, prøver vi oss fram i regneark — til vi får formelen for geometriske rekker i kapittel 4.1."
+    },
+    {
+      "id": "matok-2-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-2-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave.** En familie tar opp et serielån på $2\\,400\\,000$ kr til boligkjøp. Lånet skal betales ned over 20 år med årlige terminer, og renten er $4{,}5\\,\\%$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stort er det årlige avdraget?",
+            "solution": "$\\frac{2400000}{20} = 120\\,000$ kr",
+            "answer": 120000
+          },
+          {
+            "label": "b",
+            "task": "Hvor stort er terminbeløpet det første året?",
+            "solution": "Renter: $0{,}045 \\cdot 2400000 = 108\\,000$ kr. Terminbeløp: $120000 + 108000 = 228\\,000$ kr.",
+            "answer": 228000
+          },
+          {
+            "label": "c",
+            "task": "Hvor stort er terminbeløpet i år 10 og i år 20?",
+            "solution": "År 10: restgjelden ved start er $2400000 - 9 \\cdot 120000 = 1\\,320\\,000$ kr, renter $59\\,400$ kr, terminbeløp $179\\,400$ kr. År 20: restgjeld $120\\,000$ kr, renter $5\\,400$ kr, terminbeløp $125\\,400$ kr.",
+            "answer": [
+              179400,
+              125400
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye betaler familien i renter til sammen over hele lånetiden?",
+            "solution": "Rentene synker med $5\\,400$ kr hvert år, fra $108\\,000$ kr til $5\\,400$ kr. Summen er $\\frac{(108000 + 5400) \\cdot 20}{2} = 1\\,134\\,000$ kr. Til sammen betaler familien $3\\,534\\,000$ kr.",
+            "answer": 1134000
+          },
+          {
+            "label": "e",
+            "task": "Drøft fordeler og ulemper med serielån sammenlignet med et lån der terminbeløpet er like stort hele veien.",
+            "solution": "Serielånets styrke er at gjelden betales ned raskt i starten. Det gir **lavere samlede renter**, og familien har lav restgjeld tidlig — en fordel hvis boligen må selges eller renten stiger.\n\nUlempen er at belastningen er størst akkurat når den er tyngst å bære: $228\\,000$ kr det første året mot $125\\,400$ kr det siste. Unge boligkjøpere har som regel lavest inntekt i starten, og det er dette som gjør annuitetslånet — der terminbeløpet er likt hele veien — til den vanligste låneformen i Norge. Annuitetslånet gir et jevnere budsjett, men høyere samlede renter, fordi gjelden betales ned saktere i begynnelsen.\n\nValget står altså mellom **lavest samlet kostnad** og **jevnest belastning**. Vi regner på annuitetslånet i kapittel 4.2."
+          }
+        ],
+        "hints": [
+          "Avdraget er lånet delt på antall terminer.",
+          "I c): restgjelden ved start av år $t$ er $K_0 - (t-1) \\cdot \\text{avdrag}$.",
+          "I d) synker rentene like mye hvert år — bruk gjennomsnittet ganget med antall år, eller summer i regneark."
+        ],
+        "solution": "a) $120\\,000$ kr, b) $228\\,000$ kr, c) $179\\,400$ kr og $125\\,400$ kr, d) $1\\,134\\,000$ kr i renter, $3\\,534\\,000$ kr i alt, e) drøfting — serielån gir lavest samlede renter, annuitetslån jevnest belastning",
+        "competenceGoals": [
+          "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-2-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-2-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Et gårdsbruk låner $1\\,500\\,000$ kr til et nytt driftsbygg. Renten er $4{,}2\\,\\%$, lånet er et serielån med årlige terminer, og bonden vurderer 15 år eller 10 år nedbetalingstid.\n\nLag en nedbetalingsplan med kolonnene år, restgjeld, renter, avdrag og terminbeløp.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilke formler setter du i rad 3 (år 2) når år 1 står i rad 2, for 15 års nedbetaling?",
+            "solution": "`B3: =B2-D2` (restgjelden minus fjorårets avdrag), `C3: =B3*0,042`, `D3: =1500000/15` og `E3: =C3+D3`. Rad 3 kan dras nedover til rad 16.",
+            "multipleChoiceOptions": [
+              "`B3: =B2-D2`, `C3: =B3*0,042`, `D3: =1500000/15`, `E3: =C3+D3`",
+              "`B3: =B2`, `C3: =B2*0,042`, `D3: =E3-C3`, `E3: =1500000/15`",
+              "`B3: =B2-C2`, `C3: =B3*0,042`, `D3: =1500000/15`, `E3: =C3-D3`",
+              "`B3: =B2*1,042`, `C3: =B3*0,042`, `D3: =1500000/15`, `E3: =C3+D3`"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Med 15 års nedbetaling: hva er avdraget, terminbeløpet det første året og de samlede rentene?",
+            "solution": "Avdrag $100\\,000$ kr. Renter år 1: $0{,}042 \\cdot 1500000 = 63\\,000$ kr, terminbeløp $163\\,000$ kr. Samlede renter: $504\\,000$ kr.",
+            "answer": [
+              100000,
+              163000,
+              504000
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Med 10 års nedbetaling: hva er avdraget, terminbeløpet det første året og de samlede rentene?",
+            "solution": "Avdrag $150\\,000$ kr. Renter år 1: $63\\,000$ kr, terminbeløp $213\\,000$ kr. Samlede renter: $346\\,500$ kr.",
+            "answer": [
+              150000,
+              213000,
+              346500
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye sparer bonden i renter på å velge 10 år, og hvor mye høyere blir terminbeløpet det første året?",
+            "solution": "Spart i renter: $504000 - 346500 = 157\\,500$ kr. Terminbeløpet det første året er $213000 - 163000 = 50\\,000$ kr høyere.",
+            "answer": [
+              157500,
+              50000
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Drøft hva bonden bør velge. Hvilke opplysninger trenger du som ikke står i oppgaven?",
+            "solution": "Regnestykket alene peker på 10 år: $157\\,500$ kr spart er mye penger. Men prisen er $50\\,000$ kr høyere terminbeløp de første årene, og det er det som avgjør om valget er forsvarlig.\n\nDet vi trenger å vite, er **hvor stor betalingsevnen er**: hva gårdsbruket har i årlig overskudd, hvor forutsigbart det er, og hvor mye som må stå igjen til vedlikehold, uforutsette utgifter og levekostnader. Et lån som er trygt på papiret, men som ikke tåler ett dårlig år, er ikke trygt.\n\nTo forhold til: renten på $4{,}2\\,\\%$ er neppe fast i 15 år, så en bør regne gjennom planen på nytt med høyere rente og se om den holder. Og mange lån kan nedbetales raskere enn avtalt uten gebyr — da kan bonden velge 15 år for sikkerhets skyld og betale ekstra avdrag i de gode årene. Det gir mye av rentebesparelsen uten å binde seg til den høye terminen."
+          }
+        ],
+        "hints": [
+          "Legg renten og lånebeløpet i egne celler og vis til dem, så kan du bytte forutsetninger uten å skrive om planen.",
+          "Kontroll: restgjelden i siste rad skal være $0$ etter avdraget, og summen av avdragene skal bli $1\\,500\\,000$ kr.",
+          "Rentene kan summeres med `=SUMMER(C2:C16)`."
+        ],
+        "solution": "a) `B3: =B2-D2`, `C3: =B3*0,042`, `D3: =1500000/15`, `E3: =C3+D3`, b) $100\\,000$ kr, $163\\,000$ kr og $504\\,000$ kr, c) $150\\,000$ kr, $213\\,000$ kr og $346\\,500$ kr, d) $157\\,500$ kr spart og $50\\,000$ kr høyere første terminbeløp, e) drøfting — betalingsevne, rentestigning og muligheten for ekstra avdrag",
+        "competenceGoals": [
+          "bruke noverdi og framtidsverdi til å modellere sparing, lån og avbetaling og samanlikne økonomiske alternativ over tid ved hjelp av digitale verktøy"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Fast sparebeløp",
+      "definition": "Et like stort innskudd hver termin, skrevet $a$. Sluttverdien er summen av framtidsverdiene til hvert innskudd."
+    },
+    {
+      "term": "Etterskuddsvis og forskuddsvis",
+      "definition": "Om innskuddet kommer på slutten eller i begynnelsen av terminen. Forskuddsvis gir ett år ekstra rente på alt — gang svaret med vekstfaktoren."
+    },
+    {
+      "term": "Restgjeld",
+      "definition": "Det som står igjen av lånet. Rentene i en termin regnes alltid av restgjelden ved starten av terminen."
+    },
+    {
+      "term": "Serielån",
+      "definition": "Lån med like store avdrag, $\\frac{K_0}{n}$ per termin. Rentene og terminbeløpet synker like mye hver termin."
+    },
+    {
+      "term": "Terminbeløp",
+      "definition": "Det du faktisk betaler i en termin: avdrag pluss renter av restgjelden."
+    },
+    {
+      "term": "Avbetaling",
+      "definition": "Kjøp der en del betales kontant og resten i faste terminbeløp — i praksis et lån fra selgeren. Renten er den som gjør nåverdien av terminbeløpene lik det som lånes."
+    }
+  ]
+}

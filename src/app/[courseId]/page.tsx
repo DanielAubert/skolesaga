@@ -173,6 +173,13 @@ function getChapterIcon(chapter: TextbookChapterMeta): LucideIcon {
   return Lightbulb;
 }
 import { getCourse, getChaptersBySection, getSectionNames } from '@/lib/data/textbook-courses';
+import { kapittelLaast, erAdminSesjon, lesInspirasjon, INSPIRASJON_FARGE, INSPIRASJON_TEKST, godkjenningStyrt, antallGodkjente, kapittelMerke } from '@/lib/kapittel-godkjenning';
+import { LaererInngang } from '@/components/textbook/laerer-inngang';
+
+/** Låst kapittel (ikke godkjent av Daniel ennå) vises uten lenke. */
+function KapittelLenke({ href, children }: { laast: boolean; href: string; children: React.ReactNode }) {
+  return <Link href={href}>{children}</Link>;   // sperrede kapitler lenker til smakebitsiden (Daniel 17/9: lærerne skal kunne utforske)
+}
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { mediaUrl } from '@/lib/media';
 import { courseJsonLd, jsonLdScript, pageMetadata } from '@/lib/seo';
@@ -206,6 +213,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function CourseOverviewPage({ params }: PageProps) {
+  const erAdmin = await erAdminSesjon();
   const { courseId } = await params;
   const course = getCourse(courseId);
 
@@ -287,6 +295,13 @@ export default async function CourseOverviewPage({ params }: PageProps) {
             {hoyskoleDesc ? hoyskoleDesc.intro : course.description}
           </p>
         </div>
+        )}
+
+        {/* Nye bøker (Daniel 17.9.2026): lærerinngang med status og varsling */}
+        {godkjenningStyrt(courseId) && (
+          <LaererInngang courseId={courseId} courseTitle={course.title} fagkode={courseId === 'statistikk' ? 'MAT11-01' : courseId === 'matematikk-okonomi' ? 'MAT12-01' : undefined}
+            aapne={antallGodkjente(course.chapters.filter(c => !c.isNarrativeVersion).map(c => c.id))}
+            totalt={course.chapters.filter(c => !c.isNarrativeVersion).length} />
         )}
 
         {/* Høyskole: kalibreringen mot ekte eksamenssett løftes ut som salgslinje */}
@@ -411,10 +426,13 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                   // Prøve-kapitler får dempet variant av fagfargen
                   const erProve = chapter.id.endsWith('-prove');
                   const dempet = erProve || erDelNull;
+                  const laast = kapittelLaast(courseId, chapter.id, erAdmin);
+                  const insp = lesInspirasjon(chapter.id);
+                  const merke = kapittelMerke(courseId, chapter.id);
 
                   return (
                     <div key={chapter.id} className="flex flex-col">
-                      <Link href={`/${courseId}/${chapter.id}`}>
+                      <KapittelLenke laast={laast} href={`/${courseId}/${chapter.id}`}>
                         <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${erDelNull ? 'border-border' : accent.border} ${erProve ? 'border-dashed' : ''} overflow-hidden`}>
                           {/* Cover image or colored top-bar */}
                           {chapter.coverImage ? (
@@ -424,15 +442,24 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                                 alt={chapter.title}
                                 fill
                                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
-                                className={`object-contain transition-transform duration-300 group-hover:scale-105 ${chapter.wip ? 'grayscale opacity-70' : ''}`}
+                                className={`object-contain transition-transform duration-300 group-hover:scale-105 ${chapter.wip || laast ? 'grayscale opacity-70' : ''}`}
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                               <div className={`absolute bottom-2 left-2 px-2 py-0.5 rounded text-xs font-mono font-semibold text-white ${erDelNull ? 'bg-slate-600' : accent.solid}`}>
                                 {chapter.number}
                               </div>
-                              {chapter.wip && (
+                              {insp && (
+                                <div title={`Lokalt: ${INSPIRASJON_TEKST[insp.grad]} · ${insp.per_1000} treff/1000 ord · rang ${insp.rang}`}
+                                  className={`absolute bottom-2 right-2 h-4 w-4 rounded-full ring-2 ring-white ${INSPIRASJON_FARGE[insp.grad]}`} />
+                              )}
+                              {(chapter.wip || laast) && (
                                 <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-medium bg-amber-500 text-white">
-                                  Under utvikling
+                                  {laast ? 'Kommer · smakebit' : 'Under utvikling'}
+                                </div>
+                              )}
+                              {!laast && merke && (
+                                <div className={`absolute top-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-medium text-white ${merke === 'kvalitetssikret' ? 'bg-green-600' : 'bg-slate-500/90'}`}>
+                                  {merke === 'kvalitetssikret' ? 'Kvalitetssikret ✓' : 'Utkast'}
                                 </div>
                               )}
                             </div>
@@ -476,7 +503,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                             </div>
                           </CardContent>
                         </Card>
-                      </Link>
+                      </KapittelLenke>
 
                       {/* Lenke til lesevennlig versjon */}
                       {hasNarrativeVersion && (

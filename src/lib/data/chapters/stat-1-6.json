@@ -1,0 +1,412 @@
+{
+  "id": "stat-1-6",
+  "courseId": "statistikk",
+  "chapterNumber": "1.6",
+  "title": "Hva diagrammer viser og skjuler",
+  "description": "Misvisende akser, utvalgte tidsrom og vinklede framstillinger — å lese statistikk kritisk.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler",
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-1-6-section-innledning",
+      "type": "text",
+      "content": "## Samme tall, ulikt inntrykk\n\nEt diagram lyver sjelden. Det velger.\n\nDen som lager framstillingen, bestemmer hvor aksen starter, hvilket tidsrom som\nvises, hvilke grupper som slås sammen og hva som står i overskriften. Alle disse\nvalgene er lovlige, og de kan gjøres slik at leseren sitter igjen med et inntrykk\ntallene ikke dekker.\n\nDerfor er det å **lese** statistikk kritisk en egen ferdighet, ved siden av å\nregne den ut. I dette kapittelet går vi gjennom de vanligste grepene — både for\nat du skal kjenne dem igjen når andre bruker dem, og for at dine egne\nframstillinger skal være ærlige."
+    },
+    {
+      "id": "stat-1-6-def-akse",
+      "type": "definition",
+      "title": "Avkuttet akse",
+      "content": "En **avkuttet akse** er en loddrett akse som ikke starter på null.\n\nÅ kutte aksen er ikke forbudt. Skal du vise små endringer i et stort tall — for\neksempel en temperatur som svinger mellom $36{,}5$ og $37{,}2$ grader — er hele\naksen fra $0$ ubrukelig.\n\nMen kuttet **forstørrer forskjellene i bildet**. Derfor gjelder to regler:\n\n1. Aksebruddet skal være **synlig markert**, som regel med et sikksakk- eller\n   dobbeltstrek-symbol nederst på aksen — slik figur B under er tegnet.\n2. Aksen skal ha tall, slik at leseren kan se hvor liten eller stor endringen\n   faktisk er.\n\nI søylediagram er avkuttet akse verre enn i linjediagram: søylens **lengde** skal\nvise verdien, og da blir en avkuttet akse direkte misvisende."
+    },
+    {
+      "id": "stat-1-6-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – To diagrammer over samme folketall",
+      "problem": "Folketallet i en kommune var $8\\,420$ i 2015 og $9\\,040$ i 2025. De to figurene\nunder viser nøyaktig de samme elleve årstallene, men med ulik loddrett akse.\n\na) Hvor mye vokste folketallet, i antall og i prosent?\n\nb) Hvorfor ser veksten så mye kraftigere ut i den andre figuren?\n\nc) Hvilken figur ville du brukt, og hva må stå på den?",
+      "solution": "**a)** Endringen er\n\n$$9\\,040 - 8\\,420 = 620 \\text{ innbyggere}$$\n\nI prosent regner vi endringen delt på utgangspunktet:\n\n$$\\frac{620}{8\\,420} = 0{,}0736\\ldots \\approx 7{,}4\\ \\%$$\n\n**Svar a):** En vekst på $620$ innbyggere, altså omtrent $7{,}4\\ \\%$ på ti år.\n\n**b)** Vi ser på hvor stor del av **aksehøyden** veksten fyller.\n\nI den første figuren går aksen fra $0$ til $10\\,000$, altså et vindu på\n$10\\,000$ innbyggere. Veksten på $620$ fyller\n\n$$\\frac{620}{10\\,000} = 0{,}062 = 6{,}2\\ \\%$$\n\nav aksehøyden. Linjen ser nesten flat ut.\n\nI den andre figuren er aksen **brutt**: hele strekningen fra $100$ til $8\\,400$\ner tatt bort, og bruddet er markert med to skråstreker på aksen. Den delen av\naksen som viser folketall, dekker derfor bare fra $8\\,400$ til $9\\,100$ — et\nvindu på $700$ innbyggere. Der fyller veksten\n\n$$\\frac{620}{700} = 0{,}886 = 88{,}6\\ \\%$$\n\nav strekningen over bruddet — linjen går fra bunn til topp.\n\nForstørrelsen er\n\n$$\\frac{88{,}6\\ \\%}{6{,}2\\ \\%} \\approx 14 \\text{ ganger}$$\n\n**Svar b):** Fordi aksevinduet over bruddet er nesten $14$ ganger smalere enn\nhele aksen i figur A. Tallene er de samme; det er bildet som er strukket.\n\n**c)** Det kommer an på hva som skal vises — og på at leseren får vite det.\n\nSkal poenget være at kommunen vokser jevnt, men langsomt, er den første figuren\nmest ærlig. Skal poenget være å se hvilke år veksten stoppet opp (2019), må vi\nzoome inn — og da er figur B riktig laget: bruddet **er** markert, tallene står\npå aksen, og bildeteksten sier hvilket område aksen dekker. Et innzoomet\ndiagram uten bruddmerke og uten tall ville derimot villedet.\n\n**Svar c):** Begge kan brukes. Den brutte aksen krever markert brudd, tall på\naksen og en bildetekst som sier det.\n\n**Andre muligheter:** vise prosentvis endring per år i stedet for folketallet.\nDa ligger alle verdiene rundt $0$–$1\\ \\%$, og aksen kan begynne på null uten at\ndetaljene forsvinner."
+    },
+    {
+      "id": "stat-1-6-fig-fra-null",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-6-akse-fra-null.png",
+      "alt": "Linjediagram over folketallet fra 2015 til 2025, med loddrett akse fra null. Den vannrette aksen viser årene 2015 til 2025, og den loddrette aksen viser folketall fra 0 til 10000 med tall for hver tusen. Elleve punkter er bundet sammen med rette linjestykker. Alle punktene ligger tett samlet høyt oppe på aksen, mellom 8420 og 9040, og linja ser nesten vannrett ut gjennom hele tiårsperioden.",
+      "caption": "Figur A: hele aksen fra 0. Veksten på 620 innbyggere fyller 6,2 % av aksehøyden, og linja ser nesten flat ut.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-6-akse-fra-null.json"
+    },
+    {
+      "id": "stat-1-6-fig-avkuttet",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-6-akse-avkuttet.png",
+      "alt": "Linjediagram over det samme folketallet fra 2015 til 2025, men med brutt loddrett akse. Den vannrette aksen viser årene 2015 til 2025. Den loddrette aksen har et markert brudd like over null, tegnet som to korte skråstreker, og rett over bruddet står tallet 8400, deretter 8500, 8600 og videre opp til 9100. De samme elleve punktene som i forrige figur er bundet sammen med rette linjestykker, men nå stiger linja bratt fra nede til venstre til oppe til høyre og fyller nesten hele figuren. Et lite fall fra 2018 til 2019 er tydelig synlig.",
+      "caption": "Figur B: samme tall, men aksen er brutt, og den delen som viser tall dekker bare 8400 til 9100. Nå fyller den samme veksten 88,6 % av strekningen over bruddet — omtrent 14 ganger så mye plass i bildet.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-6-akse-avkuttet.json"
+    },
+    {
+      "id": "stat-1-6-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-6-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En skole har hatt disse gjennomsnittskarakterene i matematikk fire år på rad:\n\n| År | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| Gjennomsnittskarakter | 3,8 | 3,9 | 4,0 | 4,1 |\n\nSkolen vil lage et søylediagram til nettsiden sin.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mye har gjennomsnittet endret seg fra første til siste år, i karakterpoeng?",
+            "answer": 0.3,
+            "solution": "$4{,}1 - 3{,}8 = 0{,}3$ karakterpoeng."
+          },
+          {
+            "label": "b",
+            "task": "Hvor stor del av aksehøyden utgjør endringen hvis aksen går fra $0$ til $6$?",
+            "answer": 5,
+            "solution": "$\\frac{0{,}3}{6} = 0{,}05 = 5\\ \\%$ av aksehøyden. Søylene blir nesten like høye.\n\n![Søylediagram med fire søyler for gjennomsnittskarakteren i fire år på rad: 3,8, 3,9, 4,0 og 4,1. Hver søyle er merket med verdien sin. Den loddrette aksen er 0 til 6. Søylene ser nesten like høye ut.](/images/content/statistikk/stat-1-6-karakter-fra-null.png)\n\n*Aksen fra null. Endringen er de samme 0,3 karakterpoengene i begge figurene, men den utgjør 5 % av aksehøyden her.*"
+          },
+          {
+            "label": "c",
+            "task": "Hvor stor del av aksehøyden utgjør endringen hvis aksen går fra $3{,}7$ til $4{,}2$?",
+            "answer": 60,
+            "solution": "Aksevinduet er $4{,}2 - 3{,}7 = 0{,}5$, så $\\frac{0{,}3}{0{,}5} = 0{,}6 = 60\\ \\%$ av aksehøyden. Nå ser framgangen dramatisk ut.\n\n![Søylediagram med fire søyler for gjennomsnittskarakteren i fire år på rad: 3,8, 3,9, 4,0 og 4,1. Hver søyle er merket med verdien sin. Den loddrette aksen er brutt mellom 0,1 og 3,7. Aksebruddet er markert med to korte skråstreker rett over null, og tallet 3,7 står rett over bruddet, under 3,8, og søylene ser nå svært ulike ut — den siste er mange ganger høyere enn den første.](/images/content/statistikk/stat-1-6-karakter-avkuttet.png)\n\n*Samme tall, avkuttet akse. Endringen er de samme 0,3 karakterpoengene i begge figurene, men den utgjør 60 % av aksehøyden her. Slik bør det IKKE gjøres i et søylediagram: søylelengden skal vise verdien, og her er lengden nesten bare bruddet.*"
+          },
+          {
+            "label": "d",
+            "task": "Hvilken akse ville du valgt til nettsiden, og hva må stå i bildeteksten?",
+            "solution": "Aksen fra $0$ til $6$ er mest ærlig på en nettside der leseren bare ser bildet. Velges den innzoomede aksen, må aksebruddet markeres, tallene stå på aksen, og bildeteksten si at framgangen er $0{,}3$ karakterpoeng på fire år."
+          },
+          {
+            "label": "e",
+            "task": "Hvilken opplysning mangler uansett akse, før vi kan si at skolen er blitt bedre?",
+            "solution": "Hvor mange elever tallene bygger på, og om det er de samme elevene. Et gjennomsnitt av $20$ elever svinger fort $0{,}3$ karakterpoeng fra år til år uten at noe reelt har endret seg. Vi trenger også å vite om karakterene er satt av samme lærere og etter samme praksis."
+          }
+        ],
+        "solution": "a) $0{,}3$ karakterpoeng, b) $5\\ \\%$ av aksehøyden, c) $60\\ \\%$, d) akse fra $0$ på nettsiden, e) antall elever og sammenlignbarhet",
+        "competenceGoals": [
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-6-section-tidsrom",
+      "type": "text",
+      "content": "## Utvalgt tidsrom\n\nDet andre store grepet er å velge **når** kurven skal begynne og slutte.\n\nEn tallrekke som svinger, inneholder nesten alltid både et stykke med oppgang og\net stykke med nedgang. Den som vil vise vekst, starter i et bunnår. Den som vil\nvise krise, starter i et toppår. Ingen av dem har funnet på et eneste tall.\n\nSpør derfor alltid: **Hvorfor akkurat disse årene?** Er startåret valgt fordi noe\nskjedde da — en lovendring, en pandemi — eller fordi det gir den ønskede\nkurven?"
+    },
+    {
+      "id": "stat-1-6-fig-tidsrom",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-6-tidsrom.png",
+      "alt": "Linjediagram over folketallet i en kommune fra 2015 til 2025, med loddrett akse fra 0 til 10000. Kurven stiger svakt fra 8420 i 2015 til 9040 i 2025, med et lite fall fra 8610 i 2018 til 8590 i 2019. Under kurven er tre måleperioder tegnet som vannrette streker med endemerker: en grønn som dekker hele 2015 til 2025 og er merket pluss 7,4 prosent, en kort rød som dekker 2018 til 2019 og er merket minus 0,2 prosent, og en blå som dekker 2019 til 2025 og er merket pluss 5,2 prosent. To grå stiplede streker markerer 2018 og 2019.",
+      "caption": "Samme kurve, tre konklusjoner. Ingen av tallene er endret — bare start- og sluttåret. Den som vil vise krise, starter i 2018; den som vil vise vekst, starter i 2019.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-6-tidsrom.json"
+    },
+    {
+      "id": "stat-1-6-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Å velge årstall",
+      "problem": "Vi bruker folketallene fra eksempel 1 (2015: $8\\,420$, 2018: $8\\,610$,\n2019: $8\\,590$, 2025: $9\\,040$).\n\nHvilken konklusjon kan tre ulike avsendere trekke — uten å finne på tall?",
+      "solution": "**Avsender 1 — ordføreren, som vil vise framgang.** Velger hele perioden:\n\n$$8\\,420 \\to 9\\,040, \\qquad \\frac{620}{8\\,420} \\approx +7{,}4\\ \\%$$\n\n«Kommunen har vokst med over $7\\ \\%$ på ti år.»\n\n**Avsender 2 — opposisjonen, som vil vise stagnasjon.** Velger 2018–2019:\n\n$$8\\,610 \\to 8\\,590, \\qquad \\frac{-20}{8\\,610} \\approx -0{,}2\\ \\%$$\n\n«Folketallet i kommunen faller.»\n\n**Avsender 3 — en som vil vise at noe snudde.** Velger 2019–2025:\n\n$$8\\,590 \\to 9\\,040, \\qquad \\frac{450}{8\\,590} \\approx +5{,}2\\ \\%$$\n\n«Etter bunnåret 2019 har kommunen vokst med over $5\\ \\%$.»\n\n**Svar:** Alle tre påstandene er sanne, og alle bygger på de samme tallene. De\nskiller seg bare i hvilket tidsrom som vises.\n\n**Slik leser du kritisk:** Be om hele tallrekka. En enkelt endring mellom to år\n($-20$ innbyggere) er dessuten så liten at den like gjerne kan skyldes tilfeldige\nflyttinger — det er ikke en «utvikling»."
+    },
+    {
+      "id": "stat-1-6-warning-prosentpoeng",
+      "type": "warning",
+      "title": "NB: Prosent og prosentpoeng er ikke det samme",
+      "content": "Går en andel fra $4\\ \\%$ til $6\\ \\%$, kan vi si det på to riktige måter:\n\n- Andelen har økt med **$2$ prosentpoeng** ($6 - 4 = 2$).\n- Andelen har økt med **$50$ prosent** ($\\frac{6-4}{4} = 0{,}5$).\n\nBegge er sanne. Den som vil ha en stor overskrift, velger den siste. Den som vil\ntone ned, velger den første.\n\nRegelen er enkel: **forskjellen mellom to prosenttall måles i prosentpoeng.**\nSkriver noen «økte med $50\\ \\%$» om en andel, må du finne ut hva\nutgangspunktet var — en økning på $50\\ \\%$ fra $0{,}1\\ \\%$ til $0{,}15\\ \\%$ er\nfortsatt nesten ingenting."
+    },
+    {
+      "id": "stat-1-6-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Arealtriks og prosentpoeng",
+      "problem": "a) En avis vil vise at salget av elsykler er doblet. De tegner en elsykkel som er\ndobbelt så høy **og** dobbelt så bred som i fjor. Hvilket inntrykk gir det?\n\nb) Andelen av befolkningen som bruker kollektivtransport daglig, gikk fra\n$40\\ \\%$ til $44\\ \\%$. Hvordan kan dette framstilles på to riktige måter?",
+      "solution": "**a)** Når både høyden og bredden dobles, blir arealet\n\n$$2 \\cdot 2 = 4 \\text{ ganger så stort}$$\n\nLeseren oppfatter størrelsen på figuren, ikke høyden alene. Salget er doblet\n($+100\\ \\%$), men bildet viser en firedobling ($+300\\ \\%$).\n\n![Til venstre to blå kvadrater. Det lille er merket i fjor, salg lik 100, og har side 1. Det store er merket i år, salg lik 200, og har dobbelt så stor høyde og dobbelt så stor bredde, altså side 2. To grå stiplede streker deler det store kvadratet i fire like ruter på størrelse med det lille, og teksten bildet viser 4 ganger så mye står over. Til høyre den ærlige framstillingen: to grønne søyler med samme bredde, den ene med høyde 2 merket 100 og den andre med høyde 4 merket 200, over en felles grunnlinje.](/images/content/statistikk/stat-1-6-arealmodell.png)\n\n*Salget er doblet, men ikonet er firedoblet: når både høyden og bredden dobles, blir arealet 2 · 2 = 4 ganger så stort. Søylene til høyre endrer bare høyden, og forholdet mellom dem er 2 — som salget.*\n\n**Svar a):** Figuren overdriver økningen fire ganger. Riktig framstilling er to\nsøyler der bare høyden endres — eller to like brede sykkelikoner der det står\nantall ved siden av.\n\n**b)** Endringen kan uttrykkes slik:\n\n$$44\\ \\% - 40\\ \\% = 4 \\text{ prosentpoeng}$$\n\neller slik:\n\n$$\\frac{44 - 40}{40} = \\frac{4}{40} = 0{,}10 = 10\\ \\% \\text{ relativ økning}$$\n\n**Svar b):** «Økte med $4$ prosentpoeng» og «økte med $10$ prosent» beskriver\nbegge det samme. Den ærlige framstillingen oppgir begge tallene, eller i det\nminste hva utgangspunktet var."
+    },
+    {
+      "id": "stat-1-6-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-6-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En meningsmåling viser at parti A har gått fra $12\\ \\%$ til $15\\ \\%$\noppslutning, og parti B fra $30\\ \\%$ til $33\\ \\%$. Målingen har en oppgitt\nfeilmargin på omtrent $2$ prosentpoeng.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange prosentpoeng har hvert parti gått fram?",
+            "answer": [
+              3,
+              3
+            ],
+            "solution": "Begge har gått fram $3$ prosentpoeng: $15 - 12 = 3$ og $33 - 30 = 3$."
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange prosent er framgangen for hvert parti, relativt til utgangspunktet?",
+            "answer": [
+              25,
+              10
+            ],
+            "solution": "Parti A: $\\frac{3}{12} = 0{,}25 = 25\\ \\%$. Parti B: $\\frac{3}{30} = 0{,}10 = 10\\ \\%$."
+          },
+          {
+            "label": "c",
+            "task": "En avis skriver: «Parti A vokser mer enn dobbelt så raskt som parti B.» Er påstanden riktig?",
+            "solution": "Regnestykket er riktig ($25\\ \\%$ mot $10\\ \\%$ er mer enn dobbelt), men formuleringen er misvisende. I oppslutning har partiene gått fram nøyaktig like mye: $3$ prosentpoeng hver. Forskjellen kommer bare av at parti A hadde et lavere utgangspunkt."
+          },
+          {
+            "label": "d",
+            "task": "Hva betyr feilmarginen på 2 prosentpoeng for konklusjonen?",
+            "solution": "At en endring på $3$ prosentpoeng er i grenseland. Den kan være reell, men den kan også skyldes hvem som tilfeldigvis havnet i utvalget. Én måling er ikke nok — man må se flere målinger over tid. Vi kommer tilbake til hvordan usikkerheten regnes ut i kapittel 7."
+          },
+          {
+            "label": "e",
+            "task": "Skriv en overskrift som er dekkende for det målingen viser.",
+            "solution": "For eksempel: «Begge partiene fram $3$ prosentpoeng — innenfor feilmarginen.» Da står både endringen og usikkerheten, og leseren kan vurdere selv."
+          }
+        ],
+        "solution": "a) $3$ prosentpoeng hver, b) $25\\ \\%$ og $10\\ \\%$, c) riktig regnet, men misvisende, d) endringen er innenfor usikkerheten, e) overskrift med prosentpoeng og feilmargin",
+        "hints": [
+          "Forskjellen mellom to prosenttall måles i prosentpoeng."
+        ],
+        "competenceGoals": [
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-6-section-skjuler",
+      "type": "text",
+      "content": "## Det tallet ikke sier\n\nIkke alle villedende framstillinger handler om diagrammer. Fire vanlige feller:\n\n**1. Gjennomsnittet skjuler fordelingen.** To grupper med samme gjennomsnitt kan\nvære helt ulike (kapittel 1.3). Oppgi alltid et spredningsmål ved siden av.\n\n**2. Antall og andel forveksles.** «Flest ulykker skjer i de store byene» er\nnesten alltid sant i antall, og sier ingenting om hvor det er farligst å ferdes.\nSkal steder eller grupper av ulik størrelse sammenlignes, må tallene gjøres om\ntil andeler — per innbygger, per kjørte kilometer, per elev.\n\n**3. Kategoriene er valgt etterpå.** Slår man sammen kategorier til grupper man\nvelger selv, kan nesten enhver forskjell framheves eller forsvinne.\n\n**4. $n$ og kilden mangler.** Uten å vite hvor mange som er spurt, hvem som har\nspurt, og når, kan ingen prosent vurderes. Dette er den vanligste mangelen av\nalle, og den enkleste å oppdage."
+    },
+    {
+      "id": "stat-1-6-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Antall eller andel?",
+      "problem": "En avis skriver: «Skole B har flest elever som sykler til skolen — hele $90$,\nmot $60$ på skole A. Skole B er kommunens sykkelskole.»\n\nSkole A har $400$ elever, skole B har $900$.\n\nVurder påstanden.",
+      "solution": "Vi regner om til andeler, siden skolene har svært ulik størrelse.\n\n**Skole A:**\n\n$$\\frac{60}{400} = 0{,}15 = 15\\ \\%$$\n\n**Skole B:**\n\n$$\\frac{90}{900} = 0{,}10 = 10\\ \\%$$\n\n**Svar:** Skole B har flest syklister i **antall**, men skole A har den klart\nhøyeste **andelen** syklister — $15\\ \\%$ mot $10\\ \\%$. Påstanden om at B er\n«kommunens sykkelskole» holder ikke; den måler bare at B er en større skole.\n\n**Slik leser du kritisk:** Når to grupper av ulik størrelse sammenlignes, skal\ntallene alltid regnes om til andeler. Det gjelder også ulykkesstatistikk,\nsmittetall og valgresultater.\n\n**Andre muligheter:** Skulle avisen si noe om sykkelkultur, kunne de også sett på\nandelen som sykler om vinteren, eller på hvor langt elevene har til skolen —\navstand forklarer ofte mer enn holdninger."
+    },
+    {
+      "id": "stat-1-6-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-6-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "To avdelinger i et firma har fem ansatte hver. Årslønnene (i tusen kroner) er\n\n| **Avdeling A** | 420 | 430 | 440 | 450 | 460 |\n|---|---|---|---|---|---|\n\n| **Avdeling B** | 300 | 320 | 440 | 560 | 580 |\n|---|---|---|---|---|---|",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnittet i hver avdeling.",
+            "answer": [
+              440,
+              440
+            ],
+            "solution": "Avdeling A: $\\bar{x} = \\frac{420 + 430 + 440 + 450 + 460}{5} = \\frac{2200}{5} = 440$.\n\nAvdeling B: $\\bar{x} = \\frac{300 + 320 + 440 + 560 + 580}{5} = \\frac{2200}{5} = 440$.\n\nBegge avdelingene har altså gjennomsnitt $440$ tusen kroner."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardavviket $\\sigma$ i hver avdeling. Rund av til to desimaler.",
+            "answer": [
+              14.14,
+              116.62
+            ],
+            "solution": "Avdeling A: $\\sigma = \\sqrt{\\frac{1000}{5}} \\approx 14{,}14$. Avdeling B: $\\sigma = \\sqrt{\\frac{68\\,000}{5}} \\approx 116{,}62$ tusen kroner."
+          },
+          {
+            "label": "c",
+            "task": "Firmaet skriver i årsrapporten: «Lønnsnivået er likt i de to avdelingene.» Er det dekkende?",
+            "solution": "Nei. Gjennomsnittet er likt, men spredningen er over åtte ganger så stor i B. I A tjener alle mellom $420$ og $460$ tusen; i B fra $300$ til $580$ tusen. Setningen er sann om gjennomsnittet og misvisende om lønnsnivået."
+          },
+          {
+            "label": "d",
+            "task": "Foreslå en framstilling som viser forskjellen.",
+            "solution": "To boksplott på samme akse (kapittel 1.5). De viser med én gang at boksen for B er mye bredere, og at medianen er den samme. Alternativt to prikkdiagram, eller gjennomsnitt oppgitt sammen med standardavvik og laveste/høyeste lønn."
+          },
+          {
+            "label": "e",
+            "task": "Hvilket tall ville du oppgitt hvis du skulle informere en som vurderer å søke jobb i avdeling B?",
+            "solution": "Lønnsspennet ($300$–$580$ tusen) og hva lønnen avhenger av. Gjennomsnittet alene gir en søker som ville havnet nederst i fordelingen, helt feil forventning."
+          }
+        ],
+        "solution": "a) begge $440$ tusen kr, b) $\\sigma_A \\approx 14{,}14$ og $\\sigma_B \\approx 116{,}62$, c) ikke dekkende, d) boksplott, e) lønnsspennet",
+        "competenceGoals": [
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-6-tip-sjekkliste",
+      "type": "tip",
+      "title": "Sjekkliste for et diagram du møter",
+      "content": "Seks spørsmål, i denne rekkefølgen:\n\n1. **Hva er variabelen**, og i hvilken enhet?\n2. **Starter aksen på null?** Hvis ikke — er bruddet markert?\n3. **Hvilket tidsrom** er valgt, og hvorfor akkurat det?\n4. **Er det antall eller andel?** Er gruppene like store?\n5. **Hvor mange observasjoner** ($n$), og hvem er med?\n6. **Hvem har laget figuren**, og hva vil de?\n\nKlarer du ikke å svare på 2, 4 og 5, er figuren ikke godt nok merket til at du\nkan bruke den som grunnlag for noe."
+    },
+    {
+      "id": "stat-1-6-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-6-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Vurder hver av disse påstandene. Si hva som er galt eller mangler, og hva du\nville bedt om.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«$9$ av $10$ tannleger anbefaler denne tannkremen.»",
+            "solution": "Hvor mange tannleger er spurt, hvordan ble de valgt, og hvem betalte undersøkelsen? «$9$ av $10$» kan bety $9$ av $10$ spurte. Jeg ville bedt om $n$, utvalgsmetoden og hvem som har finansiert undersøkelsen."
+          },
+          {
+            "label": "b",
+            "task": "«Antall trafikkulykker er høyest i Oslo. Oslo er landets farligste sted å kjøre bil.»",
+            "solution": "Antall mot andel. Oslo har flest ulykker fordi det er flest biler og flest kjørte kilometer der. For å si noe om risiko må man regne ulykker per million kjørte kilometer. Jeg ville bedt om trafikkmengden."
+          },
+          {
+            "label": "c",
+            "task": "«Andelen som svarte «svært fornøyd» steg fra $3\\ \\%$ til $6\\ \\%$ — en dobling!»",
+            "solution": "Riktig regnet ($+100\\ \\%$ relativt), men endringen er $3$ prosentpoeng, og på så lave tall kan den lett ligge innenfor feilmarginen. Jeg ville bedt om $n$ og feilmarginen."
+          },
+          {
+            "label": "d",
+            "task": "«Gjennomsnittlig ventetid på sykehuset er $14$ dager.»",
+            "solution": "Gjennomsnittet skjuler fordelingen. Noen få svært lange ventetider kan trekke det opp, eller det kan være stor forskjell mellom fagområder. Jeg ville bedt om medianen og om fordelingen, gjerne som boksplott per avdeling."
+          },
+          {
+            "label": "e",
+            "task": "«Etter at tiltaket ble innført i januar, sank antall innbrudd med $20\\ \\%$.»",
+            "solution": "Sammenlignet med hva? Innbrudd svinger med årstiden, så januar mot desember sier lite. Jeg ville bedt om tallene for de samme månedene tidligere år, og helst om et sammenligningsområde uten tiltaket — ellers kan vi ikke vite om tiltaket var årsaken."
+          }
+        ],
+        "solution": "a) $n$ og utvalgsmetode mangler, b) antall mot andel, c) prosentpoeng og feilmargin, d) gjennomsnittet skjuler fordelingen, e) mangler sammenligningsgrunnlag",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-6-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-6-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** Strømprisen i et prisområde var\n\n| Måned | jan | feb | mar | apr | mai | jun |\n|---|---|---|---|---|---|---|\n| Pris (øre/kWh) | 138 | 125 | 96 | 78 | 61 | 54 |\n\nLag diagrammene i et regneark.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag et linjediagram med akse fra $0$. Hvor mange prosent falt prisen fra januar til juni?",
+            "answer": -60.9,
+            "solution": "$\\frac{54 - 138}{138} = -0{,}6087\\ldots \\approx -60{,}9\\ \\%$. Prisen ble mer enn halvert.\n\n![Linjediagram over strømprisen fra januar til juni. Den vannrette aksen er merket måned med navnene jan, feb, mar, apr, mai og jun, den loddrette pris i øre per kWh fra 0 til 150 med tall for hver 25. Seks punkter er bundet sammen med rette linjestykker: 138, 125, 96, 78, 61 og 54 øre. Kurven faller gjennom hele halvåret, og hele fallet ligger i den øverste delen av aksen.](/images/content/statistikk/stat-1-6-strompris-fra-null.png)\n\n*Med hele aksen fra 0 fyller prisfallet på 84 øre drøyt halve aksehøyden. Dette er den ærlige framstillingen: halvparten av 138 er et tall som betyr noe, og da skal nullpunktet være med.*"
+          },
+          {
+            "label": "b",
+            "task": "Lag det samme diagrammet med loddrett akse fra $50$ til $140$. Hva skjer med inntrykket?",
+            "solution": "Fallet fyller nå hele figuren i stedet for de øverste to tredelene, og de små forskjellene mellom mai og juni blir godt synlige. Selve fallet på $84$ øre er det samme — det er bildet som er strukket.\n\n![Samme linjediagram, men med avkuttet loddrett akse. Aksen starter i 0, og strekningen fra 10 til 50 øre er tatt bort og markert med et bruddmerke — to skrå streker over aksen. Over bruddet går tallrekka 60, 70, 80 og videre til 140 øre. De samme seks punktene, 138, 125, 96, 78, 61 og 54 øre, fyller nå hele figurhøyden, og fallet ser mye brattere ut enn i figuren med akse fra 0.](/images/content/statistikk/stat-1-6-strompris-avkuttet.png)\n\n*Samme seks tall, samme figurhøyde — bare aksen er ny. Fallet fyller nå hele bildet, og forskjellen mellom mai og juni blir godt synlig. Bruddmerket nederst på aksen er det som gjør framstillingen ærlig: uten det ville figuren påstå at prisen nesten er borte i juni.*"
+          },
+          {
+            "label": "c",
+            "task": "En strømleverandør vil vise at «prisene stuper». Hvilke to måneder ville de valgt, og hva blir fallet i prosent?",
+            "answer": -60.9,
+            "solution": "De ville valgt hele perioden januar–juni, som gir det største fallet: $-60{,}9\\ \\%$. Velger de i stedet mai–juni, blir fallet bare $\\frac{54-61}{61} \\approx -11{,}5\\ \\%$."
+          },
+          {
+            "label": "d",
+            "task": "Hvilken opplysning mangler før leseren kan vurdere om prisfallet er uvanlig?",
+            "solution": "Tallene for de samme månedene tidligere år. Strømprisen faller normalt fra vinter til sommer, så et fall fra januar til juni er forventet. Uten sammenligningsgrunnlag vet vi ikke om årets fall er stort eller lite."
+          },
+          {
+            "label": "e",
+            "task": "Lag en figur og en bildetekst du mener er ærlig, og forklar valgene dine.",
+            "solution": "Et mulig svar: linjediagram med akse fra $0$ til $150$ øre/kWh, med årets kurve og fjorårets kurve i samme diagram og tegnforklaring. Bildetekst: «Månedlig gjennomsnittspris, øre per kWh, prisområde NO1. Kilde og tidsrom oppgitt. Prisfallet fra januar til juni er $60{,}9\\ \\%$ i år, mot X % i fjor.»\n\nValgene: akse fra null fordi prisen er et absolutt tall der halvparten betyr noe, to kurver fordi fallet bare kan vurderes mot et normalår, og enheten i bildeteksten fordi «pris» alene kan bety krone per kWh, øre per kWh eller kroner i måneden.\n\n**Andre muligheter:** et søylediagram per måned, som understreker at dette er seks atskilte månedsgjennomsnitt og ikke en sammenhengende kurve."
+          }
+        ],
+        "solution": "a) $-60{,}9\\ \\%$, b) fallet fyller mer av bildet, c) januar–juni, $-60{,}9\\ \\%$, d) tall fra tidligere år, e) begrunnet figur",
+        "hints": [
+          "Prosentvis endring $=$ endringen delt på utgangspunktet."
+        ],
+        "competenceGoals": [
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-6-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-6-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Statistikk brukes hver dag som argument i\nsamfunnsdebatten. Ta utgangspunkt i en figur du finner i en nyhetssak, eller i\nfigurene i dette kapittelet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Gå gjennom sjekklisten i tipsboksen for figuren du har valgt, og skriv ned svarene.",
+            "solution": "Svaret avhenger av figuren. Et fullstendig svar har med alle seks punktene: variabel og enhet, akse, tidsrom, antall eller andel, $n$ og kilde, samt avsender."
+          },
+          {
+            "label": "b",
+            "task": "Hvilke av opplysningene manglet, og hvor lett var de å finne?",
+            "solution": "Erfaringen er som regel at $n$, utvalgsmetoden og tidspunktet mangler i selve figuren, og at de i beste fall står i en fotnote eller i en rapport det lenkes til."
+          },
+          {
+            "label": "c",
+            "task": "Kan en figur være villedende selv om alle tallene i den er riktige? Begrunn med et eksempel fra kapittelet.",
+            "solution": "Ja. Figur B i eksempel 1 inneholder ikke ett galt tall, men gir inntrykk av kraftig vekst der veksten er $7{,}4\\ \\%$ på ti år. Det er valgene — aksevinduet, tidsrommet, kategoriene — som villeder, ikke tallene."
+          },
+          {
+            "label": "d",
+            "task": "Hvem har ansvaret for at en statistisk framstilling ikke villeder: den som lager den, eller den som leser den?",
+            "solution": "Begge, men på hver sin måte. Den som lager figuren, har ansvar for at valgene er opplyst: akse, tidsrom, $n$ og kilde skal stå der. Den som leser, har ansvar for å stille spørsmålene før hun bruker figuren som argument.\n\nDette er et av punktene der statistikkfaget møter demokratiet: en offentlig debatt der ingen sjekker tallene, kan styres av den som lager de flotteste figurene."
+          },
+          {
+            "label": "e",
+            "task": "Foreslå tre krav en redaksjon kunne stille til alle figurer de publiserer.",
+            "solution": "Et mulig svar:\n\n1. Loddrett akse fra null, eller tydelig markert brudd med tall på aksen.\n2. $n$, tidsrom og kilde alltid i bildeteksten.\n3. Sammenligninger mellom grupper av ulik størrelse skal gjøres med andeler.\n\n**Andre muligheter:** krav om å lenke til datagrunnlaget, eller om at figurer som viser endring i andeler, alltid oppgir både prosentpoeng og relativ endring."
+          }
+        ],
+        "solution": "a) sjekklisten punkt for punkt, c) ja — valgene kan villede selv med riktige tall, d) delt ansvar, e) tre begrunnede krav",
+        "isInvestigation": true,
+        "competenceGoals": [
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-6-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Grep | Hva det gjør | Hva du gjør |\n|---|---|---|\n| Avkuttet akse | Forstørrer små endringer | Se hvor aksen starter, regn endringen i prosent |\n| Utvalgt tidsrom | Gir vekst eller fall etter ønske | Be om hele tallrekka |\n| Arealtriks | Dobbel høyde og bredde $=$ firedobbelt areal | Sammenlign lengder, ikke bilder |\n| Prosent mot prosentpoeng | Gjør små endringer store | Spør hva utgangspunktet var |\n| Antall mot andel | Gjør store grupper til «verstinger» | Regn om per innbygger, per elev |\n| Gjennomsnitt alene | Skjuler spredningen | Be om median, spredning eller fordeling |\n| Manglende $n$ og kilde | Umuliggjør vurdering | Ikke bruk figuren |\n\n### Husk\n- En figur kan villede uten at ett eneste tall er galt.\n- Forskjellen mellom to prosenttall måles i **prosentpoeng**.\n- Det samme kravet gjelder dine egne figurer: akse, tidsrom, $n$ og kilde skal\n  stå der, slik at leseren kan vurdere selv."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Avkuttet akse",
+      "definition": "Loddrett akse som ikke starter på null. Forstørrer forskjellene i bildet, og må markeres tydelig."
+    },
+    {
+      "term": "Prosentpoeng",
+      "definition": "Enheten for differansen mellom to prosenttall. Fra 4 % til 6 % er 2 prosentpoeng, men 50 % relativ økning."
+    },
+    {
+      "term": "Utvalgt tidsrom",
+      "definition": "Valget av start- og sluttidspunkt i en tidsserie, som kan gi vekst eller fall uten at noe tall er galt."
+    },
+    {
+      "term": "Arealtriks",
+      "definition": "Å skalere en figur i både høyde og bredde, slik at arealet — og dermed inntrykket — vokser med kvadratet."
+    },
+    {
+      "term": "Andel",
+      "definition": "Antall delt på gruppens størrelse. Må brukes i stedet for antall når grupper av ulik størrelse sammenlignes."
+    }
+  ]
+}

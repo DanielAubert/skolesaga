@@ -1,0 +1,479 @@
+{
+  "id": "stat-6-2",
+  "courseId": "statistikk",
+  "chapterNumber": "6.2",
+  "title": "Standardisering og normalfordelingstabellen",
+  "description": "z-verdier, standardnormalfordelingen og å lese tabellen.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+    "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+  ],
+  "content": [
+    {
+      "id": "stat-6-2-section-intro",
+      "type": "text",
+      "content": "# Standardisering og normalfordelingstabellen\n\n68–95–99,7-regelen er nyttig, men den har en åpenbar begrensning: den svarer bare når grensen ligger nøyaktig ett, to eller tre standardavvik fra $\\mu$.\n\nHva om vi spør om en mann er høyere enn 185 cm? Eller om en pakke veier mindre enn 247,5 gram? Da hjelper ikke regelen.\n\nLøsningen er et grep som gjør **alle** normalfordelinger om til én eneste: vi måler avstanden fra $\\mu$ i antall standardavvik. Det kalles å **standardisere**."
+    },
+    {
+      "id": "stat-6-2-section-idee",
+      "type": "text",
+      "content": "## Én kurve i stedet for uendelig mange\n\nDet finnes uendelig mange normalfordelinger — én for hver kombinasjon av $\\mu$ og $\\sigma$. Ingen kan trykke opp en tabell for hver av dem.\n\nMen det trengs heller ikke. Se på hva vi gjorde i kapittel 6.1: vi oversatte alltid grensen til **antall standardavvik fra midten**, og deretter var alle oppgavene like. Høyder i centimeter, levetider i timer og vekter i gram ga nøyaktig samme regning.\n\nDet er hele ideen. Når vi måler i standardavvik, blir alle normalfordelinger til den *samme* fordelingen — den med $\\mu = 0$ og $\\sigma = 1$. Den kaller vi **standardnormalfordelingen**, og variabelen kaller vi $Z$.\n\nOg for den ene fordelingen finnes det en tabell."
+    },
+    {
+      "id": "stat-6-2-def-z",
+      "type": "definition",
+      "title": "Standardisering og z-verdi",
+      "content": "La $X$ være normalfordelt med forventningsverdi $\\mu$ og standardavvik $\\sigma$. **Z-verdien** til et tall $x$ er\n\n$$z = \\frac{x - \\mu}{\\sigma}$$\n\nRegnestykket har to skritt, og begge betyr noe:\n\n- **Telleren** $x - \\mu$ er avstanden fra midten, i samme enhet som $x$ (centimeter, gram, kroner).\n- **Nevneren** $\\sigma$ gjør avstanden om til **antall standardavvik**, og enheten forsvinner.\n\nEn $z$-verdi er derfor alltid et rent tall, uten benevning. Den leses slik:\n\n- $z = 1{,}5$ betyr «halvannet standardavvik **over** middelverdien».\n- $z = -0{,}8$ betyr «0,8 standardavvik **under** middelverdien».\n- $z = 0$ betyr «akkurat på middelverdien».\n\nDen standardiserte variabelen\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\ner normalfordelt med $\\mu = 0$ og $\\sigma = 1$. Det er denne fordelingen tabellen gjelder for."
+    },
+    {
+      "id": "stat-6-2-section-kjeden",
+      "type": "text",
+      "content": "## Standardiseringskjeden\n\nOvergangen fra $X$ til $Z$ er ikke en regel du skal huske — det er den samme operasjonen på begge sider av ulikhetstegnet, akkurat som når du løser en likning.\n\nSe på $P(X \\le 1{,}48)$ når $\\mu = 1{,}50$ og $\\sigma = 0{,}01$:\n\n$$P(X \\le 1{,}48) = P(X - \\mu \\le 1{,}48 - \\mu)$$\n\nVi trakk fra $\\mu$ på begge sider av ulikhetstegnet. Det endrer ikke sannsynligheten — hendelsen er nøyaktig den samme.\n\n$$P(X - \\mu \\le 1{,}48 - \\mu) = P\\left(\\frac{X - \\mu}{\\sigma} \\le \\frac{1{,}48 - \\mu}{\\sigma}\\right)$$\n\nVi delte på $\\sigma$ på begge sider. Siden $\\sigma$ er et positivt tall, snus ikke ulikhetstegnet.\n\nOg nå står $Z$ på venstre side:\n\n$$P\\left(Z \\le \\frac{1{,}48 - 1{,}50}{0{,}01}\\right) = P\\left(Z \\le \\frac{-0{,}02}{0{,}01}\\right) = P(Z \\le -2)$$\n\n**Det som skjedde:** spørsmålet «hvor sannsynlig er det at flaska inneholder høyst 1,48 liter?» ble til «hvor sannsynlig er det at $Z$ er høyst $-2$?» — og det siste spørsmålet står det svar på i tabellen.\n\nSkriv hele kjeden når du fører. Det er den som viser at du vet *hvorfor* du deler på $\\sigma$, ikke bare *at* du gjør det."
+    },
+    {
+      "id": "stat-6-2-section-tabellen",
+      "type": "text",
+      "content": "## Tabellen\n\nTabellen under gir $P(Z \\le z)$ — **arealet fra venstre og fram til $z$**. Nøyaktig som de kumulative binomiske tabellene i kapittel 5.5 gir den alltid «mindre enn eller lik», og alt annet må skrives om til det.\n\n| $z$ | $P(Z \\le z)$ | $z$ | $P(Z \\le z)$ |\n|---|---|---|---|\n| 0,0 | 0,5000 | 1,6 | 0,9452 |\n| 0,1 | 0,5398 | 1,7 | 0,9554 |\n| 0,2 | 0,5793 | 1,8 | 0,9641 |\n| 0,3 | 0,6179 | 1,9 | 0,9713 |\n| 0,4 | 0,6554 | 2,0 | 0,9772 |\n| 0,5 | 0,6915 | 2,1 | 0,9821 |\n| 0,6 | 0,7257 | 2,2 | 0,9861 |\n| 0,7 | 0,7580 | 2,3 | 0,9893 |\n| 0,8 | 0,7881 | 2,4 | 0,9918 |\n| 0,9 | 0,8159 | 2,5 | 0,9938 |\n| 1,0 | 0,8413 | 2,6 | 0,9953 |\n| 1,1 | 0,8643 | 2,7 | 0,9965 |\n| 1,2 | 0,8849 | 2,8 | 0,9974 |\n| 1,3 | 0,9032 | 2,9 | 0,9981 |\n| 1,4 | 0,9192 | 3,0 | 0,9987 |\n| 1,5 | 0,9332 | | |\n\n**Slik leser du den:** finn $z$-verdien i en $z$-kolonne, og les av tallet ved siden av.\n\n*Kontroll du alltid kan gjøre:* $P(Z \\le 0) = 0{,}5000$. Halvparten av arealet ligger til venstre for midten. Får du et tabelloppslag som bryter med dette, har du lest feil rad.\n\n**Negative $z$-verdier** står ikke i tabellen — men de trengs ikke, for symmetrien gir dem:\n\n$$P(Z \\le -z) = 1 - P(Z \\le z)$$\n\nArealet til venstre for $-z$ er speilbildet av arealet til høyre for $z$. Med $z = 2$:\n\n$$P(Z \\le -2) = 1 - P(Z \\le 2) = 1 - 0{,}9772 = 0{,}0228$$\n\n**De tre oversettelsene** du trenger, er de samme som i kapittel 5.6:\n\n| Spørsmålet | Regnes som |\n|---|---|\n| $P(X \\le b)$ | $P(Z \\le z_b)$ — rett oppslag |\n| $P(X > a)$ | $1 - P(Z \\le z_a)$ |\n| $P(a \\le X \\le b)$ | $P(Z \\le z_b) - P(Z \\le z_a)$ |"
+    },
+    {
+      "id": "stat-6-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Vannmengden i en flaske",
+      "problem": "En maskin fyller vannflasker. Vannmengden $X$ i liter er normalfordelt med $\\mu = 1{,}50$ liter og $\\sigma = 0{,}01$ liter.\n\nFinn sannsynligheten for at en tilfeldig flaske inneholder høyst 1,48 liter.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu = 1{,}50$ og $\\sigma = 0{,}01$.\n\n*Hva må vi finne?* $P(X \\le 1{,}48)$ — sannsynligheten for at vannmengden er mindre enn eller lik 1,48 liter.\n\n**Skritt 1 — standardiser.** Vi regner ut hvor mange standardavvik 1,48 ligger fra midten:\n\n$$z = \\frac{x - \\mu}{\\sigma}$$\n\n$$z = \\frac{1{,}48 - 1{,}50}{0{,}01} = \\frac{-0{,}02}{0{,}01} = -2$$\n\nFlaska med 1,48 liter ligger altså **to standardavvik under** middelverdien.\n\n**Skritt 2 — skriv om sannsynligheten.** Hele kjeden, med samme operasjon på begge sider:\n\n$$P(X \\le 1{,}48) = P(X - \\mu \\le 1{,}48 - \\mu) = P\\left(\\frac{X - \\mu}{\\sigma} \\le \\frac{1{,}48 - \\mu}{\\sigma}\\right) = P(Z \\le -2)$$\n\n**Skritt 3 — slå opp.** Tabellen har ikke negative $z$, så vi bruker symmetrien:\n\n$$P(Z \\le -2) = 1 - P(Z \\le 2)$$\n\nVi finner $z = 2{,}0$ i tabellen og leser av $P(Z \\le 2{,}0) = 0{,}9772$:\n\n$$P(Z \\le -2) = 1 - 0{,}9772 = 0{,}0228$$\n\n![Standardnormalkurven i et koordinatsystem. Den vannrette aksen er merket z og har tallene minus 3, minus 2, minus 1, 1, 2 og 3. Den loddrette aksen går gjennom toppunktet ved z lik 0, der kurven er høyest. Kurven er speilsymmetrisk og faller mot null mot begge sider. Hele området under kurven til venstre for z lik minus 2 er fylt med gult. Det gule feltet er en smal hale som blir tynnere mot venstre, og teksten 0,0228 står over dette feltet. En stiplet grå loddrett strek går fra aksen opp til kurven ved z lik minus 2.](/images/content/statistikk/stat-6-2-z-venstrehale.png)\n\n*Standardnormalfordelingen, altså fordelingen til $Z$ med $\\mu = 0$ og $\\sigma = 1$. Det gule feltet er $P(Z \\le -2) = 0{,}0228$ — svaret i eksempel 1. Tabellen gir alltid arealet fra venstre og fram til $z$, slik som her.*\n\n**Svar:** $P(X \\le 1{,}48) \\approx 0{,}0228$\n\n**Tolkning:** Omtrent 2,3 % av flaskene inneholder 1,48 liter eller mindre. Av 1000 flasker er det rundt 23 stykker.\n\n**Rimelighetssjekk:** 1,48 ligger $2\\sigma$ under $\\mu$, og 68–95–99,7-regelen ga oss 0,025 for nettopp den grensen i kapittel 6.1. Tabellen gir 0,0228 — den samme størrelsen, bare nøyaktigere. Regelen var en avrunding av dette tallet."
+    },
+    {
+      "id": "stat-6-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Gjør den samme.** En pakkemaskin fyller poser med mel. Vekten $X$ i gram er normalfordelt med $\\mu = 250$ g og $\\sigma = 4$ g. Bruk tabellen i kapittelet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $z$-verdien til $x = 256$, og forklar hva tallet betyr.",
+            "solution": "$z = \\frac{256 - 250}{4} = \\frac{6}{4} = 1{,}5$. Posen ligger halvannet standardavvik over middelverdien.",
+            "answer": 1.5
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\le 256)$.",
+            "solution": "$P(X \\le 256) = P(Z \\le 1{,}5) = 0{,}9332$.",
+            "answer": 0.9332
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X > 256)$.",
+            "solution": "$P(X > 256) = 1 - P(Z \\le 1{,}5) = 1 - 0{,}9332 = 0{,}0668$.",
+            "answer": 0.0668
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X \\le 244)$.",
+            "solution": "$z = \\frac{244 - 250}{4} = -1{,}5$, så $P(X \\le 244) = P(Z \\le -1{,}5) = 1 - 0{,}9332 = 0{,}0668$.",
+            "answer": 0.0668
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er svarene i c) og d) like? Svar uten å regne.",
+            "solution": "Fordi 256 og 244 ligger like langt fra $\\mu = 250$, én på hver side. Kurven er symmetrisk, så høyre hale fra 256 og venstre hale fram til 244 er speilbilder av hverandre.",
+            "answer": 0.0668
+          }
+        ],
+        "hints": [
+          "Regn alltid $z$ først, og skriv opp hva tallet betyr i ord.",
+          "Tabellen gir «mindre enn eller lik». «Større enn» finner du med $1 - $ tabellverdien."
+        ],
+        "solution": "a) $z = 1{,}5$, b) 0,9332, c) 0,0668, d) 0,0668, e) symmetrien — 244 og 256 ligger like langt fra $\\mu$",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Bremselengde",
+      "problem": "Bremselengden $X$ i meter for en bilmodell ved 80 km/h er normalfordelt med $\\mu = 83$ m og $\\sigma = 3$ m.\n\nFinn sannsynligheten for at bremselengden er lengre enn 86 meter.",
+      "solution": "**Løsning:**\n\n*Hva må vi finne?* $P(X > 86)$ — sannsynligheten for at bremselengden er større enn 86 meter.\n\n**Skritt 1 — standardiser:**\n\n$$z = \\frac{x - \\mu}{\\sigma} = \\frac{86 - 83}{3} = \\frac{3}{3} = 1$$\n\n**Skritt 2 — skriv om.** Tabellen gir bare «mindre enn eller lik», så vi må bruke komplementet:\n\n$$P(X > 86) = P(Z > 1) = 1 - P(Z \\le 1)$$\n\n**Skritt 3 — slå opp.** I tabellen står $P(Z \\le 1{,}0) = 0{,}8413$:\n\n$$P(X > 86) = 1 - 0{,}8413 = 0{,}1587$$\n\n![Standardnormalkurven over en akse merket z fra minus 3 til 3. Kurven er symmetrisk om 0 og har toppunkt i omtrent 0,40. En grå stiplet loddrett strek går fra aksen opp til kurven i z er lik 1. Hele området under kurven til høyre for denne streken er fylt med gult. Over det gule feltet står teksten P av Z større enn 1 er lik 1 minus 0,8413 er lik 0,1587.](/images/content/statistikk/stat-6-2-z-hoyrehale.png)\n\n*Høyrehalen. Tabellen gir alltid arealet fra venstre, altså $P(Z \\le 1) = 0{,}8413$ — det hvite området. Det som spørres om, er resten: $1 - 0{,}8413 = 0{,}1587$. Tegner du skissen først, blir det umulig å ta feil vei på ulikheten.*\n\n**Svar:** $P(X > 86) \\approx 0{,}1587$\n\n**Tolkning:** I omtrent 16 % av bremsingene — altså i rundt én av seks — blir bremselengden lengre enn 86 meter. Det er verdt å merke seg for den som regner på sikkerhetsavstand: «gjennomsnittlig bremselengde 83 meter» betyr ikke at 83 meter er nok.\n\n**NB:** Her er et sted det er lett å miste et skritt. Har du regnet $z = 1$ og slått opp 0,8413, er du **ikke** ferdig — 0,8413 er svaret på det motsatte spørsmålet. Skriv alltid ned hvilken vei ulikheten går *før* du åpner tabellen."
+    },
+    {
+      "id": "stat-6-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** Levetiden $X$ i timer for en type batteri er normalfordelt med $\\mu = 500$ timer og $\\sigma = 40$ timer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn sannsynligheten for at et batteri varer lenger enn 560 timer.",
+            "solution": "$z = \\frac{560 - 500}{40} = 1{,}5$. $P(X > 560) = 1 - P(Z \\le 1{,}5) = 1 - 0{,}9332 = 0{,}0668$.",
+            "answer": 0.0668
+          },
+          {
+            "label": "b",
+            "task": "Finn sannsynligheten for at et batteri varer kortere enn 440 timer.",
+            "solution": "$z = \\frac{440 - 500}{40} = -1{,}5$. $P(X < 440) = P(Z \\le -1{,}5) = 1 - 0{,}9332 = 0{,}0668$.",
+            "answer": 0.0668
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X > 520)$.",
+            "solution": "$z = \\frac{520 - 500}{40} = 0{,}5$. $P(X > 520) = 1 - P(Z \\le 0{,}5) = 1 - 0{,}6915 = 0{,}3085$.",
+            "answer": 0.3085
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X > 600)$.",
+            "solution": "$z = \\frac{600 - 500}{40} = 2{,}5$. $P(X > 600) = 1 - P(Z \\le 2{,}5) = 1 - 0{,}9938 = 0{,}0062$.",
+            "answer": 0.0062
+          },
+          {
+            "label": "e",
+            "task": "En kunde kjøper 200 batterier. Hvor mange venter han varer lenger enn 560 timer?",
+            "solution": "$200 \\cdot 0{,}0668 = 13{,}36$, altså omtrent 13 batterier.",
+            "answer": 13
+          }
+        ],
+        "hints": [
+          "Skriv ned hvilken vei ulikheten går før du slår opp.",
+          "«Større enn» blir alltid $1 - $ tabellverdien."
+        ],
+        "solution": "a) 0,0668, b) 0,0668, c) 0,3085, d) 0,0062, e) omtrent 13 batterier",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Et intervall — to oppslag",
+      "problem": "Fødselsvekten $X$ i gram for fullbårne barn kan modelleres som normalfordelt med $\\mu = 3600$ g og $\\sigma = 500$ g.\n\nFinn sannsynligheten for at et tilfeldig barn veier mellom 3000 g og 4100 g ved fødselen.",
+      "solution": "**Løsning:**\n\n*Hva må vi finne?* $P(3000 \\le X \\le 4100)$.\n\n**Skritt 1 — standardiser begge grensene.** Hver grense får sin egen $z$-verdi:\n\n$$z_1 = \\frac{3000 - 3600}{500} = \\frac{-600}{500} = -1{,}20$$\n\n$$z_2 = \\frac{4100 - 3600}{500} = \\frac{500}{500} = 1{,}00$$\n\n**Skritt 2 — skriv om.** Arealet mellom to grenser er differansen mellom to arealer fra venstre:\n\n$$P(3000 \\le X \\le 4100) = P(-1{,}20 \\le Z \\le 1{,}00) = P(Z \\le 1{,}00) - P(Z \\le -1{,}20)$$\n\n**Skritt 3 — slå opp.** Den første står rett i tabellen:\n\n$$P(Z \\le 1{,}0) = 0{,}8413$$\n\nDen andre er negativ, så vi speiler:\n\n$$P(Z \\le -1{,}20) = 1 - P(Z \\le 1{,}20) = 1 - 0{,}8849 = 0{,}1151$$\n\n**Skritt 4 — trekk fra:**\n\n$$P(3000 \\le X \\le 4100) = 0{,}8413 - 0{,}1151 = 0{,}7262$$\n\n![Standardnormalkurven over en akse merket z fra minus 3 til 3. To grå stiplede loddrette streker går fra aksen opp til kurven, den ene litt til venstre for minus 1 og den andre i 1. Området under kurven mellom de to strekene er fylt med gult; halene utenfor er hvite. Over toppunktet står teksten P av minus 1,20 mindre enn eller lik Z mindre enn eller lik 1,00 på én linje, og under den er lik 0,8413 minus 0,1151 er lik 0,7262.](/images/content/statistikk/stat-6-2-z-intervall.png)\n\n*Et intervall krever to oppslag. Arealet fram til $z = 1{,}00$ er 0,8413, og arealet fram til $z = -1{,}20$ er 0,1151. Trekker vi det minste fra det største, står midtområdet igjen: $0{,}8413 - 0{,}1151 = 0{,}7262$. Subtraksjonen er ren geometri.*\n\n**Svar:** $P(3000 \\le X \\le 4100) \\approx 0{,}726$\n\n**Tolkning:** Omtrent 73 % av fullbårne barn veier mellom 3,0 og 4,1 kilo. Utenfor ligger de resterende 27 % — omtrent 12 % under 3,0 kg og omtrent 16 % over 4,1 kg.\n\n**NB:** Rekkefølgen er alltid **øvre minus nedre**. Snur du dem, får du et negativt tall, og en negativ sannsynlighet finnes ikke. Det er den beste kontrollen du har på dette regnestykket."
+    },
+    {
+      "id": "stat-6-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** Høyden $X$ i centimeter til 16 år gamle jenter kan modelleres som normalfordelt med $\\mu = 167$ cm og $\\sigma = 6$ cm.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(158 \\le X \\le 176)$.",
+            "solution": "$z_1 = \\frac{158-167}{6} = -1{,}5$ og $z_2 = \\frac{176-167}{6} = 1{,}5$. $P = 0{,}9332 - (1 - 0{,}9332) = 0{,}9332 - 0{,}0668 = 0{,}8664$.",
+            "answer": 0.8664
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(161 \\le X \\le 170)$.",
+            "solution": "$z_1 = -1{,}0$ og $z_2 = 0{,}5$. $P = 0{,}6915 - (1 - 0{,}8413) = 0{,}6915 - 0{,}1587 = 0{,}5328$.",
+            "answer": 0.5328
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(155 \\le X \\le 167)$.",
+            "solution": "$z_1 = -2{,}0$ og $z_2 = 0$. $P = 0{,}5000 - (1 - 0{,}9772) = 0{,}5000 - 0{,}0228 = 0{,}4772$.",
+            "answer": 0.4772
+          },
+          {
+            "label": "d",
+            "task": "Finn sannsynligheten for at en tilfeldig valgt jente er høyere enn 176 cm.",
+            "solution": "$z = 1{,}5$, så $P(X > 176) = 1 - 0{,}9332 = 0{,}0668$.",
+            "answer": 0.0668
+          },
+          {
+            "label": "e",
+            "task": "I en klasse med 30 jenter — hvor mange venter vi er lavere enn 155 cm?",
+            "solution": "$z = -2{,}0$ gir $P(X < 155) = 1 - 0{,}9772 = 0{,}0228$. Da er $30 \\cdot 0{,}0228 = 0{,}68$, altså under én jente. Som regel ingen.",
+            "answer": 0.0228
+          }
+        ],
+        "hints": [
+          "Standardiser begge grensene hver for seg før du slår opp.",
+          "Øvre minus nedre — aldri motsatt."
+        ],
+        "solution": "a) 0,8664, b) 0,5328, c) 0,4772, d) 0,0668, e) 0,68 — altså som regel ingen",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-2-fig-omvendt",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-2-omvendt.png",
+      "alt": "Standardnormalkurven over en akse merket z. Området under kurven fra venstre og fram til en grå stiplet loddrett strek litt til høyre for midten er fylt med gult. Teksten arealet er 0,90 står øverst til venstre, over kurven, og hører til det gule feltet under. Ved den stiplede streken står z er lik spørsmålstegn. Under aksen går en rød pil fra venstre mot høyre, merket fra areal til grense.",
+      "caption": "Den motsatte veien. I de tidligere figurene var grensen kjent og arealet ukjent; her er arealet kjent (0,90) og grensen ukjent. Pila under aksen peker motsatt vei av før. Tallet står med vilje ikke i figuren — det er det du skal slå opp.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-2-omvendt.json"
+    },
+    {
+      "id": "stat-6-2-section-omvendt",
+      "type": "text",
+      "content": "## Den andre veien: fra sannsynlighet til grense\n\nHittil har vi fått en grense og funnet en sannsynlighet. Svært mange oppgaver går motsatt vei:\n\n> «Bestem $k$ slik at $P(X \\le k) = 0{,}90$.»\n\nDa leter vi i tabellen etter **innmaten** i stedet for kanten: vi finner den $z$-verdien som gir 0,90, og regner oss tilbake til $x$.\n\nLøser vi $z = \\frac{x - \\mu}{\\sigma}$ for $x$ — ganger med $\\sigma$ på begge sider og legger til $\\mu$ — får vi **tilbakeveien**:\n\n$$x = \\mu + z \\cdot \\sigma$$\n\nI ord: *gå til midten, og flytt deg $z$ standardavvik derfra.*\n\nHer er en tabell med to desimaler for $z$, slik den ser ut i formelsamlingen. Legg merke til at 0,90 ikke står der presis:\n\n| $z$ | $P(Z \\le z)$ |\n|---|---|\n| 1,20 | 0,8849 |\n| 1,21 | 0,8869 |\n| 1,22 | 0,8888 |\n| 1,23 | 0,8907 |\n| 1,24 | 0,8925 |\n| 1,25 | 0,8944 |\n| 1,26 | 0,8962 |\n| 1,27 | 0,8980 |\n| 1,28 | 0,8997 |\n| 1,29 | 0,9015 |\n\nSannsynligheten 0,9000 ligger mellom $z = 1{,}28$ (som gir 0,8997) og $z = 1{,}29$ (som gir 0,9015). Vi velger den nærmeste, $z = 1{,}28$ — og har dermed regnet med en liten avrunding, som alltid når vi bruker tabell.\n\n**Disse fem $z$-verdiene er verdt å kjenne igjen.** De kommer tilbake i hvert eneste kapittel om konfidensintervall og hypotesetesting:\n\n| $P(Z \\le z)$ | $z$ |\n|---|---|\n| 0,900 | 1,282 |\n| 0,950 | 1,645 |\n| 0,975 | 1,960 |\n| 0,990 | 2,326 |\n| 0,995 | 2,576 |\n\n*(Verdien 1,960 er grunnen til at «to standardavvik» og «95 %» henger så tett sammen: det eksakte tallet er 1,96, ikke 2. Avrundingen til 2 er nettopp det som gjør 68–95–99,7-regelen til en tommelfingerregel.)*"
+    },
+    {
+      "id": "stat-6-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Å finne grensen",
+      "problem": "Bremselengden $X$ i meter er normalfordelt med $\\mu = 83$ m og $\\sigma = 3$ m, som i eksempel 2.\n\nBestem $k$ slik at $P(X \\le k) = 0{,}90$, og gi en praktisk tolkning av svaret.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu = 83$, $\\sigma = 3$, og at arealet fra venstre skal være 0,90.\n\n*Hva må vi finne?* Grensen $k$.\n\n**Skritt 1 — finn $z$ i tabellen.** Vi leter etter tallet 0,9000 blant tabellverdiene, og finner at\n\n$$P(Z \\le 1{,}28) = 0{,}8997 \\qquad \\text{og} \\qquad P(Z \\le 1{,}29) = 0{,}9015$$\n\nVi velger den nærmeste: $z = 1{,}28$.\n\n**Skritt 2 — regn tilbake til $x$.** Vi bruker $x = \\mu + z \\cdot \\sigma$:\n\n$$k = \\mu + z \\cdot \\sigma$$\n\n$$k = 83 + 1{,}28 \\cdot 3$$\n\n$$k = 83 + 3{,}84 = 86{,}84$$\n\n**Kontroll:** vi standardiserer svaret og ser om vi kommer tilbake:\n\n$$z = \\frac{86{,}84 - 83}{3} = \\frac{3{,}84}{3} = 1{,}28 \\quad \\checkmark$$\n\n**Svar:** $k \\approx 86{,}8$ meter\n\n**Tolkning:** 90 % av bremsingene er kortere enn 86,8 meter — og 10 % er lengre. Skal en veistrekning dimensjoneres slik at ni av ti bremsinger går bra, er 86,8 meter tallet å bruke. Skal ni av ti ikke være godt nok, må vi opp i et høyere krav, for eksempel 99 %, som med $z = 2{,}33$ gir $83 + 2{,}33 \\cdot 3 \\approx 90{,}0$ meter.\n\n**NB:** Legg merke til at $z$ her er **positiv**, fordi vi leter etter en grense **over** middelverdien. Er sannsynligheten mindre enn 0,5, ligger grensen under $\\mu$, og $z$ blir negativ. Sjekk alltid fortegnet mot en skisse før du regner videre."
+    },
+    {
+      "id": "stat-6-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** Vekten $X$ i kilogram til en gruppe voksne er normalfordelt med $\\mu = 62$ kg og $\\sigma = 8$ kg. Bruk tabellen med mye brukte $z$-verdier.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem $k$ slik at $P(X \\le k) = 0{,}95$.",
+            "solution": "$z = 1{,}645$ gir $k = 62 + 1{,}645 \\cdot 8 = 62 + 13{,}16 = 75{,}16$ kg.",
+            "answer": 75.16
+          },
+          {
+            "label": "b",
+            "task": "Bestem $k$ slik at $P(X \\le k) = 0{,}99$.",
+            "solution": "$z = 2{,}326$, og vi regner med 2,33: $k = 62 + 2{,}33 \\cdot 8 = 62 + 18{,}64 = 80{,}64$ kg.",
+            "answer": 80.64
+          },
+          {
+            "label": "c",
+            "task": "Bestem $k$ slik at $P(X \\le k) = 0{,}10$.",
+            "solution": "0,10 er mindre enn 0,5, så grensen ligger under $\\mu$ og $z$ er negativ. Symmetrien gir $z = -1{,}28$, altså $k = 62 - 1{,}28 \\cdot 8 = 62 - 10{,}24 = 51{,}76$ kg.",
+            "answer": 51.76
+          },
+          {
+            "label": "d",
+            "task": "Bestem $k$ slik at $P(X > k) = 0{,}05$.",
+            "solution": "$P(X > k) = 0{,}05$ betyr $P(X \\le k) = 0{,}95$, altså samme oppgave som a): $k = 75{,}16$ kg.",
+            "answer": 75.16
+          },
+          {
+            "label": "e",
+            "task": "Finn intervallet som inneholder de midterste 95 % av vektene.",
+            "solution": "Da skal 2,5 % ligge utenfor i hver ende, altså $z = \\pm 1{,}96$: $62 \\pm 1{,}96 \\cdot 8 = 62 \\pm 15{,}68$, altså fra 46,32 kg til 77,68 kg.",
+            "answer": 46.32
+          }
+        ],
+        "hints": [
+          "Bruk $x = \\mu + z \\cdot \\sigma$, og pass på fortegnet til $z$.",
+          "«Større enn $k$ med sannsynlighet 0,05» er det samme som «mindre enn $k$ med sannsynlighet 0,95»."
+        ],
+        "solution": "a) 75,16 kg, b) 80,64 kg, c) 51,76 kg, d) 75,16 kg, e) fra 46,32 kg til 77,68 kg",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Oversettelse.** La $X$ være normalfordelt med $\\mu = 40$ og $\\sigma = 5$. Skriv hver sannsynlighet om til et uttrykk med $Z$, og deretter til et uttrykk som kan slås opp rett i tabellen. Du skal ikke regne ut tallsvarene.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$P(X \\le 47{,}5)$",
+            "solution": "$z = \\frac{47{,}5 - 40}{5} = 1{,}5$, så $P(X \\le 47{,}5) = P(Z \\le 1{,}5)$ — rett oppslag."
+          },
+          {
+            "label": "b",
+            "task": "$P(X > 45)$",
+            "solution": "$z = 1{,}0$, så $P(X > 45) = P(Z > 1{,}0) = 1 - P(Z \\le 1{,}0)$."
+          },
+          {
+            "label": "c",
+            "task": "$P(X \\le 32{,}5)$",
+            "solution": "$z = \\frac{32{,}5 - 40}{5} = -1{,}5$, så $P(X \\le 32{,}5) = P(Z \\le -1{,}5) = 1 - P(Z \\le 1{,}5)$."
+          },
+          {
+            "label": "d",
+            "task": "$P(35 \\le X \\le 50)$",
+            "solution": "$z_1 = -1{,}0$ og $z_2 = 2{,}0$, så $P = P(Z \\le 2{,}0) - P(Z \\le -1{,}0) = P(Z \\le 2{,}0) - \\left(1 - P(Z \\le 1{,}0)\\right)$."
+          },
+          {
+            "label": "e",
+            "task": "$P(X > 30)$",
+            "solution": "$z = -2{,}0$, så $P(X > 30) = 1 - P(Z \\le -2{,}0) = 1 - \\left(1 - P(Z \\le 2{,}0)\\right) = P(Z \\le 2{,}0)$. Her forsvant begge komplementene mot hverandre — det skjer alltid når grensen ligger under $\\mu$ og vi spør om «større enn»."
+          }
+        ],
+        "hints": [
+          "Alle negative $z$ speiles med $P(Z \\le -z) = 1 - P(Z \\le z)$.",
+          "Skriv om ett skritt av gangen, og ikke regn ut noe før uttrykket står ferdig."
+        ],
+        "solution": "a) $P(Z \\le 1{,}5)$, b) $1 - P(Z \\le 1{,}0)$, c) $1 - P(Z \\le 1{,}5)$, d) $P(Z \\le 2{,}0) - (1 - P(Z \\le 1{,}0))$, e) $P(Z \\le 2{,}0)$",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Å standardisere** er å måle avstanden fra $\\mu$ i antall standardavvik: $z = \\dfrac{x - \\mu}{\\sigma}$. Resultatet er et rent tall uten benevning.\n- Den standardiserte variabelen $Z = \\dfrac{X - \\mu}{\\sigma}$ er normalfordelt med $\\mu = 0$ og $\\sigma = 1$. Alle normalfordelinger blir til denne ene.\n- **Kjeden** er den samme operasjonen på begge sider: trekk fra $\\mu$, del på $\\sigma$, og $Z$ står igjen. Skriv den ut når du fører.\n- **Tabellen** gir $P(Z \\le z)$ — arealet fra venstre. Alt annet skrives om: $P(Z > z) = 1 - P(Z \\le z)$ og $P(a \\le Z \\le b) = P(Z \\le b) - P(Z \\le a)$.\n- **Negative $z$** finnes ikke i tabellen, men speiles: $P(Z \\le -z) = 1 - P(Z \\le z)$.\n- **Den andre veien** — fra sannsynlighet til grense — bruker $x = \\mu + z \\cdot \\sigma$. Finn $z$ i tabellen først, og sjekk fortegnet mot en skisse.\n- Verdt å kunne: $P(Z \\le 1{,}28) \\approx 0{,}90$, $P(Z \\le 1{,}645) \\approx 0{,}95$, $P(Z \\le 1{,}96) \\approx 0{,}975$ og $P(Z \\le 2{,}33) \\approx 0{,}99$.\n- **Tegn alltid en skisse** av klokka med det aktuelle området skravert, før du slår opp. Nesten alle feil i dette kapittelet er feil vei på ulikheten, og de blir synlige i en skisse.\n\nI kapittel 6.3 gjør vi det samme med digitale verktøy — og da forsvinner både standardiseringen og tabellen. Men de er verdt å kunne likevel: på Del 1 har du ingen verktøy, og $z$-verdien er dessuten et selvstendig nyttig tall, som vi skal se i oppgave 7."
+    },
+    {
+      "id": "stat-6-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave.** En maskin fyller kaffeposer. Vekten $X$ i gram er normalfordelt med $\\mu = 252$ g og $\\sigma = 2$ g. Posene merkes «250 g».",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn sannsynligheten for at en tilfeldig pose veier mindre enn det som står på merkingen.",
+            "solution": "$z = \\frac{250 - 252}{2} = -1{,}00$, så $P(X < 250) = P(Z \\le -1{,}00) = 1 - 0{,}8413 = 0{,}1587$. Omtrent 16 % av posene har undervekt i forhold til merkingen.",
+            "answer": 0.1587
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(250 \\le X \\le 254)$.",
+            "solution": "$z_1 = -1{,}00$ og $z_2 = 1{,}00$: $P = 0{,}8413 - 0{,}1587 = 0{,}6827$. (Det er 68–95–99,7-regelens første linje, nå regnet nøyaktig.)",
+            "answer": 0.6827
+          },
+          {
+            "label": "c",
+            "task": "Bestem grensen $k$ slik at bare 1 % av posene veier mindre enn $k$.",
+            "solution": "$P(X \\le k) = 0{,}01$ gir $z = -2{,}33$, altså $k = 252 - 2{,}33 \\cdot 2 = 252 - 4{,}66 = 247{,}34$ g.",
+            "answer": 247.34
+          },
+          {
+            "label": "d",
+            "task": "Bedriften vil at høyst 1 % av posene skal veie under 250 g. Hvilken $\\mu$ må maskinen stilles inn på, dersom $\\sigma$ er uendret?",
+            "solution": "Vi krever at 250 skal svare til $z = -2{,}33$: $250 = \\mu - 2{,}33 \\cdot 2$, altså $\\mu = 250 + 4{,}66 = 254{,}66$ g.",
+            "answer": 254.66
+          },
+          {
+            "label": "e",
+            "task": "Et alternativ er å kjøpe en mer nøyaktig maskin med samme $\\mu = 252$ g. Hvor liten må $\\sigma$ da være for at høyst 1 % skal veie under 250 g? Hvilken av de to løsningene ville du valgt?",
+            "solution": "Vi krever $\\frac{250 - 252}{\\sigma} = -2{,}33$, altså $\\sigma = \\frac{2}{2{,}33} \\approx 0{,}86$ g. Løsning d) koster kaffe: 2,66 gram ekstra i hver pose. Løsning e) koster en ny maskin, men gir mindre svinn for hver eneste pose som pakkes etterpå. Med stort produksjonsvolum lønner e) seg raskt, og den gir dessuten jevnere produkt.",
+            "answer": 0.86
+          }
+        ],
+        "hints": [
+          "I d) og e) er $z = -2{,}33$ gitt av kravet, og du løser for henholdsvis $\\mu$ og $\\sigma$.",
+          "Sett opp $z = \\frac{x - \\mu}{\\sigma}$ med det du vet, og løs for den bokstaven som er ukjent."
+        ],
+        "solution": "a) 0,1587, b) 0,6827, c) $k = 247{,}34$ g, d) $\\mu = 254{,}66$ g, e) $\\sigma \\approx 0{,}86$ g — ny maskin lønner seg ved stort volum",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting — $z$ som sammenligningsmål.** Nora fikk 78 poeng på en prøve der resultatene var normalfordelte med $\\mu = 65$ og $\\sigma = 10$. Jonas fikk 44 poeng på en annen prøve, der resultatene var normalfordelte med $\\mu = 32$ og $\\sigma = 6$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $z$-verdien til hver av dem.",
+            "solution": "Nora: $z = \\frac{78 - 65}{10} = 1{,}30$. Jonas: $z = \\frac{44 - 32}{6} = \\frac{12}{6} = 2{,}00$.",
+            "answer": 2.0
+          },
+          {
+            "label": "b",
+            "task": "Hvem gjorde det best i forhold til de andre som tok samme prøve?",
+            "solution": "Jonas. Han ligger 2,00 standardavvik over middelverdien, Nora 1,30. At Nora har flest poeng i tall, er uten betydning — de to prøvene har ulik skala.",
+            "answer": 2.0
+          },
+          {
+            "label": "c",
+            "task": "Hvor stor andel av elevene gjorde det dårligere enn hver av dem?",
+            "solution": "Nora: $P(Z \\le 1{,}30) = 0{,}9032$, altså 90 %. Jonas: $P(Z \\le 2{,}00) = 0{,}9772$, altså 98 %.",
+            "answer": 0.9772
+          },
+          {
+            "label": "d",
+            "task": "«Poengsummen sier hvor flink du er, $z$-verdien sier hvor flink du er i forhold til de andre.» Drøft påstanden.",
+            "solution": "Den peker på noe riktig: $z$ måler plassering i gruppa, mens poengsummen måler hvor mye du fikk til på akkurat den prøven. Men den er samtidig for enkel. En $z$-verdi avhenger fullstendig av hvem du sammenlignes med — den samme prestasjonen gir høy $z$ i en svak gruppe og lav $z$ i en sterk. Og poengsummen avhenger av hvor vanskelig prøven var. Skal man vurdere en elev, trengs begge deler, i tillegg til at man vet hva prøven faktisk målte."
+          },
+          {
+            "label": "e",
+            "task": "Kan $z$-verdier brukes til å sammenligne to helt ulike ting, for eksempel høyde og eksamensresultat?",
+            "solution": "Teknisk sett ja: $z$ er et rent tall, så $z = 1{,}5$ i høyde og $z = 1{,}5$ i poeng betyr det samme *statistisk* — begge ligger halvannet standardavvik over sin egen middelverdi. Men det betyr ikke at det er meningsfullt å si at en person er «like høy som hun er flink». Sammenligningen gjelder bare plasseringen i hver sin fordeling, ikke egenskapene i seg selv. I tillegg krever tolkningen at begge fordelingene faktisk er tilnærmet normale — for en skjev fordeling har $z$ ingen fast tolkning."
+          }
+        ],
+        "hints": [
+          "$z$ måler avstand fra middelverdien i den enheten fordelingen selv setter: standardavviket.",
+          "Slå opp $z$-verdiene i tabellen for å svare på c)."
+        ],
+        "solution": "a) Nora 1,30 og Jonas 2,00, b) Jonas, c) 90 % og 98 %, d) delvis riktig — $z$ måler plassering i gruppa, ikke ferdighet alene, e) statistisk ja, men bare om plasseringen, og bare for tilnærmet normale fordelinger",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Standardisering",
+      "definition": "Å måle avstanden fra $\\mu$ i antall standardavvik: $z = \\frac{x - \\mu}{\\sigma}$. Resultatet er et rent tall uten benevning."
+    },
+    {
+      "term": "z-verdi",
+      "definition": "Tallet som sier hvor mange standardavvik en verdi ligger over (positiv) eller under (negativ) forventningsverdien."
+    },
+    {
+      "term": "Standardnormalfordelingen",
+      "definition": "Normalfordelingen med $\\mu = 0$ og $\\sigma = 1$. Variabelen kalles $Z$, og det er denne fordelingen normalfordelingstabellen gjelder for."
+    },
+    {
+      "term": "Normalfordelingstabellen",
+      "definition": "Tabellen som gir $P(Z \\le z)$, altså arealet under standardnormalkurven fra venstre og fram til $z$. Negative $z$ finnes ved symmetri: $P(Z \\le -z) = 1 - P(Z \\le z)$."
+    },
+    {
+      "term": "Tilbakeveien",
+      "definition": "Formelen $x = \\mu + z \\cdot \\sigma$, som brukes når sannsynligheten er kjent og grensen er ukjent."
+    }
+  ]
+}

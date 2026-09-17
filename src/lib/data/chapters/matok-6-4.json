@@ -1,0 +1,522 @@
+{
+  "id": "matok-6-4",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "6.4",
+  "title": "Nullpunkt, ekstremalpunkt og funksjonsdrøfting",
+  "description": "Fortegnslinje for den deriverte, topp- og bunnpunkt, og praktisk tolkning.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+  ],
+  "keyTerms": [
+    {
+      "term": "Nullpunkt",
+      "definition": "En $x$-verdi der $f(x) = 0$. For en overskuddsfunksjon kalles nullpunktene **dekningspunkter** — der går bedriften verken med overskudd eller underskudd."
+    },
+    {
+      "term": "Ekstremalpunkt",
+      "definition": "Et topp- eller bunnpunkt på grafen. Der er $f'(x) = 0$, og fortegnet til $f'$ skifter."
+    },
+    {
+      "term": "Fortegnslinje",
+      "definition": "En linje per faktor i det faktoriserte uttrykket, med fortegnene tegnet inn: stiplet der faktoren er negativ, heltrukken der den er positiv, og $0$ i nullpunktet."
+    },
+    {
+      "term": "Monotoni",
+      "definition": "Om funksjonen vokser eller synker på et intervall. $f' > 0$: vokser. $f' < 0$: synker."
+    },
+    {
+      "term": "Funksjonsdrøfting",
+      "definition": "Å finne nullpunkt, ekstremalpunkt og monotoni til en funksjon, og tolke dem i den sammenhengen funksjonen beskriver."
+    }
+  ],
+  "content": [
+    {
+      "id": "matok-6-4-intro",
+      "type": "text",
+      "content": "## De to spørsmålene en bedrift stiller\n\n**«Når går vi i null?»** Det er et spørsmål om **nullpunktene** til overskuddsfunksjonen.\n\n**«Hvor tjener vi mest?»** Det er et spørsmål om **toppunktet**.\n\nDe to spørsmålene ser like ut, men de løses på hver sin måte: det første med $O(x) = 0$, det andre med $O'(x) = 0$. Å holde dem fra hverandre er halve dette kapittelet.\n\nDen andre halvdelen er å **begrunne** svaret. At $O'(x) = 0$ betyr bare at grafen står vannrett der — det kan være en topp, en bunn eller et vendepunkt. Fortegnslinja for den deriverte avgjør hvilken."
+    },
+    {
+      "id": "matok-6-4-tekst-nullpunkt",
+      "type": "text",
+      "content": "## Nullpunkt og dekningspunkt\n\nNullpunktene til $f$ er de $x$-verdiene der $f(x) = 0$.\n\nFor en overskuddsfunksjon $O(x)$ kalles de **dekningspunkter**: inntekten dekker akkurat kostnadene. Mellom dekningspunktene går bedriften med overskudd, utenfor går den med underskudd.\n\nEr $O$ en andregradsfunksjon, finner vi nullpunktene med abc-formelen:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$"
+    },
+    {
+      "id": "matok-6-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Når går bedriften i null?",
+      "problem": "En bedrift har overskuddet\n\n$$O(x) = -0{,}5x^2 + 90x - 1600$$\n\nkroner ved $x$ enheter.\n\nFinn dekningspunktene, og si for hvilke produksjonstall bedriften går med overskudd.",
+      "solution": "**Hva vet vi / hva må vi finne?** Vi kjenner $O(x)$, og skal finne der $O(x) = 0$.\n\n**Steg 1 — sett opp likningen og les av $a$, $b$ og $c$:**\n\n$$-0{,}5x^2 + 90x - 1600 = 0$$\n\n$$a = -0{,}5 \\qquad b = 90 \\qquad c = -1600$$\n\n**Steg 2 — regn ut det under rottegnet først.** Det er verdt å gjøre for seg; da ser vi med én gang om det går opp.\n\n$$b^2 - 4ac = 90^2 - 4 \\cdot (-0{,}5) \\cdot (-1600)$$\n$$b^2 - 4ac = 8100 - 3200 = 4900$$\n$$\\sqrt{4900} = 70$$\n\n**Steg 3 — sett inn i abc-formelen:**\n\n$$x = \\frac{-90 \\pm 70}{2 \\cdot (-0{,}5)} = \\frac{-90 \\pm 70}{-1}$$\n\n$$x_1 = \\frac{-90 + 70}{-1} = \\frac{-20}{-1} = 20$$\n$$x_2 = \\frac{-90 - 70}{-1} = \\frac{-160}{-1} = 160$$\n\n![Koordinatsystem med antall enheter x fra 0 til 180 og kroner fra minus 2000 til 3200. En blå parabel merket O av x åpner nedover, skjærer x-aksen i de markerte punktene (20, 0) og (160, 0) og har toppunkt i det markerte punktet (90, 2450). Stykket av grafen som ligger over x-aksen er skravert grønt og merket «overskudd»; stykkene under x-aksen er skravert rødt.](/images/content/matematikk-okonomi/matok-6-4-dekningspunkt.png)\n\n*Dekningspunktene er der $O(x) = 0$, toppunktet der $O'(x) = 0$. De tre punktene ligger på samme kurve, men svarer på hvert sitt spørsmål: hvor bedriften går i null, og hvor den tjener mest.*\n\n**Svar:** Dekningspunktene er $x = 20$ og $x = 160$ enheter.\n\nSiden $a = -0{,}5 < 0$, vender parabelen nedover. Den ligger derfor over $x$-aksen mellom nullpunktene: bedriften går med overskudd når de produserer mellom 20 og 160 enheter, og med underskudd utenfor."
+    },
+        {
+      "id": "matok-6-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-4-oppg-1",
+        "number": "6.4.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bedrift har overskuddet $O(x) = -0{,}25x^2 + 40x - 975$ kroner ved $x$ enheter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv opp $a$, $b$ og $c$, og regn ut $b^2 - 4ac$.",
+            "solution": "$a = -0{,}25$, $b = 40$, $c = -975$. $b^2 - 4ac = 1600 - 4 \\cdot (-0{,}25) \\cdot (-975) = 1600 - 975 = 625$",
+            "answer": 625
+          },
+          {
+            "label": "b",
+            "task": "Finn dekningspunktene.",
+            "solution": "$\\sqrt{625} = 25$, så $x = \\frac{-40 \\pm 25}{-0{,}5}$. Det gir $x_1 = \\frac{-15}{-0{,}5} = 30$ og $x_2 = \\frac{-65}{-0{,}5} = 130$.",
+            "answer": [
+              30,
+              130
+            ]
+          },
+          {
+            "label": "c",
+            "task": "For hvilke produksjonstall går bedriften med overskudd?",
+            "solution": "Mellom dekningspunktene: $30 < x < 130$ enheter. Parabelen vender nedover fordi $a < 0$."
+          },
+          {
+            "label": "d",
+            "task": "Finn $O'(x)$.",
+            "solution": "$O'(x) = -0{,}5x + 40$",
+            "expressionAnswer": "-0.5x+40"
+          },
+          {
+            "label": "e",
+            "task": "Løs $O'(x) = 0$, og regn ut det største overskuddet.",
+            "solution": "$-0{,}5x + 40 = 0$ gir $x = 80$. $O(80) = -0{,}25 \\cdot 6400 + 3200 - 975 = -1600 + 3200 - 975 = 625$ kr.",
+            "answer": [
+              80,
+              625
+            ]
+          }
+        ],
+        "solution": "a) 625, b) $x = 30$ og $x = 130$, c) $30 < x < 130$, d) $O'(x) = -0{,}5x + 40$, e) $x = 80$ gir 625 kr",
+        "hints": [
+          "Regn ut $b^2 - 4ac$ for seg først.",
+          "Nullpunkt: $O(x) = 0$. Toppunkt: $O'(x) = 0$. Det er to forskjellige likninger."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-4-def-drofting",
+      "type": "definition",
+      "title": "Funksjonsdrøfting — framgangsmåten",
+      "content": "1. **Deriver.** Skriv $f'(x)$ rett under $f(x)$.\n2. **Faktoriser** $f'(x)$ som én sammenhengende kjede: $f'(x) = \\ldots = \\ldots$ — ikke som likninger med «$= 0$». Da leser vi nullpunktene rett av faktorene.\n3. **Sett opp fortegnslinja**, én rad per faktor, i den rekkefølgen faktorene står i uttrykket. Konstantfaktoren får sin egen rad.\n4. **Regn ut $y$-verdiene** ved å sette $x$-verdiene inn i den **opprinnelige** funksjonen — aldri i den deriverte.\n5. **Konkluder**: topp- eller bunnpunkt, og hvor funksjonen vokser og synker. Tolk svaret i sammenhengen.\n\n**Om fortegnslinja:**\n- Én rad per faktor. Stiplet der faktoren er negativ, heltrukken der den er positiv, $0$ i nullpunktet.\n- Nederste rad er produktet. Der ganger vi fortegnene sammen, intervall for intervall.\n- **Telleregelen:** et partall antall minuser gir pluss, et oddetall gir minus.\n\nNB: Vi bruker **alltid** fortegnslinje for å avgjøre om et punkt er topp eller bunn — ikke den andrederiverte. Fortegnslinja gir oss monotonien på kjøpet, og den virker også når den deriverte har flere nullpunkter."
+    },
+    {
+      "id": "matok-6-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Toppunktet begrunnet med fortegnslinje",
+      "problem": "Bruk framgangsmåten på $O(x) = -0{,}5x^2 + 90x - 1600$ fra Eksempel 1. Finn toppunktet, og si hvor overskuddet vokser og hvor det synker.",
+      "solution": "**Steg 1 — deriver.** Den deriverte skrives rett under funksjonen:\n\n$$O(x) = -0{,}5x^2 + 90x - 1600$$\n$$O'(x) = -x + 90$$\n\n**Steg 2 — faktoriser som én kjede.** Vi setter $-1$ utenfor:\n\n$$O'(x) = -x + 90 = -1 \\cdot (x - 90)$$\n\nNå ser vi direkte at den deriverte er null når $x = 90$.\n\n**Steg 3 — fortegnslinje.** Vi lager én rad for konstantfaktoren $-1$ og én for $(x - 90)$ — i den rekkefølgen de står i uttrykket. Se linja under løsningen.\n\nFaktoren $-1$ er negativ overalt, så raden er stiplet hele veien. Faktoren $(x - 90)$ er negativ til venstre for 90, null i 90 og positiv til høyre. Produktet blir da positivt til venstre og negativt til høyre — ett minustegn ganget med ett minustegn gir pluss.\n\n**Steg 4 — $y$-verdien.** Vi setter $x = 90$ inn i den **opprinnelige** funksjonen:\n\n$$O(90) = -0{,}5 \\cdot 90^2 + 90 \\cdot 90 - 1600$$\n$$O(90) = -0{,}5 \\cdot 8100 + 8100 - 1600$$\n$$O(90) = -4050 + 8100 - 1600 = 2450$$\n\n**Steg 5 — konkluder.** Den deriverte går fra positiv til negativ i $x = 90$. Funksjonen vokser først og synker etterpå, så dette er et **toppunkt**.\n\n**Svar:** Toppunktet er $(90,\\ 2450)$. Overskuddet vokser for $x < 90$ og synker for $x > 90$. Det største overskuddet er $2450$ kroner, ved en produksjon på $90$ enheter."
+    },
+    {
+      "id": "matok-6-4-fortegn-1",
+      "type": "sign-diagram",
+      "title": "Fortegnslinje for O'(x) = -1 · (x - 90)",
+      "criticalPoints": [
+        "90"
+      ],
+      "factors": [
+        {
+          "label": "-1",
+          "signs": "---"
+        },
+        {
+          "label": "(x-90)",
+          "signs": "-0+"
+        }
+      ],
+      "resultLabel": "O'(x)"
+    },
+    {
+      "id": "matok-6-4-tekst-lesing",
+      "type": "text",
+      "content": "Slik leses linja: nederste rad er den deriverte. **Heltrukken** betyr $O' > 0$, altså at overskuddet **vokser**. **Stiplet** betyr $O' < 0$, altså at det **synker**. Der fortegnet skifter fra pluss til minus, har vi et **toppunkt**; skifter det fra minus til pluss, har vi et **bunnpunkt**.\n\nEr $O'$ null uten at fortegnet skifter, er punktet verken topp eller bunn — grafen flater bare ut et øyeblikk og fortsetter samme vei. Fortegnslinja fanger også det opp; den andrederiverte gjør det ikke."
+    },
+    {
+      "id": "matok-6-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-4-oppg-2",
+        "number": "6.4.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør den samme drøftingen for $O(x) = -0{,}1x^2 + 24x - 800$ kroner ved $x$ enheter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $O'(x)$ og faktoriser den.",
+            "solution": "$O'(x) = -0{,}2x + 24 = -0{,}2(x - 120)$",
+            "expressionAnswer": "-0.2(x-120)"
+          },
+          {
+            "label": "b",
+            "task": "Sett opp fortegnslinja med én rad for $-0{,}2$ og én for $(x - 120)$.",
+            "solution": "Raden for $-0{,}2$ er stiplet hele veien. Raden for $(x-120)$ er stiplet til venstre for 120, har 0 i 120 og er heltrukken til høyre. Produktraden blir heltrukken til venstre, 0 i 120 og stiplet til høyre."
+          },
+          {
+            "label": "c",
+            "task": "Finn toppunktet.",
+            "solution": "$x = 120$ og $O(120) = -0{,}1 \\cdot 14\\,400 + 2880 - 800 = -1440 + 2880 - 800 = 640$. Toppunktet er $(120,\\ 640)$.",
+            "answer": 640
+          },
+          {
+            "label": "d",
+            "task": "Finn dekningspunktene.",
+            "solution": "$-0{,}1x^2 + 24x - 800 = 0$. $b^2 - 4ac = 576 - 320 = 256$ og $\\sqrt{256} = 16$. $x = \\frac{-24 \\pm 16}{-0{,}2}$ gir $x_1 = 40$ og $x_2 = 200$.",
+            "answer": [
+              40,
+              200
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Skriv to setninger til bedriftslederen om hva tallene betyr.",
+            "solution": "Bedriften går i pluss så lenge de produserer mellom 40 og 200 enheter. Det største overskuddet, 640 kroner, får de ved 120 enheter — produserer de mer enn det, synker overskuddet igjen."
+          }
+        ],
+        "solution": "a) $O'(x) = -0{,}2(x - 120)$, b) produktraden er heltrukken før 120 og stiplet etter, c) $(120,\\ 640)$, d) $x = 40$ og $x = 200$, e) overskudd mellom 40 og 200 enheter, best ved 120",
+        "hints": [
+          "Sett konstantfaktoren utenfor når du faktoriserer den deriverte.",
+          "Toppunkt: $O'(x) = 0$. Dekningspunkt: $O(x) = 0$."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: To ekstremalpunkter",
+      "problem": "En bedrift har overskuddet\n\n$$O(x) = -0{,}01x^3 + 1{,}5x^2 - 48x + 500$$\n\nkroner ved $x$ enheter, for $0 \\le x \\le 100$.\n\nFinn ekstremalpunktene, og beskriv hvordan overskuddet utvikler seg.",
+      "solution": "**Steg 1 — deriver:**\n\n$$O(x) = -0{,}01x^3 + 1{,}5x^2 - 48x + 500$$\n$$O'(x) = -0{,}03x^2 + 3x - 48$$\n\n**Steg 2 — faktoriser som én kjede.** Vi setter $-0{,}03$ utenfor og faktoriserer parentesen med sum og produkt (to tall med sum $100$ og produkt $1600$: det er $20$ og $80$):\n\n$$O'(x) = -0{,}03x^2 + 3x - 48 = -0{,}03(x^2 - 100x + 1600) = -0{,}03(x - 20)(x - 80)$$\n\nNå ser vi direkte at den deriverte er null når $x = 20$ og når $x = 80$.\n\n**Steg 3 — fortegnslinje** med tre rader: konstantfaktoren $-0{,}03$, faktoren $(x - 20)$ og faktoren $(x - 80)$. Se linja under løsningen.\n\nI det venstre intervallet er alle tre negative — tre minuser er et oddetall, så produktet er negativt. I midten er $-0{,}03$ og $(x-80)$ negative, altså to minuser, og produktet er positivt. Til høyre er bare $-0{,}03$ negativ, og produktet er negativt igjen.\n\n**Steg 4 — $y$-verdiene** fra den opprinnelige funksjonen:\n\n$$O(20) = -0{,}01 \\cdot 8000 + 1{,}5 \\cdot 400 - 48 \\cdot 20 + 500$$\n$$O(20) = -80 + 600 - 960 + 500 = 60$$\n\n$$O(80) = -0{,}01 \\cdot 512\\,000 + 1{,}5 \\cdot 6400 - 48 \\cdot 80 + 500$$\n$$O(80) = -5120 + 9600 - 3840 + 500 = 1140$$\n\n**Steg 5 — konkluder.** I $x = 20$ skifter den deriverte fra minus til pluss: **bunnpunkt** $(20,\\ 60)$. I $x = 80$ skifter den fra pluss til minus: **toppunkt** $(80,\\ 1140)$.\n\n**Svar:** Bunnpunkt $(20,\\ 60)$ og toppunkt $(80,\\ 1140)$.\n\nOverskuddet synker fra starten ned til 60 kroner ved 20 enheter, vokser så jevnt til 1140 kroner ved 80 enheter, og synker deretter igjen. Bedriften bør altså legge produksjonen på 80 enheter."
+    },
+    {
+      "id": "matok-6-4-fortegn-2",
+      "type": "sign-diagram",
+      "title": "Fortegnslinje for O'(x) = -0,03(x - 20)(x - 80)",
+      "criticalPoints": [
+        "20",
+        "80"
+      ],
+      "factors": [
+        {
+          "label": "-0{,}03",
+          "signs": "-----"
+        },
+        {
+          "label": "(x-20)",
+          "signs": "-0+++"
+        },
+        {
+          "label": "(x-80)",
+          "signs": "---0+"
+        }
+      ],
+      "resultLabel": "O'(x)"
+    },
+    {
+      "id": "matok-6-4-fig-kubisk",
+      "type": "dynamic-plot",
+      "title": "Overskuddsfunksjonen fra Eksempel 3",
+      "description": "Grafen synker fram til bunnpunktet ved 20 enheter, vokser til toppunktet ved 80 enheter og synker igjen. De to markerte punktene er bunnpunktet (20, 60) og toppunktet (80, 1140).",
+      "xRange": [
+        0,
+        100
+      ],
+      "yRange": [
+        0,
+        1300
+      ],
+      "xLabel": "x (antall enheter)",
+      "yLabel": "overskudd (kr)",
+      "functions": [
+        {
+          "label": "$O(x) = -0{,}01x^3 + 1{,}5x^2 - 48x + 500$",
+          "expression": "-0.01*x^3 + 1.5*x^2 - 48*x + 500",
+          "style": "solid"
+        }
+      ],
+      "points": [
+        {
+          "x": 20,
+          "y": 60,
+          "label": "bunnpunkt (20, 60)"
+        },
+        {
+          "x": 80,
+          "y": 1140,
+          "label": "toppunkt (80, 1140)"
+        }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-6-4-fig-kubisk-statisk",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-6-4-kubisk-overskudd.png",
+      "alt": "Koordinatsystem med antall enheter x fra 0 til 100 langs den vannrette aksen og kroner fra 0 til 1400 langs den loddrette. En blå kurve O av x starter i 500 kroner ved x lik 0, synker til et markert bunnpunkt i (20, 60) — teksten «bunnpunkt (20, 60)» står i fri luft under den stigende delen av kurven, med en kort grå pil ned til prikken — stiger til et markert toppunkt i (80, 1140) og synker så til 700 kroner ved x lik 100.",
+      "caption": "Overskuddsfunksjonen fra Eksempel 3: bunnpunkt $(20, 60)$ og toppunkt $(80, 1140)$ — de to stedene der $O'(x) = 0$.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-6-4-kubisk-overskudd.json (+ matok-6-4-kubisk-overskudd.kontroll.json, alle porter grønne). Statisk variant av dynamic-plot-blokken matok-6-4-fig-kubisk."
+    },
+    {
+      "id": "matok-6-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-4-oppg-3",
+        "number": "6.4.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift har overskuddet $O(x) = -0{,}02x^3 + 1{,}5x^2 - 24x + 200$ kroner ved $x$ enheter, for $0 \\le x \\le 60$. Gjør den samme drøftingen som i Eksempel 3.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $O'(x)$.",
+            "solution": "$O'(x) = -0{,}06x^2 + 3x - 24$",
+            "expressionAnswer": "-0.06x^2+3x-24"
+          },
+          {
+            "label": "b",
+            "task": "Faktoriser $O'(x)$. Sett $-0{,}06$ utenfor først.",
+            "solution": "$-0{,}06(x^2 - 50x + 400) = -0{,}06(x - 10)(x - 40)$ — to tall med sum 50 og produkt 400 er 10 og 40.",
+            "expressionAnswer": "-0.06(x-10)(x-40)"
+          },
+          {
+            "label": "c",
+            "task": "Hvilke $x$-verdier gjør $O'(x) = 0$?",
+            "solution": "$x = 10$ og $x = 40$.",
+            "answer": [
+              10,
+              40
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Sett opp fortegnslinja og avgjør hva slags punkter dette er.",
+            "solution": "Radene er $-0{,}06$ (stiplet hele veien), $(x-10)$ og $(x-40)$. Produktraden er stiplet, så heltrukken, så stiplet. I $x = 10$ skifter den fra minus til pluss — bunnpunkt. I $x = 40$ skifter den fra pluss til minus — toppunkt."
+          },
+          {
+            "label": "e",
+            "task": "Regn ut $y$-verdiene, og skriv opp de to punktene.",
+            "solution": "$O(10) = -20 + 150 - 240 + 200 = 90$ og $O(40) = -1280 + 2400 - 960 + 200 = 360$. Bunnpunkt $(10,\\ 90)$ og toppunkt $(40,\\ 360)$.",
+            "answer": [
+              90,
+              360
+            ]
+          }
+        ],
+        "solution": "a) $-0{,}06x^2 + 3x - 24$, b) $-0{,}06(x-10)(x-40)$, c) $x = 10$ og $x = 40$, d) bunnpunkt i 10, toppunkt i 40, e) $(10,\\ 90)$ og $(40,\\ 360)$",
+        "hints": [
+          "Sett konstantfaktoren utenfor før du faktoriserer parentesen.",
+          "Sum og produkt: hvilke to tall har sum 50 og produkt 400?",
+          "$y$-verdiene regnes i den opprinnelige funksjonen, ikke i den deriverte."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Største verdi på et lukket intervall",
+      "problem": "Overskuddsfunksjonen fra Eksempel 3, $O(x) = -0{,}01x^3 + 1{,}5x^2 - 48x + 500$, gjelder bare for $0 \\le x \\le 100$.\n\nHva er det største og det minste overskuddet på dette intervallet?",
+      "solution": "**Hva må vi finne?** Det holder ikke å se på ekstremalpunktene alene. På et lukket intervall kan den største verdien også ligge i et **endepunkt**, der grafen bare stopper.\n\nVi regner derfor ut $O$ i fire punkter: de to endepunktene og de to ekstremalpunktene.\n\n$$O(0) = 500$$\n$$O(20) = 60 \\qquad \\text{(bunnpunkt)}$$\n$$O(80) = 1140 \\qquad \\text{(toppunkt)}$$\n$$O(100) = -0{,}01 \\cdot 1\\,000\\,000 + 1{,}5 \\cdot 10\\,000 - 4800 + 500$$\n$$O(100) = -10\\,000 + 15\\,000 - 4800 + 500 = 700$$\n\nVi sammenlikner de fire tallene: $500$, $60$, $1140$ og $700$.\n\n![Koordinatsystem med antall enheter x fra 0 til 100 og kroner fra 0 til 1400. Den kubiske kurven O av x starter i (0, 500), synker til bunnpunktet (20, 60), stiger til toppunktet (80, 1140) og synker til (100, 700). Alle fire punktene er markert med prikk og navngitt.](/images/content/matematikk-okonomi/matok-6-4-endepunkter.png)\n\n*På et lukket intervall er endepunktene kandidater de også. Her vinner toppunktet $1140$, men legg merke til at $O(100) = 700$ er større enn $O(0) = 500$ — hadde intervallet gått lenger, kunne endepunktet tatt over.*\n\n**Svar:** Det største overskuddet er $1140$ kroner ved $x = 80$ enheter, og det minste er $60$ kroner ved $x = 20$ enheter.\n\nHer falt begge ytterverdiene sammen med ekstremalpunktene. Men merk at $O(100) = 700$ er større enn $O(0) = 500$ — hadde intervallet gått lenger, kunne endepunktet lett tatt over. Derfor sjekker vi alltid endepunktene når området er begrenset."
+    },
+        {
+      "id": "matok-6-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-4-oppg-4",
+        "number": "6.4.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Nedenfor står fem påstander om en funksjon $f$. Avgjør om hver påstand er riktig eller gal, og begrunn.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«$f'(30) = 0$, altså har $f$ et toppunkt i $x = 30$.»",
+            "solution": "Gal. $f'(30) = 0$ betyr bare at tangenten er vannrett. Det kan være topp, bunn eller et punkt der grafen flater ut og fortsetter samme vei. Fortegnslinja må avgjøre."
+          },
+          {
+            "label": "b",
+            "task": "«$f(30) = 0$, altså har $f$ et toppunkt i $x = 30$.»",
+            "solution": "Gal, og her blandes to ting. $f(30) = 0$ er et nullpunkt — grafen krysser $x$-aksen. Det sier ingenting om topp eller bunn."
+          },
+          {
+            "label": "c",
+            "task": "«$f'(x) > 0$ for alle $x$ mellom 10 og 50, altså vokser $f$ på hele dette intervallet.»",
+            "solution": "Riktig. Positiv derivert på et helt intervall betyr at funksjonen vokser der."
+          },
+          {
+            "label": "d",
+            "task": "«$f'$ skifter fra stiplet til heltrukken i $x = 45$, altså har $f$ et bunnpunkt der.»",
+            "solution": "Riktig. Stiplet betyr negativ og heltrukken betyr positiv, så $f$ synker først og vokser etterpå — det er et bunnpunkt."
+          },
+          {
+            "label": "e",
+            "task": "«$f$ har toppunkt $(80,\\ 1140)$, altså er $1140$ den største verdien $f$ kan ha.»",
+            "solution": "Ikke nødvendigvis. På et lukket intervall kan et endepunkt gi en større verdi, og en funksjon kan ha flere toppunkter der et annet er høyere. Vi må sammenlikne alle kandidatene."
+          }
+        ],
+        "solution": "a) gal, b) gal, c) riktig, d) riktig, e) ikke nødvendigvis",
+        "hints": [
+          "Hold $f(x) = 0$ og $f'(x) = 0$ fra hverandre.",
+          "Et toppunkt er det høyeste i nærheten — ikke nødvendigvis det høyeste i hele definisjonsområdet."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "matok-6-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Full drøfting med digitale verktøy (Del 2)",
+      "problem": "En bedrift har\n\n$$I(x) = 900x - 0{,}5x^2 \\qquad \\text{og} \\qquad K(x) = 0{,}04x^3 - 6x^2 + 400x + 20\\,000$$\n\nbegge i kroner ved $x$ enheter.\n\nFinn overskuddsfunksjonen, dekningspunktene og det største overskuddet.",
+      "solution": "**Steg 1 — sett opp modellen i CAS:**\n\n```\nI(x):=900x-0.5x^2\nK(x):=0.04x^3-6x^2+400x+20000\nO(x):=I(x)-K(x)\n```\n\nKommandoen `O(x)` gir\n\n$$O(x) = -0{,}04x^3 + 5{,}5x^2 + 500x - 20\\,000$$\n\n**Steg 2 — dekningspunktene.** Vi løser $O(x) = 0$:\n\n```\nLøs(O(x)=0, x)\n```\n\nCAS gir tre løsninger: $x \\approx -83{,}59$, $x \\approx 31{,}56$ og $x \\approx 189{,}53$.\n\nDen negative forkaster vi — bedriften kan ikke produsere et negativt antall enheter.\n\n**Steg 3 — det største overskuddet.** Vi deriverer og løser:\n\n```\nO'(x)\nLøs(O'(x)=0, x)\n```\n\n$$O'(x) = -0{,}12x^2 + 11x + 500$$\n\nLøsningene er $x = -\\frac{100}{3} \\approx -33{,}33$ og $x = 125$. Igjen forkaster vi den negative.\n\n**Kontroll for hånd** med abc på $O'(x) = 0$:\n\n$$b^2 - 4ac = 11^2 - 4 \\cdot (-0{,}12) \\cdot 500 = 121 + 240 = 361$$\n$$\\sqrt{361} = 19$$\n$$x = \\frac{-11 \\pm 19}{-0{,}24}$$\n\nDet gir $x = \\frac{8}{-0{,}24} \\approx -33{,}33$ og $x = \\frac{-30}{-0{,}24} = 125$.\n\n**Steg 4 — overskuddet i toppunktet:**\n\n```\nO(125)\n```\n\ngir $50\\,312{,}5$.\n\n**Svar:** $O(x) = -0{,}04x^3 + 5{,}5x^2 + 500x - 20\\,000$. Bedriften går i null ved omtrent $32$ og omtrent $190$ enheter, og har det største overskuddet, $50\\,312{,}50$ kroner, ved $125$ enheter.\n\nLegg merke til at vi kontrollerte CAS-svaret for hånd. Det er ikke mistillit til verktøyet — det er en sjekk på at vi har tastet inn den modellen vi trodde."
+    },
+    {
+      "id": "matok-6-4-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Spørsmål | Likning | Hva vi finner |\n|---|---|---|\n| Når går bedriften i null? | $O(x) = 0$ | dekningspunkter |\n| Hvor er overskuddet størst? | $O'(x) = 0$ | kandidater til toppunkt |\n| Vokser eller synker det? | fortegnet til $O'$ | monotoni |\n\n**Framgangsmåten ved drøfting:** deriver → faktoriser som én kjede → fortegnslinje → $y$-verdier i den opprinnelige funksjonen → konkluder og tolk.\n\n**Fortegnslinja:**\n- Én rad per faktor, i uttrykkets rekkefølge. Konstantfaktoren får sin egen rad.\n- Stiplet = negativ, heltrukken = positiv, $0$ i nullpunktet.\n- Telleregelen: partall antall minuser gir pluss.\n- $+ \\to -$: toppunkt. $- \\to +$: bunnpunkt. Ingen skifte: verken topp eller bunn.\n\n**På et lukket intervall** må endepunktene sjekkes i tillegg til ekstremalpunktene.\n\n**Vanlige feil:** å regne $y$-verdien i den deriverte i stedet for i funksjonen; å blande $f(x) = 0$ med $f'(x) = 0$; å ta med løsninger utenfor definisjonsområdet."
+    },
+    {
+      "id": "matok-6-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-4-oppg-5",
+        "number": "6.4.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bedrift har overskuddet\n\n$$O(x) = -0{,}01x^3 + 1{,}2x^2 - 21x - 500$$\n\nkroner ved $x$ enheter, for $0 \\le x \\le 100$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $O'(x)$ og faktoriser den.",
+            "solution": "$O'(x) = -0{,}03x^2 + 2{,}4x - 21 = -0{,}03(x^2 - 80x + 700) = -0{,}03(x - 10)(x - 70)$",
+            "expressionAnswer": "-0.03(x-10)(x-70)"
+          },
+          {
+            "label": "b",
+            "task": "Sett opp fortegnslinja og finn ekstremalpunktene.",
+            "solution": "Radene er $-0{,}03$, $(x-10)$ og $(x-70)$. Produktraden er stiplet, heltrukken, stiplet. $O(10) = -10 + 120 - 210 - 500 = -600$ og $O(70) = -3430 + 5880 - 1470 - 500 = 480$. Bunnpunkt $(10,\\ -600)$ og toppunkt $(70,\\ 480)$.",
+            "answer": [
+              -600,
+              480
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $O(0)$ og $O(100)$, og finn den største og den minste verdien på hele intervallet.",
+            "solution": "$O(0) = -500$ og $O(100) = -10\\,000 + 12\\,000 - 2100 - 500 = -600$. Kandidatene er $-500$, $-600$, $480$ og $-600$. Største verdi er $480$ kr ved $x = 70$; minste verdi er $-600$ kr, som oppnås både i $x = 10$ og i $x = 100$.",
+            "answer": [
+              -500,
+              -600,
+              480,
+              -600
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Bruk digitale verktøy til å finne dekningspunktene. Rund av til nærmeste hele enhet.",
+            "solution": "$O(x) = 0$ gir $x \\approx -13{,}04$, $x \\approx 42{,}23$ og $x \\approx 90{,}81$. Den negative forkastes. Dekningspunktene er omtrent 42 og 91 enheter.",
+            "answer": [
+              42,
+              91
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Skriv en kort anbefaling til bedriften.",
+            "solution": "Bedriften bør produsere mellom omtrent 42 og 91 enheter — utenfor dette går de med underskudd. Det beste er 70 enheter, som gir 480 kroner i overskudd. Produksjon under 42 enheter er det verst tenkelige: ved 10 enheter taper de 600 kroner. Marginen er uansett smal, så modellen bør kontrolleres mot virkelige tall før de legger om driften."
+          }
+        ],
+        "solution": "a) $-0{,}03(x-10)(x-70)$, b) bunnpunkt $(10, -600)$ og toppunkt $(70, 480)$, c) største 480 kr i $x = 70$, minste $-600$ kr i $x = 10$ og $x = 100$, d) ca. 42 og ca. 91 enheter, e) produser mellom 42 og 91, helst 70 enheter",
+        "hints": [
+          "Sum og produkt på $x^2 - 80x + 700$: to tall med sum 80 og produkt 700.",
+          "På et lukket intervall må endepunktene sammenliknes med ekstremalpunktene."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-4-oppg-6",
+        "number": "6.4.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — digitale verktøy.** En bedrift har overskuddet\n\n$$O(x) = -0{,}03x^3 + 5{,}4x^2 - 243x + 1500$$\n\nkroner ved $x$ enheter, for $0 \\le x \\le 120$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Tegn grafen til $O$ i et digitalt verktøy, og beskriv formen med ord.",
+            "solution": "Grafen starter i 1500, synker bratt til et bunnpunkt, vokser til et toppunkt og synker igjen. Den krysser $x$-aksen tre ganger innenfor området.\n\n![Koordinatsystem med antall enheter x fra 0 til 120 og kroner fra minus 2000 til 2000. En blå kubisk kurve merket O(x) starter i det markerte punktet (0, 1500), synker under null, stiger igjen til om lag 1500 ved x lik 90 og faller deretter. Kurven krysser x-aksen tre ganger, ved om lag 7, 61 og 111. En tekst sier «ved x = 0 selger bedriften ingenting».](/images/content/matematikk-okonomi/matok-6-4-konstantledd.png)\n\n*Modellen sier at bedriften tjener 1500 kr på å produsere **ingenting**. Det er ikke en regnefeil, men et tegn på at konstantleddet ikke er troverdig i en overskuddsfunksjon.*"
+          },
+          {
+            "label": "b",
+            "task": "Finn $O'(x)$ og faktoriser den.",
+            "solution": "$O'(x) = -0{,}09x^2 + 10{,}8x - 243 = -0{,}09(x^2 - 120x + 2700) = -0{,}09(x - 30)(x - 90)$",
+            "expressionAnswer": "-0.09(x-30)(x-90)"
+          },
+          {
+            "label": "c",
+            "task": "Finn ekstremalpunktene, og begrunn med fortegnslinje hvilket som er topp og hvilket som er bunn.",
+            "solution": "$O(30) = -810 + 4860 - 7290 + 1500 = -1740$ og $O(90) = -21\\,870 + 43\\,740 - 21\\,870 + 1500 = 1500$. Fortegnslinja med radene $-0{,}09$, $(x-30)$ og $(x-90)$ gir produktraden stiplet, heltrukken, stiplet: bunnpunkt $(30,\\ -1740)$ og toppunkt $(90,\\ 1500)$.\n\n![En fortegnslinje for x fra 0 til 120 med tallinja øverst og 30 og 90 merket av. Under følger tre faktorrader: minus 0,09, som er heltrukken rød hele veien og merket «alltid negativ»; x − 30, som er rød og stiplet med minus til venstre for 30 og grønn og heltrukken med pluss til høyre; og x − 90, som er rød og stiplet med minus fram til 90 og grønn og heltrukken med pluss etter. Produktraden O'(x) er stiplet med minus før 30, heltrukken med pluss mellom 30 og 90 og stiplet med minus etter 90, med åpne ringer i 30 og 90. Nederst viser en rad merket O(x) tre piler: en rød pil ned før 30, en grønn pil opp mellom 30 og 90 og en rød pil ned etter 90.](/images/content/matematikk-okonomi/matok-6-4-fortegnslinje.png)\n\n*Fortegnslinja for $O'(x) = -0{,}09(x - 30)(x - 90)$: produktraden skifter fra minus til pluss i $x = 30$ og fra pluss til minus i $x = 90$. Derfor er $(30,\\ -1740)$ et bunnpunkt og $(90,\\ 1500)$ et toppunkt.*",
+            "answer": [
+              -1740,
+              1500
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Finn dekningspunktene. Rund av til nærmeste hele enhet.",
+            "solution": "$O(x) = 0$ gir $x \\approx 7{,}31$, $x \\approx 61{,}48$ og $x \\approx 111{,}20$ — altså omtrent 7, 61 og 111 enheter.",
+            "answer": [
+              7,
+              61,
+              111
+            ]
+          },
+          {
+            "label": "e",
+            "task": "For hvilke produksjonstall går bedriften med overskudd? Regn også ut $O(0)$ og $O(120)$, og vurder om modellen er troverdig helt ut til 120 enheter.",
+            "solution": "Grafen ligger over $x$-aksen for $0 \\le x < 7$ og for $61 < x < 111$. $O(0) = 1500$ og $O(120) = -1740$. At bedriften tjener 1500 kroner på å produsere ingenting, er ikke troverdig — et konstantledd på $+1500$ i en overskuddsfunksjon burde vært negativt (faste kostnader). Modellen er trolig bare ment å gjelde fra et stykke ute på skalaen, og bør ikke brukes nær $x = 0$."
+          }
+        ],
+        "solution": "a) synker, bunn, topp, synker, b) $-0{,}09(x-30)(x-90)$, c) bunnpunkt $(30, -1740)$ og toppunkt $(90, 1500)$, d) ca. 7, 61 og 111 enheter, e) overskudd for $0 \\le x < 7$ og $61 < x < 111$; modellen er ikke troverdig nær $x = 0$",
+        "hints": [
+          "Sum og produkt på $x^2 - 120x + 2700$.",
+          "I e): hva betyr $O(0) = 1500$ rent praktisk?"
+        ],
+        "competenceGoals": [
+          "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+        ],
+        "allowsUpload": true
+      }
+    }
+  ],
+  "exercises": []
+}

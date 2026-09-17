@@ -1,0 +1,238 @@
+{
+  "id": "matok-3-4",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "3.4",
+  "title": "Renteregning med e og ln",
+  "description": "Hvor lenge må pengene stå? Å løse renteproblemer med logaritmer.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"
+  ],
+  "keyTerms": [
+    { "term": "Tidsformelen", "definition": "$n = \\dfrac{\\ln\\left(\\frac{K_n}{K_0}\\right)}{\\ln v}$ — antall terminer når start- og sluttbeløp og vekstfaktoren er kjent." },
+    { "term": "Doblingstid (årlig)", "definition": "$t = \\dfrac{\\ln 2}{\\ln v}$. Uavhengig av startbeløpet, fordi $K_0$ forkortes bort." },
+    { "term": "Doblingstid (kontinuerlig)", "definition": "$t = \\dfrac{\\ln 2}{r}$, der $r$ er den kontinuerlige renten som desimaltall." },
+    { "term": "Halveringstid", "definition": "$t = \\dfrac{\\ln 0{,}5}{\\ln v}$ for en verdi som faller. Både teller og nevner er negative, så svaret blir positivt." },
+    { "term": "Krysningstidspunkt", "definition": "Det tidspunktet to modeller gir samme verdi. Finnes ved å sette uttrykkene lik hverandre og løse med $\\ln$." }
+  ],
+  "content": [
+    {
+      "id": "matok-3-4-intro",
+      "type": "text",
+      "content": "## Nå kan vi svare på «når?»\n\nI kapittel 1 og 2 regnet vi ut **hvor mye**. I 3.2 så vi at spørsmålet **når** krevde tabeller og prøving. I 3.3 fikk vi logaritmen.\n\nDette kapittelet er der de tre møtes. Alle formlene er de samme som før — det eneste nye er at den ukjente nå kan stå i eksponenten.\n\n| Fra kapittel 1 og 2 | Formel |\n|---|---|\n| Årlig rentetilskriving | $K_n = K_0 \\cdot v^{\\,n}$ |\n| $m$ terminer per år | $K_n = K_0 \\cdot \\left(1 + \\frac{p}{100m}\\right)^{m \\cdot n}$ |\n| Kontinuerlig rente | $K_t = K_0 \\cdot e^{\\,r\\,t}$ |\n\nI hver av dem sitter tiden oppe i eksponenten. Og nå vet vi hva vi gjør med det: **vi tar $\\ln$ på begge sider.**"
+    },
+    {
+      "id": "matok-3-4-teorem-tid",
+      "type": "theorem",
+      "title": "Å løse for tiden",
+      "content": "**Årlig rentetilskriving.** Fra $K_0 \\cdot v^{\\,n} = K_n$:\n\n$$v^{\\,n} = \\frac{K_n}{K_0} \\quad \\Longrightarrow \\quad n \\ln v = \\ln\\left(\\frac{K_n}{K_0}\\right) \\quad \\Longrightarrow \\quad n = \\frac{\\ln\\left(\\frac{K_n}{K_0}\\right)}{\\ln v}$$\n\n**Kontinuerlig rente.** Fra $K_0 \\cdot e^{\\,r\\,t} = K_t$:\n\n$$e^{\\,r\\,t} = \\frac{K_t}{K_0} \\quad \\Longrightarrow \\quad r\\,t = \\ln\\left(\\frac{K_t}{K_0}\\right) \\quad \\Longrightarrow \\quad t = \\frac{\\ln\\left(\\frac{K_t}{K_0}\\right)}{r}$$\n\n**Doblingstid:**\n\n$$t = \\frac{\\ln 2}{\\ln v} \\quad \\text{(årlig)} \\qquad\\qquad t = \\frac{\\ln 2}{r} \\quad \\text{(kontinuerlig)}$$\n\n**Renten, når begge beløpene og tiden er kjent:**\n\n$$r = \\frac{\\ln\\left(\\frac{K_t}{K_0}\\right)}{t} \\quad \\text{(kontinuerlig)} \\qquad\\qquad v = \\sqrt[n]{\\frac{K_n}{K_0}} \\quad \\text{(årlig)}$$\n\nNB: Lær **framgangsmåten**, ikke de fem formlene. Alle fem kommer ut av den samme oppskriften: del bort $K_0$, ta $\\ln$ på begge sider, hent eksponenten ned, del på det som står igjen. Husker du oppskriften, kan du utlede hvilken som helst av dem på et halvt minutt."
+    },
+    {
+      "id": "matok-3-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Når er beløpet stort nok?",
+      "problem": "Jonas setter $45\\,000$ kroner på en konto med $3{,}5\\,\\%$ årlig rente. Han trenger $80\\,000$ kroner. Hvor lenge må pengene stå?",
+      "solution": "**Hva vet vi?** $K_0 = 45\\,000$ kroner, $v = 1{,}035$ og $K_n = 80\\,000$ kroner. **Hva må vi finne?** $n$.\n\nVi setter opp likningen:\n\n$$45\\,000 \\cdot 1{,}035^{\\,n} = 80\\,000 \\qquad | : 45\\,000$$\n\n$$1{,}035^{\\,n} = \\frac{80\\,000}{45\\,000} \\approx 1{,}777778$$\n\nNå står den ukjente i eksponenten, og vi tar $\\ln$ på begge sider:\n\n$$\\ln\\left(1{,}035^{\\,n}\\right) = \\ln 1{,}777778 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n\nPotensregelen henter $n$ ned:\n\n$$n \\cdot \\ln 1{,}035 = \\ln 1{,}777778 \\qquad | : \\ln 1{,}035$$\n\n$$n = \\frac{\\ln 1{,}777778}{\\ln 1{,}035} \\approx \\frac{0{,}575364}{0{,}034401} \\approx 16{,}725$$\n\n**Kontroll.** Renten tilskrives bare én gang i året, så pengene må stå ut det syttende året:\n\n$$K(16) = 45\\,000 \\cdot 1{,}035^{16} \\approx 78\\,029{,}37$$\n$$K(17) = 45\\,000 \\cdot 1{,}035^{17} \\approx 80\\,760{,}40$$\n\n**Svar:** Modellen gir $16{,}73$ år. Med årlig rentetilskriving må pengene stå i **17 år** før Jonas har $80\\,000$ kroner.\n\nNB: Legg merke til forskjellen på de to svarene. Formelen gir et desimaltall — det er riktig for en modell som vokser jevnt. Men banken skriver renten inn én gang i året, og da hjelper det ikke å ta ut pengene etter $16{,}73$ år. **Svar på det oppgaven faktisk spør om**, og si hvilken av de to du gir."
+    },
+    {
+      "id": "matok-3-4-fig-naar-naas-maalet",
+      "type": "dynamic-plot",
+      "title": "Når passerer beløpet 80 000 kroner?",
+      "description": "Kurven viser 45 000 kroner som vokser med 3,5 prosent i året, fra 45 000 ved starten til omtrent 106 346 kroner etter 25 år. Den stiplede vannrette linja ligger på 80 000 kroner. Kurven krysser linja etter omtrent 16,7 år, og krysningspunktet er markert.",
+      "xRange": [0, 25],
+      "yRange": [0, 120000],
+      "xLabel": "t (år)",
+      "yLabel": "kroner",
+      "functions": [
+        { "label": "$K(t) = 45\\,000 \\cdot 1{,}035^{\\,t}$", "expression": "45000*1.035^x", "style": "solid" },
+        { "label": "målet: $80\\,000$ kr", "expression": "80000", "style": "dashed" }
+      ],
+      "points": [
+        { "x": 16.725, "y": 80000, "label": "(16,73 | 80 000)" }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-3-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-4-oppg-1",
+        "number": "3.4.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør det samme som Eksempel 1. Finn hvor mange år pengene må stå. Oppgi svaret fra formelen med to desimaler, og si hvor mange hele år det blir med årlig rentetilskriving.",
+        "subTasks": [
+          { "label": "a", "task": "$20\\,000$ kroner skal bli $30\\,000$ kroner med $4\\,\\%$ rente.", "solution": "$1{,}04^{\\,n} = 1{,}5$ gir $n = \\frac{\\ln 1{,}5}{\\ln 1{,}04} \\approx 10{,}34$ år, altså 11 hele år.", "answer": 10.34 },
+          { "label": "b", "task": "$50\\,000$ kroner skal bli $75\\,000$ kroner med $3\\,\\%$ rente.", "solution": "$1{,}03^{\\,n} = 1{,}5$ gir $n = \\frac{\\ln 1{,}5}{\\ln 1{,}03} \\approx 13{,}72$ år, altså 14 hele år.", "answer": 13.72 },
+          { "label": "c", "task": "$120\\,000$ kroner skal bli $200\\,000$ kroner med $6\\,\\%$ rente.", "solution": "$1{,}06^{\\,n} = \\frac{5}{3}$ gir $n = \\frac{\\ln(5/3)}{\\ln 1{,}06} \\approx 8{,}77$ år, altså 9 hele år.", "answer": 8.77 },
+          { "label": "d", "task": "$15\\,000$ kroner skal bli $60\\,000$ kroner med $8\\,\\%$ rente.", "solution": "$1{,}08^{\\,n} = 4$ gir $n = \\frac{\\ln 4}{\\ln 1{,}08} \\approx 18{,}01$ år, altså 19 hele år.", "answer": 18.01 },
+          { "label": "e", "task": "I a) og b) er forholdet mellom beløpene det samme ($1{,}5$), men svarene er ulike. Hva er det som skiller dem?", "solution": "Bare renten. Telleren $\\ln 1{,}5$ er den samme i begge; det er nevneren $\\ln v$ som endrer seg. Høyere rente gir større nevner og dermed kortere tid. Startbeløpet spiller ingen rolle i det hele tatt — det forkortes bort når vi deler." }
+        ],
+        "solution": "a) 10,34 år (11 hele), b) 13,72 år (14 hele), c) 8,77 år (9 hele), d) 18,01 år (19 hele), e) bare renten skiller — startbeløpet forkortes bort",
+        "hints": ["Del bort startbeløpet først. Da står det bare $v^{\\,n} = \\frac{K_n}{K_0}$ igjen.", "$n = \\frac{\\ln\\left(K_n/K_0\\right)}{\\ln v}$ — pass på at brøken av logaritmer ikke blir logaritmen av en brøk."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Doblingstid — årlig mot kontinuerlig",
+      "problem": "Renten er $5\\,\\%$. Hvor lang tid tar det før kapitalen har doblet seg\n\na) med årlig rentetilskriving?\n\nb) med kontinuerlig rente?\n\nc) Sammenlikn med tommelfingerreglene fra kapittel 1.",
+      "solution": "**a)** Vi deler bort startbeløpet, og står igjen med\n\n$$1{,}05^{\\,t} = 2 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$t \\cdot \\ln 1{,}05 = \\ln 2 \\qquad | : \\ln 1{,}05$$\n$$t = \\frac{\\ln 2}{\\ln 1{,}05} \\approx \\frac{0{,}693147}{0{,}048790} \\approx 14{,}2067$$\n\n**b)** Med kontinuerlig rente er $r = 0{,}05$:\n\n$$e^{\\,0{,}05\\,t} = 2 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$0{,}05\\,t = \\ln 2 \\qquad | : 0{,}05$$\n$$t = \\frac{\\ln 2}{0{,}05} \\approx 13{,}8629$$\n\n**c)** De to tommelfingerreglene:\n\n$$\\frac{72}{5} = 14{,}4 \\qquad\\qquad \\frac{69{,}3}{5} = 13{,}86$$\n\n**Svar:** a) Omtrent $14{,}21$ år. b) Omtrent $13{,}86$ år. c) 72-regelen treffer den årlige best; $69{,}3$-regelen treffer den kontinuerlige på to desimaler.\n\n**Hvorfor er den kontinuerlige raskere?** Fordi renten hele tiden legges til underveis og begynner å gi avkastning med det samme. I formlene ser vi det på nevneren: $\\ln 1{,}05 \\approx 0{,}0488$ er litt **mindre** enn $0{,}05$. Mindre nevner gir større brøk, og dermed lengre tid — så det stemmer.\n\nOg $69{,}3$-regelen er ikke lenger noe mysterium. Den er $100 \\ln 2$, akkurat som vi viste i 3.3 Eksempel 5."
+    },
+    {
+      "id": "matok-3-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-4-oppg-2",
+        "number": "3.4.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Mia har $180\\,000$ kroner spart til egenkapital. Kontoen gir $4{,}2\\,\\%$ årlig rente, og hun trenger $350\\,000$ kroner.",
+        "subTasks": [
+          { "label": "a", "task": "Sett opp likningen som må løses.", "solution": "$180\\,000 \\cdot 1{,}042^{\\,n} = 350\\,000$, som etter deling blir $1{,}042^{\\,n} = \\frac{350\\,000}{180\\,000} \\approx 1{,}944444$." },
+          { "label": "b", "task": "Hvor lenge må pengene stå? Oppgi svaret med to desimaler.", "solution": "$n = \\frac{\\ln 1{,}944444}{\\ln 1{,}042} \\approx 16{,}16$ år.", "answer": 16.16 },
+          { "label": "c", "task": "Kontroller med $K(16)$ og $K(17)$.", "solution": "$K(16) \\approx 347\\,661$ kroner og $K(17) \\approx 362\\,263$ kroner. Målet nås i løpet av det syttende året — så det stemmer.", "answer": [347661, 362263] },
+          { "label": "d", "task": "Mia finner en konto med $5{,}0\\,\\%$ i stedet. Hvor lang tid tar det da, og hvor mye tid sparer hun?", "solution": "$n = \\frac{\\ln 1{,}944444}{\\ln 1{,}05} \\approx 13{,}63$ år. Hun sparer $16{,}16 - 13{,}63 \\approx 2{,}53$ år.", "answer": 13.63 },
+          { "label": "e", "task": "Mia vurderer i stedet å spare opp $50\\,000$ kroner ekstra med én gang, slik at hun starter på $230\\,000$ kroner med den opprinnelige renten på $4{,}2\\,\\%$. Hvor lang tid tar det da? Hva lønner seg mest — høyere rente eller høyere startbeløp?", "solution": "$n = \\frac{\\ln(350\\,000/230\\,000)}{\\ln 1{,}042} \\approx 10{,}21$ år. Det er over 5 år raskere enn opprinnelig, mot 2,53 år spart ved renteøkningen. Å legge inn $50\\,000$ kroner ekstra lønner seg altså mer enn å finne en konto med $0{,}8$ prosentpoeng høyere rente — men de to er ikke direkte sammenliknbare: renteøkningen er gratis, mens de $50\\,000$ kronene må skaffes.", "answer": 10.21 }
+        ],
+        "solution": "a) $1{,}042^{\\,n} = 1{,}944444$, b) ca. 16,16 år, c) 347 661 kr og 362 263 kr, d) ca. 13,63 år — 2,53 år spart, e) ca. 10,21 år; startbeløpet betyr mest, men renteøkningen er gratis",
+        "hints": ["Del bort startbeløpet før du tar $\\ln$.", "I e): bytt ut $K_0$ i den samme formelen."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hvilken rente har fondet gitt?",
+      "problem": "Et fond var verdt $250\\,000$ kroner for 8 år siden. I dag er det verdt $400\\,000$ kroner.\n\na) Hvilken kontinuerlig rente svarer det til?\n\nb) Hvilken årlig rente svarer det til?",
+      "solution": "**Hva vet vi?** $K_0 = 250\\,000$, $K_t = 400\\,000$ og $t = 8$. **Hva må vi finne?** Renten — nå er det den som er ukjent.\n\nVi begynner likt i begge tilfeller, ved å dele bort startbeløpet:\n\n$$\\frac{400\\,000}{250\\,000} = 1{,}6$$\n\n**a) Kontinuerlig.** Da er modellen $K_0 e^{\\,r\\,t}$:\n\n$$e^{\\,8r} = 1{,}6 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n$$8r = \\ln 1{,}6 \\qquad | : 8$$\n$$r = \\frac{\\ln 1{,}6}{8} \\approx \\frac{0{,}470004}{8} \\approx 0{,}058750$$\n\nSom prosent: $p = 100r \\approx 5{,}88\\,\\%$.\n\n**b) Årlig.** Da er modellen $K_0 v^{\\,n}$, og nå står den ukjente i **grunntallet** — ikke i eksponenten. Da trenger vi ikke logaritmer i det hele tatt; vi tar åttenderoten, akkurat som i 3.1:\n\n$$v^{8} = 1{,}6$$\n$$v = \\sqrt[8]{1{,}6} \\approx 1{,}060511$$\n\nSom prosent: $p = (v - 1) \\cdot 100 \\approx 6{,}05\\,\\%$.\n\n**Kontroll:** $250\\,000 \\cdot 1{,}060511^{8} = 400\\,000$ og $250\\,000 \\cdot e^{8 \\cdot 0{,}05875} = 400\\,000$ — så det stemmer begge veier.\n\n**Svar:** a) Omtrent $5{,}88\\,\\%$ kontinuerlig rente. b) Omtrent $6{,}05\\,\\%$ årlig rente.\n\n**NB — den viktigste lærdommen i dette eksempelet:** spør deg alltid *hvor den ukjente står*. Står den i eksponenten, tar du $\\ln$. Står den i grunntallet, tar du roten. De to tilfellene ser like ut i oppgaveteksten, men krever helt forskjellige verktøy.\n\nAt de to rentesatsene er litt ulike, er ventet: den kontinuerlige jobber «oftere» og trenger derfor en litt lavere sats for å komme like langt."
+    },
+    {
+      "id": "matok-3-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-4-oppg-3",
+        "number": "3.4.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Kontinuerlig rente. Bruk $K_t = K_0 \\cdot e^{\\,r\\,t}$.",
+        "subTasks": [
+          { "label": "a", "task": "$60\\,000$ kroner står til $r = 0{,}035$. Når er beløpet $100\\,000$ kroner?", "solution": "$e^{0{,}035t} = \\frac{100}{60}$ gir $0{,}035t = \\ln\\frac{5}{3}$ og $t = \\frac{\\ln(5/3)}{0{,}035} \\approx 14{,}60$ år.", "answer": 14.6 },
+          { "label": "b", "task": "Når er det samme beløpet doblet?", "solution": "$t = \\frac{\\ln 2}{0{,}035} \\approx 19{,}80$ år.", "answer": 19.8 },
+          { "label": "c", "task": "En konto gikk fra $80\\,000$ til $140\\,000$ kroner på 12 år. Hvilken kontinuerlig rente svarer det til?", "solution": "$r = \\frac{\\ln(140/80)}{12} = \\frac{\\ln 1{,}75}{12} \\approx 0{,}046635$, altså omtrent $4{,}66\\,\\%$.", "answer": 4.66 },
+          { "label": "d", "task": "$500\\,000$ kroner står til $r = 0{,}028$ i 25 år. Hvor mye er det da? Rund av til nærmeste krone.", "solution": "$K = 500\\,000 \\cdot e^{0{,}028 \\cdot 25} = 500\\,000 \\cdot e^{0{,}7} \\approx 1\\,006\\,876$ kroner.", "answer": 1006876 },
+          { "label": "e", "task": "Når passerer beløpet i d) én million kroner? Sammenlikn med svaret i d), og forklar.", "solution": "$t = \\frac{\\ln 2}{0{,}028} \\approx 24{,}76$ år. Det passer med d): etter 25 år er beløpet så vidt over en million, og millionen ble passert omtrent tre måneder tidligere.", "answer": 24.76 }
+        ],
+        "solution": "a) ca. 14,60 år, b) ca. 19,80 år, c) ca. 4,66 %, d) ca. 1 006 876 kr, e) ca. 24,76 år — passer med d)",
+        "hints": ["Med kontinuerlig rente forsvinner $e$ helt når du tar $\\ln$: igjen står bare $r \\cdot t$.", "I c) er det $r$ som er ukjent — da deler du på $t$ til slutt, ikke på en logaritme."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Verdifall — varebilen igjen",
+      "problem": "Varebilen fra 3.2 koster $380\\,000$ kroner ny og faller $14\\,\\%$ i verdi hvert år, slik at $V(t) = 380\\,000 \\cdot 0{,}86^{\\,t}$.\n\na) Når er bilen verdt under $100\\,000$ kroner? (I 3.2 fant vi «mellom 8 og 9 år» med tabell.)\n\nb) Hva er halveringstiden?",
+      "solution": "**a)** Vi deler bort startverdien:\n\n$$0{,}86^{\\,t} = \\frac{100\\,000}{380\\,000} \\approx 0{,}263158 \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n\n$$t \\cdot \\ln 0{,}86 = \\ln 0{,}263158 \\qquad | : \\ln 0{,}86$$\n\n$$t = \\frac{\\ln 0{,}263158}{\\ln 0{,}86} \\approx \\frac{-1{,}335001}{-0{,}150823} \\approx 8{,}8514$$\n\nLegg merke til at **begge** tallene i brøken er negative. Det er ikke en feil: logaritmen av et tall under 1 er negativ, og her er både $0{,}263158$ og $0{,}86$ under 1. To negative tall delt på hverandre gir et positivt svar — og tiden skal jo være positiv.\n\n**b)** Halvparten av $380\\,000$ er $190\\,000$, men vi trenger ikke det tallet i det hele tatt. Vi deler bort startverdien og får\n\n$$0{,}86^{\\,t} = 0{,}5$$\n$$t = \\frac{\\ln 0{,}5}{\\ln 0{,}86} \\approx \\frac{-0{,}693147}{-0{,}150823} \\approx 4{,}5958$$\n\n**Kontroll:** $V(4{,}5958) = 380\\,000 \\cdot 0{,}86^{4{,}5958} \\approx 189\\,999$ kroner — så det stemmer.\n\n![Et koordinatsystem med år 0 til 15 vannrett og kroner 0 til 420 000 loddrett. En blå kurve merket «V(t) = 380 000 · 0,86 opphøyd i t» faller fra 380 000 kr. To grå stiplede vannrette linjer ligger ved 190 000 og 95 000 kr, merket «halvparten: 190 000» og «en fjerdedel: 95 000». Kurvens skjæringer med de to linjene er markert. Nederst ligger to røde mål etter hverandre langs tidsaksen, begge merket «4,60 år»; de er nøyaktig like lange.](/images/content/matematikk-okonomi/matok-3-4-halveringer.png)\n\n*Halveringstiden er den samme uansett hvor vi begynner å måle: det tar $4{,}60$ år å gå fra 380 000 til 190 000 kr, og like lang tid videre ned til 95 000 kr.*\n\n**Svar:** a) Etter omtrent $8{,}85$ år. b) Halveringstiden er omtrent $4{,}60$ år.\n\nTabellsvaret fra 3.2 var «mellom 8 og 9 år», og $8{,}85$ ligger nettopp der. Forskjellen er at vi nå har det eksakte tallet, og at regningen tok tre linjer i stedet for en tabell.\n\nNB: Halveringstiden på $4{,}60$ år betyr at bilen mister halve verdien to ganger i løpet av drøyt ni år. Etter $2 \\cdot 4{,}5958 \\approx 9{,}19$ år er den altså verdt en fjerdedel — og en fjerdedel av $380\\,000$ er $95\\,000$, som passer med svaret i a)."
+    },
+        {
+      "id": "matok-3-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-4-oppg-4",
+        "number": "3.4.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Doblingstid. Fyll ut tabellen, med to desimaler i hver kolonne.\n\n| $p$ | årlig: $\\frac{\\ln 2}{\\ln v}$ | kontinuerlig: $\\frac{\\ln 2}{r}$ | $\\frac{72}{p}$ | $\\frac{69{,}3}{p}$ |\n|---|---|---|---|---|\n| 2 | | | | |\n| 4 | | | | |\n| 8 | | | | |\n| 12 | | | | |",
+        "subTasks": [
+          { "label": "a", "task": "Fyll ut raden for $p = 2$.", "solution": "$\\frac{\\ln 2}{\\ln 1{,}02} \\approx 35{,}00$ · $\\frac{\\ln 2}{0{,}02} \\approx 34{,}66$ · $\\frac{72}{2} = 36{,}00$ · $\\frac{69{,}3}{2} = 34{,}65$", "answer": [35.0, 34.66, 36.0, 34.65] },
+          { "label": "b", "task": "Fyll ut raden for $p = 4$.", "solution": "$\\frac{\\ln 2}{\\ln 1{,}04} \\approx 17{,}67$ · $\\frac{\\ln 2}{0{,}04} \\approx 17{,}33$ · $\\frac{72}{4} = 18{,}00$ · $\\frac{69{,}3}{4} \\approx 17{,}33$", "answer": [17.67, 17.33, 18.0, 17.33] },
+          { "label": "c", "task": "Fyll ut raden for $p = 8$.", "solution": "$\\frac{\\ln 2}{\\ln 1{,}08} \\approx 9{,}01$ · $\\frac{\\ln 2}{0{,}08} \\approx 8{,}66$ · $\\frac{72}{8} = 9{,}00$ · $\\frac{69{,}3}{8} \\approx 8{,}66$", "answer": [9.01, 8.66, 9.0, 8.66] },
+          { "label": "d", "task": "Fyll ut raden for $p = 12$.", "solution": "$\\frac{\\ln 2}{\\ln 1{,}12} \\approx 6{,}12$ · $\\frac{\\ln 2}{0{,}12} \\approx 5{,}78$ · $\\frac{72}{12} = 6{,}00$ · $\\frac{69{,}3}{12} \\approx 5{,}78$", "answer": [6.12, 5.78, 6.0, 5.78] },
+          { "label": "e", "task": "Hvilken av de to tommelfingerreglene bør brukes til hva? Begrunn med tallene i tabellen.", "solution": "$\\frac{72}{p}$ ligger nær den ÅRLIGE doblingstiden — den bommer med 1,00 ved $p = 2$, 0,33 ved $p = 4$ og bare 0,01 ved $p = 8$. $\\frac{69{,}3}{p}$ treffer den KONTINUERLIGE på to desimaler i hele tabellen, og det er ingen tilfeldighet: $69{,}3 = 100 \\ln 2$ gjør regelen eksakt der. Kort sagt: 72-regelen til vanlig banksparing, 69,3-regelen til kontinuerlige modeller.", "multipleChoiceOptions": [
+            "72-regelen passer til årlig rentetilskriving (og treffer best rundt 8 %), mens 69,3-regelen er eksakt for kontinuerlig rente fordi $69{,}3 = 100\\ln 2$.",
+            "Begge reglene passer like godt til begge modellene; forskjellen er bare avrunding.",
+            "69,3-regelen passer til årlig rentetilskriving, og 72-regelen til kontinuerlig rente.",
+            "Ingen av reglene kan brukes når renten er over 8 %."
+          ] }
+        ],
+        "solution": "a) 35,00 · 34,66 · 36,00 · 34,65. b) 17,67 · 17,33 · 18,00 · 17,33. c) 9,01 · 8,66 · 9,00 · 8,66. d) 6,12 · 5,78 · 6,00 · 5,78. e) 72-regelen til årlig, 69,3-regelen til kontinuerlig.",
+        "hints": ["Vekstfaktoren er $v = 1 + \\frac{p}{100}$, og $r = \\frac{p}{100}$.", "Se på hvilken av de to første kolonnene hver tommelfingerregel ligger nærmest."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Når går det ene tilbudet forbi det andre?",
+      "problem": "To spareavtaler:\n\n- **A:** $100\\,000$ kroner til $4{,}5\\,\\%$ årlig rente.\n- **B:** $92\\,000$ kroner til $5{,}5\\,\\%$ årlig rente.\n\nB starter lavere, men vokser raskere. Når er de to like store?",
+      "solution": "**Hva vet vi?** $A(t) = 100\\,000 \\cdot 1{,}045^{\\,t}$ og $B(t) = 92\\,000 \\cdot 1{,}055^{\\,t}$. **Hva må vi finne?** Den $t$ der $A(t) = B(t)$.\n\nVi setter uttrykkene lik hverandre:\n\n$$100\\,000 \\cdot 1{,}045^{\\,t} = 92\\,000 \\cdot 1{,}055^{\\,t}$$\n\nNå samler vi potensene på én side og tallene på den andre. Først deler vi på $1{,}045^{\\,t}$ på begge sider, så på $92\\,000$:\n\n$$100\\,000 = 92\\,000 \\cdot \\frac{1{,}055^{\\,t}}{1{,}045^{\\,t}} \\qquad | : 92\\,000$$\n\n$$\\frac{100\\,000}{92\\,000} = \\left(\\frac{1{,}055}{1{,}045}\\right)^{\\,t}$$\n\n(Her brukte vi at $\\frac{a^t}{b^t} = \\left(\\frac{a}{b}\\right)^t$.)\n\n$$1{,}086957 = 1{,}009569^{\\,t} \\qquad |\\ \\text{ta } \\ln \\text{ på begge sider}$$\n\n$$\\ln 1{,}086957 = t \\cdot \\ln 1{,}009569 \\qquad | : \\ln 1{,}009569$$\n\n$$t = \\frac{\\ln 1{,}086957}{\\ln 1{,}009569} \\approx \\frac{0{,}083382}{0{,}009524} \\approx 8{,}755$$\n\n**Kontroll:** $A(8{,}755) \\approx 147\\,016$ kroner og $B(8{,}755) \\approx 147\\,016$ kroner — så det stemmer.\n\n![Et koordinatsystem med år 0 til 20 vannrett og kroner 0 til 280 000 loddrett. En blå kurve merket «A: 100 000 · 1,045 opphøyd i t» starter høyest, og en grønn kurve merket «B: 92 000 · 1,055 opphøyd i t» starter lavere, men stiger raskere. Kurvene krysser hverandre i et markert punkt merket (8,76 | 147 016), med stiplede hjelpelinjer ned til aksene. Før krysningen ligger den blå øverst, etter den ligger den grønne øverst.](/images/content/matematikk-okonomi/matok-3-4-krysning.png)\n\n*Krysningstidspunktet avgjør valget: skal pengene stå kortere enn $8{,}76$ år, er A best; skal de stå lenger, er B best.*\n\n**Svar:** De to avtalene er like store etter omtrent $8{,}76$ år. Før det er A størst, etter det er B størst.\n\n**Hva svaret brukes til.** Skal pengene stå i under 8–9 år, velger du A. Skal de stå lenger, velger du B. Krysningstidspunktet er altså ikke bare et tall — det er den opplysningen som avgjør valget, og den avhenger av hvor lenge pengene skal stå, ikke av hvilken rente som ser høyest ut i annonsen."
+    },
+        {
+      "id": "matok-3-4-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Oppskriften — den er den samme hver gang:**\n1. Skriv opp modellen, og sett den lik det du vil oppnå.\n2. **Del bort startbeløpet** på begge sider.\n3. **Ta $\\ln$ på begge sider**, og hent eksponenten ned med potensregelen.\n4. Del på det som står igjen ved siden av den ukjente.\n5. Kontroller i den opprinnelige modellen, og svar på det oppgaven faktisk spør om.\n\n**De ferdige formlene:**\n\n| Spørsmål | Årlig rente | Kontinuerlig rente |\n|---|---|---|\n| Hvor lang tid? | $n = \\frac{\\ln(K_n/K_0)}{\\ln v}$ | $t = \\frac{\\ln(K_t/K_0)}{r}$ |\n| Doblingstid | $t = \\frac{\\ln 2}{\\ln v}$ | $t = \\frac{\\ln 2}{r}$ |\n| Halveringstid | $t = \\frac{\\ln 0{,}5}{\\ln v}$ | $t = \\frac{\\ln 0{,}5}{r}$ |\n| Hvilken rente? | $v = \\sqrt[n]{K_n/K_0}$ | $r = \\frac{\\ln(K_t/K_0)}{t}$ |\n\n**Hvor står den ukjente?** Det er spørsmålet som velger verktøy:\n\n- I **eksponenten** (tid) $\\rightarrow$ ta $\\ln$.\n- I **grunntallet** (rente, årlig modell) $\\rightarrow$ ta roten.\n\n**To modeller som krysser hverandre:** sett uttrykkene lik hverandre, samle potensene på én side som $\\left(\\frac{v_2}{v_1}\\right)^{\\,t}$, og ta $\\ln$.\n\n**Vanlige feil:**\n- $\\frac{\\ln a}{\\ln b}$ forveksles med $\\ln\\frac{a}{b}$.\n- Svaret oppgis som desimaltall når banken bare skriver renten inn én gang i året. Da må det rundes **opp** til hele terminer.\n- Ved verdifall glemmes det at begge logaritmene er negative — svaret skal likevel bli positivt.\n- Renten oppgis som $0{,}0588$ når oppgaven spør om prosent. Gang med 100."
+    },
+    {
+      "id": "matok-3-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-4-oppg-5",
+        "number": "3.4.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En entreprenør kjøper en maskin til $2\\,400\\,000$ kroner, finansiert med et lån på samme beløp. Maskinen faller $15\\,\\%$ i verdi hvert år. Lånet har $5{,}4\\,\\%$ rente, og de fem første årene betales det ingen avdrag — bare renten legges til.",
+        "subTasks": [
+          { "label": "a", "task": "Sett opp $V(t)$ for maskinverdien og $L(t)$ for lånet, og regn ut begge etter 5 år.", "solution": "$V(t) = 2\\,400\\,000 \\cdot 0{,}85^{\\,t}$ og $L(t) = 2\\,400\\,000 \\cdot 1{,}054^{\\,t}$. Etter 5 år: $V(5) \\approx 1\\,064\\,893$ kroner og $L(5) \\approx 3\\,121\\,866$ kroner.", "answer": [1064893, 3121866] },
+          { "label": "b", "task": "Når er maskinen verdt under én million kroner?", "solution": "$0{,}85^{\\,t} = \\frac{1\\,000\\,000}{2\\,400\\,000}$ gir $t = \\frac{\\ln(1/2{,}4)}{\\ln 0{,}85} \\approx 5{,}39$ år.", "answer": 5.39 },
+          { "label": "c", "task": "Hva er halveringstiden for maskinverdien?", "solution": "$t = \\frac{\\ln 0{,}5}{\\ln 0{,}85} \\approx 4{,}27$ år.", "answer": 4.27 },
+          { "label": "d", "task": "Når er lånet dobbelt så stort som maskinverdien?", "solution": "Vi skal ha $L(t) = 2 \\cdot V(t)$, altså $2\\,400\\,000 \\cdot 1{,}054^{\\,t} = 2 \\cdot 2\\,400\\,000 \\cdot 0{,}85^{\\,t}$. Vi deler bort $2\\,400\\,000$ og samler potensene: $\\left(\\frac{1{,}054}{0{,}85}\\right)^{\\,t} = 2$, altså $1{,}24^{\\,t} = 2$ og $t = \\frac{\\ln 2}{\\ln 1{,}24} \\approx 3{,}22$ år.", "answer": 3.22 },
+          { "label": "e", "task": "Drøft hva regnestykket forteller entreprenøren om å finansiere en maskin uten avdrag.", "solution": "Allerede etter 3,2 år skylder han dobbelt så mye som maskinen er verdt, og etter 5 år er lånet på 3,12 millioner mens maskinen er verdt 1,06 millioner — en negativ egenkapital på over 2 millioner kroner. To krefter trekker samtidig i hver sin retning: verdien faller med 15 % i året, mens gjelden vokser med 5,4 %. Skal han få lånet ned i takt med verdien, må avdragene være minst like store som verdifallet det første året, altså i størrelsesorden 360 000 kroner. Modellen forutsetter for øvrig et jevnt prosentvis verdifall; i praksis faller anleggsmaskiner brattest det første året, så bildet er om mulig verre enn tabellen viser." }
+        ],
+        "solution": "a) $V(5) \\approx 1\\,064\\,893$ kr og $L(5) \\approx 3\\,121\\,866$ kr, b) ca. 5,39 år, c) ca. 4,27 år, d) ca. 3,22 år, e) gjelden overstiger verdien kraftig — avdrag må minst dekke verdifallet",
+        "hints": ["I d): del bort startbeløpet først, så samler du potensene som $\\left(\\frac{1{,}054}{0{,}85}\\right)^t$.", "$\\frac{1{,}054}{0{,}85} = 1{,}24$ — et pent tall, og det er ikke tilfeldig valgt."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-4-oppg-6",
+        "number": "3.4.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** To banker gir hvert sitt tilbud på et arveoppgjør:\n\n- **Bank A:** $250\\,000$ kroner til $3{,}8\\,\\%$ årlig rente.\n- **Bank B:** $235\\,000$ kroner til $4{,}6\\,\\%$ årlig rente (bank B tar et etableringsgebyr på $15\\,000$ kroner).\n\nLag et regneark med år i kolonne A, bank A i kolonne B (`=250000*1,038^A2`) og bank B i kolonne C (`=235000*1,046^A2`). Legg til en kolonne D med differansen `=C2-B2`.",
+        "subTasks": [
+          { "label": "a", "task": "Hva står på de to kontoene etter 5 år og etter 10 år?", "solution": "Etter 5 år: A $\\approx 301\\,250$ og B $\\approx 294\\,257$ kroner. Etter 10 år: A $\\approx 363\\,006$ og B $\\approx 368\\,455$ kroner.", "answer": [301250, 294257, 363006, 368455] },
+          { "label": "b", "task": "I hvilket år skifter fortegnet i kolonne D?", "solution": "Ved $t = 8$ er differansen $-153$ kroner, ved $t = 9$ er den $+2535$ kroner. Fortegnet skifter altså i løpet av det niende året.", "answer": 9 },
+          { "label": "c", "task": "Regn ut det eksakte krysningstidspunktet med logaritmer.", "solution": "$250\\,000 \\cdot 1{,}038^{\\,t} = 235\\,000 \\cdot 1{,}046^{\\,t}$ gir $\\left(\\frac{1{,}046}{1{,}038}\\right)^{\\,t} = \\frac{250}{235}$, altså $t = \\frac{\\ln(250/235)}{\\ln(1{,}046/1{,}038)} = \\frac{0{,}061875}{0{,}007678} \\approx 8{,}06$ år.", "answer": 8.06 },
+          { "label": "d", "task": "Hva er doblingstiden i hver av bankene?", "solution": "Bank A: $\\frac{\\ln 2}{\\ln 1{,}038} \\approx 18{,}59$ år. Bank B: $\\frac{\\ln 2}{\\ln 1{,}046} \\approx 15{,}41$ år.", "answer": [18.59, 15.41] },
+          { "label": "e", "task": "Arvingen er 61 år og planlegger å bruke pengene ved fylte 67. En rådgiver anbefaler bank B «fordi renten er høyest». Vurder rådet.", "solution": "Rådet er feil for denne arvingen. Pengene skal stå i 6 år, og krysningspunktet ligger på 8,06 år — i hele perioden fram til 67 år er bank A størst. Ved $t = 6$ har A omtrent $312\\,700$ kroner og B omtrent $307\\,800$: A er nesten $5000$ kroner foran. Rådgiveren ser bare på rentesatsen og overser gebyret på $15\\,000$ kroner, som B må «hente inn» med sin høyere rente — og det rekker den ikke på 6 år. Hadde arvingen vært 40 år, ville rådet vært riktig.", "multipleChoiceOptions": [
+            "Feil for denne arvingen: pengene skal stå i 6 år, og krysningspunktet er 8,06 år, så bank A er størst hele veien. Rådgiveren overser gebyret på 15 000 kroner.",
+            "Riktig: høyest rente gir alltid mest penger, uansett hvor lenge de står.",
+            "Riktig, fordi doblingstiden i bank B er kortere enn i bank A.",
+            "Feil, fordi bank B aldri kommer forbi bank A uansett hvor lenge pengene står."
+          ] }
+        ],
+        "solution": "a) 301 250 / 294 257 kr etter 5 år og 363 006 / 368 455 kr etter 10 år, b) i det niende året, c) ca. 8,06 år, d) 18,59 år og 15,41 år, e) rådet er feil — over 6 år er bank A best, fordi gebyret ikke rekker å bli hentet inn",
+        "hints": ["I c): samle potensene som én potens, $\\left(\\frac{1{,}046}{1{,}038}\\right)^t$, før du tar $\\ln$.", "I e): sammenlikn spareperioden med krysningstidspunktet fra c)."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": []
+}

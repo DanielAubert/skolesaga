@@ -1,0 +1,463 @@
+{
+  "id": "stat-5-1",
+  "courseId": "statistikk",
+  "chapterNumber": "5.1",
+  "title": "Diskrete stokastiske variabler",
+  "description": "Stokastiske variabler, sannsynlighetsfordeling og fordelingstabeller.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar",
+    "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+  ],
+  "content": [
+    {
+      "id": "stat-5-1-section-intro",
+      "type": "text",
+      "content": "# Stokastiske variabler\n\nNår vi kaster en terning, vet vi på forhånd hvilke tall som kan komme opp, men ikke hvilket. Resultatet er **tilfeldig**. Likevel kan vi si noe helt presist om det: vi kan si hvor sannsynlig hvert enkelt tall er.\n\nEn **stokastisk variabel** (stokastisk = tilfeldig) er tallet som kommer ut av et slikt tilfeldig forsøk. Vi bruker stor bokstav for selve variabelen, og liten bokstav for en verdi den kan ta:\n\n- $X$ = antall kron når vi kaster tre mynter. Mulige verdier: $0, 1, 2, 3$\n- $X$ = summen av øynene på to terninger. Mulige verdier: $2, 3, \\ldots, 12$\n- $X$ = antall av 12 elever som består oppkjøringen. Mulige verdier: $0, 1, \\ldots, 12$\n\n**NB:** $X$ er ikke et tall før forsøket er gjort. Etterpå er det et tall. Det er akkurat denne forskjellen ordet *uvisse* peker på: vi kjenner mulighetene og sannsynlighetene, men ikke utfallet."
+    },
+    {
+      "id": "stat-5-1-def-stokastisk",
+      "type": "definition",
+      "title": "Stokastisk variabel",
+      "content": "En **stokastisk variabel** $X$ er en størrelse som får en tallverdi som resultat av et tilfeldig forsøk.\n\nVariabelen er **diskret** når den bare kan ta atskilte verdier vi kan telle opp, som $0, 1, 2, 3, \\ldots$ — typisk *et antall*.\n\nVariabelen er **kontinuerlig** når den kan ta alle verdier i et intervall — typisk *en måling* som vekt, lengde eller tid. Kontinuerlige variabler ser vi på i kapittel 5.6.\n\nI dette kapittelet er alle variabler diskrete."
+    },
+    {
+      "id": "stat-5-1-section-fordeling",
+      "type": "text",
+      "content": "## Sannsynlighetsfordelingen\n\nÅ kjenne en stokastisk variabel er å kjenne to ting samtidig:\n\n1. **hvilke verdier** den kan ta\n2. **hvor sannsynlig** hver av dem er\n\nDisse to tingene til sammen kaller vi **sannsynlighetsfordelingen** til $X$. Vi skriver den vanligvis opp i en **fordelingstabell**: én rad for verdiene $k$, én rad for sannsynlighetene $P(X = k)$.\n\nLegg merke til hvordan vi leser notasjonen. Uttrykket $P(X = 2)$ leses «sannsynligheten for at $X$ er lik 2» — og hvis $X$ er antall kron, betyr det i klartekst: *sannsynligheten for at vi får akkurat to kron*. Oversett alltid uttrykket tilbake til virkeligheten når du har regnet det ut."
+    },
+    {
+      "id": "stat-5-1-theorem-krav",
+      "type": "theorem",
+      "title": "Krav til en sannsynlighetsfordeling",
+      "content": "For en diskret stokastisk variabel $X$ må to krav alltid være oppfylt:\n\n$$0 \\le P(X = k) \\le 1 \\quad \\text{for hver verdi } k$$\n\n$$\\sum_k P(X = k) = 1$$\n\nDet første kravet sier at en sannsynlighet aldri kan være negativ eller større enn 1. Det andre sier at ett av utfallene *må* skje.\n\nSummekravet er også et **regneverktøy**: er én sannsynlighet ukjent, finner vi den ved å kreve at summen blir 1."
+    },
+    {
+      "id": "stat-5-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Tre mynter",
+      "problem": "Vi kaster tre mynter. La $X$ være antall kron.\n\na) Sett opp fordelingstabellen til $X$.\nb) Kontroller at summen av sannsynlighetene er 1.",
+      "solution": "**Løsning:**\n\n**a)** Først spør vi: *Hva vet vi, og hva må vi finne?*\n\nVi vet at hver mynt gir kron (K) eller mynt (M), og at de tre myntene er uavhengige av hverandre. Vi må finne hvor sannsynlig hvert antall kron er.\n\nAntall mulige utfall er\n\n$$2 \\cdot 2 \\cdot 2 = 8$$\n\nAlle de 8 utfallene er like sannsynlige. Vi lister dem opp og teller kron i hvert:\n\n| Utfall | MMM | KMM | MKM | MMK | KKM | KMK | MKK | KKK |\n|---|---|---|---|---|---|---|---|---|\n| Antall kron | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 3 |\n\nNå teller vi hvor mange utfall som gir hver verdi av $X$, og deler på 8:\n\n$$P(X = 0) = \\frac{1}{8} \\qquad P(X = 1) = \\frac{3}{8} \\qquad P(X = 2) = \\frac{3}{8} \\qquad P(X = 3) = \\frac{1}{8}$$\n\nFordelingstabellen blir:\n\n| $k$ | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{8}$ | $\\frac{3}{8}$ | $\\frac{3}{8}$ | $\\frac{1}{8}$ |\n\n**b)** Vi summerer. Legg merke til at vi **ikke forkorter brøkene underveis** — de skal legges sammen, og da er felles nevner det vi vil ha:\n\n$$\\frac{1}{8} + \\frac{3}{8} + \\frac{3}{8} + \\frac{1}{8} = \\frac{1 + 3 + 3 + 1}{8} = \\frac{8}{8} = 1$$\n\nSummen er 1, slik den skal være.\n\n![Søylediagram med fire blå søyler over en vannrett akse merket k, med verdiene 0, 1, 2 og 3. Den loddrette aksen er merket P av X lik k og går fra 0 til litt over 0,4. Søylen over 0 er 0,125 høy, søylen over 1 er 0,375, søylen over 2 er 0,375 og søylen over 3 er 0,125. Høyden står skrevet over hver søyle. De to midterste søylene er like høye og tre ganger så høye som de to ytterste, slik at figuren er symmetrisk om midten mellom 1 og 2.](/images/content/statistikk/stat-5-1-fordeling-tre-mynter.png)\n\n*Sannsynlighetsfordelingen til $X$ = antall kron i tre myntkast, tegnet som søylediagram. Høyden på hver søyle er $P(X = k)$, og de fire høydene summerer til 1.*\n\n**Svar:** $P(X = 0) = \\frac{1}{8}$, $P(X = 1) = \\frac{3}{8}$, $P(X = 2) = \\frac{3}{8}$, $P(X = 3) = \\frac{1}{8}$, og summen er 1."
+    },
+    {
+      "id": "stat-5-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vi kaster to mynter. La $X$ være antall kron. Gjør den samme oppgaven som i eksempel 1.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange mulige utfall er det?",
+            "solution": "$2 \\cdot 2 = 4$ utfall: MM, KM, MK, KK.",
+            "answer": 4
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 0)$.",
+            "solution": "Bare utfallet MM gir null kron: $P(X = 0) = \\frac{1}{4} = 0{,}25$.",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X = 1)$.",
+            "solution": "Utfallene KM og MK gir én kron: $P(X = 1) = \\frac{2}{4} = 0{,}5$.",
+            "answer": 0.5
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 2)$.",
+            "solution": "Bare KK gir to kron: $P(X = 2) = \\frac{1}{4} = 0{,}25$.",
+            "answer": 0.25
+          },
+          {
+            "label": "e",
+            "task": "Kontroller at summen av de tre sannsynlighetene er 1.",
+            "solution": "$\\frac{1}{4} + \\frac{2}{4} + \\frac{1}{4} = \\frac{4}{4} = 1$.",
+            "answer": 1
+          }
+        ],
+        "hints": [
+          "List opp alle utfallene først, og tell kron i hvert av dem."
+        ],
+        "solution": "a) 4, b) 0,25, c) 0,5, d) 0,25, e) summen er 1",
+        "competenceGoals": [
+          "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-1-section-uten-tilbakelegging",
+      "type": "text",
+      "content": "## Når vi trekker uten tilbakelegging\n\nMange stokastiske variabler kommer fra et **utvalg**: vi trekker noen enheter fra en gruppe, uten å legge dem tilbake. Da teller vi *kombinasjoner*.\n\nSkrivemåten $\\binom{5}{2}$ leses «fem over to» og betyr antall måter å velge 2 av 5 på når rekkefølgen ikke spiller noen rolle:\n\n$$\\binom{5}{2} = \\frac{5 \\cdot 4}{2 \\cdot 1} = \\frac{20}{2} = 10$$\n\nSannsynligheten blir som alltid *gunstige delt på mulige* — vi teller bare begge deler med kombinasjoner."
+    },
+    {
+      "id": "stat-5-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Kuler i en pose",
+      "problem": "I en pose ligger det 3 røde og 2 blå kuler. Vi trekker 2 kuler tilfeldig, uten å legge tilbake. La $X$ være antall røde kuler vi trekker.\n\nSett opp fordelingstabellen til $X$.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Posen har 5 kuler til sammen, 3 røde og 2 blå. Vi trekker 2.\n\n*Hva må vi finne?* $P(X = 0)$, $P(X = 1)$ og $P(X = 2)$.\n\n**Antall mulige utvalg** (nevneren, den er den samme hele veien):\n\n$$\\binom{5}{2} = \\frac{5 \\cdot 4}{2 \\cdot 1} = 10$$\n\n**Ingen røde** ($X = 0$) betyr 0 av de 3 røde og 2 av de 2 blå:\n\n$$P(X = 0) = \\frac{\\binom{3}{0} \\cdot \\binom{2}{2}}{\\binom{5}{2}} = \\frac{1 \\cdot 1}{10} = \\frac{1}{10}$$\n\n**Én rød** ($X = 1$) betyr 1 av de 3 røde og 1 av de 2 blå:\n\n$$P(X = 1) = \\frac{\\binom{3}{1} \\cdot \\binom{2}{1}}{\\binom{5}{2}} = \\frac{3 \\cdot 2}{10} = \\frac{6}{10}$$\n\n**To røde** ($X = 2$) betyr 2 av de 3 røde og 0 av de 2 blå:\n\n$$P(X = 2) = \\frac{\\binom{3}{2} \\cdot \\binom{2}{0}}{\\binom{5}{2}} = \\frac{3 \\cdot 1}{10} = \\frac{3}{10}$$\n\nVi lar brøkene stå med nevner 10 (de skal summeres) og setter opp tabellen:\n\n| $k$ | 0 | 1 | 2 |\n|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{10}$ | $\\frac{6}{10}$ | $\\frac{3}{10}$ |\n\nKontroll:\n\n$$\\frac{1}{10} + \\frac{6}{10} + \\frac{3}{10} = \\frac{10}{10} = 1$$\n\n![Et søylediagram med tre blå søyler over verdiene 0, 1 og 2 under den vannrette aksen merket k. Høydene er 0,1, 0,6 og 0,3, og tallet står skrevet over hver søyle. Fordelingen er ikke symmetrisk: den midterste søyla er klart høyest, og søyla over 2 er tre ganger så høy som søyla over 0.](/images/content/statistikk/stat-5-1-fordeling-kuler.png)\n\n*Fordelingen til $X$ = antall røde kuler. Uten tilbakelegging blir fordelingen skjev — i motsetning til den symmetriske myntfordelingen i eksempel 1. Søylene summerer til $0{,}1 + 0{,}6 + 0{,}3 = 1$, som kravet i teoremet sier.*\n\n**Svar:** $P(X = 0) = \\frac{1}{10} = 0{,}1$, $P(X = 1) = \\frac{6}{10} = 0{,}6$ og $P(X = 2) = \\frac{3}{10} = 0{,}3$.\n\n*(Først helt til slutt forkorter vi eller gjør om til desimaltall — når det ikke skal summeres mer.)*"
+    },
+    {
+      "id": "stat-5-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "I en kurv ligger det 4 røde og 3 grønne epler. Vi trekker 3 epler tilfeldig uten å legge tilbake. La $X$ være antall røde epler. Gjør den samme oppgaven som i eksempel 2. Svar med brøk med nevner 35, og som desimaltall med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange mulige utvalg av 3 epler finnes det?",
+            "solution": "$\\binom{7}{3} = \\frac{7 \\cdot 6 \\cdot 5}{3 \\cdot 2 \\cdot 1} = 35$",
+            "answer": 35
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 0)$.",
+            "solution": "$P(X=0) = \\frac{\\binom{4}{0}\\binom{3}{3}}{\\binom{7}{3}} = \\frac{1 \\cdot 1}{35} = \\frac{1}{35} \\approx 0{,}029$",
+            "answer": 0.029
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X = 1)$.",
+            "solution": "$P(X=1) = \\frac{\\binom{4}{1}\\binom{3}{2}}{\\binom{7}{3}} = \\frac{4 \\cdot 3}{35} = \\frac{12}{35} \\approx 0{,}343$",
+            "answer": 0.343
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 2)$.",
+            "solution": "$P(X=2) = \\frac{\\binom{4}{2}\\binom{3}{1}}{\\binom{7}{3}} = \\frac{6 \\cdot 3}{35} = \\frac{18}{35} \\approx 0{,}514$",
+            "answer": 0.514
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(X = 3)$, og kontroller at summen av alle fire er 1.",
+            "solution": "$P(X=3) = \\frac{\\binom{4}{3}\\binom{3}{0}}{\\binom{7}{3}} = \\frac{4 \\cdot 1}{35} = \\frac{4}{35} \\approx 0{,}114$. Summen: $\\frac{1 + 12 + 18 + 4}{35} = \\frac{35}{35} = 1$.",
+            "answer": 0.114
+          }
+        ],
+        "hints": [
+          "Nevneren $\\binom{7}{3}$ er den samme i alle deloppgavene. La brøkene stå med nevner 35 til du er ferdig."
+        ],
+        "solution": "a) 35, b) $\\frac{1}{35} \\approx 0{,}029$, c) $\\frac{12}{35} \\approx 0{,}343$, d) $\\frac{18}{35} \\approx 0{,}514$, e) $\\frac{4}{35} \\approx 0{,}114$, summen er 1",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-1-section-kumulativ",
+      "type": "text",
+      "content": "## Kumulativ sannsynlighet\n\nOfte spør en oppgave ikke om én enkelt verdi, men om et helt område: *minst*, *høyst*, *færre enn*. Da summerer vi de sannsynlighetene som hører til området.\n\n| Formulering i teksten | Skrives | Regnes som |\n|---|---|---|\n| høyst $2$ | $P(X \\le 2)$ | $P(X=0) + P(X=1) + P(X=2)$ |\n| færre enn $2$ | $P(X < 2)$ | $P(X=0) + P(X=1)$ |\n| minst $2$ | $P(X \\ge 2)$ | $1 - P(X \\le 1)$ |\n| mer enn $2$ | $P(X > 2)$ | $1 - P(X \\le 2)$ |\n\nDe to siste linjene bruker **komplementet**: i stedet for å summere mange ledd, tar vi 1 minus det motsatte. Det er nesten alltid mindre regning — og mindre å gjøre feil på."
+    },
+    {
+      "id": "stat-5-1-fig-kumulativ-halvdeler",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-1-kumulativ-halvdeler.png",
+      "alt": "Et søylediagram med fire søyler over verdiene 0, 1, 2 og 3, som står under den vannrette aksen merket k. Søylene over 0 og 1 er grønne og har høydene 0,125 og 0,375. Søylene over 2 og 3 er blå og har høydene 0,375 og 0,125. Over de grønne står teksten P av X mindre enn eller lik 1 er lik 0,5, og over de blå står P av X større enn eller lik 2 er lik 0,5.",
+      "caption": "De samme fire søylene som over, delt i to. Venstre halvdel er $P(X \\le 1)$, høyre er $P(X \\ge 2)$. Til sammen dekker de hele fordelingen, så $P(X \\ge 2) = 1 - P(X \\le 1)$ — komplementregelen sett som to søylegrupper.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-1-kumulativ-halvdeler.json"
+    },
+    {
+      "id": "stat-5-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Biler i husholdningen",
+      "problem": "La $X$ være antall biler en tilfeldig valgt norsk husholdning disponerer. Fordelingen er:\n\n| $k$ | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|\n| $P(X = k)$ | 0,18 | 0,49 | 0,28 | 0,05 |\n\na) Finn $P(X \\le 1)$ og forklar hva tallet betyr.\nb) Finn $P(X \\ge 2)$.\nc) Finn sannsynligheten for at husholdningen har minst én bil.",
+      "solution": "**Løsning:**\n\n**a)** «Høyst én bil» betyr null biler *eller* én bil, så vi summerer de to første sannsynlighetene:\n\n$$P(X \\le 1) = P(X = 0) + P(X = 1) = 0{,}18 + 0{,}49 = 0{,}67$$\n\nI klartekst: 67 % av husholdningene disponerer høyst én bil.\n\n**b)** Her kan vi velge. Vi kan summere direkte:\n\n$$P(X \\ge 2) = P(X = 2) + P(X = 3) = 0{,}28 + 0{,}05 = 0{,}33$$\n\nEller bruke komplementet, som gir samme svar med ett ledd mindre:\n\n$$P(X \\ge 2) = 1 - P(X \\le 1) = 1 - 0{,}67 = 0{,}33$$\n\nAt de to veiene gir samme tall, er en god kontroll.\n\n**c)** «Minst én bil» er det motsatte av «ingen bil». Her er komplementet klart raskest:\n\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}18 = 0{,}82$$\n\n**Svar:** a) $0{,}67$ — 67 % har høyst én bil. b) $0{,}33$. c) $0{,}82$."
+    },
+    {
+      "id": "stat-5-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $X$ være antall ganger en tilfeldig valgt elev har vært på biblioteket sist uke. Fordelingen er:\n\n| $k$ | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|\n| $P(X = k)$ | 0,42 | 0,31 | 0,16 | 0,08 | 0,03 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Kontroller at dette er en gyldig sannsynlighetsfordeling.",
+            "solution": "Alle verdiene ligger mellom 0 og 1, og $0{,}42 + 0{,}31 + 0{,}16 + 0{,}08 + 0{,}03 = 1{,}00$. Begge kravene er oppfylt.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\le 1)$.",
+            "solution": "$P(X \\le 1) = 0{,}42 + 0{,}31 = 0{,}73$",
+            "answer": 0.73
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\ge 2)$.",
+            "solution": "$P(X \\ge 2) = 1 - 0{,}73 = 0{,}27$",
+            "answer": 0.27
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X > 0)$, og forklar hva tallet betyr.",
+            "solution": "$P(X > 0) = 1 - P(X = 0) = 1 - 0{,}42 = 0{,}58$. 58 % av elevene har vært på biblioteket minst én gang.",
+            "answer": 0.58
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(1 \\le X \\le 3)$.",
+            "solution": "$0{,}31 + 0{,}16 + 0{,}08 = 0{,}55$",
+            "answer": 0.55
+          }
+        ],
+        "hints": [
+          "Bruk komplementet ($1 -$ det motsatte) når «minst» eller «mer enn» står i teksten."
+        ],
+        "solution": "a) Ja, summen er 1,00 og alle verdier ligger mellom 0 og 1. b) 0,73, c) 0,27, d) 0,58, e) 0,55",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4: En ukjent sannsynlighet",
+      "problem": "En stokastisk variabel $X$ har denne fordelingen, der $k$ er et ukjent tall:\n\n| $x$ | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|\n| $P(X = x)$ | $k$ | 0,30 | $k - 0{,}20$ | 0,10 |\n\na) Bestem $k$.\nb) Vis at $P(X > 1) = 0{,}30$.",
+      "solution": "**Løsning:**\n\n**a)** Vi bruker summekravet. Summen av *alle* sannsynlighetene skal være 1:\n\n$$k + 0{,}30 + (k - 0{,}20) + 0{,}10 = 1$$\n\nVi samler like ledd på venstre side:\n\n$$2k + 0{,}20 = 1$$\n\nSå gjør vi samme operasjon på begge sider — trekker fra $0{,}20$:\n\n$$2k + 0{,}20 - 0{,}20 = 1 - 0{,}20$$\n\n$$2k = 0{,}80$$\n\nOg deler på 2 på begge sider:\n\n$$\\frac{2k}{2} = \\frac{0{,}80}{2}$$\n\n$$k = 0{,}40$$\n\nVi setter inn og får fordelingen:\n\n| $x$ | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|\n| $P(X = x)$ | 0,40 | 0,30 | 0,20 | 0,10 |\n\nAlle fire tallene ligger mellom 0 og 1, og summen er $1{,}00$. Fordelingen er gyldig.\n\n**b)** «Større enn 1» betyr $X = 2$ eller $X = 3$:\n\n$$P(X > 1) = P(X = 2) + P(X = 3) = 0{,}20 + 0{,}10 = 0{,}30$$\n\n**Svar:** a) $k = 0{,}40$. b) $P(X > 1) = 0{,}30$.\n\n**NB:** Kontrollen i a) er ikke pynt. Hadde vi fått $k = 0{,}10$, ville $P(X = 2) = 0{,}10 - 0{,}20 = -0{,}10$ — en negativ sannsynlighet, som er umulig. Da måtte vi lett etter regnefeilen."
+    },
+    {
+      "id": "stat-5-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En stokastisk variabel $X$ har fordelingen under, der $a$ er ukjent:\n\n| $x$ | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| $P(X = x)$ | 0,15 | $2a$ | $a$ | 0,25 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem $a$.",
+            "solution": "$0{,}15 + 2a + a + 0{,}25 = 1 \\Rightarrow 3a + 0{,}40 = 1 \\Rightarrow 3a = 0{,}60 \\Rightarrow a = 0{,}20$",
+            "answer": 0.2
+          },
+          {
+            "label": "b",
+            "task": "Sett opp den ferdige fordelingstabellen.",
+            "solution": "$P(X=1) = 0{,}15$, $P(X=2) = 0{,}40$, $P(X=3) = 0{,}20$, $P(X=4) = 0{,}25$.",
+            "answer": 0.4
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\ge 3)$.",
+            "solution": "$P(X \\ge 3) = 0{,}20 + 0{,}25 = 0{,}45$",
+            "answer": 0.45
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X \\le 2)$.",
+            "solution": "$P(X \\le 2) = 0{,}15 + 0{,}40 = 0{,}55$, eller $1 - 0{,}45 = 0{,}55$.",
+            "answer": 0.55
+          },
+          {
+            "label": "e",
+            "task": "Hvilken verdi er mest sannsynlig?",
+            "solution": "$X = 2$, med sannsynlighet $0{,}40$.",
+            "answer": 2
+          }
+        ],
+        "hints": [
+          "Summen av alle sannsynlighetene er 1. Det gir én likning med én ukjent."
+        ],
+        "solution": "a) $a = 0{,}20$, b) 0,15 / 0,40 / 0,20 / 0,25, c) 0,45, d) 0,55, e) $X = 2$",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Vi kaster to vanlige terninger og lar $X$ være summen av øynene. Det finnes $6 \\cdot 6 = 36$ like sannsynlige utfall. Svar med brøk med nevner 36 og som desimaltall med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilke verdier kan $X$ ta?",
+            "solution": "Fra 2 (1+1) til 12 (6+6), altså $X \\in \\{2, 3, 4, \\ldots, 12\\}$ — 11 mulige verdier."
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 7)$.",
+            "solution": "Seks utfall gir 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). $P(X=7) = \\frac{6}{36} \\approx 0{,}167$",
+            "answer": 0.167
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\le 4)$.",
+            "solution": "Sum 2: 1 utfall, sum 3: 2 utfall, sum 4: 3 utfall. $P(X \\le 4) = \\frac{1+2+3}{36} = \\frac{6}{36} \\approx 0{,}167$",
+            "answer": 0.167
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 7 \\text{ eller } X = 11)$.",
+            "solution": "To utfall gir 11: (5,6) og (6,5). $P = \\frac{6 + 2}{36} = \\frac{8}{36} \\approx 0{,}222$",
+            "answer": 0.222
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(X \\ge 10)$.",
+            "solution": "Sum 10: 3 utfall, sum 11: 2 utfall, sum 12: 1 utfall. $P = \\frac{3+2+1}{36} = \\frac{6}{36} \\approx 0{,}167$",
+            "answer": 0.167
+          }
+        ],
+        "hints": [
+          "Sett gjerne opp et rutenett med terning 1 langs den ene kanten og terning 2 langs den andre, og skriv summen i hver rute."
+        ],
+        "solution": "a) 2 til 12, b) $\\frac{6}{36} \\approx 0{,}167$, c) $\\frac{6}{36} \\approx 0{,}167$, d) $\\frac{8}{36} \\approx 0{,}222$, e) $\\frac{6}{36} \\approx 0{,}167$",
+        "competenceGoals": [
+          "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-1-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En **stokastisk variabel** $X$ er tallet et tilfeldig forsøk gir. Stor bokstav for variabelen, liten bokstav for verdien.\n- En **diskret** variabel teller (0, 1, 2, …); en **kontinuerlig** variabel måler.\n- **Sannsynlighetsfordelingen** er verdiene *sammen med* sannsynlighetene, oftest satt opp i en **fordelingstabell**.\n- To krav gjelder alltid: $0 \\le P(X = k) \\le 1$ og $\\sum_k P(X = k) = 1$. Summekravet brukes til å finne en ukjent sannsynlighet.\n- **Kumulative** sannsynligheter ($\\le$, $\\ge$, $<$, $>$) regnes ved å summere — eller raskere med **komplementet** $1 - P(\\text{det motsatte})$.\n\nI de neste kapitlene skal vi presse to tall ut av fordelingen: **forventningsverdien** (kapittel 5.2), som sier hvor tyngdepunktet ligger, og **variansen** (kapittel 5.3), som sier hvor spredt verdiene er."
+    },
+    {
+      "id": "stat-5-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — digitale verktøy.** I et regneark skal du simulere kast med tre mynter og sammenligne med fordelingen fra eksempel 1.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag 1000 rader. I hver rad simulerer du tre mynter med formelen `=TILFELDIGMELLOM(0;1)` i tre kolonner (1 = kron), og summerer dem i en fjerde kolonne. Hva er den fjerde kolonnen et uttrykk for?",
+            "solution": "Den fjerde kolonnen er antall kron i kastet, altså én simulert verdi av den stokastiske variabelen $X$."
+          },
+          {
+            "label": "b",
+            "task": "Tell opp hvor mange av de 1000 kastene som ga 0, 1, 2 og 3 kron, for eksempel med `=ANTALL.HVIS(D$1:D$1000;0)`. Del hvert antall på 1000. Hva kaller vi disse tallene?",
+            "solution": "Dette er de **relative frekvensene** — de observerte andelene. De er et estimat for sannsynlighetene, ikke sannsynlighetene selv."
+          },
+          {
+            "label": "c",
+            "task": "Sammenlign de fire relative frekvensene med $\\frac{1}{8}$, $\\frac{3}{8}$, $\\frac{3}{8}$ og $\\frac{1}{8}$. Hva forventer du å se?",
+            "solution": "De relative frekvensene ligger nær 0,125, 0,375, 0,375 og 0,125, men treffer sjelden eksakt. Avviket er typisk noen hundredeler ved 1000 kast."
+          },
+          {
+            "label": "d",
+            "task": "Trykk F9 slik at regnearket regner på nytt noen ganger. Hvorfor endrer tallene seg — og hvorfor endrer de seg ikke *mye*?",
+            "solution": "Hvert nytt sett med 1000 kast er et nytt tilfeldig forsøk, så de relative frekvensene svinger. De svinger lite fordi mange kast jevner ut tilfeldighetene — det er den samme ideen som ligger bak forventningsverdien i kapittel 5.2."
+          },
+          {
+            "label": "e",
+            "task": "Endre simuleringen til 50 rader i stedet for 1000. Hva skjer med avviket fra den teoretiske fordelingen?",
+            "solution": "Avviket blir merkbart større og svinger mye mer fra gang til gang. Jo færre forsøk, jo mer preger tilfeldighetene resultatet."
+          }
+        ],
+        "hints": [
+          "Husk at `TILFELDIGMELLOM` regner på nytt hver gang regnearket oppdateres. Vil du fryse tallene, kopierer du dem og limer inn som verdier."
+        ],
+        "solution": "De relative frekvensene nærmer seg 0,125 / 0,375 / 0,375 / 0,125 når antall simuleringer øker, men treffer aldri eksakt. Med få forsøk er avviket stort, med mange er det lite.",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-1-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under. Er de riktige eller gale? Begrunn svaret ditt.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Tabellen $P(X=0) = 0{,}30$, $P(X=1) = 0{,}45$, $P(X=2) = 0{,}30$ er en gyldig sannsynlighetsfordeling.»",
+            "solution": "Gal. Alle enkeltverdiene ligger riktignok mellom 0 og 1, men summen er $0{,}30 + 0{,}45 + 0{,}30 = 1{,}05 \\ne 1$. Summekravet er brutt."
+          },
+          {
+            "label": "b",
+            "task": "«Hvis $P(X = 3) = 0$, kan ikke $X$ ta verdien 3.»",
+            "solution": "Riktig for en diskret variabel: sannsynligheten 0 betyr at utfallet ikke forekommer i modellen. (For kontinuerlige variabler er dette annerledes — se kapittel 5.6.)"
+          },
+          {
+            "label": "c",
+            "task": "«Terningkast er tilfeldige, så det går ikke an å regne på dem.»",
+            "solution": "Gal. Vi kan ikke forutsi ett enkelt kast, men vi kan regne helt presist på *sannsynlighetene*. Det er nettopp skillet mellom uvisse om ett utfall og kunnskap om fordelingen."
+          },
+          {
+            "label": "d",
+            "task": "En elev skriver $P(X \\ge 2) = 1 - P(X \\le 2)$. Hva er feilen, og hvordan skal det se ut?",
+            "solution": "Verdien $X = 2$ er da trukket fra på begge sider av grensen. Det motsatte av «minst 2» er «høyst 1», så riktig er $P(X \\ge 2) = 1 - P(X \\le 1)$."
+          },
+          {
+            "label": "e",
+            "task": "«Siden det er 11 mulige summer når vi kaster to terninger, er sannsynligheten for hver av dem $\\frac{1}{11}$.»",
+            "solution": "Gal. Sannsynligheten er *gunstige delt på mulige* bare når alle utfallene er like sannsynlige. De 11 summene er ikke like sannsynlige — sum 7 kan skje på 6 måter, sum 2 på bare 1. De 36 terningparene derimot er like sannsynlige, og det er dem vi teller."
+          }
+        ],
+        "hints": [
+          "Gå tilbake til de to kravene til en sannsynlighetsfordeling, og til når «gunstige delt på mulige» gjelder."
+        ],
+        "solution": "a) Gal (summen er 1,05). b) Riktig for diskrete variabler. c) Gal. d) Skal være $1 - P(X \\le 1)$. e) Gal — de 11 summene er ikke like sannsynlige.",
+        "competenceGoals": [
+          "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Stokastisk variabel",
+      "definition": "En størrelse $X$ som får en tallverdi som resultat av et tilfeldig forsøk. Vi kjenner de mulige verdiene på forhånd, men ikke hvilken som kommer."
+    },
+    {
+      "term": "Diskret variabel",
+      "definition": "En stokastisk variabel som bare kan ta atskilte verdier vi kan telle opp, typisk et antall: $0, 1, 2, 3, \\ldots$"
+    },
+    {
+      "term": "Sannsynlighetsfordeling",
+      "definition": "Oversikten over hvilke verdier en stokastisk variabel kan ta, og hvor sannsynlig hver av dem er. Summen av sannsynlighetene er alltid 1."
+    },
+    {
+      "term": "Fordelingstabell",
+      "definition": "Tabellen som viser sannsynlighetsfordelingen: én rad med verdiene $k$ og én rad med sannsynlighetene $P(X = k)$."
+    },
+    {
+      "term": "Kumulativ sannsynlighet",
+      "definition": "Sannsynligheten for at variabelen er høyst (eller minst) en gitt verdi, for eksempel $P(X \\le 3)$. Regnes ved å summere, eller raskere med komplementet $1 - P(\\text{det motsatte})$."
+    }
+  ]
+}

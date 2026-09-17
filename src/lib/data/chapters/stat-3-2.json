@@ -1,0 +1,392 @@
+{
+  "id": "stat-3-2",
+  "courseId": "statistikk",
+  "chapterNumber": "3.2",
+  "title": "Utvalgsmetoder",
+  "description": "Tilfeldig, systematisk, stratifisert og klyngeutvalg — og bekvemmelighetsutvalg.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-3-2-section-innledning",
+      "type": "text",
+      "content": "## Hvordan utvalget trekkes, avgjør alt\n\nI kapittel 3.1 så vi at et utvalg kan si noe om en hel populasjon. Det hviler\npå én forutsetning: at utvalget er trukket slik at det ikke systematisk\nfavoriserer noen.\n\nSkillet som betyr noe, går ikke mellom store og små utvalg. Det går mellom\n\n- **sannsynlighetsutvalg**, der hver enhet i populasjonen har en **kjent og\n  positiv** sannsynlighet for å bli trukket, og\n- **ikke-sannsynlighetsutvalg**, der noen enheter aldri kan bli trukket, eller\n  der vi ikke vet med hvilken sannsynlighet de trekkes.\n\nBare den første typen lar oss regne ut hvor usikre vi er. Den andre kan gi\nnyttig informasjon, men ikke et anslag med feilmargin."
+    },
+    {
+      "id": "stat-3-2-fig-fire-utvalgsmetoder",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-3-2-fire-utvalgsmetoder.png",
+      "alt": "Fire ruter merket A, B, C og D, med bokstaven i et tomt felt til venstre for rutenettet. Hver rute viser den samme populasjonen: 450 elever tegnet som 25 kolonner med 18 prikker i hver, der hver kolonne er én klasse. De elevene som er trukket ut, er fargelagt; resten er grå. I A, enkelt tilfeldig utvalg, ligger 25 blå prikker spredt tilfeldig ut over hele rutenettet. I B, systematisk utvalg med hver 18. elev fra startpunkt 7, ligger alle de 25 røde prikkene på én og samme vannrette rad; under panelet står at hver kolonne er én klasse. I C, stratifisert utvalg, er 22 blå prikker trukket fra 8. trinn til venstre, 20 grønne fra 9. trinn i midten og 18 oransje fra 10. trinn til høyre — spredt innenfor hvert trinn. I D, klyngeutvalg, er tre hele kolonner fargelagt i lilla, altså tre komplette klasser; også her står det at hver kolonne er én klasse.",
+      "caption": "Samme populasjon, fire trekkemåter. B viser periodisitetsfella: når trekkeintervallet 18 er lik klassestørrelsen, treffer utvalget samme plass i hver klasse. C trekker FRA hver gruppe, D trekker HELE grupper — og det er forskjellen som avgjør hvor presist anslaget blir.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-3-2-fire-utvalgsmetoder.json"
+    },
+    {
+      "id": "stat-3-2-def-etu",
+      "type": "definition",
+      "content": "Et **enkelt tilfeldig utvalg** (ETU) er et utvalg der **alle** grupper på $n$\nenheter har like stor sannsynlighet for å bli trukket. Det svarer til å trekke\nnavn fra en hatt etter at lappene er godt blandet.\n\nKonsekvensen er at hver enkelt enhet trekkes med sannsynligheten\n$\\dfrac{n}{N}$.\n\n**Slik gjør vi det i praksis:**\n\n1. Nummerer alle enhetene i utvalgsrammen fra $1$ til $N$.\n2. Trekk $n$ tilfeldige numre — uten tilbakelegging, altså uten gjentakelser.\n3. Enhetene med disse numrene utgjør utvalget.\n\n**I regneark** er den sikreste metoden å bruke `SLUMP()`:\n\n```\nA1: elevnummer 1, 2, 3, …, 450\nB1: =SLUMP()\n```\n\nKopier `SLUMP()` nedover, sorter hele tabellen etter kolonne B, og ta de\n$n$ øverste radene. Da slipper du å håndtere gjentakelser.\n\n**NB:** `=TILFELDIGMELLOM(1;450)` gir ett tall om gangen, men samme tall kan\nkomme flere ganger. Bruker du den, må gjentakelser fjernes og nye trekkes —\nellers blir $n$ mindre enn du tror.",
+      "title": "Enkelt tilfeldig utvalg"
+    },
+    {
+      "id": "stat-3-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Trekke 25 av 450 elever",
+      "problem": "En skole med $450$ elever skal trekke $25$ til en undersøkelse.\n\na) Hvor stor er sannsynligheten for at en bestemt elev blir med?\n\nb) Beskriv trekningen i et regneark.\n\nc) Hvorfor kan vi ikke bare la lærerne velge $25$ elever de mener er\nrepresentative?",
+      "solution": "**a)** Hver elev trekkes med sannsynligheten\n\n$$\\frac{n}{N} = \\frac{25}{450} = 0{,}0555\\ldots \\approx 5{,}6\\ \\%$$\n\n**Svar a):** Omtrent $5{,}6\\ \\%$ — og like stor for alle $450$.\n\n**b)** **Steg 1.** Legg elevnumrene $1$ til $450$ i kolonne A, rad $2$ til\n$451$.\n\n**Steg 2.** Skriv `=SLUMP()` i celle $B2$ og kopier ned til $B451$. Hver celle\nfår nå et tilfeldig desimaltall mellom $0$ og $1$.\n\n**Steg 3.** Marker $A2:B451$ og sorter stigende på kolonne B.\n\n**Steg 4.** De $25$ øverste radene er utvalget.\n\nEn slik trekning ga elevnumrene\n\n$$3,\\ 67,\\ 74,\\ 107,\\ 110,\\ 122,\\ 134,\\ 159,\\ 169,\\ 191,\\ 247,\\ 267,\\ 279,$$\n$$282,\\ 285,\\ 316,\\ 333,\\ 336,\\ 342,\\ 386,\\ 388,\\ 415,\\ 423,\\ 436,\\ 446$$\n\n*(Kjører du det samme hos deg, får du andre numre. `SLUMP()` regner dessuten om\nhver gang arket endres, så kopier resultatet og lim det inn som verdier før du\ngår videre.)*\n\n**Svar b):** Nummer alle, gi hver et tilfeldig tall, sorter, og ta de $25$\nøverste.\n\n**c)** Fordi «representativ etter skjønn» ikke er en kjent sannsynlighet.\n\nLærerne ville — helt uten å ville det — valgt elever de kjenner, elever som\npleier å svare, elever som er til stede den dagen. Utvalget ville sett rimelig\nut og likevel vært systematisk skjevt, og vi ville ikke hatt noen måte å regne\nut hvor skjevt.\n\nMed tilfeldig trekning vet vi at anslaget i gjennomsnitt treffer riktig, og vi\nkan regne ut hvor mye det typisk bommer.\n\n**Svar c):** Fordi bare tilfeldig trekning gir kjente trekksannsynligheter — og\nuten dem kan verken skjevheten unngås eller usikkerheten regnes ut."
+    },
+    {
+      "id": "stat-3-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En idrettsklubb har $1\\,200$ medlemmer og vil trekke $80$ til en undersøkelse.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stor er sannsynligheten for at et bestemt medlem blir trukket?",
+            "solution": "$\\frac{80}{1200} = 0{,}0666\\ldots \\approx 6{,}7\\ \\%$.",
+            "answer": 6.7
+          },
+          {
+            "label": "b",
+            "task": "Beskriv hvordan trekningen kan gjøres i et regneark.",
+            "solution": "Medlemsnumrene $1$–$1200$ i kolonne A, `=SLUMP()` i kolonne B kopiert nedover, sorter på kolonne B, ta de $80$ øverste. Lim inn som verdier før du går videre."
+          },
+          {
+            "label": "c",
+            "task": "Klubben vurderer i stedet å spørre de $80$ første som møter på trening en tirsdag. Hva er problemet?",
+            "solution": "De som møter på trening tirsdag, er de mest aktive medlemmene. Passive medlemmer, skadde og de som trener andre dager, har sannsynlighet **null** for å bli med. Utvalget er ikke et sannsynlighetsutvalg, og anslaget vil systematisk gi et for aktivt bilde av medlemsmassen."
+          },
+          {
+            "label": "d",
+            "task": "Klubben sier: «Men vi spør jo $80$ — like mange som i den tilfeldige trekningen.» Svar på innvendingen.",
+            "solution": "Antallet er det samme, men det er ikke antallet som er problemet. Skjevheten kommer av **hvem** som kan bli trukket, ikke av hvor mange. Et skjevt utvalg på $80$ er like skjevt som et skjevt utvalg på $800$ — det er bare sikrere på feil svar."
+          },
+          {
+            "label": "e",
+            "task": "Nevn én situasjon der det likevel kan være riktig å spørre dem som møter på trening.",
+            "solution": "Når populasjonen faktisk ER de aktive — for eksempel hvis klubben vil vite hva de som bruker hallen, mener om garderobene. Da er avgrensningen av populasjonen endret, og utvalget passer til spørsmålet."
+          }
+        ],
+        "solution": "a) $6{,}7\\ \\%$, b) SLUMP og sortering, c) passive medlemmer kan ikke bli trukket, d) skjevhet avhenger av hvem, ikke hvor mange, e) når populasjonen er de aktive",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-2-def-systematisk",
+      "type": "definition",
+      "content": "Et **systematisk utvalg** trekkes ved å ta hver $k$-te enhet i en liste:\n\n$$k = \\frac{N}{n}$$\n\nStartpunktet trekkes **tilfeldig** blant de $k$ første. Deretter tas\nenhet nummer start, start $+\\ k$, start $+\\ 2k$, og så videre.\n\nMetoden er enkel å gjennomføre i praksis — hver tiende kunde ut av butikken,\nhver tjuende pakke på samlebåndet — og gir som regel like god presisjon som et\nenkelt tilfeldig utvalg.\n\n**NB — periodisitetsfella.** Er listen ordnet med en periode som passer med\n$k$, blir utvalget systematisk skjevt. Tar vi hver sjuende dag, treffer vi\nsamme ukedag hver gang. Er en klasseliste ordnet parvis med én jente og én gutt\nom gangen, og $k$ er et partall, får vi bare det ene kjønnet.\n\nSjekk alltid **hvordan listen er sortert** før du bruker metoden.",
+      "title": "Systematisk utvalg"
+    },
+    {
+      "id": "stat-3-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Systematisk utvalg av elever",
+      "problem": "Vi skal igjen trekke $25$ av $450$ elever, nå systematisk.\n\na) Finn trekkeintervallet $k$.\n\nb) Trekningen gir startpunkt $7$. Hvilke elevnumre er med?\n\nc) Elevlisten er sortert klassevis, og hver klasse har $18$ elever. Hva går\ngalt?",
+      "solution": "**a)** $$k = \\frac{N}{n} = \\frac{450}{25} = 18$$\n\n**Svar a):** Hver $18$. elev.\n\n**b)** Startpunktet trekkes blant tallene $1$ til $18$. Her ble det $7$, og vi\nlegger til $18$ om gangen:\n\n$$7,\\ 25,\\ 43,\\ 61,\\ 79,\\ 97,\\ 115,\\ 133,\\ 151,\\ 169,\\ 187,\\ 205,\\ 223,$$\n$$241,\\ 259,\\ 277,\\ 295,\\ 313,\\ 331,\\ 349,\\ 367,\\ 385,\\ 403,\\ 421,\\ 439$$\n\nDet siste nummeret er $439$, som er innenfor $450$. Vi har $25$ numre.\n\n**Svar b):** Elev $7, 25, 43, \\ldots, 439$.\n\n**c)** Her er $k = 18$, og hver klasse har nøyaktig $18$ elever. Da treffer vi\n**samme plass i hver klasse** hver eneste gang — elev nummer $7$ på hver eneste\nklasseliste.\n\nEr listene alfabetiske, betyr det at vi alltid velger den sjuende eleven\nalfabetisk. Er de sortert etter karakter, plukker vi samme karakternivå fra\nalle klassene. Utvalget er ikke lenger tilfeldig med hensyn på det listen er\nsortert etter.\n\n**Svar c):** Perioden i listen ($18$) er lik $k$, så utvalget treffer samme\nposisjon i hver gruppe.\n\n**Slik løser vi det:** Stokk om listen først, eller velg et $k$ som ikke passer\nmed perioden. Her kunne vi trukket $24$ elever med $k = 18{,}75$ og rundet av\nhver gang — eller enklere: sortert listen tilfeldig med `SLUMP()` før vi\nbegynte, og da er vi i praksis tilbake til et enkelt tilfeldig utvalg."
+    },
+    {
+      "id": "stat-3-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kinokjede vil spørre $80$ av de $1\\,200$ som var på en forestilling.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn trekkeintervallet $k$ for et systematisk utvalg.",
+            "solution": "$k = \\frac{1200}{80} = 15$.",
+            "answer": 15
+          },
+          {
+            "label": "b",
+            "task": "Startpunktet trekkes til $5$. Skriv opp de seks første numrene og det siste.",
+            "solution": "$5, 20, 35, 50, 65, 80$, og det siste er $5 + 79 \\cdot 15 = 1190$."
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor må startpunktet trekkes tilfeldig?",
+            "solution": "Ellers er det ikke et sannsynlighetsutvalg. Starter man alltid på $1$, er det bare $80$ av de $1\\,200$ som noen gang kan bli trukket, og de $1\\,120$ andre har sannsynlighet null."
+          },
+          {
+            "label": "d",
+            "task": "Billettlisten er sortert etter setenummer, og hver rad i salen har $15$ seter. Hva blir galt?",
+            "solution": "Da er perioden i lista ($15$) lik $k$, og vi treffer samme setenummer i hver rad — for eksempel alltid sete $5$, som ligger i samme del av salen. Utvalget blir systematisk skjevt med hensyn på hvor folk satt."
+          },
+          {
+            "label": "e",
+            "task": "Foreslå en løsning.",
+            "solution": "Sorter lista tilfeldig med `=SLUMP()` før trekningen, eller trekk et enkelt tilfeldig utvalg i stedet. Alternativt kan man velge et $k$ som ikke deler radlengden."
+          }
+        ],
+        "solution": "a) $k = 15$, b) $5, 20, 35, 50, 65, 80$ og $1190$, c) ellers er trekksannsynligheten null for de fleste, d) perioden er lik $k$, e) stokk om lista først",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-2-def-stratifisert",
+      "type": "definition",
+      "content": "Et **stratifisert utvalg** deler først populasjonen i grupper — **strata** — som\ner ensartede innad og ulike seg imellom: trinn, bydeler, aldersgrupper,\nbedriftsstørrelser.\n\nDeretter trekkes et tilfeldig utvalg **innenfor hvert stratum**.\n\nVed **proporsjonal allokering** får hvert stratum like stor andel av utvalget\nsom det har av populasjonen:\n\n$$n_h = \\frac{N_h}{N} \\cdot n$$\n\nder $N_h$ er antall enheter i stratum $h$ og $n_h$ er hvor mange vi trekker\nderfra.\n\n**Hvorfor gjøre det?** To grunner:\n\n1. **Sikkerhet.** Utvalget får garantert riktig sammensetning. Et enkelt\n   tilfeldig utvalg kan ved uflaks få for få fra én gruppe.\n2. **Presisjon.** Når gruppene er ensartede innad, blir anslaget mer presist\n   enn ved enkelt tilfeldig utvalg med samme $n$.\n\n**NB:** Trekker vi like mange fra hvert stratum uansett størrelse, får\nenhetene i de små stratene **høyere** trekksannsynlighet enn de i de store. Det\nkan være ønskelig — for eksempel når hver bydel skal ha egne tall — men da må\nresultatene **veies** før de slås sammen til et tall for hele populasjonen.",
+      "title": "Stratifisert utvalg"
+    },
+    {
+      "id": "stat-3-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Proporsjonal allokering",
+      "problem": "En skole har $168$ elever på 8. trinn, $150$ på 9. trinn og $132$ på 10. trinn.\nDet skal trekkes $60$ elever.\n\na) Hvor mange skal trekkes fra hvert trinn?\n\nb) Hva blir trekksannsynligheten i hvert trinn?\n\nc) Hva er galt med å ta $20$ fra hvert trinn?",
+      "solution": "**a)** Først totalen:\n\n$$N = 168 + 150 + 132 = 450$$\n\nSå regner vi ett trinn om gangen, med formelen tom og deretter med tall.\n\n$$n_h = \\frac{N_h}{N} \\cdot n$$\n\n**8. trinn:**\n\n$$n_1 = \\frac{168}{450} \\cdot 60 = 0{,}3733 \\cdot 60 = 22{,}4 \\approx 22$$\n\n**9. trinn:**\n\n$$n_2 = \\frac{150}{450} \\cdot 60 = 0{,}3333 \\cdot 60 = 20{,}0 = 20$$\n\n**10. trinn:**\n\n$$n_3 = \\frac{132}{450} \\cdot 60 = 0{,}2933 \\cdot 60 = 17{,}6 \\approx 18$$\n\n**Kontroll:** $22 + 20 + 18 = 60$. Det stemmer.\n\n**Svar a):** $22$ fra 8. trinn, $20$ fra 9. trinn og $18$ fra 10. trinn.\n\n*(Avrundingen må sjekkes hver gang. Blir summen $59$ eller $61$, justerer vi\ndet stratumet der avrundingen var nærmest en halv.)*\n\n**b)** Vi regner andelen som trekkes i hvert trinn:\n\n$$\\frac{22}{168} = 0{,}1310 = 13{,}1\\ \\%$$\n\n$$\\frac{20}{150} = 0{,}1333 = 13{,}3\\ \\%$$\n\n$$\\frac{18}{132} = 0{,}1364 = 13{,}6\\ \\%$$\n\n**Svar b):** Omtrent $13\\ \\%$ i alle tre — praktisk talt lik\ntrekksannsynlighet, slik proporsjonal allokering skal gi. (De små forskjellene\nkommer bare av avrundingen.)\n\n**c)** Med $20$ fra hvert trinn blir andelene\n\n$$\\frac{20}{168} = 11{,}9\\ \\%, \\qquad \\frac{20}{150} = 13{,}3\\ \\%, \\qquad \\frac{20}{132} = 15{,}2\\ \\%$$\n\nEn elev på 10. trinn har altså nesten $30\\ \\%$ høyere sjanse for å bli med enn\nen på 8. trinn.\n\n![Tre stablede søyler som hver viser 100 prosent, delt på 8. trinn (blå), 9. trinn (grønn) og 10. trinn (oransje). Den loddrette aksen er merket andel (%) og tallsatt 20, 40, 60, 80 og 100. Den første søylen er populasjonen med 168, 150 og 132 elever, altså 37,3, 33,3 og 29,3 prosent. Den andre er proporsjonal allokering med 22, 20 og 18 trukne, altså 36,7, 33,3 og 30,0 prosent — nesten identisk med populasjonen. Den tredje er lik allokering med 20 fra hvert trinn, altså 33,3 prosent hver — nå er 10. trinn for stort og 8. trinn for lite. En tegnforklaring til høyre for søylene viser hvilken farge som hører til hvilket trinn.](/images/content/statistikk/stat-3-2-allokering.png)\n\n*Proporsjonal allokering speiler populasjonen; lik allokering gjør det ikke. Trekksannsynligheten blir da ulik — 11,9 % på 8. trinn mot 15,2 % på 10. trinn — og utvalget må veies før det kan si noe om hele skolen.*\n\n**Svar c):** 10. trinn blir overrepresentert i utvalget. Skal tallene likevel\nbrukes samlet, må hvert trinn veies med sin riktige andel av populasjonen — og\ngjør man ikke det, trekker 10. trinns svar for mye.\n\n**Andre muligheter:** Lik allokering er riktig valg når hvert trinn skal ha\n**sitt eget** resultat med omtrent lik presisjon. Da er poenget ikke ett\nsamlet tall, men tre sammenlignbare."
+    },
+    {
+      "id": "stat-3-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 (digitale verktøy).** En kommune har fire bydeler:\n\n| Bydel | Sentrum | Nord | Vest | Øst |\n|---|---|---|---|---|\n| Innbyggere | 9400 | 6200 | 4900 | 3500 |\n\nDet skal trekkes $800$ personer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn totalt innbyggertall og andelen hver bydel utgjør.",
+            "solution": "$N = 9400 + 6200 + 4900 + 3500 = 24\\,000$. Andelene er $\\frac{9400}{24000} = 39{,}17\\ \\%$, $25{,}83\\ \\%$, $20{,}42\\ \\%$ og $14{,}58\\ \\%$.",
+            "answer": 24000
+          },
+          {
+            "label": "b",
+            "task": "Regn ut proporsjonal allokering for de fire bydelene.",
+            "solution": "$0{,}3917 \\cdot 800 = 313{,}33 \\approx 313$; $0{,}2583 \\cdot 800 = 206{,}67 \\approx 207$; $0{,}2042 \\cdot 800 = 163{,}33 \\approx 163$; $0{,}1458 \\cdot 800 = 116{,}67 \\approx 117$.",
+            "answer": [
+              313,
+              207,
+              163,
+              117
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Kontroller at summen blir $800$.",
+            "solution": "$313 + 207 + 163 + 117 = 800$. Det stemmer.",
+            "answer": 800
+          },
+          {
+            "label": "d",
+            "task": "Kommunen vurderer i stedet $200$ fra hver bydel. Hvilke bydeler blir over- og underrepresentert?",
+            "solution": "Trekksannsynlighetene blir $\\frac{200}{9400} = 2{,}13\\ \\%$, $3{,}23\\ \\%$, $4{,}08\\ \\%$ og $5{,}71\\ \\%$. Sentrum og Nord blir underrepresentert, Vest og Øst overrepresentert, sammenlignet med den felles andelen $\\frac{800}{24000} = 3{,}33\\ \\%$."
+          },
+          {
+            "label": "e",
+            "task": "Når kan $200$ fra hver bydel likevel være det riktige valget?",
+            "solution": "Når hver bydel skal ha et eget resultat som skal sammenlignes med de andre. Da trenger den minste bydelen like mange svar som den største for å få samme presisjon. Skal tallene så slås sammen til ett kommunetall, må hver bydel veies med sin faktiske befolkningsandel."
+          }
+        ],
+        "solution": "a) $N = 24\\,000$, b) $313$, $207$, $163$ og $117$, c) $800$, d) Vest og Øst overrepresentert, e) når hver bydel skal ha egne tall",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-3-2-def-klynge",
+      "type": "definition",
+      "content": "Et **klyngeutvalg** deler populasjonen i **klynger** — skoleklasser,\nbygårder, valgkretser — og trekker så **hele klynger** tilfeldig. Alle enhetene\ni de trukne klyngene er med.\n\nForskjellen fra stratifisering er viktig:\n\n| | Strata | Klynger |\n|---|---|---|\n| Hva gruppene skal være | ulike seg imellom, ensartede innad | hver klynge som et lite speil av hele populasjonen |\n| Hva vi trekker | et utvalg **fra hvert** stratum | **hele** klynger, og bare noen av dem |\n| Virkning på presisjonen | bedre enn ETU | dårligere enn ETU |\n| Hvorfor brukes den | presisjon og sikkerhet | pris og praktisk gjennomførbarhet |\n\nKlyngeutvalg er billig fordi vi bare må oppsøke noen få steder. Prisen er at\nenheter i samme klynge ligner hverandre, og at $n$ enheter fra få klynger\nderfor inneholder mindre informasjon enn $n$ enheter trukket fritt.",
+      "title": "Klyngeutvalg"
+    },
+    {
+      "id": "stat-3-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Tre klasser eller 75 elever?",
+      "problem": "En skole har $18$ klasser med $25$ elever i hver.\n\na) Hvor mange elever får vi ved å trekke tre hele klasser?\n\nb) Hvorfor er dette billigere enn å trekke $75$ elever tilfeldig?\n\nc) En simulering med $200$ gjentakelser ga et standardavvik på $0{,}051$\nmellom anslagene ved enkelt tilfeldig utvalg, og $0{,}112$ ved klyngeutvalg.\nHva betyr det?",
+      "solution": "**a)** $$3 \\cdot 25 = 75 \\text{ elever}$$\n\n**Svar a):** $75$ elever — like mange som i et enkelt tilfeldig utvalg på $75$.\n\n**b)** Fordi vi bare må oppsøke **tre** steder i stedet for $75$.\n\nVed et enkelt tilfeldig utvalg ville de $75$ elevene vært spredt på alle $18$\nklassene. Undersøkelsen måtte da avtales med $18$ lærere, gjennomføres i $18$\ntimer, og elevene måtte hentes ut av undervisningen én og én.\n\nMed klyngeutvalg tar vi tre klasser i tre skoletimer.\n\n**Svar b):** Antall **steder** å oppsøke er det som koster, ikke antall\nenheter.\n\n**c)** Tallene sier hvor mye anslaget spriker fra gang til gang.\n\nVed enkelt tilfeldig utvalg spriker anslagene med $0{,}051$; ved klyngeutvalg\nmed $0{,}112$ — altså mer enn **dobbelt** så mye, med nøyaktig samme $n = 75$.\n\nForholdet mellom kvadratene er\n\n$$\\frac{0{,}112^2}{0{,}051^2} \\approx 4{,}8$$\n\nDet betyr at klyngeutvalget på $75$ elever gir omtrent like mye informasjon som\net enkelt tilfeldig utvalg på\n\n$$\\frac{75}{4{,}8} \\approx 16 \\text{ elever}$$\n\n**Svar c):** Klyngeutvalget er mye mindre presist. De $75$ elevene teller i\npraksis som rundt $16$.\n\n**Her ser vi at** «$n = 75$» ikke betyr det samme i to ulike design.\nKlyngeutvalg må derfor være **større** enn et enkelt tilfeldig utvalg for å gi\nsamme presisjon — og valget står mellom pris og presisjon, ikke mellom rett og\ngalt.\n\n**Andre muligheter:** I praksis brukes ofte en mellomting: trekk mange klynger,\nmen bare noen få enheter fra hver. Det gir mye av besparelsen og lite av\npresisjonstapet."
+    },
+    {
+      "id": "stat-3-2-warning-ikke-sannsynlighet",
+      "type": "warning",
+      "content": "Disse tre møter du hele tiden. Ingen av dem gir grunnlag for å oppgi en\nfeilmargin:\n\n**Bekvemmelighetsutvalg** — de som var lettest å få tak i: folk i gågata en\ntirsdag formiddag, klassen til den som lager undersøkelsen, kundene som stod i\nkø. Skjevheten avhenger av hvem som tilfeldigvis er der, og den kan ikke\nanslås.\n\n**Selvrekruttert utvalg** — de som selv valgte å svare: en avstemning på en\nnettside, en åpen høring, en QR-kode på kvitteringen. De som svarer, er de som\nbryr seg mest, og de har som regel sterkere meninger enn resten. Dette er den\nvanligste feilen i undersøkelser som deles i sosiale medier.\n\n**Kvoteutvalg** — intervjueren skal ha et gitt antall i hver aldersgruppe, men\nvelger selv hvem. Sammensetningen blir riktig på de egenskapene man kvoterer\npå, og kan være skjev på alt annet.\n\n> Et stort ikke-sannsynlighetsutvalg er ikke bedre enn et lite. Det er bare\n> sikrere på et svar som kan være feil.",
+      "title": "NB: Utvalg som ikke er sannsynlighetsutvalg"
+    },
+    {
+      "id": "stat-3-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 (uten hjelpemidler).** På en skole er den sanne andelen som svarer ja\npå et spørsmål, $30\\ \\%$ på 8. trinn, $45\\ \\%$ på 9. trinn og $62\\ \\%$ på\n10. trinn. Trinnene har henholdsvis $168$, $150$ og $132$ elever.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er den sanne andelen for hele skolen?",
+            "solution": "Vi veier med elevtallene: $\\frac{168 \\cdot 0{,}30 + 150 \\cdot 0{,}45 + 132 \\cdot 0{,}62}{450} = \\frac{50{,}4 + 67{,}5 + 81{,}84}{450} = \\frac{199{,}74}{450} = 0{,}4439 \\approx 44{,}4\\ \\%$.",
+            "answer": 44.4
+          },
+          {
+            "label": "b",
+            "task": "En elev spør bare sin egen klasse på 10. trinn. Hvilket anslag får hun?",
+            "solution": "Omtrent $62\\ \\%$ — andelen på 10. trinn.",
+            "answer": 62
+          },
+          {
+            "label": "c",
+            "task": "Hvor stor blir den systematiske feilen?",
+            "solution": "$62 - 44{,}4 = 17{,}6$ prosentpoeng for høyt.",
+            "answer": 17.6
+          },
+          {
+            "label": "d",
+            "task": "Blir feilen mindre om hun spør alle $132$ på 10. trinn i stedet for sine $28$ klassekamerater?",
+            "solution": "Nei. Den tilfeldige variasjonen blir mindre, men den systematiske feilen på $17{,}6$ prosentpoeng blir stående — hun måler fortsatt 10. trinn og ikke skolen. Å utvide et skjevt utvalg fjerner ikke skjevheten."
+          },
+          {
+            "label": "e",
+            "task": "Med proporsjonal stratifisering ($22$, $20$ og $18$ elever) blir anslaget $\\frac{22 \\cdot 0{,}30 + 20 \\cdot 0{,}45 + 18 \\cdot 0{,}62}{60}$. Regn det ut og sammenlign.",
+            "solution": "$\\frac{6{,}6 + 9{,}0 + 11{,}16}{60} = \\frac{26{,}76}{60} = 0{,}446 = 44{,}6\\ \\%$ — bare $0{,}2$ prosentpoeng fra det sanne tallet, og med bare $60$ spurte.",
+            "answer": 44.6
+          }
+        ],
+        "solution": "a) $44{,}4\\ \\%$, b) $62\\ \\%$, c) $17{,}6$ prosentpoeng, d) nei, e) $44{,}6\\ \\%$ — nesten riktig med $60$ spurte",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "hints": [
+          "Den sanne andelen er et vektet gjennomsnitt av trinnandelene."
+        ]
+      }
+    },
+    {
+      "id": "stat-3-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** Lag en tenkt skole i et regneark: $18$ klasser à\n$25$ elever, der klasse nummer $i$ har andelen $0{,}20 + 0{,}04 \\cdot (i-1)$\nsom svarer ja. Klassene er altså svært ulike.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er den sanne andelen for hele skolen?",
+            "solution": "Andelene går fra $0{,}20$ til $0{,}88$ i like store trinn, så gjennomsnittet er $\\frac{0{,}20 + 0{,}88}{2} = 0{,}54$, altså $54\\ \\%$.",
+            "answer": 0.54
+          },
+          {
+            "label": "b",
+            "task": "Trekk $75$ elever tilfeldig fra hele skolen, mange ganger. Hvor mye spriker anslagene?",
+            "solution": "I en simulering med $200$ gjentakelser ble standardavviket mellom anslagene $0{,}051$."
+          },
+          {
+            "label": "c",
+            "task": "Trekk i stedet tre hele klasser, mange ganger. Hvor mye spriker anslagene nå?",
+            "solution": "Standardavviket ble $0{,}112$ — mer enn dobbelt så stort, med samme $n = 75$."
+          },
+          {
+            "label": "d",
+            "task": "Regn ut forholdet mellom kvadratene av de to standardavvikene, og tolk tallet.",
+            "solution": "$\\frac{0{,}112^2}{0{,}051^2} = \\frac{0{,}012544}{0{,}002601} \\approx 4{,}8$. Klyngeutvalget må være omtrent fem ganger så stort for å gi samme presisjon som et enkelt tilfeldig utvalg. Tallet kalles **designeffekten**.\n\n![To punktsvermer merket A og B med nøyaktig samme tallsatte akser. Den loddrette aksen er merket anslått andel og tallsatt 0,2, 0,3, 0,4, 0,5, 0,6, 0,7, 0,8 og 0,9 i begge paneler; den vannrette er merket simulering nr. og tallsatt 50, 100, 150 og 200. Hvert punkt er ett av de 200 simulerte anslagene, og en grå prikkerad i høyden 0,54 er merket sann andel 0,54. I panel A, enkelt tilfeldig utvalg med n lik 75, ligger anslagene i et smalt bånd fra omtrent 0,43 til 0,68 rundt den grå raden; spredningen er 0,051. I panel B, klyngeutvalg med tre hele klasser og samme n lik 75, sprer de samme 200 anslagene seg fra omtrent 0,25 til 0,79 — mer enn dobbelt så bredt på den samme aksen; spredningen er 0,112.](/images/content/statistikk/stat-3-2-designeffekt.png)\n\n*Samme $n$ betyr ikke det samme i to design. Panelene har samme loddrette akse, så bredden på de to båndene kan leses av og sammenlignes direkte: klyngeutvalget sprer mer enn dobbelt så mye. Designeffekten $0{,}112^2/0{,}051^2 \\approx 4{,}8$ sier at det må være omtrent fem ganger så stort for å gi samme presisjon.*",
+            "answer": 4.8
+          },
+          {
+            "label": "e",
+            "task": "Hva ville skjedd med designeffekten hvis alle klassene hadde hatt omtrent samme andel?",
+            "solution": "Da ville den falt mot $1$. Klyngeutvalgets svakhet kommer av at klyngene er **ulike**. Er hver klynge et lite speil av hele populasjonen, er tre klasser like gode som $75$ tilfeldige elever — og mye billigere."
+          }
+        ],
+        "solution": "a) $0{,}54$, b) om lag $0{,}051$, c) om lag $0{,}112$, d) designeffekt $\\approx 4{,}8$, e) faller mot $1$ når klyngene er like",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-3-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Du skal planlegge en undersøkelse av hvor mange minutter\nelevene i din kommune bruker på skoleveien.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Avgrens populasjonen, og beskriv enheten og utvalgsrammen.",
+            "solution": "For eksempel: alle elever i grunnskolen i kommunen inneværende skoleår. Enhet: én elev. Utvalgsramme: kommunens elevregister. Merk hvem rammen eventuelt utelater — privatskoleelever, elever som nylig har flyttet inn."
+          },
+          {
+            "label": "b",
+            "task": "Velg utvalgsmetode og begrunn valget mot minst én annen metode.",
+            "solution": "Stratifisert etter skole eller skolekrets er et godt valg, fordi reisetid varierer systematisk med hvor i kommunen man bor — strataene er ulike seg imellom og ensartede innad, og det er nettopp da stratifisering lønner seg. Klyngeutvalg (noen få skoler) ville vært billigere, men gitt større usikkerhet av samme grunn: skolene er ulike."
+          },
+          {
+            "label": "c",
+            "task": "Sett opp en proporsjonal allokering for et utvalg på $300$, gitt elevtall du velger selv for fire skoler.",
+            "solution": "Regn $n_h = \\frac{N_h}{N} \\cdot 300$ for hver skole, rund av, og kontroller at summen blir $300$. Et fullstendig svar viser utregningen per skole og kontrollsummen."
+          },
+          {
+            "label": "d",
+            "task": "Hvilke enheter har sannsynlighet null for å bli med, og hva gjør det med konklusjonen?",
+            "solution": "Elever som ikke står i rammen — for eksempel de på privatskole eller de som nettopp har flyttet til kommunen. Konklusjonen gjelder da strengt tatt bare dem som var i rammen, og det må stå i rapporten."
+          },
+          {
+            "label": "e",
+            "task": "Foreslå en billigere metode, og si hva den koster i presisjon.",
+            "solution": "Klyngeutvalg: trekk fire skoler og spør alle elevene der. Det koster fire besøk i stedet for mange. Prisen er en designeffekt som kan bli stor, fordi reisetid henger tett sammen med hvilken skole man går på — nettopp den variabelen som skiller klyngene.\n\n**Andre muligheter:** trekk mange skoler, men bare én klasse fra hver. Det er som regel den beste avveiningen mellom pris og presisjon."
+          }
+        ],
+        "solution": "a) avgrenset populasjon og ramme, b) begrunnet metodevalg, c) allokering med kontrollsum, d) hvem rammen utelater, e) klyngeutvalg — billigere, mindre presist",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "isInvestigation": true
+      }
+    },
+    {
+      "id": "stat-3-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Metode | Slik gjøres den | Styrke | Svakhet |\n|---|---|---|---|\n| Enkelt tilfeldig | Nummerer alle, trekk $n$ tilfeldig | Enkel å regne på | Kan være dyr å gjennomføre |\n| Systematisk | Hver $k$-te, $k = \\frac{N}{n}$, tilfeldig start | Lett i praksis | Periodisitet i lista |\n| Stratifisert | Del i strata, trekk innenfor hvert | Riktig sammensetning, bedre presisjon | Krever kjennskap til strataene |\n| Klynge | Trekk hele klynger | Billig | Lavere presisjon (designeffekt) |\n| Bekvemmelighet | De som var lettest å få tak i | Rask | Ukjent skjevhet |\n| Selvrekruttert | De som velger å svare | Billig | Ukjent skjevhet |\n\n### Husk\n- Et sannsynlighetsutvalg krever at **hver** enhet har kjent og positiv\n  sannsynlighet for å bli trukket.\n- Proporsjonal allokering: $n_h = \\dfrac{N_h}{N} \\cdot n$. Kontroller alltid at\n  avrundingen summerer til $n$.\n- Systematisk utvalg krever tilfeldig startpunkt — og at du vet hvordan lista er\n  sortert.\n- Klyngeutvalg med $n$ enheter er mindre verdt enn et enkelt tilfeldig utvalg med\n  $n$ enheter.\n- **Et skjevt utvalg blir ikke riktig av å bli stort.**"
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Sannsynlighetsutvalg",
+      "definition": "Utvalg der hver enhet i populasjonen har en kjent og positiv sannsynlighet for å bli trukket. Bare slike gir grunnlag for feilmargin."
+    },
+    {
+      "term": "Enkelt tilfeldig utvalg",
+      "definition": "Utvalg der alle grupper på n enheter er like sannsynlige. Hver enhet trekkes med sannsynlighet n/N."
+    },
+    {
+      "term": "Systematisk utvalg",
+      "definition": "Hver k-te enhet i en liste, med k = N/n og tilfeldig startpunkt. Sårbart for periodisitet i lista."
+    },
+    {
+      "term": "Stratifisert utvalg",
+      "definition": "Populasjonen deles i strata, og det trekkes innenfor hvert. Proporsjonal allokering gir n_h = (N_h/N)·n."
+    },
+    {
+      "term": "Klyngeutvalg",
+      "definition": "Hele klynger trekkes, og alle enheter i dem er med. Billigere, men mindre presist enn enkelt tilfeldig utvalg."
+    },
+    {
+      "term": "Selvrekruttert utvalg",
+      "definition": "Utvalg som består av dem som selv valgte å svare. Skjevheten er ukjent, og størrelsen retter den ikke opp."
+    }
+  ]
+}

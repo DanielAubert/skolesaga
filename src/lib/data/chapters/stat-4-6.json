@@ -1,0 +1,462 @@
+{
+  "id": "stat-4-6",
+  "courseId": "statistikk",
+  "chapterNumber": "4.6",
+  "title": "Venndiagram og krysstabeller",
+  "description": "Å regne sannsynligheter fra venndiagram og krysstabeller.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+  ],
+  "keyTerms": [
+    {
+      "term": "Venndiagram",
+      "definition": "En tegning der hver hendelse er en sirkel inne i et rektangel som er utfallsrommet. Antallet i hvert felt skrives inn, og feltene overlapper ikke."
+    },
+    {
+      "term": "Krysstabell",
+      "definition": "En tabell der radene er den ene egenskapen og kolonnene den andre. Hver celle er antallet som har begge egenskapene. Kalles også kontingenstabell."
+    },
+    {
+      "term": "Radsum og kolonnesum",
+      "definition": "Summene i margen av en krysstabell. De er antallet med den ene egenskapen alene, uavhengig av den andre."
+    },
+    {
+      "term": "Totalen",
+      "definition": "Tallet nederst til høyre i krysstabellen. Det er hele grunnmengden, og både radsummene og kolonnesummene skal summere til det."
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-6-section-intro",
+      "type": "text",
+      "content": "# To måter å ordne de samme tallene på\n\nDe to forrige kapitlene ga oss formlene. Dette kapittelet gir oss **arbeidsredskapene**: venndiagrammet og krysstabellen. De inneholder nøyaktig den samme informasjonen, men de gjør ulike ting lette:\n\n- **Venndiagrammet** viser overlappet. Det er lett å se hva som er i begge, og hva som er utenfor alt.\n- **Krysstabellen** viser radsummer og kolonnesummer. Den er lett å regne betinget sannsynlighet fra, fordi nevneren står ferdig i margen.\n\nDe fleste eksamensoppgavene i sannsynlighet kan løses med ett av disse to. Lærer du å fylle dem ut riktig, trenger du sjelden å pugge formler i det hele tatt."
+    },
+    {
+      "id": "stat-4-6-section-venn",
+      "type": "text",
+      "content": "## Venndiagram: fyll inn fra midten\n\nRegelen er enkel og redder deg hver gang: **begynn med feltet der sirklene overlapper.** Deretter trekker du fra for å få de andre feltene.\n\n1. Skriv snittet i midten.\n2. «Bare A» = $|A|$ minus snittet.\n3. «Bare B» = $|B|$ minus snittet.\n4. «Verken» = totalen minus de tre andre feltene.\n5. Kontroller: de fire feltene skal summere til totalen.\n\nFyller du inn i en annen rekkefølge, ender du nesten alltid med å telle overlappet to ganger."
+    },
+    {
+      "id": "stat-4-6-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "Ved en skole har 120 elever svart på hvilke fremmedspråk de har hatt. 52 har hatt tysk, 40 har hatt spansk, og 14 har hatt begge. Én elev trekkes tilfeldig.\n\na) Fyll ut venndiagrammet.\nb) Bestem $P(T)$, $P(S)$ og $P(T \\cap S)$.\nc) Bestem sannsynligheten for at eleven har hatt minst ett av de to språkene.\nd) Bestem sannsynligheten for at eleven har hatt tysk, men ikke spansk.",
+      "solution": "**Løsning:**\n\na) Vi følger de fem skrittene.\n\n**Midten først:** 14 elever har hatt begge.\n\n**Bare tysk:** $52 - 14 = 38$\n\n**Bare spansk:** $40 - 14 = 26$\n\n**Verken:** $120 - 38 - 14 - 26 = 42$\n\n**Kontroll:** $38 + 14 + 26 + 42 = 120$. Det stemmer, og figuren under viser nettopp disse fire tallene.\n\n![Et venndiagram. Et rektangel er merket U lik 120 oppe i venstre hjørne. Inne i rektangelet ligger to overlappende sirkler. Den blå sirkelen til venstre er merket T, den grønne til høyre er merket S. I den delen av T som ikke overlapper, står tallet 38. I overlappet står tallet 14. I den delen av S som ikke overlapper, står tallet 26. Utenfor begge sirklene, men inne i rektangelet, står tallet 42.](/images/content/statistikk/stat-4-6-venn-sprak.png)\n\n*120 elever fordelt etter om de har hatt tysk ($T$) eller spansk ($S$) som fremmedspråk. De fire tallene summerer til 120.*\n\nb) Grunnmengden er de 120 elevene. Vi venter med å forkorte, siden brøkene skal brukes videre.\n\n$$P(T) = \\frac{52}{120} \\qquad P(S) = \\frac{40}{120} \\qquad P(T \\cap S) = \\frac{14}{120}$$\n\nc) «Minst ett» er unionen. Vi kan enten bruke addisjonssetningen eller lese de tre feltene rett av figuren. Vi gjør begge deler, siden det ene er kontroll på det andre.\n\nFra addisjonssetningen:\n\n$$P(T \\cup S) = \\frac{52}{120} + \\frac{40}{120} - \\frac{14}{120} = \\frac{78}{120}$$\n\nFra figuren: $38 + 14 + 26 = 78$ elever. Samme tall.\n\n$$\\frac{78}{120} = \\frac{13}{20} = 0{,}65$$\n\nd) «Tysk, men ikke spansk» er feltet med 38 elever:\n\n$$P = \\frac{38}{120} = \\frac{19}{60} \\approx 0{,}317$$\n\n**Svar:** a) 38, 14, 26 og 42. b) $\\frac{13}{30}$, $\\frac{1}{3}$ og $\\frac{7}{60}$. c) $\\frac{13}{20} = 0{,}65$. d) $\\frac{19}{60} \\approx 0{,}317$."
+    },
+    {
+      "id": "stat-4-6-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør det samme som i eksempel 1. En idrettshall har 180 brukere. 96 bruker styrkerommet, 75 bruker svømmehallen, og 33 bruker begge deler. Tegn venndiagrammet og fyll inn fra midten.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange bruker bare styrkerommet?",
+            "solution": "$96 - 33 = 63$",
+            "answer": 63
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange bruker bare svømmehallen?",
+            "solution": "$75 - 33 = 42$",
+            "answer": 42
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange bruker verken styrkerommet eller svømmehallen?",
+            "solution": "$180 - 63 - 33 - 42 = 42$",
+            "answer": 42
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange bruker minst ett av tilbudene?",
+            "solution": "$63 + 33 + 42 = 138$",
+            "answer": 138
+          },
+          {
+            "label": "e",
+            "task": "Én bruker trekkes tilfeldig. Bestem sannsynligheten for at hun bruker begge tilbudene. Svar med tre desimaler.",
+            "solution": "$\\frac{33}{180} \\approx 0{,}183$",
+            "answer": 0.183
+          }
+        ],
+        "hints": [
+          "Skriv 33 i midtfeltet først, og trekk fra derfra.",
+          "Kontroll: de fire feltene skal summere til 180."
+        ],
+        "solution": "a) 63, b) 42, c) 42, d) 138, e) $0{,}183$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-6-def-krysstabell",
+      "type": "definition",
+      "title": "Krysstabell",
+      "content": "En **krysstabell** ordner de samme opplysningene i et rutenett. Den ene egenskapen står i radene, den andre i kolonnene:\n\n| | $B$ | $B'$ | Sum |\n|---|---|---|---|\n| $A$ | $\\lvert A \\cap B\\rvert$ | $\\lvert A \\cap B'\\rvert$ | $\\lvert A\\rvert$ |\n| $A'$ | $\\lvert A' \\cap B\\rvert$ | $\\lvert A' \\cap B'\\rvert$ | $\\lvert A'\\rvert$ |\n| **Sum** | $\\lvert B\\rvert$ | $\\lvert B'\\rvert$ | **totalen** |\n\nDe fire cellene inne i tabellen svarer nøyaktig til de fire feltene i venndiagrammet. Det nye er **margen**: radsummene og kolonnesummene står ferdig utregnet, og det er de vi trenger som nevnere når vi skal regne betinget sannsynlighet."
+    },
+    {
+      "id": "stat-4-6-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "En kafé registrerte 250 kunder en formiddag. 160 kjøpte kaffe. Av dem som kjøpte kaffe, kjøpte 112 også noe å spise. Av dem som ikke kjøpte kaffe, kjøpte 18 noe å spise.\n\nSett opp en krysstabell over de 250 kundene.",
+      "solution": "**Løsning:**\n\nVi bygger tabellen **celle for celle**, og hver celle skal kunne begrunnes fra en opplysning eller fra en rad- eller kolonnesum.\n\n**Cellene vi får rett fra teksten:**\n\n- «160 kjøpte kaffe» er radsummen for kaffe: $160$.\n- «av dem kjøpte 112 også noe å spise» er cellen kaffe og spise: $112$.\n- «av dem som ikke kjøpte kaffe, kjøpte 18 noe å spise» er cellen ikke kaffe og spise: $18$.\n\n**Cellene vi regner ut:**\n\n- Radsummen for «ikke kaffe»: $250 - 160 = 90$.\n- Kaffe, men ikke spise: radsummen minus cellen vi har: $160 - 112 = 48$.\n- Ikke kaffe og ikke spise: $90 - 18 = 72$.\n- Kolonnesummen for spise: $112 + 18 = 130$.\n- Kolonnesummen for ikke spise: $48 + 72 = 120$.\n\nTabellen blir:\n\n| | Kjøpte mat | Kjøpte ikke mat | Sum |\n|---|---|---|---|\n| Kjøpte kaffe | 112 | 48 | 160 |\n| Kjøpte ikke kaffe | 18 | 72 | 90 |\n| **Sum** | **130** | **120** | **250** |\n\n**Kontroll:** radsummene $160 + 90 = 250$, og kolonnesummene $130 + 120 = 250$. Begge veier gir totalen, så tabellen henger sammen.\n\n**Svar:** Krysstabellen over — radsummene 160 og 90, kolonnesummene 130 og 120, og totalen 250.\n\n**NB:** Legg merke til hvor de betingede opplysningene i teksten havnet. «Av dem som kjøpte kaffe …» betyr at grunnmengden er *kafferaden*, ikke hele tabellen. Hadde vi lest tallet 112 som «112 av de 250», ville hele tabellen blitt gal."
+    },
+    {
+      "id": "stat-4-6-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 2. En skole spurte 300 elever om de sykler til skolen, og om de har fritidsjobb. 180 sykler. Av dem som sykler, har 63 fritidsjobb. Av dem som ikke sykler, har 54 fritidsjobb. Sett opp krysstabellen og fyll inn.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange sykler ikke?",
+            "solution": "$300 - 180 = 120$",
+            "answer": 120
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange sykler og har ikke fritidsjobb?",
+            "solution": "$180 - 63 = 117$",
+            "answer": 117
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange sykler ikke og har ikke fritidsjobb?",
+            "solution": "$120 - 54 = 66$",
+            "answer": 66
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange har fritidsjobb til sammen?",
+            "solution": "$63 + 54 = 117$",
+            "answer": 117
+          },
+          {
+            "label": "e",
+            "task": "Kontroller tabellen: hva blir summen av de to kolonnesummene?",
+            "solution": "$117 + (117 + 66) = 117 + 183 = 300$. Samme som radsummene $180 + 120 = 300$.",
+            "answer": 300
+          }
+        ],
+        "hints": [
+          "«Av dem som sykler …» betyr at tallet hører til sykkelraden, ikke til hele skolen.",
+          "Fyll ut radsummene først, så cellene, så kolonnesummene."
+        ],
+        "solution": "a) 120, b) 117, c) 66, d) 117, e) 300",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-6-section-betinget",
+      "type": "text",
+      "content": "## Betinget sannsynlighet fra tabellen\n\nNå kommer grunnen til at krysstabellen er så kraftig. Alle de tre sannsynlighetene vi trenger, har **samme telle­måte** — vi leser av en celle. Det eneste som skiller dem, er hva vi deler på:\n\n| Spørsmål | Nevner |\n|---|---|\n| $P(A \\cap B)$ — «hvor stor del av alle er både A og B?» | totalen |\n| $P(A \\mid B)$ — «hvor stor del av B-ene er A?» | kolonnesummen for $B$ |\n| $P(B \\mid A)$ — «hvor stor del av A-ene er B?» | radsummen for $A$ |\n\nHele forskjellen ligger i nevneren. Telleren er den samme cellen alle tre gangene.\n\nDerfor er det verdt å lese oppgaveteksten to ganger og spørre: **av hvem?**"
+    },
+    {
+      "id": "stat-4-6-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "Vi bruker krysstabellen fra eksempel 2:\n\n| | Kjøpte mat | Kjøpte ikke mat | Sum |\n|---|---|---|---|\n| Kjøpte kaffe | 112 | 48 | 160 |\n| Kjøpte ikke kaffe | 18 | 72 | 90 |\n| **Sum** | **130** | **120** | **250** |\n\nÉn av de 250 kundene trekkes tilfeldig. La $K$ = «kjøpte kaffe» og $M$ = «kjøpte mat».\n\na) Bestem $P(M)$.\nb) Bestem $P(K \\cap M)$.\nc) Bestem $P(M \\mid K)$.\nd) Bestem $P(K \\mid M)$.\ne) Sammenlign svarene i a) og c). Hva forteller de?",
+      "solution": "**Løsning:**\n\nVi identifiserer nevneren før vi skriver hver eneste brøk.\n\na) Her spør vi om *alle* kundene. Nevneren er totalen 250, og telleren er kolonnesummen for mat:\n\n$$P(M) = \\frac{130}{250} = \\frac{13}{25} = 0{,}52$$\n\nb) «Både kaffe og mat» er cellen $112$. Vi spør fortsatt om alle kundene, så nevneren er totalen:\n\n$$P(K \\cap M) = \\frac{112}{250} = \\frac{56}{125} = 0{,}448$$\n\nc) Nå betinger vi på kaffe. Grunnmengden krymper til **kafferaden**, altså 160 kunder. Telleren er den samme cellen som i b):\n\n$$P(M \\mid K) = \\frac{112}{160} = \\frac{7}{10} = 0{,}70$$\n\nd) Nå betinger vi på mat i stedet. Grunnmengden blir **matkolonnen**, altså 130 kunder. Telleren er *fortsatt* den samme cellen:\n\n$$P(K \\mid M) = \\frac{112}{130} = \\frac{56}{65} \\approx 0{,}862$$\n\nHer ser vi det tydelig: $112$ står over brøkstreken i b), c) og d). Det er bare tallet under brøkstreken som endrer seg — $250$, $160$, $130$ — og svarene blir $0{,}448$, $0{,}70$ og $0{,}862$.\n\ne) $P(M) = 0{,}52$ mot $P(M \\mid K) = 0{,}70$.\n\nBlant alle kundene kjøper 52 % mat. Blant kaffekundene kjøper 70 % mat. Opplysningen «hun kjøpte kaffe» gjør det altså klart mer sannsynlig at hun også kjøpte mat.\n\nSiden $P(M \\mid K) \\neq P(M)$, er hendelsene **avhengige**. Kaféen kan bruke dette: den som kjøper kaffe, er en god kandidat for et tilbud på noe å spise.\n\n![Krysstabellen fra eksempelet tegnet som et rutenett med rad- og kolonnesummer: raden kjøpte kaffe har 112 og 48 med summen 160, raden kjøpte ikke kaffe har 18 og 72 med summen 90, kolonnesummene er 130 og 120, og totalen 250. Cellen med 112 er fylt gul, og resten av raden kjøpte kaffe — cellen med 48 — er fylt grønn. Under tabellen står tre linjer i hver sin farge: blå P(M og K) = 112 / 250 = 0,448 med nevner hele tabellen; grønn P(M gitt K) = 112 / 160 = 0,700 med nevner raden kjøpte kaffe; rød P(K gitt M) = 112 / 130 er omtrent 0,862 med nevner kolonnen kjøpte mat.](/images/content/statistikk/stat-4-6-krysstabell-tre-nevnere.png)\n\n*Samme celle, tre svar. Telleren er den samme hele veien — hele forskjellen ligger i hva vi deler på, og det er nettopp det betingelsen bestemmer. Den gule cellen er telleren, den grønne raden er den ene nevneren, og de to andre nevnerne står som sum-tall i tabellen: 250 og 130.*\n\n**Svar:** a) $0{,}52$. b) $0{,}448$. c) $0{,}70$. d) $\\approx 0{,}862$. e) Kaffekunder kjøper mat oftere enn kunder flest; hendelsene er avhengige."
+    },
+    {
+      "id": "stat-4-6-warning-hvem",
+      "type": "warning",
+      "title": "«70 % av kaffekundene» er ikke «70 % av kundene»",
+      "content": "I eksempel 3 er $P(M \\mid K) = 0{,}70$, men bare $0{,}448$ av alle kundene kjøpte både kaffe og mat.\n\nDette er den samme fellen som i kapittel 4.5: en betinget sannsynlighet gjelder **bare innenfor sin egen gruppe**. Skal du gange den med et antall, må du gange med antallet i den gruppen — ikke med totalen.\n\n- Riktig: $0{,}70 \\cdot 160 = 112$\n- Galt: $0{,}70 \\cdot 250 = 175$ — det er flere enn det finnes kaffekunder i det hele tatt."
+    },
+    {
+      "id": "stat-4-6-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk krysstabellen under. Den viser 400 personer fordelt etter om de har tatt bussen siste uke, og om de har førerkort.\n\n| | Førerkort | Ikke førerkort | Sum |\n|---|---|---|---|\n| Tok bussen | 96 | 144 | 240 |\n| Tok ikke bussen | 128 | 32 | 160 |\n| **Sum** | **224** | **176** | **400** |\n\nLa $B$ = «tok bussen» og $F$ = «har førerkort». Svar med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem $P(B)$.",
+            "solution": "$\\frac{240}{400} = 0{,}600$",
+            "answer": 0.6
+          },
+          {
+            "label": "b",
+            "task": "Bestem $P(B \\cap F)$.",
+            "solution": "$\\frac{96}{400} = 0{,}240$",
+            "answer": 0.24
+          },
+          {
+            "label": "c",
+            "task": "Bestem $P(B \\mid F)$.",
+            "solution": "Nevneren er kolonnesummen 224: $\\frac{96}{224} \\approx 0{,}429$",
+            "answer": 0.429
+          },
+          {
+            "label": "d",
+            "task": "Bestem $P(F \\mid B)$.",
+            "solution": "Nevneren er radsummen 240: $\\frac{96}{240} = 0{,}400$",
+            "answer": 0.4
+          },
+          {
+            "label": "e",
+            "task": "Er $B$ og $F$ uavhengige? Sammenlign $P(B)$ og $P(B \\mid F)$.",
+            "solution": "$P(B) = 0{,}600$, men $P(B \\mid F) \\approx 0{,}429$. De er ulike, så hendelsene er avhengige: de med førerkort tar bussen sjeldnere."
+          }
+        ],
+        "hints": [
+          "Telleren er den samme cellen (96) i b), c) og d) — det er nevneren som skiller dem.",
+          "b) deler på totalen, c) på kolonnesummen, d) på radsummen."
+        ],
+        "solution": "a) $0{,}600$, b) $0{,}240$, c) $\\approx 0{,}429$, d) $0{,}400$, e) avhengige",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-6-section-oversett",
+      "type": "text",
+      "content": "## Fra venndiagram til krysstabell og tilbake\n\nDe to framstillingene inneholder det samme, så du kan alltid bygge den ene av den andre:\n\n| Venndiagram | Krysstabell |\n|---|---|\n| bare $A$ | cellen $A$ og ikke $B$ |\n| snittet $A \\cap B$ | cellen $A$ og $B$ |\n| bare $B$ | cellen ikke $A$ og $B$ |\n| utenfor begge | cellen ikke $A$ og ikke $B$ |\n| sirkelen $A$ i alt | radsummen for $A$ |\n| rektangelet | totalen |\n\nVelg redskap etter hva oppgaven spør om: **venndiagram** når spørsmålene handler om union, snitt og «verken», og **krysstabell** når de handler om betinget sannsynlighet."
+    },
+    {
+      "id": "stat-4-6-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "Sett opp opplysningene fra eksempel 1 — 120 elever, 52 med tysk, 40 med spansk, 14 med begge — som en krysstabell, og bruk den til å bestemme\n\na) sannsynligheten for at en elev har hatt spansk, gitt at hun har hatt tysk\nb) sannsynligheten for at en elev har hatt tysk, gitt at hun har hatt spansk",
+      "solution": "**Løsning:**\n\nVi henter de fire feltene fra venndiagrammet i eksempel 1 — 38, 14, 26 og 42 — og legger dem i tabellen. Radsummene og kolonnesummene regner vi ut.\n\n| | Spansk | Ikke spansk | Sum |\n|---|---|---|---|\n| Tysk | 14 | 38 | 52 |\n| Ikke tysk | 26 | 42 | 68 |\n| **Sum** | **40** | **80** | **120** |\n\n**Kontroll:** $52 + 68 = 120$ og $40 + 80 = 120$.\n\na) «Gitt at hun har hatt tysk» betyr at grunnmengden er **tyskraden**, altså 52 elever. Av dem har 14 også hatt spansk:\n\n$$P(S \\mid T) = \\frac{14}{52} = \\frac{7}{26} \\approx 0{,}269$$\n\nb) Nå er grunnmengden **spanskkolonnen**, altså 40 elever. Av dem har 14 også hatt tysk:\n\n$$P(T \\mid S) = \\frac{14}{40} = \\frac{7}{20} = 0{,}35$$\n\nSamme celle over brøkstreken, to ulike nevnere, to ulike svar.\n\n**Kontroll med definisjonen:** $P(S \\mid T) = \\frac{P(S \\cap T)}{P(T)} = \\frac{14/120}{52/120} = \\frac{14}{52}$. Nevnerne 120 stryker mot hverandre — det er derfor vi kan lese svaret rett ut av antallene i tabellen uten å gå veien om sannsynligheter.\n\n**Svar:** a) $\\frac{7}{26} \\approx 0{,}269$. b) $\\frac{7}{20} = 0{,}35$."
+    },
+    {
+      "id": "stat-4-6-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift med 500 ansatte har kartlagt hjemmekontor og pendling. 300 pendler mer enn 30 minutter hver vei. Av pendlerne har 210 hjemmekontor minst én dag i uka. Av de øvrige har 80 hjemmekontor minst én dag i uka. Sett opp krysstabellen først.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange ansatte har hjemmekontor minst én dag i uka?",
+            "solution": "$210 + 80 = 290$",
+            "answer": 290
+          },
+          {
+            "label": "b",
+            "task": "Én ansatt trekkes tilfeldig. Bestem sannsynligheten for at hun både pendler og har hjemmekontor. Svar med tre desimaler.",
+            "solution": "$\\frac{210}{500} = 0{,}420$",
+            "answer": 0.42
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at hun har hjemmekontor, gitt at hun pendler. Svar med tre desimaler.",
+            "solution": "Nevneren er radsummen 300: $\\frac{210}{300} = 0{,}700$",
+            "answer": 0.7
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at hun pendler, gitt at hun har hjemmekontor. Svar med tre desimaler.",
+            "solution": "Nevneren er kolonnesummen 290: $\\frac{210}{290} \\approx 0{,}724$",
+            "answer": 0.724
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at hun verken pendler eller har hjemmekontor. Svar med tre desimaler.",
+            "solution": "Ikke-pendlere: $500 - 300 = 200$. Av dem har $200 - 80 = 120$ ikke hjemmekontor: $\\frac{120}{500} = 0{,}240$",
+            "answer": 0.24
+          }
+        ],
+        "hints": [
+          "«Av pendlerne …» hører til pendlerraden, ikke til hele bedriften.",
+          "Kontroll: radsummene og kolonnesummene skal begge gi 500."
+        ],
+        "solution": "a) 290, b) $0{,}420$, c) $0{,}700$, d) $\\approx 0{,}724$, e) $0{,}240$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-6-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Venndiagram:** fyll inn **fra midten**. Snittet, så «bare A», så «bare B», så «verken». Kontroller mot totalen.\n- **Krysstabell:** radene er den ene egenskapen, kolonnene den andre. Cellene er snittene; margen er radsummer og kolonnesummer.\n- Kontroller alltid begge veier: radsummene og kolonnesummene skal begge gi totalen.\n- **Samme celle, tre svar.** $P(A \\cap B)$ deler på totalen, $P(A \\mid B)$ på $B$-margen, $P(B \\mid A)$ på $A$-margen. Hele forskjellen ligger i nevneren.\n- «Av dem som …» i oppgaveteksten betyr at tallet hører til en rad eller kolonne, ikke til hele tabellen.\n- Er $P(A \\mid B) \\neq P(A)$, er hendelsene avhengige — og tabellen viser med en gang hvilken vei."
+    },
+    {
+      "id": "stat-4-6-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En kommune spurte 800 innbyggere om de har brukt kommunens digitale tjenester, og om de er over eller under 50 år. 480 er under 50 år. Av dem under 50 har 384 brukt tjenestene. Av dem over 50 har 128 brukt tjenestene. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange er 50 år eller eldre?",
+            "solution": "$800 - 480 = 320$",
+            "answer": 320
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange har brukt tjenestene til sammen?",
+            "solution": "$384 + 128 = 512$",
+            "answer": 512
+          },
+          {
+            "label": "c",
+            "task": "Én innbygger trekkes. Bestem sannsynligheten for at hun har brukt tjenestene.",
+            "solution": "$\\frac{512}{800} = \\frac{16}{25}$",
+            "expressionAnswer": "16/25"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at hun har brukt tjenestene, gitt at hun er under 50 år.",
+            "solution": "Nevneren er radsummen 480: $\\frac{384}{480} = \\frac{4}{5}$",
+            "expressionAnswer": "4/5"
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at hun er under 50 år, gitt at hun har brukt tjenestene.",
+            "solution": "Nevneren er kolonnesummen 512: $\\frac{384}{512} = \\frac{3}{4}$",
+            "expressionAnswer": "3/4"
+          }
+        ],
+        "hints": [
+          "Sett opp hele krysstabellen med marger før du regner.",
+          "Kontroll: radsummene $480 + 320$ og kolonnesummene $512 + 288$ skal begge gi 800."
+        ],
+        "solution": "a) 320, b) 512, c) $\\frac{16}{25}$, d) $\\frac{4}{5}$, e) $\\frac{3}{4}$",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-6-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — regneark).** En butikkjede har registrert 2000 kjøp i to kategorier: om kunden brukte kundekort, og om kjøpet var over 500 kroner.\n\n| | Over 500 kr | Høyst 500 kr | Sum |\n|---|---|---|---|\n| Kundekort | 468 | 732 | 1200 |\n| Uten kundekort | 172 | 628 | 800 |\n| **Sum** | **640** | **1360** | **2000** |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Legg tabellen i et regneark med cellene i B2:C3. Skriv formelen som gir radsummen for kundekort, og formelen som gir totalen.",
+            "solution": "Radsum: `=SUMMER(B2:C2)`. Total: `=SUMMER(B2:C3)`. Kontroller at totalen også er `=SUMMER(D2:D3)` og `=SUMMER(B4:C4)`."
+          },
+          {
+            "label": "b",
+            "task": "Skriv en formel som gir $P(\\text{over 500 kr} \\mid \\text{kundekort})$ når radsummen står i D2, og oppgi verdien med tre desimaler.",
+            "solution": "`=B2/D2` gir $\\frac{468}{1200} = 0{,}390$",
+            "answer": 0.39
+          },
+          {
+            "label": "c",
+            "task": "Bestem $P(\\text{over 500 kr} \\mid \\text{uten kundekort})$ med tre desimaler.",
+            "solution": "$\\frac{172}{800} = 0{,}215$",
+            "answer": 0.215
+          },
+          {
+            "label": "d",
+            "task": "Bestem $P(\\text{over 500 kr})$ med tre desimaler, og kontroller at svaret ligger mellom tallene fra b) og c).",
+            "solution": "$\\frac{640}{2000} = 0{,}320$, og $0{,}215 < 0{,}320 < 0{,}390$. Det samlede tallet er et vektet gjennomsnitt av de to betingede.",
+            "answer": 0.32
+          },
+          {
+            "label": "e",
+            "task": "Kjeden vil bruke tallene som argument for at kundekortet får folk til å handle for mer. Vurder om tallene viser det.",
+            "solution": "Tallene viser en sammenheng, ikke en årsak. Kundekortholdere handler for mer, men det kan like gjerne være fordi de som allerede handler mye, er de som skaffer seg kundekort. For å påvise en virkning måtte kjeden sammenlignet like kunder før og etter, eller trukket ut hvem som fikk tilbud om kort."
+          }
+        ],
+        "hints": [
+          "Betinget sannsynlighet fra en krysstabell: cellen delt på margen til den gruppen du betinger på.",
+          "Kontroll: et vektet gjennomsnitt ligger alltid mellom ytterverdiene."
+        ],
+        "solution": "a) `=SUMMER(B2:C2)` og `=SUMMER(B2:C3)`, b) $0{,}390$, c) $0{,}215$, d) $0{,}320$, e) sammenheng, ikke årsak",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-4-6-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-6-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** To studieprogrammer ved et universitet har søkertall og opptak fordelt slik:\n\n| Program | Søkere | Tatt opp | Andel tatt opp |\n|---|---|---|---|\n| Program A, gruppe 1 | 800 | 480 | 0,60 |\n| Program A, gruppe 2 | 200 | 140 | 0,70 |\n| Program B, gruppe 1 | 200 | 40 | 0,20 |\n| Program B, gruppe 2 | 800 | 240 | 0,30 |\n\nGruppe 2 har altså høyere opptaksandel enn gruppe 1 på **begge** programmer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange fra gruppe 1 ble tatt opp i alt, og hvor mange søkte? Regn ut andelen.",
+            "solution": "$480 + 40 = 520$ tatt opp av $800 + 200 = 1000$ søkere, altså $0{,}520$.",
+            "answer": 0.52
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange fra gruppe 2 ble tatt opp i alt, og hvor mange søkte? Regn ut andelen.",
+            "solution": "$140 + 240 = 380$ tatt opp av $200 + 800 = 1000$ søkere, altså $0{,}380$.",
+            "answer": 0.38
+          },
+          {
+            "label": "c",
+            "task": "Beskriv det tilsynelatende motsetningsforholdet mellom a), b) og opplysningen i oppgaveteksten.",
+            "solution": "Gruppe 2 har høyest andel på hvert enkelt program, men lavest andel samlet. Slår vi sammen tabellene, snur konklusjonen."
+          },
+          {
+            "label": "d",
+            "task": "Forklar hvorfor det skjer. Se på hvor de to gruppene søker.",
+            "solution": "Gruppe 1 søker mest på program A, som tar opp mange. Gruppe 2 søker mest på program B, som tar opp få. Når vi slår sammen, drukner den betingede fordelen i at gruppene har søkt til programmer med helt ulik opptaksandel. Programmet er en skjult variabel som henger sammen med både gruppe og opptak.\n\n![Tre søylediagram merket A, B og C som viser andelen søkere som ble tatt opp. Alle tre har den SAMME tallsatte loddrette aksen, merket andel tatt opp og tallsatt 0,5 og 1,0, og gruppenavnene står under søylene på den vannrette aksen. I A, program A, har gruppe 1 med 800 søkere andelen 0,60 og gruppe 2 med 200 søkere andelen 0,70. I B, program B, har gruppe 1 med 200 søkere andelen 0,20 og gruppe 2 med 800 søkere andelen 0,30. Gruppe 2 har altså høyest andel på begge programmer. I C, begge programmene samlet, har gruppe 1 med 1000 søkere andelen 0,52 og gruppe 2 med 1000 søkere andelen 0,38 — nå er søylene byttet om, og gruppe 1 er høyest. At alle tre panelene har samme skala er det aksetallene viser.](/images/content/statistikk/stat-4-6-simpson-opptak.png)\n\n*Simpsons paradoks. Gruppe 2 har høyest opptaksandel på hvert enkelt program, men lavest samlet. Søkertallene under søylene er forklaringen: gruppene har søkt til programmer med helt ulik opptaksandel.*"
+          },
+          {
+            "label": "e",
+            "task": "Hvilken av de to framstillingene — hvert program for seg eller alt samlet — bør brukes for å vurdere om opptaket favoriserer en gruppe? Begrunn.",
+            "solution": "Hvert program for seg. Opptaket gjøres program for program, så det er der en eventuell forskjellsbehandling ville ligge. Det samlede tallet blander sammen opptaket og gruppenes egne valg av program. Fenomenet kalles Simpsons paradoks, og det er en av de sterkeste grunnene til at en krysstabell alltid bør brytes ned på de variablene som betyr noe."
+          }
+        ],
+        "hints": [
+          "Regn ut de samlede andelene selv før du forsøker å forklare.",
+          "Se på hvor mange fra hver gruppe som søkte hvor."
+        ],
+        "solution": "a) $520/1000 = 0{,}520$, b) $380/1000 = 0{,}380$, c) konklusjonen snur ved sammenslåing, d) programmet er en skjult variabel, e) hvert program for seg (Simpsons paradoks)",
+        "competenceGoals": [
+          "bruke og forklare venndiagram, berekning, tabellar og sannsynstre i sannsynsrekning og problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

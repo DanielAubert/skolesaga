@@ -1,0 +1,531 @@
+{
+  "id": "stat-1-1",
+  "courseId": "statistikk",
+  "chapterNumber": "1.1",
+  "title": "Data, variabler og datakilder",
+  "description": "Hva data er, kategoriske og numeriske variabler, og hvor pålitelige data kommer fra (SSB, spørreundersøkelser, målinger).",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål",
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-1-1-section-innledning-video",
+      "type": "video",
+      "title": "Statistikk begynner med et spørsmål — populasjon, utvalg, enhet og variabel",
+      "bunnyVideoId": "57f9cff4-ecc2-4169-8ffb-c1119551cb4c",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-section-innledning",
+      "type": "text",
+      "content": "## Statistikk begynner med et spørsmål\n\nStatistikk starter ikke med tall. Den starter med et **spørsmål** vi vil ha svar på:\n\n- Bruker elevene på skolen vår mer tid på skoleveien enn elevene på naboskolen?\n- Har prisen på strøm i Sør-Norge steget mer enn i Nord-Norge de siste fem årene?\n- Er det forskjell på hvor mange som fullfører videregående i by og bygd?\n\nFra spørsmålet går vi videre i fire trinn. Vi kaller det den **statistiske\nproblemløsningsprosessen**:\n\n1. **Still spørsmålet** — så presist at det går an å svare på det med tall.\n2. **Samle inn data** — selv, eller fra en kilde som allerede har samlet dem.\n3. **Analyser data** — regn ut, tegn, se etter mønster og variasjon.\n4. **Trekk en konklusjon** — og si hvor sikker den er, og hva den ikke dekker.\n\nHele dette faget er en runde etter runde gjennom disse fire trinnene. I dette\nførste kapittelet arbeider vi med trinn 1 og 2: Hva er egentlig data? Hva slags\ndata finnes? Og hvor kommer de fra?"
+    },
+    {
+      "id": "stat-1-1-def-populasjon",
+      "type": "definition",
+      "title": "Populasjon, utvalg, enhet og variabel",
+      "content": "**Populasjonen** er alle vi ønsker å si noe om. (Ordet kommer fra latin\n*populus*, «folk», men en populasjon trenger ikke å bestå av mennesker — den kan\nvære alle laksefiletene på et anlegg eller alle bussavgangene i en uke.)\n\n**Enheten** er én av dem vi måler på: én elev, én filet, én bussavgang.\n\n**Variabelen** er egenskapen vi måler på hver enhet: reisetid, vekt, forsinkelse.\n\n**Observasjonen** er den verdien variabelen får for én enhet: $23$ minutter.\n\n**Utvalget** er de enhetene vi faktisk får data fra. Utvalget er altså en del av\npopulasjonen — vi spør 80 av 640 elever, ikke alle 640."
+    },
+    {
+      "id": "stat-1-1-fig-populasjon-utvalg",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-1-populasjon-utvalg.png",
+      "alt": "Et rektangel merket Populasjon: 640 elever, fylt med 640 små prikker i et rutenett på 16 rader og 40 kolonner. 80 av prikkene er blå og ligger spredt tilfeldig ut over hele rektangelet — de utgjør utvalget, og andelen blå er nøyaktig 80 av 640, altså én av åtte. Over rektangelet står Populasjon: 640 elever til venstre og Utvalg: 80 elever til høyre. En pil kommer inn fra høyre og peker på én av de blå prikkene; pila er merket enhet: én elev. Under rektangelet, til høyre, står variabel: reisetid (min) og observasjon: 23.",
+      "caption": "De fire ordene i ett bilde. Populasjonen er alle 640, utvalget er de 80 blå, enheten er én elev, og variabelen er det vi måler på hver enhet — her reisetiden.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-1-populasjon-utvalg.json"
+    },
+    {
+      "id": "stat-1-1-note-utvalg",
+      "type": "note",
+      "content": "Når vi undersøker **hele** populasjonen, kaller vi det en\n**totaltelling** (folketellingen er det klassiske eksempelet). Det er sjelden\nmulig, og derfor arbeider statistikken nesten alltid med et utvalg. Da må vi\nvite noe om hvordan utvalget ble trukket før vi tør å si noe om populasjonen.\nDet kommer vi tilbake til i kapittel 3."
+    },
+    {
+      "id": "stat-1-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Skoleveien",
+      "problem": "Elevrådet ved en videregående skole med $640$ elever vil finne ut hvor lang tid\nelevene bruker på skoleveien. De trekker $80$ elever tilfeldig fra elevlista og\nspør hver av dem hvor mange minutter de brukte til skolen i dag.\n\na) Hva er populasjonen, og hva er enheten?\n\nb) Hva er variabelen?\n\nc) Hvor stor andel av populasjonen er med i utvalget?",
+      "solution": "**Hva vet vi?** Skolen har $640$ elever, og $80$ av dem er spurt.\n**Hva må vi finne?** Populasjon, enhet, variabel og andelen $80$ av $640$.\n\na) Elevrådet vil si noe om **alle elevene på skolen**. Populasjonen er derfor de\n$640$ elevene. Enheten er **én elev** — det er på én elev om gangen vi måler.\n\nb) Variabelen er **reisetiden til skolen, målt i minutter**. Én observasjon er\nfor eksempel $23$ minutter.\n\nc) Andelen er utvalget delt på populasjonen:\n\n$$\\text{andel} = \\frac{\\text{antall i utvalget}}{\\text{antall i populasjonen}}$$\n\nVi setter inn tallene:\n\n$$\\text{andel} = \\frac{80}{640} = \\frac{1}{8} = 0{,}125 = 12{,}5\\ \\%$$\n\n*(Føres ikke: $\\frac{80}{640}$ forkortes med $80$ i teller og nevner.)*\n\n**Svar:** Populasjonen er de $640$ elevene, enheten er én elev, variabelen er\nreisetiden i minutter, og utvalget utgjør $12{,}5\\ \\%$ av populasjonen.",
+      "solutionBunnyId": "929cee3f-bba2-420f-b6e1-b5cb57073f18",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kommune vil vite hvor mange av de $2\\,400$ husstandene i kommunen som\nkildesorterer matavfall. De ringer $150$ husstander som er tilfeldig trukket fra\nadresseregisteret.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er populasjonen?",
+            "solution": "Alle de $2\\,400$ husstandene i kommunen."
+          },
+          {
+            "label": "b",
+            "task": "Hva er enheten?",
+            "solution": "Én husstand."
+          },
+          {
+            "label": "c",
+            "task": "Hva er variabelen?",
+            "solution": "Om husstanden kildesorterer matavfall eller ikke (ja/nei)."
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor andel av populasjonen er med i utvalget? Svar i prosent.",
+            "answer": 6.25,
+            "solution": "$\\frac{150}{2400} = 0{,}0625 = 6{,}25\\ \\%$"
+          }
+        ],
+        "solution": "a) alle $2\\,400$ husstandene, b) én husstand, c) om husstanden kildesorterer, d) $6{,}25\\ \\%$",
+        "hints": [
+          "Andelen er utvalget delt på populasjonen."
+        ],
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "solutionBunnyId": "4f8038e4-245a-4f68-adbd-6ebfb4081251",
+        "videoUtkast": true
+      }
+    },
+    {
+      "id": "stat-1-1-section-variabeltyper-video",
+      "type": "video",
+      "title": "Kategorisk eller numerisk? De fire variabeltypene",
+      "bunnyVideoId": "45cd8319-eff2-4a3c-9b10-6c9a77da2e85",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-section-variabeltyper",
+      "type": "text",
+      "content": "## To hovedtyper variabler\n\nHva vi kan gjøre med data, avhenger helt av hva slags variabel vi har. Det er\nderfor det aller første vi avgjør."
+    },
+    {
+      "id": "stat-1-1-def-variabeltyper",
+      "type": "definition",
+      "title": "Kategoriske og numeriske variabler",
+      "content": "En **kategorisk variabel** (også kalt kvalitativ variabel) deler enhetene inn i\ngrupper. Verdiene er navn, ikke mengder: reisemåte, fylke, ja/nei, karakter A–F.\n\n- **Uordnet** (nominal): reisemåte, fylke. Rekkefølgen er tilfeldig.\n- **Ordnet** (ordinal): «svært misfornøyd – misfornøyd – nøytral – fornøyd –\n  svært fornøyd». Her finnes det en rekkefølge, men ikke en avstand vi kan regne med.\n\nEn **numerisk variabel** (kvantitativ variabel) er en mengde vi kan regne med:\n\n- **Diskret**: kan bare ta enkeltverdier vi kan telle — antall søsken, antall\n  mål i en kamp. Ingen elev har $1{,}4$ søsken.\n- **Kontinuerlig**: kan ta alle verdier i et intervall — høyde, tid, temperatur.\n  At vi skriver $23$ minutter, betyr bare at vi har rundet av."
+    },
+    {
+      "id": "stat-1-1-fig-variabeltyper",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-1-variabeltyper.png",
+      "alt": "Et klassifikasjonstre i tre nivåer. Øverst boksen Variabel. Under den to bokser: Kategorisk (blå) og Numerisk (grønn), hver plassert nøyaktig midt mellom sine to underbokser. Under Kategorisk står uordnet, med eksemplene reisemåte og fylke, og ordnet, med eksemplene svært misfornøyd til svært fornøyd og karakter A til F. Under Numerisk står diskret, med eksemplene antall søsken og antall mål, og kontinuerlig, med eksemplene høyde, tid og temperatur. Piler går fra hver foreldreboks ned til barna. Nederst står testspørsmålet: Gir det mening å legge sammen to av verdiene?",
+      "caption": "Variabeltypen avgjør hvilke regnemåter som gir mening. Testspørsmålet nederst skiller de numeriske fra de kategoriske.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-1-variabeltyper.json"
+    },
+    {
+      "id": "stat-1-1-warning-tall",
+      "type": "warning",
+      "title": "NB: Tall er ikke alltid tall",
+      "content": "Postnummer, trikkelinjer og draktnummer er skrevet med sifre, men de er\n**kategoriske**. Gjennomsnittlig postnummer i Oslo er et tall regnearket gjerne\nregner ut for deg — det betyr ingenting.\n\nSpør alltid: *Gir det mening å legge sammen to av verdiene?* Gjør det ikke det,\ner variabelen kategorisk."
+    },
+    {
+      "id": "stat-1-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Hvilken type er variabelen?",
+      "problem": "En idrettsklubb registrerer dette om hvert medlem. Avgjør for hver variabel om\nden er kategorisk eller numerisk, og om den er uordnet/ordnet eller\ndiskret/kontinuerlig.\n\na) Medlemsnummer\nb) Alder i hele år\nc) Gren (fotball, håndball, friidrett)\nd) Tid på $60$ meter, i sekunder\ne) Treningsnivå (nybegynner, viderekommen, elite)",
+      "solution": "Vi stiller det samme spørsmålet til hver variabel: *Gir det mening å regne med\nverdiene?*\n\na) **Kategorisk, uordnet.** Medlem $104$ er ikke «dobbelt så mye» som medlem $52$.\nMedlemsnummeret er bare en merkelapp.\n\nb) **Numerisk, diskret.** Alder i hele år teller vi i hele trinn.\n\nc) **Kategorisk, uordnet.** Det finnes ingen naturlig rekkefølge på grenene.\n\nd) **Numerisk, kontinuerlig.** Tiden $8{,}42$ s kunne like gjerne vært\n$8{,}4237$ s — vi har bare rundet av til hundredeler.\n\ne) **Kategorisk, ordnet.** Det er en rekkefølge (nybegynner kommer før elite),\nmen avstanden fra nybegynner til viderekommen er ikke et tall.\n\n**Svar:** a) kategorisk uordnet, b) numerisk diskret, c) kategorisk uordnet,\nd) numerisk kontinuerlig, e) kategorisk ordnet.",
+      "solutionBunnyId": "0845befb-ab27-4c58-9405-5826fea8a9ad",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hver variabel om den er **kategorisk** eller **numerisk**, og om den\ner uordnet/ordnet eller diskret/kontinuerlig. Gjør som i eksempel 2.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Antall personer i en husstand",
+            "solution": "Numerisk og diskret — vi teller hele personer.",
+            "multipleChoiceOptions": [
+              "Numerisk, diskret",
+              "Numerisk, kontinuerlig",
+              "Kategorisk, uordnet",
+              "Kategorisk, ordnet"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Fylke",
+            "solution": "Kategorisk og uordnet — fylkene har ingen naturlig rekkefølge.",
+            "multipleChoiceOptions": [
+              "Kategorisk, uordnet",
+              "Kategorisk, ordnet",
+              "Numerisk, diskret",
+              "Numerisk, kontinuerlig"
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Strømforbruk i kWh en vinterdag",
+            "solution": "Numerisk og kontinuerlig — forbruket kan være $18{,}37$ kWh.",
+            "multipleChoiceOptions": [
+              "Numerisk, kontinuerlig",
+              "Numerisk, diskret",
+              "Kategorisk, ordnet",
+              "Kategorisk, uordnet"
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Karakter i matematikk (1–6)",
+            "solution": "Kategorisk og ordnet. Karakterene har rekkefølge, men avstanden fra 2 til 3 er ikke nødvendigvis den samme som fra 5 til 6. (Skoler regner likevel gjennomsnitt av karakterer — det er en praktisk vane, ikke et matematisk argument.)",
+            "multipleChoiceOptions": [
+              "Kategorisk, ordnet",
+              "Kategorisk, uordnet",
+              "Numerisk, diskret",
+              "Numerisk, kontinuerlig"
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Ventetid i minutter på legevakten",
+            "solution": "Numerisk og kontinuerlig.",
+            "multipleChoiceOptions": [
+              "Numerisk, kontinuerlig",
+              "Numerisk, diskret",
+              "Kategorisk, ordnet",
+              "Kategorisk, uordnet"
+            ]
+          }
+        ],
+        "solution": "a) numerisk diskret, b) kategorisk uordnet, c) numerisk kontinuerlig, d) kategorisk ordnet, e) numerisk kontinuerlig",
+        "hints": [
+          "Spør: gir det mening å legge sammen to verdier?"
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ],
+        "solutionBunnyId": "043221df-8781-4420-856b-bd2ea3f21717",
+        "videoUtkast": true
+      }
+    },
+    {
+      "id": "stat-1-1-section-systematisere-video",
+      "type": "video",
+      "title": "Å systematisere data — frekvens og relativ frekvens",
+      "bunnyVideoId": "e6f73de0-b141-4c11-b131-10b3627c6bf1",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-section-systematisere",
+      "type": "text",
+      "content": "## Å systematisere data\n\nSlik dataene kommer inn, er de **rådata**: en lang rekke svar i den rekkefølgen\nde ble samlet inn. Rådata er vanskelige å se noe som helst i. Derfor\nsystematiserer vi dem — vi ordner dem slik at de kan telles og regnes på.\n\nTo regler holder orden i datamaterialet:\n\n| Regel | Hva den betyr |\n|---|---|\n| Én rad per enhet | Én elev, én rad — uansett hvor mange spørsmål eleven svarte på |\n| Én kolonne per variabel | Reisetid i én kolonne, reisemåte i en annen |\n\nFor kategoriske variabler teller vi opp hvor mange som havner i hver kategori.\nAntallet i en kategori kaller vi **frekvensen**, og frekvensen delt på det\ntotale antallet kaller vi **relativ frekvens** (relativ = «sett i forhold til»)."
+    },
+    {
+      "id": "stat-1-1-formula-relfrek",
+      "type": "formula",
+      "title": "Relativ frekvens",
+      "latex": "\\text{relativ frekvens} = \\frac{\\text{frekvensen i kategorien}}{\\text{antall observasjoner}}",
+      "description": "Den relative frekvensen er en andel. Ganger vi med 100 %, får vi prosentandelen. Summen av alle relative frekvenser er alltid 1."
+    },
+    {
+      "id": "stat-1-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Fra rådata til frekvenstabell",
+      "problem": "En klasse på $20$ elever ble spurt hvordan de kom seg til skolen i dag. Svarene\nkom i denne rekkefølgen:\n\nbuss, gange, sykkel, gange, buss, bil, gange, sykkel, buss, gange,\nsykkel, buss, gange, bil, sykkel, buss, gange, sykkel, buss, gange\n\nLag en frekvenstabell med frekvens og relativ frekvens i prosent.",
+      "solution": "Vi tegner først rammen til tabellen, og fyller den så ut kategori for kategori.\nVi teller opp hvor mange ganger hvert svar står i lista:\n\n- gange: $7$\n- sykkel: $5$\n- buss: $6$\n- bil: $2$\n\n**Kontroll før vi går videre:** $7 + 5 + 6 + 2 = 20$. Det stemmer med at klassen\nhar $20$ elever. Teller vi feil her, blir alt etterpå feil.\n\nSå regner vi den relative frekvensen. Formelen først, tom:\n\n$$\\text{relativ frekvens} = \\frac{\\text{frekvens}}{\\text{antall observasjoner}}$$\n\nog så med tall for gange:\n\n$$\\frac{7}{20} = 0{,}35 = 35\\ \\%$$\n\nVi deler på $20$ fordi det er $20$ elever i klassen. På samme måte for de andre:\n\n| Reisemåte | Frekvens | Relativ frekvens | I prosent |\n|---|---|---|---|\n| Gange | 7 | 0,35 | 35 % |\n| Sykkel | 5 | 0,25 | 25 % |\n| Buss | 6 | 0,30 | 30 % |\n| Bil | 2 | 0,10 | 10 % |\n| **Sum** | **20** | **1,00** | **100 %** |\n\n**Svar:** Tabellen over. Her ser vi at $35\\ \\%$ gikk, og at bare $10\\ \\%$ kom med\nbil.\n\n**NB:** Sumraden er ikke pynt. At de relative frekvensene summerer seg til\n$1{,}00$ og prosentene til $100\\ \\%$, er kontrollen på at vi har talt riktig.",
+      "solutionBunnyId": "cc44ffce-222e-4c33-a1f7-7de68936e324",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "$25$ elever ble spurt hvor mange søsken de har. Svarene kom slik:\n\n$$1,\\ 2,\\ 0,\\ 1,\\ 3,\\ 1,\\ 2,\\ 1,\\ 0,\\ 4,\\ 2,\\ 1,\\ 1,\\ 2,\\ 0,\\ 1,\\ 3,\\ 2,\\ 1,\\ 1,\\ 0,\\ 2,\\ 1,\\ 5,\\ 2$$\n\nGjør den samme oppgaven som i eksempel 3.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Er variabelen kategorisk eller numerisk? Begrunn.",
+            "solution": "Numerisk og diskret — antall søsken teller vi i hele trinn, og det gir mening å regne med verdiene."
+          },
+          {
+            "label": "b",
+            "task": "Lag en frekvenstabell med frekvens og relativ frekvens. Hvor mange har nøyaktig $1$ søsken?",
+            "answer": 10,
+            "solution": "| Antall søsken | 0 | 1 | 2 | 3 | 4 | 5 | Sum |\n|---|---|---|---|---|---|---|---|\n| Frekvens | 4 | 10 | 7 | 2 | 1 | 1 | 25 |\n| Relativ frekvens | 0,16 | 0,40 | 0,28 | 0,08 | 0,04 | 0,04 | 1,00 |\n\n$10$ elever har nøyaktig ett søsken."
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange prosent har ingen søsken?",
+            "answer": 16,
+            "solution": "$\\frac{4}{25} = 0{,}16 = 16\\ \\%$"
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange prosent har minst $2$ søsken?",
+            "answer": 44,
+            "solution": "Minst $2$ betyr $2$ eller flere: $7 + 2 + 1 + 1 = 11$ elever. $\\frac{11}{25} = 0{,}44 = 44\\ \\%$"
+          },
+          {
+            "label": "e",
+            "task": "Kontroller at frekvensene dine summerer seg riktig. Hvorfor er det en kontroll verdt å gjøre?",
+            "solution": "$4 + 10 + 7 + 2 + 1 + 1 = 25$, som er antall elever. Summen avslører telefeil før de får følger for alt vi regner ut etterpå."
+          }
+        ],
+        "solution": "a) numerisk diskret, b) se tabellen — $10$ elever, c) $16\\ \\%$, d) $44\\ \\%$, e) summen skal bli $25$",
+        "hints": [
+          "Sorter tallene, eller sett en strek for hver gang du møter en verdi.",
+          "«Minst 2» betyr $2, 3, 4$ og $5$ — ikke bare $2$."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ],
+        "solutionBunnyId": "f373b562-4aa7-4bc3-965b-d5b1ae803b9e",
+        "videoUtkast": true
+      }
+    },
+    {
+      "id": "stat-1-1-section-datakilder-video",
+      "type": "video",
+      "title": "Hvor kommer data fra? — primærdata, sekundærdata og kildekritikk",
+      "bunnyVideoId": "ddcf339f-16cf-4f02-97c6-194f4b000665",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-section-datakilder",
+      "type": "text",
+      "content": "## Hvor kommer data fra?\n\nVi skiller mellom to slags data:\n\n**Primærdata** er data vi har samlet inn selv, til vårt eget spørsmål. Da vet vi\nnøyaktig hvordan de ble til — men innsamlingen koster tid, og utvalget blir ofte\nlite.\n\n**Sekundærdata** er data noen andre har samlet inn, som vi henter og bruker. Da\nfår vi ofte store, godt kontrollerte datamaterialer gratis — men de er samlet\ninn til *et annet* spørsmål enn vårt, og vi må selv finne ut om de passer.\n\nNoen offentlige kilder du kan hente sekundærdata fra i Norge:\n\n| Kilde | Hva du finner |\n|---|---|\n| Statistisk sentralbyrå (SSB), statistikkbanken | Befolkning, inntekt, priser, utdanning, arbeid |\n| Utdanningsdirektoratet (Udir), Skoleporten | Karakterer, eksamensresultater, gjennomføring |\n| Folkehelseinstituttet (FHI) | Helse, smitte, vaksinasjon |\n| Meteorologisk institutt | Temperatur, nedbør, vind |\n| Norges Bank | Rente, valutakurser |\n\nTallene lastes som regel ned som en regnearkfil, og da er de allerede\nsystematisert: én rad per enhet, én kolonne per variabel."
+    },
+    {
+      "id": "stat-1-1-tip-kilde",
+      "type": "tip",
+      "title": "Fem spørsmål til enhver datakilde",
+      "content": "Før du bruker et datasett, still disse fem spørsmålene. Du bør kunne svare på\nalle fem før du regner ut noe som helst:\n\n1. **Hvem** har samlet inn dataene, og hvorfor?\n2. **Når** ble de samlet inn?\n3. **Hvem er med** — hele populasjonen, eller et utvalg? Hvordan ble utvalget trukket?\n4. **Hvordan er variabelen målt** — hva står det egentlig i kolonnen?\n5. **Hvor mange** er med?\n\nFår du ikke svar på spørsmål 1 og 3, er tallet ubrukelig som grunnlag for en\nkonklusjon, uansett hvor presist det ser ut."
+    },
+    {
+      "id": "stat-1-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Å velge datakilde",
+      "problem": "Du skal svare på spørsmålet: *Har andelen som sykler til jobb i Norge økt de\nsiste ti årene?* Du finner to mulige kilder:\n\n**Kilde A:** En avstemning på nettsiden til et sykkelblad. $4\\,300$ personer har\nsvart på spørsmålet «Sykler du til jobb?». $71\\ \\%$ svarte ja.\n\n**Kilde B:** SSBs reisevaneundersøkelse, der et tilfeldig trukket utvalg av\nbefolkningen intervjues om alle reisene sine en bestemt dag.\n\nHvilken kilde bør du bruke? Begrunn med de fem spørsmålene.",
+      "solution": "Vi går gjennom spørsmålene for hver kilde.\n\n**Kilde A:**\n1. Samlet inn av et sykkelblad, for å engasjere leserne.\n2. Ukjent tidspunkt.\n3. De som er med, har valgt seg selv — og de leser et sykkelblad. Det er et\n   **selvselektert utvalg**, ikke et tilfeldig utvalg av befolkningen.\n4. Uklart hva «sykler du til jobb» betyr — hver dag? om sommeren? én gang i året?\n5. $4\\,300$ svar. Her ser vi at et stort antall ikke redder et skjevt utvalg:\n   $4\\,300$ sykkelinteresserte sier fortsatt ingenting om alle i Norge.\n\n**Kilde B:**\n1. Samlet inn av SSB, for å beskrive reisevanene i befolkningen.\n2. Tidspunktet er oppgitt i undersøkelsen.\n3. Tilfeldig trukket utvalg fra befolkningen.\n4. Reisene registreres reise for reise en bestemt dag — definisjonen er den\n   samme for alle.\n5. Utvalgsstørrelsen er oppgitt sammen med tallene.\n\n**Svar:** Vi bruker kilde B. Kilde A svarer i beste fall på spørsmålet «hvor\nmange av dem som leser sykkelblader og gidder å svare, sykler til jobb» — og\ndet er et annet spørsmål enn vårt.\n\n**NB:** Legg merke til at kilde A hadde det største tallet og den mest presise\nprosenten. Presisjon i tallet er ikke det samme som at tallet svarer på\nspørsmålet vårt.",
+      "solutionBunnyId": "6a25f341-a566-4ce6-bf58-e555dc00a31c",
+      "videoUtkast": true
+    },
+    {
+      "id": "stat-1-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "For hver situasjon: avgjør om det er primærdata eller sekundærdata, og nevn én\nsvakhet ved kilden.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Du teller selv antall biler som passerer skolen mellom kl. 08 og 09 en tirsdag.",
+            "solution": "Primærdata. Svakhet: én time én tirsdag sier lite om trafikken ellers i uka eller året."
+          },
+          {
+            "label": "b",
+            "task": "Du laster ned kommunens folketall fra SSBs statistikkbank.",
+            "solution": "Sekundærdata. Svakhet: tallet gjelder en bestemt dato (som regel 1. januar), og kan være foreldet hvis mye har skjedd siden."
+          },
+          {
+            "label": "c",
+            "task": "Du bruker karakterstatistikk fra Udir for å sammenligne to skoler.",
+            "solution": "Sekundærdata. Svakhet: skolene kan ha ulikt elevgrunnlag, så karakterforskjellen trenger ikke skyldes skolene."
+          },
+          {
+            "label": "d",
+            "task": "Du legger ut en avstemning i klassens gruppechat om favorittidrett.",
+            "solution": "Primærdata. Svakhet: bare de som er i chatten og gidder å svare, er med — et selvselektert utvalg fra én klasse."
+          }
+        ],
+        "solution": "a) primær, b) sekundær, c) sekundær, d) primær — med svakhetene over",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "solutionBunnyId": "a63509d6-9214-4e9a-84d3-f70a449d0521",
+        "videoUtkast": true
+      }
+    },
+    {
+      "id": "stat-1-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En nettavis skriver: «Ny undersøkelse: $71\\ \\%$ av nordmenn vil ha\nhjemmekontor.» I en fotnote står det at undersøkelsen ble besvart av $96$\npersoner som klikket seg inn fra avisens forside, og at $1\\,200$ fikk se\nspørsmålet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er svarprosenten i undersøkelsen?",
+            "answer": 8,
+            "solution": "$\\frac{96}{1200} = 0{,}08 = 8\\ \\%$"
+          },
+          {
+            "label": "b",
+            "task": "Hvem er populasjonen avisen påstår noe om, og hvem er egentlig med i utvalget?",
+            "solution": "Avisen påstår noe om alle nordmenn. Utvalget er de av avisens lesere som klikket seg inn og valgte å svare."
+          },
+          {
+            "label": "c",
+            "task": "Skriv en overskrift som er dekkende for det undersøkelsen faktisk viser.",
+            "solution": "For eksempel: «$71\\ \\%$ av de $96$ leserne som svarte på vår nettavstemning, vil ha hjemmekontor.» Tallet står, men populasjonen er rettet opp."
+          },
+          {
+            "label": "d",
+            "task": "Hva må til for at tallet skulle kunne brukes om alle nordmenn?",
+            "solution": "Et tilfeldig trukket utvalg fra hele befolkningen, høy svarprosent, og et spørsmål som er stilt likt til alle. Da kan vi regne på hvor stor usikkerheten er — det gjør vi i kapittel 7."
+          }
+        ],
+        "solution": "a) $8\\ \\%$, b) påstått populasjon «alle nordmenn», reelt utvalg er selvselekterte lesere, c) overskrift som begrenser seg til de som svarte, d) tilfeldig utvalg fra befolkningen",
+        "hints": [
+          "Svarprosent $=$ antall som svarte, delt på antall som fikk spørsmålet."
+        ],
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "solutionBunnyId": "ff2fdbec-ba87-44e9-b1f9-a79b345658e4",
+        "videoUtkast": true
+      }
+    },
+    {
+      "id": "stat-1-1-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Statistikk starter med et spørsmål**, og går videre gjennom innsamling,\n  analyse og konklusjon.\n- **Populasjon** er alle vi vil si noe om, **utvalget** er de vi får data fra,\n  **enheten** er én av dem, og **variabelen** er det vi måler.\n- **Kategoriske variabler** deler i grupper (uordnet eller ordnet).\n  **Numeriske variabler** er mengder vi kan regne med (diskrete eller kontinuerlige).\n- **Å systematisere data**: én rad per enhet, én kolonne per variabel, og\n  frekvenstabell for kategoriske og diskrete variabler.\n- **Relativ frekvens** $=$ frekvens delt på antall observasjoner. Summen er alltid $1$.\n- **Primærdata** samler vi inn selv, **sekundærdata** henter vi fra kilder som\n  SSB, Udir, FHI og Meteorologisk institutt.\n- **Fem spørsmål til kilden**: hvem, når, hvem er med, hvordan målt, hvor mange.\n\n### Husk\n- Store tall redder ikke et skjevt utvalg.\n- Kontroller alltid at frekvensene summerer seg til antall observasjoner."
+    },
+    {
+      "id": "stat-1-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** $30$ elever oppga hvor mange timer de brukte på\nskjerm i går. Svarene (i timer) var:\n\n$$2{,}0\\quad 3{,}5\\quad 1{,}5\\quad 4{,}0\\quad 2{,}5\\quad 3{,}0\\quad 5{,}0\\quad 2{,}0\\quad 3{,}5\\quad 4{,}5$$\n$$1{,}0\\quad 2{,}5\\quad 3{,}0\\quad 3{,}5\\quad 2{,}0\\quad 6{,}0\\quad 2{,}5\\quad 3{,}0\\quad 4{,}0\\quad 1{,}5$$\n$$2{,}0\\quad 3{,}5\\quad 2{,}5\\quad 4{,}5\\quad 3{,}0\\quad 2{,}0\\quad 5{,}5\\quad 3{,}0\\quad 2{,}5\\quad 3{,}5$$\n\nLegg tallene inn i ett regneark, i kolonne A, med overskrift i celle \\$A\\$1.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Er variabelen diskret eller kontinuerlig? Begrunn.",
+            "solution": "Kontinuerlig. Tid kan i prinsippet ta alle verdier; at alle svarene er hele og halve timer, skyldes at elevene rundet av når de svarte."
+          },
+          {
+            "label": "b",
+            "task": "Del dataene i klassene $[1, 2\\rangle$, $[2, 3\\rangle$, $[3, 4\\rangle$, $[4, 5\\rangle$ og $[5, 6{,}5\\rangle$, og finn frekvensen i hver klasse. Bruk `=ANTALL.HVIS.SETT(...)` eller `=FREKVENS(...)`.",
+            "solution": "| Klasse | $[1, 2\\rangle$ | $[2, 3\\rangle$ | $[3, 4\\rangle$ | $[4, 5\\rangle$ | $[5\\ ;\\ 6{,}5\\rangle$ | Sum |\n|---|---|---|---|---|---|---|\n| Frekvens | 3 | 10 | 10 | 4 | 3 | 30 |\n\nKontroll: $3 + 10 + 10 + 4 + 3 = 30$."
+          },
+          {
+            "label": "c",
+            "task": "Finn den relative frekvensen i hver klasse, i prosent med én desimal.",
+            "solution": "$10{,}0\\ \\%$, $33{,}3\\ \\%$, $33{,}3\\ \\%$, $13{,}3\\ \\%$ og $10{,}0\\ \\%$. Summen blir $99{,}9\\ \\%$ på grunn av avrunding — det er ikke en regnefeil, men vi bør nevne det."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange prosent brukte minst $4$ timer?",
+            "answer": 23.3,
+            "solution": "$4 + 3 = 7$ elever. $\\frac{7}{30} = 0{,}2333\\ldots \\approx 23{,}3\\ \\%$"
+          },
+          {
+            "label": "e",
+            "task": "Klassen vil bruke resultatet i en sak i skoleavisa med overskriften «Elevene ved skolen bruker mye tid på skjerm». Drøft om overskriften er dekkende.",
+            "solution": "Overskriften går lenger enn dataene. Tre innvendinger:\n\n1. **Populasjonen**: dataene gjelder $30$ elever i én klasse, ikke alle elevene ved skolen.\n2. **Målingen**: elevene oppga tallet selv, fra hukommelsen, for én dag — og «i går» kan ha vært en uvanlig dag.\n3. **«Mye»**: ordet er ikke definert. Uten et sammenligningsgrunnlag (for eksempel SSBs mediebruksundersøkelse) kan vi ikke si om tallene er høye eller lave.\n\nEn dekkende overskrift kunne vært: «I vår klasse brukte to av tre elever mellom to og fire timer på skjerm i går.»\n\n**Andre muligheter:** man kunne spurt om en hel uke i stedet for én dag, målt skjermtiden med telefonens egen logg i stedet for å spørre, eller trukket et tilfeldig utvalg elever fra hele skolen."
+          }
+        ],
+        "solution": "b) $3, 10, 10, 4, 3$, c) $10{,}0\\ \\%$, $33{,}3\\ \\%$, $33{,}3\\ \\%$, $13{,}3\\ \\%$, $10{,}0\\ \\%$, d) $23{,}3\\ \\%$",
+        "hints": [
+          "I regneark er `=ANTALL.HVIS.SETT(A2:A31; \\\">=2\\\"; A2:A31; \\\"<3\\\")` antall verdier i $[2, 3\\rangle$."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "solutionBunnyId": "757ad69d-a919-43ef-8afc-b5458187c08a",
+        "videoUtkast": true
+      }
+    },
+    {
+      "id": "stat-1-1-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** To elever skal undersøke om ungdom i kommunen trener nok.\n\n- Ida deler et spørreskjema i sosiale medier og får $850$ svar.\n- Jonas trekker $120$ ungdommer tilfeldig fra kommunens innbyggerregister og\n  ringer alle. $94$ svarer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvem har størst utvalg, og hvem har best utvalg? Begrunn forskjellen.",
+            "solution": "Ida har det største utvalget ($850$ mot $94$), men Jonas har det beste. Jonas' utvalg er trukket tilfeldig fra hele populasjonen, mens Idas består av dem som så innlegget og valgte å svare — sannsynligvis de mest treningsinteresserte. Utvalgsstørrelse fjerner ikke skjevhet; den gjør bare et skjevt svar mer presist rundt feil tall."
+          },
+          {
+            "label": "b",
+            "task": "Regn ut svarprosenten til Jonas.",
+            "answer": 78.3,
+            "solution": "$\\frac{94}{120} = 0{,}7833\\ldots \\approx 78{,}3\\ \\%$"
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor kan vi ikke regne ut noen svarprosent for Ida?",
+            "solution": "Vi vet ikke hvor mange som så innlegget, og dermed ikke hvor mange som hadde mulighet til å svare. Uten nevner finnes det ingen svarprosent."
+          },
+          {
+            "label": "d",
+            "task": "Spørsmålet «Trener du nok?» er dårlig formulert. Skriv om det slik at variabelen blir numerisk, og si hvilken type variabel du da får.",
+            "solution": "For eksempel: «Hvor mange dager forrige uke trente du minst 30 minutter sammenhengende?» Da er variabelen numerisk og diskret, med verdier fra $0$ til $7$, og alle svarer på det samme."
+          },
+          {
+            "label": "e",
+            "task": "Hva ville du gjort hvis du fikk bruke én time og ett regneark på undersøkelsen? Begrunn valgene dine.",
+            "solution": "Et mulig svar: Jeg ville brukt Jonas' metode i liten skala — trukket et tilfeldig utvalg fra en liste over alle ungdommene, stilt ett presist spørsmål (som i d), og notert både hvem jeg spurte og hvem som svarte, slik at jeg kan oppgi svarprosenten.\n\n**Andre muligheter:** hente tall fra Ungdata-undersøkelsen i kommunen (sekundærdata, mye større utvalg, men samlet inn til et annet formål og kanskje et annet år), eller kombinere: bruke Ungdata som sammenligningsgrunnlag for sin egen lille undersøkelse."
+          }
+        ],
+        "solution": "a) Ida størst, Jonas best, b) $78{,}3\\ \\%$, c) nevneren mangler, d) numerisk diskret variabel, e) se drøftingen",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "solutionBunnyId": "183fab9e-bf2a-40a5-b78a-559a7ab1cffe",
+        "videoUtkast": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Populasjon",
+      "definition": "Alle enhetene vi ønsker å si noe om i undersøkelsen."
+    },
+    {
+      "term": "Utvalg",
+      "definition": "De enhetene fra populasjonen som vi faktisk henter data fra."
+    },
+    {
+      "term": "Variabel",
+      "definition": "Egenskapen vi måler på hver enhet, for eksempel reisetid eller reisemåte."
+    },
+    {
+      "term": "Kategorisk variabel",
+      "definition": "Variabel som deler enhetene i grupper (uordnet eller ordnet). Verdiene kan ikke regnes med."
+    },
+    {
+      "term": "Numerisk variabel",
+      "definition": "Variabel som måler en mengde (diskret eller kontinuerlig). Verdiene kan regnes med."
+    },
+    {
+      "term": "Relativ frekvens",
+      "definition": "Frekvensen i en kategori delt på antall observasjoner. Summen av alle relative frekvenser er 1."
+    }
+  ]
+}

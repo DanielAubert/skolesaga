@@ -4,7 +4,8 @@ import type { NextConfig } from "next";
 const cspDirectives = [
   "default-src 'self'",
   // Scripts: self + CDNs + inline (required by Next.js hydration) + wasm (Pyodide)
-  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.geogebra.org",
+  // 'unsafe-eval' (17.9.2026): dynamic-plot kompilerer funksjonsuttrykk med new Function — uten det tegnes ingen kurver
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.geogebra.org",
   // Styles: self + inline (required by Tailwind/React)
   "style-src 'self' 'unsafe-inline'",
   // Images: self + data URIs + external image sources
@@ -15,8 +16,8 @@ const cspDirectives = [
   "media-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co",
   // API connections: self + Supabase + Feide/Dataporten + Google Analytics + Google OAuth
   "connect-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co https://auth.dataporten.no https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://cdn.jsdelivr.net https://accounts.google.com https://oauth2.googleapis.com",
-  // Iframes: YouTube + Vimeo
-  "frame-src https://www.youtube-nocookie.com https://www.youtube.com https://player.vimeo.com https://www.geogebra.org",
+  // Iframes: YouTube + Vimeo + Bunny Stream (lærebokvideoer fra filmmotoren, 17.9.2026)
+  "frame-src https://www.youtube-nocookie.com https://www.youtube.com https://player.vimeo.com https://www.geogebra.org https://iframe.mediadelivery.net",
   // Workers: self (PWA service worker)
   "worker-src 'self' blob:",
   // Block object/embed/applet
@@ -26,6 +27,7 @@ const cspDirectives = [
 ].join('; ');
 
 const nextConfig: NextConfig = {
+  env: { NEXT_PUBLIC_MEDIA_VERSION: Date.now().toString(36) },   // cache-busting for bilder (17.9.2026)
   /* config options here */
   // Bokmål bundles inn (synkron fs-lasting). Nynorsk/nordsamisk hentes fra
   // Supabase Storage ved kjøretid og må IKKE bundles (273 MB > 250 MB-grensa).

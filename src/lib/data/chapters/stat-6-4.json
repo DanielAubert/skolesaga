@@ -1,0 +1,475 @@
+{
+  "id": "stat-6-4",
+  "courseId": "statistikk",
+  "chapterNumber": "6.4",
+  "title": "Sentralgrensesetningen",
+  "description": "Hvorfor gjennomsnitt av mange målinger blir normalfordelt, og fordelingen til X̄.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+  ],
+  "content": [
+    {
+      "id": "stat-6-4-section-intro",
+      "type": "text",
+      "content": "# Sentralgrensesetningen\n\nI kapittel 6.1 sa vi at det finnes en grunn til at klokkekurven dukker opp overalt. Nå skal vi se hva den grunnen er.\n\nFra kapittel 5.7 vet vi allerede to ting om gjennomsnittet $\\bar{X}$ av $n$ uavhengige målinger:\n\n$$E(\\bar{X}) = \\mu \\qquad \\text{og} \\qquad SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$$\n\nMidtpunktet flytter seg ikke, og spredningen krymper med $\\sqrt{n}$.\n\nMen det mangler noe. Vi vet **hvor** fordelingen til $\\bar{X}$ ligger og **hvor bred** den er — vi vet ikke hvilken **form** den har. Og uten formen kan vi ikke regne ut en eneste sannsynlighet.\n\nSvaret er det mest overraskende resultatet i hele statistikken: **formen blir en klokke. Nesten uansett hva vi startet med.**"
+    },
+    {
+      "id": "stat-6-4-section-terning",
+      "type": "text",
+      "content": "## Terningeksperimentet\n\nVi begynner med noe som slett ikke er klokkeformet: én terning.\n\nKaster vi én terning, er alle seks utfallene like sannsynlige. Fordelingen er **flat** — seks like høye søyler, hver med sannsynlighet $\\frac{1}{6}$. Så langt fra en klokke som det går an å komme.\n\nKast nå **to** terninger og regn gjennomsnittet av dem:\n\n| Gjennomsnitt | Sannsynlighet | Desimaltall |\n|---|---|---|\n| 1 | $\\frac{1}{36}$ | 0,0278 |\n| 1,5 | $\\frac{2}{36}$ | 0,0556 |\n| 2 | $\\frac{3}{36}$ | 0,0833 |\n| 2,5 | $\\frac{4}{36}$ | 0,1111 |\n| 3 | $\\frac{5}{36}$ | 0,1389 |\n| 3,5 | $\\frac{6}{36}$ | 0,1667 |\n| 4 | $\\frac{5}{36}$ | 0,1389 |\n| 4,5 | $\\frac{4}{36}$ | 0,1111 |\n| 5 | $\\frac{3}{36}$ | 0,0833 |\n| 5,5 | $\\frac{2}{36}$ | 0,0556 |\n| 6 | $\\frac{1}{36}$ | 0,0278 |\n\nFordelingen er ikke flat lenger. Den er en **trekant** med topp i 3,5. Grunnen er lett å se: gjennomsnittet 1 krever at begge terningene viser 1 — det er én kombinasjon av 36. Gjennomsnittet 3,5 kan derimot skje på seks måter (1 og 6, 2 og 5, 3 og 4, og de samme tre omvendt).\n\nDet er hele mekanismen bak klokkeformen, i sin enkleste form: **midten kan nås på mange måter, ytterpunktene bare på én.**\n\nKast fire terninger, og trekanten begynner å bli en klokke. Kast tretti, og du får ikke øye på forskjellen fra en normalkurve i det hele tatt."
+    },
+    {
+      "id": "stat-6-4-fig-terning-serie",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-4-terning-serie.png",
+      "alt": "Fire små diagrammer i et rutenett, merket A, B, C og D. Alle fire har den samme vannrette aksen fra 1 til 6, merket snitt, og hver av dem har sin egen loddrette akse, alle fire merket P: A, B og C i steg på 0,05 opp til 0,20, mens D har sin egen finere skala i steg på 0,01 opp til 0,05 fordi kurven der er sannsynlighet per steg på 1/30. A er merket n er lik 1 og viser seks like høye søyler, én over hvert av tallene 1 til 6 — fordelingen er helt flat. B er merket n er lik 2 og viser elleve søyler som stiger jevnt fra kantene mot en topp midt mellom 3 og 4 — formen er en trekant. C er merket n er lik 4 og viser tjueén smalere søyler med en avrundet topp midt mellom 3 og 4 og haler som visner ut mot 1 og 6 — formen er nesten en klokke. D er merket n er lik 30 og viser en sammenhengende oransje klokkekurve med topp midt mellom 3 og 4, mye smalere enn i de tre andre panelene.",
+      "caption": "Sentralgrensesetningen i fire bilder: fordelingen til gjennomsnittet av $n$ terningkast. Formen går fra flat, via trekant, til klokke — og samtidig blir fordelingen smalere, slik $\\frac{\\sigma}{\\sqrt{n}}$ sier. Panel A–C er eksakte fordelinger; panel D er normalkurven for $n = 30$ og har sin egen loddrette skala, ellers ville den blitt en strek.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-4-terning-serie.json"
+    },
+    {
+      "id": "stat-6-4-fig-terning-n4",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-4-terninggjennomsnitt-n4.png",
+      "alt": "Et søylediagram med 21 blå søyler over den vannrette aksen, som er merket x og viser tallene 1 til 8. Søylene står tett i tett fra 0,875 til 6,125, og den loddrette aksen er merket tetthet. Søylene er lave ytterst, vokser jevnt mot midten og er høyest ved 3,5, der høyden er omtrent 0,45. Formen er symmetrisk om 3,5. En oransje klokkeformet kurve er tegnet oppå søylene, og den følger søyletoppene tett hele veien, med toppunkt ved 3,5 i høyde omtrent 0,47. Øverst til høyre står en tegnforklaring: blå rute for eksakt fordeling og oransje rute for normalkurven.",
+      "caption": "Den **eksakte** fordelingen til gjennomsnittet av fire terningkast (blå søyler), med normalkurven for $\\mu = 3{,}5$ og $\\sigma = \\frac{1{,}708}{\\sqrt{4}} = 0{,}854$ tegnet oppå (oransje). Vi startet med en helt flat fordeling, og etter bare fire kast er formen nesten en klokke. Søylehøydene er tetthet — sannsynlighet delt på søylebredden 0,25 — slik at de kan sammenlignes direkte med kurven.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-4-terninggjennomsnitt-n4.json"
+    },
+    {
+      "id": "stat-6-4-theorem-sgs",
+      "type": "theorem",
+      "title": "Sentralgrensesetningen",
+      "content": "La $X_1, X_2, \\ldots, X_n$ være uavhengige målinger fra **samme** fordeling, med forventningsverdi $\\mu$ og standardavvik $\\sigma$.\n\nNår $n$ er stor, er gjennomsnittet\n\n$$\\bar{X} = \\frac{X_1 + X_2 + \\cdots + X_n}{n}$$\n\ntilnærmet **normalfordelt**, med\n\n$$E(\\bar{X}) = \\mu \\qquad \\text{og} \\qquad SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$$\n\nDet samme gjelder **summen** $S = X_1 + X_2 + \\cdots + X_n$, som er tilnærmet normalfordelt med\n\n$$E(S) = n \\cdot \\mu \\qquad \\text{og} \\qquad SD(S) = \\sigma \\cdot \\sqrt{n}$$\n\n**Det som gjør setningen så kraftig:** den sier ingenting om hvilken fordeling målingene kommer fra. Den kan være flat, skjev, toppet eller hakkete. Gjennomsnittet blir klokkeformet uansett.\n\n**Tommelfingerregelen** er $n \\ge 30$. Er den opprinnelige fordelingen selv rimelig symmetrisk, holder det med langt færre — og er $X$ allerede normalfordelt, er $\\bar{X}$ **eksakt** normalfordelt for enhver $n$, også $n = 2$."
+    },
+    {
+      "id": "stat-6-4-fig-to-kurver",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-4-en-maaling-mot-gjennomsnitt.png",
+      "alt": "Et koordinatsystem med to klokkeformede kurver tegnet i samme skala. Den vannrette aksen er merket målefeil i gram og går fra minus 24 til 24. En lav og bred oransje kurve, merket én måling i tegnforklaringen, har toppunkt omtrent 0,05 ved 0 og strekker seg helt ut til begge endene av aksen. En høy og smal blå kurve, merket gjennomsnittet av 16 i tegnforklaringen, har toppunkt omtrent 0,20 ved 0 og er nesten null allerede ved minus 8 og 8. Begge kurvene er symmetriske om 0.",
+      "caption": "Samme midtpunkt, fire ganger så smal. En enkeltmåling har $\\sigma = 8$ gram (oransje); gjennomsnittet av 16 målinger har $SD(\\bar{X}) = \\frac{8}{\\sqrt{16}} = 2$ gram (blå). Legg merke til at den smale kurven også må være **høyere** — arealet er 1 under begge.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-4-en-maaling-mot-gjennomsnitt.json"
+    },
+    {
+      "id": "stat-6-4-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomsnittet av 15 målinger",
+      "problem": "Bremselengden $X$ i meter for en bilmodell er normalfordelt med $\\mu = 83$ m og $\\sigma = 3$ m.\n\nEt testsenter måler bremselengden 15 ganger og regner gjennomsnittet $\\bar{X}$.\n\na) Finn $E(\\bar{X})$ og $SD(\\bar{X})$.\nb) Finn sannsynligheten for at gjennomsnittet av de 15 målingene blir mindre enn 84 meter.\nc) Sammenlign med sannsynligheten for at **én** måling blir mindre enn 84 meter.",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* $\\mu = 83$, $\\sigma = 3$ og $n = 15$.\n\nMidtpunktet flytter seg ikke:\n\n$$E(\\bar{X}) = \\mu = 83 \\text{ m}$$\n\nSpredningen krymper med $\\sqrt{n}$:\n\n$$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{3}{\\sqrt{15}} \\approx 0{,}77 \\text{ m}$$\n\n**b)** Målingene kommer fra en normalfordeling, så $\\bar{X}$ er normalfordelt — eksakt, ikke bare tilnærmet.\n\nNå regner vi som i kapittel 6.2 og 6.3, men med $\\mu = 83$ og $\\sigma = 0{,}77$ i stedet for 3:\n\n$$z = \\frac{84 - 83}{0{,}7746} = \\frac{1}{0{,}7746} = 1{,}29$$\n\n$$P(\\bar{X} < 84) = P(Z < 1{,}29) = 0{,}9015$$\n\n```\nRegneark:   =NORM.FORDELING.N(84; 83; 3/ROT(15); SANN)\nGeoGebra:   FordelingNormal(83, 3/sqrt(15), 84)\n```\n\ngir 0,9016.\n\n**c)** For én enkelt måling er $\\sigma = 3$:\n\n$$z = \\frac{84 - 83}{3} = 0{,}33 \\qquad P(X < 84) = 0{,}6306$$\n\n**Svar:** a) $E(\\bar{X}) = 83$ m og $SD(\\bar{X}) \\approx 0{,}77$ m. b) $\\approx 0{,}90$. c) $\\approx 0{,}63$.\n\n**Tolkning:** Én tilfeldig måling havner under 84 meter i omtrent 6 av 10 tilfeller. Gjennomsnittet av 15 målinger gjør det i 9 av 10. Grunnen er ikke at bilen bremser bedre — $\\mu$ er den samme — men at gjennomsnittet **svinger mindre**. Det ligger tettere inntil 83, og da skal det mer til å komme over 84.\n\n**NB:** Legg merke til hva som er den eneste forskjellen på denne regningen og regningen i kapittel 6.3: vi byttet $\\sigma$ med $\\frac{\\sigma}{\\sqrt{n}}$. Alt annet er likt. Den vanligste feilen i dette kapittelet er å glemme å dele på $\\sqrt{n}$ — og den gir alltid et svar som er for nær 0,5."
+    },
+    {
+      "id": "stat-6-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Gjør den samme.** Vekten $X$ i gram til pakker fra en maskin er normalfordelt med $\\mu = 250$ g og $\\sigma = 4$ g. Det tas ut 16 pakker, og gjennomsnittsvekten $\\bar{X}$ regnes ut.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $E(\\bar{X})$ og $SD(\\bar{X})$.",
+            "solution": "$E(\\bar{X}) = 250$ g og $SD(\\bar{X}) = \\frac{4}{\\sqrt{16}} = \\frac{4}{4} = 1$ g.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(\\bar{X} > 251)$.",
+            "solution": "$z = \\frac{251 - 250}{1} = 1{,}0$, så $P(\\bar{X} > 251) = 1 - 0{,}8413 = 0{,}1587$.",
+            "answer": 0.1587
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(\\bar{X} < 248{,}5)$.",
+            "solution": "$z = \\frac{248{,}5 - 250}{1} = -1{,}5$, så $P = 1 - 0{,}9332 = 0{,}0668$.",
+            "answer": 0.0668
+          },
+          {
+            "label": "d",
+            "task": "Finn sannsynligheten for at **én** tilfeldig pakke veier mer enn 251 g, og sammenlign med b).",
+            "solution": "$z = \\frac{251 - 250}{4} = 0{,}25$, så $P(X > 251) = 1 - 0{,}5987 = 0{,}4013$. Én pakke over 251 g er nesten like sannsynlig som ikke — et gjennomsnitt av 16 over 251 g er det ikke.",
+            "answer": 0.4013
+          },
+          {
+            "label": "e",
+            "task": "Hva blir $SD(\\bar{X})$ dersom det tas ut 64 pakker i stedet, og hva blir da $P(\\bar{X} > 251)$?",
+            "solution": "$SD(\\bar{X}) = \\frac{4}{\\sqrt{64}} = \\frac{4}{8} = 0{,}5$ g. Da er $z = \\frac{1}{0{,}5} = 2{,}0$ og $P = 1 - 0{,}9772 = 0{,}0228$.",
+            "answer": 0.0228
+          }
+        ],
+        "hints": [
+          "Bytt $\\sigma$ med $\\frac{\\sigma}{\\sqrt{n}}$ — resten er som i kapittel 6.2.",
+          "Firedobler du $n$, halveres $SD(\\bar{X})$."
+        ],
+        "solution": "a) 250 g og 1 g, b) 0,1587, c) 0,0668, d) 0,4013 — mye større enn i b), e) 0,5 g og 0,0228",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-4-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Summen i stedet for gjennomsnittet",
+      "problem": "Vekten til voksne passasjerer kan modelleres med $\\mu = 80$ kg og $\\sigma = 15$ kg.\n\nEn heis er merket «maks 4200 kg» og tar 50 personer.\n\na) Finn forventningsverdien og standardavviket til den samlede vekten $S$ av 50 tilfeldige passasjerer.\nb) Finn sannsynligheten for at 50 passasjerer til sammen veier mer enn 4200 kg.\nc) Hvilken grense måtte stått på skiltet for at sannsynligheten skulle vært 1 promille?",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* $\\mu = 80$, $\\sigma = 15$ og $n = 50$. Her spør oppgaven om **summen**, ikke gjennomsnittet, så vi bruker den andre halvdelen av setningen:\n\n$$E(S) = n \\cdot \\mu = 50 \\cdot 80 = 4000 \\text{ kg}$$\n\n$$SD(S) = \\sigma \\cdot \\sqrt{n} = 15 \\cdot \\sqrt{50} \\approx 106{,}1 \\text{ kg}$$\n\n*(Merk forskjellen: gjennomsnittet får $\\sigma$ **delt** på $\\sqrt{n}$, summen får $\\sigma$ **ganget** med $\\sqrt{n}$. Summen av mange svinger mer i kilo, gjennomsnittet svinger mindre.)*\n\n**b)** Vekten til én person er neppe normalfordelt — den er litt høyreskjev. Men $n = 50$ er godt over tommelfingerregelen på 30, så sentralgrensesetningen gir oss at $S$ er tilnærmet normalfordelt:\n\n$$z = \\frac{4200 - 4000}{106{,}1} = \\frac{200}{106{,}1} = 1{,}89$$\n\n$$P(S > 4200) = 1 - P(Z \\le 1{,}89) \\approx 1 - 0{,}9706 = 0{,}0294$$\n\n```\nRegneark:   =1 - NORM.FORDELING.N(4200; 4000; 15*ROT(50); SANN)\n```\n\ngir 0,0297.\n\n**c)** Nå er sannsynligheten kjent og grensen ukjent — altså en kvantil. Vi skriver om først: $P(S > g) = 0{,}001$ betyr $P(S \\le g) = 0{,}999$.\n\n```\nRegneark:   =NORM.INVERS.N(0,999; 4000; 15*ROT(50))\n```\n\n$$g \\approx 4328 \\text{ kg}$$\n\n**Svar:** a) $E(S) = 4000$ kg og $SD(S) \\approx 106$ kg. b) $\\approx 0{,}03$. c) Omtrent 4330 kg.\n\n**Tolkning:** Med 50 tilfeldige voksne om bord overskrides 4200 kg i omtrent 3 % av turene. Det høres lite ut, men en heis som går 200 ganger i døgnet, vil da være overlastet flere ganger daglig. Derfor dimensjoneres heiser ikke etter gjennomsnittet, men etter en **grense langt ute i halen** — som i c)."
+    },
+    {
+      "id": "stat-6-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** En palle lastes med 36 sekker sement. Vekten til én sekk har $\\mu = 25$ kg og $\\sigma = 0{,}6$ kg. La $S$ være den samlede vekten.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $E(S)$ og $SD(S)$.",
+            "solution": "$E(S) = 36 \\cdot 25 = 900$ kg og $SD(S) = 0{,}6 \\cdot \\sqrt{36} = 0{,}6 \\cdot 6 = 3{,}6$ kg.",
+            "answer": 900
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(S > 905)$.",
+            "solution": "$z = \\frac{905 - 900}{3{,}6} = 1{,}39$, så $P(S > 905) = 1 - 0{,}9177 = 0{,}0823$.",
+            "answer": 0.0823
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(S < 895)$.",
+            "solution": "$z = \\frac{895 - 900}{3{,}6} = -1{,}39$, så $P = 0{,}0823$ — like stor som i b), siden 895 og 905 ligger like langt fra 900.",
+            "answer": 0.0823
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(895 \\le S \\le 905)$.",
+            "solution": "$1 - 0{,}0823 - 0{,}0823 = 0{,}8354$. (Med verktøy: 0,8351.)",
+            "answer": 0.8351
+          },
+          {
+            "label": "e",
+            "task": "Finn grensen som bare 1 % av pallene kommer over.",
+            "solution": "`=NORM.INVERS.N(0,99; 900; 3,6)` gir $908{,}4$ kg.",
+            "answer": 908.4
+          }
+        ],
+        "hints": [
+          "Summen: $E(S) = n\\mu$ og $SD(S) = \\sigma\\sqrt{n}$ — ganget, ikke delt.",
+          "I d) er det raskest å trekke fra begge halene."
+        ],
+        "solution": "a) 900 kg og 3,6 kg, b) 0,0823, c) 0,0823, d) 0,8351, e) 908,4 kg",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-4-note-hvor-stor-n",
+      "type": "note",
+      "title": "Hvor god er tilnærmingen? — målt, ikke påstått",
+      "content": "Sentralgrensesetningen sier at $\\bar{X}$ blir «tilnærmet» normalfordelt. Hvor god er den tilnærmingen egentlig?\n\nVi kan måle det. Ta leveringstiden for en pakke, som er sterkt høyreskjev — de fleste kommer fort, noen få bruker svært lang tid (samme type fordeling som ventetiden i kapittel 5.6). La $\\mu = 2{,}5$ dager og $\\sigma = 2{,}5$ dager.\n\nVi regner $P(\\bar{X} < 3{,}0)$ på to måter: med normaltilnærmingen, og eksakt.\n\n| $n$ | Normaltilnærmingen | Eksakt | Avvik |\n|---|---|---|---|\n| 5 | 0,6726 | 0,7149 | 0,042 |\n| 40 | 0,8970 | 0,8927 | 0,004 |\n\nMed bare 5 målinger bommer tilnærmingen med over 4 prosentpoeng — for lite til å stole på. Med 40 målinger er avviket nede i 0,4 prosentpoeng.\n\n**Det er dette tommelfingerregelen $n \\ge 30$ handler om.** Den er ikke en grense der noe plutselig skjer; tilnærmingen blir jevnt og trutt bedre. Og jo skjevere fordelingen er, jo større $n$ trengs. For en symmetrisk startfordeling — som terningen — er den god allerede ved $n = 10$."
+    },
+    {
+      "id": "stat-6-4-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Når startfordelingen ikke er normal",
+      "problem": "Leveringstiden $X$ for pakker fra en nettbutikk er sterkt høyreskjev, med $\\mu = 2{,}5$ dager og $\\sigma = 2{,}5$ dager.\n\nForbrukerrådet måler leveringstiden for 40 tilfeldige pakker og regner gjennomsnittet.\n\na) Kan vi regne med normalfordelingen her, når $X$ selv slett ikke er normalfordelt?\nb) Finn sannsynligheten for at gjennomsnittet blir mindre enn 3,0 dager.\nc) Butikken lover «gjennomsnittlig leveringstid under 3,2 dager». Finn sannsynligheten for at målingen viser mer enn 3,2 dager, selv om butikken har rett.",
+      "solution": "**Løsning:**\n\n**a)** *Spørsmålet er hvilken variabel vi spør om.* Om **én** pakke kan vi ikke bruke normalfordelingen — fordelingen er skjev, og en normalmodell ville gitt positiv sannsynlighet for negativ leveringstid.\n\nMen vi spør ikke om én pakke. Vi spør om **gjennomsnittet av 40**. Da gjelder sentralgrensesetningen, og $40 \\ge 30$:\n\n$$\\bar{X} \\text{ er tilnærmet normalfordelt med } \\mu = 2{,}5 \\text{ og } SD(\\bar{X}) = \\frac{2{,}5}{\\sqrt{40}} \\approx 0{,}395$$\n\n**b)** Vi regner som før, med 0,395 som standardavvik:\n\n$$z = \\frac{3{,}0 - 2{,}5}{0{,}3953} = \\frac{0{,}5}{0{,}3953} = 1{,}26$$\n\n$$P(\\bar{X} < 3{,}0) = P(Z < 1{,}26) \\approx 0{,}8962$$\n\n```\nRegneark:   =NORM.FORDELING.N(3; 2,5; 2,5/ROT(40); SANN)\n```\n\ngir 0,8970.\n\n**c)** «Mer enn 3,2 dager» er høyre hale:\n\n$$z = \\frac{3{,}2 - 2{,}5}{0{,}3953} = 1{,}77$$\n\n$$P(\\bar{X} > 3{,}2) = 1 - 0{,}9616 = 0{,}0384$$\n\n![To småbilder ved siden av hverandre, merket A og B, med samme vannrette akse fra 0 til 12 dager og samme loddrette akse merket tetthet, med tallene 0,2 til 1,0 i begge paneler. I A faller en oransje kurve bratt fra en høy verdi ved 0 og flater ut mot høyre uten å nå aksen — fordelingen er sterkt høyreskjev, med en lang hale. Teksten én pakke og my er lik 2,5, SD er lik 2,5 står i panelet. I B er det en smal, symmetrisk og mye høyere blå klokkekurve med toppen i 2,5, som faller til null allerede ved omtrent 1 og 4. Teksten gjennomsnittet av 40 og my er lik 2,5, SD er lik 0,40 står i panelet.](/images/content/statistikk/stat-6-4-leveringstid.png)\n\n*Sentralgrensesetningen gjelder gjennomsnittet, ikke enkeltpakken. Leveringstiden for én pakke (A) er sterkt høyreskjev og blir aldri normalfordelt uansett hvor mange pakker du sender. Gjennomsnittet av 40 (B) er tilnærmet normalfordelt med samme $\\mu$ og $\\text{SD} = \\frac{2{,}5}{\\sqrt{40}} \\approx 0{,}40$. Panelene har samme vannrette og loddrette skala.*\n\n**Svar:** a) Ja — for gjennomsnittet, ikke for enkeltpakker. b) $\\approx 0{,}897$. c) $\\approx 0{,}038$.\n\n**Tolkning av c):** Selv om butikken faktisk har en sann gjennomsnittlig leveringstid på 2,5 dager, vil en måling av 40 pakker vise over 3,2 dager i omtrent 4 % av tilfellene — rent på grunn av tilfeldig variasjon. Det er akkurat denne tankegangen hele kapittel 7 bygger på: **et måleresultat som ser dårlig ut, kan skyldes tilfeldighet, og vi trenger et regnestykke for å avgjøre om det gjør det.**"
+    },
+    {
+      "id": "stat-6-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** Tiden $X$ en kunde bruker i en kundeservicetelefon er høyreskjev, med $\\mu = 4$ minutter og $\\sigma = 4$ minutter. En dag måles 50 tilfeldige samtaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Begrunn at gjennomsnittet kan regnes som tilnærmet normalfordelt, og finn $SD(\\bar{X})$.",
+            "solution": "$n = 50 \\ge 30$, så sentralgrensesetningen gjelder for gjennomsnittet (ikke for én samtale). $SD(\\bar{X}) = \\frac{4}{\\sqrt{50}} = 0{,}566$ minutter.",
+            "answer": 0.566
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(\\bar{X} > 4{,}5)$.",
+            "solution": "$z = \\frac{4{,}5 - 4}{0{,}566} = 0{,}88$, så $P = 1 - 0{,}8106 = 0{,}1894$. (Med verktøy: 0,1884.)",
+            "answer": 0.1884
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(\\bar{X} < 3{,}5)$.",
+            "solution": "$z = -0{,}88$, så $P = 0{,}1894$ — like stor som i b) ved symmetri.",
+            "answer": 0.1884
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(3{,}5 < \\bar{X} < 4{,}5)$.",
+            "solution": "$1 - 2 \\cdot 0{,}1884 = 0{,}6232$.",
+            "answer": 0.6232
+          },
+          {
+            "label": "e",
+            "task": "Finn forventet samlet taletid for de 50 samtalene, og sannsynligheten for at den overstiger 225 minutter.",
+            "solution": "$E(S) = 50 \\cdot 4 = 200$ minutter og $SD(S) = 4\\sqrt{50} = 28{,}3$ minutter. $z = \\frac{225 - 200}{28{,}3} = 0{,}88$, så $P(S > 225) = 0{,}1884$ — samme svar som i b), fordi «gjennomsnitt over 4,5» og «sum over 225» er nøyaktig samme hendelse.",
+            "answer": 0.1884
+          }
+        ],
+        "hints": [
+          "Sentralgrensesetningen gjelder gjennomsnittet og summen, aldri én enkelt måling.",
+          "I e): $225 = 50 \\cdot 4{,}5$ — tenk over hva det betyr."
+        ],
+        "solution": "a) 0,566 min, b) 0,1884, c) 0,1884, d) 0,6232, e) 200 min, 28,3 min og 0,1884 — samme hendelse som i b)",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-4-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor mange målinger trengs?",
+      "problem": "Et laboratorium måler konsentrasjonen i en prøve. Én måling har $\\sigma = 12$ enheter.\n\nLaboratoriet vil at gjennomsnittet av målingene skal ha et standardavvik på høyst 1,5 enheter.\n\nHvor mange målinger må de gjøre?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\sigma = 12$, og kravet er $SD(\\bar{X}) \\le 1{,}5$.\n\n*Hva må vi finne?* Antallet $n$.\n\nVi setter opp kravet med formelen:\n\n$$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} \\le 1{,}5$$\n\n$$\\frac{12}{\\sqrt{n}} \\le 1{,}5$$\n\nVi ganger med $\\sqrt{n}$ på begge sider:\n\n$$12 \\le 1{,}5\\sqrt{n}$$\n\nVi deler på 1,5 på begge sider:\n\n$$\\frac{12}{1{,}5} \\le \\sqrt{n}$$\n\n$$8 \\le \\sqrt{n}$$\n\nOg kvadrerer begge sider — begge er positive, så ulikhetstegnet står:\n\n$$64 \\le n$$\n\n**Kontroll:** $\\frac{12}{\\sqrt{64}} = \\frac{12}{8} = 1{,}5$. Stemmer.\n\n**Svar:** Minst 64 målinger.\n\n**NB:** Legg merke til hvor dyrt det er å bli nøyaktig. Her er de fire kravene regnet ut:\n\n| Krav til $SD(\\bar{X})$ | Antall målinger |\n|---|---|\n| 3 | 16 |\n| 2 | 36 |\n| 1,5 | 64 |\n| 1 | 144 |\n\nFor å **halvere** usikkerheten fra 3 til 1,5 må antallet **firedobles** fra 16 til 64. Det er $\\sqrt{n}$ i nevneren som gjør det, og det er grunnen til at store undersøkelser koster så mye mer enn små uten å bli så mye bedre."
+    },
+    {
+      "id": "stat-6-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** En vekt har måleusikkerhet med $\\sigma = 0{,}8$ kg per måling.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange målinger trengs for at gjennomsnittet skal ha standardavvik høyst 0,4 kg?",
+            "solution": "$\\frac{0{,}8}{\\sqrt{n}} \\le 0{,}4$ gir $\\sqrt{n} \\ge 2$, altså $n \\ge 4$.",
+            "answer": 4
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange trengs for høyst 0,2 kg?",
+            "solution": "$\\sqrt{n} \\ge 4$, altså $n \\ge 16$.",
+            "answer": 16
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange trengs for høyst 0,1 kg?",
+            "solution": "$\\sqrt{n} \\ge 8$, altså $n \\ge 64$.",
+            "answer": 64
+          },
+          {
+            "label": "d",
+            "task": "Hva skjer med antallet hver gang kravet halveres?",
+            "solution": "Det firedobles: 4, 16, 64. Halvert krav betyr $\\sqrt{n}$ dobbelt så stor, og da er $n$ fire ganger så stor.",
+            "answer": 4
+          },
+          {
+            "label": "e",
+            "task": "Hver måling koster 250 kr. Hva koster det å gå fra en usikkerhet på 0,2 kg til 0,05 kg?",
+            "solution": "0,05 kg krever $\\sqrt{n} \\ge 16$, altså $n \\ge 256$. Fra 16 til 256 målinger er 240 ekstra målinger, altså $240 \\cdot 250 = 60\\,000$ kr.",
+            "answer": 60000
+          }
+        ],
+        "hints": [
+          "Sett opp $\\frac{\\sigma}{\\sqrt{n}} \\le \\text{krav}$ og løs for $n$.",
+          "Halvert usikkerhet krever alltid fire ganger så mange målinger."
+        ],
+        "solution": "a) 4, b) 16, c) 64, d) firedobles, e) 256 målinger, altså 60 000 kr ekstra",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Kjenn igjen situasjonen.** For hver situasjon: avgjør om spørsmålet gjelder **én måling** $X$, **gjennomsnittet** $\\bar{X}$ eller **summen** $S$, og skriv opp hvilket standardavvik du skal regne med. Vekten til én sekk har $\\mu = 25$ kg og $\\sigma = 0{,}6$ kg.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sannsynligheten for at en tilfeldig sekk veier over 26 kg.",
+            "solution": "Én måling $X$. Standardavvik $0{,}6$ kg."
+          },
+          {
+            "label": "b",
+            "task": "Sannsynligheten for at 36 sekker til sammen veier over 910 kg.",
+            "solution": "Summen $S$. Standardavvik $0{,}6 \\cdot \\sqrt{36} = 3{,}6$ kg."
+          },
+          {
+            "label": "c",
+            "task": "Sannsynligheten for at gjennomsnittsvekten av 36 sekker er over 25,3 kg.",
+            "solution": "Gjennomsnittet $\\bar{X}$. Standardavvik $\\frac{0{,}6}{\\sqrt{36}} = 0{,}1$ kg."
+          },
+          {
+            "label": "d",
+            "task": "Sannsynligheten for at en lastebil med 100 sekker overskrider 2520 kg last.",
+            "solution": "Summen $S$ med $n = 100$. Standardavvik $0{,}6 \\cdot 10 = 6$ kg, og $E(S) = 2500$ kg."
+          },
+          {
+            "label": "e",
+            "task": "En kvalitetskontrollør veier 9 sekker og vil vite om gjennomsnittet avviker mye fra 25 kg.",
+            "solution": "Gjennomsnittet $\\bar{X}$ med $n = 9$. Standardavvik $\\frac{0{,}6}{3} = 0{,}2$ kg. Med bare 9 sekker er kontrollen dobbelt så grovkornet som med 36."
+          }
+        ],
+        "hints": [
+          "Tre formler: $\\sigma$ for én måling, $\\frac{\\sigma}{\\sqrt{n}}$ for gjennomsnittet, $\\sigma\\sqrt{n}$ for summen.",
+          "Les oppgaven og spør: hva er det som er tilfeldig her — ett tall, et snitt eller en total?"
+        ],
+        "solution": "a) $X$, 0,6 kg, b) $S$, 3,6 kg, c) $\\bar{X}$, 0,1 kg, d) $S$, 6 kg, e) $\\bar{X}$, 0,2 kg",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-4-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Sentralgrensesetningen:** gjennomsnittet $\\bar{X}$ av mange uavhengige målinger er tilnærmet normalfordelt — uansett hvilken fordeling målingene selv kommer fra.\n- $E(\\bar{X}) = \\mu$ og $SD(\\bar{X}) = \\dfrac{\\sigma}{\\sqrt{n}}$. Midtpunktet står stille, spredningen krymper.\n- **Summen** $S$ er også tilnærmet normalfordelt, med $E(S) = n\\mu$ og $SD(S) = \\sigma\\sqrt{n}$. Gjennomsnittet **deler** på $\\sqrt{n}$, summen **ganger** med $\\sqrt{n}$.\n- **Regningen er den samme som i kapittel 6.2 og 6.3** — den eneste forskjellen er at $\\sigma$ byttes med $\\frac{\\sigma}{\\sqrt{n}}$ eller $\\sigma\\sqrt{n}$. Glemmer du byttet, får du et svar som er for nær 0,5.\n- **Tommelfingerregelen** er $n \\ge 30$. Er startfordelingen symmetrisk, holder det med færre; er den svært skjev, trengs flere. Er $X$ selv normalfordelt, er $\\bar{X}$ eksakt normalfordelt for enhver $n$.\n- **Setningen gjelder gjennomsnitt og summer — aldri enkeltmålinger.** At gjennomsnittsinntekten i et utvalg er normalfordelt, gjør ikke inntektsfordelingen normalfordelt.\n- Å halvere usikkerheten i et gjennomsnitt krever **fire ganger** så mange målinger.\n\nDette er grunnlaget for resten av faget. I kapittel 7 bruker vi det til å si hvor nøyaktig et utvalg forteller om helheten — og til å avgjøre om et måleresultat er et virkelig funn eller bare tilfeldig variasjon."
+    },
+    {
+      "id": "stat-6-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave, Del 2.** En maskin fyller kaffeposer. Vekten $X$ i gram er normalfordelt med $\\mu = 252$ g og $\\sigma = 2$ g. Kvalitetskontrollen tar ut stikkprøver og regner gjennomsnittsvekten.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $SD(\\bar{X})$ for stikkprøver på 9 og på 25 poser.",
+            "solution": "$\\frac{2}{\\sqrt{9}} = 0{,}667$ g og $\\frac{2}{\\sqrt{25}} = 0{,}400$ g.",
+            "answer": 0.667
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(\\bar{X} < 251)$ for hver av de to stikkprøvestørrelsene, og for én enkelt pose.",
+            "solution": "Én pose: $z = -0{,}5$, $P = 0{,}3085$. $n = 9$: $z = \\frac{-1}{0{,}667} = -1{,}5$, $P = 0{,}0668$. $n = 25$: $z = \\frac{-1}{0{,}4} = -2{,}5$, $P = 0{,}0062$.",
+            "answer": 0.0062
+          },
+          {
+            "label": "c",
+            "task": "Forklar hvorfor de tre svarene i b) er så forskjellige, når $\\mu$ er den samme i alle tre.",
+            "solution": "Fordi spredningen er forskjellig. Én pose kan lett veie 251 g — det er bare et halvt standardavvik under $\\mu$. Et gjennomsnitt av 25 poser på 251 g krever at 25 poser *samtidig* trekker nedover, og det er 2,5 standardavvik unna. Gjennomsnittet er en mye mer stabil størrelse enn enkeltverdien."
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor må stikkprøven være for at $SD(\\bar{X})$ skal bli høyst 0,25 g?",
+            "solution": "$\\frac{2}{\\sqrt{n}} \\le 0{,}25$ gir $\\sqrt{n} \\ge 8$, altså $n \\ge 64$ poser.",
+            "answer": 64
+          },
+          {
+            "label": "e",
+            "task": "Kontrolløren bestemmer at maskinen skal stoppes dersom gjennomsnittet av 25 poser er under 250,5 g. Finn sannsynligheten for at maskinen stoppes selv om den er riktig innstilt, og vurder om grensen er godt valgt.",
+            "solution": "$z = \\frac{250{,}5 - 252}{0{,}4} = -3{,}75$, som gir $P \\approx 0{,}00009$ — under én av ti tusen. Grensen gir altså nesten ingen falske alarmer. Men den er også svært lite følsom: maskinen må feile ganske mye før den stoppes. Til sammenligning ville én enkelt pose under 250,5 g inntruffet i 23 % av tilfellene, og ville vært et helt ubrukelig stoppkriterium. Valget av grense er alltid en avveining mellom falske alarmer og oversette feil — det er nøyaktig avveiningen kapittel 7.7 tar opp.",
+            "answer": 9e-05
+          }
+        ],
+        "hints": [
+          "$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$ — regn den ut først, hver gang.",
+          "I e): sammenlign med hva som ville skjedd om kriteriet gjaldt én pose."
+        ],
+        "solution": "a) 0,667 g og 0,400 g, b) 0,3085 / 0,0668 / 0,0062, c) gjennomsnittet svinger mindre, d) 64 poser, e) omtrent 0,0001 — få falske alarmer, men lite følsomt",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-4-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-4-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting — hva sentralgrensesetningen ikke sier.** Vurder påstandene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Sentralgrensesetningen sier at alt blir normalfordelt bare vi har nok data.» Drøft.",
+            "solution": "Galt, og en av de vanligste misforståelsene. Setningen sier at **gjennomsnittet** og **summen** blir normalfordelt. Måler du inntekten til en million mennesker, blir inntektsfordelingen like skjev som før — flere data gjør bare bildet av skjevheten tydeligere. Det som blir normalfordelt, er gjennomsnittet av mange slike utvalg."
+          },
+          {
+            "label": "b",
+            "task": "En elev regner $P(X > 84)$ for én måling med $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$ i stedet for $\\sigma$. Blir svaret for høyt eller for lavt?",
+            "solution": "Det kommer an på hvilken side grensen ligger. Et for lite standardavvik presser sannsynligheten **bort fra 0,5**: en hale som skulle vært 0,25, blir kanskje 0,05. Eleven overdriver altså hvor uvanlig verdien er. Den motsatte feilen — å glemme $\\sqrt{n}$ når man spør om et gjennomsnitt — trekker svaret **mot** 0,5."
+          },
+          {
+            "label": "c",
+            "task": "Setningen krever at målingene er **uavhengige**. Gi et eksempel der kravet er brutt, og forklar hva som går galt.",
+            "solution": "Måler du høyden til 30 elever fra samme klasse i stedet for 30 tilfeldige elever i landet, er målingene ikke uavhengige — elevene er like gamle, og kanskje valgt fra samme skole og område. Da er den virkelige spredningen i gjennomsnittet større enn $\\frac{\\sigma}{\\sqrt{n}}$ sier, og vi vil tro at vi vet mer enn vi gjør. Det er en av de vanligste feilene i virkelige undersøkelser: utvalget er større enn informasjonen i det."
+          },
+          {
+            "label": "d",
+            "task": "«Med $n = 30$ er tilnærmingen god.» Når er det ikke sant?",
+            "solution": "Når startfordelingen er svært skjev eller har ekstreme verdier. For sterkt høyreskjeve fordelinger — inntekter, skadeutbetalinger, ventetider — kan det trengs flere hundre målinger. Vi målte det selv i kapittel-notatet: med en skjev fordeling og $n = 5$ bommet tilnærmingen med 4 prosentpoeng, og med $n = 40$ med 0,4. Tallet 30 er en huskeregel, ikke en garanti."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er det nettopp $\\sqrt{n}$ og ikke $n$ som står i nevneren? Hva ville konsekvensen vært om det var $n$?",
+            "solution": "Fordi det er **variansene** som legges sammen, ikke standardavvikene: $\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}$, og standardavviket er kvadratroten av det. Var det $n$ i nevneren, ville 100 målinger gitt hundre ganger mindre usikkerhet i stedet for ti ganger mindre — og all statistikk hadde vært mye billigere. Det er $\\sqrt{n}$ som gjør at presisjon koster kvadratisk."
+          }
+        ],
+        "hints": [
+          "Skill hele tiden mellom fordelingen til **én måling** og fordelingen til **gjennomsnittet**.",
+          "Tenk over hvilke krav setningen faktisk stiller: uavhengighet, samme fordeling, stor nok $n$."
+        ],
+        "solution": "a) Nei — bare gjennomsnitt og summer blir normalfordelte. b) For lite standardavvik presser svaret bort fra 0,5. c) Klyngeutvalg bryter uavhengigheten og gir falsk presisjon. d) Ikke for sterkt skjeve fordelinger. e) Fordi variansene summeres, og $SD$ er roten av variansen.",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Sentralgrensesetningen",
+      "definition": "Setningen som sier at gjennomsnittet av mange uavhengige målinger fra samme fordeling er tilnærmet normalfordelt — uansett hvilken fordeling målingene kommer fra."
+    },
+    {
+      "term": "Fordelingen til gjennomsnittet",
+      "definition": "$\\bar{X}$ har $E(\\bar{X}) = \\mu$ og $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$, og er tilnærmet normalfordelt for stor $n$."
+    },
+    {
+      "term": "Fordelingen til summen",
+      "definition": "$S = X_1 + \\cdots + X_n$ har $E(S) = n\\mu$ og $SD(S) = \\sigma\\sqrt{n}$, og er tilnærmet normalfordelt for stor $n$."
+    },
+    {
+      "term": "Tommelfingerregelen n ≥ 30",
+      "definition": "En huskeregel for når normaltilnærmingen er god nok. Symmetriske startfordelinger trenger færre målinger, sterkt skjeve trenger flere."
+    },
+    {
+      "term": "Uavhengige målinger",
+      "definition": "Målinger der den ene ikke påvirker den andre. Kravet er en forutsetning for sentralgrensesetningen — brytes det, blir den virkelige usikkerheten større enn $\\frac{\\sigma}{\\sqrt{n}}$."
+    }
+  ]
+}

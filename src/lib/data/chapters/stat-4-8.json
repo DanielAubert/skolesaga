@@ -1,0 +1,467 @@
+{
+  "id": "stat-4-8",
+  "courseId": "statistikk",
+  "chapterNumber": "4.8",
+  "title": "Simulering av tilfeldige forsøk",
+  "description": "Å simulere forsøk digitalt (regneark og programmering) og sammenligne med teoretisk sannsynlighet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla",
+    "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+  ],
+  "keyTerms": [
+    {
+      "term": "Simulering",
+      "definition": "Å utføre et stokastisk forsøk mange ganger med datamaskin og bruke den relative frekvensen som anslag på sannsynligheten. Kalles også Monte Carlo-metoden."
+    },
+    {
+      "term": "Anslag",
+      "definition": "Tallet en simulering gir. Det er ikke den eksakte sannsynligheten, men en måling som svinger fra kjøring til kjøring."
+    },
+    {
+      "term": "Teller",
+      "definition": "Variabelen i programmet som holder styr på hvor mange av forsøkene som ga treff. Anslaget er telleren delt på antall forsøk."
+    },
+    {
+      "term": "Frø (seed)",
+      "definition": "Startverdien til tilfeldighetsgeneratoren. Setter du frøet, får du de samme «tilfeldige» tallene hver gang — og simuleringen blir etterprøvbar."
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-8-section-intro",
+      "type": "text",
+      "content": "# Den tredje veien til et svar\n\nSå langt har vi hatt to veier til en sannsynlighet: **regne den ut** fra en modell, eller **måle den** med relative frekvenser fra virkelige data.\n\nDen tredje veien er å la maskinen utføre forsøket for oss — tusener av ganger, på et sekund. Det kalles **simulering**, og det er grunnen til at mange problemer som var uoverkommelige for hundre år siden, er rutine i dag.\n\nSimulering er ikke en erstatning for utregning. Den er et supplement som er uunnværlig når regnestykket blir for vanskelig, og et kontrollverktøy når du ikke er sikker på at utregningen din er riktig."
+    },
+    {
+      "id": "stat-4-8-def-simulering",
+      "type": "definition",
+      "title": "Simulering",
+      "content": "Å **simulere** et stokastisk forsøk er å la en datamaskin utføre forsøket mange ganger etter en sannsynlighetsmodell vi selv har gitt den, og bruke den relative frekvensen som anslag på sannsynligheten.\n\n$$P(A) \\approx \\frac{\\text{antall ganger } A \\text{ inntraff}}{\\text{antall simulerte forsøk}}$$\n\nBegrunnelsen er store talls lov fra kapittel 4.1: med nok gjentakelser legger den relative frekvensen seg inntil sannsynligheten."
+    },
+    {
+      "id": "stat-4-8-section-oppskrift",
+      "type": "text",
+      "content": "## Framgangsmåten\n\nEnhver simulering følger de samme fem skrittene, enten du bruker regneark eller programmering:\n\n1. **Bestem modellen.** Hva er utfallene, og hvor sannsynlig er hvert av dem?\n2. **Simuler ett forsøk.** Trekk tilfeldige tall etter modellen.\n3. **Avgjør om hendelsen inntraff.** Skriv betingelsen som en test som gir sant eller usant.\n4. **Gjenta mange ganger og tell.** Hold en teller over hvor mange ganger hendelsen inntraff.\n5. **Del på antall forsøk, og tolk svaret.**\n\nSkritt 1 er det viktigste — og det maskinen ikke kan gjøre for deg. **Simuleringen måler den modellen du ga den**, ikke virkeligheten. Er modellen gal, blir svaret galt uansett hvor mange forsøk du kjører."
+    },
+    {
+      "id": "stat-4-8-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "Vi vil anslå sannsynligheten for at summen av to terninger blir minst 10. Beskriv en simulering i regneark, og sammenlign med den teoretiske verdien.",
+      "solution": "**Løsning:**\n\n**Skritt 1 — modellen.** To terninger, hver med seks like sannsynlige utfall.\n\n**Skritt 2 — ett forsøk.** I celle A1 og B1 legger vi ett terningkast hver:\n\n```\nA1:  =TILFELDIGMELLOM(1;6)\nB1:  =TILFELDIGMELLOM(1;6)\n```\n\nI C1 regner vi summen:\n\n```\nC1:  =A1+B1\n```\n\n**Skritt 3 — testen.** I D1 skriver vi 1 når hendelsen inntraff, og 0 ellers:\n\n```\nD1:  =HVIS(C1>=10;1;0)\n```\n\n**Skritt 4 — gjenta og tell.** Vi merker A1:D1 og drar nedover til rad 5000. Så teller vi:\n\n```\nF1:  =SUMMER(D1:D5000)\n```\n\n**Skritt 5 — del og tolk.**\n\n```\nF2:  =F1/5000\n```\n\nEn kjøring gir typisk et tall rundt $0{,}17$. Trykker vi F9, regnes arket om med nye tilfeldige tall, og vi får et litt annet tall hver gang — det er uvissheten i selve simuleringen.\n\n**Den teoretiske verdien.** Summen blir minst 10 for parene\n\n$$(4,6),\\ (5,5),\\ (6,4),\\ (5,6),\\ (6,5),\\ (6,6)$$\n\nDet er 6 av de 36 utfallene:\n\n$$P(\\text{minst 10}) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167$$\n\nSimuleringen treffer altså godt. Merk rekkefølgen her: vi *kunne* regnet det ut med en gang, og simuleringen var strengt tatt unødvendig. Poenget er at metoden virker på et problem vi kan kontrollere — da tør vi bruke den på problemer vi ikke kan kontrollere.\n\n**Svar:** Simuleringen gir omtrent $0{,}17$; den teoretiske verdien er $\\frac{1}{6} \\approx 0{,}167$."
+    },
+    {
+      "id": "stat-4-8-note-f9",
+      "type": "note",
+      "title": "Regnearkfunksjonene du trenger",
+      "content": "| Funksjon | Gjør |\n|---|---|\n| `=TILFELDIGMELLOM(1;6)` | tilfeldig heltall fra 1 til 6 |\n| `=TILFELDIG()` | tilfeldig desimaltall mellom 0 og 1 |\n| `=HVIS(vilkår;1;0)` | 1 hvis vilkåret er sant, ellers 0 |\n| `=SUMMER(område)` | summen — altså antall treff når cellene er 1 og 0 |\n| `=ANTALL.HVIS(område;\">=10\")` | teller direkte uten hjelpekolonne |\n\nAlle tilfeldige tall regnes om når arket oppdateres. Trykk **F9** for å kjøre simuleringen på nytt."
+    },
+    {
+      "id": "stat-4-8-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Regneark.** Sett opp en simulering av 2000 kast med to terninger, etter framgangsmåten i eksempel 1.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilken formel gir ett terningkast?",
+            "solution": "`=TILFELDIGMELLOM(1;6)`"
+          },
+          {
+            "label": "b",
+            "task": "Skriv en formel i D1 som gir 1 når summen i C1 er nøyaktig 7, og 0 ellers.",
+            "solution": "`=HVIS(C1=7;1;0)`"
+          },
+          {
+            "label": "c",
+            "task": "Hva er den teoretiske sannsynligheten for sum 7? Oppgi forkortet brøk.",
+            "solution": "6 av 36 par gir sum 7: $\\frac{6}{36} = \\frac{1}{6}$",
+            "expressionAnswer": "1/6"
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange av de 2000 kastene venter du gir sum 7?",
+            "solution": "$\\frac{1}{6} \\cdot 2000 \\approx 333$",
+            "answer": 333
+          },
+          {
+            "label": "e",
+            "task": "Trykk F9 fem ganger og noter anslaget hver gang. Beskriv hvor mye tallene varierer.",
+            "solution": "Anslagene vil typisk ligge mellom omtrent 0,14 og 0,19. De svinger rundt 0,167, og svingningen er selve usikkerheten i simuleringen."
+          }
+        ],
+        "hints": [
+          "Bruk én kolonne per terning, én for summen og én for testen.",
+          "`=SUMMER(D1:D2000)/2000` gir anslaget."
+        ],
+        "solution": "a) `=TILFELDIGMELLOM(1;6)`, b) `=HVIS(C1=7;1;0)`, c) $\\frac{1}{6}$, d) ca. 333, e) svinger rundt 0,167",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-4-8-section-python",
+      "type": "text",
+      "content": "## Simulering i Python\n\nI et program blir de fem skrittene til fem linjer. Mønsteret er alltid det samme:\n\n```python\nimport random\n\nantall = 100000          # hvor mange forsøk\ntreff = 0                # telleren\n\nfor i in range(antall):\n    # ett forsøk\n    # test om hendelsen inntraff\n    # øk telleren hvis den gjorde det\n    pass\n\nprint(treff / antall)\n```\n\nFordelen framfor regneark er at du kan kjøre langt flere forsøk, og at forsøket kan være mer sammensatt enn én rad med celler."
+    },
+    {
+      "id": "stat-4-8-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "I et spill kaster du to terninger. Du vinner dersom minst én av dem viser 5 eller 6.\n\na) Skriv et program som anslår vinnersannsynligheten.\nb) Bestem vinnersannsynligheten ved regning, og sammenlign.",
+      "solution": "**Løsning:**\n\na) Vi følger de fem skrittene.\n\n```python\nimport random\n\nantall = 100000\ntreff = 0\n\nfor i in range(antall):\n    t1 = random.randint(1, 6)\n    t2 = random.randint(1, 6)\n    if t1 >= 5 or t2 >= 5:\n        treff = treff + 1\n\nprint(treff / antall)\n```\n\n- `random.randint(1, 6)` er ett terningkast — skritt 2.\n- `if t1 >= 5 or t2 >= 5` er testen. `or` betyr «eller», og det er det inklusive «eller» fra kapittel 4.4: vinner du med begge, teller det også — skritt 3.\n- `treff = treff + 1` øker telleren. Legg merke til at ett likhetstegn *tilordner* en verdi; det er ikke en likning — skritt 4.\n- Siste linje deler på antall forsøk — skritt 5.\n\nProgrammet skriver ut et tall rundt $0{,}556$.\n\nb) Vi regner med komplementet, slik kapittel 4.2 lærte oss. Det motsatte av «minst én viser 5 eller 6» er «ingen av dem viser 5 eller 6», altså at begge viser 1, 2, 3 eller 4.\n\nFor én terning:\n\n$$P(\\text{høyst 4}) = \\frac{4}{6} = \\frac{2}{3}$$\n\nTerningene er uavhengige, så vi ganger:\n\n$$P(\\text{ingen 5 eller 6}) = \\frac{2}{3} \\cdot \\frac{2}{3} = \\frac{4}{9}$$\n\n$$P(\\text{vinner}) = 1 - \\frac{4}{9} = \\frac{9}{9} - \\frac{4}{9} = \\frac{5}{9} \\approx 0{,}556$$\n\nSimuleringen og utregningen stemmer overens. Da vet vi to ting: utregningen er trolig riktig, og programmet gjør trolig det det skal.\n\n**Svar:** a) Et program som teller treff i 100 000 kast; det gir omtrent $0{,}556$. b) $\\frac{5}{9} \\approx 0{,}556$."
+    },
+    {
+      "id": "stat-4-8-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 2. I et annet spill kaster du tre terninger, og du vinner dersom minst én av dem viser sekser.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv testlinja i programmet som avgjør om du vinner.",
+            "solution": "`if t1 == 6 or t2 == 6 or t3 == 6:`"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at én terning ikke viser sekser. Oppgi forkortet brøk.",
+            "solution": "$\\frac{5}{6}$",
+            "expressionAnswer": "5/6"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at ingen av de tre viser sekser. Oppgi som brøk.",
+            "solution": "$\\left(\\frac{5}{6}\\right)^3 = \\frac{125}{216}$",
+            "expressionAnswer": "125/216"
+          },
+          {
+            "label": "d",
+            "task": "Bestem vinnersannsynligheten. Oppgi som brøk.",
+            "solution": "$1 - \\frac{125}{216} = \\frac{91}{216}$",
+            "expressionAnswer": "91/216"
+          },
+          {
+            "label": "e",
+            "task": "Skriv vinnersannsynligheten som desimaltall med tre desimaler.",
+            "solution": "$\\frac{91}{216} \\approx 0{,}421$",
+            "answer": 0.421
+          }
+        ],
+        "hints": [
+          "«Minst én» går via komplementet «ingen».",
+          "Terningene er uavhengige, så sannsynlighetene kan ganges."
+        ],
+        "solution": "a) `if t1 == 6 or t2 == 6 or t3 == 6:`, b) $\\frac{5}{6}$, c) $\\frac{125}{216}$, d) $\\frac{91}{216}$, e) $0{,}421$",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "tool": "python",
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "stat-4-8-section-lese-program",
+      "type": "text",
+      "content": "## Å lese andres simuleringsprogram\n\nEn vanlig eksamensoppgave gir deg et ferdig program og spør *hvilken sannsynlighet det regner ut*. Framgangsmåten er å lese programmet i to omganger:\n\n**Først komponentene, linje for linje:** hva er konstantene, hva trekkes tilfeldig, hva er testen, hva telles, hva skrives ut?\n\n**Så flyten, altså hva som skjer når programmet kjører:** følg to gjennomløp av løkka og hold styr på hva hver variabel inneholder etter hvert skritt. Deretter «og så videre» for resten.\n\nNøkkelen ligger nesten alltid i **testlinja**. Den forteller nøyaktig hvilken hendelse programmet teller."
+    },
+    {
+      "id": "stat-4-8-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "Forklar hvilken sannsynlighet programmet under anslår, og hvorfor simulering er et rimelig valg her.\n\n```python\nimport random\n\nn = 200000\nteller = 0\n\nfor i in range(n):\n    p = 1\n    for k in range(3):\n        p = p * random.randint(1, 6)\n    if p > 100:\n        teller = teller + 1\n\nprint(teller / n)\n```",
+      "solution": "**Løsning:**\n\n**Komponentene:**\n\n- `n = 200000` er antall forsøk, og `teller = 0` er telleren. Begge settes før løkka begynner.\n- Den ytre løkka `for i in range(n)` gjentar hele forsøket 200 000 ganger.\n- `p = 1` nullstiller — eller rettere, *én-stiller* — produktet foran hvert forsøk. Det må stå **inne i** den ytre løkka; sto det utenfor, ville produktet vokst gjennom alle forsøkene.\n- Den indre løkka `for k in range(3)` kjører tre ganger. Hver gang ganges `p` med et nytt terningkast. Etter tre runder er `p` produktet av tre terningkast.\n- `if p > 100` er testen: er produktet større enn 100?\n- `teller = teller + 1` øker telleren når testen slår til.\n- `print(teller / n)` skriver ut andelen — altså anslaget.\n\n**Flyten, to gjennomløp:**\n\n*Første gjennomløp av den ytre løkka.* `p` settes til 1. Indre løkke: si at terningene gir 4, 6 og 5. Da blir `p` først $1 \\cdot 4 = 4$, så $4 \\cdot 6 = 24$, så $24 \\cdot 5 = 120$. Testen $120 > 100$ slår til, og `teller` blir 1.\n\n*Andre gjennomløp.* `p` settes til 1 igjen. Si at terningene gir 2, 3 og 6. Da blir `p` $2$, så $6$, så $36$. Testen $36 > 100$ slår ikke til, og `teller` står stille på 1.\n\nOg så videre, 200 000 ganger. Til slutt deles telleren på 200 000.\n\n**Hvilken sannsynlighet?** Programmet anslår\n\n$$P(\\text{produktet av tre terningkast er større enn } 100)$$\n\n**Hvorfor simulering?** Utfallsrommet har $6^3 = 216$ utfall, og det finnes ingen enkel formel for hvor mange av dem som gir produkt over 100 — vi måtte gått gjennom alle 216 og telt. Det lar seg gjøre, men det er tungvint for hånd. Simuleringen gir svaret på et sekund, og gir dessuten en metode som fortsatt virker om vi går opp til fire eller fem terninger, der opptellingen blir uoverkommelig.\n\n**Svar:** Programmet anslår sannsynligheten for at produktet av tre terningkast blir større enn 100."
+    },
+    {
+      "id": "stat-4-8-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Programanalyse.** Studer programmet:\n\n```python\nimport random\n\nn = 50000\nteller = 0\n\nfor i in range(n):\n    kort = random.sample(range(1, 53), 5)\n    hoy = 0\n    for k in kort:\n        if k > 48:\n            hoy = hoy + 1\n    if hoy >= 1:\n        teller = teller + 1\n\nprint(teller / n)\n```\n\nKortene er nummerert 1 til 52, og de fire essene har numrene 49, 50, 51 og 52.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva gjør `random.sample(range(1, 53), 5)`?",
+            "solution": "Den trekker 5 forskjellige tall fra 1 til 52 — altså en hånd på fem kort uten tilbakelegging."
+          },
+          {
+            "label": "b",
+            "task": "Hva teller variabelen `hoy`?",
+            "solution": "Antall kort i hånden med nummer over 48, altså antall ess."
+          },
+          {
+            "label": "c",
+            "task": "Hvilken sannsynlighet anslår programmet?",
+            "solution": "Sannsynligheten for å få minst ett ess på en hånd med fem kort."
+          },
+          {
+            "label": "d",
+            "task": "Hvordan måtte testlinja `if hoy >= 1:` endres for å anslå sannsynligheten for nøyaktig ett ess?",
+            "solution": "`if hoy == 1:`"
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at ingen av de fem kortene er ess, ved regning. Svar med tre desimaler.",
+            "solution": "$\\frac{48}{52} \\cdot \\frac{47}{51} \\cdot \\frac{46}{50} \\cdot \\frac{45}{49} \\cdot \\frac{44}{48} \\approx 0{,}659$. Da er $P(\\text{minst ett ess}) \\approx 0{,}341$.",
+            "answer": 0.659
+          }
+        ],
+        "hints": [
+          "`random.sample` trekker uten tilbakelegging — samme kort kan ikke komme to ganger.",
+          "I e): for hvert kort minker både antall ikke-ess og antall kort igjen."
+        ],
+        "solution": "a) trekker 5 ulike kort, b) antall ess, c) $P(\\text{minst ett ess på fem kort})$, d) `if hoy == 1:`, e) $\\approx 0{,}659$",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "tool": "python",
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "stat-4-8-section-usikkerhet",
+      "type": "text",
+      "content": "## Hvor nøyaktig er en simulering?\n\nEt simuleringssvar er en **måling**, ikke en fasit. To kjøringer av samme program gir ulike tall, og forskjellen er ikke en feil — den er uvissheten.\n\nDen viktigste regelen å huske er denne:\n\n**For å halvere usikkerheten må du firedoble antall forsøk.**\n\nGrunnen er at usikkerheten synker som $\\dfrac{1}{\\sqrt{n}}$: firedobler du $n$, dobles $\\sqrt{n}$, og usikkerheten halveres. Det betyr at de første tusen forsøkene gir mye, mens de neste hundre tusen gir stadig mindre igjen for arbeidet.\n\nDerfor skal du **aldri oppgi et simuleringssvar med flere desimaler enn simuleringen kan bære**. Har du kjørt 1000 forsøk, er «0,3427» en påstand du ikke har dekning for; «omtrent 0,34» er ærlig."
+    },
+    {
+      "id": "stat-4-8-fig-simulering",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-8-simulering-mot-teori.png",
+      "alt": "Et søylediagram med elleve søylepar. Den vannrette aksen er merket terningsum og tallsatt 1 til 12; den loddrette er merket andel og tallsatt 0 til 0,20 i steg på 0,02. I hvert par står den venstre, røde søylen for den simulerte andelen av 10 000 kast, og den høyre, blå for den teoretiske sannsynligheten. Søylene stiger mot midten og er høyest ved sum 7 (0,166 mot 0,167). Tegnforklaringen til høyre viser rødt = simulert (10 000 kast) og blått = teoretisk.",
+      "caption": "10 000 simulerte kast med to terninger sammenlignet med de teoretiske sannsynlighetene. Formen er den samme, og det største avviket er 0,0086 — ved sum 5.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-8-simulering-mot-teori.json"
+    },
+    {
+      "id": "stat-4-8-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "Figuren over viser 10 000 simulerte kast med to terninger sammenlignet med de teoretiske sannsynlighetene.\n\na) Hvorfor er søylene høyest i midten?\nb) Det største avviket mellom simulert og teoretisk andel er $0{,}0085$. Er det stort eller lite?\nc) Hvor mange kast måtte vi kjørt for å halvere det typiske avviket?",
+      "solution": "**Løsning:**\n\na) Fordi summene i midten kan oppnås på flest måter. Sum 7 kan komme av 6 av de 36 tallparene, mens sum 2 bare kan komme av ett — nemlig $(1,1)$.\n\n$$P(\\text{sum } 7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167 \\qquad P(\\text{sum } 2) = \\frac{1}{36} \\approx 0{,}028$$\n\nDette er det samme poenget som i kapittel 4.3: de 11 summene er ikke like sannsynlige, selv om de 36 parene er det.\n\nb) Det er lite. Avviket $0{,}0085$ skal sammenlignes med selve sannsynligheten det gjelder, $0{,}167$. Det tilsvarer omtrent 5 % av verdien, og en simulering på 10 000 forsøk kan ikke love bedre enn dette.\n\nEn nyttig målestokk: med 10 000 forsøk ligger det typiske avviket i størrelsesorden $\\frac{1}{\\sqrt{10\\,000}} = \\frac{1}{100} = 0{,}01$. Vårt største avvik er altså akkurat der man skulle vente.\n\nc) Usikkerheten synker som $\\frac{1}{\\sqrt{n}}$. Skal den halveres, må $\\sqrt{n}$ dobles, og da må $n$ firedobles:\n\n$$4 \\cdot 10\\,000 = 40\\,000 \\text{ kast}$$\n\n**Svar:** a) Fordi de midtre summene kan oppnås på flere måter. b) Lite — det er i den størrelsesorden 10 000 forsøk gir. c) 40 000 kast."
+    },
+    {
+      "id": "stat-4-8-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Om usikkerheten i en simulering.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En simulering med 2500 forsøk gir anslaget 0,384. Omtrent hvor stort er det typiske avviket, regnet som $\\frac{1}{\\sqrt{n}}$? Svar med to desimaler.",
+            "solution": "$\\frac{1}{\\sqrt{2500}} = \\frac{1}{50} = 0{,}02$",
+            "answer": 0.02
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange forsøk trengs for å halvere avviket i a)?",
+            "solution": "Firedobling: $4 \\cdot 2500 = 10\\,000$",
+            "answer": 10000
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange forsøk trengs for å gjøre avviket ti ganger mindre enn i a)?",
+            "solution": "$\\sqrt{n}$ må bli ti ganger større, så $n$ må bli hundre ganger større: $100 \\cdot 2500 = 250\\,000$",
+            "answer": 250000
+          },
+          {
+            "label": "d",
+            "task": "En elev skriver «simuleringen gir 0,38400». Hva er galt med svaret?",
+            "solution": "Det oppgir fem desimaler når simuleringen bare kan bære én eller to. De tre siste sifrene er tilfeldig støy, og svaret ser mer presist ut enn det er."
+          },
+          {
+            "label": "e",
+            "task": "Hvordan bør svaret i d) i stedet skrives?",
+            "solution": "For eksempel «omtrent 0,38». Man kan gjerne oppgi antall forsøk ved siden av, så leseren selv kan vurdere presisjonen."
+          }
+        ],
+        "hints": [
+          "$\\frac{1}{\\sqrt{n}}$ er en grov, men brukbar målestokk på hvor mye anslaget svinger.",
+          "Skal avviket bli $k$ ganger mindre, må $n$ bli $k^2$ ganger større."
+        ],
+        "solution": "a) $0{,}02$, b) $10\\,000$, c) $250\\,000$, d) for mange desimaler, e) «omtrent 0,38»",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-8-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Simulering** utfører forsøket mange ganger digitalt og bruker den relative frekvensen som anslag. Begrunnelsen er store talls lov.\n- Framgangsmåten er fem skritt: modell, ett forsøk, test, gjenta og tell, del og tolk.\n- **Simuleringen måler modellen du ga den.** Er modellen gal, hjelper ikke flere forsøk.\n- I regneark: `TILFELDIGMELLOM`, `HVIS` og `SUMMER`, og F9 for ny kjøring. I Python: en løkke med en teller.\n- Når du leser andres program: finn **testlinja** — den sier hvilken hendelse som telles. Følg deretter to gjennomløp av løkka.\n- Et simuleringssvar er en måling med usikkerhet. **Firedobling av $n$ halverer usikkerheten**, og svaret skal ikke oppgis med flere desimaler enn det kan bære.\n- Bruk simulering til å **kontrollere** en utregning du er usikker på — og til å svare når utregningen er for vanskelig."
+    },
+    {
+      "id": "stat-4-8-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** Et program simulerer fire kast med et pengestykke og teller hvor ofte alle fire viser kron. Du skal kontrollere programmet ved regning før du stoler på det.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange utfall har utfallsrommet for fire kast?",
+            "solution": "$2^4 = 16$",
+            "answer": 16
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at alle fire viser kron. Oppgi forkortet brøk.",
+            "solution": "$\\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$",
+            "expressionAnswer": "1/16"
+          },
+          {
+            "label": "c",
+            "task": "Programmet kjører 80 000 forsøk. Omtrent hvor mange treff venter du?",
+            "solution": "$\\frac{1}{16} \\cdot 80\\,000 = 5000$",
+            "answer": 5000
+          },
+          {
+            "label": "d",
+            "task": "En kjøring gir 5043 treff. Regn ut anslaget med fire desimaler, og sammenlign med b).",
+            "solution": "$\\frac{5043}{80\\,000} = 0{,}0630$ mot $\\frac{1}{16} = 0{,}0625$. Avviket er $0{,}0005$, altså svært lite.",
+            "answer": 0.063
+          },
+          {
+            "label": "e",
+            "task": "En annen kjøring gir 12 000 treff. Hva bør du mistenke?",
+            "solution": "$\\frac{12\\,000}{80\\,000} = 0{,}15$, som er langt fra $0{,}0625$. Et så stort avvik skyldes ikke tilfeldigheter — det peker på en feil i programmet, for eksempel at testen teller «minst tre kron» i stedet for «alle fire», eller at pengestykket ikke er rettferdig i modellen.",
+            "answer": 0.15
+          }
+        ],
+        "hints": [
+          "Fire uavhengige kast: gang sannsynlighetene.",
+          "Sammenlign alltid simuleringen med en utregning når du kan."
+        ],
+        "solution": "a) 16, b) $\\frac{1}{16}$, c) 5000, d) $0{,}0630$, e) feil i programmet eller i modellen",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-8-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — programmering).** En kiosk selger 200 lodd. 8 av dem gir gevinst. Et idrettslag kjøper 15 lodd.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv linja som trekker de 15 loddene idrettslaget kjøper, når loddene er nummerert 1 til 200 og gevinstloddene har numrene 1 til 8.",
+            "solution": "`lodd = random.sample(range(1, 201), 15)`"
+          },
+          {
+            "label": "b",
+            "task": "Skriv testlinja som avgjør om laget fikk minst én gevinst.",
+            "solution": "`if min(lodd) <= 8:` — eller `if any(x <= 8 for x in lodd):`"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at laget ikke får noen gevinst, ved regning. Svar med tre desimaler.",
+            "solution": "$\\frac{192}{200} \\cdot \\frac{191}{199} \\cdot \\ldots \\cdot \\frac{178}{186}$, altså produktet av 15 faktorer $\\approx 0{,}530$",
+            "answer": 0.53
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for minst én gevinst. Svar med tre desimaler.",
+            "solution": "$1 - 0{,}530 = 0{,}470$",
+            "answer": 0.47
+          },
+          {
+            "label": "e",
+            "task": "Laget vurderer å kjøpe 30 lodd i stedet. Blir sannsynligheten for minst én gevinst dobbelt så stor? Regn ut og forklar.",
+            "solution": "Nei. Med 30 lodd blir sannsynligheten for ingen gevinst $\\approx 0{,}266$, så minst én gevinst har sannsynlighet $\\approx 0{,}734$ — ikke $2 \\cdot 0{,}470 = 0{,}940$. Sannsynligheter for «minst én» kan aldri dobles på denne måten, for de kan ikke overstige 1. Det som dobles, er det forventede antallet gevinster.",
+            "answer": 0.734
+          }
+        ],
+        "hints": [
+          "«Minst én» går via komplementet «ingen».",
+          "I c): for hvert lodd minker både antall lodd uten gevinst og antall lodd totalt.",
+          "Kjør simuleringen med 100 000 forsøk og kontroller at den treffer utregningen."
+        ],
+        "solution": "a) `random.sample(range(1, 201), 15)`, b) `if min(lodd) <= 8:`, c) $\\approx 0{,}530$, d) $\\approx 0{,}470$, e) nei — $\\approx 0{,}734$",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla",
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "tool": "python",
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "stat-4-8-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-8-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Et forsikringsselskap simulerer utbetalinger etter storm. De legger inn at hver enkelt bygning skades uavhengig av de andre, med sannsynlighet 0,002. Programmet kjører 10 millioner simulerte år og konkluderer: «Sannsynligheten for at vi må utbetale mer enn en milliard kroner på ett år, er mindre enn 1 av 100 000.»",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Er antakelsen om at bygningene skades uavhengig av hverandre, rimelig ved storm? Begrunn.",
+            "solution": "Nei. En storm treffer et helt område samtidig, så skader på nabobygninger henger tett sammen. Uavhengighet er nettopp det som ikke gjelder her."
+          },
+          {
+            "label": "b",
+            "task": "Hvilken vei vil denne antakelsen trekke anslaget — for høyt eller for lavt?",
+            "solution": "For lavt. Med uavhengige skader jevner de seg ut, og svært mange skader samme år blir usannsynlig. Med avhengige skader kan alt skje på én gang, og de store utbetalingene blir langt mer sannsynlige."
+          },
+          {
+            "label": "c",
+            "task": "Hjelper det å øke fra 10 millioner til 100 millioner simulerte år?",
+            "solution": "Nei, ikke på dette problemet. Flere kjøringer reduserer bare usikkerheten i målingen av modellen. Feilen ligger i modellen selv, og den blir ikke mindre av at vi måler den mer nøyaktig."
+          },
+          {
+            "label": "d",
+            "task": "Hva kunne selskapet gjort for å forbedre modellen?",
+            "solution": "Innføre en felles værfaktor per år eller per region, slik at bygninger i samme område skades sammen. De kunne også kalibrert modellen mot historiske stormer og sjekket om modellen gjenskaper de store skadeårene som faktisk har vært."
+          },
+          {
+            "label": "e",
+            "task": "Formuler en generell lærdom om simulering ut fra dette.",
+            "solution": "En simulering er aldri bedre enn modellen den bygger på. Presisjonen i svaret sier hvor nøyaktig vi har målt modellen, ikke hvor riktig modellen er. Derfor må antakelsene — særlig antakelser om uavhengighet — alltid begrunnes og prøves mot virkelige data."
+          }
+        ],
+        "hints": [
+          "Spør hva som skjer med en storm som treffer en hel by samtidig.",
+          "Skille mellom usikkerhet i målingen og feil i modellen."
+        ],
+        "solution": "a) nei, skader henger sammen, b) for lavt, c) nei — feilen er i modellen, d) felles værfaktor og kalibrering mot historiske data, e) simuleringen er aldri bedre enn modellen",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

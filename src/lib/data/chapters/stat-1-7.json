@@ -1,0 +1,434 @@
+{
+  "id": "stat-1-7",
+  "courseId": "statistikk",
+  "chapterNumber": "1.7",
+  "title": "Statistikk i regneark",
+  "description": "Formler og funksjoner i regneark for sentralmål, spredningsmål og diagrammer.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål",
+    "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler"
+  ],
+  "content": [
+    {
+      "id": "stat-1-7-section-innledning",
+      "type": "text",
+      "content": "## Verktøyet du faktisk kommer til å bruke\n\nSå langt har vi regnet for hånd. Det skal du fortsatt kunne — både fordi\nformelen viser hva tallet betyr, og fordi Del 1 av eksamen er uten hjelpemidler.\n\nMen et datamateriale med $500$ rader regner ingen for hånd. Da bruker vi\n**regneark**, og da flytter arbeidet seg: i stedet for å regne, skal du velge\nriktig funksjon, peke på riktig område, og **vurdere om svaret er rimelig**.\n\nRegnearket gjør nemlig akkurat det du ber om — også når du ber om noe annet enn\ndet du tror.\n\nFunksjonsnavnene under er de norske. Er programmet ditt på engelsk, heter de\n`AVERAGE`, `MEDIAN`, `STDEV.P`, `STDEV.S`, `COUNTIF` og så videre. Navnene\nvarierer litt mellom Excel, Google Regneark og LibreOffice Calc, men\noppførselen er den samme."
+    },
+    {
+      "id": "stat-1-7-section-legge-inn",
+      "type": "text",
+      "content": "## Å legge inn datamaterialet\n\nReglene fra kapittel 1.1 gjelder også her:\n\n- **Én kolonne per variabel**, med et kort navn i rad $1$.\n- **Én rad per enhet.**\n- Tallene skal ligge i cellene som **tall**, ikke som tekst.\n\nHvordan ser du at et tall er blitt tekst? Tall stiller seg til høyre i cellen,\ntekst til venstre. Et tall som ligger til venstre, er som regel skrevet med\npunktum som desimaltegn, med mellomrom, eller med enheten i samme celle\n(«$12$ kg»). Da regner ikke funksjonene med det.\n\n**Enheten hører hjemme i kolonneoverskriften**, ikke i cellene: skriv\n«Vekt (kg)» i $B1$ og tallet $12$ i $B2$."
+    },
+    {
+      "id": "stat-1-7-def-funksjoner",
+      "type": "definition",
+      "title": "De viktigste funksjonene",
+      "content": "Anta at dataene ligger i området $B2:B25$.\n\n| Størrelse | Formel | Merknad |\n|---|---|---|\n| Antall observasjoner | `=ANTALL(B2:B25)` | Teller bare celler med **tall** |\n| Sum | `=SUMMER(B2:B25)` | |\n| Gjennomsnitt | `=GJENNOMSNITT(B2:B25)` | |\n| Median | `=MEDIAN(B2:B25)` | Sorterer selv |\n| Typetall | `=MODUS.SNGL(B2:B25)` | Gir feilmelding hvis ingen verdi gjentas |\n| Minste / største | `=MIN(B2:B25)` / `=MAKS(B2:B25)` | |\n| Nedre kvartil | `=KVARTIL.INK(B2:B25; 1)` | Se advarselen under |\n| Øvre kvartil | `=KVARTIL.INK(B2:B25; 3)` | |\n| Standardavvik, populasjon | `=STDAV.P(B2:B25)` | Deler på $n$ |\n| Standardavvik, utvalg | `=STDAV.S(B2:B25)` | Deler på $n - 1$ |\n| Antall som oppfyller et krav | `=ANTALL.HVIS(B2:B25; \">120\")` | Kravet i anførselstegn |\n\n**NB:** Skriv alltid `=` først. Uten likhetstegnet blir formelen stående som\ntekst i cellen — en av de vanligste feilene."
+    },
+    {
+      "id": "stat-1-7-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Sentralmål og spredning på 24 dager",
+      "problem": "Et treningssenter har talt antall besøkende hver dag i $24$ dager. Tallene ligger\ni $B2:B25$:\n\n| | | | | | | | | | | | |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| 112 | 98 | 143 | 127 | 89 | 156 | 134 | 121 | 105 | 118 | 149 | 132 |\n| 96 | 127 | 141 | 110 | 125 | 138 | 103 | 119 | 147 | 129 | 114 | 136 |\n\nDe $24$ dagene er alle dagene senteret har vært åpent i perioden.\n\nSett opp formlene, og tolk svarene.",
+      "solution": "Vi setter formlene i en egen kolonne ved siden av dataene, med en tekst i\nkolonnen til venstre som sier hva hvert tall er. Da kan både vi selv og andre\nlese arket etterpå.\n\n| Celle | Tekst i $D$ | Formel i $E$ | Svar |\n|---|---|---|---|\n| 1 | Antall dager | `=ANTALL(B2:B25)` | 24 |\n| 2 | Gjennomsnitt | `=GJENNOMSNITT(B2:B25)` | 123,71 |\n| 3 | Median | `=MEDIAN(B2:B25)` | 126 |\n| 4 | Typetall | `=MODUS.SNGL(B2:B25)` | 127 |\n| 5 | Minste | `=MIN(B2:B25)` | 89 |\n| 6 | Største | `=MAKS(B2:B25)` | 156 |\n| 7 | Variasjonsbredde | `=E6-E5` | 67 |\n| 8 | Standardavvik | `=STDAV.P(B2:B25)` | 17,52 |\n\n**Hvorfor `STDAV.P`?** Fordi de $24$ dagene er hele materialet vi vil beskrive —\nvi skal ikke bruke dem til å si noe om andre perioder. Skulle dagene vært et\nutvalg som beskriver hele året, ville vi brukt `=STDAV.S(B2:B25)` og fått\n$17{,}90$ i stedet.\n\n**Rimelighetskontroll — gjør denne hver gang:**\n\n- Gjennomsnittet $123{,}71$ ligger mellom $89$ og $156$. ✓\n- Medianen $126$ ligger nær gjennomsnittet, så fordelingen er noenlunde\n  symmetrisk. ✓\n- Standardavviket $17{,}5$ er lite i forhold til gjennomsnittet, og\n  variasjonsbredden $67$ er omtrent fire standardavvik. Det er som forventet. ✓\n\n**Svar:** I gjennomsnitt $123{,}7$ besøkende per dag, median $126$, med et\nstandardavvik på $17{,}5$ besøkende. Besøket er jevnt: de fleste dagene ligger\nmellom $106$ og $141$, altså innenfor ett standardavvik fra gjennomsnittet."
+    },
+    {
+      "id": "stat-1-7-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-7-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ti målinger er lagt inn i $A2:A11$:\n\n$$23,\\quad 19,\\quad 31,\\quad 27,\\quad 19,\\quad 35,\\quad 22,\\quad 28,\\quad 30,\\quad 26$$\n\nSkriv formelen du ville brukt, og finn svaret. Målingene er hele materialet.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Gjennomsnittet.",
+            "answer": 26,
+            "solution": "`=GJENNOMSNITT(A2:A11)` gir $\\frac{260}{10} = 26$."
+          },
+          {
+            "label": "b",
+            "task": "Medianen.",
+            "answer": 26.5,
+            "solution": "`=MEDIAN(A2:A11)`. Sortert: $19, 19, 22, 23, \\mathbf{26}, \\mathbf{27}, 28, 30, 31, 35$, så medianen er $\\frac{26+27}{2} = 26{,}5$."
+          },
+          {
+            "label": "c",
+            "task": "Typetallet.",
+            "answer": 19,
+            "solution": "`=MODUS.SNGL(A2:A11)` gir $19$, den eneste verdien som forekommer to ganger."
+          },
+          {
+            "label": "d",
+            "task": "Standardavviket $\\sigma$. Rund av til to desimaler.",
+            "answer": 5,
+            "solution": "`=STDAV.P(A2:A11)` gir nøyaktig $5{,}00$. (`=STDAV.S(A2:A11)` ville gitt $5{,}27$.)"
+          },
+          {
+            "label": "e",
+            "task": "Antall målinger over $25$.",
+            "answer": 6,
+            "solution": "`=ANTALL.HVIS(A2:A11; \\\">25\\\")` gir $6$: verdiene $26, 27, 28, 30, 31$ og $35$."
+          }
+        ],
+        "solution": "a) $26$, b) $26{,}5$, c) $19$, d) $\\sigma = 5{,}00$, e) $6$ målinger",
+        "hints": [
+          "Husk likhetstegnet foran formelen, og anførselstegn rundt kravet i `ANTALL.HVIS`."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-7-def-referanser",
+      "type": "definition",
+      "title": "Relative og absolutte referanser",
+      "content": "Når du kopierer en formel nedover, flytter cellereferansene seg med. Skriver du\n`=B2/24` i $C2$ og kopierer nedover, blir det `=B3/24` i $C3$ — det er en\n**relativ referanse**, og det er akkurat det vi vil.\n\nMen skal alle radene dele på det **samme** tallet — for eksempel totalsummen i\n$B26$ — må referansen låses. Det gjør vi med dollartegn:\n\n| Skrivemåte | Betyr |\n|---|---|\n| `B26` | Relativ: flytter seg når formelen kopieres |\n| `$B$26` | Absolutt: peker alltid på $B26$ |\n| `B$26` | Raden er låst, kolonnen flytter seg | | `$B26` | Kolonnen er låst, raden flytter seg |\n\nTegnet settes inn med tastetrykket `F4` (eller `Cmd + T`) mens markøren står i\nreferansen.\n\n**Glemmer du låsingen**, får rad $2$ riktig svar, og alle radene under blir feil\n— formelen deler da på tomme celler lenger ned. Det gir enten `#DIV/0!` eller,\nverre, et tall som ser plausibelt ut."
+    },
+    {
+      "id": "stat-1-7-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Relativ frekvens med låst nevner",
+      "problem": "En frekvenstabell ligger i regnearket:\n\n| | A | B | C |\n|---|---|---|---|\n| **1** | Klasse | Frekvens | Relativ frekvens |\n| **2** | $[80, 100\\rangle$ | 3 | |\n| **3** | $[100, 120\\rangle$ | 7 | |\n| **4** | $[120, 140\\rangle$ | 9 | |\n| **5** | $[140, 160\\rangle$ | 5 | |\n| **6** | **Sum** | | |\n\nFyll ut sumraden og kolonnen for relativ frekvens.",
+      "solution": "**Steg 1 — summen.** I $B6$ skriver vi\n\n`=SUMMER(B2:B5)`\n\nsom gir $3 + 7 + 9 + 5 = 24$.\n\n**Steg 2 — relativ frekvens i $C2$.** Hver frekvens skal deles på **den samme**\ntotalen i $B6$, så nevneren låses:\n\n`=B2/$B$6`\n\n$$\\frac{3}{24} = 0{,}125 = 12{,}5\\ \\%$$\n\n**Steg 3 — kopier nedover.** Når vi drar formelen fra $C2$ til $C5$, blir den\n`=B3/$B$6`, `=B4/$B$6` og `=B5/$B$6`. Telleren følger raden, nevneren står\nstille:\n\n| Klasse | Frekvens | Relativ frekvens |\n|---|---|---|\n| $[80, 100\\rangle$ | 3 | 0,125 = 12,5 % |\n| $[100, 120\\rangle$ | 7 | 0,292 = 29,2 % |\n| $[120, 140\\rangle$ | 9 | 0,375 = 37,5 % |\n| $[140, 160\\rangle$ | 5 | 0,208 = 20,8 % |\n| **Sum** | **24** | **1,000** |\n\n**Steg 4 — kontroll.** I $C6$ skriver vi `=SUMMER(C2:C5)` og får $1{,}000$.\n\n**Svar:** Se tabellen. Summen $1{,}000$ i kontrollcellen er beviset på at både\nfrekvensene og låsingen er riktige.\n\n**NB:** Uten dollartegnene ville $C3$ blitt `=B3/B7` — og $B7$ er tom. Da deler\nregnearket på null og svarer `#DIV/0!`. Det er en snill feilmelding; den verste\nvarianten er at $B7$ tilfeldigvis inneholder et annet tall, slik at du får et\nsvar som ser riktig ut."
+    },
+    {
+      "id": "stat-1-7-section-telle",
+      "type": "text",
+      "content": "## Å telle med krav\n\nSkal du lage en frekvenstabell fra rådata, trenger du å telle hvor mange\nobservasjoner som oppfyller et krav.\n\n**Ett krav** — `ANTALL.HVIS`:\n\n`=ANTALL.HVIS(B2:B25; \">120\")`\n\n**To krav samtidig** (en klasse har både en nedre og en øvre grense) —\n`ANTALL.HVIS.SETT`:\n\n`=ANTALL.HVIS.SETT(B2:B25; \">=100\"; B2:B25; \"<120\")`\n\nLegg merke til at området gjentas for hvert krav, og at kravet står i\nanførselstegn. Grensene må følge klassedefinisjonen fra kapittel 1.4: med\n$\\geq$ på den nedre grensen og $<$ på den øvre havner hver observasjon i\nnøyaktig én klasse.\n\n**Kontrollen er alltid den samme:** summen av klassefrekvensene skal være lik\n`=ANTALL(B2:B25)`. Stemmer den ikke, har du enten overlappende grenser eller et\nhull mellom to klasser."
+    },
+    {
+      "id": "stat-1-7-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Frekvenstabell fra rådata",
+      "problem": "Del de $24$ besøkstallene fra eksempel 1 i klassene $[80, 100\\rangle$,\n$[100, 120\\rangle$, $[120, 140\\rangle$ og $[140, 160\\rangle$, og finn frekvensene\nmed regneark.",
+      "solution": "Vi skriver de nedre grensene i $D2:D5$ og de øvre i $E2:E5$, og setter formelen i\n$F2$:\n\n`=ANTALL.HVIS.SETT($B$2:$B$25; \">=\"&D2; $B$2:$B$25; \"<\"&E2)`\n\nHer er to ting verdt å merke seg:\n\n- **Dataområdet er låst** (`$B$2:$B$25`), slik at det står stille når formelen\n  kopieres nedover. Grensene $D2$ og $E2$ er ikke låst, for de skal følge raden.\n- **Sammenkoblingstegnet `&`** limer sammen operatoren og celleverdien:\n  `\">=\"&D2` blir til `\">=100\"` når $D2 = 100$. Slik slipper vi å skrive grensene\n  inn i formelen, og kan endre klassedelingen ved å endre tallene i kolonne $D$\n  og $E$.\n\nResultatet blir\n\n| Klasse | Frekvens |\n|---|---|\n| $[80, 100\\rangle$ | 3 |\n| $[100, 120\\rangle$ | 7 |\n| $[120, 140\\rangle$ | 9 |\n| $[140, 160\\rangle$ | 5 |\n| **Sum** | **24** |\n\n**Kontroll:** `=SUMMER(F2:F5)` gir $24$, som er det samme som\n`=ANTALL(B2:B25)`. Alle dagene er med, og ingen er talt to ganger.\n\n**Svar:** Frekvensene er $3$, $7$, $9$ og $5$.\n\nHistogrammet lager du så ved å merke klassene og frekvensene og velge\nsøylediagram, og deretter sette mellomrommet mellom søylene til null — det er\nnettopp det som gjør et søylediagram om til et histogram (kapittel 1.5)."
+    },
+    {
+      "id": "stat-1-7-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-7-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "$20$ elever fikk disse poengsummene på en prøve. Tallene ligger i $A2:A21$:\n\n$$34,\\ 41,\\ 28,\\ 45,\\ 39,\\ 22,\\ 47,\\ 36,\\ 31,\\ 44,\\ 38,\\ 26,\\ 42,\\ 33,\\ 49,\\ 37,\\ 29,\\ 43,\\ 35,\\ 40$$\n\nGjør den samme oppgaven som i eksempel 3, med klassene $[20, 30\\rangle$,\n$[30, 40\\rangle$ og $[40, 50\\rangle$.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv formelen som teller antallet i den første klassen.",
+            "answer": 4,
+            "solution": "`=ANTALL.HVIS.SETT(A2:A21; \\\">=20\\\"; A2:A21; \\\"<30\\\")` gir $4$ (verdiene $22$, $26$, $28$ og $29$)."
+          },
+          {
+            "label": "b",
+            "task": "Finn frekvensene i alle tre klassene, og kontroller summen.",
+            "answer": [
+              4,
+              8,
+              8
+            ],
+            "solution": "$4$, $8$ og $8$. Kontroll: $4 + 8 + 8 = 20 =$ `=ANTALL(A2:A21)`."
+          },
+          {
+            "label": "c",
+            "task": "Finn gjennomsnittet og medianen med regneark.",
+            "answer": [
+              36.95,
+              37.5
+            ],
+            "solution": "`=GJENNOMSNITT(A2:A21)` gir $\\frac{739}{20} = 36{,}95$ poeng, og `=MEDIAN(A2:A21)` gir $\\frac{37 + 38}{2} = 37{,}5$ poeng."
+          },
+          {
+            "label": "d",
+            "task": "`=MODUS.SNGL(A2:A21)` gir en feilmelding. Hvorfor?",
+            "solution": "Fordi ingen poengsum forekommer mer enn én gang. Materialet har ikke noe typetall, og da har funksjonen ingenting å svare — den gir `#I/T` (ikke tilgjengelig)."
+          },
+          {
+            "label": "e",
+            "task": "Finn standardavviket. Elevene er ett av mange klasserom som skal si noe om hele årskullet — hvilken funksjon velger du?",
+            "answer": 7.27,
+            "solution": "`=STDAV.S(A2:A21)`, fordi de $20$ elevene er et **utvalg** som skal beskrive hele årskullet. Svaret er $s \\approx 7{,}27$ poeng. (`=STDAV.P` ville gitt $7{,}09$.)"
+          }
+        ],
+        "solution": "a) $4$, b) $4, 8, 8$ (sum $20$), c) $36{,}95$ og $37{,}5$ poeng, d) ingen verdi gjentas, e) `STDAV.S` gir $\\approx 7{,}27$",
+        "hints": [
+          "Bruk `>=` på den nedre grensen og `<` på den øvre, så havner hver elev i nøyaktig én klasse."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-7-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-7-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Kantina har registrert salget en uke:\n\n| | A | B |\n|---|---|---|\n| **1** | Rett | Antall solgt |\n| **2** | Baguette | 84 |\n| **3** | Salat | 36 |\n| **4** | Suppe | 48 |\n| **5** | Yoghurt | 72 |\n| **6** | **Sum** | |",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilken formel setter du i $B6$, og hva blir svaret?",
+            "answer": 240,
+            "solution": "`=SUMMER(B2:B5)` gir $84 + 36 + 48 + 72 = 240$."
+          },
+          {
+            "label": "b",
+            "task": "Skriv formelen i $C2$ som gir andelen, slik at den kan kopieres nedover.",
+            "answer": 35,
+            "solution": "`=B2/$B$6`. Nevneren må låses med dollartegn, ellers peker den på tomme celler lenger ned. Svaret i $C2$ er $\\frac{84}{240} = 0{,}35 = 35\\ \\%$."
+          },
+          {
+            "label": "c",
+            "task": "Finn andelen for alle fire rettene, i prosent.",
+            "answer": [
+              35,
+              15,
+              20,
+              30
+            ],
+            "solution": "$35\\ \\%$, $15\\ \\%$, $20\\ \\%$ og $30\\ \\%$. Kontroll: summen er $100\\ \\%$."
+          },
+          {
+            "label": "d",
+            "task": "Skriv formelen som gir sektorvinkelen, og finn vinklene.",
+            "answer": [
+              126,
+              54,
+              72,
+              108
+            ],
+            "solution": "`=C2*360` gir $126^\\circ$, $54^\\circ$, $72^\\circ$ og $108^\\circ$. Kontroll: summen er $360^\\circ$."
+          },
+          {
+            "label": "e",
+            "task": "Kantina vil bruke tallene til å bestille neste uke. Hvilken innvending har du mot å bruke bare denne uka?",
+            "solution": "Én uke er et lite og kanskje uvanlig utvalg: været, ukedagene før en ferie eller en dag med idrettsdag påvirker salget. Jeg ville brukt flere uker, og sett på om salget varierer systematisk mellom ukedagene før jeg bestilte."
+          }
+        ],
+        "solution": "a) $240$, b) `=B2/$B$6` gir $35\\ \\%$, c) $35, 15, 20, 30\\ \\%$, d) $126^\\circ, 54^\\circ, 72^\\circ, 108^\\circ$",
+        "hints": [
+          "Trykk `F4` mens markøren står i referansen for å låse den."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål",
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-7-warning-feller",
+      "type": "warning",
+      "title": "NB: Fem feller i regneark",
+      "content": "**1. Tall som er blitt tekst.** `ANTALL` teller dem ikke, og `GJENNOMSNITT`\nhopper over dem. Sjekk at `=ANTALL(område)` gir det antallet du forventer —\ndenne ene kontrollen avslører de fleste innleggingsfeil.\n\n**2. Tomme celler er ikke null.** `GJENNOMSNITT` hopper over tomme celler, men\nregner med en celle som inneholder $0$. Manglende svar og svaret «null» er to\nhelt forskjellige ting, og de må behandles ulikt.\n\n**3. Visning er ikke verdi.** Setter du visningen til null desimaler, ser\n$123{,}71$ ut som $124$, men cellen inneholder fortsatt $123{,}71$ og regner\nvidere med det. Skal verdien faktisk avrundes, må du bruke `=AVRUND(tall; antall)`.\n\n**4. Området er feil.** Får du med overskriftsraden eller sumraden i et\ngjennomsnitt, blir svaret galt uten at noe ser galt ut. Merk området med musa og\nles over hvilke celler som lyser opp.\n\n**5. Kvartilene kan avvike.** `KVARTIL.INK` bruker en annen metode enn den vi\nregner med for hånd (kapittel 1.3), og kan gi litt ulike verdier. Bruk samme\nmetode hele veien, og si hvilken du har brukt."
+    },
+    {
+      "id": "stat-1-7-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Kontroller verktøyet for hånd",
+      "problem": "Fem målinger ligger i $A2:A6$: $12$, $15$, $11$, $14$, $18$.\n\nRegnearket gir `=STDAV.P(A2:A6)` $= 2{,}45$ og `=STDAV.S(A2:A6)` $= 2{,}74$.\nKontroller begge tallene for hånd, og forklar forskjellen.",
+      "solution": "**Steg 1 — gjennomsnittet.**\n\n$$\\bar{x} = \\frac{12 + 15 + 11 + 14 + 18}{5} = \\frac{70}{5} = 14$$\n\n**Steg 2 — avvikstabellen.**\n\n| $x$ | $x - \\bar{x}$ | $(x - \\bar{x})^2$ |\n|---|---|---|\n| 12 | $-2$ | 4 |\n| 15 | 1 | 1 |\n| 11 | $-3$ | 9 |\n| 14 | 0 | 0 |\n| 18 | 4 | 16 |\n| **Sum** | **0** | **30** |\n\n*(Kontrollen i midtkolonnen: summen er $0$, som den skal være.)*\n\n**Steg 3 — de to standardavvikene.**\n\n$$\\sigma = \\sqrt{\\frac{30}{5}} = \\sqrt{6} = 2{,}449\\ldots \\approx 2{,}45$$\n\n$$s = \\sqrt{\\frac{30}{5 - 1}} = \\sqrt{7{,}5} = 2{,}738\\ldots \\approx 2{,}74$$\n\n**Svar:** Begge regnearkverdiene stemmer. Forskjellen er bare nevneren: $n = 5$\ni `STDAV.P` og $n - 1 = 4$ i `STDAV.S`.\n\n**Hvorfor gjøre dette?** Fordi et regneark ikke gir feilmelding når du velger\nfeil funksjon — det gir et tall. Kontrollen for hånd på et lite datasett er måten\ndu forsikrer deg om at du bruker den funksjonen du tror."
+    },
+    {
+      "id": "stat-1-7-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-7-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Åtte pakker ble veid (i gram): $48$, $52$, $50$, $46$, $54$, $49$, $51$, $50$.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnitt og median.",
+            "answer": [
+              50,
+              50
+            ],
+            "solution": "`=GJENNOMSNITT(...)` gir $\\frac{400}{8} = 50$ gram, og `=MEDIAN(...)` gir $\\frac{50+50}{2} = 50$ gram."
+          },
+          {
+            "label": "b",
+            "task": "De åtte pakkene er alle pakkene i én eske som skal beskrives. Hvilken funksjon bruker du for standardavviket, og hva blir svaret?",
+            "answer": 2.29,
+            "solution": "`=STDAV.P(...)`, siden esken er hele materialet vi beskriver. Svaret er $\\sigma \\approx 2{,}29$ gram."
+          },
+          {
+            "label": "c",
+            "task": "De åtte pakkene er i stedet en stikkprøve fra dagens produksjon. Hvilken funksjon nå, og hva blir svaret?",
+            "answer": 2.45,
+            "solution": "`=STDAV.S(...)`, siden stikkprøven skal si noe om hele produksjonen. Svaret er $s \\approx 2{,}45$ gram."
+          },
+          {
+            "label": "d",
+            "task": "Hvorfor er svaret i c) større enn i b), selv om tallene er de samme?",
+            "solution": "Fordi vi deler den samme summen av kvadrerte avvik ($42$) på $7$ i stedet for på $8$. Divisjonen med $n - 1$ retter opp at et utvalg som regel varierer litt mindre enn populasjonen det er trukket fra."
+          },
+          {
+            "label": "e",
+            "task": "En elev får $\\sigma = 0$ på et annet datasett. Hva betyr det, og kan det være en regnefeil?",
+            "solution": "Det betyr at alle observasjonene er nøyaktig like. Det er mulig — men det er også det du får hvis du har merket bare én celle, eller hvis kolonnen inneholder den samme formelen kopiert nedover i stedet for måledata. Kontroller med `=ANTALL(område)` og se på tallene."
+          }
+        ],
+        "solution": "a) begge $50$ g, b) `STDAV.P` gir $\\approx 2{,}29$ g, c) `STDAV.S` gir $\\approx 2{,}45$ g, d) mindre nevner, e) alle verdier like — eller et merkeområde på én celle",
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-7-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-7-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** $30$ elever oppga skjermtiden sin i timer (samme\nmateriale som kapittel 1.1):\n\n$$2{,}0\\ \\ 3{,}5\\ \\ 1{,}5\\ \\ 4{,}0\\ \\ 2{,}5\\ \\ 3{,}0\\ \\ 5{,}0\\ \\ 2{,}0\\ \\ 3{,}5\\ \\ 4{,}5$$\n$$1{,}0\\ \\ 2{,}5\\ \\ 3{,}0\\ \\ 3{,}5\\ \\ 2{,}0\\ \\ 6{,}0\\ \\ 2{,}5\\ \\ 3{,}0\\ \\ 4{,}0\\ \\ 1{,}5$$\n$$2{,}0\\ \\ 3{,}5\\ \\ 2{,}5\\ \\ 4{,}5\\ \\ 3{,}0\\ \\ 2{,}0\\ \\ 5{,}5\\ \\ 3{,}0\\ \\ 2{,}5\\ \\ 3{,}5$$\n\nGjør en fullstendig analyse i regneark. De $30$ elevene er et utvalg fra hele\nskolen.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $n$, gjennomsnitt, median, minste og største verdi.",
+            "answer": [
+              30,
+              3.08,
+              3,
+              1,
+              6
+            ],
+            "solution": "`=ANTALL` gir $30$, `=GJENNOMSNITT` gir $\\frac{92{,}5}{30} = 3{,}083\\ldots \\approx 3{,}08$ timer, `=MEDIAN` gir $3{,}0$ timer, `=MIN` gir $1{,}0$ og `=MAKS` gir $6{,}0$ timer."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardavviket. Begrunn valget av funksjon.",
+            "answer": 1.2,
+            "solution": "`=STDAV.S(...)`, fordi de $30$ er et utvalg som skal si noe om hele skolen: $s \\approx 1{,}20$ timer. (`=STDAV.P` ville gitt $1{,}18$.)"
+          },
+          {
+            "label": "c",
+            "task": "`=MODUS.SNGL(...)` gir $2{,}0$. Hvorfor er det svaret litt misvisende her?",
+            "solution": "Fordi fire verdier deler førsteplassen: $2{,}0$, $2{,}5$, $3{,}0$ og $3{,}5$ forekommer fem ganger hver. `MODUS.SNGL` gir bare den første av dem, og skjuler at materialet har fire typetall. En frekvenstabell viser dette, funksjonen gjør det ikke."
+          },
+          {
+            "label": "d",
+            "task": "Lag en frekvenstabell med klassene $[1, 2\\rangle$, $[2, 3\\rangle$, $[3, 4\\rangle$, $[4, 5\\rangle$ og $[5, 6{,}5\\rangle$, og tegn histogrammet.",
+            "answer": [
+              3,
+              10,
+              10,
+              4,
+              3
+            ],
+            "solution": "`=ANTALL.HVIS.SETT` med grensene gir $3$, $10$, $10$, $4$ og $3$. Kontroll: summen er $30$. Histogrammet lages ved å sette mellomrommet mellom søylene til null.\n\n![Histogram over skjermtiden til 30 elever. Den vannrette aksen viser skjermtid i timer fra 0 til 9, den loddrette antall elever fra 0 til 12 med tall for hvert andre. Fem søyler står vegg i vegg uten mellomrom: fra 1 til 2 timer med høyde 3, fra 2 til 3 med høyde 10, fra 3 til 4 med høyde 10, fra 4 til 5 med høyde 4 og fra 5 til 6,5 med høyde 3. Hver søyle er merket med antallet sitt. De to midterste søylene er like høye.](/images/content/statistikk/stat-1-7-histogram-skjermtid.png)\n\n*Histogrammet av frekvensene 3, 10, 10, 4 og 3. Søylene henger sammen fordi skjermtid er en kontinuerlig variabel. Legg merke til at den siste klassen er 1,5 time bred mens de andre er 1 time — den er derfor bredere enn de andre i figuren.*"
+          },
+          {
+            "label": "e",
+            "task": "Skriv en kort oppsummering av materialet, med de tallene du mener hører med.",
+            "solution": "Et mulig svar: «Blant $30$ elever i et utvalg fra skolen var gjennomsnittlig skjermtid $3{,}1$ timer og medianen $3{,}0$ timer. Halvparten oppga mellom $2{,}1$ og $3{,}5$ timer (kvartilbredde $1{,}4$ timer), og standardavviket var $1{,}2$ timer. Sju elever ($23\\ \\%$) oppga minst $4$ timer. Tallene er selvrapporterte for én dag.»\n\nMed dette har leseren $n$, sentralmål, spredning og forbeholdet om hvordan tallene ble samlet inn.\n\n**NB — si hvilken metode kvartilene kommer fra (felle 5).** Her er de regnet i regneark: `=KVARTIL.INK(område; 1)` gir $Q_1 = 2{,}125 \\approx 2{,}1$ og `=KVARTIL.INK(område; 3)` gir $Q_3 = 3{,}5$, altså kvartilbredde $3{,}5 - 2{,}125 = 1{,}375 \\approx 1{,}4$ timer. Håndmetoden fra kapittel 1.3 gir $Q_1 = 2{,}0$ og $Q_3 = 3{,}5$, altså kvartilbredde $1{,}5$ timer. Begge er riktige — men da må du skrive hvilken av dem du har brukt.\n\n**Andre muligheter:** legge ved histogrammet i stedet for kvartilbredden, eller oppgi femtallssammendraget og la leseren se fordelingen selv."
+          }
+        ],
+        "solution": "a) $n = 30$, $\\bar{x} \\approx 3{,}08$, median $3{,}0$, min $1{,}0$, maks $6{,}0$, b) $s \\approx 1{,}20$, c) fire verdier deler typetallet, d) $3, 10, 10, 4, 3$",
+        "hints": [
+          "Kontroller alltid at `=ANTALL(område)` gir $30$ før du regner videre."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål",
+          "lage, velje og tolke formålstenlege grafiske representasjonar av data og vurdere kva framstillingane viser og skjuler"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-7-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-7-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Feilsøking.** En elev har levert et regneark med $50$ målinger i $B2:B51$ og\ndisse resultatene. Finn feilen i hvert tilfelle, og si hvordan du ville oppdaget\nden.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "`=ANTALL(B2:B51)` gir $47$, men det skal være $50$ målinger.",
+            "solution": "Tre av cellene inneholder ikke tall. Enten er de tomme, eller så er tallene skrevet som tekst (med punktum, mellomrom eller enhet i cellen). Jeg ville sett etter celler der innholdet står til venstre i stedet for til høyre, og rettet dem."
+          },
+          {
+            "label": "b",
+            "task": "`=GJENNOMSNITT(B1:B51)` gir et svar, selv om $B1$ inneholder overskriften «Vekt (kg)».",
+            "solution": "Funksjonen hopper over tekst, så svaret er riktig her — men området er feil skrevet, og neste gang kan $B1$ inneholde et tall (for eksempel et årstall) og bli regnet med. Riktig område er $B2:B51$."
+          },
+          {
+            "label": "c",
+            "task": "Kolonnen med relativ frekvens summerer seg til $3{,}42$ i stedet for $1$.",
+            "solution": "Nevneren er ikke låst. Formelen `=B2/B52` er kopiert nedover og har blitt `=B3/B53`, `=B4/B54` og så videre, der cellene under er tomme eller inneholder noe annet. Riktig er `=B2/$B$52`. Jeg ville oppdaget det ved kontrollsummen, som skal være nøyaktig $1$."
+          },
+          {
+            "label": "d",
+            "task": "Standardavviket er oppgitt til $0{,}03$, mens variasjonsbredden er $18$.",
+            "solution": "De to tallene er uforenlige: standardavviket er grovt sett variasjonsbredden delt på fire til seks for vanlige datamaterialer. Sannsynligvis er feil område merket (kanskje bare noen få nesten like celler), eller så er standardavviket regnet på relativ frekvens i stedet for på måledataene."
+          },
+          {
+            "label": "e",
+            "task": "Foreslå tre faste kontroller du gjør på ethvert regneark før du tror på tallene.",
+            "solution": "Et mulig svar:\n\n1. `=ANTALL(område)` skal gi det antallet observasjoner materialet faktisk har.\n2. Gjennomsnittet skal ligge mellom `MIN` og `MAKS`.\n3. Summen av relative frekvenser skal være nøyaktig $1$ (og av prosentene $100\\ \\%$).\n\n**Andre muligheter:** regne ett sentralmål for hånd på de fem første tallene og sammenligne, eller sortere kolonnen og se raskt over ytterverdiene — skrivefeil som $550$ i stedet for $55$ havner da øverst eller nederst."
+          }
+        ],
+        "solution": "a) tre celler er ikke tall, b) området inkluderer overskriften, c) manglende \\$-låsing, d) uforenlige tall — feil område, e) tre faste kontroller",
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-7-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Oppgave | Formel |\n|---|---|\n| Antall / sum | `=ANTALL(...)` / `=SUMMER(...)` |\n| Gjennomsnitt / median / typetall | `=GJENNOMSNITT(...)` / `=MEDIAN(...)` / `=MODUS.SNGL(...)` |\n| Minste / største | `=MIN(...)` / `=MAKS(...)` |\n| Kvartiler | `=KVARTIL.INK(...; 1)` og `=KVARTIL.INK(...; 3)` |\n| Standardavvik | `=STDAV.P(...)` (hele materialet) / `=STDAV.S(...)` (utvalg) |\n| Telle med krav | `=ANTALL.HVIS(...)` / `=ANTALL.HVIS.SETT(...)` |\n| Lås en referanse | `$B$6` (tastetrykk `F4`) |\n\n- **Låsing** brukes når mange rader skal dele på det samme tallet.\n- **Klassegrenser** i `ANTALL.HVIS.SETT`: `>=` nedre og `<` øvre.\n- **Kontrollene**: `ANTALL` skal stemme med $n$; gjennomsnittet skal ligge mellom\n  `MIN` og `MAKS`; relative frekvenser skal summere seg til $1$.\n\n### Husk\n- Regnearket sier aldri fra når du velger feil funksjon — det svarer med et tall.\n- Kontroller en ny formel på et lite datasett du kan regne for hånd.\n- Skriv hva hvert tall er, i cellen ved siden av. Et regneark uten tekst er\n  ubrukelig en uke senere — også for deg selv."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Celleområde",
+      "definition": "Et rektangel av celler, skrevet som B2:B25. Funksjonene regner på området du peker på."
+    },
+    {
+      "term": "Relativ referanse",
+      "definition": "Cellereferanse som flytter seg når formelen kopieres, for eksempel B2."
+    },
+    {
+      "term": "Absolutt referanse",
+      "definition": "Låst cellereferanse som peker på samme celle uansett hvor formelen kopieres, skrevet med dollartegn."
+    },
+    {
+      "term": "STDAV.P og STDAV.S",
+      "definition": "Regnearkets to standardavviksfunksjoner: P deler på n (hele materialet), S deler på n − 1 (utvalg)."
+    },
+    {
+      "term": "ANTALL.HVIS.SETT",
+      "definition": "Funksjon som teller observasjoner som oppfyller flere krav samtidig — brukes til klassefrekvenser."
+    },
+    {
+      "term": "Rimelighetskontroll",
+      "definition": "Fast sjekk av at svaret kan stemme: riktig n, gjennomsnitt mellom minste og største verdi, andeler som summerer til 1."
+    }
+  ]
+}

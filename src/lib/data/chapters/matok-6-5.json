@@ -1,0 +1,470 @@
+{
+  "id": "matok-6-5",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "6.5",
+  "title": "Grensekostnad og grenseinntekt",
+  "description": "Den deriverte av kostnads- og inntektsfunksjoner, og hva grenseverdiene forteller.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+  ],
+  "keyTerms": [
+    {
+      "term": "Grensekostnad",
+      "definition": "$K'(x)$ — kostnaden ved å produsere én enhet til når produksjonen er $x$ enheter. Enhet: kroner per enhet."
+    },
+    {
+      "term": "Grenseinntekt",
+      "definition": "$I'(x)$ — inntekten av å selge én enhet til når salget er $x$ enheter. Enhet: kroner per enhet."
+    },
+    {
+      "term": "Enhetskostnad",
+      "definition": "$K_e(x) = \\dfrac{K(x)}{x}$ — hva hver enhet koster i gjennomsnitt. Kalles også gjennomsnittskostnad."
+    },
+    {
+      "term": "Grensebetraktning",
+      "definition": "Å ta stilling til den NESTE enheten i stedet for til hele produksjonen. Det er kjernen i økonomisk tenkning, og derfor derivasjon er økonomiens viktigste matematiske verktøy."
+    },
+    {
+      "term": "Optimalt produksjonstall",
+      "definition": "Det $x$ som gir størst overskudd. Der er $I'(x) = K'(x)$ — grenseinntekten er lik grensekostnaden."
+    }
+  ],
+  "content": [
+    {
+      "id": "matok-6-5-intro",
+      "type": "text",
+      "content": "## Én enhet til\n\nFram til nå har vi sagt at «den deriverte er den momentane vekstfarten». I økonomi har den et eget navn og en helt konkret betydning:\n\n- $K'(x)$ heter **grensekostnaden** — hva den neste enheten koster.\n- $I'(x)$ heter **grenseinntekten** — hva den neste enheten gir.\n\nOrdet «grense» kommer fra at vi ser på **grensen av produksjonen**, altså den siste enheten, ikke på alt bedriften lager. Det er sjelden lønnsomt å spørre «hva koster hele produksjonen?». Det som avgjør om du skal lage én til, er hva akkurat den ene koster og gir."
+    },
+    {
+      "id": "matok-6-5-def-grense",
+      "type": "definition",
+      "title": "Grensekostnad og grenseinntekt",
+      "content": "La $K(x)$ være kostnaden og $I(x)$ inntekten ved $x$ enheter, begge i kroner.\n\n**Grensekostnaden** er $K'(x)$, og **grenseinntekten** er $I'(x)$. Begge måles i **kroner per enhet**.\n\nBegge er tilnærminger til en faktisk differanse:\n\n$$K'(x) \\approx K(x + 1) - K(x) \\qquad\\qquad I'(x) \\approx I(x + 1) - I(x)$$\n\nTilnærmingen er god så lenge én enhet er lite i forhold til hele produksjonen — og det er den nesten alltid.\n\nNB: Grensekostnaden er **ikke** det samme som enhetskostnaden $\\frac{K(x)}{x}$. Enhetskostnaden fordeler også de faste kostnadene på alle enhetene; grensekostnaden ser bare på den neste. Vi kommer tilbake til forskjellen sist i kapittelet."
+    },
+    {
+      "id": "matok-6-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Grensekostnaden i en fabrikk",
+      "problem": "En fabrikk har kostnadene\n\n$$K(x) = 0{,}02x^3 - 3x^2 + 180x + 6000$$\n\nkroner ved $x$ enheter, for $0 \\le x \\le 100$.\n\na) Finn grensekostnaden.\n\nb) Regn ut $K'(20)$, $K'(50)$ og $K'(80)$, og tolk.\n\nc) Kontroller $K'(50)$ mot den faktiske kostnaden ved enhet nummer 51.",
+      "solution": "**a)** Grensekostnaden er den deriverte:\n\n$$K'(x) = 0{,}06x^2 - 6x + 180$$\n\n**b)** Vi setter inn:\n\n$$K'(20) = 0{,}06 \\cdot 400 - 120 + 180 = 24 - 120 + 180 = 84$$\n$$K'(50) = 0{,}06 \\cdot 2500 - 300 + 180 = 150 - 300 + 180 = 30$$\n$$K'(80) = 0{,}06 \\cdot 6400 - 480 + 180 = 384 - 480 + 180 = 84$$\n\nVed 20 enheter koster den neste enheten $84$ kroner, ved 50 enheter bare $30$ kroner, og ved 80 enheter igjen $84$ kroner.\n\nGrensekostnaden faller altså først og stiger så. Det er det vanlige mønsteret i produksjon: i starten er man ineffektiv, midtveis utnytter man maskinene godt, og mot slutten må man betale overtid og leie inn ekstra kapasitet.\n\n**c)** Vi regner ut begge kostnadene:\n\n$$K(50) = 0{,}02 \\cdot 125\\,000 - 3 \\cdot 2500 + 9000 + 6000$$\n$$K(50) = 2500 - 7500 + 9000 + 6000 = 10\\,000$$\n\n$$K(51) = 0{,}02 \\cdot 132\\,651 - 3 \\cdot 2601 + 9180 + 6000$$\n$$K(51) = 2653{,}02 - 7803 + 9180 + 6000 = 10\\,030{,}02$$\n\n$$K(51) - K(50) = 10\\,030{,}02 - 10\\,000 = 30{,}02$$\n\n**Svar:** a) $K'(x) = 0{,}06x^2 - 6x + 180$. b) $84$, $30$ og $84$ kroner per enhet. c) Enhet nummer 51 koster faktisk $30{,}02$ kroner — grensekostnaden $30$ er en god tilnærming."
+    },
+    {
+      "id": "matok-6-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-5-oppg-1",
+        "number": "6.5.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bedrift har kostnadene $K(x) = 0{,}03x^2 + 25x + 8000$ kroner ved $x$ enheter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn grensekostnaden $K'(x)$.",
+            "solution": "$K'(x) = 0{,}06x + 25$",
+            "expressionAnswer": "0.06x+25"
+          },
+          {
+            "label": "b",
+            "task": "Regn ut $K'(100)$, og forklar hva tallet betyr.",
+            "solution": "$K'(100) = 6 + 25 = 31$ kroner per enhet. Ved 100 enheter koster den neste enheten omtrent 31 kroner.",
+            "answer": 31
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $K'(300)$.",
+            "solution": "$K'(300) = 18 + 25 = 43$ kroner per enhet",
+            "answer": 43
+          },
+          {
+            "label": "d",
+            "task": "Regn ut $K(100)$ og $K(101)$, og finn differansen.",
+            "solution": "$K(100) = 300 + 2500 + 8000 = 10\\,800$ og $K(101) = 306{,}03 + 2525 + 8000 = 10\\,831{,}03$. Differansen er $31{,}03$ kroner.",
+            "answer": 31.03
+          },
+          {
+            "label": "e",
+            "task": "Hva sier svarene i b) og c) om hvordan bedriften drives?",
+            "solution": "Grensekostnaden stiger med produksjonen, fra 31 til 43 kroner per enhet. Bedriften blir altså dyrere å drive jo mer den lager — ingen stordriftsfordeler i selve produksjonen."
+          }
+        ],
+        "solution": "a) $K'(x) = 0{,}06x + 25$, b) 31 kr per enhet, c) 43 kr per enhet, d) 31,03 kr, e) grensekostnaden stiger — produksjonen blir dyrere per enhet",
+        "hints": [
+          "Grensekostnaden ER den deriverte av kostnadsfunksjonen.",
+          "I d): den faktiske differansen skal ligge svært nær svaret i b)."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-5-tekst-grenseinntekt",
+      "type": "text",
+      "content": "## Grenseinntekt når prisen avhenger av mengden\n\nSelger bedriften til en fast pris $p$, er inntekten $I(x) = p \\cdot x$, og grenseinntekten er rett og slett $I'(x) = p$. Hver ny enhet gir like mye.\n\nMen som regel må bedriften sette prisen **ned** for å få solgt flere enheter. Prisen er da selv en funksjon av mengden:\n\n$$p(x) = \\text{den prisen som gjør at nøyaktig } x \\text{ enheter blir solgt}$$\n\nInntekten blir da\n\n$$I(x) = x \\cdot p(x)$$\n\nog grenseinntekten er ikke lenger lik prisen. Den blir **mindre** enn prisen, for den siste enheten selges billigere — og prisnedgangen gjelder alle de andre enhetene også."
+    },
+    {
+      "id": "matok-6-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Grenseinntekt er ikke pris",
+      "problem": "En bedrift må ta prisen\n\n$$p(x) = 400 - 0{,}5x$$\n\nkroner per enhet for å få solgt $x$ enheter.\n\na) Finn inntektsfunksjonen $I(x)$ og grenseinntekten $I'(x)$.\n\nb) Regn ut prisen og grenseinntekten ved $x = 100$, og forklar forskjellen.",
+      "solution": "**a)** Inntekten er antall enheter ganger prisen per enhet:\n\n$$I(x) = x \\cdot p(x) = x(400 - 0{,}5x)$$\n\nVi ganger ut — det må vi, for potensregelen tar ikke et produkt:\n\n$$I(x) = 400x - 0{,}5x^2$$\n\nSå deriverer vi ledd for ledd:\n\n$$I'(x) = 400 - x$$\n\n**b)** Prisen ved 100 enheter:\n\n$$p(100) = 400 - 0{,}5 \\cdot 100 = 400 - 50 = 350$$\n\nGrenseinntekten ved 100 enheter:\n\n$$I'(100) = 400 - 100 = 300$$\n\nDe er ikke like — grenseinntekten er 50 kroner lavere enn prisen.\n\n**Forklaringen:** enhet nummer 101 selges for 349,50 kroner. Men for å få solgt den må bedriften sette prisen ned med 50 øre på **alle** de 100 andre enhetene også, og det koster 50 kroner. Netto sitter de igjen med omtrent 300 kroner.\n\n**Kontroll:**\n\n$$I(100) = 40\\,000 - 5000 = 35\\,000$$\n$$I(101) = 400 \\cdot 101 - 0{,}5 \\cdot 101^2 = 40\\,400 - 5100{,}50 = 35\\,299{,}50$$\n$$I(101) - I(100) = 299{,}50$$\n\n![Koordinatsystem med antall enheter x fra 0 til 400 og kroner per enhet fra 0 til 450. En blå rett linje merket p av x faller fra 400 til 200. En brattere rød stiplet linje merket I derivert av x faller fra 400 til 0. Ved x lik 100 er begge linjene markert med en prikk: p er 350 og I derivert er 300. Mellom de to punktene står et loddrett mål merket 50 kr.](/images/content/matematikk-okonomi/matok-6-5-pris-mot-grenseinntekt.png)\n\n*Ved 100 enheter er prisen 350 kr, men grenseinntekten bare 300 kr. De 50 kronene i mellom er prisnedgangen på de enhetene bedriften allerede solgte. Legg merke til at $I'$-linja faller dobbelt så bratt som $p$.*\n\n**Svar:** a) $I(x) = 400x - 0{,}5x^2$ og $I'(x) = 400 - x$. b) Prisen er $350$ kroner, grenseinntekten $300$ kroner per enhet. Forskjellen er prisnedgangen på de enhetene bedriften allerede solgte."
+    },
+        {
+      "id": "matok-6-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-5-oppg-2",
+        "number": "6.5.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift må ta prisen $p(x) = 250 - 0{,}4x$ kroner per enhet for å selge $x$ enheter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn inntektsfunksjonen $I(x)$.",
+            "solution": "$I(x) = x(250 - 0{,}4x) = 250x - 0{,}4x^2$",
+            "expressionAnswer": "250x-0.4x^2"
+          },
+          {
+            "label": "b",
+            "task": "Finn grenseinntekten $I'(x)$.",
+            "solution": "$I'(x) = 250 - 0{,}8x$",
+            "expressionAnswer": "250-0.8x"
+          },
+          {
+            "label": "c",
+            "task": "Regn ut prisen og grenseinntekten ved $x = 150$.",
+            "solution": "$p(150) = 250 - 60 = 190$ kr og $I'(150) = 250 - 120 = 130$ kr per enhet.",
+            "answer": [
+              190,
+              130
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Forklar hvorfor grenseinntekten er lavere enn prisen.",
+            "solution": "For å selge enhet nummer 151 må prisen settes ned med 40 øre, og den nedgangen gjelder alle de 150 enhetene bedriften allerede selger. Tapet på dem trekkes fra inntekten av den nye enheten."
+          },
+          {
+            "label": "e",
+            "task": "Løs $I'(x) = 0$, og forklar hva løsningen betyr.",
+            "solution": "$250 - 0{,}8x = 0$ gir $x = 312{,}5$. Der er inntekten på topp: selger bedriften mer enn 312,5 enheter, synker totalinntekten, fordi prisnedgangen koster mer enn den ekstra enheten gir.",
+            "answer": 312.5
+          }
+        ],
+        "solution": "a) $I(x) = 250x - 0{,}4x^2$, b) $I'(x) = 250 - 0{,}8x$, c) pris 190 kr, grenseinntekt 130 kr per enhet, d) prisnedgangen rammer alle enhetene, e) $x = 312{,}5$ gir størst inntekt",
+        "hints": [
+          "Gang ut $x(250 - 0{,}4x)$ før du deriverer.",
+          "Grenseinntekten faller dobbelt så fort som prisen når $p$ er lineær. Se på koeffisientene $-0{,}4$ og $-0{,}8$."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-5-teorem-optimal",
+      "type": "theorem",
+      "title": "Størst overskudd der grenseinntekt = grensekostnad",
+      "content": "Overskuddet er $O(x) = I(x) - K(x)$, og derfor\n\n$$O'(x) = I'(x) - K'(x)$$\n\nOverskuddet er størst der $O'(x) = 0$, altså der\n\n$$I'(x) = K'(x)$$\n\n**I ord:** produser så lenge den neste enheten gir mer enn den koster. Slutt når den gir nøyaktig det samme.\n\nDette er kanskje den mest brukte setningen i all økonomi. Den er også lett å forstå uten matematikk: gir den neste enheten mer enn den koster, er det dumt å la være å lage den. Koster den mer enn den gir, er det dumt å lage den.\n\nNB: At $O'(x) = 0$ betyr bare at grafen står stille i punktet — det kan like gjerne være et **bunnpunkt** som et toppunkt. Derfor kontrollerer vi alltid hvilken type punkt vi har. Vi deriverer $O'$ en gang til og får den **andrederiverte**, som vi skriver $O''(x)$ (les: «O dobbeltderivert»):\n\n- Er $O''(x) < 0$ i punktet, krummer grafen nedover, og vi har et **toppunkt**.\n- Er $O''(x) > 0$ i punktet, krummer grafen oppover, og vi har et **bunnpunkt**.\n\nDette kalles **andrederiverttesten**, og den skal alltid med. Kontroller i tillegg at løsningen ligger innenfor det bedriften faktisk kan produsere."
+    },
+    {
+      "id": "matok-6-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Det optimale produksjonstallet",
+      "problem": "En bedrift har\n\n$$K(x) = 0{,}01x^3 - 1{,}5x^2 + 90x + 5000 \\qquad \\text{og} \\qquad I(x) = 190x - 0{,}5x^2$$\n\nbegge i kroner ved $x$ enheter.\n\nFinn det produksjonstallet som gir størst overskudd, og regn ut overskuddet.",
+      "solution": "**Steg 1 — finn grensekostnad og grenseinntekt:**\n\n$$K'(x) = 0{,}03x^2 - 3x + 90$$\n$$I'(x) = 190 - x$$\n\n**Steg 2 — sett dem lik hverandre:**\n\n$$0{,}03x^2 - 3x + 90 = 190 - x$$\n\nVi samler alt på venstre side:\n\n$$0{,}03x^2 - 3x + x + 90 - 190 = 0$$\n$$0{,}03x^2 - 2x - 100 = 0$$\n\n**Steg 3 — løs med abc.** Her er $a = 0{,}03$, $b = -2$ og $c = -100$:\n\n$$b^2 - 4ac = (-2)^2 - 4 \\cdot 0{,}03 \\cdot (-100) = 4 + 12 = 16$$\n$$\\sqrt{16} = 4$$\n$$x = \\frac{2 \\pm 4}{2 \\cdot 0{,}03} = \\frac{2 \\pm 4}{0{,}06}$$\n\n$$x_1 = \\frac{6}{0{,}06} = 100 \\qquad\\qquad x_2 = \\frac{-2}{0{,}06} \\approx -33{,}3$$\n\nDen negative løsningen forkaster vi — bedriften kan ikke produsere et negativt antall enheter.\n\n**Steg 4 — regn ut overskuddet.** Først setter vi opp $O$:\n\n$$O(x) = I(x) - K(x) = (190x - 0{,}5x^2) - (0{,}01x^3 - 1{,}5x^2 + 90x + 5000)$$\n$$O(x) = -0{,}01x^3 + x^2 + 100x - 5000$$\n\n$$O(100) = -0{,}01 \\cdot 1\\,000\\,000 + 10\\,000 + 10\\,000 - 5000$$\n$$O(100) = -10\\,000 + 10\\,000 + 10\\,000 - 5000 = 5000$$\n\n**Steg 5 — kontroll.** Grenseverdiene skal være like i punktet:\n\n$$K'(100) = 0{,}03 \\cdot 10\\,000 - 300 + 90 = 300 - 300 + 90 = 90$$\n$$I'(100) = 190 - 100 = 90$$\n\nOg $O'(x) = -0{,}03x^2 + 2x + 100$ gir $O'(100) = -300 + 200 + 100 = 0$.\n\n**Steg 6 — andrederiverttest.** Vi deriverer $O'$ en gang til:\n\n$$O''(x) = -0{,}06x + 2$$\n$$O''(100) = -0{,}06 \\cdot 100 + 2 = -6 + 2 = -4$$\n\n$O''(100) < 0$, altså krummer grafen nedover: $x = 100$ er et **toppunkt**. Det er her overskuddet er størst, ikke minst.\n\n**Svar:** Bedriften bør produsere $100$ enheter. Overskuddet blir $5000$ kroner, og både grenseinntekten og grensekostnaden er $90$ kroner per enhet der."
+    },
+    {
+      "id": "matok-6-5-fig-krysning",
+      "type": "dynamic-plot",
+      "title": "Grensekostnad og grenseinntekt fra Eksempel 3",
+      "description": "Den stiplede, synkende linja er grenseinntekten. Den heltrukne kurven er grensekostnaden, som først faller og så stiger. De krysser hverandre ved 100 enheter, og der er overskuddet størst.",
+      "xRange": [
+        0,
+        120
+      ],
+      "yRange": [
+        0,
+        200
+      ],
+      "xLabel": "x (antall enheter)",
+      "yLabel": "kroner per enhet",
+      "functions": [
+        {
+          "label": "$K'(x) = 0{,}03x^2 - 3x + 90$",
+          "expression": "0.03*x^2 - 3*x + 90",
+          "style": "solid"
+        },
+        {
+          "label": "$I'(x) = 190 - x$",
+          "expression": "190 - x",
+          "style": "dashed"
+        }
+      ],
+      "points": [
+        {
+          "x": 100,
+          "y": 90,
+          "label": "(100, 90)"
+        }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-6-5-fig-krysning-statisk",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-6-5-grensekostnad-grenseinntekt.png",
+      "alt": "Koordinatsystem med antall enheter x fra 0 til 120 langs den vannrette aksen og kroner per enhet fra 0 til 200 langs den loddrette. En blå kurve merket K derivert av x starter i 90, synker til omtrent 15 ved x lik 50 og stiger igjen til over 160 ved x lik 120. En rød stiplet rett linje merket I derivert av x faller jevnt fra 190 ved x lik 0 til 70 ved x lik 120. De to krysser hverandre i det markerte punktet (100, 90), og stiplede hjelpelinjer går derfra ned til 100 på x-aksen og bort mot 90 kroner på den loddrette aksen. Aksen er merket hver 20. krone, så selve tallet 90 står i punktetiketten.",
+      "caption": "Der grensekostnaden og grenseinntekten er like store, $K'(x) = I'(x)$, ligger det optimale produksjonstallet — her $x = 100$ med 90 kroner per enhet.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-6-5-grensekostnad-grenseinntekt.json (+ matok-6-5-grensekostnad-grenseinntekt.kontroll.json, alle porter grønne). Statisk variant av dynamic-plot-blokken matok-6-5-fig-krysning."
+    },
+    {
+      "id": "matok-6-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-5-oppg-3",
+        "number": "6.5.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift har $K(x) = 0{,}02x^2 + 30x + 12\\,000$ og $I(x) = 150x - 0{,}03x^2$, begge i kroner ved $x$ enheter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn grensekostnaden og grenseinntekten.",
+            "solution": "$K'(x) = 0{,}04x + 30$ og $I'(x) = 150 - 0{,}06x$",
+            "expressionAnswer": [
+              "0.04x+30",
+              "150-0.06x"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Finn det produksjonstallet som gir størst overskudd.",
+            "solution": "$0{,}04x + 30 = 150 - 0{,}06x$ gir $0{,}1x = 120$, altså $x = 1200$ enheter. Andrederiverttest: $O'(x) = I'(x) - K'(x) = -0{,}1x + 120$ gir $O''(x) = -0{,}1 < 0$, altså toppunkt.",
+            "answer": 1200
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $I(1200)$ og $K(1200)$.",
+            "solution": "$I(1200) = 180\\,000 - 43\\,200 = 136\\,800$ kr og $K(1200) = 28\\,800 + 36\\,000 + 12\\,000 = 76\\,800$ kr.",
+            "answer": [
+              136800,
+              76800
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Hvor stort blir overskuddet?",
+            "solution": "$O(1200) = 136\\,800 - 76\\,800 = 60\\,000$ kr",
+            "answer": 60000
+          },
+          {
+            "label": "e",
+            "task": "Kontroller svaret ved å sette opp $O(x)$ og løse $O'(x) = 0$.",
+            "solution": "$O(x) = -0{,}05x^2 + 120x - 12\\,000$ og $O'(x) = -0{,}1x + 120$. $O'(x) = 0$ gir $x = 1200$ — samme svar."
+          }
+        ],
+        "solution": "a) $K'(x) = 0{,}04x + 30$, $I'(x) = 150 - 0{,}06x$, b) 1200 enheter, c) 136 800 kr og 76 800 kr, d) 60 000 kr, e) $O'(x) = -0{,}1x + 120$ gir også $x = 1200$",
+        "hints": [
+          "Sett $K'(x) = I'(x)$ og løs for $x$.",
+          "I e): $O(x) = I(x) - K(x)$ — husk fortegnene når du løser opp parentesen."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-5-def-enhetskostnad",
+      "type": "definition",
+      "title": "Enhetskostnad",
+      "content": "**Enhetskostnaden** (også kalt gjennomsnittskostnaden) er de samlede kostnadene delt på antall enheter:\n\n$$K_e(x) = \\frac{K(x)}{x}$$\n\nDen forteller hva hver enhet koster i snitt — alle faste kostnader medregnet og fordelt.\n\n**Sammenhengen med grensekostnaden:**\n- Er $K'(x) < K_e(x)$, trekker den neste enheten gjennomsnittet **ned**.\n- Er $K'(x) > K_e(x)$, trekker den neste enheten gjennomsnittet **opp**.\n- Enhetskostnaden er derfor **lavest der $K'(x) = K_e(x)$**.\n\nDet er samme logikk som med karakterer: får du en prøve som er bedre enn snittet ditt, går snittet opp; er den dårligere, går det ned. Snittet snur akkurat der den nye prøven er lik snittet."
+    },
+    {
+      "id": "matok-6-5-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Når er enhetskostnaden lavest?",
+      "problem": "En bedrift har kostnadene\n\n$$K(x) = 0{,}01x^2 + 40x + 4900$$\n\nkroner ved $x$ enheter.\n\na) Sett opp enhetskostnaden $K_e(x)$.\n\nb) Finn den produksjonen som gir lavest enhetskostnad.\n\nc) Vis at grensekostnaden er lik enhetskostnaden i det punktet.",
+      "solution": "**a)** Vi deler hvert ledd på $x$:\n\n$$K_e(x) = \\frac{0{,}01x^2 + 40x + 4900}{x} = \\frac{0{,}01x^2}{x} + \\frac{40x}{x} + \\frac{4900}{x}$$\n$$K_e(x) = 0{,}01x + 40 + \\frac{4900}{x}$$\n\nLegg merke til hva de tre leddene er: det første vokser med produksjonen, det andre er konstant per enhet, og det siste er de faste kostnadene fordelt på stadig flere enheter.\n\n**b)** Vi skriver om til potensform og deriverer:\n\n$$K_e(x) = 0{,}01x + 40 + 4900x^{-1}$$\n$$K_e'(x) = 0{,}01 - 4900x^{-2} = 0{,}01 - \\frac{4900}{x^2}$$\n\nSå løser vi $K_e'(x) = 0$:\n\n$$0{,}01 - \\frac{4900}{x^2} = 0$$\n$$\\frac{4900}{x^2} = 0{,}01 \\qquad | \\cdot x^2$$\n$$4900 = 0{,}01x^2 \\qquad | : 0{,}01$$\n$$x^2 = 490\\,000$$\n$$x = 700$$\n\n(Bare den positive løsningen er aktuell — bedriften kan ikke produsere $-700$ enheter.)\n\nEnhetskostnaden der:\n\n$$K_e(700) = 0{,}01 \\cdot 700 + 40 + \\frac{4900}{700} = 7 + 40 + 7 = 54$$\n\n**c)** Grensekostnaden er\n\n$$K'(x) = 0{,}02x + 40$$\n$$K'(700) = 0{,}02 \\cdot 700 + 40 = 14 + 40 = 54$$\n\nDe er like, slik regelen sier.\n\n![Koordinatsystem med antall enheter x fra 0 til 1400 og kroner per enhet fra 0 til 80. En blå kurve merket Ke av x synker fra omtrent 66 ved 200 enheter til et bunnpunkt og stiger svakt igjen. En rød rett linje merket K derivert av x stiger jevnt fra 40. Linjen skjærer kurven nøyaktig i kurvens bunnpunkt, det markerte punktet (700, 54), med stiplede hjelpelinjer ned til 700 på x-aksen og bort til 54 på den loddrette aksen.](/images/content/matematikk-okonomi/matok-6-5-enhetskostnad.png)\n\n*Grensekostnaden skjærer enhetskostnaden nøyaktig i bunnpunktet. Til venstre for 700 ligger $K'$ under $K_e$ (og trekker snittet ned), til høyre over (og trekker det opp) — det er hele begrunnelsen for regelen.*\n\n**Svar:** a) $K_e(x) = 0{,}01x + 40 + \\dfrac{4900}{x}$. b) $700$ enheter gir lavest enhetskostnad, $54$ kroner per enhet. c) $K'(700) = K_e(700) = 54$."
+    },
+        {
+      "id": "matok-6-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-5-oppg-4",
+        "number": "6.5.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift har kostnadene $K(x) = 0{,}05x^2 + 20x + 2000$ kroner ved $x$ enheter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $K_e(x)$ og skriv den med tre ledd.",
+            "solution": "$K_e(x) = \\frac{0{,}05x^2 + 20x + 2000}{x} = 0{,}05x + 20 + \\frac{2000}{x}$",
+            "expressionAnswer": "0.05x+20+2000/x"
+          },
+          {
+            "label": "b",
+            "task": "Finn $K_e'(x)$.",
+            "solution": "$K_e(x) = 0{,}05x + 20 + 2000x^{-1}$ gir $K_e'(x) = 0{,}05 - 2000x^{-2} = 0{,}05 - \\frac{2000}{x^2}$",
+            "expressionAnswer": "0.05-2000/x^2"
+          },
+          {
+            "label": "c",
+            "task": "Finn den produksjonen som gir lavest enhetskostnad.",
+            "solution": "$\\frac{2000}{x^2} = 0{,}05$ gir $x^2 = 40\\,000$, altså $x = 200$ enheter.",
+            "answer": 200
+          },
+          {
+            "label": "d",
+            "task": "Regn ut den laveste enhetskostnaden, og kontroller at $K'$ er lik den der.",
+            "solution": "$K_e(200) = 10 + 20 + 10 = 40$ kr per enhet. $K'(x) = 0{,}1x + 20$ gir $K'(200) = 20 + 20 = 40$. De er like.",
+            "answer": 40
+          },
+          {
+            "label": "e",
+            "task": "Bedriften produserer i dag 120 enheter. Bør de øke eller redusere produksjonen hvis de vil ha lavest mulig enhetskostnad?",
+            "solution": "Øke. $K'(120) = 12 + 20 = 32$, mens $K_e(120) = 6 + 20 + \\frac{2000}{120} \\approx 42{,}67$. Siden grensekostnaden er lavere enn snittet, trekker hver ny enhet snittet ned — helt til de når 200 enheter."
+          }
+        ],
+        "solution": "a) $K_e(x) = 0{,}05x + 20 + \\frac{2000}{x}$, b) $K_e'(x) = 0{,}05 - \\frac{2000}{x^2}$, c) 200 enheter, d) 40 kr per enhet, og $K'(200) = 40$, e) øke — grensekostnaden ligger under enhetskostnaden",
+        "hints": [
+          "Del hvert ledd i $K(x)$ på $x$ hver for seg.",
+          "$\\frac{2000}{x} = 2000x^{-1}$, som deriveres med potensregelen."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-5-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Fast markedspris (Del 2)",
+      "problem": "Fabrikken fra Eksempel 1 har $K(x) = 0{,}02x^3 - 3x^2 + 180x + 6000$ kroner. Varen selges til en fast markedspris på $150$ kroner per enhet, uansett hvor mye fabrikken produserer.\n\nHvor mye bør de produsere?",
+      "solution": "**Steg 1 — inntekt og grenseinntekt.** Med fast pris er inntekten\n\n$$I(x) = 150x \\qquad \\Longrightarrow \\qquad I'(x) = 150$$\n\nGrenseinntekten er altså konstant: hver ny enhet gir 150 kroner, uansett.\n\n**Steg 2 — sett grenseinntekt lik grensekostnad:**\n\n$$0{,}06x^2 - 6x + 180 = 150$$\n$$0{,}06x^2 - 6x + 30 = 0$$\n\n**Steg 3 — løs med abc** ($a = 0{,}06$, $b = -6$, $c = 30$):\n\n$$b^2 - 4ac = 36 - 4 \\cdot 0{,}06 \\cdot 30 = 36 - 7{,}2 = 28{,}8$$\n$$\\sqrt{28{,}8} \\approx 5{,}3666$$\n$$x = \\frac{6 \\pm 5{,}3666}{0{,}12}$$\n\n$$x_1 \\approx \\frac{0{,}6334}{0{,}12} \\approx 5{,}28 \\qquad\\qquad x_2 \\approx \\frac{11{,}3666}{0{,}12} \\approx 94{,}72$$\n\n**Steg 4 — hvilken av dem?** Vi setter opp overskuddet:\n\n$$O(x) = 150x - K(x) = -0{,}02x^3 + 3x^2 - 30x - 6000$$\n\n$$O(5{,}28) \\approx -6077{,}71 \\qquad\\qquad O(94{,}72) \\approx 1077{,}71$$\n\nAndrederiverttesten sier det samme:\n\n$$O''(x) = -0{,}12x + 6$$\n$$O''(5{,}28) \\approx -0{,}63 + 6 \\approx 5{,}37 > 0 \\qquad\\qquad O''(94{,}72) \\approx -11{,}37 + 6 \\approx -5{,}37 < 0$$\n\nDen første løsningen er altså et **bunnpunkt** — der er overskuddet på sitt aller verste — og den andre et **toppunkt**. Grensekostnaden faller jo først, så under $x \\approx 5{,}28$ koster hver enhet mer enn 150 kroner, mellom de to tallene koster den mindre, og over $x \\approx 94{,}72$ koster den mer igjen. Overskuddet synker, vokser og synker.\n\n**Steg 5 — svar i hele enheter.** Fabrikken kan ikke produsere 94,72 enheter. Vi sammenlikner de to nærmeste:\n\n$$O(94) \\approx 1076{,}32 \\qquad\\qquad O(95) \\approx 1077{,}50$$\n\n![Koordinatsystem med antall enheter x fra 0 til 120 og kroner per enhet fra 0 til 350. En blå parabel merket K'(x) synker til et bunnpunkt og stiger igjen. En rød stiplet vannrett linje merket I' = 150 krysser den TO ganger: ved om lag 5,3, merket «bunnpunkt for O», og ved om lag 94,7, merket «toppunkt for O». Området mellom krysningene, der K' ligger UNDER 150, er skravert grønt.](/images/content/matematikk-okonomi/matok-6-5-to-krysninger.png)\n\n*Abc-formelen gir to løsninger, og bare den ene er svaret. Mellom dem ligger $K'$ under $I'$ — der vokser overskuddet — så det er den ANDRE krysningen som er toppen.*\n\n**Svar:** Fabrikken bør produsere $95$ enheter, og får da et overskudd på omtrent $1078$ kroner.\n\nNB: Her måtte vi regne på begge løsningene. Hadde vi valgt den første fordi den kom først ut av abc-formelen, ville vi anbefalt bedriften det verst tenkelige produksjonstallet."
+    },
+        {
+      "id": "matok-6-5-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Størrelse | Formel | Enhet | Betyr |\n|---|---|---|---|\n| Grensekostnad | $K'(x)$ | kr per enhet | hva den neste enheten koster |\n| Grenseinntekt | $I'(x)$ | kr per enhet | hva den neste enheten gir |\n| Enhetskostnad | $K_e(x) = \\dfrac{K(x)}{x}$ | kr per enhet | hva hver enhet koster i snitt |\n\n- **Størst overskudd** der $I'(x) = K'(x)$ — det er det samme som $O'(x) = 0$.\n- **Lavest enhetskostnad** der $K'(x) = K_e(x)$.\n- Ved **fast pris** er $I'(x) = p$, konstant.\n- Ved **fallende pris** $p(x)$ er $I(x) = x \\cdot p(x)$, og grenseinntekten er **lavere enn prisen**.\n- Kontroller alltid med **andrederiverttesten** at løsningen er et toppunkt og ikke et bunnpunkt ($O''(x) < 0$ gir toppunkt), og at den ligger innenfor det bedriften kan produsere.\n\n**Vanlige feil:** å forveksle grensekostnad med enhetskostnad; å sette $I(x) = K(x)$ (det gir dekningspunktet, ikke det beste produksjonstallet); å velge den første løsningen fra abc-formelen uten å sjekke hvilken som er toppen."
+    },
+    {
+      "id": "matok-6-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-5-oppg-5",
+        "number": "6.5.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bedrift har\n\n$$K(x) = 0{,}01x^3 - 1{,}2x^2 + 60x + 2000 \\qquad \\text{og} \\qquad I(x) = 100x - 0{,}25x^2$$\n\nbegge i kroner ved $x$ enheter, for $0 \\le x \\le 120$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn grensekostnaden og grenseinntekten.",
+            "solution": "$K'(x) = 0{,}03x^2 - 2{,}4x + 60$ og $I'(x) = 100 - 0{,}5x$",
+            "expressionAnswer": [
+              "0.03x^2-2.4x+60",
+              "100-0.5x"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Sett opp likningen $K'(x) = I'(x)$, og forenkle den.",
+            "solution": "$0{,}03x^2 - 2{,}4x + 60 = 100 - 0{,}5x$ gir $0{,}03x^2 - 1{,}9x - 40 = 0$."
+          },
+          {
+            "label": "c",
+            "task": "Løs likningen. Forkast løsninger som ikke gir mening.",
+            "solution": "$b^2 - 4ac = 3{,}61 + 4{,}8 = 8{,}41$ og $\\sqrt{8{,}41} = 2{,}9$. $x = \\frac{1{,}9 \\pm 2{,}9}{0{,}06}$ gir $x = 80$ og $x \\approx -16{,}67$. Den negative forkastes. Andrederiverttest: $O'(x) = I'(x) - K'(x) = -0{,}03x^2 + 1{,}9x + 40$ gir $O''(x) = -0{,}06x + 1{,}9$, og $O''(80) = -4{,}8 + 1{,}9 = -2{,}9 < 0$ — altså toppunkt.",
+            "answer": 80
+          },
+          {
+            "label": "d",
+            "task": "Regn ut $K'(80)$ og $I'(80)$ som kontroll, og finn overskuddet.",
+            "solution": "$K'(80) = 192 - 192 + 60 = 60$ og $I'(80) = 100 - 40 = 60$ — like. $I(80) = 8000 - 1600 = 6400$ og $K(80) = 5120 - 7680 + 4800 + 2000 = 4240$, så $O(80) = 2160$ kr. Siden andrederiverttesten i c) viste toppunkt, er dette det største overskuddet.",
+            "answer": 2160
+          },
+          {
+            "label": "e",
+            "task": "Bedriften produserer i dag 100 enheter. Regn ut $K'(100)$ og $I'(100)$, og gi et råd.",
+            "solution": "$K'(100) = 300 - 240 + 60 = 120$ og $I'(100) = 100 - 50 = 50$. Den siste enheten koster 120 kroner og gir 50 — den taper 70 kroner. Bedriften bør redusere produksjonen ned mot 80 enheter."
+          }
+        ],
+        "solution": "a) $K'(x) = 0{,}03x^2 - 2{,}4x + 60$, $I'(x) = 100 - 0{,}5x$, b) $0{,}03x^2 - 1{,}9x - 40 = 0$, c) $x = 80$, d) begge 60 kr per enhet, overskudd 2160 kr, e) $K'(100) = 120 > I'(100) = 50$ — reduser produksjonen",
+        "hints": [
+          "Samle alle ledd på én side før du bruker abc.",
+          "I e): sammenlikn hva den siste enheten koster med hva den gir."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-5-oppg-6",
+        "number": "6.5.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — digitale verktøy.** En bedrift har kostnadene\n\n$$K(x) = 0{,}01x^3 - 2x^2 + 150x + 4000$$\n\nkroner ved $x$ enheter, for $0 < x \\le 200$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn grensekostnaden $K'(x)$, og finn den produksjonen der grensekostnaden er lavest.",
+            "solution": "$K'(x) = 0{,}03x^2 - 4x + 150$. Dette er en parabel som vender oppover; bunnpunktet ligger der $K''(x) = 0{,}06x - 4 = 0$, altså $x = \\frac{200}{3} \\approx 66{,}7$. Her er $K''$ den **andrederiverte** av $K$, altså den deriverte av $K'$. $K''$ er negativ før $x = \\frac{200}{3}$ og positiv etter, så $K'$ synker først og vokser så — det er et bunnpunkt.",
+            "answer": 66.7
+          },
+          {
+            "label": "b",
+            "task": "Sett opp enhetskostnaden $K_e(x)$ med fire ledd.",
+            "solution": "$K_e(x) = \\frac{K(x)}{x} = 0{,}01x^2 - 2x + 150 + \\frac{4000}{x}$",
+            "expressionAnswer": "0.01x^2-2x+150+4000/x"
+          },
+          {
+            "label": "c",
+            "task": "Finn $K_e'(x)$, og bruk CAS til å finne den produksjonen som gir lavest enhetskostnad. Rund av til nærmeste hele enhet.",
+            "solution": "$K_e'(x) = 0{,}02x - 2 - \\frac{4000}{x^2}$. `Løs(K_e'(x)=0, x)` gir $x \\approx 115{,}10$, altså omtrent 115 enheter.",
+            "answer": 115
+          },
+          {
+            "label": "d",
+            "task": "Regn ut $K_e$ og $K'$ i det punktet du fant, og kontroller at de er like.",
+            "solution": "Ved $x \\approx 115{,}10$ er $K_e \\approx 87{,}03$ og $K' \\approx 87{,}03$ kroner per enhet. De er like, slik regelen $K'(x) = K_e(x)$ sier.",
+            "answer": 87.03
+          },
+          {
+            "label": "e",
+            "task": "Grensekostnaden er lavest ved omtrent 67 enheter, men enhetskostnaden er lavest ved omtrent 115. Forklar hvorfor de to tallene ikke er like.",
+            "solution": "De måler forskjellige ting. Grensekostnaden ser bare på den neste enheten, og den er billigst der produksjonen er mest effektiv. Enhetskostnaden fordeler i tillegg de faste kostnadene på 4000 kroner over alle enhetene, og den fordelingen blir gunstigere jo flere enheter bedriften lager. Derfor ligger minimum for enhetskostnaden lenger ute. Så lenge grensekostnaden ligger under enhetskostnaden, trekker hver ny enhet snittet ned — først når de to er like, slutter snittet å synke."
+          }
+        ],
+        "solution": "a) $K'(x) = 0{,}03x^2 - 4x + 150$, lavest ved $x = \\frac{200}{3} \\approx 67$ enheter, b) $K_e(x) = 0{,}01x^2 - 2x + 150 + \\frac{4000}{x}$, c) ca. 115 enheter, d) begge ca. 87,03 kr per enhet, e) enhetskostnaden fordeler også de faste kostnadene",
+        "hints": [
+          "I a): grensekostnaden er selv en andregradsfunksjon — finn bunnpunktet til den.",
+          "I c): likningen $K_e'(x) = 0$ har ingen pen løsning. Bruk CAS eller grafen."
+        ],
+        "competenceGoals": [
+          "bruke derivasjon til å bestemme grensekostnader og grenseinntekter i økonomiske modellar og forklare betydninga av desse storleikane"
+        ],
+        "allowsUpload": true
+      }
+    }
+  ],
+  "exercises": []
+}

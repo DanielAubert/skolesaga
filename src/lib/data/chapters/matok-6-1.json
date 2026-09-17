@@ -1,0 +1,258 @@
+{
+  "id": "matok-6-1",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "6.1",
+  "title": "Gjennomsnittlig vekstfart",
+  "description": "Endring per enhet over et intervall, tolket som kostnad, inntekt og etterspørsel.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+  ],
+  "keyTerms": [
+    { "term": "Gjennomsnittlig vekstfart", "definition": "Hvor mye funksjonsverdien endrer seg i gjennomsnitt per enhet når vi går fra $x = a$ til $x = b$: $\\frac{f(b) - f(a)}{b - a}$." },
+    { "term": "Sekant", "definition": "Den rette linja gjennom to punkter på grafen. Stigningstallet til sekanten ER den gjennomsnittlige vekstfarten mellom de to punktene." },
+    { "term": "Kostnadsfunksjon", "definition": "$K(x)$ = de samlede kostnadene ved å produsere $x$ enheter, målt i kroner." },
+    { "term": "Etterspørselsfunksjon", "definition": "$E(p)$ = hvor mange enheter som blir solgt når prisen er $p$ kroner." },
+    { "term": "Overskudd (profitt)", "definition": "$O(x) = I(x) - K(x)$ — inntekten minus kostnadene ved $x$ enheter." }
+  ],
+  "content": [
+    {
+      "id": "matok-6-1-intro",
+      "type": "text",
+      "content": "## Hvor fort endrer det seg?\n\nEn bedrift vet sjelden bare hvor store kostnadene er. Den vil vite hvor fort de **vokser**. Hva koster det ekstra å lage ti brød til? Hvor mye taper vi i salg for hver krone vi setter prisen opp?\n\nSvaret på alle slike spørsmål er en **vekstfart**: en endring delt på den endringen som skapte den.\n\nI dette kapittelet ser vi på den gjennomsnittlige vekstfarten — endringen fordelt jevnt over et helt intervall. I 6.2 krymper vi intervallet til ingenting og får den momentane vekstfarten, som er den deriverte."
+    },
+    {
+      "id": "matok-6-1-def-gvf",
+      "type": "definition",
+      "title": "Gjennomsnittlig vekstfart",
+      "content": "Den **gjennomsnittlige vekstfarten** til funksjonen $f$ fra $x = a$ til $x = b$ er\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{f(b) - f(a)}{b - a}$$\n\nDen greske bokstaven $\\Delta$ (delta) leses «endring i». $\\Delta f$ er endringen i funksjonsverdien, $\\Delta x$ er endringen i $x$.\n\n**Enheten er alltid en brøk:** enheten til $f$ per enhet til $x$ — kroner per enhet, kroner per måned, antall per krone. Skriv den alltid, den bærer halve tolkningen."
+    },
+    {
+      "id": "matok-6-1-tekst-oppskrift",
+      "type": "text",
+      "content": "Framgangsmåten er den samme hver gang:\n\n1. **Hva vet vi?** De to $x$-verdiene $a$ og $b$.\n2. Regn ut $f(a)$ og $f(b)$.\n3. Sett inn i formelen og regn ut.\n4. **Svar med enhet, og si hva tallet betyr.**\n\nNB: Rekkefølgen i teller og nevner må være den samme. Står $f(b)$ først i telleren, må $b$ stå først i nevneren."
+    },
+    {
+      "id": "matok-6-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Kostnaden i et bakeri",
+      "problem": "Et bakeri har kostnadene\n\n$$K(x) = 0{,}05x^2 + 12x + 4000$$\n\nder $K(x)$ er kroner per dag og $x$ er antall brød de baker per dag.\n\nFinn den gjennomsnittlige vekstfarten til $K$ fra $x = 100$ til $x = 200$, og forklar hva svaret betyr.",
+      "solution": "**Hva vet vi?** $a = 100$ og $b = 200$. Vi må finne $K(100)$ og $K(200)$ først.\n\n**Steg 1 — regn ut $K(100)$:**\n\n$$K(100) = 0{,}05 \\cdot 100^2 + 12 \\cdot 100 + 4000$$\n$$K(100) = 0{,}05 \\cdot 10\\,000 + 1200 + 4000$$\n$$K(100) = 500 + 1200 + 4000 = 5700$$\n\n**Steg 2 — regn ut $K(200)$:**\n\n$$K(200) = 0{,}05 \\cdot 200^2 + 12 \\cdot 200 + 4000$$\n$$K(200) = 0{,}05 \\cdot 40\\,000 + 2400 + 4000$$\n$$K(200) = 2000 + 2400 + 4000 = 8400$$\n\n**Steg 3 — sett inn i formelen.** Vi skriver formelen tom først, og så med tall:\n\n$$\\frac{\\Delta K}{\\Delta x} = \\frac{K(200) - K(100)}{200 - 100}$$\n$$\\frac{\\Delta K}{\\Delta x} = \\frac{8400 - 5700}{200 - 100} = \\frac{2700}{100} = 27$$\n\n**Svar:** Den gjennomsnittlige vekstfarten er $27$ kroner per brød.\n\nDet betyr: når bakeriet går fra 100 til 200 brød om dagen, koster hvert av de 100 nye brødene i gjennomsnitt 27 kroner ekstra. Legg merke til at det IKKE er det samme som hva ett brød koster — de 4000 kronene i faste kostnader er allerede betalt, og de er ikke med i endringen."
+    },
+    {
+      "id": "matok-6-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-1-oppg-1",
+        "number": "6.1.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et trykkeri har kostnadene $K(x) = 0{,}04x^2 + 15x + 3000$ kroner når de trykker $x$ plakater.",
+        "subTasks": [
+          { "label": "a", "task": "Regn ut $K(50)$.", "solution": "$K(50) = 0{,}04 \\cdot 2500 + 15 \\cdot 50 + 3000 = 100 + 750 + 3000 = 3850$ kr", "answer": 3850 },
+          { "label": "b", "task": "Regn ut $K(150)$.", "solution": "$K(150) = 0{,}04 \\cdot 22\\,500 + 15 \\cdot 150 + 3000 = 900 + 2250 + 3000 = 6150$ kr", "answer": 6150 },
+          { "label": "c", "task": "Finn den gjennomsnittlige vekstfarten fra $x = 50$ til $x = 150$ (i kr per plakat).", "solution": "$\\frac{6150 - 3850}{150 - 50} = \\frac{2300}{100} = 23$ kr per plakat", "answer": 23 },
+          { "label": "d", "task": "Finn den gjennomsnittlige vekstfarten fra $x = 150$ til $x = 250$ (i kr per plakat). $K(250) = 9250$.", "solution": "$\\frac{9250 - 6150}{250 - 150} = \\frac{3100}{100} = 31$ kr per plakat", "answer": 31 },
+          { "label": "e", "task": "Blir plakatene dyrere eller billigere å lage jo flere de trykker? Forklar med tallene fra c) og d).", "solution": "Dyrere: vekstfarten stiger fra 23 til 31 kr per plakat. Kvadratleddet $0{,}04x^2$ vokser raskere og raskere, så hver nye plakat koster mer enn den forrige." }
+        ],
+        "solution": "a) 3850 kr, b) 6150 kr, c) 23 kr per plakat, d) 31 kr per plakat, e) dyrere — vekstfarten øker",
+        "hints": ["Regn ut funksjonsverdiene først, sett inn i formelen etterpå.", "$\\frac{\\Delta K}{\\Delta x} = \\frac{K(b) - K(a)}{b - a}$"],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-1-tekst-tabell",
+      "type": "text",
+      "content": "## Vekstfart fra en tabell\n\nVi trenger ikke en formel for å regne ut gjennomsnittlig vekstfart. To tall og avstanden mellom dem er nok. Det er slik tall fra Statistisk sentralbyrå og fra regnskapet til en bedrift vanligvis kommer: som en tabell.\n\nDa er $\\Delta x$ antall år (eller måneder), og $\\Delta f$ er forskjellen mellom de to verdiene."
+    },
+    {
+      "id": "matok-6-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Omsetningen i en nettbutikk",
+      "problem": "En nettbutikk har hatt denne omsetningen:\n\n| År | 2021 | 2022 | 2023 | 2024 |\n|---|---|---|---|---|\n| Omsetning (mill. kr) | 12,5 | 14,2 | 17,0 | 21,3 |\n\na) Finn den gjennomsnittlige vekstfarten fra 2021 til 2024.\n\nb) Finn den gjennomsnittlige vekstfarten fra 2023 til 2024.\n\nc) Hva forteller sammenlikningen?",
+      "solution": "**a)** Fra 2021 til 2024 er $\\Delta x = 2024 - 2021 = 3$ år.\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{21{,}3 - 12{,}5}{2024 - 2021}$$\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{8{,}8}{3} \\approx 2{,}93$$\n\nOmsetningen har vokst med i gjennomsnitt $2{,}93$ millioner kroner per år.\n\n**b)** Fra 2023 til 2024 er $\\Delta x = 1$ år.\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{21{,}3 - 17{,}0}{2024 - 2023} = \\frac{4{,}3}{1} = 4{,}3$$\n\nOmsetningen vokste med $4{,}3$ millioner kroner det siste året.\n\n**c)** Det siste året vokste omsetningen nesten halvannen gang så fort som gjennomsnittet for hele perioden ($4{,}3$ mot $2{,}93$). Veksten er altså ikke jevn — den tiltar.\n\n![Koordinatsystem med årene 2021 til 2024 langs den vannrette aksen og omsetning i millioner kroner fra 0 til 24 langs den loddrette. Fire blå punkter ligger i 12,5, 14,2, 17,0 og 21,3 og er forbundet med rette strek. En rød stiplet linje går fra det første til det siste punktet og er merket «snitt 2021-2024: 2,93». En tykkere grønn linje ligger under den siste blå streken, fra 2023 til 2024, og er merket «siste år: 4,3».](/images/content/matematikk-okonomi/matok-6-1-nettbutikk.png)\n\n*Gjennomsnittlig vekstfart trekker ÉN rett strek fra første til siste punkt og ser bort fra alt imellom. Det siste året vokste omsetningen nesten halvannen gang så fort som snittet for hele perioden.*\n\n**Svar:** a) $2{,}93$ mill. kr per år, b) $4{,}3$ mill. kr per år, c) veksten tiltar mot slutten av perioden.\n\nNB: Den gjennomsnittlige vekstfarten sier ingenting om hva som skjedde underveis. Den trekker én rett strek fra første til siste punkt og ser bort fra alt imellom. Det er både styrken og svakheten ved den."
+    },
+        {
+      "id": "matok-6-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-1-oppg-2",
+        "number": "6.1.2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Folketallet i en kommune var slik:\n\n| År | 2019 | 2021 | 2024 |\n|---|---|---|---|\n| Innbyggere | 8420 | 8690 | 9032 |",
+        "subTasks": [
+          { "label": "a", "task": "Finn den gjennomsnittlige vekstfarten fra 2019 til 2021 (innbyggere per år).", "solution": "$\\frac{8690 - 8420}{2021 - 2019} = \\frac{270}{2} = 135$ innbyggere per år", "answer": 135 },
+          { "label": "b", "task": "Finn den gjennomsnittlige vekstfarten fra 2021 til 2024.", "solution": "$\\frac{9032 - 8690}{2024 - 2021} = \\frac{342}{3} = 114$ innbyggere per år", "answer": 114 },
+          { "label": "c", "task": "Finn den gjennomsnittlige vekstfarten fra 2019 til 2024. Rund av til én desimal.", "solution": "$\\frac{9032 - 8420}{2024 - 2019} = \\frac{612}{5} = 122{,}4$ innbyggere per år", "answer": 122.4 },
+          { "label": "d", "task": "Kommunen skriver i årsmeldingen: «Veksten har tatt seg opp de siste årene.» Stemmer det?", "solution": "Nei. Vekstfarten har gått ned, fra 135 innbyggere per år (2019–2021) til 114 innbyggere per år (2021–2024). Folketallet vokser fortsatt, men saktere." }
+        ],
+        "solution": "a) 135 innb./år, b) 114 innb./år, c) 122,4 innb./år, d) nei — vekstfarten har gått ned fra 135 til 114",
+        "hints": ["$\\Delta x$ er antall år mellom de to tellingene, ikke antall tall i tabellen."],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-1-tekst-negativ",
+      "type": "text",
+      "content": "## Når vekstfarten er negativ\n\nEn negativ vekstfart betyr ikke at noe er galt. Den betyr bare at funksjonsverdien **synker** når $x$ øker.\n\nDet vanligste stedet vi møter det i økonomi, er etterspørselen: setter vi prisen opp, selger vi færre enheter. Etterspørselsfunksjonen $E(p)$ har derfor nesten alltid negativ vekstfart."
+    },
+    {
+      "id": "matok-6-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Etterspørsel etter en vare",
+      "problem": "En butikk selger $E(p) = 500 - 8p$ enheter av en vare per uke når prisen er $p$ kroner.\n\na) Finn den gjennomsnittlige vekstfarten fra $p = 20$ til $p = 35$.\n\nb) Finn den gjennomsnittlige vekstfarten fra $p = 35$ til $p = 60$.\n\nc) Forklar hva du ser.",
+      "solution": "**a)** Vi regner ut funksjonsverdiene:\n\n$$E(20) = 500 - 8 \\cdot 20 = 500 - 160 = 340$$\n$$E(35) = 500 - 8 \\cdot 35 = 500 - 280 = 220$$\n\nSå setter vi inn:\n\n$$\\frac{\\Delta E}{\\Delta p} = \\frac{E(35) - E(20)}{35 - 20} = \\frac{220 - 340}{15} = \\frac{-120}{15} = -8$$\n\nEtterspørselen synker med $8$ enheter per krone prisen settes opp.\n\n**b)** Samme framgangsmåte:\n\n$$E(35) = 220 \\qquad E(60) = 500 - 8 \\cdot 60 = 500 - 480 = 20$$\n$$\\frac{\\Delta E}{\\Delta p} = \\frac{20 - 220}{60 - 35} = \\frac{-200}{25} = -8$$\n\n**c)** Vi får $-8$ begge ganger. Det er ingen tilfeldighet: $E$ er en **lineær** funksjon, $E(p) = 500 - 8p$, og stigningstallet er $-8$.\n\nFor en lineær funksjon er den gjennomsnittlige vekstfarten lik stigningstallet — uansett hvilket intervall vi velger. Grafen er en rett linje, og en rett linje heller like mye overalt.\n\n![Koordinatsystem med pris p fra 0 til 70 kroner og antall enheter fra 0 til 550. En blå rett linje merket E(p) = 500 − 8p faller jevnt fra 500 til null ved 62,5 kroner. Tre punkter er markert på linjen og navngitt: (20, 340), (35, 220) og (60, 20). En tekst sier at begge sekantene faller sammen med linja.](/images/content/matematikk-okonomi/matok-6-1-lineaer.png)\n\n*For en lineær funksjon er den gjennomsnittlige vekstfarten lik stigningstallet — $-8$ — uansett hvilket intervall vi velger. Sekantene ER linja.*\n\n**Svar:** a) $-8$ enheter per krone, b) $-8$ enheter per krone, c) $E$ er lineær, så vekstfarten er lik stigningstallet $-8$ i alle intervaller."
+    },
+        {
+      "id": "matok-6-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-1-oppg-3",
+        "number": "6.1.3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bedrift selger $E(p) = 1200 - 15p$ enheter per måned når prisen er $p$ kroner.",
+        "subTasks": [
+          { "label": "a", "task": "Regn ut $E(40)$ og $E(60)$.", "solution": "$E(40) = 1200 - 600 = 600$ og $E(60) = 1200 - 900 = 300$", "answer": [600, 300] },
+          { "label": "b", "task": "Finn den gjennomsnittlige vekstfarten fra $p = 40$ til $p = 60$.", "solution": "$\\frac{300 - 600}{60 - 40} = \\frac{-300}{20} = -15$ enheter per krone", "answer": -15 },
+          { "label": "c", "task": "Finn den gjennomsnittlige vekstfarten fra $p = 50$ til $p = 70$.", "solution": "$E(50) = 450$, $E(70) = 150$. $\\frac{150 - 450}{70 - 50} = \\frac{-300}{20} = -15$ enheter per krone", "answer": -15 },
+          { "label": "d", "task": "Forklar uten å regne hvorfor du fikk samme svar i b) og c).", "solution": "$E$ er lineær med stigningstall $-15$. For en lineær funksjon er den gjennomsnittlige vekstfarten lik stigningstallet i alle intervaller." },
+          { "label": "e", "task": "Hva er den høyeste prisen bedriften kan ta og fortsatt selge noe?", "solution": "$1200 - 15p > 0$ gir $p < 80$. Ved $p = 80$ er $E(80) = 0$, så prisen må være under 80 kr.", "answer": 80 }
+        ],
+        "solution": "a) 600 og 300 enheter, b) $-15$ enheter/kr, c) $-15$ enheter/kr, d) lineær funksjon — vekstfarten er stigningstallet, e) under 80 kr",
+        "hints": ["Skriv $\\Delta E$ og $\\Delta p$ hver for seg før du deler."],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-1-tekst-sekant",
+      "type": "text",
+      "content": "## Sekanten — vekstfarten på grafen\n\nTegner vi en rett linje gjennom de to punktene $(a, f(a))$ og $(b, f(b))$ på grafen, får vi en **sekant** (av latin *secare*, «å skjære» — linja skjærer grafen i to punkter).\n\nStigningstallet til sekanten er\n\n$$a_{\\text{sekant}} = \\frac{f(b) - f(a)}{b - a}$$\n\nog det er nøyaktig den gjennomsnittlige vekstfarten. **Gjennomsnittlig vekstfart og sekantens stigningstall er samme tall sett på to måter.**\n\nDette er verdt å merke seg, for i 6.2 lar vi de to punktene gli mot hverandre. Da blir sekanten til en tangent, og den gjennomsnittlige vekstfarten blir den momentane."
+    },
+    {
+      "id": "matok-6-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Inntekten, og sekanten gjennom to punkter",
+      "problem": "En bedrift har inntektsfunksjonen\n\n$$I(x) = 90x - 0{,}1x^2$$\n\nder $I(x)$ er kroner og $x$ er antall enheter.\n\na) Finn den gjennomsnittlige vekstfarten fra $x = 100$ til $x = 300$.\n\nb) Finn likningen for sekanten gjennom de to punktene.",
+      "solution": "**a)** Vi regner ut de to funksjonsverdiene:\n\n$$I(100) = 90 \\cdot 100 - 0{,}1 \\cdot 100^2 = 9000 - 0{,}1 \\cdot 10\\,000 = 9000 - 1000 = 8000$$\n$$I(300) = 90 \\cdot 300 - 0{,}1 \\cdot 300^2 = 27\\,000 - 0{,}1 \\cdot 90\\,000 = 27\\,000 - 9000 = 18\\,000$$\n\nSå inn i formelen:\n\n$$\\frac{\\Delta I}{\\Delta x} = \\frac{18\\,000 - 8000}{300 - 100} = \\frac{10\\,000}{200} = 50$$\n\nInntekten øker med i gjennomsnitt $50$ kroner per enhet på dette intervallet.\n\n**b)** Sekanten er en rett linje, $y = ax + b$. Stigningstallet fant vi i a):\n\n$$a = 50$$\n\nLinja går gjennom $(100,\\ 8000)$. Vi setter inn og løser for $b$:\n\n$$8000 = 50 \\cdot 100 + b$$\n$$8000 = 5000 + b \\qquad | -5000$$\n$$b = 3000$$\n\n**Kontroll** (den har et poeng her — den avslører feil fortegn og feil punkt): setter vi $x = 300$ inn i sekanten, skal vi få $18\\,000$.\n\n$$50 \\cdot 300 + 3000 = 15\\,000 + 3000 = 18\\,000$$\n\nDet stemmer.\n\n**Svar:** a) $50$ kroner per enhet. b) $y = 50x + 3000$.\n\nSe på figuren under: sekanten ligger under kurven mellom de to punktene. Det betyr at inntekten faktisk vokste raskere enn 50 kr per enhet i begynnelsen av intervallet og saktere mot slutten. Gjennomsnittet jevner det ut."
+    },
+    {
+      "id": "matok-6-1-fig-sekant",
+      "type": "dynamic-plot",
+      "title": "Inntektsfunksjonen med sekanten fra x = 100 til x = 300",
+      "description": "Den heltrukne kurven er inntekten I(x). Den stiplede linja er sekanten gjennom de to markerte punktene. Stigningstallet til sekanten er den gjennomsnittlige vekstfarten.",
+      "xRange": [0, 450],
+      "yRange": [0, 22000],
+      "xLabel": "x (antall enheter)",
+      "yLabel": "kroner",
+      "functions": [
+        { "label": "$I(x) = 90x - 0{,}1x^2$", "expression": "90*x - 0.1*x^2", "style": "solid" },
+        { "label": "sekant: $y = 50x + 3000$", "expression": "50*x + 3000", "style": "dashed" }
+      ],
+      "points": [
+        { "x": 100, "y": 8000, "label": "(100, 8000)" },
+        { "x": 300, "y": 18000, "label": "(300, 18000)" }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-6-1-fig-sekant-statisk",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-6-1-sekant-inntekt.png",
+      "alt": "Koordinatsystem med antall enheter x fra 0 til 450 langs den vannrette aksen og kroner fra 0 til 22000 langs den loddrette. En blå kurve merket I av x stiger fra origo, er brattest i starten og flater ut mot høyre. To punkter er markert på kurven: (100, 8000) og (300, 18000). En rød stiplet rett linje går gjennom begge punktene. Fra (100, 8000) går en vannrett mållinje merket 200 enheter bort til (300, 8000), og derfra en loddrett mållinje merket 10000 kr opp til (300, 18000).",
+      "caption": "Sekanten fra $x = 100$ til $x = 300$. Stigningstallet $\\frac{10\\,000}{200} = 50$ er den gjennomsnittlige vekstfarten — de to målene i figuren er brøkens teller og nevner.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-6-1-sekant-inntekt.json (+ matok-6-1-sekant-inntekt.kontroll.json, alle porter grønne). Statisk variant av dynamic-plot-blokken matok-6-1-fig-sekant: virker uten JS, i utskrift og på liten skjerm, og har med de to målene."
+    },
+    {
+      "id": "matok-6-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-1-oppg-4",
+        "number": "6.1.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Overskuddet til en bedrift er $O(x) = -0{,}5x^2 + 60x - 800$ kroner når de selger $x$ enheter.",
+        "subTasks": [
+          { "label": "a", "task": "Regn ut $O(20)$.", "solution": "$O(20) = -0{,}5 \\cdot 400 + 60 \\cdot 20 - 800 = -200 + 1200 - 800 = 200$ kr", "answer": 200 },
+          { "label": "b", "task": "Regn ut $O(50)$ og $O(80)$.", "solution": "$O(50) = -1250 + 3000 - 800 = 950$ kr og $O(80) = -3200 + 4800 - 800 = 800$ kr", "answer": [950, 800] },
+          { "label": "c", "task": "Finn den gjennomsnittlige vekstfarten fra $x = 20$ til $x = 50$.", "solution": "$\\frac{950 - 200}{50 - 20} = \\frac{750}{30} = 25$ kr per enhet", "answer": 25 },
+          { "label": "d", "task": "Finn den gjennomsnittlige vekstfarten fra $x = 50$ til $x = 80$.", "solution": "$\\frac{800 - 950}{80 - 50} = \\frac{-150}{30} = -5$ kr per enhet", "answer": -5 },
+          { "label": "e", "task": "Hva forteller fortegnene i c) og d) om hvor det beste salgstallet ligger?", "solution": "Overskuddet vokser fram til et sted mellom 50 og 80 enheter og synker etter det. Det største overskuddet ligger altså mellom $x = 50$ og $x = 80$. (I 6.4 finner vi det nøyaktig med derivasjon.)" }
+        ],
+        "solution": "a) 200 kr, b) 950 kr og 800 kr, c) 25 kr per enhet, d) $-5$ kr per enhet, e) toppen ligger mellom 50 og 80 enheter",
+        "hints": ["Regn ut alle funksjonsverdiene først, så slipper du å regne dem to ganger.", "Et fortegnsskifte fra pluss til minus betyr at funksjonen har snudd et sted imellom."],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Strømkostnaden måned for måned (regneark)",
+      "problem": "En bedrift hadde disse strømkostnadene:\n\n| Måned | jan | feb | mar | apr | mai | jun |\n|---|---|---|---|---|---|---|\n| Kostnad (kr) | 4820 | 4390 | 3510 | 2640 | 1980 | 1540 |\n\na) Sett opp tabellen i et regneark og la regnearket finne den gjennomsnittlige vekstfarten fra hver måned til den neste.\n\nb) I hvilken måned falt kostnaden raskest?\n\nc) Finn den gjennomsnittlige vekstfarten fra januar til juni.",
+      "solution": "**a)** Legg månedene i kolonne A og kostnadene i kolonne B, med januar i rad 2. I celle **C3** skriver vi\n\n```\n=(B3-B2)/1\n```\n\nog fyller nedover til C7. Nevneren er $1$ fordi det er én måned mellom hver rad. (Den kunne vært droppet, men det er verdt å ha den med — da ser du formelen du faktisk bruker, og den tåler at du senere hopper over en måned.)\n\nRegnearket gir:\n\n| Overgang | jan → feb | feb → mar | mar → apr | apr → mai | mai → jun |\n|---|---|---|---|---|---|\n| kr per måned | $-430$ | $-880$ | $-870$ | $-660$ | $-440$ |\n\n**b)** Det største fallet er $-880$ kroner per måned, fra februar til mars.\n\n**c)** Fra januar til juni er $\\Delta x = 5$ måneder:\n\n$$\\frac{\\Delta K}{\\Delta x} = \\frac{1540 - 4820}{5} = \\frac{-3280}{5} = -656$$\n\n![Søylediagram med de fem månedsovergangene jan-feb til mai-jun langs den vannrette aksen og kroner per måned fra minus 1000 til 200 langs den loddrette. Alle fem søylene peker nedover: minus 430, minus 880, minus 870, minus 660 og minus 440. En rød stiplet vannrett linje ligger ved minus 656 og er merket «snitt: −656»; den går bak søylene.](/images/content/matematikk-okonomi/matok-6-1-strom.png)\n\n*Gjennomsnittet for halvåret, $-656$ kr per måned, finnes ikke i noen enkeltmåned. Det er nettopp poenget med et gjennomsnitt — og grunnen til at vi trenger noe som måler endringen i ett bestemt øyeblikk.*\n\n**Svar:** a) se tabellen, b) fra februar til mars, med $-880$ kroner per måned, c) $-656$ kroner per måned.\n\nNB: Gjennomsnittet for hele halvåret, $-656$, finnes ikke i noen enkeltmåned. Det er nettopp poenget med et gjennomsnitt — og grunnen til at vi i 6.2 trenger noe som måler endringen i ett bestemt øyeblikk."
+    },
+        {
+      "id": "matok-6-1-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Gjennomsnittlig vekstfart** fra $a$ til $b$: $\\dfrac{f(b) - f(a)}{b - a}$\n- Den er **stigningstallet til sekanten** gjennom $(a, f(a))$ og $(b, f(b))$.\n- **Enheten** er enheten til $f$ per enhet til $x$ — kroner per enhet, kroner per måned, antall per krone. Svar aldri uten den.\n- **Positiv** vekstfart: funksjonen vokser. **Negativ**: den synker. **Fortegnsskifte** mellom to intervaller: funksjonen har snudd et sted imellom.\n- For en **lineær** funksjon er vekstfarten den samme i alle intervaller, og lik stigningstallet.\n- Gjennomsnittlig vekstfart sier ingenting om hva som skjedde underveis i intervallet."
+    },
+    {
+      "id": "matok-6-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-1-oppg-5",
+        "number": "6.1.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To bedrifter i samme bransje har hatt denne omsetningen, målt i tusen kroner $t$ år etter 2020:\n\n$$A(t) = 240 + 35t \\qquad \\text{(Nordvik AS)}$$\n$$B(t) = 180 \\cdot 1{,}15^{\\,t} \\qquad \\text{(Fjordly AS)}$$",
+        "subTasks": [
+          { "label": "a", "task": "Finn den gjennomsnittlige vekstfarten til $A$ fra $t = 0$ til $t = 5$.", "solution": "$A(0) = 240$, $A(5) = 240 + 175 = 415$. $\\frac{415 - 240}{5} = \\frac{175}{5} = 35$ tusen kr per år.", "answer": 35 },
+          { "label": "b", "task": "Finn den gjennomsnittlige vekstfarten til $B$ fra $t = 0$ til $t = 5$. Rund av til to desimaler.", "solution": "$B(0) = 180$, $B(5) = 180 \\cdot 1{,}15^5 \\approx 362{,}04$. $\\frac{362{,}04 - 180}{5} \\approx 36{,}41$ tusen kr per år.", "answer": 36.41 },
+          { "label": "c", "task": "Finn den gjennomsnittlige vekstfarten til $B$ fra $t = 0$ til $t = 1$, og fra $t = 4$ til $t = 5$. Rund av til to desimaler.", "solution": "$B(1) \\approx 207{,}00$ gir $\\frac{207{,}00 - 180}{1} \\approx 27{,}00$. $B(4) \\approx 314{,}82$ gir $\\frac{362{,}04 - 314{,}82}{1} \\approx 47{,}22$ tusen kr per år.", "answer": [27.0, 47.22] },
+          { "label": "d", "task": "Forklar hvorfor vekstfarten til $A$ er den samme i alle intervaller, mens vekstfarten til $B$ øker.", "solution": "$A$ er lineær, så vekstfarten er stigningstallet $35$ uansett intervall. $B$ er eksponentiell og vokser med 15 % av en stadig større omsetning, så den absolutte økningen per år blir større og større." },
+          { "label": "e", "task": "Hvilket år passerer Fjordly AS omsetningen til Nordvik AS? Prøv deg fram med hele år.", "solution": "$t = 7$: $A = 485$ og $B \\approx 478{,}80$ — Nordvik er fortsatt størst. $t = 8$: $A = 520$ og $B \\approx 550{,}62$ — Fjordly har passert. Altså i år 8, det vil si 2028.", "answer": 8 }
+        ],
+        "solution": "a) 35 tusen kr/år, b) ca. 36,41 tusen kr/år, c) ca. 27,00 og ca. 47,22 tusen kr/år, d) lineær mot eksponentiell vekst, e) $t = 8$ (2028)",
+        "hints": ["Regn ut funksjonsverdiene i et regneark, så slipper du å taste $1{,}15^5$ flere ganger.", "I e) er det nok å sette inn hele år til $B$ blir størst."],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-6-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-1-oppg-6",
+        "number": "6.1.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "tool": "none",
+        "task": "**Del 2 — regneark.** En fabrikk har kostnadene\n\n$$K(x) = 0{,}01x^3 - 1{,}5x^2 + 90x + 2500$$\n\nkroner når de produserer $x$ enheter, for $0 \\le x \\le 100$.",
+        "subTasks": [
+          { "label": "a", "task": "Lag et regneark med $x = 0, 10, 20, \\ldots, 100$ i én kolonne og $K(x)$ i den neste.", "solution": "Skriv 0 i A2 og formelen `=A2+10` nedover til A12. I B2: `=0,01*A2^3-1,5*A2^2+90*A2+2500`, fylt nedover. Verdiene blir 2500, 3260, 3780, 4120, 4340, 4500, 4660, 4880, 5220, 5740 og 6500." },
+          { "label": "b", "task": "Legg til en kolonne som finner den gjennomsnittlige vekstfarten over hvert intervall på 10 enheter.", "solution": "I C3: `=(B3-B2)/(A3-A2)`, fylt nedover. Verdiene blir 76, 52, 34, 22, 16, 16, 22, 34, 52 og 76 kroner per enhet." },
+          { "label": "c", "task": "I hvilket intervall er den gjennomsnittlige vekstfarten minst?", "solution": "I intervallene $40 \\le x \\le 50$ og $50 \\le x \\le 60$ — begge gir $16$ kroner per enhet. Det billigste området å utvide produksjonen i ligger altså rundt $x = 50$.", "answer": 16 },
+          { "label": "d", "task": "Finn den gjennomsnittlige vekstfarten for hele intervallet fra $x = 0$ til $x = 100$.", "solution": "$\\frac{6500 - 2500}{100 - 0} = \\frac{4000}{100} = 40$ kroner per enhet", "answer": 40 },
+          { "label": "e", "task": "En leder ser tallet fra d) og sier: «Hver enhet koster oss 40 kroner å lage.» Vurder påstanden.", "solution": "Påstanden er ikke holdbar. 40 kroner er gjennomsnittet over hele intervallet, og ingen enkeltenhet koster akkurat det. Kostnaden per ekstra enhet varierer fra 16 kroner rundt $x = 50$ til 76 kroner nær $x = 0$ og $x = 100$. I tillegg ligger 2500 kroner i faste kostnader som ikke endrer seg med $x$ i det hele tatt." }
+        ],
+        "solution": "a) 2500, 3260, 3780, 4120, 4340, 4500, 4660, 4880, 5220, 5740, 6500 kr. b) 76, 52, 34, 22, 16, 16, 22, 34, 52, 76 kr per enhet. c) rundt $x = 50$, med 16 kr per enhet. d) 40 kr per enhet. e) nei — 40 kr er et gjennomsnitt, og den faktiske kostnaden per ekstra enhet varierer mellom 16 og 76 kr.",
+        "hints": ["Bruk absolutte og relative referanser riktig: formelen i C3 skal peke på raden over.", "I e): hva sier den gjennomsnittlige vekstfarten om hva som skjer INNE i intervallet?"],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": []
+}

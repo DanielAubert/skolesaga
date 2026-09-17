@@ -1,0 +1,472 @@
+{
+  "id": "stat-7-2",
+  "courseId": "statistikk",
+  "chapterNumber": "7.2",
+  "title": "Konfidensintervall for gjennomsnitt",
+  "description": "Å regne ut og tolke et konfidensintervall for μ, og hva konfidensnivået betyr.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+  ],
+  "content": [
+    {
+      "id": "stat-7-2-section-intro",
+      "type": "text",
+      "content": "# Konfidensintervall for gjennomsnitt\n\nI kapittel 7.1 kom vi fram til to tall: estimatet $\\bar{x}$ og standardfeilen $\\frac{s}{\\sqrt{n}}$. Å oppgi dem hver for seg er upraktisk. Det vi vil ha, er ett svar som sier både **hvor** parameteren ligger og **hvor sikre** vi er:\n\n> «Gjennomsnittlig reisetid er mellom 25,7 og 31,1 minutter, med 95 % konfidens.»\n\nEt slikt intervall kalles et **konfidensintervall**. Det er ikke noe nytt regnestykke — det er estimatet med usikkerheten bygd inn.\n\nHele oppskriften kommer fra sentralgrensesetningen i kapittel 6: gjennomsnittet $\\bar{X}$ er tilnærmet normalfordelt rundt $\\mu$, med standardavvik $\\frac{\\sigma}{\\sqrt{n}}$. Vet vi hvordan $\\bar{X}$ oppfører seg rundt $\\mu$, kan vi snu det og si hvordan $\\mu$ ligger i forhold til $\\bar{x}$."
+    },
+    {
+      "id": "stat-7-2-section-hvorfor196",
+      "type": "text",
+      "content": "## Hvor 1,96 kommer fra\n\nVi starter med noe vi allerede kan. For en standard normalfordelt $Z$ vet vi fra kapittel 6 at\n\n$$P(-1{,}96 \\le Z \\le 1{,}96) = 0{,}9750 - 0{,}0250 = 0{,}95$$\n\nAltså: 95 % av all sannsynlighet ligger mellom $-1{,}96$ og $1{,}96$. De to halene på 2,5 % hver er det vi gir slipp på.\n\nSå standardiserer vi gjennomsnittet, akkurat slik vi standardiserte enkeltmålinger i kapittel 6 — men nå med $\\frac{\\sigma}{\\sqrt{n}}$ i nevneren, siden det er standardavviket til $\\bar{X}$:\n\n$$Z = \\frac{\\bar{X} - \\mu}{\\frac{\\sigma}{\\sqrt{n}}}$$\n\nDet betyr at\n\n$$P\\left(-1{,}96 \\le \\frac{\\bar{X} - \\mu}{\\frac{\\sigma}{\\sqrt{n}}} \\le 1{,}96\\right) = 0{,}95$$\n\nNå løser vi ulikheten inni for $\\mu$ — én operasjon på begge sider om gangen."
+    },
+    {
+      "id": "stat-7-2-fig-konfidens95",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-2-konfidens-95.png",
+      "alt": "En symmetrisk klokkeformet kurve med toppen over null. Området under kurven mellom minus 1,96 og 1,96 er skravert gult og merket 95 prosent. De to områdene utenfor, til venstre for minus 1,96 og til høyre for 1,96, er umerket hvitt og hver merket 2,5 prosent. To stiplede loddrette hjelpelinjer går fra den vannrette aksen opp til kurven ved minus 1,96 og ved 1,96, og tallene minus 1,96 og 1,96 står i en egen rad under aksetallrekka, hvert rett under sin egen strek. Den vannrette aksen er merket z og går fra minus 4 til 4. Øverst til høyre står kurvenavnet standardnormalkurven i oransje.",
+      "caption": "De midterste 95 prosentene under standardnormalkurven ligger mellom $-1{,}96$ og $1{,}96$. Det er disse to tallene som blir til feilmarginen i konfidensintervallet — og de to halene på 2,5 % er risikoen vi aksepterer.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-2-konfidens-95.json"
+    },
+    {
+      "id": "stat-7-2-theorem-ki",
+      "type": "theorem",
+      "title": "Konfidensintervall for forventningsverdien",
+      "content": "La $\\bar{x}$ være gjennomsnittet i et tilfeldig utvalg på $n$ målinger fra en fordeling med standardavvik $\\sigma$. Et **konfidensintervall** for $\\mu$ med konfidensnivå $1 - \\alpha$ er\n\n$$\\left[\\ \\bar{x} - z \\cdot \\frac{\\sigma}{\\sqrt{n}}, \\quad \\bar{x} + z \\cdot \\frac{\\sigma}{\\sqrt{n}}\\ \\right]$$\n\nTallet $z$ leses av i normalfordelingstabellen:\n\n| konfidensnivå | $\\alpha$ | $z$ |\n|---|---|---|\n| 90 % | 0,10 | 1,645 |\n| 95 % | 0,05 | 1,960 |\n| 99 % | 0,01 | 2,576 |\n\nStørrelsen $z \\cdot \\frac{\\sigma}{\\sqrt{n}}$ kalles **feilmarginen**. Er $\\sigma$ ukjent, bruker vi $s$ i stedet (se merknaden under eksempel 2).",
+      "proof": "Vi tar utgangspunkt i at\n\n$$-1{,}96 \\le \\frac{\\bar{X} - \\mu}{\\frac{\\sigma}{\\sqrt{n}}} \\le 1{,}96$$\n\nskjer i 95 % av alle utvalg. Så gjør vi den samme operasjonen på alle tre delene av ulikheten, ett skritt om gangen.\n\n**Ganger med** $\\frac{\\sigma}{\\sqrt{n}}$ (et positivt tall, så ulikhetstegnene beholder retning):\n\n$$-1{,}96 \\cdot \\frac{\\sigma}{\\sqrt{n}} \\le \\bar{X} - \\mu \\le 1{,}96 \\cdot \\frac{\\sigma}{\\sqrt{n}}$$\n\n**Trekker fra** $\\bar{X}$:\n\n$$-\\bar{X} - 1{,}96 \\cdot \\frac{\\sigma}{\\sqrt{n}} \\le -\\mu \\le -\\bar{X} + 1{,}96 \\cdot \\frac{\\sigma}{\\sqrt{n}}$$\n\n**Ganger med** $-1$. Nå snur begge ulikhetstegnene, og de to ytterleddene bytter plass:\n\n$$\\bar{X} - 1{,}96 \\cdot \\frac{\\sigma}{\\sqrt{n}} \\le \\mu \\le \\bar{X} + 1{,}96 \\cdot \\frac{\\sigma}{\\sqrt{n}}$$\n\nDette er intervallet i teoremet. Legg merke til hva vi gjorde: $\\mu$ sto først inne i uttrykket sammen med $\\bar{X}$, og vi flyttet den ut alene i midten. Det er ren likningsregning — samme operasjon på begge sider — og ingen ny statistikk."
+    },
+    {
+      "id": "stat-7-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Sandsekker med kjent standardavvik",
+      "problem": "En maskin fyller sekker med sand. Av lang erfaring vet bedriften at standardavviket er $\\sigma = 12$ gram, og at det ikke endrer seg når maskinen justeres. De veier 36 tilfeldige sekker og finner $\\bar{x} = 497{,}4$ gram.\n\na) Finn et 95 % konfidensintervall for $\\mu$.\nb) Sekkene skal inneholde 500 gram. Gir målingen grunn til å si at maskinen fyller for lite?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\sigma = 12$ g, $n = 36$, $\\bar{x} = 497{,}4$ g. *Hva skal vi finne?* Intervallet for $\\mu$.\n\n**a)** Først standardfeilen:\n\n$$\\frac{\\sigma}{\\sqrt{n}} = \\frac{12}{\\sqrt{36}} = \\frac{12}{6} = 2 \\text{ gram}$$\n\nSå feilmarginen. Konfidensnivået er 95 %, så $z = 1{,}96$:\n\n$$z \\cdot \\frac{\\sigma}{\\sqrt{n}} = 1{,}96 \\cdot 2 = 3{,}92 \\text{ gram}$$\n\nOg da er intervallet\n\n$$\\left[\\bar{x} - 3{,}92,\\ \\bar{x} + 3{,}92\\right] = \\left[497{,}4 - 3{,}92,\\ 497{,}4 + 3{,}92\\right] = \\left[493{,}5,\\ 501{,}3\\right]$$\n\n**b)** Tallet 500 ligger **inne i** intervallet. Det betyr at 500 gram er en fullt mulig verdi for $\\mu$ — målingen på 497,4 er ikke langt nok unna 500 til å utelukke den.\n\nVi kan altså ikke si at maskinen fyller for lite. Det betyr ikke at den fyller riktig; det betyr at 36 sekker ikke er nok til å avgjøre spørsmålet.\n\n**Svar:** a) $[493{,}5,\\ 501{,}3]$ gram. b) Nei — 500 gram ligger inne i intervallet, så målingen gir ikke grunnlag for å si at maskinen fyller for lite.\n\n**NB:** Legg merke til hvor intervallet ligger: midt på $\\bar{x} = 497{,}4$, ikke midt på 500. Intervallet bygges rundt det vi målte, og så sjekker vi etterpå om verdien vi lurte på, havnet innenfor."
+    },
+    {
+      "id": "stat-7-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. En maskin fyller poser med frø. Standardavviket er kjent: $\\sigma = 0{,}8$ kg. Et utvalg på 64 poser gir $\\bar{x} = 24{,}8$ kg. Posene skal veie 25,0 kg.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\frac{\\sigma}{\\sqrt{n}}$.",
+            "solution": "$\\frac{0{,}8}{\\sqrt{64}} = \\frac{0{,}8}{8} = 0{,}1$ kg",
+            "answer": 0.1
+          },
+          {
+            "label": "b",
+            "task": "Finn feilmarginen ved 95 % konfidens.",
+            "solution": "$1{,}96 \\cdot 0{,}1 = 0{,}196$ kg",
+            "answer": 0.196
+          },
+          {
+            "label": "c",
+            "task": "Sett opp konfidensintervallet.",
+            "solution": "$[24{,}8 - 0{,}196,\\ 24{,}8 + 0{,}196] = [24{,}604,\\ 24{,}996]$ kg",
+            "answer": 24.604
+          },
+          {
+            "label": "d",
+            "task": "Ligger 25,0 kg inne i intervallet?",
+            "solution": "Nei. Øvre grense er 24,996 kg, altså så vidt under 25,0. Utvalget gir grunn til å tro at maskinen fyller litt for lite.",
+            "answer": 24.996
+          },
+          {
+            "label": "e",
+            "task": "Hvor bredt er intervallet, og hvor bredt ville det vært med 256 poser?",
+            "solution": "Bredden er $2 \\cdot 0{,}196 = 0{,}392$ kg. Med $n = 256$ blir $\\frac{0{,}8}{16} = 0{,}05$, margin $1{,}96 \\cdot 0{,}05 = 0{,}098$ og bredde 0,196 kg — halvparten, fordi utvalget ble firedoblet.",
+            "answer": 0.392
+          }
+        ],
+        "hints": [
+          "Regn standardfeilen først, gang så med 1,96, og legg til og trekk fra til slutt."
+        ],
+        "solution": "a) 0,1 kg, b) 0,196 kg, c) $[24{,}604,\\ 24{,}996]$, d) nei — så vidt utenfor, e) 0,392 kg, halveres til 0,196 kg ved 256 poser",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-2-warning-tolkning",
+      "type": "warning",
+      "title": "Hva «95 % konfidens» faktisk betyr",
+      "content": "Det er fristende å si:\n\n> «Det er 95 % sannsynlighet for at $\\mu$ ligger mellom 493,5 og 501,3.» **(upresist)**\n\nProblemet er at $\\mu$ ikke er tilfeldig. Maskinen har den fyllmengden den har — enten ligger 500 gram inne i vårt intervall, eller så gjør den ikke det. Det er ikke noe å sette sannsynlighet på etter at vi har regnet.\n\nDet som er tilfeldig, er **intervallet**. Et nytt utvalg gir et nytt $\\bar{x}$, og dermed et nytt intervall. Derfor:\n\n> **Metoden treffer $\\mu$ i 95 % av alle utvalg.** Trekker vi 100 utvalg og lager 100 intervaller, vil omtrent 95 av dem inneholde den sanne $\\mu$ — og omtrent 5 vil bomme. Vi vet bare ikke hvilke.\n\nDet er dette som ligger i ordet *konfidens* i stedet for *sannsynlighet*: tilliten gjelder metoden, ikke det enkelte svaret.\n\n**Til daglig bruk** er formuleringen «vi er 95 % sikre på at $\\mu$ ligger mellom … og …» grei nok, så lenge du vet hva den egentlig hviler på. På en eksamen skal tolkningen skrives på metodeformen."
+    },
+    {
+      "id": "stat-7-2-fig-40-intervaller",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-2-40-intervaller.png",
+      "alt": "Førti vannrette linjestykker under hverandre, ett for hvert simulerte utvalg. Den vannrette aksen er merket reisetid i minutter og viser 22 til 34; den loddrette er merket utvalg nr. og viser 5, 10, 15, 20, 25, 30, 35 og 40. En grå stiplet loddrett strek går gjennom hele figuren ved 28,4 og er merket den sanne my er lik 28,4. Trettisju av linjestykkene krysser streken og er blå; tre ligger helt til høyre for den og er røde. Øverst til høyre står fargenøkkelen blå: treffer my og rød: bommer.",
+      "caption": "Det som er tilfeldig, er **intervallet** — ikke $\\mu$. Hver rad er ett nytt utvalg fra den samme befolkningen, og hvert intervall er $\\bar{x} \\pm 1{,}96 \\cdot \\frac{s}{\\sqrt{n}}$. Metoden treffer $\\mu$ i 95 % av alle utvalg; de røde radene bommer. Når du bare har ett utvalg, vet du ikke hvilken rad du sitter med.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-2-40-intervaller.json"
+    },
+    {
+      "id": "stat-7-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Reisetid til jobb, ukjent standardavvik",
+      "problem": "En kommune vil vite hvor lang tid innbyggerne bruker på å komme seg til jobb. De spør 50 tilfeldig valgte yrkesaktive og får $\\bar{x} = 28{,}4$ minutter og $s = 9{,}6$ minutter.\n\na) Finn et 95 % konfidensintervall for $\\mu$.\nb) En nabokommune har målt 30,0 minutter. Er tallene forenlige?\nc) Kan kommunen si at reisetiden er under 25 minutter?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $n = 50$, $\\bar{x} = 28{,}4$ min, $s = 9{,}6$ min. Her er $\\sigma$ **ukjent**, så vi bruker $s$ i stedet.\n\n**a)** Standardfeilen:\n\n$$\\frac{s}{\\sqrt{n}} = \\frac{9{,}6}{\\sqrt{50}} \\approx \\frac{9{,}6}{7{,}071} \\approx 1{,}358 \\text{ minutter}$$\n\nFeilmarginen ved 95 %:\n\n$$1{,}96 \\cdot 1{,}358 \\approx 2{,}66 \\text{ minutter}$$\n\nIntervallet:\n\n$$[28{,}4 - 2{,}66,\\ 28{,}4 + 2{,}66] = [25{,}7,\\ 31{,}1]$$\n\n**b)** 30,0 minutter ligger inne i intervallet. Målingene er altså fullt forenlige — forskjellen mellom 28,4 og 30,0 er mindre enn usikkerheten i vår egen måling.\n\n**c)** Nei. Nedre grense er 25,7 minutter, så 25 minutter ligger **utenfor** intervallet. Tvert imot taler tallene for at reisetiden er over 25 minutter.\n\n**Svar:** a) $[25{,}7,\\ 31{,}1]$ minutter. b) Ja, 30,0 ligger inne i intervallet. c) Nei — hele intervallet ligger over 25 minutter.\n\n```\nregneark:   =GJENNOMSNITT(A1:A50)               gir 28,4\n            =STDAV.S(A1:A50)                    gir 9,6\n            =KONFIDENS.NORM(0,05; 9,6; 50)      gir 2,661   (feilmarginen)\n```\n\n```\nGeoGebra:   InversNormalfordeling(0, 1, 0.975)   gir 1.96   (z-verdien)\n```"
+    },
+    {
+      "id": "stat-7-2-note-sigma-ukjent",
+      "type": "note",
+      "title": "Når $\\sigma$ er ukjent — og hvorfor $n \\ge 30$",
+      "content": "Å bytte ut $\\sigma$ med $s$ er ikke gratis. Vi gjetter da på to størrelser i stedet for én, og intervallet blir i virkeligheten litt for smalt.\n\nNår $n$ er stor, er $s$ et godt estimat, og feilen er ubetydelig. **Tommelfingerregelen er $n \\ge 30$** — da kan vi trygt bruke $z$-verdiene fra tabellen selv om $\\sigma$ er ukjent.\n\nEr $n$ liten *og* $\\sigma$ ukjent, trengs en litt bredere fordeling (den kalles $t$-fordelingen). Den ligger utenfor dette faget, og oppgavene her vil derfor enten oppgi $\\sigma$, eller ha $n \\ge 30$.\n\n**Praktisk regel for oppgaver:**\n\n| oppgaven oppgir | bruk |\n|---|---|\n| $\\sigma$ (kjent) | $\\frac{\\sigma}{\\sqrt{n}}$ — uansett $n$ |\n| bare $s$, og $n \\ge 30$ | $\\frac{s}{\\sqrt{n}}$ |\n| bare $s$, og $n < 30$ | si fra at metoden er usikker her |"
+    },
+    {
+      "id": "stat-7-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En idrettsklubb måler hoppelengden i lengde hos 40 tilfeldig valgte deltakere på et stevne og finner $\\bar{x} = 156{,}5$ cm og $s = 18{,}2$ cm. Rund av til én desimal.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Er det riktig å bruke $z$-verdiene her, når $\\sigma$ er ukjent?",
+            "solution": "Ja. $n = 40 \\ge 30$, så $s$ er et godt nok estimat for $\\sigma$."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen.",
+            "solution": "$\\frac{18{,}2}{\\sqrt{40}} \\approx \\frac{18{,}2}{6{,}325} \\approx 2{,}878$ cm",
+            "answer": 2.878
+          },
+          {
+            "label": "c",
+            "task": "Finn et 95 % konfidensintervall for $\\mu$.",
+            "solution": "Margin: $1{,}96 \\cdot 2{,}878 \\approx 5{,}64$ cm. Intervall: $[156{,}5 - 5{,}64,\\ 156{,}5 + 5{,}64] = [150{,}9,\\ 162{,}1]$ cm.",
+            "answer": 150.9
+          },
+          {
+            "label": "d",
+            "task": "Finn et 99 % konfidensintervall.",
+            "solution": "Margin: $2{,}576 \\cdot 2{,}878 \\approx 7{,}41$ cm. Intervall: $[149{,}1,\\ 163{,}9]$ cm.",
+            "answer": 149.1
+          },
+          {
+            "label": "e",
+            "task": "En trener påstår at gjennomsnittet i klubben er 165 cm. Hva sier de to intervallene om påstanden?",
+            "solution": "165 cm ligger utenfor begge intervallene — også det brede 99 %-intervallet, som stopper på 163,9 cm. Målingen taler altså mot påstanden.",
+            "answer": 163.9
+          }
+        ],
+        "hints": [
+          "Standardfeilen er den samme i c) og d) — det er bare $z$ som endrer seg."
+        ],
+        "solution": "a) Ja, $n \\ge 30$. b) $\\approx 2{,}878$ cm. c) $[150{,}9,\\ 162{,}1]$. d) $[149{,}1,\\ 163{,}9]$. e) 165 cm ligger utenfor begge.",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Hva koster høy konfidens?",
+      "problem": "Vi bruker de samme reisetidsdataene som i eksempel 2: $n = 50$, $\\bar{x} = 28{,}4$ min, $s = 9{,}6$ min.\n\na) Finn konfidensintervaller på nivåene 90 %, 95 % og 99 %.\nb) Sammenlign bredden på de tre.\nc) Hvorfor bruker man ikke bare 99,99 % alltid?",
+      "solution": "**Løsning:**\n\n**a)** Standardfeilen er den samme hele veien:\n\n$$\\frac{s}{\\sqrt{n}} = \\frac{9{,}6}{\\sqrt{50}} \\approx 1{,}358$$\n\nDet eneste som endrer seg, er $z$:\n\n| nivå | $z$ | feilmargin | intervall |\n|---|---|---|---|\n| 90 % | 1,645 | $1{,}645 \\cdot 1{,}358 \\approx 2{,}23$ | $[26{,}2,\\ 30{,}6]$ |\n| 95 % | 1,960 | $1{,}960 \\cdot 1{,}358 \\approx 2{,}66$ | $[25{,}7,\\ 31{,}1]$ |\n| 99 % | 2,576 | $2{,}576 \\cdot 1{,}358 \\approx 3{,}50$ | $[24{,}9,\\ 31{,}9]$ |\n\n**b)** Bredden er dobbelt så stor som feilmarginen: 4,47 min, 5,32 min og 6,99 min. Fra 90 % til 99 % blir intervallet\n\n$$\\frac{6{,}99}{4{,}47} \\approx 1{,}57$$\n\nganger så bredt — altså over halvannen gang.\n\n**c)** Fordi høy konfidens kjøpes med bredde, og et bredt intervall sier lite. Et 99,99 %-intervall her ville krevd $z \\approx 3{,}891$ og blitt omtrent $[23{,}1,\\ 33{,}7]$ — nesten sikkert riktig, men nesten uten informasjon. Ytterpunktet er tydelig: intervallet «reisetiden er mellom 0 og 24 timer» er 100 % sikkert og fullstendig ubrukelig.\n\n![Tre vannrette linjestykker under hverandre over en felles akse merket reisetid i minutter, med tallene 24 til 34. Den loddrette aksen er merket nivå og har radene 90 prosent nederst, 95 prosent i midten og 99 prosent øverst. Alle tre har et svart punkt i det samme stedet, 28,4, der en grå stiplet loddrett strek merket x med strek over er lik 28,4 går opp. Det nederste, blå, går fra 26,2 til 30,6 og er merket 4,47 min. Det midterste, grønne, går fra 25,7 til 31,1 og er merket 5,32 min. Det øverste, oransje, går fra 24,9 til 31,9 og er merket 7,00 min. Hvert intervall er bredere enn det under.](/images/content/statistikk/stat-7-2-tre-nivaer.png)\n\n*Høyere konfidens koster bredde. Alle tre intervallene er sentrert i det samme gjennomsnittet; det eneste som endrer seg, er $z$. Fra 90 % til 99 % blir intervallet 1,57 ganger så bredt — og et bredt intervall sier mindre.*\n\n**Svar:** a) Se tabellen. b) 4,47, 5,32 og 6,99 minutter — 99 %-intervallet er 1,57 ganger så bredt som 90 %-intervallet. c) Fordi sikkerhet og presisjon trekker mot hver sin kant; 95 % er kompromisset som har festet seg.\n\n**NB:** Det finnes bare én måte å få *både* høyere konfidens og smalere intervall: **flere målinger**. Alt annet er en byttehandel."
+    },
+    {
+      "id": "stat-7-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En strømleverandør har registrert prisen (i øre per kWh) i 100 tilfeldig valgte timer gjennom et år, og finner $\\bar{x} = 87{,}4$ øre og $s = 21{,}0$ øre. Rund av til én desimal.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn standardfeilen.",
+            "solution": "$\\frac{21{,}0}{\\sqrt{100}} = \\frac{21{,}0}{10} = 2{,}1$ øre",
+            "answer": 2.1
+          },
+          {
+            "label": "b",
+            "task": "Finn et 90 % konfidensintervall.",
+            "solution": "Margin $1{,}645 \\cdot 2{,}1 \\approx 3{,}45$. Intervall $[83{,}9,\\ 90{,}9]$ øre.",
+            "answer": 83.9
+          },
+          {
+            "label": "c",
+            "task": "Finn et 95 % konfidensintervall.",
+            "solution": "Margin $1{,}96 \\cdot 2{,}1 = 4{,}12$. Intervall $[83{,}3,\\ 91{,}5]$ øre.",
+            "answer": 83.3
+          },
+          {
+            "label": "d",
+            "task": "Finn et 99 % konfidensintervall.",
+            "solution": "Margin $2{,}576 \\cdot 2{,}1 \\approx 5{,}41$. Intervall $[82{,}0,\\ 92{,}8]$ øre.",
+            "answer": 82.0
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange timer måtte registreres for at 95 %-marginen skulle bli under 2 øre?",
+            "solution": "$\\frac{1{,}96 \\cdot 21{,}0}{\\sqrt{n}} \\le 2 \\Rightarrow \\sqrt{n} \\ge \\frac{41{,}16}{2} = 20{,}58 \\Rightarrow n \\ge 423{,}5$, altså minst 424 timer.",
+            "answer": 424
+          }
+        ],
+        "hints": [
+          "Standardfeilen regnes én gang og gjenbrukes i b), c) og d)."
+        ],
+        "solution": "a) 2,1 øre, b) $[83{,}9,\\ 90{,}9]$, c) $[83{,}3,\\ 91{,}5]$, d) $[82{,}0,\\ 92{,}8]$, e) minst 424 timer",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor mange må vi spørre?",
+      "problem": "Kommunen fra eksempel 2 vil gjenta undersøkelsen, og denne gangen skal 95 %-marginen være høyst 1,5 minutter. De regner med at $s$ fortsatt blir omtrent 9,6 minutter.\n\na) Hvor mange må de spørre?\nb) Kontroller svaret.\nc) Hvor mange hadde holdt med 90 % konfidens i stedet?",
+      "solution": "**Løsning:**\n\n**a)** Vi setter opp kravet med $n$ som ukjent:\n\n$$1{,}96 \\cdot \\frac{9{,}6}{\\sqrt{n}} \\le 1{,}5$$\n\nGanger med $\\sqrt{n}$ på begge sider:\n\n$$1{,}96 \\cdot 9{,}6 \\le 1{,}5\\sqrt{n}$$\n\n$$18{,}816 \\le 1{,}5\\sqrt{n}$$\n\nDeler på 1,5 på begge sider:\n\n$$12{,}544 \\le \\sqrt{n}$$\n\nKvadrerer begge sider:\n\n$$157{,}35 \\le n$$\n\nAntall personer må være et helt tall, og kravet er «minst», så vi runder **opp**:\n\n$$n = 158$$\n\n**b)** Kontroll med $n = 158$:\n\n$$1{,}96 \\cdot \\frac{9{,}6}{\\sqrt{158}} \\approx 1{,}96 \\cdot \\frac{9{,}6}{12{,}570} \\approx 1{,}497 \\le 1{,}5 \\quad \\checkmark$$\n\nMed $n = 157$ blir marginen 1,502 — så vidt for stor. 158 er altså det minste antallet som holder.\n\n**c)** Samme regning med $z = 1{,}645$:\n\n$$n \\ge \\left(\\frac{1{,}645 \\cdot 9{,}6}{1{,}5}\\right)^2 = \\left(\\frac{15{,}792}{1{,}5}\\right)^2 = 10{,}528^2 \\approx 110{,}8$$\n\nAltså 111 personer.\n\n**Svar:** a) Minst 158 personer. b) $n = 158$ gir margin 1,497 min, $n = 157$ gir 1,502 min. c) 111 personer.\n\n**NB — rund alltid OPP.** Krav av typen «marginen skal være høyst …» blir strengere jo mindre $n$ er. Runder du 157,35 ned til 157, bryter du kravet. Dette er en av de vanligste bomtreffene på eksamen."
+    },
+    {
+      "id": "stat-7-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En undersøkelse gir 95 %-intervallet $[42{,}1,\\ 47{,}9]$ for gjennomsnittsalderen $\\mu$ blant medlemmene i en forening. Avgjør om hvert utsagn er riktig eller galt, og begrunn.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«95 % av medlemmene er mellom 42,1 og 47,9 år.»",
+            "solution": "Galt. Intervallet gjelder **gjennomsnittsalderen**, ikke enkeltmedlemmene. Enkeltmedlemmer er langt mer spredt — spredningen deres måles av $s$, ikke av $\\frac{s}{\\sqrt{n}}$."
+          },
+          {
+            "label": "b",
+            "task": "«Gjennomsnittsalderen i utvalget var 45,0 år.»",
+            "solution": "Riktig. $\\bar{x}$ ligger alltid midt i intervallet: $\\frac{42{,}1 + 47{,}9}{2} = 45{,}0$ år.",
+            "answer": 45
+          },
+          {
+            "label": "c",
+            "task": "«Feilmarginen var 2,9 år.»",
+            "solution": "Riktig. Marginen er halve bredden: $\\frac{47{,}9 - 42{,}1}{2} = 2{,}9$ år.",
+            "answer": 2.9
+          },
+          {
+            "label": "d",
+            "task": "«Det er 95 % sannsynlighet for at $\\mu$ ligger mellom 42,1 og 47,9.»",
+            "solution": "Upresist. $\\mu$ er et fast tall — enten ligger den der, eller så gjør den ikke det. Det riktige er at metoden treffer $\\mu$ i 95 % av alle utvalg. Dette intervallet er ett av dem."
+          },
+          {
+            "label": "e",
+            "task": "«Et 99 %-intervall fra de samme dataene ville vært smalere.»",
+            "solution": "Galt. Høyere konfidens gir bredere intervall. Her ville 99 %-marginen vært $\\frac{2{,}576}{1{,}96} \\approx 1{,}31$ ganger så stor, altså omtrent 3,8 år, og intervallet $[41{,}2,\\ 48{,}8]$.",
+            "answer": 1.31
+          }
+        ],
+        "hints": [
+          "Midtpunktet i intervallet er alltid $\\bar{x}$, og halve bredden er alltid feilmarginen."
+        ],
+        "solution": "a) galt (gjelder $\\mu$, ikke enkeltmedlemmer), b) riktig (45,0), c) riktig (2,9), d) upresist (konfidens, ikke sannsynlighet), e) galt (bredere)",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift planlegger en måleserie. Standardavviket er kjent fra før: $\\sigma = 15$ enheter. De vil ha et 95 % konfidensintervall for $\\mu$, og lurer på hvor mange målinger som trengs.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange målinger for margin høyst 5?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96 \\cdot 15}{5}\\right)^2 = 5{,}88^2 \\approx 34{,}6$, altså minst 35 målinger.",
+            "answer": 35
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange for margin høyst 3?",
+            "solution": "$n \\ge \\left(\\frac{29{,}4}{3}\\right)^2 = 9{,}8^2 = 96{,}04$, altså minst 97 målinger.",
+            "answer": 97
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange for margin høyst 1?",
+            "solution": "$n \\ge \\left(\\frac{29{,}4}{1}\\right)^2 = 864{,}36$, altså minst 865 målinger.",
+            "answer": 865
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange for margin høyst 3 hvis de nøyer seg med 90 % konfidens?",
+            "solution": "$n \\ge \\left(\\frac{1{,}645 \\cdot 15}{3}\\right)^2 = 8{,}225^2 \\approx 67{,}65$, altså minst 68 målinger — mot 97 ved 95 %.",
+            "answer": 68
+          },
+          {
+            "label": "e",
+            "task": "Sammenlign a) og c). Marginen ble fem ganger mindre — hvor mange ganger flere målinger kostet det?",
+            "solution": "$\\frac{865}{35} \\approx 24{,}7$ ganger så mange, og $5^2 = 25$. Kostnaden vokser med kvadratet av forbedringen (avviket fra 25 skyldes avrundingen opp til hele målinger).",
+            "answer": 25
+          }
+        ],
+        "hints": [
+          "Formelen $n \\ge \\left(\\frac{z\\sigma}{E}\\right)^2$ er bare kravet $\\frac{z\\sigma}{\\sqrt{n}} \\le E$ løst for $n$."
+        ],
+        "solution": "a) 35, b) 97, c) 865, d) 68, e) omtrent 25 ganger — kvadratet av 5",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Et **konfidensintervall** for $\\mu$ er estimatet med usikkerheten bygd inn:\n\n$$\\bar{x} \\pm z \\cdot \\frac{\\sigma}{\\sqrt{n}}$$\n\n- $z$ kommer fra normalfordelingen: 1,645 ved 90 %, **1,96 ved 95 %**, 2,576 ved 99 %.\n- **Feilmarginen** er $z \\cdot \\frac{\\sigma}{\\sqrt{n}}$, og intervallets bredde er det dobbelte.\n- Er $\\sigma$ ukjent, brukes $s$ — forsvarlig når $n \\ge 30$.\n- **Tolkning:** metoden treffer $\\mu$ i 95 % av alle utvalg. Sannsynligheten gjelder intervallet, ikke $\\mu$.\n- Ligger en påstått verdi **utenfor** intervallet, taler dataene mot påstanden. Ligger den **innenfor**, kan vi ikke utelukke den — det er ikke det samme som at den er riktig.\n- Høyere konfidens gir bredere intervall. Smalere *og* sikrere fås bare ved flere målinger, og antallet vokser med **kvadratet** av forbedringen.\n- Krav om «margin høyst $E$» løses som $n \\ge \\left(\\frac{z\\sigma}{E}\\right)^2$, og svaret rundes alltid **opp**.\n\nI kapittel 7.3 gjør vi det samme for en andel — samme oppskrift, ny standardfeil."
+    },
+    {
+      "id": "stat-7-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En kaffeprodusent skal kontrollere at pakkene holder 500 gram. Kvalitetsavdelingen veier 30 tilfeldige pakker (i gram):\n\n| | | | | | |\n|---|---|---|---|---|---|\n| 498,2 | 501,5 | 496,8 | 503,1 | 499,4 | 500,7 |\n| 497,3 | 502,6 | 498,9 | 501,1 | 495,6 | 504,2 |\n| 499,8 | 500,3 | 497,9 | 502,0 | 496,4 | 503,7 |\n| 500,1 | 498,5 | 501,8 | 499,0 | 502,9 | 497,1 |\n| 500,9 | 498,7 | 503,3 | 496,2 | 501,3 | 499,6 |\n\nLegg tallene i regneark. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\bar{x}$ og $s$, og oppgi funksjonene du brukte.",
+            "solution": "`=GJENNOMSNITT(A1:A30)` gir $\\bar{x} \\approx 499{,}96$ g og `=STDAV.S(A1:A30)` gir $s \\approx 2{,}41$ g.",
+            "answer": 499.96
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen og 95 %-feilmarginen.",
+            "solution": "$SE = \\frac{2{,}41}{\\sqrt{30}} \\approx 0{,}44$ g. Margin: $1{,}96 \\cdot 0{,}439 \\approx 0{,}86$ g. I regneark: `=KONFIDENS.NORM(0,05; STDAV.S(A1:A30); 30)`.",
+            "answer": 0.86
+          },
+          {
+            "label": "c",
+            "task": "Sett opp 95 %-intervallet, og avgjør om 500 gram ligger innenfor.",
+            "solution": "$[499{,}96 - 0{,}86,\\ 499{,}96 + 0{,}86] = [499{,}10,\\ 500{,}82]$. 500 gram ligger godt innenfor — kontrollen gir ingen grunn til å si at pakkene er for lette.",
+            "answer": 499.1
+          },
+          {
+            "label": "d",
+            "task": "Sett opp 99 %-intervallet. Endrer konklusjonen seg?",
+            "solution": "Margin $2{,}576 \\cdot 0{,}439 \\approx 1{,}13$, intervall $[498{,}83,\\ 501{,}09]$. 500 ligger fortsatt innenfor — konklusjonen er den samme, men intervallet er bredere.",
+            "answer": 498.83
+          },
+          {
+            "label": "e",
+            "task": "Produsenten vil ha 95 %-marginen under 0,5 gram. Hvor mange pakker må veies, og hva ville du rådet dem til?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96 \\cdot 2{,}41}{0{,}5}\\right)^2 \\approx 89{,}3$, altså minst 90 pakker (regnet med uavrundet $s$: 88,9, altså 89). Rådet: tre ganger så mange pakker for å halvere marginen er ofte fornuftig i en engangskontroll, men skal kontrollen gjentas hver uke, er det billigere å redusere spredningen $s$ ved å justere maskinen enn å veie flere pakker.",
+            "answer": 89
+          }
+        ],
+        "hints": [
+          "Bruk `=KONFIDENS.NORM(alfa; standardavvik; størrelse)` — den gir feilmarginen direkte, ikke intervallet."
+        ],
+        "solution": "a) $\\bar{x} \\approx 499{,}96$, $s \\approx 2{,}41$, b) $SE \\approx 0{,}44$, margin $\\approx 0{,}86$, c) $[499{,}10,\\ 500{,}82]$ — 500 innenfor, d) $[498{,}83,\\ 501{,}09]$ — samme konklusjon, e) minst 89–90 pakker",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under. Husk at ett moteksempel er nok til å motbevise en påstand.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En klasse regner hver sitt 95 % konfidensintervall fra hvert sitt utvalg — 20 intervaller i alt. Hvor mange bør bomme, og hva er sannsynligheten for at alle 20 treffer?",
+            "solution": "Hvert intervall bommer med sannsynlighet 0,05, så forventet antall bom er $20 \\cdot 0{,}05 = 1$. Sannsynligheten for at alle treffer, er $0{,}95^{20} \\approx 0{,}358$ — altså bommer minst ett intervall i omtrent 64 % av klassene. At noen bommer, er ikke et tegn på regnefeil; det er nettopp det 95 % betyr.",
+            "answer": 0.358
+          },
+          {
+            "label": "b",
+            "task": "«Siden 500 lå inne i intervallet, er maskinen riktig innstilt.» Hva er feilen?",
+            "solution": "At en verdi ligger innenfor, betyr bare at dataene ikke utelukker den. Alle de andre verdiene i intervallet er like lite utelukket. Med et bredt intervall ligger nesten alt innenfor, og da har vi ikke vist noe som helst. Å ikke finne bevis mot noe er ikke det samme som å finne bevis for det."
+          },
+          {
+            "label": "c",
+            "task": "«Vi kunne fått et smalere intervall ved å velge 99 % i stedet for 95 %.» Drøft.",
+            "solution": "Galt — det er motsatt. $z$ vokser fra 1,96 til 2,576, så intervallet blir $\\frac{2{,}576}{1{,}96} \\approx 1{,}31$ ganger bredere. Vil man ha 99 %-intervallet like smalt som 95 %-intervallet, må $n$ ganges med $1{,}31^2 \\approx 1{,}73$.",
+            "answer": 1.73
+          },
+          {
+            "label": "d",
+            "task": "Finnes det et 100 % konfidensintervall?",
+            "solution": "Ikke et brukbart. Normalkurven har hale i det uendelige, så ingen endelig $z$ gir sannsynlighet 1 — selv $z = 4$ gir bare 0,99997. Et 100 %-intervall måtte være uendelig bredt, eller begrenses av fysiske grenser («mellom 0 og 24 timer»), og sier da ingenting."
+          },
+          {
+            "label": "e",
+            "task": "To kommuner måler reisetid. Kommune A får $[25{,}7,\\ 31{,}1]$ og kommune B får $[30{,}2,\\ 34{,}0]$. En avis skriver at «reisetiden i B er lengre enn i A». Er det forsvarlig?",
+            "solution": "Intervallene overlapper i området fra 30,2 til 31,1, så begge kommunene kan i prinsippet ha en $\\mu$ på for eksempel 30,5. Tallene peker mot at B har lengre reisetid, men overlappet gjør at påstanden ikke er sikker ut fra disse intervallene alene. Å sammenligne to grupper krever mer enn å legge to intervaller ved siden av hverandre."
+          }
+        ],
+        "hints": [
+          "I a): «alle 20 treffer» er 20 uavhengige hendelser, hver med sannsynlighet 0,95."
+        ],
+        "solution": "a) ett bom forventet, $0{,}95^{20} \\approx 0{,}358$. b) Ikke utelukket er ikke det samme som bevist. c) Galt — 1,31 ganger bredere. d) Nei, ikke brukbart. e) Nei — intervallene overlapper.",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Konfidensintervall",
+      "definition": "Et intervall $\\bar{x} \\pm z \\cdot \\frac{\\sigma}{\\sqrt{n}}$ som med et uttalt konfidensnivå fanger den ukjente parameteren. Midtpunktet er alltid estimatet."
+    },
+    {
+      "term": "Konfidensnivå",
+      "definition": "Andelen av alle utvalg der metoden treffer parameteren. Ved 95 % bommer omtrent 1 av 20 intervaller — vi vet bare ikke hvilke."
+    },
+    {
+      "term": "Feilmargin",
+      "definition": "Halve bredden av intervallet, $z \\cdot \\frac{\\sigma}{\\sqrt{n}}$. Den krymper med $\\sqrt{n}$: firedobles utvalget, halveres marginen."
+    },
+    {
+      "term": "z-verdi",
+      "definition": "Tallet fra normalfordelingen som svarer til konfidensnivået: 1,645 (90 %), 1,96 (95 %) og 2,576 (99 %)."
+    },
+    {
+      "term": "Signifikansnivå α",
+      "definition": "Risikoen vi aksepterer, $\\alpha = 1 - \\text{konfidensnivå}$. Ved 95 % konfidens er $\\alpha = 0{,}05$, fordelt på 2,5 % i hver hale."
+    }
+  ]
+}

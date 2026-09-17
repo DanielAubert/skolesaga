@@ -1,0 +1,385 @@
+{
+  "id": "stat-2-1",
+  "courseId": "statistikk",
+  "chapterNumber": "2.1",
+  "title": "Spredningsplott og korrelasjon",
+  "description": "Å tegne og lese spredningsplott, og hva positiv, negativ og ingen korrelasjon betyr.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+  ],
+  "content": [
+    {
+      "id": "stat-2-1-section-innledning",
+      "type": "text",
+      "content": "## To variabler om gangen\n\nI kapittel 1 så vi på **én** variabel om gangen: vi regnet ut gjennomsnitt,\nmedian og standardavvik for ett tallmateriale.\n\nMen de fleste spørsmål som er verdt å stille, handler om **to** variabler\nsamtidig:\n\n- Henger boligprisen sammen med hvor stor boligen er?\n- Bruker en barnehage mer strøm i kalde måneder?\n- Sover de som har mye skjermtid, mindre?\n\nFor å svare må vi holde de to tallene for **samme enhet** sammen. Bolig nummer\ntre har både et areal og en pris; de to tallene hører til hverandre og kan ikke\nsorteres hver for seg. Vi arbeider altså med **tallpar** $(x, y)$, ett par per\nenhet.\n\nVerktøyet som gjør slike par synlige, er spredningsplottet."
+    },
+    {
+      "id": "stat-2-1-def-spredningsplott",
+      "type": "definition",
+      "content": "Et **spredningsplott** (også kalt punktdiagram) er en figur der hver enhet er\ntegnet som **ett punkt** $(x_i, y_i)$ i et koordinatsystem.\n\n- På førsteaksen står **forklaringsvariabelen** $x$ — den vi tenker på som\n  «det som kommer først», eller det vi kan endre.\n- På andreaksen står **responsvariabelen** $y$ — den vi vil forklare eller\n  anslå.\n\nHar vi $n$ enheter, får figuren $n$ punkter.\n\n**NB:** Punktene i et spredningsplott skal **ikke** bindes sammen med\nlinjestykker. Et linjediagram sier at det går en utvikling fra det ene punktet\ntil det neste (som fra januar til februar). I et spredningsplott er punktene\nti forskjellige boliger — det finnes ingen vei fra den ene til den andre.",
+      "title": "Spredningsplott"
+    },
+    {
+      "id": "stat-2-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Areal og pris for ti boliger",
+      "problem": "Ti boliger ble solgt i en kommune i løpet av et år. Tabellen viser bruksarealet\nog salgsprisen.\n\n| Bruksareal (m²) | 45 | 52 | 58 | 64 | 70 | 78 | 85 | 92 | 100 | 112 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Pris (mill. kr) | 2,7 | 2,8 | 3,4 | 3,2 | 3,9 | 3,8 | 4,5 | 4,3 | 5,1 | 5,2 |\n\na) Hvilken variabel hører hjemme på førsteaksen?\n\nb) Lag et spredningsplott.\n\nc) Beskriv sammenhengen, og anslå hvor mye prisen stiger per kvadratmeter.",
+      "solution": "**a)** Vi spør hva som forklarer hva: **arealet** kan forklare prisen, mens\nprisen ikke kan forklare arealet — boligen blir ikke større av å bli dyr.\n\n**Svar a):** Arealet er forklaringsvariabelen og skal stå på førsteaksen.\nPrisen er responsvariabelen og står på andreaksen.\n\n**b)** Vi bygger figuren i tre steg.\n\n**Steg 1 — velg aksene.** Arealene ligger mellom $45$ og $112$, prisene mellom\n$2{,}7$ og $5{,}2$. Vi lar førsteaksen gå fra $0$ til $120\\ \\text{m}^2$ med ett\ntall per $10$, og andreaksen fra $0$ til $6$ millioner med ett tall per million.\n\n**Steg 2 — sett av punktene.** Første bolig gir punktet $(45;\\ 2{,}7)$, den\nneste $(52;\\ 2{,}8)$, og slik videre til $(112;\\ 5{,}2)$. Ti par gir ti punkter.\n\n**Steg 3 — merk aksene.** «Bruksareal (m²)» og «Pris (mill. kr)» skrives på\naksene, slik at leseren vet hva tallene er. Punktene bindes ikke sammen.\n\nFiguren under viser resultatet.\n\n![Spredningsplott uten overskrift inne i bildet. Den vannrette aksen viser bruksareal i kvadratmeter fra 0 til 120, med tall for hver tiende. Den loddrette aksen viser pris i millioner kroner fra 0 til 6, med tall for hver million. Ti blå punkter er tegnet, ett for hver bolig: 45 og 2,7; 52 og 2,8; 58 og 3,4; 64 og 3,2; 70 og 3,9; 78 og 3,8; 85 og 4,5; 92 og 4,3; 100 og 5,1; 112 og 5,2. Punktene stiger jevnt fra nede til venstre mot oppe til høyre, og ligger tett rundt en tenkt rett linje, men ikke nøyaktig på den. Punktene er ikke bundet sammen.](/images/content/statistikk/stat-2-1-spredningsplott-bolig.png)\n\n*Ett punkt per bolig. Punktene stiger mot høyre — større bolig, høyere pris — og de ligger tett, men ikke nøyaktig, rundt en rett linje.*\n\n**c)** Punktene stiger fra venstre mot høyre, og de ligger nokså tett rundt en\ntenkt rett linje. Store boliger er altså dyrere enn små — men ikke helt\nregelmessig: boligen på $70\\ \\text{m}^2$ kostet $3{,}9$ millioner, mens den på\n$78\\ \\text{m}^2$ kostet $3{,}8$.\n\nFor å anslå stigningen bruker vi de to ytterste boligene:\n\n$$\\frac{5{,}2 - 2{,}7}{112 - 45} = \\frac{2{,}5}{67} = 0{,}0373\\ldots$$\n\nTallet står i millioner kroner per kvadratmeter. Vi gjør det om:\n\n$$0{,}0373 \\text{ mill. kr} = 37\\,300 \\text{ kr}$$\n\n**Svar c):** Sammenhengen er positiv og nesten lineær. Prisen stiger med\nomtrent $37\\,000$ kroner per kvadratmeter.\n\n**NB:** Anslaget bygger på bare to av de ti boligene — nettopp de to som ligger\nytterst, og som derfor slår hardest ut hvis en av dem er spesiell. I kapittel\n2.3 finner vi stigningstallet som bruker **alle** punktene."
+    },
+    {
+      "id": "stat-2-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Sju hytter leies ut i det samme fjellområdet. Tabellen viser avstanden til\nskitrekket og prisen for én uke i vinterferien.\n\n| Avstand (km) | 0,5 | 1,0 | 2,0 | 3,5 | 5,0 | 7,0 | 10,0 |\n|---|---|---|---|---|---|---|---|\n| Ukespris (kr) | 12 500 | 11 300 | 11 000 | 9 400 | 9 700 | 7 300 | 6 900 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilken variabel setter du på førsteaksen? Begrunn valget.",
+            "solution": "Avstanden. Den kan forklare prisen — en hytte blir ikke flyttet nærmere trekket av at prisen settes opp. Avstanden er forklaringsvariabel, ukesprisen responsvariabel."
+          },
+          {
+            "label": "b",
+            "task": "Lag et spredningsplott med avstand fra $0$ til $10$ km og pris fra $0$ til $13\\,000$ kr.",
+            "solution": "Sju punkter: $(0{,}5;\\ 12\\,500)$, $(1{,}0;\\ 11\\,300)$, $(2{,}0;\\ 11\\,000)$, $(3{,}5;\\ 9\\,400)$, $(5{,}0;\\ 9\\,700)$, $(7{,}0;\\ 7\\,300)$ og $(10{,}0;\\ 6\\,900)$. Punktene faller mot høyre. De bindes ikke sammen.\n\n![Spredningsplott med sju blå punkter. Den vannrette aksen viser avstand til skitrekket i kilometer fra 0 til 10 med tall for hver andre, den loddrette ukespris i kroner fra 0 til 13 000 med tall for hver 2000. Punktene er 0,5 og 12 500; 1,0 og 11 300; 2,0 og 11 000; 3,5 og 9400; 5,0 og 9700; 7,0 og 7300; og 10,0 og 6900. Punktene faller mot høyre, men hytta 5,0 km unna ligger høyere enn hytta 3,5 km unna. Punktene er ikke bundet sammen.](/images/content/statistikk/stat-2-1-spredningsplott-hytte.png)\n\n*Spredningsplottet med aksene oppgaven ber om: avstand 0–10 km og pris 0–13 000 kr. Hvert punkt er én hytte, og punktene bindes ikke sammen. Punktet for 5,0 km ligger over punktet for 3,5 km — unntaket deloppgave e) spør etter.*"
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye billigere er den hytta som ligger lengst unna, enn den som ligger nærmest? Svar i kroner.",
+            "solution": "$12\\,500 - 6\\,900 = 5\\,600$ kroner.",
+            "answer": 5600
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange prosent utgjør dette prisfallet? Rund av til én desimal.",
+            "solution": "$\\frac{6\\,900 - 12\\,500}{12\\,500} = \\frac{-5\\,600}{12\\,500} = -0{,}448 = -44{,}8\\ \\%$.",
+            "answer": -44.8
+          },
+          {
+            "label": "e",
+            "task": "Beskriv retningen i figuren. Er det noe punkt som bryter mønsteret?",
+            "solution": "Retningen er negativ: jo lenger fra trekket, desto lavere ukespris. Ett punkt bryter mønsteret — hytta $5{,}0$ km unna koster $9\\,700$ kroner, altså mer enn hytta $3{,}5$ km unna, som koster $9\\,400$. Sammenhengen er en tendens, ikke en regel som gjelder hver enkelt hytte."
+          }
+        ],
+        "solution": "c) $5\\,600$ kr, d) $-44{,}8\\ \\%$, e) negativ retning, hytta på $5{,}0$ km bryter mønsteret",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ]
+      }
+    },
+    {
+      "id": "stat-2-1-section-retning-form-styrke",
+      "type": "text",
+      "content": "## Retning, form og styrke\n\nEt spredningsplott leses alltid med de samme tre spørsmålene, i denne\nrekkefølgen:\n\n**1. Retning.** Stiger punktskyen mot høyre (**positiv** samvariasjon) eller\nfaller den (**negativ**)? Eller går den verken opp eller ned?\n\n**2. Form.** Følger punktene en **rett linje**, eller bøyer skyen av? En\nsammenheng kan være sterk og likevel ikke være lineær.\n\n**3. Styrke.** Ligger punktene **tett** rundt mønsteret, eller er de spredt\nutover? Jo tettere, desto sikrere kan vi anslå $y$ når vi kjenner $x$.\n\nLegg merke til at spørsmål 2 må besvares før spørsmål 3 er verdt noe: å måle\nhvor tett punktene ligger rundt en **rett linje**, gir ingen mening før vi har\nsett at mønsteret faktisk er en rett linje."
+    },
+    {
+      "id": "stat-2-1-fig-fire-former",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-2-1-fire-former.png",
+      "alt": "Fire punktskyer merket A, B, C og D, hver i sin ramme, uten akser og uten tall — figuren viser FORMER, ikke målte verdier, og er merket illustrasjon nede til høyre. A: tolv punkter som stiger jevnt fra nede til venstre til oppe til høyre, nesten på en rett linje — sterk positiv, tilnærmet lineær. B: tolv punkter som synker fra oppe til venstre mot nede til høyre, men med tydelig sprik rundt retningen — moderat negativ. C: tolv punkter spredt uten noen retning i det hele tatt. D: tolv punkter som følger en tydelig krum bane — stigningen avtar mot høyre.",
+      "caption": "Fire mønstre å kjenne igjen: sterk positiv og tilnærmet lineær (A), moderat negativ (B), ingen sammenheng (C) og krum sammenheng (D). Figuren er en illustrasjon av FORMEN — den har ingen tallsatte akser, fordi punktene er valgt for å vise mønsteret og ikke måle noe.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-2-1-fire-former.json"
+    },
+    {
+      "id": "stat-2-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Å lese fire spredningsplott",
+      "problem": "Beskriv retning, form og styrke i hvert av de fire spredningsplottene A–D i\nfiguren over.",
+      "solution": "Vi tar dem i tur og orden, med de tre spørsmålene i samme rekkefølge hver gang.\n\n**Panel A.** Retning: positiv — punktene stiger mot høyre. Form: rett linje.\nStyrke: sterk; punktene ligger tett inntil linjen. *Her kan vi anslå $y$ ganske\npresist når vi kjenner $x$.*\n\n**Panel B.** Retning: negativ. Form: rett linje. Styrke: moderat; punktene\nligger spredt, men fallet er tydelig. *Retningen er til å stole på; det enkelte\nanslaget er det ikke.*\n\n**Panel C.** Retning: ingen. Punktene stiger verken eller faller. Form og\nstyrke er det da ikke mye å si om. *Å kjenne $x$ hjelper oss ikke til å gjette\n$y$.*\n\n**Panel D.** Retning: stigende, men avtakende. Form: **krum** — først bratt,\nså flatere. Styrke: sterk; punktene ligger tett rundt buen.\n\n**Svar:** A sterk positiv og lineær, B moderat negativ og lineær, C ingen\nsammenheng, D sterk, men ikke lineær.\n\n**Her ser vi at** «sterk» og «lineær» er to forskjellige ting. Punktene i panel D\nligger like tett rundt den krumme banen sin som punktene i A ligger rundt den rette\nlinja si — sammenhengen er altså like sterk. Men den er ikke lineær: tvinger vi en\nrett linje gjennom D, blir avvikene omtrent fire ganger så store som når vi følger\nbuen. «Sterk» sier hvor tett punktene ligger rundt mønsteret; «lineær» sier hvilket\nmønster det er."
+    },
+    {
+      "id": "stat-2-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "For hvert av variabelparene under: anslå om korrelasjonen er positiv, negativ\neller omtrent null, og om du venter en sterk eller svak sammenheng. Begrunn med\nén setning.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Høyden og vekten til $200$ tilfeldig valgte voksne.",
+            "solution": "Positiv og moderat. Høye personer veier stort sett mer, men vekten varierer mye for samme høyde, så punktskyen blir bred."
+          },
+          {
+            "label": "b",
+            "task": "Alderen på en bruktbil og prisen den selges for (samme modell).",
+            "solution": "Negativ og sterk. Prisen faller år for år, og for én og samme modell er det få andre ting som varierer."
+          },
+          {
+            "label": "c",
+            "task": "Skostørrelsen og karakteren i matematikk hos voksne.",
+            "solution": "Omtrent null. De to har ingenting med hverandre å gjøre hos voksne. (Hos barn i alderen $6$–$15$ år ville begge vokst med alderen, og vi ville målt en positiv korrelasjon — uten at føttene lærer matematikk.)"
+          },
+          {
+            "label": "d",
+            "task": "Antall innbyggere i en kommune og antall barnehager i kommunen.",
+            "solution": "Positiv og sterk. Flere innbyggere gir flere barn og dermed flere barnehager. Her er årsaken opplagt, og det er sjelden."
+          },
+          {
+            "label": "e",
+            "task": "Gjennomsnittstemperaturen ute i en måned og strømforbruket til oppvarming i en bolig samme måned.",
+            "solution": "Negativ og sterk. Kaldere vær gir mer oppvarming. Sammenhengen er fysisk, og derfor tett."
+          }
+        ],
+        "solution": "a) positiv, moderat, b) negativ, sterk, c) omtrent null, d) positiv, sterk, e) negativ, sterk",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "hints": [
+          "Spør først: hvis $x$ øker, har vi noen grunn til å tro at $y$ systematisk endrer seg?"
+        ]
+      }
+    },
+    {
+      "id": "stat-2-1-section-korrelasjon",
+      "type": "text",
+      "content": "## Korrelasjonen $r$\n\nBeskrivelser som «sterk» og «moderat» er nyttige, men de er skjønn. Vi trenger\nett tall som måler det samme, slik at to sammenhenger kan sammenlignes.\n\nDet tallet er **korrelasjonskoeffisienten** $r$, ofte bare kalt\n**korrelasjonen**. Den måler hvor godt punktene følger en **rett linje**:\n\n| $r$ | Hva figuren viser |\n|---|---|\n| $r = 1$ | Alle punktene ligger nøyaktig på én stigende rett linje |\n| $r$ nær $1$ | Tett punktsky som stiger |\n| $r = 0$ | Ingen lineær sammenheng |\n| $r$ nær $-1$ | Tett punktsky som faller |\n| $r = -1$ | Alle punktene ligger nøyaktig på én fallende rett linje |\n\n$r$ er alltid et tall mellom $-1$ og $1$. **Fortegnet** gir retningen, og\n**tallverdien** $|r|$ gir styrken. En vanlig, men grov, tommelfingerregel:\n\n- $|r| > 0{,}8$: sterk lineær sammenheng\n- $0{,}5 < |r| < 0{,}8$: moderat\n- $|r| < 0{,}5$: svak\n\nFormelen for $r$, og utregningen for hånd, kommer i kapittel 2.2. Her bruker vi\nverktøyet — og øver på å lese tallet sammen med figuren."
+    },
+    {
+      "id": "stat-2-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Korrelasjonen i regneark",
+      "problem": "Finn korrelasjonen mellom areal og pris for de ti boligene i eksempel 1, med\nregneark og med GeoGebra.",
+      "solution": "**Steg 1 — legg tallene i to kolonner ved siden av hverandre.** Arealene i\nkolonne A, prisene i kolonne B, med overskrift på rad 1:\n\n| | **A** | **B** |\n|---|---|---|\n| **1** | Areal (m²) | Pris (mill. kr) |\n| **2** | 45 | 2,7 |\n| **3** | 52 | 2,8 |\n| **⋮** | ⋮ | ⋮ |\n| **11** | 112 | 5,2 |\n\n*(Kolonnene legges inntil hverandre. Da kan vi markere begge i ett drag, både\ntil diagrammet og til regresjonen i kapittel 2.3.)*\n\n**Steg 2 — lag punktdiagrammet.** Marker $A2:B11$, velg diagramtypen\n**punktdiagram** (spredningsplott), og skriv aksetitler. Da ser vi formen før\nvi regner på den — alltid i den rekkefølgen.\n\n**Steg 3 — regn ut korrelasjonen.** I en ledig celle:\n\n```\n=KORRELASJON(A2:A11;B2:B11)\n```\n\nRegnearket svarer\n\n$$r = 0{,}9713\\ldots \\approx 0{,}971$$\n\n**I GeoGebra** gjør vi det samme med tallene i regnearkfanen, eller direkte med\nkommandolinjene:\n\n```\nL1 = {45, 52, 58, 64, 70, 78, 85, 92, 100, 112}\nL2 = {2.7, 2.8, 3.4, 3.2, 3.9, 3.8, 4.5, 4.3, 5.1, 5.2}\nKorrelasjonskoeffisient(L1, L2)\n```\n\nGeoGebra gir det samme tallet, $0{,}9713$.\n\n**Svar:** $r \\approx 0{,}971$. Sammenhengen mellom areal og pris er sterk,\npositiv og lineær.\n\n**NB:** $r$ har ingen benevning. Det står ikke «$0{,}971$ kroner» eller\n«$0{,}971$ kvadratmeter» — $r$ er et rent forholdstall, og det endrer seg ikke\nom vi bytter fra millioner kroner til kroner, eller fra kvadratmeter til\nkvadratfot."
+    },
+    {
+      "id": "stat-2-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 (digitale verktøy).** En barnehage har registrert gjennomsnittlig\nutetemperatur og strømforbruk for hver måned i ett år.\n\n| Måned | jan | feb | mar | apr | mai | jun | jul | aug | sep | okt | nov | des |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Temperatur (°C) | −4,2 | −3,5 | 0,8 | 4,6 | 10,2 | 14,1 | 16,8 | 15,4 | 11,0 | 5,9 | 0,4 | −2,8 |\n| Strøm (kWh) | 4200 | 3950 | 3500 | 2800 | 2150 | 1700 | 1400 | 1550 | 2050 | 2650 | 3250 | 4000 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Legg tallene i et regneark og lag et punktdiagram med temperatur på førsteaksen.",
+            "solution": "Temperaturene i kolonne A, strømforbruket i kolonne B, og punktdiagram på området $A2:B13$. Punktene faller tydelig mot høyre.\n\n![Punktdiagram med tolv blå punkter, ett per måned. Den vannrette aksen viser temperatur i grader celsius fra minus 6 til 18 med tall for hver fjerde, og y-aksen står ved 0 grader, så de fire kaldeste månedene ligger til venstre for den. Den loddrette aksen viser strøm i kilowattimer fra 0 til 4500 med tall for hver tusen. Punktene faller jevnt mot høyre, fra 4200 kWh ved minus 4,2 grader til 1400 kWh ved 16,8 grader, og ligger tett rundt en tenkt rett linje. Punktene er ikke bundet sammen.](/images/content/statistikk/stat-2-1-punktdiagram-barnehage.png)\n\n*Temperaturen står på førsteaksen fordi den kan forklare strømforbruket. Punktene faller tydelig mot høyre: kaldere måned, mer strøm — og de ligger så tett rundt en rett linje at r blir −0,995 i b).*"
+          },
+          {
+            "label": "b",
+            "task": "Finn korrelasjonen med `=KORRELASJON(...)`. Rund av til tre desimaler.",
+            "solution": "`=KORRELASJON(A2:A13;B2:B13)` gir $r = -0{,}9946\\ldots \\approx -0{,}995$.",
+            "answer": -0.995
+          },
+          {
+            "label": "c",
+            "task": "Beskriv retning, form og styrke.",
+            "solution": "Retningen er negativ, formen er tilnærmet en rett linje, og styrken er svært høy: $|r| = 0{,}995$ er langt over $0{,}8$. Kaldere måned, mer strøm."
+          },
+          {
+            "label": "d",
+            "task": "Hvorfor er $|r|$ høyere her enn for boligene i eksempel 3 ($0{,}971$)?",
+            "solution": "Fordi strømforbruket nesten bare avhenger av temperaturen: bygget, åpningstidene og antall barn er de samme hele året. Boligprisen avhenger derimot også av beliggenhet, standard og hvem som bød — og alt dette sprer punktene."
+          },
+          {
+            "label": "e",
+            "task": "Hva skjer med $r$ hvis strømforbruket oppgis i MWh i stedet for kWh, altså deles på $1000$?",
+            "solution": "Ingenting. $r$ er uten benevning og endrer seg ikke når en variabel ganges eller deles med et positivt tall. Punktdiagrammet får ny akseinndeling, men samme form."
+          }
+        ],
+        "solution": "b) $r \\approx -0{,}995$, c) sterk negativ lineær sammenheng, d) færre andre forhold varierer, e) $r$ er uendret",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-1-warning-bare-lineaer",
+      "type": "warning",
+      "content": "$r = 0$ betyr **ikke** at det ikke finnes noen sammenheng. Det betyr bare at\ndet ikke finnes noen sammenheng som følger en **rett linje**.\n\nDerfor gjelder én regel uten unntak:\n\n> **Tegn spredningsplottet før du regner ut $r$ — og se på det etterpå også.**\n\nEt tall kan ikke fortelle deg hvilken form punktskyen har. Figuren kan.",
+      "title": "NB: $r$ måler bare den LINEÆRE sammenhengen"
+    },
+    {
+      "id": "stat-2-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Når $r = 0$ og sammenhengen likevel er perfekt",
+      "problem": "Et forsøksfelt ble delt i ni ruter som fikk ulik mengde gjødsel. Avlingen ble\nveid.\n\n| Gjødsel (kg per dekar) | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n|---|---|---|---|---|---|---|---|---|---|\n| Avling (100 kg per dekar) | 9 | 16 | 21 | 24 | 25 | 24 | 21 | 16 | 9 |\n\na) Regn ut $r$.\n\nb) Betyr svaret at gjødselmengden ikke påvirker avlingen?",
+      "solution": "**a)** Vi legger tallene i regnearket og bruker\n\n```\n=KORRELASJON(A2:A10;B2:B10)\n```\n\nSvaret er\n\n$$r = 0$$\n\n*Hvorfor det blir nøyaktig null:* gjennomsnittet av gjødselmengdene er $5$, og\ntabellen er **speilsymmetrisk** om $x = 5$. Til hvert avvik $x - 5 = 2$ finnes\net like stort avvik $x - 5 = -2$ med **samme** avling. De to bidragene til\ntelleren i $r$ er like store og har motsatt fortegn, og summen blir null.\n\n**Svar a):** $r = 0$.\n\n**b)** Nei — tvert imot. Tegner vi spredningsplottet, ser vi en tydelig bue:\navlingen stiger til $2\\,500$ kg per dekar ved $5$ kg gjødsel, og synker\nderetter like jevnt igjen. For mye gjødsel skader avlingen.\n\nSammenhengen er så tett som den kan bli — hvert punkt ligger nøyaktig på buen\n$y = 25 - (x-5)^2$ — men den er ikke lineær, og $r$ måler bare det lineære.\n\n![Spredningsplott med ni blå punkter og en oransje bue gjennom dem. Den vannrette aksen viser gjødsel i kg per dekar fra 0 til 10, den loddrette avling i 100 kg per dekar fra 0 til 28. Punktene er (1, 9), (2, 16), (3, 21), (4, 24), (5, 25), (6, 24), (7, 21), (8, 16) og (9, 9). Alle ni ligger nøyaktig på buen y = 25 − (x − 5)², som er merket med likningen sin. En grå stiplet loddrett linje i x = 5 viser at figuren er speilsymmetrisk om den gjennomsnittlige gjødselmengden.](/images/content/statistikk/stat-2-1-parabel-gjodsel.png)\n\n*Sammenhengen er så tett som den kan bli — hvert punkt ligger nøyaktig på buen — men den er ikke lineær, og derfor er r = 0. Speilsymmetrien om x = 5 er grunnen til at telleren i r blir null.*\n\n**Svar b):** Nei. $r = 0$ betyr at ingen rett linje beskriver punktene, ikke at\ngjødsel er uten virkning. Her er virkningen krum, og den ville en rett\nregresjonslinje bomme fullstendig på.\n\n**Andre muligheter:** Skal en slik sammenheng tallfestes, kan vi bruke\nkvadratisk regresjon i stedet, eller dele materialet i to — $1$–$5$ kg og\n$5$–$9$ kg — og regne korrelasjonen i hver del for seg. I hver halvdel er\nsammenhengen nesten perfekt lineær."
+    },
+    {
+      "id": "stat-2-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 (uten hjelpemidler).** Tre datasett har de samme $x$-verdiene\n$1, 2, 3, 4, 5, 6, 7$. Bestem $r$ i hvert tilfelle ved å tenke, ikke ved å\nregne.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$y$-verdiene er $3, 5, 7, 9, 11, 13, 15$.",
+            "solution": "Hver gang $x$ øker med $1$, øker $y$ med $2$. Punktene ligger nøyaktig på den stigende linja $y = 2x + 1$, og da er $r = 1$.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "$y$-verdiene er $15, 13, 11, 9, 7, 5, 3$.",
+            "solution": "Nå faller $y$ med $2$ hver gang $x$ øker med $1$. Punktene ligger nøyaktig på den fallende linja $y = -2x + 17$, og da er $r = -1$.",
+            "answer": -1
+          },
+          {
+            "label": "c",
+            "task": "$y$-verdiene er $4, 9, 12, 13, 12, 9, 4$.",
+            "solution": "Verdiene stiger til $13$ og faller like symmetrisk tilbake. Materialet er speilsymmetrisk om $x = 4$, akkurat som i eksempel 4, så $r = 0$.",
+            "answer": 0
+          },
+          {
+            "label": "d",
+            "task": "Hvilket av de tre datasettene har den sterkeste sammenhengen mellom $x$ og $y$?",
+            "solution": "Det kommer an på hva vi mener. Målt med $r$ er a) og b) like sterke ($|r| = 1$) og c) svakest ($r = 0$). Men i c) ligger punktene nøyaktig på en bue, så $y$ er like nøyaktig bestemt av $x$ der som i de to andre. Alle tre sammenhengene er i den forstand perfekte."
+          },
+          {
+            "label": "e",
+            "task": "Hva ville skjedd med $r$ i a) hvis alle $y$-verdiene ble doblet?",
+            "solution": "$r$ ville fortsatt vært $1$. Punktene ligger fremdeles nøyaktig på en stigende rett linje, bare en brattere en. $r$ måler ikke hvor bratt linja er, bare hvor godt punktene følger den."
+          }
+        ],
+        "solution": "a) $r = 1$, b) $r = -1$, c) $r = 0$, d) $|r|$ er størst i a) og b), men c) er like «perfekt», e) $r = 1$ fortsatt",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "hints": [
+          "Ligger punktene nøyaktig på en rett linje, er $r$ enten $1$ eller $-1$."
+        ]
+      }
+    },
+    {
+      "id": "stat-2-1-tip-oppskrift",
+      "type": "tip",
+      "content": "**I regneark**\n\n1. Legg $x$-verdiene i kolonne A og $y$-verdiene i kolonne B, med overskrift på\n   rad 1. Kolonnene skal ligge **inntil hverandre**.\n2. Marker begge kolonnene med data.\n3. Velg diagramtypen **punktdiagram** (spredningsplott) — ikke linjediagram.\n4. Skriv aksetitler med enhet.\n5. Korrelasjonen: `=KORRELASJON(A2:A11;B2:B11)`.\n\n**I GeoGebra**\n\n```\nL1 = {45, 52, 58, 64, 70, 78, 85, 92, 100, 112}\nL2 = {2.7, 2.8, 3.4, 3.2, 3.9, 3.8, 4.5, 4.3, 5.1, 5.2}\nKorrelasjonskoeffisient(L1, L2)\n```\n\nPunktene kan også legges inn som en liste av tallpar: `{(45, 2.7), (52, 2.8), …}`.\nDa tegnes de rett i grafikkfeltet.\n\n**På eksamen** er regnearket hovedverktøyet i Del 2. Kjenner du begge veier,\nhar du en kontroll: får de to verktøyene samme $r$, har du sannsynligvis tastet\nriktig.",
+      "title": "Slik lager du et spredningsplott"
+    },
+    {
+      "id": "stat-2-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** Ti ungdomsskoler har rapportert gjennomsnittlig\nskjermtid på fritiden og gjennomsnittlig søvnlengde for elevene sine.\n\n| Skjermtid (timer per dag) | 2,1 | 2,4 | 2,8 | 3,0 | 3,3 | 3,6 | 3,9 | 4,2 | 4,6 | 5,1 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Søvn (timer per natt) | 8,5 | 7,9 | 8,3 | 7,6 | 8,0 | 7,4 | 7,8 | 7,0 | 7,3 | 6,9 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag et spredningsplott i regneark.",
+            "solution": "Skjermtid i kolonne A, søvn i kolonne B, punktdiagram på $A2:B11$. Punktene faller mot høyre, men ligger tydelig spredt.\n\n![Spredningsplott med ti blå punkter, ett per skole. Den vannrette aksen viser skjermtid i timer per dag fra 0 til 6 med tall for hvert hele, den loddrette søvn i timer per natt. Den loddrette aksen har et markert brudd mellom 0,5 og 6 timer — to skrå streker — og over bruddet står tallene 6,5, 7,5 og 8,5. Punktene faller mot høyre, fra 8,5 timer søvn ved 2,1 timer skjermtid til 6,9 timer søvn ved 5,1 timer skjermtid, men de ligger tydelig spredt rundt retningen: skolen med 2,8 timer skjermtid har mer søvn enn skolen med 2,4.](/images/content/statistikk/stat-2-1-spredningsplott-skjermtid-sovn.png)\n\n*Punktene faller mot høyre, men sprer seg tydelig rundt retningen — det er den spredningen som gjør at r blir −0,864 og ikke nærmere −1. Den loddrette aksen har et markert brudd, slik kapittel 1.6 krever når aksen ikke starter i null.*"
+          },
+          {
+            "label": "b",
+            "task": "Finn korrelasjonen. Rund av til tre desimaler.",
+            "solution": "`=KORRELASJON(A2:A11;B2:B11)` gir $r = -0{,}8637\\ldots \\approx -0{,}864$.",
+            "answer": -0.864
+          },
+          {
+            "label": "c",
+            "task": "Beskriv retning, form og styrke, og si hva tallet betyr for hvor godt vi kan anslå søvnlengden.",
+            "solution": "Negativ retning, tilnærmet lineær form, sterk styrke ($|r| = 0{,}864 > 0{,}8$). Vi kan anslå søvnlengden for en skole ut fra skjermtiden, men med god margin: to skoler med nesten lik skjermtid ($3{,}3$ og $3{,}6$) skiller seg med $0{,}6$ timer i søvn."
+          },
+          {
+            "label": "d",
+            "task": "En av skolene blir ført feil: $2{,}1$ blir tastet som $12{,}1$. Hva blir $r$ da, og hva lærer vi av det?",
+            "solution": "Med $12{,}1$ i stedet for $2{,}1$ blir $r = 0{,}325$. Ett eneste feil tall snur altså både fortegnet og konklusjonen. Lærdommen er at $r$ er følsom for enkeltpunkter som ligger langt ute — og at spredningsplottet ville avslørt tastefeilen med én gang, fordi punktet ville ligget alene langt til høyre.\n\n![To spredningsplott merket A og B med nøyaktig samme akser: vannrett skjermtid (timer) tallsatt 2, 4, 6, 8, 10 og 12, loddrett søvn (timer) tallsatt 6,5 til 9,0 i halvtimessteg. I A ligger de ti punktene mellom 2,1 og 5,1 timer skjermtid og faller jevnt fra 8,5 til 6,9 timer søvn; i panelet står riktige tall: r = −0,864. I B er ett av punktene flyttet til 12,1 timer skjermtid mens søvnen er den samme 8,5 timer, så punktet ligger alene helt til høyre; i panelet står med tastefeilen 12,1: r = 0,325.](/images/content/statistikk/stat-2-1-tastefeil.png)\n\n*Ett eneste feiltastet tall snur både fortegnet og konklusjonen. Spredningsplottet ville avslørt tastefeilen med én gang — punktet ligger alene langt til høyre.*",
+            "answer": 0.325
+          },
+          {
+            "label": "e",
+            "task": "Kan vi konkludere med at mye skjermtid gir mindre søvn?",
+            "solution": "Nei. Tallene viser at de to henger sammen, ikke at den ene forårsaker den andre. Det kan like gjerne være at elever som sover lite, får flere våkne timer å bruke på skjerm, eller at en tredje forklaring — for eksempel hvor mye organisert fritidsaktivitet elevene har — påvirker begge. Vi ser nærmere på dette i kapittel 2.4."
+          }
+        ],
+        "solution": "b) $r \\approx -0{,}864$, c) sterk negativ lineær sammenheng, d) $r = 0{,}325$ — én tastefeil snur konklusjonen, e) nei, korrelasjon er ikke årsak",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** To spredningsplott er laget av de samme $30$ personene.\nDet ene viser høyde mot vekt, det andre viser høyde mot skostørrelse. Begge gir\n$r \\approx 0{,}75$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva betyr det at de to korrelasjonene er like store?",
+            "solution": "At punktene ligger like tett rundt hver sin rette linje. Det sier ingenting om hvor bratte de to linjene er, og heller ingenting om hvor mye vekt eller skostørrelse varierer i gruppen."
+          },
+          {
+            "label": "b",
+            "task": "Kan vi si at høyde «forklarer like mye» av vekten som av skostørrelsen?",
+            "solution": "I den forstand $r$ måler, ja: den lineære delen av variasjonen er like stor i begge. Men forklaringen er ikke den samme — høyde og skostørrelse henger sammen fordi kroppen vokser samlet, mens vekt også avhenger av mye annet enn høyde."
+          },
+          {
+            "label": "c",
+            "task": "Gruppen utvides med $30$ barn i alderen $6$–$12$ år. Hva tror du skjer med de to korrelasjonene?",
+            "solution": "Begge går opp, trolig godt over $0{,}9$. Barna er både lavere, lettere og har mindre føtter, så punktskyene strekkes langs den samme linja. **Dette er en viktig felle:** en korrelasjon kan gjøres nesten så sterk man vil ved å utvide utvalget med enheter som er svært forskjellige. Tallet beskriver utvalget, ikke bare sammenhengen."
+          },
+          {
+            "label": "d",
+            "task": "Hvilke opplysninger må stå ved siden av en oppgitt $r$-verdi før den kan vurderes?",
+            "solution": "Hvor mange enheter $n$ tallet bygger på, hvem eller hva enhetene er, hvilket område $x$-verdiene dekker, og gjerne selve spredningsplottet. Uten dette kan ikke $r$ tolkes — jamfør sjekklisten i kapittel 1.6."
+          },
+          {
+            "label": "e",
+            "task": "Lag din egen undersøkelse: velg to variabler du kan måle i klassen, samle inn minst $15$ par, lag spredningsplott og regn ut $r$. Skriv tre setninger om retning, form og styrke.",
+            "solution": "Svaret avhenger av dataene. Et fullstendig svar har med: hva enhetene er, hvordan variablene ble målt, figuren med aksetitler, $r$ oppgitt med tre desimaler, og en vurdering som nevner både retning, form og styrke — og som ikke påstår noe om årsak."
+          }
+        ],
+        "solution": "a) like tette punktskyer, b) ja om den lineære delen, c) begge stiger — utvalget avgjør, d) $n$, enhetene, $x$-området og figuren, e) egen undersøkelse",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon"
+        ],
+        "isInvestigation": true
+      }
+    },
+    {
+      "id": "stat-2-1-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Begrep | Hva det er | Hva du gjør |\n|---|---|---|\n| Spredningsplott | Ett punkt $(x, y)$ per enhet | Tegn det **først**, aldri med linjer mellom punktene |\n| Forklaringsvariabel | Den som står på førsteaksen | Spør: hva kan forklare hva? |\n| Retning | Stiger eller faller skyen | Les fra venstre mot høyre |\n| Form | Rett linje eller bue | Avgjør om $r$ i det hele tatt er riktig mål |\n| Styrke | Hvor tett punktene ligger | Tett sky gir $r$ nær $1$ eller $-1$ |\n| Korrelasjonen $r$ | Tall mellom $-1$ og $1$ | `=KORRELASJON(...)` eller `Korrelasjonskoeffisient(L1, L2)` |\n\n### Husk\n- $r$ måler **bare** hvor godt punktene følger en **rett linje**.\n- $r = 0$ kan bety at det ikke er noen sammenheng — eller at sammenhengen er\n  krum. Bare figuren skiller de to tilfellene.\n- $r$ er uten benevning og endrer seg ikke om måleenheten endres.\n- Ett enkelt feilført tall kan snu $r$ helt. Se på figuren før du stoler på\n  tallet.\n- Sterk korrelasjon er **ikke** det samme som årsak. Det er tema i kapittel 2.4."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Spredningsplott",
+      "definition": "Figur der hver enhet tegnes som ett punkt (x, y). Punktene bindes aldri sammen med linjer."
+    },
+    {
+      "term": "Forklaringsvariabel",
+      "definition": "Variabelen på førsteaksen — den vi bruker til å forklare eller anslå den andre."
+    },
+    {
+      "term": "Responsvariabel",
+      "definition": "Variabelen på andreaksen — den vi vil forklare eller anslå."
+    },
+    {
+      "term": "Korrelasjon",
+      "definition": "Samvariasjon som følger en rett linje. Måles med korrelasjonskoeffisienten r."
+    },
+    {
+      "term": "Korrelasjonskoeffisienten r",
+      "definition": "Tall mellom −1 og 1. Fortegnet gir retningen, tallverdien gir styrken på den lineære sammenhengen."
+    },
+    {
+      "term": "Uteligger",
+      "definition": "Et punkt som ligger langt fra resten av punktskyen, og som kan endre r kraftig."
+    }
+  ]
+}

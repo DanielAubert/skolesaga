@@ -1,0 +1,501 @@
+{
+  "id": "matok-6-2",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "6.2",
+  "title": "Momentan vekstfart og den deriverte",
+  "description": "Fra sekant til tangent; den deriverte som momentan endring.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+  ],
+  "keyTerms": [
+    {
+      "term": "Momentan vekstfart",
+      "definition": "Vekstfarten i ett bestemt punkt, altså den gjennomsnittlige vekstfarten når intervallet krymper mot null."
+    },
+    {
+      "term": "Den deriverte",
+      "definition": "$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$ — funksjonen som gir den momentane vekstfarten i hvert punkt."
+    },
+    {
+      "term": "Tangent",
+      "definition": "Den rette linja som berører grafen i ett punkt og har samme stigningstall som grafen der. Stigningstallet er $f'(a)$."
+    },
+    {
+      "term": "Grenseverdi",
+      "definition": "Verdien et uttrykk nærmer seg når en variabel nærmer seg et tall. Skrives $\\lim$ (av latin *limes*, «grense»)."
+    },
+    {
+      "term": "$h$",
+      "definition": "Den lille endringen i $x$ vi lar gå mot null. Noen bøker skriver $\\Delta x$ i stedet — det er samme størrelse."
+    }
+  ],
+  "content": [
+    {
+      "id": "matok-6-2-intro",
+      "type": "text",
+      "content": "## Fra hele intervallet til ett punkt\n\nI 6.1 regnet vi ut vekstfarten over et intervall. Men en bedriftsleder spør sjelden «hva har kostnaden vokst med i gjennomsnitt de siste hundre enhetene?». Hun spør: **«Hva koster det oss å lage én enhet til — akkurat nå?»**\n\nDet er et spørsmål om vekstfarten i ett bestemt punkt. Vi kaller den **momentan vekstfart** (av latin *momentum*, «øyeblikk»).\n\nProblemet er at formelen vår ikke tåler det. Setter vi $a = b$, blir nevneren $b - a = 0$, og vi kan ikke dele på null. Løsningen er ikke å sette dem like, men å la dem **nærme seg** hverandre og se hvor svaret havner."
+    },
+    {
+      "id": "matok-6-2-tekst-krymp",
+      "type": "text",
+      "content": "## La intervallet krympe\n\nVi holder det ene punktet fast i $x = a$ og flytter det andre nærmere og nærmere. Kaller vi avstanden mellom dem $h$, blir det andre punktet $a + h$, og den gjennomsnittlige vekstfarten er\n\n$$\\frac{f(a + h) - f(a)}{(a + h) - a} = \\frac{f(a + h) - f(a)}{h}$$\n\n(Nevneren: $(a + h) - a = h$. Vi skriver vanligvis ikke mellomregningen, men den er verdt å se én gang — det er derfor $h$ står alene nede.)\n\nSå gjør vi $h$ mindre og mindre og ser hva brøken nærmer seg."
+    },
+    {
+      "id": "matok-6-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Vi lar intervallet krympe (bakeriet fra 6.1)",
+      "problem": "Bakeriet har kostnadene $K(x) = 0{,}05x^2 + 12x + 4000$ kroner per dag ved $x$ brød.\n\nUndersøk hva den gjennomsnittlige vekstfarten fra $x = 100$ nærmer seg når intervallet krymper.",
+      "solution": "Vi har $K(100) = 5700$ fra 6.1. Så regner vi ut den gjennomsnittlige vekstfarten for stadig mindre $h$:\n\n| $h$ | $K(100 + h)$ | $\\dfrac{K(100+h) - K(100)}{h}$ |\n|---|---|---|\n| $10$ | $5925$ | $22{,}5$ |\n| $1$ | $5722{,}05$ | $22{,}05$ |\n| $0{,}1$ | $5702{,}2005$ | $22{,}005$ |\n| $0{,}01$ | $5700{,}220005$ | $22{,}0005$ |\n| $0{,}001$ | $5700{,}02200005$ | $22{,}00005$ |\n\nTallene i siste kolonne nærmer seg $22$, og de kommer nærmere for hvert steg.\n\n![Tre paneler: A og B øverst, C nederst til venstre. Alle tre har tallmerkede akser og viser den samme kostnadskurven K(x) i blått og en rød sekant fra punktet ved x lik 100, men i stadig trangere vindu: x fra 97 til 113 i A, fra 99,7 til 101,3 i B og fra 99,97 til 100,13 i C — altså h = 10, h = 1 og h = 0,1. Sekantens stigningstall er merket 22,5 i panel A, 22,05 i panel B og 22,005 i panel C. Kurven og sekanten ligger så tett sammen at de ikke kan skilles med øyet i noe av panelene; det er aksetallene og de tre stigningstallene som viser krympingen.](/images/content/matematikk-okonomi/matok-6-2-krymp.png)\n\n*Krympetabellen som bilde: $22{,}5 \\to 22{,}05 \\to 22{,}005$, på vei mot $K'(100) = 22$. Grenseverdien er ikke noe man må tro på — den er noe man ser.*\n\n**Svar:** Den momentane vekstfarten i $x = 100$ ser ut til å være $22$ kroner per brød.\n\nNB: Vi har ikke *bevist* noe her — vi har sett en tendens. Neste eksempel viser hvordan vi regner ut tallet eksakt, uten å prøve oss fram."
+    },
+        {
+      "id": "matok-6-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-2-oppg-1",
+        "number": "6.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme undersøkelsen for kostnadsfunksjonen $K(x) = 0{,}02x^2 + 30x + 5000$ kroner, med utgangspunkt i $x = 150$. Du får bruke kalkulator eller regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut $K(150)$.",
+            "solution": "$K(150) = 0{,}02 \\cdot 22\\,500 + 30 \\cdot 150 + 5000 = 450 + 4500 + 5000 = 9950$ kr",
+            "answer": 9950
+          },
+          {
+            "label": "b",
+            "task": "Finn den gjennomsnittlige vekstfarten fra $x = 150$ med $h = 10$.",
+            "solution": "$K(160) = 10\\,312$. $\\frac{10\\,312 - 9950}{10} = \\frac{362}{10} = 36{,}2$ kr per enhet",
+            "answer": 36.2
+          },
+          {
+            "label": "c",
+            "task": "Gjenta med $h = 1$.",
+            "solution": "$K(151) = 9986{,}02$. $\\frac{9986{,}02 - 9950}{1} = 36{,}02$ kr per enhet",
+            "answer": 36.02
+          },
+          {
+            "label": "d",
+            "task": "Gjenta med $h = 0{,}1$.",
+            "solution": "$K(150{,}1) = 9953{,}6002$. $\\frac{9953{,}6002 - 9950}{0{,}1} = 36{,}002$ kr per enhet",
+            "answer": 36.002
+          },
+          {
+            "label": "e",
+            "task": "Hvilket tall nærmer vekstfarten seg?",
+            "solution": "$36$ kroner per enhet.",
+            "answer": 36
+          }
+        ],
+        "solution": "a) 9950 kr, b) 36,2, c) 36,02, d) 36,002, e) 36 kroner per enhet",
+        "hints": [
+          "Sett opp en kolonne med $h$, en med $K(150 + h)$ og en med brøken.",
+          "Se på hvor mange desimaler som «låser seg» for hvert steg."
+        ],
+        "competenceGoals": [
+          "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+        ],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-6-2-def-derivert",
+      "type": "definition",
+      "title": "Den deriverte",
+      "content": "Den **momentane vekstfarten** til $f$ i punktet $x = a$ kalles **den deriverte av $f$ i $a$** og skrives $f'(a)$ («f derivert av a»):\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a + h) - f(a)}{h}$$\n\nSymbolet $\\lim$ leses «grenseverdien når …». $h \\to 0$ betyr at $h$ nærmer seg null — men aldri ER null, for da hadde vi delt på null.\n\nGjør vi det samme for alle $x$ i stedet for ett bestemt $a$, får vi **den deriverte funksjonen** $f'(x)$. Den gir vekstfarten i hvert eneste punkt."
+    },
+    {
+      "id": "matok-6-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Den deriverte regnet ut fra definisjonen",
+      "problem": "Bruk definisjonen til å finne $K'(x)$ når $K(x) = 0{,}05x^2 + 12x + 4000$. Finn så $K'(100)$.",
+      "solution": "**Hva vet vi?** Vi skal sette opp brøken $\\dfrac{K(x + h) - K(x)}{h}$, forenkle den så langt at $h$ forsvinner fra nevneren, og så la $h$ gå mot null.\n\n**Steg 1 — finn $K(x + h)$.** Overalt der det står $x$, setter vi inn $x + h$:\n\n$$K(x + h) = 0{,}05(x + h)^2 + 12(x + h) + 4000$$\n$$K(x + h) = 0{,}05(x^2 + 2xh + h^2) + 12x + 12h + 4000$$\n$$K(x + h) = 0{,}05x^2 + 0{,}1xh + 0{,}05h^2 + 12x + 12h + 4000$$\n\n**Steg 2 — trekk fra $K(x)$.** Nå ser vi hvorfor dette går bra: alle ledd uten $h$ i seg står i begge uttrykkene og faller bort.\n\n$$K(x + h) - K(x) = 0{,}1xh + 0{,}05h^2 + 12h$$\n\n**Steg 3 — del på $h$.** Hvert ledd har en faktor $h$, så vi kan forkorte:\n\n$$\\frac{K(x+h) - K(x)}{h} = \\frac{h(0{,}1x + 0{,}05h + 12)}{h} = 0{,}1x + 0{,}05h + 12$$\n\n**Steg 4 — la $h$ gå mot null.** Nå står $h$ bare i ett ledd, og $0{,}05h$ blir mindre og mindre:\n\n$$K'(x) = \\lim_{h \\to 0} \\left(0{,}1x + 0{,}05h + 12\\right) = 0{,}1x + 12$$\n\n**Steg 5 — sett inn $x = 100$:**\n\n$$K'(100) = 0{,}1 \\cdot 100 + 12 = 10 + 12 = 22$$\n\n**Svar:** $K'(x) = 0{,}1x + 12$, og $K'(100) = 22$ kroner per brød.\n\nDet er nøyaktig tallet vi nærmet oss i Eksempel 1 — men nå vet vi det, vi gjetter det ikke."
+    },
+    {
+      "id": "matok-6-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-2-oppg-2",
+        "number": "6.2.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk definisjonen av den deriverte på funksjonen $f(x) = 3x^2 - 5x$. Følg de samme stegene som i Eksempel 2.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $f(x + h)$ og gang ut.",
+            "solution": "$f(x+h) = 3(x+h)^2 - 5(x+h) = 3x^2 + 6xh + 3h^2 - 5x - 5h$",
+            "expressionAnswer": "3x^2+6xh+3h^2-5x-5h"
+          },
+          {
+            "label": "b",
+            "task": "Regn ut $f(x + h) - f(x)$.",
+            "solution": "$6xh + 3h^2 - 5h$ — alle ledd uten $h$ faller bort.",
+            "expressionAnswer": "6xh+3h^2-5h"
+          },
+          {
+            "label": "c",
+            "task": "Del på $h$ og forkort.",
+            "solution": "$\\frac{h(6x + 3h - 5)}{h} = 6x + 3h - 5$",
+            "expressionAnswer": "6x+3h-5"
+          },
+          {
+            "label": "d",
+            "task": "La $h \\to 0$ og skriv opp $f'(x)$.",
+            "solution": "$f'(x) = 6x - 5$",
+            "expressionAnswer": "6x-5"
+          },
+          {
+            "label": "e",
+            "task": "Finn $f'(4)$.",
+            "solution": "$f'(4) = 6 \\cdot 4 - 5 = 24 - 5 = 19$",
+            "answer": 19
+          }
+        ],
+        "solution": "a) $3x^2 + 6xh + 3h^2 - 5x - 5h$, b) $6xh + 3h^2 - 5h$, c) $6x + 3h - 5$, d) $f'(x) = 6x - 5$, e) 19",
+        "hints": [
+          "Bruk første kvadratsetning på $(x+h)^2$.",
+          "Alle ledd som ikke inneholder $h$, skal falle bort i b). Gjør de ikke det, er det en regnefeil."
+        ],
+        "competenceGoals": [
+          "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-2-tekst-tolkning",
+      "type": "text",
+      "content": "## Hva den deriverte betyr i økonomi\n\nDen deriverte har samme enhet som den gjennomsnittlige vekstfarten: enheten til $f$ per enhet til $x$.\n\n| Funksjon | Den deriverte | Tolkning |\n|---|---|---|\n| $K(x)$ — kostnad ved $x$ enheter | $K'(x)$ | kostnaden ved å lage én enhet til (**grensekostnad**, 6.5) |\n| $I(x)$ — inntekt ved $x$ enheter | $I'(x)$ | inntekten av å selge én enhet til (**grenseinntekt**, 6.5) |\n| $O(x)$ — overskudd ved $x$ enheter | $O'(x)$ | hvor mye overskuddet endrer seg av én enhet til |\n| $E(p)$ — etterspørsel ved pris $p$ | $E'(p)$ | hvor mange færre enheter vi selger per krone prisøkning |\n\n**Fortegnet bærer beskjeden:**\n- $f'(a) > 0$ — funksjonen vokser i $a$.\n- $f'(a) < 0$ — funksjonen synker i $a$.\n- $f'(a) = 0$ — funksjonen står stille akkurat der. Dette punktet skal vi jakte på i 6.4."
+    },
+    {
+      "id": "matok-6-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hva 22 kroner egentlig betyr",
+      "problem": "Bakeriet har $K'(x) = 0{,}1x + 12$, og vi fant $K'(100) = 22$ kroner per brød.\n\nHvor mye øker kostnaden faktisk hvis de baker brød nummer 101?",
+      "solution": "**Den eksakte økningen** er differansen mellom kostnaden ved 101 og ved 100 brød:\n\n$$K(101) - K(100) = 5722{,}05 - 5700 = 22{,}05$$\n\n**Den deriverte sa** $22$ kroner.\n\nForskjellen er $5$ øre. Den deriverte er altså ikke det nøyaktige svaret på «hva koster brød nummer 101», men den er svært nær — og den er mye lettere å regne med, fordi vi får en formel som gjelder for alle $x$ på én gang.\n\n**Svar:** Kostnaden øker med $22{,}05$ kroner. Den deriverte, $22$ kroner, er en god tilnærming.\n\nSlik brukes den deriverte i økonomi: som **kostnaden ved den neste enheten**. Vi kommer tilbake til dette som *grensekostnad* i 6.5."
+    },
+    {
+      "id": "matok-6-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-2-oppg-3",
+        "number": "6.2.3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar i hvert tilfelle hva tallet betyr for bedriften. Husk enheten.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En bedrift har $K'(500) = 84$, der $K(x)$ er kroner og $x$ er antall enheter.",
+            "solution": "Når bedriften produserer 500 enheter, koster det omtrent 84 kroner å produsere én enhet til."
+          },
+          {
+            "label": "b",
+            "task": "Den samme bedriften har $I'(500) = 120$.",
+            "solution": "Ved 500 enheter gir én enhet til omtrent 120 kroner i inntekt."
+          },
+          {
+            "label": "c",
+            "task": "Hva blir $O'(500)$, og hva forteller det?",
+            "solution": "$O(x) = I(x) - K(x)$, så $O'(500) = 120 - 84 = 36$. Én enhet til øker overskuddet med omtrent 36 kroner — bedriften bør produsere mer.",
+            "answer": 36
+          },
+          {
+            "label": "d",
+            "task": "For en annen vare er $E'(60) = -14$, der $E(p)$ er antall solgte enheter ved prisen $p$ kroner.",
+            "solution": "Når prisen er 60 kroner, selger bedriften omtrent 14 færre enheter for hver krone de setter prisen opp."
+          },
+          {
+            "label": "e",
+            "task": "En tredje bedrift har $O'(900) = -25$. Bør de produsere mer eller mindre enn 900 enheter?",
+            "solution": "Mindre. Den siste enheten trekker overskuddet ned med omtrent 25 kroner, så de har produsert forbi det beste punktet."
+          }
+        ],
+        "solution": "a) ca. 84 kr for én enhet til, b) ca. 120 kr i inntekt for én enhet til, c) 36 kr — overskuddet vokser, d) ca. 14 færre solgte enheter per krone prisøkning, e) mindre enn 900 enheter",
+        "hints": [
+          "Enheten til den deriverte er «enheten til $f$ per enhet til $x$».",
+          "$O(x) = I(x) - K(x)$, og da er $O'(x) = I'(x) - K'(x)$."
+        ],
+        "competenceGoals": [
+          "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+        ],
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "matok-6-2-tekst-tangent",
+      "type": "text",
+      "content": "## Sekanten blir en tangent\n\nI 6.1 så vi at den gjennomsnittlige vekstfarten er stigningstallet til **sekanten** gjennom to punkter på grafen.\n\nNår vi lar $h \\to 0$, glir det ene punktet inn mot det andre. Sekanten svinger da over i den linja som bare berører grafen i ett punkt — **tangenten** (av latin *tangere*, «å berøre»).\n\nDen deriverte er derfor to ting på én gang:\n\n- **momentan vekstfart** — hvor fort funksjonen endrer seg akkurat der\n- **stigningstallet til tangenten** i punktet\n\nFiguren under viser det: sekantene fra $x = 100$ til $300$, $200$, $150$ og $110$ har stigningstall $50$, $60$, $65$ og $69$ — og tangenten, helt innerst, har stigningstall $70$."
+    },
+    {
+      "id": "matok-6-2-fig-sekant-til-tangent",
+      "type": "dynamic-plot",
+      "title": "Sekantene nærmer seg tangenten i x = 100",
+      "description": "Inntektskurven med fire sekanter fra punktet (100, 8000) ut til stadig nærmere punkter, og tangenten innerst. Jo nærmere det andre punktet ligger, desto brattere ligger sekanten — helt til den faller sammen med tangenten.",
+      "xRange": [
+        0,
+        400
+      ],
+      "yRange": [
+        0,
+        21000
+      ],
+      "xLabel": "x (antall enheter)",
+      "yLabel": "kroner",
+      "functions": [
+        {
+          "label": "$I(x) = 90x - 0{,}1x^2$",
+          "expression": "90*x - 0.1*x^2",
+          "style": "solid"
+        },
+        {
+          "label": "sekant til $x=300$ ($a = 50$)",
+          "expression": "50*x + 3000",
+          "style": "dotted"
+        },
+        {
+          "label": "sekant til $x=200$ ($a = 60$)",
+          "expression": "60*x + 2000",
+          "style": "dotted"
+        },
+        {
+          "label": "sekant til $x=150$ ($a = 65$)",
+          "expression": "65*x + 1500",
+          "style": "dashed"
+        },
+        {
+          "label": "sekant til $x=110$ ($a = 69$)",
+          "expression": "69*x + 1100",
+          "style": "dashed"
+        },
+        {
+          "label": "tangent i $x=100$ ($a = 70$)",
+          "expression": "70*x + 1000",
+          "style": "solid"
+        }
+      ],
+      "points": [
+        {
+          "x": 100,
+          "y": 8000,
+          "label": "(100, 8000)"
+        },
+        {
+          "x": 110,
+          "y": 8690,
+          "label": "(110, 8690)"
+        },
+        {
+          "x": 150,
+          "y": 11250,
+          "label": "(150, 11 250)"
+        },
+        {
+          "x": 200,
+          "y": 14000,
+          "label": "(200, 14 000)"
+        },
+        {
+          "x": 300,
+          "y": 18000,
+          "label": "(300, 18 000)"
+        }
+      ],
+      "height": 400
+    },
+    {
+      "id": "matok-6-2-fig-sekant-til-tangent-statisk",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-6-2-sekant-til-tangent.png",
+      "alt": "Koordinatsystem med antall enheter x fra 0 til 350 langs den vannrette aksen og kroner fra 0 til 20000 langs den loddrette. En tykk blå kurve I av x stiger og flater ut. Fire punkter er markert på kurven: (100, 8000), (150, 11250), (200, 14000) og (300, 18000). Fra punktet (100, 8000) går tre stiplede sekanter ut til de tre andre punktene, og en heltrukken grønn tangent. Tegnforklaringen sier at tangenten i x lik 100 har stigningstall 70, sekanten til 150 har 65, sekanten til 200 har 60 og sekanten til 300 har 50.",
+      "caption": "Jo nærmere det andre punktet ligger $x = 100$, desto brattere blir sekanten — og desto nærmere ligger den tangenten. Stigningstallene går $50 \\to 60 \\to 65 \\to 70$.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-6-2-sekant-til-tangent.json (+ matok-6-2-sekant-til-tangent.kontroll.json, alle porter grønne). Statisk variant av dynamic-plot-blokken matok-6-2-fig-sekant-til-tangent; I-kurven er tegnet tykkere fordi tangenten ligger oppå den i tangeringspunktet."
+    },
+    {
+      "id": "matok-6-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Tangenten til inntektskurven",
+      "problem": "En bedrift har inntektsfunksjonen $I(x) = 90x - 0{,}1x^2$ kroner ved $x$ enheter.\n\na) Bruk definisjonen til å finne $I'(x)$.\n\nb) Finn den momentane vekstfarten ved $x = 100$, og sammenlikn med den gjennomsnittlige vekstfarten fra $x = 100$ til $x = 300$ (som vi fant til $50$ i 6.1).\n\nc) Finn likningen for tangenten i punktet $(100, 8000)$.",
+      "solution": "**a)** Vi setter inn $x + h$ overalt der det står $x$:\n\n$$I(x + h) = 90(x + h) - 0{,}1(x + h)^2$$\n$$I(x + h) = 90x + 90h - 0{,}1(x^2 + 2xh + h^2)$$\n$$I(x + h) = 90x + 90h - 0{,}1x^2 - 0{,}2xh - 0{,}1h^2$$\n\nTrekker vi fra $I(x) = 90x - 0{,}1x^2$, blir det igjen:\n\n$$I(x + h) - I(x) = 90h - 0{,}2xh - 0{,}1h^2$$\n\nVi deler på $h$ og forkorter:\n\n$$\\frac{I(x+h) - I(x)}{h} = \\frac{h(90 - 0{,}2x - 0{,}1h)}{h} = 90 - 0{,}2x - 0{,}1h$$\n\nOg lar $h$ gå mot null:\n\n$$I'(x) = 90 - 0{,}2x$$\n\n**b)** Vi setter inn $x = 100$:\n\n$$I'(100) = 90 - 0{,}2 \\cdot 100 = 90 - 20 = 70$$\n\nDen momentane vekstfarten er $70$ kroner per enhet, mens gjennomsnittet over hele intervallet fra 100 til 300 var $50$ kroner per enhet.\n\nAt den momentane er størst, stemmer med figuren: kurven er brattest i starten av intervallet og flater ut mot slutten. Gjennomsnittet ligger imellom.\n\n**c)** Tangenten er en rett linje $y = ax + b$ med $a = I'(100) = 70$. Den går gjennom $(100,\\ 8000)$:\n\n$$8000 = 70 \\cdot 100 + b$$\n$$8000 = 7000 + b \\qquad | -7000$$\n$$b = 1000$$\n\n**Svar:** a) $I'(x) = 90 - 0{,}2x$. b) $I'(100) = 70$ kroner per enhet, mot $50$ i gjennomsnitt over $[100,\\ 300]$. c) $y = 70x + 1000$."
+    },
+    {
+      "id": "matok-6-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-2-oppg-4",
+        "number": "6.2.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift har inntektsfunksjonen $I(x) = -0{,}2x^2 + 40x$ kroner ved $x$ enheter. Det er opplyst at $I'(x) = -0{,}4x + 40$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut $I(50)$.",
+            "solution": "$I(50) = -0{,}2 \\cdot 2500 + 40 \\cdot 50 = -500 + 2000 = 1500$ kr",
+            "answer": 1500
+          },
+          {
+            "label": "b",
+            "task": "Finn den momentane vekstfarten ved $x = 50$.",
+            "solution": "$I'(50) = -0{,}4 \\cdot 50 + 40 = -20 + 40 = 20$ kr per enhet",
+            "answer": 20
+          },
+          {
+            "label": "c",
+            "task": "Finn likningen for tangenten i punktet $(50,\\ 1500)$.",
+            "solution": "$a = 20$. $1500 = 20 \\cdot 50 + b$ gir $1500 = 1000 + b$, altså $b = 500$. Tangenten er $y = 20x + 500$.",
+            "expressionAnswer": "20x+500"
+          },
+          {
+            "label": "d",
+            "task": "Finn $I'(100)$, og forklar hva svaret betyr.",
+            "solution": "$I'(100) = -40 + 40 = 0$. Ved 100 enheter gir ikke én enhet til noen inntekt i det hele tatt — inntekten har nådd toppen sin der. $I(100) = 2000$ kr.",
+            "answer": 0
+          },
+          {
+            "label": "e",
+            "task": "Hva skjer med inntekten hvis bedriften selger mer enn 100 enheter?",
+            "solution": "$I'(x) < 0$ for $x > 100$, så inntekten synker. Modellen sier at prisen må settes så lavt for å få solgt mer at totalinntekten går ned."
+          }
+        ],
+        "solution": "a) 1500 kr, b) 20 kr per enhet, c) $y = 20x + 500$, d) $I'(100) = 0$ — inntekten står stille, e) inntekten synker",
+        "hints": [
+          "Tangenten er $y = ax + b$ der $a$ er den deriverte i punktet.",
+          "Finn $b$ ved å sette punktet inn i linjelikningen."
+        ],
+        "competenceGoals": [
+          "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Momentan vekstfart med digitale verktøy (Del 2)",
+      "problem": "Fabrikken fra 6.1 har kostnadene\n\n$$K(x) = 0{,}01x^3 - 1{,}5x^2 + 90x + 2500$$\n\nBruk CAS til å finne $K'(x)$ og $K'(50)$, og sammenlikn med den gjennomsnittlige vekstfarten på intervallene rundt $x = 50$.",
+      "solution": "**Steg 1 — definer funksjonen i CAS** (kolon-lik-tegn definerer, ett likhetstegn ville laget en likning):\n\n```\nK(x):=0.01x^3-1.5x^2+90x+2500\n```\n\n**Steg 2 — la CAS derivere:**\n\n```\nK'(x)\n```\n\nSvaret blir\n\n$$K'(x) = 0{,}03x^2 - 3x + 90$$\n\n**Steg 3 — sett inn verdien:**\n\n```\nK'(50)\n```\n\ngir $15$.\n\n**Kontroll for hånd** (den har et poeng — den avslører om vi har tastet feil):\n\n$$K'(50) = 0{,}03 \\cdot 50^2 - 3 \\cdot 50 + 90 = 0{,}03 \\cdot 2500 - 150 + 90 = 75 - 150 + 90 = 15$$\n\n**Sammenlikning.** I 6.1 fant vi at den gjennomsnittlige vekstfarten var $16$ kroner per enhet både på $[40,\\ 50]$ og på $[50,\\ 60]$. Den momentane i $x = 50$ er $15$ kroner per enhet — litt lavere, fordi $x = 50$ ligger nettopp der kurven er på sitt slakeste.\n\n**Svar:** $K'(x) = 0{,}03x^2 - 3x + 90$ og $K'(50) = 15$ kroner per enhet."
+    },
+    {
+      "id": "matok-6-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Momentan vekstfart** = vekstfarten i ett punkt = **den deriverte**:\n  $$f'(a) = \\lim_{h \\to 0} \\frac{f(a + h) - f(a)}{h}$$\n- Regneoppskriften fra definisjonen: sett inn $x + h$ → trekk fra $f(x)$ → del på $h$ og forkort → la $h \\to 0$.\n- Den deriverte er også **stigningstallet til tangenten** i punktet.\n- **Tangentlikningen**: $y = ax + b$ der $a = f'(x_1)$, og $b$ finnes ved å sette punktet inn.\n- **Enheten** er den samme som for den gjennomsnittlige vekstfarten.\n- I økonomi leses $f'(x)$ som «endringen ved én enhet til» — grensekostnad, grenseinntekt (6.5).\n- **Fortegnet**: $f' > 0$ vokser, $f' < 0$ synker, $f' = 0$ står stille.\n\nÅ derivere fra definisjonen hver gang er tungt. I 6.3 lærer vi reglene som gjør det til noen få linjer."
+    },
+    {
+      "id": "matok-6-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-2-oppg-5",
+        "number": "6.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Overskuddet til bedriften fra 6.1 er $O(x) = -0{,}5x^2 + 60x - 800$ kroner ved $x$ enheter. Det er opplyst at $O'(x) = -x + 60$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "I 6.1 fant vi at den gjennomsnittlige vekstfarten fra $x = 20$ til $x = 50$ er $25$ kr per enhet. Finn den momentane vekstfarten i begge endepunktene.",
+            "solution": "$O'(20) = -20 + 60 = 40$ kr per enhet og $O'(50) = -50 + 60 = 10$ kr per enhet.",
+            "answer": [
+              40,
+              10
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Forklar hvorfor gjennomsnittet $25$ ligger mellom $40$ og $10$.",
+            "solution": "Vekstfarten synker jevnt fra 40 til 10 gjennom intervallet. Gjennomsnittet over intervallet må da ligge et sted imellom — her nøyaktig midt imellom, fordi $O'$ er lineær."
+          },
+          {
+            "label": "c",
+            "task": "Finn den $x$-verdien der den momentane vekstfarten er nøyaktig lik gjennomsnittet $25$.",
+            "solution": "$-x + 60 = 25$ gir $x = 35$. Det er midtpunktet i intervallet $[20, 50]$.",
+            "answer": 35
+          },
+          {
+            "label": "d",
+            "task": "Løs likningen $O'(x) = 0$, og forklar hva løsningen betyr for bedriften.",
+            "solution": "$-x + 60 = 0$ gir $x = 60$. Der står overskuddet stille — én enhet til gir verken mer eller mindre. $O$ er en parabel som vender nedover ($a = -0{,}5 < 0$), så $x = 60$ er et toppunkt og ikke et bunnpunkt: $O(60) = -1800 + 3600 - 800 = 1000$ kr.",
+            "answer": 60
+          },
+          {
+            "label": "e",
+            "task": "Skriv opp likningen for tangenten i toppunktet, og forklar hvorfor den ser ut som den gjør.",
+            "solution": "$a = O'(60) = 0$, og $O(60) = 1000$, så tangenten er $y = 1000$ — en vannrett linje. Den er vannrett fordi grafen verken stiger eller synker i toppunktet.\n\n![Koordinatsystem med antall enheter x fra 0 til 120 og kroner fra minus 1000 til 1600. En blå parabel merket O(x) åpner nedover med toppunkt i det markerte punktet (60, 1000). En rød rett linje berører kurven i toppunktet og er helt VANNRETT; den er merket «tangenten er vannrett».](/images/content/matematikk-okonomi/matok-6-2-vannrett-tangent.png)\n\n*I toppunktet verken stiger eller synker grafen, og tangenten blir vannrett — det er nøyaktig det $O'(60) = 0$ betyr.*",
+            "expressionAnswer": "1000"
+          }
+        ],
+        "solution": "a) 40 og 10 kr per enhet, b) vekstfarten synker jevnt gjennom intervallet, c) $x = 35$, d) $x = 60$ — største overskudd, 1000 kr, e) $y = 1000$, vannrett tangent",
+        "hints": [
+          "I c) skal du løse likningen $O'(x) = 25$.",
+          "En vannrett tangent har stigningstall 0."
+        ],
+        "competenceGoals": [
+          "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+        {
+      "id": "matok-6-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-2-oppg-6",
+        "number": "6.2.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — digitale verktøy.** En fabrikk har kostnadene\n\n$$K(x) = 0{,}005x^3 - 0{,}9x^2 + 70x + 9000$$\n\nkroner når de produserer $x$ enheter, for $0 \\le x \\le 120$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bruk CAS til å finne $K'(x)$.",
+            "solution": "Skriv `K(x):=0.005x^3-0.9x^2+70x+9000` og deretter `K'(x)`. Svaret er $K'(x) = 0{,}015x^2 - 1{,}8x + 70$.",
+            "expressionAnswer": "0.015x^2-1.8x+70"
+          },
+          {
+            "label": "b",
+            "task": "Regn ut $K'(40)$ og $K'(80)$.",
+            "solution": "$K'(40) = 0{,}015 \\cdot 1600 - 72 + 70 = 24 - 2 = 22$ og $K'(80) = 0{,}015 \\cdot 6400 - 144 + 70 = 96 - 74 = 22$. Begge $22$ kroner per enhet.",
+            "answer": [
+              22,
+              22
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Tegn grafen til $K'$ og finn den $x$-verdien der $K'$ er minst.",
+            "solution": "$K'$ er en parabel som vender oppover. Bunnpunktet ligger i $x = 60$ (midt mellom 40 og 80, som gir samme verdi). $K'(60) = 0{,}015 \\cdot 3600 - 108 + 70 = 54 - 38 = 16$ kroner per enhet.\n\n![Koordinatsystem med antall enheter x fra 0 til 120 og kroner per enhet fra 0 til 80. En blå parabel merket K'(x) = 0,015x² − 1,8x + 70 synker fra 70 kroner ved x lik 0 til et bunnpunkt og stiger tilbake til 70 ved x lik 120. To markerte punkter ved x lik 40 og x lik 80 ligger begge i høyden 22 og er forbundet med en grå stiplet vannrett linje merket K'(40) = K'(80) = 22. Bunnpunktet er markert med prikk, har stiplede hjelpelinjer ned til 60 på x-aksen og bort til 16 på den loddrette aksen, og er merket «bunnpunkt (60, 16)».](/images/content/matematikk-okonomi/matok-6-2-grensekostnad-minst.png)\n\n*Grafen til $K'$. De to like verdiene ved $x = 40$ og $x = 80$ ligger symmetrisk om bunnpunktet, og derfor er grensekostnaden minst midt imellom — ved $x = 60$, der den er 16 kroner per enhet.*",
+            "answer": 60
+          },
+          {
+            "label": "d",
+            "task": "Kontroller svaret i c) ved å regne ut $K(61) - K(60)$.",
+            "solution": "$K(60) = 11\\,040$ og $K(61) = 11\\,056{,}005$, så $K(61) - K(60) = 16{,}005$ kroner — praktisk talt likt $K'(60) = 16$.",
+            "answer": 16.005
+          },
+          {
+            "label": "e",
+            "task": "En rådgiver sier: «Produser 60 enheter, for der er kostnadene lavest.» Vurder påstanden.",
+            "solution": "Påstanden blander to ting. Ved $x = 60$ er det ikke kostnadene som er lavest — $K$ vokser hele veien, og $K(60) = 11\\,040$ er høyere enn $K(0) = 9000$. Det som er lavest ved $x = 60$, er kostnaden ved å lage én enhet til, altså $K'(60) = 16$ kroner. Om bedriften bør produsere 60 enheter, kan vi uansett ikke avgjøre uten å kjenne inntekten."
+          }
+        ],
+        "solution": "a) $K'(x) = 0{,}015x^2 - 1{,}8x + 70$, b) 22 og 22 kr per enhet, c) $x = 60$ med $K'(60) = 16$ kr per enhet, d) $K(61) - K(60) = 16{,}005$ kr, e) nei — det er grensekostnaden, ikke kostnaden, som er lavest der",
+        "hints": [
+          "I CAS defineres en funksjon med `:=`, ikke med `=`.",
+          "I e): les nøye hva som faktisk er minst — funksjonen eller den deriverte?"
+        ],
+        "competenceGoals": [
+          "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"
+        ],
+        "allowsUpload": true
+      }
+    }
+  ],
+  "exercises": []
+}

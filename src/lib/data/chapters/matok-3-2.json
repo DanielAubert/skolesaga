@@ -1,0 +1,285 @@
+{
+  "id": "matok-3-2",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "3.2",
+  "title": "Eksponentialfunksjoner",
+  "description": "f(x) = a·b^x, vekst og fall, doblingstid og halveringstid.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"
+  ],
+  "keyTerms": [
+    { "term": "Eksponentialfunksjon", "definition": "En funksjon på formen $f(x) = a \\cdot b^{x}$ der $a \\neq 0$ og $b > 0$. Den variable står i EKSPONENTEN." },
+    { "term": "Startverdi $a$", "definition": "Funksjonsverdien når $x = 0$, altså $f(0) = a \\cdot b^0 = a$. I økonomi er det startbeløpet $K_0$." },
+    { "term": "Grunntallet $b$", "definition": "Vekstfaktoren $v$ fra kapittel 1, brukt som grunntall: $b > 1$ gir vekst, $0 < b < 1$ gir fall." },
+    { "term": "Doblingstid", "definition": "Tiden det tar før funksjonsverdien er dobbelt så stor. Den er den samme uansett hvor vi starter å måle." },
+    { "term": "Halveringstid", "definition": "Tiden det tar før funksjonsverdien er halvert. Brukes om verdifall på maskiner, biler og utstyr." }
+  ],
+  "content": [
+    {
+      "id": "matok-3-2-intro",
+      "type": "text",
+      "content": "## Nå flytter $x$ seg opp i eksponenten\n\nI 3.1 sto $x$ i grunntallet. Nå bytter de to plass, og da endrer alt seg.\n\nDu har egentlig regnet med eksponentialfunksjoner siden kapittel 1. Formelen for sparing med årlig rentetilskriving,\n\n$$K_n = K_0 \\cdot v^{\\,n}$$\n\ner en eksponentialfunksjon — vi kalte den bare ikke det. Startbeløpet $K_0$ er koeffisienten, vekstfaktoren $v$ er grunntallet, og antall år $n$ er den variable.\n\nDet nye i dette kapittelet er at vi ser på hele **grafen**, ikke bare på enkeltverdier. Det gir oss et språk for alt som vokser eller faller med en fast prosent: bankinnskudd, lønn, priser, kundetall, verdien på en bil.\n\nOg det gir oss et problem. Vi klarer å regne ut *hvor mye* etter et gitt antall år. Men spør noen *når* beløpet har doblet seg, står vi fast — den ukjente er oppe i eksponenten, og der kommer vi ikke til med de operasjonene vi har. I dette kapittelet prøver vi oss fram med tabell. I 3.3 får vi verktøyet som løser det én gang for alle."
+    },
+    {
+      "id": "matok-3-2-def-eksponential",
+      "type": "definition",
+      "title": "Eksponentialfunksjon",
+      "content": "En **eksponentialfunksjon** er en funksjon på formen\n\n$$f(x) = a \\cdot b^{\\,x}$$\n\nder $a \\neq 0$ og $b > 0$, $b \\neq 1$.\n\n- $a$ er **startverdien**: $f(0) = a \\cdot b^{0} = a \\cdot 1 = a$.\n- $b$ er **grunntallet**, og det er nøyaktig den **vekstfaktoren** $v$ vi regnet med i kapittel 1.\n\n$$b > 1 \\ \\Longrightarrow \\ \\text{vekst} \\qquad\\qquad 0 < b < 1 \\ \\Longrightarrow \\ \\text{fall}$$\n\nSammenhengen mellom grunntall og prosent er den samme som før:\n\n$$b = 1 + \\frac{p}{100}$$\n\nNB: Vi kaller den $b$ her fordi den står som grunntall i funksjonen, og $v$ når vi regner rente. Det er det samme tallet."
+    },
+    {
+      "id": "matok-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Et innskudd som vokser",
+      "problem": "Hilde setter inn $25\\,000$ kroner på en konto med $3{,}5\\,\\%$ årlig rente.\n\na) Sett opp en eksponentialfunksjon $B(t)$ for beløpet etter $t$ år.\n\nb) Hvor mye står på kontoen etter 10 år? Etter 20 år?",
+      "solution": "**Hva vet vi?** $K_0 = 25\\,000$ kroner og $p = 3{,}5$. **Hva må vi finne?** Funksjonen, og to verdier av den.\n\n**a)** Først vekstfaktoren:\n\n$$b = 1 + \\frac{3{,}5}{100} = 1 + 0{,}035 = 1{,}035$$\n\nStartverdien er beløpet ved $t = 0$, altså $25\\,000$. Da er\n\n$$B(t) = 25\\,000 \\cdot 1{,}035^{\\,t}$$\n\n**b)** Vi setter inn:\n\n$$B(10) = 25\\,000 \\cdot 1{,}035^{10} \\approx 25\\,000 \\cdot 1{,}410599 \\approx 35\\,264{,}97$$\n$$B(20) = 25\\,000 \\cdot 1{,}035^{20} \\approx 25\\,000 \\cdot 1{,}989789 \\approx 49\\,744{,}72$$\n\n**Svar:** a) $B(t) = 25\\,000 \\cdot 1{,}035^{\\,t}$. b) Omtrent $35\\,265$ kroner etter 10 år og omtrent $49\\,745$ kroner etter 20 år.\n\nLegg merke til at beløpet **ikke** vokser like mye hvert tiår. De første ti årene ga omtrent $10\\,265$ kroner, de neste ti ga omtrent $14\\,480$. Renten regnes av et stadig større beløp — det er nettopp det eksponentialfunksjonen beskriver, og det er grunnen til at grafen krummer oppover i stedet for å være en rett linje."
+    },
+    {
+      "id": "matok-3-2-fig-vekst-fall",
+      "type": "dynamic-plot",
+      "title": "Vekst og fall — de to formene",
+      "description": "To eksponentialfunksjoner med samme startverdi 100. Den ene har grunntall 1,25 og stiger fra 100 ved x = 0 til omtrent 931 ved x = 10; den andre har grunntall 0,8 og synker fra 100 til omtrent 11. Begge går gjennom punktet der x er 0 og y er 100, og ingen av dem krysser x-aksen.",
+      "xRange": [0, 10],
+      "yRange": [0, 1000],
+      "xLabel": "x",
+      "yLabel": "f(x)",
+      "functions": [
+        { "label": "$100 \\cdot 1{,}25^x$ (vekst)", "expression": "100*1.25^x", "style": "solid" },
+        { "label": "$100 \\cdot 0{,}8^x$ (fall)", "expression": "100*0.8^x", "style": "dashed" }
+      ],
+      "points": [
+        { "x": 0, "y": 100, "label": "startverdi (0, 100)" }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-3-2-tekst-graf",
+      "type": "text",
+      "content": "## Det grafen alltid gjør\n\nUansett hvilke tall $a$ og $b$ har, gjelder dette for $f(x) = a \\cdot b^x$ med $a > 0$:\n\n- Grafen skjærer $y$-aksen i $(0, a)$ — startverdien.\n- Grafen ligger **alltid over $x$-aksen**. Den nærmer seg aksen, men treffer den aldri. ($x$-aksen er en *asymptote*.)\n- Er $b > 1$, stiger grafen stadig brattere. Er $0 < b < 1$, synker den, og fallet blir slakere og slakere.\n\nDet midterste punktet er verdt en kommentar i økonomi. En bil som faller $14\\,\\%$ i verdi hvert år, blir aldri verdiløs i modellen — den nærmer seg null uten å komme dit. I virkeligheten selges den til slutt for skrapverdi. **Modellen har et gyldighetsområde**, og den slutter å være nyttig lenge før den slutter å gi tall."
+    },
+    {
+      "id": "matok-3-2-fig-varebil",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-3-2-varebil-asymptote.png",
+      "alt": "Et koordinatsystem med år 0 til 30 vannrett og kroner 0 til 420 000 loddrett. En blå kurve merket «V(t) = 380 000 · 0,86 opphøyd i t» starter i 380 000 kr og faller, stadig slakere, mot den vannrette aksen uten å nå den. En rød stiplet vannrett linje ligger ved 20 000 kr og er merket «skrapverdi 20 000 kr». I figuren står teksten «x-aksen er asymptote: modellen når aldri null».",
+      "caption": "Modellen gir tall i det uendelige, men i virkeligheten selges bilen til skrapverdi. Den matematiske grensen og den virkelige grensen er to forskjellige linjer.",
+      "kommentar": "Grafmotor-spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/matematikk-okonomi/matok-3-2-varebil-asymptote.json"
+    },
+    {
+      "id": "matok-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: En bil som faller i verdi",
+      "problem": "En varebil koster $380\\,000$ kroner ny. Verdien faller med $14\\,\\%$ i året.\n\na) Sett opp en modell $V(t)$ for verdien etter $t$ år.\n\nb) Hva er verdien etter 5 år?\n\nc) Når er bilen verdt under $100\\,000$ kroner?",
+      "solution": "**a)** Verdien faller, så vekstfaktoren er mindre enn 1:\n\n$$b = 1 - \\frac{14}{100} = 1 - 0{,}14 = 0{,}86$$\n\n$$V(t) = 380\\,000 \\cdot 0{,}86^{\\,t}$$\n\n**b)**\n\n$$V(5) = 380\\,000 \\cdot 0{,}86^{5} \\approx 380\\,000 \\cdot 0{,}470427 \\approx 178\\,762{,}27$$\n\n**c)** Her er den ukjente **oppe i eksponenten**, og vi har foreløpig ingen operasjon som henter den ned. Så vi setter opp en tabell og leter:\n\n| $t$ | $V(t)$ |\n|---|---|\n| 8 | 113 702,81 |\n| 9 | 97 784,42 |\n| 10 | 84 094,60 |\n\nVerdien passerer $100\\,000$ kroner mellom det åttende og det niende året. Etter 9 år er bilen for første gang verdt under $100\\,000$ kroner.\n\n**Svar:** a) $V(t) = 380\\,000 \\cdot 0{,}86^{\\,t}$. b) Omtrent $178\\,762$ kroner. c) Etter 9 år.\n\n**NB:** Svaret i c) fant vi ved å prøve oss fram. Det virker, men det er tungvint — og det gir ikke et eksakt svar. I 3.3 lærer vi **logaritmen**, som løser likningen $0{,}86^{\\,t} = \\frac{100\\,000}{380\\,000}$ direkte. Da kommer vi tilbake til nettopp denne bilen."
+    },
+    {
+      "id": "matok-3-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-2-oppg-1",
+        "number": "3.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut funksjonsverdien, og oppgi om funksjonen beskriver vekst eller fall — og med hvor mange prosent per enhet.",
+        "subTasks": [
+          { "label": "a", "task": "$f(x) = 200 \\cdot 1{,}2^{\\,x}$. Finn $f(3)$.", "solution": "$f(3) = 200 \\cdot 1{,}728 = 345{,}6$. Vekstfaktor $1{,}2$ gir vekst på $20\\,\\%$.", "answer": 345.6 },
+          { "label": "b", "task": "$g(x) = 5000 \\cdot 0{,}9^{\\,x}$. Finn $g(3)$.", "solution": "$g(3) = 5000 \\cdot 0{,}729 = 3645$. Vekstfaktor $0{,}9$ gir fall på $10\\,\\%$.", "answer": 3645 },
+          { "label": "c", "task": "$h(x) = 80 \\cdot 1{,}5^{\\,x}$. Finn $h(4)$.", "solution": "$h(4) = 80 \\cdot 5{,}0625 = 405$. Vekst på $50\\,\\%$.", "answer": 405 },
+          { "label": "d", "task": "$k(x) = 12\\,000 \\cdot 0{,}75^{\\,x}$. Finn $k(2)$.", "solution": "$k(2) = 12\\,000 \\cdot 0{,}5625 = 6750$. Fall på $25\\,\\%$.", "answer": 6750 },
+          { "label": "e", "task": "Hva er startverdien i hver av funksjonene a–d?", "solution": "Startverdien er $f(0) = a$, altså tallet foran potensen: $200$, $5000$, $80$ og $12\\,000$. Det er slik fordi $b^0 = 1$ for alle $b$.", "answer": [200, 5000, 80, 12000] }
+        ],
+        "solution": "a) 345,6 — vekst 20 %. b) 3645 — fall 10 %. c) 405 — vekst 50 %. d) 6750 — fall 25 %. e) 200, 5000, 80 og 12 000.",
+        "hints": ["Vekstfaktor over 1 betyr vekst, under 1 betyr fall.", "Prosenten finner du med $p = (b - 1) \\cdot 100$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-2-oppg-2",
+        "number": "3.2.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som Eksempel 1. En nyutdannet begynner med en årslønn på $480\\,000$ kroner. Lønnen forventes å øke med $2{,}8\\,\\%$ i året.",
+        "subTasks": [
+          { "label": "a", "task": "Sett opp en funksjon $L(t)$ for årslønnen etter $t$ år.", "solution": "Vekstfaktoren er $1 + \\frac{2{,}8}{100} = 1{,}028$, så $L(t) = 480\\,000 \\cdot 1{,}028^{\\,t}$.", "expressionAnswer": "480000*1.028^t" },
+          { "label": "b", "task": "Hva er lønnen etter 5 år? Rund av til nærmeste krone.", "solution": "$L(5) = 480\\,000 \\cdot 1{,}028^{5} \\approx 551\\,070$ kroner.", "answer": 551070 },
+          { "label": "c", "task": "Hva er lønnen etter 10 år?", "solution": "$L(10) = 480\\,000 \\cdot 1{,}028^{10} \\approx 632\\,663$ kroner.", "answer": 632663 },
+          { "label": "d", "task": "Lag en tabell og finn ut når lønnen passerer $600\\,000$ kroner.", "solution": "$L(8) \\approx 598\\,668$ og $L(9) \\approx 615\\,431$. Lønnen passerer $600\\,000$ kroner i løpet av det niende året.", "answer": 9 },
+          { "label": "e", "task": "En kollega sier: «Lønnen øker med $2{,}8\\,\\%$, så etter 10 år har den økt med $28\\,\\%$.» Vurder påstanden.", "solution": "Feil. $\\frac{632\\,663}{480\\,000} \\approx 1{,}318$, altså en økning på omtrent $31{,}8\\,\\%$, ikke $28\\,\\%$. Kollegaen legger prosentene sammen, men hver økning regnes av en stadig større lønn. Vi ganger vekstfaktorene: $1{,}028^{10} \\approx 1{,}318$." }
+        ],
+        "solution": "a) $L(t) = 480\\,000 \\cdot 1{,}028^{\\,t}$, b) ca. 551 070 kr, c) ca. 632 663 kr, d) i det niende året, e) feil — økningen er ca. 31,8 %, ikke 28 %",
+        "hints": ["Startverdien er lønnen i dag.", "I e): del sluttlønnen på startlønnen i stedet for å legge sammen prosenter."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-2-oppg-3",
+        "number": "3.2.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En entreprenør kjøper en gravemaskin til $1\\,250\\,000$ kroner. Verdien faller med $18\\,\\%$ i året.",
+        "subTasks": [
+          { "label": "a", "task": "Sett opp en funksjon $M(t)$ for verdien etter $t$ år.", "solution": "Vekstfaktoren er $1 - 0{,}18 = 0{,}82$, så $M(t) = 1\\,250\\,000 \\cdot 0{,}82^{\\,t}$.", "expressionAnswer": "1250000*0.82^t" },
+          { "label": "b", "task": "Hva er verdien etter 3 år?", "solution": "$M(3) = 1\\,250\\,000 \\cdot 0{,}82^{3} = 689\\,210$ kroner.", "answer": 689210 },
+          { "label": "c", "task": "Hva er verdien etter 5 år?", "solution": "$M(5) = 1\\,250\\,000 \\cdot 0{,}82^{5} \\approx 463\\,425$ kroner.", "answer": 463425 },
+          { "label": "d", "task": "Lag en tabell og finn det første hele året der verdien er under $400\\,000$ kroner.", "solution": "$M(5) \\approx 463\\,425$ og $M(6) \\approx 380\\,008$. Verdien er under $400\\,000$ kroner for første gang etter 6 år.", "answer": 6 },
+          { "label": "e", "task": "Entreprenøren planlegger å selge maskinen når den er verdt omtrent halvparten av kjøpesummen. Omtrent når er det?", "solution": "Halvparten er $625\\,000$ kroner. $M(3) = 689\\,210$ og $M(4) \\approx 565\\,152$, så verdien halveres i løpet av det fjerde året. $625\\,000$ ligger omtrent midt mellom de to verdiene, så modellen sier omtrent $3{,}5$ år. (Med logaritmer i 3.4 får vi det eksakte svaret $t \\approx 3{,}49$ år.)", "answer": 3.5 }
+        ],
+        "solution": "a) $M(t) = 1\\,250\\,000 \\cdot 0{,}82^{\\,t}$, b) 689 210 kr, c) ca. 463 425 kr, d) etter 6 år, e) omtrent 3,5 år (i løpet av det fjerde året)",
+        "hints": ["Verdifall gir vekstfaktor under 1: $1 - \\frac{p}{100}$.", "I regnearket: `=1250000*0,82^A2`."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-2-teorem-to-punkter",
+      "type": "theorem",
+      "title": "Å finne $a$ og $b$ fra to punkter",
+      "content": "Framgangsmåten er den samme som for potensfunksjoner i 3.1 — vi deler for å bli kvitt $a$. Forskjellen er hvor eksponenten havner:\n\n$$\\frac{f(x_2)}{f(x_1)} = \\frac{a \\cdot b^{\\,x_2}}{a \\cdot b^{\\,x_1}} = b^{\\,x_2 - x_1}$$\n\n**1.** Del funksjonsverdiene på hverandre. $a$ forsvinner, og eksponenten blir differansen mellom $x$-verdiene.\n\n**2.** Ta roten som svarer til differansen, og finn $b$.\n\n**3.** Sett $b$ inn i ett av punktene, og finn $a$.\n\n**4.** Kontroller i det andre punktet.\n\nNB: I 3.1 ble eksponenten stående og grunntallene ble delt. Her er det motsatt — grunntallene er like, så eksponentene trekkes fra hverandre. Det er potensregelen $\\frac{b^m}{b^n} = b^{\\,m-n}$ som gjør jobben."
+    },
+    {
+      "id": "matok-3-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Finn modellen fra to målinger",
+      "problem": "En strømmetjeneste hadde $4800$ abonnenter etter ett år og $16\\,200$ abonnenter etter fire år. Veksten er eksponentiell.\n\na) Finn en modell $N(t) = a \\cdot b^{\\,t}$.\n\nb) Hvor mange abonnenter hadde tjenesten ved starten?\n\nc) Hvor mange prosent vokser abonnenttallet med i året?",
+      "solution": "**Hva vet vi?** $N(1) = 4800$ og $N(4) = 16\\,200$. **Hva må vi finne?** $a$ og $b$.\n\n**a) Steg 1 — del.**\n\n$$\\frac{N(4)}{N(1)} = \\frac{a \\cdot b^{4}}{a \\cdot b^{1}} = b^{\\,4-1} = b^{3}$$\n\n$$\\frac{16\\,200}{4800} = b^{3}$$\n$$3{,}375 = b^{3}$$\n\n**Steg 2 — ta tredjeroten:**\n\n$$b = \\sqrt[3]{3{,}375} = 1{,}5$$\n\n(Kontroll: $1{,}5^3 = 1{,}5 \\cdot 1{,}5 \\cdot 1{,}5 = 3{,}375$ — så det stemmer.)\n\n**Steg 3 — finn $a$** ved å sette inn i $N(1) = 4800$:\n\n$$a \\cdot 1{,}5^{1} = 4800$$\n$$a \\cdot 1{,}5 = 4800 \\qquad | : 1{,}5$$\n$$a = 3200$$\n\n**Steg 4 — kontroll i det andre punktet:**\n\n$$N(4) = 3200 \\cdot 1{,}5^{4} = 3200 \\cdot 5{,}0625 = 16\\,200$$\n\nså det stemmer.\n\n**b)** Startverdien er $a$, altså $N(0) = 3200$ abonnenter.\n\n**c)** Vekstfaktoren er $1{,}5$, og\n\n$$p = (1{,}5 - 1) \\cdot 100 = 50$$\n\n**Svar:** a) $N(t) = 3200 \\cdot 1{,}5^{\\,t}$. b) $3200$ abonnenter. c) $50\\,\\%$ i året.\n\nNB: Legg merke til at startverdien $3200$ ikke var oppgitt. Den kom ut av regningen — modellen «regner seg bakover» til $t = 0$. Det er lov så lenge tjenesten faktisk fantes da, og så lenge veksten var eksponentiell hele veien. Begge deler er antakelser, og de bør nevnes når svaret presenteres."
+    },
+    {
+      "id": "matok-3-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-2-oppg-4",
+        "number": "3.2.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Finn $a$ og $b$ i eksponentialfunksjonen $f(x) = a \\cdot b^{\\,x}$.",
+        "subTasks": [
+          { "label": "a", "task": "$f(0) = 700$ og $f(3) = 5600$.", "solution": "$\\frac{5600}{700} = b^3$ gir $8 = b^3$, altså $b = 2$. Og $f(0) = a = 700$. Altså $f(x) = 700 \\cdot 2^{\\,x}$.", "answer": [700, 2] },
+          { "label": "b", "task": "Hvor mange prosent vokser $f$ med per enhet i a)?", "solution": "$b = 2$ gir $p = (2 - 1) \\cdot 100 = 100$. Funksjonen dobler seg hver gang $x$ øker med 1.", "answer": 100 },
+          { "label": "c", "task": "$f(2) = 810$ og $f(5) = 590{,}49$.", "solution": "$\\frac{590{,}49}{810} = b^{5-2} = b^3$ gir $0{,}729 = b^3$, altså $b = 0{,}9$. Så $a \\cdot 0{,}9^2 = 810$, det vil si $a \\cdot 0{,}81 = 810$ og $a = 1000$.", "answer": [1000, 0.9] },
+          { "label": "d", "task": "Kontroller svaret i c) ved å regne ut $f(5)$, og finn $f(8)$. Rund av til to desimaler.", "solution": "$f(5) = 1000 \\cdot 0{,}9^5 = 590{,}49$ — så det stemmer. Og $f(8) = 1000 \\cdot 0{,}9^8 \\approx 430{,}47$.", "answer": 430.47 },
+          { "label": "e", "task": "Beskriv med ord hva funksjonen i c) gjør.", "solution": "Den starter på $1000$ og synker med $10\\,\\%$ for hver enhet $x$ øker. Fallet blir mindre og mindre i kroner, men er hele tiden $10\\,\\%$ av det som er igjen." }
+        ],
+        "solution": "a) $a = 700$, $b = 2$. b) 100 %. c) $a = 1000$, $b = 0{,}9$. d) 590,49 og ca. 430,47. e) starter på 1000 og synker 10 % per enhet.",
+        "hints": ["Del de to funksjonsverdiene på hverandre. Eksponenten du sitter igjen med, er differansen mellom $x$-verdiene.", "I c): $0{,}729 = 0{,}9 \\cdot 0{,}9 \\cdot 0{,}9$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-2-note-dobling",
+      "type": "note",
+      "title": "Doblingstid og halveringstid",
+      "content": "**Doblingstiden** er tiden det tar før funksjonsverdien er dobbelt så stor. **Halveringstiden** er tiden før den er halvert.\n\nDet spesielle ved eksponentialfunksjoner er at disse tidene er **de samme uansett hvor vi begynner å måle**. Et innskudd som bruker 20 år på å gå fra $25\\,000$ til $50\\,000$ kroner, bruker også 20 år på å gå fra $50\\,000$ til $100\\,000$ kroner. Det er derfor det gir mening å snakke om «doblingstiden» som en egenskap ved modellen, ikke ved beløpet.\n\nGrunnen ser vi i formelen. Vi vil ha $a \\cdot b^{\\,t} = 2 \\cdot a$, og deler på $a$ på begge sider:\n\n$$b^{\\,t} = 2$$\n\nStartverdien er borte. Det som blir igjen, avhenger bare av $b$."
+    },
+    {
+      "id": "matok-3-2-fig-doblingstid",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-3-2-doblingstid.png",
+      "alt": "Et koordinatsystem med år 0 til 45 vannrett og kroner 0 til 120 000 loddrett. En blå kurve merket «25 000 · 1,035 opphøyd i t» starter i 25 000 kr og stiger stadig brattere. To grå stiplede vannrette linjer ligger ved 50 000 og 100 000 kr, og kurvens skjæringer med dem er markert. Nede i figuren ligger to røde mål etter hverandre langs tidsaksen, begge merket «20,15 år»: det første fra år 0 til den første skjæringen, det andre fra den første til den andre skjæringen. De to målene er nøyaktig like lange.",
+      "caption": "Med $3{,}5\\,\\%$ rente er doblingstiden $20{,}15$ år. Figuren viser at det tar like lang tid å gå fra 25 000 til 50 000 kr som fra 50 000 til 100 000 kr — doblingstiden avhenger bare av vekstfaktoren, ikke av hvor vi begynner å måle.",
+      "kommentar": "Grafmotor-spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/matematikk-okonomi/matok-3-2-doblingstid.json"
+    },
+    {
+      "id": "matok-3-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Doblingstid ved tabell",
+      "problem": "Hvor lang tid tar det før innskuddet i Eksempel 1, med $3{,}5\\,\\%$ rente, har doblet seg?",
+      "solution": "**Hva vet vi?** $B(t) = 25\\,000 \\cdot 1{,}035^{\\,t}$. **Hva må vi finne?** Den $t$ som gir $B(t) = 50\\,000$.\n\nVi setter opp likningen og deler på startbeløpet på begge sider:\n\n$$25\\,000 \\cdot 1{,}035^{\\,t} = 2 \\cdot 25\\,000 \\qquad | : 25\\,000$$\n$$1{,}035^{\\,t} = 2$$\n\nNå står den ukjente i eksponenten. Foreløpig prøver vi oss fram:\n\n| $t$ | $1{,}035^{\\,t}$ |\n|---|---|\n| 18 | 1,857489 |\n| 19 | 1,922501 |\n| 20 | 1,989789 |\n| 21 | 2,059431 |\n\nVerdien passerer 2 mellom $t = 20$ og $t = 21$.\n\n**Svar:** Doblingstiden er omtrent $20$ år.\n\n**Kontroll mot 72-regelen** fra kapittel 1.2: $\\frac{72}{3{,}5} \\approx 20{,}6$ år. Tommelfingerregelen treffer altså godt her.\n\n(Det eksakte svaret er $20{,}15$ år. Hvordan vi regner det ut uten å prøve oss fram, kommer i 3.4.)"
+    },
+    {
+      "id": "matok-3-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Lineær eller eksponentiell vekst?",
+      "problem": "To sparetilbud starter begge på $50\\,000$ kroner:\n\n- **Tilbud A:** banken legger til $4000$ kroner hvert år.\n- **Tilbud B:** banken gir $7\\,\\%$ rente hvert år.\n\na) Sett opp funksjoner for de to tilbudene.\n\nb) Hvilket tilbud er best etter 2 år? Etter 10 år?\n\nc) Når går B forbi A?",
+      "solution": "**a)** Tilbud A legger til det **samme beløpet** hvert år — det er lineær vekst:\n\n$$A(t) = 50\\,000 + 4000t$$\n\nTilbud B legger til den **samme prosenten** hvert år — det er eksponentiell vekst:\n\n$$B(t) = 50\\,000 \\cdot 1{,}07^{\\,t}$$\n\n**b)** Vi regner ut begge:\n\n| $t$ | $A(t)$ | $B(t)$ |\n|---|---|---|\n| 2 | 58 000 | 57 245,00 |\n| 4 | 66 000 | 65 539,80 |\n| 5 | 70 000 | 70 127,59 |\n| 10 | 90 000 | 98 357,57 |\n| 20 | 130 000 | 193 484,22 |\n\nEtter 2 år er **A** best (58 000 mot 57 245). Etter 10 år er **B** klart best (98 358 mot 90 000).\n\n**c)** B passerer A mellom $t = 4$ og $t = 5$.\n\n**Svar:** a) $A(t) = 50\\,000 + 4000t$ og $B(t) = 50\\,000 \\cdot 1{,}07^{\\,t}$. b) A er best etter 2 år, B er best etter 10 år. c) I løpet av det femte året.\n\nDette mønsteret er verdt å huske: **lineær vekst leder i starten, eksponentiell vekst vinner til slutt.** Det spiller ingen rolle hvor stort det faste tillegget er — så lenge prosenten er positiv, tar den eksponentielle modellen igjen den lineære før eller siden. Ved $t = 20$ er forskjellen over $63\\,000$ kroner.\n\nDet er også derfor du ikke kan svare «hvilket tilbud er best?» uten å vite **hvor lenge** pengene skal stå."
+    },
+    {
+      "id": "matok-3-2-fig-lineaer-mot-eksponentiell",
+      "type": "dynamic-plot",
+      "title": "Tilbud A mot tilbud B",
+      "description": "To sparetilbud som begge starter på 50 000 kroner. Den stiplede rette linja er tilbud A, som legger til 4000 kroner i året og når 130 000 kroner etter 20 år. Den heltrukne kurven er tilbud B med 7 prosent rente; den ligger litt under A de fire første årene, krysser linja i løpet av det femte året og når 193 484 kroner etter 20 år.",
+      "xRange": [0, 20],
+      "yRange": [0, 200000],
+      "xLabel": "t (år)",
+      "yLabel": "kroner",
+      "functions": [
+        { "label": "$A(t) = 50\\,000 + 4000t$", "expression": "50000+4000*x", "style": "dashed" },
+        { "label": "$B(t) = 50\\,000 \\cdot 1{,}07^t$", "expression": "50000*1.07^x", "style": "solid" }
+      ],
+      "points": [
+        { "x": 0, "y": 50000, "label": "felles start" },
+        { "x": 10, "y": 98357.57, "label": "B(10) = 98 358" }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-3-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn **eksponentialfunksjon** er $f(x) = a \\cdot b^{\\,x}$, med $x$ i eksponenten.\n\n| | Potensfunksjon (3.1) | Eksponentialfunksjon (3.2) |\n|---|---|---|\n| Form | $a \\cdot x^{\\,b}$ | $a \\cdot b^{\\,x}$ |\n| $x$ står | i grunntallet | i eksponenten |\n| Ganges $x$ med $k$ | funksjonen ganges med $k^b$ | — |\n| Økes $x$ med 1 | — | funksjonen ganges med $b$ |\n| Typisk i økonomi | produksjon, enhetskostnad, skala | rente, prisvekst, verdifall |\n\n**Arbeidsmåten når du skal sette opp en modell:**\n1. Finn startverdien $a$ — det er verdien når $t = 0$.\n2. Finn vekstfaktoren $b = 1 + \\frac{p}{100}$ (fall gir $b < 1$).\n3. Skriv $f(t) = a \\cdot b^{\\,t}$, og si hva $t$ måles i.\n4. Kontroller med en verdi du kjenner.\n\n**Er bare to punkter kjent:** del funksjonsverdiene på hverandre, ta roten som svarer til differansen mellom $x$-verdiene, finn $a$, og kontroller i det andre punktet.\n\n**Doblingstid og halveringstid** er uavhengige av startverdien, fordi $a$ forsvinner når vi deler.\n\n**Det som fortsatt står igjen:** alle spørsmål som begynner med *når* — når har beløpet doblet seg, når er bilen verdt under 100 000, når går B forbi A. Vi har svart med tabell. I 3.3 får vi logaritmen, og da svarer vi med én utregning.\n\n**Vanlige feil:**\n- Å legge sammen prosenter over flere år («$10 \\cdot 2{,}8\\,\\% = 28\\,\\%$»). Vekstfaktorene skal ganges.\n- Å tro at en graf som synker, må treffe $x$-aksen. Den nærmer seg, men treffer aldri.\n- Å bruke startverdien fra feil årstall. $a$ er verdien ved $t = 0$, ikke ved den første målingen."
+    },
+    {
+      "id": "matok-3-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-2-oppg-5",
+        "number": "3.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et fond har $150\\,000$ kroner ved starten og vokser med $6{,}0\\,\\%$ i året, slik at $K(t) = 150\\,000 \\cdot 1{,}06^{\\,t}$.",
+        "subTasks": [
+          { "label": "a", "task": "Vis at doblingstiden ikke avhenger av startbeløpet.", "solution": "Vi vil ha $150\\,000 \\cdot 1{,}06^{\\,t} = 2 \\cdot 150\\,000$. Deler vi på $150\\,000$ på begge sider, står det igjen $1{,}06^{\\,t} = 2$ — startbeløpet er borte. Den samme regningen ville gitt samme likning med et hvilket som helst startbeløp." },
+          { "label": "b", "task": "Bruk tabell og finn doblingstiden.", "solution": "$K(11) \\approx 284\\,745$ og $K(12) \\approx 301\\,829$. Beløpet passerer $300\\,000$ kroner mellom $t = 11$ og $t = 12$, så doblingstiden er omtrent 12 år.", "answer": 12 },
+          { "label": "c", "task": "Sammenlikn med 72-regelen fra kapittel 1.2.", "solution": "$\\frac{72}{6} = 12$ år. Regelen treffer svært godt her. (Eksakt verdi er $11{,}90$ år.)", "answer": 12 },
+          { "label": "d", "task": "Når er beløpet firedoblet? Sammenlikn med svaret i b).", "solution": "$600\\,000$ kroner: $K(23) \\approx 572\\,962$ og $K(24) \\approx 607\\,340$, altså omtrent 24 år. Det er dobbelt så lang tid som doblingstiden — først dobles beløpet, så dobles det igjen.", "answer": 24 },
+          { "label": "e", "task": "Forklar hvorfor firedoblingstiden må være nøyaktig dobbelt så lang som doblingstiden.", "solution": "Fordi $4 = 2 \\cdot 2$. Skal beløpet firedobles, må det først dobles én gang og så dobles én gang til, og hver dobling tar like lang tid uansett hvor vi starter. I formelspråk: $1{,}06^{2t} = \\left(1{,}06^{\\,t}\\right)^2 = 2^2 = 4$." }
+        ],
+        "solution": "a) startbeløpet forsvinner når vi deler, b) ca. 12 år, c) 72/6 = 12 år, d) ca. 24 år, e) fordi $4 = 2^2$, så det trengs to doblinger",
+        "hints": ["Doblingstid: del på startbeløpet på begge sider først.", "I e): $1{,}06^{2t} = \\left(1{,}06^{\\,t}\\right)^2$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-2-oppg-6",
+        "number": "3.2.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En onkel setter av $120\\,000$ kroner til en niese og velger mellom to ordninger:\n\n- **A:** han legger til $9000$ kroner hvert år.\n- **B:** beløpet står på en konto med $6{,}0\\,\\%$ rente.\n\nLag et regneark med årstall i kolonne A, ordning A i kolonne B (`=120000+9000*A2`) og ordning B i kolonne C (`=120000*1,06^A2`).",
+        "subTasks": [
+          { "label": "a", "task": "Hva er beløpene etter 5 år i de to ordningene?", "solution": "A: $120\\,000 + 45\\,000 = 165\\,000$ kroner. B: $120\\,000 \\cdot 1{,}06^5 \\approx 160\\,587$ kroner.", "answer": [165000, 160587] },
+          { "label": "b", "task": "I hvilket år går ordning B forbi ordning A?", "solution": "Etter 8 år: A $= 192\\,000$ og B $\\approx 191\\,262$. Etter 9 år: A $= 201\\,000$ og B $\\approx 202\\,737$. B går altså forbi i løpet av det niende året.", "answer": 9 },
+          { "label": "c", "task": "Hva er beløpene etter 20 år?", "solution": "A: $120\\,000 + 180\\,000 = 300\\,000$ kroner. B: $120\\,000 \\cdot 1{,}06^{20} \\approx 384\\,856$ kroner.", "answer": [300000, 384856] },
+          { "label": "d", "task": "Hva er beløpene etter 25 år, og hvor mange ganger så stort er B som A da?", "solution": "A: $345\\,000$ kroner. B: $\\approx 515\\,024$ kroner. Forholdet er $\\frac{515\\,024}{345\\,000} \\approx 1{,}49$ — B er omtrent halvannen gang så stort.", "answer": [345000, 515024] },
+          { "label": "e", "task": "Niesen er 3 år i dag. Onkelen sier: «Ordning A er best, for de første åtte årene ligger den øverst.» Vurder rådet, og skriv hva du ville anbefalt.", "solution": "Rådet bygger på et for kort tidsvindu. Pengene skal stå til niesen er voksen, altså 15–22 år, og i hele det området er B klart best — etter 20 år med nesten $85\\,000$ kroner. Argumentet «A ligger øverst de første åtte årene» er sant, men irrelevant når pengene ikke skal brukes da. Jeg ville anbefalt B, med to forbehold: renten på $6\\,\\%$ er ikke garantert i 20 år, og ordning A forutsetter at onkelen faktisk klarer å sette inn $9000$ kroner hvert eneste år. Er det usikkert, taler også det for B.", "multipleChoiceOptions": [
+            "Rådet ser på et for kort tidsvindu. Pengene skal stå i 15–22 år, og der er B klart best. B anbefales, med forbehold om at renten ikke er garantert.",
+            "Rådet er riktig — A ligger øverst de første åtte årene, og det er de årene som teller mest.",
+            "Rådet er riktig fordi lineær vekst alltid slår eksponentiell vekst på lang sikt.",
+            "Det er umulig å si noe om hvilken ordning som er best uten å vite den nøyaktige inflasjonen."
+          ] }
+        ],
+        "solution": "a) 165 000 kr og ca. 160 587 kr, b) i det niende året, c) 300 000 kr og ca. 384 856 kr, d) 345 000 kr og ca. 515 024 kr — B er ca. 1,49 ganger så stort, e) rådet ser på et for kort tidsvindu; B er best over 15–22 år",
+        "hints": ["Merk forskjellen på formlene: `+9000*A2` legger til, `*1,06^A2` ganger med.", "I e): hvor lenge skal pengene faktisk stå?"],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": []
+}

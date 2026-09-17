@@ -1,0 +1,461 @@
+{
+  "id": "stat-5-4",
+  "courseId": "statistikk",
+  "chapterNumber": "5.4",
+  "title": "Binomisk fordeling",
+  "description": "Forutsetningene for binomisk fordeling, formelen og typiske situasjoner.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+  ],
+  "content": [
+    {
+      "id": "stat-5-4-section-intro",
+      "type": "text",
+      "content": "# Binomisk fordeling\n\nSe på disse fire situasjonene:\n\n- Vi kaster en mynt 10 ganger og teller kron.\n- 12 elever skal opp til oppkjøring, og vi teller hvor mange som består.\n- Vi gjetter på 5 flervalgsspørsmål og teller riktige svar.\n- En maskin lager 20 deler, og vi teller hvor mange som er defekte.\n\nDe ser forskjellige ut, men de har nøyaktig samme struktur: **det samme forsøket gjentas et fast antall ganger, hvert forsøk kan gå to veier, og vi teller hvor mange ganger det ene skjer.**\n\nAlle fire kan derfor regnes med den samme formelen. Fordelingen til antallet kalles **binomisk** (bi- = to, av de to utfallene), og den er den viktigste diskrete fordelingen vi har."
+    },
+    {
+      "id": "stat-5-4-def-forutsetninger",
+      "type": "definition",
+      "title": "Forutsetningene for binomisk fordeling",
+      "content": "Vi kan bruke binomisk fordeling når alle fire kravene under er oppfylt:\n\n1. Vi gjør et **fast antall** forsøk. Bokstaven $n$ er antall forsøk.\n2. Hvert forsøk har bare **to mulige utfall**. Vi kaller det ene *suksess* og det andre *fiasko*. (Ordet «suksess» betyr bare «det vi teller» — en defekt del er en suksess hvis det er defekter vi teller.)\n3. Sannsynligheten for suksess er **den samme i hvert forsøk**. Bokstaven $p$ er denne sannsynligheten.\n4. Forsøkene er **uavhengige** av hverandre — utfallet i ett forsøk endrer ikke sannsynligheten i de andre.\n\nEr alle fire oppfylt, er $X$ = antall suksesser binomisk fordelt.\n\n**NB:** Når en eksamensoppgave spør «hvilke forutsetninger må vi gjøre?», er det disse fire — formulert i oppgavens egen sammenheng — som er svaret."
+    },
+    {
+      "id": "stat-5-4-section-koeffisient",
+      "type": "text",
+      "content": "## Binomialkoeffisienten\n\nTenk deg at vi kaster en mynt 5 ganger og vil ha akkurat 2 kron. Ett slikt utfall er KKMMM. Men KMKMM gir også 2 kron. Og MMKKM. Hvor mange slike rekkefølger finnes?\n\nSvaret er **binomialkoeffisienten**\n\n$$\\binom{n}{k} = \\frac{n!}{k! \\cdot (n - k)!}$$\n\nSkrivemåten $\\binom{5}{2}$ leses «fem over to», og betyr: antall måter å velge ut hvilke 2 av de 5 forsøkene som skal være suksess.\n\n$$\\binom{5}{2} = \\frac{5!}{2! \\cdot 3!} = \\frac{5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1}{(2 \\cdot 1)(3 \\cdot 2 \\cdot 1)} = \\frac{120}{2 \\cdot 6} = \\frac{120}{12} = 10$$\n\n*(Snarveien er å stryke $3!$ mot slutten av $5!$: $\\binom{5}{2} = \\frac{5 \\cdot 4}{2 \\cdot 1} = 10$. Da slipper vi de store tallene.)*\n\nPå kalkulator finner du den som `nCr`, i regneark som `=KOMBINASJON(5;2)`."
+    },
+    {
+      "id": "stat-5-4-fig-tre-myntkast",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-4-tre-myntkast.png",
+      "alt": "Et utfallstre for tre myntkast. Fra startpunktet til venstre går to greiner, begge merket med sannsynligheten 1/2. Fra hver av dem går to nye greiner, også merket 1/2, og fra hver av de fire går det igjen to greiner merket 1/2. Hvilken vei som er kron og hvilken som er mynt, leses av utfallsstrengen i enden av veien. Treet ender i åtte punkter til høyre, ett for hver mulige rekkefølge av kron og mynt. Tre av de åtte veiene er uthevet: K M M, M K M og M M K. Hver av dem er merket med veiproduktet 1/8. Summen 3/8 står ikke i figuren; den regnes i bildeteksten.",
+      "caption": "Binomialkoeffisienten **teller rekkefølger**. Treet for tre myntkast har $2^3 = 8$ greiner, og nøyaktig $\\binom{3}{1} = 3$ av dem gir én kron: KMM, MKM og MMK. Hver vei har sannsynligheten $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$, så til sammen $3 \\cdot \\frac{1}{8} = \\frac{3}{8}$.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-4-tre-myntkast.json"
+    },
+    {
+      "id": "stat-5-4-theorem-formel",
+      "type": "theorem",
+      "title": "Binomisk sannsynlighet",
+      "content": "Når de fire forutsetningene er oppfylt, og\n\n- $n$ er antall forsøk\n- $p$ er sannsynligheten for suksess i ett forsøk\n- $X$ er antall suksesser\n\nda er\n\n$$P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1 - p)^{n - k}$$\n\nHver av de tre faktorene har sin egen jobb:\n\n| faktor | hva den teller |\n|---|---|\n| $\\binom{n}{k}$ | hvor mange rekkefølger som gir $k$ suksesser |\n| $p^k$ | sannsynligheten for de $k$ suksessene |\n| $(1-p)^{n-k}$ | sannsynligheten for de $n - k$ fiaskoene |\n\n**NB:** Eksponentene $k$ og $n - k$ må alltid summere til $n$. Det er en rask kontroll på at du har satt inn riktig."
+    },
+    {
+      "id": "stat-5-4-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjetting på flervalgsprøve",
+      "problem": "En prøve har 5 flervalgsspørsmål. Hvert spørsmål har 4 svaralternativer, og bare ett er riktig. Isak gjetter på alle sammen. La $X$ være antall riktige svar.\n\na) Forklar hvorfor $X$ er binomisk fordelt, og oppgi $n$ og $p$.\nb) Finn $P(X = 2)$. Oppgi svaret på eksakt form og som desimaltall.",
+      "solution": "**Løsning:**\n\n**a)** Vi går gjennom de fire forutsetningene:\n\n1. Fast antall forsøk: det er 5 spørsmål.\n2. To utfall per forsøk: riktig eller galt.\n3. Samme sannsynlighet hver gang: Isak gjetter, og hvert spørsmål har 1 riktig av 4 alternativer.\n4. Uavhengighet: gjettingen på ett spørsmål påvirker ikke de andre.\n\nAlle fire er oppfylt, så $X$ er binomisk fordelt, med\n\n$$n = 5$$\n\n$$p = \\frac{1}{4} = 0{,}25$$\n\n**b)** *Hva må vi finne?* $P(X = 2)$ — i klartekst: sannsynligheten for at antall riktige svar er nøyaktig 2.\n\nVi skriver formelen tom først:\n\n$$P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1 - p)^{n-k}$$\n\nog setter så inn $n = 5$, $k = 2$ og $p = \\frac{1}{4}$ i **hver** forekomst:\n\n$$P(X = 2) = \\binom{5}{2} \\cdot \\left(\\frac{1}{4}\\right)^2 \\cdot \\left(1 - \\frac{1}{4}\\right)^{5-2}$$\n\n$$= \\binom{5}{2} \\cdot \\left(\\frac{1}{4}\\right)^2 \\cdot \\left(\\frac{3}{4}\\right)^3$$\n\nNå regner vi ut hver faktor for seg:\n\n$$\\binom{5}{2} = \\frac{5 \\cdot 4}{2 \\cdot 1} = 10$$\n\n$$\\left(\\frac{1}{4}\\right)^2 = \\frac{1}{16}$$\n\n$$\\left(\\frac{3}{4}\\right)^3 = \\frac{27}{64}$$\n\nog setter sammen:\n\n$$P(X = 2) = 10 \\cdot \\frac{1}{16} \\cdot \\frac{27}{64} = \\frac{10 \\cdot 27}{16 \\cdot 64} = \\frac{270}{1024} = \\frac{135}{512} \\approx 0{,}264$$\n\n*(Kontroll: eksponentene $2 + 3 = 5 = n$. Stemmer.)*\n\n![Et søylediagram over verdiene 0 til 5 på den vannrette aksen merket k. Søylene over 0, 1, 3 og 4 er blå, med høydene 0,2373, 0,3955, 0,0879 og 0,0146. Søyla over 2 er rød og har høyden 0,2637. Fordelingen er skjev: den høyeste søyla står over 1, og høydene faller raskt mot høyre. Teksten P av X er lik 2 er lik 0,2637 står til høyre i figuren, sammen med P av X er lik 5 er lik 0,001.](/images/content/statistikk/stat-5-4-binomisk-n5-p025.png)\n\n*Den binomiske fordelingen for $n = 5$ og $p = 0{,}25$. Den røde søyla er leddet eksempelet regner ut — ett enkelt ledd i en hel fordeling. Legg merke til at fordelingen er skjev fordi $p \\ne 0{,}5$; toppen ligger ved $k = 1$, ikke i midten. Søyla for $k = 5$ er 0,001 og for lav til å tegnes, så verdien står som tekst.*\n\n**Svar:** a) $n = 5$ og $p = 0{,}25$. b) $P(X = 2) = \\frac{135}{512} \\approx 0{,}264$, altså omtrent 26 %.\n\n**Slik ville du tastet det inn:** på kalkulator `5 nCr 2 × 0,25^2 × 0,75^3`, i regneark `=BINOM.FORDELING.N(2;5;0,25;USANN)`."
+    },
+    {
+      "id": "stat-5-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Del 1 — uten hjelpemidler.** Vi kaster en mynt 4 ganger. La $X$ være antall kron, så $n = 4$ og $p = \\frac{1}{2}$. Svar med brøk med nevner 16.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(X = 0)$.",
+            "solution": "$P(X=0) = \\binom{4}{0} \\left(\\frac{1}{2}\\right)^0 \\left(\\frac{1}{2}\\right)^4 = 1 \\cdot 1 \\cdot \\frac{1}{16} = \\frac{1}{16}$",
+            "answer": 0.0625
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 1)$.",
+            "solution": "$P(X=1) = \\binom{4}{1} \\left(\\frac{1}{2}\\right)^1 \\left(\\frac{1}{2}\\right)^3 = 4 \\cdot \\frac{1}{16} = \\frac{4}{16}$",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X = 2)$.",
+            "solution": "$P(X=2) = \\binom{4}{2} \\left(\\frac{1}{2}\\right)^2 \\left(\\frac{1}{2}\\right)^2 = 6 \\cdot \\frac{1}{16} = \\frac{6}{16}$",
+            "answer": 0.375
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 3)$ og $P(X = 4)$.",
+            "solution": "$P(X=3) = \\binom{4}{3} \\cdot \\frac{1}{16} = \\frac{4}{16}$ og $P(X=4) = \\binom{4}{4} \\cdot \\frac{1}{16} = \\frac{1}{16}$",
+            "answer": 0.25
+          },
+          {
+            "label": "e",
+            "task": "Kontroller at de fem sannsynlighetene summerer til 1.",
+            "solution": "$\\frac{1 + 4 + 6 + 4 + 1}{16} = \\frac{16}{16} = 1$",
+            "answer": 1
+          }
+        ],
+        "hints": [
+          "Når $p = \\frac{1}{2}$, blir $p^k (1-p)^{n-k} = \\left(\\frac{1}{2}\\right)^n$ uansett hva $k$ er. Da er det bare binomialkoeffisienten som varierer."
+        ],
+        "solution": "a) $\\frac{1}{16}$, b) $\\frac{4}{16}$, c) $\\frac{6}{16}$, d) $\\frac{4}{16}$ og $\\frac{1}{16}$, e) summen er $\\frac{16}{16} = 1$",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-4-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Oppkjøring",
+      "problem": "Ved en trafikkstasjon består 74 % av kandidatene oppkjøringen på første forsøk. En trafikkskole melder opp 12 elever. La $X$ være antall av dem som består.\n\na) Hvilke forutsetninger må vi gjøre for at $X$ skal kunne regnes som binomisk fordelt?\nb) Finn $P(X = 10)$.",
+      "solution": "**Løsning:**\n\n**a)** Vi må anta:\n\n1. Antall forsøk er fast: 12 elever meldes opp, $n = 12$.\n2. Hver oppkjøring har to utfall: bestått eller ikke bestått.\n3. Alle de 12 elevene har samme sannsynlighet for å bestå, $p = 0{,}74$. *(Dette er den antakelsen som er mest tvilsom i praksis — noen elever er bedre forberedt enn andre.)*\n4. Elevene er uavhengige av hverandre: at én stryker, endrer ikke sannsynligheten for de andre.\n\n**b)** Fordelingen er altså binomisk, med\n\n$$n = 12$$\n\n$$p = 0{,}74$$\n\nVi skriver formelen først:\n\n$$P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1 - p)^{n-k}$$\n\nog setter inn $n = 12$, $k = 10$ og $p = 0{,}74$ i hver forekomst:\n\n$$P(X = 10) = \\binom{12}{10} \\cdot 0{,}74^{10} \\cdot (1 - 0{,}74)^{12 - 10} = \\binom{12}{10} \\cdot 0{,}74^{10} \\cdot 0{,}26^{2}$$\n\nFaktor for faktor:\n\n$$\\binom{12}{10} = \\frac{12 \\cdot 11}{2 \\cdot 1} = 66$$\n\n$$0{,}74^{10} \\approx 0{,}04924$$\n\n$$0{,}26^{2} = 0{,}0676$$\n\n$$P(X = 10) \\approx 66 \\cdot 0{,}04924 \\cdot 0{,}0676 \\approx 0{,}220$$\n\n**Svar:** a) Fast antall forsøk, to utfall, samme sannsynlighet 0,74 for alle, og uavhengighet. b) $P(X = 10) \\approx 0{,}220$, altså omtrent 22 %.\n\n**Slik ville du tastet det inn:** `=BINOM.FORDELING.N(10;12;0,74;USANN)` i regneark.\n\n**NB:** $\\binom{12}{10} = \\binom{12}{2}$ — å velge ut hvilke 10 som består, er det samme som å velge ut hvilke 2 som ikke gjør det. Velg alltid den minste av de to når du regner for hånd."
+    },
+    {
+      "id": "stat-5-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Vi kaster en terning 6 ganger og teller antall seksere. La $X$ være antall seksere, så $n = 6$ og $p = \\frac{1}{6}$. Svar med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Begrunn kort at de fire forutsetningene er oppfylt.",
+            "solution": "Fast antall kast (6), to utfall per kast (sekser eller ikke), samme sannsynlighet $\\frac{1}{6}$ hver gang, og kastene påvirker ikke hverandre."
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 0)$.",
+            "solution": "$P(X=0) = \\binom{6}{0} \\left(\\frac{1}{6}\\right)^0 \\left(\\frac{5}{6}\\right)^6 = \\left(\\frac{5}{6}\\right)^6 = \\frac{15\\,625}{46\\,656} \\approx 0{,}335$",
+            "answer": 0.335
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X = 1)$.",
+            "solution": "$P(X=1) = \\binom{6}{1} \\cdot \\frac{1}{6} \\cdot \\left(\\frac{5}{6}\\right)^5 = 6 \\cdot \\frac{1}{6} \\cdot \\frac{3125}{7776} = \\frac{3125}{7776} \\approx 0{,}402$",
+            "answer": 0.402
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 2)$.",
+            "solution": "$P(X=2) = \\binom{6}{2} \\left(\\frac{1}{6}\\right)^2 \\left(\\frac{5}{6}\\right)^4 = 15 \\cdot \\frac{1}{36} \\cdot \\frac{625}{1296} = \\frac{9375}{46\\,656} \\approx 0{,}201$",
+            "answer": 0.201
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(X \\ge 1)$ ved hjelp av komplementet.",
+            "solution": "$P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}335 = 0{,}665$",
+            "answer": 0.665
+          }
+        ],
+        "hints": [
+          "Hold brøkene $\\frac{1}{6}$ og $\\frac{5}{6}$ så lenge du kan — da ser du strukturen bedre enn med desimaltall."
+        ],
+        "solution": "b) $\\approx 0{,}335$, c) $\\approx 0{,}402$, d) $\\approx 0{,}201$, e) $\\approx 0{,}665$",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-4-section-minst-en",
+      "type": "text",
+      "content": "## «Minst én» — bruk alltid komplementet\n\nDen vanligste spørsmålsformen av alle er *«hva er sannsynligheten for at minst én …?»*. Regner du den rett fram, må du summere $P(X=1) + P(X=2) + \\cdots + P(X=n)$. Det er mye arbeid — og helt unødvendig.\n\nDet motsatte av «minst én» er «ingen», og «ingen» er ett eneste ledd:\n\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (1 - p)^n$$\n\nLegg merke til at $\\binom{n}{0} = 1$ og $p^0 = 1$, så hele formelen kollapser til $(1-p)^n$. Dette er en av de få binomiske sannsynlighetene du kan regne i hodet."
+    },
+    {
+      "id": "stat-5-4-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Defekte deler",
+      "problem": "En maskin produserer deler, og erfaringsmessig er 3 % av dem defekte. En kontrollør trekker ut 20 deler fra dagsproduksjonen.\n\na) Finn sannsynligheten for at ingen av de 20 delene er defekte.\nb) Finn sannsynligheten for at minst én del er defekt.",
+      "solution": "**Løsning:**\n\nFordelingen er binomisk — vi teller defekte blant et fast antall deler, med samme sannsynlighet hver gang. Her er\n\n$$n = 20$$\n\n$$p = 0{,}03$$\n\n**a)** Vi setter $k = 0$ i formelen:\n\n$$P(X = 0) = \\binom{20}{0} \\cdot 0{,}03^0 \\cdot (1 - 0{,}03)^{20 - 0}$$\n\nDe to første faktorene er begge 1 *(det føres ikke — vi skriver bare)*:\n\n$$P(X = 0) = 0{,}97^{20} \\approx 0{,}544$$\n\n**b)** «Minst én» er det motsatte av «ingen»:\n\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}97^{20} \\approx 1 - 0{,}544 = 0{,}456$$\n\n**Svar:** a) $\\approx 0{,}544$. b) $\\approx 0{,}456$, altså omtrent 46 %.\n\n**Tolkning:** Selv om bare 3 % av delene er defekte, er det nesten femti–femti om et utvalg på 20 inneholder minst én. Små sannsynligheter blir fort store når forsøket gjentas mange nok ganger — det er en av de viktigste innsiktene i hele kapittelet."
+    },
+    {
+      "id": "stat-5-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En nettbutikk vet at 4 % av pakkene blir forsinket. En dag sender de ut 30 pakker. La $X$ være antall forsinkede pakker. Svar med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Oppgi $n$ og $p$.",
+            "solution": "$n = 30$ og $p = 0{,}04$.",
+            "answer": 30
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 0)$.",
+            "solution": "$P(X=0) = 0{,}96^{30} \\approx 0{,}294$",
+            "answer": 0.294
+          },
+          {
+            "label": "c",
+            "task": "Finn sannsynligheten for at minst én pakke blir forsinket.",
+            "solution": "$P(X \\ge 1) = 1 - 0{,}96^{30} \\approx 1 - 0{,}294 = 0{,}706$",
+            "answer": 0.706
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X = 1)$.",
+            "solution": "$P(X=1) = \\binom{30}{1} \\cdot 0{,}04 \\cdot 0{,}96^{29} = 30 \\cdot 0{,}04 \\cdot 0{,}96^{29} \\approx 0{,}367$",
+            "answer": 0.367
+          },
+          {
+            "label": "e",
+            "task": "Finn sannsynligheten for at minst to pakker blir forsinket.",
+            "solution": "$P(X \\ge 2) = 1 - P(X=0) - P(X=1) = 1 - 0{,}96^{30} - 30 \\cdot 0{,}04 \\cdot 0{,}96^{29} \\approx 0{,}339$ (eksakt 0,33882). Regn med de uavrundede verdiene i kalkulatoren og rund av først til slutt — runder du underveis, kan siste desimal bomme.",
+            "answer": 0.339
+          }
+        ],
+        "hints": [
+          "«Minst to» er det motsatte av «høyst én», altså av $X = 0$ eller $X = 1$."
+        ],
+        "solution": "a) $n = 30$, $p = 0{,}04$, b) $\\approx 0{,}294$, c) $\\approx 0{,}706$, d) $\\approx 0{,}367$, e) $\\approx 0{,}339$",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-4-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Koder av A og B (Del 1)",
+      "problem": "En kode består av åtte tegn, og hvert tegn er enten A eller B. En kode lages ved at hvert av de åtte tegnene trekkes tilfeldig, med like stor sannsynlighet for A og B.\n\na) Hvor mange ulike koder finnes det?\nb) Finn sannsynligheten for at koden inneholder minst seks A-er. Oppgi svaret som en brøk.",
+      "solution": "**Løsning:**\n\n**a)** Hvert av de åtte tegnene kan velges på 2 måter, uavhengig av de andre:\n\n$$2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 = 2^8 = 256$$\n\nDet finnes 256 ulike koder.\n\n**b)** La $X$ være antall A-er. Fordelingen er binomisk, med\n\n$$n = 8$$\n\n$$p = \\frac{1}{2}$$\n\n«Minst seks A-er» betyr $X = 6$, $X = 7$ eller $X = 8$. Vi regner de tre leddene.\n\nSiden $p = \\frac{1}{2}$, blir $p^k (1-p)^{8-k} = \\left(\\frac{1}{2}\\right)^8 = \\frac{1}{256}$ uansett hva $k$ er. Da er det bare binomialkoeffisienten som varierer, og hvert ledd blir «antall gunstige over 256»:\n\n$$P(X = 6) = \\binom{8}{6} \\cdot \\frac{1}{256} = \\frac{8 \\cdot 7}{2 \\cdot 1} \\cdot \\frac{1}{256} = \\frac{28}{256}$$\n\n$$P(X = 7) = \\binom{8}{7} \\cdot \\frac{1}{256} = \\frac{8}{256}$$\n\n$$P(X = 8) = \\binom{8}{8} \\cdot \\frac{1}{256} = \\frac{1}{256}$$\n\nVi lar brøkene stå med nevner 256 — de skal summeres:\n\n$$P(X \\ge 6) = \\frac{28}{256} + \\frac{8}{256} + \\frac{1}{256} = \\frac{28 + 8 + 1}{256} = \\frac{37}{256} \\approx 0{,}145$$\n\n**Svar:** a) 256 koder. b) $P(X \\ge 6) = \\frac{37}{256} \\approx 0{,}145$.\n\n**NB:** Med $p = \\frac{1}{2}$ er binomisk sannsynlighet det samme som «gunstige delt på mulige» — de 37 kodene med minst seks A-er, delt på de 256 mulige. Det er nettopp fordi alle de 256 kodene er like sannsynlige. Er $p \\ne \\frac{1}{2}$, holder ikke den snarveien."
+    },
+    {
+      "id": "stat-5-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 — uten hjelpemidler.** Vi kaster en mynt 7 ganger. La $X$ være antall kron. Oppgi alle svar som brøk med nevner 128.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange mulige utfallsrekker finnes det?",
+            "solution": "$2^7 = 128$",
+            "answer": 128
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X = 5)$.",
+            "solution": "$P(X=5) = \\binom{7}{5} \\cdot \\frac{1}{128} = \\frac{7 \\cdot 6}{2 \\cdot 1} \\cdot \\frac{1}{128} = \\frac{21}{128}$",
+            "answer": 0.164
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X = 6)$ og $P(X = 7)$.",
+            "solution": "$P(X=6) = \\frac{7}{128}$ og $P(X=7) = \\frac{1}{128}$",
+            "answer": 0.055
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X \\ge 5)$.",
+            "solution": "$P(X \\ge 5) = \\frac{21 + 7 + 1}{128} = \\frac{29}{128} \\approx 0{,}227$",
+            "answer": 0.227
+          },
+          {
+            "label": "e",
+            "task": "Finn $P(X \\le 2)$ uten å regne på nytt. Forklar hvordan du kan bruke symmetrien.",
+            "solution": "Fordelingen er symmetrisk om 3,5 når $p = \\frac{1}{2}$, så $P(X \\le 2) = P(X \\ge 5) = \\frac{29}{128} \\approx 0{,}227$. Å ha høyst 2 kron er det samme som å ha minst 5 mynt.",
+            "answer": 0.227
+          }
+        ],
+        "hints": [
+          "Med $p = \\frac{1}{2}$ er alle de 128 rekkene like sannsynlige, så du trenger bare telle gunstige."
+        ],
+        "solution": "a) 128, b) $\\frac{21}{128}$, c) $\\frac{7}{128}$ og $\\frac{1}{128}$, d) $\\frac{29}{128} \\approx 0{,}227$, e) $\\frac{29}{128}$ ved symmetri",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-4-warning-ikke-binomisk",
+      "type": "warning",
+      "title": "Når modellen IKKE er binomisk",
+      "content": "Den forutsetningen som oftest svikter, er nummer 3 og 4 samtidig: at $p$ er den samme hele veien, og at forsøkene er uavhengige.\n\n**Trekking uten tilbakelegging** bryter begge. Trekker vi 3 kort fra en kortstokk, er sannsynligheten for hjerter $\\frac{13}{52}$ i første trekk — men i andre trekk avhenger den av hva vi fikk først. Antall suksesser er da **ikke** binomisk fordelt; den er *hypergeometrisk*, og regnes med kombinasjoner slik vi gjorde i kapittel 5.1.\n\n**Tommelfingerregel:** trekker vi fra en *veldig stor* gruppe, spiller det nesten ingen rolle om vi legger tilbake eller ikke. Trekker vi 20 personer fra Norges befolkning, endrer ikke de 20 første sannsynligheten merkbart for de neste. Da er binomisk en god tilnærming. Trekker vi 6 av 30 elever i en klasse, er den det ikke.\n\nAndre typiske brudd:\n\n- **Antallet er ikke fast.** «Vi kaster til vi får sekser» har ikke noe $n$.\n- **Sannsynligheten endrer seg underveis.** En spiller som blir sliten, har ikke samme $p$ i siste forsøk som i første.\n- **Forsøkene henger sammen.** To elever som samarbeider på en prøve, svarer ikke uavhengig av hverandre."
+    },
+    {
+      "id": "stat-5-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør for hver situasjon om antallet kan regnes som binomisk fordelt. Begrunn med de fire forutsetningene, og oppgi $n$ og $p$ der modellen passer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vi kaster en terning 20 ganger og teller antall enere.",
+            "solution": "Binomisk. Fast antall (20), to utfall (ener/ikke ener), samme $p = \\frac{1}{6}$ hver gang, uavhengige kast. $n = 20$, $p = \\frac{1}{6}$."
+          },
+          {
+            "label": "b",
+            "task": "Vi trekker 5 kort fra en kortstokk med 52 kort, uten å legge tilbake, og teller antall hjerter.",
+            "solution": "Ikke binomisk. Sannsynligheten endrer seg for hvert trekk, og trekkene er avhengige. Dette er en hypergeometrisk situasjon, og regnes med kombinasjoner."
+          },
+          {
+            "label": "c",
+            "task": "Vi spør 200 tilfeldig valgte nordmenn om de har lest en bok siste måned. Andelen i befolkningen er 0,38.",
+            "solution": "Binomisk i praksis. Strengt tatt trekkes det uten tilbakelegging, men utvalget er forsvinnende lite mot befolkningen, så $p$ endrer seg ikke merkbart. $n = 200$, $p = 0{,}38$."
+          },
+          {
+            "label": "d",
+            "task": "Vi kaster en mynt helt til vi får kron, og teller antall kast.",
+            "solution": "Ikke binomisk. Antall forsøk er ikke fast — det er nettopp antallet som er den tilfeldige størrelsen. Forutsetning 1 er brutt."
+          },
+          {
+            "label": "e",
+            "task": "En skiskytter skyter 20 skudd på standplass, og vi teller treff. Hun blir merkbart mer sliten mot slutten.",
+            "solution": "Tvilsomt. Antallet er fast og utfallene er to, men $p$ er ikke den samme i alle skuddene når formen endrer seg underveis. Modellen kan brukes som en grov tilnærming, men forutsetning 3 er ikke oppfylt."
+          }
+        ],
+        "hints": [
+          "Gå gjennom de fire kravene i rekkefølge for hver situasjon. Det er nok at ett av dem svikter."
+        ],
+        "solution": "a) Binomisk ($n=20$, $p=\\frac{1}{6}$). b) Nei — uten tilbakelegging. c) Ja, i praksis ($n=200$, $p=0{,}38$). d) Nei — $n$ er ikke fast. e) Tvilsomt — $p$ endrer seg underveis.",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-4-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En situasjon er **binomisk** når fire krav er oppfylt: fast antall forsøk $n$, to utfall per forsøk, samme suksessannsynlighet $p$ hver gang, og uavhengige forsøk.\n- **Binomialkoeffisienten** $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ teller hvor mange rekkefølger som gir $k$ suksesser. Snarvei for hånd: $\\binom{n}{k} = \\frac{n(n-1)\\cdots}{k!}$ med $k$ faktorer i telleren, og $\\binom{n}{k} = \\binom{n}{n-k}$.\n- **Formelen** er $P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$. Skriv den tom først, sett så inn i hver forekomst, og regn faktor for faktor. Kontroll: eksponentene summerer til $n$.\n- **«Minst én»** regnes alltid med komplementet: $P(X \\ge 1) = 1 - (1-p)^n$.\n- **Trekking uten tilbakelegging er ikke binomisk** — med mindre gruppen er så stor at $p$ knapt endrer seg.\n\nI kapittel 5.5 slipper vi å regne hvert ledd for hånd: vi bruker tabeller og digitale verktøy til kumulative sannsynligheter, og møter de ferdige formlene $E(X) = np$ og $\\text{Var}(X) = np(1-p)$."
+    },
+    {
+      "id": "stat-5-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En trafikkskole melder opp to grupper til oppkjøring samme uke: 7 elever fra gruppe A og 5 elever fra gruppe B. Alle har sannsynlighet 0,74 for å bestå, og elevene er uavhengige av hverandre. La $X$ være antall som består i gruppe A, og $Y$ antall som består i gruppe B. Svar med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(X = 5)$.",
+            "solution": "$P(X=5) = \\binom{7}{5} \\cdot 0{,}74^5 \\cdot 0{,}26^2 = 21 \\cdot 0{,}22190 \\cdot 0{,}0676 \\approx 0{,}315$",
+            "answer": 0.315
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(Y = 4)$.",
+            "solution": "$P(Y=4) = \\binom{5}{4} \\cdot 0{,}74^4 \\cdot 0{,}26^1 = 5 \\cdot 0{,}29987 \\cdot 0{,}26 \\approx 0{,}390$",
+            "answer": 0.39
+          },
+          {
+            "label": "c",
+            "task": "Gruppene er uavhengige av hverandre. Finn sannsynligheten for at akkurat 5 består i gruppe A **og** akkurat 4 består i gruppe B.",
+            "solution": "Uavhengige hendelser multipliseres: $P(X=5) \\cdot P(Y=4) \\approx 0{,}315 \\cdot 0{,}390 \\approx 0{,}123$",
+            "answer": 0.123
+          },
+          {
+            "label": "d",
+            "task": "Forklar hvorfor vi ikke kan regne dette som én binomisk fordeling med $n = 12$ og $k = 9$.",
+            "solution": "Med $n = 12$ og $k = 9$ ville vi spurt om at 9 av de 12 består, uansett hvem. Her kreves en helt bestemt fordeling mellom gruppene — 5 fra A og 4 fra B. Det er en strengere betingelse, og sannsynligheten blir derfor mindre.",
+            "answer": 9
+          },
+          {
+            "label": "e",
+            "task": "Til sammenligning: finn $P(Z = 9)$ når $Z$ er antall av alle 12 som består.",
+            "solution": "$P(Z=9) = \\binom{12}{9} \\cdot 0{,}74^9 \\cdot 0{,}26^3 = 220 \\cdot 0{,}06654 \\cdot 0{,}017576 \\approx 0{,}257$. Dette er mye større enn svaret i c), akkurat som forklart i d).",
+            "answer": 0.257
+          }
+        ],
+        "hints": [
+          "Regn hver gruppe for seg med formelen, og gang svarene sammen i c) — det er uavhengigheten mellom gruppene som tillater det."
+        ],
+        "solution": "a) $\\approx 0{,}315$, b) $\\approx 0{,}390$, c) $\\approx 0{,}123$, d) fordi fordelingen mellom gruppene er bestemt, e) $\\approx 0{,}257$",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-4-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-4-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** I en klasse er det 30 elever, og 18 av dem er jenter. Læreren trekker tilfeldig 6 elever til en gruppe, uten å legge tilbake. La $X$ være antall jenter i gruppen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Forklar hvorfor $X$ ikke er binomisk fordelt.",
+            "solution": "Sannsynligheten for jente er $\\frac{18}{30} = 0{,}60$ i første trekk, men etter at en jente er trukket, er den $\\frac{17}{29} \\approx 0{,}586$. $p$ endrer seg, og trekkene er avhengige. Forutsetning 3 og 4 er brutt."
+          },
+          {
+            "label": "b",
+            "task": "Regn ut $P(X = 4)$ riktig, med kombinasjoner. Svar med tre desimaler.",
+            "solution": "$P(X = 4) = \\frac{\\binom{18}{4} \\cdot \\binom{12}{2}}{\\binom{30}{6}} = \\frac{3060 \\cdot 66}{593\\,775} = \\frac{201\\,960}{593\\,775} \\approx 0{,}340$",
+            "answer": 0.34
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $P(X = 4)$ som om modellen var binomisk med $n = 6$ og $p = 0{,}60$, og sammenlign.",
+            "solution": "$\\binom{6}{4} \\cdot 0{,}60^4 \\cdot 0{,}40^2 = 15 \\cdot 0{,}1296 \\cdot 0{,}16 \\approx 0{,}311$. Den binomiske tilnærmingen bommer med omtrent 0,03, altså rundt 9 % av verdien.",
+            "answer": 0.311
+          },
+          {
+            "label": "d",
+            "task": "Tenk deg at læreren i stedet trakk 6 elever fra hele skolen, som har 900 elever der 540 er jenter (samme andel, 0,60). Ville den binomiske tilnærmingen vært bedre da? Begrunn.",
+            "solution": "Ja, mye bedre. Etter at én jente er trukket, er andelen $\\frac{539}{899} \\approx 0{,}5996$ — nesten uendret. Når gruppen vi trekker fra er stor i forhold til utvalget, blir forskjellen mellom med og uten tilbakelegging forsvinnende liten."
+          },
+          {
+            "label": "e",
+            "task": "Formuler en tommelfingerregel for når du tør bruke binomisk modell på en trekning uten tilbakelegging.",
+            "solution": "Når utvalget er lite i forhold til gruppen — en vanlig regel er at $n$ ikke bør overstige omtrent 10 % av gruppens størrelse. Her er $\\frac{6}{30} = 20\\%$ (for stort), mens $\\frac{6}{900} \\approx 0{,}7\\%$ (helt trygt)."
+          }
+        ],
+        "hints": [
+          "I b) teller du gunstige utvalg: 4 av de 18 jentene og 2 av de 12 guttene, delt på alle utvalg av 6 fra 30."
+        ],
+        "solution": "a) $p$ endrer seg og trekkene er avhengige. b) $\\approx 0{,}340$. c) $\\approx 0{,}311$ — bommer med ca. 9 %. d) Ja, langt bedre. e) Utvalget bør være under ca. 10 % av gruppen.",
+        "competenceGoals": [
+          "forklare føresetnadene for binomisk fordeling og bruke fordelinga i relevante situasjonar ved hjelp av digitale verktøy og sannsynstabellar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Binomisk fordeling",
+      "definition": "Fordelingen til antall suksesser i $n$ uavhengige forsøk som hver har to utfall og samme suksessannsynlighet $p$."
+    },
+    {
+      "term": "Binomialkoeffisient",
+      "definition": "$\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ — antall måter å velge ut $k$ av $n$ på når rekkefølgen ikke spiller noen rolle. Leses «$n$ over $k$»."
+    },
+    {
+      "term": "Suksess",
+      "definition": "Det utfallet vi teller i et binomisk forsøk. Ordet sier ingenting om at utfallet er ønskelig — teller vi defekte deler, er en defekt del en suksess."
+    },
+    {
+      "term": "Uavhengige forsøk",
+      "definition": "Forsøk der utfallet i ett forsøk ikke endrer sannsynligheten i de andre. Trekking uten tilbakelegging gir avhengige forsøk, og da er modellen ikke binomisk."
+    }
+  ]
+}

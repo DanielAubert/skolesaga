@@ -1,0 +1,498 @@
+{
+  "id": "stat-4-2",
+  "courseId": "statistikk",
+  "chapterNumber": "4.2",
+  "title": "Utfall, utfallsrom og hendelser",
+  "description": "Utfall, utfallsrom, snitt, union og komplement — med mengdenotasjon og venndiagram.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+  ],
+  "keyTerms": [
+    {
+      "term": "Utfallsrom",
+      "definition": "Mengden av alle mulige utfall i et stokastisk forsøk. Vi kaller den $S$. For ett terningkast er $S = \\{1, 2, 3, 4, 5, 6\\}$."
+    },
+    {
+      "term": "Hendelse",
+      "definition": "En samling utfall — altså en delmengde av utfallsrommet. «Terningen viser partall» er hendelsen $\\{2, 4, 6\\}$."
+    },
+    {
+      "term": "Snitt",
+      "definition": "$A \\cap B$ er utfallene som er i $A$ og i $B$ samtidig. Leses «A snitt B»."
+    },
+    {
+      "term": "Union",
+      "definition": "$A \\cup B$ er utfallene som er i $A$ eller i $B$ eller i begge. Leses «A union B»."
+    },
+    {
+      "term": "Komplement",
+      "definition": "$A'$ er utfallene i $S$ som ikke er i $A$. Leses «ikke A» eller «A komplement»."
+    },
+    {
+      "term": "Disjunkte hendelser",
+      "definition": "To hendelser som ikke kan skje samtidig: $A \\cap B = \\emptyset$. Kalles også uforenlige hendelser."
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-2-section-intro",
+      "type": "text",
+      "content": "# Å skrive ned hva som kan skje\n\nI kapittel 4.1 regnet vi gunstige delt på mulige. For å telle de gunstige og de mulige må vi først ha skrevet dem ned. Det er det dette kapittelet handler om: et fast språk for *hva som kan skje* og *hva vi spør om*.\n\nSpråket er hentet fra mengdelæren, og det består av tre operasjoner: snitt, union og komplement. Når du behersker dem, kan de fleste sannsynlighetsoppgaver oversettes til regning nesten mekanisk."
+    },
+    {
+      "id": "stat-4-2-def-utfallsrom",
+      "type": "definition",
+      "title": "Utfall og utfallsrom",
+      "content": "Et **utfall** er ett av de mulige resultatene av et stokastisk forsøk.\n\n**Utfallsrommet** er mengden av alle utfall. Vi kaller det $S$ (av *sample space*, «utvalgsrom»).\n\nFor ett kast med en terning er\n\n$$S = \\{1,\\ 2,\\ 3,\\ 4,\\ 5,\\ 6\\}$$\n\nKrøllparentesene $\\{\\ \\}$ betyr «mengden som består av». Rekkefølgen inne i parentesene betyr ingenting, og hvert utfall skrives bare én gang."
+    },
+    {
+      "id": "stat-4-2-note-teller",
+      "type": "note",
+      "title": "Antall utfall skrives $|S|$",
+      "content": "Skriver vi $|S| = 6$, betyr det at utfallsrommet har 6 elementer. Loddrette streker rundt en mengde betyr altså *antall elementer*, ikke tallverdi. Det er dette tallet som havner under brøkstreken når alle utfall er like sannsynlige."
+    },
+    {
+      "id": "stat-4-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "Skriv opp utfallsrommet $S$ og antall utfall $|S|$ for forsøkene.\n\na) Vi kaster ett pengestykke.\nb) Vi kaster to pengestykker og noterer resultatet på hvert av dem.\nc) Vi svarer tilfeldig på tre sant/usant-spørsmål og teller antall riktige.",
+      "solution": "**Løsning:**\n\na) Ett pengestykke gir kron (K) eller mynt (M).\n\n$$S = \\{\\text{K},\\ \\text{M}\\} \\qquad |S| = 2$$\n\nb) Her må vi holde styr på *hvilket* pengestykke som viste hva. Vi skriver første bokstav for pengestykke 1 og andre bokstav for pengestykke 2, og går systematisk gjennom alle kombinasjoner:\n\nPengestykke 1 er K: $\\quad$ KK, KM\n\nPengestykke 1 er M: $\\quad$ MK, MM\n\n$$S = \\{\\text{KK},\\ \\text{KM},\\ \\text{MK},\\ \\text{MM}\\} \\qquad |S| = 4$$\n\nHer ser vi at KM og MK er to *forskjellige* utfall, selv om begge gir «én kron og én mynt». Det er viktig: teller vi dem som ett utfall, får vi feil sannsynligheter senere.\n\nc) Nå er det ikke *hvilke* spørsmål vi svarte riktig på som er utfallet, men *hvor mange*. Antall riktige kan være 0, 1, 2 eller 3.\n\n$$S = \\{0,\\ 1,\\ 2,\\ 3\\} \\qquad |S| = 4$$\n\n**NB:** Disse fire utfallene er *ikke* like sannsynlige — det er mange flere måter å få 1 riktig på enn 0 riktige. Utfallsrommet sier bare hva som kan skje, ikke hvor ofte.\n\n**Svar:** a) $S = \\{\\text{K}, \\text{M}\\}$, $|S| = 2$. b) $S = \\{\\text{KK}, \\text{KM}, \\text{MK}, \\text{MM}\\}$, $|S| = 4$. c) $S = \\{0, 1, 2, 3\\}$, $|S| = 4$."
+    },
+    {
+      "id": "stat-4-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør det samme som i eksempel 1. Skriv opp utfallsrommet og oppgi antall utfall $|S|$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vi trekker én kule fra en pose med én rød, én blå og én gul kule. Hvor mange utfall er det?",
+            "solution": "$S = \\{\\text{rød}, \\text{blå}, \\text{gul}\\}$, $|S| = 3$",
+            "answer": 3
+          },
+          {
+            "label": "b",
+            "task": "Vi kaster en terning og noterer om tallet er et partall eller et oddetall. Hvor mange utfall er det?",
+            "solution": "$S = \\{\\text{partall}, \\text{oddetall}\\}$, $|S| = 2$",
+            "answer": 2
+          },
+          {
+            "label": "c",
+            "task": "Vi kaster to terninger og noterer tallparet, for eksempel $(3, 5)$. Hvor mange utfall er det?",
+            "solution": "Seks muligheter på den første og seks på den andre gir $6 \\cdot 6 = 36$ par.",
+            "answer": 36
+          },
+          {
+            "label": "d",
+            "task": "Vi kaster tre pengestykker og noterer resultatet på hvert av dem. Hvor mange utfall er det?",
+            "solution": "$2 \\cdot 2 \\cdot 2 = 8$: KKK, KKM, KMK, KMM, MKK, MKM, MMK, MMM",
+            "answer": 8
+          },
+          {
+            "label": "e",
+            "task": "Vi kaster tre pengestykker og teller antall kron. Hvor mange utfall er det?",
+            "solution": "$S = \\{0, 1, 2, 3\\}$, $|S| = 4$",
+            "answer": 4
+          }
+        ],
+        "hints": [
+          "Gå systematisk gjennom mulighetene, akkurat som i eksempel 1b: hold den første fast og varier de andre.",
+          "Merk forskjellen på d) og e): i d) er utfallet hvilke pengestykker som viste kron, i e) bare hvor mange."
+        ],
+        "solution": "a) 3, b) 2, c) 36, d) 8, e) 4",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-2-def-hendelse",
+      "type": "definition",
+      "title": "Hendelse",
+      "content": "En **hendelse** er en samling utfall, altså en delmengde av utfallsrommet. Vi bruker store bokstaver: $A$, $B$, $C$.\n\nHendelsen «terningen viser partall» skriver vi\n\n$$A = \\{2,\\ 4,\\ 6\\}$$\n\nVi sier at hendelsen $A$ **inntreffer** dersom forsøket gir et utfall som ligger i $A$.\n\nTo spesialtilfeller:\n\n- Hele $S$ er en hendelse — den som alltid inntreffer.\n- Den tomme mengden $\\emptyset$ er en hendelse — den som aldri inntreffer."
+    },
+    {
+      "id": "stat-4-2-def-operasjoner",
+      "type": "definition",
+      "title": "Snitt, union og komplement",
+      "content": "La $A$ og $B$ være hendelser i utfallsrommet $S$.\n\n- **Snitt:** $A \\cap B$ er utfallene som ligger i $A$ **og** i $B$. Leses «A snitt B».\n- **Union:** $A \\cup B$ er utfallene som ligger i $A$ **eller** i $B$ (eller i begge). Leses «A union B».\n- **Komplement:** $A'$ er utfallene i $S$ som **ikke** ligger i $A$. Leses «ikke A».\n\nHusketrikset for de to tegnene: $\\cap$ er formet som en bro og fanger bare det som er under *begge* — $\\cup$ er formet som en kopp og samler *alt*.\n\nDersom $A \\cap B = \\emptyset$, sier vi at $A$ og $B$ er **disjunkte** (uforenlige): de kan ikke skje samtidig."
+    },
+    {
+      "id": "stat-4-2-fig-venn",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-2-venn-snitt.png",
+      "alt": "Et venndiagram. Et rektangel er merket S oppe i venstre hjørne og står for utfallsrommet. Inne i rektangelet ligger to like store sirkler som overlapper hverandre. Den venstre sirkelen er blå og merket A, den høyre er grønn og merket B. Det linseformede området der sirklene overlapper, er farget gult og merket A snitt B. Området inne i rektangelet, men utenfor begge sirklene, er hvitt.",
+      "caption": "Venndiagram for to hendelser. Det gule feltet er snittet $A \\cap B$ — utfallene som er med i begge hendelsene. Alt innenfor minst én av sirklene til sammen er unionen $A \\cup B$, og alt utenfor den blå sirkelen er komplementet $A'$.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-2-venn-snitt.json"
+    },
+    {
+      "id": "stat-4-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "Vi kaster én terning, slik at $S = \\{1, 2, 3, 4, 5, 6\\}$. La\n\n$A$ = «terningen viser partall» og $B$ = «terningen viser minst 4».\n\na) Skriv $A$ og $B$ som mengder.\nb) Bestem $A \\cap B$, $A \\cup B$ og $A'$.\nc) Bestem $P(A \\cap B)$ og $P(A \\cup B)$.",
+      "solution": "**Løsning:**\n\na) Vi går gjennom utfallsrommet ett tall om gangen og spør om tallet hører hjemme i hendelsen.\n\nPartall blant 1–6 er 2, 4 og 6:\n\n$$A = \\{2,\\ 4,\\ 6\\}$$\n\n«Minst 4» betyr 4 eller mer, altså 4, 5 og 6:\n\n$$B = \\{4,\\ 5,\\ 6\\}$$\n\nb) **Snitt** — tallene som er i begge listene. Vi ser på $A = \\{2, 4, 6\\}$ og $B = \\{4, 5, 6\\}$: tallet 4 er i begge, 6 er i begge, 2 er bare i $A$, 5 er bare i $B$.\n\n$$A \\cap B = \\{4,\\ 6\\}$$\n\n**Union** — alle tallene som er i minst én av listene, hvert tall skrevet én gang:\n\n$$A \\cup B = \\{2,\\ 4,\\ 5,\\ 6\\}$$\n\n**Komplement** — tallene i $S$ som ikke er i $A$:\n\n$$A' = \\{1,\\ 3,\\ 5\\}$$\n\nc) Alle seks utfall er like sannsynlige, så grunnmengden er $|S| = 6$. Det tallet står under brøkstreken begge ganger; det eneste som endrer seg, er hvor mange utfall som er gunstige.\n\n$A \\cap B$ har 2 utfall:\n\n$$P(A \\cap B) = \\frac{2}{6} = \\frac{1}{3} \\approx 0{,}333$$\n\n$A \\cup B$ har 4 utfall:\n\n$$P(A \\cup B) = \\frac{4}{6} = \\frac{2}{3} \\approx 0{,}667$$\n\n**Svar:** a) $A = \\{2, 4, 6\\}$, $B = \\{4, 5, 6\\}$. b) $A \\cap B = \\{4, 6\\}$, $A \\cup B = \\{2, 4, 5, 6\\}$, $A' = \\{1, 3, 5\\}$. c) $P(A \\cap B) = \\frac{1}{3}$ og $P(A \\cup B) = \\frac{2}{3}$."
+    },
+    {
+      "id": "stat-4-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 2. Vi trekker ett kort fra en kortstokk med 52 kort. La $A$ = «kortet er hjerter» og $B$ = «kortet er et bildekort (knekt, dame eller konge)».",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange kort er med i $A$?",
+            "solution": "13 hjerterkort.",
+            "answer": 13
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange kort er med i $B$?",
+            "solution": "3 bildekort i hver av de 4 fargene: $3 \\cdot 4 = 12$",
+            "answer": 12
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange kort er med i $A \\cap B$?",
+            "solution": "Bildekortene i hjerter: knekt, dame og konge — altså 3.",
+            "answer": 3
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange kort er med i $A \\cup B$?",
+            "solution": "$13 + 12 - 3 = 22$. De tre hjerter-bildekortene er talt i begge, og skal bare telles én gang.",
+            "answer": 22
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange kort er med i $A'$?",
+            "solution": "$52 - 13 = 39$",
+            "answer": 39
+          }
+        ],
+        "hints": [
+          "Tegn gjerne et venndiagram med to sirkler og fyll inn antallet i hvert felt.",
+          "I d): pass på at kortene i snittet ikke telles to ganger."
+        ],
+        "solution": "a) 13, b) 12, c) 3, d) 22, e) 39",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-2-section-komplement",
+      "type": "text",
+      "content": "## Komplementet er en snarvei\n\nHver eneste gang inntreffer enten $A$ eller $A'$ — aldri begge, og aldri ingen av dem. Til sammen dekker de hele utfallsrommet. Derfor må sannsynlighetene deres summere til 1."
+    },
+    {
+      "id": "stat-4-2-theorem-komplement",
+      "type": "theorem",
+      "title": "Komplementsetningen",
+      "content": "For enhver hendelse $A$ gjelder\n\n$$P(A) + P(A') = 1 \\qquad \\text{og dermed} \\qquad P(A') = 1 - P(A)$$",
+      "proof": "Hendelsene $A$ og $A'$ har ingen utfall felles, og til sammen har de alle utfallene i $S$. Er alle utfall like sannsynlige, er derfor antall gunstige for $A$ pluss antall gunstige for $A'$ lik $|S|$:\n\n$$P(A) + P(A') = \\frac{|A|}{|S|} + \\frac{|A'|}{|S|} = \\frac{|A| + |A'|}{|S|} = \\frac{|S|}{|S|} = 1$$"
+    },
+    {
+      "id": "stat-4-2-tip-minst-en",
+      "type": "tip",
+      "title": "Når du ser «minst én», tenk komplement",
+      "content": "«Minst én» er en lang liste å telle opp: én, to, tre … Men det motsatte av «minst én» er «ingen» — og det er som regel ett enkelt tilfelle.\n\n$$P(\\text{minst én}) = 1 - P(\\text{ingen})$$\n\nDette er den mest brukte snarveien i hele sannsynlighetsregningen."
+    },
+    {
+      "id": "stat-4-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "Vi kaster tre pengestykker.\n\na) Skriv opp utfallsrommet.\nb) Bestem sannsynligheten for at alle tre viser mynt.\nc) Bestem sannsynligheten for at minst ett av dem viser kron.",
+      "solution": "**Løsning:**\n\na) Vi går systematisk fram: først alle utfallene der pengestykke 1 viser K, deretter alle der det viser M.\n\n$$S = \\{\\text{KKK},\\ \\text{KKM},\\ \\text{KMK},\\ \\text{KMM},\\ \\text{MKK},\\ \\text{MKM},\\ \\text{MMK},\\ \\text{MMM}\\}$$\n\nDet er $|S| = 8$ utfall, og de er like sannsynlige.\n\nb) Bare ett av de åtte utfallene er MMM.\n\n$$P(\\text{alle mynt}) = \\frac{1}{8} = 0{,}125$$\n\nc) Her *kunne* vi telt: KKK, KKM, KMK, KMM, MKK, MKM, MMK — sju utfall. Men det er raskere å bruke komplementet.\n\nHva er det motsatte av «minst én kron»? Det er «ingen kron», altså «alle mynt» — som vi nettopp regnet ut i b).\n\nVi bruker komplementsetningen med formelen tom først:\n\n$$P(A') = 1 - P(A)$$\n\n$$P(\\text{minst én kron}) = 1 - P(\\text{ingen kron}) = 1 - \\frac{1}{8} = \\frac{8}{8} - \\frac{1}{8} = \\frac{7}{8}$$\n\n(Legg merke til at vi bytter $1$ med $\\frac{8}{8}$ som eget steg. Da ser vi hva som skjer under brøkstreken.)\n\n$$\\frac{7}{8} = 0{,}875$$\n\n![Et sannsynlighetstre med tre nivåer for tre kast med et pengestykke. Hver gren er merket 1/2, og treet har åtte endepunkter: KKK, KKM, KMK, KMM, MKK, MKM, MMK og MMM, alle med veiproduktet 1/8. Veien MMM, altså ingen kron, er uthevet i rødt. Nederst står: minst én kron er lik 1 minus P av MMM, altså 1 minus 1/8 er lik 7/8.](/images/content/statistikk/stat-4-2-tre-mynter.png)\n\n*Åtte like sannsynlige veier. Bare én av dem gir ingen kron, og derfor er komplementsnarveien $1 - \\frac{1}{8} = \\frac{7}{8}$ mye raskere enn å legge sammen de sju andre.*\n\n**Svar:** a) 8 utfall. b) $\\frac{1}{8} = 0{,}125$. c) $\\frac{7}{8} = 0{,}875$, altså i underkant av 88 %."
+    },
+    {
+      "id": "stat-4-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk komplementsetningen. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$P(A) = \\frac{1}{5}$. Bestem $P(A')$.",
+            "solution": "$1 - \\frac{1}{5} = \\frac{5}{5} - \\frac{1}{5} = \\frac{4}{5}$",
+            "expressionAnswer": "4/5"
+          },
+          {
+            "label": "b",
+            "task": "$P(B') = 0{,}35$. Bestem $P(B)$ som desimaltall.",
+            "solution": "$1 - 0{,}35 = 0{,}65$",
+            "answer": 0.65
+          },
+          {
+            "label": "c",
+            "task": "Vi kaster én terning. Bestem $P(\\text{ikke sekser})$.",
+            "solution": "$1 - \\frac{1}{6} = \\frac{6}{6} - \\frac{1}{6} = \\frac{5}{6}$",
+            "expressionAnswer": "5/6"
+          },
+          {
+            "label": "d",
+            "task": "Vi kaster to terninger. Sannsynligheten for to seksere er $\\frac{1}{36}$. Bestem sannsynligheten for at vi ikke får to seksere.",
+            "solution": "$1 - \\frac{1}{36} = \\frac{36}{36} - \\frac{1}{36} = \\frac{35}{36}$",
+            "expressionAnswer": "35/36"
+          },
+          {
+            "label": "e",
+            "task": "Vi kaster fire pengestykker. Bestem sannsynligheten for at minst ett viser kron.",
+            "solution": "$|S| = 2^4 = 16$. «Ingen kron» er ett utfall (MMMM), så $1 - \\frac{1}{16} = \\frac{15}{16}$",
+            "expressionAnswer": "15/16"
+          }
+        ],
+        "hints": [
+          "$P(A') = 1 - P(A)$. Bytt $1$ med en brøk som har samme nevner før du trekker fra.",
+          "I e): «minst én kron» har komplementet «bare mynt»."
+        ],
+        "solution": "a) $\\frac{4}{5}$, b) $0{,}65$, c) $\\frac{5}{6}$, d) $\\frac{35}{36}$, e) $\\frac{15}{16}$",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-2-section-disjunkt",
+      "type": "text",
+      "content": "## Disjunkte hendelser\n\nNoen hendelser kan rett og slett ikke skje samtidig. Et kort kan ikke være både hjerter og spar; en terning kan ikke vise både 2 og 5 i samme kast. Da er snittet tomt:\n\n$$A \\cap B = \\emptyset$$\n\nog vi kaller hendelsene **disjunkte** (uforenlige). I et venndiagram tegner vi da to sirkler som ikke rører hverandre.\n\n**NB:** Disjunkt er ikke det samme som uavhengig. Disjunkt betyr at den ene utelukker den andre — og det er nesten det motsatte av uavhengighet. Vi kommer tilbake til uavhengighet i kapittel 4.5."
+    },
+    {
+      "id": "stat-4-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "Vi trekker ett kort fra en kortstokk med 52 kort. Avgjør om hendelsene er disjunkte, og begrunn.\n\na) $A$ = «kortet er hjerter», $B$ = «kortet er spar»\nb) $C$ = «kortet er hjerter», $D$ = «kortet er et ess»\nc) $E$ = «kortet er rødt», $F$ = «kortet er svart»",
+      "solution": "**Løsning:**\n\nFramgangsmåten er alltid den samme: vi leter etter ett utfall som ligger i begge hendelsene. Finner vi ett, er de ikke disjunkte.\n\na) Et kort har bare én farge. Ingen kort er både hjerter og spar, så\n\n$$A \\cap B = \\emptyset$$\n\nHendelsene er disjunkte.\n\nb) Hjerter ess ligger i begge:\n\n$$C \\cap D = \\{\\text{hjerter ess}\\}$$\n\nSnittet har ett element, så hendelsene er **ikke** disjunkte.\n\nc) Et kort er enten rødt eller svart, aldri begge. $E \\cap F = \\emptyset$, så de er disjunkte.\n\nHer ser vi noe mer: $E$ og $F$ dekker også *hele* utfallsrommet til sammen. Da er de ikke bare disjunkte — de er hverandres komplement, $F = E'$.\n\n**Svar:** a) disjunkte, b) ikke disjunkte, c) disjunkte (og i tillegg hverandres komplement)."
+    },
+    {
+      "id": "stat-4-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Vi kaster én terning, $S = \\{1, 2, 3, 4, 5, 6\\}$. La $A = \\{1, 2, 3\\}$, $B = \\{3, 4\\}$ og $C = \\{5, 6\\}$. Oppgi antall elementer i hver mengde du finner.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange elementer er det i $A \\cap B$?",
+            "solution": "$A \\cap B = \\{3\\}$, altså 1 element.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange elementer er det i $A \\cup B$?",
+            "solution": "$A \\cup B = \\{1, 2, 3, 4\\}$, altså 4 elementer.",
+            "answer": 4
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange elementer er det i $A'$?",
+            "solution": "$A' = \\{4, 5, 6\\}$, altså 3 elementer.",
+            "answer": 3
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange elementer er det i $A \\cap C$?",
+            "solution": "$A \\cap C = \\emptyset$, altså 0 elementer. $A$ og $C$ er disjunkte.",
+            "answer": 0
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange elementer er det i $(A \\cup B)'$?",
+            "solution": "$A \\cup B = \\{1, 2, 3, 4\\}$, så $(A \\cup B)' = \\{5, 6\\}$, altså 2 elementer.",
+            "answer": 2
+          }
+        ],
+        "hints": [
+          "Skriv ut mengdene før du teller — det er lettere å se enn å regne i hodet.",
+          "I e): finn unionen først, og ta komplementet av den til slutt."
+        ],
+        "solution": "a) 1, b) 4, c) 3, d) 0, e) 2",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Utfallsrommet** $S$ er alle mulige utfall. $|S|$ er antall utfall.\n- En **hendelse** er en delmengde av $S$. Den inntreffer når forsøket gir et utfall i mengden.\n- $A \\cap B$ (**snitt**) = i $A$ **og** i $B$. $A \\cup B$ (**union**) = i $A$ **eller** i $B$. $A'$ (**komplement**) = **ikke** i $A$.\n- **Komplementsetningen:** $P(A') = 1 - P(A)$. Ser du «minst én», regn på «ingen» og trekk fra 1.\n- $A$ og $B$ er **disjunkte** når $A \\cap B = \\emptyset$ — de kan ikke skje samtidig.\n- Når du skriver opp et utfallsrom: vær systematisk, og pass på om rekkefølgen skal telle med (KM og MK) eller ikke."
+    },
+    {
+      "id": "stat-4-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En idrettsklubb har 60 medlemmer. Alle spiller enten håndball, fotball eller begge deler. 38 spiller fotball, 31 spiller håndball. Ett medlem trekkes tilfeldig. La $F$ = «spiller fotball» og $H$ = «spiller håndball».",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Siden alle spiller minst én av delene, er $|F \\cup H| = 60$. Hvor mange spiller begge deler, altså $|F \\cap H|$?",
+            "solution": "$38 + 31 - |F \\cap H| = 60$ gir $|F \\cap H| = 69 - 60 = 9$",
+            "answer": 9
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange spiller bare fotball?",
+            "solution": "$38 - 9 = 29$",
+            "answer": 29
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange spiller bare håndball?",
+            "solution": "$31 - 9 = 22$\n\n![Venndiagram med rektangelet U lik 60 og to overlappende sirkler F for fotball og H for håndball. Det er 29 i bare fotball, 9 i snittet, 22 i bare håndball og 0 utenfor begge sirklene.](/images/content/statistikk/stat-4-2-venn-fotball-handball.png)\n\n*De 60 elevene fordelt. Tallene i de tre feltene summerer til 60, og ingen står utenfor: alle spiller minst én av de to idrettene.*",
+            "answer": 22
+          },
+          {
+            "label": "d",
+            "task": "Bestem $P(F \\cap H)$. Oppgi svaret som forkortet brøk.",
+            "solution": "$\\frac{9}{60} = \\frac{3}{20}$",
+            "expressionAnswer": "3/20"
+          },
+          {
+            "label": "e",
+            "task": "Bestem $P(F')$. Oppgi svaret som forkortet brøk, og forklar i klartekst hva hendelsen $F'$ er her.",
+            "solution": "$P(F') = 1 - \\frac{38}{60} = \\frac{22}{60} = \\frac{11}{30}$. Siden alle spiller minst én av delene, er $F'$ her de som bare spiller håndball — og det er nettopp de 22 fra c).",
+            "expressionAnswer": "11/30"
+          }
+        ],
+        "hints": [
+          "Tegn et venndiagram med to sirkler. Begynn med feltet i midten.",
+          "Kontroll: de tre feltene skal til sammen bli 60."
+        ],
+        "solution": "a) 9, b) 29, c) 22, d) $\\frac{3}{20}$, e) $\\frac{11}{30}$ — $F'$ er de 22 som bare spiller håndball.",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — programmering).** Programmet under lister opp utfallsrommet for kast med to terninger og teller noen hendelser.\n\n```python\nS = []\nfor i in range(1, 7):\n    for j in range(1, 7):\n        S.append((i, j))\n\nA = [u for u in S if u[0] + u[1] == 7]\nB = [u for u in S if u[0] == u[1]]\n\nprint(len(S), len(A), len(B))\n```",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange elementer får listen `S`?",
+            "solution": "De to løkkene gir $6 \\cdot 6 = 36$ par.",
+            "answer": 36
+          },
+          {
+            "label": "b",
+            "task": "Hvilken hendelse er `A`? Hvor mange elementer har den?",
+            "solution": "$A$ = «summen av øynene er 7». Parene er $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ — altså 6.",
+            "answer": 6
+          },
+          {
+            "label": "c",
+            "task": "Hvilken hendelse er `B`? Hvor mange elementer har den?",
+            "solution": "$B$ = «begge terningene viser det samme». Parene er $(1,1)$ til $(6,6)$ — altså 6.",
+            "answer": 6
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange elementer har $A \\cap B$? Hva sier det om hendelsene?",
+            "solution": "$0$. Det finnes ikke noe par med lik verdi som summerer til 7, siden 7 er et oddetall. $A$ og $B$ er disjunkte.",
+            "answer": 0
+          },
+          {
+            "label": "e",
+            "task": "Skriv en linje som lager listen $A \\cup B$, og oppgi hvor mange elementer den får.",
+            "solution": "`AU = [u for u in S if u[0] + u[1] == 7 or u[0] == u[1]]`. Siden hendelsene er disjunkte, blir antallet $6 + 6 = 12$.",
+            "answer": 12
+          }
+        ],
+        "hints": [
+          "`u[0]` er første terning og `u[1]` er andre terning i paret.",
+          "I e): `or` i Python svarer til union, `and` svarer til snitt."
+        ],
+        "solution": "a) 36, b) sum lik 7, 6 elementer, c) begge like, 6 elementer, d) 0 — disjunkte, e) 12",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "tool": "python",
+        "allowsUpload": true
+      }
+    },
+    {
+      "id": "stat-4-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** To elever skal finne sannsynligheten for å få én kron og én mynt når de kaster to pengestykker. Ada setter opp utfallsrommet $\\{\\text{to kron},\\ \\text{én av hver},\\ \\text{to mynt}\\}$ og svarer $\\frac{1}{3}$. Bendik setter opp $\\{\\text{KK}, \\text{KM}, \\text{MK}, \\text{MM}\\}$ og svarer $\\frac{2}{4} = \\frac{1}{2}$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Er begge utfallsrommene riktige beskrivelser av hva som kan skje?",
+            "solution": "Ja. Begge lister opp resultater som utelukker hverandre og dekker alt som kan skje. Feilen ligger ikke i selve oppsettet."
+          },
+          {
+            "label": "b",
+            "task": "Formelen «gunstige delt på mulige» krever en bestemt forutsetning. Hvilken, og hvem av de to bryter den?",
+            "solution": "Formelen krever at alle utfallene er *like sannsynlige*. Ada bryter den: «én av hver» kan skje på to måter (KM og MK), mens «to kron» bare kan skje på én. Bendiks fire utfall er derimot like sannsynlige."
+          },
+          {
+            "label": "c",
+            "task": "Hvem har rett? Begrunn.",
+            "solution": "Bendik. Med hans utfallsrom er to av fire like sannsynlige utfall gunstige, så svaret er $\\frac{2}{4} = \\frac{1}{2}$."
+          },
+          {
+            "label": "d",
+            "task": "Foreslå et forsøk som ville avgjort saken i praksis, og hva forsøket ville vist.",
+            "solution": "Kast to pengestykker mange ganger, for eksempel 1000, og regn ut den relative frekvensen for «én av hver». Etter store talls lov ville den lagt seg rundt 0,5 og ikke rundt 0,33."
+          },
+          {
+            "label": "e",
+            "task": "Hva er den generelle lærdommen om hvordan man velger utfallsrom?",
+            "solution": "Velg et utfallsrom der utfallene er like sannsynlige. Det betyr som regel at man må skille mellom ting som ser like ut utenfra, slik Bendik skiller KM fra MK. Ellers kan ikke «gunstige delt på mulige» brukes."
+          }
+        ],
+        "hints": [
+          "Spør om hvert utfall i lista er like sannsynlig som de andre."
+        ],
+        "solution": "a) Ja, begge beskriver hva som kan skje. b) Kravet om like sannsynlige utfall; Ada bryter det. c) Bendik, $\\frac{1}{2}$. d) Mange kast; relativ frekvens rundt 0,5. e) Velg et utfallsrom med like sannsynlige utfall.",
+        "competenceGoals": [
+          "forklare og bruke omgrepa utfall, utfallsrom, snitt, union og komplement innanfor stokastiske forsøk"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

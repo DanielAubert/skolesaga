@@ -86,6 +86,9 @@ import {
   COURSE_KROPPSOVING_10,
 } from './textbook-courses-10';
 
+// De to nye matematikkfagene (MAT11-01 Statistikk, MAT12-01 Matematikk for økonomi)
+import { COURSE_STATISTIKK, COURSE_MATEMATIKK_OKONOMI } from './textbook-courses-nyematte';
+
 // Matematikk (alle nivåer)
 import {
   COURSE_1T,
@@ -278,6 +281,8 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_2PY,
   COURSE_S1,
   COURSE_S2,
+  COURSE_STATISTIKK,
+  COURSE_MATEMATIKK_OKONOMI,
   COURSE_R1,
   COURSE_R2,
   COURSE_BI_OKONOMI,

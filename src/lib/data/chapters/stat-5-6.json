@@ -1,0 +1,446 @@
+{
+  "id": "stat-5-6",
+  "courseId": "statistikk",
+  "chapterNumber": "5.6",
+  "title": "Kontinuerlige variabler og tetthetsfunksjoner",
+  "description": "Sannsynlighet som areal under tetthetsfunksjonen; uniform fordeling som første eksempel.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar",
+    "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+  ],
+  "content": [
+    {
+      "id": "stat-5-6-section-intro",
+      "type": "text",
+      "content": "# Kontinuerlige variabler og tetthetsfunksjoner\n\nAlle variablene så langt har **telt** noe: antall kron, antall riktige, antall som består. Verdiene var 0, 1, 2, … — atskilte tall vi kunne liste opp.\n\nNå skal vi se på variabler som **måler**:\n\n- ventetiden på bussen\n- høyden til en tilfeldig valgt person\n- vekten av en pakke kaffe\n- tiden en elev bruker på en prøve\n\nEn slik variabel kan i prinsippet ta *alle* verdier i et intervall. Ventetiden kan være 3 minutter, eller 3,4 minutter, eller 3,4172 minutter. Vi kaller den **kontinuerlig**.\n\nDet tvinger fram en helt ny måte å regne sannsynligheter på — og det første vi må gi slipp på, er tabellen."
+    },
+    {
+      "id": "stat-5-6-section-null",
+      "type": "text",
+      "content": "## Hvorfor $P(X = a) = 0$\n\nTenk deg at bussen kommer på et tilfeldig tidspunkt i løpet av de neste 10 minuttene, og at ingen tidspunkt er mer sannsynlig enn andre. Hva er sannsynligheten for at du venter **nøyaktig** 4 minutter?\n\nPrøv å regne den ut. Hvis ventetiden var like sannsynlig blant 10 hele minutter, ville svaret vært $\\frac{1}{10}$. Men ventetiden er ikke ett av 10 tall — den er ett av uendelig mange. Deler vi 1 på uendelig mange like store biter, blir hver bit 0.\n\n$$P(X = 4) = 0$$\n\nDet betyr **ikke** at ventetiden 4 minutter er umulig. Den kan godt inntreffe. Men sannsynligheten for å treffe akkurat det ene tallet — 4,000000… — er null.\n\n**To viktige konsekvenser:**\n\n1. Vi spør aldri om enkeltverdier for kontinuerlige variabler. Vi spør om **intervaller**: $P(3 < X < 5)$, $P(X > 7)$, $P(X \\le 2)$.\n2. Det spiller ingen rolle om ulikhetene er strenge eller ikke:\n\n$$P(X \\le 2) = P(X < 2) \\qquad \\text{og} \\qquad P(3 \\le X \\le 5) = P(3 < X < 5)$$\n\nfordi endepunktene bidrar med 0 hver. *(For diskrete variabler er dette helt galt — der er $P(X \\le 2)$ og $P(X < 2)$ som regel forskjellige.)*"
+    },
+    {
+      "id": "stat-5-6-def-tetthet",
+      "type": "definition",
+      "title": "Tetthetsfunksjon",
+      "content": "En kontinuerlig stokastisk variabel $X$ beskrives av en **tetthetsfunksjon** $f$ med to egenskaper:\n\n1. $f(x) \\ge 0$ for alle $x$ — kurven ligger aldri under $x$-aksen.\n2. Det samlede arealet mellom kurven og $x$-aksen er 1.\n\nSannsynligheten for at $X$ havner mellom $a$ og $b$ er **arealet under kurven** mellom $a$ og $b$:\n\n$$P(a \\le X \\le b) = \\int_a^b f(x)\\,dx$$\n\n**NB:** $f(x)$ er *ikke* en sannsynlighet. Verdien kan godt være større enn 1. Det er bare arealet som er en sannsynlighet. Navnet *tetthet* er valgt med omhu: $f$ sier hvor tett sannsynligheten ligger akkurat der, på samme måte som befolkningstetthet sier hvor mange mennesker det er per kvadratkilometer — ikke hvor mange det er totalt."
+    },
+    {
+      "id": "stat-5-6-section-uniform",
+      "type": "text",
+      "content": "## Uniform fordeling — den enkleste av alle\n\nEr alle verdier i et intervall $[a, b]$ like sannsynlige, er tetthetsfunksjonen **konstant**. Kurven er da et vannrett linjestykke, og arealet under den er et rektangel.\n\nHøyden må velges slik at arealet blir 1. Rektangelet har bredde $b - a$, så\n\n$$\\text{høyde} \\cdot (b - a) = 1 \\quad \\Longrightarrow \\quad f(x) = \\frac{1}{b - a}$$\n\nDa blir all arealregning ren rektangelregning:\n\n$$P(c \\le X \\le d) = \\frac{d - c}{b - a}$$\n\nI ord: **lengden av det intervallet vi spør om, delt på lengden av hele intervallet.** Ingen integrasjon nødvendig.\n\nFor en uniform fordeling på $[a, b]$ gjelder dessuten\n\n$$E(X) = \\frac{a + b}{2} \\qquad \\text{og} \\qquad \\text{Var}(X) = \\frac{(b - a)^2}{12}$$\n\nForventningsverdien er altså rett og slett midtpunktet — det er rimelig når fordelingen er symmetrisk."
+    },
+    {
+      "id": "stat-5-6-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Ventetid på bussen",
+      "problem": "En buss går hvert tiende minutt. Du kommer til holdeplassen på et tilfeldig tidspunkt, uten å vite ruta. La $X$ være ventetiden i minutter.\n\na) Finn tetthetsfunksjonen til $X$.\nb) Finn sannsynligheten for at du venter mindre enn 3 minutter.\nc) Finn $P(4 \\le X \\le 7)$.\nd) Finn $E(X)$ og $SD(X)$.",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* Ventetiden ligger et sted mellom 0 og 10 minutter, og ingen tidspunkt er mer sannsynlig enn andre. Fordelingen er altså uniform på intervallet $[0, 10]$.\n\nHøyden finner vi av kravet om at arealet skal være 1:\n\n$$f(x) = \\frac{1}{b - a} = \\frac{1}{10 - 0} = \\frac{1}{10} = 0{,}10 \\quad \\text{for } 0 \\le x \\le 10$$\n\nUtenfor intervallet er $f(x) = 0$ — du kan ikke vente mer enn 10 minutter.\n\n*(Kontroll: arealet er $10 \\cdot 0{,}10 = 1$. Stemmer.)*\n\n**b)** «Mindre enn 3 minutter» er arealet av rektangelet fra 0 til 3:\n\n$$P(X < 3) = \\text{bredde} \\cdot \\text{høyde} = 3 \\cdot \\frac{1}{10} = \\frac{3}{10} = 0{,}30$$\n\nEller direkte med lengdeforholdet: 3 av 10 minutter gir $\\frac{3}{10}$.\n\n**c)** Intervallet fra 4 til 7 har lengde $7 - 4 = 3$:\n\n$$P(4 \\le X \\le 7) = \\frac{7 - 4}{10 - 0} = \\frac{3}{10} = 0{,}30$$\n\nSamme svar som i b). Det er nettopp det uniform betyr: bare *lengden* av intervallet teller, ikke hvor det ligger.\n\n**d)** Vi setter inn i formlene:\n\n$$E(X) = \\frac{a + b}{2} = \\frac{0 + 10}{2} = 5$$\n\n$$\\text{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{10^2}{12} = \\frac{100}{12} \\approx 8{,}33$$\n\n$$SD(X) = \\sqrt{\\frac{100}{12}} \\approx 2{,}89$$\n\n![En vannrett oransje linje ligger i høyden 0,10 fra x er lik 0 til x er lik 10. Den vannrette aksen er merket minutter, den loddrette f av x. Hele området under linja, fra 0 til 10, er fylt med farge og danner et rektangel; teksten samlet areal er lik 1 står inne i det. Delen fra 4 til 7 er fylt med en sterkere grønn farge, og over den står teksten P av 4 mindre enn eller lik X mindre enn eller lik 7 er lik 0,3. Linja er merket f av x er lik 0,10.](/images/content/statistikk/stat-5-6-uniform-rektangel.png)\n\n*Den uniforme fordelingen på $[0, 10]$. Høyden må være $\\frac{1}{10-0} = 0{,}10$, for bare da får hele rektangelet arealet 1. Det grønne delrektangelet er $3 \\cdot 0{,}10 = 0{,}3$ — sannsynligheten er et areal, og her er arealet bare lengde ganger høyde.*\n\n**Svar:** a) $f(x) = 0{,}10$ for $0 \\le x \\le 10$. b) $0{,}30$. c) $0{,}30$. d) $E(X) = 5$ minutter og $SD(X) \\approx 2{,}89$ minutter.\n\n**Tolkning:** Du venter 5 minutter i gjennomsnitt — halve ruteintervallet, som forventet. Men enkeltdager svinger med nesten 3 minutter rundt dette."
+    },
+    {
+      "id": "stat-5-6-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En app oppdaterer værvarselet hvert 20. minutt. Du åpner appen på et tilfeldig tidspunkt. La $X$ være tiden i minutter siden forrige oppdatering, uniformt fordelt på $[0, 20]$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn tetthetsfunksjonen til $X$.",
+            "solution": "$f(x) = \\frac{1}{20 - 0} = 0{,}05$ for $0 \\le x \\le 20$, og 0 ellers.",
+            "answer": 0.05
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X < 5)$.",
+            "solution": "$P(X < 5) = \\frac{5 - 0}{20} = \\frac{5}{20} = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X > 15)$.",
+            "solution": "$P(X > 15) = \\frac{20 - 15}{20} = \\frac{5}{20} = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(5 \\le X \\le 15)$, og kontroller at de tre svarene til sammen blir 1.",
+            "solution": "$P(5 \\le X \\le 15) = \\frac{15 - 5}{20} = \\frac{10}{20} = 0{,}50$. Kontroll: $0{,}25 + 0{,}50 + 0{,}25 = 1$.",
+            "answer": 0.5
+          },
+          {
+            "label": "e",
+            "task": "Finn $E(X)$, og finn $P(X = 7)$.",
+            "solution": "$E(X) = \\frac{0 + 20}{2} = 10$ minutter. $P(X = 7) = 0$ — en enkeltverdi har alltid sannsynlighet 0 for en kontinuerlig variabel.",
+            "answer": 10
+          }
+        ],
+        "hints": [
+          "For en uniform fordeling er sannsynligheten alltid intervallets lengde delt på hele intervallets lengde."
+        ],
+        "solution": "a) $f(x) = 0{,}05$ på $[0, 20]$, b) 0,25, c) 0,25, d) 0,50 (summen er 1), e) $E(X) = 10$ og $P(X = 7) = 0$",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-6-example-2",
+      "type": "example",
+      "title": "Eksempel 2: En tetthet som ikke er konstant",
+      "problem": "En stokastisk variabel $X$ har tetthetsfunksjonen\n\n$$f(x) = kx \\quad \\text{for } 0 \\le x \\le 4$$\n\nog $f(x) = 0$ ellers.\n\na) Bestem $k$.\nb) Finn $P(X \\le 2)$.\nc) Finn $P(X > 3)$.",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* Kurven $y = kx$ er en rett linje gjennom origo. Mellom $x = 0$ og $x = 4$ danner den, sammen med $x$-aksen, en **rettvinklet trekant** med grunnlinje 4 og høyde $f(4) = 4k$.\n\n*Hva må vi finne?* Verdien av $k$ som gjør at arealet blir 1.\n\nVi bruker arealformelen for trekant:\n\n$$A = \\frac{g \\cdot h}{2} = \\frac{4 \\cdot 4k}{2} = \\frac{16k}{2} = 8k$$\n\nSå setter vi arealet lik 1:\n\n$$8k = 1$$\n\nog deler på 8 på begge sider:\n\n$$\\frac{8k}{8} = \\frac{1}{8}$$\n\n$$k = \\frac{1}{8}$$\n\nTetthetsfunksjonen er altså $f(x) = \\frac{x}{8}$ på $[0, 4]$.\n\n*(Vi kunne like godt regnet arealet som integralet $\\int_0^4 kx\\,dx = \\left[\\frac{kx^2}{2}\\right]_0^4 = 8k$ — samme svar. Trekanten er raskere når kurven er en rett linje.)*\n\n**b)** Arealet fra 0 til 2 er igjen en trekant, nå med grunnlinje 2 og høyde $f(2) = \\frac{2}{8} = \\frac{1}{4}$:\n\n$$P(X \\le 2) = \\frac{2 \\cdot \\frac{1}{4}}{2} = \\frac{\\frac{1}{2}}{2} = \\frac{1}{4} = 0{,}25$$\n\n**c)** Her lønner det seg med komplementet, for arealet fra 3 til 4 er en trapes, mens arealet fra 0 til 3 er en trekant:\n\n$$P(X \\le 3) = \\frac{3 \\cdot f(3)}{2} = \\frac{3 \\cdot \\frac{3}{8}}{2} = \\frac{\\frac{9}{8}}{2} = \\frac{9}{16}$$\n\n$$P(X > 3) = 1 - P(X \\le 3) = 1 - \\frac{9}{16} = \\frac{16}{16} - \\frac{9}{16} = \\frac{7}{16} = 0{,}4375$$\n\n![Et koordinatsystem med x-akse fra 0 til 5 og loddrett akse merket f av x fra 0 til 0,7. En oransje rett linje merket f av x er lik x delt på 8 starter i origo og stiger jevnt til punktet der x er 4 og f er 0,5. En stiplet grå loddrett strek markerer slutten ved x lik 4. Området mellom linja og x-aksen fra x lik 0 til x lik 2 er fylt med gult, og teksten areal er lik 0,25 står ved siden av det gule feltet. Det gule feltet er en trekant med grunnlinje 2 og høyde 0,25.](/images/content/statistikk/stat-5-6-tetthet-areal.png)\n\n*Sannsynlighet er areal under tetthetskurven. Det gule feltet er $P(X \\le 2) = 0{,}25$, altså en fjerdedel av det samlede arealet, som er 1.*\n\n**Svar:** a) $k = \\frac{1}{8}$. b) $P(X \\le 2) = \\frac{1}{4} = 0{,}25$. c) $P(X > 3) = \\frac{7}{16} = 0{,}4375$.\n\n**NB:** Legg merke til at $P(X \\le 2) = 0{,}25$, ikke 0,5 — selv om 2 er midt i intervallet $[0, 4]$. Tettheten er lav til venstre og høy til høyre, så mesteparten av sannsynligheten ligger i høyre halvdel. Midtpunktet i *intervallet* er ikke midtpunktet i *sannsynligheten*."
+    },
+    {
+      "id": "stat-5-6-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En stokastisk variabel $X$ har tetthetsfunksjonen $f(x) = kx$ for $0 \\le x \\le 6$, og $f(x) = 0$ ellers. Oppgi eksakte svar som brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem $k$.",
+            "solution": "Arealet er en trekant: $\\frac{6 \\cdot 6k}{2} = 18k = 1$, så $k = \\frac{1}{18}$.",
+            "answer": 0.0556
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\le 3)$.",
+            "solution": "$f(3) = \\frac{3}{18} = \\frac{1}{6}$, så $P(X \\le 3) = \\frac{3 \\cdot \\frac{1}{6}}{2} = \\frac{1}{4} = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(X \\ge 4)$.",
+            "solution": "$f(4) = \\frac{4}{18} = \\frac{2}{9}$, så $P(X \\le 4) = \\frac{4 \\cdot \\frac{2}{9}}{2} = \\frac{4}{9}$. Da er $P(X \\ge 4) = 1 - \\frac{4}{9} = \\frac{5}{9} \\approx 0{,}556$.",
+            "answer": 0.556
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(2 \\le X \\le 5)$.",
+            "solution": "$P(X \\le 5) = \\frac{5 \\cdot \\frac{5}{18}}{2} = \\frac{25}{36}$ og $P(X \\le 2) = \\frac{2 \\cdot \\frac{2}{18}}{2} = \\frac{4}{36}$. Differansen: $\\frac{25 - 4}{36} = \\frac{21}{36} = \\frac{7}{12} \\approx 0{,}583$.",
+            "answer": 0.583
+          },
+          {
+            "label": "e",
+            "task": "Er det mer eller mindre enn 50 % sannsynlig at $X$ ligger i venstre halvdel av intervallet? Begrunn uten å regne på nytt.",
+            "solution": "Mindre — fra b) er $P(X \\le 3) = 0{,}25$. Tettheten vokser mot høyre, så sannsynligheten hoper seg opp i høyre halvdel.",
+            "answer": 0.25
+          }
+        ],
+        "hints": [
+          "Arealet fra 0 til $c$ er alltid en trekant med grunnlinje $c$ og høyde $f(c)$."
+        ],
+        "solution": "a) $k = \\frac{1}{18}$, b) 0,25, c) $\\frac{5}{9} \\approx 0{,}556$, d) $\\frac{7}{12} \\approx 0{,}583$, e) mindre enn 50 %",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-6-section-verktoy",
+      "type": "text",
+      "content": "## Når arealet ikke er en trekant\n\nRektangler og trekanter klarer vi selv. Men de fleste tetthetsfunksjoner gir arealer vi ikke kan regne med geometri — og da bruker vi verktøy.\n\n**I GeoGebra** skriver du funksjonen og deretter integralet:\n\n```\nf(x) = 0.5 * exp(-0.5 x)\nIntegral(f, 0, 2)\n```\n\nSvaret kommer som et tall, og GeoGebra skraverer samtidig området, så du ser hvilket areal du faktisk har regnet.\n\n**I regneark** finnes ferdige funksjoner for de vanligste fordelingene, for eksempel `=NORM.FORDELING.N(x; μ; σ; SANN)` for normalfordelingen, som gir arealet fra venstre og helt fram til $x$. Den møter vi for alvor i kapittel 6.\n\n**I tabeller** — for normalfordelingen finnes ferdige arealtabeller, på samme måte som de binomiske tabellene i kapittel 5.5. Også de gir arealet fra venstre.\n\n**Fellesnevneren:** alle tre gir deg arealet **fra venstre og fram til et punkt**, altså $P(X \\le x)$. Nøyaktig som for binomisk fordeling må du selv skrive om spørsmålet:\n\n| Spørsmålet | Regnes som |\n|---|---|\n| $P(X \\le b)$ | arealet fram til $b$ |\n| $P(X > a)$ | $1 - P(X \\le a)$ |\n| $P(a \\le X \\le b)$ | $P(X \\le b) - P(X \\le a)$ |"
+    },
+    {
+      "id": "stat-5-6-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Ventetid på kundeservice",
+      "problem": "Ventetiden $X$ i minutter på en kundeservicetelefon kan modelleres med tetthetsfunksjonen\n\n$$f(x) = 0{,}5 \\cdot e^{-0{,}5x} \\quad \\text{for } x \\ge 0$$\n\na) Finn sannsynligheten for at du venter høyst 2 minutter.\nb) Finn sannsynligheten for at du venter mer enn 5 minutter.\nc) Finn sannsynligheten for at ventetiden er mellom 1 og 3 minutter.",
+      "solution": "**Løsning:**\n\nHer er kurven en fallende eksponentialkurve — høy tetthet like etter 0, og stadig lavere jo lenger ut vi kommer. Det passer med erfaringen: de fleste kommer fort fram, noen få venter lenge.\n\nArealene kan vi ikke regne med rektangler eller trekanter, så vi bruker verktøy.\n\n**a)** «Høyst 2 minutter» er arealet fra 0 til 2:\n\n$$P(X \\le 2) = \\int_0^2 0{,}5 e^{-0{,}5x}\\,dx$$\n\n```\nGeoGebra:   f(x) = 0.5 * exp(-0.5 x)\n            Integral(f, 0, 2)\n```\n\n$$P(X \\le 2) \\approx 0{,}632$$\n\n**b)** «Mer enn 5 minutter». Arealet strekker seg i prinsippet uendelig langt mot høyre, så vi bruker komplementet:\n\n$$P(X > 5) = 1 - P(X \\le 5) = 1 - \\int_0^5 0{,}5 e^{-0{,}5x}\\,dx \\approx 1 - 0{,}918 = 0{,}082$$\n\n**c)** Vi tar arealet fram til 3 og trekker fra arealet fram til 1:\n\n$$P(1 \\le X \\le 3) = P(X \\le 3) - P(X \\le 1) \\approx 0{,}7769 - 0{,}3935 = 0{,}383$$\n\n```\nGeoGebra:   Integral(f, 1, 3)\n```\n\ngir samme tall direkte. **NB:** Regn med de eksakte verdiene og rund av til slutt. Trekker vi de avrundede 0,777 og 0,393 fra hverandre, får vi 0,384 — siste desimal blir feil.\n\n![En kurve som starter høyt oppe ved x er lik 0 og faller bratt til å begynne med, deretter stadig slakere, uten å nå ned til den vannrette aksen. Aksen er merket minutter og går fra minus 1 til 11. Kurven er merket f. Området under kurven fra 0 til 2 er fylt med gult, og en grå stiplet strek står i 2. Teksten P av X mindre enn eller lik 2 er lik 0,632 står til høyre for det gule feltet.](/images/content/statistikk/stat-5-6-eksponentiell.png)\n\n*En tetthet som ikke er konstant: høy like etter 0, stadig lavere jo lenger ut. Det gule arealet er `Integral(f, 0, 2)` = $1 - e^{-1} \\approx 0{,}632$. Legg merke til den lange halen mot høyre — den trekker $\\mu$ oppover, og det er grunnen til at medianen ofte sier mer om en ventetid enn forventningsverdien gjør.*\n\n**Svar:** a) $\\approx 0{,}632$. b) $\\approx 0{,}082$. c) $\\approx 0{,}383$.\n\n**Tolkning:** Nesten to av tre kommer fram innen 2 minutter, men rundt 8 % må vente over 5 minutter. Denne skjevheten er typisk for ventetider — og den er grunnen til at gjennomsnittlig ventetid alene gir et for pent bilde av hvordan det oppleves å ringe."
+    },
+    {
+      "id": "stat-5-6-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 — digitale verktøy.** Levetiden $X$ i år for en type batteri kan modelleres med tetthetsfunksjonen $f(x) = 0{,}25 \\cdot e^{-0{,}25x}$ for $x \\ge 0$. Bruk GeoGebra og svar med tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv opp kommandoen som gir $P(X \\le 4)$, og finn tallet.",
+            "solution": "`f(x) = 0.25 * exp(-0.25 x)` og `Integral(f, 0, 4)` gir $P(X \\le 4) \\approx 0{,}632$.",
+            "answer": 0.632
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X > 8)$.",
+            "solution": "$P(X > 8) = 1 - \\text{Integral}(f, 0, 8) \\approx 1 - 0{,}865 = 0{,}135$",
+            "answer": 0.135
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(2 \\le X \\le 6)$.",
+            "solution": "`Integral(f, 2, 6)` $\\approx 0{,}383$",
+            "answer": 0.383
+          },
+          {
+            "label": "d",
+            "task": "Produsenten gir tre års garanti. Hvor stor andel av batteriene svikter innen garantitiden?",
+            "solution": "`Integral(f, 0, 3)` $\\approx 0{,}528$, altså nesten 53 %. Det er en svært dyr garanti.",
+            "answer": 0.528
+          },
+          {
+            "label": "e",
+            "task": "Kontroller at det samlede arealet er 1 ved å regne `Integral(f, 0, 100)`. Hvorfor blir svaret ikke helt eksakt 1?",
+            "solution": "`Integral(f, 0, 100)` gir 1,000 (avrundet). Kurven når aldri ned til null, så det ligger alltid et lite areal til høyre for enhver grense — her er det omtrent $1{,}4 \\cdot 10^{-11}$, altså langt under fire desimaler.",
+            "answer": 1
+          }
+        ],
+        "hints": [
+          "Skriv funksjonen inn i GeoGebra først, og bruk deretter `Integral(f, a, b)`. For «mer enn» bruker du komplementet."
+        ],
+        "solution": "a) $\\approx 0{,}632$, b) $\\approx 0{,}135$, c) $\\approx 0{,}383$, d) $\\approx 0{,}528$, e) 1,000 — resthalen er forsvinnende liten, men ikke null",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-6-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Å finne grensen i stedet for arealet",
+      "problem": "En variabel $X$ har tetthetsfunksjonen $f(x) = \\frac{x}{8}$ for $0 \\le x \\le 4$ (den samme som i eksempel 2).\n\nFinn tallet $m$ som deler sannsynligheten i to like store halvdeler, altså tallet med $P(X \\le m) = 0{,}5$.",
+      "solution": "**Løsning:**\n\nHer er oppgaven snudd: arealet er kjent, og *grensen* er ukjent. Framgangsmåten er likevel den samme — vi setter opp arealet med $m$ som bokstav, og løser likningen.\n\n*Hva vet vi?* Arealet fra 0 til $m$ er en trekant med grunnlinje $m$ og høyde $f(m) = \\frac{m}{8}$.\n\n$$P(X \\le m) = \\frac{g \\cdot h}{2} = \\frac{m \\cdot \\frac{m}{8}}{2} = \\frac{\\frac{m^2}{8}}{2} = \\frac{m^2}{16}$$\n\nVi setter dette lik 0,5:\n\n$$\\frac{m^2}{16} = 0{,}5$$\n\nGanger med 16 på begge sider:\n\n$$\\frac{m^2}{16} \\cdot 16 = 0{,}5 \\cdot 16$$\n\n$$m^2 = 8$$\n\nOg tar kvadratroten på begge sider:\n\n$$m = \\sqrt{8} = \\sqrt{4 \\cdot 2} = 2\\sqrt{2} \\approx 2{,}83$$\n\n*(Den negative løsningen $m = -2\\sqrt{2}$ forkaster vi — $m$ må ligge i intervallet $[0, 4]$.)*\n\n**Kontroll:** $\\frac{(2\\sqrt{2})^2}{16} = \\frac{8}{16} = 0{,}5$. Stemmer.\n\n**Svar:** $m = 2\\sqrt{2} \\approx 2{,}83$\n\n**NB:** Dette tallet kalles **medianen** til fordelingen. Legg merke til at den ligger til høyre for intervallets midtpunkt 2 — akkurat som vi forutså i eksempel 2, siden tettheten vokser mot høyre. For en uniform fordeling ville medianen derimot ligget nøyaktig på midten."
+    },
+    {
+      "id": "stat-5-6-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En variabel $X$ er uniformt fordelt på $[2, 10]$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn tetthetsfunksjonen.",
+            "solution": "$f(x) = \\frac{1}{10 - 2} = \\frac{1}{8} = 0{,}125$ for $2 \\le x \\le 10$.",
+            "answer": 0.125
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(X \\le 4)$.",
+            "solution": "$P(X \\le 4) = \\frac{4 - 2}{10 - 2} = \\frac{2}{8} = 0{,}25$",
+            "answer": 0.25
+          },
+          {
+            "label": "c",
+            "task": "Finn medianen $m$, altså tallet med $P(X \\le m) = 0{,}5$.",
+            "solution": "$\\frac{m - 2}{8} = 0{,}5 \\Rightarrow m - 2 = 4 \\Rightarrow m = 6$. Det er midtpunktet i intervallet.",
+            "answer": 6
+          },
+          {
+            "label": "d",
+            "task": "Finn tallet $q$ med $P(X \\le q) = 0{,}90$.",
+            "solution": "$\\frac{q - 2}{8} = 0{,}90 \\Rightarrow q - 2 = 7{,}2 \\Rightarrow q = 9{,}2$",
+            "answer": 9.2
+          },
+          {
+            "label": "e",
+            "task": "Finn $E(X)$ og $SD(X)$ med to desimaler.",
+            "solution": "$E(X) = \\frac{2 + 10}{2} = 6$ og $\\text{Var}(X) = \\frac{(10-2)^2}{12} = \\frac{64}{12} \\approx 5{,}33$, så $SD(X) \\approx 2{,}31$.",
+            "answer": 2.31
+          }
+        ],
+        "hints": [
+          "For en uniform fordeling er $P(X \\le c) = \\frac{c - a}{b - a}$. Sett dette lik det oppgitte arealet og løs for $c$."
+        ],
+        "solution": "a) $f(x) = 0{,}125$ på $[2, 10]$, b) 0,25, c) $m = 6$, d) $q = 9{,}2$, e) $E(X) = 6$ og $SD(X) \\approx 2{,}31$",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-6-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hver variabel om den er diskret eller kontinuerlig, og begrunn kort.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Antall elever som møter på skolen en gitt dag.",
+            "solution": "Diskret — den teller, og verdiene er hele tall."
+          },
+          {
+            "label": "b",
+            "task": "Tiden en elev bruker på en matematikkprøve.",
+            "solution": "Kontinuerlig — den måler, og kan i prinsippet ta alle verdier i et intervall."
+          },
+          {
+            "label": "c",
+            "task": "Prisen på en vare i kroner og øre.",
+            "solution": "Strengt tatt diskret, siden den bare kan ta verdier i hele øre. Men trinnene er så små i forhold til beløpene at vi som regel modellerer den som kontinuerlig."
+          },
+          {
+            "label": "d",
+            "task": "Vekten av en pakke kaffe fra en pakkemaskin.",
+            "solution": "Kontinuerlig — vekten kan være 249,7 g eller 250,13 g eller hva som helst i nærheten."
+          },
+          {
+            "label": "e",
+            "task": "For hvilke av a)–d) gir det mening å spørre om $P(X = 250)$?",
+            "solution": "Bare for de diskrete, altså a) og (med forbehold) c). For de kontinuerlige er $P(X = 250) = 0$, og vi må spørre om et intervall i stedet, for eksempel $P(249{,}5 \\le X \\le 250{,}5)$."
+          }
+        ],
+        "hints": [
+          "Spør deg selv: teller variabelen, eller måler den?"
+        ],
+        "solution": "a) diskret, b) kontinuerlig, c) formelt diskret, i praksis kontinuerlig, d) kontinuerlig, e) bare for de diskrete",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-6-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En **kontinuerlig** variabel måler i stedet for å telle, og kan ta alle verdier i et intervall.\n- $P(X = a) = 0$ for enhver enkeltverdi. Derfor spør vi alltid om intervaller, og derfor spiller det ingen rolle om ulikhetene er strenge: $P(X \\le a) = P(X < a)$.\n- En **tetthetsfunksjon** $f$ oppfyller $f(x) \\ge 0$ og har samlet areal 1. Sannsynlighet er **areal under kurven**: $P(a \\le X \\le b) = \\int_a^b f(x)\\,dx$.\n- $f(x)$ er ikke en sannsynlighet og kan godt være større enn 1. Bare arealet er en sannsynlighet.\n- **Uniform fordeling** på $[a, b]$: $f(x) = \\frac{1}{b-a}$, og $P(c \\le X \\le d) = \\frac{d-c}{b-a}$ — bare lengdeforhold. Dessuten $E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$.\n- Er arealet et rektangel eller en trekant, regner vi det selv. Ellers bruker vi **verktøy**: `Integral(f, a, b)` i GeoGebra, eller ferdige funksjoner og tabeller.\n- Tabeller og verktøy gir arealet **fra venstre**, altså $P(X \\le x)$. Alt annet skrives om til dette — nøyaktig som i kapittel 5.5.\n\nI kapittel 6 møter vi den viktigste kontinuerlige fordelingen av alle: **normalfordelingen**. Da blir arealet under kurven det eneste vi regner på."
+    },
+    {
+      "id": "stat-5-6-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En pakkemaskin fyller poser med kaffe. Vekten $X$ i gram er uniformt fordelt på $[248, 254]$. Posene merkes «250 g».",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn tetthetsfunksjonen og $E(X)$.",
+            "solution": "$f(x) = \\frac{1}{254 - 248} = \\frac{1}{6} \\approx 0{,}167$ for $248 \\le x \\le 254$. $E(X) = \\frac{248 + 254}{2} = 251$ g.",
+            "answer": 251
+          },
+          {
+            "label": "b",
+            "task": "Finn sannsynligheten for at en tilfeldig pose inneholder mindre enn de merkede 250 gram.",
+            "solution": "$P(X < 250) = \\frac{250 - 248}{6} = \\frac{2}{6} = \\frac{1}{3} \\approx 0{,}333$",
+            "answer": 0.333
+          },
+          {
+            "label": "c",
+            "task": "Finn $SD(X)$ med to desimaler.",
+            "solution": "$\\text{Var}(X) = \\frac{6^2}{12} = 3$, så $SD(X) = \\sqrt{3} \\approx 1{,}73$ g.",
+            "answer": 1.73
+          },
+          {
+            "label": "d",
+            "task": "Maskinen justeres slik at intervallet blir $[a, a + 6]$ i stedet. Hvilken $a$ gjør at høyst 5 % av posene inneholder mindre enn 250 g?",
+            "solution": "Vi krever $P(X < 250) = \\frac{250 - a}{6} \\le 0{,}05$, altså $250 - a \\le 0{,}3$, som gir $a \\ge 249{,}7$. Med $a = 249{,}7$ er intervallet $[249{,}7;\\ 255{,}7]$ og $E(X) = 252{,}7$ g.",
+            "answer": 249.7
+          },
+          {
+            "label": "e",
+            "task": "Kaffen koster produsenten 0,18 kr per gram. Hvor mye mer koster den nye innstillingen per 100 000 poser, og hva er argumentet for likevel å gjøre endringen?",
+            "solution": "Gjennomsnittsvekten øker fra 251 g til 252,7 g, altså 1,7 g per pose. $100\\,000 \\cdot 1{,}7 \\text{ g} \\cdot 0{,}18 \\text{ kr/g} = 30\\,600$ kr. Argumentet er at poser med undervekt i forhold til merkingen er et forbrukerproblem og kan være ulovlig — kostnaden må veies mot risikoen for reklamasjoner og pålegg.",
+            "answer": 30600
+          }
+        ],
+        "hints": [
+          "I d) setter du opp uttrykket for $P(X < 250)$ med $a$ som bokstav, og løser ulikheten."
+        ],
+        "solution": "a) $f(x) = \\frac{1}{6}$ og $E(X) = 251$ g, b) $\\frac{1}{3} \\approx 0{,}333$, c) $\\approx 1{,}73$ g, d) $a = 249{,}7$, e) 30 600 kr",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-6-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-6-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«$P(X = 4) = 0$ betyr at ventetiden 4 minutter er umulig.» Drøft.",
+            "solution": "Gal. Sannsynlighet 0 er ikke det samme som umulig for en kontinuerlig variabel. Ventetiden må jo ta *en* verdi, og hver eneste av dem har sannsynlighet 0. Det er å treffe akkurat ett bestemt reelt tall som er «umulig» i praksis — ikke den enkelte verdien i seg selv."
+          },
+          {
+            "label": "b",
+            "task": "En elev sier at $f(x)$ ikke kan være 2,5, fordi sannsynligheter må ligge mellom 0 og 1. Hva er feilen?",
+            "solution": "$f(x)$ er en tetthet, ikke en sannsynlighet. Er intervallet smalt, må kurven være høy for at arealet skal bli 1 — en uniform fordeling på $[0;\\ 0{,}4]$ har $f(x) = 2{,}5$. Det er arealet som er begrenset til $[0, 1]$, ikke funksjonsverdien."
+          },
+          {
+            "label": "c",
+            "task": "For en diskret variabel er $P(X \\le 3)$ og $P(X < 3)$ som regel forskjellige, men for en kontinuerlig er de alltid like. Forklar forskjellen.",
+            "solution": "Differansen mellom dem er nøyaktig $P(X = 3)$. For en diskret variabel er dette et positivt tall (ofte et betydelig ett), for en kontinuerlig er det 0. Derfor er indeksfellen fra kapittel 5.5 helt sentral for binomisk fordeling — og helt uten betydning her."
+          },
+          {
+            "label": "d",
+            "task": "Kan et histogram over målte verdier sies å være en tetthetsfunksjon?",
+            "solution": "Ikke i seg selv, men det er nært beslektet. Tegner vi histogrammet med *relativ frekvens per enhet* på andreaksen i stedet for antall, blir samlet søyleareal 1, og hver søyles areal er andelen i den klassen. Lar vi klassene bli stadig smalere og antall målinger stadig større, nærmer søyletoppene seg tetthetskurven. Histogrammet er den målte versjonen, tettheten er modellen."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er medianen ofte et mer nyttig tall enn forventningsverdien for ventetider som i eksempel 3?",
+            "solution": "Fordi fordelingen er skjev: noen få svært lange ventetider drar forventningsverdien opp, slik at den blir høyere enn det de fleste faktisk opplever. Medianen deler kundene i to like store halvdeler og påvirkes ikke av hvor lange de aller lengste ventetidene er."
+          }
+        ],
+        "hints": [
+          "Skill hele tiden mellom kurvens HØYDE (tetthet) og arealet under den (sannsynlighet)."
+        ],
+        "solution": "a) Nei — sannsynlighet 0 er ikke det samme som umulig. b) $f(x)$ er en tetthet, ikke en sannsynlighet. c) Differansen er $P(X = 3)$, som er 0 for kontinuerlige. d) Ja, med relativ frekvens per enhet på andreaksen. e) Fordi skjeve fordelinger trekker forventningsverdien opp.",
+        "competenceGoals": [
+          "forklare kva ein sannsynsmodell er, og bruke diskrete og kontinuerlege sannsynsmodellar til å undersøkje og tolke statistiske problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Kontinuerlig variabel",
+      "definition": "En stokastisk variabel som måler i stedet for å telle, og som kan ta alle verdier i et intervall — som tid, vekt eller lengde."
+    },
+    {
+      "term": "Tetthetsfunksjon",
+      "definition": "Funksjonen $f$ som beskriver en kontinuerlig variabel. Den er aldri negativ, har samlet areal 1, og gir sannsynligheter som areal: $P(a \\le X \\le b) = \\int_a^b f(x)\\,dx$."
+    },
+    {
+      "term": "Uniform fordeling",
+      "definition": "Fordelingen der alle verdier i $[a, b]$ er like sannsynlige. Tettheten er konstant, $f(x) = \\frac{1}{b-a}$, og sannsynligheten er rene lengdeforhold."
+    },
+    {
+      "term": "Median",
+      "definition": "Tallet $m$ som deler sannsynligheten i to like store halvdeler, altså der $P(X \\le m) = 0{,}5$. For en symmetrisk fordeling er medianen lik forventningsverdien."
+    }
+  ]
+}

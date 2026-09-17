@@ -1,0 +1,468 @@
+{
+  "id": "stat-8-2",
+  "courseId": "statistikk",
+  "chapterNumber": "8.2",
+  "title": "Gjennomføring, analyse og presentasjon",
+  "description": "Å analysere reelle data, vurdere gyldighet og presentere funnene.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data",
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-8-2-section-innledning",
+      "type": "text",
+      "content": "## Når planen møter virkeligheten\n\nI kapittel 8.1 Problemstilling og plan skrev elevrådet ved Fjordbyen\nvideregående skole en plan i åtte punkter. Problemstillingen var:\n\n> **Er gjennomsnittlig skjermtid på telefonen en vanlig skoledag høyere enn\n> $200$ minutter blant elevene på VG2 ved skolen?**\n\nDe trakk $40$ elever tilfeldig fra VG2-lista på $184$, og $36$ svarte. Nå har\nde en fil med tall.\n\nDette kapittelet følger den samme undersøkelsen gjennom de tre siste trinnene i\narbeidssyklusen: **data**, **analyse** og **presentasjon**. Underveis bruker vi\nmetoder fra nesten hvert eneste kapittel i boka. Det er meningen — det er her\nfaget settes sammen.\n\nÉn ting skal du vite på forhånd: ingen datainnsamling går helt etter planen.\nNoen svarer ikke. Noen svarer «ca 3 timer» i en kolonne der det skal stå et\ntall. Én skriver $1\\,440$, som er hele døgnet. Det er normalt, og det er\nhåndterbart — så lenge du **dokumenterer** hva du gjorde."
+    },
+    {
+      "id": "stat-8-2-def-rydding",
+      "type": "definition",
+      "content": "**Datarydding** er arbeidet med å gjøre rådataene klare for analyse: rette\nåpenbare skrivefeil, håndtere manglende svar og gjøre alle verdier om til\nsamme format og samme enhet.\n\n**Dataloggen** er en liste over alt du gjorde under ryddingen, med begrunnelse:\n\n| Rad | Hva som sto | Hva vi gjorde | Hvorfor |\n|---|---|---|---|\n| 12 | «ca 3 timer» | $180$ | Eneste rimelige tolkning; avrundet som de andre |\n| 19 | (tomt) | Tatt ut | Ingen verdi å tolke |\n| 27 | $1\\,440$ | Tatt ut | Hele døgnet — umulig som skjermtid på telefon |\n\nDataloggen er ikke ryddearbeid du gjør for deg selv. Den er en **del av\nrapporten**. Uten den kan ingen etterprøve analysen, og du kan ikke skille\nmellom en verdi du fjernet fordi den var umulig, og en du fjernet fordi du\nikke likte den.",
+      "title": "Datarydding og dataloggen"
+    },
+    {
+      "id": "stat-8-2-warning-slette",
+      "type": "warning",
+      "content": "En verdi kan fjernes når den er **umulig** eller **utenfor det variabelen\nmåler**: en skjermtid på $1\\,440$ minutter, en alder på $-3$ år, en\nstrømregning i feil måned.\n\nEn verdi kan **ikke** fjernes fordi den er **uvanlig**. En elev med $330$\nminutter er en ekte elev som virkelig brukte $330$ minutter. Fjerner du de\nhøyeste verdiene, senker du gjennomsnittet med vilje, og analysen måler ikke\nlenger populasjonen — den måler hvor mye du var villig til å fjerne.\n\nEr du i tvil: behold verdien, **og** regn analysen begge veier. Blir svaret\ndet samme, spiller det ingen rolle. Blir det forskjellig, er det selve funnet\nditt, og det skal stå i rapporten.",
+      "title": "NB: Når har du lov til å fjerne en verdi?"
+    },
+    {
+      "id": "stat-8-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Rydding av rådatafila",
+      "problem": "De første radene i elevrådets fil ser slik ut. Kolonne B er skjermtid i\nminutter, kolonne C er søvn i timer.\n\n| Rad | Skjermtid | Søvn |\n|---|---|---|\n| 2 | 240 | 8 |\n| 3 | 185 | 6,5 |\n| 4 | ca 4 timer | 6,5 |\n| 5 | 220 | 7 |\n| 6 | (tomt) | (tomt) |\n| 7 | 1440 | 7 |\n| 8 | 330 | 7 |\n\nRydd fila, og skriv dataloggen.",
+      "solution": "Vi går rad for rad, og spør hver gang: *er verdien umulig, eller bare uvanlig?*\n\n**Rad 4 — «ca 4 timer».** Verdien finnes, men er i feil format. $4$ timer er\n$4 \\cdot 60 = 240$ minutter. Vi gjør den om og noterer det. Alternativet — å\nkaste raden — ville fjernet informasjon vi faktisk har.\n\n**Rad 6 — tomt.** Eleven svarte ikke. Her finnes ingen verdi å tolke, og raden\ntas ut. Den teller som **frafall**, ikke som nedsatt datakvalitet, og skal med\ni svarprosenten.\n\n**Rad 7 — $1\\,440$.** Et døgn har $24 \\cdot 60 = 1\\,440$ minutter. Verdien er\naltså hele døgnet, søvnen inkludert, og er umulig som skjermtid. Vi tar den\nut, og noterer at vi mistenker at eleven leste av feil tall i loggen.\n\n**Rad 8 — $330$.** Dette er den høyeste ekte verdien i materialet, men $5{,}5$\ntimer på telefonen er fullt mulig. Vi beholder den. (Vi kontrollerer senere om\nden er en uteligger etter regelen i kapittel 1.5 — det er den ikke.)\n\n**Dataloggen:**\n\n| Rad | Hva som sto | Hva vi gjorde | Hvorfor |\n|---|---|---|---|\n| 4 | «ca 4 timer» | $240$ | Omregnet til minutter, samme enhet som de andre |\n| 6 | tomt | Raden tatt ut | Ingen verdi; telles som frafall |\n| 7 | $1\\,440$ | Raden tatt ut | Hele døgnet — umulig verdi |\n\n**Svar:** Rad 4 gjøres om til $240$, rad 6 og 7 tas ut, rad 8 beholdes. Etter\nryddingen står det $36$ brukbare svar igjen av $40$ trukne, altså en\nsvarprosent på\n\n$$\\frac{36}{40} = 0{,}90 = 90\\ \\%$$"
+    },
+    {
+      "id": "stat-8-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En klasse har samlet inn hvor mange minutter hver elev brukte på skolevegen.\nFila inneholder disse verdiene:\n\n$$18, \\quad 25, \\quad \\text{under 10}, \\quad 32, \\quad 0, \\quad 14, \\quad\n-5, \\quad 47, \\quad \\text{(tomt)}, \\quad 21$$\n\nEleven som skrev $0$, bor i nabobygget til skolen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilke verdier er **umulige** og skal ut?",
+            "solution": "Bare $-5$. Reisetid kan ikke være negativ. Alle andre verdier er mulige."
+          },
+          {
+            "label": "b",
+            "task": "Hva gjør du med $0$?",
+            "solution": "Beholder den. $0$ minutter er uvanlig, men mulig — eleven bor i nabobygget. En uvanlig verdi fjernes ikke."
+          },
+          {
+            "label": "c",
+            "task": "Hva gjør du med «under 10» og med den tomme cellen?",
+            "solution": "«Under 10» er ikke et tall og kan ikke gjøres om til ett uten å gjette; den tas ut, og det noteres. Den tomme cellen er frafall og tas ut. Begge føres i dataloggen."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange verdier står igjen, og hva er gjennomsnittet av dem?",
+            "answer": 22.4,
+            "solution": "Igjen står $18, 25, 32, 0, 14, 47, 21$, altså $7$ verdier. $\\bar{x} = \\frac{18+25+32+0+14+47+21}{7} = \\frac{157}{7} \\approx 22{,}4$ minutter."
+          },
+          {
+            "label": "e",
+            "task": "Skriv dataloggen for de tre radene du endret eller fjernet.",
+            "solution": "| Verdi | Hva vi gjorde | Hvorfor |\n|---|---|---|\n| «under 10» | Tatt ut | Ikke et tall; å gjette en verdi ville vært å lage data |\n| $-5$ | Tatt ut | Umulig — reisetid kan ikke være negativ |\n| (tomt) | Tatt ut | Frafall, ingen verdi å tolke |"
+          }
+        ],
+        "solution": "a) bare $-5$, b) beholdes, c) begge tas ut og føres i dataloggen, d) $7$ verdier, $\\bar{x} \\approx 22{,}4$ minutter, e) se tabellen",
+        "hints": [
+          "Spør for hver verdi: er den umulig, eller bare uvanlig?"
+        ],
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-8-2-section-analysetrappa",
+      "type": "text",
+      "content": "## Analysetrappa\n\nNår dataene er ryddet, er fristelsen å kaste alt du kan av statistikk på dem.\nIkke gjør det. **Analysen skal svare på problemstillingen**, og ingenting\nannet. En rapport med ti diagrammer som ikke svarer på spørsmålet, er svakere\nenn en rapport med to som gjør det.\n\nAnalysen har tre trinn, og du går bare så langt opp som problemstillingen\nkrever:\n\n| Trinn | Hva du gjør | Verktøy | Kapittel |\n|---|---|---|---|\n| **1. Beskriv** | Hvordan ser materialet ut? | $\\bar{x}$, $s$, median, kvartiler, histogram, boksplott | 1.2–1.5 |\n| **2. Sammenlign eller se sammenheng** | Er gruppene forskjellige? Følger de to variablene hverandre? | Boksplott side ved side, spredningsplott, $r$, regresjonslinje | 1.5, 2.1–2.3 |\n| **3. Generaliser** | Hva tør vi si om hele populasjonen? | Konfidensintervall, hypotesetest | 7.1–7.7 |\n\nTrinn 1 hopper du aldri over. Det er der du oppdager skrivefeilen du ikke fant\ni ryddingen, og det er der du ser om materialet i det hele tatt ser ut slik\nmetodene i trinn 3 forutsetter."
+    },
+    {
+      "id": "stat-8-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Beskrivende analyse av skjermtiden",
+      "problem": "De $36$ svarene, sortert (minutter):\n\n$$125 \\quad 130 \\quad 135 \\quad 135 \\quad 145 \\quad 150 \\quad 155 \\quad 165 \\quad 175$$\n$$180 \\quad 180 \\quad 185 \\quad 190 \\quad 210 \\quad 210 \\quad 220 \\quad 220 \\quad 225$$\n$$230 \\quad 235 \\quad 235 \\quad 240 \\quad 240 \\quad 250 \\quad 250 \\quad 250 \\quad 255$$\n$$255 \\quad 260 \\quad 265 \\quad 275 \\quad 275 \\quad 275 \\quad 310 \\quad 325 \\quad 330$$\n\na) Regn ut $\\bar{x}$ og $s$.\n\nb) Finn femtallssammendraget, og undersøk om materialet har uteliggere.\n\nc) Lag et histogram med klassebredde $50$ minutter, og beskriv formen.",
+      "solution": "a) **Hva vet vi?** $n = 36$ målinger. **Hva må vi finne?** Gjennomsnitt og\nstandardavvik.\n\nGjennomsnittet er summen delt på antallet:\n\n$$\\bar{x} = \\frac{1}{n}\\sum x_i$$\n\nSummen av alle $36$ verdiene er $7\\,890$, så\n\n$$\\bar{x} = \\frac{7\\,890}{36} = 219{,}1\\overline{6} \\approx 219{,}2 \\text{ minutter}$$\n\nDet er $3$ timer og $39$ minutter.\n\nFor spredningen bruker vi **utvalgsstandardavviket** $s$, altså den som deler\npå $n - 1$. Grunnen står i kapittel 5.7: de $36$ elevene er et utvalg som skal\nsi noe om alle $184$, og da underestimerer $n$-versjonen spredningen i\npopulasjonen.\n\n$$s = \\sqrt{\\frac{1}{n-1}\\sum (x_i - \\bar{x})^2}$$\n\nI regneark: `=STDAV.S(B2:B37)`. Det gir\n\n$$s \\approx 55{,}4 \\text{ minutter}$$\n\n*(Føres ikke: hele summen $\\sum (x_i - \\bar{x})^2 = 107\\,325$ regnes av\nregnearket.)*\n\nb) **Femtallssammendraget** (kapittel 1.5). Med $n = 36$ er medianen snittet av\nden $18.$ og den $19.$ verdien:\n\n$$\\text{median} = \\frac{225 + 230}{2} = 227{,}5$$\n\nNedre kvartil er medianen i de $18$ laveste, altså snittet av den $9.$ og\n$10.$:\n\n$$Q_1 = \\frac{175 + 180}{2} = 177{,}5$$\n\nØvre kvartil er medianen i de $18$ høyeste, altså snittet av den $27.$ og\n$28.$:\n\n$$Q_3 = \\frac{255 + 255}{2} = 255$$\n\nFemtallssammendraget er $125$ — $177{,}5$ — $227{,}5$ — $255$ — $330$.\n\nUteliggergrensene fra kapittel 1.5:\n\n$$Q_3 - Q_1 = 255 - 177{,}5 = 77{,}5$$\n\n$$Q_3 + 1{,}5 \\cdot 77{,}5 = 255 + 116{,}25 = 371{,}25$$\n\n$$Q_1 - 1{,}5 \\cdot 77{,}5 = 177{,}5 - 116{,}25 = 61{,}25$$\n\nStørste verdi er $330$, minste er $125$. Begge ligger godt innenfor. **Ingen\nuteliggere** — og dermed ingen verdi vi trenger å diskutere om skal være med.\n\n![Et boksplott over en vannrett akse merket skjermtid i minutter, med tallene 50 til 400. Raden er merket 36 elever. Den blå boksen går fra 177,5 til 255 med en tykk svart loddrett strek i 227,5 — medianen — og en rød rombe i 219,2, som er gjennomsnittet. Værhårene går ut til 125 til venstre og 330 til høyre, med en kort loddrett strek i hver ende. Under boksplottet ligger de 36 målingene som små grå prikker langs aksen. Flere elever har nøyaktig samme skjermtid — 250 og 275 minutter går igjen tre ganger hver, og seks andre verdier to ganger — så det er 25 prikker å se, ikke 36. Ingen måling er tegnet som åpen ring, altså er ingen av dem uteligger.](/images/content/statistikk/stat-8-2-boksplott.png)\n\n*Femtallssammendraget som bilde: 125 — 177,5 — 227,5 — 255 — 330. Boksen rommer de midterste 50 % av elevene, og $Q_3 - Q_1 = 77{,}5$ minutter. Uteliggergrensene $Q_1 - 1{,}5 \\cdot \\text{IQR} = 61{,}25$ og $Q_3 + 1{,}5 \\cdot \\text{IQR} = 371{,}25$ ligger utenfor alle målingene, så materialet har ingen uteliggere. Den røde romben er gjennomsnittet 219,2 — det ligger til venstre for medianen, som i en venstreskjev fordeling.*\n\nc) Vi teller opp i klasser med bredde $50$:\n\n| Klasse (min) | $[100, 150\\rangle$ | $[150, 200\\rangle$ | $[200, 250\\rangle$ | $[250, 300\\rangle$ | $[300, 350\\rangle$ | Sum |\n|---|---|---|---|---|---|---|\n| Antall | 5 | 8 | 10 | 10 | 3 | 36 |\n\nKontroll: $5 + 8 + 10 + 10 + 3 = 36$. Det stemmer.\n\n**Formen:** fordelingen er **tilnærmet symmetrisk**, med tyngdepunktet i\nmidten. Klassene er $5, 8, 10, 10, 3$, og det er nøyaktig like langt fra\nmedianen ut til hver ytterverdi: $330 - 227{,}5 = 102{,}5$ og\n$227{,}5 - 125 = 102{,}5$. Venstresiden er likevel litt tyngre enn høyresiden:\ngjennomsnittet ($219{,}2$) ligger omtrent $8$ minutter **under** medianen\n($227{,}5$), fordi det er flere lave verdier enn høye.\n\n![Et histogram med fem blå søyler. Den vannrette aksen viser skjermtid i minutter fra 0 til 400, den loddrette antall elever fra 0 til 12. Søylene dekker området fra 100 til 350 minutter. Søylen over 100 til 150 har høyden 5, søylen over 150 til 200 har høyden 8, søylene over 200 til 250 og 250 til 300 har begge høyden 10, og søylen over 300 til 350 har høyden 3. Høyden står skrevet over hver søyle.](/images/content/statistikk/stat-8-2-skjermtid-histogram.png)\n\n*Skjermtid på en skoledag for de 36 elevene som svarte, i klasser på 50 minutter. Tyngdepunktet ligger mellom 200 og 300 minutter, og fordelingen er nesten symmetrisk, med et lite overskudd mot venstre: gjennomsnittet 219,2 ligger litt lavere enn medianen 227,5.*\n\n**Svar:** a) $\\bar{x} \\approx 219{,}2$ minutter og $s \\approx 55{,}4$\nminutter; b) $125$ — $177{,}5$ — $227{,}5$ — $255$ — $330$, ingen uteliggere;\nc) $5, 8, 10, 10, 3$ — en tilnærmet symmetrisk fordeling uten uteliggere."
+    },
+    {
+      "id": "stat-8-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Regneark.** En klasse ved en annen skole gjorde den samme undersøkelsen og\nfikk $20$ svar (minutter):\n\n$$150 \\quad 165 \\quad 170 \\quad 180 \\quad 185 \\quad 190 \\quad 195 \\quad 200 \\quad 205 \\quad 210$$\n$$215 \\quad 220 \\quad 225 \\quad 230 \\quad 240 \\quad 245 \\quad 260 \\quad 275 \\quad 290 \\quad 350$$\n\nGjør den samme beskrivende analysen som i eksempel 2.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut $\\bar{x}$ og $s$. Bruk `=GJENNOMSNITT(...)` og `=STDAV.S(...)`. Rund av til én desimal.",
+            "answer": 220.0,
+            "solution": "Summen er $4\\,400$, så $\\bar{x} = \\frac{4400}{20} = 220{,}0$ minutter. `=STDAV.S(A2:A21)` gir $s \\approx 47{,}6$ minutter."
+          },
+          {
+            "label": "b",
+            "task": "Finn femtallssammendraget.",
+            "solution": "$n = 20$: median $= \\frac{210+215}{2} = 212{,}5$. $Q_1$ er medianen i de $10$\nlaveste $= \\frac{185+190}{2} = 187{,}5$. $Q_3$ er medianen i de $10$ høyeste\n$= \\frac{240+245}{2} = 242{,}5$. Femtallssammendraget er\n$150$ — $187{,}5$ — $212{,}5$ — $242{,}5$ — $350$."
+          },
+          {
+            "label": "c",
+            "task": "Undersøk om $350$ er en uteligger etter regelen i kapittel 1.5.",
+            "answer": 325,
+            "solution": "$Q_3 - Q_1 = 242{,}5 - 187{,}5 = 55$. Grensen er $Q_3 + 1{,}5 \\cdot 55 = 242{,}5 + 82{,}5 = 325$. Siden $350 > 325$, er $350$ en uteligger etter regelen."
+          },
+          {
+            "label": "d",
+            "task": "Skal $350$ fjernes? Begrunn, og regn ut hva $\\bar{x}$ blir hvis du fjerner den.",
+            "answer": 213.2,
+            "solution": "Nei — «uteligger» betyr uvanlig, ikke umulig, og $350$ minutter er fullt mulig.\nVerdien beholdes. Regner vi likevel begge veier, som NB-boksen anbefaler:\nuten $350$ blir $\\bar{x} = \\frac{4400-350}{19} = \\frac{4050}{19} \\approx 213{,}2$ minutter. Forskjellen er under $7$ minutter, altså liten i forhold til\nstandardavviket — og det bør stå i rapporten."
+          },
+          {
+            "label": "e",
+            "task": "Sammenlign de to skolene. Hvilke to tall vil du sette opp mot hverandre, og hva kan du **ikke** konkludere med?",
+            "solution": "Gjennomsnittene ($219{,}2$ mot $220{,}0$ minutter) og standardavvikene ($55{,}4$\nmot $47{,}6$). Gjennomsnittene skiller under ett minutt — langt mindre enn\nfeilmarginen i begge undersøkelsene. Vi kan altså ikke konkludere med at det er\nforskjell på skolene. Vi kan heller ikke konkludere med at de er like: et lite\nutvalg oppdager bare store forskjeller, og fravær av bevis er ikke bevis på\nfravær (kapittel 7.4)."
+          }
+        ],
+        "solution": "a) $\\bar{x} = 220{,}0$ og $s \\approx 47{,}6$ minutter, b) $150$ — $187{,}5$ — $212{,}5$ — $242{,}5$ — $350$, c) grensen er $325$, så ja, d) nei — uvanlig, ikke umulig; uten den blir $\\bar{x} \\approx 213{,}2$, e) gjennomsnittene skiller for lite til en konklusjon",
+        "hints": [
+          "Kvartilene finner du for hånd som medianen i hver halvdel — regneark bruker en annen metode og kan gi litt andre tall (kapittel 1.3)."
+        ],
+        "competenceGoals": [
+          "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-8-2-section-generalisering",
+      "type": "text",
+      "content": "## Fra utvalget til populasjonen\n\nSå langt har vi bare beskrevet de $36$ elevene som svarte. Problemstillingen\nhandler om alle $184$. Skrittet fra de $36$ til de $184$ er nettopp det\nkapittel 7 handler om, og det består av to deler:\n\n- **Konfidensintervallet** sier hvor $\\mu$ trolig ligger.\n- **Hypotesetesten** sier om materialet er sterkt nok til å forkaste påstanden\n  om at $\\mu = 200$.\n\nDe to henger sammen, og det er nyttig å se dem side om side før du regner:\nligger $200$ utenfor det $95\\ \\%$ konfidensintervallet, vil den tosidige\ntesten forkaste på $5\\ \\%$-nivå."
+    },
+    {
+      "id": "stat-8-2-note-s-for-sigma",
+      "type": "note",
+      "content": "Formlene i kapittel 7.2 og 7.5 er skrevet med $\\sigma$, populasjonens\nstandardavvik. Det kjenner vi nesten aldri. I praksis setter vi inn $s$ fra\nutvalget i stedet.\n\nDet er en tilnærming, og den er god når $n$ er stor nok — som en tommelfingerregel\n$n \\geq 30$. Her er $n = 36$.\n\n**NB:** Tilnærmingen gjør intervallet litt for smalt og testen litt for\nvillig til å forkaste. Er $n$ liten, skal du ikke gjøre det på denne måten.\nDa trengs andre fordelinger enn normalfordelingen, og det ligger utenfor dette\nfaget.",
+      "title": "Hvorfor vi bruker s i stedet for σ"
+    },
+    {
+      "id": "stat-8-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Konfidensintervall og hypotesetest",
+      "problem": "For de $36$ svarene er $\\bar{x} = 219{,}1\\overline{6}$ minutter og\n$s \\approx 55{,}4$ minutter.\n\na) Regn ut et $95\\ \\%$ konfidensintervall for $\\mu$.\n\nb) Test $H_0$: $\\mu = 200$ mot $H_1$: $\\mu > 200$ på $5\\ \\%$ signifikansnivå.\n\nc) Ville konklusjonen blitt den samme på $1\\ \\%$-nivå?",
+      "solution": "**Hva vet vi?** $n = 36$, $\\bar{x} = 219{,}1\\overline{6}$, $s = 55{,}4$.\n**Hva må vi finne?** Intervall, testkonklusjon — og hvor følsom konklusjonen er\nfor signifikansnivået.\n\nVi begynner med standardfeilen, som begge delene bygger på:\n\n$$\\frac{s}{\\sqrt{n}} = \\frac{55{,}4}{\\sqrt{36}} = \\frac{55{,}4}{6} \\approx 9{,}23$$\n\na) Formelen for konfidensintervallet (kapittel 7.2), først tom:\n\n$$\\bar{x} \\pm 1{,}96 \\cdot \\frac{s}{\\sqrt{n}}$$\n\nog så med tall:\n\n$$219{,}17 \\pm 1{,}96 \\cdot 9{,}23$$\n\n$$219{,}17 \\pm 18{,}09$$\n\nIntervallet blir\n\n$$[\\,201{,}1 \\ ;\\ 237{,}3\\,]$$\n\nVi er altså $95\\ \\%$ sikre på at gjennomsnittlig skjermtid blant **alle** de\n$184$ VG2-elevene ligger mellom $201$ og $237$ minutter.\n\nLegg merke til bredden: intervallet er $36$ minutter bredt. Undersøkelsen kan\nikke skille $210$ fra $230$ minutter. Det var akkurat det feilmarginregningen\ni kapittel 8.1 eksempel 4 forutsa — der kom vi fram til omtrent $17$ minutter\nhver vei.\n\nb) **Hypotesene:**\n\n$$H_0: \\mu = 200 \\qquad H_1: \\mu > 200$$\n\nTesten er **ensidig** fordi problemstillingen spør om skjermtiden er *høyere*\nenn i fjor, ikke om den er *forskjellig* fra i fjor.\n\nTestobservatoren (kapittel 7.5), først tom:\n\n$$z = \\frac{\\bar{x} - \\mu_0}{\\frac{s}{\\sqrt{n}}}$$\n\nog med tall:\n\n$$z = \\frac{219{,}17 - 200}{9{,}23} = \\frac{19{,}17}{9{,}23} \\approx 2{,}08$$\n\nDen kritiske verdien for en ensidig test på $5\\ \\%$-nivå er $1{,}645$. Siden\n\n$$2{,}08 > 1{,}645$$\n\nforkaster vi $H_0$.\n\n$p$-verdien er sannsynligheten for å få et gjennomsnitt minst så høyt som vårt,\ndersom $H_0$ er sann:\n\n$$p = P(Z \\geq 2{,}08) \\approx 0{,}019$$\n\nc) På $1\\ \\%$-nivå er den kritiske verdien $2{,}326$. Nå er\n\n$$2{,}08 < 2{,}326$$\n\nog vi forkaster **ikke**. Det samme ser vi på $p$-verdien: $0{,}019 > 0{,}01$.\n\nDette er verdt å stoppe ved. Det samme datamaterialet gir «forkast» på\n$5\\ \\%$-nivå og «forkast ikke» på $1\\ \\%$-nivå. Konklusjonen er altså ikke\nsolid — den er akkurat på riktig side av grensen vi valgte på forhånd. En\nærlig rapport skriver det, i stedet for bare å skrive «signifikant».\n\n![Et vannrett blått linjestykke med endestreker over en akse merket skjermtid i minutter, med tallene 195 til 245. Den loddrette aksen har én rad, merket 95 prosent KI. Linjestykket går fra 201,1 til 237,3 og har et svart punkt i 219,2, merket x med strek over er lik 219,2. En rød loddrett strek står i 200, like til venstre for linjestykkets venstre ende, merket H0 kolon my er lik 200. Under står teksten bare 1,1 minutt fra grensen.](/images/content/statistikk/stat-8-2-intervall-mot-h0.png)\n\n*At 200 ligger utenfor intervallet, er den samme opplysningen som at testen forkaster $H_0$. Men marginen er 1,1 minutt på et intervall som er 36 minutter bredt. Konklusjonen er altså riktig — og tynn. Det er verdt å skrive i rapporten, ikke bare ordet «signifikant».*\n\n**Svar:** a) $[\\,201{,}1 \\ ;\\ 237{,}3\\,]$ minutter; b) $z \\approx 2{,}08 > 1{,}645$, $p \\approx 0{,}019$, så $H_0$ forkastes på $5\\ \\%$-nivå;\nc) nei — på $1\\ \\%$-nivå forkastes ikke $H_0$."
+    },
+    {
+      "id": "stat-8-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kommune har målt ventetiden på legevakten for et tilfeldig utvalg på\n$n = 49$ pasienter. Utvalget ga $\\bar{x} = 47{,}2$ minutter og\n$s = 14{,}0$ minutter. Kommunen har lovet at gjennomsnittlig ventetid ikke\noverstiger $45$ minutter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut standardfeilen $\\frac{s}{\\sqrt{n}}$.",
+            "answer": 2.0,
+            "solution": "$\\frac{14{,}0}{\\sqrt{49}} = \\frac{14{,}0}{7} = 2{,}0$ minutter."
+          },
+          {
+            "label": "b",
+            "task": "Regn ut et $95\\ \\%$ konfidensintervall for $\\mu$.",
+            "solution": "$47{,}2 \\pm 1{,}96 \\cdot 2{,}0 = 47{,}2 \\pm 3{,}92$, altså $[\\,43{,}3 \\ ;\\ 51{,}1\\,]$ minutter."
+          },
+          {
+            "label": "c",
+            "task": "Sett opp hypotesene, og avgjør om testen skal være ensidig eller tosidig.",
+            "solution": "$H_0$: $\\mu = 45$ mot $H_1$: $\\mu > 45$. Ensidig, fordi løftet bare brytes hvis ventetiden er **lengre** enn $45$ minutter."
+          },
+          {
+            "label": "d",
+            "task": "Regn ut $z$ og avgjør på $5\\ \\%$-nivå.",
+            "answer": 1.1,
+            "solution": "$z = \\frac{47{,}2 - 45}{2{,}0} = \\frac{2{,}2}{2{,}0} = 1{,}10$. Kritisk verdi er $1{,}645$, og $1{,}10 < 1{,}645$, så $H_0$ forkastes ikke. ($p \\approx 0{,}136$.)"
+          },
+          {
+            "label": "e",
+            "task": "En avis skriver: «Målingen viser at kommunen holder løftet sitt.» Er det en dekkende tolkning? Begrunn.",
+            "solution": "Nei. At vi ikke forkaster $H_0$, betyr bare at materialet ikke er sterkt nok\ntil å slå fast et brudd — ikke at løftet holdes. Konfidensintervallet\n$[\\,43{,}3 \\ ;\\ 51{,}1\\,]$ inneholder både $45$ og verdier godt over $45$, så\nen sann ventetid på $50$ minutter er fullt forenlig med målingen. En dekkende\nformulering er: «Målingen gir ikke grunnlag for å si at ventetiden overstiger\n$45$ minutter.»"
+          }
+        ],
+        "solution": "a) $2{,}0$ minutter, b) $[\\,43{,}3 \\ ;\\ 51{,}1\\,]$, c) $H_0$: $\\mu = 45$ mot $H_1$: $\\mu > 45$, ensidig, d) $z = 1{,}10 < 1{,}645$ — forkastes ikke, e) nei, ikke forkastet er ikke det samme som bekreftet",
+        "hints": [
+          "$\\sqrt{49} = 7$ — her går regningen opp uten kalkulator."
+        ],
+        "competenceGoals": [
+          "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data"
+        ]
+      }
+    },
+    {
+      "id": "stat-8-2-section-sammenheng",
+      "type": "text",
+      "content": "## Sammenhengen mellom to variabler\n\nElevrådet spurte også om søvn natten etter. Da har de to tall for hver elev, og\nkan undersøke tilleggsspørsmålet fra planen:\n\n> Er det en sammenheng mellom skjermtiden på skoledagen og antall timer søvn\n> natten etter?\n\nFramgangsmåten er den fra kapittel 2.1–2.3, i tre skritt:\n\n1. **Tegn spredningsplottet først.** Alltid. Korrelasjonskoeffisienten alene\n   kan ikke skille en rett sammenheng fra en krum, og et tall skjuler en\n   uteligger som et plott viser med én gang.\n2. **Regn korrelasjonskoeffisienten** $r$, og tolk styrken og retningen.\n3. **Finn regresjonslinja** hvis sammenhengen ser lineær ut — og bare da.\n\nTil slutt kommer det viktigste skrittet, som ikke er regning i det hele tatt:\nå si hva sammenhengen **ikke** betyr."
+    },
+    {
+      "id": "stat-8-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Søvn mot skjermtid",
+      "problem": "For de samme $36$ elevene er\n\n| Størrelse | Skjermtid $x$ (min) | Søvn $y$ (timer) |\n|---|---|---|\n| Gjennomsnitt | $\\bar{x} = 219{,}17$ | $\\bar{y} = 7{,}08$ |\n| Standardavvik | $s_x = 55{,}38$ | $s_y = 0{,}69$ |\n\nKorrelasjonskoeffisienten er $r = -0{,}55$.\n\na) Tolk $r$.\n\nb) Finn regresjonslinja.\n\nc) Hvor mye mindre søvn svarer linja til når skjermtiden øker med $100$\nminutter?\n\nd) Hvor stor andel av variasjonen i søvn henger sammen med skjermtid?\n\ne) Kan elevrådet skrive at skjermtid gir dårligere søvn?",
+      "solution": "a) $r = -0{,}55$ er **negativ**, så høy skjermtid følges av lite søvn i dette\nmaterialet. Tallverdien $0{,}55$ er en **middels sterk** sammenheng (kapittel\n2.2): punktene følger en fallende retning, men med tydelig spredning rundt\nden.\n\nb) Stigningstallet til regresjonslinja (kapittel 2.3), først tomt:\n\n$$b = r \\cdot \\frac{s_y}{s_x}$$\n\nog med tall:\n\n$$b = -0{,}55 \\cdot \\frac{0{,}69}{55{,}38} = -0{,}0068527$$\n\nKonstantleddet finner vi av at linja går gjennom $(\\bar{x}, \\bar{y})$:\n\n$$a = \\bar{y} - b \\cdot \\bar{x}$$\n\n$$a = 7{,}08 - (-0{,}0068527) \\cdot 219{,}17 = 7{,}08 + 1{,}5019 = 8{,}5819$$\n\nLinja blir\n\n$$y = -0{,}0068x + 8{,}58$$\n\n*(Føres ikke: vi har regnet videre på de avrundede tallene i tabellen over.\nRegner regnearket i stedet direkte på de $36$ tallparene, får det\n$b = -0{,}006825$ og $a = 8{,}5792$. Forskjellen sitter i fjerde gjeldende\nsiffer og skyldes bare avrundingen i tabellen — linja blir den samme.\nKonstantleddet må derimot regnes med uavrundet $b$: setter du inn $-0{,}0068$,\nfår du $8{,}57$, og linja går ikke lenger gjennom $(\\bar{x}, \\bar{y})$.)*\n\n![Et spredningsplott med de 36 målingene. To par faller helt sammen, så bare 34 blå prikker er synlige. Den vannrette aksen viser skjermtid i minutter med tallene 80 til 320, den loddrette viser søvn i timer fra 5 til 9,5 med et markert brudd nederst på aksen. Punktene ligger spredt mellom 125 og 330 minutter og mellom 6 og 8,5 timer. Elevene med lavest skjermtid ligger stort sett på 7 timer eller mer, mens elevene med høyest skjermtid stort sett ligger på 7 timer eller mindre. En rød rett linje går gjennom punktskyen og faller fra omtrent 7,8 timer ved 110 minutter til omtrent 6,2 timer ved 345 minutter. Ligningen y er lik minus 0,0068x pluss 8,58 står skrevet nede til venstre.](/images/content/statistikk/stat-8-2-sovn-skjermtid.png)\n\n*Søvn mot skjermtid for de 36 elevene, med regresjonslinja. Den loddrette aksen har et markert brudd, slik kapittel 1.6 krever av en innzooming. Spredningen rundt linja er stor — r = −0,55.*\n\nc) Stigningstallet forteller hvor mye $y$ endrer seg når $x$ øker med $1$. Vi\nganger med $100$:\n\n$$100 \\cdot (-0{,}0068) = -0{,}68$$\n\nLinja svarer til omtrent $0{,}68$ timer mindre søvn, altså rundt $41$ minutter,\nper $100$ minutter mer skjermtid.\n\nd) Andelen er $r^2$ (kapittel 2.3):\n\n$$r^2 = (-0{,}55)^2 = 0{,}30 = 30\\ \\%$$\n\nOmtrent $30\\ \\%$ av variasjonen i søvn henger sammen med skjermtiden. De\nresterende $70\\ \\%$ skyldes alt annet: trening, jobb, lekser, bekymringer,\nhvor langt eleven har til skolen.\n\ne) **Nei.** Dette er kjernen i kapittel 2.4. Materialet er observert, ikke\nframkalt: ingen ble tildelt mye eller lite skjermtid. Minst tre forklaringer\npasser like godt til de samme punktene:\n\n- Skjermtid går ut over søvnen.\n- Den som sover dårlig, ligger våken med telefonen — **årsaken går andre\n  veien**.\n- En tredje faktor, for eksempel kveldsjobb eller stress, gir både mer\n  skjermtid og mindre søvn.\n\nSkal årsak avgjøres, trengs et **forsøk** der skjermtiden faktisk tildeles\ntilfeldig — og det er noe annet enn en spørreundersøkelse.\n\n**Svar:** a) middels sterk negativ sammenheng; b) $y = -0{,}0068x + 8{,}58$;\nc) omtrent $0{,}68$ timer, altså rundt $41$ minutter; d) omtrent $30\\ \\%$;\ne) nei — sammenheng er ikke årsak."
+    },
+    {
+      "id": "stat-8-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En iskiosk har registrert temperatur og antall solgte softis på $30$ dager.\nMaterialet oppsummeres slik:\n\n| Størrelse | Temperatur $x$ (°C) | Solgte softis $y$ |\n|---|---|---|\n| Gjennomsnitt | $\\bar{x} = 12{,}0$ | $\\bar{y} = 84$ |\n| Standardavvik | $s_x = 5{,}0$ | $s_y = 30$ |\n\nKorrelasjonskoeffisienten er $r = 0{,}80$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Tolk $r$ med ord.",
+            "solution": "Sterk positiv sammenheng: varme dager følges av høyt salg. Punktene ligger tett rundt en stigende rett linje."
+          },
+          {
+            "label": "b",
+            "task": "Finn stigningstallet til regresjonslinja.",
+            "answer": 4.8,
+            "solution": "$b = r \\cdot \\frac{s_y}{s_x} = 0{,}80 \\cdot \\frac{30}{5{,}0} = 0{,}80 \\cdot 6 = 4{,}8$ softis per grad."
+          },
+          {
+            "label": "c",
+            "task": "Finn hele linja.",
+            "solution": "$a = \\bar{y} - b\\bar{x} = 84 - 4{,}8 \\cdot 12{,}0 = 84 - 57{,}6 = 26{,}4$, så $y = 4{,}8x + 26{,}4$."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange softis svarer linja til på en dag med $20\\ ^\\circ$C?",
+            "answer": 122.4,
+            "solution": "$y = 4{,}8 \\cdot 20 + 26{,}4 = 96 + 26{,}4 = 122{,}4$, altså omtrent $122$ softis."
+          },
+          {
+            "label": "e",
+            "task": "Kiosken vil bruke linja til å anslå salget ved $35\\ ^\\circ$C. Hva må de være klar over, og hva forteller $r^2$ dem?",
+            "solution": "$35\\ ^\\circ$C ligger langt utenfor det området temperaturene i materialet dekker.\nÅ bruke linja der er **ekstrapolasjon** (kapittel 2.3), og ingenting i dataene\nsier at sammenhengen fortsetter å være rett så langt ute — på et tidspunkt går\nkiosken tom, eller folk holder seg inne.\n\n$r^2 = 0{,}80^2 = 0{,}64$, så omtrent $64\\ \\%$ av variasjonen i salget henger\nsammen med temperaturen. De øvrige $36\\ \\%$ skyldes ukedag, ferier, regn og\nalt annet — også på dager innenfor det målte området vil linja bomme en del."
+          }
+        ],
+        "solution": "a) sterk positiv, b) $4{,}8$, c) $y = 4{,}8x + 26{,}4$, d) omtrent $122$ softis, e) ekstrapolasjon; $r^2 = 0{,}64$",
+        "hints": [
+          "$b = r \\cdot \\frac{s_y}{s_x}$, og linja går alltid gjennom $(\\bar{x}, \\bar{y})$."
+        ],
+        "competenceGoals": [
+          "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data"
+        ]
+      }
+    },
+    {
+      "id": "stat-8-2-section-presentasjon",
+      "type": "text",
+      "content": "## Presentasjonen\n\nRapporten er ikke et vedlegg til arbeidet. For alle andre enn deg selv **er**\nrapporten arbeidet. Den følger den samme rekkefølgen som selve undersøkelsen,\nog seks deler skal være med:\n\n| Del | Innhold | Lengde |\n|---|---|---|\n| 1. Problemstilling | Ordrett som i planen, og hvorfor den er interessant | Noen linjer |\n| 2. Metode | Populasjon, utvalgsmetode, $n$, svarprosent, hvordan variablene ble målt, datalogg | En halv side |\n| 3. Resultater | Tabeller, figurer og tall — uten tolkning | En side |\n| 4. Analyse | Konfidensintervall, test, sammenhenger — med tolkning | En side |\n| 5. Gyldighet | Feilkilder, og hvilken vei hver av dem trekker | En halv side |\n| 6. Konklusjon | Svaret på problemstillingen, med forbehold | Noen linjer |\n\nLegg merke til skillet mellom del 3 og del 4. I resultatdelen står det som ble\nmålt. I analysedelen står det du mener det betyr. Blander du dem, kan ikke\nleseren skille mellom dataene dine og meningene dine."
+    },
+    {
+      "id": "stat-8-2-tip-figurregler",
+      "type": "tip",
+      "content": "Fra kapittel 1.5 og 1.6:\n\n1. **Begge akser har navn og enhet.** «minutter», ikke bare tall.\n2. **Søylediagram starter på null.** Et avkuttet søylediagram overdriver\n   forskjeller. Skal du zoome inn på et linje- eller punktdiagram, marker\n   bruddet tydelig.\n3. **Figuren har en bildetekst** som sier hva den viser, hvor mange enheter\n   den bygger på, og hvor tallene kommer fra.\n4. **Riktig figurtype.** Histogram for numeriske data i klasser, søylediagram\n   for kategorier, linjediagram bare når den vannrette aksen er tid.\n5. **Ingen figur uten oppgave.** Har du en figur som ikke brukes i teksten,\n   slett den.",
+      "title": "Fem krav til hver figur i rapporten"
+    },
+    {
+      "id": "stat-8-2-example-5",
+      "type": "example",
+      "title": "Eksempel 5 – To konklusjoner på samme materiale",
+      "problem": "Elevrådet har to utkast til konklusjon. Vurder dem.\n\n**Utkast A:** «Undersøkelsen vår viser at elevene bruker altfor mye tid på\nskjerm, og at skjermtid ødelegger søvnen. Skjermtiden har økt kraftig siden i\nfjor.»\n\n**Utkast B:** Se løsningen.",
+      "solution": "**Utkast A, setning for setning:**\n\n- *«altfor mye»* — en verdivurdering. Undersøkelsen har ikke målt noen grense\n  for hva som er for mye, og kan derfor ikke belegge ordet.\n- *«skjermtid ødelegger søvnen»* — en årsakspåstand fra observerte data\n  (kapittel 2.4). Sammenhengen er målt; retningen er ikke.\n- *«økt kraftig»* — testen forkastet $H_0$ på $5\\ \\%$-nivå, men ikke på\n  $1\\ \\%$. Forskjellen er $19$ minutter, mot en feilmargin på $18$. «Kraftig»\n  er ikke dekkende.\n- *«elevene»* — hvilke? Dataene gjelder VG2 ved én skole, på én dag, og bare\n  telefonen.\n\n**Utkast B — en konklusjon materialet bærer:**\n\n> Blant de $36$ VG2-elevene som svarte, var gjennomsnittlig skjermtid på\n> telefonen mandag 15. september $219$ minutter. Et $95\\ \\%$ konfidensintervall\n> for gjennomsnittet blant alle $184$ VG2-elevene er $[\\,201 \\ ;\\ 237\\,]$\n> minutter. En ensidig test forkaster $H_0$: $\\mu = 200$ på $5\\ \\%$-nivå\n> ($z = 2{,}08$, $p = 0{,}019$), men ikke på $1\\ \\%$-nivå. Vi har altså et\n> visst, men ikke sterkt, belegg for at skjermtiden er høyere enn de $200$\n> minuttene elevrådet målte i fjor.\n>\n> Vi fant også en middels sterk negativ sammenheng mellom skjermtid og søvn\n> natten etter ($r = -0{,}55$). Undersøkelsen kan ikke avgjøre om skjermtid\n> går ut over søvnen, om dårlig søvn gir mer skjermtid, eller om begge deler\n> henger sammen med noe tredje.\n>\n> Resultatet gjelder telefonbruk på én skoledag ved én skole, blant de\n> $90\\ \\%$ av de trukne elevene som svarte. PC og nettbrett er ikke målt.\n> Sammenligningen med fjorårets tall forutsetter at undersøkelsen den gangen\n> ble gjort på samme måte; det har vi ikke kunnet kontrollere.\n\n**Hva utkast B gjør, som A ikke gjør:** hvert tall står sammen med\nusikkerheten sin, hver påstand er begrenset til det som faktisk ble målt, og\ndet som ikke kan avgjøres, står som noe som ikke kan avgjøres.\n\n**Svar:** Utkast A går lenger enn dataene på fire punkter. Utkast B er\ndekkende."
+    },
+    {
+      "id": "stat-8-2-warning-fem-feil",
+      "type": "warning",
+      "content": "1. **Tall uten usikkerhet.** «Gjennomsnittet er $219{,}17$ minutter» later som\n   om vi kjenner populasjonen nøyaktig. Oppgi intervallet.\n2. **For mange desimaler.** $219{,}1\\overline{6}$ minutter er avlest i\n   femminutters trinn. Rund til $219$.\n3. **Konklusjon om en større populasjon enn den du målte.** «Ungdom» når du\n   målte VG2 ved én skole.\n4. **Årsak av sammenheng.** Se kapittel 2.4.\n5. **«Ikke forkastet» presentert som «bevist».** En test som ikke forkaster\n   $H_0$, har ikke vist at $H_0$ er sann.",
+      "title": "NB: De fem vanligste feilene i presentasjonen"
+    },
+    {
+      "id": "stat-8-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Datarydding**: rett format, håndter manglende svar, og fjern bare det som\n  er **umulig** — aldri det som bare er uvanlig. Alt du gjør, føres i\n  **dataloggen**, som er en del av rapporten.\n- **Analysetrappa**: beskriv først ($\\bar{x}$, $s$, femtallssammendrag,\n  histogram), så sammenlign eller se sammenheng, og generaliser til slutt. Gå\n  bare så langt som problemstillingen krever.\n- **Generalisering**: konfidensintervallet sier hvor $\\mu$ trolig ligger,\n  hypotesetesten sier om materialet er sterkt nok til å forkaste påstanden.\n  Med $n \\geq 30$ kan $s$ brukes i stedet for $\\sigma$.\n- **Sammenheng**: tegn spredningsplottet før du regner $r$, og bruk\n  regresjonslinja bare når sammenhengen ser lineær ut. $r^2$ sier hvor stor\n  andel av variasjonen som henger sammen med den andre variabelen.\n- **Rapporten i seks deler**, med resultater og tolkning i hver sin del.\n- **Konklusjonen** skal svare på problemstillingen, oppgi usikkerheten, og\n  begrense seg til det som faktisk ble målt.\n\n### Vurderingskriterier for det utforskende arbeidet\n\n| Kriterium | Hva som vurderes |\n|---|---|\n| Statistiske begreper | Populasjon, utvalg, $\\bar{x}$ og $\\mu$, $s$ og $\\sigma$, signifikansnivå og $p$-verdi brukes presist og riktig |\n| Gjennomføring | Dataene er ryddet og dokumentert; analysen er den problemstillingen krever |\n| Gyldighet | Feilkilder er vurdert, og det står hvilken vei hver av dem trekker |\n| Presentasjon | Seks deler, figurer med akser og bildetekst, tall med riktig antall desimaler |\n| Konklusjon | Svarer på problemstillingen, med usikkerhet og med riktig rekkevidde |\n\n### Husk\n- Resultater og tolkning i hver sin del av rapporten.\n- Det du ikke kan avgjøre, skal stå som noe du ikke kan avgjøre."
+    },
+    {
+      "id": "stat-8-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Prosjektoppgave (Del 2 — regneark).** Gjennomfør arbeidet du planla i\nkapittel 8.1, og lever rapporten i seks deler.\n\nBruker du en offentlig kilde i stedet for egen innsamling, er dette et forslag\nsom fungerer: last ned folketallet i kommunen din 1. januar hvert år fra SSBs\nstatistikkbank for de siste ti årene, og undersøk problemstillingen «Hvordan\nhar folketallet i kommunen endret seg fra 2015 til 2025, og hvilken årlig\nvekstrate svarer endringen til?»\n\nRegnearket skal inneholde et eget ark for rådata og et for analyse, slik at\nrådataene aldri overskrives.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Legg inn rådataene, rydd dem, og skriv dataloggen som en tabell i arket.",
+            "solution": "Rådataarket røres ikke etter innlastingen. Alle endringer gjøres i\nanalysearket, med formler som peker tilbake til rådata — da kan hver endring\nspores. Dataloggen får tre kolonner: hva som sto, hva vi gjorde, hvorfor."
+          },
+          {
+            "label": "b",
+            "task": "Oppgi $n$, og svarprosenten dersom du har samlet inn data selv. Har du brukt en kilde: oppgi hvem, når og hvordan kilden samlet inn dataene.",
+            "solution": "Ved egen innsamling: antall trukket, antall svar, svarprosent. Ved\nsekundærdata: de fem spørsmålene fra kapittel 1.1 — hvem, når, hvem er med,\nhvordan målt, hvor mange."
+          },
+          {
+            "label": "c",
+            "task": "Gjør den beskrivende analysen: `=GJENNOMSNITT(...)`, `=MEDIAN(...)`, `=STDAV.S(...)`, `=MIN(...)`, `=MAKS(...)`, og minst én figur.",
+            "solution": "Figuren velges etter datatypen (kapittel 1.5): histogram for numeriske data i\nklasser, søylediagram for kategorier, linjediagram når den vannrette aksen er\ntid — som i folketallsforslaget. Alle fem figurkravene i tipsboksen skal være\noppfylt."
+          },
+          {
+            "label": "d",
+            "task": "Generaliser: regn ut et $95\\ \\%$ konfidensintervall, eller gjennomfør hypotesetesten fra planen din. Bruker du en totaltelling, forklar hvorfor ingen av delene trengs.",
+            "solution": "Ved utvalg: $\\bar{x} \\pm 1{,}96 \\cdot \\frac{s}{\\sqrt{n}}$, eventuelt testen fra\nplanen. Ved totaltelling — som folketall fra SSB — er det ingen usikkerhet fra\nutvalg, og et konfidensintervall ville vært meningsløst: vi kjenner\npopulasjonen. Da er det andre feilkilder som gjelder, for eksempel at\nfolkeregisteret henger etter ved flytting."
+          },
+          {
+            "label": "e",
+            "task": "Skriv gyldighetsdelen og konklusjonen. Konklusjonen skal ikke være lengre enn ti linjer.",
+            "solution": "Gyldighetsdelen navngir hver feilkilde og sier hvilken vei den trekker — for\neksempel: «Frafallet var $10\\ \\%$. Svarer de mest opptatte elevene sjeldnere,\ner tallet vårt for lavt.» Konklusjonen følger mønsteret i eksempel 5 utkast B:\ntallet, usikkerheten, testresultatet, rekkevidden, og det som ikke kunne\navgjøres."
+          }
+        ],
+        "solution": "Eleven leverer regneark og rapport. Vurderes mot kriterietabellen i\noppsummeringen — det avgjørende er om konklusjonen holder seg innenfor det\ndataene bærer.",
+        "hints": [
+          "Skill rådata og analyse i to ark. Overskriver du rådataene, kan ingen etterprøve deg — og du kan ikke angre.",
+          "Har du en totaltelling, er spørsmålet ikke «hvor sikkert er tallet», men «måler kilden det jeg tror den måler»."
+        ],
+        "competenceGoals": [
+          "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-8-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Prosjektoppgave (Del 2 — simulering).** I eksempel 3 fant vi $p \\approx 0{,}019$ med formelen fra kapittel 7.5. Nå skal du finne den samme\n$p$-verdien med **simulering** (kapittel 4.8), uten å bruke\nnormalfordelingstabellen.\n\nIdeen er den samme som i enhver hypotesetest: vi later som om $H_0$ er sann,\nutfører undersøkelsen mange ganger under den forutsetningen, og teller hvor\nofte vi får et gjennomsnitt minst så høyt som det vi faktisk fikk.\n\nEt program som gjør det:\n\n```python\nimport random\n\nantall = 100000\nmu = 200\nsigma = 55\nn = 36\nobservert = 219.17\ntreff = 0\n\nfor i in range(antall):\n    sum_x = 0\n    for j in range(n):\n        sum_x = sum_x + random.gauss(mu, sigma)\n    if sum_x / n >= observert:\n        treff = treff + 1\n\nprint(treff / antall)\n```",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Forklar linje for linje hva programmet gjør, og hvor i programmet forutsetningen «$H_0$ er sann» ligger.",
+            "solution": "Den indre løkka trekker $36$ verdier fra en normalfordeling med $\\mu = 200$ og\n$\\sigma = 55$ og summerer dem — det er ett helt tenkt utvalg. `sum_x / n` er\ngjennomsnittet i det utvalget. `if`-linja sjekker om dette tenkte utvalget er\nminst like ekstremt som det ekte. Til slutt deles antall treff på antall\nforsøk.\n\nForutsetningen «$H_0$ er sann» ligger i `mu = 200`: vi trekker fra en\nfordeling der gjennomsnittet **er** $200$."
+          },
+          {
+            "label": "b",
+            "task": "Hva slags tall venter du at programmet skriver ut? Begrunn ut fra eksempel 3.",
+            "answer": 0.018,
+            "solution": "Omtrent $0{,}018$. Det eksakte svaret med $\\sigma = 55$ er\n$P\\left(Z \\geq \\frac{219{,}17-200}{55/6}\\right) = P(Z \\geq 2{,}09) \\approx 0{,}0183$. Eksempel 3 fikk $0{,}019$ fordi det brukte $s = 55{,}4$ i stedet\nfor $55$."
+          },
+          {
+            "label": "c",
+            "task": "Sett opp den samme simuleringen i regneark, med $2\\,000$ forsøk.",
+            "solution": "Legg $36$ trekninger i en rad: `=NORMAL.INVERS(TILFELDIG();200;55)` i\nA1:AJ1. I AK1: `=GJENNOMSNITT(A1:AJ1)`. I AL1:\n`=HVIS(AK1>=219,17;1;0)`. Merk hele raden og dra ned til rad $2\\,000$. I\nAN1: `=SUMMER(AL1:AL2000)/2000`.\n\nTrykk F9 noen ganger og se at tallet varierer rundt $0{,}018$."
+          },
+          {
+            "label": "d",
+            "task": "Kjør simuleringen flere ganger med $2\\,000$ forsøk og noter svarene. Hvorfor blir de ikke like, og hvor stor er usikkerheten i selve simuleringen?",
+            "answer": 0.6,
+            "solution": "Simuleringen er selv et tilfeldig forsøk (kapittel 4.8), så resultatet varierer\nfra kjøring til kjøring. Usikkerheten er feilmarginen til en andel med\n$n = 2\\,000$ og $p \\approx 0{,}018$:\n\n$$E = 1{,}96 \\cdot \\sqrt{\\frac{0{,}018 \\cdot 0{,}982}{2000}} \\approx 0{,}0058$$\n\naltså omtrent $0{,}6$ prosentpoeng. Med $100\\,000$ forsøk synker den til\nomtrent $0{,}08$ prosentpoeng."
+          },
+          {
+            "label": "e",
+            "task": "Drøft: hva vinner vi på å gjøre testen med simulering i stedet for med formelen, og hva taper vi?",
+            "solution": "**Vinner:** Framgangsmåten er den samme uansett hvilken fordeling vi antar —\nogså når det ikke finnes en formel eller en tabell for den. Vi må dessuten\nskrive ned forutsetningene våre eksplisitt i programmet, og da blir de synlige\ni stedet for skjulte.\n\n**Taper:** Svaret er en måling med egen usikkerhet, ikke et eksakt tall, og det\nblir litt forskjellig hver gang. Vi får heller ikke noe uttrykk vi kan\nundersøke — formelen viser at $p$ avhenger av $\\bar{x}$, $\\mu_0$, $s$ og $n$\ngjennom én størrelse, $z$. Det ser vi ikke i simuleringen.\n\n**Viktigst:** Simuleringen bygger på nøyaktig de samme forutsetningene som\nformelen — at fordelingen er normal med $\\sigma = 55$. Simulering gjør ikke en\ntvilsom forutsetning bedre; den bare regner den ut på en annen måte."
+          }
+        ],
+        "solution": "a) `mu = 200` er $H_0$, b) omtrent $0{,}018$, c) se regnearkoppsettet, d) omtrent $0{,}6$ prosentpoeng med $2\\,000$ forsøk, e) generell metode, men et svar med egen uvisshet",
+        "hints": [
+          "`random.gauss(mu, sigma)` trekker ett tall fra normalfordelingen; i regneark gjør `=NORMAL.INVERS(TILFELDIG();mu;sigma)` det samme.",
+          "Usikkerheten i en simulering er feilmarginen til en andel — samme formel som i kapittel 8.1."
+        ],
+        "competenceGoals": [
+          "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-8-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-8-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** En lokalavis skriver:\n\n> **«Elevene ved fylkets skoler bruker nesten fire timer på telefonen hver\n> dag»**\n>\n> En ny undersøkelse fra elevrådet ved Fjordbyen videregående viser at elevene\n> i snitt bruker $219$ minutter på telefonen. Undersøkelsen viser også at\n> skjermtid går ut over søvnen.\n\nUndersøkelsen er den du har arbeidet med i dette kapittelet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Overskriften sier «elevene ved fylkets skoler». Hva var populasjonen, og hva heter feilen?",
+            "solution": "Populasjonen var de $184$ elevene på VG2 ved **én** skole. Avisen har utvidet\nkonklusjonen til en mye større populasjon enn den som ble målt — og ikke engang\nalle trinn ved den ene skolen er med. Det er den tredje av de fem vanligste\npresentasjonsfeilene."
+          },
+          {
+            "label": "b",
+            "task": "Tallet $219$ står uten usikkerhet. Skriv om setningen slik at usikkerheten kommer med.",
+            "solution": "For eksempel: «I snitt brukte de $219$ minutter, og undersøkelsen anslår\ngjennomsnittet blant alle VG2-elevene ved skolen til mellom $201$ og $237$\nminutter.» Feilmarginen er $18$ minutter hver vei — omtrent en tredjedel av en\ntime."
+          },
+          {
+            "label": "c",
+            "task": "«Undersøkelsen viser også at skjermtid går ut over søvnen.» Hvorfor er dette ikke dekkende, og hva ville det krevd å vise det?",
+            "solution": "Undersøkelsen målte en sammenheng ($r = -0{,}55$), ikke en årsak. Dataene er\nobservert, så tre forklaringer passer like godt: skjermtid går ut over søvnen,\ndårlig søvn gir mer skjermtid, eller noe tredje gir begge deler. Å vise årsak\nville krevd et forsøk der skjermtiden ble tildelt tilfeldig — og det er ikke\ndet elevrådet gjorde."
+          },
+          {
+            "label": "d",
+            "task": "«Hver dag» — hva ble faktisk målt, og hvorfor er forskjellen viktig?",
+            "solution": "Det ble målt **én** dag, en mandag i september, og bare på telefonen. «Hver\ndag» ville krevd måling over flere dager, og gjerne både hverdag og helg. Et\ngjennomsnitt over én dag har dessuten en ekstra usikkerhetskilde som ikke er\nmed i feilmarginen: selve dagen kan ha vært uvanlig."
+          },
+          {
+            "label": "e",
+            "task": "Skriv en overskrift og en ingress på til sammen høyst fem linjer som er dekkende for det undersøkelsen viser.",
+            "solution": "Et mulig svar:\n\n> **Tre og en halv time på telefonen — elevrådet har målt VG2**\n>\n> Et tilfeldig utvalg på $40$ av $184$ VG2-elever ved Fjordbyen videregående\n> ble bedt om å lese av telefonens skjermtid for mandag 15. september. $36$\n> svarte. Gjennomsnittet var $219$ minutter, og undersøkelsen anslår\n> gjennomsnittet for hele trinnet til mellom $201$ og $237$ minutter. Elever\n> med mye skjermtid oppga også mindre søvn, men undersøkelsen kan ikke si hva\n> som er årsak til hva.\n\n**Andre muligheter:** en overskrift som løfter fram sammenligningen med i fjor\ni stedet — men da må den si at forskjellen er liten i forhold til\nusikkerheten, ellers gjentar avisen feilen i en ny form."
+          }
+        ],
+        "solution": "a) for stor populasjon, b) intervallet $[\\,201 \\ ;\\ 237\\,]$ må med, c) sammenheng er ikke årsak, d) én dag og bare telefonen, e) se forslaget",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar",
+          "planleggje, gjennomføre og presentere eit utforskande arbeid i statistikk med utgangspunkt i ei tydeleg problemstilling og reelle data"
+        ]
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Datarydding",
+      "definition": "Å gjøre rådataene klare for analyse: rette format, håndtere manglende svar og fjerne umulige verdier — aldri bare uvanlige."
+    },
+    {
+      "term": "Datalogg",
+      "definition": "Listen over alt som ble endret eller fjernet under ryddingen, med begrunnelse. Den er en del av rapporten."
+    },
+    {
+      "term": "Analysetrappa",
+      "definition": "Beskriv først, sammenlign eller se sammenheng deretter, generaliser til slutt — og bare så langt problemstillingen krever."
+    },
+    {
+      "term": "Gyldighet",
+      "definition": "Spørsmålet om undersøkelsen faktisk måler det problemstillingen handler om, og hvor langt konklusjonen rekker."
+    },
+    {
+      "term": "Ekstrapolasjon",
+      "definition": "Å bruke en regresjonslinje utenfor det området dataene dekker. Ingenting i dataene støtter at sammenhengen fortsetter der."
+    },
+    {
+      "term": "Rapport",
+      "definition": "Presentasjonen i seks deler: problemstilling, metode, resultater, analyse, gyldighet og konklusjon."
+    }
+  ]
+}

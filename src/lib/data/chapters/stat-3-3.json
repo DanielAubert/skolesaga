@@ -1,0 +1,392 @@
+{
+  "id": "stat-3-3",
+  "courseId": "statistikk",
+  "chapterNumber": "3.3",
+  "title": "Representativitet og feilkilder",
+  "description": "Skjevhet, frafall, ledende spørsmål og målefeil, og hvordan de påvirker konklusjonene.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-3-3-section-innledning",
+      "type": "text",
+      "content": "## To slags feil\n\nAlle undersøkelser bommer. Det som avgjør hvor mye de er verdt, er **hvilken\ntype** bom.\n\n**Tilfeldig feil** kommer av at vi har trukket ett utvalg og ikke et annet. Den\npeker like ofte oppover som nedover, den blir mindre når $n$ vokser, og den kan\nregnes ut. Det er den feilmarginen dekker.\n\n**Systematisk feil** — også kalt **skjevhet** — kommer av at metoden peker i én\nbestemt retning. Den blir **ikke** mindre av at utvalget vokser, den kan ikke\nregnes ut av dataene, og feilmarginen sier ingenting om den.\n\n| | Tilfeldig feil | Systematisk feil (skjevhet) |\n|---|---|---|\n| Årsak | Vi trakk akkurat dette utvalget | Metoden favoriserer noen |\n| Retning | Tilfeldig opp eller ned | Alltid samme vei |\n| Effekt av større $n$ | Blir mindre | Uendret |\n| Kan den regnes ut? | Ja | Nei — den må unngås |\n\nNesten alt som går galt med en undersøkelse, hører til i høyre kolonne."
+    },
+    {
+      "id": "stat-3-3-fig-maalskiver",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-3-3-maalskiver.png",
+      "alt": "Fire like målskiver med tre konsentriske ringer hver, og sju svarte skudd i hver skive. I den første ligger skuddene i en tett klynge midt i blinken; den er merket treffsikker og presis, med liten tilfeldig feil og liten systematisk feil. I den andre ligger skuddene spredt over hele skiva, men rundt blinken; den er merket treffsikker, men upresis, med stor tilfeldig feil og liten systematisk feil. I den tredje ligger skuddene i en tett klynge et stykke opp til høyre for blinken; den er merket skjev, men presis, med liten tilfeldig feil og stor systematisk feil. I den fjerde ligger skuddene både spredt og forskjøvet mot øvre høyre; den er merket skjev og upresis, med stor tilfeldig feil og stor systematisk feil.",
+      "caption": "Presisjon og treffsikkerhet er to forskjellige ting. Feilmarginen måler bare hvor tett skuddene ligger — ikke om de treffer blinken. En systematisk feil flytter hele klyngen, og den ser ingen feilmargin.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-3-3-maalskiver.json"
+    },
+    {
+      "id": "stat-3-3-def-feilkilder",
+      "type": "definition",
+      "content": "**1. Dekningsfeil.** Utvalgsrammen dekker ikke populasjonen. En undersøkelse\nsom trekker fra et mobilregister, mangler dem uten mobil; en som trekker fra\nkommunens e-postliste, mangler dem som ikke har registrert seg. Enhetene som\nmangler, har sannsynlighet **null** for å bli med, og de ligner sjelden dem som\ner med.\n\n**2. Frafall.** Noen av de trukne svarer ikke. Dette er den største feilkilden i\nmoderne undersøkelser, fordi svarprosentene har falt kraftig. Frafallet er\nfarlig når de som ikke svarer, skiller seg fra dem som svarer — og det gjør de\nnesten alltid.\n\n**3. Målefeil.** Svaret måler noe annet enn det vi tror:\n\n- **ledende spørsmål** («Synes du ikke at …»)\n- **hvilket alternativ som nevnes først**\n- **hukommelse** («Hvor mange ganger syklet du i fjor?»)\n- **sosialt ønskelige svar** (folk oppgir mer trening og mindre snacks enn de\n  har)\n- **uklare ord** («ofte», «regelmessig», «god økonomi»)\n\n**4. Behandlingsfeil.** Tastefeil, feil koding, feil sammenslåing av kategorier\n— feil som oppstår etter at dataene er samlet inn.\n\n**Bare den tilfeldige variasjonen dekkes av feilmarginen.** Alle fire punktene\nover ligger utenfor.",
+      "title": "Fire feilkilder"
+    },
+    {
+      "id": "stat-3-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Hva frafall koster",
+      "problem": "En kommune sendte en undersøkelse til $2\\,000$ tilfeldig trukne innbyggere.\n$900$ svarte. Av dem sa $60\\ \\%$ at de er fornøyde med renovasjonen.\n\na) Hva er svarprosenten?\n\nb) Anta at de som ikke svarte, i virkeligheten er $35\\ \\%$ fornøyde. Hva er da\nden sanne andelen, og hvor mye bommer anslaget?\n\nc) Hvor mye kan anslaget i verste fall bomme, når vi ikke vet noe om dem som\nikke svarte?\n\nd) Sammenlign med feilmarginen fra tilfeldig variasjon.",
+      "solution": "**a)** $$\\frac{900}{2\\,000} = 0{,}45 = 45\\ \\%$$\n\n**Svar a):** Svarprosenten er $45\\ \\%$, og frafallet er $1\\,100$ personer,\naltså $55\\ \\%$.\n\n**b)** Den sanne andelen er et vektet gjennomsnitt av de to gruppene:\n\n$$0{,}45 \\cdot 0{,}60 + 0{,}55 \\cdot 0{,}35 = 0{,}27 + 0{,}1925 = 0{,}4625$$\n\n**Svar b):** Den sanne andelen ville vært $46{,}25\\ \\%$ ($\\approx 46{,}3\\ \\%$),\nmens undersøkelsen rapporterer $60\\ \\%$. Anslaget bommer med\n\n$$60 - 46{,}25 = 13{,}75 \\approx 13{,}8 \\text{ prosentpoeng}$$\n\n**NB:** vi regner differansen av de **eksakte** tallene og runder til slutt.\nRunder vi $46{,}25$ til $46{,}3$ først, får vi $13{,}7$ — og det er en\nannen avrunding enn den riktige.\n\n**c)** Vi vet ingenting om de $1\\,100$. De to ytterpunktene er:\n\n**Ingen av dem er fornøyde:**\n\n$$0{,}45 \\cdot 0{,}60 + 0{,}55 \\cdot 0 = 0{,}27 = 27\\ \\%$$\n\n**Alle er fornøyde:**\n\n$$0{,}45 \\cdot 0{,}60 + 0{,}55 \\cdot 1 = 0{,}27 + 0{,}55 = 0{,}82 = 82\\ \\%$$\n\n**Svar c):** Uten kunnskap om frafallet kan vi bare si at den sanne andelen\nligger mellom $27\\ \\%$ og $82\\ \\%$ — et spenn på $55$ prosentpoeng, altså\nnøyaktig like stort som frafallet.\n\n**d)** Feilmarginen fra tilfeldig variasjon med $n = 900$ er omtrent\n$3{,}2$ prosentpoeng (vi regner den ut i eksempel 3).\n\n![En vannrett akse merket andel fornøyde i prosent, fra 0 til 100. Over aksen ligger en kort blå bjelke fra 56,8 til 63,2 prosent, merket feilmargin pluss minus 3,2 prosentpoeng ved n lik 900. Under aksen ligger en mye lengre rød bjelke fra 27 til 82 prosent, merket: det frafallet alene tillater, 55 prosentpoeng. Et svart punkt på den røde bjelken ved 46,25 prosent er merket sann andel 46,25 prosent. En grå stiplet loddrett strek ved 60 prosent er merket rapportert 60 prosent, og merkelappen står rett over streken. Merkelappen til den blå bjelken står i samme høyde som bjelken, rett til høyre for den, og akseetiketten står ved aksens høyre ende.](/images/content/statistikk/stat-3-3-feilmargin-mot-frafall.png)\n\n*Feilmarginen måler bare den tilfeldige variasjonen. Det frafallet alene tillater, er over sytten ganger så bredt — og den usikkerheten står ikke i noen feilmargin.*\n\n**Svar d):** Den tilfeldige feilen er rundt $3$ prosentpoeng. Usikkerheten fra\nfrafallet er i verste fall $55$ prosentpoeng — over sytten ganger så stor.\n\n**Her ser vi at** en rapport som oppgir «$60\\ \\%$ er fornøyde, feilmargin\n$\\pm 3{,}2$ prosentpoeng» sier noe sant om det minste problemet og tier om det\nstørste.\n\n**Slik leser du kritisk:** Se etter svarprosenten **før** du ser på\nfeilmarginen. Står den ikke der, er det i seg selv en opplysning.\n\n**Andre muligheter:** Frafallet kan undersøkes ved å purre, og så sammenligne\ndem som svarte først med dem som svarte etter purring. Skiller de to gruppene\nseg, er det et varsel om at de som aldri svarte, skiller seg enda mer."
+    },
+    {
+      "id": "stat-3-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En brukerundersøkelse ble sendt til $1\\,500$ personer. $480$ svarte, og av dem\nsa $72\\ \\%$ at de var fornøyde.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn svarprosenten og antall frafall.",
+            "solution": "$\\frac{480}{1500} = 0{,}32 = 32{,}0\\ \\%$. Frafallet er $1500 - 480 = 1\\,020$ personer, altså $68{,}0\\ \\%$.",
+            "answer": 32.0
+          },
+          {
+            "label": "b",
+            "task": "Hva er den sanne andelen hvis de som ikke svarte, er $55\\ \\%$ fornøyde?",
+            "solution": "$0{,}32 \\cdot 0{,}72 + 0{,}68 \\cdot 0{,}55 = 0{,}2304 + 0{,}374 = 0{,}6044 \\approx 60{,}4\\ \\%$. Anslaget bommer med $11{,}6$ prosentpoeng.",
+            "answer": 60.4
+          },
+          {
+            "label": "c",
+            "task": "Og hvis de er $40\\ \\%$ fornøyde?",
+            "solution": "$0{,}32 \\cdot 0{,}72 + 0{,}68 \\cdot 0{,}40 = 0{,}2304 + 0{,}272 = 0{,}5024 \\approx 50{,}2\\ \\%$. Nå bommer anslaget med $21{,}8$ prosentpoeng.",
+            "answer": 50.2
+          },
+          {
+            "label": "d",
+            "task": "Hvorfor er det rimelig å tro at de som ikke svarte, er mindre fornøyde?",
+            "solution": "Det er ikke opplagt, og begge retninger forekommer. Misfornøyde svarer ofte fordi de vil klage, men de mest misfornøyde har også gjerne sluttet å bruke tjenesten og orker ikke svare. Poenget er at vi **ikke vet** — og at et frafall på $68\\ \\%$ gjør at vi ikke kan vite."
+          },
+          {
+            "label": "e",
+            "task": "Hva bør stå i rapporten ved siden av tallet $72\\ \\%$?",
+            "solution": "Svarprosenten ($32\\ \\%$), hvor mange som ble invitert, hvordan de ble trukket, hvor mange purringer som ble sendt, og en eksplisitt setning om at frafallet er så stort at tallet ikke kan overføres til alle brukerne."
+          }
+        ],
+        "solution": "a) $32{,}0\\ \\%$, $1\\,020$ frafall, b) $60{,}4\\ \\%$, c) $50{,}2\\ \\%$, d) vi vet ikke — og kan ikke vite, e) svarprosent og forbehold",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Spørsmålet former svaret",
+      "problem": "En kommune delte $1\\,000$ tilfeldig trukne innbyggere i to like store grupper\nog stilte det samme spørsmålet på to måter.\n\n| Ordlyd | Ja | $n$ |\n|---|---|---|\n| «Bør kommunen bruke mer penger på eldreomsorg?» | 412 | 500 |\n| «Bør kommunen bruke mer penger på eldreomsorg, selv om det betyr høyere eiendomsskatt?» | 238 | 500 |\n\na) Finn de to andelene.\n\nb) Hvor stor er forskjellen, og kan den skyldes tilfeldigheter?\n\nc) Hvilken ordlyd er den «riktige»?",
+      "solution": "**a)** $$\\hat{p}_1 = \\frac{412}{500} = 0{,}824 = 82{,}4\\ \\%$$\n\n$$\\hat{p}_2 = \\frac{238}{500} = 0{,}476 = 47{,}6\\ \\%$$\n\n**Svar a):** $82{,}4\\ \\%$ og $47{,}6\\ \\%$.\n\n**b)** Forskjellen er\n\n$$82{,}4 - 47{,}6 = 34{,}8 \\text{ prosentpoeng}$$\n\nFeilmarginen for en **forskjell** mellom to uavhengige utvalg er\n\n$$1{,}96 \\cdot \\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$$\n\nVi setter inn:\n\n$$1{,}96 \\cdot \\sqrt{\\frac{0{,}824 \\cdot 0{,}176}{500} + \\frac{0{,}476 \\cdot 0{,}524}{500}} = 1{,}96 \\cdot 0{,}0282 = 0{,}055$$\n\naltså $5{,}5$ prosentpoeng.\n\n**Svar b):** Forskjellen på $34{,}8$ prosentpoeng er over seks ganger så stor\nsom feilmarginen. Den kan ikke forklares med tilfeldig utvalgsvariasjon.\n\n**c)** Ingen av dem — og begge.\n\nDen første måler om folk **ønsker seg** bedre eldreomsorg. Den andre måler om\nde er **villige til å betale** for den. Det er to forskjellige spørsmål, og\nbegge svarene er sanne om sitt eget spørsmål.\n\nFeilen ville vært å stille det ene og rapportere svaret som om det gjaldt det\nandre: «$82\\ \\%$ av innbyggerne støtter satsingen» når ingen er spurt hva den\nkoster.\n\n**Svar c):** Ordlyden **er** spørsmålet. Derfor skal den alltid oppgis ordrett\nsammen med resultatet.\n\n**NB:** Dette er ikke et argument mot spørreundersøkelser. Det er et argument\nfor at spørsmålsteksten hører med til tallet, på samme måte som $n$ og\nsvarprosenten."
+    },
+    {
+      "id": "stat-3-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vurder hver spørsmålsformulering. Hvilken feilkilde er i spill, og hvordan ville\ndu skrevet om?",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Synes du ikke at kommunen burde prioritert skolene høyere?»",
+            "solution": "Ledende spørsmål — formuleringen sier hva som er det forventede svaret. Skriv om til et nøytralt valg: «Hvilke tre områder mener du kommunen bør prioritere høyest? Sett kryss ved tre av alternativene under.»"
+          },
+          {
+            "label": "b",
+            "task": "«Hvor mange ganger har du vært på biblioteket det siste året?»",
+            "solution": "Hukommelsesfeil. Et helt år er for langt til at folk husker riktig, og de fleste runder oppover. Skriv om: «Hvor mange ganger har du vært på biblioteket de siste fire ukene?» — eller be om et anslag i kategorier."
+          },
+          {
+            "label": "c",
+            "task": "«Trener du regelmessig?»",
+            "solution": "Uklart ord. «Regelmessig» betyr noe ulikt for ulike folk. Skriv om: «Hvor mange dager i løpet av de siste sju dagene var du i fysisk aktivitet i minst $30$ minutter sammenhengende?»"
+          },
+          {
+            "label": "d",
+            "task": "«Hvor mye alkohol drakk du forrige uke?», stilt ansikt til ansikt av en intervjuer.",
+            "solution": "Sosialt ønskelige svar. Folk oppgir systematisk mindre enn de faktisk drakk når noen hører på. Skriv om: still spørsmålet i et selvutfylt skjema, og gjør det tydelig at svaret er anonymt."
+          },
+          {
+            "label": "e",
+            "task": "«Er du enig i at det nye tiltaket er både rettferdig og effektivt?»",
+            "solution": "To spørsmål i ett — en som mener tiltaket er rettferdig, men lite effektivt, kan ikke svare. Skriv om til to spørsmål, ett om rettferdighet og ett om effekt, hver med sin egen skala."
+          }
+        ],
+        "solution": "a) ledende, b) hukommelse, c) uklart ord, d) sosialt ønskelig svar, e) to spørsmål i ett",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-3-theorem-feilmargin",
+      "type": "theorem",
+      "content": "Er utvalget et sannsynlighetsutvalg, og $n$ er stor nok, ligger den sanne\nandelen $p$ med omtrent $95\\ \\%$ sikkerhet innenfor\n\n$$\\hat{p} \\pm 1{,}96 \\cdot \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nLeddet etter $\\pm$ kalles **feilmarginen**. Formelen begrunnes i kapittel 7;\nher bruker vi den.\n\n**Tre ting å legge merke til:**\n\n1. **$n$ står under en kvadratrot.** Firedobler vi $n$, halveres marginen.\n2. **Marginen er størst når $\\hat{p} = 0{,}5$.** Da er\n   $\\hat{p}(1-\\hat{p}) = 0{,}25$, og formelen blir\n   $1{,}96 \\cdot \\frac{0{,}5}{\\sqrt{n}} = \\frac{0{,}98}{\\sqrt{n}}$ — som er\n   tommelfingerregelen $\\frac{1}{\\sqrt{n}}$ fra kapittel 3.1. For små andeler\n   er den ekte marginen mye mindre.\n3. **Populasjonens størrelse står ikke i formelen.**\n\nI regneark:\n\n```\n=1,96*ROT(B1*(1-B1)/B2)\n```\n\nder B1 er $\\hat{p}$ og B2 er $n$.",
+      "title": "Feilmargin for en andel"
+    },
+    {
+      "id": "stat-3-3-fig-feilmargin-mot-p",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-3-3-feilmargin-mot-p.png",
+      "alt": "Graf som viser feilmarginen i prosentpoeng som funksjon av andelen p, for et utvalg på 1000. Den vannrette aksen viser p fra 0 til 1, den loddrette feilmarginen fra 0 til 3,6 prosentpoeng. Kurven er en bue som starter i null, stiger til et toppunkt ved p lik 0,5 og faller symmetrisk tilbake til null. Tre punkter er markert: p lik 0,5 gir 3,10 prosentpoeng, p lik 0,28 gir 2,78 og p lik 0,05 gir 1,35.",
+      "caption": "Feilmarginen er størst i midten. Derfor er medienes felles feilmargin — regnet for $p = 0{,}5$ — for stor for småpartiene, der den virkelige marginen er under halvparten.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-3-3-feilmargin-mot-p.json"
+    },
+    {
+      "id": "stat-3-3-fig-feilmargin",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-3-3-feilmargin.png",
+      "alt": "Graf over feilmarginen som funksjon av utvalgsstørrelsen. Den vannrette aksen\nviser utvalgsstørrelsen n fra 0 til 3000, med tall for hver femhundrede. Den\nloddrette aksen viser feilmarginen i prosentpoeng fra 0 til 10. En grønn kurve\nstarter høyt oppe til venstre ved omtrent 9,8 prosentpoeng for n lik 100, og\nfaller bratt til venstre i figuren. Fallet avtar raskt, og kurven flater ut mot\nhøyre uten å nå ned til null. Fire punkter er markert på kurven: ved n lik 400 er feilmarginen 4,90 prosentpoeng, ved n lik 1000 er den 3,10 prosentpoeng, ved n lik 1600 er den 2,45 prosentpoeng, og ved n lik 2500 er den 1,96 prosentpoeng. Punktet for n lik 1000 er blått, de tre andre røde.",
+      "caption": "Feilmarginen i verste tilfelle ($\\hat{p} = 0{,}5$), altså\n$\\frac{0{,}98}{\\sqrt{n}}$. De tre markerte punktene viser at en firedobling\nfra $400$ til $1\\,600$ halverer marginen — og at videre vekst gir stadig\nmindre igjen.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-3-3-feilmargin.json"
+    },
+    {
+      "id": "stat-3-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Feilmargin i en meningsmåling",
+      "problem": "En måling med $n = 1\\,000$ gir et parti $28{,}0\\ \\%$ oppslutning og et annet\nparti $5{,}0\\ \\%$.\n\na) Finn feilmarginen for hvert av de to partiene.\n\nb) Hvilket intervall bør oppgis?\n\nc) Hvorfor er marginen minst for det lille partiet?",
+      "solution": "**a)** Formelen først, tom:\n\n$$1{,}96 \\cdot \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\n**Det store partiet**, $\\hat{p} = 0{,}28$:\n\n$$1{,}96 \\cdot \\sqrt{\\frac{0{,}28 \\cdot 0{,}72}{1\\,000}} = 1{,}96 \\cdot \\sqrt{\\frac{0{,}2016}{1\\,000}}$$\n\n$$= 1{,}96 \\cdot \\sqrt{0{,}0002016} = 1{,}96 \\cdot 0{,}014199 = 0{,}0278$$\n\n**Det lille partiet**, $\\hat{p} = 0{,}05$:\n\n$$1{,}96 \\cdot \\sqrt{\\frac{0{,}05 \\cdot 0{,}95}{1\\,000}} = 1{,}96 \\cdot \\sqrt{0{,}0000475} = 1{,}96 \\cdot 0{,}006892 = 0{,}0135$$\n\n**Svar a):** $2{,}8$ prosentpoeng for det store partiet og $1{,}4$\nprosentpoeng for det lille.\n\n**b)** $$28{,}0 \\pm 2{,}8 \\quad \\Rightarrow \\quad 25{,}2\\ \\% \\text{ til } 30{,}8\\ \\%$$\n\n$$5{,}0 \\pm 1{,}4 \\quad \\Rightarrow \\quad 3{,}6\\ \\% \\text{ til } 6{,}4\\ \\%$$\n\n**Svar b):** $[25{,}2\\ \\%;\\ 30{,}8\\ \\%]$ og $[3{,}6\\ \\%;\\ 6{,}4\\ \\%]$.\n\n**c)** Fordi produktet $\\hat{p}(1-\\hat{p})$ er størst i midten og minst mot\nytterkantene:\n\n$$0{,}28 \\cdot 0{,}72 = 0{,}2016 \\qquad \\text{mot} \\qquad 0{,}05 \\cdot 0{,}95 = 0{,}0475$$\n\nEr nesten alle enige om noe, spriker svarene lite, og da spriker også anslaget\nlite.\n\n**Svar c):** Fordi variasjonen i svarene er minst når andelen er nær $0$ eller\nnær $1$.\n\n**NB:** Tommelfingerregelen $\\frac{1}{\\sqrt{1000}} = 3{,}2$ prosentpoeng er\naltfor forsiktig for det lille partiet, der den ekte marginen er $1{,}4$. For\nsmå partier betyr det mye: forskjellen mellom $3{,}6$ og $6{,}4$ prosent er\nforskjellen på under og over sperregrensen."
+    },
+    {
+      "id": "stat-3-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 2 (digitale verktøy).** En måling med $n = 950$ ga\n\n| Parti | A | B | C | D |\n|---|---|---|---|---|\n| Oppslutning | 27,1 % | 19,8 % | 8,9 % | 4,1 % |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut feilmarginen for hvert parti med `=1,96*ROT(B1*(1-B1)/950)`.",
+            "solution": "Parti A: $2{,}8$ prosentpoeng. Parti B: $2{,}5$. Parti C: $1{,}8$. Parti D: $1{,}3$.",
+            "answer": [
+              2.8,
+              2.5,
+              1.8,
+              1.3
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Oppgi et intervall for hvert parti.",
+            "solution": "A: $[24{,}3\\ \\%;\\ 29{,}9\\ \\%]$. B: $[17{,}3\\ \\%;\\ 22{,}3\\ \\%]$. C: $[7{,}1\\ \\%;\\ 10{,}7\\ \\%]$. D: $[2{,}8\\ \\%;\\ 5{,}4\\ \\%]$."
+          },
+          {
+            "label": "c",
+            "task": "Sperregrensen for utjevningsmandater er $4{,}0\\ \\%$. Hva kan vi si om parti D?",
+            "solution": "Anslaget er over grensen, men intervallet går fra $2{,}8$ til $5{,}4\\ \\%$ og dekker grensen. Målingen kan altså ikke avgjøre om partiet ligger over eller under $4\\ \\%$."
+          },
+          {
+            "label": "d",
+            "task": "Hvorfor har partiene ulik feilmargin i den samme målingen?",
+            "solution": "Fordi marginen avhenger av $\\hat{p}$ gjennom $\\hat{p}(1-\\hat{p})$. Store partier har størst margin, små partier minst. Mange medier oppgir bare én felles margin for hele målingen — det er den for $\\hat{p} = 0{,}5$, og den er for stor for alle partiene her."
+          },
+          {
+            "label": "e",
+            "task": "Hvilken feilkilde dekker disse marginene ikke?",
+            "solution": "Alle de systematiske: dekningsfeil, frafall, målefeil og behandlingsfeil. I tillegg kommer at mange oppgir hva de stemte sist eller hva de tror de vil stemme — ikke hva de faktisk kommer til å gjøre."
+          }
+        ],
+        "solution": "a) $2{,}8$; $2{,}5$; $1{,}8$ og $1{,}3$ prosentpoeng, b) fire intervaller, c) kan ikke avgjøres — intervallet dekker $4\\ \\%$, d) marginen avhenger av $\\hat{p}$, e) alle de systematiske feilkildene",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-3-3-warning-hva-dekker",
+      "type": "warning",
+      "content": "En oppgitt feilmargin bygger på at\n\n1. utvalget er et **sannsynlighetsutvalg**,\n2. **alle** de trukne har svart,\n3. spørsmålet måler det vi tror, og\n4. svarene er riktig registrert.\n\nI virkeligheten svikter punkt 2 alltid, og ofte punkt 1 og 3 også.\n\nFeilmarginen svarer derfor bare på ett spørsmål: **hvor mye ville tallet\nvariert hvis vi trakk et nytt utvalg på samme måte?** Den sier ingenting om\nhvorvidt metoden peker riktig vei.\n\n> Et tall med liten feilmargin kan være helt feil. Feilmarginen måler\n> presisjon, ikke treffsikkerhet.",
+      "title": "NB: Hva feilmarginen ikke dekker"
+    },
+    {
+      "id": "stat-3-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 (uten hjelpemidler).** To målinger av det samme partiet, hver med\n$n = 950$:\n\n| Måned | Oppslutning |\n|---|---|\n| Forrige måned | 27,1 % |\n| Denne måneden | 29,8 % |\n\nFeilmarginen for hver enkelt måling er omtrent $2{,}9$ prosentpoeng, og\nfeilmarginen for **endringen** er omtrent $4{,}1$ prosentpoeng.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stor er endringen i prosentpoeng?",
+            "solution": "$29{,}8 - 27{,}1 = 2{,}7$ prosentpoeng.",
+            "answer": 2.7
+          },
+          {
+            "label": "b",
+            "task": "Er endringen større enn feilmarginen for endringen?",
+            "solution": "Nei. $2{,}7 < 4{,}1$, så endringen ligger innenfor det som kan skyldes at det er trukket to ulike utvalg."
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor er feilmarginen for endringen større enn for hver enkelt måling?",
+            "solution": "Fordi begge målingene er usikre. Endringen er en differanse mellom to tall som hver for seg spriker, og usikkerhetene legger seg sammen — ikke ved å adderes direkte, men gjennom $\\sqrt{\\text{den ene}^2 + \\text{den andre}^2}$."
+          },
+          {
+            "label": "d",
+            "task": "En avis skriver: «Partiet i solid framgang.» Vurder overskriften.",
+            "solution": "Den er ikke dekkende. Målingen kan ikke skille en reell framgang fra utvalgsvariasjon. En dekkende overskrift ville vært: «Partiet fram $2{,}7$ prosentpoeng — innenfor feilmarginen.»"
+          },
+          {
+            "label": "e",
+            "task": "Hva ville gjort deg tryggere på at framgangen er reell?",
+            "solution": "Flere målinger som peker samme vei. Én måling er ett trekk; fire uavhengige målinger som alle viser framgang, er et mye sterkere grunnlag enn én stor. Et snitt av flere byråers målinger reduserer dessuten byråenes egne systematiske forskjeller."
+          }
+        ],
+        "solution": "a) $2{,}7$ prosentpoeng, b) nei, c) begge målingene er usikre, d) ikke dekkende, e) flere målinger over tid",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-3-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Hvor stort utvalg trengs?",
+      "problem": "Et byrå skal planlegge en måling.\n\na) Hvor stort må $n$ være for at feilmarginen skal bli høyst $3$ prosentpoeng\ni verste tilfelle?\n\nb) Hva om kravet er $2$ prosentpoeng?\n\nc) Byrået vet at andelen de er ute etter, ligger rundt $10\\ \\%$. Hvordan\nendrer det svaret i a)?",
+      "solution": "**a)** Verste tilfelle er $\\hat{p} = 0{,}5$, der $\\hat{p}(1-\\hat{p}) = 0{,}25$.\nVi setter feilmarginen lik kravet:\n\n$$1{,}96 \\cdot \\sqrt{\\frac{0{,}25}{n}} = 0{,}03$$\n\n$$\\sqrt{\\frac{0{,}25}{n}} = \\frac{0{,}03}{1{,}96} = 0{,}015306$$\n\nVi kvadrerer begge sider:\n\n$$\\frac{0{,}25}{n} = 0{,}015306^2 = 0{,}00023428$$\n\n$$n = \\frac{0{,}25}{0{,}00023428} = 1\\,067{,}1$$\n\n**Svar a):** $n = 1\\,068$ — vi runder **opp**, siden $1\\,067$ ville gitt en\nlitt for stor margin.\n\n*(Nå ser du hvorfor så mange målinger har rundt $1\\,000$ svar.)*\n\n**b)** Samme regning med $0{,}02$:\n\n$$n = \\frac{1{,}96^2 \\cdot 0{,}25}{0{,}02^2} = \\frac{0{,}9604}{0{,}0004} = 2\\,401$$\n\n**Svar b):** $n = 2\\,401$ — mer enn dobbelt så mange for én prosentpoeng\nbedre margin.\n\n**c)** Med $\\hat{p} = 0{,}10$ er $\\hat{p}(1-\\hat{p}) = 0{,}10 \\cdot 0{,}90 = 0{,}09$ i stedet for $0{,}25$:\n\n$$n = \\frac{1{,}96^2 \\cdot 0{,}09}{0{,}03^2} = \\frac{0{,}345744}{0{,}0009} = 384{,}2$$\n\n**Svar c):** $n = 385$ holder — litt **over** en tredel av $1\\,068$ (en\ntredel er $356$). Forholdet er $\\frac{0{,}09}{0{,}25} = 0{,}36$, altså\n$385 \\approx 0{,}36 \\cdot 1\\,068$.\n\n**Her ser vi at** kunnskap om hvor svaret omtrent ligger, er verdt penger. Vet\nvi ingenting, må vi regne med $0{,}25$ og betale for det største utvalget.\n\n**Andre muligheter:** Skal flere spørsmål med ulike andeler besvares i samme\nundersøkelse, dimensjoneres $n$ etter det spørsmålet der andelen ligger\nnærmest $50\\ \\%$."
+    },
+    {
+      "id": "stat-3-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** Et byrå skal dimensjonere en undersøkelse.\nFormelen for nødvendig utvalgsstørrelse er\n\n$$n = \\frac{1{,}96^2 \\cdot \\hat{p}(1-\\hat{p})}{E^2}$$\n\nder $E$ er den ønskede feilmarginen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $n$ for $E = 0{,}03$ når $\\hat{p} = 0{,}5$.",
+            "solution": "$n = \\frac{1{,}96^2 \\cdot 0{,}25}{0{,}03^2} = \\frac{0{,}9604}{0{,}0009} = 1\\,067{,}1 \\to 1\\,068$.",
+            "answer": 1068
+          },
+          {
+            "label": "b",
+            "task": "Finn $n$ for $E = 0{,}01$ når $\\hat{p} = 0{,}5$.",
+            "solution": "$n = \\frac{0{,}9604}{0{,}0001} = 9\\,604$.",
+            "answer": 9604
+          },
+          {
+            "label": "c",
+            "task": "Sammenlign a) og b). Hvor mange ganger større er utvalget, og hvor mange ganger bedre er marginen?",
+            "solution": "Utvalget er $\\frac{9604}{1068} \\approx 9$ ganger større, mens marginen er $3$ ganger bedre. Det stemmer med at marginen avtar som $\\sqrt{n}$: ni ganger flere gir tre ganger bedre.",
+            "answer": 9
+          },
+          {
+            "label": "d",
+            "task": "Undersøkelsen skal også brytes ned på fem aldersgrupper med $E = 0{,}05$ i hver. Hvor mange trengs da til sammen?",
+            "solution": "$n = \\frac{0{,}9604}{0{,}0025} = 384{,}2 \\to 385$ per gruppe, altså $5 \\cdot 385 = 1\\,925$ til sammen. Nedbrytingen, ikke totaltallet, er det som driver opp $n$.",
+            "answer": 1925
+          },
+          {
+            "label": "e",
+            "task": "Byrået regner med $70\\ \\%$ frafall. Hvor mange må inviteres for å få $1\\,925$ svar, og hva er problemet med å løse frafall på denne måten?",
+            "solution": "Med $30\\ \\%$ svarprosent må $\\frac{1925}{0{,}30} = 6\\,417$ inviteres. Problemet er at dette bare skaffer **antall** svar. De $6\\,417$ gir fortsatt bare svar fra den typen mennesker som pleier å svare, og skjevheten er den samme. Å invitere flere løser den tilfeldige feilen, ikke den systematiske.",
+            "answer": 6417
+          }
+        ],
+        "solution": "a) $1\\,068$, b) $9\\,604$, c) ni ganger større for tre ganger bedre, d) $1\\,925$, e) $6\\,417$ — men skjevheten består",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-3-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-3-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Finn en undersøkelse som er omtalt i en nyhetssak, og\nvurder den.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilke av disse opplysningene finner du: $n$, svarprosent, utvalgsmetode, spørsmålets ordlyd, hvem som har betalt, og når den ble gjennomført?",
+            "solution": "Erfaringen er som regel at $n$ står oppgitt, at feilmarginen av og til gjør det, og at svarprosent, ordlyd og oppdragsgiver mangler. Et fullstendig svar sier hva som fantes og hva som måtte letes opp i en underliggende rapport."
+          },
+          {
+            "label": "b",
+            "task": "Er utvalget et sannsynlighetsutvalg? Hvordan vet du det?",
+            "solution": "Se etter ord som «tilfeldig trukket fra folkeregisteret» eller «representativt utvalg» — det siste er dessverre et markedsføringsord som brukes om begge deler. Står det «panel» eller «leserne våre», er det som regel ikke et sannsynlighetsutvalg."
+          },
+          {
+            "label": "c",
+            "task": "Regn ut feilmarginen for hovedtallet, og sammenlign med den oppgitte.",
+            "solution": "Bruk $1{,}96\\sqrt{\\hat{p}(1-\\hat{p})/n}$. Er den oppgitte marginen større enn din, har de trolig brukt verste tilfelle $\\hat{p} = 0{,}5$ for hele undersøkelsen."
+          },
+          {
+            "label": "d",
+            "task": "Hvilken av de fire feilkildene tror du er størst her, og hvorfor?",
+            "solution": "Begrunn ut fra hvordan undersøkelsen ble gjennomført. I nettundersøkelser er frafall og dekningsfeil som regel de største; i undersøkelser om følsomme temaer er målefeil ofte størst."
+          },
+          {
+            "label": "e",
+            "task": "Skriv om nyhetssakens hovedsetning slik at den er dekkende.",
+            "solution": "En dekkende setning navngir hvem som er spurt, hvor mange, når, med hvilken ordlyd, og hvor usikkert tallet er.\n\n**Andre muligheter:** skriv i stedet en kort liste over de tre spørsmålene du ville stilt redaksjonen før saken ble publisert."
+          }
+        ],
+        "solution": "a) hvilke opplysninger som finnes, b) sannsynlighetsutvalg eller ikke, c) egen feilmargin mot oppgitt, d) begrunnet vurdering av feilkilder, e) dekkende omskriving",
+        "competenceGoals": [
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "isInvestigation": true
+      }
+    },
+    {
+      "id": "stat-3-3-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Begrep | Innhold |\n|---|---|\n| Tilfeldig feil | Varierer fra utvalg til utvalg, avtar med $\\sqrt{n}$, kan regnes ut |\n| Systematisk feil | Peker alltid samme vei, uendret av større $n$, kan ikke regnes ut |\n| Dekningsfeil | Utvalgsrammen mangler deler av populasjonen |\n| Frafall | De trukne som ikke svarte — den største feilkilden i dag |\n| Målefeil | Spørsmålet måler noe annet enn det vi tror |\n| Feilmargin | $\\hat{p} \\pm 1{,}96\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ |\n| Nødvendig $n$ | $n = \\dfrac{1{,}96^2 \\cdot \\hat{p}(1-\\hat{p})}{E^2}$ |\n\n### Husk\n- Feilmarginen dekker **bare** den tilfeldige variasjonen.\n- Se etter svarprosenten før du ser på feilmarginen.\n- Frafallets mulige skjevhet er like stor som frafallet selv.\n- Marginen er størst når $\\hat{p}$ er nær $50\\ \\%$, minst nær $0$ og $100$.\n- Ordlyden er en del av resultatet og skal oppgis.\n- Et presist tall kan være et galt tall."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Tilfeldig feil",
+      "definition": "Variasjonen som kommer av at vi trakk akkurat dette utvalget. Avtar med kvadratroten av n og dekkes av feilmarginen."
+    },
+    {
+      "term": "Systematisk feil (skjevhet)",
+      "definition": "Feil som peker i samme retning hver gang. Blir ikke mindre av større utvalg og dekkes ikke av feilmarginen."
+    },
+    {
+      "term": "Dekningsfeil",
+      "definition": "At utvalgsrammen ikke omfatter hele populasjonen, slik at noen har sannsynlighet null for å bli trukket."
+    },
+    {
+      "term": "Frafall",
+      "definition": "De trukne enhetene som ikke svarer. Farlig fordi de sjelden ligner dem som svarer."
+    },
+    {
+      "term": "Målefeil",
+      "definition": "At svaret måler noe annet enn det vi tror — på grunn av ledende ordlyd, hukommelse, uklare ord eller sosialt ønskelige svar."
+    },
+    {
+      "term": "Feilmargin",
+      "definition": "Leddet 1,96·√(p̂(1−p̂)/n). Dekker bare den tilfeldige utvalgsvariasjonen, ikke systematiske feil."
+    }
+  ]
+}

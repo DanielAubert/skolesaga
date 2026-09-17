@@ -10,7 +10,7 @@ function getSupabaseAdmin() {
   return createClient(supabaseUrl, supabaseServiceKey);
 }
 
-const VALID_CATEGORIES = ["feil", "forbedring"];
+const VALID_CATEGORIES = ["feil", "forbedring", "interesse"];   // interesse = «få beskjed når hele boka åpnes» (Daniel 17.9.2026)
 const VALID_STATUSES = ["ny", "under-arbeid", "lost", "avvist"];
 
 // POST - Send inn tilbakemelding (åpent for alle, rate-limited)

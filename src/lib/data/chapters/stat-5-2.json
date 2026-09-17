@@ -1,0 +1,457 @@
+{
+  "id": "stat-5-2",
+  "courseId": "statistikk",
+  "chapterNumber": "5.2",
+  "title": "Forventningsverdi",
+  "description": "E(X) som langsiktig gjennomsnitt — utregning og tolkning.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+  ],
+  "content": [
+    {
+      "id": "stat-5-2-section-intro",
+      "type": "text",
+      "content": "# Forventningsverdi\n\nI kapittel 5.1 satte vi opp hele sannsynlighetsfordelingen til en stokastisk variabel. Ofte trenger vi et *ett* tall som sier hvor fordelingen ligger. Det tallet er **forventningsverdien**.\n\nTenk deg at du kaster en terning tusen ganger og regner ut gjennomsnittet av alle øynene. Du får ikke akkurat samme tall hver gang du gjentar forsøket, men du får hver gang noe som ligger svært nær 3,5. Forventningsverdien er nettopp dette tallet: **gjennomsnittet i det lange løp**.\n\nVi skriver forventningsverdien som $E(X)$ (E for *expectation*), og vi bruker den greske bokstaven $\\mu$ (my) som navn på den:\n\n$$\\mu = E(X)$$\n\nSymbolet $\\mu$ er forventningsverdien. Du vil møte begge skrivemåtene, og de betyr nøyaktig det samme."
+    },
+    {
+      "id": "stat-5-2-def-forventning",
+      "type": "definition",
+      "title": "Forventningsverdi",
+      "content": "La $X$ være en diskret stokastisk variabel som kan ta verdiene $k$ med sannsynligheter $P(X = k)$. **Forventningsverdien** til $X$ er\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k)$$\n\nI ord: vi ganger hver verdi med sin egen sannsynlighet, og summerer alle produktene.\n\nForventningsverdien er altså et **vektet gjennomsnitt** av verdiene, der sannsynlighetene er vektene. Verdier som er sannsynlige, teller mye; verdier som er usannsynlige, teller lite."
+    },
+    {
+      "id": "stat-5-2-section-tabellen",
+      "type": "text",
+      "content": "## Vi tegner tabellen før vi fyller den\n\nUtregningen av $E(X)$ er alltid den samme jobben, og den blir ryddig hvis vi bruker samme oppsett hver gang: **én tabell i bredden, med en Sum-kolonne til slutt.**\n\n| $k$ | … | … | … | **Sum** |\n|---|---|---|---|---|\n| $P(X = k)$ | … | … | … | 1 |\n| $k \\cdot P(X = k)$ | … | … | … | $\\mu$ |\n\nRad 2 er en gratis kontroll: sannsynlighetene *skal* summere til 1. Går den ikke opp, er det ingen vits i å regne videre.\n\nRad 3 er selve utregningen, og Sum-cella i rad 3 er svaret: $\\mu$ er forventningsverdien."
+    },
+    {
+      "id": "stat-5-2-fig-terning-vippepunkt",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-2-terning-vippepunkt.png",
+      "alt": "Et søylediagram med seks like høye blå søyler over tallene 1, 2, 3, 4, 5 og 6 på den vannrette aksen, som er merket k. Den loddrette aksen er merket P av X er lik k og er delt fra 0 til 0,20 i trinn på 0,05. Alle seks søylene er like høye og stopper litt over 0,15, og teksten hver søyle er 1/6 står i fri luft over søylene. Under den vannrette aksen står en liten trekant med spissen opp, som en vippe, akkurat midt mellom søyle 3 og søyle 4. Til høyre for trekanten står teksten μ er lik 3,5.",
+      "caption": "Forventningsverdien er **balansepunktet** i fordelingen. Terningen har seks like sannsynlige utfall, hver med sannsynlighet $\\frac{1}{6}$, og vippa står i $\\mu = 3{,}5$. Legg merke til at balansepunktet ikke er noe av utfallene: terningen viser aldri 3,5.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-2-terning-vippepunkt.json"
+    },
+    {
+      "id": "stat-5-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Terningkast",
+      "problem": "La $X$ være antall øyne på en vanlig terning. Finn $E(X)$.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Terningen har seks sider, og hver av dem har sannsynlighet $\\frac{1}{6}$.\n\n*Hva må vi finne?* Forventningsverdien $\\mu = E(X)$.\n\nVi tegner opp tabellen og fyller den:\n\n| $k$ | 1 | 2 | 3 | 4 | 5 | 6 | **Sum** |\n|---|---|---|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{6}{6} = 1$ |\n| $k \\cdot P(X = k)$ | $\\frac{1}{6}$ | $\\frac{2}{6}$ | $\\frac{3}{6}$ | $\\frac{4}{6}$ | $\\frac{5}{6}$ | $\\frac{6}{6}$ | $\\frac{21}{6}$ |\n\nLegg merke til at vi **ikke forkorter** brøkene i produktraden. De skal legges sammen, og da vil vi ha felles nevner. Forkorter vi $\\frac{2}{6}$ til $\\frac{1}{3}$ underveis, må vi bare finne fellesnevneren igjen etterpå.\n\nVi skriver hele formelen først, og limer tallrekka på:\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k) = \\frac{1}{6} + \\frac{2}{6} + \\frac{3}{6} + \\frac{4}{6} + \\frac{5}{6} + \\frac{6}{6}$$\n\n$$= \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = \\frac{21}{6} = \\frac{7}{2} = 3{,}5$$\n\n**Svar:** $E(X) = \\frac{7}{2} = 3{,}5$\n\n**NB:** Ingen terning kan vise 3,5 øyne. Forventningsverdien er ikke et utfall vi *venter oss* i ett kast — den er gjennomsnittet vi nærmer oss når vi kaster mange ganger. Det er nettopp derfor navnet «forventningsverdi» kan lure."
+    },
+    {
+      "id": "stat-5-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1, med tabell og Sum-kolonne.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En åttesidet terning har sidene 1 til 8, alle like sannsynlige. Finn $E(X)$.",
+            "solution": "$\\mu = E(X) = \\frac{1+2+3+4+5+6+7+8}{8} = \\frac{36}{8} = \\frac{9}{2} = 4{,}5$",
+            "answer": 4.5
+          },
+          {
+            "label": "b",
+            "task": "Forklar med én setning hvorfor svaret i a) ikke er et mulig utfall.",
+            "solution": "Forventningsverdien er et vektet gjennomsnitt av utfallene, og et gjennomsnitt trenger ikke være en av verdiene som inngår."
+          },
+          {
+            "label": "c",
+            "task": "En spesiell terning har sidene 1, 1, 2, 3, 3, 3. Sett opp fordelingstabellen til $X$ = antall øyne.",
+            "solution": "$P(X = 1) = \\frac{2}{6}$, $P(X = 2) = \\frac{1}{6}$, $P(X = 3) = \\frac{3}{6}$. Sum: $\\frac{6}{6} = 1$.",
+            "answer": 1
+          },
+          {
+            "label": "d",
+            "task": "Finn $E(X)$ for terningen i c). Svar på eksakt form og som desimaltall med to desimaler.",
+            "solution": "$\\mu = 1 \\cdot \\frac{2}{6} + 2 \\cdot \\frac{1}{6} + 3 \\cdot \\frac{3}{6} = \\frac{2}{6} + \\frac{2}{6} + \\frac{9}{6} = \\frac{13}{6} \\approx 2{,}17$",
+            "answer": 2.17
+          },
+          {
+            "label": "e",
+            "task": "Hvilken av de to terningene i a) og c) har størst forventningsverdi?",
+            "solution": "Den åttesidete: $4{,}5 > \\frac{13}{6} \\approx 2{,}17$."
+          }
+        ],
+        "hints": [
+          "Skriv formelen $\\mu = E(X) = \\sum_k k \\cdot P(X = k)$ først, og sett så inn tallene."
+        ],
+        "solution": "a) $4{,}5$, b) et vektet gjennomsnitt trenger ikke være et av utfallene, c) $\\frac{2}{6}$, $\\frac{1}{6}$, $\\frac{3}{6}$, d) $\\frac{13}{6} \\approx 2{,}17$, e) den åttesidete",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Vekten av en sekk",
+      "problem": "På en palle ligger det sekker med tre ulike vekter. En fjerdedel av sekkene veier 4 kg, halvparten veier 5 kg og en fjerdedel veier 10 kg. La $X$ være vekten av en tilfeldig valgt sekk.\n\nVis at $E(X) = 6$ kg.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Verdiene 4, 5 og 10 med sannsynlighetene $\\frac{1}{4}$, $\\frac{1}{2}$ og $\\frac{1}{4}$.\n\n*Hva må vi finne?* $\\mu = E(X)$, og vi skal *vise* at den blir 6.\n\nVi tegner tabellen. Her velger vi å skrive alle brøkene med nevner 4, for det er den fellesnevneren vi trenger i summen:\n\n| $k$ | 4 | 5 | 10 | **Sum** |\n|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{4}$ | $\\frac{2}{4}$ | $\\frac{1}{4}$ | $\\frac{4}{4} = 1$ |\n| $k \\cdot P(X = k)$ | $\\frac{4}{4}$ | $\\frac{10}{4}$ | $\\frac{10}{4}$ | $\\frac{24}{4}$ |\n\n*(At $\\frac{1}{2} = \\frac{2}{4}$ føres ikke — vi skriver bare fellesnevneren med én gang.)*\n\nFormelen først, så tallene:\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k) = 4 \\cdot \\frac{1}{4} + 5 \\cdot \\frac{1}{2} + 10 \\cdot \\frac{1}{4}$$\n\n$$= \\frac{4}{4} + \\frac{10}{4} + \\frac{10}{4} = \\frac{4 + 10 + 10}{4} = \\frac{24}{4} = 6$$\n\n![Et søylediagram med tre blå søyler over 4, 5 og 10 på en vannrett akse merket kg. Høydene er 0,25, 0,5 og 0,25 og står skrevet over søylene. Under aksen står en liten trekant med spissen opp i 6, merket μ er lik 6. En grå stiplet loddrett strek står litt til høyre for 6, ved 6,33, med teksten midt mellom tallene 6,33.](/images/content/statistikk/stat-5-2-sekker-vippepunkt.png)\n\n*Vippa står i $\\mu = 6$ kg, ikke i midtpunktet av tallene 4, 5 og 10. Gjennomsnittet av selve verdiene er $\\frac{4+5+10}{3} \\approx 6{,}33$ (grå strek), men sekken på 5 kg er dobbelt så sannsynlig som de to andre og trekker balansepunktet mot venstre. Forventningsverdien er et vektet gjennomsnitt.*\n\n**Svar:** $E(X) = 6$ kg, slik oppgaven ba oss vise.\n\n**Tolkning:** Tar vi mange sekker fra pallen, veier de i gjennomsnitt 6 kg. Skal du frakte 100 sekker, kan du regne med omtrent $100 \\cdot 6 \\text{ kg} = 600$ kg. Legg merke til at 6 kg ligger *mellom* 5 og 10 — den tunge sekken drar gjennomsnittet opp selv om den er sjelden."
+    },
+    {
+      "id": "stat-5-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et pakkeri sender pakker med tre ulike vekter. Halvparten av pakkene veier 2 kg, 30 % veier 5 kg og resten veier 10 kg. La $X$ være vekten av en tilfeldig pakke.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp fordelingstabellen til $X$.",
+            "solution": "$P(X = 2) = 0{,}50$, $P(X = 5) = 0{,}30$, $P(X = 10) = 0{,}20$. Sum: $1{,}00$."
+          },
+          {
+            "label": "b",
+            "task": "Finn $E(X)$.",
+            "solution": "$\\mu = 2 \\cdot 0{,}50 + 5 \\cdot 0{,}30 + 10 \\cdot 0{,}20 = 1{,}00 + 1{,}50 + 2{,}00 = 4{,}50$ kg",
+            "answer": 4.5
+          },
+          {
+            "label": "c",
+            "task": "Hva veier 200 tilfeldige pakker til sammen, omtrent?",
+            "solution": "$200 \\cdot 4{,}50 \\text{ kg} = 900$ kg",
+            "answer": 900
+          },
+          {
+            "label": "d",
+            "task": "Frakten koster 38 kr per kilo. Hva er forventet fraktkostnad for én pakke?",
+            "solution": "$38 \\cdot 4{,}50 \\text{ kr} = 171$ kr",
+            "answer": 171
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor $E(X)$ ikke er lik gjennomsnittet av tallene 2, 5 og 10.",
+            "solution": "Gjennomsnittet av 2, 5 og 10 er $\\frac{17}{3} \\approx 5{,}67$. Det ville forutsatt at de tre vektene var like vanlige. Her er 2 kg dobbelt så vanlig som 5 kg, og forventningsverdien vekter hver verdi med sin egen sannsynlighet.",
+            "answer": 5.67
+          }
+        ],
+        "hints": [
+          "«Resten» finner du med $1 - 0{,}50 - 0{,}30$."
+        ],
+        "solution": "a) 0,50 / 0,30 / 0,20, b) 4,50 kg, c) 900 kg, d) 171 kr, e) fordi verdiene ikke er like sannsynlige",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-2-section-spill",
+      "type": "text",
+      "content": "## Forventningsverdi i spill og lotterier\n\nForventningsverdi er det verktøyet som avgjør om et spill lønner seg. Framgangsmåten er alltid den samme:\n\n1. La $X$ være **utbetalingen** i ett spill, og sett opp fordelingen til $X$.\n2. Regn ut $E(X)$ — forventet utbetaling.\n3. Sammenlign med **innsatsen**.\n\nEt spill kalles **rettferdig** når forventet utbetaling er nøyaktig lik innsatsen. Da er forventet netto 0 kr: i det lange løp går du verken i pluss eller minus.\n\nNår vi trekker innsatsen fra, bruker vi denne regelen:"
+    },
+    {
+      "id": "stat-5-2-theorem-linear",
+      "type": "theorem",
+      "title": "Forventningsverdi av $aX + b$",
+      "content": "For alle tall $a$ og $b$ gjelder\n\n$$E(aX + b) = a \\cdot E(X) + b$$\n\nGanger vi alle utfallene med $a$, ganges forventningsverdien med $a$. Legger vi $b$ til alle utfallene, legges $b$ til forventningsverdien.\n\nTo vanlige spesialtilfeller:\n\n- **Netto etter innsats:** $E(X - 50) = E(X) - 50$\n- **Omregning av enhet:** koster hver enhet $150$ kr, er $E(150X) = 150 \\cdot E(X)$"
+    },
+    {
+      "id": "stat-5-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Loddsalg",
+      "problem": "Et idrettslag selger 1000 lodd. Hvert lodd koster 50 kr. Det trekkes én hovedpremie på 10 000 kr, fem premier på 2000 kr og tjue premier på 500 kr. De øvrige loddene gir ingen premie.\n\nLa $X$ være premien på ett tilfeldig lodd.\n\na) Sett opp fordelingen til $X$ og finn $E(X)$.\nb) Hva er forventet nettogevinst for den som kjøper ett lodd?\nc) Hvor mye tjener idrettslaget i gjennomsnitt på hvert solgte lodd?",
+      "solution": "**Løsning:**\n\n**a)** *Hva vet vi?* Til sammen $1 + 5 + 20 = 26$ lodd gir premie, så $1000 - 26 = 974$ lodd gir 0 kr.\n\nVi tegner tabellen. Alle sannsynlighetene får nevner 1000:\n\n| $k$ (kr) | 0 | 500 | 2000 | 10 000 | **Sum** |\n|---|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{974}{1000}$ | $\\frac{20}{1000}$ | $\\frac{5}{1000}$ | $\\frac{1}{1000}$ | $\\frac{1000}{1000} = 1$ |\n| $k \\cdot P(X = k)$ | $\\frac{0}{1000}$ | $\\frac{10\\,000}{1000}$ | $\\frac{10\\,000}{1000}$ | $\\frac{10\\,000}{1000}$ | $\\frac{30\\,000}{1000}$ |\n\nFormelen først:\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k) = 0 \\cdot \\frac{974}{1000} + 500 \\cdot \\frac{20}{1000} + 2000 \\cdot \\frac{5}{1000} + 10\\,000 \\cdot \\frac{1}{1000}$$\n\n$$= \\frac{0}{1000} + \\frac{10\\,000}{1000} + \\frac{10\\,000}{1000} + \\frac{10\\,000}{1000} = \\frac{30\\,000}{1000} = 30$$\n\nForventet premie er $E(X) = 30$ kr.\n\n*(At de tre premiegruppene tilfeldigvis gir like store bidrag, er ikke noe vi kan regne med — her er det bare slik tallene falt.)*\n\n**b)** Nettogevinsten er premien minus innsatsen, altså $X - 50$. Vi bruker regelen $E(X - 50) = E(X) - 50$:\n\n$$E(X - 50) = 30 - 50 = -20$$\n\nForventet nettogevinst er $-20$ kr, altså et forventet **tap på 20 kr** per lodd.\n\n**c)** Det kjøperen taper, tjener laget. Laget sitter igjen med $50 - 30 = 20$ kr per solgt lodd.\n\nKontroll på hele lotteriet: inntekt $1000 \\cdot 50 \\text{ kr} = 50\\,000$ kr, premier $10\\,000 + 5 \\cdot 2000 + 20 \\cdot 500 = 30\\,000$ kr, overskudd $20\\,000$ kr — som er $1000 \\cdot 20$ kr. Tallene stemmer.\n\n**Svar:** a) $E(X) = 30$ kr. b) $-20$ kr. c) 20 kr per lodd, til sammen 20 000 kr."
+    },
+    {
+      "id": "stat-5-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "På et skolearrangement kan du betale 20 kr for å kaste én terning. Får du sekser, vinner du 90 kr. Får du femmer, vinner du 30 kr. Ellers vinner du ingenting. La $X$ være gevinsten i ett spill.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp fordelingstabellen til $X$.",
+            "solution": "$P(X = 0) = \\frac{4}{6}$, $P(X = 30) = \\frac{1}{6}$, $P(X = 90) = \\frac{1}{6}$. Sum: $\\frac{6}{6} = 1$.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Finn $E(X)$.",
+            "solution": "$\\mu = 0 \\cdot \\frac{4}{6} + 30 \\cdot \\frac{1}{6} + 90 \\cdot \\frac{1}{6} = \\frac{30}{6} + \\frac{90}{6} = \\frac{120}{6} = 20$ kr",
+            "answer": 20
+          },
+          {
+            "label": "c",
+            "task": "Er spillet rettferdig? Begrunn svaret.",
+            "solution": "Ja. Forventet gevinst er 20 kr og innsatsen er 20 kr, så forventet netto er $E(X - 20) = 20 - 20 = 0$ kr.",
+            "answer": 0
+          },
+          {
+            "label": "d",
+            "task": "Arrangøren setter gevinsten for sekser ned til 60 kr. Finn den nye forventede nettogevinsten for spilleren.",
+            "solution": "$E(X) = \\frac{30}{6} + \\frac{60}{6} = \\frac{90}{6} = 15$ kr. Netto: $15 - 20 = -5$ kr.",
+            "answer": -5
+          },
+          {
+            "label": "e",
+            "task": "Hvor mye tjener arrangøren i gjennomsnitt på 300 spill etter endringen i d)?",
+            "solution": "$300 \\cdot 5 \\text{ kr} = 1500$ kr",
+            "answer": 1500
+          }
+        ],
+        "hints": [
+          "La $X$ være gevinsten (det du får utbetalt), og trekk innsatsen fra til slutt med $E(X - 20) = E(X) - 20$."
+        ],
+        "solution": "a) $\\frac{4}{6}$, $\\frac{1}{6}$, $\\frac{1}{6}$, b) 20 kr, c) ja, forventet netto er 0 kr, d) $-5$ kr, e) 1500 kr",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Når forventningsverdien er oppgitt",
+      "problem": "En stokastisk variabel $X$ har denne fordelingen:\n\n| $x$ | 0 | 1 | 4 | $b$ |\n|---|---|---|---|---|\n| $P(X = x)$ | 0,30 | 0,40 | 0,10 | 0,20 |\n\nDet er oppgitt at $E(X) = 2$. Vis at $b = 6$.",
+      "solution": "**Løsning:**\n\nHer snur vi oppgaven: forventningsverdien er kjent, og *verdien* er ukjent. Framgangsmåten er likevel den samme — vi setter opp formelen og lar $b$ bli stående som bokstav.\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k) = 0 \\cdot 0{,}30 + 1 \\cdot 0{,}40 + 4 \\cdot 0{,}10 + b \\cdot 0{,}20$$\n\nVi regner ut de tre første leddene:\n\n$$E(X) = 0 + 0{,}40 + 0{,}40 + 0{,}20b = 0{,}80 + 0{,}20b$$\n\nSå setter vi dette lik den oppgitte forventningsverdien:\n\n$$0{,}80 + 0{,}20b = 2$$\n\nVi gjør samme operasjon på begge sider — trekker fra $0{,}80$:\n\n$$0{,}80 + 0{,}20b - 0{,}80 = 2 - 0{,}80$$\n\n$$0{,}20b = 1{,}20$$\n\nOg deler på $0{,}20$ på begge sider:\n\n$$\\frac{0{,}20b}{0{,}20} = \\frac{1{,}20}{0{,}20}$$\n\n$$b = 6$$\n\n**Kontroll:** $0 \\cdot 0{,}30 + 1 \\cdot 0{,}40 + 4 \\cdot 0{,}10 + 6 \\cdot 0{,}20 = 0 + 0{,}40 + 0{,}40 + 1{,}20 = 2$. Stemmer.\n\n**Svar:** $b = 6$"
+    },
+    {
+      "id": "stat-5-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En stokastisk variabel $X$ har fordelingen under, der $c$ er ukjent. Det er oppgitt at $E(X) = 3{,}3$.\n\n| $x$ | 0 | 2 | 4 | $c$ |\n|---|---|---|---|---|\n| $P(X = x)$ | 0,25 | 0,25 | 0,30 | 0,20 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Kontroller at sannsynlighetene summerer til 1.",
+            "solution": "$0{,}25 + 0{,}25 + 0{,}30 + 0{,}20 = 1{,}00$",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Sett opp uttrykket for $E(X)$ med $c$ som bokstav.",
+            "solution": "$E(X) = 0 \\cdot 0{,}25 + 2 \\cdot 0{,}25 + 4 \\cdot 0{,}30 + c \\cdot 0{,}20 = 1{,}70 + 0{,}20c$",
+            "expressionAnswer": "1.7+0.2c"
+          },
+          {
+            "label": "c",
+            "task": "Bestem $c$.",
+            "solution": "$1{,}70 + 0{,}20c = 3{,}30 \\Rightarrow 0{,}20c = 1{,}60 \\Rightarrow c = 8$",
+            "answer": 8
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(X \\ge 4)$.",
+            "solution": "$P(X = 4) + P(X = 8) = 0{,}30 + 0{,}20 = 0{,}50$",
+            "answer": 0.5
+          },
+          {
+            "label": "e",
+            "task": "La $Y = 25X + 100$. Finn $E(Y)$.",
+            "solution": "$E(Y) = 25 \\cdot E(X) + 100 = 25 \\cdot 3{,}3 + 100 = 82{,}5 + 100 = 182{,}5$",
+            "answer": 182.5
+          }
+        ],
+        "hints": [
+          "La $c$ stå som bokstav gjennom hele utregningen av $E(X)$, og løs så likningen."
+        ],
+        "solution": "a) 1,00, b) $1{,}70 + 0{,}20c$, c) $c = 8$, d) 0,50, e) 182,5",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kafé har målt hvor mange bestillinger de får i timen. La $X$ være antall bestillinger i en tilfeldig time:\n\n| $k$ | 8 | 10 | 12 | 14 | 16 |\n|---|---|---|---|---|---|\n| $P(X = k)$ | 0,10 | 0,25 | 0,30 | 0,25 | 0,10 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $E(X)$.",
+            "solution": "$\\mu = 8 \\cdot 0{,}10 + 10 \\cdot 0{,}25 + 12 \\cdot 0{,}30 + 14 \\cdot 0{,}25 + 16 \\cdot 0{,}10 = 0{,}80 + 2{,}50 + 3{,}60 + 3{,}50 + 1{,}60 = 12$",
+            "answer": 12
+          },
+          {
+            "label": "b",
+            "task": "Fordelingen er symmetrisk om 12. Hva forteller det deg om $E(X)$, uten at du regner?",
+            "solution": "For en symmetrisk fordeling ligger forventningsverdien i symmetripunktet. Altså $E(X) = 12$ direkte fra symmetrien.",
+            "answer": 12
+          },
+          {
+            "label": "c",
+            "task": "Hver bestilling gir 85 kr i inntekt. La $Y = 85X$. Finn $E(Y)$.",
+            "solution": "$E(Y) = 85 \\cdot E(X) = 85 \\cdot 12 = 1020$ kr",
+            "answer": 1020
+          },
+          {
+            "label": "d",
+            "task": "Kaféen har faste kostnader på 450 kr per time. Overskuddet er $Z = 85X - 450$. Finn $E(Z)$.",
+            "solution": "$E(Z) = 85 \\cdot 12 - 450 = 1020 - 450 = 570$ kr",
+            "answer": 570
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange bestillinger må kaféen ha i en time for at overskuddet skal bli positivt?",
+            "solution": "Vi setter overskuddet lik null og løser: $85x - 450 = 0 \\Rightarrow x = \\frac{450}{85} \\approx 5{,}3$. Nullpunktet er ikke et helt tall, så overskuddet kan ikke bli nøyaktig null. Med 5 bestillinger er overskuddet $85 \\cdot 5 - 450 = -25$ kr, med 6 er det $85 \\cdot 6 - 450 = 60$ kr. Kaféen må altså ha minst 6 bestillinger i timen for å gå i pluss.",
+            "answer": 6
+          }
+        ],
+        "hints": [
+          "Bruk $E(aX + b) = a \\cdot E(X) + b$ i c) og d) — du trenger ikke regne om hele tabellen."
+        ],
+        "solution": "a) 12, b) 12 (symmetripunktet), c) 1020 kr, d) 570 kr, e) minst 6 bestillinger (5 gir $-25$ kr, 6 gir $+60$ kr)",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Forventningsverdien** $\\mu = E(X) = \\sum_k k \\cdot P(X = k)$ er et vektet gjennomsnitt av verdiene, med sannsynlighetene som vekter.\n- Vi regner den i en **tabell med Sum-kolonne**: rad for $k$, rad for $P(X = k)$ (kontroll: summen er 1) og rad for $k \\cdot P(X = k)$ (Sum-cella er $\\mu$).\n- Brøkene i produktraden **forkortes ikke underveis** — de skal summeres, og da vil vi ha felles nevner.\n- $\\mu$ er **ikke** nødvendigvis et mulig utfall. Den er gjennomsnittet i det lange løp.\n- $E(aX + b) = a \\cdot E(X) + b$. Denne regelen sparer mye arbeid når verdiene skal ganges opp eller en innsats skal trekkes fra.\n\nForventningsverdien sier hvor fordelingen ligger, men ingenting om hvor **spredt** den er. To fordelinger kan ha samme $\\mu$ og likevel oppføre seg helt ulikt. Det er det kapittel 5.3 handler om."
+    },
+    {
+      "id": "stat-5-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Et forsikringsselskap tilbyr en reiseforsikring til 2400 kr per år. Selskapet regner med at 2,0 % av kundene får en skade som koster selskapet 40 000 kr, og at 0,5 % får en skade som koster 150 000 kr. De øvrige kundene koster ingenting. La $X$ være selskapets utbetaling til én tilfeldig kunde i løpet av et år.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp fordelingstabellen til $X$ i et regneark, med verdiene i én kolonne og sannsynlighetene i neste.",
+            "solution": "$P(X = 0) = 0{,}975$, $P(X = 40\\,000) = 0{,}020$, $P(X = 150\\,000) = 0{,}005$. Sum: $1{,}000$.",
+            "answer": 0.975
+          },
+          {
+            "label": "b",
+            "task": "Lag en tredje kolonne med produktene $k \\cdot P(X = k)$, og summer den med `=SUMMER(C2:C4)`. Hva er $E(X)$?",
+            "solution": "$E(X) = 0 \\cdot 0{,}975 + 40\\,000 \\cdot 0{,}020 + 150\\,000 \\cdot 0{,}005 = 0 + 800 + 750 = 1550$ kr",
+            "answer": 1550
+          },
+          {
+            "label": "c",
+            "task": "Selskapets overskudd per kunde er $2400 - X$. Finn forventet overskudd per kunde.",
+            "solution": "$E(2400 - X) = 2400 - E(X) = 2400 - 1550 = 850$ kr",
+            "answer": 850
+          },
+          {
+            "label": "d",
+            "task": "Selskapet har 50 000 kunder. Hva er forventet samlet overskudd på denne forsikringen?",
+            "solution": "$50\\,000 \\cdot 850 \\text{ kr} = 42\\,500\\,000$ kr, altså 42,5 millioner kroner.",
+            "answer": 42500000
+          },
+          {
+            "label": "e",
+            "task": "Bruk regnearket til å finne den laveste årsprisen (hele kroner) som gir selskapet et forventet overskudd. Hvorfor ville ingen selskaper faktisk sette prisen der?",
+            "solution": "Prisen må være over $E(X) = 1550$ kr, så laveste hele krone er 1551 kr. Ingen setter prisen der, fordi selskapet også har driftskostnader, og fordi det trenger en buffer mot år der utbetalingene tilfeldigvis blir langt høyere enn forventet — forventningsverdien sier ingenting om hvor mye det svinger.",
+            "answer": 1551
+          }
+        ],
+        "hints": [
+          "Utbetalingen er 0 kr for de aller fleste kundene. Husk å ta med den raden — den har den klart største sannsynligheten."
+        ],
+        "solution": "a) 0,975 / 0,020 / 0,005, b) 1550 kr, c) 850 kr, d) 42 500 000 kr, e) 1551 kr — men uten margin for driftskostnader og svingninger",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene og forklaringene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«$E(X)$ er den verdien vi kan forvente å få neste gang.» Er det riktig?",
+            "solution": "Nei. $E(X)$ er gjennomsnittet over svært mange forsøk, ikke en spådom om neste forsøk. Ved terningkast er $E(X) = 3{,}5$, og 3,5 kommer aldri opp."
+          },
+          {
+            "label": "b",
+            "task": "En elev regner ut forventningsverdien til fordelingen $P(X=1) = 0{,}80$, $P(X=10) = 0{,}20$ som $\\frac{1 + 10}{2} = 5{,}5$. Hva er feilen, og hva er riktig svar?",
+            "solution": "Eleven har tatt et vanlig gjennomsnitt av verdiene og glemt å vekte med sannsynlighetene. Riktig: $\\mu = 1 \\cdot 0{,}80 + 10 \\cdot 0{,}20 = 0{,}80 + 2{,}00 = 2{,}80$.",
+            "answer": 2.8
+          },
+          {
+            "label": "c",
+            "task": "«Hvis et spill har forventet nettogevinst 0 kr, kommer jeg alltid ut i null.» Drøft.",
+            "solution": "Nei. Forventet nettogevinst 0 betyr at gjennomsnittet nærmer seg 0 over svært mange spill. I ett enkelt spill vinner eller taper du som regel penger, og selv over hundre spill kan resultatet ligge et godt stykke fra 0. Hvor langt unna, er spredningen — kapittel 5.3."
+          },
+          {
+            "label": "d",
+            "task": "To fordelinger har begge $E(X) = 10$. Den ene kan bare gi 9 eller 11, den andre bare 0 eller 20. Hva er likt, og hva er forskjellig?",
+            "solution": "Forventningsverdien er lik: begge har tyngdepunkt i 10. Spredningen er svært forskjellig — den andre variabelen bommer på 10 med 10 enheter hver eneste gang, den første med bare 1. Forventningsverdien alene beskriver derfor ikke uvissheten."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor tjener et lotteri penger selv om det er tilfeldig hvem som vinner?",
+            "solution": "Fordi forventet utbetaling per lodd er mindre enn loddprisen. Enkeltkjøpere kan vinne stort, men over mange tusen lodd nærmer gjennomsnittlig utbetaling seg forventningsverdien, og differansen mellom loddpris og forventet utbetaling blir arrangørens sikre overskudd."
+          }
+        ],
+        "hints": [
+          "Skill hele veien mellom *ett* forsøk og *mange* forsøk. Forventningsverdien handler alltid om det siste."
+        ],
+        "solution": "a) Nei — $E(X)$ er et langsiktig gjennomsnitt. b) Manglende vekting; riktig svar 2,80. c) Nei — bare i gjennomsnitt over svært mange spill. d) Samme $\\mu$, svært ulik spredning. e) Forventet utbetaling er lavere enn loddprisen.",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Forventningsverdi",
+      "definition": "$\\mu = E(X) = \\sum_k k \\cdot P(X = k)$ — det vektede gjennomsnittet av verdiene til en stokastisk variabel, og gjennomsnittet vi nærmer oss når forsøket gjentas mange ganger."
+    },
+    {
+      "term": "μ (my)",
+      "definition": "Den greske bokstaven vi bruker som navn på forventningsverdien. $\\mu$ er forventningsverdien, og $\\mu = E(X)$ betyr nøyaktig det samme som $E(X)$."
+    },
+    {
+      "term": "Vektet gjennomsnitt",
+      "definition": "Et gjennomsnitt der hver verdi teller med sin egen vekt. I $E(X)$ er vektene sannsynlighetene, slik at sannsynlige verdier teller mer enn usannsynlige."
+    },
+    {
+      "term": "Rettferdig spill",
+      "definition": "Et spill der forventet utbetaling er nøyaktig lik innsatsen, slik at forventet nettogevinst er 0 kr."
+    }
+  ]
+}

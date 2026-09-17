@@ -1,0 +1,397 @@
+{
+  "id": "matok-7-5",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "7.5",
+  "title": "Modellvurdering",
+  "description": "Forutsetninger, gyldighetsområde og begrensninger ved økonomiske modeller.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+  ],
+  "content": [
+    {
+      "id": "matok-7-5-section-intro",
+      "type": "text",
+      "content": "## En modell er ikke virkeligheten\n\nI de fire forrige kapitlene har vi regnet med kostnadsfunksjoner, etterspørselskurver og profittmodeller. Regningen har vært eksakt: $O'(x) = 0$ gir nøyaktig $x = 450$.\n\nMen tallet 450 er bare like pålitelig som modellen det kommer fra. En matematisk modell er en **forenkling** — den tar med noen ting og lar andre være. Å bruke en modell uten å vite hva den forenkler, er som å stole på et kart uten å se hvilket område det dekker.\n\nDette kapittelet handler om tre spørsmål du skal stille til enhver modell:\n\n1. **Hvilke forutsetninger** bygger den på?\n2. **Hvilket gyldighetsområde** har den?\n3. **Hvilke begrensninger** følger av det?\n\nDette er ikke et tillegg til regningen. Det er en del av svaret."
+    },
+    {
+      "id": "matok-7-5-def-modellvurdering",
+      "type": "definition",
+      "title": "Forutsetninger, gyldighetsområde og begrensninger",
+      "content": "**Forutsetninger** er det modellen tar for gitt. Eksempler: at prisen per enhet er den samme uansett antall, at kostnaden per enhet er konstant, at ingenting endrer seg over tid, at alt som produseres, blir solgt.\n\n**Gyldighetsområdet** er de verdiene av den frie variabelen der modellen er ment å brukes. Det bestemmes av\n\n- hvilke data modellen er laget fra (en regresjonsmodell gjelder i måleområdet),\n- hva situasjonen tillater ($x \\ge 0$, kapasitetsgrenser, lagerplass),\n- hvor lenge forutsetningene holder.\n\n**Begrensninger** er de spørsmålene modellen ikke kan svare på, eller svarer galt på. Å regne utenfor gyldighetsområdet kalles **ekstrapolering**, og er den vanligste kilden til gale svar.\n\nNB: En modell kan være helt riktig regnet og likevel gi et ubrukelig svar. Regnefeil og modellfeil er to forskjellige ting."
+    },
+    {
+      "id": "matok-7-5-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Et gyldighetsområde som blir sprengt",
+      "problem": "Bakeriet fra kapittel 7.1 har kostnadsfunksjonen\n\n$$K(x) = 12x + 3200$$\n\nBakeriet har én ovn, og den klarer høyst 600 brød per dag.\n\na) Regn ut $K(400)$ og $K(600)$.\n\nb) Eieren vil vite hva 900 brød koster, og setter inn i modellen. Hva får hun, og hvorfor er svaret feil?\n\nc) En ny ovn koster 1900 kr per dag i avdrag og strøm. Sett opp en modell som også dekker 900 brød.",
+      "solution": "**a)** Vi setter inn:\n\n$$K(400) = 12 \\cdot 400 + 3200 = 4800 + 3200 = 8000$$\n$$K(600) = 12 \\cdot 600 + 3200 = 7200 + 3200 = 10\\,400$$\n\n**Svar:** 400 brød koster 8000 kr, og 600 brød koster 10 400 kr. Begge ligger innenfor gyldighetsområdet $0 \\le x \\le 600$.\n\n**b)** Modellen gir\n\n$$K(900) = 12 \\cdot 900 + 3200 = 10\\,800 + 3200 = 14\\,000$$\n\nRegningen er riktig. Svaret er likevel feil, for 900 ligger **utenfor gyldighetsområdet**. Modellens konstantledd 3200 forutsetter én ovn, og med én ovn kan bakeriet ikke bake 900 brød i det hele tatt.\n\n**Svar:** Modellen gir 14 000 kr, men tallet betyr ingenting — bakeriet kan ikke bake 900 brød med det utstyret modellen bygger på.\n\n**c)** Med en ovn til øker de faste kostnadene:\n\n$$3200 + 1900 = 5100$$\n\nDe variable kostnadene per brød er uendret — melet koster det samme uansett hvilken ovn brødet stekes i:\n\n$$K_{\\text{ny}}(x) = 12x + 5100, \\qquad 600 < x \\le 1200$$\n\n$$K_{\\text{ny}}(900) = 12 \\cdot 900 + 5100 = 10\\,800 + 5100 = 15\\,900$$\n\n**Svar:** Med to ovner koster 900 brød 15 900 kr — altså 1900 kr mer enn den gamle modellen påsto.\n\nNB: Legg merke til at vi ikke kastet den gamle modellen. Vi ga hver modell sitt gyldighetsområde. Slik er det ofte i økonomi: én modell for normal drift, en annen når bedriften har vokst."
+    },
+    {
+      "id": "matok-7-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-5-ex-1",
+        "number": "7.5.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et gårdsmeieri har kostnadene $K(x) = 12x + 3200$ kroner ved $x$ liter melk til osteproduksjon per dag. Modellen er laget for $0 \\le x \\le 600$, som er kapasiteten til anlegget.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut $K(500)$ (i kroner).",
+            "solution": "$K(500) = 12 \\cdot 500 + 3200 = 6000 + 3200 = 9200$",
+            "answer": 9200
+          },
+          {
+            "label": "b",
+            "task": "Hvilken verdi gir modellen for $x = 700$ (i kroner)?",
+            "solution": "$K(700) = 12 \\cdot 700 + 3200 = 8400 + 3200 = 11\\,600$",
+            "answer": 11600
+          },
+          {
+            "label": "c",
+            "task": "Forklar hvorfor svaret i b) likevel ikke kan brukes.",
+            "solution": "700 ligger utenfor gyldighetsområdet $0 \\le x \\le 600$. Anlegget klarer ikke 700 liter, og modellens faste kostnader gjelder nettopp dette anlegget."
+          },
+          {
+            "label": "d",
+            "task": "Nevn to forutsetninger modellen bygger på.",
+            "solution": "Blant annet: at de variable kostnadene er nøyaktig 12 kr per liter uansett mengde, og at de faste kostnadene er de samme hver dag. Modellen forutsetter også at prisene på råvarer og strøm ikke endrer seg."
+          },
+          {
+            "label": "e",
+            "task": "Regn ut enhetskostnaden ved full kapasitet. Rund av til to desimaler.",
+            "solution": "$K_e(600) = \\frac{10\\,400}{600} = \\frac{52}{3} \\approx 17{,}33$ kr per liter.",
+            "answer": 17.33
+          }
+        ],
+        "solution": "a) 9200 kr, b) 11 600 kr, c) 700 er utenfor gyldighetsområdet, d) konstant kostnad per liter og konstante faste kostnader, e) ca. 17,33 kr per liter.",
+        "hints": [
+          "Sjekk alltid om $x$-verdien ligger innenfor det modellen er laget for.",
+          "Enhetskostnad er kostnad delt på antall."
+        ],
+        "competenceGoals": [
+          "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-5-section-regresjon",
+      "type": "text",
+      "content": "## To modeller kan passe like godt — og si helt forskjellige ting\n\nNår vi lager en modell fra måledata med regresjon, velger vi selv hva slags funksjon vi vil tilpasse. Ofte passer flere modeller nesten like godt til de målte punktene.\n\nInnenfor måleområdet spiller valget liten rolle. Utenfor kan det bety alt."
+    },
+    {
+      "id": "matok-7-5-fig-modellvalg",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-7-5-modellvalg.png",
+      "alt": "Koordinatsystem med antall enheter x fra 0 til 800 langs den vannrette aksen og kroner fra 0 til 90000 langs den loddrette. Fem blå målepunkter ligger ved x lik 0, 100, 200, 300 og 400. En grønn rett linje og en rød kurve går begge gjennom nesten nøyaktig de samme punktene fram til en stiplet loddrett linje ved x lik 400. Etter den stiplede linjen skiller de seg: den grønne linjen stiger jevnt til 72000 ved x lik 800, mens den røde kurven bøyer oppover og når 89000 ved x lik 800. En tekst «målingene slutter» hører til den stiplede linjen ved x lik 400. En tegnforklaring viser hvilken farge som hører til målte kostnader (runde prikker), lineær modell og kvadratisk modell.",
+      "caption": "De to modellene er nesten umulige å skille fra hverandre der det finnes målinger (venstre for den stiplede linjen). Ved 800 enheter skiller de lag med 17 000 kr. Målingene alene kan ikke avgjøre hvilken av dem som har rett utenfor måleområdet.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-7-5-modellvalg.json (+ matok-7-5-modellvalg.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-7-5-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Lineær eller kvadratisk?",
+      "problem": "En bedrift har målt kostnadene ved fem produksjonsmengder:\n\n| $x$ | 0 | 100 | 200 | 300 | 400 |\n|---|---|---|---|---|---|\n| $K$ (kr) | 9000 | 15 500 | 23 000 | 31 500 | 41 000 |\n\nLineær regresjon gir $K_L(x) = 80x + 8000$, og kvadratisk regresjon gir $K_K(x) = 0{,}05x^2 + 60x + 9000$.\n\na) Hvor godt passer de to modellene i måleområdet?\n\nb) Hva sier de om kostnaden ved 800 enheter?\n\nc) Hvilken modell vil du bruke, og hvorfor?",
+      "solution": "**a)** Vi regner ut begge modellene i hvert målepunkt:\n\n| $x$ | målt | $K_L$ | avvik | $K_K$ | avvik |\n|---|---|---|---|---|---|\n| 0 | 9000 | 8000 | $-1000$ | 9000 | 0 |\n| 100 | 15 500 | 16 000 | $+500$ | 15 500 | 0 |\n| 200 | 23 000 | 24 000 | $+1000$ | 23 000 | 0 |\n| 300 | 31 500 | 32 000 | $+500$ | 31 500 | 0 |\n| 400 | 41 000 | 40 000 | $-1000$ | 41 000 | 0 |\n\n**Svar:** Den kvadratiske modellen treffer alle fem punktene nøyaktig. Den lineære bommer med høyst 1000 kr — under 5 % i måleområdet fra 100 enheter og opp, men 11 % ved $x = 0$. Og avvikene har et mønster: for lavt i begge ender, for høyt på midten. Et slikt mønster er selve signaturen på at dataene krummer, og at en rett linje er feil form.\n\n**b)** Vi setter inn $x = 800$ i begge:\n\n$$K_L(800) = 80 \\cdot 800 + 8000 = 64\\,000 + 8000 = 72\\,000$$\n$$K_K(800) = 0{,}05 \\cdot 800^2 + 60 \\cdot 800 + 9000$$\n$$K_K(800) = 0{,}05 \\cdot 640\\,000 + 48\\,000 + 9000$$\n$$K_K(800) = 32\\,000 + 48\\,000 + 9000 = 89\\,000$$\n\n$$89\\,000 - 72\\,000 = 17\\,000$$\n\n**Svar:** Modellene er uenige om 17 000 kr — nesten en fjerdedel av det den lineære modellen anslår.\n\n**c)** To ting taler for den kvadratiske:\n\n- Den treffer alle målepunktene eksakt.\n- Den stemmer med det vi vet om produksjon: kostnaden per enhet pleier å øke ved høy produksjon (overtid, slitasje, dyrere råvarer). En lineær modell sier at enhet nummer 800 koster like mye som enhet nummer 1.\n\nMen legg merke til hva vi **ikke** kan slutte: at $K_K(800) = 89\\,000$ er riktig. Begge modellene er laget fra målinger mellom 0 og 400. Ved 800 enheter ekstrapolerer vi dobbelt så langt som dataene rekker.\n\n**Svar:** Vi bruker den kvadratiske modellen, både fordi den passer best og fordi formen stemmer med faget. Men svaret ved 800 enheter oppgir vi som et anslag med forbehold, og vi anbefaler bedriften å måle noen punkter over 400 før den tar en beslutning som avhenger av tallet.\n\nNB: Dette er den viktigste setningen i kapittelet: **at en modell passer godt til dataene, sier ingenting om hvor godt den passer utenfor dem.**"
+    },
+    {
+      "id": "matok-7-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-5-ex-2",
+        "number": "7.5.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En sykkelforhandler har solgt elsykler slik, der $t$ er antall år etter 2019:\n\n| $t$ | 0 | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|---|\n| Antall | 1200 | 1560 | 2030 | 2640 | 3430 | 4460 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut differansene mellom påfølgende år. Passer en lineær modell?",
+            "solution": "Differansene er 360, 470, 610, 790 og 1030. De er ikke konstante, men øker jevnt. En lineær modell passer altså dårlig."
+          },
+          {
+            "label": "b",
+            "task": "Regn ut forholdstallene mellom påfølgende år. Hva ser du?",
+            "solution": "$\\frac{1560}{1200} = 1{,}30$, $\\frac{2030}{1560} \\approx 1{,}301$, $\\frac{2640}{2030} \\approx 1{,}30$, $\\frac{3430}{2640} \\approx 1{,}299$, $\\frac{4460}{3430} \\approx 1{,}30$. Forholdstallene er praktisk talt konstante, altså eksponentiell vekst med vekstfaktor 1,30."
+          },
+          {
+            "label": "c",
+            "task": "Sett opp en eksponentiell modell $N(t)$, og kontroller den mot $t = 4$.",
+            "solution": "$N(t) = 1200 \\cdot 1{,}30^t$. $N(4) = 1200 \\cdot 1{,}30^4 = 1200 \\cdot 2{,}8561 \\approx 3427$ mot målt 3430 — avvik på 3 sykler."
+          },
+          {
+            "label": "d",
+            "task": "Hva sier modellen om salget i 2034 ($t = 15$)?",
+            "solution": "$N(15) = 1200 \\cdot 1{,}30^{15} \\approx 61\\,400$ sykler.",
+            "answer": 61400
+          },
+          {
+            "label": "e",
+            "task": "Drøft om du vil stole på svaret i d).",
+            "solution": "Nei. Hele det norske elsykkelsalget ligger i størrelsesorden 100 000 sykler i året, så modellen gir én forhandler over halvparten av markedet. Eksponentiell vekst kan ikke fortsette lenge — markedet blir mettet, konkurrenter kommer til, og folk som allerede har elsykkel, kjøper ikke ny hvert år. Modellen er laget fra seks år med data og ekstrapolerer ti år videre. Den er god for å beskrive årene 2019–2024 og brukbar for et år eller to framover, men ikke for 2034.\n\n![Koordinatsystem med antall år etter 2019 fra 0 til 18 langs den vannrette aksen og antall elsykler fra 0 til 150000 langs den loddrette. Seks røde målepunkter ligger helt nede ved aksen, mellom 1200 og 4460. En blå kurve merket N(t) = 1200 · 1,30^t går gjennom dem og stiger stadig brattere til nesten 135000 ved t lik 18. En grå stiplet vannrett linje ved 100000 er merket «hele det norske markedet», og kurven bryter gjennom den. En oransje stiplet loddrett linje ved t lik 5 er merket «målingene slutter».](/images/content/matematikk-okonomi/matok-7-5-elsykkel.png)\n\n*Modellen er laget av seks år med data (alt til venstre for den oransje linja) og brukt ti år videre. Da passerer den hele det norske markedet — og det er målestokken som gjør ekstrapoleringen urimelig, ikke regningen.*"
+          }
+        ],
+        "solution": "a) differansene øker — ikke lineært, b) forholdstallene er ca. 1,30 — eksponentielt, c) $N(t) = 1200 \\cdot 1{,}30^t$, d) ca. 61 400 sykler, e) urealistisk: eksponentiell vekst stanser når markedet mettes.",
+        "hints": [
+          "Konstante differanser gir lineær modell, konstante forholdstall gir eksponentiell.",
+          "I e): sammenlign svaret med hvor stort markedet er."
+        ],
+        "competenceGoals": [
+          "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+        ],
+        "allowsSpreadsheet": true,
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+        {
+      "id": "matok-7-5-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Når gyldighetsområdet endrer svaret",
+      "problem": "Mikrobryggeriet fra kapittel 7.2 har profittfunksjonen\n\n$$O(x) = -0{,}2x^2 + 180x - 5000$$\n\nVi fant at profitten er størst ved 450 kasser i uken. Bryggeriet har imidlertid bare tanker til 300 kasser i uken.\n\nHvor mange kasser bør bryggeriet produsere nå?",
+      "solution": "**Hva vet vi?** Samme funksjon som før, men nå med gyldighetsområdet $0 \\le x \\le 300$.\n\nToppunktet ligger ved $x = 450$, og det ligger **utenfor** gyldighetsområdet. Da kan vi ikke bruke det.\n\nVi undersøker hvordan $O$ oppfører seg i det området vi faktisk har:\n\n$$O'(x) = -0{,}4x + 180$$\n$$O'(300) = -0{,}4 \\cdot 300 + 180 = -120 + 180 = 60$$\n\nDen deriverte er positiv i $x = 300$. Siden $O'$ er en synkende rett linje som først blir null i $x = 450$, er $O'(x) > 0$ for **alle** $x$ mellom 0 og 300. Profitten stiger altså hele veien fram til kapasitetsgrensen.\n\nNår en funksjon stiger på hele intervallet, ligger den største verdien i **høyre endepunkt**:\n\n$$O(300) = -0{,}2 \\cdot 300^2 + 180 \\cdot 300 - 5000$$\n$$O(300) = -0{,}2 \\cdot 90\\,000 + 54\\,000 - 5000$$\n$$O(300) = -18\\,000 + 54\\,000 - 5000$$\n$$O(300) = 31\\,000$$\n\n![Koordinatsystem med antall kasser x fra 0 til 500 og kroner per uke fra minus 10000 til 40000. En blå parabel O av x stiger fra minus 5000, krysser null ved omtrent 29 kasser og har toppunkt ved 450 kasser, markert med en åpen ring og teksten «utenfor kapasiteten». En loddrett oransje linje ved 300 kasser er merket «tankkapasitet». Stykket av grafen fra nullpunktet til 300 er skravert grønt, og endepunktet (300, 31000) er markert med en fylt prikk.](/images/content/matematikk-okonomi/matok-7-5-kapasitet.png)\n\n*Toppunktet ligger utenfor gyldighetsområdet. Siden $O'(x) > 0$ hele veien fram til kapasitetsgrensen, ligger den største verdien i ENDEPUNKTET: 300 kasser og 31 000 kr.*\n\n**Svar:** Bryggeriet bør fylle kapasiteten og produsere 300 kasser i uken. Profitten blir 31 000 kr.\n\nHva kapasitetsgrensen koster bryggeriet, ser vi ved å sammenligne:\n\n$$35\\,500 - 31\\,000 = 4500$$\n\n**Svar:** Bryggeriet går glipp av 4500 kr i uken fordi tankene er for små. Det tallet er nyttig: skal bryggeriet vurdere å kjøpe flere tanker, er 4500 kr per uke det investeringen må måles mot.\n\nNB: Her er poenget at $O'(x) = 0$ **ikke** var svaret. Når toppunktet ligger utenfor gyldighetsområdet, må vi undersøke endepunktene. Å svare «450 kasser» ville vært riktig regnet og likevel galt."
+    },
+        {
+      "id": "matok-7-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-5-ex-3",
+        "number": "7.5.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift har profittfunksjonen $O(x) = -0{,}25x^2 + 120x - 8000$ kroner per uke. Produksjonslinjen klarer høyst 180 enheter i uken.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $x$-verdien til toppunktet uten å ta hensyn til kapasiteten.",
+            "solution": "$O'(x) = -0{,}5x + 120 = 0$ gir $x = 240$.",
+            "answer": 240
+          },
+          {
+            "label": "b",
+            "task": "Ligger toppunktet innenfor gyldighetsområdet?",
+            "solution": "Nei. Gyldighetsområdet er $0 \\le x \\le 180$, og $240 > 180$."
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $O'(180)$ og forklar hva fortegnet forteller.",
+            "solution": "$O'(180) = -0{,}5 \\cdot 180 + 120 = -90 + 120 = 30$. Den deriverte er positiv, så profitten stiger fremdeles ved kapasitetsgrensen. Den største verdien i intervallet ligger derfor i endepunktet $x = 180$.",
+            "answer": 30
+          },
+          {
+            "label": "d",
+            "task": "Hvor stor blir den største profitten bedriften kan oppnå (i kroner)?",
+            "solution": "$O(180) = -0{,}25 \\cdot 32\\,400 + 21\\,600 - 8000 = -8100 + 21\\,600 - 8000 = 5500$",
+            "answer": 5500
+          },
+          {
+            "label": "e",
+            "task": "Hvor mye taper bedriften i uken på kapasitetsgrensen, og hva ville du rådet den til?",
+            "solution": "$O(240) = -0{,}25 \\cdot 57\\,600 + 28\\,800 - 8000 = -14\\,400 + 28\\,800 - 8000 = 6400$ kr. Tapet er $6400 - 5500 = 900$ kr i uken, altså om lag 47 000 kr i året. En utvidelse lønner seg bare hvis den koster mindre enn dette — og da må vi dessuten sjekke om modellen fortsatt gjelder ved 240 enheter, siden den er laget for dagens produksjonslinje."
+          }
+        ],
+        "solution": "a) $x = 240$, b) nei, c) $O'(180) = 30 > 0$ — stigende, d) 5500 kr, e) tapet er 900 kr i uken, og en utvidelse må måles mot det.",
+        "hints": [
+          "Ligger toppunktet utenfor intervallet, må du sjekke endepunktene.",
+          "Fortegnet til $O'$ i endepunktet forteller om funksjonen fortsatt stiger."
+        ],
+        "competenceGoals": [
+          "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-5-example-4",
+      "type": "example",
+      "title": "Eksempel 4: En modell som aldri tar slutt",
+      "problem": "I kapittel 7.3 brukte vi etterspørselskurven\n\n$$E(x) = \\frac{1000}{x + 5}$$\n\nUndersøk hva modellen sier når $x$ blir stor, og vurder om det er rimelig.",
+      "solution": "Vi regner ut noen verdier:\n\n$$E(5) = \\frac{1000}{10} = 100$$\n$$E(50) = \\frac{1000}{55} \\approx 18{,}18$$\n$$E(500) = \\frac{1000}{505} \\approx 1{,}98$$\n$$E(5000) = \\frac{1000}{5005} \\approx 0{,}20$$\n\nVerdiene blir mindre og mindre, men aldri null:\n\n$$\\lim_{x \\to \\infty} \\frac{1000}{x + 5} = 0$$\n\nModellen sier altså at det alltid finnes flere kjøpere, bare prisen settes lavt nok. Vil vi selge 99 995 enheter, må prisen ned i 1 øre:\n\n$$\\frac{1000}{x + 5} = 0{,}01 \\qquad | \\; \\cdot (x + 5)$$\n$$1000 = 0{,}01(x + 5) \\qquad | \\; : 0{,}01$$\n$$100\\,000 = x + 5$$\n$$x = 99\\,995$$\n\n**Er det rimelig?** Nei, ikke uten videre:\n\n- Det finnes et endelig antall mennesker i markedet. En etterspørselskurve som aldri treffer $x$-aksen, sier at markedet er uendelig stort.\n- Svært lave priser ville i praksis utløst noe helt annet enn mer salg: folk ville kjøpt for videresalg, eller mistenkt at varen var defekt.\n\n![Koordinatsystem med antall enheter x fra 0 til 200 og pris i kroner fra 0 til 120. En blå kurve merket E(x) = 1000/(x + 5) faller bratt fra venstre og flater ut mot x-aksen uten å treffe den. To punkter på kurven er markert med prikk og navngitt: markedskrysset ved 37 enheter og 23,8 kroner, og punktet (50; 18,2) litt lenger ute. En tekst sier at kurven aldri treffer x-aksen.](/images/content/matematikk-okonomi/matok-7-5-asymptote.png)\n\n*Modellen er brukbar i området den er laget for — rundt markedskrysset ved 37 enheter. At kurven aldri treffer $x$-aksen, betyr matematisk at det alltid finnes flere kjøpere, og det slutter å gjelde lenge før prisen er 1 øre.*\n\n**Svar:** Modellen er brukbar i det området den er laget for — rundt markedskrysset ved 37 enheter. Utenfor blir den urimelig, og den skal ikke brukes til å svare på spørsmål om massesalg til lave priser.\n\nNB: Legg merke til at det ikke er noe galt med funksjonen $\\frac{1000}{x+5}$ i seg selv. Det er **koblingen** mellom funksjonen og virkeligheten som slutter å gjelde. En modell har alltid et gyldighetsområde, også når formelen er definert overalt."
+    },
+        {
+      "id": "matok-7-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-5-ex-4",
+        "number": "7.5.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En butikk har prøvd ut fem priser og notert salget per uke:\n\n| Pris $p$ (kr) | 20 | 30 | 40 | 50 | 60 |\n|---|---|---|---|---|---|\n| Antall solgt | 520 | 430 | 350 | 260 | 180 |\n\nLineær regresjon gir $q(p) = -8{,}50p + 688$. Bruk regneark eller GeoGebra.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er gyldighetsområdet til modellen?",
+            "solution": "Målingene dekker prisene fra 20 til 60 kr, så modellen gjelder for $20 \\le p \\le 60$. Utenfor dette området har vi ingen data å støtte oss på."
+          },
+          {
+            "label": "b",
+            "task": "Hva sier modellen om salget hvis varen gis bort gratis ($p = 0$)?",
+            "solution": "$q(0) = 688$ enheter.",
+            "answer": 688
+          },
+          {
+            "label": "c",
+            "task": "Er svaret i b) troverdig? Begrunn.",
+            "solution": "Neppe. Er varen gratis, ville langt flere enn 688 tatt den — folk ville tatt med seg flere, og noen ville kommet bare fordi den var gratis. Modellen er en rett linje tilpasset priser mellom 20 og 60 kr, og den beskriver ikke hva som skjer ved null."
+          },
+          {
+            "label": "d",
+            "task": "Ved hvilken pris gir modellen null salg? Rund av til én desimal.",
+            "solution": "$-8{,}50p + 688 = 0$ gir $p = \\frac{688}{8{,}50} \\approx 80{,}9$ kr.",
+            "answer": 80.9
+          },
+          {
+            "label": "e",
+            "task": "Hva sier modellen om salget ved prisen 90 kr, og hvorfor er det et tegn på at vi har gått for langt?",
+            "solution": "$q(90) = -8{,}50 \\cdot 90 + 688 = -765 + 688 = -77$ enheter. Et negativt antall solgte enheter er umulig. At modellen gir et umulig svar, er det klareste tegnet på at vi har ekstrapolert langt utenfor gyldighetsområdet."
+          }
+        ],
+        "solution": "a) $20 \\le p \\le 60$, b) 688 enheter, c) lite troverdig, d) ca. 80,9 kr, e) $-77$ enheter — umulig, altså langt utenfor gyldighetsområdet.",
+        "hints": [
+          "Gyldighetsområdet til en regresjonsmodell er som regel måleområdet.",
+          "Et svar som er fysisk umulig, er alltid et varsel om modellfeil."
+        ],
+        "competenceGoals": [
+          "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+        ],
+        "allowsSpreadsheet": true,
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-5-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering — sjekklisten\n\nNår du har regnet ferdig på en økonomisk modell, går du gjennom disse punktene før du svarer:\n\n| Spørsmål | Hva du ser etter |\n|---|---|\n| Hvor kommer modellen fra? | Måledata (hvilket område?) eller antakelser (hvilke?) |\n| Er svaret innenfor gyldighetsområdet? | $x \\ge 0$, kapasitet, måleområde, tidsrom |\n| Er svaret fysisk mulig? | Negative antall, negative priser, mengder større enn markedet |\n| Hva er antatt konstant? | Pris per enhet, kostnad per enhet, rente, etterspørsel |\n| Hva ville endret svaret? | Kapasitet, avgifter, konkurrenter, prisstigning |\n\n**Tre fallgruver:**\n\n1. **Ekstrapolering.** En modell laget fra data i ett område brukes i et annet. Dette er den vanligste feilen, og den er usynlig i regningen.\n2. **Toppunkt utenfor gyldighetsområdet.** Når $O'(x) = 0$ gir et svar som er umulig i praksis, ligger den beste løsningen i et endepunkt.\n3. **Riktig regning, feil spørsmål.** Modellen kan svare presist på noe annet enn det som er spurt om — for eksempel størst omsetning i stedet for størst profitt.\n\n**Hvordan du skriver vurderingen:** nevn hvilke forutsetninger modellen bygger på, hvilket område den gjelder i, og hva som ville måttet stemme for at svaret skal holde. Et godt svar er ikke «modellen er usikker», men «modellen bygger på at prisen per enhet er konstant, og den er laget fra målinger opp til 400 enheter. Svaret ved 800 enheter forutsetter at begge deler fortsatt gjelder.»"
+    },
+    {
+      "id": "matok-7-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-5-ex-5",
+        "number": "7.5.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kommune skal sette billettprisen til konsertene i den nye flerbrukshallen. En konsulent har laget modellen\n\n$$q(p) = 4000 - 50p$$\n\nfor antall solgte billetter ved prisen $p$ kroner, og anbefaler prisen som gir størst inntekt. Hallen har 1500 sitteplasser.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vis at $I(p) = 4000p - 50p^2$, og finn prisen konsulenten anbefaler (i kroner).",
+            "solution": "$I(p) = p \\cdot q(p) = p(4000 - 50p) = 4000p - 50p^2$. $I'(p) = 4000 - 100p = 0$ gir $p = 40$ kr. $I''(p) = -100 < 0$, altså toppunkt.",
+            "answer": 40
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange billetter selges ifølge modellen ved denne prisen?",
+            "solution": "$q(40) = 4000 - 2000 = 2000$ billetter.",
+            "answer": 2000
+          },
+          {
+            "label": "c",
+            "task": "Hvilken forutsetning i anbefalingen svikter?",
+            "solution": "Hallen har 1500 plasser. Modellen forutsetter at alle som vil kjøpe billett, får plass — og ved 40 kr vil 2000 inn i en hall som rommer 1500. Anbefalingen er derfor ubrukelig som den står."
+          },
+          {
+            "label": "d",
+            "task": "Hvilken pris fyller hallen akkurat, og hvor stor blir inntekten da (i kroner)?",
+            "solution": "$4000 - 50p = 1500$ gir $50p = 2500$, altså $p = 50$ kr. Inntekten blir $50 \\cdot 1500 = 75\\,000$ kr.",
+            "answer": 75000
+          },
+          {
+            "label": "e",
+            "task": "Drøft modellen: hvilke forutsetninger bygger den på, og hva bør kommunen gjøre?",
+            "solution": "Forutsetninger: at etterspørselen er lineær i hele prisområdet, at den er den samme for alle konserter, at alle som vil, får plass, og at det ikke er kostnader ved å selge en billett til. Modellen sier dessuten at 4000 personer vil inn gratis — et tall som er større enn hallen tre ganger om.\n\n**Prisområdet modellen er laget for** er $50 \\le p \\le 80$. Under 50 kr vil flere ha billett enn hallen har plasser, og ved 80 kr kollapser modellen: $q(80) = 4000 - 4000 = 0$, altså null solgte billetter, og over 80 kr gir den negativt billettsalg. Den øvre grensen er derfor ikke et tegn på at modellen slutter å gjelde der — det er punktet der den bryter sammen. Hvor langt modellen faktisk holder, vet vi ikke uten å vite hvilke billettsalg den er laget fra; i beste fall kunne den vært gyldig opp mot 80 kr.\n\nInnenfor det mulige prisområdet er inntekten $I(p) = p(4000 - 50p)$ synkende — toppunktet ligger ved 40 kr, altså til venstre for 50 — så 50 kr gir størst inntekt blant de prisene som er mulige. Kommunen bør sette prisen til 50 kr, men først be om å få vite hvilke data modellen bygger på: er den laget fra faktiske billettsalg, eller er den gjettet?"
+          }
+        ],
+        "solution": "a) 40 kr, b) 2000 billetter, c) hallen tar bare 1500 — kapasiteten er ikke med i modellen, d) 50 kr gir 75 000 kr, e) prisområdet modellen er laget for er $50 \\le p \\le 80$ (ved 80 kr kollapser den), og innenfor det er 50 kr den beste prisen.",
+        "hints": [
+          "Sjekk alltid om svaret er mulig i den virkelige situasjonen.",
+          "Når toppunktet ligger utenfor det mulige området, ser du på endepunktet."
+        ],
+        "competenceGoals": [
+          "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-7-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-7-5-ex-6",
+        "number": "7.5.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bedrift har målt strømforbruket sitt i gigawattimer (GWh), der $x$ er antall år etter 2020:\n\n| $x$ | 0 | 2 | 4 | 6 | 8 |\n|---|---|---|---|---|---|\n| Forbruk | 120 | 150 | 196 | 258 | 336 |\n\nLineær regresjon gir $f(x) = 27x + 104$, og kvadratisk regresjon gir $g(x) = 2x^2 + 11x + 120$. Bruk regneark eller GeoGebra.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut begge modellene i alle fem målepunktene, og sett opp avvikene.",
+            "solution": "Lineær: 104, 158, 212, 266, 320 — avvik $-16$, $+8$, $+16$, $+8$, $-16$. Kvadratisk: 120, 150, 196, 258, 336 — avvik 0 i alle fem punktene."
+          },
+          {
+            "label": "b",
+            "task": "Hvilken modell passer best til dataene, og hvordan ser du det?",
+            "solution": "Den kvadratiske treffer alle punktene eksakt. Den lineære bommer med opptil 16 GWh, og avvikene har et tydelig mønster: for lavt i endene og for høyt på midten. Et slikt mønster i avvikene er selve signaturen på at dataene krummer, og at en rett linje er feil form."
+          },
+          {
+            "label": "c",
+            "task": "Hva gir de to modellene for 2030 ($x = 10$)?",
+            "solution": "$f(10) = 270 + 104 = 374$ GWh og $g(10) = 200 + 110 + 120 = 430$ GWh.",
+            "answer": 430
+          },
+          {
+            "label": "d",
+            "task": "Hva gir de to modellene for 2040 ($x = 20$)?",
+            "solution": "$f(20) = 540 + 104 = 644$ GWh og $g(20) = 800 + 220 + 120 = 1140$ GWh — nesten det dobbelte."
+          },
+          {
+            "label": "e",
+            "task": "Drøft hvilken modell du vil bruke til å planlegge strømavtalen for 2030, og hvilke forbehold du vil ta.",
+            "solution": "Til 2030 vil jeg bruke den kvadratiske modellen, både fordi den treffer alle målingene og fordi avviksmønsteret til den lineære viser at formen er feil. Men jeg tar forbehold: modellen bygger på åtte år med data, og 2030 ligger to år utenfor måleområdet. Den forutsetter dessuten at veksten fortsetter av samme grunn som før — at bedriften vokser i samme takt, at ingen energieffektivisering kommer, og at ingen produksjonslinje legges ned. For 2040 vil jeg ikke bruke noen av dem: da ekstrapolerer vi mer enn dobbelt så langt som dataene rekker, og modellene er uenige om nesten 500 GWh. Da er svaret ikke et tall, men en anbefaling om å måle på nytt underveis."
+          }
+        ],
+        "solution": "a) lineær bommer med opptil 16 GWh, kvadratisk treffer eksakt, b) den kvadratiske — avvikene til den lineære har et krummingsmønster, c) 374 GWh og 430 GWh, d) 644 GWh og 1140 GWh, e) kvadratisk til 2030 med forbehold, ingen av dem til 2040.",
+        "hints": [
+          "Se på fortegnsmønsteret i avvikene, ikke bare på størrelsen.",
+          "Hvor langt utenfor måleområdet spør oppgaven?"
+        ],
+        "competenceGoals": [
+          "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
+        ],
+        "allowsSpreadsheet": true,
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Modell",
+      "definition": "En matematisk beskrivelse som forenkler en virkelig situasjon. Den tar med noen sammenhenger og ser bort fra andre, og svarene den gir, er ikke sikrere enn forenklingen."
+    },
+    {
+      "term": "Forutsetning",
+      "definition": "Noe modellen tar for gitt, for eksempel at prisen per enhet er konstant eller at alt som produseres, blir solgt. Svikter forutsetningen, svikter svaret."
+    },
+    {
+      "term": "Gyldighetsområde",
+      "definition": "De verdiene av den frie variabelen der modellen er ment å brukes — bestemt av måleområdet, av kapasiteten og av hvor lenge forutsetningene holder."
+    },
+    {
+      "term": "Ekstrapolering",
+      "definition": "Å bruke en modell utenfor det området den er laget fra. Regningen ser like riktig ut, men usikkerheten vokser raskt med avstanden til dataene."
+    },
+    {
+      "term": "Endepunktsvurdering",
+      "definition": "Når toppunktet til en funksjon ligger utenfor gyldighetsområdet, finnes den største verdien i et endepunkt. Fortegnet til den deriverte i endepunktet avgjør hvilket."
+    }
+  ]
+}

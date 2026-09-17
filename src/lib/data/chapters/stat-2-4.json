@@ -1,0 +1,386 @@
+{
+  "id": "stat-2-4",
+  "courseId": "statistikk",
+  "chapterNumber": "2.4",
+  "title": "Korrelasjon og årsak",
+  "description": "Hvorfor samvariasjon ikke er årsak: skjulte variabler, tilfeldigheter og omvendt årsak.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+    "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+  ],
+  "content": [
+    {
+      "id": "stat-2-4-section-innledning",
+      "type": "text",
+      "content": "## Den setningen som må sitte\n\nVi har nå to tall som beskriver en sammenheng: korrelasjonen $r$ og\nstigningstallet $a$. Begge sier noe om hvordan to variabler **beveger seg\nsammen**. Ingen av dem sier ett ord om **hvorfor**.\n\nDet finnes alltid flere forklaringer på en korrelasjon enn den ene du kom på\nførst. Dette kapittelet handler om å finne dem — før noen andre gjør det."
+    },
+    {
+      "id": "stat-2-4-def-fire",
+      "type": "definition",
+      "content": "Måler vi en korrelasjon mellom $X$ og $Y$, finnes det minst fire mulige\nforklaringer, og de er like gyldige helt til vi har grunn til å velge:\n\n1. **$X$ påvirker $Y$.** Den forklaringen folk flest hopper til.\n2. **$Y$ påvirker $X$.** Årsaken går motsatt vei av det vi antok.\n3. **En tredje variabel $Z$ påvirker begge.** $Z$ kalles en **bakenforliggende**\n   eller **skjult variabel**. Da samvarierer $X$ og $Y$ uten at noen av dem\n   virker på den andre.\n4. **Tilfeldighet eller utvalgsskjevhet.** Korrelasjonen er ikke reell, eller\n   den gjelder bare i det utvalget vi tilfeldigvis har sett på.\n\nI praksis er 3 og 4 minst like vanlige som 1. Den vanligste skjulte variabelen\nav alle er **størrelse**: store kommuner har flere av alt, store skoler har\nflere av alt, og folkerike land har flere av alt.\n\n**Skal du slutte om årsak, må du kunne begrunne hvorfor 2, 3 og 4 er\nutelukket.** Det er en høy terskel, og den er der med god grunn.",
+      "title": "Fire forklaringer på en korrelasjon"
+    },
+    {
+      "id": "stat-2-4-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Bibliotek og lege: den skjulte variabelen",
+      "problem": "Tolv kommuner har rapportert antall bibliotekbesøk og antall legebesøk i løpet\nav et år. Tallene er i tusen.\n\n| Bibliotekbesøk | 10,1 | 13,3 | 27,0 | 28,7 | 42,8 | 44,8 | 77,0 | 85,1 | 98,8 | 167,6 | 189,4 | 271,3 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Legebesøk | 4,6 | 8,2 | 12,0 | 21,0 | 28,8 | 31,5 | 49,3 | 57,4 | 72,8 | 92,3 | 112,8 | 199,0 |\n\nKorrelasjonen mellom de to er $r = 0{,}986$.\n\na) En kommentator skriver: «Lesing gjør folk syke.» Hvorfor holder ikke det?\n\nb) Hvilken opplysning mangler, og hvordan finner vi ut om den forklarer alt?\n\nc) Hva blir konklusjonen?",
+      "solution": "**a)** Fordi vi ikke har sammenlignet sammenlignbare størrelser. Kommunene er\nsvært ulike: den minste har $2\\,100$ innbyggere, den største $60\\,300$.\n\nStore kommuner har flere av **alt** — flere bibliotekbesøk, flere legebesøk,\nflere parkeringsplasser og flere fotballkamper. At to slike tall følger\nhverandre, er en opplysning om kommunestørrelse, ikke om lesing eller helse.\n\n![Spredningsplott over bibliotekbesøk og legebesøk i tolv kommuner. Den vannrette aksen viser bibliotekbesøk i tusen fra 0 til 280, den loddrette aksen viser legebesøk i tusen fra 0 til 200. Tolv blå punkter stiger jevnt fra nede til venstre mot oppe til høyre og ligger tett rundt en tenkt rett linje. Elleve av de tolv punktene ligger i nedre venstre fjerdedel, og det tolvte ligger alene oppe til høyre ved 271 og 199. Alle punktene har samme farge og størrelse — figuren merker ikke hvilke kommuner som er store og små.](/images/content/statistikk/stat-2-4-skjult-variabel.png)\n\n*Tolv kommuner. Punktene stiger tydelig ($r = 0{,}986$) — men hele mønsteret kommer av at kommunene er ulikt store. Regnet per innbygger blir $r \\approx 0$.*\n\n**Svar a):** Forklaringen bygger på antall, ikke på andel. Folketallet er en\nskjult variabel som påvirker begge tallene.\n\n**b)** Vi mangler **folketallet**. Med det kan vi gjøre begge tallene om til\nbesøk **per innbygger** — altså fjerne størrelsen fra regnestykket.\n\n| Folketall (tusen) | 2,1 | 3,4 | 5,2 | 7,0 | 9,3 | 12,1 | 15,4 | 19,8 | 26,0 | 34,2 | 45,1 | 60,3 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n\nFor den minste kommunen blir bibliotekbesøkene per innbygger\n\n$$\\frac{10{,}1}{2{,}1} = 4{,}81$$\n\nog legebesøkene\n\n$$\\frac{4{,}6}{2{,}1} = 2{,}19$$\n\nVi gjør det samme for alle tolv. Da får vi to nye rekker, og regner\nkorrelasjonen mellom dem:\n\n$$r = -0{,}0066 \\approx 0$$\n\n![To spredningsplott merket A og B, begge over de samme tolv kommunene, med tallsatte akser. I A er bibliotekbesøk i tusen (vannrett, tallsatt 100, 200 og 300) avsatt mot legebesøk i tusen (loddrett, tallsatt 50, 100, 150 og 200); de tolv punktene ligger nesten på en rett linje som stiger fra nede til venstre til oppe til høyre, og i panelet står antall (tusen): r = 0,986. I B er de samme kommunene regnet PER INNBYGGER: vannrett bibliotek per innbygger tallsatt 3,5 til 5,5 i halvtrinn, loddrett lege per innbygger tallsatt 2,0 til 3,5. Nå ligger punktene i en sky uten retning, og i panelet står per innbygger: r = −0,007. Aksetallene viser at de to panelene har helt ulike skalaer — A i tusener, B i besøk per innbygger.](/images/content/statistikk/stat-2-4-antall-mot-rate.png)\n\n*Samme tolv kommuner, to regnemåter. Når folketallet deles bort, forsvinner sammenhengen helt: r går fra 0,986 til omtrent null. Det som fulgte hverandre, var kommunestørrelsen.*\n\n**Svar b):** Vi trenger folketallet. Regnet per innbygger forsvinner\nsammenhengen fullstendig.\n\n**c)** Korrelasjonen på $0{,}986$ var ekte nok som tall, men den beskrev bare\nat kommuner er ulikt store. Når størrelsen er tatt bort, er det ingenting\nigjen: en kommune der folk går mye på biblioteket, går verken mer eller mindre\ntil legen enn andre.\n\n**Svar c):** Sammenhengen skyldes den skjulte variabelen folketall. Det finnes\ningen sammenheng mellom lesing og legebesøk i dette materialet.\n\n**Slik leser du kritisk:** Møter du en korrelasjon mellom to **antall**, spør\nalltid først om enhetene er like store. Er de ikke det, skal tallene gjøres om\ntil andeler eller rater — per innbygger, per elev, per kjørte kilometer. Dette\ner samme regel som i kapittel 1.6, nå brukt på to variabler samtidig."
+    },
+    {
+      "id": "stat-2-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-4-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ti skoler har oppgitt antall elever og antall elever med vedtak om\nspesialundervisning.\n\n| Antall elever | 95 | 130 | 180 | 240 | 310 | 420 | 550 | 680 | 820 | 1000 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Med spesialundervisning | 8 | 11 | 15 | 20 | 27 | 35 | 45 | 58 | 68 | 84 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn korrelasjonen mellom de to antallene.",
+            "solution": "`=KORRELASJON(A2:A11;B2:B11)` gir $r = 0{,}9997 \\approx 1{,}000$ — nesten perfekt.",
+            "answer": 0.9997
+          },
+          {
+            "label": "b",
+            "task": "En avis skriver: «Store skoler har et spesialundervisningsproblem.» Hva er galt med slutningen?",
+            "solution": "At den bygger på antall. Store skoler har flere elever med vedtak fordi de har flere elever — akkurat som de har flere lærere og flere matpakker. Skal skoler sammenlignes, må tallene gjøres om til andeler."
+          },
+          {
+            "label": "c",
+            "task": "Regn ut andelen i prosent for hver skole.",
+            "solution": "Andelen er antall med vedtak delt på antall elever, ganger $100$. For den minste skolen: $\\frac{8}{95} \\cdot 100 = 8{,}42\\ \\%$. For alle ti: $8{,}42$; $8{,}46$; $8{,}33$; $8{,}33$; $8{,}71$; $8{,}33$; $8{,}18$; $8{,}53$; $8{,}29$; $8{,}40$ prosent. **NB:** la regnearket regne videre med de uavrundede andelene (`=B2/A2*100`) — du skal bare vise dem med to desimaler."
+          },
+          {
+            "label": "d",
+            "task": "Finn korrelasjonen mellom antall elever og andelen.",
+            "solution": "$r = -0{,}169$. Praktisk talt ingen sammenheng: andelen ligger mellom $8{,}18\\ \\%$ og $8{,}71\\ \\%$ på alle ti skolene, uansett størrelse.",
+            "answer": -0.169
+          },
+          {
+            "label": "e",
+            "task": "Skriv en overskrift som er dekkende.",
+            "solution": "For eksempel: «Like stor andel med spesialundervisning på store og små skoler — mellom $8{,}2$ og $8{,}7$ prosent.» Da står både funnet og hvor lite det varierer."
+          }
+        ],
+        "solution": "a) $r \\approx 1{,}000$, b) antall mot andel, c) andeler rundt $8{,}2$–$8{,}7\\ \\%$, d) $r = -0{,}169$, e) dekkende overskrift",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-4-section-omvendt",
+      "type": "text",
+      "content": "## Når årsaken går motsatt vei\n\nDen andre forklaringen er lettest å overse, fordi den ofte høres absurd ut\nførst — helt til man ser hvordan tallene ble til.\n\nSpør derfor alltid: **hva skjedde først?** En årsak må komme før sin virkning.\nEr de to variablene målt samtidig, er rekkefølgen ofte umulig å avgjøre ut fra\ntallene alene, og da må vi tenke på hvordan situasjonen faktisk oppstår."
+    },
+    {
+      "id": "stat-2-4-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Brannvesenet",
+      "problem": "Ved åtte branner ble det registrert hvor mange brannfolk som var på stedet, og\nhvor store materielle skader brannen gjorde.\n\n| Brannfolk | 4 | 6 | 8 | 10 | 12 | 16 | 20 | 26 |\n|---|---|---|---|---|---|---|---|---|\n| Skade (mill. kr) | 0,3 | 0,7 | 1,1 | 1,8 | 2,6 | 4,2 | 6,0 | 9,5 |\n\nKorrelasjonen er $r = 0{,}989$.\n\na) En leser konkluderer: «Brannvesenet gjør skaden verre — send færre folk.»\nHva er galt?\n\nb) Hvordan burde spørsmålet «virker brannvesenet?» undersøkes?",
+      "solution": "**a)** Vi ser på rekkefølgen i tid.\n\nFørst brenner det. Brannen er stor eller liten. **Deretter** avgjør\nbrannvesenet hvor mange enheter de sender — og de sender flere til store\nbranner.\n\nÅrsaksretningen går altså motsatt vei av det leseren tror: det er brannens\nstørrelse som bestemmer antall brannfolk, ikke antall brannfolk som bestemmer\nskaden. Å sende færre ville ikke gitt mindre skade; det ville gitt mer.\n\n**Svar a):** Leseren har snudd årsaksretningen. Brannstørrelsen kommer først og\npåvirker begge de målte tallene.\n\n**b)** Spørsmålet «virker brannvesenet?» kan ikke besvares ved å sammenligne\nbranner der det ble sendt ulikt antall folk, for de brannene var ulike fra\nstarten. Vi måtte sammenlignet **like** branner som fikk ulik innsats — for\neksempel branner av samme type der utrykningstiden tilfeldigvis var ulik på\ngrunn av avstand.\n\nEt bedre mål er skade per brann i kommuner med og uten egen brannstasjon, eller\nskadeutviklingen før og etter at responstiden ble kortet ned.\n\n**Svar b):** Ved å sammenligne branner som var like i utgangspunktet, ikke\nbranner som fikk ulik innsats fordi de var ulike.\n\n**NB:** Den samme fella finnes overalt der en innsats settes inn **fordi**\nproblemet er stort: flere politifolk der kriminaliteten er høy, mer\nleksehjelp til elever som sliter, flere sykepleiere på de sykeste pasientene.\nI alle disse tilfellene vil en enkel korrelasjon peke gal vei."
+    },
+    {
+      "id": "stat-2-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-4-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "For hver påstand: avgjør hvilken av de fire forklaringene som er mest\nsannsynlig, og begrunn.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Barn som har mange bøker hjemme, får bedre karakterer. Kjøp bøker, så går karakterene opp.»",
+            "solution": "Trolig en bakenforliggende variabel. Foreldrenes utdanning og økonomi henger sammen med både antall bøker og med barnas skolegang. Å kjøpe bøker uten at noe annet endres, er ikke det samme som å ha vokst opp i et hjem der bøker leses."
+          },
+          {
+            "label": "b",
+            "task": "«Pasienter som ligger på intensivavdelingen, har høyere dødelighet enn de på vanlig sengepost. Intensivavdelingen er farlig.»",
+            "solution": "Omvendt årsaksretning. De sykeste pasientene blir lagt på intensiven nettopp fordi de er sykest. Tilstanden kommer før plasseringen."
+          },
+          {
+            "label": "c",
+            "task": "«Kommuner med mange eldre bruker mer penger på helse per innbygger.»",
+            "solution": "Her er forklaring 1 rimelig: eldre bruker i gjennomsnitt mer helsetjenester, og kommunen må betale for dem. Merk at tallet allerede er en rate (per innbygger), så størrelsesfella er unngått."
+          },
+          {
+            "label": "d",
+            "task": "«Land der folk spiser mye sjokolade, har flere nobelprisvinnere.»",
+            "solution": "Bakenforliggende variabel — og trolig også tilfeldighet. Rike land har både høyt forbruk av alt og store forskningsmiljøer. Med bare rundt $20$ land i materialet skal det dessuten lite til før en korrelasjon oppstår av seg selv."
+          },
+          {
+            "label": "e",
+            "task": "«Elever som spiser frokost, gjør det bedre på prøver.»",
+            "solution": "Kan være alle fire. Frokost kan hjelpe direkte (1); elever som sover godt og har faste rutiner, rekker både frokost og lekser (3); og utvalget kan være skjevt hvis de som svarte, er de mest strukturerte (4). For å skille må man gjøre et forsøk der frokosten fordeles tilfeldig."
+          }
+        ],
+        "solution": "a) bakenforliggende variabel, b) omvendt årsak, c) trolig direkte årsak, d) bakenforliggende og tilfeldighet, e) flere forklaringer mulig",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-2-4-section-spurios",
+      "type": "text",
+      "content": "## Tilfeldige og trend-drevne korrelasjoner\n\nDen fjerde forklaringen er den vanskeligste å ta på alvor, fordi den ikke\npeker på noe som helst: **sammenhengen er ikke der.**\n\nTo ting gjør at slike korrelasjoner dukker opp hele tiden:\n\n**1. Alt som vokser, korrelerer med alt annet som vokser.** To tidsserier som\nbegge stiger jevnt år for år, får høy $r$ uansett hva de måler. Den felles\nforklaringen er tiden, og den forklarer ingenting.\n\n**2. Leter man lenge nok, finner man alltid noe.** Sammenligner man tusen\nvariabler to og to, blir det nesten en halv million par. Noen av dem vil ha høy\nkorrelasjon ved ren tilfeldighet. Hvis funnet ble til ved å lete, og ikke ved å\nteste en hypotese man hadde på forhånd, er det svakt.\n\nMotgiften mot den første er å se på **endringene** i stedet for nivåene. Mot\nden andre finnes bare én: si på forhånd hva du leter etter, og test funnet på\nnye data."
+    },
+    {
+      "id": "stat-2-4-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – To kurver som begge peker oppover",
+      "problem": "Tabellen viser antall solgte elsykler (tusen) og antall nye podkastepisoder\n(tusen) i Norge i elleve år.\n\n| År | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| Elsykler | 12 | 19 | 28 | 41 | 55 | 78 | 96 | 112 | 128 | 141 | 155 |\n| Podkastepisoder | 8 | 18 | 26 | 38 | 60 | 66 | 75 | 95 | 120 | 133 | 157 |\n\na) Finn korrelasjonen mellom de to.\n\nb) Hvorfor er tallet nesten uten verdi?\n\nc) Hvordan kan vi undersøke om det finnes en sammenheng ut over trenden?",
+      "solution": "**a)** Med regneark:\n\n$$r = 0{,}9882 \\approx 0{,}988$$\n\n**Svar a):** En tilsynelatende svært sterk positiv sammenheng.\n\n**b)** Vi regner korrelasjonen mellom **året** og hver av de to seriene:\n\n$$r(\\text{år}, \\text{elsykler}) = 0{,}995, \\qquad r(\\text{år}, \\text{podkast}) = 0{,}989$$\n\nBegge vokser altså nesten perfekt med tiden. Da **må** de også korrelere med\nhverandre — det følger av at begge følger den samme stigende linja, ikke av at\nden ene har noe med den andre å gjøre.\n\n**Svar b):** Fordi korrelasjonen bare gjenspeiler at begge tallene har steget\ngjennom perioden. Det samme ville skjedd med et hvilket som helst annet tall\nsom har vokst siden 2015.\n\n**c)** Vi fjerner trenden ved å se på **årlige endringer** i stedet for nivåer:\n\nElsykler: $19 - 12 = 7$, så $28 - 19 = 9$, og videre\n$13, 14, 23, 18, 16, 16, 13, 14$.\n\nPodkast: $18 - 8 = 10$, så $8, 12, 22, 6, 9, 20, 25, 13, 24$.\n\nKorrelasjonen mellom de ti endringsparene er\n\n$$r = 0{,}001$$\n\n![To plott med tallsatte akser. Panel A viser antall solgte elsykler (blå) og antall nye podkastepisoder (grønn) i tusen mot årene 2015 til 2025; x-aksen er merket år og tallsatt 2015, 2020 og 2025, y-aksen antall (tusen) og tallsatt 50, 100 og 150. Begge rekkene stiger jevnt fra rundt 10 til rundt 155 tusen, og under punktene står nivå mot år: begge stiger (r = 0,988 mellom dem). Panel B viser de ti årlige endringene plottet mot hverandre — x-aksen merket endring elsykler og y-aksen endring podkast, begge tallsatt 10, 20 og 30. Her ligger punktene som en sky uten retning, og i panelet står endring mot endring: r = 0,001.](/images/content/statistikk/stat-2-4-niva-mot-endring.png)\n\n*To kurver som begge peker oppover, gir nesten alltid høy korrelasjon. Ser vi i stedet på endringene fra år til år, forsvinner sammenhengen helt — det var trenden, ikke noen sammenheng, som ga tallet 0,988.*\n\n**Svar c):** Ved å korrelere endringene i stedet for nivåene. Da er $r$\npraktisk talt null — det finnes ingen sammenheng ut over at begge har vokst.\n\n**Andre muligheter:** Man kan også dele begge seriene på et mål for hvor stor\n«markedet» er blitt — for eksempel folketallet eller antall husholdninger — og\nse om noe blir igjen."
+    },
+    {
+      "id": "stat-2-4-warning-simpson",
+      "type": "warning",
+      "content": "En korrelasjon kan ikke bare svekkes eller forsterkes av en skjult variabel —\nden kan **skifte fortegn**.\n\nDeles et materiale i grupper, kan sammenhengen være negativ i hver eneste\ngruppe og likevel bli positiv når alt slås sammen. Fenomenet heter **Simpsons\nparadoks**, og det er regnet gjennom med tall i **kapittel 4.6**, der vi\narbeider med krysstabeller.\n\nLærdommen er den samme her: før du tolker en korrelasjon, spør om materialet\nbestår av grupper som burde vært sett på hver for seg.",
+      "title": "NB: Sammenslåing kan snu konklusjonen"
+    },
+    {
+      "id": "stat-2-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-4-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Tolv voksne er spurt hvor mange kopper kaffe de drikker daglig, og hvilepulsen\ner målt. De seks første er under $30$ år, de seks siste over $60$ år.\n\n| Under 30 år — kaffekopper | 0 | 1 | 1 | 2 | 2 | 3 |\n|---|---|---|---|---|---|---|\n| Hvilepuls | 67 | 65 | 68 | 66 | 69 | 66 |\n\n| Over 60 år — kaffekopper | 3 | 4 | 4 | 5 | 5 | 6 |\n|---|---|---|---|---|---|---|\n| Hvilepuls | 75 | 73 | 76 | 74 | 77 | 74 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn korrelasjonen for alle tolv samlet.",
+            "solution": "$r = 0{,}7879 \\approx 0{,}788$ — en tydelig positiv sammenheng.",
+            "answer": 0.788
+          },
+          {
+            "label": "b",
+            "task": "Finn korrelasjonen i hver aldersgruppe for seg.",
+            "solution": "I begge gruppene er $r = -0{,}0648 \\approx -0{,}065$. Ingen sammenheng i det hele tatt.",
+            "answer": [
+              -0.065,
+              -0.065
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Forklar hvordan de to svarene kan stemme samtidig.",
+            "solution": "Alder henger sammen med begge variablene: de eldste i utvalget drikker mer kaffe ($3$–$6$ kopper mot $0$–$3$) og har høyere hvilepuls (snitt $74{,}8$ mot $66{,}8$). Slår vi gruppene sammen, ligger den ene klumpen oppe til høyre og den andre nede til venstre, og linja mellom dem stiger — uten at kaffe og puls henger sammen for noen enkelt person.\n\n![Spredningsplott over kaffekopper per dag og hvilepuls for tolv personer. Den loddrette aksen går fra 0 til 80 med et markert brudd mellom 4 og 60, så bare området fra 60 til 80 er tegnet ut. Seks blå punkter i nedre venstre del er de under 30 år: 0 til 3 kopper og puls 65 til 69. Seks grønne punkter i øvre høyre del er de over 60 år: 3 til 6 kopper og puls 73 til 77. Hver gruppe har sin egen, så vidt fallende linje med r lik minus 0,065. En rød linje gjennom alle tolv stiger bratt og er merket r lik 0,788.](/images/content/statistikk/stat-2-4-simpson-kaffe.png)\n\n*To klumper med hvert sitt nivå, og en linje mellom dem som ikke beskriver noen av dem. Alder henger sammen med både kaffeforbruk og puls; innenfor hver aldersgruppe er det ingen sammenheng. Aksen er brutt mellom 4 og 60 fordi alle pulsverdiene ligger mellom 65 og 77.*"
+          },
+          {
+            "label": "d",
+            "task": "Hva kalles det å regne korrelasjonen i hver gruppe for seg?",
+            "solution": "Å **kontrollere for** en tredje variabel — her alder. Det er den enkleste måten å undersøke om en bakenforliggende variabel forklarer sammenhengen."
+          },
+          {
+            "label": "e",
+            "task": "Hvilken konklusjon er dekkende?",
+            "solution": "At kaffeforbruk og hvilepuls ikke henger sammen i dette materialet. Den samlede korrelasjonen på $0{,}79$ måler bare at utvalget består av to aldersgrupper som skiller seg på begge variablene. Merk også at $n = 12$ er svært lite."
+          }
+        ],
+        "solution": "a) $r \\approx 0{,}788$, b) $r \\approx -0{,}065$ i begge, c) alder henger sammen med begge, d) å kontrollere for en tredje variabel, e) ingen sammenheng",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "hints": [
+          "Regn ut gjennomsnittet i hver gruppe før du forklarer."
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-4-section-hva-skal-til",
+      "type": "text",
+      "content": "## Hva skal til for å si «årsak»?\n\nDen eneste framgangsmåten som virkelig skiller årsak fra samvariasjon, er det\n**randomiserte forsøket**:\n\n1. Vi trekker et utvalg.\n2. Vi deler det i to grupper **tilfeldig** — ikke etter hva deltakerne vil,\n   ikke etter hvem som trenger det mest.\n3. Den ene gruppen får tiltaket, den andre (**kontrollgruppen**) får det ikke.\n4. Vi måler utfallet i begge gruppene.\n\nPoenget med den tilfeldige fordelingen er at gruppene da blir like i **alt\nannet**, også i ting vi ikke har tenkt på å måle. Blir utfallet likevel\nforskjellig, er tiltaket den eneste kandidaten som står igjen.\n\nSlike forsøk er ikke alltid mulige. Vi kan ikke tilfeldig bestemme hvem som\nskal røyke, flytte eller miste jobben. Da må vi bygge saken av flere svakere\nholdepunkter:\n\n| Holdepunkt | Spørsmålet det svarer på |\n|---|---|\n| Tidsrekkefølge | Kom årsaken før virkningen? |\n| Styrke | Er sammenhengen sterk, eller så vidt målbar? |\n| Konsistens | Finner andre det samme i andre utvalg, andre land, andre år? |\n| Dose–respons | Gir mer av $X$ mer av $Y$? |\n| Mekanisme | Finnes det en forklaring på **hvordan** $X$ kan virke på $Y$? |\n| Kontroll | Står sammenhengen når kjente tredjevariabler er kontrollert for? |\n\nIngen av linjene alene er nok. Til sammen kan de bli sterke — det var slik\nsammenhengen mellom røyking og lungekreft ble slått fast, uten at noen noen\ngang delte folk tilfeldig i røykere og ikke-røykere."
+    },
+    {
+      "id": "stat-2-4-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Fra påstand til forsøk",
+      "problem": "En kommune vil vite om gratis skolefrokost gir bedre resultater på nasjonale\nprøver. De har tall som viser at elever som spiser frokost, skårer $4$ poeng\nhøyere enn de som ikke gjør det.\n\na) Hvorfor holder ikke dette som bevis?\n\nb) Sett opp et forsøk som kunne gitt svar.\n\nc) Hvilke forbehold ville du tatt selv med et godt forsøk?",
+      "solution": "**a)** Elevene har valgt selv om de spiser frokost. De to gruppene skiller seg\nderfor trolig på mye annet: søvnrutiner, hvor tidlig de står opp, hvor mye ro\ndet er hjemme om morgenen, om de rekker skolebussen.\n\nAlt dette kan påvirke prøveresultatet direkte. Forskjellen på $4$ poeng kan\nskyldes frokosten, eller alle de andre tingene, eller begge deler — tallene\nskiller ikke.\n\n**Svar a):** Fordi gruppene ikke er sammenlignbare. Dette er forklaring 3, en\nbakenforliggende variabel, og den er svært sannsynlig her.\n\n**b)** Et randomisert forsøk:\n\n**Steg 1.** Velg for eksempel $20$ skoler som ligner hverandre i størrelse og\nelevgrunnlag.\n\n**Steg 2.** Trekk **tilfeldig** ti av dem som skal tilby gratis frokost, og la\nde ti andre være kontrollgruppe. Trekkingen er hele poenget: den gjør at de to\ngruppene blir like i alt annet, også i det vi ikke har målt.\n\n**Steg 3.** La ordningen løpe et helt skoleår.\n\n**Steg 4.** Sammenlign gjennomsnittsresultatet i de to gruppene.\n\n**Svar b):** Tjue like skoler, tilfeldig delt i to, ett år med tilbud på den\nene halvparten, og sammenligning til slutt.\n\n**c)** Selv da gjenstår spørsmål:\n\n- **Hvem spiste faktisk frokosten?** Et tilbud er ikke det samme som at alle\n  benytter seg av det. Vi måler virkningen av å **tilby** frokost, ikke av å\n  **spise** den.\n- **Hva ellers ble annerledes?** Skoler som får en ny ordning, får også\n  oppmerksomhet, og lærerne vet hvilken gruppe de er i.\n- **Gjelder funnet andre steder?** Tjue skoler i én kommune er ikke hele landet.\n- **Hvor stor er forskjellen?** En forskjell kan være reell og likevel for\n  liten til å være verdt kostnaden.\n\n**Svar c):** At vi måler tilbudet og ikke inntaket, at annet enn frokosten kan\nha endret seg, at resultatet gjelder disse skolene, og at størrelsen på\neffekten må vurderes ved siden av om den finnes."
+    },
+    {
+      "id": "stat-2-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-4-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Del 1 (uten hjelpemidler).** En undersøkelse finner at risikoen for en\nbestemt sykdom er $4$ per $100\\,000$ i året blant dem som ikke er utsatt for et\nstoff, og $6$ per $100\\,000$ blant dem som er det.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange prosent høyere er risikoen i den utsatte gruppen?",
+            "solution": "$\\frac{6-4}{4} = \\frac{2}{4} = 0{,}5 = 50\\ \\%$. Dette kalles den **relative** risikoøkningen.",
+            "answer": 50
+          },
+          {
+            "label": "b",
+            "task": "Hvor mye høyere er risikoen målt i tilfeller per $100\\,000$?",
+            "solution": "$6 - 4 = 2$ flere tilfeller per $100\\,000$ per år. Dette er den **absolutte** økningen.",
+            "answer": 2
+          },
+          {
+            "label": "c",
+            "task": "En overskrift lyder: «Stoffet øker risikoen med $50$ prosent.» Er den riktig? Er den dekkende?",
+            "solution": "Riktig, men ikke dekkende. Uten utgangspunktet kan leseren ikke vurdere hva $50\\ \\%$ betyr. Her er det to ekstra tilfeller per $100\\,000$ — altså at omtrent $99\\,994$ av $100\\,000$ utsatte ikke får sykdommen, mot $99\\,996$ av dem som ikke er utsatt."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange må utsettes for stoffet i ett år før det i gjennomsnitt blir ett ekstra tilfelle?",
+            "solution": "Økningen er $2$ per $100\\,000$, altså $1$ per $50\\,000$. Det må $50\\,000$ personer til.",
+            "answer": 50000
+          },
+          {
+            "label": "e",
+            "task": "Undersøkelsen er en spørreundersøkelse der deltakerne selv husket om de hadde vært utsatt. Hvilken svakhet gir det?",
+            "solution": "De som har fått sykdommen, leter i minnet etter en forklaring og husker derfor oftere at de var utsatt. Da blir sammenhengen målt for sterk, uten at noe er funnet på. Dette er en feilkilde vi kommer tilbake til i kapittel 3.3."
+          }
+        ],
+        "solution": "a) $50\\ \\%$, b) $2$ per $100\\,000$, c) riktig, men ikke dekkende, d) $50\\,000$ personer, e) hukommelsen påvirkes av utfallet",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ]
+      }
+    },
+    {
+      "id": "stat-2-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-4-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** Ti kommuner har rapportert antall daglige\nsyklister og antall sykkelulykker i løpet av et år.\n\n| Syklister | 610 | 880 | 1150 | 1520 | 2050 | 2600 | 3450 | 4150 | 5600 | 7400 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Sykkelulykker | 10 | 14 | 19 | 24 | 34 | 41 | 57 | 67 | 92 | 117 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn korrelasjonen mellom antall syklister og antall ulykker.",
+            "solution": "`=KORRELASJON(A2:A11;B2:B11)` gir $r = 0{,}9995 \\approx 1{,}000$.",
+            "answer": 0.9995
+          },
+          {
+            "label": "b",
+            "task": "En politiker sier: «Jo flere som sykler, desto farligere blir det. Vi bør ikke oppfordre til mer sykling.» Vurder slutningen.",
+            "solution": "Slutningen bygger på antall. Flere syklister gir flere ulykker rett og slett fordi det er flere som sykler — akkurat som flere bilister gir flere bilulykker. Spørsmålet om hvor farlig det er, handler om ulykker **per syklist**."
+          },
+          {
+            "label": "c",
+            "task": "Lag en kolonne med ulykker per $1000$ syklister, og finn korrelasjonen mellom antall syklister og denne raten.",
+            "solution": "Raten er $\\frac{\\text{ulykker}}{\\text{syklister}} \\cdot 1000$: $16{,}39$; $15{,}91$; $16{,}52$; $15{,}79$; $16{,}59$; $15{,}77$; $16{,}52$; $16{,}14$; $16{,}43$; $15{,}81$. Regn videre med de uavrundede ratene (`=B2/A2*1000`). Korrelasjonen er $r = -0{,}158$.",
+            "answer": -0.158
+          },
+          {
+            "label": "d",
+            "task": "Hva er konklusjonen nå?",
+            "solution": "Raten ligger mellom $15{,}8$ og $16{,}6$ ulykker per $1000$ syklister i alle ti kommunene, uansett hvor mange som sykler. Risikoen per syklist er altså den samme — tallene gir ikke grunnlag for å si at sykling blir farligere når flere sykler."
+          },
+          {
+            "label": "e",
+            "task": "Hvilke opplysninger måtte vi hatt for å si noe om årsak?",
+            "solution": "Hvor mange kilometer det sykles i hver kommune (en syklist som sykler daglig, er mer utsatt enn en som sykler av og til), hvordan ulykkene registreres, og aller helst tall fra samme kommune før og etter en endring — for eksempel etter at en sykkelvei ble bygd. Bare da sammenligner vi noe som ellers er likt."
+          }
+        ],
+        "solution": "a) $r \\approx 1{,}000$, b) antall mot rate, c) $r = -0{,}158$, d) samme risiko per syklist, e) sykkelkilometer, registreringspraksis og før/etter-data",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "tool": "none",
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-2-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-2-4-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Finn en nyhetssak der et tall brukes som argument for at\nnoe forårsaker noe annet. Bruk kapittelet på den.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv opp påstanden så presist du kan: hva er $X$, hva er $Y$, og hvilken retning påstås årsaken å gå?",
+            "solution": "Svaret avhenger av saken. Et fullstendig svar navngir begge variablene med enhet, og sier hvem som måler hva."
+          },
+          {
+            "label": "b",
+            "task": "Gå gjennom alle fire forklaringene fra dette kapittelet, og skriv én setning om hver.",
+            "solution": "Alle fire skal drøftes: direkte årsak, omvendt retning, bakenforliggende variabel, og tilfeldighet eller skjevt utvalg. Poenget er ikke å konkludere, men å vise at de tre andre er vurdert."
+          },
+          {
+            "label": "c",
+            "task": "Er tallene antall eller andeler? Er enhetene like store?",
+            "solution": "Er det antall, og enhetene ulikt store, er størrelse nesten alltid den skjulte variabelen. Da må tallene regnes om før noe kan sies."
+          },
+          {
+            "label": "d",
+            "task": "Hvilket forsøk måtte vært gjort for å avgjøre spørsmålet, og er det mulig eller forsvarlig å gjennomføre?",
+            "solution": "Beskriv utvalget, den tilfeldige fordelingen, kontrollgruppen og hva som skulle måles. Drøft så om forsøket i det hele tatt lar seg gjøre — mange samfunnsspørsmål kan ikke undersøkes slik, og da må konklusjonen bygges av flere svakere holdepunkter."
+          },
+          {
+            "label": "e",
+            "task": "Skriv om saken slik at den er dekkende, uten å påstå mer enn tallene bærer.",
+            "solution": "En dekkende tekst sier hva som er målt, i hvilket utvalg, hvor sterk sammenhengen er, og at samvariasjon ikke i seg selv viser årsak. **Andre muligheter:** skriv to versjoner — én overskrift som er korrekt, og én som er korrekt **og** interessant — og sammenlign hvor mye plass det siste krever."
+          }
+        ],
+        "solution": "a) presis påstand, b) alle fire forklaringene drøftet, c) antall eller andel, d) forsøksoppsett og gjennomførbarhet, e) dekkende omskriving",
+        "competenceGoals": [
+          "utforske samanhengar i data ved hjelp av korrelasjon og lineær regresjon",
+          "vurdere datakjelder, utvalsmetodar, representativitet og feilkjelder og drøfte korleis dette påverkar statistiske konklusjonar"
+        ],
+        "isInvestigation": true
+      }
+    },
+    {
+      "id": "stat-2-4-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Forklaring | Kjennetegn | Motgift |\n|---|---|---|\n| $X$ påvirker $Y$ | Det vi håper på | Krever at de tre andre er utelukket |\n| $Y$ påvirker $X$ | Innsats settes inn der problemet er | Spør hva som skjedde først |\n| Skjult variabel $Z$ | Enhetene er ulikt store, eller består av grupper | Regn om til andeler, kontroller for $Z$ |\n| Tilfeldighet | Begge serier vokser, eller funnet kom av å lete | Se på endringer, test på nye data |\n\n### Husk\n- Korrelasjon er **ikke** årsak — heller ikke når $r = 0{,}99$.\n- Den vanligste skjulte variabelen er **størrelse**. Antall må gjøres om til\n  andel eller rate.\n- Alt som vokser over tid, korrelerer med alt annet som vokser over tid.\n- Sammenslåing av grupper kan snu fortegnet (Simpsons paradoks, kapittel 4.6).\n- Det randomiserte forsøket er den eneste framgangsmåten som virkelig skiller —\n  og den tilfeldige fordelingen er hele poenget med det.\n- Uten et slikt forsøk bygges en årsaksslutning av tidsrekkefølge, styrke,\n  konsistens, dose–respons, mekanisme og kontroll — til sammen, aldri av ett av\n  dem alene."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Kausalitet",
+      "definition": "Årsakssammenheng: at en endring i den ene variabelen faktisk fører til en endring i den andre."
+    },
+    {
+      "term": "Bakenforliggende variabel",
+      "definition": "En tredje variabel Z som påvirker både X og Y, slik at X og Y samvarierer uten å påvirke hverandre. Også kalt skjult variabel."
+    },
+    {
+      "term": "Omvendt årsaksretning",
+      "definition": "At Y påvirker X, og ikke motsatt. Vanlig der en innsats settes inn nettopp fordi problemet er stort."
+    },
+    {
+      "term": "Spuriøs korrelasjon",
+      "definition": "Samvariasjon uten reell sammenheng, som oftest fordi begge variablene følger en felles trend over tid."
+    },
+    {
+      "term": "Randomisert forsøk",
+      "definition": "Forsøk der utvalget deles tilfeldig i en tiltaksgruppe og en kontrollgruppe. Den tilfeldige fordelingen gjør gruppene like i alt annet."
+    },
+    {
+      "term": "Å kontrollere for en variabel",
+      "definition": "Å regne sammenhengen innenfor hver gruppe av en tredje variabel, for å se om den står seg."
+    }
+  ]
+}

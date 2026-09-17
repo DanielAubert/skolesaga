@@ -1,0 +1,473 @@
+{
+  "id": "stat-5-3",
+  "courseId": "statistikk",
+  "chapterNumber": "5.3",
+  "title": "Varians og standardavvik",
+  "description": "Var(X) og SD(X) for stokastiske variabler, og hva de sier om uvisse og variasjon.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+  ],
+  "content": [
+    {
+      "id": "stat-5-3-section-intro",
+      "type": "text",
+      "content": "# Varians og standardavvik\n\nSe på disse to stokastiske variablene:\n\n**Variabelen $X$:**\n\n| $k$ | 9 | 11 |\n|---|---|---|\n| $P(X = k)$ | 0,5 | 0,5 |\n\n**Variabelen $Y$:**\n\n| $k$ | 0 | 20 |\n|---|---|---|\n| $P(Y = k)$ | 0,5 | 0,5 |\n\nBegge har forventningsverdi 10. Likevel oppfører de seg helt forskjellig: $X$ bommer på 10 med bare 1, hver eneste gang. $Y$ bommer med 10.\n\nForventningsverdien alene sier altså ikke nok. Vi trenger et tall til — et tall som måler hvor **spredt** verdiene ligger rundt $\\mu$. Det tallet er **variansen**, og kvadratroten av den er **standardavviket**."
+    },
+    {
+      "id": "stat-5-3-fig-to-fordelinger-samme-my",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-3-to-fordelinger-samme-my.png",
+      "alt": "Et søylediagram med fire søyler over en felles vannrett akse merket verdi, som går fra 0 til 20. To smale blå søyler står tett inntil hverandre over 9 og 11, og to smale oransje søyler står langt fra hverandre over 0 og 20. Alle fire søylene er nøyaktig like høye og når opp til 0,5 på den loddrette aksen, som er merket sannsynlighet. En grå stiplet loddrett strek står i 10, midt mellom søylene i begge par, med teksten μ er lik 10 for begge. Øverst i figuren, til høyre for den loddrette aksen, står X kolon 9 eller 11 i blått og Y kolon 0 eller 20 i oransje.",
+      "caption": "To fordelinger med **samme** forventningsverdi $\\mu = 10$ og helt ulik spredning. Begge har to utfall med sannsynlighet 0,5. Forventningsverdien alene skiller dem ikke — det er nettopp derfor vi trenger et mål på spredning.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-3-to-fordelinger-samme-my.json"
+    },
+    {
+      "id": "stat-5-3-section-hvorfor-kvadrat",
+      "type": "text",
+      "content": "## Hvorfor kvadrerer vi?\n\nDet naturlige første forsøket er å måle hvor langt $X$ ligger fra $\\mu$, altså avviket $k - \\mu$, og så ta gjennomsnittet av avvikene. Men det virker ikke. Prøv på $X$ over, der $\\mu = 10$:\n\n$$(9 - 10) \\cdot 0{,}5 + (11 - 10) \\cdot 0{,}5 = -0{,}5 + 0{,}5 = 0$$\n\nSummen ble 0 — og den blir **alltid** 0, for enhver fordeling. De negative avvikene spiser opp de positive.\n\nLøsningen er å **kvadrere** avvikene først. Da blir alle bidrag positive, og store bom straffes hardere enn små. Gjennomsnittet av de kvadrerte avvikene kaller vi variansen."
+    },
+    {
+      "id": "stat-5-3-fig-avvik-kvadrater",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-3-avvik-kvadrater.png",
+      "alt": "Et koordinatsystem der den vannrette aksen er merket verdi og viser 7 til 14, og den loddrette er merket avvik og viser 1, 2 og 3 i samme skala som den vannrette. To blå punkter ligger på den vannrette aksen i 9 og 11. En grå stiplet loddrett strek står i 10 og er merket μ er lik 10. Mellom 9 og 10 står et oransje kvadrat med side 1, og mellom 10 og 11 står et like stort oransje kvadrat; de er merket parentes minus 1 parentes opphøyd i andre er lik 1 til venstre og 1 opphøyd i andre er lik 1 til høyre. Over kvadratene går to røde piler ut fra streken i 10, en til venstre merket minus 1 og en til høyre merket pluss 1. Øverst til høyre står teksten summen av avvikene er 0.",
+      "caption": "Hvorfor vi kvadrerer. Avvikene $-1$ og $+1$ har sum null, så de kan ikke brukes rått — de negative spiser opp de positive. Kvadratene har areal 1 hver, og begge er **positive**. Det er summen av de to kvadratene, vektet med sannsynlighetene, som blir variansen.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-3-avvik-kvadrater.json"
+    },
+    {
+      "id": "stat-5-3-def-varians",
+      "type": "definition",
+      "title": "Varians og standardavvik",
+      "content": "La $X$ være en diskret stokastisk variabel med forventningsverdi $\\mu = E(X)$.\n\n**Variansen** til $X$ er det vektede gjennomsnittet av de kvadrerte avvikene fra $\\mu$:\n\n$$\\text{Var}(X) = \\sum_k (k - \\mu)^2 \\cdot P(X = k)$$\n\n**Standardavviket** til $X$ er kvadratroten av variansen:\n\n$$\\sigma = SD(X) = \\sqrt{\\text{Var}(X)}$$\n\n**NB om enheter:** måles $X$ i kilo, måles variansen i kilo *i andre* — den er kvadrert. Standardavviket derimot har samme enhet som $X$ selv. Det er derfor standardavviket er det tallet vi tolker: det sier omtrent hvor langt fra $\\mu$ en tilfeldig verdi pleier å ligge."
+    },
+    {
+      "id": "stat-5-3-section-tabellen",
+      "type": "text",
+      "content": "## Alternativ 1: vi utvider tabellen\n\nVariansen krever at vi kjenner $\\mu$ først. Derfor regner vi alltid $\\mu$ og $\\text{Var}(X)$ i **samme tabell**, og legger bare på én rad:\n\n| | … | … | … | **Sum** |\n|---|---|---|---|---|\n| $k$ | | | | |\n| $P(X = k)$ | | | | 1 |\n| $k \\cdot P(X = k)$ | | | | $\\mu$ |\n| $(k - \\mu)^2 \\cdot P(X = k)$ | | | | $\\text{Var}(X)$ |\n\nRad 4 kan ikke fylles før Sum-cella i rad 3 er ferdig — $\\mu$ må stå der før avvikene kan regnes.\n\nI hver celle i rad 4 fører vi **to linjer**: først innsettingen, så det utregnede kvadratet. For eksempel, når $\\mu = 4$ og $k = 1$:\n\n$$(1 - 4)^2 \\cdot \\frac{1}{6} \\;=\\; (-3)^2 \\cdot \\frac{1}{6} \\;=\\; \\frac{9}{6}$$\n\nVi lar brøken stå uforkortet, akkurat som i forventningsverdien — den skal summeres."
+    },
+    {
+      "id": "stat-5-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Terningkast",
+      "problem": "La $X$ være antall øyne på en vanlig terning. Finn $\\text{Var}(X)$ og $SD(X)$.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Verdiene 1 til 6, hver med sannsynlighet $\\frac{1}{6}$, og fra eksempel 1 i kapittel 5.2: $\\mu = \\frac{7}{2} = 3{,}5$.\n\n*Hva må vi finne?* Først variansen, så standardavviket.\n\nVi fyller rad 4 i tabellen. Hver celle føres på to linjer — innsetting, så kvadrat:\n\n| $k$ | 1 | 2 | 3 | 4 | 5 | 6 | **Sum** |\n|---|---|---|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | $\\frac{1}{6}$ | 1 |\n| $k \\cdot P$ | $\\frac{1}{6}$ | $\\frac{2}{6}$ | $\\frac{3}{6}$ | $\\frac{4}{6}$ | $\\frac{5}{6}$ | $\\frac{6}{6}$ | $\\frac{21}{6} = 3{,}5$ |\n| $(k - \\mu)^2 \\cdot P$ | $\\frac{25}{24}$ | $\\frac{9}{24}$ | $\\frac{1}{24}$ | $\\frac{1}{24}$ | $\\frac{9}{24}$ | $\\frac{25}{24}$ | $\\frac{70}{24}$ |\n\nSlik ble den første cella til:\n\n$$(1 - 3{,}5)^2 \\cdot \\frac{1}{6} = (-2{,}5)^2 \\cdot \\frac{1}{6} = 6{,}25 \\cdot \\frac{1}{6} = \\frac{25}{4} \\cdot \\frac{1}{6} = \\frac{25}{24}$$\n\nog den andre:\n\n$$(2 - 3{,}5)^2 \\cdot \\frac{1}{6} = (-1{,}5)^2 \\cdot \\frac{1}{6} = 2{,}25 \\cdot \\frac{1}{6} = \\frac{9}{4} \\cdot \\frac{1}{6} = \\frac{9}{24}$$\n\nDe tre siste cellene er speilbilder av de tre første, fordi fordelingen er symmetrisk om 3,5. *(At $(4 - 3{,}5)^2 = (3 - 3{,}5)^2$ føres ikke — vi ser det.)*\n\nFormelen først, så tallrekka:\n\n$$\\text{Var}(X) = \\sum_k (k - \\mu)^2 \\cdot P(X = k) = \\frac{25}{24} + \\frac{9}{24} + \\frac{1}{24} + \\frac{1}{24} + \\frac{9}{24} + \\frac{25}{24}$$\n\n$$= \\frac{25 + 9 + 1 + 1 + 9 + 25}{24} = \\frac{70}{24} = \\frac{35}{12} \\approx 2{,}92$$\n\nStandardavviket er kvadratroten:\n\n$$\\sigma = SD(X) = \\sqrt{\\text{Var}(X)} = \\sqrt{\\frac{35}{12}} \\approx 1{,}71$$\n\n**Svar:** $\\text{Var}(X) = \\frac{35}{12} \\approx 2{,}92$ og $SD(X) \\approx 1{,}71$.\n\n**Tolkning:** Et terningkast bommer typisk på 3,5 med omtrent 1,7 øyne."
+    },
+    {
+      "id": "stat-5-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1 for en åttesidet terning med sidene 1 til 8, alle like sannsynlige. Rund av til to desimaler der det trengs.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\mu = E(X)$.",
+            "solution": "$\\mu = \\frac{1 + 2 + \\cdots + 8}{8} = \\frac{36}{8} = 4{,}5$",
+            "answer": 4.5
+          },
+          {
+            "label": "b",
+            "task": "Regn ut cellen for $k = 1$ i rad 4, med begge linjene.",
+            "solution": "$(1 - 4{,}5)^2 \\cdot \\frac{1}{8} = (-3{,}5)^2 \\cdot \\frac{1}{8} = 12{,}25 \\cdot \\frac{1}{8} = \\frac{12{,}25}{8} = 1{,}53125 \\approx 1{,}53$",
+            "answer": 1.53
+          },
+          {
+            "label": "c",
+            "task": "Finn $\\text{Var}(X)$.",
+            "solution": "$\\text{Var}(X) = \\frac{2 \\cdot (12{,}25 + 6{,}25 + 2{,}25 + 0{,}25)}{8} = \\frac{42}{8} = 5{,}25$",
+            "answer": 5.25
+          },
+          {
+            "label": "d",
+            "task": "Finn $SD(X)$.",
+            "solution": "$\\sigma = \\sqrt{5{,}25} \\approx 2{,}29$",
+            "answer": 2.29
+          },
+          {
+            "label": "e",
+            "task": "Sammenlign med den vanlige terningen ($\\sigma \\approx 1{,}71$). Hvilken av dem har mest spredning, og hvorfor er det rimelig?",
+            "solution": "Den åttesidete, $2{,}29 > 1{,}71$. Den har flere og mer spredte utfall, så et enkelt kast kan ligge lenger fra gjennomsnittet.",
+            "answer": 2.29
+          }
+        ],
+        "hints": [
+          "Fordelingen er symmetrisk om 4,5, så de fire siste cellene i rad 4 er like de fire første."
+        ],
+        "solution": "a) 4,5, b) $\\frac{12{,}25}{8} \\approx 1{,}53$, c) 5,25, d) $\\approx 2{,}29$, e) den åttesidete har størst spredning",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Vekten av en sekk",
+      "problem": "Vi fortsetter med sekkene fra kapittel 5.2: en fjerdedel veier 4 kg, halvparten veier 5 kg og en fjerdedel veier 10 kg. Vi vet at $E(X) = 6$ kg.\n\nFinn $\\text{Var}(X)$ og $SD(X)$.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Verdiene 4, 5 og 10 med sannsynligheter $\\frac{1}{4}$, $\\frac{1}{2}$ og $\\frac{1}{4}$, og $\\mu = 6$ kg.\n\nVi regner hver celle i rad 4 på to linjer:\n\n$$k = 4: \\quad (4 - 6)^2 \\cdot \\frac{1}{4} = (-2)^2 \\cdot \\frac{1}{4} = 4 \\cdot \\frac{1}{4} = 1$$\n\n$$k = 5: \\quad (5 - 6)^2 \\cdot \\frac{1}{2} = (-1)^2 \\cdot \\frac{1}{2} = 1 \\cdot \\frac{1}{2} = 0{,}5$$\n\n$$k = 10: \\quad (10 - 6)^2 \\cdot \\frac{1}{4} = 4^2 \\cdot \\frac{1}{4} = 16 \\cdot \\frac{1}{4} = 4$$\n\nFormelen først, så tallene:\n\n$$\\text{Var}(X) = \\sum_k (k - \\mu)^2 \\cdot P(X = k) = 1 + 0{,}5 + 4 = 5{,}5$$\n\n$$\\sigma = SD(X) = \\sqrt{5{,}5} \\approx 2{,}35$$\n\n**Svar:** $\\text{Var}(X) = 5{,}5$ og $SD(X) \\approx 2{,}35$ kg.\n\n**Tolkning:** En tilfeldig sekk veier 6 kg i gjennomsnitt, og bommer typisk på det med omtrent 2,4 kg. Legg merke til hvem som bidrar mest til variansen: 10 kg-sekken er sjelden ($\\frac{1}{4}$), men ligger så langt unna $\\mu$ at den alene står for 4 av de 5,5. Det er kvadreringen som gjør det — store avvik veier tungt."
+    },
+    {
+      "id": "stat-5-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Vi fortsetter med pakkene fra kapittel 5.2: $P(X = 2) = 0{,}50$, $P(X = 5) = 0{,}30$ og $P(X = 10) = 0{,}20$, med $E(X) = 4{,}50$ kg. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut cellen for $k = 2$.",
+            "solution": "$(2 - 4{,}5)^2 \\cdot 0{,}50 = (-2{,}5)^2 \\cdot 0{,}50 = 6{,}25 \\cdot 0{,}50 = 3{,}125$",
+            "answer": 3.125
+          },
+          {
+            "label": "b",
+            "task": "Regn ut cellen for $k = 5$.",
+            "solution": "$(5 - 4{,}5)^2 \\cdot 0{,}30 = 0{,}5^2 \\cdot 0{,}30 = 0{,}25 \\cdot 0{,}30 = 0{,}075$",
+            "answer": 0.075
+          },
+          {
+            "label": "c",
+            "task": "Regn ut cellen for $k = 10$.",
+            "solution": "$(10 - 4{,}5)^2 \\cdot 0{,}20 = 5{,}5^2 \\cdot 0{,}20 = 30{,}25 \\cdot 0{,}20 = 6{,}05$",
+            "answer": 6.05
+          },
+          {
+            "label": "d",
+            "task": "Finn $\\text{Var}(X)$.",
+            "solution": "$\\text{Var}(X) = 3{,}125 + 0{,}075 + 6{,}05 = 9{,}25$",
+            "answer": 9.25
+          },
+          {
+            "label": "e",
+            "task": "Finn $SD(X)$, og forklar hva tallet betyr i denne sammenhengen.",
+            "solution": "$\\sigma = \\sqrt{9{,}25} \\approx 3{,}04$ kg. En tilfeldig pakke veier 4,50 kg i gjennomsnitt, og avviker typisk fra dette med omtrent 3 kg.",
+            "answer": 3.04
+          }
+        ],
+        "hints": [
+          "Husk at $\\mu$ må være regnet ut før rad 4 kan fylles. Her er den oppgitt."
+        ],
+        "solution": "a) 3,125, b) 0,075, c) 6,05, d) 9,25, e) $\\approx 3{,}04$ kg",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-3-note-alternativ",
+      "type": "note",
+      "title": "Alternativ 2: en regnesnarvei — rask, men mindre synlig",
+      "content": "Det finnes en omskriving av variansformelen som ofte gir mindre regning:\n\n$$\\text{Var}(X) = E(X^2) - \\mu^2$$\n\nHer er $E(X^2) = \\sum_k k^2 \\cdot P(X = k)$ — vi kvadrerer *verdiene*, ikke avvikene.\n\nPå sekkene fra eksempel 2:\n\n$$E(X^2) = 4^2 \\cdot \\frac{1}{4} + 5^2 \\cdot \\frac{1}{2} + 10^2 \\cdot \\frac{1}{4} = 4 + 12{,}5 + 25 = 41{,}5$$\n\n$$\\text{Var}(X) = E(X^2) - \\mu^2 = 41{,}5 - 6^2 = 41{,}5 - 36 = 5{,}5$$\n\nSamme svar, som seg hør og bør.\n\n**Vurdering:** Snarveien er raskere når $\\mu$ er et stygt desimaltall, for da slipper vi å trekke det fra i hver eneste celle. Men den skjuler hva variansen *er* — at den måler avvik fra $\\mu$. Bruk definisjonen når du skal forstå eller forklare, og snarveien når du bare skal komme fram til et tall. Og husk: det er $\\mu^2$ som trekkes fra, ikke $\\mu$."
+    },
+    {
+      "id": "stat-5-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En stokastisk variabel $X$ har fordelingen\n\n| $k$ | 0 | 1 | 4 | 6 |\n|---|---|---|---|---|\n| $P(X = k)$ | 0,30 | 0,40 | 0,10 | 0,20 |\n\nRegn ut variansen på **begge** måter, og sjekk at du får samme svar. Måte 2 er snarveien fra merknaden «Alternativ 2» — en alternativ vei, ikke hovedmetoden.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\mu = E(X)$.",
+            "solution": "$\\mu = 0 \\cdot 0{,}30 + 1 \\cdot 0{,}40 + 4 \\cdot 0{,}10 + 6 \\cdot 0{,}20 = 0 + 0{,}40 + 0{,}40 + 1{,}20 = 2$",
+            "answer": 2
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\text{Var}(X)$ med definisjonen $\\sum (k - \\mu)^2 P(X=k)$.",
+            "solution": "$(0-2)^2 \\cdot 0{,}30 + (1-2)^2 \\cdot 0{,}40 + (4-2)^2 \\cdot 0{,}10 + (6-2)^2 \\cdot 0{,}20 = 1{,}20 + 0{,}40 + 0{,}40 + 3{,}20 = 5{,}20$",
+            "answer": 5.2
+          },
+          {
+            "label": "c",
+            "task": "Finn $E(X^2)$. (alternativ vei, se merknaden)",
+            "solution": "$E(X^2) = 0^2 \\cdot 0{,}30 + 1^2 \\cdot 0{,}40 + 4^2 \\cdot 0{,}10 + 6^2 \\cdot 0{,}20 = 0 + 0{,}40 + 1{,}60 + 7{,}20 = 9{,}20$",
+            "answer": 9.2
+          },
+          {
+            "label": "d",
+            "task": "Kontroller svaret i b) med snarveien $E(X^2) - \\mu^2$. (alternativ vei, se merknaden)",
+            "solution": "$9{,}20 - 2^2 = 9{,}20 - 4 = 5{,}20$. Samme svar som i b).",
+            "answer": 5.2
+          },
+          {
+            "label": "e",
+            "task": "Finn $SD(X)$.",
+            "solution": "$\\sigma = \\sqrt{5{,}20} \\approx 2{,}28$",
+            "answer": 2.28
+          }
+        ],
+        "hints": [
+          "I c) kvadrerer du verdiene $k$, ikke avvikene. Og i d) trekkes $\\mu^2$ fra — ikke $\\mu$."
+        ],
+        "solution": "a) 2, b) 5,20, c) 9,20, d) 5,20, e) $\\approx 2{,}28$",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Buss eller sykkel?",
+      "problem": "Iselin kan velge mellom buss og sykkel til skolen. Hun har målt reisetidene i minutter:\n\n**Buss** ($X$): 20 min med sannsynlighet 0,7 · 25 min med 0,2 · 40 min med 0,1\n\n**Sykkel** ($Y$): 22 min med sannsynlighet 0,5 · 24 min med 0,5\n\na) Finn $E(X)$ og $E(Y)$.\nb) Finn $SD(X)$ og $SD(Y)$.\nc) Hvilket alternativ bør hun velge hvis hun absolutt ikke kan komme for sent?",
+      "solution": "**Løsning:**\n\n**a)** Buss:\n\n$$E(X) = 20 \\cdot 0{,}7 + 25 \\cdot 0{,}2 + 40 \\cdot 0{,}1 = 14 + 5 + 4 = 23$$\n\nSykkel:\n\n$$E(Y) = 22 \\cdot 0{,}5 + 24 \\cdot 0{,}5 = 11 + 12 = 23$$\n\nBegge bruker altså 23 minutter i gjennomsnitt. Forventningsverdien skiller dem ikke.\n\n**b)** Buss, celle for celle:\n\n$$(20 - 23)^2 \\cdot 0{,}7 = (-3)^2 \\cdot 0{,}7 = 9 \\cdot 0{,}7 = 6{,}3$$\n\n$$(25 - 23)^2 \\cdot 0{,}2 = 2^2 \\cdot 0{,}2 = 4 \\cdot 0{,}2 = 0{,}8$$\n\n$$(40 - 23)^2 \\cdot 0{,}1 = 17^2 \\cdot 0{,}1 = 289 \\cdot 0{,}1 = 28{,}9$$\n\n$$\\text{Var}(X) = 6{,}3 + 0{,}8 + 28{,}9 = 36 \\quad \\Rightarrow \\quad SD(X) = \\sqrt{36} = 6$$\n\nSykkel:\n\n$$(22 - 23)^2 \\cdot 0{,}5 = 1 \\cdot 0{,}5 = 0{,}5$$\n\n$$(24 - 23)^2 \\cdot 0{,}5 = 1 \\cdot 0{,}5 = 0{,}5$$\n\n$$\\text{Var}(Y) = 0{,}5 + 0{,}5 = 1 \\quad \\Rightarrow \\quad SD(Y) = \\sqrt{1} = 1$$\n\n**c)** Her ser vi hva standardavviket er godt for. Begge alternativene har $\\mu = 23$ min, men bussen har $\\sigma = 6$ min mot sykkelens $\\sigma = 1$ min. Bussen er som regel litt raskere enn sykkelen (20 min i 70 % av tilfellene), men i 10 % av tilfellene tar den 40 minutter — og det er den halen som gjør den upålitelig.\n\nKan hun ikke risikere å komme for sent, bør hun sykle: reisetiden er så å si alltid 22–24 minutter.\n\n![Et søylediagram med en felles vannrett akse merket minutter, fra 14 til 42. Tre blå søyler hører til bussen: over 20 med høyden 0,7, over 25 med høyden 0,2 og over 40 med høyden 0,1. To oransje søyler hører til sykkelen: over 22 og over 24, begge med høyden 0,5. En grå stiplet loddrett strek står i 23 med teksten μ er lik 23 for begge. Den blå søyla ute ved 40 minutter står helt for seg selv, langt fra alle de andre.](/images/content/statistikk/stat-5-3-buss-mot-sykkel.png)\n\n*Begge har $\\mu = 23$ minutter, men bussen har en hale ut til 40. Det er den ene søyla langt til høyre som gjør variansen stor — og den er hele svaret på hvorfor sykkelen er den tryggere av de to, selv om de bruker like lang tid i gjennomsnitt.*\n\n**Svar:** a) Begge har $E = 23$ min. b) $SD(X) = 6$ min, $SD(Y) = 1$ min. c) Sykkelen — samme forventede tid, langt mindre uvisse."
+    },
+    {
+      "id": "stat-5-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "To spill har samme innsats. I **spill A** vinner du 0 kr eller 100 kr, med sannsynlighet 0,5 på hver. I **spill B** vinner du 40 kr eller 60 kr, med sannsynlighet 0,5 på hver.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn forventet gevinst i spill A.",
+            "solution": "$E(A) = 0 \\cdot 0{,}5 + 100 \\cdot 0{,}5 = 50$ kr",
+            "answer": 50
+          },
+          {
+            "label": "b",
+            "task": "Finn forventet gevinst i spill B.",
+            "solution": "$E(B) = 40 \\cdot 0{,}5 + 60 \\cdot 0{,}5 = 20 + 30 = 50$ kr",
+            "answer": 50
+          },
+          {
+            "label": "c",
+            "task": "Finn $SD$ for spill A.",
+            "solution": "$\\text{Var}(A) = (0-50)^2 \\cdot 0{,}5 + (100-50)^2 \\cdot 0{,}5 = 1250 + 1250 = 2500$, så $SD(A) = 50$ kr.",
+            "answer": 50
+          },
+          {
+            "label": "d",
+            "task": "Finn $SD$ for spill B.",
+            "solution": "$\\text{Var}(B) = (40-50)^2 \\cdot 0{,}5 + (60-50)^2 \\cdot 0{,}5 = 50 + 50 = 100$, så $SD(B) = 10$ kr.",
+            "answer": 10
+          },
+          {
+            "label": "e",
+            "task": "Du får spille bare én gang og trenger minst 40 kr. Hvilket spill velger du? Begrunn med tallene.",
+            "solution": "Spill B. Der er gevinsten garantert minst 40 kr. I spill A er sannsynligheten 0,5 for å få 0 kr. Forventningsverdien er lik i begge (50 kr), så valget må tas på spredningen: $SD(A) = 50$ kr mot $SD(B) = 10$ kr.",
+            "answer": 10
+          }
+        ],
+        "hints": [
+          "Regn ut $\\mu$ først for begge spillene. Når de er like, er det spredningen som avgjør."
+        ],
+        "solution": "a) 50 kr, b) 50 kr, c) 50 kr, d) 10 kr, e) spill B — samme forventning, mye mindre risiko",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-3-theorem-linear",
+      "type": "theorem",
+      "title": "Varians av $aX + b$",
+      "content": "For alle tall $a$ og $b$ gjelder\n\n$$\\text{Var}(aX + b) = a^2 \\cdot \\text{Var}(X)$$\n\n$$SD(aX + b) = |a| \\cdot SD(X)$$\n\nLegg merke til at $b$ **forsvinner**. Legger vi det samme tallet til alle utfallene, flyttes hele fordelingen sidelengs — men avstandene mellom verdiene, og dermed spredningen, er uendret.\n\nFaktoren $a$ derimot strekker fordelingen. Standardavviket ganges med $|a|$, og variansen med $a^2$ fordi variansen er en kvadrert størrelse."
+    },
+    {
+      "id": "stat-5-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Fra bestillinger til kroner",
+      "problem": "En kafé har $X$ bestillinger i timen, med $E(X) = 12$ og $\\text{Var}(X) = 5{,}2$. Hver bestilling gir 85 kr, og kaféen har faste kostnader på 450 kr i timen. Overskuddet er $Z = 85X - 450$.\n\nFinn $E(Z)$, $\\text{Var}(Z)$ og $SD(Z)$.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $E(X) = 12$, $\\text{Var}(X) = 5{,}2$, og $Z = 85X - 450$, altså $a = 85$ og $b = -450$.\n\n**Forventningsverdien** følger regelen fra kapittel 5.2:\n\n$$E(Z) = 85 \\cdot E(X) - 450 = 85 \\cdot 12 - 450 = 1020 - 450 = 570$$\n\n**Variansen** følger regelen over. De faste kostnadene faller ut:\n\n$$\\text{Var}(Z) = 85^2 \\cdot \\text{Var}(X) = 7225 \\cdot 5{,}2 = 37\\,570$$\n\n**Standardavviket:**\n\n$$SD(Z) = |85| \\cdot SD(X) = 85 \\cdot \\sqrt{5{,}2} \\approx 85 \\cdot 2{,}280 \\approx 193{,}8$$\n\n*(Vi kunne like godt tatt $\\sqrt{37\\,570} \\approx 193{,}8$ — samme tall, som seg hør og bør.)*\n\n**Svar:** $E(Z) = 570$ kr, $\\text{Var}(Z) = 37\\,570$ og $SD(Z) \\approx 194$ kr.\n\n**Tolkning:** Kaféen tjener 570 kr i en gjennomsnittstime, men enkelttimer svinger med omtrent $\\pm 190$ kr rundt dette. Legg merke til at de faste kostnadene på 450 kr *senker* forventet overskudd, men ikke gjør det mer uforutsigbart — de er de samme hver time."
+    },
+    {
+      "id": "stat-5-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "La $X$ være antall øyne på en vanlig terning, med $\\mu = 3{,}5$ og $\\text{Var}(X) = \\frac{35}{12} \\approx 2{,}9167$. Rund av til to desimaler der det trengs.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "La $Y = X + 5$. Finn $E(Y)$ og $\\text{Var}(Y)$.",
+            "solution": "$E(Y) = 3{,}5 + 5 = 8{,}5$ og $\\text{Var}(Y) = 1^2 \\cdot \\frac{35}{12} = \\frac{35}{12} \\approx 2{,}92$ — uendret.",
+            "answer": 8.5
+          },
+          {
+            "label": "b",
+            "task": "Forklar hvorfor variansen i a) ikke endret seg.",
+            "solution": "Å legge 5 til alle utfallene flytter hele fordelingen 5 mot høyre. Avstandene mellom verdiene, og dermed avvikene fra $\\mu$, er nøyaktig de samme."
+          },
+          {
+            "label": "c",
+            "task": "La $W = 10X$. Finn $E(W)$, $\\text{Var}(W)$ og $SD(W)$.",
+            "solution": "$E(W) = 10 \\cdot 3{,}5 = 35$, $\\text{Var}(W) = 10^2 \\cdot \\frac{35}{12} = \\frac{3500}{12} \\approx 291{,}67$, $SD(W) = 10 \\cdot \\sqrt{\\frac{35}{12}} \\approx 17{,}08$.",
+            "answer": 35
+          },
+          {
+            "label": "d",
+            "task": "I et spill får du $10X$ kroner utbetalt og betaler 40 kr i innsats. Finn forventet nettogevinst og standardavviket til nettogevinsten.",
+            "solution": "Netto er $10X - 40$. $E = 35 - 40 = -5$ kr. $SD = 10 \\cdot \\sqrt{\\frac{35}{12}} \\approx 17{,}08$ kr — innsatsen påvirker ikke spredningen.",
+            "answer": -5
+          },
+          {
+            "label": "e",
+            "task": "Hvilken innsats ville gjort spillet rettferdig? Endrer det standardavviket?",
+            "solution": "35 kr, for da er forventet netto $35 - 35 = 0$ kr. Standardavviket er fortsatt $\\approx 17{,}08$ kr — et rettferdig spill er ikke et risikofritt spill.",
+            "answer": 35
+          }
+        ],
+        "hints": [
+          "$\\text{Var}(aX + b) = a^2 \\cdot \\text{Var}(X)$ — konstantleddet $b$ faller alltid ut."
+        ],
+        "solution": "a) $E(Y) = 8{,}5$, $\\text{Var}(Y) \\approx 2{,}92$, b) fordelingen flyttes, ikke strekkes, c) 35, $\\approx 291{,}67$, $\\approx 17{,}08$, d) $-5$ kr og $\\approx 17{,}08$ kr, e) 35 kr, standardavviket er uendret",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-3-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Variansen** $\\text{Var}(X) = \\sum_k (k - \\mu)^2 \\cdot P(X = k)$ er det vektede gjennomsnittet av de **kvadrerte** avvikene fra $\\mu$. Vi kvadrerer fordi de ukvadrerte avvikene alltid summerer til 0.\n- **Standardavviket** $\\sigma = SD(X) = \\sqrt{\\text{Var}(X)}$ har samme **enhet** som $X$, og er derfor det tallet vi tolker: omtrent hvor langt fra $\\mu$ en tilfeldig verdi pleier å ligge.\n- Vi regner $\\mu$ og $\\text{Var}(X)$ i **samme tabell**. Rad 4 kan ikke fylles før $\\mu$ står i Sum-cella i rad 3. Hver celle føres på to linjer: innsetting, så kvadrat.\n- Snarveien $\\text{Var}(X) = E(X^2) - \\mu^2$ gir samme svar og sparer regning — men skjuler hva variansen måler.\n- $\\text{Var}(aX + b) = a^2 \\cdot \\text{Var}(X)$ og $SD(aX + b) = |a| \\cdot SD(X)$. Konstantleddet $b$ faller ut.\n- To fordelinger kan ha **samme $\\mu$ og helt ulik $\\sigma$**. Da er det $\\sigma$ som avgjør valget.\n\nI kapittel 5.4 møter vi den viktigste diskrete fordelingen av alle — den binomiske — og der finnes det ferdige formler for både $\\mu$ og $\\sigma$."
+    },
+    {
+      "id": "stat-5-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** La $X$ være antall personer i en tilfeldig valgt norsk husholdning. En forenklet fordeling er:\n\n| $k$ | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|\n| $P(X = k)$ | 0,40 | 0,28 | 0,13 | 0,12 | 0,05 | 0,02 |\n\nSett opp hele utregningen i et regneark, med én kolonne per rad i tabellen vår. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Kontroller at sannsynlighetene summerer til 1, og finn $E(X)$ med `=SUMMERPRODUKT(A2:A7;B2:B7)`.",
+            "solution": "Sum: $0{,}40 + 0{,}28 + 0{,}13 + 0{,}12 + 0{,}05 + 0{,}02 = 1{,}00$. $E(X) = 0{,}40 + 0{,}56 + 0{,}39 + 0{,}48 + 0{,}25 + 0{,}12 = 2{,}20$ personer.",
+            "answer": 2.2
+          },
+          {
+            "label": "b",
+            "task": "Lag en kolonne med $(k - \\mu)^2 \\cdot P(X = k)$ — bruk absolutt referanse til $\\mu$-cella, for eksempel `=(A2-$E$1)^2*B2`. Finn $\\text{Var}(X)$.",
+            "solution": "$\\text{Var}(X) = 0{,}576 + 0{,}0112 + 0{,}0832 + 0{,}3888 + 0{,}392 + 0{,}2888 = 1{,}74$",
+            "answer": 1.74
+          },
+          {
+            "label": "c",
+            "task": "Finn $SD(X)$.",
+            "solution": "$\\sigma = \\sqrt{1{,}74} \\approx 1{,}32$ personer",
+            "answer": 1.32
+          },
+          {
+            "label": "d",
+            "task": "Kontroller svaret i b) med snarveien $E(X^2) - \\mu^2$ i en egen kolonne. (alternativ vei, se merknaden)",
+            "solution": "$E(X^2) = 1 \\cdot 0{,}40 + 4 \\cdot 0{,}28 + 9 \\cdot 0{,}13 + 16 \\cdot 0{,}12 + 25 \\cdot 0{,}05 + 36 \\cdot 0{,}02 = 6{,}58$. Da er $6{,}58 - 2{,}20^2 = 6{,}58 - 4{,}84 = 1{,}74$. Samme svar.",
+            "answer": 6.58
+          },
+          {
+            "label": "e",
+            "task": "En kommune har 12 000 husholdninger. Omtrent hvor mange innbyggere bor i dem? Hvorfor er dette anslaget mye sikrere enn anslaget for én enkelt husholdning?",
+            "solution": "$12\\,000 \\cdot 2{,}20 = 26\\,400$ innbyggere. For én husholdning er uvissheten stor ($\\sigma \\approx 1{,}3$ av et snitt på 2,2). Over 12 000 husholdninger jevner de tilfeldige avvikene hverandre ut — noen er større, noen mindre — så summen treffer nær forventningen. Dette er den samme ideen vi tar opp igjen i kapittel 5.7.",
+            "answer": 26400
+          }
+        ],
+        "hints": [
+          "Regn ut $\\mu$ i en egen celle først, og pek på den med absolutt referanse i kolonnen for rad 4."
+        ],
+        "solution": "a) sum 1,00 og $E(X) = 2{,}20$, b) 1,74, c) $\\approx 1{,}32$, d) $E(X^2) = 6{,}58$ og $6{,}58 - 4{,}84 = 1{,}74$, e) ca. 26 400 innbyggere",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-3-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-3-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under, og finn feilen der det er en.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Variansen kan bli negativ hvis mange verdier ligger under $\\mu$.»",
+            "solution": "Gal. Hvert ledd $(k - \\mu)^2 \\cdot P(X=k)$ er et kvadrat ganget med en sannsynlighet, altså aldri negativt. Variansen er derfor alltid $\\ge 0$."
+          },
+          {
+            "label": "b",
+            "task": "Når er $\\text{Var}(X) = 0$?",
+            "solution": "Bare når alle leddene er 0, det vil si når $X$ tar én eneste verdi med sannsynlighet 1. Da er $X$ ikke lenger tilfeldig — den er en konstant.",
+            "answer": 0
+          },
+          {
+            "label": "c",
+            "task": "En elev regner ut $\\text{Var}(X) = E(X^2) - \\mu$ og får et negativt tall. Hva er feilen? (alternativ vei, se merknaden)",
+            "solution": "Det er $\\mu^2$ som skal trekkes fra, ikke $\\mu$. Riktig formel er $\\text{Var}(X) = E(X^2) - \\mu^2$."
+          },
+          {
+            "label": "d",
+            "task": "«To fordelinger med samme standardavvik er like risikable.» Drøft, og bruk gjerne et eksempel der den ene har $\\mu = 10$ og den andre $\\mu = 1000$.",
+            "solution": "Ikke nødvendigvis. Et standardavvik på 5 er dramatisk når $\\mu = 10$, men nesten ingenting når $\\mu = 1000$. Spredningen bør vurderes i forhold til nivået — det er derfor man ofte sammenligner $\\frac{\\sigma}{\\mu}$ i stedet for $\\sigma$ alene."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor oppgir vi som regel standardavviket og ikke variansen når vi skal fortelle noen hvor spredt en variabel er?",
+            "solution": "Fordi standardavviket har samme enhet som variabelen selv. Om vekten av en sekk har $\\text{Var} = 5{,}5 \\text{ kg}^2$, sier det lite, mens $\\sigma \\approx 2{,}35$ kg kan sammenlignes direkte med vektene."
+          }
+        ],
+        "hints": [
+          "Gå tilbake til definisjonen. Hvert ledd er et kvadrat ganget med et positivt tall."
+        ],
+        "solution": "a) Gal — variansen er aldri negativ. b) Bare når $X$ er konstant. c) Skal være $-\\mu^2$. d) Nei — spredning må vurderes mot nivået. e) Fordi $\\sigma$ har samme enhet som $X$.",
+        "competenceGoals": [
+          "rekne ut og tolke forventningsverdi, varians og standardavvik for stokastiske variablar og bruke desse storleikane til å beskrive uvisse og variasjon"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Varians",
+      "definition": "$\\text{Var}(X) = \\sum_k (k - \\mu)^2 \\cdot P(X = k)$ — det vektede gjennomsnittet av de kvadrerte avvikene fra forventningsverdien. Den er aldri negativ."
+    },
+    {
+      "term": "Standardavvik",
+      "definition": "$\\sigma = SD(X) = \\sqrt{\\text{Var}(X)}$ — spredningen målt i samme enhet som variabelen selv. Sier omtrent hvor langt fra $\\mu$ en tilfeldig verdi pleier å ligge."
+    },
+    {
+      "term": "Avvik",
+      "definition": "Forskjellen $k - \\mu$ mellom en verdi og forventningsverdien. Summen av de vektede avvikene er alltid 0 — derfor kvadrerer vi dem før vi summerer."
+    },
+    {
+      "term": "σ (sigma)",
+      "definition": "Den greske bokstaven vi bruker som navn på standardavviket til en stokastisk variabel eller en modell."
+    }
+  ]
+}

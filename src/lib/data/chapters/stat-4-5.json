@@ -1,0 +1,496 @@
+{
+  "id": "stat-4-5",
+  "courseId": "statistikk",
+  "chapterNumber": "4.5",
+  "title": "Betinget sannsynlighet og loven om total sannsynlighet",
+  "description": "P(A|B), produktsetningen, uavhengighet og loven om total sannsynlighet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+  ],
+  "keyTerms": [
+    {
+      "term": "Betinget sannsynlighet",
+      "definition": "$P(A \\mid B)$ er sannsynligheten for $A$ når vi allerede vet at $B$ har skjedd. Leses «sannsynligheten for A gitt B»."
+    },
+    {
+      "term": "Produktsetningen",
+      "definition": "$P(A \\cap B) = P(B) \\cdot P(A \\mid B)$. Sannsynligheten for at begge skjer, er sannsynligheten for den første ganget med sannsynligheten for den andre gitt den første."
+    },
+    {
+      "term": "Uavhengige hendelser",
+      "definition": "$A$ og $B$ er uavhengige når $P(A \\mid B) = P(A)$ — det å vite at $B$ skjedde, endrer ikke sannsynligheten for $A$. Da er også $P(A \\cap B) = P(A) \\cdot P(B)$."
+    },
+    {
+      "term": "Loven om total sannsynlighet",
+      "definition": "Deler vi utfallsrommet i disjunkte deler $B_1, B_2, \\ldots$, er $P(A) = P(B_1) \\cdot P(A \\mid B_1) + P(B_2) \\cdot P(A \\mid B_2) + \\ldots$"
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-5-section-intro",
+      "type": "text",
+      "content": "# Når vi vet noe på forhånd\n\nDu kaster en terning under et beger. Sannsynligheten for sekser er $\\frac{1}{6}$. Så løfter jeg begeret litt og sier: «det er et partall». Hva er sannsynligheten for sekser nå?\n\nDen har endret seg. Bare tre utfall er igjen — 2, 4 og 6 — og ett av dem er sekser. Sannsynligheten er $\\frac{1}{3}$.\n\nTerningen er den samme. Utfallet er det samme. Det eneste som er endret, er **hva vi vet** — og dermed hvilken grunnmengde vi regner i. Hele forskjellen ligger i nevneren.\n\nDette kalles **betinget sannsynlighet**, og det er kanskje det viktigste begrepet i hele sannsynlighetsregningen."
+    },
+    {
+      "id": "stat-4-5-def-betinget",
+      "type": "definition",
+      "title": "Betinget sannsynlighet",
+      "content": "Sannsynligheten for $A$ **gitt** $B$ skrives $P(A \\mid B)$ og er definert ved\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} \\qquad \\text{når } P(B) > 0$$\n\nDen loddrette streken leses «gitt».\n\nLegg merke til hva formelen gjør: den bytter ut grunnmengden. Vi regner ikke lenger i hele $S$, men bare innenfor $B$. Over brøkstreken står den delen av $B$ som også er $A$; under brøkstreken står hele $B$."
+    },
+    {
+      "id": "stat-4-5-note-nevneren",
+      "type": "note",
+      "title": "Hele forskjellen ligger i nevneren",
+      "content": "$P(A \\cap B)$ og $P(A \\mid B)$ har **samme teller**. Det eneste som skiller dem, er hva som står under brøkstreken:\n\n- $P(A \\cap B)$ deler på hele $S$ — «hvor stor del av alle er både A og B?»\n- $P(A \\mid B)$ deler på $B$ — «hvor stor del av B-ene er også A?»\n\nBlir du i tvil om hvilken av dem en oppgave spør etter, still spørsmålet i den formen: *av hvem?*"
+    },
+    {
+      "id": "stat-4-5-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "Vi kaster én terning. La $A$ = «terningen viser sekser» og $B$ = «terningen viser et partall».\n\na) Bestem $P(A)$ og $P(B)$.\nb) Bestem $P(A \\mid B)$.\nc) Bestem $P(B \\mid A)$.\nd) Forklar hvorfor svarene i b) og c) er forskjellige.",
+      "solution": "**Løsning:**\n\na) Utfallsrommet er $S = \\{1, 2, 3, 4, 5, 6\\}$, og modellen er uniform.\n\n$$P(A) = \\frac{1}{6} \\qquad P(B) = \\frac{3}{6} = \\frac{1}{2}$$\n\nVi trenger også snittet. En sekser *er* et partall, så $A \\cap B = \\{6\\}$:\n\n$$P(A \\cap B) = \\frac{1}{6}$$\n\nb) Vi skriver formelen tom først:\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$$\n\n$$P(A \\mid B) = \\frac{\\frac{1}{6}}{\\frac{1}{2}}$$\n\nBrøk delt på brøk: vi ganger med den omvendte av nevneren.\n\n$$= \\frac{1}{6} \\cdot \\frac{2}{1} = \\frac{2}{6} = \\frac{1}{3}$$\n\nDette stemmer med opptellingen i innledningen: av de tre partallene er ett en sekser.\n\nc) Nå betinger vi den andre veien. Grunnmengden blir $A$, som bare har ett utfall.\n\n$$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{\\frac{1}{6}}{\\frac{1}{6}} = 1$$\n\nd) Telleren er den samme i begge — $\\frac{1}{6}$. Det er **nevneren** som er ulik, og den sier hvilken gruppe vi regner innenfor.\n\n- I b) spør vi: *av partallene*, hvor stor del er seksere? Svar: én av tre.\n- I c) spør vi: *av seksere*, hvor stor del er partall? Svar: alle. En sekser er alltid et partall, så svaret må bli 1.\n\n$$P(A \\mid B) \\neq P(B \\mid A)$$\n\nÅ bytte om på disse to er en klassisk felle. Vi kommer tilbake til den i oppgave 7.\n\n**Svar:** a) $P(A) = \\frac{1}{6}$, $P(B) = \\frac{1}{2}$. b) $\\frac{1}{3}$. c) $1$. d) Fordi nevneren — grunnmengden — er forskjellig."
+    },
+    {
+      "id": "stat-4-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 1. Vi trekker ett kort fra en kortstokk med 52 kort. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at kortet er et ess, gitt at det er hjerter.",
+            "solution": "$\\frac{1/52}{13/52} = \\frac{1}{13}$ — ett ess blant de 13 hjerterkortene.",
+            "expressionAnswer": "1/13"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at kortet er hjerter, gitt at det er et ess.",
+            "solution": "$\\frac{1/52}{4/52} = \\frac{1}{4}$ — ett hjerterkort blant de 4 essene.",
+            "expressionAnswer": "1/4"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at kortet er et bildekort, gitt at det er hjerter.",
+            "solution": "$\\frac{3/52}{13/52} = \\frac{3}{13}$",
+            "expressionAnswer": "3/13"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at kortet er rødt, gitt at det er hjerter.",
+            "solution": "$\\frac{13/52}{13/52} = 1$ — alle hjerterkort er røde.",
+            "expressionAnswer": "1"
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at kortet er hjerter, gitt at det er rødt.",
+            "solution": "$\\frac{13/52}{26/52} = \\frac{1}{2}$ — 13 av de 26 røde kortene er hjerter.",
+            "expressionAnswer": "1/2"
+          }
+        ],
+        "hints": [
+          "Spør deg: av hvem? Det svaret er nevneren.",
+          "Sammenlign d) og e): samme teller, ulik nevner, helt ulikt svar."
+        ],
+        "solution": "a) $\\frac{1}{13}$, b) $\\frac{1}{4}$, c) $\\frac{3}{13}$, d) $1$, e) $\\frac{1}{2}$",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-5-theorem-produkt",
+      "type": "theorem",
+      "title": "Produktsetningen",
+      "content": "Ganger vi begge sider av definisjonen med $P(B)$, får vi\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B)$$\n\nLest i klartekst: sannsynligheten for at **begge** skjer, er sannsynligheten for den første ganget med sannsynligheten for den andre **gitt** den første.\n\nDet er denne setningen som gjør at vi kan gange oss nedover grenene i et sannsynlighetstre.",
+      "proof": "Definisjonen sier $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Vi ganger med $P(B)$ på begge sider:\n\n$$P(B) \\cdot P(A \\mid B) = P(B) \\cdot \\frac{P(A \\cap B)}{P(B)} = P(A \\cap B)$$"
+    },
+    {
+      "id": "stat-4-5-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "Vi trekker to kort etter hverandre fra en kortstokk med 52 kort, uten å legge det første tilbake.\n\na) Bestem sannsynligheten for at begge kortene er hjerter.\nb) Bestem sannsynligheten for at begge kortene er ess.",
+      "solution": "**Løsning:**\n\na) Hva vet vi? Kortstokken har 13 hjerterkort av 52. Hva må vi finne? Sannsynligheten for at begge trekk gir hjerter.\n\nLa $H_1$ = «første kort er hjerter» og $H_2$ = «andre kort er hjerter». Vi bruker produktsetningen, formelen tom først:\n\n$$P(H_1 \\cap H_2) = P(H_1) \\cdot P(H_2 \\mid H_1)$$\n\nFørste faktor er lett: 13 av 52 kort er hjerter.\n\n$$P(H_1) = \\frac{13}{52}$$\n\nAndre faktor er den betingede. **Gitt** at det første kortet var hjerter, ligger det nå 51 kort igjen, og 12 av dem er hjerter:\n\n$$P(H_2 \\mid H_1) = \\frac{12}{51}$$\n\nVi setter inn:\n\n$$P(H_1 \\cap H_2) = \\frac{13}{52} \\cdot \\frac{12}{51} = \\frac{156}{2652}$$\n\nVi forkorter til slutt. Både $156$ og $2652$ er delelige med $156$:\n\n$$\\frac{156}{2652} = \\frac{1}{17} \\approx 0{,}059$$\n\nb) Samme framgangsmåte, men nå med 4 ess av 52, og 3 ess av 51 igjen etterpå:\n\n$$P = \\frac{4}{52} \\cdot \\frac{3}{51} = \\frac{12}{2652} = \\frac{1}{221} \\approx 0{,}0045$$\n\n**Svar:** a) $\\frac{1}{17} \\approx 0{,}059$, altså rundt 6 %. b) $\\frac{1}{221} \\approx 0{,}0045$, altså under en halv prosent."
+    },
+    {
+      "id": "stat-4-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk produktsetningen. I en eske ligger 7 blå og 5 hvite brikker. Vi trekker to brikker etter hverandre uten å legge tilbake. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at begge er blå.",
+            "solution": "$\\frac{7}{12} \\cdot \\frac{6}{11} = \\frac{42}{132} = \\frac{7}{22}$",
+            "expressionAnswer": "7/22"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at begge er hvite.",
+            "solution": "$\\frac{5}{12} \\cdot \\frac{4}{11} = \\frac{20}{132} = \\frac{5}{33}$",
+            "expressionAnswer": "5/33"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at den første er blå og den andre hvit.",
+            "solution": "$\\frac{7}{12} \\cdot \\frac{5}{11} = \\frac{35}{132}$",
+            "expressionAnswer": "35/132"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at den første er hvit og den andre blå.",
+            "solution": "$\\frac{5}{12} \\cdot \\frac{7}{11} = \\frac{35}{132}$ — like stor som i c).",
+            "expressionAnswer": "35/132"
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at brikkene har ulik farge.",
+            "solution": "$\\frac{35}{132} + \\frac{35}{132} = \\frac{70}{132} = \\frac{35}{66}$",
+            "expressionAnswer": "35/66"
+          }
+        ],
+        "hints": [
+          "Etter første trekning er det 11 brikker igjen, og antallet av den fargen du trakk, er redusert med én.",
+          "I e): de to rekkefølgene i c) og d) er disjunkte, så de kan legges sammen."
+        ],
+        "solution": "a) $\\frac{7}{22}$, b) $\\frac{5}{33}$, c) $\\frac{35}{132}$, d) $\\frac{35}{132}$, e) $\\frac{35}{66}$",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-5-def-uavhengig",
+      "type": "definition",
+      "title": "Uavhengige hendelser",
+      "content": "$A$ og $B$ er **uavhengige** dersom det å vite at $B$ har skjedd, ikke endrer sannsynligheten for $A$:\n\n$$P(A \\mid B) = P(A)$$\n\nSetter vi dette inn i produktsetningen, får vi den formen som er lettest å regne med:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nDenne likheten er både en definisjon og en **test**: stemmer den, er hendelsene uavhengige. Stemmer den ikke, er de avhengige."
+    },
+    {
+      "id": "stat-4-5-warning-uavhengig",
+      "type": "warning",
+      "title": "Uavhengig er ikke det samme som disjunkt",
+      "content": "Disjunkte hendelser med positiv sannsynlighet er alltid **avhengige**. Vet du at $A$ skjedde, vet du nemlig at $B$ *ikke* skjedde — det er en svært sterk opplysning.\n\n- Disjunkt: $P(A \\cap B) = 0$\n- Uavhengig: $P(A \\cap B) = P(A) \\cdot P(B)$\n\nDisse to kan bare være sanne samtidig hvis en av sannsynlighetene er $0$. Og uavhengighet er noe du må **regne på** eller begrunne fra forsøket — ikke noe du antar fordi det føles selvsagt."
+    },
+    {
+      "id": "stat-4-5-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "Vi kaster to terninger. La $A$ = «den første terningen viser sekser».\n\na) Undersøk om $A$ er uavhengig av $B$ = «summen er 7».\nb) Undersøk om $A$ er uavhengig av $C$ = «summen er 8».",
+      "solution": "**Løsning:**\n\nVi bruker testen $P(A \\cap X) = P(A) \\cdot P(X)$ og regner begge sidene hver for seg. Grunnmengden er de 36 tallparene.\n\n$$P(A) = \\frac{6}{36} = \\frac{1}{6}$$\n\na) Summen 7 kommer av parene $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ — 6 stykker.\n\n$$P(B) = \\frac{6}{36} = \\frac{1}{6}$$\n\nSnittet er de parene som både har sekser først og sum 7. Det er bare $(6,1)$:\n\n$$P(A \\cap B) = \\frac{1}{36}$$\n\nVi sammenligner med produktet:\n\n$$P(A) \\cdot P(B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$$\n\nDe to sidene er like, så $A$ og $B$ er **uavhengige**.\n\nDette er verdt å stoppe ved. Summen 7 sier ingenting om den første terningen — uansett hva den viser, finnes det nøyaktig én verdi på den andre som gir sum 7. Derfor forsvinner opplysningen.\n\nb) Summen 8 kommer av $(2,6), (3,5), (4,4), (5,3), (6,2)$ — 5 stykker.\n\n$$P(C) = \\frac{5}{36}$$\n\nSnittet er $(6,2)$, altså ett par:\n\n$$P(A \\cap C) = \\frac{1}{36}$$\n\n$$P(A) \\cdot P(C) = \\frac{1}{6} \\cdot \\frac{5}{36} = \\frac{5}{216}$$\n\nEr $\\frac{1}{36}$ og $\\frac{5}{216}$ like? Vi utvider den første med 6:\n\n$$\\frac{1}{36} = \\frac{6}{216} \\neq \\frac{5}{216}$$\n\nDe er ikke like, så $A$ og $C$ er **avhengige**. Her hjelper det å vite noe: en ener på den første terningen gjør sum 8 umulig, mens en sekser gjør den mulig.\n\n**Svar:** a) Uavhengige. b) Avhengige."
+    },
+    {
+      "id": "stat-4-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Bruk testen $P(A \\cap B) = P(A) \\cdot P(B)$. Svar «uavhengige» eller «avhengige».",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$P(A) = 0{,}4$, $P(B) = 0{,}5$, $P(A \\cap B) = 0{,}2$.",
+            "solution": "$0{,}4 \\cdot 0{,}5 = 0{,}2$. Like, altså uavhengige.",
+            "multipleChoiceOptions": [
+              "uavhengige",
+              "avhengige"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "$P(A) = 0{,}3$, $P(B) = 0{,}6$, $P(A \\cap B) = 0{,}25$.",
+            "solution": "$0{,}3 \\cdot 0{,}6 = 0{,}18 \\neq 0{,}25$. Avhengige.",
+            "multipleChoiceOptions": [
+              "avhengige",
+              "uavhengige"
+            ]
+          },
+          {
+            "label": "c",
+            "task": "$P(A) = 0{,}5$, $P(B) = 0{,}2$ og hendelsene er disjunkte.",
+            "solution": "Disjunkte gir $P(A \\cap B) = 0$, mens $0{,}5 \\cdot 0{,}2 = 0{,}1$. Avhengige.",
+            "multipleChoiceOptions": [
+              "avhengige",
+              "uavhengige"
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Vi kaster to pengestykker. $A$ = «det første viser kron», $B$ = «det andre viser kron».",
+            "solution": "$P(A) = P(B) = \\frac{1}{2}$ og $P(A \\cap B) = \\frac{1}{4} = \\frac{1}{2} \\cdot \\frac{1}{2}$. Uavhengige.",
+            "multipleChoiceOptions": [
+              "uavhengige",
+              "avhengige"
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Vi trekker to kort uten tilbakelegging. $A$ = «første er hjerter», $B$ = «andre er hjerter».",
+            "solution": "$P(B \\mid A) = \\frac{12}{51} \\neq \\frac{13}{52} = P(B)$. Avhengige — den første trekningen endrer stokken.",
+            "multipleChoiceOptions": [
+              "avhengige",
+              "uavhengige"
+            ]
+          }
+        ],
+        "hints": [
+          "Regn ut begge sider av likheten hver for seg og sammenlign.",
+          "Trekking uten tilbakelegging gir nesten alltid avhengighet."
+        ],
+        "solution": "a) uavhengige, b) avhengige, c) avhengige, d) uavhengige, e) avhengige",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-5-theorem-total",
+      "type": "theorem",
+      "title": "Loven om total sannsynlighet",
+      "content": "La $B_1, B_2, \\ldots, B_n$ være disjunkte hendelser som til sammen dekker hele utfallsrommet (en **oppdeling** av $S$). For enhver hendelse $A$ gjelder da\n\n$$P(A) = P(B_1) \\cdot P(A \\mid B_1) + P(B_2) \\cdot P(A \\mid B_2) + \\ldots + P(B_n) \\cdot P(A \\mid B_n)$$\n\nMed bare to deler, $B$ og $B'$, blir det\n\n$$P(A) = P(B) \\cdot P(A \\mid B) + P(B') \\cdot P(A \\mid B')$$\n\nTanken bak: vi deler problemet i tilfeller vi kjenner, regner sannsynligheten innenfor hvert tilfelle, og **vekter** hver av dem med hvor ofte tilfellet forekommer.",
+      "proof": "Delene $B_1, \\ldots, B_n$ dekker hele $S$ og overlapper ikke. Da deler de også $A$ i de disjunkte bitene $A \\cap B_1$, $A \\cap B_2$, …, $A \\cap B_n$. Addisjonssetningen for disjunkte hendelser gir\n\n$$P(A) = P(A \\cap B_1) + P(A \\cap B_2) + \\ldots + P(A \\cap B_n)$$\n\nProduktsetningen skriver hvert ledd som $P(B_i) \\cdot P(A \\mid B_i)$, og setningen følger."
+    },
+    {
+      "id": "stat-4-5-fig-tre",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-5-tre-leverandorer.png",
+      "alt": "Et sannsynlighetstre som vokser mot høyre. Fra startpunktet går to grener: en øvre merket A: 3/5 til noden for leverandør A og en nedre merket B: 2/5 til noden for leverandør B. Fra A-noden går to grener: en øvre merket D: 1/50 som ender i punktet AD med verdien 3/250, og en nedre merket H: 49/50 som ender i punktet AH med verdien 147/250. Fra B-noden går to grener: en øvre merket D: 1/20 som ender i punktet BD med verdien 1/50, og en nedre merket H: 19/20 som ender i punktet BH med verdien 19/50. Veiene til AD og BD er tegnet i rødt, de to andre i svart.",
+      "caption": "Sannsynlighetstre for leverandørene. $A$ og $B$ er de to leverandørene, $D$ betyr defekt del og $H$ betyr hel del. Tallet ved hver gren er den betingede sannsynligheten, og tallet ved endepunktet er produktet langs veien. De to røde veiene fører til en defekt del.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-5-tre-leverandorer.json"
+    },
+    {
+      "id": "stat-4-5-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "En verkstedbedrift kjøper en bestemt del fra to leverandører. 60 % av delene kommer fra leverandør $A$ og 40 % fra leverandør $B$. Av delene fra $A$ er 2 % defekte, av delene fra $B$ er 5 % defekte.\n\na) Bestem sannsynligheten for at en tilfeldig valgt del er defekt.\nb) Hvor mange defekte deler må bedriften regne med i en leveranse på 2500 deler?",
+      "solution": "**Løsning:**\n\nHva vet vi? Vi kjenner hvor stor andel hver leverandør står for, og hvor ofte hver av dem leverer defekte deler. Hva må vi finne? Hvor ofte en tilfeldig del er defekt, samlet sett.\n\nVi gjør prosentene om til brøker først:\n\n$$P(A) = \\frac{3}{5} \\qquad P(B) = \\frac{2}{5} \\qquad P(D \\mid A) = \\frac{1}{50} \\qquad P(D \\mid B) = \\frac{1}{20}$$\n\nMerk at $\\frac{1}{50}$ og $\\frac{1}{20}$ er **betingede** sannsynligheter: «2 % *av delene fra A*». Grunnmengden er leverandørens egne deler, ikke alle delene.\n\na) $A$ og $B$ er disjunkte og dekker alle delene, så vi kan bruke loven om total sannsynlighet. Formelen tom først:\n\n$$P(D) = P(A) \\cdot P(D \\mid A) + P(B) \\cdot P(D \\mid B)$$\n\n$$P(D) = \\frac{3}{5} \\cdot \\frac{1}{50} + \\frac{2}{5} \\cdot \\frac{1}{20}$$\n\nVi regner hvert produkt for seg — det er de to røde veiene i treet over:\n\n$$\\frac{3}{5} \\cdot \\frac{1}{50} = \\frac{3}{250} \\qquad \\frac{2}{5} \\cdot \\frac{1}{20} = \\frac{2}{100} = \\frac{1}{50}$$\n\nFør vi legger sammen, trenger vi felles nevner. Vi utvider $\\frac{1}{50}$ med 5:\n\n$$\\frac{1}{50} = \\frac{5}{250}$$\n\n$$P(D) = \\frac{3}{250} + \\frac{5}{250} = \\frac{8}{250} = \\frac{4}{125} = 0{,}032$$\n\nAltså er $3{,}2 \\%$ av delene defekte.\n\nLegg merke til at svaret ligger mellom $2 \\%$ og $5 \\%$, og nærmere $2 \\%$ — som seg hør og bør, siden flest deler kommer fra $A$. Det er en god kontroll: et vektet gjennomsnitt må alltid ligge mellom de verdiene det vekter.\n\nb) Vi ganger sannsynligheten med antall deler:\n\n$$0{,}032 \\cdot 2500 = 80$$\n\n**Svar:** a) $P(D) = \\frac{4}{125} = 0{,}032$, altså 3,2 %. b) Omtrent 80 defekte deler."
+    },
+    {
+      "id": "stat-4-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør det samme som i eksempel 4. En kommune har to renovasjonsruter. Rute 1 tar 70 % av husstandene, rute 2 tar 30 %. På rute 1 blir 4 % av tømmingene forsinket, på rute 2 blir 9 % forsinket. Svar med tre desimaler der ikke annet er sagt.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at en tilfeldig tømming er forsinket.",
+            "solution": "$0{,}70 \\cdot 0{,}04 + 0{,}30 \\cdot 0{,}09 = 0{,}028 + 0{,}027 = 0{,}055$",
+            "answer": 0.055
+          },
+          {
+            "label": "b",
+            "task": "Kontroller at svaret ligger mellom 0,04 og 0,09. Hvorfor må det gjøre det?",
+            "solution": "$0{,}04 < 0{,}055 < 0{,}09$. Det samlede tallet er et vektet gjennomsnitt av de to, og et vektet gjennomsnitt ligger alltid mellom ytterverdiene."
+          },
+          {
+            "label": "c",
+            "task": "Kommunen har 12 000 tømminger i måneden. Hvor mange forsinkede tømminger må de regne med?",
+            "solution": "$0{,}055 \\cdot 12\\,000 = 660$",
+            "answer": 660
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange av de forsinkede tømmingene kommer fra rute 2?",
+            "solution": "$0{,}30 \\cdot 0{,}09 \\cdot 12\\,000 = 324$",
+            "answer": 324
+          },
+          {
+            "label": "e",
+            "task": "Rute 2 utbedres slik at bare 5 % blir forsinket. Bestem den nye samlede sannsynligheten.",
+            "solution": "$0{,}70 \\cdot 0{,}04 + 0{,}30 \\cdot 0{,}05 = 0{,}028 + 0{,}015 = 0{,}043$",
+            "answer": 0.043
+          }
+        ],
+        "hints": [
+          "Loven om total sannsynlighet: vekt hver rute med hvor stor andel av tømmingene den har.",
+          "Prosentene innenfor hver rute er betingede — de gjelder bare rutens egne tømminger."
+        ],
+        "solution": "a) $0{,}055$, b) ja, et vektet gjennomsnitt ligger mellom ytterverdiene, c) $660$, d) $324$, e) $0{,}043$",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-5-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Betinget sannsynlighet:** $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}$. Betingelsen bytter ut grunnmengden — hele forskjellen ligger i nevneren.\n- $P(A \\mid B)$ og $P(B \\mid A)$ er **ikke** det samme. Spør: av hvem?\n- **Produktsetningen:** $P(A \\cap B) = P(B) \\cdot P(A \\mid B)$. Den lar oss gange oss nedover et sannsynlighetstre.\n- **Uavhengighet:** $P(A \\mid B) = P(A)$, som er det samme som $P(A \\cap B) = P(A) \\cdot P(B)$. Dette er en test du regner, ikke en antakelse du gjør.\n- **Uavhengig $\\neq$ disjunkt.** Disjunkte hendelser med positiv sannsynlighet er avhengige.\n- **Loven om total sannsynlighet:** del opp i tilfeller, regn innenfor hvert, og vekt med hvor ofte tilfellet forekommer. Svaret må ligge mellom de betingede sannsynlighetene — bruk det som kontroll."
+    },
+    {
+      "id": "stat-4-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En bedrift har to avdelinger. 3 av 5 ansatte arbeider i produksjonen, resten på lageret. Blant produksjonsarbeiderne har 1 av 3 fagbrev; på lageret har 1 av 4 fagbrev. Én ansatt trekkes tilfeldig. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Bestem sannsynligheten for at den ansatte arbeider på lageret.",
+            "solution": "$1 - \\frac{3}{5} = \\frac{2}{5}$",
+            "expressionAnswer": "2/5"
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at den ansatte arbeider i produksjonen og har fagbrev.",
+            "solution": "Produktsetningen: $\\frac{3}{5} \\cdot \\frac{1}{3} = \\frac{3}{15} = \\frac{1}{5}$",
+            "expressionAnswer": "1/5"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at den ansatte arbeider på lageret og har fagbrev.",
+            "solution": "$\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20} = \\frac{1}{10}$",
+            "expressionAnswer": "1/10"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at den ansatte har fagbrev.",
+            "solution": "Loven om total sannsynlighet: $\\frac{1}{5} + \\frac{1}{10} = \\frac{2}{10} + \\frac{1}{10} = \\frac{3}{10}$\n\n![Et sannsynlighetstre med to nivåer. Fra roten går grenen produksjon 3/5 og grenen lager 2/5. Fra produksjon går fagbrev 1/3, som ender i veiproduktet 1/5, og uten fagbrev 2/3, som ender i 2/5. Fra lager går fagbrev 1/4, som ender i 1/10, og uten fagbrev 3/4, som ender i 3/10. De to fagbrev-veiene er uthevet i rødt. Nederst står: P av fagbrev er lik 1/5 pluss 1/10 er lik 3/10.](/images/content/statistikk/stat-4-5-tre-avdeling.png)\n\n*De fire veiproduktene 1/5, 2/5, 1/10 og 3/10 summerer til 1. De to røde veiene fører til fagbrev, og summen av dem er grunnmengden når deloppgave e) betinger på fagbrev.*",
+            "expressionAnswer": "3/10"
+          },
+          {
+            "label": "e",
+            "task": "Bestem sannsynligheten for at den ansatte arbeider i produksjonen, gitt at hun har fagbrev.",
+            "solution": "$\\frac{P(\\text{produksjon} \\cap \\text{fagbrev})}{P(\\text{fagbrev})} = \\frac{1/5}{3/10} = \\frac{1}{5} \\cdot \\frac{10}{3} = \\frac{10}{15} = \\frac{2}{3}$",
+            "expressionAnswer": "2/3"
+          }
+        ],
+        "hints": [
+          "Tegn et sannsynlighetstre: først avdeling, så fagbrev.",
+          "I e): nevneren er svaret fra d) — grunnmengden er nå bare de med fagbrev."
+        ],
+        "solution": "a) $\\frac{2}{5}$, b) $\\frac{1}{5}$, c) $\\frac{1}{10}$, d) $\\frac{3}{10}$, e) $\\frac{2}{3}$",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — regneark).** Et transportselskap kjøper dekk fra tre produsenter. Andelene og andelen dekk som må byttes før tiden, er:\n\n| Produsent | Andel av innkjøpet | Byttes før tiden |\n|---|---|---|\n| P1 | 0,50 | 0,06 |\n| P2 | 0,30 | 0,10 |\n| P3 | 0,20 | 0,03 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Kontroller at andelene i andre kolonne utgjør en gyldig oppdeling. Hvilket tall skal summen bli?",
+            "solution": "$0{,}50 + 0{,}30 + 0{,}20 = 1$. Produsentene er disjunkte og dekker hele innkjøpet.",
+            "answer": 1
+          },
+          {
+            "label": "b",
+            "task": "Legg tabellen i et regneark med andelene i B2:B4 og bytteandelene i C2:C4. Skriv formelen som gir den samlede sannsynligheten for bytte.",
+            "solution": "`=SUMMERPRODUKT(B2:B4;C2:C4)`. Den ganger hvert par og summerer — nøyaktig loven om total sannsynlighet."
+          },
+          {
+            "label": "c",
+            "task": "Bestem den samlede sannsynligheten for at et tilfeldig dekk må byttes før tiden. Svar med tre desimaler.",
+            "solution": "$0{,}50 \\cdot 0{,}06 + 0{,}30 \\cdot 0{,}10 + 0{,}20 \\cdot 0{,}03 = 0{,}030 + 0{,}030 + 0{,}006 = 0{,}066$",
+            "answer": 0.066
+          },
+          {
+            "label": "d",
+            "task": "Selskapet kjøper 5000 dekk i året. Hvor mange må de regne med å bytte før tiden?",
+            "solution": "$0{,}066 \\cdot 5000 = 330$",
+            "answer": 330
+          },
+          {
+            "label": "e",
+            "task": "Selskapet vurderer å flytte hele P2-andelen over til P3, slik at P3 får 0,50. Bestem den nye samlede sannsynligheten, og vurder om endringen er verdt det uten flere opplysninger.",
+            "solution": "$0{,}50 \\cdot 0{,}06 + 0{,}50 \\cdot 0{,}03 = 0{,}030 + 0{,}015 = 0{,}045$. Sannsynligheten synker fra 0,066 til 0,045. Men vurderingen krever også pris per dekk og hva et bytte koster — færre bytter er ikke automatisk billigere.",
+            "answer": 0.045
+          }
+        ],
+        "hints": [
+          "`SUMMERPRODUKT` gjør nøyaktig det loven om total sannsynlighet ber om: gang parvis, summer.",
+          "Kontroll: svaret må ligge mellom den minste og den største bytteandelen."
+        ],
+        "solution": "a) 1, b) `=SUMMERPRODUKT(B2:B4;C2:C4)`, c) $0{,}066$, d) $330$, e) $0{,}045$ — men kostnadene må med i vurderingen",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-4-5-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** En hurtigtest for en sjelden sykdom slår ut hos 99 % av dem som har sykdommen. Én av tusen i befolkningen har sykdommen. Testen slår også ut hos 2 % av dem som er friske. Emma tester positivt og leser: «Testen er 99 % sikker, så jeg er nesten sikkert syk.»",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvilke to betingede sannsynligheter blandes sammen i Emmas resonnement?",
+            "solution": "$P(\\text{positiv} \\mid \\text{syk}) = 0{,}99$ er oppgitt. Emma tror det er det samme som $P(\\text{syk} \\mid \\text{positiv})$, men det er en helt annen brøk — nevneren er en annen gruppe."
+          },
+          {
+            "label": "b",
+            "task": "Tenk deg 100 000 personer. Hvor mange av dem er syke, og hvor mange av de syke tester positivt?",
+            "solution": "$\\frac{1}{1000} \\cdot 100\\,000 = 100$ er syke. Av dem tester $0{,}99 \\cdot 100 = 99$ positivt."
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange av de friske tester positivt?",
+            "solution": "$100\\,000 - 100 = 99\\,900$ er friske. Av dem tester $0{,}02 \\cdot 99\\,900 = 1998$ positivt."
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at Emma faktisk er syk, gitt at testen er positiv. Svar med tre desimaler.",
+            "solution": "Grunnmengden er alle som tester positivt: $99 + 1998 = 2097$. Av dem er 99 syke: $\\frac{99}{2097} \\approx 0{,}047$, altså under 5 %.\n\n![Et tre som starter i 100 000 personer. Første nivå deler dem i syke, 100 personer, og friske, 99 900 personer. Fra de syke går to grener: positiv, 99 personer, og negativ, 1 person. Fra de friske går to grener: positiv, 1 998 personer, og negativ, 97 902 personer. Hvert endepunkt bærer i tillegg veiproduktet som brøk: 99/100000, 1/100000, 999/50000 og 48951/50000. De to veiene som ender i et positivt prøvesvar er uthevet i rødt. Nederst står: av de 99 pluss 1 998 lik 2 097 som tester positivt, er 99 syke, altså 99 av 2 097, omtrent 0,047.](/images/content/statistikk/stat-4-5-hyppighetstre.png)\n\n*Regnet med tenkte personer i stedet for prosenter blir nevneren synlig. Bare 99 av de 2 097 som tester positivt er faktisk syke — under 5 %, fordi gruppen av friske er nesten tusen ganger større.*",
+            "answer": 0.047
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor svaret blir så lavt, og hva Emma bør gjøre videre.",
+            "solution": "Sykdommen er sjelden, så gruppen av friske er enormt mye større. Selv en liten feilandel blant de friske gir langt flere falske positive enn det finnes ekte positive. Emma bør ta en mer treffsikker oppfølgingstest — et positivt hurtigtestsvar hever sannsynligheten fra 0,001 til omtrent 0,047, altså nesten femti ganger, men den er fortsatt lav."
+          }
+        ],
+        "hints": [
+          "Regn med tenkte personer i stedet for prosenter — det gjør nevneren synlig.",
+          "Nevneren i d) er alle som tester positivt, ikke alle som er syke."
+        ],
+        "solution": "a) $P(\\text{positiv} \\mid \\text{syk})$ forveksles med $P(\\text{syk} \\mid \\text{positiv})$. b) 100 syke, 99 positive blant dem. c) 1998 falske positive. d) $\\frac{99}{2097} \\approx 0{,}047$. e) Sjeldenheten gjør at falske positive dominerer; ta oppfølgingstest.",
+        "competenceGoals": [
+          "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,456 @@
+{
+  "id": "stat-7-3",
+  "courseId": "statistikk",
+  "chapterNumber": "7.3",
+  "title": "Konfidensintervall for andel",
+  "description": "Konfidensintervall for en andel p, og hva utvalgsstørrelsen betyr.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+  ],
+  "content": [
+    {
+      "id": "stat-7-3-section-intro",
+      "type": "text",
+      "content": "# Konfidensintervall for andel\n\nDe fleste tallene vi møter i nyhetene, er **andeler**: hvor mange prosent som stemmer på et parti, som har fullført videregående, som sykler til jobb, som er fornøyde med kommunen sin. Og nesten alltid står det et lite tall bak: *feilmarginen er ±3 prosentpoeng*.\n\nDette kapittelet forklarer hvor det tallet kommer fra.\n\nOppskriften er den samme som i kapittel 7.2 — estimat pluss/minus $z$ ganger standardfeil. Det eneste nye er standardfeilen, og den har vi allerede utledet i kapittel 7.1:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{p(1-p)}{n}} \\approx \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\n$$\n\nLegg merke til at vi må bruke $\\hat{p}$ inni rottegnet også — den sanne $p$ er jo det vi leter etter."
+    },
+    {
+      "id": "stat-7-3-theorem-ki-andel",
+      "type": "theorem",
+      "title": "Konfidensintervall for en andel",
+      "content": "Er $x$ av $n$ tilfeldig valgte i et utvalg av den typen vi teller, og $\\hat{p} = \\frac{x}{n}$, er et konfidensintervall for andelen $p$ i populasjonen\n\n$$\\left[\\ \\hat{p} - z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}, \\quad \\hat{p} + z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\ \\right]$$\n\nmed de samme $z$-verdiene som før: 1,645 (90 %), **1,96 (95 %)** og 2,576 (99 %).\n\n**Forutsetningen** er at normaltilnærmingen til den binomiske fordelingen kan brukes (kapittel 6.5). Kravet er\n\n$$n\\hat{p} \\ge 5 \\qquad \\text{og} \\qquad n(1-\\hat{p}) \\ge 5$$\n\nDet betyr i praksis: minst fem i hver av de to gruppene. Er en av dem mindre, er utvalget for lite eller andelen for ekstrem til at denne formelen kan brukes."
+    },
+    {
+      "id": "stat-7-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1: En reisevaneundersøkelse",
+      "problem": "En kommune spør 1000 tilfeldig valgte innbyggere om de vil bruke kollektivtransport oftere hvis avgangene blir hyppigere. 234 svarer ja.\n\na) Kontroller at formelen kan brukes, og finn et 95 % konfidensintervall for andelen $p$.\nb) Kommunen har hevdet at «omtrent en fjerdedel» vil reise mer kollektivt. Stemmer det med målingen?\nc) Hva blir 99 %-intervallet?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $n = 1000$ spurte og $x = 234$ ja-svar. *Hva skal vi finne?* Intervallet for $p$.\n\n**a)** Først estimatet:\n\n$$\\hat{p} = \\frac{x}{n} = \\frac{234}{1000} = 0{,}234$$\n\nSå kontrollen av forutsetningen:\n\n$$n\\hat{p} = 234 \\ge 5 \\qquad n(1-\\hat{p}) = 766 \\ge 5 \\quad \\checkmark$$\n\nStandardfeilen — formelen tom først, så med tall:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = \\sqrt{\\frac{0{,}234 \\cdot 0{,}766}{1000}} = \\sqrt{\\frac{0{,}179244}{1000}} = \\sqrt{0{,}000179} \\approx 0{,}0134$$\n\nFeilmarginen ved 95 %:\n\n$$1{,}96 \\cdot 0{,}0134 \\approx 0{,}0262$$\n\nIntervallet:\n\n$$[0{,}234 - 0{,}0262,\\ 0{,}234 + 0{,}0262] = [0{,}208,\\ 0{,}260]$$\n\nAltså fra 20,8 % til 26,0 %.\n\n**b)** «En fjerdedel» er 25 %, og 0,25 ligger inne i intervallet. Påstanden er altså forenlig med målingen — vi kan ikke avvise den.\n\n**c)** Samme standardfeil, ny $z$:\n\n$$2{,}576 \\cdot 0{,}0134 \\approx 0{,}0345$$\n\n$$[0{,}234 - 0{,}0345,\\ 0{,}234 + 0{,}0345] = [0{,}200,\\ 0{,}268]$$\n\nAltså fra 20,0 % til 26,8 %.\n\n**Svar:** a) $[0{,}208,\\ 0{,}260]$, altså 20,8 % til 26,0 %. b) Ja — 25 % ligger inne i intervallet. c) $[0{,}200,\\ 0{,}268]$, altså 20,0 % til 26,8 %.\n\n**NB — prosentpoeng igjen.** Marginen på 0,0262 skrives som **2,6 prosentpoeng**, ikke 2,6 prosent. Den legges til og trekkes fra 23,4 %-tallet."
+    },
+    {
+      "id": "stat-7-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. En skole spør 500 tilfeldig valgte elever om de spiser frokost før skolen. 185 svarer ja. Rund av til fire desimaler underveis og til to i svaret.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\hat{p}$.",
+            "solution": "$\\hat{p} = \\frac{185}{500} = 0{,}37$, altså 37 %.",
+            "answer": 0.37
+          },
+          {
+            "label": "b",
+            "task": "Kontroller forutsetningen $n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$.",
+            "solution": "$500 \\cdot 0{,}37 = 185$ og $500 \\cdot 0{,}63 = 315$. Begge godt over 5.",
+            "answer": 185
+          },
+          {
+            "label": "c",
+            "task": "Finn standardfeilen.",
+            "solution": "$SE = \\sqrt{\\frac{0{,}37 \\cdot 0{,}63}{500}} = \\sqrt{0{,}000466} \\approx 0{,}0216$",
+            "answer": 0.0216
+          },
+          {
+            "label": "d",
+            "task": "Finn 95 % konfidensintervallet, og oppgi det i prosent.",
+            "solution": "Margin: $1{,}96 \\cdot 0{,}0216 \\approx 0{,}0423$. Intervall: $[0{,}3277,\\ 0{,}4123]$, altså fra 32,8 % til 41,2 %.",
+            "answer": 0.3277
+          },
+          {
+            "label": "e",
+            "task": "En avis skriver «fire av ti elever spiser frokost». Er det forenlig med målingen?",
+            "solution": "Ja. Fire av ti er 40 %, og 0,40 ligger inne i intervallet $[0{,}328,\\ 0{,}412]$ — riktignok nær øvre grense.",
+            "answer": 0.4
+          }
+        ],
+        "hints": [
+          "Regn hele uttrykket under rottegnet ferdig før du tar roten."
+        ],
+        "solution": "a) 0,37, b) 185 og 315, c) $\\approx 0{,}0216$, d) $[0{,}328,\\ 0{,}412]$ = 32,8–41,2 %, e) ja",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-3-section-feilmargin",
+      "type": "text",
+      "content": "## Hvor «±3 prosentpoeng» kommer fra\n\nMeningsmålinger oppgir nesten alltid en feilmargin på rundt 3 prosentpoeng. Det er ikke tilfeldig, og det er ikke et anslag — det er en regning.\n\nUttrykket $\\hat{p}(1-\\hat{p})$ er størst når $\\hat{p} = 0{,}5$. Da er produktet $0{,}5 \\cdot 0{,}5 = 0{,}25$, og standardfeilen blir så stor den kan bli. Byråene regner derfor **verste fall** når de planlegger:\n\n$$\\text{margin} = 1{,}96\\sqrt{\\frac{0{,}25}{n}} = \\frac{0{,}98}{\\sqrt{n}}$$\n\nI prosentpoeng blir det $\\dfrac{98}{\\sqrt{n}}$ — et uttrykk som er verdt å legge merke til, fordi det gir hele sammenhengen på én linje:\n\n| $n$ | 400 | 600 | 1000 | 1500 | 2000 | 2500 |\n|---|---|---|---|---|---|---|\n| margin (pp) | 4,9 | 4,0 | 3,1 | 2,5 | 2,2 | 2,0 |\n\nDet typiske utvalget på 1000 gir altså 3,1 prosentpoeng. Derfor står det ±3 i avisen."
+    },
+    {
+      "id": "stat-7-3-fig-feilmargin",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-3-feilmargin-mot-n.png",
+      "alt": "En oransje kurve merket feilmargin faller bratt fra venstre og flater ut mot høyre. Den vannrette aksen er merket n og viser tallene 400 til 2800, den loddrette er merket feilmargin i prosentpoeng og viser 1 til 8. To svarte punkter er markert på kurven med stiplede hjelpelinjer til aksene: punktet 400 komma 4,9 og punktet 2500 komma 1,96. Kurven faller raskt fram til omkring n lik 1000 og er nesten flat etter n lik 2000.",
+      "caption": "95 %-feilmarginen for en andel, i prosentpoeng, når $\\hat{p} = 0{,}5$: $\\frac{98}{\\sqrt{n}}$. Ved $n = 1000$ er marginen 3,1 prosentpoeng — derfor «±3» i meningsmålingene. Å komme ned i 1,96 prosentpoeng krever 2500 spurte, altså to og en halv gang så mange for å vinne ett prosentpoeng.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-3-feilmargin-mot-n.json"
+    },
+    {
+      "id": "stat-7-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor mange må spørres?",
+      "problem": "Kommunen fra eksempel 1 vil gjenta undersøkelsen med en feilmargin på høyst 2 prosentpoeng.\n\na) Hvor mange må de spørre hvis de ikke vil anta noe om svaret på forhånd?\nb) Hvor mange holder det med hvis de regner med at andelen fortsatt blir omtrent 23,4 %?\nc) Hvorfor velger de fleste likevel å regne som i a)?",
+      "solution": "**Løsning:**\n\n**a)** Uten forhåndskunnskap regner vi verste fall, $\\hat{p} = 0{,}5$. Kravet er\n\n$$1{,}96\\sqrt{\\frac{0{,}5 \\cdot 0{,}5}{n}} \\le 0{,}02$$\n\nDeler på 1,96 på begge sider:\n\n$$\\sqrt{\\frac{0{,}25}{n}} \\le \\frac{0{,}02}{1{,}96} = 0{,}010204$$\n\nKvadrerer begge sider:\n\n$$\\frac{0{,}25}{n} \\le 0{,}00010412$$\n\nGanger med $n$ og deler på det lille tallet:\n\n$$n \\ge \\frac{0{,}25}{0{,}00010412} = 2401$$\n\nDe må spørre 2401 personer.\n\n*(Snarveien er formelen $n \\ge \\left(\\frac{z}{E}\\right)^2 \\hat{p}(1-\\hat{p}) = \\left(\\frac{1{,}96}{0{,}02}\\right)^2 \\cdot 0{,}25 = 98^2 \\cdot 0{,}25 = 2401$ — samme regning, færre linjer.)*\n\n**b)** Med $\\hat{p} = 0{,}234$ er $\\hat{p}(1-\\hat{p}) = 0{,}179244$:\n\n$$n \\ge 98^2 \\cdot 0{,}179244 = 9604 \\cdot 0{,}179244 \\approx 1721{,}5$$\n\nVi runder opp: 1722 personer. *(Kontroll: $n = 1722$ gir margin 1,9997 pp, $n = 1721$ gir 2,0003 pp — så 1722 er akkurat det minste som holder.)*\n\n**c)** Fordi svaret i b) hviler på en antakelse om det vi skal måle. Blir andelen 45 % i stedet for 23 %, holder ikke 1722 personer marginen. Regner de verste fall, er de trygge uansett hva folk svarer. Prisen er et større, dyrere utvalg.\n\n**Svar:** a) 2401 personer. b) 1722 personer. c) Fordi verste fall holder marginen uansett hva svaret blir, mens b) forutsetter at vi allerede kjenner svaret.\n\n**NB:** Rund alltid **opp**. Et krav om «høyst 2 prosentpoeng» blir brutt hvis du runder 1721,5 ned."
+    },
+    {
+      "id": "stat-7-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En bedrift kontrollerer 250 tilfeldig valgte enheter fra produksjonen. 12 av dem er defekte.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\hat{p}$, og kontroller at formelen kan brukes.",
+            "solution": "$\\hat{p} = \\frac{12}{250} = 0{,}048$. $n\\hat{p} = 12 \\ge 5$ og $n(1-\\hat{p}) = 238 \\ge 5$ — forutsetningen holder, men med 12 defekte er vi ikke langt over grensen.",
+            "answer": 0.048
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen.",
+            "solution": "$SE = \\sqrt{\\frac{0{,}048 \\cdot 0{,}952}{250}} = \\sqrt{0{,}0001828} \\approx 0{,}0135$",
+            "answer": 0.0135
+          },
+          {
+            "label": "c",
+            "task": "Finn et 95 % konfidensintervall for andelen defekte i produksjonen.",
+            "solution": "Margin: $1{,}96 \\cdot 0{,}0135 \\approx 0{,}0265$. Intervall: $[0{,}0215,\\ 0{,}0745]$, altså fra 2,2 % til 7,5 %.",
+            "answer": 0.0215
+          },
+          {
+            "label": "d",
+            "task": "En kunde påstår at 10 % av enhetene er defekte. Hva sier intervallet?",
+            "solution": "0,10 ligger utenfor intervallet, som stopper på 0,0745. Kontrollen taler altså mot påstanden om 10 %.",
+            "answer": 0.0745
+          },
+          {
+            "label": "e",
+            "task": "Bedriften vil kunne oppgi andelen defekte med en margin på høyst 1 prosentpoeng. Hvor mange enheter må de kontrollere?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96}{0{,}01}\\right)^2 \\cdot 0{,}048 \\cdot 0{,}952 = 38\\,416 \\cdot 0{,}045696 \\approx 1755{,}5$, altså minst 1756 enheter.",
+            "answer": 1756
+          }
+        ],
+        "hints": [
+          "I e): bruk $n \\ge \\left(\\frac{z}{E}\\right)^2 \\hat{p}(1-\\hat{p})$ og rund opp."
+        ],
+        "solution": "a) 0,048 — forutsetningen holder, b) $\\approx 0{,}0135$, c) $[0{,}022,\\ 0{,}075]$, d) 10 % ligger utenfor, e) minst 1756 enheter",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-3-warning-fallgruver",
+      "type": "warning",
+      "title": "Tre fallgruver i andelsintervaller",
+      "content": "**1. For få i den minste gruppen.** Spør du 40 personer og 2 svarer ja, er $n\\hat{p} = 2 < 5$. Da kan ikke formelen brukes — normaltilnærmingen holder ikke, og intervallet kan til og med få negativ nedre grense. Svaret er ikke å regne likevel, men å si at utvalget er for lite.\n\n**2. Populasjonens størrelse.** Verken $N$ eller folketallet står i formelen. Et utvalg på 1000 gir samme margin i en kommune på 5000 som i et land på fem millioner. Det overrasker de fleste, men følger direkte av standardfeilen.\n\n**3. Intervallet dekker bare tilfeldig feil.** Har undersøkelsen skjevt utvalg, ledende spørsmål eller stort frafall, hjelper det ikke at marginen er liten. **Feilmarginen måler bare den slingringen som kommer av å trekke et utvalg** — ikke om vi trakk riktig, eller om folk svarte ærlig. Se kapittel 3 om datainnsamling og feilkilder."
+    },
+    {
+      "id": "stat-7-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Er de to målingene uenige?",
+      "problem": "To byråer måler oppslutningen om et parti samme uke. Begge spør 1000 personer. Byrå A får 82 som sier de vil stemme på partiet, byrå B får 104.\n\na) Finn 95 % konfidensintervall for hvert byrå.\nb) En avis skriver at «partiet steg fra 8,2 til 10,4 prosent». Er det dekning for det?\nc) Hva er den mest nærliggende forklaringen på forskjellen?",
+      "solution": "**Løsning:**\n\n**Byrå A:** $\\hat{p}_A = \\frac{82}{1000} = 0{,}082$\n\n$$SE_A = \\sqrt{\\frac{0{,}082 \\cdot 0{,}918}{1000}} \\approx 0{,}00868$$\n\n$$\\text{margin}_A = 1{,}96 \\cdot 0{,}00868 \\approx 0{,}0170$$\n\n$$\\text{KI}_A = [0{,}065,\\ 0{,}099]$$\n\n**Byrå B:** $\\hat{p}_B = \\frac{104}{1000} = 0{,}104$\n\n$$SE_B = \\sqrt{\\frac{0{,}104 \\cdot 0{,}896}{1000}} \\approx 0{,}00965$$\n\n$$\\text{margin}_B = 1{,}96 \\cdot 0{,}00965 \\approx 0{,}0189$$\n\n$$\\text{KI}_B = [0{,}085,\\ 0{,}123]$$\n\n**b)** De to intervallene **overlapper** i området fra 8,5 % til 9,9 %. Begge målingene er altså forenlige med at den sanne oppslutningen er for eksempel 9 % — og at de to byråene bare traff på hver sin side av den, slik utvalg gjør.\n\nDet er derfor ikke dekning for å si at partiet har «steget». Vi har ikke engang målt to tidspunkter; vi har målt samme uke to ganger.\n\n**c)** Tilfeldig utvalgsvariasjon. Forskjellen er 2,2 prosentpoeng, og feilmarginene er på henholdsvis 1,7 og 1,9 prosentpoeng — altså akkurat den størrelsesordenen man må vente seg.\n\n![To vannrette linjestykker under hverandre over en felles akse merket oppslutning i prosent, med tallene 5 til 14. Den loddrette aksen har radene byrå A øverst og byrå B nederst. Det øverste, blå, går fra 6,5 til 9,9 med et svart punkt i 8,2, merket 8,2 prosent. Det nederste, oransje, går fra 8,5 til 12,3 med et svart punkt i 10,4, merket 10,4 prosent. To grå stiplede loddrette streker står i 8,5 og 9,9 — der de to linjestykkene dekker hverandre — og mellom dem, nede ved aksen, ligger et gult felt. Øverst står teksten overlapp 8,5 til 9,9 prosent.](/images/content/statistikk/stat-7-3-to-byraer.png)\n\n*De to målingene er ikke uenige. Det gule feltet er verdiene begge intervallene rommer — begge er forenlige med at den sanne oppslutningen er for eksempel 9 %. Når to måltall skiller seg mindre enn feilmarginene, er «endringen» som regel bare utvalgsvariasjon.*\n\n**Svar:** a) A: $[0{,}065,\\ 0{,}099]$, B: $[0{,}085,\\ 0{,}123]$. b) Nei — intervallene overlapper. c) Tilfeldig variasjon mellom to utvalg.\n\n**NB — en nyttig huskeregel for nyhetene:** når to måltall skiller seg mindre enn feilmarginene, er «endringen» som regel støy. Aviser omtaler likevel slike bevegelser som nyheter."
+    },
+    {
+      "id": "stat-7-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et analysebyrå planlegger en undersøkelse. De skal oppgi en andel med 95 % konfidens.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange må spørres for margin høyst 3 prosentpoeng, når de ikke antar noe om svaret?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96}{0{,}03}\\right)^2 \\cdot 0{,}25 \\approx 1067{,}1$, altså minst 1068 personer.",
+            "answer": 1068
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange holder det med hvis de vet at andelen er omtrent 20 %?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96}{0{,}03}\\right)^2 \\cdot 0{,}2 \\cdot 0{,}8 \\approx 683{,}0$, altså minst 683 personer.",
+            "answer": 683
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange for margin høyst 2,5 prosentpoeng i verste fall?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96}{0{,}025}\\right)^2 \\cdot 0{,}25 \\approx 1536{,}6$, altså minst 1537 personer.",
+            "answer": 1537
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange for margin høyst 3 prosentpoeng hvis de nøyer seg med 90 % konfidens?",
+            "solution": "$n \\ge \\left(\\frac{1{,}645}{0{,}03}\\right)^2 \\cdot 0{,}25 \\approx 751{,}7$, altså minst 752 personer — mot 1068 ved 95 %.",
+            "answer": 752
+          },
+          {
+            "label": "e",
+            "task": "Byrået spør 1200 personer og får $\\hat{p} = 0{,}31$. Ble marginen bedre enn kravet i a)?",
+            "solution": "$SE = \\sqrt{\\frac{0{,}31 \\cdot 0{,}69}{1200}} \\approx 0{,}01335$ og marginen $1{,}96 \\cdot 0{,}01335 \\approx 0{,}0262$, altså 2,6 prosentpoeng. Ja — bedre enn 3 prosentpoeng, både fordi de spurte flere enn 1068 og fordi 0,31 er nærmere ytterkanten enn 0,5.",
+            "answer": 0.0262
+          }
+        ],
+        "hints": [
+          "Bruk $n \\ge \\left(\\frac{z}{E}\\right)^2\\hat{p}(1-\\hat{p})$, med $\\hat{p} = 0{,}5$ når ingenting er kjent."
+        ],
+        "solution": "a) 1068, b) 683, c) 1537, d) 752, e) ja — 2,6 prosentpoeng",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Andelen regnet i regneark",
+      "problem": "En kommune har svarene fra 640 innbyggere i en kolonne i et regneark. Hver rad inneholder enten «Ja» eller «Nei» på spørsmålet om de har brukt kommunens digitale tjenester siste måned. 96 svarte ja.\n\na) Sett opp regnearkformlene som gir $\\hat{p}$, standardfeilen og 95 %-intervallet.\nb) Finn intervallet.\nc) Kommunen vil halvere feilmarginen til neste undersøkelse. Hvor mange må de spørre?",
+      "solution": "**Løsning:**\n\n**a)** Svarene ligger i A2:A641.\n\n```\n=ANTALL.HVIS(A2:A641;\"Ja\")            gir 96        (antallet x)\n=ANTALLA(A2:A641)                     gir 640       (n)\n=96/640                               gir 0,15      (p-hatt)\n=ROT(0,15*(1-0,15)/640)               gir 0,014114  (SE)\n=0,15 - 1,96*0,014114                 gir 0,12234   (nedre grense)\n=0,15 + 1,96*0,014114                 gir 0,17766   (øvre grense)\n```\n\n**b)** Kontrollen først: $n\\hat{p} = 96$ og $n(1-\\hat{p}) = 544$, begge godt over 5.\n\n$$\\hat{p} = \\frac{96}{640} = 0{,}15$$\n\n$$SE = \\sqrt{\\frac{0{,}15 \\cdot 0{,}85}{640}} = \\sqrt{0{,}000199} \\approx 0{,}0141$$\n\n$$\\text{margin} = 1{,}96 \\cdot 0{,}0141 \\approx 0{,}0277$$\n\n$$\\text{KI} = [0{,}122,\\ 0{,}178]$$\n\nAltså fra 12,2 % til 17,8 %.\n\n**c)** Halvert margin betyr firedoblet utvalg:\n\n$$4 \\cdot 640 = 2560 \\text{ personer}$$\n\n*(Kontroll med formelen: $n \\ge \\left(\\frac{1{,}96}{0{,}01383}\\right)^2 \\cdot 0{,}15 \\cdot 0{,}85 \\approx 2560$.)*\n\n**Svar:** a) `ANTALL.HVIS`, `ROT` og de to grenseformlene over. b) $[0{,}122,\\ 0{,}178]$, altså 12,2 % til 17,8 %. c) 2560 personer.\n\n**Tolkning:** Kommunen kan si at mellom 12 og 18 prosent av innbyggerne brukte de digitale tjenestene sist måned. Skal de kunne skille 15 % fra 16 % i en senere måling, må utvalget opp i mange tusen — og da er spørsmålet om forskjellen er verdt prisen."
+    },
+    {
+      "id": "stat-7-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En undersøkelse oppgir 95 %-intervallet $[0{,}312,\\ 0{,}388]$ for andelen som har svart ja. Bruk bare intervallet.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva var $\\hat{p}$?",
+            "solution": "Midtpunktet: $\\hat{p} = \\frac{0{,}312 + 0{,}388}{2} = 0{,}35$.",
+            "answer": 0.35
+          },
+          {
+            "label": "b",
+            "task": "Hva var feilmarginen, i prosentpoeng?",
+            "solution": "Halve bredden: $\\frac{0{,}388 - 0{,}312}{2} = 0{,}038$, altså 3,8 prosentpoeng.",
+            "answer": 0.038
+          },
+          {
+            "label": "c",
+            "task": "Hva var standardfeilen?",
+            "solution": "$SE = \\frac{\\text{margin}}{1{,}96} = \\frac{0{,}038}{1{,}96} \\approx 0{,}0194$.",
+            "answer": 0.0194
+          },
+          {
+            "label": "d",
+            "task": "Omtrent hvor mange ble spurt?",
+            "solution": "Fra $SE = \\sqrt{\\frac{0{,}35 \\cdot 0{,}65}{n}}$ får vi $n = \\frac{0{,}2275}{0{,}0194^2} \\approx 605$. Omtrent 600 personer.",
+            "answer": 605
+          },
+          {
+            "label": "e",
+            "task": "Hva ville 99 %-intervallet blitt fra de samme dataene?",
+            "solution": "Margin: $2{,}576 \\cdot 0{,}0194 \\approx 0{,}050$. Intervall: $[0{,}300,\\ 0{,}400]$ — merkbart bredere.",
+            "answer": 0.3
+          }
+        ],
+        "hints": [
+          "Alt i et konfidensintervall kan leses baklengs: midtpunktet er estimatet, halve bredden er marginen."
+        ],
+        "solution": "a) 0,35, b) 0,038 = 3,8 pp, c) $\\approx 0{,}0194$, d) omtrent 605, e) $[0{,}300,\\ 0{,}400]$",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-3-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Konfidensintervall for en andel:\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\n- **Forutsetning:** $n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$ — minst fem i hver gruppe. Ellers kan formelen ikke brukes.\n- Standardfeilen er størst når $\\hat{p} = 0{,}5$. Verste fall gir marginen $\\frac{98}{\\sqrt{n}}$ prosentpoeng, som er 3,1 ved $n = 1000$ — derav «±3 prosentpoeng».\n- Nødvendig utvalgsstørrelse: $n \\ge \\left(\\frac{z}{E}\\right)^2\\hat{p}(1-\\hat{p})$, alltid rundet **opp**. Uten forhåndskunnskap brukes $\\hat{p} = 0{,}5$.\n- **Halvert margin krever firedoblet utvalg.**\n- Populasjonens størrelse inngår ikke i formelen.\n- Overlappende intervaller betyr at forskjellen kan være tilfeldig.\n- Feilmarginen dekker bare tilfeldig utvalgsvariasjon — ikke skjevt utvalg, ledende spørsmål eller frafall.\n\nMed kapittel 7.1–7.3 kan vi estimere og oppgi usikkerhet. I kapittel 7.4 snur vi spørsmålet: i stedet for å spørre *hvor ligger parameteren*, spør vi *er denne påstanden om parameteren troverdig?*"
+    },
+    {
+      "id": "stat-7-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør om hvert utsagn er riktig eller galt, og begrunn med én setning.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Vi spurte 30 personer, og 2 svarte ja. Andelen er $6{,}7\\ \\% \\pm 9{,}0$ prosentpoeng.»",
+            "solution": "Galt. $n\\hat{p} = 2 < 5$, så formelen kan ikke brukes i det hele tatt. Legg også merke til at nedre grense ville blitt negativ — et umulig svar for en andel, og et tydelig varsel om at metoden er utenfor sitt gyldighetsområde."
+          },
+          {
+            "label": "b",
+            "task": "«En undersøkelse i Norge trenger større utvalg enn en tilsvarende i Island, siden Norge har flere innbyggere.»",
+            "solution": "Galt. Populasjonsstørrelsen står ikke i formelen for standardfeilen. Samme $n$ gir samme margin i begge land."
+          },
+          {
+            "label": "c",
+            "task": "«Feilmarginen er minst når andelen er nær 0 eller 1.»",
+            "solution": "Riktig. $\\hat{p}(1-\\hat{p})$ er minst i ytterkantene: ved $\\hat{p} = 0{,}5$ er produktet 0,25, ved $\\hat{p} = 0{,}1$ bare 0,09. Men er $\\hat{p}$ svært nær 0, faller vi ut av gyldighetsområdet i a).\n\n![En symmetrisk kurve som starter i null ved p er lik 0, stiger til et toppunkt og faller tilbake til null ved p er lik 1. Den vannrette aksen er merket andel p og går fra 0 til 1. Toppunktet er markert med et svart punkt og merket 0,5 ; 0,25, med grå stiplede hjelpelinjer ned til begge aksene.](/images/content/statistikk/stat-7-3-p-ganger-1-minus-p.png)\n\n*Produktet $p(1-p)$ er størst når $p = 0{,}5$, og da er det 0,25. Derfor regner meningsmålingsbyråene verste fall med $\\hat{p} = 0{,}5$ når de oppgir en feilmargin: da blir marginen den største mulige for det utvalget.*",
+            "answer": 0.09
+          },
+          {
+            "label": "d",
+            "task": "«Vi fikk 10 000 svar på nettavstemningen, så feilmarginen er svært liten og resultatet pålitelig.»",
+            "solution": "Galt — i hvert fall halvparten. Marginen er riktignok liten, men de som svarer på en nettavstemning, er ikke et tilfeldig utvalg. Skjevheten forsvinner ikke med flere svar; da måler vi bare de selvrekrutterte mer presist."
+          },
+          {
+            "label": "e",
+            "task": "«Vi må spørre like stor andel av befolkningen i hver kommune for å få like presise tall.»",
+            "solution": "Galt. Det er **antallet** $n$ som avgjør presisjonen, ikke andelen av befolkningen. 500 spurte gir samme margin i en kommune med 3000 innbyggere som i en med 300 000."
+          }
+        ],
+        "hints": [
+          "Se etter hvilke størrelser som faktisk står i formelen for standardfeilen — og hvilke som ikke gjør det."
+        ],
+        "solution": "a) galt (for få ja-svar), b) galt ($N$ inngår ikke), c) riktig, d) galt (skjevt utvalg), e) galt (antallet, ikke andelen)",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** En kommune har spurt 1300 innbyggere om de har brukt kommunens digitale innbyggerportal siste måned. Svarene er fordelt slik:\n\n| aldersgruppe | antall spurte | antall ja |\n|---|---|---|\n| 16–29 år | 320 | 148 |\n| 30–59 år | 560 | 196 |\n| 60 år og over | 420 | 84 |\n\nLegg tabellen i regneark. Rund av til én desimal i prosent.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\hat{p}$ og 95 %-intervallet for hver aldersgruppe.",
+            "solution": "16–29: $\\hat{p} = \\frac{148}{320} = 0{,}4625$, $SE \\approx 0{,}0279$, margin $\\approx 0{,}0546$, KI $[40{,}8\\ \\%,\\ 51{,}7\\ \\%]$.\n30–59: $\\hat{p} = 0{,}35$, $SE \\approx 0{,}0202$, margin $\\approx 0{,}0395$, KI $[31{,}0\\ \\%,\\ 39{,}0\\ \\%]$.\n60+: $\\hat{p} = 0{,}20$, $SE \\approx 0{,}0195$, margin $\\approx 0{,}0383$, KI $[16{,}2\\ \\%,\\ 23{,}8\\ \\%]$.",
+            "answer": 0.4625
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\hat{p}$ og 95 %-intervallet for alle 1300 samlet.",
+            "solution": "$\\hat{p} = \\frac{148 + 196 + 84}{1300} = \\frac{428}{1300} \\approx 0{,}3292$. $SE \\approx 0{,}0130$, margin $\\approx 0{,}0255$, KI $[30{,}4\\ \\%,\\ 35{,}5\\ \\%]$.",
+            "answer": 0.3292
+          },
+          {
+            "label": "c",
+            "task": "Er den samlede andelen lik gjennomsnittet av de tre gruppeandelene? Forklar.",
+            "solution": "Nei. Gjennomsnittet av 46,25 %, 35 % og 20 % er 33,75 %, mens den samlede andelen er 32,9 %. Gruppene er ulikt store, og den største gruppen (30–59 år) trekker mest. Skal andeler slås sammen, må de veies med gruppestørrelsen — ikke midles rett fram.",
+            "answer": 33.75
+          },
+          {
+            "label": "d",
+            "task": "Hvilket av de tre gruppeintervallene er bredest, og hvorfor?",
+            "solution": "16–29 år, med margin 5,5 prosentpoeng. To grunner virker samtidig: gruppen er minst ($n = 320$), og andelen ligger nærmest 0,5, der $\\hat{p}(1-\\hat{p})$ er størst.",
+            "answer": 0.0546
+          },
+          {
+            "label": "e",
+            "task": "Kan kommunen si at de yngste bruker portalen mer enn de eldste?",
+            "solution": "Ja, her er det dekning. Intervallene $[40{,}8\\ \\%,\\ 51{,}7\\ \\%]$ og $[16{,}2\\ \\%,\\ 23{,}8\\ \\%]$ overlapper ikke i nærheten av hverandre — det er over 17 prosentpoeng mellom nedre grense for de yngste og øvre grense for de eldste. Forskjellen er altså langt større enn utvalgsslingringen kan forklare."
+          }
+        ],
+        "hints": [
+          "Lag én rad per gruppe med kolonner for $n$, $x$, $\\hat{p}$, $SE$, margin, nedre og øvre grense — da regnes alle tre gruppene med de samme formlene."
+        ],
+        "solution": "a) $[40{,}8;\\ 51{,}7]$, $[31{,}0;\\ 39{,}0]$ og $[16{,}2;\\ 23{,}8]$ prosent, b) $\\hat{p} \\approx 0{,}329$, KI $[30{,}4\\ \\%,\\ 35{,}5\\ \\%]$, c) nei — 33,75 % mot 32,9 %, gruppene er ulikt store, d) 16–29 år, e) ja — intervallene ligger langt fra hverandre",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-3-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-3-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting — sperregrensen.** For å få utjevningsmandater på Stortinget må et parti over 4,0 prosent oppslutning. Et byrå måler 40 av 1000 spurte, altså 4,0 prosent.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn 95 %-intervallet for partiets oppslutning.",
+            "solution": "$\\hat{p} = 0{,}04$, $SE = \\sqrt{\\frac{0{,}04 \\cdot 0{,}96}{1000}} \\approx 0{,}0062$, margin $1{,}96 \\cdot 0{,}0062 \\approx 0{,}0121$. KI: $[0{,}0279,\\ 0{,}0521]$, altså fra 2,8 % til 5,2 %.",
+            "answer": 0.0279
+          },
+          {
+            "label": "b",
+            "task": "Kan byrået si at partiet ligger over sperregrensen?",
+            "solution": "Nei. Hele området fra 2,8 % til 5,2 % er forenlig med målingen, og det inkluderer både klart under og klart over 4 %. Målingen skiller ikke mellom «inn» og «ute»."
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange måtte spørres for at marginen skulle bli 0,6 prosentpoeng?",
+            "solution": "Marginen skal halveres fra 1,21 til omtrent 0,6 prosentpoeng, så utvalget må firedobles: 4000 spurte. Kontroll: $1{,}96\\sqrt{\\frac{0{,}04 \\cdot 0{,}96}{4000}} \\approx 0{,}0061$, altså 0,61 prosentpoeng, og intervallet $[3{,}4\\ \\%,\\ 4{,}6\\ \\%]$ — fortsatt ikke nok til å avgjøre spørsmålet.",
+            "answer": 4000
+          },
+          {
+            "label": "d",
+            "task": "Sammenlign marginen for et parti på 4 % med marginen for et parti på 50 %, begge med 1000 spurte. Hvilket måles mest presist i prosentpoeng — og hvilket i forhold til sin egen størrelse?",
+            "solution": "I prosentpoeng: 4 %-partiet har margin 1,2 pp, 50 %-partiet har 3,1 pp. I forhold til egen størrelse er det motsatt: $\\frac{1{,}2}{4} = 30\\ \\%$ mot $\\frac{3{,}1}{50} \\approx 6\\ \\%$. Små partier måles altså presist i prosentpoeng, men svært upresist i forhold til hvor store de er — og det er nettopp derfor sperregrensen er så vanskelig å måle.",
+            "answer": 0.3
+          },
+          {
+            "label": "e",
+            "task": "Avisene omtaler ofte bevegelser på ett prosentpoeng fra måling til måling som «framgang» eller «tilbakegang». Drøft dette med tallene fra a).",
+            "solution": "Med en margin på 1,2 prosentpoeng er en bevegelse på ett prosentpoeng godt innenfor det tilfeldig utvalgsvariasjon alene gir. Skal en endring kunne kalles reell, må den være stor i forhold til marginene i begge målingene. Måler byråene hver uke, vil rene tilfeldigheter dessuten produsere «framgang» og «tilbakegang» hele tiden — jo oftere man måler, jo flere slike utslag får man, uten at noe har endret seg."
+          }
+        ],
+        "hints": [
+          "Regn marginen først, og se så hvor mye av intervallet som ligger på hver side av 4 %-grensen."
+        ],
+        "solution": "a) $[2{,}8\\ \\%,\\ 5{,}2\\ \\%]$, b) nei, c) 4000 — og fortsatt uavklart, d) 1,2 pp mot 3,1 pp, men 30 % mot 6 % relativt, e) ett prosentpoeng er innenfor støyen",
+        "competenceGoals": [
+          "rekne ut punktestimat og konfidensintervall og tolke resultata i kontekst"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Utvalgsandel (p-hatt)",
+      "definition": "$\\hat{p} = \\frac{x}{n}$, der $x$ er antallet i utvalget med egenskapen vi teller. Punktestimatet for den ukjente andelen $p$ i populasjonen."
+    },
+    {
+      "term": "Feilmargin for andel",
+      "definition": "$z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$, oppgitt i prosentpoeng. Størst når $\\hat{p} = 0{,}5$; da er 95 %-marginen $\\frac{98}{\\sqrt{n}}$ prosentpoeng."
+    },
+    {
+      "term": "Forutsetning for normaltilnærming",
+      "definition": "$n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$ — minst fem i hver av de to gruppene. Ellers kan intervallformelen ikke brukes."
+    },
+    {
+      "term": "Verste fall",
+      "definition": "Å regne utvalgsstørrelse med $\\hat{p} = 0{,}5$, fordi standardfeilen da er størst. Marginen holder da uansett hva svaret blir."
+    },
+    {
+      "term": "Overlappende intervaller",
+      "definition": "Når to konfidensintervaller dekker et felles område, kan forskjellen mellom de to målingene skyldes tilfeldig utvalgsvariasjon alene."
+    }
+  ]
+}

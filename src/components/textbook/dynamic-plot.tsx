@@ -365,7 +365,7 @@ export function DynamicPlot({
           {title ?? 'Interaktiv graf'}
         </CardTitle>
         {description && (
-          <p className="text-sm text-muted-foreground mt-1">{description}</p>
+          <div className="text-sm text-muted-foreground mt-1"><LatexRenderer content={description} inline /></div>
         )}
       </CardHeader>
       <CardContent className="pt-0 space-y-4">

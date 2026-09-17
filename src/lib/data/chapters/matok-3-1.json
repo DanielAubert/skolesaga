@@ -1,0 +1,277 @@
+{
+  "id": "matok-3-1",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "3.1",
+  "title": "Potensfunksjoner",
+  "description": "Egenskaper og grafer for f(x) = a·x^b, med økonomiske eksempler.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"
+  ],
+  "keyTerms": [
+    { "term": "Potensfunksjon", "definition": "En funksjon på formen $f(x) = a \\cdot x^b$, der $a$ og $b$ er faste tall og $a \\neq 0$. Den variable står i GRUNNTALLET." },
+    { "term": "Eksponenten $b$", "definition": "Tallet som bestemmer formen på grafen: $b > 1$ gir økende vekst, $0 < b < 1$ gir avtakende vekst, $b < 0$ gir en synkende graf." },
+    { "term": "Avtakende utbytte", "definition": "At hver ny enhet av innsatsen gir mindre igjen enn den forrige. I en potensfunksjon svarer det til $0 < b < 1$." },
+    { "term": "Enhetskostnad", "definition": "Kostnaden per produsert enhet, altså $K_e(x) = \\frac{K(x)}{x}$. Den kan ofte modelleres med en potensfunksjon med negativ eksponent." },
+    { "term": "Stordriftsfordel", "definition": "At kostnaden per enhet synker når produksjonen øker. Grafen til enhetskostnaden synker mot høyre." }
+  ],
+  "content": [
+    {
+      "id": "matok-3-1-intro",
+      "type": "text",
+      "content": "## Når to størrelser ikke følger hverandre rett fram\n\nI kapittel 1 og 2 regnet vi med rente. Da var den ukjente et **beløp** eller en **rentesats**, og formlene var det verktøyet vi trengte.\n\nNå snur vi litt på det. I dette kapittelet ser vi på **funksjoner** — sammenhenger der én størrelse avhenger av en annen. Og i økonomi er det nesten aldri slik at dobbelt så mye inn gir dobbelt så mye ut:\n\n- Dobler du antall arbeidstimer, får du som regel **ikke** dobbelt så mange ferdige varer.\n- Dobler du størrelsen på fabrikken, blir den **ikke** dobbelt så dyr å bygge.\n- Dobler du produksjonen, blir kostnaden per enhet **lavere**, ikke uendret.\n\nAlle tre sammenhengene lar seg beskrive med den samme funksjonstypen: **potensfunksjonen**.\n\nDette kapittelet er starten på en kjede. I 3.2 møter vi eksponentialfunksjonene, i 3.3 den naturlige logaritmen, og i 3.4 bruker vi alt sammen på renteregning. Da kan vi endelig svare på spørsmålet vi måtte prøve oss fram til i 1.5: *hvor lenge må pengene stå?*"
+    },
+    {
+      "id": "matok-3-1-def-potens",
+      "type": "definition",
+      "title": "Potensfunksjon",
+      "content": "En **potensfunksjon** er en funksjon på formen\n\n$$f(x) = a \\cdot x^{b}$$\n\nder $a$ og $b$ er faste tall og $a \\neq 0$.\n\nTallet $a$ kalles **koeffisienten**, og $b$ kalles **eksponenten**.\n\nI økonomiske modeller er $x$ nesten alltid en positiv størrelse — timer, enheter, tonn, kroner — så vi regner med $x > 0$ hvis ikke noe annet står."
+    },
+    {
+      "id": "matok-3-1-tekst-hvor-star-x",
+      "type": "text",
+      "content": "## Legg merke til hvor $x$ står\n\nDette er den viktigste forskjellen i hele kapittel 3, og den er verdt å stoppe ved:\n\n| Funksjon | Navn | Hvor står $x$? |\n|---|---|---|\n| $f(x) = 5x^3$ | potensfunksjon | i **grunntallet** |\n| $g(x) = 5 \\cdot 3^x$ | eksponentialfunksjon | i **eksponenten** |\n\nDe to ser nesten like ut, men oppfører seg helt forskjellig. Potensfunksjonen $5x^3$ blir $5 \\cdot 8 = 40$ når $x = 2$; eksponentialfunksjonen $5 \\cdot 3^x$ blir $5 \\cdot 9 = 45$. Ved $x = 10$ er avstanden mellom dem enorm.\n\nEt godt spørsmål å stille hver gang: **flytter tallet seg, eller flytter $x$ seg?** I en potensfunksjon er grunntallet variabelt og eksponenten fast. I en eksponentialfunksjon er det motsatt.\n\nVi ser på eksponentialfunksjonene i 3.2. Her holder vi oss til potensfunksjonene."
+    },
+    {
+      "id": "matok-3-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Potens eller eksponential?",
+      "problem": "Avgjør om funksjonene er potensfunksjoner eller eksponentialfunksjoner, og regn ut verdiene.\n\na) $f(x) = 5x^3$. Finn $f(2)$ og $f(4)$.\n\nb) $g(x) = 5 \\cdot 3^x$. Finn $g(2)$ og $g(4)$.\n\nc) $h(x) = \\dfrac{200}{\\sqrt{x}}$. Finn $h(4)$ og $h(100)$.",
+      "solution": "**a)** Her står $x$ i grunntallet og $3$ er en fast eksponent. Det er en **potensfunksjon** med $a = 5$ og $b = 3$.\n\n$$f(2) = 5 \\cdot 2^3 = 5 \\cdot 8 = 40$$\n$$f(4) = 5 \\cdot 4^3 = 5 \\cdot 64 = 320$$\n\n**b)** Her står $x$ i eksponenten. Det er en **eksponentialfunksjon**.\n\n$$g(2) = 5 \\cdot 3^2 = 5 \\cdot 9 = 45$$\n$$g(4) = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$$\n\n**c)** Denne ser ikke ut som $a \\cdot x^b$ i det hele tatt — men det er den. Vi skriver om:\n\n$$\\frac{200}{\\sqrt{x}} = \\frac{200}{x^{1/2}} = 200 \\cdot x^{-1/2}$$\n\n(Likheten gjelder begge veier! Det er den samme omskrivingen som lar deg gå tilbake til brøkform når svaret skal være pent.)\n\nDet er altså en **potensfunksjon** med $a = 200$ og $b = -\\frac{1}{2}$.\n\n$$h(4) = \\frac{200}{\\sqrt{4}} = \\frac{200}{2} = 100$$\n$$h(100) = \\frac{200}{\\sqrt{100}} = \\frac{200}{10} = 20$$\n\n**Svar:** a) potensfunksjon, $f(2) = 40$ og $f(4) = 320$. b) eksponentialfunksjon, $g(2) = 45$ og $g(4) = 405$. c) potensfunksjon, $h(4) = 100$ og $h(100) = 20$.\n\nNB: Ved $x = 2$ ligger $f$ og $g$ nesten likt (40 mot 45). Ved $x = 4$ har $g$ passert. Det er ikke tilfeldig — vi kommer tilbake til det i 3.2."
+    },
+    {
+      "id": "matok-3-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-1-oppg-1",
+        "number": "3.1.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om funksjonen er en potensfunksjon eller en eksponentialfunksjon, og regn ut den oppgitte verdien.",
+        "subTasks": [
+          { "label": "a", "task": "$f(x) = 3x^2$. Finn $f(5)$.", "solution": "Potensfunksjon ($x$ i grunntallet). $f(5) = 3 \\cdot 25 = 75$", "answer": 75 },
+          { "label": "b", "task": "$g(x) = 2^x$. Finn $g(5)$.", "solution": "Eksponentialfunksjon ($x$ i eksponenten). $g(5) = 2^5 = 32$", "answer": 32 },
+          { "label": "c", "task": "$h(x) = \\dfrac{100}{x^2}$. Finn $h(5)$.", "solution": "Potensfunksjon: $h(x) = 100x^{-2}$. $h(5) = \\frac{100}{25} = 4$", "answer": 4 },
+          { "label": "d", "task": "$k(x) = 6\\sqrt{x}$. Finn $k(49)$.", "solution": "Potensfunksjon: $k(x) = 6x^{1/2}$. $k(49) = 6 \\cdot 7 = 42$", "answer": 42 },
+          { "label": "e", "task": "Forklar med egne ord hvordan du ser forskjellen på de to funksjonstypene.", "solution": "I en potensfunksjon står $x$ i grunntallet og eksponenten er et fast tall. I en eksponentialfunksjon står $x$ i eksponenten og grunntallet er et fast tall. Spørsmålet er altså: hvilken av de to plassene flytter $x$ seg på?" }
+        ],
+        "solution": "a) potens, 75. b) eksponential, 32. c) potens, 4. d) potens, 42. e) $x$ i grunntallet = potensfunksjon; $x$ i eksponenten = eksponentialfunksjon.",
+        "hints": ["Skriv om brøker og røtter til potensform først: $\\frac{a}{x^n} = ax^{-n}$ og $\\sqrt{x} = x^{1/2}$.", "Se etter hvor bokstaven $x$ står."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-1-tekst-eksponenten",
+      "type": "text",
+      "content": "## Eksponenten bestemmer formen\n\nKoeffisienten $a$ gjør lite annet enn å strekke grafen opp eller ned. Det er **eksponenten $b$** som avgjør hvordan sammenhengen oppfører seg — og i økonomi har hver verdi av $b$ en tolkning:\n\n| Eksponent | Grafen | Økonomisk tolkning |\n|---|---|---|\n| $b > 1$ | stiger raskere og raskere | mer enn proporsjonalt: dobbel innsats gir mer enn dobbelt så mye |\n| $b = 1$ | rett linje gjennom origo | proporsjonalt: dobbel innsats gir dobbelt så mye |\n| $0 < b < 1$ | stiger, men flater ut | **avtakende utbytte**: dobbel innsats gir mindre enn dobbelt så mye |\n| $b < 0$ | synker mot null | jo mer, jo mindre per enhet — typisk enhetskostnad |\n\nDen tredje raden er den vanligste i økonomi. Den sier noe alle bedrifter kjenner igjen: den femte ansatte gir ikke like mye ekstra som den første gjorde."
+    },
+    {
+      "id": "matok-3-1-fig-eksponenten",
+      "type": "dynamic-plot",
+      "title": "Samme koeffisient, fire eksponenter",
+      "description": "Fire potensfunksjoner med samme koeffisient $a = 10$ og eksponentene $-0{,}5$, $0{,}5$, $1$ og $1{,}5$. Alle fire går gjennom punktet $(1, 10)$. Kurven med eksponent $0{,}5$ flater ut og når $31{,}6$ ved $x = 10$; den rette linja med eksponent $1$ når $100$; kurven med eksponent $1{,}5$ stiger raskere og raskere og når $316{,}2$. Kurven med negativ eksponent $-0{,}5$ gjør det motsatte: den faller fra $31{,}6$ ved $x = 0{,}1$ til $3{,}2$ ved $x = 10$ og synker mot null uten å nå den. Det er raden $b < 0$ i tabellen over — den typiske enhetskostnaden, som Eksempel 3 regner på.",
+      "xRange": [
+        0,
+        10
+      ],
+      "yRange": [
+        0,
+        330
+      ],
+      "xLabel": "x",
+      "yLabel": "f(x)",
+      "functions": [
+        {
+          "label": "$10x^{-0{,}5}$ (enhetskostnad, $b < 0$)",
+          "expression": "10*x^(-0.5)",
+          "style": "solid"
+        },
+        {
+          "label": "$10x^{0{,}5}$ (avtakende utbytte)",
+          "expression": "10*x^0.5",
+          "style": "solid"
+        },
+        {
+          "label": "$10x$ (proporsjonalt)",
+          "expression": "10*x",
+          "style": "dashed"
+        },
+        {
+          "label": "$10x^{1{,}5}$ (økende utbytte)",
+          "expression": "10*x^1.5",
+          "style": "solid"
+        }
+      ],
+      "points": [
+        {
+          "x": 1,
+          "y": 10,
+          "label": "(1, 10)"
+        }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-3-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Produksjonsfunksjon med avtakende utbytte",
+      "problem": "Et snekkerverksted produserer\n\n$$P(x) = 12 \\cdot x^{0{,}6}$$\n\nferdige enheter når det legges ned $x$ arbeidstimer i uka.\n\na) Hvor mange enheter blir det ved 100 timer? Og ved 200 timer?\n\nb) Verkstedet dobler bemanningen. Blir produksjonen dobbelt så stor?",
+      "solution": "**Hva vet vi?** Modellen $P(x) = 12x^{0{,}6}$. **Hva må vi finne?** $P(100)$, $P(200)$ og forholdet mellom dem.\n\n**a)** Vi setter inn:\n\n$$P(100) = 12 \\cdot 100^{0{,}6} \\approx 12 \\cdot 15{,}849 \\approx 190{,}19$$\n$$P(200) = 12 \\cdot 200^{0{,}6} \\approx 12 \\cdot 24{,}023 \\approx 288{,}27$$\n\nProduksjonen er et antall enheter, så vi runder ned til hele enheter: omtrent $190$ og omtrent $288$ enheter.\n\n**b)** Nå skal vi sammenlikne, og da deler vi:\n\n$$\\frac{P(200)}{P(100)} = \\frac{288{,}27}{190{,}19} \\approx 1{,}52$$\n\nProduksjonen blir altså omtrent $1{,}52$ ganger så stor — ikke $2$ ganger.\n\nVi kan også se det direkte i uttrykket, uten tall:\n\n$$\\frac{P(2x)}{P(x)} = \\frac{12 \\cdot (2x)^{0{,}6}}{12 \\cdot x^{0{,}6}} = \\frac{12 \\cdot 2^{0{,}6} \\cdot x^{0{,}6}}{12 \\cdot x^{0{,}6}} = 2^{0{,}6} \\approx 1{,}5157$$\n\nHer forkortes både $12$ og $x^{0{,}6}$ bort. Det som blir igjen, er bare $2^{0{,}6}$ — og det tallet er det samme uansett hvor mange timer verkstedet startet med.\n\n**Svar:** a) Omtrent $190$ enheter ved 100 timer og omtrent $288$ enheter ved 200 timer. b) Nei. En dobling av timene gir omtrent $52\\,\\%$ flere enheter, ikke $100\\,\\%$ flere.\n\nDette er **avtakende utbytte**, og det er hele poenget med at $0 < b < 1$. Flere folk i samme verksted betyr mer venting på maskinene og mer tid på å koordinere. Om doblingen likevel lønner seg, avhenger av hva enhetene selges for — og det regner vi på i kapittel 7."
+    },
+    {
+      "id": "matok-3-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-1-oppg-2",
+        "number": "3.1.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør den samme. En pakkesentral pakker $P(x) = 8 \\cdot x^{0{,}75}$ pakker per dag når $x$ ansatte er på jobb.",
+        "subTasks": [
+          { "label": "a", "task": "Hvor mange pakker blir pakket med 16 ansatte?", "solution": "$P(16) = 8 \\cdot 16^{0{,}75} = 8 \\cdot 8 = 64$ pakker. (Her er $16^{0{,}75} = (16^{1/4})^3 = 2^3 = 8$.)", "answer": 64 },
+          { "label": "b", "task": "Hvor mange blir det med 81 ansatte?", "solution": "$P(81) = 8 \\cdot 81^{0{,}75} = 8 \\cdot 27 = 216$ pakker.", "answer": 216 },
+          { "label": "c", "task": "Hvor mange blir det med 256 ansatte?", "solution": "$P(256) = 8 \\cdot 256^{0{,}75} = 8 \\cdot 64 = 512$ pakker.", "answer": 512 },
+          { "label": "d", "task": "Fra 16 til 256 ansatte er en 16-dobling. Hvor mange ganger så mange pakker blir det?", "solution": "$\\frac{512}{64} = 8$ ganger så mange. En 16-dobling av bemanningen gir bare 8 ganger produksjonen — altså $16^{0{,}75} = 8$.", "answer": 8 },
+          { "label": "e", "task": "Hva forteller eksponenten $0{,}75$ om denne bedriften?", "solution": "At den har avtakende utbytte: eksponenten ligger mellom 0 og 1, så hver ny ansatt bidrar med mindre enn den forrige. Produksjonen vokser, men saktere enn bemanningen." }
+        ],
+        "solution": "a) 64 pakker, b) 216 pakker, c) 512 pakker, d) 8 ganger så mange, e) avtakende utbytte fordi $0 < 0{,}75 < 1$",
+        "hints": ["$x^{0{,}75} = \\left(\\sqrt[4]{x}\\right)^3$. Fjerderoten av 16 er 2, av 81 er 3 og av 256 er 4.", "I d): del det største tallet på det minste."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Negativ eksponent — enhetskostnaden",
+      "problem": "En bedrift har enhetskostnaden\n\n$$K_e(x) = 900 \\cdot x^{-0{,}25}$$\n\nkroner per enhet når den produserer $x$ enheter.\n\na) Regn ut $K_e(16)$, $K_e(81)$ og $K_e(256)$.\n\nb) Hva er den totale kostnaden ved 256 enheter?\n\nc) Kan enhetskostnaden bli null?",
+      "solution": "**a)** Først skriver vi om, så vi ser hva vi faktisk regner:\n\n$$K_e(x) = 900 \\cdot x^{-0{,}25} = \\frac{900}{x^{0{,}25}} = \\frac{900}{\\sqrt[4]{x}}$$\n\nEn negativ eksponent betyr altså at potensen havner i **nevneren**. Da er resten hoderegning, for vi har valgt tall med pen fjerderot:\n\n$$K_e(16) = \\frac{900}{\\sqrt[4]{16}} = \\frac{900}{2} = 450$$\n$$K_e(81) = \\frac{900}{\\sqrt[4]{81}} = \\frac{900}{3} = 300$$\n$$K_e(256) = \\frac{900}{\\sqrt[4]{256}} = \\frac{900}{4} = 225$$\n\n**b)** Enhetskostnaden er kostnad **per enhet**, så totalen finner vi ved å gange med antall enheter:\n\n$$K = 256 \\cdot K_e(256) = 256 \\cdot 225 = 57\\,600$$\n\n**c)** Nei. Uansett hvor stor $x$ blir, er $\\frac{900}{\\sqrt[4]{x}}$ et positivt tall. Brøken blir mindre og mindre, men den treffer aldri null — det er den samme typen oppførsel som grenseverdien i 1.5.\n\n![Et koordinatsystem med antall enheter 0 til 300 vannrett og kroner per enhet 0 til 800 loddrett. En blå kurve merket «K med senket e av x er lik 900 ganger x opphøyd i minus 0,25» faller bratt til venstre og flater stadig mer ut mot høyre uten å nå null. Tre punkter er markert: (16 | 450), (81 | 300) og (256 | 225). Fra punktene ved 16 og 256 går grå stiplede loddrette linjer ned til en rød mållinje med endestreker i begge ender. Mållinja går fra x lik 16 til x lik 256 og er merket «seksten ganger så mange enheter».](/images/content/matematikk-okonomi/matok-3-1-enhetskostnad.png)\n\n*Enhetskostnaden faller når produksjonen øker, men kurven flater ut: produksjonen måtte seksten-dobles for at kostnaden per enhet skulle halveres fra 450 til 225 kr. Stordriftsfordelen svekkes.*\n\n**Svar:** a) $450$, $300$ og $225$ kroner per enhet. b) $57\\,600$ kroner. c) Nei, enhetskostnaden nærmer seg null uten å nå den.\n\nLegg merke til mønsteret: for å halvere enhetskostnaden fra 450 til 225 måtte produksjonen **seksten-dobles** (fra 16 til 256). Stordriftsfordelene er størst i starten og blir svakere og svakere — akkurat som utbyttet i Eksempel 2, bare speilvendt."
+    },
+        {
+      "id": "matok-3-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-1-oppg-3",
+        "number": "3.1.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et trykkeri har enhetskostnaden $K_e(x) = 1200 \\cdot x^{-0{,}5}$ kroner per plakat når det trykkes $x$ plakater.",
+        "subTasks": [
+          { "label": "a", "task": "Skriv $K_e(x)$ uten negativ eksponent.", "solution": "$K_e(x) = \\frac{1200}{x^{0{,}5}} = \\frac{1200}{\\sqrt{x}}$", "expressionAnswer": "1200/sqrt(x)" },
+          { "label": "b", "task": "Regn ut $K_e(4)$ og $K_e(25)$.", "solution": "$K_e(4) = \\frac{1200}{2} = 600$ kr og $K_e(25) = \\frac{1200}{5} = 240$ kr per plakat.", "answer": [600, 240] },
+          { "label": "c", "task": "Regn ut $K_e(100)$ og $K_e(400)$.", "solution": "$K_e(100) = \\frac{1200}{10} = 120$ kr og $K_e(400) = \\frac{1200}{20} = 60$ kr per plakat.", "answer": [120, 60] },
+          { "label": "d", "task": "Hvor mange ganger må opplaget økes for at enhetskostnaden skal halveres?", "solution": "Fra 25 til 100 plakater halveres kostnaden fra 240 til 120 kroner — det er en firedobling. Det samme skjer fra 100 til 400. Opplaget må altså firedobles hver gang.", "answer": 4 },
+          { "label": "e", "task": "Hva er den totale trykkekostnaden ved 400 plakater, og hva er den ved 100? Forklar hvorfor totalkostnaden øker selv om enhetskostnaden synker.", "solution": "$400 \\cdot 60 = 24\\,000$ kroner mot $100 \\cdot 120 = 12\\,000$ kroner. Totalen dobles fordi antallet firedobles mens prisen per plakat bare halveres. Enhetskostnad og totalkostnad er to forskjellige størrelser — en synkende enhetskostnad betyr ikke at det blir billigere i alt.", "answer": [24000, 12000] }
+        ],
+        "solution": "a) $\\frac{1200}{\\sqrt{x}}$, b) 600 kr og 240 kr, c) 120 kr og 60 kr, d) firedobling, e) 24 000 kr og 12 000 kr — totalen dobles fordi antallet vokser raskere enn prisen per enhet synker",
+        "hints": ["$x^{-0{,}5} = \\frac{1}{\\sqrt{x}}$.", "I d): sammenlikn $K_e(25)$ med $K_e(100)$, og $K_e(100)$ med $K_e(400)$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-1-teorem-to-punkter",
+      "type": "theorem",
+      "title": "Å finne $a$ og $b$ fra to punkter",
+      "content": "Er to punkter på grafen kjent, er potensfunksjonen bestemt. Framgangsmåten er alltid den samme:\n\n**1. Del de to funksjonsverdiene på hverandre.** Da forsvinner $a$:\n\n$$\\frac{f(x_2)}{f(x_1)} = \\frac{a \\cdot x_2^{\\,b}}{a \\cdot x_1^{\\,b}} = \\left(\\frac{x_2}{x_1}\\right)^{b}$$\n\n**2. Løs likningen for $b$.**\n\n**3. Sett $b$ inn i ett av punktene, og finn $a$.**\n\nNB: Det er delingen i steg 1 som er hele trikset. Vi har to ukjente og to opplysninger; ved å dele kvitter vi oss med den ene ukjente og står igjen med én likning i én ukjent. Den samme ideen brukte vi da vi delte på $K_0$ i kapittel 1.5.\n\n(I dette kapittelet velger vi tall der $b$ lar seg lese direkte. I 3.3 får vi et verktøy — logaritmen — som løser steg 2 for alle tall.)"
+    },
+    {
+      "id": "matok-3-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Finn funksjonsuttrykket",
+      "problem": "En potensfunksjon $f(x) = a \\cdot x^b$ har $f(4) = 24$ og $f(16) = 48$. Finn $a$ og $b$.",
+      "solution": "**Hva vet vi?** To punkter: $(4, 24)$ og $(16, 48)$. **Hva må vi finne?** $a$ og $b$.\n\n**Steg 1 — del.** Vi setter opp forholdet mellom de to funksjonsverdiene:\n\n$$\\frac{f(16)}{f(4)} = \\frac{a \\cdot 16^{\\,b}}{a \\cdot 4^{\\,b}}$$\n\n$$\\frac{48}{24} = \\left(\\frac{16}{4}\\right)^{b}$$\n\n$$2 = 4^{\\,b}$$\n\n(Her forkortes $a$ bort. Det er derfor vi deler.)\n\n**Steg 2 — løs for $b$.** Hvilken eksponent gjør 4 om til 2? Det er kvadratroten:\n\n$$4^{1/2} = \\sqrt{4} = 2 \\qquad \\Longrightarrow \\qquad b = \\frac{1}{2}$$\n\n**Steg 3 — finn $a$.** Vi setter $b = \\frac{1}{2}$ inn i punktet $(4, 24)$:\n\n$$a \\cdot 4^{1/2} = 24$$\n$$a \\cdot 2 = 24 \\qquad | : 2$$\n$$a = 12$$\n\n**Kontroll i det andre punktet.** Her skal vi bruke opplysningen vi ikke brukte til slutt:\n\n$$f(16) = 12 \\cdot 16^{1/2} = 12 \\cdot 4 = 48$$\n\nså det stemmer.\n\n**Svar:** $a = 12$ og $b = \\dfrac{1}{2}$, altså $f(x) = 12\\sqrt{x}$."
+    },
+    {
+      "id": "matok-3-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-1-oppg-4",
+        "number": "3.1.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Finn $a$ og $b$ i potensfunksjonen $f(x) = a \\cdot x^b$.",
+        "subTasks": [
+          { "label": "a", "task": "$f(4) = 30$ og $f(36) = 90$.", "solution": "$\\frac{90}{30} = \\left(\\frac{36}{4}\\right)^b$ gir $3 = 9^b$, altså $b = \\frac{1}{2}$. Så $a \\cdot 2 = 30$ og $a = 15$. Altså $f(x) = 15\\sqrt{x}$.", "answer": [15, 0.5] },
+          { "label": "b", "task": "Kontroller svaret i a) ved å regne ut $f(36)$.", "solution": "$f(36) = 15 \\cdot \\sqrt{36} = 15 \\cdot 6 = 90$ — så det stemmer.", "answer": 90 },
+          { "label": "c", "task": "$f(1) = 200$ og $f(8) = 50$.", "solution": "$\\frac{50}{200} = 8^b$ gir $\\frac{1}{4} = 8^b$. Skriver vi begge som potenser av 2: $2^{-2} = 2^{3b}$, altså $3b = -2$ og $b = -\\frac{2}{3}$. Videre: $a \\cdot 1^b = 200$, så $a = 200$.", "answer": [200, -0.6667] },
+          { "label": "d", "task": "Regn ut $f(27)$ med uttrykket fra c). Rund av til to desimaler.", "solution": "$f(27) = 200 \\cdot 27^{-2/3} = \\frac{200}{\\left(\\sqrt[3]{27}\\right)^2} = \\frac{200}{9} \\approx 22{,}22$", "answer": 22.22 },
+          { "label": "e", "task": "I c) er eksponenten negativ. Hva forteller det om sammenhengen?", "solution": "At $f$ synker når $x$ øker. Sammenhengen er avtakende: jo større $x$, jo mindre funksjonsverdi — for eksempel en enhetskostnad eller en pris som faller med volumet." }
+        ],
+        "solution": "a) $a = 15$, $b = \\frac{1}{2}$, b) 90, c) $a = 200$, $b = -\\frac{2}{3}$, d) $\\approx 22{,}22$, e) negativ eksponent betyr at funksjonen synker",
+        "hints": ["Del de to funksjonsverdiene på hverandre — da forsvinner $a$.", "I c): skriv både $\\frac{1}{4}$ og $8$ som potenser av 2."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Hva koster en dobbelt så stor fabrikk?",
+      "problem": "I industrien brukes en tommelfingerregel for hva et anlegg koster å bygge:\n\n$$K(x) = 40 \\cdot \\left(\\frac{x}{1000}\\right)^{0{,}6}$$\n\nmillioner kroner, der $x$ er kapasiteten i tonn per år. Referansen er et anlegg på 1000 tonn som koster 40 millioner kroner.\n\na) Hva koster et anlegg på 2000 tonn?\n\nb) Hva koster hvert tonn kapasitet i de to anleggene?\n\nc) En investor sier: «Dobbelt så stort anlegg, dobbelt så dyrt — 80 millioner.» Vurder påstanden.",
+      "solution": "**a)** Vi setter inn $x = 2000$:\n\n$$K(2000) = 40 \\cdot \\left(\\frac{2000}{1000}\\right)^{0{,}6} = 40 \\cdot 2^{0{,}6} \\approx 40 \\cdot 1{,}5157 \\approx 60{,}63$$\n\n**b)** Kapasitet per krone finner vi ved å dele kostnaden på antall tonn:\n\n$$\\frac{40\\,000\\,000}{1000} = 40\\,000 \\text{ kroner per tonn}$$\n$$\\frac{60\\,630\\,000}{2000} \\approx 30\\,314 \\text{ kroner per tonn}$$\n\n**c)** Påstanden er **feil**. Modellen gir omtrent 60,6 millioner, ikke 80. Investoren regner **lineært** i en sammenheng som er en potensfunksjon med eksponent $0{,}6$.\n\nAt eksponenten er mindre enn 1, er nettopp det som gjør at det lønner seg å bygge stort: kostnaden vokser saktere enn kapasiteten. En dobling av kapasiteten gir bare\n\n$$2^{0{,}6} \\approx 1{,}52$$\n\nganger så høy byggekostnad — omtrent $52\\,\\%$ dyrere, ikke $100\\,\\%$.\n\n**Svar:** a) Omtrent $60{,}6$ millioner kroner. b) $40\\,000$ kroner per tonn mot omtrent $30\\,314$ kroner per tonn. c) Feil — anlegget blir omtrent $52\\,\\%$ dyrere, ikke dobbelt så dyrt.\n\n**NB — en modell er en modell.** Regelen over er en erfaringsregel fra prosessindustrien, og den gjelder i et begrenset område. Bygger du ti ganger så stort, treffer den gjerne dårlig, for da må du kanskje ha to fabrikker i stedet for én. Å kjenne modellens gyldighetsområde hører med til å bruke den."
+    },
+    {
+      "id": "matok-3-1-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn **potensfunksjon** er $f(x) = a \\cdot x^b$, med $x$ i grunntallet.\n\n| Eksponent | Oppførsel | I økonomi |\n|---|---|---|\n| $b > 1$ | stiger stadig raskere | mer enn proporsjonal vekst |\n| $b = 1$ | rett linje | proporsjonalt |\n| $0 < b < 1$ | stiger, flater ut | avtakende utbytte, stordriftsfordel |\n| $b < 0$ | synker mot null | enhetskostnad, pris per volum |\n\n**Omskrivingene du trenger:**\n\n$$\\frac{a}{x^n} = a \\cdot x^{-n} \\qquad \\sqrt{x} = x^{1/2} \\qquad \\sqrt[n]{x^m} = x^{m/n}$$\n\n**Skaleringsregelen.** Ganges $x$ med et tall $k$, ganges $f(x)$ med $k^b$:\n\n$$\\frac{f(kx)}{f(x)} = k^{\\,b}$$\n\nDet er den ene formelen som forklarer alle eksemplene i kapittelet. Dobling av innsatsen gir $2^{0{,}6} \\approx 1{,}52$ ganger så mye — uansett hvor du starter.\n\n**Å finne $a$ og $b$ fra to punkter:** del funksjonsverdiene på hverandre (da forsvinner $a$), løs for $b$, sett tilbake og finn $a$, kontroller i det andre punktet.\n\n**Vanlige feil:**\n- Å blande potensfunksjon og eksponentialfunksjon. Spør: hvor står $x$?\n- Å tro at negativ eksponent betyr negativ funksjonsverdi. Den betyr at potensen havner i nevneren; funksjonsverdien er positiv.\n- Å regne lineært på en sammenheng som ikke er lineær («dobbelt så stort, dobbelt så dyrt»)."
+    },
+    {
+      "id": "matok-3-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-1-oppg-5",
+        "number": "3.1.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et verksted produserer $P(x) = 25\\sqrt{x}$ enheter i måneden når det brukes $x$ arbeidstimer. Timelønnen er 420 kroner.",
+        "subTasks": [
+          { "label": "a", "task": "Regn ut $P(100)$, $P(400)$ og $P(900)$.", "solution": "$P(100) = 25 \\cdot 10 = 250$, $P(400) = 25 \\cdot 20 = 500$ og $P(900) = 25 \\cdot 30 = 750$ enheter.", "answer": [250, 500, 750] },
+          { "label": "b", "task": "Hva er lønnskostnaden per enhet ved 100 timer og ved 400 timer?", "solution": "Ved 100 timer: $\\frac{420 \\cdot 100}{250} = \\frac{42\\,000}{250} = 168$ kroner. Ved 400 timer: $\\frac{420 \\cdot 400}{500} = \\frac{168\\,000}{500} = 336$ kroner.", "answer": [168, 336] },
+          { "label": "c", "task": "Vis at lønnskostnaden per enhet kan skrives som $16{,}8\\sqrt{x}$.", "solution": "$\\frac{420x}{25\\sqrt{x}} = \\frac{420}{25} \\cdot \\frac{x}{\\sqrt{x}} = 16{,}8 \\cdot \\frac{x}{x^{1/2}} = 16{,}8 \\cdot x^{1/2} = 16{,}8\\sqrt{x}$. (Her brukes $\\frac{x^1}{x^{1/2}} = x^{1 - 1/2} = x^{1/2}$.)", "expressionAnswer": "16.8*sqrt(x)" },
+          { "label": "d", "task": "Hvor mange timer må til før lønnskostnaden per enhet kommer opp i 420 kroner — altså like mye som én arbeidstime koster?", "solution": "$16{,}8\\sqrt{x} = 420$ gir $\\sqrt{x} = 25$ og $x = 625$ timer. Da er $P(625) = 25 \\cdot 25 = 625$ enheter — én enhet per time.", "answer": 625 },
+          { "label": "e", "task": "Verkstedet selger enhetene for 300 kroner. Ved hvilke av timetallene i a) dekker salgsprisen lønnskostnaden per enhet? Drøft hva det betyr for hvor stort verkstedet bør drive.", "solution": "Lønnskostnaden per enhet er 168 kr ved 100 timer, 336 kr ved 400 timer og $16{,}8 \\cdot 30 = 504$ kr ved 900 timer. Bare ved 100 timer er den under salgsprisen på 300 kroner. Verkstedet taper altså penger på hver enhet når det driver stort — stikk motsatt av stordriftsfordelene i Eksempel 3. Grunnen er at produksjonen vokser som $\\sqrt{x}$ mens lønnen vokser som $x$. Verkstedet bør holde seg under det timetallet der $16{,}8\\sqrt{x} = 300$, altså under omtrent 319 timer." }
+        ],
+        "solution": "a) 250, 500 og 750 enheter, b) 168 kr og 336 kr, c) $16{,}8\\sqrt{x}$, d) 625 timer, e) bare ved 100 timer; verkstedet bør holde seg under ca. 319 timer",
+        "hints": ["Lønnskostnad per enhet = samlet lønn delt på antall enheter.", "I c): $\\frac{x}{\\sqrt{x}} = \\sqrt{x}$."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-3-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-3-1-oppg-6",
+        "number": "3.1.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Et meieri vurderer hvor stort et nytt anlegg skal bli. Byggekostnaden modelleres med\n\n$$K(x) = 60 \\cdot \\left(\\frac{x}{5000}\\right)^{0{,}6}$$\n\nmillioner kroner, der $x$ er kapasiteten i tonn per år. Referanseanlegget på 5000 tonn koster 60 millioner kroner.\n\nLag et regneark med kapasiteten i kolonne A og byggekostnaden i kolonne B. Formelen i B2 er `=60*(A2/5000)^0,6`.",
+        "subTasks": [
+          { "label": "a", "task": "Fyll ut tabellen for kapasitetene 2500, 5000, 10 000 og 20 000 tonn. Rund av til to desimaler.", "solution": "2500 tonn: $39{,}59$ mill. kr. 5000 tonn: $60{,}00$ mill. kr. 10 000 tonn: $90{,}94$ mill. kr. 20 000 tonn: $137{,}84$ mill. kr.", "answer": [39.59, 60, 90.94, 137.84] },
+          { "label": "b", "task": "Legg til en kolonne C med byggekostnad per tonn kapasitet. Formelen er `=B2*1000000/A2`. Hva blir tallene?", "solution": "2500 tonn: omtrent $15\\,834$ kr/tonn. 5000 tonn: $12\\,000$ kr/tonn. 10 000 tonn: omtrent $9094$ kr/tonn. 20 000 tonn: omtrent $6892$ kr/tonn.", "answer": [15834, 12000, 9094, 6892] },
+          { "label": "c", "task": "Hvor mye dyrere blir det å doble kapasiteten fra 5000 til 10 000 tonn, i prosent?", "solution": "$\\frac{90{,}94}{60} \\approx 1{,}5157$, altså omtrent $51{,}6\\,\\%$ dyrere. Det er $2^{0{,}6}$ igjen — det samme tallet som i Eksempel 2 og 5.", "answer": 51.6 },
+          { "label": "d", "task": "En rådgiver har regnet med at et anlegg på 10 000 tonn koster 120 millioner, «for det er dobbelt så stort som referansen». Hvor mye bommer rådgiveren?", "solution": "Modellen gir $90{,}94$ millioner. Rådgiveren bommer med $120 - 90{,}94 = 29{,}06$ millioner kroner — han regner lineært på en potenssammenheng med eksponent $0{,}6$.", "answer": 29.06 },
+          { "label": "e", "task": "Meieriet forventer å selge alt de produserer. Kolonne C synker hele veien. Betyr det at de bare bør bygge så stort som mulig? Drøft.", "solution": "Nei. Kolonne C sier bare at BYGGEkostnaden per tonn synker — den sier ingenting om driftskostnader, om meieriet får tak i nok melk, eller om markedet tar imot 20 000 tonn. Modellen er dessuten en erfaringsregel som gjelder i et begrenset område rundt referansen; ekstrapolerer vi langt utenfor, kan den bomme grovt. Et anlegg som står halvtomt, har en byggekostnad per FAKTISK produsert tonn som er mye høyere enn tabellen viser. Beslutningen må bygge på forventet salg, ikke på byggekostnaden alene.", "multipleChoiceOptions": [
+            "Nei — tabellen viser bare byggekostnad per tonn KAPASITET. Står anlegget halvtomt, blir kostnaden per faktisk produserte tonn langt høyere, og modellen gjelder dessuten bare i et område rundt referansen.",
+            "Ja — siden kolonne C synker hele veien, er det største anlegget alltid det mest lønnsomme.",
+            "Ja — så lenge eksponenten er mindre enn 1, lønner det seg alltid å bygge så stort som mulig.",
+            "Nei — fordi byggekostnaden per tonn etter hvert begynner å stige igjen i denne modellen."
+          ] }
+        ],
+        "solution": "a) 39,59 / 60,00 / 90,94 / 137,84 mill. kr, b) ca. 15 834 / 12 000 / 9094 / 6892 kr per tonn, c) ca. 51,6 % dyrere, d) 29,06 millioner for høyt, e) nei — kapasitet er ikke det samme som salg, og modellen gjelder i et begrenset område",
+        "hints": ["I regnearket skrives eksponenten med `^`: `=60*(A2/5000)^0,6`.", "I c): del den nye kostnaden på den gamle, og trekk fra 1."],
+        "competenceGoals": ["bruke eigenskapane til potensfunksjonar, eksponentialfunksjonar og naturlege logaritmefunksjonar til å utforske og løyse problem knytte til renterekning"],
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": []
+}

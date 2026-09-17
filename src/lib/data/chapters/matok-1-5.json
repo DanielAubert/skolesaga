@@ -1,0 +1,524 @@
+{
+"id": "matok-1-5",
+"courseId": "matematikk-okonomi",
+"chapterNumber": "1.5",
+"title": "Kontinuerlig rente utforsket digitalt",
+"description": "Grenseverdien mot e, og K·e^{rt} utforsket i regneark og GeoGebra.",
+"estimatedMinutes": 45,
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"content": [
+{
+"id": "matok-1-5-section-intro",
+"type": "text",
+"content": "# Kontinuerlig rente utforsket digitalt\n\nI kapittel 1.4 så vi at den effektive renten steg når renten ble tilskrevet oftere — men at den flatet ut mot en grense. Vi brukte grensen uten å vise hvor den kom fra.\n\nNå skal vi finne den selv. Dette kapittelet er en **utforsking**: vi lar et regneark regne mange tilfeller, ser på mønsteret i tallene, og trekker konklusjonen. Det er slik tallet $e$ ble oppdaget en gang på 1600-tallet, og det er en god måte å møte det på.\n\nDu trenger et regneark. Alt i kapittelet kan også gjøres med kalkulator eller CAS, men mønsteret ser du best når mange rader står under hverandre."
+},
+{
+"id": "matok-1-5-section-utforsking",
+"type": "text",
+"content": "## Utforskingen: én krone, hundre prosent rente\n\nVi tar det mest ekstreme tilfellet vi kan tenke oss, for da blir mønsteret tydeligst.\n\nDu setter **1 krone** i banken. Den nominelle renten er **$100\\,\\%$** per år. Så spør vi: hvor mye har du etter ett år?\n\nMed **årlig** tilskriving er svaret enkelt: $1 \\cdot 2 = 2$ kr.\n\nMen hva om banken tilskriver **halvårlig**? Da er terminrenten $50\\,\\%$, og du får\n\n$$1 \\cdot 1{,}5 \\cdot 1{,}5 = 1{,}5^2 = 2{,}25\\text{ kr}$$\n\nMer enn 2 kroner. Og hva om banken tilskriver hver måned? Hver dag? Hvert sekund? Går det mot uendelig?"
+},
+{
+"id": "matok-1-5-example-1",
+"type": "example",
+"title": "Eksempel 1 — hva skjer når vi deler året i flere og flere terminer?",
+"problem": "1 krone settes i banken i ett år med $100\\,\\%$ nominell rente. Regn ut sluttbeløpet når renten tilskrives $m$ ganger i året, for $m = 1, 2, 4, 12, 52, 365, 8\\,760$ (timer) og $525\\,600$ (minutter).",
+"solution": "**Løsning:**\n\n**Hva vet vi?** Nominell rente $100\\,\\%$ gir $r = 1$. Terminrenten er $\\frac{1}{m}$, og det er $m$ terminer.\n\nSluttbeløpet blir altså\n\n$$\\left(1 + \\frac{1}{m}\\right)^m$$\n\nI regnearket legger vi $m$-verdiene i kolonne A og formelen `=(1+1/A2)^A2` i B2, og drar den nedover.\n\n| $m$ | $\\left(1 + \\frac{1}{m}\\right)^m$ |\n|---|---|\n| 1 | 2,000000000 |\n| 2 | 2,250000000 |\n| 4 | 2,441406250 |\n| 12 | 2,613035290 |\n| 52 | 2,692596954 |\n| 365 | 2,714567482 |\n| 8 760 | 2,718126692 |\n| 525 600 | 2,718279243 |\n| 31 536 000 | 2,718281778 |\n\n**Svar:** Beløpet vokser, men det går **ikke** mot uendelig. Det låser seg fast rundt $2{,}71828\\ldots$\n\n**NB:** Se på hvor desimalene stivner. Etter $m = 8\\,760$ er de tre første desimalene låst ($2{,}718$). Etter $m = 525\\,600$ er de fire første låst ($2{,}7182$). Uansett hvor fint vi deler opp året, kommer vi aldri over $2{,}7182818\\ldots$ Det tallet har fått sitt eget navn."
+},
+{
+"id": "matok-1-5-def-e",
+"type": "definition",
+"title": "Tallet $e$",
+"content": "$$e = \\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^m \\approx 2{,}718281828$$\n\nTallet $e$ er irrasjonalt, akkurat som $\\pi$: desimalene tar aldri slutt og gjentar seg aldri. Det er grunntallet i den **naturlige eksponentialfunksjonen** $f(x) = e^x$, og du finner det som egen knapp på kalkulatoren.\n\nNår renten tilskrives uendelig ofte, sier vi at vi har **kontinuerlig rente**."
+},
+{
+"id": "matok-1-5-plot-e",
+"type": "dynamic-plot",
+"title": "$\\left(1 + \\frac{1}{x}\\right)^x$ nærmer seg $e$",
+"description": "Den blå kurven er $\\left(1 + \\frac{1}{x}\\right)^x$, den røde stiplede linja er $e \\approx 2{,}718$. Kurven stiger hele tiden, men kommer aldri over linja. Det er nettopp det en grenseverdi er: en verdi funksjonen nærmer seg så mye vi vil, uten å nå den.",
+"xRange": [
+1,
+120
+],
+"yRange": [
+1.9,
+2.9
+],
+"xLabel": "antall terminer $m$",
+"yLabel": "sluttbeløp for 1 krone",
+"functions": [
+{
+"label": "$(1+1/x)^x$",
+"expression": "(1+1/x)^x",
+"color": "#0ea5e9"
+},
+{
+"label": "$e$",
+"expression": "E",
+"color": "#ef4444",
+"style": "dashed"
+}
+]
+},
+{
+"id": "matok-1-5-theorem-grense",
+"type": "theorem",
+"title": "Kontinuerlig rente",
+"content": "For en nominell rente $r$ (skrevet som desimaltall) gjelder\n\n$$\\lim_{m \\to \\infty} \\left(1 + \\frac{r}{m}\\right)^m = e^{\\,r}$$\n\nMed kontinuerlig rente er kapitalen etter $t$ år derfor\n\n$$K_t = K_0 \\cdot e^{\\,r\\,t}$$\n\nog den effektive renten er\n\n$$p_{\\text{eff}} = \\left(e^{\\,r} - 1\\right) \\cdot 100\\,\\%$$",
+"proof": "Vi setter $m = r \\cdot k$, slik at $k = \\frac{m}{r}$ vokser mot uendelig samtidig med $m$:\n\n$\\left(1 + \\frac{r}{m}\\right)^m = \\left(1 + \\frac{r}{r \\cdot k}\\right)^{r \\cdot k} = \\left(1 + \\frac{1}{k}\\right)^{r \\cdot k} = \\left[\\left(1 + \\frac{1}{k}\\right)^{k}\\right]^{\\,r}$\n\nUttrykket inne i klammen er nøyaktig det vi undersøkte i Eksempel 1, og det går mot $e$. Dermed går hele uttrykket mot $e^{\\,r}$."
+},
+{
+"id": "matok-1-5-example-2",
+"type": "example",
+"title": "Eksempel 2 — formelen i bruk",
+"problem": "$60\\,000$ kr plasseres med kontinuerlig rente på $3{,}8\\,\\%$ i 15 år.\n\na) Hvor mye har beløpet vokst til?\n\nb) Hvor mye ville det vært med årlig rentetilskriving og samme nominelle rente?",
+"solution": "**Løsning:**\n\na) **Hva vet vi?** $K_0 = 60\\,000$ kr, nominell rente $3{,}8\\,\\%$ og $t = 15$ år.\n**Hva må vi finne?** Kapitalen etter 15 år.\n\nFørst skriver vi renten som desimaltall:\n\n$r = \\frac{3{,}8}{100} = 0{,}038$\n\nSå regner vi ut eksponenten:\n\n$r \\cdot t = 0{,}038 \\cdot 15 = 0{,}57$\n\nVi skriver formelen tom, og setter så inn tallene:\n\n$K_t = K_0 \\cdot e^{\\,r\\,t}$\n\n$K_{15} = 60\\,000 \\cdot e^{0{,}57}$\n\n$= 60\\,000 \\cdot 1{,}768267$\n\n$= 106\\,096{,}02$\n\n**Svar:** Beløpet har vokst til omtrent $106\\,096$ kr.\n\nb) Med årlig tilskriving er vekstfaktoren $1{,}038$:\n\n$60\\,000 \\cdot 1{,}038^{15} \\approx 104\\,981{,}20\\text{ kr}$\n\n**Svar:** Omtrent $104\\,981$ kr — altså rundt $1\\,115$ kr mindre.\n\n**NB:** Legg merke til rekkefølgen i a): vi gjorde renten om til desimaltall, regnet ut hele eksponenten $r \\cdot t$ for seg, og satte den så inn. Den rekkefølgen er verdt å holde på — den vanligste feilen med denne formelen er å skrive $e^{3{,}8 \\cdot 15}$ i stedet for $e^{0{,}038 \\cdot 15}$, og da blir svaret astronomisk galt."
+},
+{
+"id": "matok-1-5-calc-kontinuerlig",
+"type": "finance-calculator",
+"calculatorType": "continuous",
+"title": "Prøv selv: kontinuerlig rente",
+"description": "Sett inn startkapital, rentesats og antall år. Sammenlign gjerne med renteregneren i kapittel 1.2 og se hvor liten forskjellen er på korte horisonter — og hvor stor den blir på lange.",
+"defaults": {
+"K0": 60000,
+"r": 3.8,
+"t": 15
+}
+},
+{
+"id": "matok-1-5-ex-block-1",
+"type": "exercise",
+"exercise": {
+"id": "matok-1-5-ex-1",
+"number": "1",
+"type": "classic",
+"difficulty": "lett",
+"task": "Regn ut kapitalen med kontinuerlig rente. Rund av til to desimaler. Skriv renten som desimaltall og regn ut eksponenten $r \\cdot t$ før du setter inn.",
+"subTasks": [
+{
+"label": "a",
+"task": "$20\\,000$ kr, $3{,}0\\,\\%$ kontinuerlig rente, 10 år.",
+"solution": "$r \\cdot t = 0{,}03 \\cdot 10 = 0{,}3$. $20000 \\cdot e^{0{,}3} \\approx 26\\,997{,}18$ kr",
+"answer": 26997.18
+},
+{
+"label": "b",
+"task": "$500\\,000$ kr, $4{,}5\\,\\%$ kontinuerlig rente, 7 år.",
+"solution": "$r \\cdot t = 0{,}045 \\cdot 7 = 0{,}315$. $500000 \\cdot e^{0{,}315} \\approx 685\\,129{,}66$ kr",
+"answer": 685129.66
+},
+{
+"label": "c",
+"task": "$75\\,000$ kr, $2{,}2\\,\\%$ kontinuerlig rente, 25 år.",
+"solution": "$r \\cdot t = 0{,}022 \\cdot 25 = 0{,}55$. $75000 \\cdot e^{0{,}55} \\approx 129\\,993{,}98$ kr",
+"answer": 129993.98
+},
+{
+"label": "d",
+"task": "$1\\,200\\,000$ kr, $5{,}8\\,\\%$ kontinuerlig rente, 3 år.",
+"solution": "$r \\cdot t = 0{,}058 \\cdot 3 = 0{,}174$. $1200000 \\cdot e^{0{,}174} \\approx 1\\,428\\,066{,}68$ kr",
+"answer": 1428066.68
+},
+{
+"label": "e",
+"task": "En elev skriver $20\\,000 \\cdot e^{3 \\cdot 10}$ i a). Hva er svaret da, og hva er feilen?",
+"solution": "$e^{30}$ er over $10^{13}$, så svaret blir mer enn $200$ billioner kroner. Feilen er at renten ikke er gjort om til desimaltall: det skal være $r = 0{,}03$, ikke $r = 3$.",
+"multipleChoiceOptions": [
+"Svaret blir astronomisk stort. Feilen er at renten ikke er skrevet som desimaltall — det skal være $r = 0{,}03$, ikke $r = 3$.",
+"Svaret blir riktig, men i ører i stedet for kroner.",
+"Svaret blir for lite. Feilen er at antall år skal stå i nevneren.",
+"Svaret blir riktig; $e^{3 \\cdot 10}$ og $e^{0{,}03 \\cdot 10}$ er det samme."
+]
+}
+],
+"hints": [
+"$K_t = K_0 \\cdot e^{\\,r\\,t}$ med $r$ som desimaltall.",
+"Regn ut hele eksponenten først, så trykker du $e^x$."
+],
+"solution": "a) $26\\,997{,}18$ kr, b) $685\\,129{,}66$ kr, c) $129\\,993{,}98$ kr, d) $1\\,428\\,066{,}68$ kr, e) svaret blir astronomisk — renten må skrives som desimaltall",
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"allowsUpload": true,
+"allowsCanvasDrawing": true
+}
+},
+{
+"id": "matok-1-5-example-3",
+"type": "example",
+"title": "Eksempel 3 — hvor mye må settes inn i dag?",
+"problem": "Et fond regner med kontinuerlig avkastning på $4\\,\\%$. Hvor mye må settes inn i dag for å ha $1\\,000\\,000$ kr om 20 år?",
+"solution": "**Løsning:**\n\n**Hva vet vi?** $K_{20} = 1\\,000\\,000$ kr, $r = 0{,}04$ og $t = 20$.\n**Hva må vi finne?** Startkapitalen $K_0$.\n\nVi setter inn i formelen med $K_0$ som ukjent:\n\n$K_0 \\cdot e^{0{,}04 \\cdot 20} = 1\\,000\\,000$\n\n$K_0 \\cdot e^{0{,}8} = 1\\,000\\,000$\n\nVi deler på $e^{0{,}8}$ på begge sider:\n\n$K_0 = \\frac{1\\,000\\,000}{e^{0{,}8}} = \\frac{1\\,000\\,000}{2{,}225541} \\approx 449\\,328{,}96$\n\n**Svar:** Det må settes inn omtrent $449\\,329$ kr i dag.\n\nVi kontrollerer: $449\\,328{,}96 \\cdot e^{0{,}8} = 1\\,000\\,000$. Det stemmer.\n\n*(Føres ikke)* Dette kan også skrives $K_0 = K_t \\cdot e^{-r\\,t}$, siden $\\frac{1}{e^{0{,}8}} = e^{-0{,}8}$. Den formen møter du ofte i økonomifag, og den er praktisk fordi den bare er én multiplikasjon."
+},
+{
+"id": "matok-1-5-ex-block-2",
+"type": "exercise",
+"exercise": {
+"id": "matok-1-5-ex-2",
+"number": "2",
+"type": "classic",
+"difficulty": "medium",
+"task": "Regn ut den effektive renten ved kontinuerlig rente. Oppgi fire desimaler.",
+"subTasks": [
+{
+"label": "a",
+"task": "$r = 2{,}0\\,\\%$",
+"solution": "$e^{0{,}02} \\approx 1{,}020201$, altså $2{,}0201\\,\\%$",
+"answer": 2.0201
+},
+{
+"label": "b",
+"task": "$r = 4{,}0\\,\\%$",
+"solution": "$e^{0{,}04} \\approx 1{,}040811$, altså $4{,}0811\\,\\%$",
+"answer": 4.0811
+},
+{
+"label": "c",
+"task": "$r = 7{,}5\\,\\%$",
+"solution": "$e^{0{,}075} \\approx 1{,}077884$, altså $7{,}7884\\,\\%$",
+"answer": 7.7884
+},
+{
+"label": "d",
+"task": "$r = 12{,}0\\,\\%$",
+"solution": "$e^{0{,}12} \\approx 1{,}127497$, altså $12{,}7497\\,\\%$",
+"answer": 12.7497
+},
+{
+"label": "e",
+"task": "Sammenlign d) med månedlig tilskriving av samme nominelle rente. Hvor mange prosentpoeng skiller?",
+"solution": "Månedlig: $\\left(1 + \\frac{12}{1200}\\right)^{12} = 1{,}01^{12} \\approx 1{,}126825$, altså $12{,}6825\\,\\%$. Forskjellen er $12{,}7497 - 12{,}6825 = 0{,}0672$ prosentpoeng.",
+"answer": 0.0672
+}
+],
+"hints": [
+"$p_{\\text{eff}} = \\left(e^{\\,r} - 1\\right) \\cdot 100\\,\\%$",
+"Legg merke til at forskjellen mellom nominell og effektiv rente vokser når renten er høy."
+],
+"solution": "a) $2{,}0201\\,\\%$, b) $4{,}0811\\,\\%$, c) $7{,}7884\\,\\%$, d) $12{,}7497\\,\\%$, e) $0{,}0672$ prosentpoeng",
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"allowsUpload": true,
+"allowsCanvasDrawing": true
+}
+},
+{
+"id": "matok-1-5-ex-block-3",
+"type": "exercise",
+"exercise": {
+"id": "matok-1-5-ex-3",
+"number": "3",
+"type": "classic",
+"difficulty": "medium",
+"task": "Hvor mye må settes inn i dag med kontinuerlig rente? Rund av til to desimaler.",
+"subTasks": [
+{
+"label": "a",
+"task": "$250\\,000$ kr om 5 år, $r = 4{,}0\\,\\%$.",
+"solution": "$\\frac{250000}{e^{0{,}2}} \\approx 204\\,682{,}69$ kr",
+"answer": 204682.69
+},
+{
+"label": "b",
+"task": "$800\\,000$ kr om 12 år, $r = 3{,}5\\,\\%$.",
+"solution": "$\\frac{800000}{e^{0{,}42}} \\approx 525\\,637{,}46$ kr",
+"answer": 525637.46
+},
+{
+"label": "c",
+"task": "$2\\,000\\,000$ kr om 30 år, $r = 6{,}0\\,\\%$.",
+"solution": "$\\frac{2000000}{e^{1{,}8}} \\approx 330\\,597{,}78$ kr",
+"answer": 330597.78
+},
+{
+"label": "d",
+"task": "Hvor mye måtte settes inn i a) hvis renten i stedet var $4\\,\\%$ med årlig tilskriving?",
+"solution": "$\\frac{250000}{1{,}04^5} \\approx 205\\,481{,}78$ kr",
+"answer": 205481.78
+},
+{
+"label": "e",
+"task": "Hvor mye mindre må settes inn med kontinuerlig rente enn med årlig i a) og d), og hvorfor er det slik?",
+"solution": "$205481{,}78 - 204682{,}69 \\approx 799{,}09$ kr mindre. Kontinuerlig rente gir høyere effektiv rente ($4{,}0811\\,\\%$ mot $4\\,\\%$), så pengene vokser litt raskere — og da trenger man litt mindre i utgangspunktet for å nå samme mål.",
+"answer": 799.09
+}
+],
+"hints": [
+"$K_0 = \\frac{K_t}{e^{\\,r\\,t}}$, eller $K_0 = K_t \\cdot e^{-r\\,t}$.",
+"Regn ut eksponenten $r \\cdot t$ først."
+],
+"solution": "a) $204\\,682{,}69$ kr, b) $525\\,637{,}46$ kr, c) $330\\,597{,}78$ kr, d) $205\\,481{,}78$ kr, e) omtrent $799{,}09$ kr mindre, fordi den effektive renten er høyere",
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"allowsUpload": true,
+"allowsCanvasDrawing": true
+}
+},
+{
+"id": "matok-1-5-example-4",
+"type": "example",
+"title": "Eksempel 4 — betyr det noe på lang sikt?",
+"problem": "$100\\,000$ kr plasseres i 40 år med $5\\,\\%$ nominell rente. Sammenlign årlig, månedlig og kontinuerlig rentetilskriving.",
+"solution": "**Løsning:**\n\n**Årlig** ($m = 1$):\n\n$100\\,000 \\cdot 1{,}05^{40} = 100\\,000 \\cdot 7{,}039989 \\approx 703\\,998{,}87\\text{ kr}$\n\n**Månedlig** ($m = 12$, altså $12 \\cdot 40 = 480$ terminer):\n\n$100\\,000 \\cdot \\left(1 + \\frac{5}{1200}\\right)^{480} \\approx 735\\,841{,}73\\text{ kr}$\n\n**Kontinuerlig**:\n\n$100\\,000 \\cdot e^{0{,}05 \\cdot 40} = 100\\,000 \\cdot e^{2} = 100\\,000 \\cdot 7{,}389056 \\approx 738\\,905{,}61\\text{ kr}$\n\n![Et stolpediagram med to blå stolper merket «årlig → månedlig» og «månedlig → kontinuerlig» under aksen. Loddrett akse viser kroner fra 0 til 35 000. Den første stolpen er 31 843 kr høy, den andre bare 3 064 kr — omtrent en tiendedel. Verdiene står over stolpene. Ved siden av står «100 000 kr i 40 år med 5 % nominell rente» og «sluttbeløp: 703 999 / 735 842 / 738 906 kr».](/images/content/matematikk-okonomi/matok-1-5-soyler-tilskriving.png)\n\n*Gevinsten ved å gå fra årlig til månedlig tilskriving er omtrent ti ganger så stor som gevinsten ved å gå videre til kontinuerlig. Den store gevinsten ligger i de første stegene, ikke i å presse $m$ mot uendelig.*\n\n**Svar:** Årlig gir omtrent $704\\,000$ kr, månedlig omtrent $736\\,000$ kr og kontinuerlig omtrent $739\\,000$ kr.\n\n**NB:** Her er poenget verdt å dvele ved. Å gå fra årlig til månedlig tilskriving ga nesten $32\\,000$ kr. Å gå videre fra månedlig til kontinuerlig ga bare rundt $3\\,000$ kr — en tiendedel så mye. På ett år var forskjellene småpenger (kapittel 1.4); på førti år er de merkbare, men den store gevinsten ligger i de første stegene, ikke i å presse $m$ mot uendelig."
+},
+{
+"id": "matok-1-5-plot-lang-sikt",
+"type": "dynamic-plot",
+"title": "Årlig mot kontinuerlig tilskriving over tid",
+"description": "$100\\,000$ kr med samme nominelle rente, tilskrevet årlig (blå) og kontinuerlig (rød). Dra i renten og se hvordan avstanden mellom kurvene vokser med både rentenivå og tid — men langsomt.",
+"xRange": [
+0,
+40
+],
+"xLabel": "år",
+"yLabel": "kroner",
+"parameters": [
+{
+"name": "p",
+"label": "$p$ (nominell rente i prosent)",
+"default": 5,
+"min": 1,
+"max": 15,
+"step": 0.5
+}
+],
+"functions": [
+{
+"label": "årlig tilskriving",
+"expression": "100000*(1+p/100)^x",
+"color": "#0ea5e9"
+},
+{
+"label": "kontinuerlig",
+"expression": "100000*exp(p/100*x)",
+"color": "#ef4444",
+"style": "dashed"
+}
+]
+},
+{
+"id": "matok-1-5-example-5",
+"type": "example",
+"title": "Eksempel 5 — doblingstid med kontinuerlig rente",
+"problem": "Med kontinuerlig rente på $5\\,\\%$: hvor lang tid tar det før kapitalen har doblet seg? Finn svaret med én desimal ved å prøve deg fram i et regneark.",
+"solution": "**Løsning:**\n\n**Hva vet vi?** $r = 0{,}05$. Vi vil ha $K_t = 2 \\cdot K_0$.\n\nVi setter opp likningen:\n\n$K_0 \\cdot e^{0{,}05\\,t} = 2 \\cdot K_0$\n\nVi deler på $K_0$ på begge sider — startkapitalen forsvinner, akkurat som i kapittel 1.2:\n\n$e^{0{,}05\\,t} = 2$\n\nHer står den ukjente i eksponenten. Vi prøver oss fram i regnearket med formelen `=EKSP(0,05*A2)`:\n\n| $t$ | $e^{0{,}05t}$ |\n|---|---|\n| 13,0 | 1,915541 |\n| 13,5 | 1,964033 |\n| 13,9 | 2,003709 |\n| 13,86 | 1,999706 |\n\nVerdien passerer 2 mellom $t = 13{,}86$ og $t = 13{,}9$.\n\n**Svar:** Doblingstiden er omtrent $13{,}9$ år.\n\n**NB:** Tommelfingerregelen $\\frac{72}{5} = 14{,}4$ år bommer med et halvt år her. Regelen er laget for årlig tilskriving og er en grov tilnærming; med kontinuerlig rente er den eksakte doblingstiden $\\frac{\\ln 2}{r}$, og den formelen får vi bruk for i kapittel 3.4 når vi har lært logaritmer. Inntil da er regnearket verktøyet."
+},
+{
+"id": "matok-1-5-ex-block-4",
+"type": "exercise",
+"exercise": {
+"id": "matok-1-5-ex-4",
+"number": "4",
+"type": "classic",
+"difficulty": "medium",
+"task": "Doblingstid med kontinuerlig rente. Prøv deg fram i et regneark og oppgi doblingstiden med én desimals nøyaktighet.",
+"subTasks": [
+{
+"label": "a",
+"task": "$r = 2{,}0\\,\\%$",
+"solution": "$e^{0{,}02 \\cdot 34{,}6} \\approx 1{,}997707$ og $e^{0{,}02 \\cdot 34{,}7} \\approx 2{,}001706$. Grensen passeres mellom 34,6 og 34,7, og doblingstiden er omtrent $34{,}7$ år.",
+"answer": 34.7
+},
+{
+"label": "b",
+"task": "$r = 4{,}0\\,\\%$",
+"solution": "$e^{0{,}04 \\cdot 17{,}3} \\approx 1{,}997707$ og $e^{0{,}04 \\cdot 17{,}4} \\approx 2{,}005714$. Doblingstiden er omtrent $17{,}3$ år.",
+"answer": 17.3
+},
+{
+"label": "c",
+"task": "$r = 8{,}0\\,\\%$",
+"solution": "$e^{0{,}08 \\cdot 8{,}6} \\approx 1{,}989732$ og $e^{0{,}08 \\cdot 8{,}7} \\approx 2{,}005714$. Doblingstiden er omtrent $8{,}7$ år.",
+"answer": 8.7
+},
+{
+"label": "d",
+"task": "Gang svarene i a), b) og c) med renten i prosent. Hva legger du merke til?",
+"solution": "$2 \\cdot 34{,}7 = 69{,}4$, $4 \\cdot 17{,}3 = 69{,}2$ og $8 \\cdot 8{,}7 = 69{,}6$ — alle rundt $69{,}3$. Produktet av rente og doblingstid er altså konstant, og konstanten er $\\ln 2 \\cdot 100 \\approx 69{,}3$.",
+"answer": [
+69.4,
+69.2,
+69.6
+]
+},
+{
+"label": "e",
+"task": "Hvorfor er tommelfingerregelen $\\frac{72}{p}$ ikke helt riktig her? Ville $\\frac{69}{p}$ vært bedre for kontinuerlig rente?",
+"solution": "Fordi $72$-regelen er en tilnærming laget for årlig tilskriving, der veksten er litt langsommere. For kontinuerlig rente er den eksakte konstanten $\\ln 2 \\cdot 100 \\approx 69{,}3$, så $\\frac{69}{p}$ treffer bedre. Tallet $72$ brukes likevel mest, fordi det er lett å dele på (2, 3, 4, 6, 8, 9, 12) og fordi det passer bra for de rentenivåene folk flest møter.",
+"multipleChoiceOptions": [
+"Ja — for kontinuerlig rente er den eksakte konstanten $\\ln 2 \\cdot 100 \\approx 69{,}3$. 72 brukes likevel mest fordi det er lett å dele på og passer godt for vanlige rentenivåer.",
+"Nei — 72 er den eksakte konstanten, og 69 er tilnærmingen.",
+"Ja — 69 er eksakt for alle rentenivåer og alle tilskrivingsmåter.",
+"Nei — tommelfingerregelen gjelder ikke for kontinuerlig rente i det hele tatt."
+]
+}
+],
+"hints": [
+"Del først på $K_0$: likningen blir $e^{\\,r\\,t} = 2$.",
+"I regnearket: legg $t$-verdier i kolonne A og `=EKSP(r*A2)` i kolonne B, og let etter hvor verdien passerer 2."
+],
+"solution": "a) omtrent $34{,}7$ år, b) omtrent $17{,}3$ år, c) omtrent $8{,}7$ år, d) produktet er alltid omtrent $69{,}3$, e) ja — $\\frac{69}{p}$ treffer bedre for kontinuerlig rente",
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"allowsUpload": true,
+"allowsCanvasDrawing": true
+}
+},
+{
+"id": "matok-1-5-oppsummering",
+"type": "text",
+"content": "## Oppsummering\n\n- **Tallet $e$** er grenseverdien $\\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^m \\approx 2{,}718281828$. Det er irrasjonalt, som $\\pi$.\n- **Grensen generelt:** $\\left(1 + \\frac{r}{m}\\right)^m \\to e^{\\,r}$ når $m$ vokser.\n- **Kontinuerlig rente:** $K_t = K_0 \\cdot e^{\\,r\\,t}$, der $r$ er den nominelle renten som **desimaltall**.\n- **Baklengs:** $K_0 = \\frac{K_t}{e^{\\,r\\,t}} = K_t \\cdot e^{-r\\,t}$.\n- **Effektiv rente:** $\\left(e^{\\,r} - 1\\right) \\cdot 100\\,\\%$ — taket for en gitt nominell rente.\n- **Praktisk:** den store gevinsten ligger i å gå fra årlig til månedlig tilskriving. Fra månedlig til kontinuerlig er forskjellen liten. Kontinuerlig rente er først og fremst en **modell** som er enkel å regne med, og en øvre grense man kan stole på.\n- **Antall år** finner vi foreløpig ved å prøve oss fram i regneark. Fra kapittel 3.4 bruker vi logaritmer."
+},
+{
+"id": "matok-1-5-ex-block-5",
+"type": "exercise",
+"exercise": {
+"id": "matok-1-5-ex-5",
+"number": "5",
+"type": "classic",
+"difficulty": "vanskelig",
+"task": "**Samleoppgave.** Et fond modelleres med kontinuerlig avkastning på $5{,}5\\,\\%$. En kunde setter inn $180\\,000$ kr og lar dem stå i 12 år. Inflasjonen antas å være $2{,}5\\,\\%$ per år.",
+"subTasks": [
+{
+"label": "a",
+"task": "Hvor mye er fondet verdt etter 12 år? Rund av til to desimaler.",
+"solution": "$r \\cdot t = 0{,}055 \\cdot 12 = 0{,}66$. $180000 \\cdot e^{0{,}66} \\approx 348\\,262{,}62$ kr",
+"answer": 348262.62
+},
+{
+"label": "b",
+"task": "Hva er den effektive årlige avkastningen? Oppgi fire desimaler.",
+"solution": "$e^{0{,}055} \\approx 1{,}056541$, altså $5{,}6541\\,\\%$",
+"answer": 5.6541
+},
+{
+"label": "c",
+"task": "Hvor mye ville fondet vært verdt med $5{,}5\\,\\%$ og årlig tilskriving? Hvor stor er forskjellen?",
+"solution": "$180000 \\cdot 1{,}055^{12} \\approx 342\\,217{,}35$ kr. Forskjellen er $348262{,}62 - 342217{,}35 \\approx 6\\,045{,}27$ kr.",
+"answer": 342217.35
+},
+{
+"label": "d",
+"task": "Hva er fondet verdt i dagens kroner etter 12 år, når vi tar hensyn til inflasjonen? Rund av til to desimaler.",
+"solution": "$\\frac{348262{,}62}{1{,}025^{12}} \\approx 258\\,952{,}72$ kr",
+"answer": 258952.72
+},
+{
+"label": "e",
+"task": "Regn ut den reale årlige vekstfaktoren, og drøft hva svaret i d) betyr for kunden.",
+"solution": "Den reale vekstfaktoren er $\\frac{e^{0{,}055}}{1{,}025} = \\frac{1{,}056541}{1{,}025} \\approx 1{,}030771$, altså en realvekst på omtrent $3{,}08\\,\\%$ per år.\n\nKontoutskriften vil vise nesten $348\\,000$ kr — en nominell økning på $93\\,\\%$. Men målt i det pengene faktisk kan kjøpe, har kunden gått fra $180\\,000$ kr til rundt $259\\,000$ kr, altså en økning på omtrent $44\\,\\%$. Nesten halvparten av den flotte nominelle veksten er spist av prisstigningen. Det er derfor økonomer nesten alltid oppgir avkastning **realt**: en nominell avkastning gir ikke mening uten å vite hva inflasjonen var i samme periode.\n\nEn siste kommentar til modellen: $5{,}5\\,\\%$ kontinuerlig avkastning er en *forutsetning*, ikke et løfte. Et fond svinger, og modellen sier bare hva som skjer hvis gjennomsnittet holder seg."
+}
+],
+"hints": [
+"a): regn ut $r \\cdot t$ først.",
+"d): del på prisvekstfaktoren opphøyd i 12, slik vi gjorde i kapittel 1.3.",
+"e): den reale vekstfaktoren er $\\frac{v_{\\text{nominell}}}{v_{\\text{pris}}}$, der den nominelle her er $e^{0{,}055}$."
+],
+"solution": "a) omtrent $348\\,262{,}62$ kr, b) $5{,}6541\\,\\%$, c) $342\\,217{,}35$ kr — en forskjell på omtrent $6\\,045$ kr, d) omtrent $258\\,952{,}72$ kr, e) real vekstfaktor $\\approx 1{,}030771$, altså omtrent $3{,}08\\,\\%$ realvekst per år",
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"allowsUpload": true,
+"allowsCanvasDrawing": true
+}
+},
+{
+"id": "matok-1-5-ex-block-6",
+"type": "exercise",
+"exercise": {
+"id": "matok-1-5-ex-6",
+"number": "6",
+"type": "classic",
+"difficulty": "vanskelig",
+"task": "**Del 2 — utforsking i regneark.** Du skal undersøke hvor raskt $\\left(1 + \\frac{1}{m}\\right)^m$ nærmer seg $e$.\n\nLag et regneark med $m$-verdiene $10$, $100$, $1\\,000$, $10\\,000$, $100\\,000$, $1\\,000\\,000$ og $10\\,000\\,000$ i kolonne A.",
+"subTasks": [
+{
+"label": "a",
+"task": "Hvilke formler setter du i B2 og C2 for å få $\\left(1 + \\frac{1}{m}\\right)^m$ og avviket fra $e$?",
+"solution": "`=(1+1/A2)^A2` i B2 og `=EKSP(1)-B2` i C2. Vis minst ni desimaler i begge kolonnene.",
+"multipleChoiceOptions": [
+"=(1+1/A2)^A2 og =EKSP(1)-B2",
+"=(1+A2)^(1/A2) og =EKSP(1)/B2",
+"=(1/A2)^A2 og =B2-EKSP(1)",
+"=(1+1/A2)*A2 og =EKSP(1)-B2"
+]
+},
+{
+"label": "b",
+"task": "Hva blir verdien for $m = 1\\,000$ og for $m = 1\\,000\\,000$? Oppgi ni desimaler.",
+"solution": "$m = 1\\,000$: $2{,}716923932$. $m = 1\\,000\\,000$: $2{,}718280469$.",
+"answer": [
+2.716923932,
+2.718280469
+]
+},
+{
+"label": "c",
+"task": "Se på avvikskolonnen. Hva skjer med avviket hver gang $m$ blir ti ganger større?",
+"solution": "Avviket blir omtrent ti ganger mindre: $0{,}1245$, $0{,}01347$, $0{,}001358$, $0{,}0001359$, $0{,}00001359$ og så videre. Det betyr at vi vinner omtrent én riktig desimal for hver tidobling av $m$.",
+"multipleChoiceOptions": [
+"Avviket blir omtrent ti ganger mindre — vi vinner omtrent én riktig desimal per tidobling av $m$.",
+"Avviket blir omtrent ti ganger større.",
+"Avviket halveres.",
+"Avviket er konstant."
+]
+},
+{
+"label": "d",
+"task": "Lag en ny kolonne med $\\left(1 + \\frac{0{,}04}{m}\\right)^m$ for de samme $m$-verdiene, og sammenlign med $e^{0{,}04}$. Hva blir de to tallene for $m = 100\\,000$? Oppgi ni desimaler.",
+"solution": "$\\left(1 + \\frac{0{,}04}{100000}\\right)^{100000} \\approx 1{,}040810766$ og $e^{0{,}04} \\approx 1{,}040810774$. De er like til og med sjuende desimal.",
+"answer": [
+1.040810766,
+1.040810774
+]
+},
+{
+"label": "e",
+"task": "Drøft: hvorfor sier vi at $e$ er en **grenseverdi** og ikke bare «det tallet uttrykket blir til slutt»? Og hvorfor er det likevel helt uproblematisk å bruke $e^{\\,r\\,t}$ når vi regner på penger?",
+"solution": "Fordi uttrykket $\\left(1 + \\frac{1}{m}\\right)^m$ aldri *blir* $e$, uansett hvor stor $m$ er. Regnearket viser hvorfor: for hver tidobling av $m$ kommer vi nærmere, men avviket blir aldri null — det blir bare mindre og mindre. En grenseverdi er nettopp dette: en verdi vi kan komme så nær vi bare vil, uten noen gang å nå den. Ingen endelig $m$ gir $e$.\n\nSamtidig er det uproblematisk å bruke $e^{\\,r\\,t}$ i praksis. Allerede ved $m = 365$ stemmer $\\left(1 + \\frac{r}{m}\\right)^m$ med $e^{\\,r}$ til sjette desimal, og på et innskudd på en million kroner betyr sjette desimal noen få kroner i året. Modellen er altså enklere å regne med enn virkeligheten, og feilen den gjør er mindre enn avrundingen til nærmeste krone."
+}
+],
+"hints": [
+"I regnearket må du øke antall viste desimaler manuelt — standardvisningen skjuler forskjellene du er ute etter.",
+"$e$ får du med `=EKSP(1)`.",
+"I c): del avviket i én rad på avviket i raden under og se hva du får."
+],
+"solution": "a) `=(1+1/A2)^A2` og `=EKSP(1)-B2`, b) $2{,}716923932$ og $2{,}718280469$, c) avviket blir omtrent ti ganger mindre per tidobling, d) $1{,}040810766$ og $1{,}040810774$, e) drøfting — grenseverdien nås aldri, men avviket er mindre enn avrundingen til nærmeste krone",
+"competenceGoals": [
+"utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
+],
+"allowsUpload": true,
+"allowsCanvasDrawing": true,
+"allowsSpreadsheet": true
+}
+}
+],
+"exercises": [],
+"keyTerms": [
+{
+"term": "Tallet $e$",
+"definition": "Grenseverdien $\\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^m \\approx 2{,}718281828$. Et irrasjonalt tall, og grunntallet i den naturlige eksponentialfunksjonen."
+},
+{
+"term": "Grenseverdi",
+"definition": "En verdi et uttrykk nærmer seg så mye vi vil når en variabel vokser, uten nødvendigvis å nå den. Ingen endelig $m$ gir $\\left(1 + \\frac{1}{m}\\right)^m = e$."
+},
+{
+"term": "Kontinuerlig rente",
+"definition": "Rentemodellen der renten tilskrives uendelig ofte. Kapitalen etter $t$ år er $K_0 \\cdot e^{\\,r\\,t}$, med $r$ som desimaltall."
+},
+{
+"term": "Naturlig eksponentialfunksjon",
+"definition": "Funksjonen $f(x) = e^x$. Den brukes som standardmodell for kontinuerlig vekst i økonomi, blant annet fordi den er enkel å derivere og integrere."
+},
+{
+"term": "Doblingstid",
+"definition": "Tiden det tar før kapitalen er dobbelt så stor. Med kontinuerlig rente er produktet av rente i prosent og doblingstid i år omtrent konstant lik $69{,}3$."
+}
+]
+}

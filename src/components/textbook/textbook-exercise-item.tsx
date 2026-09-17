@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { hasTraining } from '@/lib/training/exercise-type';
+import { BunnyVideo } from '@/components/textbook/bunny-video';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -509,8 +511,8 @@ export function TextbookExerciseItem({
                     Løs oppgaven
                   </Link>
                 </Button>
-                {/* Tren-knapp - alle oppgaver med svar går til trening-siden (skjult for kjemi1 da oppgavene er matematikk) */}
-                {courseId !== 'kjemi1' && (
+                {/* Tren-knapp - bare der treningssiden har en ekte generator for oppgaven (1T kap. 1.2–1.6 og 2.1); ellers skjult (Daniel 17/9) */}
+                {hasTraining(courseId, exercise) && (
                   <Button
                     variant="outline"
                     size="sm"
@@ -647,7 +649,7 @@ export function TextbookExerciseItem({
       )}
 
       {/* Videoløsning */}
-      {exercise.solutionVideo && (
+      {(exercise.solutionVideo || exercise.solutionBunnyId) && (
         <div>
           <Button
             variant="ghost"
@@ -660,7 +662,10 @@ export function TextbookExerciseItem({
             {showSolutionVideo ? 'Skjul video' : 'Se videoløsning'}
           </Button>
 
-          {showSolutionVideo && (
+          {showSolutionVideo && exercise.solutionBunnyId && (
+            <BunnyVideo videoId={exercise.solutionBunnyId} title={`Videoløsning for oppgave ${exercise.number}`} utkast={exercise.videoUtkast} />
+          )}
+          {showSolutionVideo && !exercise.solutionBunnyId && exercise.solutionVideo && (
             <div className="mt-3 aspect-video max-w-2xl rounded-lg overflow-hidden">
               <iframe
                 src={`https://www.youtube.com/embed/${exercise.solutionVideo}`}

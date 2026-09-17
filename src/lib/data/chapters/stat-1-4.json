@@ -1,0 +1,408 @@
+{
+  "id": "stat-1-4",
+  "courseId": "statistikk",
+  "chapterNumber": "1.4",
+  "title": "Frekvenstabeller og klassedelte data",
+  "description": "Frekvens, relativ frekvens og kumulativ frekvens; sentralmål og spredning fra klassedelt materiale.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+  ],
+  "content": [
+    {
+      "id": "stat-1-4-section-innledning",
+      "type": "text",
+      "content": "## Når materialet blir stort\n\nSå lenge vi har ti observasjoner, kan vi skrive dem opp og telle på fingrene. Med\n$80$ eller $8\\,000$ observasjoner går ikke det. Da samler vi dem i en\n**frekvenstabell**, og regner sentralmål og spredningsmål rett ut av tabellen.\n\nEr variabelen kontinuerlig — tid, vekt, forbruk — finnes det knapt to like\nverdier. Da må vi i tillegg dele materialet i **klasser**, altså intervaller, og\ntelle hvor mange som havner i hvert intervall.\n\nI dette kapittelet lærer du å regne med tabellen i stedet for med rålista."
+    },
+    {
+      "id": "stat-1-4-def-frekvens",
+      "type": "definition",
+      "title": "Frekvens, relativ frekvens og kumulativ frekvens",
+      "content": "**Frekvensen** $f$ til en verdi er antall ganger verdien forekommer.\n\n**Relativ frekvens** er frekvensen delt på antall observasjoner: $\\frac{f}{n}$.\nDen oppgis som desimaltall eller prosent, og summen av alle relative frekvenser\ner $1$ (eller $100\\ \\%$).\n\n**Kumulativ frekvens** (av latin *cumulare*, «hope opp») er summen av frekvensene\ntil og med den aktuelle verdien. Den svarer på spørsmål av typen «hvor mange\nhadde **høyst** tre?».\n\n**Kumulativ relativ frekvens** er den kumulative frekvensen delt på $n$. Den\nsiste kumulative frekvensen er alltid $n$, og den siste kumulative relative\nfrekvensen er alltid $1$."
+    },
+    {
+      "id": "stat-1-4-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Frekvenstabell med kumulativ frekvens",
+      "problem": "$30$ elever ble spurt hvor mange treningsøkter de hadde forrige uke. Svarene\nfordelte seg slik: $3$ elever trente ingen ganger, $5$ trente én gang, $8$ trente\nto ganger, $7$ trente tre ganger, $4$ trente fire ganger og $3$ trente fem ganger.\n\na) Lag en tabell med frekvens, relativ frekvens, kumulativ frekvens og kumulativ\nrelativ frekvens.\n\nb) Hvor mange prosent trente høyst to ganger?\n\nc) Finn gjennomsnittlig antall økter.",
+      "solution": "**a)** Vi tegner rammen først og fyller kolonne for kolonne. Den kumulative\nkolonnen fylles ovenfra og nedover: $3$, så $3 + 5 = 8$, så $8 + 8 = 16$, og så\nvidere.\n\n| Antall økter $x$ | Frekvens $f$ | Relativ frekvens | Kumulativ frekvens | Kumulativ relativ |\n|---|---|---|---|---|\n| 0 | 3 | 0,100 | 3 | 0,100 |\n| 1 | 5 | 0,167 | 8 | 0,267 |\n| 2 | 8 | 0,267 | 16 | 0,533 |\n| 3 | 7 | 0,233 | 23 | 0,767 |\n| 4 | 4 | 0,133 | 27 | 0,900 |\n| 5 | 3 | 0,100 | 30 | 1,000 |\n| **Sum** | **30** | **1,000** | | |\n\n*(Kontroll: den nederste kumulative frekvensen er $30$, altså alle elevene, og den\nkumulative relative frekvensen er $1{,}000$. Blir den ikke det, er det en\nregnefeil i tabellen.)*\n\n**b)** «Høyst to ganger» er nettopp det den kumulative frekvensen svarer på. Vi\nleser av raden for $x = 2$: kumulativ frekvens $16$, kumulativ relativ frekvens\n$0{,}533$.\n\n$$\\frac{16}{30} = 0{,}5333\\ldots \\approx 53{,}3\\ \\%$$\n\n**Svar b):** $53{,}3\\ \\%$ av elevene trente høyst to ganger.\n\n**c)** Vi kunne skrevet ut alle $30$ tallene og summert dem, men det er unødvendig:\nde $8$ elevene med to økter bidrar med $8 \\cdot 2$ til summen. Vi ganger derfor\nhver verdi med frekvensen sin:\n\n$$\\bar{x} = \\frac{3 \\cdot 0 + 5 \\cdot 1 + 8 \\cdot 2 + 7 \\cdot 3 + 4 \\cdot 4 + 3 \\cdot 5}{30}$$\n\n$$\\bar{x} = \\frac{0 + 5 + 16 + 21 + 16 + 15}{30} = \\frac{73}{30} = 2{,}433\\ldots \\approx 2{,}4$$\n\nVi deler på $30$ fordi det er $30$ elever — ikke på $6$, som er antall *verdier* i\ntabellen. Det er den vanligste feilen i denne utregningen.\n\n**Svar c):** Gjennomsnittet er $\\approx 2{,}4$ økter per elev."
+    },
+    {
+      "id": "stat-1-4-formula-vektet",
+      "type": "formula",
+      "title": "Gjennomsnitt fra en frekvenstabell",
+      "latex": "\\bar{x} = \\frac{f_1 x_1 + f_2 x_2 + \\ldots + f_k x_k}{n}, \\qquad n = f_1 + f_2 + \\ldots + f_k",
+      "description": "Hver verdi ganges med frekvensen sin. Nevneren er antall observasjoner n, ikke antall rader i tabellen."
+    },
+    {
+      "id": "stat-1-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-4-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$40$ elever ble spurt hvor mange meldinger de sendte i klassens gruppechat i går:\n\n| Antall meldinger | 0 | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|---|\n| Frekvens | 4 | 9 | 12 | 8 | 5 | 2 |\n\nGjør den samme oppgaven som i eksempel 1.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Fyll ut tabellen med relativ frekvens og kumulativ frekvens.",
+            "solution": "| Meldinger | 0 | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|---|\n| Frekvens | 4 | 9 | 12 | 8 | 5 | 2 |\n| Relativ frekvens | 0,100 | 0,225 | 0,300 | 0,200 | 0,125 | 0,050 |\n| Kumulativ frekvens | 4 | 13 | 25 | 33 | 38 | 40 |\n| Kumulativ relativ | 0,100 | 0,325 | 0,625 | 0,825 | 0,950 | 1,000 |"
+          },
+          {
+            "label": "b",
+            "task": "Finn gjennomsnittlig antall meldinger.",
+            "answer": 2.175,
+            "solution": "$\\bar{x} = \\frac{4 \\cdot 0 + 9 \\cdot 1 + 12 \\cdot 2 + 8 \\cdot 3 + 5 \\cdot 4 + 2 \\cdot 5}{40} = \\frac{87}{40} = 2{,}175 \\approx 2{,}2$ meldinger."
+          },
+          {
+            "label": "c",
+            "task": "Finn medianen og typetallet.",
+            "answer": [
+              2,
+              2
+            ],
+            "solution": "$n = 40$ er partall, så medianen er gjennomsnittet av verdi nr. $20$ og $21$. Den kumulative kolonnen viser at verdiene fra nr. $14$ til nr. $25$ alle er $2$, så begge er $2$ og medianen er $2$ meldinger. Typetallet er også $2$, som har den største frekvensen ($12$)."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange prosent sendte minst $3$ meldinger?",
+            "answer": 37.5,
+            "solution": "$8 + 5 + 2 = 15$ elever, altså $\\frac{15}{40} = 0{,}375 = 37{,}5\\ \\%$. Vi kunne også tatt $100\\ \\% - 62{,}5\\ \\% = 37{,}5\\ \\%$ fra den kumulative kolonnen."
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange prosent sendte høyst $1$ melding?",
+            "answer": 32.5,
+            "solution": "Kumulativ relativ frekvens ved $x = 1$ er $0{,}325$, altså $32{,}5\\ \\%$."
+          }
+        ],
+        "solution": "b) $\\approx 2{,}2$ meldinger, c) median $2$ og typetall $2$, d) $37{,}5\\ \\%$, e) $32{,}5\\ \\%$",
+        "hints": [
+          "Gang hver verdi med frekvensen sin, og del på $40$ — ikke på $6$."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-4-def-klasser",
+      "type": "definition",
+      "title": "Klassedelte data",
+      "content": "Når variabelen er kontinuerlig, deler vi verdiområdet i **klasser** —\nintervaller som ikke overlapper.\n\n- **Klassebredden** er lengden på intervallet. Vi bruker helst samme bredde på\n  alle klassene, så tallene kan sammenlignes.\n- **Klassegrensene** må være entydige. Vi skriver $[4, 6\\rangle$, som betyr «fra og\n  med $4$, men ikke til og med $6$». En observasjon på nøyaktig $6$ havner altså i\n  neste klasse.\n- **Klassemidtpunktet** er midt i intervallet: $\\frac{4 + 6}{2} = 5$. Det er dette\n  tallet vi regner med når vi bare har tabellen.\n\nNår vi går fra rådata til klasser, mister vi informasjon: vi vet ikke lenger om\nen observasjon i $[4, 6\\rangle$ var $4{,}1$ eller $5{,}9$. Vi later som om alle i\nklassen ligger i midtpunktet. Derfor blir sentralmålene vi regner ut fra en\nklassedelt tabell, **tilnærmede** verdier."
+    },
+    {
+      "id": "stat-1-4-fig-klassegrenser",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-4-klassegrenser.png",
+      "alt": "En tallinje merket timer, tallsatt 0, 2, 4, 6, 8, 10 og 12. Over tallinja ligger de seks klassene fra eksempel 2 som fargede segmenter, stablet i to høyder: [0, 2⟩, [4, 6⟩ og [8, 10⟩ i nedre rad, [2, 4⟩, [6, 8⟩ og [10, 12⟩ i øvre. Hvert segment har en FYLT prikk i venstre ende og en ÅPEN RING i høyre ende. En rød pil peker ned mot venstre ende av segmentet [6, 8⟩, og teksten 6 hører til neste klasse står i fri luft til høyre for pila. En grå pil peker opp mot midten av segmentet [4, 6⟩ fra 5 timer, og teksten klassemidtpunktet 5 står rett under pila, mellom tallinja og pilfoten. Figuren har ingen loddrett akse — y-retningen er bare stableplass.",
+      "caption": "Halvåpne klasser. Den fylte prikken betyr at grensen hører til klassen, den åpne ringen at den ikke gjør det — en observasjon på nøyaktig 6 havner derfor i [6, 8⟩. Klassemidtpunktet 5 er regneverdien for alle elevene i [4, 6⟩.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-4-klassegrenser.json"
+    },
+    {
+      "id": "stat-1-4-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Sentralmål fra klassedelte data",
+      "problem": "$80$ elever registrerte hvor mange timer de brukte på lekser i løpet av en uke:\n\n| Timer | $[0, 2\\rangle$ | $[2, 4\\rangle$ | $[4, 6\\rangle$ | $[6, 8\\rangle$ | $[8, 10\\rangle$ | $[10, 12\\rangle$ |\n|---|---|---|---|---|---|---|\n| Antall elever | 8 | 18 | 24 | 16 | 10 | 4 |\n\na) Finn gjennomsnittlig leksetid.\n\nb) Hvilken klasse er typeklassen, og hvilken klasse inneholder medianen?",
+      "solution": "**a)** Vi utvider tabellen med klassemidtpunktene og produktene $f \\cdot x$.\nKolonnen med produkter fylles rad for rad, og vi venter med å summere til alle\nradene står der:\n\n| Klasse | Midtpunkt $x$ | Frekvens $f$ | $f \\cdot x$ |\n|---|---|---|---|\n| $[0, 2\\rangle$ | 1 | 8 | 8 |\n| $[2, 4\\rangle$ | 3 | 18 | 54 |\n| $[4, 6\\rangle$ | 5 | 24 | 120 |\n| $[6, 8\\rangle$ | 7 | 16 | 112 |\n| $[8, 10\\rangle$ | 9 | 10 | 90 |\n| $[10, 12\\rangle$ | 11 | 4 | 44 |\n| **Sum** | | **80** | **428** |\n\nFormelen først, tom:\n\n$$\\bar{x} = \\frac{\\text{summen av } f \\cdot x}{n}$$\n\nog så med tall:\n\n$$\\bar{x} = \\frac{428}{80} = 5{,}35$$\n\n**Svar a):** Gjennomsnittlig leksetid er $\\approx 5{,}4$ timer per uke.\n\n**NB:** Dette er en tilnærmet verdi. Hadde vi hatt alle de $80$ rå tallene, ville\nvi fått et litt annet svar — vi har regnet som om alle $24$ elevene i\n$[4, 6\\rangle$ brukte nøyaktig $5$ timer.\n\n**b) Typeklassen** er klassen med størst frekvens: $[4, 6\\rangle$ med $24$ elever.\n\n**Medianklassen** finner vi med den kumulative kolonnen. Med $n = 80$ ligger\nmedianen mellom observasjon nr. $40$ og nr. $41$:\n\n| Klasse | $[0, 2\\rangle$ | $[2, 4\\rangle$ | $[4, 6\\rangle$ | $[6, 8\\rangle$ | $[8, 10\\rangle$ | $[10, 12\\rangle$ |\n|---|---|---|---|---|---|---|\n| Kumulativ | 8 | 26 | 50 | 66 | 76 | 80 |\n\nEtter klassen $[2, 4\\rangle$ har vi kommet til $26$ elever — for få. Etter\n$[4, 6\\rangle$ er vi på $50$, altså forbi $40$. Medianen ligger derfor i klassen\n$[4, 6\\rangle$.\n\n**Svar b):** Typeklassen og medianklassen er begge $[4, 6\\rangle$."
+    },
+    {
+      "id": "stat-1-4-section-summekurve",
+      "type": "text",
+      "content": "## Summekurven\n\nTegner vi den kumulative relative frekvensen mot den **øvre** klassegrensen, og\nbinder punktene sammen, får vi en **summekurve** (kumulativ frekvenskurve).\n\nKurven starter i $0\\ \\%$ ved den nedre grensen til den første klassen, og ender i\n$100\\ \\%$ ved den øvre grensen til den siste. Den er alltid stigende — den kan\nikke synke, siden vi bare legger til.\n\nSummekurven er et avlesningsverktøy. Fra den kan vi lese av medianen (ved\n$50\\ \\%$), kvartilene (ved $25\\ \\%$ og $75\\ \\%$), og svaret på spørsmål som «hvor\nmange prosent brukte mindre enn $7$ timer?»."
+    },
+    {
+      "id": "stat-1-4-fig-summekurve",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-4-summekurve.png",
+      "alt": "Summekurve i et koordinatsystem der den vannrette aksen viser timer fra 0 til 12 og den loddrette aksen viser kumulativ relativ frekvens i prosent fra 0 til 100. Sju punkter er bundet sammen med rette linjestykker til en stigende kurve: (0, 0), (2, 10), (4, 32,5), (6, 62,5), (8, 82,5), (10, 95) og (12, 100). Kurven stiger brattest mellom 4 og 6 timer. En rød stiplet vannrett linje går fra 50 prosent på den loddrette aksen bort til kurven, og derfra går en rød stiplet loddrett linje ned til omtrent 5,2 på den vannrette aksen. Linjen er merket median er omtrent 5,2.",
+      "caption": "Summekurve for leksetiden til 80 elever. Medianen leses av der kurven krysser 50 %: omtrent 5,2 timer.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-4-summekurve.json"
+    },
+    {
+      "id": "stat-1-4-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Å lese av summekurven",
+      "problem": "Bruk summekurven for leksetiden til de $80$ elevene.\n\na) Les av medianen.\n\nb) Regn ut medianen nøyaktig ut fra tabellen, og sammenlign med avlesningen.\n\nc) Hvor mange prosent brukte mindre enn $8$ timer på lekser?",
+      "solution": "**a)** Vi går inn på $50\\ \\%$ på den loddrette aksen, følger vannrett bort til\nkurven, og ned til den vannrette aksen. Vi lander på omtrent $5{,}2$ timer.\n\n**b)** Vi gjør det samme regnestykket algebraisk. Medianen er observasjon nr. $40$\nav $80$. Etter klassen $[2, 4\\rangle$ har vi $26$ observasjoner, så vi mangler\n\n$$40 - 26 = 14 \\text{ observasjoner}$$\n\nDisse $14$ skal hentes fra klassen $[4, 6\\rangle$, som inneholder $24$\nobservasjoner. Vi antar at de ligger jevnt fordelt over klassen (det er nøyaktig\ndet samme som å tegne en rett linje mellom punktene på summekurven). Da må vi gå\n\n$$\\frac{14}{24} \\text{ av klassebredden } 2 = \\frac{14}{24} \\cdot 2 = 1{,}1666\\ldots$$\n\ninn i klassen, som starter på $4$:\n\n$$\\text{median} \\approx 4 + 1{,}17 = 5{,}17 \\approx 5{,}2 \\text{ timer}$$\n\n**Svar b):** $\\approx 5{,}2$ timer — det samme som avlesningen i a). Avlesning og\nutregning er to veier til det samme svaret, og den ene kontrollerer den andre.\n\n**c)** «Mindre enn $8$ timer» er den øvre grensen til klassen $[6, 8\\rangle$. Den\nkumulative relative frekvensen der er $\\frac{66}{80} = 0{,}825$.\n\n**Svar c):** $82{,}5\\ \\%$ brukte mindre enn $8$ timer på lekser."
+    },
+    {
+      "id": "stat-1-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-4-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Strømforbruket en vintermåned ble målt i $50$ husstander:\n\n| Forbruk (kWh) | $[500, 700\\rangle$ | $[700, 900\\rangle$ | $[900, 1100\\rangle$ | $[1100, 1300\\rangle$ | $[1300, 1500\\rangle$ |\n|---|---|---|---|---|---|\n| Antall husstander | 6 | 14 | 18 | 9 | 3 |\n\nGjør den samme oppgaven som i eksempel 2.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv opp klassemidtpunktene, og finn den kumulative frekvensen for hver klasse.",
+            "solution": "Midtpunkter: $600$, $800$, $1000$, $1200$, $1400$. Kumulativ frekvens: $6$, $20$, $38$, $47$, $50$."
+          },
+          {
+            "label": "b",
+            "task": "Finn gjennomsnittlig strømforbruk.",
+            "answer": 956,
+            "solution": "$\\bar{x} = \\frac{6 \\cdot 600 + 14 \\cdot 800 + 18 \\cdot 1000 + 9 \\cdot 1200 + 3 \\cdot 1400}{50} = \\frac{47\\,800}{50} = 956$ kWh."
+          },
+          {
+            "label": "c",
+            "task": "Hvilken klasse er medianklassen?",
+            "solution": "Medianen er gjennomsnittet av observasjon nr. $25$ og $26$. Kumulativ frekvens er $20$ etter $[700, 900\\rangle$ og $38$ etter $[900, 1100\\rangle$, så medianen ligger i $[900, 1100\\rangle$."
+          },
+          {
+            "label": "d",
+            "task": "Regn ut medianen med samme metode som i eksempel 3b. Rund av til nærmeste hele kWh.",
+            "answer": 956,
+            "solution": "Vi mangler $25 - 20 = 5$ observasjoner inn i klassen, som har $18$: $900 + \\frac{5}{18} \\cdot 200 = 900 + 55{,}6 = 955{,}6 \\approx 956$ kWh."
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange prosent av husstandene brukte mindre enn $1100$ kWh?",
+            "answer": 76,
+            "solution": "$\\frac{38}{50} = 0{,}76 = 76\\ \\%$."
+          }
+        ],
+        "solution": "b) $956$ kWh, c) $[900, 1100\\rangle$, d) $\\approx 956$ kWh, e) $76\\ \\%$",
+        "hints": [
+          "Klassemidtpunktet er gjennomsnittet av de to klassegrensene."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-4-section-spredning",
+      "type": "text",
+      "content": "## Standardavvik fra en tabell\n\nStandardavviket regnes på samme måte som i kapittel 1.3, men hvert kvadrerte\navvik ganges med frekvensen sin — nøyaktig som vi gjorde med gjennomsnittet:\n\n$$\\sigma = \\sqrt{\\frac{\\sum f_i (x_i - \\bar{x})^2}{n}} \\qquad \\text{og} \\qquad s = \\sqrt{\\frac{\\sum f_i (x_i - \\bar{x})^2}{n - 1}}$$\n\nFor klassedelte data setter vi klassemidtpunktet inn for $x_i$, og svaret blir\ntilnærmet, på samme måte som gjennomsnittet."
+    },
+    {
+      "id": "stat-1-4-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Standardavvik fra en frekvenstabell",
+      "problem": "I $25$ familier ble antall barn registrert:\n\n| Antall barn $x$ | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|\n| Frekvens $f$ | 2 | 7 | 10 | 4 | 2 |\n\nDe $25$ familiene er alle familiene i et borettslag. Finn gjennomsnittet og\nstandardavviket.",
+      "solution": "**Steg 1 — gjennomsnittet.**\n\n$$\\bar{x} = \\frac{2 \\cdot 0 + 7 \\cdot 1 + 10 \\cdot 2 + 4 \\cdot 3 + 2 \\cdot 4}{25} = \\frac{47}{25} = 1{,}88$$\n\n**Steg 2 — avvikstabellen.** Nå med en ekstra kolonne for frekvensen:\n\n| $x$ | $f$ | $x - \\bar{x}$ | $(x - \\bar{x})^2$ | $f(x - \\bar{x})^2$ |\n|---|---|---|---|---|\n| 0 | 2 | $-1{,}88$ | 3,5344 | 7,0688 |\n| 1 | 7 | $-0{,}88$ | 0,7744 | 5,4208 |\n| 2 | 10 | 0,12 | 0,0144 | 0,1440 |\n| 3 | 4 | 1,12 | 1,2544 | 5,0176 |\n| 4 | 2 | 2,12 | 4,4944 | 8,9888 |\n| **Sum** | **25** | | | **26,6400** |\n\n**Steg 3 — standardavviket.** Borettslaget er hele materialet vi vil beskrive —\nvi skal ikke si noe om andre borettslag — så vi deler på $n$ og bruker $\\sigma$:\n\n$$\\sigma = \\sqrt{\\frac{26{,}64}{25}} = \\sqrt{1{,}0656} = 1{,}0323\\ldots \\approx 1{,}03$$\n\n**Svar:** Gjennomsnittet er $1{,}88$ barn og standardavviket $\\approx 1{,}03$ barn.\n\n*(Hadde de $25$ familiene vært et utvalg fra hele kommunen, ville vi delt på\n$n - 1 = 24$ og fått $s = \\sqrt{\\frac{26{,}64}{24}} \\approx 1{,}05$ barn.)*\n\n**NB:** Rund av til slutt. Regner du med $\\bar{x} = 1{,}9$ i avvikskolonnen, får\ndu et merkbart annet standardavvik."
+    },
+    {
+      "id": "stat-1-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-4-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En undersøkelse blant $100$ personer som nettopp hadde kjøpt sin første bolig,\nregistrerte alderen deres:\n\n| Alder | $[20, 25\\rangle$ | $[25, 30\\rangle$ | $[30, 35\\rangle$ | $[35, 40\\rangle$ | $[40, 45\\rangle$ |\n|---|---|---|---|---|---|\n| Antall | 12 | 38 | 30 | 15 | 5 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn kumulativ relativ frekvens for hver klasse, og tegn summekurven.",
+            "solution": "Kumulativ relativ frekvens ved øvre klassegrense: $(25;\\ 12\\ \\%)$, $(30;\\ 50\\ \\%)$, $(35;\\ 80\\ \\%)$, $(40;\\ 95\\ \\%)$, $(45;\\ 100\\ \\%)$. Kurven starter i $(20;\\ 0\\ \\%)$, og punktene bindes sammen med rette linjestykker.\n\n![Summekurve i et koordinatsystem. Den vannrette aksen viser alder i år fra 0 til 50 med tall for hver femte, den loddrette kumulativ relativ frekvens i prosent fra 0 til 100 med tall for hver tiende. Seks punkter er bundet sammen med rette linjestykker: 20 og 0 prosent, 25 og 12, 30 og 50, 35 og 80, 40 og 95, og 45 og 100 prosent. Kurven starter på aksen ved 20 år, stiger brattest mellom 25 og 30 år, og flater ut etter 40 år.](/images/content/statistikk/stat-1-4-summekurve-bolig.png)\n\n*Summekurven for alderen til de 100 førstegangskjøperne. Punktene settes av ved ØVRE klassegrense, og kurven starter i (20; 0 %) fordi ingen i materialet er under 20 år.*"
+          },
+          {
+            "label": "b",
+            "task": "Finn gjennomsnittsalderen.",
+            "answer": 30.65,
+            "solution": "$\\bar{x} = \\frac{12 \\cdot 22{,}5 + 38 \\cdot 27{,}5 + 30 \\cdot 32{,}5 + 15 \\cdot 37{,}5 + 5 \\cdot 42{,}5}{100} = \\frac{3065}{100} = 30{,}65$ år."
+          },
+          {
+            "label": "c",
+            "task": "Les av medianen på summekurven, og kontroller med utregning.",
+            "answer": 30,
+            "solution": "Kurven passerer $50\\ \\%$ nøyaktig ved $30$ år. Utregning: vi mangler $50 - 12 = 38$ observasjoner inn i klassen $[25, 30\\rangle$, som har $38$ — altså hele klassen: $25 + \\frac{38}{38} \\cdot 5 = 30$ år."
+          },
+          {
+            "label": "d",
+            "task": "Finn standardavviket $\\sigma$ når vi ser på de $100$ som hele materialet. Rund av til to desimaler.",
+            "answer": 5.18,
+            "solution": "$\\sum f(x - \\bar{x})^2 = 2682{,}75$, så $\\sigma = \\sqrt{\\frac{2682{,}75}{100}} = \\sqrt{26{,}8275} \\approx 5{,}18$ år."
+          },
+          {
+            "label": "e",
+            "task": "Gjennomsnittet er $30{,}65$ år og medianen $30$ år. Hva forteller forskjellen om fordelingen?",
+            "solution": "Gjennomsnittet ligger litt over medianen, så fordelingen er svakt høyreskjev: noen få kjøper første bolig sent (i $[40, 45\\rangle$), og de trekker gjennomsnittet opp, mens ingen kan kjøpe før $20$-årsalderen i dette materialet."
+          }
+        ],
+        "solution": "b) $30{,}65$ år, c) $30$ år, d) $\\sigma \\approx 5{,}18$ år, e) svakt høyreskjev fordeling",
+        "hints": [
+          "Summekurven tegnes mot den ØVRE klassegrensen."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-4-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** En sykkelklubb har logget lengden på $60$ turer\n(i km). Rådataene ligger i regnearket, og gjennomsnittet av alle $60$ tallene er\n$6{,}15$ km. Klassefrekvensene er\n\n| Lengde (km) | $[2, 4\\rangle$ | $[4, 6\\rangle$ | $[6, 8\\rangle$ | $[8, 10\\rangle$ | $[10, 12\\rangle$ |\n|---|---|---|---|---|---|\n| Antall turer | 12 | 19 | 16 | 9 | 4 |",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnittet ut fra den klassedelte tabellen.",
+            "answer": 6.13,
+            "solution": "$\\bar{x} = \\frac{12 \\cdot 3 + 19 \\cdot 5 + 16 \\cdot 7 + 9 \\cdot 9 + 4 \\cdot 11}{60} = \\frac{368}{60} = 6{,}1333\\ldots \\approx 6{,}13$ km."
+          },
+          {
+            "label": "b",
+            "task": "Sammenlign med gjennomsnittet av rådataene ($6{,}15$ km). Hvorfor er de ikke helt like?",
+            "solution": "Fordi den klassedelte utregningen later som om alle turene i en klasse var nøyaktig like lange som klassemidtpunktet. Avviket er lite her ($0{,}02$ km), fordi turene ligger noenlunde jevnt fordelt innenfor klassene."
+          },
+          {
+            "label": "c",
+            "task": "Finn medianklassen og regn ut medianen fra tabellen. Rund av til én desimal.",
+            "answer": 5.9,
+            "solution": "Kumulativ: $12$, $31$, $47$, $56$, $60$. Observasjon nr. $30$ ligger i $[4, 6\\rangle$. Median $= 4 + \\frac{30 - 12}{19} \\cdot 2 = 4 + 1{,}895 = 5{,}895 \\approx 5{,}9$ km. (Den eksakte medianen fra rådataene er $5{,}85$ km.)"
+          },
+          {
+            "label": "d",
+            "task": "Finn $\\sigma$ fra den klassedelte tabellen. Rund av til to desimaler.",
+            "answer": 2.32,
+            "solution": "$\\sum f(x - \\bar{x})^2 = 322{,}93$ med $\\bar{x} = 6{,}1333$, så $\\sigma = \\sqrt{\\frac{322{,}93}{60}} \\approx 2{,}32$ km."
+          },
+          {
+            "label": "e",
+            "task": "Klubben vil vite hvor mange turer som var lengre enn 9 km. Kan du svare ut fra den klassedelte tabellen?",
+            "solution": "Ikke nøyaktig. $9$ km ligger midt inne i klassen $[8, 10\\rangle$, og tabellen forteller ikke hvordan de $9$ turene i klassen fordeler seg. Antar vi jevn fordeling, anslår vi halvparten, altså $4{,}5$ turer, pluss de $4$ i $[10, 12\\rangle$ — omtrent $8$ eller $9$ turer.\n\nFor et nøyaktig svar må vi tilbake til rådataene. **Det er nettopp dette klassedelingen koster oss.**\n\n**Andre muligheter:** klubben kunne valgt klassegrenser som legger $9$ km på en grense (for eksempel bredde $1$ km), hvis akkurat det spørsmålet var viktig."
+          }
+        ],
+        "solution": "a) $6{,}13$ km, b) klassemidtpunktene er en tilnærming, c) $[4, 6\\rangle$, median $\\approx 5{,}9$ km, d) $\\sigma \\approx 2{,}32$ km, e) nei — bare et anslag",
+        "hints": [
+          "Klassemidtpunktene er $3, 5, 7, 9$ og $11$."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-4-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave — valg av klassebredde.** De samme $60$ sykkelturene som i\noppgave 4 kan deles i klasser på flere måter:\n\n| Bredde $1$ km | $[2,3\\rangle$ | $[3,4\\rangle$ | $[4,5\\rangle$ | $[5,6\\rangle$ | $[6,7\\rangle$ | $[7,8\\rangle$ | $[8,9\\rangle$ | $[9,10\\rangle$ | $[10,11\\rangle$ | $[11,12\\rangle$ |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Antall | 4 | 8 | 9 | 10 | 9 | 7 | 5 | 4 | 2 | 2 |\n\n| Bredde $5$ km | $[2, 7\\rangle$ | $[7, 12\\rangle$ |\n|---|---|---|\n| Antall | 40 | 20 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Kontroller at begge inndelingene har med alle $60$ turene.",
+            "answer": 60,
+            "solution": "$4+8+9+10+9+7+5+4+2+2 = 60$ og $40 + 20 = 60$. Begge stemmer."
+          },
+          {
+            "label": "b",
+            "task": "Finn gjennomsnittet ut fra inndelingen med bredde $5$ km, og sammenlign med $6{,}13$ km fra oppgave 4a.",
+            "answer": 6.17,
+            "solution": "Midtpunktene er $4{,}5$ og $9{,}5$: $\\bar{x} = \\frac{40 \\cdot 4{,}5 + 20 \\cdot 9{,}5}{60} = \\frac{370}{60} \\approx 6{,}17$ km. Overraskende nær, men det er flaks: med bare to klasser kan tilnærmingen like gjerne bomme mye."
+          },
+          {
+            "label": "c",
+            "task": "Hva taler for smale klasser, og hva taler for brede?",
+            "solution": "Smale klasser bevarer detaljene i materialet og gir mer nøyaktige sentralmål, men tabellen blir lang og mønsteret kan drukne i tilfeldige svingninger. Brede klasser gir et ryddig overblikk, men skjuler formen på fordelingen og gir grovere anslag."
+          },
+          {
+            "label": "d",
+            "task": "En elev deler i klassene $[2, 4]$, $[4, 6]$, $[6, 8]$. Hva er galt?",
+            "solution": "Klassene overlapper i endepunktene: en tur på nøyaktig $4$ km hører hjemme i to klasser samtidig. Grensene må være entydige, for eksempel $[2, 4\\rangle$, $[4, 6\\rangle$, $[6, 8\\rangle$."
+          },
+          {
+            "label": "e",
+            "task": "Klubben skal presentere tallene for medlemmene. Hvilken inndeling ville du valgt, og hvorfor?",
+            "solution": "Bredde $2$ km (som i oppgave 4) er et rimelig kompromiss: fem klasser er nok til å vise at de fleste turene er mellom $4$ og $8$ km, og få nok til å leses raskt.\n\nEn vanlig tommelfingerregel er mellom $5$ og $10$ klasser for materialer på denne størrelsen.\n\n**Andre muligheter:** bredde $1$ km hvis klubben vil se detaljene i fordelingen selv, eller en inndeling som følger turtypene deres (kortturer under $5$ km, vanlige turer $5$–$10$ km, langturer over $10$ km) — da må klassebreddene oppgis, siden de ikke er like."
+          }
+        ],
+        "solution": "a) begge gir $60$, b) $\\approx 6{,}17$ km, c) se drøftingen, d) grensene overlapper, e) begrunnet valg av bredde",
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-4-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Tabellen viser kumulativ relativ frekvens for ventetiden (i minutter) hos en\ntannlege:\n\n| Ventetid mindre enn | 5 | 10 | 15 | 20 | 25 |\n|---|---|---|---|---|---|\n| Kumulativ relativ frekvens | 0,15 | 0,45 | 0,75 | 0,92 | 1,00 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stor andel ventet mindre enn $10$ minutter?",
+            "answer": 45,
+            "solution": "$0{,}45 = 45\\ \\%$ — det leses rett ut av tabellen."
+          },
+          {
+            "label": "b",
+            "task": "Hvor stor andel ventet mellom $10$ og $15$ minutter?",
+            "answer": 30,
+            "solution": "$0{,}75 - 0{,}45 = 0{,}30 = 30\\ \\%$. Vi trekker fra, fordi den kumulative frekvensen allerede inneholder alle som ventet kortere."
+          },
+          {
+            "label": "c",
+            "task": "Hvor stor andel ventet minst $20$ minutter?",
+            "answer": 8,
+            "solution": "$1{,}00 - 0{,}92 = 0{,}08 = 8\\ \\%$."
+          },
+          {
+            "label": "d",
+            "task": "I hvilket intervall ligger medianen?",
+            "solution": "Medianen ligger der den kumulative relative frekvensen passerer $0{,}50$. Det skjer mellom $10$ og $15$ minutter."
+          }
+        ],
+        "solution": "a) $45\\ \\%$, b) $30\\ \\%$, c) $8\\ \\%$, d) mellom $10$ og $15$ minutter",
+        "hints": [
+          "«Mellom to grenser» finner du ved å trekke den ene kumulative frekvensen fra den andre."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-4-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Frekvenstabellen** samler materialet: frekvens, relativ frekvens, kumulativ\n  frekvens og kumulativ relativ frekvens.\n- **Gjennomsnitt fra tabell**: $\\bar{x} = \\frac{\\sum f_i x_i}{n}$. Del på antall\n  **observasjoner**, ikke på antall rader.\n- **Klassedelte data**: intervaller med entydige grenser ($[4, 6\\rangle$), lik\n  bredde, og klassemidtpunktet som regneverdi. Sentralmålene blir tilnærmede.\n- **Medianklassen** finnes med den kumulative kolonnen, og medianen kan regnes ut\n  ved å gå en andel inn i medianklassen.\n- **Summekurven** tegnes mot øvre klassegrense og brukes til å lese av median og\n  kvartiler.\n- **Standardavvik fra tabell**: $\\sigma = \\sqrt{\\frac{\\sum f_i (x_i - \\bar{x})^2}{n}}$,\n  eller $s$ med $n - 1$ når materialet er et utvalg.\n\n### Husk\n- Klassedeling koster informasjon. Har du rådataene, regn på dem.\n- Siste kumulative frekvens skal være $n$, og siste kumulative relative frekvens $1$.\n- Rund av til slutt, aldri i avvikskolonnen."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Frekvens",
+      "definition": "Antall ganger en verdi eller en klasse forekommer i datamaterialet."
+    },
+    {
+      "term": "Kumulativ frekvens",
+      "definition": "Summen av frekvensene til og med den aktuelle verdien eller klassen."
+    },
+    {
+      "term": "Klasse",
+      "definition": "Et intervall som datamaterialet deles i, skrevet med entydige grenser, for eksempel [4, 6⟩."
+    },
+    {
+      "term": "Klassemidtpunkt",
+      "definition": "Midt mellom de to klassegrensene. Brukes som regneverdi for alle observasjonene i klassen."
+    },
+    {
+      "term": "Summekurve",
+      "definition": "Kurven som viser kumulativ relativ frekvens mot øvre klassegrense. Brukes til å lese av median og kvartiler."
+    },
+    {
+      "term": "Typeklasse",
+      "definition": "Klassen med størst frekvens."
+    }
+  ]
+}

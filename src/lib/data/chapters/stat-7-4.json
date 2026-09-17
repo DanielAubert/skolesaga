@@ -1,0 +1,456 @@
+{
+  "id": "stat-7-4",
+  "courseId": "statistikk",
+  "chapterNumber": "7.4",
+  "title": "Hypotesetesting — grunnideen",
+  "description": "Nullhypotese, alternativ hypotese, signifikansnivå og p-verdi forklart fra bunnen av.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+  ],
+  "content": [
+    {
+      "id": "stat-7-4-section-intro",
+      "type": "text",
+      "content": "# Hypotesetesting — grunnideen\n\nEn kafé påstår at baristaen kan kjenne forskjell på to kaffetyper bare ved å smake. Vi lar henne prøve ti ganger, uten å se hva hun får. Hun treffer ni av ti.\n\nHva nå? To forklaringer står mot hverandre:\n\n- **Hun gjettet**, og var heldig.\n- **Hun kan det**, og ni av ti er resultatet av ekte ferdighet.\n\nMatematikken kan ikke velge for oss. Men den kan svare på ett presist spørsmål, og det er hele hypotesetestingen:\n\n> **Hvis hun bare gjettet — hvor sannsynlig var det da å få ni eller flere riktige?**\n\nEr det svaret stort, er ni riktige ikke noe å heve øyenbrynene over. Er svaret lite, må vi enten tro at noe svært usannsynlig har skjedd, eller forkaste antakelsen om at hun gjettet.\n\nLegg merke til tankegangen: **vi regner på den kjedelige forklaringen**, ikke på den spennende. Det er en variant av et kjent grep fra matematikken — vi antar det motsatte av det vi tror, og ser om antakelsen fører til noe urimelig."
+    },
+    {
+      "id": "stat-7-4-def-hypoteser",
+      "type": "definition",
+      "title": "Nullhypotese og alternativ hypotese",
+      "content": "**Nullhypotesen** $H_0$ er antakelsen om at det ikke skjer noe spesielt: ingen effekt, ingen ferdighet, ingen endring. Den gir oss en **tallfestet modell** vi kan regne i.\n\n**Den alternative hypotesen** $H_1$ er påstanden vi vil undersøke om det er dekning for.\n\nI kaffeeksempelet:\n\n$$H_0: p = 0{,}5 \\qquad \\text{(hun gjetter — like sannsynlig å treffe som å bomme)}$$\n\n$$H_1: p > 0{,}5 \\qquad \\text{(hun treffer oftere enn tilfeldig)}$$\n\n**Tre regler for oppsettet:**\n\n1. $H_0$ inneholder alltid **et likhetstegn** — ellers har vi ikke noe tall å regne med.\n2. $H_1$ er det vi vil **vise**. Den kommer fra spørsmålet, ikke fra dataene.\n3. Hypotesene settes opp **før** vi ser resultatet.\n\nRegel 3 er ikke en formalitet. Lager du hypotesen etter at du har sett tallene, kan du alltid finne noe som ser oppsiktsvekkende ut — og da tester du ingenting."
+    },
+    {
+      "id": "stat-7-4-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Kan baristaen smake forskjell?",
+      "problem": "Baristaen får ti kopper i tilfeldig rekkefølge og skal si hvilken type hver av dem er. Hun treffer på 9 av 10.\n\na) Sett opp $H_0$ og $H_1$.\nb) Regn ut sannsynligheten for å få minst 9 riktige hvis hun bare gjetter.\nc) Konkluder på 5 % signifikansnivå.\nd) Hva om hun hadde truffet 8 av 10?",
+      "solution": "**Løsning:**\n\n**a)** La $p$ være sannsynligheten for at hun treffer på en enkelt kopp.\n\n$$H_0: p = 0{,}5$$\n\n$$H_1: p > 0{,}5$$\n\n**b)** Vi regner **under $H_0$**, altså som om hun gjetter. Da er antall riktige binomisk fordelt med\n\n$$n = 10 \\qquad p = 0{,}5$$\n\nVi skal finne $P(X \\ge 9)$, altså «9 eller 10 riktige»:\n\n$$P(X \\ge 9) = P(X = 9) + P(X = 10)$$\n\n$$P(X = 9) = \\binom{10}{9} \\cdot 0{,}5^9 \\cdot 0{,}5^1 = 10 \\cdot \\frac{1}{1024} = \\frac{10}{1024}$$\n\n$$P(X = 10) = \\binom{10}{10} \\cdot 0{,}5^{10} = 1 \\cdot \\frac{1}{1024} = \\frac{1}{1024}$$\n\n$$P(X \\ge 9) = \\frac{10}{1024} + \\frac{1}{1024} = \\frac{11}{1024} \\approx 0{,}0107$$\n\n*(Her er nevneren den samme i alle leddene fordi $0{,}5^k \\cdot 0{,}5^{10-k} = 0{,}5^{10}$ uansett $k$. Det gjør $p = 0{,}5$ til det enkleste tilfellet å regne for hånd.)*\n\n**c)** Dette tallet kalles **p-verdien**. Den er 0,0107, altså omtrent 1 %.\n\nVi sammenligner med signifikansnivået:\n\n$$0{,}0107 < 0{,}05$$\n\nHadde hun gjettet, ville et resultat som dette (eller bedre) forekommet i bare omtrent 1 av 100 forsøk. Vi **forkaster $H_0$** og konkluderer med at hun ser ut til å kunne smake forskjell.\n\n**d)** Med 8 riktige:\n\n$$P(X \\ge 8) = \\frac{45 + 10 + 1}{1024} = \\frac{56}{1024} \\approx 0{,}0547$$\n\nNå er $0{,}0547 > 0{,}05$. Vi **beholder $H_0$** — resultatet er ikke overraskende nok på 5 %-nivå.\n\n![Et søylediagram over den binomiske fordelingen for n er lik 10 og p er lik 0,5. Under den vannrette aksen står tallene 0 til 10, og den loddrette aksen er merket P av X er lik k. Søylene er symmetriske om 5, som er den høyeste med omtrent 0,25. Søylene over 0 til 8 er blå. Søylene over 9 og 10 er røde og nesten usynlig lave. Øverst står teksten p-verdi er lik P av X større enn eller lik 9 er lik 11 delt på 1024 er lik 0,0107.](/images/content/statistikk/stat-7-4-barista-binomisk.png)\n\n*$p$-verdien er en hale i fordelingen. Under $H_0$ gjetter baristaen, og da er antall riktige binomisk fordelt med $n = 10$ og $p = 0{,}5$. De to røde søylene er alt som er minst like ekstremt som det observerte: $\\frac{10 + 1}{1024} = 0{,}0107$. Legg merke til hvor lite det området er sammenlignet med resten.*\n\n**Svar:** a) $H_0: p = 0{,}5$ mot $H_1: p > 0{,}5$. b) $P(X \\ge 9) = \\frac{11}{1024} \\approx 0{,}0107$. c) $H_0$ forkastes på 5 %-nivå. d) $P(X \\ge 8) \\approx 0{,}0547 > 0{,}05$, så $H_0$ beholdes.\n\n**NB:** Legg merke til hvor tett d) ligger på grensen. Én kopp til eller fra snur konklusjonen. Det betyr ikke at 9 riktige er «bevis» og 8 riktige er «ingenting» — det betyr at 10 forsøk er et tynt grunnlag, og at grensen 5 % er et valg vi har gjort, ikke en naturlov."
+    },
+    {
+      "id": "stat-7-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. En elev mistenker at en mynt ikke er rettferdig. Hun kaster den 20 ganger og får kron 15 ganger.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$ når hun mistenker at mynten gir kron for ofte.",
+            "solution": "$H_0: p = 0{,}5$ mot $H_1: p > 0{,}5$, der $p$ er sannsynligheten for kron i ett kast."
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange kron ville vi ventet under $H_0$?",
+            "solution": "$E(X) = np = 20 \\cdot 0{,}5 = 10$ kron.",
+            "answer": 10
+          },
+          {
+            "label": "c",
+            "task": "Finn p-verdien, altså $P(X \\ge 15)$ under $H_0$.",
+            "solution": "Med $n = 20$ og $p = 0{,}5$: $P(X \\ge 15) = 1 - P(X \\le 14) \\approx 0{,}0207$. (I regneark: `=1-BINOM.FORDELING.N(14;20;0,5;SANN)`.)",
+            "answer": 0.0207
+          },
+          {
+            "label": "d",
+            "task": "Konkluder på 5 % signifikansnivå.",
+            "solution": "$0{,}0207 < 0{,}05$, så $H_0$ forkastes. Dataene taler for at mynten gir kron oftere enn halvparten av gangene."
+          },
+          {
+            "label": "e",
+            "task": "Hva er det minste antall kron som ville gitt forkastning på 5 %-nivå?",
+            "solution": "$P(X \\ge 14) \\approx 0{,}0577 > 0{,}05$, mens $P(X \\ge 15) \\approx 0{,}0207 \\le 0{,}05$. Grensen går altså ved 15 kron.",
+            "answer": 15
+          }
+        ],
+        "hints": [
+          "Bruk `=1-BINOM.FORDELING.N(k-1;n;p;SANN)` for $P(X \\ge k)$ — pass på indeksen."
+        ],
+        "solution": "a) $H_0: p = 0{,}5$, $H_1: p > 0{,}5$. b) 10. c) $\\approx 0{,}0207$. d) Forkast $H_0$. e) 15 kron.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-4-def-pverdi",
+      "type": "definition",
+      "title": "Signifikansnivå og p-verdi",
+      "content": "**Signifikansnivået** $\\alpha$ er grensen vi bestemmer **på forhånd** for hva vi vil kalle overraskende. De vanlige valgene er\n\n$$\\alpha = 0{,}10 \\qquad \\alpha = 0{,}05 \\qquad \\alpha = 0{,}01$$\n\n**p-verdien** er sannsynligheten for å få et resultat minst så ekstremt som det vi observerte, **gitt at $H_0$ er sann**.\n\n**Konklusjonsregelen:**\n\n| | |\n|---|---|\n| $p\\text{-verdi} \\le \\alpha$ | forkast $H_0$ — resultatet er **signifikant** på nivået |\n| $p\\text{-verdi} > \\alpha$ | behold $H_0$ — ikke grunnlag for å forkaste |\n\nEn hypotesetest føres alltid i de samme fem skrittene:\n\n1. Sett opp $H_0$ og $H_1$.\n2. Velg signifikansnivå $\\alpha$.\n3. Regn ut p-verdien **under $H_0$**.\n4. Sammenlign med $\\alpha$.\n5. Skriv konklusjonen **i oppgavens kontekst** — ikke bare «$H_0$ forkastes»."
+    },
+    {
+      "id": "stat-7-4-warning-pverdi",
+      "type": "warning",
+      "title": "Fire ting p-verdien IKKE er",
+      "content": "**1. Den er ikke sannsynligheten for at $H_0$ er sann.** Vi regnet jo *under* forutsetning av $H_0$. En p-verdi på 0,01 betyr «dette resultatet er sjeldent hvis $H_0$ er sann» — ikke «det er 1 % sjanse for at $H_0$ er sann».\n\n**2. «Behold $H_0$» betyr ikke at $H_0$ er bevist.** Det betyr at dataene ikke er sterke nok til å forkaste den. Åtte av ti riktige beviser ikke at baristaen gjetter; vi har bare ikke nok grunnlag til å si at hun ikke gjør det. **Fravær av bevis er ikke bevis for fravær.**\n\n**3. Den sier ingenting om hvor stor effekten er.** Med et enormt utvalg kan en helt ubetydelig forskjell få en bitteliten p-verdi. Statistisk signifikant er ikke det samme som viktig. Konfidensintervallet i kapittel 7.2 og 7.3 sier noe om størrelsen; p-verdien gjør ikke det.\n\n**4. Grensen 0,05 er ikke magisk.** En p-verdi på 0,049 og en på 0,051 er omtrent like overraskende. Konklusjonene «forkast» og «behold» er derimot forskjellige — det er prisen for å ha en fast beslutningsregel, og en grunn til alltid å oppgi selve p-verdien og ikke bare dommen."
+    },
+    {
+      "id": "stat-7-4-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Flere defekte enn lovet?",
+      "problem": "En leverandør garanterer at høyst 5 % av enhetene er defekte. En kunde kontrollerer 200 tilfeldige enheter og finner 16 defekte.\n\na) Sett opp hypoteser.\nb) Hvor mange defekte ville vi ventet under $H_0$?\nc) Finn p-verdien.\nd) Konkluder på 5 %-nivå, og skriv konklusjonen i kontekst.",
+      "solution": "**Løsning:**\n\n**a)** La $p$ være andelen defekte i produksjonen.\n\n$$H_0: p = 0{,}05 \\qquad H_1: p > 0{,}05$$\n\nGarantien «høyst 5 %» blir til likhetstegnet $p = 0{,}05$ i $H_0$ — vi regner i det verste tilfellet garantien tillater.\n\n**b)** Under $H_0$ er antall defekte binomisk fordelt med $n = 200$ og $p = 0{,}05$:\n\n$$E(X) = np = 200 \\cdot 0{,}05 = 10$$\n\nVi observerte 16. Det er 6 mer enn ventet — men er det mye? Standardavviket under $H_0$ er\n\n$$\\sqrt{np(1-p)} = \\sqrt{200 \\cdot 0{,}05 \\cdot 0{,}95} = \\sqrt{9{,}5} \\approx 3{,}08$$\n\nAvviket er altså omtrent to standardavvik. Det er mye, men ikke ekstremt — vi må regne.\n\n**c)** p-verdien er sannsynligheten for 16 eller flere defekte under $H_0$:\n\n$$P(X \\ge 16) = 1 - P(X \\le 15) \\approx 0{,}0444$$\n\n```\nregneark:   =1-BINOM.FORDELING.N(15;200;0,05;SANN)    gir 0,0444\n```\n\n**d)** Vi sammenligner:\n\n$$0{,}0444 \\le 0{,}05$$\n\n$H_0$ forkastes på 5 %-nivå.\n\n**Konklusjon i kontekst:** Kontrollen gir grunnlag for å si at andelen defekte er høyere enn de garanterte 5 %. Hadde leverandøren holdt garantien, ville en kontroll som denne gitt 16 eller flere defekte i bare omtrent 4 av 100 tilfeller.\n\n**Svar:** a) $H_0: p = 0{,}05$ mot $H_1: p > 0{,}05$. b) 10 defekte. c) $\\approx 0{,}0444$. d) $H_0$ forkastes — dataene taler for at mer enn 5 % er defekte.\n\n**NB:** Legg merke til hvor nær grensen vi er. På 1 %-nivå ville vi beholdt $H_0$, siden $0{,}0444 > 0{,}01$. Signifikansnivået må derfor velges **før** vi regner — ellers blir valget en måte å få det svaret man vil ha."
+    },
+    {
+      "id": "stat-7-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En frøprodusent skriver på pakken at 80 % av frøene spirer. En gartner sår 50 frø og får 44 til å spire. Han mener pakken underdriver.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$.",
+            "solution": "$H_0: p = 0{,}80$ mot $H_1: p > 0{,}80$, der $p$ er spireandelen."
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange spirte frø ville vi ventet under $H_0$?",
+            "solution": "$E(X) = 50 \\cdot 0{,}80 = 40$ frø. Gartneren fikk 44, altså 4 mer enn ventet.",
+            "answer": 40
+          },
+          {
+            "label": "c",
+            "task": "Finn p-verdien.",
+            "solution": "$P(X \\ge 44) = 1 - P(X \\le 43) \\approx 0{,}1034$. I regneark: `=1-BINOM.FORDELING.N(43;50;0,8;SANN)`.",
+            "answer": 0.1034
+          },
+          {
+            "label": "d",
+            "task": "Konkluder på 5 %-nivå, i kontekst.",
+            "solution": "$0{,}1034 > 0{,}05$, så $H_0$ beholdes. Et resultat på 44 eller bedre ville forekommet i omtrent 1 av 10 såinger selv om spireandelen bare er 80 %. Gartneren har ikke grunnlag for å si at pakken underdriver."
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange frø måtte spirt for at han skulle fått forkastet $H_0$ på 5 %-nivå?",
+            "solution": "$P(X \\ge 45) \\approx 0{,}0480 \\le 0{,}05$, mens $P(X \\ge 44) \\approx 0{,}1034$. Han måtte hatt minst 45 spirte frø.",
+            "answer": 45
+          }
+        ],
+        "hints": [
+          "Regn alltid under $H_0$: her er $n = 50$ og $p = 0{,}80$, uansett hva gartneren tror."
+        ],
+        "solution": "a) $H_0: p = 0{,}80$, $H_1: p > 0{,}80$. b) 40. c) $\\approx 0{,}1034$. d) Behold $H_0$. e) Minst 45 frø.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-4-section-forkastning",
+      "type": "text",
+      "content": "## Forkastningsområdet — samme avgjørelse, motsatt vei\n\nI eksempel 2 regnet vi p-verdien og sammenlignet med $\\alpha$. Det finnes en annen vei til nøyaktig samme konklusjon: å finne **på forhånd** hvilke resultater som skal føre til forkastning.\n\nDen mengden av utfall kalles **forkastningsområdet**. For leverandørkontrollen finner vi den ved å lete oppover:\n\n| $k$ | 14 | 15 | **16** | 17 |\n|---|---|---|---|---|\n| $P(X \\ge k)$ | 0,1299 | 0,0781 | **0,0444** | 0,0238 |\n\nDet minste antallet som gir sannsynlighet under 5 %, er 16. Forkastningsområdet er altså\n\n$$X \\ge 16$$\n\nBestemmer vi dette før kontrollen, trenger vi ikke regne noen p-verdi etterpå — vi teller bare, og ser om tallet havner i området.\n\nDe to veiene gir alltid samme svar:\n\n| | p-verdi-metoden | forkastningsområde-metoden |\n|---|---|---|\n| regner | hvor sjeldent resultatet er | hvilke resultater som er sjeldne nok |\n| sammenligner | p-verdi mot $\\alpha$ | observasjonen mot grensen |\n| brukes helst | når vi har tallet og skal vurdere det | når vi planlegger testen på forhånd |\n\nNår vi går over til normalfordelingen i kapittel 7.5, tegnes forkastningsområdet som et areal ute i halen av klokkekurven."
+    },
+    {
+      "id": "stat-7-4-fig-leverandor-forkastning",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-4-leverandor-forkastning.png",
+      "alt": "Et søylediagram over antall defekte, merket k, fra 0 til 26 på den vannrette aksen. Fordelingen har toppen rundt 9 og 10 og faller av til begge sider. Søylene fra 0 til 15 er blå. Søylene fra 16 og oppover er røde og svært lave. En grå stiplet loddrett strek står mellom 15 og 16. Til høyre står tekstene forkastningsområde og P av X større enn eller lik 16 er lik 0,0444.",
+      "caption": "Forkastningsområdet er de samme søylene som $p$-verdien — bare sett fra motsatt kant. Under $H_0$ er antall defekte binomisk fordelt med $n = 200$ og $p = 0{,}05$, og $P(X \\ge 16) = 0{,}0444 < 0{,}05$. Alt fra og med 16 fører til at $H_0$ forkastes. Normalkurvefiguren rett under er den samme avgjørelsen, tegnet på $z$-skala.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-4-leverandor-forkastning.json"
+    },
+    {
+      "id": "stat-7-4-fig-forkastning",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-7-4-forkastningsomrade.png",
+      "alt": "En symmetrisk klokkeformet kurve med toppen over null. Området under kurven til høyre for 1,645 er skravert gult og merket forkastningsområde og 5 prosent. En stiplet loddrett hjelpelinje går fra den vannrette aksen opp til kurven ved 1,645. Området til venstre for linjen, som utgjør størstedelen av arealet, er umerket og merket behold H0. Den vannrette aksen er merket z og går fra minus 4 til 4. Øverst til venstre står kurveetiketten fordelingen til z når H0 er sann i oransje, og tallet 1,645 står i en egen rad under aksen, i sin egen kolonne under den stiplede streken.",
+      "caption": "Forkastningsområdet ved ensidig test på 5 %-nivå: den ytterste 5-prosenten av halen, til høyre for 1,645. Faller observasjonen der, forkaster vi $H_0$. Legg merke til at selve grensen er et valg — flytter vi den til 2,326, tester vi på 1 %-nivå.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-7-4-forkastningsomrade.json"
+    },
+    {
+      "id": "stat-7-4-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Ensidig eller tosidig?",
+      "problem": "Sett opp $H_0$ og $H_1$ i disse tre situasjonene, og avgjør om testen blir ensidig eller tosidig.\n\na) En kommune vil undersøke om en ny sykkelvei har ført til **flere** syklister enn før. Tidligere syklet 18 % av de reisende.\nb) Et laboratorium skal kontrollere om en maskin fyller **riktig** mengde, 500 ml.\nc) En skole vil vite om en ny undervisningsmetode gir **bedre** resultater enn landsgjennomsnittet på 3,4.",
+      "solution": "**Løsning:**\n\n**a)** Spørsmålet er om andelen har **økt**. Vi bryr oss bare om den ene retningen:\n\n$$H_0: p = 0{,}18 \\qquad H_1: p > 0{,}18$$\n\nDette er en **ensidig** test (høyresidig). Hele $\\alpha$ legges i den ene halen.\n\n**b)** Her er både for mye og for lite et problem. Begge avvik teller:\n\n$$H_0: \\mu = 500 \\qquad H_1: \\mu \\ne 500$$\n\nDette er en **tosidig** test. Signifikansnivået deles i to, med $\\frac{\\alpha}{2} = 0{,}025$ i hver hale — og det er nettopp derfor grensen blir 1,96 i stedet for 1,645.\n\n**c)** Spørsmålet er om metoden er **bedre**:\n\n$$H_0: \\mu = 3{,}4 \\qquad H_1: \\mu > 3{,}4$$\n\nEnsidig igjen.\n\n**Svar:** a) $H_0: p = 0{,}18$, $H_1: p > 0{,}18$ — ensidig. b) $H_0: \\mu = 500$, $H_1: \\mu \\ne 500$ — tosidig. c) $H_0: \\mu = 3{,}4$, $H_1: \\mu > 3{,}4$ — ensidig.\n\n**Hvordan velge?** Still deg spørsmålet: *ville et avvik den andre veien vært interessant?* Ville laboratoriet i b) vært likegyldig til at flaskene inneholdt 530 ml? Nei — da er testen tosidig. Er kommunen i a) interessert i om sykling gikk **ned**? I denne undersøkelsen ikke, så testen er ensidig.\n\n**NB — én ufravikelig regel:** valget mellom ensidig og tosidig tas **før** dataene ses. Å velge ensidig etter at man har sett hvilken vei avviket gikk, halverer p-verdien uten at det er dekning for det, og er en av de vanligste måtene statistikk misbrukes på."
+    },
+    {
+      "id": "stat-7-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kjede har målt at 75 % av kundene er fornøyde. Etter en omlegging spør de 80 tilfeldige kunder, og 68 sier de er fornøyde. Ledelsen vil vite om tilfredsheten har gått opp.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$, og si om testen er ensidig eller tosidig.",
+            "solution": "$H_0: p = 0{,}75$ mot $H_1: p > 0{,}75$. Ensidig — spørsmålet er bare om tilfredsheten har gått opp."
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange fornøyde ville vi ventet under $H_0$?",
+            "solution": "$E(X) = 80 \\cdot 0{,}75 = 60$ kunder. De fikk 68.",
+            "answer": 60
+          },
+          {
+            "label": "c",
+            "task": "Finn p-verdien.",
+            "solution": "$P(X \\ge 68) = 1 - P(X \\le 67) \\approx 0{,}0221$. I regneark: `=1-BINOM.FORDELING.N(67;80;0,75;SANN)`.",
+            "answer": 0.0221
+          },
+          {
+            "label": "d",
+            "task": "Konkluder på 5 %-nivå og på 1 %-nivå.",
+            "solution": "På 5 %-nivå: $0{,}0221 \\le 0{,}05$, så $H_0$ forkastes — dataene taler for økt tilfredshet. På 1 %-nivå: $0{,}0221 > 0{,}01$, så $H_0$ beholdes. Konklusjonen avhenger altså av nivået, og nivået må velges på forhånd."
+          },
+          {
+            "label": "e",
+            "task": "Finn forkastningsområdet på 5 %-nivå.",
+            "solution": "$P(X \\ge 66) \\approx 0{,}0740$ og $P(X \\ge 67) \\approx 0{,}0421$. Forkastningsområdet er $X \\ge 67$. Observasjonen 68 ligger innenfor, i tråd med konklusjonen i d).",
+            "answer": 67
+          }
+        ],
+        "hints": [
+          "Både p-verdien og forkastningsområdet regnes under $H_0$, altså med $p = 0{,}75$."
+        ],
+        "solution": "a) $H_0: p = 0{,}75$, $H_1: p > 0{,}75$, ensidig. b) 60. c) $\\approx 0{,}0221$. d) Forkast på 5 %, behold på 1 %. e) $X \\ge 67$.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-4-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Å lese en konklusjon kritisk",
+      "problem": "En artikkel melder: «Undersøkelsen viser at den nye metoden virker ($p = 0{,}03$).» Vurder de fire påstandene en leser kan komme til å trekke ut av dette.\n\na) «Det er 3 % sannsynlighet for at metoden ikke virker.»\nb) «Det er 97 % sannsynlighet for at metoden virker.»\nc) «Effekten er stor.»\nd) «Hadde metoden ikke virket, ville et slikt resultat vært sjeldent.»",
+      "solution": "**Løsning:**\n\n**a)** Galt. p-verdien er regnet **under** antakelsen om at metoden ikke virker. Den er en sannsynlighet for *dataene gitt $H_0$*, ikke for *$H_0$ gitt dataene*. Å bytte om på de to er den vanligste feiltolkningen av p-verdier som finnes.\n\n*Et bilde som gjør forskjellen tydelig:* sannsynligheten for å være våt gitt at det regner, er nær 1. Sannsynligheten for at det regner gitt at du er våt, er noe helt annet — du kan ha vært i dusjen.\n\n**b)** Galt, av samme grunn. $1 - p$ er ikke sannsynligheten for at $H_1$ er sann.\n\n**c)** Galt. p-verdien sier bare noe om hvor godt dataene taler mot $H_0$, ikke hvor stor effekten er. Med et stort nok utvalg kan en ørliten forskjell gi $p = 0{,}03$. Skal vi vite hvor stor effekten er, trenger vi et **konfidensintervall**.\n\n**d)** Riktig. Dette er nettopp definisjonen: hadde $H_0$ vært sann, ville et resultat minst så ekstremt forekommet i omtrent 3 % av forsøkene.\n\n**Svar:** a) galt, b) galt, c) galt, d) riktig — d) er selve definisjonen av p-verdien.\n\n**Hvordan bør setningen vært skrevet?** For eksempel slik: «Forskjellen var statistisk signifikant på 5 %-nivå ($p = 0{,}03$). Metoden ga i gjennomsnitt 0,4 karakterpoeng bedre resultat, med 95 % konfidensintervall fra 0,05 til 0,75.» Da får leseren både **om** det er en effekt og **hvor stor** den er."
+    },
+    {
+      "id": "stat-7-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør om hvert utsagn er riktig eller galt, og begrunn kort.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«p-verdien er sannsynligheten for at nullhypotesen er sann.»",
+            "solution": "Galt. p-verdien regnes under forutsetning av at $H_0$ er sann, og sier hvor sjeldent det observerte resultatet er i så fall."
+          },
+          {
+            "label": "b",
+            "task": "«Når vi beholder $H_0$, har vi vist at $H_0$ er riktig.»",
+            "solution": "Galt. Vi har bare ikke funnet sterke nok holdepunkter mot den. Et lite utvalg beholder $H_0$ nesten uansett."
+          },
+          {
+            "label": "c",
+            "task": "«En p-verdi på 0,001 betyr at effekten er stor.»",
+            "solution": "Galt. Den betyr at resultatet er svært usannsynlig under $H_0$ — typisk fordi utvalget er stort. Størrelsen på effekten leses av et konfidensintervall."
+          },
+          {
+            "label": "d",
+            "task": "«Signifikansnivået skal velges før vi regner p-verdien.»",
+            "solution": "Riktig. Velges $\\alpha$ etterpå, kan man alltid velge det som gir ønsket konklusjon, og testen mister sin verdi."
+          },
+          {
+            "label": "e",
+            "task": "«Hvis p-verdien er 0,06, kan vi si at resultatet 'nesten var signifikant'.»",
+            "solution": "Formuleringen er vanlig, men problematisk. Enten forkaster vi på det nivået vi valgte, eller så gjør vi det ikke. Det ryddige er å oppgi p-verdien (0,06) og la leseren se hvor nær grensen den ligger — uten å pynte på konklusjonen."
+          }
+        ],
+        "hints": [
+          "Spør hver gang: hva er det vi har antatt, og hva er det vi har regnet?"
+        ],
+        "solution": "a) galt, b) galt, c) galt, d) riktig, e) upresist — oppgi p-verdien i stedet",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Sett opp $H_0$ og $H_1$ i hver situasjon, og si om testen er ensidig eller tosidig. Du skal ikke regne.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En butikk vil undersøke om gjennomsnittlig handlebeløp har endret seg fra fjorårets 412 kr.",
+            "solution": "$H_0: \\mu = 412$ mot $H_1: \\mu \\ne 412$. Tosidig — «endret seg» dekker begge retninger."
+          },
+          {
+            "label": "b",
+            "task": "En idrettsklubb vil vise at et nytt treningsopplegg gir kortere løpstid enn dagens gjennomsnitt på 14,2 sekunder.",
+            "solution": "$H_0: \\mu = 14{,}2$ mot $H_1: \\mu < 14{,}2$. Ensidig (venstresidig) — kortere tid er bedre, og bare den retningen er interessant."
+          },
+          {
+            "label": "c",
+            "task": "En kommune vil sjekke om andelen som leverer søknader digitalt, fortsatt er 62 %.",
+            "solution": "$H_0: p = 0{,}62$ mot $H_1: p \\ne 0{,}62$. Tosidig — «fortsatt» spør om avvik i begge retninger."
+          },
+          {
+            "label": "d",
+            "task": "En produsent vil vise at mindre enn 2 % av varene er defekte.",
+            "solution": "$H_0: p = 0{,}02$ mot $H_1: p < 0{,}02$. Ensidig. Legg merke til at det produsenten vil vise, havner i $H_1$ — $H_0$ er alltid den vi utfordrer."
+          },
+          {
+            "label": "e",
+            "task": "En elev har allerede sett at gjennomsnittet i utvalget ble høyere enn 412 kr, og velger derfor $H_1: \\mu > 412$ i situasjon a). Hva er problemet?",
+            "solution": "Hypotesen er valgt etter at dataene er sett. Da testes ikke lenger en påstand mot data — dataene har formet påstanden. Den ensidige testen gir halvparten så stor p-verdi som den tosidige, og forkastning blir dermed kunstig lett. Hypotesene skal settes opp før dataene ses."
+          }
+        ],
+        "hints": [
+          "Spør: ville et avvik den motsatte veien vært interessant? Ja → tosidig."
+        ],
+        "solution": "a) tosidig, b) ensidig (<), c) tosidig, d) ensidig (<), e) hypotesen er valgt etter dataene",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-4-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En hypotesetest svarer på ett spørsmål: **hvor overraskende er dette resultatet hvis ingenting spesielt foregår?**\n- $H_0$ er antakelsen om ingen effekt, og den inneholder alltid et likhetstegn. $H_1$ er det vi vil undersøke. Begge settes opp **før** dataene ses.\n- **p-verdien** er sannsynligheten for et minst så ekstremt resultat, regnet **under $H_0$**.\n- **Konklusjonsregelen:** $p \\le \\alpha$ gir forkastning, $p > \\alpha$ gir at $H_0$ beholdes. Konklusjonen skrives i oppgavens kontekst.\n- **Forkastningsområdet** er de utfallene som gir forkastning. Det bestemmes på forhånd og gir samme svar som p-verdien.\n- Ensidig test når bare én retning er interessant, tosidig når begge er det. Ved tosidig test fordeles $\\alpha$ med halvparten i hver hale.\n- p-verdien er **ikke** sannsynligheten for at $H_0$ er sann, og «behold $H_0$» er **ikke** et bevis for $H_0$.\n- p-verdien sier om det er en effekt, ikke hvor stor den er. Konfidensintervallet svarer på det siste.\n\nI kapittel 7.5 gjør vi testen for et gjennomsnitt med normalfordelingen, og i 7.6 for en andel."
+    },
+    {
+      "id": "stat-7-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Du skal undersøke hva signifikansnivået faktisk betyr, ved å simulere tester der $H_0$ er **sann**.\n\nEn person påstår å kunne gjette riktig oftere enn halvparten av gangene i et forsøk med 12 kast. Vi lar 100 personer som alle bare gjetter, prøve.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn p-verdien hvis en person treffer 9 av 12, under $H_0: p = 0{,}5$.",
+            "solution": "$P(X \\ge 9) = \\frac{299}{4096} \\approx 0{,}0730$. Det er over 0,05, så ni av tolv holder ikke til forkastning.",
+            "answer": 0.073
+          },
+          {
+            "label": "b",
+            "task": "Finn p-verdien for 10 av 12, og avgjør hvor forkastningsgrensen går på 5 %-nivå.",
+            "solution": "$P(X \\ge 10) = \\frac{79}{4096} \\approx 0{,}0193 \\le 0{,}05$. Grensen går altså ved 10 riktige.",
+            "answer": 0.0193
+          },
+          {
+            "label": "c",
+            "task": "Lag 100 rader i regneark der hver rad er 12 kast med `=TILFELDIGMELLOM(0;1)`, og summer hver rad. Hvor mange av de 100 radene bør havne i forkastningsområdet?",
+            "solution": "Omtrent $100 \\cdot 0{,}0193 \\approx 2$ rader, siden den faktiske sannsynligheten for å havne i området er 0,0193 og ikke nøyaktig 0,05. (Med diskrete fordelinger er det sjelden mulig å treffe signifikansnivået eksakt.)",
+            "answer": 2
+          },
+          {
+            "label": "d",
+            "task": "Trykk F9 noen ganger og se på antallet «vinnere». Hva forteller det om personer som annonserer at de har klart et slikt forsøk?",
+            "solution": "Selv når alle bare gjetter, dukker det opp noen som treffer 10 eller flere. Har hundre personer prøvd, og bare den heldigste forteller om det, ser resultatet imponerende ut — uten at noen kan noe som helst. Testen er bare gyldig for den som ble valgt ut **før** forsøket."
+          },
+          {
+            "label": "e",
+            "task": "Regn sannsynligheten for at minst én av 20 uavhengige tester på 5 %-nivå gir forkastning, når $H_0$ er sann i alle.",
+            "solution": "$P(\\text{minst én}) = 1 - 0{,}95^{20} \\approx 0{,}642$. Altså over 60 % sjanse for minst én «falsk alarm». Med 100 tester er sannsynligheten $1 - 0{,}95^{100} \\approx 0{,}994$ — nesten sikkert.",
+            "answer": 0.642
+          }
+        ],
+        "hints": [
+          "`=TILFELDIGMELLOM(0;1)` gir 0 eller 1 med lik sannsynlighet — summen av 12 slike er antall treff."
+        ],
+        "solution": "a) $\\approx 0{,}0730$, b) $\\approx 0{,}0193$, grensen er 10, c) omtrent 2, d) heldige utvalg ser ut som ferdighet, e) $\\approx 0{,}642$",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-4-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-4-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder situasjonene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Et forskningsmiljø tester 20 ulike kosttilskudd mot samme sykdom, alle uten virkning. De publiserer det ene som ga $p = 0{,}04$. Drøft.",
+            "solution": "Med 20 tester på 5 %-nivå er forventet antall falske alarmer $20 \\cdot 0{,}05 = 1$, og sannsynligheten for minst én er $1 - 0{,}95^{20} \\approx 0{,}64$. Å publisere bare den ene som slo ut, er derfor ikke et funn — det er et forventet utslag av å ha testet mange ganger. Publiseres alle 20 testene, ser leseren dette selv.",
+            "answer": 0.64
+          },
+          {
+            "label": "b",
+            "task": "«Testen viste ingen forskjell mellom de to gruppene, så metodene er like gode.» Hva er feilen?",
+            "solution": "Å beholde $H_0$ er ikke det samme som å vise at $H_0$ er sann. Var utvalget lite, ville testen ikke oppdaget selv en ganske stor forskjell. Det riktige er å oppgi hvilke forskjeller testen kunne ha oppdaget — eller et konfidensintervall, som viser hvor stor forskjellen i verste fall kan være."
+          },
+          {
+            "label": "c",
+            "task": "To forskere tester samme påstand. Den ene får $p = 0{,}049$ og den andre $p = 0{,}051$. Har de funnet forskjellige ting?",
+            "solution": "Nei. De to tallene er praktisk talt like og peker like sterkt i samme retning. Forskjellen i konklusjon («signifikant» mot «ikke signifikant») kommer utelukkende av at 0,05 er valgt som grense. Dette er hovedgrunnen til at p-verdien alltid bør oppgis som tall, ikke bare som en dom."
+          },
+          {
+            "label": "d",
+            "task": "En bedrift tester om en ny nettside gir flere kjøp, og velger $\\alpha = 0{,}10$ i stedet for 0,05. Hva er argumentet for og imot?",
+            "solution": "For: med $\\alpha = 0{,}10$ skal det mindre til for å oppdage en reell forbedring, og kostnaden ved å ta feil er kanskje liten (det er tross alt bare en nettside). Imot: sannsynligheten for falsk alarm dobles fra 5 % til 10 %, så de risikerer oftere å bygge om siden uten grunn. Valget av $\\alpha$ er en avveining av hvilken feil som koster mest — det tar vi videre i kapittel 7.7."
+          },
+          {
+            "label": "e",
+            "task": "En elev skriver: «$p = 0{,}002$, altså er $H_1$ bevist.» Formuler konklusjonen riktig.",
+            "solution": "«Vi forkaster $H_0$ på 5 %-nivå ($p = 0{,}002$). Dataene gir sterke holdepunkter for $H_1$.» Statistikk beviser ingenting i matematisk forstand — den veier hvor godt data passer med en antakelse. Selv en p-verdi på 0,002 betyr at ett av 500 forsøk ville gitt et slikt resultat ved ren tilfeldighet."
+          }
+        ],
+        "hints": [
+          "I a): regn først hvor mange falske alarmer 20 tester på 5 %-nivå gir i gjennomsnitt."
+        ],
+        "solution": "a) $1 - 0{,}95^{20} \\approx 0{,}64$ — forventet utslag av mange tester. b) Behold er ikke bevis. c) Nei — grensen er et valg. d) Avveining mellom de to feiltypene. e) «Forkaster $H_0$ … sterke holdepunkter for $H_1$», ikke «bevist».",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Nullhypotese (H₀)",
+      "definition": "Antakelsen om at det ikke skjer noe spesielt. Den inneholder alltid et likhetstegn, slik at vi har en tallfestet modell å regne i."
+    },
+    {
+      "term": "Alternativ hypotese (H₁)",
+      "definition": "Påstanden vi undersøker om det er dekning for. Ensidig ($>$ eller $<$) når bare én retning er interessant, tosidig ($\\ne$) når begge er det."
+    },
+    {
+      "term": "Signifikansnivå (α)",
+      "definition": "Grensen vi velger på forhånd for hva vi kaller overraskende — vanligvis 0,10, 0,05 eller 0,01. Den er samtidig risikoen for å forkaste en sann $H_0$."
+    },
+    {
+      "term": "p-verdi",
+      "definition": "Sannsynligheten for et minst så ekstremt resultat som det observerte, gitt at $H_0$ er sann. Ikke sannsynligheten for at $H_0$ er sann."
+    },
+    {
+      "term": "Forkastningsområde",
+      "definition": "De utfallene som fører til at $H_0$ forkastes. Bestemmes på forhånd av $\\alpha$, og gir samme konklusjon som p-verdien."
+    }
+  ]
+}

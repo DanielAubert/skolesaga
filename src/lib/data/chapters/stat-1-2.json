@@ -1,0 +1,435 @@
+{
+  "id": "stat-1-2",
+  "courseId": "statistikk",
+  "chapterNumber": "1.2",
+  "title": "Sentralmål",
+  "description": "Gjennomsnitt, median og typetall — hvordan de regnes ut, og når hvert av dem er det riktige målet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+  ],
+  "content": [
+    {
+      "id": "stat-1-2-section-innledning",
+      "type": "text",
+      "content": "## Ett tall for hele materialet\n\nEt datamateriale med $40$ lønninger eller $200$ reisetider er for stort til at vi\nklarer å se noe i det. Derfor lager vi et **sentralmål**: ett tall som skal si\nhvor «midt i» materialet ligger.\n\nVi bruker tre sentralmål, og de svarer på litt ulike spørsmål:\n\n| Sentralmål | Svarer på |\n|---|---|\n| Gjennomsnitt | Hva hadde hver enhet fått hvis alt ble delt likt? |\n| Median | Hva ligger midt i køen når vi stiller alle på rekke etter størrelse? |\n| Typetall | Hvilken verdi er vanligst? |\n\nÅ velge riktig sentralmål er ikke pynt. Velger du feil, kan du si noe sant om\ntallene og likevel gi et galt bilde av virkeligheten. Det er hele poenget med\ndette kapittelet."
+    },
+    {
+      "id": "stat-1-2-def-gjennomsnitt",
+      "type": "definition",
+      "title": "Gjennomsnitt",
+      "content": "**Gjennomsnittet** av $n$ observasjoner er summen av observasjonene delt på\nantallet observasjoner.\n\nVi skriver gjennomsnittet som $\\bar{x}$ (leses «x-strek»):\n\n$$\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$$\n\nTegnet $\\sum$ (den greske bokstaven sigma) betyr «summen av». $\\sum_{i=1}^{n} x_i$\nbetyr altså «legg sammen alle observasjonene fra den første til den $n$-te».\n\n**NB:** Gjennomsnittet trenger ikke å være en verdi som finnes i materialet.\nGjennomsnittlig antall barn per familie kan godt være $1{,}8$."
+    },
+    {
+      "id": "stat-1-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Gjennomsnittlig reisetid",
+      "problem": "Åtte elever oppga hvor mange minutter de brukte til skolen:\n\n$$12,\\quad 25,\\quad 18,\\quad 32,\\quad 15,\\quad 22,\\quad 40,\\quad 20$$\n\nFinn gjennomsnittlig reisetid.",
+      "solution": "**Hva vet vi?** Åtte observasjoner. **Hva må vi finne?** Gjennomsnittet $\\bar{x}$.\n\nVi skriver formelen først, tom:\n\n$$\\bar{x} = \\frac{\\text{summen av observasjonene}}{\\text{antall observasjoner}}$$\n\nSå setter vi inn. Hele plusstykket står over brøkstreken før vi regner det ut —\nda ser vi at ingen observasjon er glemt:\n\n$$\\bar{x} = \\frac{12 + 25 + 18 + 32 + 15 + 22 + 40 + 20}{8}$$\n\nVi deler på $8$ fordi det er $8$ elever. Så legger vi sammen over brøkstreken:\n\n$$\\bar{x} = \\frac{184}{8} = 23$$\n\n**Svar:** Gjennomsnittlig reisetid er $23$ minutter.\n\n**Kontroll som har et poeng:** Den korteste reisetiden er $12$ og den lengste er\n$40$. Gjennomsnittet må ligge mellom disse to — og $23$ gjør det. Et gjennomsnitt\nutenfor $[12, 40]$ ville vært en regnefeil, uansett hvor pent det så ut."
+    },
+    {
+      "id": "stat-1-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Ti elever fikk disse poengsummene på en prøve: $24, 31, 18, 27, 35, 22, 31, 29, 26, 37$. Finn gjennomsnittet.",
+            "answer": 28,
+            "solution": "$\\bar{x} = \\frac{24+31+18+27+35+22+31+29+26+37}{10} = \\frac{280}{10} = 28$ poeng."
+          },
+          {
+            "label": "b",
+            "task": "Et lag scoret disse målene i $11$ kamper: $2, 0, 1, 3, 2, 1, 0, 4, 2, 1, 2$. Finn gjennomsnittlig antall mål per kamp. Rund av til to desimaler.",
+            "answer": 1.64,
+            "solution": "$\\bar{x} = \\frac{2+0+1+3+2+1+0+4+2+1+2}{11} = \\frac{18}{11} = 1{,}6363\\ldots \\approx 1{,}64$ mål per kamp."
+          },
+          {
+            "label": "c",
+            "task": "Forklar hvorfor svaret i b) ikke er et mulig antall mål i en enkelt kamp, men likevel er et nyttig tall.",
+            "solution": "Ingen kamp kan ende $1{,}64 - 0$. Gjennomsnittet er en regnet størrelse, ikke en observasjon: det sier hvor mange mål laget ville scoret per kamp hvis alle målene ble fordelt likt utover kampene. Det gjør det nyttig når vi skal sammenligne lag."
+          },
+          {
+            "label": "d",
+            "task": "Kontroller svaret i a) ved å sjekke at gjennomsnittet ligger mellom den minste og den største verdien.",
+            "solution": "Minste verdi er $18$, største er $37$, og $18 < 28 < 37$. Kontrollen holder."
+          }
+        ],
+        "solution": "a) $28$ poeng, b) $\\approx 1{,}64$ mål, c) gjennomsnittet er en regnet størrelse, d) $18 < 28 < 37$",
+        "hints": [
+          "Sett hele plusstykket over brøkstreken før du legger sammen."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-def-median",
+      "type": "definition",
+      "title": "Median",
+      "content": "**Medianen** er den midterste verdien i et **sortert** datamateriale.\n\nVi sorterer alltid først. Deretter finner vi midten slik:\n\n- Er $n$ et **oddetall**, er medianen verdien på plass nummer $\\frac{n+1}{2}$.\n- Er $n$ et **partall**, finnes det ingen midterste verdi. Da er medianen\n  gjennomsnittet av de to midterste, altså av verdiene på plass nummer\n  $\\frac{n}{2}$ og $\\frac{n}{2} + 1$.\n\nMedianen deler materialet i to like store halvdeler: minst halvparten av\nobservasjonene er mindre enn eller lik medianen, og minst halvparten er større\nenn eller lik den."
+    },
+    {
+      "id": "stat-1-2-fig-median-plasser",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-2-median-plasser.png",
+      "alt": "En tallinje merket reisetid i minutter. De åtte sorterte reisetidene 12, 15, 18, 20, 22, 25, 32 og 40 er markert som blå prikker, og under hver står plassnummeret 1 til 8. Plassnummer 4 og 5 er røde, resten grå. Mellom verdiene 20 og 22 står en åpen ring, og en grønn stiplet strek derfra opp er merket median 21. Nederst står regnestykket: de to midterste, (20 + 22)/2.",
+      "caption": "Når $n$ er et partall, finnes ingen midterste verdi. Medianen er gjennomsnittet av verdiene på plass $\\frac{n}{2}$ og $\\frac{n}{2} + 1$ — her plass 4 og 5 — og er derfor ikke selv en observasjon. Den er tegnet som en åpen ring.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-2-median-plasser.json"
+    },
+    {
+      "id": "stat-1-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Median med oddetall og partall observasjoner",
+      "problem": "a) Sju elever oppga hvor mange ganger de trente forrige uke:\n$3, 7, 4, 9, 5, 4, 8$. Finn medianen.\n\nb) Finn medianen i reisetidene fra eksempel 1: $12, 25, 18, 32, 15, 22, 40, 20$.",
+      "solution": "**a)** Først sorterer vi. Dette steget hopper mange over, og da blir svaret feil:\n\n$$3,\\quad 4,\\quad 4,\\quad \\mathbf{5},\\quad 7,\\quad 8,\\quad 9$$\n\nHer er $n = 7$, som er et oddetall. Medianen ligger på plass nummer\n\n$$\\frac{n+1}{2} = \\frac{7+1}{2} = \\frac{8}{2} = 4$$\n\nVerdien på fjerde plass er $5$.\n\n**Svar:** Medianen er $5$ treninger.\n\n*(Kontroll: det står tre verdier foran og tre bak — like mange på hver side.)*\n\n**b)** Vi sorterer:\n\n$$12,\\quad 15,\\quad 18,\\quad \\mathbf{20},\\quad \\mathbf{22},\\quad 25,\\quad 32,\\quad 40$$\n\nHer er $n = 8$, som er et partall. Da finnes det ingen midterste verdi — det er\nto av dem, på plass $\\frac{8}{2} = 4$ og plass $5$. Medianen er gjennomsnittet av\ndisse to:\n\n$$\\text{median} = \\frac{20 + 22}{2} = \\frac{42}{2} = 21$$\n\n**Svar:** Medianen er $21$ minutter.\n\n**Her ser vi at** medianen ($21$) og gjennomsnittet ($23$) ikke er like. De svarer\npå ulike spørsmål: gjennomsnittet deler alt likt, medianen står midt i køen."
+    },
+    {
+      "id": "stat-1-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn medianen. Husk å sortere først, og skriv ned hvilken plass medianen ligger på.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Poengsummene fra oppgave 1a: $24, 31, 18, 27, 35, 22, 31, 29, 26, 37$.",
+            "answer": 28,
+            "solution": "Sortert: $18, 22, 24, 26, \\mathbf{27}, \\mathbf{29}, 31, 31, 35, 37$. $n = 10$ er partall, så medianen er gjennomsnittet av verdi nr. $5$ og $6$: $\\frac{27 + 29}{2} = 28$ poeng."
+          },
+          {
+            "label": "b",
+            "task": "Målene fra oppgave 1b: $2, 0, 1, 3, 2, 1, 0, 4, 2, 1, 2$.",
+            "answer": 2,
+            "solution": "Sortert: $0, 0, 1, 1, 1, \\mathbf{2}, 2, 2, 2, 3, 4$. $n = 11$ er oddetall, så medianen ligger på plass $\\frac{11+1}{2} = 6$. Verdien der er $2$ mål."
+          },
+          {
+            "label": "c",
+            "task": "I a) ble medianen og gjennomsnittet begge $28$. Betyr det at de alltid er like?",
+            "solution": "Nei. At de er like her, betyr bare at materialet er noenlunde symmetrisk fordelt. I eksempel 2b var gjennomsnittet $23$ og medianen $21$."
+          }
+        ],
+        "solution": "a) $28$ poeng (plass 5 og 6), b) $2$ mål (plass 6), c) nei",
+        "hints": [
+          "Sorter alltid først. Uten sortering er «den midterste i lista» ikke medianen."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-def-typetall",
+      "type": "definition",
+      "title": "Typetall",
+      "content": "**Typetallet** er den verdien som forekommer flest ganger i datamaterialet.\n\n- Et datamateriale kan ha **flere** typetall, hvis to eller flere verdier er like\n  vanlige.\n- Er alle verdiene forskjellige, har materialet **ikke noe typetall**.\n\nTypetallet er det eneste sentralmålet som også virker på **kategoriske**\nvariabler: den vanligste reisemåten, det vanligste fylket, den vanligste\nskostørrelsen i butikken."
+    },
+    {
+      "id": "stat-1-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Når gjennomsnittet villeder",
+      "problem": "Et lite firma har ni ansatte. Årslønnene (i tusen kroner) er\n\n$$420,\\quad 440,\\quad 455,\\quad 460,\\quad 470,\\quad 485,\\quad 500,\\quad 520,\\quad 1450$$\n\na) Finn gjennomsnittet og medianen.\n\nb) Firmaet skriver i en stillingsannonse: «Gjennomsnittslønnen hos oss er\n$578\\ 000$ kroner i året.» Er påstanden sann? Er den dekkende?",
+      "solution": "**a)** Gjennomsnittet:\n\n$$\\bar{x} = \\frac{420 + 440 + 455 + 460 + 470 + 485 + 500 + 520 + 1450}{9} = \\frac{5200}{9} = 577{,}7\\ldots \\approx 577{,}8$$\n\nVi deler på $9$ fordi det er $9$ ansatte.\n\nMedianen: materialet er allerede sortert, og $n = 9$ er et oddetall. Medianen\nligger på plass $\\frac{9+1}{2} = 5$, altså\n\n$$\\text{median} = 470$$\n\nMaterialet har **ikke noe typetall** — alle ni lønningene er forskjellige.\n\n**Svar a):** Gjennomsnittet er $\\approx 577{,}8$ tusen kroner, medianen er $470$\ntusen kroner.\n\n**b)** Påstanden er **sann**: regnestykket stemmer. Men den er ikke **dekkende**.\n\nHer ser vi hvorfor: $8$ av de $9$ ansatte tjener *mindre* enn gjennomsnittet.\nDen ene lønnen på $1450$ trekker gjennomsnittet kraftig opp, fordi gjennomsnittet\nregner med selve tallverdien til hver observasjon. En slik observasjon, som ligger\nlangt fra resten, kaller vi en **uteligger** (ekstremverdi).\n\nMedianen merker knapt uteliggeren: bytter vi $1450$ mot $2450$, blir medianen\nfortsatt $470$, mens gjennomsnittet stiger til over $688$. Vi sier at medianen er\n**robust** mot uteliggere.\n\n![En tallinje merket årslønn i tusen kroner fra 400 til 1500. De ni lønningene er markert som svarte prikker: åtte av dem ligger tett samlet mellom 420 og 520, og den niende ligger helt ute til høyre ved 1450. De to som ellers ville smeltet sammen med naboen — 455 og 460 — er tegnet like under og like over linja, slik at alle ni kan telles. En grønn loddrett strek ved 470 er merket median, og en rød ved 577,8 er merket gjennomsnitt. Over de åtte venstre prikkene står en blå klamme merket: 8 av 9 tjener mindre enn gjennomsnittet.](/images/content/statistikk/stat-1-2-tallinje-lonn.png)\n\n*Én uteligger flytter gjennomsnittet, men nesten ikke medianen. Gjennomsnittet havner til høyre for åtte av de ni lønningene — påstanden i stillingsannonsen er sann, men ikke dekkende.*\n\n**Svar b):** Sann, men ikke dekkende. En søker som vil vite hva hun kan forvente\nå tjene, er bedre tjent med medianen $470$ tusen kroner.\n\n**Andre muligheter:** Firmaet kunne oppgitt begge tallene, eller oppgitt\ngjennomsnittet uten lederlønnen — $468{,}75$ tusen kroner — så lenge det står\ntydelig hvem som er tatt med."
+    },
+    {
+      "id": "stat-1-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Gjør den samme oppgaven som i eksempel 3. I et nabolag ble åtte boliger solgt\ni fjor. Prisene, i millioner kroner, var\n\n$$3{,}2\\quad 3{,}5\\quad 3{,}6\\quad 3{,}8\\quad 4{,}0\\quad 4{,}1\\quad 4{,}4\\quad 12{,}5$$",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnittsprisen. Rund av til to desimaler.",
+            "answer": 4.89,
+            "solution": "$\\bar{x} = \\frac{3{,}2 + 3{,}5 + 3{,}6 + 3{,}8 + 4{,}0 + 4{,}1 + 4{,}4 + 12{,}5}{8} = \\frac{39{,}1}{8} = 4{,}8875 \\approx 4{,}89$ millioner kroner."
+          },
+          {
+            "label": "b",
+            "task": "Finn medianprisen.",
+            "answer": 3.9,
+            "solution": "$n = 8$ er partall. Medianen er gjennomsnittet av verdi nr. $4$ og $5$: $\\frac{3{,}8 + 4{,}0}{2} = 3{,}9$ millioner kroner."
+          },
+          {
+            "label": "c",
+            "task": "Hvilket av de to tallene gir best bilde av hva en bolig i nabolaget koster? Begrunn med tallene.",
+            "solution": "Medianen. Sju av de åtte boligene ble solgt for mellom $3{,}2$ og $4{,}4$ millioner, altså under gjennomsnittet på $4{,}89$. Salget på $12{,}5$ millioner er en uteligger som drar gjennomsnittet opp til et nivå ingen av de vanlige boligene ligger på."
+          },
+          {
+            "label": "d",
+            "task": "Regn ut gjennomsnitt og median på nytt uten det dyreste salget. Hvilket av målene endrer seg mest?",
+            "solution": "Uten $12{,}5$: $\\bar{x} = \\frac{3{,}2 + 3{,}5 + 3{,}6 + 3{,}8 + 4{,}0 + 4{,}1 + 4{,}4}{7} = \\frac{26{,}6}{7} = 3{,}8$ og median $= 3{,}8$. Gjennomsnittet falt med over én million ($4{,}89 \\to 3{,}80$), mens medianen bare falt fra $3{,}9$ til $3{,}8$. Medianen er robust."
+          },
+          {
+            "label": "e",
+            "task": "En megler vil bruke gjennomsnittet i markedsføringen. Skriv én setning om hva det ville gi inntrykk av.",
+            "solution": "«Boliger i nabolaget selges for nesten $4{,}9$ millioner» ville gitt inntrykk av et dyrere nabolag enn det er — tallet er dratt opp av ett enkelt salg, ikke av prisnivået i de sju andre."
+          }
+        ],
+        "solution": "a) $4{,}89$ mill., b) $3{,}9$ mill., c) medianen, d) gjennomsnittet endrer seg mest ($4{,}89 \\to 3{,}80$), e) inntrykk av et dyrere nabolag",
+        "hints": [
+          "Sorter først. Tallene er allerede sortert her.",
+          "Uteliggeren påvirker summen, men ikke hvem som står i midten."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-section-velge",
+      "type": "text",
+      "content": "## Hvilket sentralmål skal vi velge?\n\nValget avhenger av variabeltypen og av hvordan materialet er fordelt:\n\n| Situasjon | Bruk | Fordi |\n|---|---|---|\n| Numerisk materiale uten uteliggere, noenlunde symmetrisk | Gjennomsnitt | Bruker all informasjonen i tallene |\n| Materiale med uteliggere eller lang hale (lønn, formue, boligpris) | Median | Robust mot enkeltverdier langt ute |\n| Kategorisk variabel | Typetall | De andre målene finnes ikke |\n| Ordnet kategorisk variabel (fornøydhet, karakter) | Median eller typetall | Avstanden mellom verdiene er ikke et tall |\n\n**Skjev fordeling** er den vanligste grunnen til at gjennomsnitt og median\nskiller lag. Er halen lengst mot høyre — noen få svært store verdier — ligger\ngjennomsnittet til høyre for medianen, slik figuren under viser."
+    },
+    {
+      "id": "stat-1-2-fig-lonnsfordeling",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-2-lonnsfordeling.png",
+      "alt": "Søylediagram over årslønnen til 40 ansatte. Den vannrette aksen er merket tusen kr og tallsatt 0, 200, 400, 600, 800, 1000, 1200, 1400 og 1600; den loddrette viser antall ansatte fra 0 til 18. Søylene står vegg i vegg fra 400 til 1400 tusen kroner, hver 100 tusen bred. Den første søylen, 400 til 500 tusen, er høyest med 14 ansatte, deretter 12 ansatte i 500 til 600, 5 i 600 til 700, 3 i 700 til 800, 2 i 800 til 900, 2 i 900 til 1000, ingen i 1000 til 1100, 1 ansatt i 1100 til 1200, ingen i 1200 til 1300 og 1 ansatt i 1300 til 1400. Fordelingen har en lang, tynn hale mot høyre. To loddrette stiplede linjer er tegnet inn: en grønn merket median ved 527,5 tusen kroner, og en rød merket gjennomsnitt litt lenger til høyre ved 603,75.",
+      "caption": "Skjev fordeling av årslønn for 40 ansatte. Den lange halen mot høyre trekker gjennomsnittet (rød) til høyre for medianen (grønn).",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-2-lonnsfordeling.json"
+    },
+    {
+      "id": "stat-1-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Å lese en skjev fordeling",
+      "problem": "Figuren over viser årslønnen til $40$ ansatte i en bedrift. Gjennomsnittet er\n$603{,}75$ tusen kroner og medianen er $527{,}5$ tusen kroner.\n\na) Hvorfor ligger gjennomsnittet høyere enn medianen?\n\nb) Hvor mange av de ansatte tjener mindre enn gjennomsnittet?\n\nc) Bedriften skal forhandle lønn, og de tillitsvalgte vil bruke medianen mens\nledelsen vil bruke gjennomsnittet. Hva taler for hver av dem?",
+      "solution": "**a)** Fordelingen er **høyreskjev**: de fleste ligger mellom $400$ og $600$\ntusen, men noen få ligger helt ute på $1100$ og $1300$ tusen. Gjennomsnittet\nregner med selve tallverdiene, og de store verdiene drar summen opp. Medianen\nteller bare hvor mange som ligger på hver side, og flytter seg derfor knapt.\n\n**b)** Vi leser av søylene til venstre for den røde linjen ved $603{,}75$:\nsøylene $400$–$500$ og $500$–$600$ gir $14 + 12 = 26$ ansatte, og i søylen\n$600$–$700$ ligger én ansatt like under $603{,}75$ (lønnen $600$). Til sammen\n\n$$26 + 1 = 27 \\text{ ansatte}$$\n\n$$\\frac{27}{40} = 0{,}675 = 67{,}5\\ \\% \\approx 68\\ \\%$$\n\n**Svar b):** $27$ av $40$ ansatte, altså nesten $7$ av $10$, tjener mindre enn\ngjennomsnittet.\n\n**c)** For medianen taler at den beskriver den **typiske** ansatte: halvparten\ntjener mer, halvparten mindre. For gjennomsnittet taler at det er det eneste\nmålet som henger sammen med den samlede lønnsutbetalingen — gjennomsnittet ganget\nmed $40$ gir akkurat hele lønnsbudsjettet, og det gjør medianen ikke.\n\n**Svar c):** Begge tallene er riktige. De svarer på ulike spørsmål: «hva tjener en\nvanlig ansatt?» (median) og «hva koster de ansatte til sammen?» (gjennomsnitt).\nDen ærlige framstillingen oppgir begge."
+    },
+    {
+      "id": "stat-1-2-fig-tre-former",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-2-tre-former.png",
+      "alt": "Tre søylediagram merket A, B og C, ett for hver fordelingsform, med tallsatte akser og hver sin enhet. I hvert diagram er medianen markert med en loddrett rekke grønne prikker over søylene og gjennomsnittet med en rekke røde prikker. A viser strømprisen gjennom døgnet: vannrett akse i øre/kWh tallsatt 40, 80, 120 og 160, loddrett akse antall timer tallsatt 5 og 10. De seks klassene har 5, 3, 3, 7, 4 og 2 av døgnets 24 timer — fordelingen er tvetoppet, med en høy søyle helt til venstre og den høyeste midt på, og de sju billige nattetimene lengst til venstre trekker gjennomsnittet (rødt, 97,75) ned til VENSTRE for medianen (grønt, 105). Under panelet står venstreskjev: snittet trekkes mot venstre. B er konstruert symmetrisk: vannrett akse tallsatt 40, 80, 120 og 160, loddrett antall tallsatt 8 og 16, frekvensene 1, 3, 8, 12, 8, 3 og 1 — den grønne og den røde rekka står i samme kolonne, flettet inn i hverandre. C er lønnsfordelingen fra eksempel 4: vannrett akse i tusen kroner tallsatt 400, 800 og 1200, loddrett antall ansatte tallsatt 8 og 16. De to første søylene er klart høyest og halen strekker seg langt mot høyre, så den røde rekka (603,75) står til HØYRE for den grønne (527,5). En tegnforklaring viser at grønt er median og rødt gjennomsnitt.",
+      "caption": "Halen bestemmer hvem som havner ytterst. A er strømprisene gjennom døgnet (median 105, gjennomsnitt 97,75), C er lønnsfordelingen fra eksempel 4 (median 527,5, gjennomsnitt 603,75). B er et konstruert symmetrisk materiale, der de to faller sammen. Merk at de tre panelene har helt ulike enheter — øre/kWh, konstruerte enheter og tusen kroner — og at aksetallene er det eneste som viser det.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-2-tre-former.json"
+    },
+    {
+      "id": "stat-1-2-tip-avrunding",
+      "type": "tip",
+      "title": "Avrunding",
+      "content": "Rund av til slutt, aldri underveis. Runder du av hver observasjon før du\nsummerer, samler feilene seg opp.\n\nOg rund av til omtrent samme presisjon som dataene: er reisetidene målt i hele\nminutter, er $23$ eller $23{,}1$ minutter et ærlig svar — $23{,}0000$ minutter\nlater som om målingen var mye mer nøyaktig enn den var."
+    },
+    {
+      "id": "stat-1-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Seks ungdommer har deltidsjobb. Fem av dem tjener $350$, $400$, $420$, $450$ og\n$500$ kroner i uka. Gjennomsnittet for alle seks er $440$ kroner.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mye tjener den sjette ungdommen?",
+            "answer": 520,
+            "solution": "Gjennomsnittet er summen delt på antallet, så summen er gjennomsnittet ganget med antallet:\n\n$$\\text{sum} = \\bar{x} \\cdot n = 440 \\cdot 6 = 2640$$\n\nDe fem kjente tjener $350 + 400 + 420 + 450 + 500 = 2120$ kroner til sammen. Da må den sjette tjene\n\n$$2640 - 2120 = 520 \\text{ kroner}$$"
+          },
+          {
+            "label": "b",
+            "task": "Finn medianen for alle seks.",
+            "answer": 435,
+            "solution": "Sortert: $350, 400, \\mathbf{420}, \\mathbf{450}, 500, 520$. $n = 6$ er partall: $\\frac{420 + 450}{2} = 435$ kroner."
+          },
+          {
+            "label": "c",
+            "task": "Er gjennomsnittet eller medianen størst her, og hva forteller det om fordelingen?",
+            "solution": "Gjennomsnittet ($440$) er litt større enn medianen ($435$). Fordelingen er svakt høyreskjev — de to høyeste lønningene ligger litt lenger fra midten enn de to laveste."
+          },
+          {
+            "label": "d",
+            "task": "En sjuende ungdom med ukelønn $1\\,200$ kroner blir med i gruppen. Hvordan endrer gjennomsnittet og medianen seg?",
+            "solution": "Ny sum: $2640 + 1200 = 3840$, og\n\n$$\\bar{x} = \\frac{350 + 400 + 420 + 450 + 500 + 520 + 1200}{7} = \\frac{3840}{7} \\approx 548{,}6 \\text{ kroner}$$\n\nMedianen blir nå verdien på plass $\\frac{7+1}{2} = 4$ i $350, 400, 420, \\mathbf{450}, 500, 520, 1200$, altså $450$ kroner. Gjennomsnittet steg med over $100$ kroner, medianen med $15$."
+          }
+        ],
+        "solution": "a) $520$ kr, b) $435$ kr, c) gjennomsnittet er størst — svakt høyreskjev, d) $\\bar{x} \\approx 548{,}6$ kr og median $450$ kr",
+        "hints": [
+          "Summen er gjennomsnittet ganget med antallet."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "To klasser tok samme prøve. Klasse A har $24$ elever med gjennomsnitt $3{,}8$,\nog klasse B har $26$ elever med gjennomsnitt $4{,}1$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En elev regner $\\frac{3{,}8 + 4{,}1}{2} = 3{,}95$ og sier at det er gjennomsnittet for alle $50$. Forklar hvorfor det ikke stemmer.",
+            "solution": "Å ta gjennomsnittet av de to gjennomsnittene gir hver klasse like stor vekt, men klassene er ikke like store. De $26$ elevene i B skal telle litt mer enn de $24$ i A."
+          },
+          {
+            "label": "b",
+            "task": "Finn det riktige gjennomsnittet for alle $50$ elevene. Rund av til to desimaler.",
+            "answer": 3.96,
+            "solution": "Vi går veien om summene. Summen i en klasse er gjennomsnittet ganget med antallet:\n\n$$\\text{sum}_A = 24 \\cdot 3{,}8 = 91{,}2 \\qquad \\text{sum}_B = 26 \\cdot 4{,}1 = 106{,}6$$\n\n$$\\bar{x} = \\frac{91{,}2 + 106{,}6}{24 + 26} = \\frac{197{,}8}{50} = 3{,}956 \\approx 3{,}96$$"
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor ligger det riktige svaret nærmere klasse B sitt gjennomsnitt enn klasse A sitt?",
+            "solution": "Fordi klasse B har flest elever ($26$ mot $24$) og derfor veier tyngst i summen. Et slikt gjennomsnitt kalles et **vektet gjennomsnitt**, der vektene er gruppestørrelsene."
+          },
+          {
+            "label": "d",
+            "task": "Kan du finne medianen for alle $50$ elevene ut fra opplysningene i oppgaven?",
+            "solution": "Nei. Medianen kan ikke regnes ut fra gjennomsnittene — vi trenger de enkelte karakterene, eller i det minste fordelingen av dem i hver klasse."
+          }
+        ],
+        "solution": "a) klassene er ulike store, b) $3{,}96$, c) B veier tyngst, d) nei — medianen krever de enkelte observasjonene",
+        "hints": [
+          "Gå veien om summene: sum $= \\bar{x} \\cdot n$."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** Tabellen viser strømprisen i et prisområde time\nfor time et døgn, i øre per kWh:\n\n| Time | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Pris | 61 | 58 | 55 | 54 | 53 | 57 | 72 | 98 | 121 | 134 | 129 | 118 |\n\n| Time | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Pris | 112 | 108 | 104 | 106 | 115 | 142 | 156 | 138 | 112 | 95 | 80 | 68 |\n\nLegg prisene inn i et regneark.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnittsprisen med `=GJENNOMSNITT(...)`. Rund av til én desimal.",
+            "answer": 97.8,
+            "solution": "$\\bar{x} = \\frac{2346}{24} = 97{,}75 \\approx 97{,}8$ øre/kWh."
+          },
+          {
+            "label": "b",
+            "task": "Finn medianprisen med `=MEDIAN(...)`.",
+            "answer": 105,
+            "solution": "$n = 24$ er partall. Sortert ligger $104$ og $106$ i midten: $\\frac{104 + 106}{2} = 105$ øre/kWh."
+          },
+          {
+            "label": "c",
+            "task": "Finn typetallet med `=MODUS.SNGL(...)`.",
+            "answer": 112,
+            "solution": "$112$ øre/kWh forekommer to ganger (kl. 12 og kl. 20); alle andre priser forekommer én gang."
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange av timene har en pris over gjennomsnittet?",
+            "answer": 14,
+            "solution": "$14$ av $24$ timer ligger over $97{,}75$ øre/kWh."
+          },
+          {
+            "label": "e",
+            "task": "Medianen er høyere enn gjennomsnittet her. Hva forteller det om hvordan prisene fordeler seg over døgnet? Bruk tallene.",
+            "solution": "Når medianen ($105$) er større enn gjennomsnittet ($97{,}75$), er fordelingen **venstreskjev**: halen ligger mot de lave verdiene. Her passer det med døgnmønsteret — de sju nattetimene ligger helt nede på $53$–$72$ øre og trekker gjennomsnittet ned, mens de fleste av døgnets timer ligger jevnt mellom $95$ og $156$ øre.\n\n**Andre muligheter:** man kunne delt døgnet i natt og dag og oppgitt ett sentralmål for hver, eller vektet hver time med hvor mye strøm som faktisk brukes den timen — da ville prisen i dyre morgentimer telt mer, og «gjennomsnittsprisen kunden betaler» blitt høyere enn $97{,}8$ øre."
+          }
+        ],
+        "solution": "a) $97{,}8$ øre/kWh, b) $105$ øre/kWh, c) $112$ øre/kWh, d) $14$ timer, e) venstreskjev fordeling — nattetimene drar gjennomsnittet ned",
+        "hints": [
+          "I regneark: `=GJENNOMSNITT(B2:B25)`, `=MEDIAN(B2:B25)`, `=MODUS.SNGL(B2:B25)`.",
+          "«Over gjennomsnittet» teller du med `=ANTALL.HVIS(B2:B25; \\\">97,75\\\")`."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-2-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Statistisk sentralbyrå oppgir både gjennomsnittsinntekt og\nmedianinntekt for husholdninger i Norge. Gjennomsnittet er hvert år tydelig\nhøyere enn medianen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva forteller det om hvordan inntektene er fordelt?",
+            "solution": "At inntektsfordelingen er høyreskjev: de aller fleste ligger samlet i et forholdsvis smalt område, mens en liten gruppe har svært høye inntekter og drar gjennomsnittet opp. Mer enn halvparten av husholdningene har derfor inntekt under gjennomsnittet."
+          },
+          {
+            "label": "b",
+            "task": "En politiker sier: «Vanlige folk i Norge har en inntekt på rundt gjennomsnittet.» Vurder påstanden.",
+            "solution": "Påstanden er misvisende. Når fordelingen er høyreskjev, ligger «vanlige folk» — de midt i fordelingen — ved medianen, altså under gjennomsnittet. Medianinntekten er det tallet som beskriver husholdningen midt i køen."
+          },
+          {
+            "label": "c",
+            "task": "Hvorfor kan det likevel være riktig å bruke gjennomsnittet når man skal regne på skatteinntekter?",
+            "solution": "Fordi samlet inntekt $=$ gjennomsnitt $\\cdot$ antall husholdninger. Skattegrunnlaget avhenger av totalsummen, og den fanges av gjennomsnittet, ikke av medianen."
+          },
+          {
+            "label": "d",
+            "task": "Kan medianinntekten stige samtidig som gjennomsnittsinntekten synker? Forklar, gjerne med et lite taleksempel.",
+            "solution": "Ja. Tenk fem husholdninger med inntektene (i tusen kr) $300, 400, 500, 600, 4000$. Her er medianen $500$ og gjennomsnittet $\\frac{300 + 400 + 500 + 600 + 4000}{5} = \\frac{5800}{5} = 1160$.\n\nÅret etter: $350, 450, 550, 650, 2000$. Nå er medianen $550$ (steget), mens gjennomsnittet er $\\frac{350 + 450 + 550 + 650 + 2000}{5} = \\frac{4000}{5} = 800$ (sunket).\n\nDe fire nederste har fått det bedre, mens den ene på toppen har fått mye mindre. Det viser at de to målene kan bevege seg i hver sin retning, og at man må se på begge for å forstå hva som har skjedd."
+          },
+          {
+            "label": "e",
+            "task": "Hvilket sentralmål ville du brukt i en avisartikkel om inntektsutviklingen? Begrunn, og si hva du ville skrevet i tillegg.",
+            "solution": "Medianen, fordi artikkelen handler om hvordan det går med folk flest. Men jeg ville oppgitt begge tallene og forklart forskjellen, slik at leseren ser at fordelingen er skjev.\n\n**Andre muligheter:** vise hele fordelingen i en figur (kapittel 1.5), eller oppgi inntekten for hver tidel av befolkningen — da ser leseren både midten og halen, og trenger ikke å stole på ett enkelt tall."
+          }
+        ],
+        "solution": "a) høyreskjev fordeling, b) misvisende — «vanlige folk» ligger ved medianen, c) totalsummen følger gjennomsnittet, d) ja — se taleksempelet, e) median, med begge tallene oppgitt",
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-2-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Gjennomsnitt**: $\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$. Bruker alle\n  tallverdiene, og påvirkes derfor av uteliggere.\n- **Median**: den midterste verdien i et **sortert** materiale. Plass\n  $\\frac{n+1}{2}$ når $n$ er oddetall; gjennomsnittet av de to midterste når $n$\n  er partall. Robust mot uteliggere.\n- **Typetall**: den vanligste verdien. Det eneste sentralmålet som virker på\n  kategoriske variabler. Kan mangle, og kan være flere.\n- **Skjev fordeling**: er halen lengst mot høyre, ligger gjennomsnittet til høyre\n  for medianen (lønn, formue, boligpriser). Er halen mot venstre, er det motsatt.\n- **Vektet gjennomsnitt**: slår du sammen grupper, må hver gruppe veies med\n  størrelsen sin — gå veien om summene.\n\n### Husk\n- Sorter **før** du finner medianen.\n- Summen er gjennomsnittet ganget med antallet: $\\sum x_i = \\bar{x} \\cdot n$.\n- Et sentralmål alene forteller ingenting om **spredningen**. To materialer med\n  samme gjennomsnitt kan være vidt forskjellige — det er tema i neste kapittel."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Gjennomsnitt",
+      "definition": "Summen av observasjonene delt på antall observasjoner, skrevet x̄."
+    },
+    {
+      "term": "Median",
+      "definition": "Den midterste verdien i et sortert datamateriale; gjennomsnittet av de to midterste når antallet er et partall."
+    },
+    {
+      "term": "Typetall",
+      "definition": "Den verdien som forekommer flest ganger. Kan mangle, og kan være flere."
+    },
+    {
+      "term": "Uteligger",
+      "definition": "En observasjon som ligger langt fra resten av materialet, og som påvirker gjennomsnittet mye og medianen lite."
+    },
+    {
+      "term": "Skjev fordeling",
+      "definition": "Fordeling med lengre hale til den ene siden. Ved høyreskjev fordeling ligger gjennomsnittet høyere enn medianen."
+    },
+    {
+      "term": "Vektet gjennomsnitt",
+      "definition": "Gjennomsnitt der hver verdi teller med en vekt, for eksempel gruppestørrelsen når grupper slås sammen."
+    }
+  ]
+}

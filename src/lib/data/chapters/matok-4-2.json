@@ -1,0 +1,484 @@
+{
+  "id": "matok-4-2",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "4.2",
+  "title": "Annuitetslån og terminbeløp",
+  "description": "Terminbeløpet som geometrisk rekke — utledning og bruk.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+  ],
+  "content": [
+    {
+      "id": "matok-4-2-section-intro",
+      "type": "text",
+      "content": "# Annuitetslån og terminbeløp\n\nDe aller fleste boliglån i Norge er **annuitetslån**. Navnet kommer av det latinske *annus*, år, men det avgjørende er dette: **du betaler like mye hver gang**.\n\nDet er praktisk. Låntakeren vet nøyaktig hvor mye som går ut av kontoen den 15. hver måned, i tjue eller tretti år. Men bak det faste beløpet skjer det noe: i starten går nesten alt til renter, og lite til å nedbetale gjelden. Mot slutten er det motsatt.\n\nSpørsmålet vi skal svare på er: **hvor stort må det faste beløpet være for at lånet skal være nedbetalt akkurat når det skal?** Svaret kommer fra sumformelen vi beviste i kapittel 4.1."
+    },
+    {
+      "id": "matok-4-2-def-annuitet",
+      "type": "definition",
+      "title": "Annuitetslån, terminbeløp og restlån",
+      "content": "- Et **annuitetslån** er et lån som nedbetales med like store beløp i hver termin.\n- **Terminbeløpet** $T$ er dette faste beløpet. Det består av **renter** (av det som står igjen av gjelden) og **avdrag** (det som faktisk nedbetaler gjelden). Fordelingen mellom de to endrer seg for hver termin, men summen er alltid $T$.\n- En **termin** er tiden mellom to innbetalinger. $n$ er antall terminer i hele nedbetalingstiden, og $v$ er vekstfaktoren for **én** termin.\n- **Restlånet** $R_k$ er hvor mye som står igjen av gjelden rett etter at terminbeløp nummer $k$ er betalt.\n\n**NB:** Til sammenligning har et **serielån** fast *avdrag*. Da synker terminbeløpet gjennom hele perioden, fordi rentedelen blir mindre og mindre. Vi sammenligner de to i oppgave 6."
+    },
+    {
+      "id": "matok-4-2-section-utledning",
+      "type": "text",
+      "content": "## Hvordan finner vi terminbeløpet?\n\nVi bruker samme idé som i kapittel 2: **beløp kan bare sammenlignes når de står på samme tidspunkt.**\n\nBanken låner deg $K_0$ kroner i dag. Du betaler tilbake $T$ kroner ved slutten av hver termin, i $n$ terminer. For at regnskapet skal gå opp, må **nåverdien av alt du betaler tilbake, være nøyaktig like stor som det du fikk utbetalt**.\n\nDet er dette kravet vi skriver som en likning — og likningens venstre side viser seg å være en geometrisk rekke."
+    },
+    {
+      "id": "matok-4-2-proof-utledning",
+      "type": "proof",
+      "title": "Utledning av annuitetsformelen",
+      "content": "**Det vi skal komme fram til:** $T = K_0 \\cdot \\dfrac{v - 1}{1 - v^{-n}}$\n\n**1. Vi flytter hvert terminbeløp tilbake til i dag**\n\nTerminbeløpet som betales etter én termin, har nåverdien $\\frac{T}{v}$. Det som betales etter to terminer, har nåverdien $\\frac{T}{v^{2}}$, og så videre. Summen av alle nåverdiene skal være lik lånet:\n\n$$K_0 = \\frac{T}{v} + \\frac{T}{v^{2}} + \\frac{T}{v^{3}} + \\ldots + \\frac{T}{v^{\\,n}}$$\n\n**2. Vi ser at høyresiden er en geometrisk rekke**\n\nVi deler hvert ledd på leddet foran:\n\n$$\\frac{\\frac{T}{v^{2}}}{\\frac{T}{v}} = \\frac{T}{v^{2}} \\cdot \\frac{v}{T} = \\frac{1}{v}$$\n\nForholdet er $\\frac{1}{v}$ hver gang. Rekken er altså geometrisk med\n\n$$a_1 = \\frac{T}{v} \\qquad k = \\frac{1}{v} \\qquad n \\text{ ledd}$$\n\n**3. Vi setter inn i sumformelen**\n\n$$S_n = a_1 \\cdot \\frac{k^{\\,n} - 1}{k - 1}$$\n\n$$K_0 = \\frac{T}{v} \\cdot \\frac{\\left(\\frac{1}{v}\\right)^{n} - 1}{\\frac{1}{v} - 1}$$\n\n**4. Vi rydder opp i brøken**\n\nNevneren er en brøk minus et tall. Vi skriver den som én brøk:\n\n$$\\frac{1}{v} - 1 = \\frac{1 - v}{v}$$\n\nNå har vi brøk delt på brøk. Vi ganger med den omvendte av nevneren:\n\n$$K_0 = \\frac{T}{v} \\cdot \\left(v^{-n} - 1\\right) \\cdot \\frac{v}{1 - v}$$\n\n$v$ i telleren og $v$ i nevneren forkortes bort:\n\n$$K_0 = T \\cdot \\frac{v^{-n} - 1}{1 - v}$$\n\nVi ganger både teller og nevner med $-1$, så begge blir positive:\n\n$$K_0 = T \\cdot \\frac{1 - v^{-n}}{v - 1}$$\n\n**5. Vi løser ut $T$**\n\nVi ganger med $(v-1)$ og deler på $\\left(1 - v^{-n}\\right)$ på begge sider:\n\n$$T = K_0 \\cdot \\frac{v - 1}{1 - v^{-n}}$$\n\n**Dermed har vi vist det vi skulle:** terminbeløpet i et annuitetslån er lånebeløpet ganget med $\\frac{v-1}{1-v^{-n}}$, og formelen kommer direkte fra sumformelen for en geometrisk rekke."
+    },
+    {
+      "id": "matok-4-2-theorem-annuitet",
+      "type": "theorem",
+      "title": "Annuitetsformelen",
+      "content": "Et annuitetslån på $K_0$ kroner nedbetales med $n$ like store terminbeløp. Vekstfaktoren per termin er $v = 1 + \\frac{p}{100}$, der $p$ er renten **per termin** i prosent. Da er terminbeløpet\n\n$$T = K_0 \\cdot \\frac{v - 1}{1 - v^{-n}}$$\n\nFormelen kan også skrives\n\n$$T = K_0 \\cdot \\frac{(v-1) \\cdot v^{\\,n}}{v^{\\,n} - 1}$$\n\nDe to formene gir alltid samme svar — den andre kommer av at vi ganger teller og nevner med $v^{\\,n}$.\n\n**Er det $m$ terminer i året** og den nominelle renten er $p$ prosent per år, er renten per termin $\\frac{p}{m}$ prosent, og antall terminer på $t$ år er $n = m \\cdot t$.\n\n**Avrunding:** Terminbeløpet blir sjelden et rundt antall kroner og øre. Vi **oppgir** det med to desimaler, slik sensor forventer, men **regner alltid videre med det uavrundede terminbeløpet** — det kalkulatoren eller regnearket har lagret. Derfor skriver vi $n \\cdot T \\approx \\ldots$ med $\\approx$ og ikke $=$ når vi regner ut hva lånet koster i alt: ganger du i stedet det avrundede terminbeløpet med antall terminer, kan du få noen få øre — og på mange terminer en krone eller to — i avvik."
+    },
+    {
+      "id": "matok-4-2-example-1",
+      "type": "example",
+      "title": "Eksempel 1 — boliglån med årlige terminer",
+      "problem": "Ida tar opp et annuitetslån på $2\\,000\\,000$ kr. Renten er $5\\,\\%$ per år, og lånet skal betales ned med årlige terminbeløp i 25 år.\n\na) Hvor stort blir terminbeløpet?\n\nb) Hvor mye betaler Ida til sammen, og hvor mye av det er renter?",
+      "solution": "**Løsning:**\n\na) **Hva vet vi?** $K_0 = 2\\,000\\,000$ kr, $p = 5$ og dermed $v = 1{,}05$. Årlige terminer i 25 år gir $n = 25$.\n**Hva må vi finne?** Terminbeløpet $T$.\n\nVi skriver formelen tom først:\n\n$T = K_0 \\cdot \\frac{v - 1}{1 - v^{-n}}$\n\nog setter så inn:\n\n$T = 2\\,000\\,000 \\cdot \\frac{1{,}05 - 1}{1 - 1{,}05^{-25}}$\n\nVi regner ut nevneren for seg. Først potensen:\n\n$1{,}05^{-25} \\approx 0{,}295303$\n\n$1 - 0{,}295303 = 0{,}704697$\n\n$T = 2\\,000\\,000 \\cdot \\frac{0{,}05}{0{,}704697}$\n\n$T \\approx 141\\,904{,}91$\n\n**Svar:** Terminbeløpet blir omtrent $141\\,905$ kr i året.\n\nb) Ida betaler 25 like store terminbeløp. Vi regner med det uavrundede terminbeløpet:\n\n$25 \\cdot T \\approx 3\\,547\\,622{,}86$\n\nAv dette er $2\\,000\\,000$ kr selve lånet. Resten er renter:\n\n$3\\,547\\,622{,}86 - 2\\,000\\,000 = 1\\,547\\,622{,}86$\n\n**Svar:** Hun betaler omtrent $3\\,547\\,623$ kr til sammen, og $1\\,547\\,623$ kr av det er renter.\n\n**NB:** Rentekostnaden er nesten like stor som lånet. Det er ikke en feil i regnestykket — det er hva 25 år med $5\\,\\%$ rente koster. Legg merke til at rentekostnaden er langt mindre enn $25 \\cdot 0{,}05 \\cdot 2\\,000\\,000 = 2\\,500\\,000$ kr, nettopp fordi gjelden synker underveis."
+    },
+    {
+      "id": "matok-4-2-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-4-2-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut terminbeløpet i annuitetslånene. Alle har årlige terminer. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$500\\,000$ kr, $6\\,\\%$ rente, 10 år.",
+            "solution": "$T = 500\\,000 \\cdot \\frac{0{,}06}{1 - 1{,}06^{-10}} \\approx 67\\,933{,}98$ kr",
+            "answer": 67933.98
+          },
+          {
+            "label": "b",
+            "task": "$1\\,200\\,000$ kr, $4{,}5\\,\\%$ rente, 20 år.",
+            "solution": "$T = 1\\,200\\,000 \\cdot \\frac{0{,}045}{1 - 1{,}045^{-20}} \\approx 92\\,251{,}37$ kr",
+            "answer": 92251.37
+          },
+          {
+            "label": "c",
+            "task": "$250\\,000$ kr, $8\\,\\%$ rente, 5 år.",
+            "solution": "$T = 250\\,000 \\cdot \\frac{0{,}08}{1 - 1{,}08^{-5}} \\approx 62\\,614{,}11$ kr",
+            "answer": 62614.11
+          },
+          {
+            "label": "d",
+            "task": "$3\\,000\\,000$ kr, $3{,}8\\,\\%$ rente, 30 år.",
+            "solution": "$T = 3\\,000\\,000 \\cdot \\frac{0{,}038}{1 - 1{,}038^{-30}} \\approx 169\\,302{,}12$ kr",
+            "answer": 169302.12
+          },
+          {
+            "label": "e",
+            "task": "Hvor mye betaler låntakeren i d) til sammen, og hvor mye av det er renter?",
+            "solution":"$30 \\cdot T \\approx 5\\,079\\,063{,}66$ kr. Renter: $5\\,079\\,063{,}66 - 3\\,000\\,000 = 2\\,079\\,063{,}66$ kr",
+            "answer": [
+              5079063.66,
+              2079063.66
+            ]
+          }
+        ],
+        "hints": [
+          "$T = K_0 \\cdot \\frac{v-1}{1-v^{-n}}$. Husk at $v - 1$ er renten som desimaltall.",
+          "Regn ut $v^{-n}$ først, og hold på seks desimaler underveis."
+        ],
+        "solution": "a) $67\\,933{,}98$ kr, b) $92\\,251{,}37$ kr, c) $62\\,614{,}11$ kr, d) $169\\,302{,}12$ kr, e) $5\\,079\\,063{,}66$ kr, hvorav $2\\,079\\,063{,}66$ kr er renter",
+        "competenceGoals": [
+          "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-4-2-example-2",
+      "type": "example",
+      "title": "Eksempel 2 — månedlige terminer",
+      "problem": "Et annuitetslån på $1\\,500\\,000$ kr har $5{,}4\\,\\%$ nominell rente og skal nedbetales med **månedlige** terminbeløp i 20 år.\n\na) Hva er renten per termin, og hvor mange terminer er det?\n\nb) Hvor stort blir det månedlige terminbeløpet?\n\nc) Hvor mye betaler låntakeren i renter til sammen?",
+      "solution": "**Løsning:**\n\na) **Hva vet vi?** Nominell rente $p = 5{,}4$ per år og $m = 12$ terminer i året.\n\nRenten per termin er den nominelle renten delt på antall terminer:\n\n$\\frac{p}{m} = \\frac{5{,}4\\,\\%}{12} = 0{,}45\\,\\%$\n\nVekstfaktoren per termin blir\n\n$v = 1 + \\frac{0{,}45}{100} = 1{,}0045$\n\nAntall terminer:\n\n$n = m \\cdot t = 12 \\cdot 20 = 240$\n\n**Svar:** $0{,}45\\,\\%$ per måned, og $240$ terminer.\n\nb) Vi bruker samme formel som før — det eneste som er nytt, er at $v$ og $n$ nå gjelder måneder:\n\n$T = K_0 \\cdot \\frac{v - 1}{1 - v^{-n}}$\n\n$T = 1\\,500\\,000 \\cdot \\frac{0{,}0045}{1 - 1{,}0045^{-240}}$\n\n$1{,}0045^{-240} \\approx 0{,}340419$\n\n$1 - 0{,}340419 = 0{,}659581$\n\n$T = 1\\,500\\,000 \\cdot \\frac{0{,}0045}{0{,}659581}$\n\n$T \\approx 10\\,233{,}77$\n\n**Svar:** Terminbeløpet er omtrent $10\\,234$ kr i måneden.\n\nc) Til sammen betales $240$ terminbeløp:\n\n$240 \\cdot T \\approx 2\\,456\\,105{,}73$\n\n$2\\,456\\,105{,}73 - 1\\,500\\,000 = 956\\,105{,}73$\n\n**Svar:** Omtrent $956\\,106$ kr i renter.\n\n**NB:** Den *nominelle* renten er $5{,}4\\,\\%$, men fordi renten beregnes hver måned, er den **effektive** renten høyere. Fra kapittel 1.4:\n\n$p_{\\text{eff}} = \\left(1{,}0045^{12} - 1\\right) \\cdot 100\\,\\% \\approx 5{,}5357\\,\\%$\n\nDette er den effektive renten **uten** gebyrer. Kommer det etableringsgebyr og termingebyr i tillegg, stiger den enda mer — det er tema i kapittel 4.3."
+    },
+    {
+      "id": "matok-4-2-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-4-2-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Sigrid tar opp et billån på $320\\,000$ kr. Den nominelle renten er $6{,}6\\,\\%$, og lånet nedbetales med månedlige terminbeløp i 6 år. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er renten per termin, og hva er vekstfaktoren per termin?",
+            "solution": "$\\frac{6{,}6\\,\\%}{12} = 0{,}55\\,\\%$ per måned, altså $v = 1{,}0055$","answer":[0.55,1.0055]
+          },
+          {
+            "label": "b",
+            "task": "Hvor stort blir terminbeløpet?",
+            "solution": "$n = 12 \\cdot 6 = 72$. $T = 320\\,000 \\cdot \\frac{0{,}0055}{1 - 1{,}0055^{-72}} \\approx 5\\,394{,}43$ kr",
+            "answer": 5394.43
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye betaler Sigrid til sammen, og hvor mye er renter?",
+            "solution":"$72 \\cdot T \\approx 388\\,398{,}70$ kr, hvorav $68\\,398{,}70$ kr er renter",
+            "answer": [
+              388398.7,
+              68398.7
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Sigrid vurderer å forlenge nedbetalingstiden til 8 år i stedet. Hvor mye synker terminbeløpet, og hvor mye mer betaler hun i renter?",
+            "solution": "$n = 96$ gir $T \\approx 4\\,299{,}36$ kr, altså $1\\,095{,}06$ kr mindre i måneden. Rentekostnaden blir $96 \\cdot T - 320\\,000 \\approx 92\\,739{,}03$ kr, som er $24\\,340{,}33$ kr mer enn ved 6 år.",
+            "answer": [
+              4299.36,
+              24340.33
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Hva er den årlige effektive renten på lånet, når vi ser bort fra gebyrer?",
+            "solution": "$p_{\\text{eff}} = \\left(1{,}0055^{12} - 1\\right) \\cdot 100\\,\\% \\approx 6{,}8034\\,\\%$",
+            "answer": 6.8034
+          }
+        ],
+        "hints": [
+          "Renten per termin er $\\frac{p}{m}$, og antall terminer er $n = m \\cdot t$.",
+          "I e): den effektive renten er vekstfaktoren for tolv måneder, minus 1."
+        ],
+        "solution": "a) $0{,}55\\,\\%$ og $v = 1{,}0055$, b) $5\\,394{,}43$ kr, c) $388\\,398{,}70$ kr, hvorav $68\\,398{,}70$ kr i renter, d) $4\\,299{,}36$ kr og $24\\,340{,}33$ kr mer i renter, e) $6{,}8034\\,\\%$",
+        "competenceGoals": [
+          "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-4-2-section-restlan",
+      "type": "text",
+      "content": "## Hvor mye står igjen av gjelden?\n\nEt lån blir ofte innfridd før tiden — boligen selges, låntakeren refinansierer, eller en forsikring dekker resten. Da må vi vite **restlånet**.\n\nTanken er den samme som før, men nå flytter vi beløpene *framover* til det tidspunktet vi spør om. Gjelden vokser med renten, og innbetalingene trekker den ned:\n\n- Hadde du ikke betalt noe, ville gjelden vært $K_0 \\cdot v^{\\,k}$ etter $k$ terminer.\n- De $k$ terminbeløpene du faktisk har betalt, er til sammen verdt $T + T v + \\ldots + T v^{\\,k-1}$ på samme tidspunkt. Det er en geometrisk rekke med $a_1 = T$ og kvotient $v$.\n\nRestlånet er differansen."
+    },
+    {
+      "id": "matok-4-2-theorem-restlan",
+      "type": "theorem",
+      "title": "Restlån",
+      "content": "Restlånet rett etter at terminbeløp nummer $k$ er betalt, er\n\n$$R_k = K_0 \\cdot v^{\\,k} - T \\cdot \\frac{v^{\\,k} - 1}{v - 1}$$\n\nDet første leddet er gjelden slik den ville vokst uten innbetalinger. Det andre leddet er sumformelen for de $k$ terminbeløpene, flyttet fram til samme tidspunkt.\n\n**Kontroll:** Setter vi $k = n$, skal $R_n = 0$. Setter vi $k = 0$, skal $R_0 = K_0$."
+    },
+    {
+      "id": "matok-4-2-example-3",
+      "type": "example",
+      "title": "Eksempel 3 — restlån etter 10 år",
+      "problem": "Ida fra Eksempel 1 har et annuitetslån på $2\\,000\\,000$ kr med $5\\,\\%$ rente, 25 årlige terminer og terminbeløp $141\\,904{,}91$ kr.\n\na) Hvor mye står igjen av lånet rett etter det tiende terminbeløpet?\n\nb) Hvor mye har hun betalt til sammen på de ti årene, og hvor mye av det har gått til renter?",
+      "solution": "**Løsning:**\n\na) **Hva vet vi?** $K_0 = 2\\,000\\,000$, $v = 1{,}05$, $T = 141\\,904{,}91$ og $k = 10$.\n\n$R_k = K_0 \\cdot v^{\\,k} - T \\cdot \\frac{v^{\\,k} - 1}{v - 1}$\n\nVi regner ut de to leddene hver for seg.\n\nGjelden uten innbetalinger:\n\n$2\\,000\\,000 \\cdot 1{,}05^{10} \\approx 3\\,257\\,789{,}25$\n\nVerdien av de ti terminbeløpene:\n\n$141\\,904{,}91 \\cdot \\frac{1{,}05^{10} - 1}{0{,}05} \\approx 141\\,904{,}91 \\cdot 12{,}577893 \\approx 1\\,784\\,864{,}77$\n\nRestlånet er differansen:\n\n$R_{10} \\approx 3\\,257\\,789{,}25 - 1\\,784\\,864{,}77 \\approx 1\\,472\\,924{,}49$\n\n![Et koordinatsystem med termin 0 til 26 vannrett og kroner 0 til 2 000 000 loddrett. En blå, krum kurve starter i 2 000 000 kr ved termin 0 og faller stadig brattere til null ved termin 25. To punkter på kurven er markert og merket: ved termin 10 står 1 472 924, ved termin 20 står 614 374. En grå stiplet rett linje går fra 2 000 000 kr ved termin 0 til null ved termin 25 og er merket «slik ville et serielån ligget». Kurven ligger over den rette linja hele veien.](/images/content/matematikk-okonomi/matok-4-2-restlan.png)\n\n*Restlånet i Idas annuitetslån. Avstanden opp til den rette linja er gjelden som **ikke** er betalt ned ennå: etter 10 av 25 terminer — 40 % av tida — er bare 26 % av gjelden borte.*\n\n**Svar:** Det står omtrent $1\\,472\\,924$ kr igjen av lånet.\n\nb) Ida har betalt\n\n$10 \\cdot T \\approx 1\\,419\\,049{,}15$\n\nGjelden er redusert fra $2\\,000\\,000$ kr til $1\\,472\\,924{,}49$ kr, altså med\n\n$2\\,000\\,000 - 1\\,472\\,924{,}49 \\approx 527\\,075{,}51$\n\nResten av det hun har betalt, har gått til renter:\n\n$1\\,419\\,049{,}15 - 527\\,075{,}51 \\approx 891\\,973{,}63$\n\n**Svar:** Hun har betalt omtrent $1\\,419\\,049$ kr, og $891\\,974$ kr av det er renter.\n\n**NB:** Etter 40 % av nedbetalingstiden er bare 26 % av gjelden borte. Dette er selve kjennetegnet ved annuitetslån: rentedelen er størst i begynnelsen, fordi renten regnes av en gjeld som ennå er stor. Til sammenligning er restlånet etter 20 av de 25 årene nede i $614\\,374$ kr — de siste årene går det fort."
+    },
+        {
+      "id": "matok-4-2-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-4-2-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et annuitetslån på $1\\,800\\,000$ kr har $4{,}2\\,\\%$ rente og 20 årlige terminer. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stort er terminbeløpet?",
+            "solution": "$T = 1\\,800\\,000 \\cdot \\frac{0{,}042}{1 - 1{,}042^{-20}} \\approx 134\\,803{,}36$ kr",
+            "answer": 134803.36
+          },
+          {
+            "label": "b",
+            "task": "Hvor mye står igjen av lånet etter 5 terminer?",
+            "solution": "$R_5 = 1\\,800\\,000 \\cdot 1{,}042^{5} - 134\\,803{,}36 \\cdot \\frac{1{,}042^{5} - 1}{0{,}042} \\approx 1\\,478\\,051{,}35$ kr",
+            "answer": 1478051.35
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye står igjen etter 10 terminer?",
+            "solution": "$R_{10} \\approx 1\\,082\\,570{,}73$ kr",
+            "answer": 1082570.73
+          },
+          {
+            "label": "d",
+            "task": "Hvor mye av gjelden ble nedbetalt de fem første årene, og hvor mye de fem neste?",
+            "solution": "De fem første: $1\\,800\\,000 - 1\\,478\\,051{,}35 = 321\\,948{,}65$ kr. De fem neste: $1\\,478\\,051{,}35 - 1\\,082\\,570{,}73 = 395\\,480{,}62$ kr — altså mer, selv om terminbeløpet er det samme.",
+            "answer": [
+              321948.65,
+              395480.62
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Hvor mye har låntakeren betalt til sammen etter 10 år, og hvor mye av det er renter?",
+            "solution":"$10 \\cdot T \\approx 1\\,348\\,033{,}56$ kr. Gjelden er redusert med $717\\,429{,}27$ kr, så $1\\,348\\,033{,}56 - 717\\,429{,}27 = 630\\,604{,}29$ kr er renter.",
+            "answer": [
+              1348033.56,
+              630604.29
+            ]
+          }
+        ],
+        "hints": [
+          "$R_k = K_0 v^{\\,k} - T \\cdot \\frac{v^{\\,k}-1}{v-1}$. Regn ut de to leddene hver for seg.",
+          "I d): avdragsdelen vokser for hver termin, fordi rentedelen krymper."
+        ],
+        "solution": "a) $134\\,803{,}36$ kr, b) $1\\,478\\,051{,}35$ kr, c) $1\\,082\\,570{,}73$ kr, d) $321\\,948{,}65$ kr og $395\\,480{,}62$ kr, e) $1\\,348\\,033{,}56$ kr, hvorav $630\\,604{,}29$ kr i renter",
+        "competenceGoals": [
+          "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-4-2-example-4",
+      "type": "example",
+      "title": "Eksempel 4 — hvor lang blir nedbetalingstiden?",
+      "problem": "Ida vil betale $200\\,000$ kr i året i stedet for $141\\,904{,}91$ kr. Lånet er fortsatt på $2\\,000\\,000$ kr med $5\\,\\%$ rente.\n\nHvor lang blir nedbetalingstiden da, og hvor mye sparer hun i renter?",
+      "solution": "**Løsning:**\n\n**Hva må vi finne?** Antall terminer $n$, når $T$ er kjent.\n\nVi tar utgangspunkt i likningen fra utledningen:\n\n$K_0 = T \\cdot \\frac{1 - v^{-n}}{v - 1}$\n\n$2\\,000\\,000 = 200\\,000 \\cdot \\frac{1 - 1{,}05^{-n}}{0{,}05}$\n\nVi ganger med $0{,}05$ på begge sider:\n\n$100\\,000 = 200\\,000 \\cdot \\left(1 - 1{,}05^{-n}\\right)$\n\nVi deler på $200\\,000$ på begge sider:\n\n$0{,}5 = 1 - 1{,}05^{-n}$\n\n$1{,}05^{-n} = 0{,}5$\n\nDen ukjente står i eksponenten, så vi tar den naturlige logaritmen på begge sider:\n\n$-n \\cdot \\ln 1{,}05 = \\ln 0{,}5$\n\n$n = -\\frac{\\ln 0{,}5}{\\ln 1{,}05} \\approx 14{,}21$\n\n**Svar:** Lånet er nedbetalt i løpet av det femtende året — 14 fulle terminbeløp på $200\\,000$ kr, og et femtende og mindre beløp på slutten.\n\n**Rentekostnaden:** Etter 14 terminer er restlånet\n\n$R_{14} = 2\\,000\\,000 \\cdot 1{,}05^{14} - 200\\,000 \\cdot \\frac{1{,}05^{14} - 1}{0{,}05} \\approx 40\\,136{,}80$\n\nDet siste beløpet betales ett år seinere, så det er\n\n$40\\,136{,}80 \\cdot 1{,}05 \\approx 42\\,143{,}64$\n\nTotal innbetaling blir\n\n$14 \\cdot 200\\,000 + 42\\,143{,}64 = 2\\,842\\,143{,}64$\n\n$2\\,842\\,143{,}64 - 2\\,000\\,000 = 842\\,143{,}64$\n\n**Svar:** Rentekostnaden blir omtrent $842\\,144$ kr, mot $1\\,547\\,623$ kr ved 25 år. Ida sparer omtrent $705\\,479$ kr på å betale $58\\,095$ kr mer i året.\n\n**NB:** Legg merke til hvor kraftig dette slår ut. Å øke terminbeløpet med $41\\,\\%$ nesten halverte både nedbetalingstiden og rentekostnaden. Grunnen er at ekstrabeløpet går rett på gjelden, og all rente den gjelden ville gitt i resten av perioden, forsvinner med den."
+    },
+    {
+      "id": "matok-4-2-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-4-2-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Marius har et annuitetslån på $900\\,000$ kr med $5{,}5\\,\\%$ rente og årlige terminer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stort blir terminbeløpet dersom lånet skal nedbetales på 15 år?",
+            "solution": "$T = 900\\,000 \\cdot \\frac{0{,}055}{1 - 1{,}055^{-15}} \\approx 89\\,663{,}04$ kr",
+            "answer": 89663.04
+          },
+          {
+            "label": "b",
+            "task": "Marius velger i stedet å betale $100\\,000$ kr i året. Hvor lang blir nedbetalingstiden?",
+            "solution": "$1{,}055^{-n} = 1 - \\frac{900\\,000 \\cdot 0{,}055}{100\\,000} = 0{,}505$, som gir $n = -\\frac{\\ln 0{,}505}{\\ln 1{,}055} \\approx 12{,}76$. Han betaler 12 fulle terminbeløp og et trettende på $76\\,516{,}69$ kr.",
+            "answer": 13
+          },
+          {
+            "label": "c",
+            "task": "Hvor lang blir nedbetalingstiden dersom han bare betaler $75\\,000$ kr i året?",
+            "solution": "$1{,}055^{-n} = 1 - \\frac{49\\,500}{75\\,000} = 0{,}34$, som gir $n \\approx 20{,}15$. Altså 20 fulle terminbeløp og et tjueførste på $11\\,455{,}07$ kr.",
+            "answer": 21
+          },
+          {
+            "label": "d",
+            "task": "Hvor stort må terminbeløpet minst være for at lånet i det hele tatt skal bli nedbetalt?",
+            "solution": "Rentene det første året er $0{,}055 \\cdot 900\\,000 = 49\\,500$ kr. Er terminbeløpet mindre enn dette, dekker det ikke engang renten, og gjelden vokser.",
+            "answer": 49500
+          },
+          {
+            "label": "e",
+            "task": "Hva skjer med gjelden dersom Marius betaler nøyaktig $49\\,500$ kr i året?",
+            "solution": "Terminbeløpet dekker akkurat renten, og avdraget blir null. Gjelden står stille på $900\\,000$ kr år etter år, og lånet blir aldri nedbetalt. Dette er det samme som et avdragsfritt lån. I formelen ser vi det slik: $1{,}055^{-n} = 1 - \\frac{49\\,500}{49\\,500} = 0$, og det finnes ingen $n$ som gir $1{,}055^{-n} = 0$.",
+            "multipleChoiceOptions": [
+              "Gjelden står stille på $900\\,000$ kr — terminbeløpet dekker akkurat renten, og lånet blir aldri nedbetalt.",
+              "Gjelden nedbetales på nøyaktig 18 år.",
+              "Gjelden vokser, fordi renten er høyere enn terminbeløpet.",
+              "Gjelden halveres hvert år."
+            ]
+          }
+        ],
+        "hints": [
+          "Løs $v^{-n} = 1 - \\frac{K_0 (v-1)}{T}$ og ta logaritmen på begge sider.",
+          "I d): sammenlign terminbeløpet med rentene av hele lånet det første året."
+        ],
+        "solution": "a) $89\\,663{,}04$ kr, b) 13 terminer (12 fulle + $76\\,516{,}69$ kr), c) 21 terminer (20 fulle + $11\\,455{,}07$ kr), d) mer enn $49\\,500$ kr, e) gjelden står stille",
+        "competenceGoals": [
+          "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-4-2-example-5",
+      "type": "example",
+      "title": "Eksempel 5 — nedbetalingsplan i regneark (Del 2)",
+      "problem": "Et annuitetslån på $400\\,000$ kr har $4\\,\\%$ rente og 5 årlige terminer.\n\nSett opp en nedbetalingsplan i regneark som viser rente, avdrag og restlån for hver termin, og kontroller at restlånet er null til slutt.",
+      "solution": "**Løsning:**\n\nVi legger forutsetningene øverst, så de bare står ett sted:\n\n| celle | innhold |\n|---|---|\n| B1 | $400000$ (lånebeløp) |\n| B2 | $1{,}04$ (vekstfaktor) |\n| B3 | $5$ (antall terminer) |\n\nTerminbeløpet regner vi ut med annuitetsformelen, i celle B4:\n\n```\n=B1*(B2-1)/(1-B2^(-B3))\n```\n\nRegnearket gir $T \\approx 89\\,850{,}85$ kr.\n\nSå bygger vi tabellen. I rad 6 står overskriftene, og fra rad 7 og nedover:\n\n| celle | formel | betyr |\n|---|---|---|\n| A7 | `1` | terminnummer |\n| B7 | `=$B$1` | restlån før terminen |\n| C7 | `=B7*($B$2-1)` | rente av restlånet |\n| D7 | `=$B$4-C7` | avdrag = terminbeløp − rente |\n| E7 | `=B7-D7` | restlån etter terminen |\n| B8 | `=E7` | restlånet føres videre |\n\nVi drar rad 8 nedover til rad 11. Dollartegnene låser forutsetningene, mens B7 og C7 flytter seg med.\n\n**Resultatet:**\n\n| Termin | Restlån før | Rente | Avdrag | Restlån etter |\n|---|---|---|---|---|\n| 1 | 400 000,00 | 16 000,00 | 73 850,85 | 326 149,15 |\n| 2 | 326 149,15 | 13 045,97 | 76 804,88 | 249 344,28 |\n| 3 | 249 344,28 | 9 973,77 | 79 877,07 | 169 467,20 |\n| 4 | 169 467,20 | 6 778,69 | 83 072,16 | 86 395,04 |\n| 5 | 86 395,04 | 3 455,80 | 86 395,04 | 0,00 |\n\n![Et stolpediagram med fem like høye stolper, én for hver av terminene 1 til 5. Loddrett akse viser kroner fra 0 til 110 000. Hver stolpe er delt i to: en oransje del nederst som er renten, og en blå del over som er avdraget. Den oransje delen krymper fra 16 000,00 kr i termin 1 til 13 045,97, 9 973,77, 6 778,69 og 3 455,80 kr i termin 5, mens den blå vokser tilsvarende fra 73 850,85 til 86 395,04 kr. En grå stiplet linje ligger på toppen av alle stolpene og er merket «terminbeløpet T = 89 850,85 kr».](/images/content/matematikk-okonomi/matok-4-2-soyler-annuitet.png)\n\n*Annuitetslånet: totalhøyden er den samme hver termin, men de to delene bytter plass. I begynnelsen går mest til renter, mot slutten går mest til avdrag.*\n\n**Svar:** Terminbeløpet er $89\\,850{,}85$ kr. Rentene utgjør $49\\,254{,}23$ kr til sammen, og total innbetaling er $449\\,254{,}23$ kr. Restlånet etter femte termin er null — planen går opp.\n\n**NB:** Se på kolonnene Rente og Avdrag. Terminbeløpet er det samme hele veien, men rentedelen faller fra $16\\,000$ kr til $3\\,456$ kr, mens avdraget vokser fra $73\\,851$ kr til $86\\,395$ kr. Summen av de to er alltid $89\\,850{,}85$ kr. **At restlånet lander nøyaktig på null, er samtidig en kontroll av annuitetsformelen** — den er utledet nettopp for at dette skal skje."
+    },
+        {
+      "id": "matok-4-2-calc-loan",
+      "type": "finance-calculator",
+      "calculatorType": "loan-payment",
+      "title": "Prøv selv: terminbeløp på annuitetslån",
+      "description": "Sett inn lånebeløp, rente og antall terminer. Legg merke til hvor mye terminbeløpet endrer seg av ett prosentpoeng på renten — og hvor lite det synker når du forlenger nedbetalingstiden fra 25 til 30 år.",
+      "defaults": {
+        "K0": 2000000,
+        "r": 5,
+        "n": 25
+      }
+    },
+    {
+      "id": "matok-4-2-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- I et **annuitetslån** er terminbeløpet $T$ det samme hver termin. Det består av renter og avdrag, og fordelingen mellom dem endrer seg: mye rente og lite avdrag i starten, motsatt til slutt.\n- **Kravet lånet bygger på:** nåverdien av alle terminbeløpene er lik lånebeløpet. Den nåverdien er en geometrisk rekke med $a_1 = \\frac{T}{v}$ og $k = \\frac{1}{v}$.\n- **Annuitetsformelen:** $T = K_0 \\cdot \\dfrac{v-1}{1-v^{-n}}$, der $v$ er vekstfaktoren per **termin**.\n- **Flere terminer i året:** renten per termin er $\\frac{p}{m}$ prosent, og $n = m \\cdot t$.\n- **Restlån:** $R_k = K_0 v^{\\,k} - T \\cdot \\dfrac{v^{\\,k}-1}{v-1}$\n- **Nedbetalingstid:** løs $v^{-n} = 1 - \\dfrac{K_0(v-1)}{T}$ og ta logaritmen. Er $T$ mindre enn renten av hele lånet, blir lånet aldri nedbetalt.\n- **I regneark** bygges nedbetalingsplanen rad for rad: rente $=$ restlån $\\cdot (v-1)$, avdrag $=T-$ rente, nytt restlån $=$ gammelt restlån $-$ avdrag."
+    },
+    {
+      "id": "matok-4-2-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-4-2-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave, Del 2 — regneark.** Familien Haugen tar opp et annuitetslån på $2\\,400\\,000$ kr med $4{,}8\\,\\%$ rente og 25 årlige terminer. Etter 5 år vil de pusse opp og utvide lånet med $600\\,000$ kr. Renten er den samme. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor stort er terminbeløpet de fem første årene?",
+            "solution": "$T = 2\\,400\\,000 \\cdot \\frac{0{,}048}{1 - 1{,}048^{-25}} \\approx 166\\,888{,}57$ kr",
+            "answer": 166888.57
+          },
+          {
+            "label": "b",
+            "task": "Hvor mye står igjen av lånet rett etter det femte terminbeløpet?",
+            "solution": "$R_5 = 2\\,400\\,000 \\cdot 1{,}048^{5} - 166\\,888{,}57 \\cdot \\frac{1{,}048^{5} - 1}{0{,}048} \\approx 2\\,115\\,526{,}87$ kr",
+            "answer": 2115526.87
+          },
+          {
+            "label": "c",
+            "task": "De vil fortsatt være ferdig med lånet 25 år etter at det ble tatt opp. Hvor stort blir det nye terminbeløpet?",
+            "solution": "Ny gjeld: $2\\,115\\,526{,}87 + 600\\,000 = 2\\,715\\,526{,}87$ kr, som skal nedbetales over de 20 terminene som er igjen. $T_{\\text{ny}} = 2\\,715\\,526{,}87 \\cdot \\frac{0{,}048}{1 - 1{,}048^{-20}} \\approx 214\\,221{,}06$ kr — en økning på $47\\,332{,}48$ kr i året.",
+            "answer": 214221.06
+          },
+          {
+            "label": "d",
+            "task": "Alternativt beholder de det gamle terminbeløpet. Hvor mange terminer tar nedbetalingen da, regnet fra utvidelsen?",
+            "solution": "$1{,}048^{-n} = 1 - \\frac{2\\,715\\,526{,}87 \\cdot 0{,}048}{166\\,888{,}57} = 0{,}218968$, som gir $n = -\\frac{\\ln 0{,}218968}{\\ln 1{,}048} \\approx 32{,}40$. Det blir 32 fulle terminbeløp og et trettitredje på $66\\,983{,}36$ kr — til sammen $5 + 33 = 38$ år fra lånet ble tatt opp.",
+            "answer": 33
+          },
+          {
+            "label": "e",
+            "task": "Hvor mye betaler familien i renter i alt etter alternativ c), og hvor mye etter alternativ d)? Hvilket alternativ vil du anbefale, og hvorfor?",
+            "solution": "Alternativ c): $5 \\cdot 166\\,888{,}57 + 20 \\cdot 214\\,221{,}06 - 3\\,000\\,000 \\approx 2\\,118\\,864$ kr i renter.\n\nAlternativ d): $37 \\cdot 166\\,888{,}57 + 66\\,983{,}36 - 3\\,000\\,000 \\approx 3\\,241\\,861$ kr i renter — altså omtrent $1\\,122\\,997$ kr mer.\n\nRegnestykket peker klart mot c). Men anbefalingen avhenger av hva familien tåler: c) krever $47\\,332$ kr mer hvert år i tjue år, og et lån man ikke klarer å betjene, er verre enn et dyrt lån. Et mellomalternativ er å velge d) nå og øke terminbeløpet seinere når inntekten tillater det — da forsvinner mye av merkostnaden, siden alt ekstra går rett på gjelden.",
+            "multipleChoiceOptions": [
+              "c) gir $2\\,118\\,863{,}99$ kr i renter og d) gir $3\\,241\\,860{,}52$ kr — c) er klart billigst, men krever at familien tåler et høyere terminbeløp.",
+              "d) er billigst, fordi terminbeløpet er lavere.",
+              "Alternativene koster like mye, siden renten er den samme.",
+              "c) gir $1\\,122\\,996{,}53$ kr i renter og d) gir $2\\,118\\,863{,}99$ kr."
+            ]
+          }
+        ],
+        "hints": [
+          "Utvidelsen legges til **restlånet**, ikke til det opprinnelige lånebeløpet.",
+          "I c) er det 20 terminer igjen av de 25 opprinnelige."
+        ],
+        "solution": "a) $166\\,888{,}57$ kr, b) $2\\,115\\,526{,}87$ kr, c) $214\\,221{,}06$ kr, d) 33 terminer (32 fulle + $66\\,983{,}36$ kr), altså 38 år i alt, e) $2\\,118\\,863{,}99$ kr mot $3\\,241\\,860{,}52$ kr i renter",
+        "competenceGoals": [
+          "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-4-2-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-4-2-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave — drøfting.** Vi sammenligner to måter å nedbetale et lån på $2\\,000\\,000$ kr med $5\\,\\%$ rente over 25 år:\n\n- **Annuitetslån:** like store terminbeløp.\n- **Serielån:** like store avdrag, altså $\\frac{2\\,000\\,000}{25} = 80\\,000$ kr i avdrag hver termin, pluss renter av restgjelden.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hva er terminbeløpet på annuitetslånet, og hvor mye betales i renter til sammen?",
+            "solution": "$T \\approx 141\\,904{,}91$ kr, og rentene blir $25 \\cdot T - 2\\,000\\,000 \\approx 1\\,547\\,622{,}86$ kr",
+            "answer": [
+              141904.91,
+              1547622.86
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Hva er første og siste terminbeløp på serielånet?",
+            "solution": "Første: $80\\,000 + 0{,}05 \\cdot 2\\,000\\,000 = 180\\,000$ kr. Siste: $80\\,000 + 0{,}05 \\cdot 80\\,000 = 84\\,000$ kr",
+            "answer": [
+              180000,
+              84000
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Hvor mye betales i renter til sammen på serielånet? (Restgjeldene danner en aritmetisk følge.)",
+            "solution": "Restgjeldene før hver termin er $2\\,000\\,000,\\ 1\\,920\\,000,\\ \\ldots,\\ 80\\,000$. Summen er $80\\,000 \\cdot \\frac{25 \\cdot 26}{2} = 26\\,000\\,000$, og rentene blir $0{,}05 \\cdot 26\\,000\\,000 = 1\\,300\\,000$ kr — altså $247\\,622{,}86$ kr mindre enn annuitetslånet.",
+            "answer": 1300000
+          },
+          {
+            "label": "d",
+            "task": "Gå tilbake til annuitetslånet. Hvor mye endrer terminbeløpet seg dersom renten er $4\\,\\%$ eller $6\\,\\%$ i stedet for $5\\,\\%$?",
+            "solution": "$4\\,\\%$: $T \\approx 128\\,023{,}93$ kr. $6\\,\\%$: $T \\approx 156\\,453{,}44$ kr. Ett prosentpoeng opp fra $5\\,\\%$ gir $14\\,548{,}52$ kr mer i året, altså $10{,}25\\,\\%$ høyere terminbeløp.",
+            "answer": [
+              128023.93,
+              156453.44
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Drøft: serielånet er billigst totalt, men de fleste velger likevel annuitetslån. Hvorfor?",
+            "solution": "Serielånet er billigst fordi avdragene kommer tidligere — gjelden synker raskere, og renten regnes derfor av et mindre beløp hele veien. Forskjellen her er $247\\,623$ kr, altså om lag $16\\,\\%$ av rentekostnaden.\n\nGrunnen til at annuitetslån likevel er vanligst, er at belastningen kommer når folk har minst å rutte med. Serielånets første termin er $180\\,000$ kr mot annuitetslånets $141\\,905$ kr — $38\\,095$ kr mer det året man nettopp har kjøpt bolig. Annuitetslånet gir i tillegg et fast og forutsigbart beløp, noe som er lettere å legge inn i et budsjett.\n\nRegnestykket i d) peker på noe viktigere enn valget mellom låntypene: ett prosentpoeng rente endret terminbeløpet med over $10\\,\\%$. Renten betyr altså langt mer for økonomien enn hvilken nedbetalingsform man velger.",
+            "multipleChoiceOptions": [
+              "Serielånet er billigst fordi avdragene kommer tidligere, men annuitetslånet gir lavere og helt forutsigbare terminbeløp i de første og dyreste årene.",
+              "Annuitetslånet er egentlig billigst; regnestykket i c) tar ikke hensyn til rentesrente.",
+              "Serielån er ikke tillatt for boliglån i Norge.",
+              "Fordi serielånets siste terminbeløp er høyest, og det er tungt å avslutte lånet."
+            ]
+          }
+        ],
+        "hints": [
+          "I c): summen $2\\,000\\,000 + 1\\,920\\,000 + \\ldots + 80\\,000$ er en aritmetisk rekke med 25 ledd.",
+          "I e): tenk på *når* i livet belastningen kommer, ikke bare på totalsummen."
+        ],
+        "solution": "a) $141\\,904{,}91$ kr og $1\\,547\\,622{,}86$ kr i renter, b) $180\\,000$ kr og $84\\,000$ kr, c) $1\\,300\\,000$ kr, d) $128\\,023{,}93$ kr og $156\\,453{,}44$ kr, e) serielånet er billigst, men annuitetslånet gir lavest og mest forutsigbar belastning i starten",
+        "competenceGoals": [
+          "bruke formelen for geometriske rekkjer til å bestemme terminbeløpet i eit annuitetslån og til å berekne årleg effektiv rente ved hjelp av digitale verktøy når lånet har gebyr"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Annuitetslån",
+      "definition": "Et lån som nedbetales med like store terminbeløp. Rentedelen er størst i starten, avdragsdelen størst til slutt."
+    },
+    {
+      "term": "Terminbeløp",
+      "definition": "Det faste beløpet som betales hver termin: $T = K_0 \\cdot \\frac{v-1}{1-v^{-n}}$, der $v$ er vekstfaktoren per termin og $n$ antall terminer."
+    },
+    {
+      "term": "Avdrag",
+      "definition": "Den delen av terminbeløpet som faktisk nedbetaler gjelden. Avdraget er terminbeløpet minus rentene av restlånet."
+    },
+    {
+      "term": "Restlån",
+      "definition": "Det som står igjen av gjelden etter $k$ terminer: $R_k = K_0 v^{\\,k} - T \\cdot \\frac{v^{\\,k}-1}{v-1}$."
+    },
+    {
+      "term": "Serielån",
+      "definition": "Et lån med like store avdrag. Terminbeløpet synker gjennom perioden, og den samlede rentekostnaden blir lavere enn på et annuitetslån med samme løpetid og rente."
+    }
+  ]
+}

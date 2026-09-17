@@ -1,0 +1,442 @@
+{
+  "id": "stat-7-6",
+  "courseId": "statistikk",
+  "chapterNumber": "7.6",
+  "title": "Test av en andel",
+  "description": "Hypotesetest for en andel, binomisk og med normaltilnærming.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+  ],
+  "content": [
+    {
+      "id": "stat-7-6-section-intro",
+      "type": "text",
+      "content": "# Test av en andel\n\nI kapittel 7.4 testet vi andeler med den **binomiske fordelingen** og regnet p-verdien som en hale i den. I kapittel 7.5 testet vi gjennomsnitt med **normalfordelingen** og en testobservator $z$.\n\nFor andeler har vi begge veiene åpne, og dette kapittelet handler om å velge riktig:\n\n| metode | når | p-verdi |\n|---|---|---|\n| **eksakt binomisk** | alltid gyldig, men tungvint for hånd ved stor $n$ | hale i binomisk fordeling |\n| **normaltilnærming** | når $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$ | hale i normalfordelingen |\n\nDen eksakte metoden er alltid riktig. Normaltilnærmingen er en snarvei som blir god når utvalget er stort nok — og vi skal måle hvor stor forskjellen faktisk er.\n\n**Merk deg allerede nå ett punkt:** når vi tester, regner vi standardfeilen med **$p_0$ fra nullhypotesen**, ikke med $\\hat{p}$ fra dataene. Det er den eneste stedet der testen skiller seg fra konfidensintervallet i kapittel 7.3."
+    },
+    {
+      "id": "stat-7-6-theorem-andelstest",
+      "type": "theorem",
+      "title": "Testobservator for en andel",
+      "content": "Skal vi teste $H_0: p = p_0$ ut fra $x$ observasjoner i et utvalg på $n$, setter vi $\\hat{p} = \\frac{x}{n}$ og regner\n\n$$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}$$\n\nNår $H_0$ er sann og $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$, er $z$ tilnærmet standard normalfordelt. p-verdiene finnes som i kapittel 7.5:\n\n| $H_1$ | p-verdi |\n|---|---|\n| $p > p_0$ | $P(Z \\ge z)$ |\n| $p < p_0$ | $P(Z \\le z)$ |\n| $p \\ne p_0$ | $2 \\cdot P(Z \\ge \\lvert z \\rvert)$ |\n\n**Den eksakte binomiske p-verdien** regnes direkte på antallet $x$, under $H_0$:\n\n$$P(X \\ge x) \\quad \\text{eller} \\quad P(X \\le x)$$\n\n**NB — hvorfor $p_0$ og ikke $\\hat{p}$ i nevneren?** Hele testen bygger på spørsmålet «hvis $H_0$ er sann, hvor rart er dette?». Da må også spredningen regnes ut fra $H_0$. I konfidensintervallet finnes det ingen $p_0$ — der er $\\hat{p}$ det eneste vi har."
+    },
+    {
+      "id": "stat-7-6-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Når utvalget er for lite for snarveien",
+      "problem": "Et apotek lover at 90 % av kundene er ekspedert innen fem minutter. En kontroll av 30 tilfeldige kunder viser at 22 ble ekspedert i tide.\n\na) Sett opp hypoteser.\nb) Kontroller om normaltilnærmingen kan brukes.\nc) Finn den eksakte p-verdien og konkluder på 5 %-nivå.\nd) Hvor galt hadde det gått med normaltilnærmingen?",
+      "solution": "**Løsning:**\n\n**a)** Kontrollen er ute etter om løftet **ikke** holdes:\n\n$$H_0: p = 0{,}90 \\qquad H_1: p < 0{,}90$$\n\n**b)** Under $H_0$:\n\n$$np_0 = 30 \\cdot 0{,}90 = 27 \\ge 5 \\quad \\checkmark$$\n\n$$n(1-p_0) = 30 \\cdot 0{,}10 = 3 \\quad \\textbf{— under 5!}$$\n\nDen andre betingelsen svikter. Normaltilnærmingen kan altså **ikke** brukes her, og vi må regne eksakt.\n\n**c)** Under $H_0$ er antall kunder ekspedert i tide binomisk fordelt med $n = 30$ og $p = 0{,}90$. Forventet antall er 27; vi observerte 22.\n\n$$p\\text{-verdi} = P(X \\le 22) = 0{,}0078$$\n\n```\nregneark:   =BINOM.FORDELING.N(22;30;0,9;SANN)     gir 0,0078\n```\n\n$$0{,}0078 \\le 0{,}05$$\n\n$H_0$ forkastes.\n\n![Et søylediagram over antall fra 0 til 36 på den vannrette aksen. Alle søylene ligger klemt sammen mellom 22 og 30; til venstre for 22 er det ingen synlige søyler i det hele tatt. Den høyeste søyla står over 27 og når omtrent 0,24. Søylene faller bratt av til høyre og stopper helt ved 30, der en grå stiplet loddrett strek er merket 30 er det høyeste mulige. En oransje klokkekurve er lagt over søylene, men kurven fortsetter til høyre forbi 30 og ned mot 34. Til venstre står tekstene p-verdi er lik P av X mindre enn eller lik 22 er lik 0,0078 og normalkurven går forbi 30 — et umulig antall. En rød stiplet strek står i 22,5.](/images/content/statistikk/stat-7-6-apotek-skjev.png)\n\n*Her svikter normaltilnærmingen. Med $n = 30$ og $p_0 = 0{,}90$ er $n(1 - p_0) = 3$, altså langt under 5, og fordelingen er presset opp mot 30. Normalkurven fortsetter forbi 30 og gir sannsynlighet til antall som ikke finnes. Alt til venstre for den røde streken er $p$-verdien; søylene der er for lave til å ses.*\n\n**Konklusjon i kontekst:** Kontrollen gir grunnlag for å si at apoteket ekspederer færre enn 90 % av kundene innen fem minutter. Holdt løftet, ville 22 eller færre i tide forekommet i under 1 av 100 kontroller.\n\n**d)** Regner vi likevel med normaltilnærmingen:\n\n$$\\hat{p} = \\frac{22}{30} \\approx 0{,}7333$$\n\n$$z = \\frac{0{,}7333 - 0{,}90}{\\sqrt{\\frac{0{,}90 \\cdot 0{,}10}{30}}} = \\frac{-0{,}1667}{0{,}0548} \\approx -3{,}04$$\n\n$$p\\text{-verdi} \\approx P(Z \\le -3{,}04) = 0{,}0012$$\n\nDet er **0,0012 mot 0,0078** — snarveien gir en p-verdi som er over seks ganger for liten. Konklusjonen blir riktignok den samme her, men i et grensetilfelle ville den vært feil.\n\n**Svar:** a) $H_0: p = 0{,}90$ mot $H_1: p < 0{,}90$. b) Nei — $n(1-p_0) = 3 < 5$. c) $p\\text{-verdi} = 0{,}0078$, $H_0$ forkastes. d) Normaltilnærmingen gir 0,0012, altså over seks ganger for lite.\n\n**NB:** Betingelsen er ikke en formalitet man kan hoppe over når tallene er nesten store nok. Det er nettopp i halene — der p-verdiene bor — at tilnærmingen er dårligst."
+    },
+    {
+      "id": "stat-7-6-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. Erfaring viser at 60 % av pasientene blir bedre av en standardbehandling. En ny behandling prøves på 15 pasienter, og 13 blir bedre.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$.",
+            "solution": "$H_0: p = 0{,}60$ mot $H_1: p > 0{,}60$. Ensidig — spørsmålet er om den nye behandlingen er bedre."
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange ville vi ventet under $H_0$?",
+            "solution": "$E(X) = 15 \\cdot 0{,}60 = 9$ pasienter. Vi observerte 13.",
+            "answer": 9
+          },
+          {
+            "label": "c",
+            "task": "Finn den eksakte p-verdien.",
+            "solution": "$P(X \\ge 13) = 1 - P(X \\le 12) \\approx 0{,}0271$. I regneark: `=1-BINOM.FORDELING.N(12;15;0,6;SANN)`.",
+            "answer": 0.0271
+          },
+          {
+            "label": "d",
+            "task": "Konkluder på 5 %-nivå og på 1 %-nivå.",
+            "solution": "På 5 %-nivå: $0{,}0271 \\le 0{,}05$, forkast $H_0$ — den nye behandlingen ser ut til å virke bedre. På 1 %-nivå: $0{,}0271 > 0{,}01$, behold $H_0$."
+          },
+          {
+            "label": "e",
+            "task": "Regn også normaltilnærmingen, og sammenlign. Hvilken bør oppgis?",
+            "solution": "$\\hat{p} = \\frac{13}{15} \\approx 0{,}8667$, $z = \\frac{0{,}8667 - 0{,}60}{\\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{15}}} = \\frac{0{,}2667}{0{,}1265} \\approx 2{,}11$, og $p \\approx 0{,}0175$. Den eksakte verdien 0,0271 skal oppgis: betingelsene er så vidt oppfylt ($np_0 = 9$, $n(1-p_0) = 6$), men $n = 15$ er lite, og da er den eksakte regningen både mulig og riktigere.",
+            "answer": 0.0175
+          }
+        ],
+        "hints": [
+          "Kontroller $np_0$ og $n(1-p_0)$ før du velger metode."
+        ],
+        "solution": "a) $H_0: p = 0{,}60$, $H_1: p > 0{,}60$. b) 9. c) $\\approx 0{,}0271$. d) Forkast på 5 %, behold på 1 %. e) Normal gir 0,0175 — oppgi den eksakte.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-6-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Sykler flere i kommunen enn på landsbasis?",
+      "problem": "På landsbasis sykler 5 % av de yrkesaktive til jobb. En kommune som har satset på sykkelveier, spør 600 tilfeldig valgte yrkesaktive innbyggere, og 42 sier de sykler til jobb.\n\na) Sett opp hypoteser og kontroller forutsetningen.\nb) Regn ut $z$ og finn p-verdien.\nc) Konkluder på 5 %-nivå og på 1 %-nivå.\nd) Sammenlign med den eksakte binomiske p-verdien.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $p_0 = 0{,}05$, $n = 600$, $x = 42$.\n\n**a)** Kommunen vil vise at andelen er **høyere**:\n\n$$H_0: p = 0{,}05 \\qquad H_1: p > 0{,}05$$\n\nForutsetningen, regnet under $H_0$:\n\n$$np_0 = 600 \\cdot 0{,}05 = 30 \\ge 5 \\quad \\checkmark$$\n\n$$n(1-p_0) = 600 \\cdot 0{,}95 = 570 \\ge 5 \\quad \\checkmark$$\n\nNormaltilnærmingen kan brukes.\n\n**b)** Estimatet:\n\n$$\\hat{p} = \\frac{42}{600} = 0{,}07$$\n\nStandardfeilen **under $H_0$** — altså med $p_0 = 0{,}05$, ikke med 0,07:\n\n$$\\sqrt{\\frac{p_0(1-p_0)}{n}} = \\sqrt{\\frac{0{,}05 \\cdot 0{,}95}{600}} = \\sqrt{0{,}0000792} \\approx 0{,}0089$$\n\nTestobservatoren:\n\n$$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}} = \\frac{0{,}07 - 0{,}05}{0{,}0089} = \\frac{0{,}02}{0{,}0089} \\approx 2{,}25$$\n\np-verdien:\n\n$$p = P(Z \\ge 2{,}25) = 1 - 0{,}9878 = 0{,}0122$$\n\n**c)** På 5 %-nivå: $0{,}0122 \\le 0{,}05$ — $H_0$ forkastes. På 1 %-nivå: $0{,}0122 > 0{,}01$ — $H_0$ beholdes.\n\n**Konklusjon i kontekst:** På 5 %-nivå gir undersøkelsen grunnlag for å si at andelen som sykler til jobb, er høyere i kommunen enn de 5 prosentene på landsbasis.\n\n**d)** Den eksakte binomiske p-verdien er\n\n$$P(X \\ge 42) = 0{,}0193$$\n\nmot normaltilnærmingens 0,0122. Begge gir forkastning på 5 %-nivå, men den eksakte er nesten 60 % større. Tilnærmingen er altså litt for rask til å forkaste — noe den ofte er når $p_0$ ligger nær 0 eller 1.\n\n**Svar:** a) $H_0: p = 0{,}05$ mot $H_1: p > 0{,}05$; forutsetningen er oppfylt. b) $z \\approx 2{,}25$ og $p \\approx 0{,}0122$. c) Forkast på 5 %-nivå, behold på 1 %-nivå. d) Eksakt: 0,0193 — samme konklusjon, men større p-verdi."
+    },
+    {
+      "id": "stat-7-6-warning-p0",
+      "type": "warning",
+      "title": "Den vanligste feilen: feil tall i nevneren",
+      "content": "Det er lett å skrive\n\n$$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}} \\qquad \\textbf{(FEIL i en test)}$$\n\nfordi det er akkurat den standardfeilen vi brukte i konfidensintervallet i kapittel 7.3. Men i en test regner vi **under $H_0$**, og da hører også spredningen til $H_0$.\n\n| | standardfeil | hvorfor |\n|---|---|---|\n| konfidensintervall | $\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$ | vi har ingen $p_0$ — bare dataene |\n| hypotesetest | $\\sqrt{\\frac{p_0(1-p_0)}{n}}$ | alt regnes som om $H_0$ var sann |\n\nI eksempel 2 ville feilen gitt $\\sqrt{\\frac{0{,}07 \\cdot 0{,}93}{600}} \\approx 0{,}0104$ i stedet for 0,0089, og dermed $z \\approx 1{,}92$ i stedet for 2,25 — p-verdi 0,027 i stedet for 0,012. Samme konklusjon her, men feil tall, og i et grensetilfelle feil svar.\n\n**Huskeregel:** *Testen låner alt fra nullhypotesen. Intervallet låner alt fra dataene.*"
+    },
+    {
+      "id": "stat-7-6-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kommune har tidligere målt at 60 % av innbyggerne kildesorterer riktig. Etter en informasjonskampanje kontrollerer de 400 tilfeldige husholdninger, og 268 sorterer riktig.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$, og kontroller forutsetningen.",
+            "solution": "$H_0: p = 0{,}60$ mot $H_1: p > 0{,}60$. $np_0 = 240$ og $n(1-p_0) = 160$, begge godt over 5 — normaltilnærmingen kan brukes.",
+            "answer": 240
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\hat{p}$ og standardfeilen under $H_0$.",
+            "solution": "$\\hat{p} = \\frac{268}{400} = 0{,}67$ og $\\sqrt{\\frac{0{,}60 \\cdot 0{,}40}{400}} = \\sqrt{0{,}0006} \\approx 0{,}0245$.",
+            "answer": 0.0245
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $z$.",
+            "solution": "$z = \\frac{0{,}67 - 0{,}60}{0{,}0245} = \\frac{0{,}07}{0{,}0245} \\approx 2{,}86$",
+            "answer": 2.86
+          },
+          {
+            "label": "d",
+            "task": "Finn p-verdien og konkluder på 1 %-nivå.",
+            "solution": "$p = P(Z \\ge 2{,}86) = 1 - 0{,}9979 = 0{,}0021 \\le 0{,}01$. $H_0$ forkastes — kampanjen ser ut til å ha virket.",
+            "answer": 0.0021
+          },
+          {
+            "label": "e",
+            "task": "Finn den eksakte binomiske p-verdien og sammenlign.",
+            "solution": "$P(X \\ge 268) \\approx 0{,}0023$ mot normaltilnærmingens 0,0021. Nesten identiske — når $n$ er stor og $p_0$ ligger nær 0,5, er tilnærmingen svært god.",
+            "answer": 0.0023
+          }
+        ],
+        "hints": [
+          "Bruk $p_0 = 0{,}60$ i nevneren, ikke $\\hat{p} = 0{,}67$."
+        ],
+        "solution": "a) $H_0: p = 0{,}60$, forutsetning OK. b) $\\hat{p} = 0{,}67$, $SE \\approx 0{,}0245$. c) $z \\approx 2{,}86$. d) $p \\approx 0{,}0021$ — forkast. e) eksakt $\\approx 0{,}0023$.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-6-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Forkastningsområdet i antall",
+      "problem": "Vi planlegger sykkelundersøkelsen fra eksempel 2 på nytt: $n = 600$ og $H_0: p = 0{,}05$ mot $H_1: p > 0{,}05$, på 5 %-nivå.\n\na) Finn forkastningsområdet uttrykt i $\\hat{p}$.\nb) Gjør det om til antall syklister.\nc) Finn det eksakte forkastningsområdet med den binomiske fordelingen, og sammenlign.",
+      "solution": "**Løsning:**\n\n**a)** Kritisk $z$ for ensidig test på 5 %-nivå er 1,645. Da er grensen\n\n$$\\hat{p} = p_0 + 1{,}645 \\cdot \\sqrt{\\frac{p_0(1-p_0)}{n}} = 0{,}05 + 1{,}645 \\cdot 0{,}0089 = 0{,}05 + 0{,}0146 = 0{,}0646$$\n\nForkastningsområdet er $\\hat{p} \\ge 0{,}0646$, altså 6,46 % eller mer.\n\n**b)** Vi ganger med $n$:\n\n$$600 \\cdot 0{,}0646 = 38{,}8$$\n\nSiden antall syklister er et helt tall, forkastes $H_0$ ved **39 eller flere** syklister.\n\n**c)** Eksakt regning gir\n\n| $k$ | 38 | 39 | **40** | 41 |\n|---|---|---|---|---|\n| $P(X \\ge k)$ | 0,0836 | 0,0599 | **0,0420** | 0,0288 |\n\nDen minste $k$ som gir sannsynlighet under 5 %, er 40. Det eksakte forkastningsområdet er altså $X \\ge 40$, mens tilnærmingen sa 39.\n\nForskjellen er én person. Ved $k = 39$ er den virkelige sannsynligheten 0,0599 — altså er den «5 %-testen» tilnærmingen foreslår, i virkeligheten en 6 %-test.\n\n![Et søylediagram over antall syklister, merket k, fra 10 til 55 på den vannrette aksen. Fordelingen har toppen rundt 30 og er nesten symmetrisk. Søylene til og med 38 er blå, søylene fra 39 og oppover er røde. En grå stiplet loddrett strek står mellom 38 og 39, merket grensen 38,8. Teksten forkast fra og med 39 står ved de røde søylene.](/images/content/statistikk/stat-7-6-sykkel-n600.png)\n\n*Grensen $\\mu + 1{,}645\\sigma = 38{,}8$ ligger mellom to hele tall. Antallet kan bare være et helt tall, så forkastningsområdet må starte ved 39 — og da blir den virkelige sannsynligheten for å forkaste litt mindre enn 5 %. Det er derfor en test på et diskret antall sjelden treffer signifikansnivået eksakt.*\n\n**Svar:** a) $\\hat{p} \\ge 0{,}0646$. b) 39 eller flere syklister. c) Eksakt: 40 eller flere. Tilnærmingen bommer med én observasjon, og gir et faktisk signifikansnivå på 6,0 % i stedet for 5 %.\n\n**NB:** Sprang som dette er uunngåelige med en diskret fordeling. Antall syklister er et helt tall, og da finnes det sjelden en grense som treffer akkurat 5 %. Det faktiske signifikansnivået blir derfor ofte litt lavere enn det vi ba om — her 4,2 % i stedet for 5 %."
+    },
+    {
+      "id": "stat-7-6-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En nettbutikk vil undersøke om andelen kunder som velger et abonnement framfor et engangskjøp, har endret seg fra de vanlige 50 %. De ser på 400 tilfeldige kjøp, og 176 er abonnement.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$, og si om testen er ensidig eller tosidig.",
+            "solution": "$H_0: p = 0{,}50$ mot $H_1: p \\ne 0{,}50$. Tosidig — «endret seg» dekker begge retninger."
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\hat{p}$ og standardfeilen under $H_0$.",
+            "solution": "$\\hat{p} = \\frac{176}{400} = 0{,}44$ og $\\sqrt{\\frac{0{,}5 \\cdot 0{,}5}{400}} = \\sqrt{0{,}000625} = 0{,}025$.",
+            "answer": 0.025
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $z$ og finn den tosidige p-verdien.",
+            "solution": "$z = \\frac{0{,}44 - 0{,}50}{0{,}025} = \\frac{-0{,}06}{0{,}025} = -2{,}40$ og $p = 2 \\cdot P(Z \\ge 2{,}40) = 2 \\cdot 0{,}0082 = 0{,}0164$.",
+            "answer": 0.0164
+          },
+          {
+            "label": "d",
+            "task": "Konkluder på 5 %-nivå, i kontekst.",
+            "solution": "$0{,}0164 \\le 0{,}05$, så $H_0$ forkastes. Tallene gir grunnlag for å si at andelen abonnement har endret seg — den ser ut til å ha gått ned fra 50 %."
+          },
+          {
+            "label": "e",
+            "task": "Regn 95 % konfidensintervallet for $p$, og vis at det gir samme konklusjon. Legg merke til hvilken standardfeil du bruker her.",
+            "solution": "Her brukes $\\hat{p}$ i standardfeilen: $\\sqrt{\\frac{0{,}44 \\cdot 0{,}56}{400}} \\approx 0{,}0248$, margin $1{,}96 \\cdot 0{,}0248 \\approx 0{,}0487$, intervall $[0{,}391,\\ 0{,}489]$. Verdien 0,50 ligger utenfor, altså forkastning — samme svar som testen.",
+            "answer": 0.391
+          }
+        ],
+        "hints": [
+          "Testen bruker $p_0$ i nevneren, intervallet bruker $\\hat{p}$. Det er hele forskjellen."
+        ],
+        "solution": "a) tosidig om $p = 0{,}50$. b) $\\hat{p} = 0{,}44$, $SE_0 = 0{,}025$. c) $z = -2{,}40$, $p = 0{,}0164$. d) Forkast. e) $[0{,}391,\\ 0{,}489]$ — 0,50 utenfor.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-6-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Begge metodene i verktøyene",
+      "problem": "Vi bruker tallene fra eksempel 2: $n = 600$, $x = 42$, $H_0: p = 0{,}05$ mot $H_1: p > 0{,}05$.\n\na) Sett opp regnearket som gir begge p-verdiene.\nb) Gjør det samme i GeoGebra.\nc) Hvilken p-verdi bør rapporteres?",
+      "solution": "**Løsning:**\n\n**a)** Vi legger inn de tre tallene og bygger videre:\n\n```\nA1: 600       (n)\nA2: 42        (x)\nA3: 0,05      (p0)\n\nA4: =A2/A1                       gir 0,07       (p-hatt)\nA5: =ROT(A3*(1-A3)/A1)           gir 0,008898   (SE under H0)\nA6: =(A4-A3)/A5                  gir 2,2478     (z)\nA7: =1-NORM.S.FORDELING.N(A6;SANN) gir 0,01229    (normaltilnærming)\nA8: =1-BINOM.FORDELING.N(A2-1;A1;A3;SANN)\n                                 gir 0,01933    (eksakt binomisk)\n```\n\nLegg merke til `A2-1` i den siste: `BINOM.FORDELING.N(...;SANN)` gir $P(X \\le k)$, så $P(X \\ge 42)$ er $1 - P(X \\le 41)$.\n\n**b)** I GeoGebra:\n\n```\nFordelingBinomial(600, 0.05, 41, true)     gir 0.98067\n1 - 0.98067                                gir 0.01933\n```\n\n**c)** Den **eksakte** verdien 0,0193. Den er riktig uansett utvalgsstørrelse, og verktøyet regner den like raskt som tilnærmingen. Normaltilnærmingen hører hjemme på Del 1, der vi bare har tabellen — og der er $z$-veien den eneste farbare.\n\n**Svar:** a) `NORM.S.FORDELING` for tilnærmingen, `BINOM.FORDELING.N` for den eksakte. b) `FordelingBinomial(600, 0.05, 41, true)` og trekk fra 1. c) Den eksakte, 0,0193.\n\n**NB — en god vane:** oppgi alltid hvilken metode du har brukt. «$p = 0{,}019$ (eksakt binomisk)» og «$p = 0{,}012$ (normaltilnærming)» er to forskjellige opplysninger om de samme dataene, og leseren har krav på å vite hvilken av dem hun ser."
+    },
+    {
+      "id": "stat-7-6-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør for hvert tilfelle om normaltilnærmingen kan brukes, eller om testen må gjøres eksakt binomisk. Regn $np_0$ og $n(1-p_0)$ hver gang.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "$n = 40$ og $H_0: p = 0{,}02$.",
+            "solution": "$np_0 = 0{,}8$ og $n(1-p_0) = 39{,}2$. Den første er langt under 5 — eksakt binomisk.",
+            "answer": 0.8
+          },
+          {
+            "label": "b",
+            "task": "$n = 300$ og $H_0: p = 0{,}02$.",
+            "solution": "$np_0 = 6$ og $n(1-p_0) = 294$. Begge over 5 — normaltilnærmingen kan brukes, men den er akkurat på grensen, så eksakt regning er tryggere hvis verktøy er tilgjengelig.",
+            "answer": 6
+          },
+          {
+            "label": "c",
+            "task": "$n = 25$ og $H_0: p = 0{,}5$.",
+            "solution": "$np_0 = n(1-p_0) = 12{,}5$. Begge godt over 5 — normaltilnærmingen kan brukes. Andeler nær 0,5 er det snilleste tilfellet.",
+            "answer": 12.5
+          },
+          {
+            "label": "d",
+            "task": "$n = 1000$ og $H_0: p = 0{,}004$.",
+            "solution": "$np_0 = 4$ og $n(1-p_0) = 996$. Den første er under 5 — eksakt binomisk, til tross for at $n$ er stor. Det er ikke $n$ alene som avgjør, men $np_0$.",
+            "answer": 4
+          },
+          {
+            "label": "e",
+            "task": "Formuler med egne ord når normaltilnærmingen svikter.",
+            "solution": "Når det forventede antallet i en av de to gruppene er lite — altså når $p_0$ ligger nær 0 eller 1 og $n$ ikke er stor nok til å veie opp. Da er den binomiske fordelingen skjev, mens normalfordelingen er symmetrisk, og halene stemmer dårlig."
+          }
+        ],
+        "hints": [
+          "Regn alltid begge produktene. Det er den minste av dem som avgjør."
+        ],
+        "solution": "a) eksakt, b) normal (så vidt), c) normal, d) eksakt, e) når $np_0$ eller $n(1-p_0)$ er liten",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-6-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En kinokjede har erfart at 25 % av gjestene kjøper mat i kiosken. Etter en ny meny vil de teste $H_0: p = 0{,}25$ mot $H_1: p > 0{,}25$ på 5 %-nivå, med $n = 200$ gjester.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange kjøp ville vi ventet under $H_0$?",
+            "solution": "$E(X) = 200 \\cdot 0{,}25 = 50$ kjøp.",
+            "answer": 50
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen under $H_0$.",
+            "solution": "$\\sqrt{\\frac{0{,}25 \\cdot 0{,}75}{200}} = \\sqrt{0{,}0009375} \\approx 0{,}0306$",
+            "answer": 0.0306
+          },
+          {
+            "label": "c",
+            "task": "Finn forkastningsområdet uttrykt i $\\hat{p}$, og gjør det om til antall.",
+            "solution": "$\\hat{p} \\ge 0{,}25 + 1{,}645 \\cdot 0{,}0306 \\approx 0{,}3004$, altså $200 \\cdot 0{,}3004 = 60{,}1$ — minst 61 kjøp.",
+            "answer": 61
+          },
+          {
+            "label": "d",
+            "task": "Kontroller grensen eksakt: regn $P(X \\ge 60)$ og $P(X \\ge 61)$.",
+            "solution": "$P(X \\ge 60) \\approx 0{,}0625 > 0{,}05$ og $P(X \\ge 61) \\approx 0{,}0454 \\le 0{,}05$. Den eksakte grensen er også 61 — her er tilnærmingen og eksakt regning enige.",
+            "answer": 0.0454
+          },
+          {
+            "label": "e",
+            "task": "Kjeden observerer 58 kjøp. Hva blir konklusjonen, og hva ville du rådet dem til?",
+            "solution": "58 er under grensen på 61, så $H_0$ beholdes ($P(X \\ge 58) \\approx 0{,}111$). Rådet: 58 mot forventede 50 peker riktig vei, men er innenfor det tilfeldig variasjon gir. Vil de avgjøre spørsmålet, må de observere flere gjester — ikke tolke dette resultatet som et svar.",
+            "answer": 0.111
+          }
+        ],
+        "hints": [
+          "Grensen i antall er $n$ ganget med grensen i $\\hat{p}$, rundet opp til nærmeste hele observasjon."
+        ],
+        "solution": "a) 50. b) $\\approx 0{,}0306$. c) $\\hat{p} \\ge 0{,}300$, altså minst 61 kjøp. d) 0,0625 og 0,0454 — grensen er 61. e) Behold $H_0$; observer flere gjester.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-6-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Testobservator for en andel:\n\n$$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}$$\n\n- **Standardfeilen regnes med $p_0$**, ikke med $\\hat{p}$ — alt i en test regnes som om $H_0$ var sann. Konfidensintervallet bruker derimot $\\hat{p}$.\n- **Forutsetning for normaltilnærming:** $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$. Det er den minste av dem som avgjør, og stor $n$ redder ikke en $p_0$ nær 0 eller 1.\n- **Eksakt binomisk p-verdi** er alltid riktig: $P(X \\ge x)$ eller $P(X \\le x)$ under $H_0$, regnet med `BINOM.FORDELING.N`.\n- Tilnærmingen gir for små p-verdier når fordelingen er skjev — i eksempel 1 var 0,0012 mot eksakte 0,0078.\n- Forkastningsområdet kan skrives i $\\hat{p}$ eller i antall. Fordi antallet er et helt tall, treffer testen sjelden signifikansnivået eksakt.\n- p-verdier oppgis med metoden: «$p = 0{,}019$ (eksakt binomisk)».\n\nI kapittel 7.7 setter vi alt sammen på et reelt datasett, og ser på de to feilene en test kan gjøre."
+    },
+    {
+      "id": "stat-7-6-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Ved forrige kommunestyrevalg var valgdeltakelsen i en kommune 64,0 %. Etter valget i år spør kommunen 1500 tilfeldig valgte stemmeberettigede, og 992 sier de stemte. Kommunen vil vite om deltakelsen har endret seg.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp hypotesene, og begrunn ensidig eller tosidig.",
+            "solution": "$H_0: p = 0{,}64$ mot $H_1: p \\ne 0{,}64$. Tosidig — spørsmålet er om deltakelsen har *endret* seg, ikke om den har økt."
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\hat{p}$, standardfeilen under $H_0$ og $z$.",
+            "solution": "$\\hat{p} = \\frac{992}{1500} \\approx 0{,}6613$. $SE_0 = \\sqrt{\\frac{0{,}64 \\cdot 0{,}36}{1500}} \\approx 0{,}01239$. $z = \\frac{0{,}6613 - 0{,}64}{0{,}01239} \\approx 1{,}72$.",
+            "answer": 1.72
+          },
+          {
+            "label": "c",
+            "task": "Finn den tosidige p-verdien og konkluder på 5 %-nivå.",
+            "solution": "$p = 2 \\cdot P(Z \\ge 1{,}72) = 2 \\cdot 0{,}0427 \\approx 0{,}0854 > 0{,}05$. $H_0$ beholdes — det er ikke grunnlag for å si at deltakelsen har endret seg.",
+            "answer": 0.0854
+          },
+          {
+            "label": "d",
+            "task": "Regn 95 % konfidensintervallet for $p$, og vis at det stemmer med konklusjonen i c).",
+            "solution": "Med $\\hat{p}$ i standardfeilen: $\\sqrt{\\frac{0{,}6613 \\cdot 0{,}3387}{1500}} \\approx 0{,}01222$, margin $\\approx 0{,}0240$, intervall $[0{,}637,\\ 0{,}685]$. Verdien 0,64 ligger innenfor — altså ingen forkastning, som i c).",
+            "answer": 0.637
+          },
+          {
+            "label": "e",
+            "task": "Hvor stort måtte utvalget vært for at det samme avviket (2,13 prosentpoeng) skulle blitt signifikant på 5 %-nivå? Drøft om kommunen bør spørre så mange.",
+            "solution": "Kravet er $\\frac{0{,}02133}{\\sqrt{0{,}64 \\cdot 0{,}36/n}} \\ge 1{,}96$, som gir $n \\ge 1945$, altså om lag 2000 personer. Drøfting: spørsmålet er om en endring på om lag 2 prosentpoeng er verdt å påvise. Kommunen kan i stedet hente den faktiske valgdeltakelsen fra manntallet — den er kjent for hele populasjonen, og da trengs ingen test i det hele tatt. En spørreundersøkelse har dessuten en egen feilkilde her: folk overrapporterer at de har stemt.",
+            "answer": 1945
+          }
+        ],
+        "hints": [
+          "Bruk $p_0$ i testen og $\\hat{p}$ i intervallet — de to skal ikke gi helt like standardfeil."
+        ],
+        "solution": "a) tosidig om $p = 0{,}64$. b) $\\hat{p} \\approx 0{,}661$, $SE_0 \\approx 0{,}0124$, $z \\approx 1{,}72$. c) $p \\approx 0{,}085$ — behold $H_0$. d) $[0{,}637,\\ 0{,}685]$ — 0,64 innenfor. e) om lag 2000; men manntallet gir tallet eksakt.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-6-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-6-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder situasjonene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Et avvik på ett prosentpoeng fra $p_0 = 0{,}50$. Regn $z$ og tosidig p-verdi for $n = 100$, $n = 1000$ og $n = 10\\,000$.",
+            "solution": "$SE_0 = \\sqrt{\\frac{0{,}25}{n}}$. $n = 100$: $SE_0 = 0{,}05$, $z = 0{,}20$, $p \\approx 0{,}84$. $n = 1000$: $SE_0 \\approx 0{,}0158$, $z \\approx 0{,}63$, $p \\approx 0{,}53$. $n = 10\\,000$: $SE_0 = 0{,}005$, $z = 2{,}00$, $p \\approx 0{,}046$. Samme lille avvik går fra fullstendig uinteressant til signifikant, bare ved at vi måler flere.",
+            "answer": 0.046
+          },
+          {
+            "label": "b",
+            "task": "Hvor stort må $n$ være for at ett prosentpoeng skal bli signifikant (tosidig, 5 %)?",
+            "solution": "$n \\ge \\left(\\frac{1{,}96}{0{,}01}\\right)^2 \\cdot 0{,}25 = 9604$. Legg merke til at dette er nøyaktig samme regning som utvalgsstørrelsen for en feilmargin på ett prosentpoeng i kapittel 7.3 — test og intervall er to sider av samme sak.",
+            "answer": 9604
+          },
+          {
+            "label": "c",
+            "task": "«Vi testet med $n = 12$ og fikk ikke signifikans, så det er ingen forskjell.» Hva er feilen?",
+            "solution": "Med $n = 12$ har testen nesten ingen mulighet til å oppdage noe som helst. Selv en stor reell forskjell ville som regel gitt «ingen signifikans». Å beholde $H_0$ med et lite utvalg er ikke informasjon om virkeligheten, bare om utvalgets størrelse."
+          },
+          {
+            "label": "d",
+            "task": "En bedrift tester $H_0: p = 0{,}05$ (andel defekte) med $n = 60$. Er testen brukbar?",
+            "solution": "$np_0 = 3 < 5$, så normaltilnærmingen kan ikke brukes — men den eksakte binomiske testen kan. Den er imidlertid svært grovkornet her: forventet antall defekte er 3, og forkastningsområdet begynner først ved 7 defekte. Testen kan altså bare oppdage ganske store avvik. Større utvalg er nødvendig for å måle små andeler.",
+            "answer": 3
+          },
+          {
+            "label": "e",
+            "task": "To aviser melder om samme undersøkelse. Den ene skriver «signifikant økning ($p = 0{,}03$)», den andre «økningen var på 1,2 prosentpoeng, fra 23,0 % til 24,2 %». Hvilken opplysning er mest nyttig, og hvorfor?",
+            "solution": "Den andre. Den sier **hvor stor** endringen er, og leseren kan selv vurdere om 1,2 prosentpoeng betyr noe i sammenhengen. Den første sier bare at endringen neppe er ren tilfeldighet — noe som med et stort utvalg kan gjelde helt ubetydelige endringer. Best er begge deler: størrelsen med konfidensintervall, og p-verdien i tillegg."
+          }
+        ],
+        "hints": [
+          "I b): sammenlign med formelen for utvalgsstørrelse i kapittel 7.3."
+        ],
+        "solution": "a) $p \\approx 0{,}84$, $0{,}53$ og $0{,}046$. b) 9604. c) Lite utvalg oppdager ingenting. d) $np_0 = 3$ — eksakt binomisk, og svært grovkornet. e) Størrelsen på endringen.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Testobservator for andel",
+      "definition": "$z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$ — antall standardfeil mellom målt og påstått andel, med standardfeilen regnet under $H_0$."
+    },
+    {
+      "term": "Eksakt binomisk test",
+      "definition": "p-verdien regnet som en hale i den binomiske fordelingen under $H_0$: $P(X \\ge x)$ eller $P(X \\le x)$. Gyldig uansett $n$ og $p_0$."
+    },
+    {
+      "term": "Normaltilnærming",
+      "definition": "Snarveien som erstatter den binomiske fordelingen med normalfordelingen. Krever $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$."
+    },
+    {
+      "term": "Standardfeil under H₀",
+      "definition": "$\\sqrt{\\frac{p_0(1-p_0)}{n}}$ — spredningen slik den ville vært hvis nullhypotesen stemte. Ikke det samme som standardfeilen i et konfidensintervall."
+    },
+    {
+      "term": "Faktisk signifikansnivå",
+      "definition": "Den virkelige sannsynligheten for å forkaste en sann $H_0$. Med diskrete fordelinger treffer den sjelden det ønskede nivået eksakt — den blir som regel litt lavere."
+    }
+  ]
+}

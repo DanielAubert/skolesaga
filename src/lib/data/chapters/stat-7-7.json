@@ -1,0 +1,436 @@
+{
+  "id": "stat-7-7",
+  "courseId": "statistikk",
+  "chapterNumber": "7.7",
+  "title": "Hypotesetesting i reelle datasett",
+  "description": "Å planlegge, gjennomføre og tolke en test på ekte data; feil av type I og II.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+  ],
+  "content": [
+    {
+      "id": "stat-7-7-section-intro",
+      "type": "text",
+      "content": "# Hypotesetesting i reelle datasett\n\nI de tre forrige kapitlene kom tallene ferdig servert: «et utvalg på 40 gir $\\bar{x} = 62{,}1$». På ekte data er det ikke slik. Da må vi selv bestemme hva vi lurer på, hvor tallene skal komme fra, og hva vi gjør med dem — **før** vi begynner å regne.\n\nHele arbeidet har seks skritt:\n\n| skritt | hva du gjør | når |\n|---|---|---|\n| 1 | formuler problemstillingen i ord | før data |\n| 2 | sett opp $H_0$ og $H_1$ | før data |\n| 3 | velg $\\alpha$ og utvalgsstørrelse | før data |\n| 4 | samle inn dataene | — |\n| 5 | regn ut testobservator og p-verdi | etter data |\n| 6 | konkluder i kontekst, med forbehold | etter data |\n\nDe tre første skrittene er de viktigste, og de er de eneste som ikke kan gjøres om igjen. Har du sett dataene først, kan du ikke lenger late som du ikke har det.\n\nI dette kapittelet gjør vi hele løpet på et datasett, og ser deretter på de **to feilene** en test kan gjøre — for en test tar av og til feil, og det er en del av metoden, ikke en svakhet ved den."
+    },
+    {
+      "id": "stat-7-7-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Er husholdningene større her enn i landet ellers?",
+      "problem": "På landsbasis bor det i gjennomsnitt 2,12 personer i en husholdning. En kommune med mange barnefamilier tror at tallet er høyere hos dem. De trekker 40 tilfeldige husholdninger fra folkeregisteret og noterer hvor mange som bor der:\n\n| antall personer | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|\n| antall husholdninger | 7 | 15 | 8 | 6 | 3 | 1 |\n\na) Formuler problemstillingen og sett opp hypoteser.\nb) Finn $\\bar{x}$ og $s$.\nc) Gjennomfør testen på 5 %-nivå.\nd) Skriv konklusjonen med de forbeholdene som hører hjemme.",
+      "solution": "**Løsning:**\n\n**a)** *Problemstilling:* Er gjennomsnittlig husholdningsstørrelse i kommunen høyere enn landsgjennomsnittet på 2,12?\n\nKommunen har en klar retning i tankene, så testen er ensidig:\n\n$$H_0: \\mu = 2{,}12 \\qquad H_1: \\mu > 2{,}12$$\n\nSignifikansnivå: $\\alpha = 0{,}05$, valgt på forhånd.\n\n**b)** Vi regner fra frekvenstabellen. Summen av alle husholdningsstørrelsene:\n\n$$1 \\cdot 7 + 2 \\cdot 15 + 3 \\cdot 8 + 4 \\cdot 6 + 5 \\cdot 3 + 6 \\cdot 1 = 7 + 30 + 24 + 24 + 15 + 6 = 106$$\n\n$$\\bar{x} = \\frac{106}{40} = 2{,}65 \\text{ personer}$$\n\n```\nregneark:   =SUMMERPRODUKT(A2:F2;A3:F3)/SUMMER(A3:F3)   gir 2,65\n            =STDAV.S(...)  på de 40 enkeltverdiene        gir 1,29\n```\n\n$$s \\approx 1{,}29 \\text{ personer}$$\n\n![Et søylediagram med seks blå søyler over 1, 2, 3, 4, 5 og 6 på den vannrette aksen merket personer. Den loddrette aksen er merket husholdninger. Høydene er 7, 15, 8, 6, 3 og 1, og tallet står skrevet over hver søyle. Fordelingen har toppen ved 2 personer og en hale mot høyre. En rød stiplet loddrett strek står mellom 2 og 3, merket gjennomsnittet 2,65.](/images/content/statistikk/stat-7-7-husholdninger.png)\n\n*Trinn 1 i analysen: beskriv først. De 40 husholdningene fordeler seg med toppen ved to personer og en hale mot høyre. Gjennomsnittet 2,65 ligger til høyre for typetallet, slik det alltid gjør i en høyreskjev fordeling — og skjevheten er nettopp forbeholdet som må drøftes når testen bygger på normaltilnærming.*\n\n**c)** Standardfeilen:\n\n$$\\frac{s}{\\sqrt{n}} = \\frac{1{,}29}{\\sqrt{40}} \\approx \\frac{1{,}29}{6{,}325} \\approx 0{,}204$$\n\nTestobservatoren:\n\n$$z = \\frac{\\bar{x} - \\mu_0}{\\frac{s}{\\sqrt{n}}} = \\frac{2{,}65 - 2{,}12}{0{,}204} = \\frac{0{,}53}{0{,}204} \\approx 2{,}59$$\n\np-verdien:\n\n$$p = P(Z \\ge 2{,}59) = 1 - 0{,}9952 = 0{,}0048$$\n\n$$0{,}0048 \\le 0{,}05$$\n\n$H_0$ forkastes.\n\n**d) Konklusjon med forbehold:**\n\n> Undersøkelsen gir grunnlag for å si at husholdningene i kommunen i gjennomsnitt er større enn landsgjennomsnittet på 2,12 personer ($p = 0{,}005$). Vårt anslag er 2,65 personer, med 95 % konfidensintervall $[2{,}25,\\ 3{,}05]$.\n>\n> **Forbehold:** (1) Konklusjonen gjelder bare hvis de 40 husholdningene virkelig er trukket tilfeldig — er de hentet fra ett boligfelt, måler vi boligfeltet og ikke kommunen. (2) Enkeltmålingene er langt fra normalfordelte (de er hele tall fra 1 til 6, og fordelingen er skjev), men **det er greit**: det er $\\bar{X}$ som skal være tilnærmet normalfordelt, og med $n = 40$ sørger sentralgrensesetningen for det. (3) Testen sier ingenting om *hvorfor* husholdningene er større.\n\n**Svar:** a) $H_0: \\mu = 2{,}12$ mot $H_1: \\mu > 2{,}12$, $\\alpha = 0{,}05$. b) $\\bar{x} = 2{,}65$ og $s \\approx 1{,}29$. c) $z \\approx 2{,}59$, $p \\approx 0{,}005$ — $H_0$ forkastes. d) Se konklusjonen over.\n\n**NB — forbehold nummer 2 er det viktigste å forstå.** Mange tror normalfordeling er et krav til *dataene*. Det er det ikke. Kravet gjelder fordelingen til **gjennomsnittet**, og den blir normal av seg selv når $n$ er stor nok."
+    },
+    {
+      "id": "stat-7-7-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør den samme utregningen som i eksempel 1. En bilverksted-kjede oppgir at gjennomsnittlig reparasjonstid er 20 minutter for en bestemt type service. En kunde mistenker at det tar lengre tid, og får tilgang til 28 tilfeldige registrerte tider. Utvalget gir $\\bar{x} = 22{,}44$ minutter og $s = 2{,}90$ minutter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp $H_0$ og $H_1$.",
+            "solution": "$H_0: \\mu = 20$ mot $H_1: \\mu > 20$. Ensidig, fordi mistanken går én vei."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardfeilen.",
+            "solution": "$\\frac{2{,}90}{\\sqrt{28}} \\approx \\frac{2{,}90}{5{,}292} \\approx 0{,}548$ minutter",
+            "answer": 0.548
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $z$.",
+            "solution": "$z = \\frac{22{,}44 - 20}{0{,}548} = \\frac{2{,}44}{0{,}548} \\approx 4{,}45$",
+            "answer": 4.45
+          },
+          {
+            "label": "d",
+            "task": "Finn p-verdien og konkluder.",
+            "solution": "$p = P(Z \\ge 4{,}45) \\approx 4{,}3 \\cdot 10^{-6}$, altså langt under 0,001. $H_0$ forkastes klart — reparasjonene tar i gjennomsnitt lengre tid enn de oppgitte 20 minuttene.",
+            "answer": 4.3e-06
+          },
+          {
+            "label": "e",
+            "task": "Hvilket forbehold bør nevnes om $n = 28$?",
+            "solution": "Utvalget er så vidt under tommelfingerregelen $n \\ge 30$ for å erstatte $\\sigma$ med $s$. Her spiller det liten rolle, siden $z = 4{,}45$ er så langt inne i forkastningsområdet at ingen liten justering av metoden ville snudd konklusjonen — men det bør sies. Viktigere er spørsmålet om de 28 tidene virkelig er tilfeldig valgt.",
+            "answer": 28
+          }
+        ],
+        "hints": [
+          "Svært store $z$-verdier gir p-verdier nær null — oppgi dem som «$p < 0{,}001$»."
+        ],
+        "solution": "a) $H_0: \\mu = 20$, $H_1: \\mu > 20$. b) $\\approx 0{,}548$ min. c) $z \\approx 4{,}45$. d) $p < 0{,}001$ — forkast. e) $n < 30$, og spørsmålet om tilfeldig utvalg.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-7-def-feiltyper",
+      "type": "definition",
+      "title": "Type I-feil og type II-feil",
+      "content": "En test tar en avgjørelse ut fra et utvalg, og kan derfor ta feil på to måter:\n\n| | **$H_0$ er sann** | **$H_0$ er usann** |\n|---|---|---|\n| **vi forkaster $H_0$** | **type I-feil** (falsk alarm) | riktig |\n| **vi beholder $H_0$** | riktig | **type II-feil** (bom) |\n\n**Type I-feil:** vi roper varsku om noe som ikke er der. Sannsynligheten for dette er nøyaktig signifikansnivået:\n\n$$P(\\text{type I-feil}) = \\alpha$$\n\n**Type II-feil:** det er en virkelig effekt, men testen oppdager den ikke. Sannsynligheten kalles $\\beta$:\n\n$$P(\\text{type II-feil}) = \\beta$$\n\n**Styrken** til testen er sannsynligheten for å oppdage en effekt som virkelig er der:\n\n$$\\text{styrke} = 1 - \\beta$$\n\n**NB:** $\\alpha$ velger vi selv. $\\beta$ kan vi ikke velge — den avhenger av hvor stor den virkelige effekten er, hvor mange vi måler, og hvilket $\\alpha$ vi valgte. Og den kan bare regnes ut hvis vi sier hvilken alternativ verdi vi tenker på."
+    },
+    {
+      "id": "stat-7-7-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor ofte bommer testen?",
+      "problem": "En maskin skal fylle 500 ml. Standardavviket er $\\sigma = 12$ ml. Kvalitetskontrollen tester $H_0: \\mu = 500$ mot $H_1: \\mu < 500$ med $n = 36$ flasker og $\\alpha = 0{,}05$.\n\na) Finn forkastningsområdet i ml.\nb) Hva er sannsynligheten for type I-feil?\nc) Anta at maskinen i virkeligheten fyller $\\mu = 495$ ml. Finn $\\beta$ og styrken.\nd) Gjør det samme for $\\mu = 498$ ml.",
+      "solution": "**Løsning:**\n\n**a)** Standardfeilen:\n\n$$\\frac{\\sigma}{\\sqrt{n}} = \\frac{12}{\\sqrt{36}} = 2 \\text{ ml}$$\n\nVenstresidig test på 5 %-nivå gir kritisk $z = -1{,}645$:\n\n$$\\bar{x}_{\\text{kritisk}} = 500 - 1{,}645 \\cdot 2 = 500 - 3{,}29 = 496{,}71 \\text{ ml}$$\n\nVi forkaster $H_0$ hvis $\\bar{x} \\le 496{,}71$ ml.\n\n**b)** $P(\\text{type I-feil}) = \\alpha = 0{,}05$. Er maskinen riktig innstilt, vil kontrollen likevel slå alarm i 5 % av tilfellene — omtrent hver tjuende gang.\n\n**c)** Nå antar vi at $\\mu = 495$ er sann. Da er $\\bar{X}$ normalfordelt om 495, fortsatt med standardavvik 2. Type II-feil betyr at vi **ikke** forkaster, altså at $\\bar{X}$ havner over grensen:\n\n$$\\beta = P(\\bar{X} > 496{,}71 \\ \\lvert \\ \\mu = 495)$$\n\nVi standardiserer — nå med 495 i midten:\n\n$$z = \\frac{496{,}71 - 495}{2} = \\frac{1{,}71}{2} = 0{,}855$$\n\n$$\\beta = P(Z > 0{,}855) = 1 - 0{,}8037 = 0{,}196$$\n\n$$\\text{styrke} = 1 - \\beta = 0{,}804$$\n\nFyller maskinen 495 ml, oppdager kontrollen det altså i omtrent 80 % av tilfellene — og overser det i 20 %.\n\n**d)** Med $\\mu = 498$:\n\n$$z = \\frac{496{,}71 - 498}{2} = \\frac{-1{,}29}{2} = -0{,}645$$\n\n$$\\beta = P(Z > -0{,}645) = 0{,}741$$\n\n$$\\text{styrke} = 0{,}259$$\n\nEt avvik på 2 ml oppdages altså bare i omtrent hvert fjerde tilfelle.\n\n![To klokkeformede kurver som overlapper hverandre, tegnet over en akse merket z som går fra minus 6 til 4. Den høyre oransje kurven har toppen over 0 og er merket H0 kolon 500 ml. Den venstre blå kurven har toppen over minus 2,5 og er merket H1 kolon 495 ml. En stiplet loddrett linje står ved minus 1,645, merket under aksen. Den lille delen av den oransje kurven til venstre for linjen er skravert gult og merket alfa-tegnet lik 0,05. Den store delen av den blå kurven til høyre for linjen er skravert turkis og merket beta-tegnet lik 0,20.](/images/content/statistikk/stat-7-7-type1-type2.png)\n\n*De to feiltypene i samme bilde. Aksen måler standardfeil fra 500 ml, så forkastningsgrensen 496,7 ml står som $-1{,}645$. Gult areal er $\\alpha$: sannsynligheten for å slå alarm når maskinen er riktig innstilt. Turkist areal er $\\beta$: sannsynligheten for å overse at maskinen fyller 495 ml. Flytter vi linja mot venstre, krymper $\\alpha$ og vokser $\\beta$ — de to kan ikke reduseres samtidig uten å måle flere flasker.*\n\n**Svar:** a) $\\bar{x} \\le 496{,}71$ ml. b) 0,05. c) $\\beta \\approx 0{,}196$, styrke $\\approx 0{,}80$. d) $\\beta \\approx 0{,}741$, styrke $\\approx 0{,}26$.\n\n**Hva dette betyr i praksis:** testen er god til å oppdage store avvik og nesten blind for små. Det er derfor «testen fant ingen feil» aldri betyr «maskinen er riktig innstilt» — det kan like gjerne bety at avviket var for lite for denne testen å se."
+    },
+    {
+      "id": "stat-7-7-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En pakkemaskin skal fylle 250 gram. Standardavviket er $\\sigma = 6$ gram. Kontrollen tester $H_0: \\mu = 250$ mot $H_1: \\mu > 250$ med $n = 25$ pakker og $\\alpha = 0{,}05$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn standardfeilen og forkastningsområdet i gram.",
+            "solution": "$\\frac{6}{\\sqrt{25}} = 1{,}2$ gram, og grensen er $250 + 1{,}645 \\cdot 1{,}2 \\approx 251{,}97$ gram. Vi forkaster hvis $\\bar{x} \\ge 251{,}97$.",
+            "answer": 251.97
+          },
+          {
+            "label": "b",
+            "task": "Hva er sannsynligheten for type I-feil?",
+            "solution": "$\\alpha = 0{,}05$. Er maskinen riktig innstilt, slår kontrollen likevel ut i 5 % av tilfellene.",
+            "answer": 0.05
+          },
+          {
+            "label": "c",
+            "task": "Finn $\\beta$ og styrken hvis maskinen i virkeligheten fyller 252 gram.",
+            "solution": "Testen er høyresidig, så type II-feil betyr at $\\bar{X}$ havner UNDER grensen. Vi regner med den uavrundede grensen $251{,}974$: $z = \\frac{251{,}974 - 252}{1{,}2} \\approx -0{,}022$, så $\\beta = P(Z < -0{,}022) \\approx 0{,}491$ og styrken er $\\approx 0{,}509$. Testen oppdager altså et avvik på 2 gram bare omtrent halvparten av gangene.",
+            "answer": 0.491
+          },
+          {
+            "label": "d",
+            "task": "Finn styrken hvis maskinen fyller 253 gram.",
+            "solution": "$z = \\frac{251{,}974 - 253}{1{,}2} \\approx -0{,}855$, $\\beta = P(Z < -0{,}855) \\approx 0{,}196$ og styrken er $\\approx 0{,}804$.",
+            "answer": 0.804
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor styrken vokser når det virkelige avviket vokser.",
+            "solution": "Fordi fordelingen til $\\bar{X}$ flytter seg lenger bort fra forkastningsgrensen. Jo større avviket er, desto større del av fordelingen havner i forkastningsområdet — og desto sjeldnere overser vi det."
+          }
+        ],
+        "hints": [
+          "Ved $\\beta$ standardiserer du med den SANNE $\\mu$ i midten, ikke med $\\mu_0$.",
+          "Høyresidig test: $\\beta = P(\\bar{X} < \\bar{x}_{\\text{kritisk}})$, altså $P(Z < \\ldots)$."
+        ],
+        "solution": "a) $SE = 1{,}2$ g, grense 251,97 g. b) 0,05. c) $\\beta \\approx 0{,}491$, styrke $\\approx 0{,}509$. d) styrke $\\approx 0{,}804$. e) fordelingen flytter seg lenger inn i forkastningsområdet.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-7-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Styrken avhenger av tre ting",
+      "problem": "Vi fortsetter med fyllmaskinen ($\\mu_0 = 500$, $\\sigma = 12$, ensidig test, $\\alpha = 0{,}05$).\n\na) Sett opp en tabell over styrken for $n = 36$, 100 og 400, mot de sanne verdiene $\\mu = 498$, 497, 496 og 495.\nb) Hva skjer med $\\beta$ hvis vi setter $\\alpha = 0{,}01$ i stedet, med $n = 36$ og sann $\\mu = 496$?\nc) Oppsummer hva styrken avhenger av.",
+      "solution": "**Løsning:**\n\n**a)** For hver $n$ regner vi først grensen $\\bar{x}_{\\text{kritisk}} = 500 - 1{,}645 \\cdot \\frac{12}{\\sqrt{n}}$, og deretter $1 - \\beta$ for hver sanne $\\mu$:\n\n| $n$ | grense | $\\mu = 498$ | $\\mu = 497$ | $\\mu = 496$ | $\\mu = 495$ |\n|---|---|---|---|---|---|\n| 36 | 496,71 | 0,26 | 0,44 | 0,64 | 0,80 |\n| 100 | 498,03 | 0,51 | 0,80 | 0,95 | 0,99 |\n| 400 | 499,01 | 0,95 | 1,00 | 1,00 | 1,00 |\n\nLes tabellen på to måter. **Bortover:** med fast $n$ vokser styrken når avviket vokser. **Nedover:** med fast avvik vokser styrken når $n$ vokser.\n\n**b)** Med $\\alpha = 0{,}01$ blir kritisk $z$ lik 2,326, og grensen flyttes til\n\n$$500 - 2{,}326 \\cdot 2 = 495{,}35$$\n\nMed sann $\\mu = 496$:\n\n$$\\beta = P(\\bar{X} > 495{,}35 \\ \\lvert \\ \\mu = 496) = P\\!\\left(Z > \\frac{495{,}35 - 496}{2}\\right) = P(Z > -0{,}325) = 0{,}628$$\n\nStyrken faller fra 0,64 til 0,37. **Å gjøre $\\alpha$ mindre gjør $\\beta$ større.**\n\n**c)** Styrken avhenger av tre ting:\n\n1. **Effektstørrelsen** — hvor langt den sanne verdien er fra $\\mu_0$. Store avvik er lette å se.\n2. **Utvalgsstørrelsen $n$** — flere målinger krymper $\\frac{\\sigma}{\\sqrt{n}}$ og skiller fordelingene bedre.\n3. **Signifikansnivået $\\alpha$** — strengere krav mot falsk alarm gir flere oversette effekter.\n\n![Tre fallende kurver i samme koordinatsystem. Den vannrette aksen er merket my-tegnet i milliliter og viser 494 til 500, den loddrette er merket styrke og viser 0,2 til 1,0. Alle tre kurvene starter høyt til venstre og faller mot 0,05 ved 500. Kurvene for n lik 100 og n lik 400 er tegnet fra det punktet der de skiller seg fra 1,00; lenger til venstre ville de ligget oppå hverandre. Den oransje kurven, merket n er lik 400, ligger øverst og holder seg på 1 helt fram til omtrent 498 før den stuper. Den grønne, merket n er lik 100, faller tidligere. Den blå, merket n er lik 36, ligger lavest hele veien og passerer 0,8 allerede ved 495. Fire svarte punkter er markert på den blå kurven ved 495, 496, 497 og 498. En grå stiplet vannrett linje ligger i 0,8 og er merket styrke 0,80.](/images/content/statistikk/stat-7-7-styrkekurver.png)\n\n*Styrken $1 - \\beta$ mot den sanne $\\mu$. Tre ting leses av på én gang: styrken vokser når avviket fra 500 blir større (til venstre), den vokser med $n$ (kurvene stiger med utvalgsstørrelsen), og alle tre ender i $\\alpha = 0{,}05$ når $\\mu$ faktisk er 500. Punktene på den blå kurven er tallene i tabellen over. Kurvene for $n = 100$ og $n = 400$ er tegnet fra det punktet der de skiller seg fra 1,00 — lenger til venstre ligger de pikselvis oppå hverandre.*\n\n**Svar:** a) Se tabellen. b) $\\beta$ vokser fra 0,36 til 0,63, styrken faller fra 0,64 til 0,37. c) Effektstørrelse, utvalgsstørrelse og $\\alpha$.\n\n**NB:** Bare **én** av de tre gir forbedring uten motytelse, og det er $n$. $\\alpha$ og $\\beta$ er en byttehandel; flere målinger er den eneste måten å redusere begge på samtidig."
+    },
+    {
+      "id": "stat-7-7-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Vi fortsetter med pakkemaskinen fra oppgave 2: $\\mu_0 = 250$, $\\sigma = 6$, ensidig test på 5 %-nivå, og vi er interessert i å oppdage et avvik til $\\mu = 252$ gram.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn styrken med $n = 50$.",
+            "solution": "$SE = \\frac{6}{\\sqrt{50}} \\approx 0{,}849$, grense $250 + 1{,}645 \\cdot 0{,}849 \\approx 251{,}40$. $\\beta = P\\!\\left(Z < \\frac{251{,}40 - 252}{0{,}849}\\right) = P(Z < -0{,}71) \\approx 0{,}238$, så styrken er $\\approx 0{,}762$.",
+            "answer": 0.762
+          },
+          {
+            "label": "b",
+            "task": "Finn styrken med $n = 100$.",
+            "solution": "$SE = 0{,}6$, grense $250 + 1{,}645 \\cdot 0{,}6 = 250{,}99$. $\\beta = P(Z < \\frac{250{,}99 - 252}{0{,}6}) = P(Z < -1{,}68) \\approx 0{,}046$, så styrken er $\\approx 0{,}954$.",
+            "answer": 0.954
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange pakker trengs for styrke minst 0,80?",
+            "solution": "Prøving viser at $n = 56$ gir styrke 0,802, mens $n = 55$ gir like under. Minst 56 pakker.",
+            "answer": 56
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange pakker trengs for styrke minst 0,90?",
+            "solution": "$n = 78$ gir styrke 0,903. Minst 78 pakker — altså nesten 40 % flere enn for 0,80.",
+            "answer": 78
+          },
+          {
+            "label": "e",
+            "task": "Bedriften vil ha «rimelig sikkerhet» for å oppdage et avvik på 2 gram, men kan bare kontrollere 25 pakker. Hva bør de få vite?",
+            "solution": "At styrken da er omtrent 0,51 — testen vil overse avviket omtrent halvparten av gangene. Da er kontrollen nesten like god som å kaste mynt om avviket finnes. Enten må de kontrollere flere pakker, eller så må de godta at bare større avvik oppdages, og si det tydelig.",
+            "answer": 0.51
+          }
+        ],
+        "hints": [
+          "Regn grensen først, standardiser så med den SANNE $\\mu$ i midten."
+        ],
+        "solution": "a) $\\approx 0{,}76$. b) $\\approx 0{,}95$. c) 56 pakker. d) 78 pakker. e) styrken er bare 0,51 med 25 pakker.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-7-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvilken feil koster mest?",
+      "problem": "Valget av $\\alpha$ er ikke et matematisk spørsmål, men et spørsmål om konsekvenser. Vurder hva type I- og type II-feil betyr i disse tre situasjonene, og hvilket signifikansnivå du ville valgt.\n\na) En brannalarm.\nb) Godkjenning av et nytt legemiddel.\nc) En nettbutikk tester om en ny knappefarge gir flere kjøp.",
+      "solution": "**Løsning:**\n\n**a) Brannalarm.** $H_0$: det brenner ikke.\n\n- **Type I-feil:** alarmen går uten brann. Irriterende, men ufarlig.\n- **Type II-feil:** det brenner, og alarmen tier. Katastrofalt.\n\nHer vil vi ha svært liten $\\beta$, og godtar en stor $\\alpha$. Derfor er brannalarmer stilt inn så følsomt at de går av når noen brenner brødskiver.\n\n**b) Legemiddel.** $H_0$: medisinen virker ikke bedre enn dagens behandling.\n\n- **Type I-feil:** vi godkjenner en medisin som ikke virker. Pasienter får bivirkninger uten nytte, og en virksom behandling kan bli erstattet.\n- **Type II-feil:** vi avviser en medisin som faktisk virker. Også alvorlig, men den kan prøves på nytt senere.\n\nHer settes $\\alpha$ lavt, ofte 0,01 eller lavere, og man kompenserer for den økte $\\beta$ ved å kreve **store** studier.\n\n**c) Knappefarge.** $H_0$: fargen har ingen effekt.\n\n- **Type I-feil:** de bytter farge uten grunn. Koster nesten ingenting.\n- **Type II-feil:** de beholder en dårligere farge. Koster også lite.\n\nHer kan $\\alpha = 0{,}10$ være helt forsvarlig. Ingen kommer til skade av en knapp.\n\n**Svar:** a) Type II er verst — velg stor $\\alpha$ (følsom alarm). b) Type I er alvorligst — velg liten $\\alpha$, og kompenser med stort utvalg. c) Begge feilene er billige — $\\alpha = 0{,}10$ er greit.\n\n**Regelen bak alle tre:** *sett $\\alpha$ lavt når falsk alarm er dyrt, og sørg for stort nok utvalg når det å overse noe er dyrt.* Statistikken gir deg tallene; hva de er verdt, må du avgjøre selv.\n\n**En siste ting å legge merke til:** i alle tre tilfellene er $H_0$ satt til «det skjer ingenting». Det er ikke tilfeldig. Testen er bygget slik at det kreves holdepunkter for å påstå at noe *skjer* — den som hevder noe nytt, har bevisbyrden."
+    },
+    {
+      "id": "stat-7-7-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Beskriv hva type I-feil og type II-feil betyr i hver situasjon, og si hvilken som er mest alvorlig.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En kvalitetskontroll tester $H_0$: «partiet holder kravene» mot $H_1$: «partiet holder ikke kravene».",
+            "solution": "Type I: et godt parti kastes eller sendes i retur — tapte varer og unødig arbeid. Type II: et dårlig parti slippes gjennom til kundene. Alvorligheten avhenger av hva varen er: for matvarer eller medisinsk utstyr er type II klart verst, for skruer kan type I koste mest."
+          },
+          {
+            "label": "b",
+            "task": "En rettssak, med $H_0$: «tiltalte er uskyldig».",
+            "solution": "Type I: en uskyldig blir dømt. Type II: en skyldig går fri. Rettsstaten har bestemt at type I er den alvorligste — «rimelig tvil skal komme tiltalte til gode» er nettopp et krav om svært lav $\\alpha$, med den kjente kostnaden at $\\beta$ blir stor."
+          },
+          {
+            "label": "c",
+            "task": "En screeningtest for sykdom, med $H_0$: «pasienten er frisk».",
+            "solution": "Type I: en frisk person får beskjed om mistanke, blir bekymret og må gjennom flere undersøkelser. Type II: en syk person får beskjed om at alt er i orden. Ved screening settes terskelen som regel slik at type II unngås — man godtar mange falske alarmer for å unngå å overse sykdom."
+          },
+          {
+            "label": "d",
+            "task": "En skole tester om et nytt leseopplegg virker, med $H_0$: «ingen effekt».",
+            "solution": "Type I: skolen innfører et opplegg som ikke virker — bortkastet tid og penger. Type II: skolen forkaster et opplegg som virker — elevene går glipp av noe. Her er begge moderate, og $\\alpha = 0{,}05$ med et stort nok utvalg er rimelig."
+          },
+          {
+            "label": "e",
+            "task": "I hvilke av tilfellene a)–d) bør $\\alpha$ settes lavere enn 0,05, og i hvilke bør man heller øke utvalget?",
+            "solution": "Lavere $\\alpha$: rettssaken (b), der falsk domfellelse er det verste utfallet. Større utvalg: screeningtesten (c) og skoleforsøket (d), der man vil ha lav $\\beta$ uten å slippe opp $\\alpha$ — og det får man bare ved å måle mer. Kvalitetskontrollen (a) avgjøres av hva varen er."
+          }
+        ],
+        "hints": [
+          "Skriv alltid ut hva $H_0$ er først. Feiltypene er definert i forhold til den."
+        ],
+        "solution": "a) avhenger av varen, b) type I (uskyldig dømt), c) type II (oversett sykdom), d) begge moderate, e) lavere $\\alpha$ i b), større utvalg i c) og d)",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-7-warning-reelle-data",
+      "type": "warning",
+      "title": "Fem feller i ekte datasett",
+      "content": "**1. Hypotesen laget etter dataene.** Ser du først på tallene og formulerer så hypotesen som passer, tester du ingenting. Alle datasett inneholder noe som ser påfallende ut.\n\n**2. Mange tester, ett funn.** Tester du 20 ting på 5 %-nivå, får du i gjennomsnitt én forkastning selv om ingenting er sant — og sannsynligheten for minst én er $1 - 0{,}95^{20} \\approx 0{,}64$. Fortell hvor mange tester du gjorde.\n\n**3. Utvalget er ikke tilfeldig.** De som svarer på en undersøkelse, er sjelden et tverrsnitt. Feilmarginer og p-verdier måler bare tilfeldig variasjon — de retter ikke opp skjevt utvalg, uansett hvor stort det er.\n\n**4. Signifikant forveksles med viktig.** Med stort nok $n$ blir enhver ørliten forskjell signifikant. Oppgi alltid **størrelsen** på effekten, med konfidensintervall.\n\n**5. «Ingen signifikans» tolkes som «ingen effekt».** Var styrken lav, ville testen ikke funnet effekten selv om den fantes. Regn ut styrken før du konkluderer med at noe ikke virker.\n\nAlle fem er lette å unngå med én vane: **skriv ned problemstilling, hypoteser, $\\alpha$ og utvalgsstørrelse før du ser på dataene** — og hold deg til det du skrev."
+    },
+    {
+      "id": "stat-7-7-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Les de fem korte beskrivelsene, og pek på hvilken av fellene fra ramma over som gjør seg gjeldende.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Vi undersøkte 18 ulike sammenhenger i datasettet, og fant én signifikant på 5 %-nivå.»",
+            "solution": "Felle 2 — mange tester. Forventet antall falske funn er $18 \\cdot 0{,}05 = 0{,}9$, altså omtrent nøyaktig det de fant. Resultatet er hva man ville ventet uten noen effekt i det hele tatt.",
+            "answer": 0.9
+          },
+          {
+            "label": "b",
+            "task": "«Med 50 000 svar fant vi at gruppe A svarte 0,03 poeng høyere enn gruppe B ($p = 0{,}01$).»",
+            "solution": "Felle 4 — signifikant, men uten praktisk betydning. Med 50 000 svar oppdages selv en forskjell som er uten mening i sammenhengen. Spørsmålet er ikke om forskjellen finnes, men om 0,03 poeng betyr noe."
+          },
+          {
+            "label": "c",
+            "task": "«Vi la ut spørreskjemaet på nettsiden vår, og 4200 svarte.»",
+            "solution": "Felle 3 — selvrekruttert utvalg. De som besøker nettsiden og gidder å svare, er ikke et tilfeldig utvalg av befolkningen. 4200 svar gjør bare skjevheten mer presist målt."
+          },
+          {
+            "label": "d",
+            "task": "«Testen ga $p = 0{,}31$ med 14 deltakere, så metoden har ingen effekt.»",
+            "solution": "Felle 5 — lav styrke tolket som fravær av effekt. Med 14 deltakere ville testen oversett selv en ganske stor effekt. Riktig konklusjon er at undersøkelsen ikke kunne avgjøre spørsmålet."
+          },
+          {
+            "label": "e",
+            "task": "«Da vi så at gutta skåret høyest, satte vi opp $H_1$: gutter skårer høyere enn jenter.»",
+            "solution": "Felle 1 — hypotesen er laget etter dataene. Retningen er valgt fordi den passer med det observerte, og den ensidige p-verdien blir dermed kunstig liten. Hypotesen måtte vært satt opp før dataene ble sett."
+          }
+        ],
+        "hints": [
+          "Spør hver gang: hva ble bestemt før dataene, og hva ble bestemt etterpå?"
+        ],
+        "solution": "a) felle 2, b) felle 4, c) felle 3, d) felle 5, e) felle 1",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-7-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- På ekte data er de tre første skrittene de avgjørende: **problemstilling, hypoteser og $\\alpha$ bestemmes før dataene ses**.\n- **Type I-feil:** forkaste en sann $H_0$ (falsk alarm). Sannsynligheten er $\\alpha$ — den vi velger selv.\n- **Type II-feil:** beholde en usann $H_0$ (oversett effekt). Sannsynligheten er $\\beta$, og den regnes mot en bestemt alternativ verdi.\n- **Styrken** $1 - \\beta$ er sannsynligheten for å oppdage en effekt som virkelig er der. Den vokser med effektstørrelsen, med $n$, og med $\\alpha$.\n- $\\beta$ regnes ved å standardisere forkastningsgrensen med den **sanne** $\\mu$ i midten.\n- $\\alpha$ og $\\beta$ trekker mot hver sin kant. **Bare flere målinger reduserer begge.**\n- Valget av $\\alpha$ er et spørsmål om konsekvenser, ikke om matematikk.\n- Normalfordeling er et krav til **gjennomsnittet**, ikke til dataene. Sentralgrensesetningen ordner resten når $n$ er stor nok.\n- Konklusjonen skrives i kontekst, med p-verdi, konfidensintervall og forbehold om hvordan dataene ble samlet inn.\n\nDette er siste kapittel i seksjon 7. I seksjon 8 skal du planlegge og gjennomføre din egen undersøkelse — og da er nettopp rekkefølgen i dette kapittelet arbeidsplanen din."
+    },
+    {
+      "id": "stat-7-7-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark, full undersøkelse.** På landsbasis bruker en husholdning i gjennomsnitt 16 000 kWh strøm i året. En kommune med mye eldre boligmasse tror forbruket er høyere hos dem, og henter inn årsforbruket for 45 tilfeldig trukne husholdninger (i kWh):\n\n| | | | | |\n|---|---|---|---|---|\n| 15 200 | 17 800 | 14 300 | 19 100 | 16 500 |\n| 13 900 | 18 400 | 15 700 | 20 200 | 14 800 |\n| 17 200 | 16 100 | 12 700 | 18 900 | 15 400 |\n| 19 600 | 13 400 | 17 500 | 16 800 | 14 100 |\n| 20 800 | 15 900 | 18 200 | 13 100 | 17 900 |\n| 16 300 | 14 600 | 19 300 | 15 100 | 18 700 |\n| 12 900 | 17 100 | 16 600 | 14 400 | 19 800 |\n| 15 600 | 18 000 | 13 700 | 17 400 | 16 000 |\n| 21 300 | 14 900 | 18 600 | 15 300 | 17 700 |\n\nGjennomfør hele undersøkelsen i regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp problemstilling, hypoteser og signifikansnivå — før du regner.",
+            "solution": "Problemstilling: Er gjennomsnittlig strømforbruk per husholdning i kommunen høyere enn landsgjennomsnittet på 16 000 kWh? Hypoteser: $H_0: \\mu = 16\\,000$ mot $H_1: \\mu > 16\\,000$ (ensidig, fordi kommunen har en bestemt mistanke). Signifikansnivå: $\\alpha = 0{,}05$."
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\bar{x}$, $s$ og standardfeilen.",
+            "solution": "`=GJENNOMSNITT(A1:A45)` gir $\\bar{x} \\approx 16\\,596$ kWh, `=STDAV.S(A1:A45)` gir $s \\approx 2222$ kWh, og $SE = \\frac{2222}{\\sqrt{45}} \\approx 331$ kWh.",
+            "answer": 16596
+          },
+          {
+            "label": "c",
+            "task": "Regn ut $z$ og den ensidige p-verdien, og konkluder på 5 %-nivå.",
+            "solution": "$z = \\frac{16\\,596 - 16\\,000}{331} \\approx 1{,}80$ og $p = P(Z \\ge 1{,}80) \\approx 0{,}036 \\le 0{,}05$. $H_0$ forkastes — dataene taler for at forbruket er høyere enn landsgjennomsnittet.",
+            "answer": 0.036
+          },
+          {
+            "label": "d",
+            "task": "Regn også den tosidige p-verdien og 95 %-intervallet. Hva legger du merke til?",
+            "solution": "Tosidig: $p = 2 \\cdot 0{,}036 = 0{,}072 > 0{,}05$ — da ville $H_0$ blitt beholdt. Intervallet er $16\\,596 \\pm 1{,}96 \\cdot 331 = [15\\,946,\\ 17\\,245]$, og det **inneholder** 16 000. Konklusjonen henger altså helt på at testen ble bestemt ensidig på forhånd. Hadde kommunen bestemt seg for retningen etter å ha sett tallene, ville resultatet ikke vært gyldig.",
+            "answer": 0.072
+          },
+          {
+            "label": "e",
+            "task": "Finn forkastningsgrensen i kWh, og regn styrken mot en sann $\\mu$ på 17 000 kWh. Skriv til slutt en kort konklusjon med forbehold.",
+            "solution": "Grense: $16\\,000 + 1{,}645 \\cdot 331 \\approx 16\\,545$ kWh. Styrke mot $\\mu = 17\\,000$: $\\beta = P\\!\\left(Z < \\frac{16\\,545 - 17\\,000}{331}\\right) = P(Z < -1{,}37) \\approx 0{,}085$, altså styrke $\\approx 0{,}92$.\n\nKonklusjon: Undersøkelsen gir grunnlag for å si at strømforbruket i kommunen er høyere enn landsgjennomsnittet ($p = 0{,}036$, ensidig test). Anslaget er 16 600 kWh, med 95 % konfidensintervall $[15\\,900,\\ 17\\,200]$. Forbehold: resultatet er akkurat innenfor 5 %-grensen og avhenger av at den ensidige testen var bestemt på forhånd; intervallet inneholder 16 000. Utvalget må være virkelig tilfeldig trukket, og et år med uvanlig kaldt vær kan påvirke alle husholdningene samtidig — da måler vi været og ikke boligmassen.",
+            "answer": 0.92
+          }
+        ],
+        "hints": [
+          "Skriv ned a) i arket før du skriver inn tallene. Da kan du ikke la deg friste til å endre hypotesen etterpå."
+        ],
+        "solution": "a) ensidig $H_0: \\mu = 16\\,000$, $\\alpha = 0{,}05$. b) $\\bar{x} \\approx 16\\,596$, $s \\approx 2222$, $SE \\approx 331$. c) $z \\approx 1{,}80$, $p \\approx 0{,}036$ — forkast. d) tosidig $p \\approx 0{,}072$ og KI $[15\\,946,\\ 17\\,245]$ inneholder 16 000. e) grense 16 545 kWh, styrke $\\approx 0{,}92$ mot 17 000.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-7-7-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-7-7-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene og situasjonene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Tjue forskergrupper undersøker samme påstand uavhengig av hverandre. Påstanden er usann. Hvor mange grupper får signifikant resultat på 5 %-nivå, og hvilke av dem blir publisert?",
+            "solution": "Forventet antall forkastninger er $20 \\cdot 0{,}05 = 1$, og sannsynligheten for minst én er $1 - 0{,}95^{20} \\approx 0{,}64$. Problemet er hva som skjer videre: tidsskrifter og aviser er langt mer interessert i «funn» enn i «ingen effekt», så det er nettopp den ene gruppa som blir publisert. Leseren ser ett oppsiktsvekkende resultat og ingen av de nitten som ikke fant noe.",
+            "answer": 0.64
+          },
+          {
+            "label": "b",
+            "task": "Hvordan kan man gardere seg mot problemet i a) når man selv gjør mange tester? Regn ut det justerte nivået for 20 tester med samlet risiko 5 %.",
+            "solution": "Ved å stramme inn nivået for hver enkelt test. Deler man $\\alpha$ på antall tester, $\\frac{0{,}05}{20} = 0{,}0025$, blir den samlede sannsynligheten for minst én falsk alarm igjen omtrent 5 % ($1 - 0{,}9975^{20} \\approx 0{,}049$). Prisen er at styrken faller kraftig — man bytter falske alarmer mot oversette effekter, akkurat som før.",
+            "answer": 0.0025
+          },
+          {
+            "label": "c",
+            "task": "«Undersøkelsen vår hadde 5 000 deltakere, så resultatet er sikkert.» Drøft hva stort utvalg gir og ikke gir.",
+            "solution": "Det store utvalget gir liten standardfeil, altså liten **tilfeldig** feil: estimatet svinger lite fra utvalg til utvalg. Det gir ingenting mot **systematisk** feil: skjevt utvalg, ledende spørsmål, frafall eller feil måleinstrument. Er undersøkelsen skjev, gir 5 000 deltakere bare et mer presist mål på skjevheten. I tillegg gjør stort $n$ at ubetydelige forskjeller blir signifikante."
+          },
+          {
+            "label": "d",
+            "task": "En kommune tester hver måned om innbyggertilfredsheten har endret seg, på 5 %-nivå. Hva vil skje over noen år, selv om tilfredsheten er helt stabil?",
+            "solution": "Med 12 tester i året forventes $12 \\cdot 0{,}05 = 0{,}6$ falske utslag årlig, og over fem år omtrent tre. Kommunen vil altså med jevne mellomrom «oppdage» endringer som ikke finnes — og hvis de gjør tiltak hver gang, gjør de tiltak mot støy. Det fornuftige er å se på trenden over tid med konfidensintervall, ikke å teste på nytt hver måned."
+          },
+          {
+            "label": "e",
+            "task": "En elev skriver: «Vi beholdt $H_0$, så vi har vist at det ikke er noen forskjell.» Skriv om til en riktig konklusjon, og forklar hva eleven må regne ut for å kunne si noe mer.",
+            "solution": "Riktig: «Undersøkelsen ga ikke grunnlag for å forkaste $H_0$ ($p = \\ldots$). Vi kan ikke ut fra disse dataene si at det er en forskjell.» For å kunne si noe mer må eleven regne **styrken** — hvor stor en forskjell måtte være for at denne testen skulle oppdaget den — eller oppgi konfidensintervallet, som viser hvilke forskjeller som fortsatt er forenlige med dataene. Er intervallet smalt og ligger tett rundt null, er det først da man kan si at en eventuell forskjell i hvert fall er liten."
+          }
+        ],
+        "hints": [
+          "I b): sannsynligheten for minst én falsk alarm i $k$ uavhengige tester er $1 - (1-\\alpha)^k$."
+        ],
+        "solution": "a) omtrent én, og det er den som publiseres. b) $\\frac{0{,}05}{20} = 0{,}0025$ per test. c) liten tilfeldig feil, ingen beskyttelse mot skjevhet. d) omtrent tre falske utslag på fem år. e) «ikke grunnlag for å forkaste»; regn styrken eller oppgi intervallet.",
+        "competenceGoals": [
+          "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Type I-feil",
+      "definition": "Å forkaste en sann nullhypotese — falsk alarm. Sannsynligheten er nøyaktig signifikansnivået $\\alpha$, som vi velger selv."
+    },
+    {
+      "term": "Type II-feil",
+      "definition": "Å beholde en usann nullhypotese — en virkelig effekt blir oversett. Sannsynligheten $\\beta$ avhenger av effektens størrelse, av $n$ og av $\\alpha$."
+    },
+    {
+      "term": "Styrke",
+      "definition": "$1 - \\beta$: sannsynligheten for å oppdage en effekt som virkelig er der. Lav styrke gjør «ingen signifikans» til en tom opplysning."
+    },
+    {
+      "term": "Effektstørrelse",
+      "definition": "Hvor stort det virkelige avviket fra $\\mu_0$ er. Store avvik er lette å oppdage; små avvik krever store utvalg."
+    },
+    {
+      "term": "Publiseringsskjevhet",
+      "definition": "At undersøkelser som finner noe, blir kjent, mens de som ikke finner noe, blir liggende. Gjør at ett publisert funn kan skjule mange mislykkede forsøk."
+    }
+  ]
+}

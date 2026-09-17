@@ -1,0 +1,428 @@
+{
+  "id": "stat-1-3",
+  "courseId": "statistikk",
+  "chapterNumber": "1.3",
+  "title": "Spredningsmål",
+  "description": "Variasjonsbredde, kvartiler og kvartilbredde, varians og standardavvik regnet for hånd og med regneark.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+  ],
+  "content": [
+    {
+      "id": "stat-1-3-section-innledning",
+      "type": "text",
+      "content": "## Gjennomsnittet er ikke nok\n\nTo fotballag har spilt åtte kamper hver. Antall mål per kamp var\n\n| | | | | | | | | | Gjennomsnitt |\n|---|---|---|---|---|---|---|---|---|---|\n| **Lag A** | 2 | 3 | 2 | 3 | 2 | 3 | 2 | 3 | 2,5 |\n| **Lag B** | 0 | 6 | 1 | 5 | 0 | 6 | 1 | 1 | 2,5 |\n\nBegge lagene har nøyaktig samme gjennomsnitt, $2{,}5$ mål per kamp. Likevel er\nlagene helt forskjellige: lag A scorer to eller tre mål hver eneste kamp, mens\nlag B enten scorer nesten ingenting eller renner over.\n\nForskjellen er **spredningen** — hvor mye observasjonene varierer rundt midten.\nEt sentralmål alene er derfor aldri nok. Vi trenger alltid et **spredningsmål**\nved siden av.\n\nI dette kapittelet møter du fire spredningsmål: variasjonsbredde, kvartilbredde,\nvarians og standardavvik."
+    },
+    {
+      "id": "stat-1-3-fig-lag-a-lag-b",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-1-3-lag-a-lag-b.png",
+      "alt": "To søylediagram side om side med nøyaktig samme, tallsatte akser: den loddrette er merket mål per kamp og tallsatt 2, 4 og 6, den vannrette kampnummer og tallsatt 1 til 8. Panel A er lag A: åtte blå søyler med høydene 2, 3, 2, 3, 2, 3, 2 og 3 — alle ligger tett rundt midten. Panel B er lag B: åtte grønne søyler med høydene 0, 6, 1, 5, 0, 6, 1 og 1 — de spriker fra bunn til topp. I begge panelene er gjennomsnittet 2,5 markert med en rekke røde prikker i samme høyde, plassert i mellomrommene mellom søylene, og en tegnforklaring nederst sier at rødt er gjennomsnittet 2,5 for begge lag.",
+      "caption": "Samme gjennomsnitt, helt ulik spredning. De røde prikkene står i 2,5 mål per kamp i begge panelene, men lag A holder seg mellom 2 og 3, mens lag B svinger mellom 0 og 6.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-1-3-lag-a-lag-b.json"
+    },
+    {
+      "id": "stat-1-3-def-variasjonsbredde",
+      "type": "definition",
+      "title": "Variasjonsbredde",
+      "content": "**Variasjonsbredden** er forskjellen mellom den største og den minste\nobservasjonen:\n\n$$\\text{variasjonsbredde} = x_{\\text{maks}} - x_{\\text{min}}$$\n\nDen er enkel å regne ut og lett å forstå, men den bruker bare to av\nobservasjonene — de to ytterste. Derfor er den svært følsom for uteliggere."
+    },
+    {
+      "id": "stat-1-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1 – Variasjonsbredde for de to lagene",
+      "problem": "Finn variasjonsbredden for lag A og lag B i tabellen over, og forklar hva\ntallene forteller.",
+      "solution": "**Lag A:** Vi sorterer for å se ytterpunktene: $2, 2, 2, 2, 3, 3, 3, 3$.\n\n$$\\text{variasjonsbredde} = x_{\\text{maks}} - x_{\\text{min}} = 3 - 2 = 1$$\n\n**Lag B:** Sortert: $0, 0, 1, 1, 1, 5, 6, 6$.\n\n$$\\text{variasjonsbredde} = 6 - 0 = 6$$\n\n**Svar:** Lag A har variasjonsbredde $1$ mål, lag B har $6$ mål.\n\n**Her ser vi at** de to lagene, som hadde identisk gjennomsnitt, skiller seg\nkraftig når vi ser på spredningen. Lag B er seks ganger så «uforutsigbart» målt\npå denne måten.\n\n**NB:** Variasjonsbredden bryr seg ikke om hva som skjer mellom ytterpunktene.\nBytter vi ut lag B sine åtte kamper med $0, 1, 1, 1, 1, 1, 1, 6$, er\nvariasjonsbredden fortsatt $6$ — selv om laget nå er langt jevnere. Det er\ngrunnen til at vi trenger spredningsmål som bruker alle observasjonene."
+    },
+    {
+      "id": "stat-1-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-3-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Middagstemperaturen ble målt sju dager på rad i to byer (i $^\\circ$C):\n\n| | | | | | | | |\n|---|---|---|---|---|---|---|---|\n| **By A** | 3 | 5 | 4 | 6 | 5 | 4 | 8 |\n| **By B** | $-4$ | 12 | 1 | 9 | $-2$ | 10 | 9 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnittstemperaturen i hver by.",
+            "answer": [
+              5,
+              5
+            ],
+            "solution": "By A: $\\frac{3 + 5 + 4 + 6 + 5 + 4 + 8}{7} = \\frac{35}{7} = 5\\ ^\\circ$C. By B: $\\frac{(-4) + 12 + 1 + 9 + (-2) + 10 + 9}{7} = \\frac{35}{7} = 5\\ ^\\circ$C. Begge byene har gjennomsnitt $5\\ ^\\circ$C."
+          },
+          {
+            "label": "b",
+            "task": "Finn variasjonsbredden i hver by.",
+            "answer": [
+              5,
+              16
+            ],
+            "solution": "By A: $8 - 3 = 5\\ ^\\circ$C. By B: $12 - (-4) = 16\\ ^\\circ$C."
+          },
+          {
+            "label": "c",
+            "task": "Hvilken by vil du si har det mest stabile været? Begrunn med tallene.",
+            "solution": "By A. Begge har gjennomsnitt $5\\ ^\\circ$C, men i by A holdt temperaturen seg mellom $3$ og $8\\ ^\\circ$C, mens by B svingte fra $-4$ til $12\\ ^\\circ$C — en variasjonsbredde som er mer enn tre ganger så stor."
+          },
+          {
+            "label": "d",
+            "task": "Hvorfor holder det ikke å oppgi gjennomsnittstemperaturen alene i en værmelding?",
+            "solution": "Fordi to steder med samme gjennomsnitt kan ha helt ulikt vær. Gjennomsnittet sier hvor midten ligger, ikke hvor mye temperaturen svinger — og det er svingningene du kler deg etter."
+          }
+        ],
+        "solution": "a) begge $5\\ ^\\circ$C, b) $5\\ ^\\circ$C og $16\\ ^\\circ$C, c) by A, d) gjennomsnittet skjuler spredningen",
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-3-def-kvartiler",
+      "type": "definition",
+      "title": "Kvartiler og kvartilbredde",
+      "content": "**Kvartilene** deler et sortert datamateriale i fire like store deler\n(*kvart* = fjerdedel):\n\n- **Nedre kvartil** $Q_1$: $25\\ \\%$ av observasjonene er mindre enn eller lik $Q_1$.\n- **Medianen** $Q_2$: $50\\ \\%$ ligger under.\n- **Øvre kvartil** $Q_3$: $75\\ \\%$ ligger under.\n\nSlik finner vi dem for hånd:\n\n1. Sorter materialet, og finn medianen $Q_2$.\n2. $Q_1$ er medianen i den **nedre halvdelen** av materialet.\n3. $Q_3$ er medianen i den **øvre halvdelen**.\n\nEr antallet observasjoner et oddetall, holder vi medianen selv utenfor begge\nhalvdelene.\n\n**Kvartilbredden** er\n\n$$\\text{kvartilbredde} = Q_3 - Q_1$$\n\nDen forteller hvor bredt de midterste $50\\ \\%$ av observasjonene ligger — og\nsiden den hopper over de ytterste fjerdedelene, er den robust mot uteliggere."
+    },
+    {
+      "id": "stat-1-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2 – Kvartiler for ventetid",
+      "problem": "Elleve pasienter ble spurt hvor mange minutter de ventet på legevakten:\n\n$$12,\\quad 9,\\quad 35,\\quad 4,\\quad 15,\\quad 22,\\quad 7,\\quad 14,\\quad 6,\\quad 18,\\quad 11$$\n\nFinn medianen, kvartilene, kvartilbredden og variasjonsbredden.",
+      "solution": "**Steg 1 — sorter.** Uten dette steget blir alt etterpå feil:\n\n$$4,\\quad 6,\\quad 7,\\quad 9,\\quad 11,\\quad \\mathbf{12},\\quad 14,\\quad 15,\\quad 18,\\quad 22,\\quad 35$$\n\n**Steg 2 — medianen.** Her er $n = 11$, et oddetall, så medianen ligger på plass\n\n$$\\frac{n+1}{2} = \\frac{11+1}{2} = 6$$\n\nVerdien på sjette plass er $Q_2 = 12$ minutter.\n\n**Steg 3 — nedre kvartil.** Den nedre halvdelen er de fem verdiene foran\nmedianen (medianen selv holdes utenfor):\n\n$$4,\\quad 6,\\quad \\mathbf{7},\\quad 9,\\quad 11 \\qquad \\Rightarrow \\qquad Q_1 = 7$$\n\n**Steg 4 — øvre kvartil.** Den øvre halvdelen er de fem verdiene etter medianen:\n\n$$14,\\quad 15,\\quad \\mathbf{18},\\quad 22,\\quad 35 \\qquad \\Rightarrow \\qquad Q_3 = 18$$\n\n**Steg 5 — bredder.**\n\n$$\\text{kvartilbredde} = Q_3 - Q_1 = 18 - 7 = 11$$\n\n$$\\text{variasjonsbredde} = 35 - 4 = 31$$\n\n![En tallinje merket ventetid i minutter fra 0 til 36. De elleve sorterte ventetidene 4, 6, 7, 9, 11, 12, 14, 15, 18, 22 og 35 er markert som svarte prikker. Tre loddrette streker er merket Q1 lik 7 og Q3 lik 18 i blått og Q2 lik 12 i grønt. Under tallinja ligger to måletreker: en blå fra 7 til 18 merket 11 og merket kvartilbredde, og en grå fra 4 til 35 merket 31 og merket variasjonsbredde.](/images/content/statistikk/stat-1-3-kvartiler.png)\n\n*Kvartilene deler materialet i fire. Den ene lange ventetiden på 35 minutter blåser opp variasjonsbredden til 31 minutter, mens kvartilbredden på 11 minutter knapt merker den.*\n\n**Svar:** $Q_1 = 7$, $Q_2 = 12$, $Q_3 = 18$ minutter. Kvartilbredden er $11$\nminutter og variasjonsbredden $31$ minutter.\n\n**Tolkning:** Halvparten av pasientene ventet mellom $7$ og $18$ minutter. Den\nstore variasjonsbredden skyldes i hovedsak den ene som ventet $35$ minutter —\nkvartilbredden merker knapt den observasjonen."
+    },
+    {
+      "id": "stat-1-3-warning-kvartil",
+      "type": "warning",
+      "title": "NB: Verktøy kan gi andre kvartiler enn du gjør for hånd",
+      "content": "Det finnes flere måter å plassere kvartilene på når $n$ ikke er delelig med\nfire. Metoden over er den vi bruker for hånd. Regneark (`KVARTIL`) og GeoGebra\nbruker en metode som regner seg fram til en verdi mellom to observasjoner, og\nkan derfor gi et litt annet tall: for ventetidene over gir regnearket\n$Q_1 = 8$ og $Q_3 = 16{,}5$, mens vi for hånd fikk $7$ og $18$.\n\nIngen av delene er feil — det er to ulike definisjoner. Du må bare **si hvilken\ndu har brukt**, og bruke den samme hele veien når du sammenligner\ndatamaterialer."
+    },
+    {
+      "id": "stat-1-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-3-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Tolv elever fikk disse poengsummene på en prøve:\n\n$$21,\\quad 33,\\quad 15,\\quad 24,\\quad 45,\\quad 19,\\quad 27,\\quad 12,\\quad 30,\\quad 22,\\quad 25,\\quad 18$$\n\nGjør den samme oppgaven som i eksempel 2. Bruk metoden for hånd.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sorter materialet og finn medianen.",
+            "answer": 23,
+            "solution": "Sortert: $12, 15, 18, 19, 21, \\mathbf{22}, \\mathbf{24}, 25, 27, 30, 33, 45$. $n = 12$ er partall, så $Q_2 = \\frac{22 + 24}{2} = 23$ poeng."
+          },
+          {
+            "label": "b",
+            "task": "Finn $Q_1$.",
+            "answer": 18.5,
+            "solution": "Nedre halvdel er de seks første: $12, 15, \\mathbf{18}, \\mathbf{19}, 21, 22$. Medianen der er $\\frac{18 + 19}{2} = 18{,}5$."
+          },
+          {
+            "label": "c",
+            "task": "Finn $Q_3$.",
+            "answer": 28.5,
+            "solution": "Øvre halvdel er de seks siste: $24, 25, \\mathbf{27}, \\mathbf{30}, 33, 45$. Medianen der er $\\frac{27 + 30}{2} = 28{,}5$."
+          },
+          {
+            "label": "d",
+            "task": "Finn kvartilbredden og variasjonsbredden.",
+            "answer": [
+              10,
+              33
+            ],
+            "solution": "Kvartilbredde: $28{,}5 - 18{,}5 = 10$ poeng. Variasjonsbredde: $45 - 12 = 33$ poeng."
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor de to breddene er så ulike her.",
+            "solution": "Fordi materialet har en uteligger: $45$ poeng ligger $12$ poeng over den nest høyeste. Variasjonsbredden bruker nettopp denne ytterverdien, mens kvartilbredden bare ser på de midterste seks elevene, som ligger tett samlet mellom $18{,}5$ og $28{,}5$ poeng."
+          }
+        ],
+        "solution": "a) $23$, b) $18{,}5$, c) $28{,}5$, d) $10$ og $33$, e) uteliggeren $45$ påvirker bare variasjonsbredden",
+        "hints": [
+          "Sorter først, og del materialet i to like store halvdeler."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-3-section-standardavvik",
+      "type": "text",
+      "content": "## Varians og standardavvik\n\nVariasjonsbredden bruker to observasjoner, kvartilbredden bruker to kvartiler.\nNå vil vi ha et spredningsmål som bruker **alle** observasjonene.\n\nTanken er enkel: mål hvor langt hver observasjon ligger fra gjennomsnittet, og\nfinn den typiske avstanden. Avstanden fra gjennomsnittet kaller vi **avviket**:\n\n$$\\text{avvik} = x_i - \\bar{x}$$\n\nMen her møter vi et problem. Legger vi sammen avvikene, blir summen alltid $0$ —\nde negative avvikene spiser opp de positive. (Det er faktisk en av definisjonene\npå gjennomsnittet: det er punktet der avvikene veier hverandre opp.)\n\nLøsningen er å **kvadrere** avvikene før vi summerer. Da blir alle ledd positive,\nog store avvik teller ekstra mye. Til slutt tar vi kvadratroten, slik at svaret\nfår samme enhet som observasjonene igjen."
+    },
+    {
+      "id": "stat-1-3-def-standardavvik",
+      "type": "definition",
+      "title": "Varians og standardavvik",
+      "content": "**Variansen** er gjennomsnittet av de kvadrerte avvikene, og **standardavviket**\ner kvadratroten av variansen.\n\nNår tallene er **hele materialet vi vil beskrive** (en populasjon), deler vi på\n$n$, og bruker den greske bokstaven $\\sigma$ (sigma):\n\n$$\\sigma = \\sqrt{\\frac{(x_1 - \\bar{x})^2 + (x_2 - \\bar{x})^2 + \\ldots + (x_n - \\bar{x})^2}{n}} = \\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(x_i - \\bar{x})^2}$$\n\nNår tallene er et **utvalg** som skal si noe om en større populasjon, deler vi på\n$n - 1$, og skriver $s$:\n\n$$s = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2}$$\n\n$s$ kalles **utvalgsstandardavviket**. Det er alltid litt større enn $\\sigma$ for\nde samme tallene. Grunnen er at et utvalg nesten alltid varierer litt mindre enn\npopulasjonen det er trukket fra, og divisjonen med $n - 1$ retter opp den\nskjevheten."
+    },
+    {
+      "id": "stat-1-3-note-valg",
+      "type": "note",
+      "title": "Hvilken av dem skal du bruke?",
+      "content": "Spør hva tallene dine er:\n\n- **«Dette er alle jeg vil si noe om»** — de $28$ elevene i klassen, alle $24$\n  timene i døgnet: bruk $\\sigma$ (del på $n$).\n- **«Dette er et utvalg, og jeg vil si noe om alle»** — $80$ av $640$ elever,\n  $200$ av landets husstander: bruk $s$ (del på $n - 1$).\n\nOppgaveteksten sier som regel hvilken situasjon du er i. Er den uklar, skriver\ndu hvilken du har valgt og hvorfor. Er $n$ stor, betyr valget lite: for\n$n = 100$ skiller $\\sigma$ og $s$ seg med en halv prosent."
+    },
+    {
+      "id": "stat-1-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3 – Standardavvik for hånd",
+      "problem": "Fem laksefileter fra samme parti ble veid. Vektene var (i gram)\n\n$$48,\\quad 52,\\quad 50,\\quad 46,\\quad 54$$\n\na) Finn standardavviket $\\sigma$ når vi ser på disse fem som hele materialet.\n\nb) Finn utvalgsstandardavviket $s$ når de fem er et utvalg fra hele partiet.",
+      "solution": "**Steg 1 — gjennomsnittet.** Standardavviket måler avstand fra gjennomsnittet,\nså det må vi ha først:\n\n$$\\bar{x} = \\frac{48 + 52 + 50 + 46 + 54}{5} = \\frac{250}{5} = 50$$\n\nVi deler på $5$ fordi det er $5$ fileter.\n\n**Steg 2 — avvikstabellen.** Vi setter opp én rad per observasjon, og fyller\nkolonne for kolonne:\n\n| $x_i$ | $x_i - \\bar{x}$ | $(x_i - \\bar{x})^2$ |\n|---|---|---|\n| 48 | $48 - 50 = -2$ | $(-2)^2 = 4$ |\n| 52 | $52 - 50 = 2$ | $2^2 = 4$ |\n| 50 | $50 - 50 = 0$ | $0^2 = 0$ |\n| 46 | $46 - 50 = -4$ | $(-4)^2 = 16$ |\n| 54 | $54 - 50 = 4$ | $4^2 = 16$ |\n| **Sum** | **0** | **40** |\n\n*(Kontroll som har et poeng: summen i midtkolonnen skal alltid bli $0$. Blir den\nikke det, har vi regnet feil gjennomsnitt eller feil avvik — og da er det ingen\nvits i å gå videre.)*\n\n![En tallinje merket vekt i gram fra 44 til 56, med de fem filetvektene 46, 48, 50, 52 og 54 markert som blå prikker. En rød stiplet loddrett linje står ved gjennomsnittet 50 gram. Over tallinja går fire røde piler ut fra den stiplede linja, én til hver av de fire prikkene som ikke ligger i 50, merket minus 4, minus 2, pluss 2 og pluss 4. Pilene står parvis i samme høyde — minus 4 og pluss 4 øverst, minus 2 og pluss 2 under — så hvert par ser ut som én dobbeltpil gjennom gjennomsnittslinja. Under tallinja er avvikene tegnet som kvadrater med sidekant lik avviket: to store blå kvadrater med side 4 og areal 16, og inni dem to mindre oransje kvadrater med side 2 og areal 4. Arealene 16, 4, 4 og 16 er skrevet inn. Nederst står: avvikene summerer til 0, arealene til 40.](/images/content/statistikk/stat-1-3-avvik.png)\n\n*Avviket er avstanden fra gjennomsnittet, og kvadratet har avviket som sidekant. Avvikene selv summerer til null — arealene gjør det ikke, og det er derfor vi kvadrerer før vi summerer.*\n\n**Steg 3 a) — standardavviket $\\sigma$.** Formelen først, tom:\n\n$$\\sigma = \\sqrt{\\frac{\\text{summen av kvadrerte avvik}}{n}}$$\n\nog så med tall:\n\n$$\\sigma = \\sqrt{\\frac{40}{5}} = \\sqrt{8} = 2{,}828\\ldots \\approx 2{,}83$$\n\n**Svar a):** $\\sigma \\approx 2{,}83$ gram.\n\n**Steg 3 b) — utvalgsstandardavviket $s$.** Samme sum over brøkstreken, men vi\ndeler på $n - 1 = 4$:\n\n$$s = \\sqrt{\\frac{40}{5 - 1}} = \\sqrt{\\frac{40}{4}} = \\sqrt{10} = 3{,}162\\ldots \\approx 3{,}16$$\n\n**Svar b):** $s \\approx 3{,}16$ gram.\n\n**Her ser vi at** $s > \\sigma$, slik det alltid er: vi deler den samme summen på\net mindre tall. Forskjellen er stor her fordi $n$ bare er $5$."
+    },
+    {
+      "id": "stat-1-3-tip-verktoy",
+      "type": "tip",
+      "title": "Standardavvik med verktøy",
+      "content": "Alle kalkulatorer med statistikkmeny og alle regneark har egne funksjoner for\nstandardavvik — og de har **to** av dem, én for hver formel:\n\n| | Regneark | GeoGebra |\n|---|---|---|\n| $\\sigma$ (del på $n$) | `=STDAV.P(område)` | `sd(liste)` |\n| $s$ (del på $n-1$) | `=STDAV.S(område)` | `stdevsample(liste)` |\n\nBokstaven P står for *populasjon* og S for *stikkprøve* (utvalg). Velger du feil\nfunksjon, får du et tall som ser riktig ut, men som svarer på et annet spørsmål.\n\nSkriv likevel opp formelen og avvikstabellen når oppgaven ber om utregning —\nverktøyet gir svaret, føringen viser at du vet hva svaret betyr."
+    },
+    {
+      "id": "stat-1-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-3-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Seks elever i en klasse har skostørrelsene\n\n$$38,\\quad 40,\\quad 41,\\quad 39,\\quad 42,\\quad 40$$\n\nGjør den samme utregningen som i eksempel 3. Sett opp avvikstabellen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnittet.",
+            "answer": 40,
+            "solution": "$\\bar{x} = \\frac{38+40+41+39+42+40}{6} = \\frac{240}{6} = 40$"
+          },
+          {
+            "label": "b",
+            "task": "Sett opp avvikstabellen og finn summen av de kvadrerte avvikene.",
+            "answer": 10,
+            "solution": "| $x_i$ | $x_i - \\bar{x}$ | $(x_i-\\bar{x})^2$ |\n|---|---|---|\n| 38 | $-2$ | 4 |\n| 40 | 0 | 0 |\n| 41 | 1 | 1 |\n| 39 | $-1$ | 1 |\n| 42 | 2 | 4 |\n| 40 | 0 | 0 |\n| **Sum** | **0** | **10** |"
+          },
+          {
+            "label": "c",
+            "task": "Finn $\\sigma$ når de seks er hele materialet. Rund av til to desimaler.",
+            "answer": 1.29,
+            "solution": "$\\sigma = \\sqrt{\\frac{10}{6}} = \\sqrt{1{,}666\\ldots} = 1{,}2909\\ldots \\approx 1{,}29$"
+          },
+          {
+            "label": "d",
+            "task": "Finn $s$ når de seks er et utvalg fra hele skolen. Rund av til to desimaler.",
+            "answer": 1.41,
+            "solution": "$s = \\sqrt{\\frac{10}{6-1}} = \\sqrt{2} = 1{,}4142\\ldots \\approx 1{,}41$"
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor skal summen i midtkolonnen bli null?",
+            "solution": "Fordi gjennomsnittet ligger nøyaktig slik at de negative avvikene veier opp de positive. Blir summen noe annet enn $0$, har du regnet feil et sted."
+          }
+        ],
+        "solution": "a) $40$, b) sum $= 10$, c) $\\sigma \\approx 1{,}29$, d) $s \\approx 1{,}41$, e) avvikene veier hverandre opp",
+        "hints": [
+          "Regn gjennomsnittet først — alle avvikene måles fra det."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4 – Å sammenligne to datamaterialer",
+      "problem": "To butikker i samme kjede talte antall kunder hver dag i én uke:\n\n| | man | tir | ons | tor | fre | lør | søn |\n|---|---|---|---|---|---|---|---|\n| **Butikk A** | 102 | 98 | 105 | 101 | 99 | 103 | 100 |\n| **Butikk B** | 70 | 135 | 88 | 150 | 62 | 120 | 83 |\n\nBegge butikkene hadde $708$ kunder i løpet av uka.\n\na) Finn gjennomsnitt og standardavvik $\\sigma$ for hver butikk.\n\nb) Hvilke konsekvenser har forskjellen for hvordan butikkene bør bemannes?",
+      "solution": "**a)** Gjennomsnittet er det samme for begge, siden begge hadde $708$ kunder på\nsju dager:\n\n$$\\bar{x} = \\frac{708}{7} = 101{,}14\\ldots \\approx 101{,}1 \\text{ kunder per dag}$$\n\nStandardavvikene regner vi med `STDAV.P` i regneark (vi ser på uka som hele\nmaterialet vi vil beskrive):\n\n$$\\sigma_A \\approx 2{,}23 \\qquad \\sigma_B \\approx 31{,}38$$\n\n**Svar a):** Begge butikkene har $\\approx 101{,}1$ kunder per dag i gjennomsnitt.\nStandardavviket er $\\approx 2{,}2$ kunder i butikk A og $\\approx 31{,}4$ kunder i\nbutikk B.\n\n**b)** Vi forklarer konklusjonen med tallene:\n\nI butikk A ligger alle dagene innenfor $98$–$105$ kunder — et spenn på bare $7$\nkunder. To standardavvik er $2 \\cdot 2{,}23 = 4{,}46$, så alle sju dagene ligger\ninnenfor to standardavvik fra gjennomsnittet ($101{,}1 \\pm 4{,}5$, altså fra\n$96{,}7$ til $105{,}6$). Bemanningen kan være den samme hver dag.\n\nI butikk B svinger dagene fra $62$ til $150$ kunder. Standardavviket på $31{,}4$\ner nesten en tredjedel av gjennomsnittet. Setter butikk B opp samme bemanning\nhver dag, står de med for mange ansatte på mandag og fredag og for få på tirsdag\nog torsdag.\n\n![To søylediagram i samme koordinatsystem, med felles loddrett akse for antall kunder fra 0 til 180. Til venstre butikk A med dagsverdiene 102, 98, 105, 101, 99, 103 og 100 — alle søylene er nesten like høye. Til høyre butikk B med 70, 135, 88, 150, 62, 120 og 83 — søylene spriker kraftig. En grå stiplet vannrett linje ved 101,1 er gjennomsnittet for begge. Bak søylene ligger et lyst gult bånd som viser gjennomsnittet pluss minus to standardavvik: et smalt bånd fra 96,7 til 105,6 for butikk A, og et mye bredere fra 38,4 til 163,9 for butikk B.](/images/content/statistikk/stat-1-3-butikk-band.png)\n\n*Samme gjennomsnitt, helt ulikt bemanningsbehov. Butikk A holder seg innenfor et bånd på ni kunder, butikk B innenfor et på 125 — og det er båndbredden, ikke gjennomsnittet, som avgjør hvor mange som må være på jobb.*\n\n**Svar b):** Butikk A kan bemanne likt hver dag; butikk B må bemanne etter\nukedag. Gjennomsnittet alene ville skjult hele forskjellen.\n\n**Andre muligheter:** Butikk B kunne også beskrives med kvartilbredden\n($Q_3 - Q_1 = 135 - 70 = 65$ kunder), eller med to gjennomsnitt — ett for\nhverdager og ett for helg — hvis mønsteret gjentar seg fra uke til uke."
+    },
+    {
+      "id": "stat-1-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-3-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et datamateriale består av tallene\n\n$$10,\\quad 12,\\quad 14,\\quad 16,\\quad 18$$\n\nGjennomsnittet er $14$ og standardavviket er $\\sigma = 2{,}83$ (avrundet).",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Legg $5$ til hver verdi. Hva blir det nye gjennomsnittet?",
+            "answer": 19,
+            "solution": "Alle verdiene flyttes $5$ oppover, så gjennomsnittet blir $14 + 5 = 19$."
+          },
+          {
+            "label": "b",
+            "task": "Hva blir standardavviket etter at du har lagt til $5$? Forklar uten å regne alt på nytt.",
+            "answer": 2.83,
+            "solution": "Det er uendret, $\\sigma \\approx 2{,}83$. Alle observasjonene og gjennomsnittet flytter seg like mye, så hvert avvik $x_i - \\bar{x}$ er nøyaktig det samme som før. Spredningen endres ikke av at hele materialet forskyves."
+          },
+          {
+            "label": "c",
+            "task": "Gang i stedet hver verdi med $2$. Hva blir gjennomsnittet og standardavviket?",
+            "answer": [
+              28,
+              5.66
+            ],
+            "solution": "Alle avstander dobles når alle verdiene dobles:\n\n![Tre tallinjer under hverandre. Øverst de fem opprinnelige verdiene 10, 12, 14, 16 og 18 med gjennomsnittet 14 markert med en rød strek; teksten sier snitt 14, sigma 2,83. I midten de samme fem verdiene med 5 lagt til: 15, 17, 19, 21 og 23, gjennomsnitt 19 og samme sigma 2,83 — avstandene mellom prikkene er uendret. Nederst de samme fem ganget med 2: 20, 24, 28, 32 og 36, gjennomsnitt 28 og sigma 5,66 — avstandene er doblet.](/images/content/statistikk/stat-1-3-flytt-og-gang.png)\n\n*Å flytte hele materialet endrer gjennomsnittet, men ikke spredningen: hvert avvik er det samme. Å gange alle verdiene med 2 dobler både gjennomsnittet og standardavviket, fordi alle avstander dobles.*\n\nGjennomsnittet blir $2 \\cdot 14 = 28$, og standardavviket blir $2 \\cdot 2{,}83 = 5{,}66$."
+          },
+          {
+            "label": "d",
+            "task": "En elev sier: «Standardavviket kan aldri bli negativt.» Har eleven rett?",
+            "solution": "Ja. Avvikene kvadreres, så summen over brøkstreken kan ikke bli negativ, og kvadratroten av et ikke-negativt tall er ikke-negativ. $\\sigma = 0$ betyr at alle observasjonene er like."
+          }
+        ],
+        "solution": "a) $19$, b) uendret $2{,}83$, c) $28$ og $5{,}66$, d) ja",
+        "hints": [
+          "Tenk på hva som skjer med hvert enkelt avvik $x_i - \\bar{x}$."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-3-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 (digitale verktøy).** En nettbutikk har registrert leveringstiden i\ndager for $20$ bestillinger:\n\n$$2,\\ 3,\\ 2,\\ 4,\\ 3,\\ 2,\\ 5,\\ 3,\\ 4,\\ 2,\\ 3,\\ 6,\\ 4,\\ 3,\\ 2,\\ 3,\\ 4,\\ 3,\\ 2,\\ 14$$\n\nDe $20$ bestillingene er et utvalg fra alle bestillingene i året.",
+        "tool": "none",
+        "allowsSpreadsheet": true,
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnitt, median og kvartilbredde med regneark.",
+            "answer": [
+              3.7,
+              3,
+              2
+            ],
+            "solution": "$\\bar{x} = \\frac{74}{20} = 3{,}7$ dager, median $= 3$ dager, $Q_1 = 2$ og $Q_3 = 4$, så kvartilbredden er $2$ dager."
+          },
+          {
+            "label": "b",
+            "task": "Finn standardavviket. Hvilken av funksjonene `STDAV.P` og `STDAV.S` skal du bruke her, og hvorfor?",
+            "answer": 2.66,
+            "solution": "`STDAV.S`, fordi de $20$ bestillingene er et **utvalg** som skal si noe om alle bestillingene i året. Da deler vi på $n - 1 = 19$, og får $s \\approx 2{,}66$ dager. (Til sammenligning gir `STDAV.P` $\\sigma \\approx 2{,}59$ dager.)"
+          },
+          {
+            "label": "c",
+            "task": "Fjern observasjonen $14$ og regn ut gjennomsnitt, median og $s$ på nytt. Hvilke av målene endrer seg mest?",
+            "answer": [
+              3.16,
+              3,
+              1.12
+            ],
+            "solution": "Uten uteliggeren: $\\bar{x} = \\frac{60}{19} \\approx 3{,}16$ dager, median fortsatt $3$ dager, og $s \\approx 1{,}12$ dager. Standardavviket ble mer enn halvert, gjennomsnittet falt med en halv dag, og medianen og kvartilbredden står stille."
+          },
+          {
+            "label": "d",
+            "task": "Butikken lover «levering innen $5$ dager». Hvor stor andel av bestillingene i utvalget holdt løftet?",
+            "answer": 95,
+            "solution": "Alle unntatt den på $14$ dager, altså $19$ av $20$: $\\frac{19}{20} = 0{,}95 = 95\\ \\%$."
+          },
+          {
+            "label": "e",
+            "task": "Butikken vil oppgi ett tall for leveringstiden på nettsiden. Hva bør de oppgi, og hva bør de eventuelt si i tillegg?",
+            "solution": "Medianen (eller gjennomsnittet uten uteliggeren) beskriver den vanlige kunden best: halvparten får varen innen $3$ dager. Gjennomsnittet $3{,}7$ dager er dratt opp av én forsinket bestilling.\n\nDet ærligste er å oppgi begge deler: «vanlig leveringstid $2$–$4$ dager ($95\\ \\%$ innen $5$ dager)». Da får kunden vite både typisk tid og hvor ofte det går galt.\n\n**Andre muligheter:** oppgi $Q_1$ og $Q_3$ som et intervall, eller oppgi andelen som kom fram innen $3$, $5$ og $7$ dager — det siste sier mest, men krever mer plass."
+          }
+        ],
+        "solution": "a) $3{,}7$ dager, median $3$, kvartilbredde $2$, b) `STDAV.S` gir $s \\approx 2{,}66$, c) uten $14$: $\\bar{x} \\approx 3{,}16$, median $3$, $s \\approx 1{,}12$, d) $95\\ \\%$",
+        "hints": [
+          "P i `STDAV.P` står for populasjon, S i `STDAV.S` for stikkprøve (utvalg)."
+        ],
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-1-3-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** To bedrifter tilbyr deg jobb. Du får se årslønnen (i tusen\nkroner) til fem ansatte i hver bedrift:\n\n| **Bedrift 1** | 480 | 490 | 500 | 510 | 520 |\n|---|---|---|---|---|---|\n| **Bedrift 2** | 380 | 420 | 500 | 580 | 620 |",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn gjennomsnitt og median i hver bedrift.",
+            "answer": [
+              500,
+              500
+            ],
+            "solution": "Bedrift 1: $\\bar{x} = \\frac{480 + 490 + 500 + 510 + 520}{5} = \\frac{2500}{5} = 500$.\n\nBedrift 2: $\\bar{x} = \\frac{380 + 420 + 500 + 580 + 620}{5} = \\frac{2500}{5} = 500$.\n\nBegge bedriftene har altså gjennomsnitt $500$ og median $500$ tusen kroner."
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\sigma$ for hver bedrift (de fem er alle vi har tall for). Rund av til to desimaler.",
+            "answer": [
+              14.14,
+              91.21
+            ],
+            "solution": "Bedrift 1: summen av kvadrerte avvik er $400 + 100 + 0 + 100 + 400 = 1000$, så $\\sigma_1 = \\sqrt{\\frac{1000}{5}} = \\sqrt{200} \\approx 14{,}14$.\n\nBedrift 2: $14400 + 6400 + 0 + 6400 + 14400 = 41600$, så $\\sigma_2 = \\sqrt{\\frac{41600}{5}} = \\sqrt{8320} \\approx 91{,}21$."
+          },
+          {
+            "label": "c",
+            "task": "Hva forteller standardavvikene om de to bedriftene?",
+            "solution": "I bedrift 1 tjener alle omtrent det samme — spredningen er på om lag $14$ tusen kroner rundt $500$. I bedrift 2 er spredningen over seks ganger så stor: lønnen avhenger tydelig av noe (ansiennitet, stilling, resultater), og forskjellen mellom laveste og høyeste er $240$ tusen kroner."
+          },
+          {
+            "label": "d",
+            "task": "Hvilken bedrift ville du valgt, og hvilken tilleggsinformasjon ville du bedt om først?",
+            "solution": "Det finnes ikke ett riktig svar, men begrunnelsen må bygge på tallene. Vil du ha forutsigbarhet, taler bedrift 1. Tror du at du havner i toppen av fordelingen, kan bedrift 2 gi mer.\n\nTilleggsinformasjon å be om: **hvem** de fem er (nyansatte eller ledere?), hvor mange ansatte bedriften har totalt, hva startlønnen for en i din stilling er, og hvordan lønnen utvikler seg over tid. Fem lønninger er et lite utvalg, og vi vet ikke hvordan de er valgt ut."
+          },
+          {
+            "label": "e",
+            "task": "Bedrift 2 skriver i annonsen: «Hos oss tjener de ansatte i gjennomsnitt $500\\ 000$ kroner — akkurat som hos konkurrenten.» Er det en dekkende beskrivelse?",
+            "solution": "Tallet er riktig, men beskrivelsen er ikke dekkende. Setningen «akkurat som hos konkurrenten» får det til å høres ut som om de to bedriftene er like, mens spredningen er helt forskjellig ($\\sigma \\approx 14$ mot $\\approx 91$). En søker som bare ser gjennomsnittet, får ikke vite at lønnen i bedrift 2 kan bli $380$ tusen.\n\n**Andre muligheter:** annonsen kunne oppgitt lønnsspennet ($380$–$620$ tusen), eller startlønn for stillingen det søkes til — det er tallet søkeren faktisk trenger."
+          }
+        ],
+        "solution": "a) begge $500$ tusen kr, b) $\\sigma_1 \\approx 14{,}14$ og $\\sigma_2 \\approx 91{,}21$, c) helt ulik spredning, d) begrunnet valg, e) sant, men ikke dekkende",
+        "competenceGoals": [
+          "systematisere data frå relevante kjelder for å berekne, tolke og grunngje formålstenlege sentralmål og spreiingsmål"
+        ]
+      }
+    },
+    {
+      "id": "stat-1-3-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Spredningsmål | Formel | Bruker | Robust mot uteliggere? |\n|---|---|---|---|\n| Variasjonsbredde | $x_{\\text{maks}} - x_{\\text{min}}$ | 2 observasjoner | Nei |\n| Kvartilbredde | $Q_3 - Q_1$ | midterste $50\\ \\%$ | Ja |\n| Varians | $\\frac{1}{n}\\sum (x_i - \\bar{x})^2$ | alle | Nei |\n| Standardavvik | $\\sqrt{\\text{varians}}$ | alle | Nei |\n\n- **Kvartilene** deler et sortert materiale i fire like store deler. $Q_1$ er\n  medianen i nedre halvdel, $Q_3$ er medianen i øvre halvdel.\n- **Avvikene** $x_i - \\bar{x}$ summerer seg alltid til $0$. Derfor kvadrerer vi\n  dem før vi summerer — og tar kvadratroten til slutt, så enheten stemmer igjen.\n- **$\\sigma$ deler på $n$** (hele materialet), **$s$ deler på $n - 1$** (utvalg\n  som skal si noe om en større populasjon). $s$ er alltid størst. I regneark:\n  `STDAV.P` og `STDAV.S`.\n- **Å sammenligne to materialer**: oppgi alltid både et sentralmål og et\n  spredningsmål, og forklar konklusjonen med tallene.\n\n### Husk\n- Sjekk at avvikene summerer seg til $0$ før du går videre.\n- Standardavviket er aldri negativt. Er $\\sigma = 0$, er alle observasjonene like.\n- Å legge det samme tallet til alle observasjonene endrer ikke spredningen."
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Variasjonsbredde",
+      "definition": "Største observasjon minus minste observasjon."
+    },
+    {
+      "term": "Kvartil",
+      "definition": "Verdiene Q1, Q2 og Q3 som deler et sortert datamateriale i fire like store deler."
+    },
+    {
+      "term": "Kvartilbredde",
+      "definition": "Q3 − Q1, bredden på området der de midterste 50 % av observasjonene ligger."
+    },
+    {
+      "term": "Varians",
+      "definition": "Gjennomsnittet av de kvadrerte avvikene fra gjennomsnittet."
+    },
+    {
+      "term": "Standardavvik σ",
+      "definition": "Kvadratroten av variansen når vi deler på n. Brukes når tallene er hele materialet vi vil beskrive."
+    },
+    {
+      "term": "Utvalgsstandardavvik s",
+      "definition": "Kvadratroten av variansen når vi deler på n − 1. Brukes når tallene er et utvalg som skal si noe om en større populasjon."
+    }
+  ]
+}

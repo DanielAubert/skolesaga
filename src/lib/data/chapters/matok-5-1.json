@@ -1,0 +1,439 @@
+{
+  "id": "matok-5-1",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "5.1",
+  "title": "Lineære budsjettvilkår",
+  "description": "Ulikheter i to variabler og området de avgrenser i planet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+  ],
+  "content": [
+    {
+      "id": "matok-5-1-section-intro",
+      "type": "text",
+      "content": "## Når pengene tar slutt\n\nElevrådet har 600 kr og skal kjøpe brus og boller. Verkstedet har 80 timer på sagen og 100 timer på monteringsbenken. Gartneriet har 60 m² i veksthuset og et innkjøpsbudsjett på 7200 kr.\n\nAlle tre står i den samme situasjonen: de skal fordele **en knapp ressurs** mellom **to ting**. Hvor mye det blir av hver ting, kan de velge fritt — men ikke helt fritt. Summen må holde seg innenfor det de har.\n\nEt slikt krav kaller vi et **budsjettvilkår**. I dette kapittelet skal vi\n\n1. oversette teksten i en oppgave til budsjettvilkår,\n2. tegne det **området i planet** der alle vilkårene er oppfylt samtidig, og\n3. finne **hjørnepunktene** i området.\n\nI kapittel 5.2 skal vi se at det er nettopp hjørnepunktene som avgjør hvor det blir mest penger — og da har vi lineær optimering."
+    },
+    {
+      "id": "matok-5-1-def-budsjettvilkar",
+      "type": "definition",
+      "title": "Lineært budsjettvilkår",
+      "content": "La $x$ og $y$ være to mengder vi kan velge.\n\nEt **lineært budsjettvilkår** er en ulikhet på formen\n\n$$ax + by \\le c$$\n\nder $a$, $b$ og $c$ er tall. Her er\n\n- $a$ hvor mye **én** enhet av det første koster (eller bruker),\n- $b$ hvor mye **én** enhet av det andre koster,\n- $c$ hvor mye vi har til rådighet.\n\nI tillegg har vi nesten alltid de to **selvfølgelige** vilkårene\n\n$$x \\ge 0 \\qquad \\text{og} \\qquad y \\ge 0$$\n\nfor et antall kan ikke være negativt. Det er disse to som gjør at **koordinataksene** blir grenser for området.\n\nMengden av alle punkter $(x, y)$ som oppfyller alle vilkårene samtidig, kaller vi **det lovlige området**."
+    },
+    {
+      "id": "matok-5-1-fig-ett-vilkar",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-5-1-ett-vilkar.png",
+      "alt": "Koordinatsystem med x fra 0 til 8 og y fra 0 til 6. En blå rett linje merket 2x + 3y = 12 går fra punktet (0, 4) på y-aksen ned til punktet (6, 0) på x-aksen. Begge punktene er markert med prikker og navngitt. Trekanten mellom linjen, x-aksen og y-aksen er skravert grønn, og inne i den står ordet Området.",
+      "caption": "Det lovlige området til vilkåret $2x + 3y \\le 12$ sammen med $x \\ge 0$ og $y \\ge 0$. Grensene er de to koordinataksene og den blå linjen. Området er en trekant.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-5-1-ett-vilkar.json (+ matok-5-1-ett-vilkar.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-5-1-section-tegne",
+      "type": "text",
+      "content": "## Slik tegner vi området til ett vilkår\n\nUlikheten $2x + 3y \\le 12$ har uendelig mange løsninger. Vi tegner dem ikke én og én — vi bruker at **grensen** er en rett linje.\n\n**Skritt 1. Bytt ulikhetstegnet med likhetstegn.** Da får vi linjen $2x + 3y = 12$.\n\n**Skritt 2. Finn de to skjæringspunktene med aksene.** Sett $x = 0$, og sett deretter $y = 0$. To punkter er nok til å tegne en rett linje.\n\n**Skritt 3. Tegn linjen mellom de to punktene.**\n\n**Skritt 4. Finn ut hvilken side som skal skraveres.** Her bruker vi **origotesten**: sett $x = 0$ og $y = 0$ inn i ulikheten. Er den sann, ligger origo i området, og vi skraverer den siden av linjen der origo ligger. Er den usann, skraverer vi den andre siden.\n\nNB: Origotesten virker bare når linjen ikke går gjennom origo. Gjør den det, velger vi et annet prøvepunkt, for eksempel $(1, 0)$."
+    },
+    {
+      "id": "matok-5-1-fig-origotest",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-5-1-origotest.png",
+      "alt": "Koordinatsystem med x fra minus 2 til 7 og y fra minus 1 til 6. En blå rett linje merket 2x + 3y = 12 går fra oppe til venstre ned mot høyre gjennom (0, 4) og (6, 0). Hele halvplanet under linjen er skravert grønt og merket «lovlig»; området over linjen er merket «ulovlig». Origo er markert med en prikk og navngitt, og ligger inne i det skraverte området.",
+      "caption": "Origotesten: $2 \\cdot 0 + 3 \\cdot 0 = 0$, og $0 \\le 12$ er sant. Da ligger origo på den lovlige siden, og det er den siden vi skraverer.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-5-1-origotest.json (+ matok-5-1-origotest.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-5-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra tekst til område",
+      "problem": "Elevrådet skal kjøpe brus og boller til et arrangement. Én flaske brus koster 15 kr, og én bolle koster 25 kr. De har 600 kr.\n\nLa $x$ være antall flasker brus og $y$ antall boller.\n\na) Sett opp budsjettvilkåret.\n\nb) Finn skjæringspunktene med aksene.\n\nc) Skissér det lovlige området.\n\nd) Kan de kjøpe 20 flasker brus og 12 boller?",
+      "solution": "**a)**\n\n**Hva vet vi?** Brus koster 15 kr per flaske, boller 25 kr per stykk, og til sammen har de 600 kr.\n\n**Hva må vi finne?** En ulikhet som sier at samlet pris ikke overstiger 600 kr.\n\nPrisen for brusen er $15 \\cdot x$, og prisen for bollene er $25 \\cdot y$. Til sammen:\n\n$$15x + 25y \\le 600$$\n\nI tillegg er $x \\ge 0$ og $y \\ge 0$, for de kan ikke kjøpe et negativt antall.\n\n**Svar:** $15x + 25y \\le 600$, $x \\ge 0$, $y \\ge 0$.\n\n**b)** Vi bytter ulikhetstegnet med likhetstegn og ser på linjen $15x + 25y = 600$.\n\nSkjæring med $x$-aksen ($y = 0$):\n\n$$15x + 25 \\cdot 0 = 600$$\n$$15x = 600 \\qquad | \\; : 15$$\n$$x = 40$$\n\nSkjæring med $y$-aksen ($x = 0$):\n\n$$15 \\cdot 0 + 25y = 600$$\n$$25y = 600 \\qquad | \\; : 25$$\n$$y = 24$$\n\n**Svar:** Linjen går gjennom $(40, 0)$ og $(0, 24)$.\n\n**c)** Vi tegner linjen mellom $(0, 24)$ og $(40, 0)$ og gjør origotesten:\n\n$$15 \\cdot 0 + 25 \\cdot 0 = 0$$\n\nog $0 \\le 600$ er sant. Origo ligger altså i området, så vi skraverer trekanten mellom linjen og de to aksene.\n\n![Koordinatsystem med antall flasker brus x fra 0 til 45 og antall boller y fra 0 til 28. En blå rett linje merket 15x + 25y = 600 går fra det markerte punktet (0, 24) på y-aksen ned til det markerte punktet (40, 0) på x-aksen. Trekanten mellom linja og de to aksene er skravert grønn, og ordet Området står inne i den.](/images/content/matematikk-okonomi/matok-5-1-brus-boller.png)\n\n*Det lovlige området er trekanten mellom budsjettlinja og de to aksene. Origo ligger i området — $15 \\cdot 0 + 25 \\cdot 0 = 0$, og $0 \\le 600$ er sant — så vi skraverer inn mot origo.*\n\n**Svar:** Det lovlige området er trekanten med hjørnene $(0, 0)$, $(40, 0)$ og $(0, 24)$.\n\n**d)** Vi setter $x = 20$ og $y = 12$ inn i ulikheten:\n\n$$15 \\cdot 20 + 25 \\cdot 12 = 300 + 300 = 600$$\n\nog $600 \\le 600$ er sant.\n\n**Svar:** Ja, de kan kjøpe 20 flasker brus og 12 boller. Legg merke til at de da bruker **akkurat** alle pengene — punktet $(20, 12)$ ligger på selve linjen, ikke inni området."
+    },
+    {
+      "id": "matok-5-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-1-ex-1",
+        "number": "5.1.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et idrettslag skal kjøpe vann og energibarer til en turnering. Én flaske vann koster 12 kr, og én energibar koster 20 kr. Laget har 480 kr.\n\nLa $x$ være antall flasker vann og $y$ antall energibarer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp budsjettvilkåret.",
+            "solution": "Prisen for vannet er $12x$ og for barene $20y$. Til sammen: $12x + 20y \\le 480$. I tillegg er $x \\ge 0$ og $y \\ge 0$.",
+            "expressionAnswer": "12x+20y"
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange flasker vann kan de kjøpe hvis de ikke kjøper barer?",
+            "solution": "$12x = 480$ gir $x = 40$.",
+            "answer": 40
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange energibarer kan de kjøpe hvis de ikke kjøper vann?",
+            "solution": "$20y = 480$ gir $y = 24$.",
+            "answer": 24
+          },
+          {
+            "label": "d",
+            "task": "Er 30 flasker vann og 8 energibarer innenfor budsjettet?",
+            "solution": "$12 \\cdot 30 + 20 \\cdot 8 = 360 + 160 = 520$, og $520 > 480$. Nei, det er 40 kr for dyrt."
+          },
+          {
+            "label": "e",
+            "task": "Laget kjøper 20 flasker vann. Hvor mange energibarer er det plass til i budsjettet?",
+            "solution": "$12 \\cdot 20 + 20y \\le 480$ gir $240 + 20y \\le 480$, altså $20y \\le 240$ og $y \\le 12$.",
+            "answer": 12
+          },
+          {
+            "label": "f",
+            "task": "Skissér det lovlige området i et koordinatsystem med $x$ langs den vannrette aksen og $y$ langs den loddrette. Bruk origotesten til å avgjøre hvilken side av linjen du skal skravere.",
+            "solution": "Vi bytter ulikhetstegnet med likhetstegn og tegner linjen $12x + 20y = 480$ gjennom de to punktene fra b) og c): $(40, 0)$ og $(0, 24)$.\n\nOrigotesten: $12 \\cdot 0 + 20 \\cdot 0 = 0$, og $0 \\le 480$ er sant. Origo ligger altså i det lovlige området, så vi skraverer den siden av linjen der origo ligger.\n\n![Koordinatsystem med antall flasker vann x fra minus 4 til 45 og antall energibarer y fra minus 6 til 28. En blå rett linje merket 12x + 20y = 480 går gjennom de markerte punktene (0, 24) og (40, 0) og fortsetter et stykke forbi begge aksene. Trekanten mellom linja og de to aksene er skravert grønn og merket Området. Origo er markert med en grønn prikk og teksten «origo: 0 mindre enn eller lik 480 er sant».](/images/content/matematikk-okonomi/matok-5-1-vann-energibarer.png)\n\n*Origotesten avgjør hvilken side som skraveres: origo gir $0 \\le 480$, som er sant, så det lovlige området ligger på origos side av linja.*\n\nSammen med $x \\ge 0$ og $y \\ge 0$ blir det lovlige området **trekanten** med hjørnene $(0, 0)$, $(40, 0)$ og $(0, 24)$."
+          }
+        ],
+        "solution": "a) $12x + 20y \\le 480$, b) 40 flasker, c) 24 barer, d) nei (520 kr), e) 12 barer, f) trekanten med hjørnene $(0, 0)$, $(40, 0)$ og $(0, 24)$.",
+        "hints": [
+          "Prisen for én ting ganger antallet gir prisen for alle.",
+          "I e) setter du inn $x = 20$ og løser ulikheten for $y$."
+        ],
+        "competenceGoals": [
+          "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-1-section-flere",
+      "type": "text",
+      "content": "## Flere vilkår samtidig\n\nDe fleste virkelige oppgaver har mer enn én knapp ressurs. Et verksted har både begrenset tid og begrenset materiale. Et gartneri har både begrenset plass og begrenset budsjett.\n\nDa får vi **ett budsjettvilkår per ressurs**, og alle må være oppfylt samtidig. Det lovlige området blir **snittet** av områdene — det som er igjen når vi har skravert bort alt som bryter minst ett vilkår.\n\nDet gir en viktig regel:\n\n**Det strengeste vilkåret bestemmer.** Er det ene vilkåret oppfylt og det andre ikke, er punktet ulovlig. Vi trenger ikke å spørre hvilket vilkår som er «viktigst» — vi tester alle."
+    },
+    {
+      "id": "matok-5-1-fig-to-vilkar",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-5-1-to-vilkar.png",
+      "alt": "Koordinatsystem med x fra 0 til 8 og y fra 0 til 9. En blå rett linje merket x + y = 8 går fra (0, 8) ned mot (8, 0). En rød rett linje merket 3x + y = 18 går bratt fra (3, 9) ned til (6, 0). Linjene krysser hverandre i punktet (5, 3). Området som ligger under begge linjene og over begge aksene er skravert grønt, og ordet Området står inne i det. Tre hjørnepunkter er markert med prikker og navngitt: (0, 8), (5, 3) og (6, 0).",
+      "caption": "To budsjettvilkår samtidig. Det lovlige området har fire hjørner: $(0, 0)$, $(0, 8)$, $(5, 3)$ og $(6, 0)$. Legg merke til at bare en **del** av hver linje er grense for området.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-5-1-to-vilkar.json (+ matok-5-1-to-vilkar.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-5-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2: To ressurser, to vilkår",
+      "problem": "Et gartneri dyrker sommerblomster og stauder og selger dem i kasser.\n\n- Én kasse sommerblomster tar $0{,}5$ m² i veksthuset, én kasse stauder tar $1$ m². Veksthuset er på 60 m².\n- Én kasse sommerblomster koster 80 kr å produsere, én kasse stauder 120 kr. Gartneriet har 7200 kr til produksjon.\n\nLa $x$ være antall kasser sommerblomster og $y$ antall kasser stauder.\n\na) Sett opp vilkårene.\n\nb) Er 40 kasser sommerblomster og 30 kasser stauder mulig?\n\nc) Gartneriet bestemmer seg for 60 kasser sommerblomster. Hvor mange kasser stauder er det da plass til?",
+      "solution": "**a)**\n\n**Plassen i veksthuset.** Sommerblomstene tar $0{,}5 \\cdot x$ kvadratmeter og staudene $1 \\cdot y$ kvadratmeter. (Vi skriver vanligvis ikke 1-tallet, så vi skriver bare $y$.) Til sammen kan de ikke ta mer enn 60 m²:\n\n$$0{,}5x + y \\le 60$$\n\n**Pengene.** Sommerblomstene koster $80x$ kroner og staudene $120y$ kroner:\n\n$$80x + 120y \\le 7200$$\n\n**Svar:** $0{,}5x + y \\le 60$, $80x + 120y \\le 7200$, $x \\ge 0$, $y \\ge 0$.\n\n**b)** Vi setter $x = 40$ og $y = 30$ inn i **begge** vilkårene.\n\nPlass:\n\n$$0{,}5 \\cdot 40 + 30 = 20 + 30 = 50$$\n\nog $50 \\le 60$ er sant.\n\nPenger:\n\n$$80 \\cdot 40 + 120 \\cdot 30 = 3200 + 3600 = 6800$$\n\nog $6800 \\le 7200$ er sant.\n\n**Svar:** Ja, det er mulig. Begge vilkårene er oppfylt, og de har 10 m² og 400 kr til overs.\n\n**c)** Nå er $x = 60$, og vi skal finne hvor stor $y$ kan være. Vi tar ett vilkår om gangen.\n\nPlassvilkåret:\n\n$$0{,}5 \\cdot 60 + y \\le 60$$\n$$30 + y \\le 60 \\qquad | \\; - 30$$\n$$y \\le 30$$\n\nPengevilkåret:\n\n$$80 \\cdot 60 + 120y \\le 7200$$\n$$4800 + 120y \\le 7200 \\qquad | \\; - 4800$$\n$$120y \\le 2400 \\qquad | \\; : 120$$\n$$y \\le 20$$\n\nBegge må gjelde samtidig. Da er det det **strengeste** kravet som bestemmer, og $y \\le 20$ er strengere enn $y \\le 30$.\n\n**Svar:** Det er plass til høyst 20 kasser stauder. Det er pengene som setter grensen her, ikke plassen — veksthuset har fortsatt 10 m² ledig."
+    },
+    {
+      "id": "matok-5-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-1-ex-2",
+        "number": "5.1.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et snekkerverksted lager bokhyller og skrivebord.\n\n- Én bokhylle tar 1 time på sagen, ett skrivebord tar 2 timer. Verkstedet har 60 sagetimer i uka.\n- Materialene koster 300 kr per bokhylle og 500 kr per skrivebord. Verkstedet har 15 000 kr til materialer.\n\nLa $x$ være antall bokhyller og $y$ antall skrivebord.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp vilkåret for sagetiden.",
+            "solution": "$x + 2y \\le 60$",
+            "expressionAnswer": "x+2y"
+          },
+          {
+            "label": "b",
+            "task": "Sett opp vilkåret for materialkostnaden.",
+            "solution": "$300x + 500y \\le 15000$",
+            "expressionAnswer": "300x+500y"
+          },
+          {
+            "label": "c",
+            "task": "Er 20 bokhyller og 15 skrivebord mulig?",
+            "solution": "Tid: $20 + 2 \\cdot 15 = 50 \\le 60$. Penger: $300 \\cdot 20 + 500 \\cdot 15 = 6000 + 7500 = 13\\,500 \\le 15\\,000$. Begge er oppfylt, så ja."
+          },
+          {
+            "label": "d",
+            "task": "Er 40 bokhyller og 8 skrivebord mulig?",
+            "solution": "Tid: $40 + 16 = 56 \\le 60$ er oppfylt. Penger: $300 \\cdot 40 + 500 \\cdot 8 = 12\\,000 + 4000 = 16\\,000 > 15\\,000$ er ikke oppfylt. Punktet er ulovlig — det holder at ett vilkår brytes."
+          },
+          {
+            "label": "e",
+            "task": "Verkstedet lager 30 bokhyller. Hvor mange skrivebord er det plass til?",
+            "solution": "Tid: $30 + 2y \\le 60$ gir $y \\le 15$. Penger: $9000 + 500y \\le 15\\,000$ gir $500y \\le 6000$, altså $y \\le 12$. Det strengeste kravet bestemmer: høyst 12 skrivebord.",
+            "answer": 12
+          }
+        ],
+        "solution": "a) $x + 2y \\le 60$, b) $300x + 500y \\le 15\\,000$, c) ja, d) nei (materialene sprekker), e) 12 skrivebord.",
+        "hints": [
+          "Ett vilkår per ressurs — tid for seg, penger for seg.",
+          "Et punkt er ulovlig med én gang ett av vilkårene brytes."
+        ],
+        "competenceGoals": [
+          "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-1-section-hjorne",
+      "type": "text",
+      "content": "## Hjørnepunktene\n\nNår området er avgrenset av koordinataksene og rette linjer, blir det en **mangekant**. Hjørnene i mangekanten kaller vi **hjørnepunkter**, og de er av tre slag:\n\n1. **Origo** $(0, 0)$ — der de to aksene møtes.\n2. **Punkter på en akse** — der én av linjene skjærer $x$-aksen eller $y$-aksen.\n3. **Punkter der to linjer krysser hverandre** — dem finner vi ved å løse et **likningssett**.\n\nPunkt 3 er det eneste som krever regning. Vi bruker **addisjonsmetoden**: vi ganger opp den ene eller begge likningene slik at én av de ukjente får like store koeffisienter, og trekker så likningene fra hverandre.\n\nNB: Ikke alle skjæringspunkter er hjørnepunkter. En linje kan krysse en akse et sted som ligger **utenfor** det lovlige området, fordi et annet vilkår stopper oss før vi kommer dit. Derfor tester vi alltid et kandidatpunkt mot alle vilkårene til slutt."
+    },
+    {
+      "id": "matok-5-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Hjørnepunktene i et område med to vilkår",
+      "problem": "Et trevareverksted lager krakker og bord.\n\n- Saging: 2 timer per krakk og 4 timer per bord. Verkstedet har 80 sagetimer.\n- Montering: 4 timer per krakk og 2 timer per bord. Verkstedet har 100 monteringstimer.\n\nLa $x$ være antall krakker og $y$ antall bord.\n\na) Sett opp vilkårene og finn skjæringspunktene med aksene.\n\nb) Finn punktet der de to linjene krysser hverandre.\n\nc) Skriv opp alle hjørnepunktene i det lovlige området.",
+      "solution": "**a)** Saging: $2x + 4y \\le 80$. Montering: $4x + 2y \\le 100$. I tillegg $x \\ge 0$ og $y \\ge 0$.\n\n**Sagelinjen** $2x + 4y = 80$:\n\n- $y = 0$: $2x = 80$, altså $x = 40$. Punktet $(40, 0)$.\n- $x = 0$: $4y = 80$, altså $y = 20$. Punktet $(0, 20)$.\n\n**Monteringslinjen** $4x + 2y = 100$:\n\n- $y = 0$: $4x = 100$, altså $x = 25$. Punktet $(25, 0)$.\n- $x = 0$: $2y = 100$, altså $y = 50$. Punktet $(0, 50)$.\n\n**b)** Nå skal begge vilkårene være oppfylt **med likhet**, altså begge ressursene brukt fullt ut. Vi løser likningssettet\n\n$$2x + 4y = 80$$\n$$4x + 2y = 100$$\n\n**Vi bruker addisjonsmetoden.** For at leddene med $x$ skal bli like store, ganger vi den første likningen med 2:\n\n$$2x + 4y = 80 \\qquad | \\; \\cdot 2$$\n$$4x + 8y = 160$$\n\nNå har begge likningene $4x$, og vi trekker den andre likningen fra den nye første. Det er lov fordi venstre side av den andre likningen er akkurat like stor som høyre side:\n\n$$(4x + 8y) - (4x + 2y) = 160 - 100$$\n$$6y = 60 \\qquad | \\; : 6$$\n$$y = 10$$\n\nVi setter $y = 10$ inn i den opprinnelige første likningen:\n\n$$2x + 4 \\cdot 10 = 80$$\n$$2x + 40 = 80 \\qquad | \\; - 40$$\n$$2x = 40 \\qquad | \\; : 2$$\n$$x = 20$$\n\n**Svar:** Linjene krysser hverandre i $(20, 10)$ — altså 20 krakker og 10 bord, der både alle sagetimene og alle monteringstimene er brukt opp.\n\n**c)** Vi går rundt kanten av området.\n\n- **Origo** $(0, 0)$ er med.\n- **På $y$-aksen:** sagelinjen gir $y \\le 20$, monteringslinjen gir $y \\le 50$. Det strengeste er 20, så hjørnet er $(0, 20)$ — ikke $(0, 50)$.\n- **Krysningspunktet** $(20, 10)$.\n- **På $x$-aksen:** sagelinjen gir $x \\le 40$, monteringslinjen gir $x \\le 25$. Det strengeste er 25, så hjørnet er $(25, 0)$ — ikke $(40, 0)$.\n\n![Koordinatsystem med antall krakker x fra 0 til 45 og antall bord y fra 0 til 55. En blå linje merket 2x + 4y = 80 går fra (0, 20) ned til (40, 0). En rød linje merket 4x + 2y = 100 går brattere fra (0, 50) ned til (25, 0). Området under begge linjene og over aksene er skravert grønt. Fire hjørner er markert med fylte prikker; tre av dem er navngitt — (0, 20), (20, 10) og (25, 0) — mens origo bare har prikk. To punkter er markert med åpen ring og teksten «ikke hjørne»: (0, 50) på den røde linjen og (40, 0) på den blå.](/images/content/matematikk-okonomi/matok-5-1-hjornepunkter.png)\n\n*De fire hjørnepunktene i Eksempel 3. De to åpne ringene er skjæringspunkter som **ikke** er hjørner: i $(0, 50)$ er monteringstimene brukt opp, men sagelinjen er brutt, og i $(40, 0)$ er det omvendt.*\n\n**Svar:** Hjørnepunktene er $(0, 0)$, $(0, 20)$, $(20, 10)$ og $(25, 0)$.\n\nNB: Punktene $(0, 50)$ og $(40, 0)$ ligger på hver sin linje, men de er **ikke** hjørnepunkter — det andre vilkåret er brutt der. Sjekk selv: i $(40, 0)$ er $4 \\cdot 40 + 2 \\cdot 0 = 160 > 100$."
+    },
+        {
+      "id": "matok-5-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-1-ex-3",
+        "number": "5.1.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et trykkeri lager plakater og brosjyrer. Vi måler begge deler i tusen eksemplarer.\n\n- Trykketid: 3 timer per tusen plakater og 2 timer per tusen brosjyrer. Trykkeriet har 120 timer.\n- Papir: 1 rull per tusen plakater og 2 ruller per tusen brosjyrer. Trykkeriet har 80 ruller.\n\nLa $x$ være antall tusen plakater og $y$ antall tusen brosjyrer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp de to budsjettvilkårene.",
+            "solution": "Tid: $3x + 2y \\le 120$. Papir: $x + 2y \\le 80$."
+          },
+          {
+            "label": "b",
+            "task": "Finn skjæringspunktene mellom tidslinjen og aksene.",
+            "solution": "$y = 0$ gir $3x = 120$, altså $x = 40$, punktet $(40, 0)$. $x = 0$ gir $2y = 120$, altså $y = 60$, punktet $(0, 60)$."
+          },
+          {
+            "label": "c",
+            "task": "Finn $x$-koordinaten til punktet der de to linjene krysser hverandre.",
+            "solution": "Begge likningene har $2y$. Vi trekker papirlikningen fra tidslikningen: $(3x + 2y) - (x + 2y) = 120 - 80$, altså $2x = 40$ og $x = 20$.",
+            "answer": 20
+          },
+          {
+            "label": "d",
+            "task": "Finn $y$-koordinaten i det samme punktet.",
+            "solution": "$20 + 2y = 80$ gir $2y = 60$, altså $y = 30$.",
+            "answer": 30
+          },
+          {
+            "label": "e",
+            "task": "Skriv opp alle hjørnepunktene i det lovlige området.",
+            "solution": "På $y$-aksen: tid gir $y \\le 60$, papir gir $y \\le 40$ — strengest er 40, så $(0, 40)$. På $x$-aksen: tid gir $x \\le 40$, papir gir $x \\le 80$ — strengest er 40, så $(40, 0)$. Hjørnepunktene er $(0, 0)$, $(0, 40)$, $(20, 30)$ og $(40, 0)$."
+          },
+          {
+            "label": "f",
+            "task": "Skissér det lovlige området. Tegn begge grenselinjene, bruk origotesten på hver av dem, og marker hjørnepunktene fra e).",
+            "solution": "**Tidslinjen** $3x + 2y = 120$ går gjennom $(40, 0)$ og $(0, 60)$.\n\n**Papirlinjen** $x + 2y = 80$ går gjennom $(80, 0)$ og $(0, 40)$.\n\nOrigotesten på tidsvilkåret: $3 \\cdot 0 + 2 \\cdot 0 = 0 \\le 120$ er sant. Origotesten på papirvilkåret: $0 + 2 \\cdot 0 = 0 \\le 80$ er sant. Origo er altså lovlig i begge, og vi skraverer inn mot origo begge ganger.\n\n![Koordinatsystem med tusen plakater x fra 0 til 90 og tusen brosjyrer y fra 0 til 65. En rød linje merket 3x + 2y = 120 går fra (0, 60) ned til det markerte punktet (40, 0). En slakere blå linje merket x + 2y = 80 går fra det markerte punktet (0, 40) ned til (80, 0). Linjene krysser hverandre i det markerte punktet (20, 30). Firkanten som ligger under begge linjene og over begge aksene er skravert grønn og merket Området. Punktene (0, 60) og (80, 0) er markert med åpen ring og teksten «ikke hjørne».](/images/content/matematikk-okonomi/matok-5-1-trykkeri.png)\n\n*Det lovlige området er skravert to ganger — én gang for hvert vilkår — og er firkanten med hjørnene $(0, 0)$, $(0, 40)$, $(20, 30)$ og $(40, 0)$. De to åpne ringene ligger på hver sin linje, men bryter det andre vilkåret.*\n\nDet lovlige området er det som er skravert **to** ganger, og med $x \\ge 0$ og $y \\ge 0$ blir det **firkanten** med hjørnene $(0, 0)$, $(0, 40)$, $(20, 30)$ og $(40, 0)$.\n\nNB: Punktene $(0, 60)$ og $(80, 0)$ ligger på hver sin linje, men de er ikke hjørner — det andre vilkåret er brutt der."
+          }
+        ],
+        "solution": "a) $3x + 2y \\le 120$ og $x + 2y \\le 80$, b) $(40, 0)$ og $(0, 60)$, c) $x = 20$, d) $y = 30$, e) $(0,0)$, $(0,40)$, $(20,30)$, $(40,0)$, f) firkanten med de samme fire hjørnene, skravert inn mot origo.",
+        "hints": [
+          "Begge likningene har leddet $2y$ — da forsvinner $y$ av seg selv når du trekker dem fra hverandre.",
+          "På hver akse er det det strengeste av de to kravene som gir hjørnet."
+        ],
+        "competenceGoals": [
+          "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-1-section-heltall",
+      "type": "text",
+      "content": "## Når hjørnepunktet ikke er et helt tall\n\nLinjene bryr seg ikke om at vi teller kurver og vesker i hele enheter. Løser vi likningssettet, kan svaret godt bli $x = \\frac{40}{7}$.\n\nMatematisk er det helt riktig: det er der de to ressursene brukes opp samtidig. Praktisk er det umulig — ingen lager $5{,}7$ kurver.\n\nDa gjør vi to ting:\n\n1. Vi regner ut det eksakte hjørnepunktet likevel, for det forteller hvor grensen går.\n2. Vi undersøker **heltallspunktene like ved**, og tester hvert av dem mot alle vilkårene.\n\nVi kan ikke bare runde av. Runder vi begge koordinatene oppover, havner vi som regel utenfor området."
+    },
+    {
+      "id": "matok-5-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Et hjørnepunkt som ikke er et helt tall",
+      "problem": "Et lite verksted syr sykkelkurver og sykkelvesker.\n\n- Syarbeid: 3 timer per kurv og 4 timer per veske. Verkstedet har 60 timer i uka.\n- Stoff: 5 meter per kurv og 2 meter per veske. Verkstedet har 50 meter stoff.\n\nLa $x$ være antall kurver og $y$ antall vesker.\n\na) Finn punktet der de to grenselinjene krysser hverandre.\n\nb) Hvorfor kan ikke verkstedet produsere akkurat dette antallet?\n\nc) Undersøk heltallspunktene $(5, 11)$, $(6, 10)$ og $(6, 11)$.",
+      "solution": "**a)** Vilkårene er $3x + 4y \\le 60$ og $5x + 2y \\le 50$. Vi løser likningssettet\n\n$$3x + 4y = 60$$\n$$5x + 2y = 50$$\n\nVi ganger den andre likningen med 2, slik at begge får $4y$:\n\n$$5x + 2y = 50 \\qquad | \\; \\cdot 2$$\n$$10x + 4y = 100$$\n\nVi trekker den første likningen fra denne:\n\n$$(10x + 4y) - (3x + 4y) = 100 - 60$$\n$$7x = 40 \\qquad | \\; : 7$$\n$$x = \\frac{40}{7} \\approx 5{,}7$$\n\nVi setter inn i den første likningen:\n\n$$3 \\cdot \\frac{40}{7} + 4y = 60$$\n$$\\frac{120}{7} + 4y = 60 \\qquad | \\; - \\frac{120}{7}$$\n$$4y = \\frac{420}{7} - \\frac{120}{7} = \\frac{300}{7} \\qquad | \\; : 4$$\n$$y = \\frac{75}{7} \\approx 10{,}7$$\n\n**Svar:** Linjene krysser hverandre i $\\left(\\frac{40}{7}, \\frac{75}{7}\\right) \\approx (5{,}7,\\ 10{,}7)$.\n\n**b)** En kurv og en veske er ting man enten lager eller ikke lager. $5{,}7$ kurver finnes ikke.\n\n**Svar:** Punktet er matematisk riktig, men praktisk umulig. Det forteller oss likevel at det beste heltallspunktet må ligge like ved.\n\n**c)** Vi tester hvert punkt mot **begge** vilkårene.\n\n$(5, 11)$:\n\n$$3 \\cdot 5 + 4 \\cdot 11 = 15 + 44 = 59 \\le 60$$\n$$5 \\cdot 5 + 2 \\cdot 11 = 25 + 22 = 47 \\le 50$$\n\nBegge vilkårene er oppfylt, så punktet er lovlig.\n\n$(6, 10)$:\n\n$$3 \\cdot 6 + 4 \\cdot 10 = 18 + 40 = 58 \\le 60$$\n$$5 \\cdot 6 + 2 \\cdot 10 = 30 + 20 = 50 \\le 50$$\n\nBegge er oppfylt — stoffet går akkurat opp.\n\n$(6, 11)$:\n\n$$3 \\cdot 6 + 4 \\cdot 11 = 18 + 44 = 62$$\n\nHer er $62 > 60$. Sykravet er brutt, og punktet er ulovlig.\n\n![Koordinatsystem med antall kurver x fra 0 til 12 og antall vesker y fra 0 til 26. En blå linje merket 3x + 4y = 60 og en brattere rød linje merket 5x + 2y = 50 avgrenser sammen med aksene et grønt skravert område. Linjene krysser hverandre i et punkt markert med åpen ring og merket (5,7 ; 10,7). To grønne fylte prikker ligger i (5, 11) og (6, 10), begge innenfor det skraverte området. En rød åpen ring ligger i (6, 11), rett utenfor. En kort svart pekerstrek går fra etiketten (5,7 ; 10,7) fram til den åpne ringen. Tegnforklaringen navngir de tre markørene og sier hvilken form hver av dem har.](/images/content/matematikk-okonomi/matok-5-1-heltall.png)\n\n*Krysningspunktet $\\left(\\frac{40}{7}, \\frac{75}{7}\\right)$ er ikke et heltallspunkt. Runder vi begge koordinatene oppover, havner vi i $(6, 11)$ — utenfor området. De to grønne punktene er lovlige.*\n\n**Svar:** $(5, 11)$ og $(6, 10)$ er lovlige, mens $(6, 11)$ er ulovlig — syarbeidet sprekker med 2 timer.\n\nNB: Legg merke til hva som skjedde i $(6, 11)$. Vi rundet begge koordinatene oppover fra $(5{,}7,\\ 10{,}7)$ og havnet utenfor området. Avrunding er ikke en lovlig metode her; vi må teste."
+    },
+        {
+      "id": "matok-5-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-1-ex-4",
+        "number": "5.1.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et bakeri lager kakebokser og gaveesker. Alle tallene gjelder én formiddagsøkt.\n\n- Papp: 2 plater per kakeboks og 5 plater per gaveeske. Bakeriet har 40 plater til rådighet i økta.\n- Arbeidstid: 4 minutter per kakeboks og 3 minutter per gaveeske. Bakeriet har 45 minutter i økta.\n\nLa $x$ være antall kakebokser og $y$ antall gaveesker.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp de to vilkårene.",
+            "solution": "Papp: $2x + 5y \\le 40$. Tid: $4x + 3y \\le 45$."
+          },
+          {
+            "label": "b",
+            "task": "Finn $y$-koordinaten til punktet der grenselinjene krysser hverandre.",
+            "solution": "Vi ganger papplikningen med 2: $4x + 10y = 80$. Vi trekker tidslikningen fra: $(4x + 10y) - (4x + 3y) = 80 - 45$, altså $7y = 35$ og $y = 5$.",
+            "answer": 5
+          },
+          {
+            "label": "c",
+            "task": "Finn $x$-koordinaten i det samme punktet.",
+            "solution": "$2x + 5 \\cdot 5 = 40$ gir $2x = 15$, altså $x = 7{,}5$.",
+            "answer": 7.5
+          },
+          {
+            "label": "d",
+            "task": "Er heltallspunktet $(7, 5)$ lovlig?",
+            "solution": "Papp: $2 \\cdot 7 + 5 \\cdot 5 = 14 + 25 = 39 \\le 40$. Tid: $4 \\cdot 7 + 3 \\cdot 5 = 28 + 15 = 43 \\le 45$. Begge er oppfylt, så ja."
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor krysningspunktet fra b) og c) ikke kan brukes direkte når bakeriet skal bestemme produksjonen.",
+            "solution": "Punktet er $(7{,}5,\\ 5)$, og en halv kakeboks finnes ikke. Punktet viser hvor papp og tid tar slutt samtidig, men produksjonen må velges blant heltallspunktene i nærheten, og hvert av dem må testes mot begge vilkårene. Runder vi $7{,}5$ opp til 8, får vi $4 \\cdot 8 + 15 = 47 > 45$ — da sprekker tiden."
+          }
+        ],
+        "solution": "a) $2x + 5y \\le 40$ og $4x + 3y \\le 45$, b) $y = 5$, c) $x = 7{,}5$, d) ja, e) et halvt antall bokser finnes ikke; $(8, 5)$ bryter tidsvilkåret.",
+        "hints": [
+          "Gang opp den ene likningen slik at leddene med $x$ blir like store.",
+          "Avrunding oppover fører ofte ut av området — test i stedet."
+        ],
+        "competenceGoals": [
+          "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-1-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Begrep | Betydning |\n|---|---|\n| Budsjettvilkår | En ulikhet $ax + by \\le c$: samlet bruk av en ressurs kan ikke overstige det vi har |\n| Grenselinje | Linjen $ax + by = c$, der ressursen er brukt fullt ut |\n| Det lovlige området | Alle punkter som oppfyller alle vilkårene samtidig |\n| Hjørnepunkt | Et hjørne i området: origo, et punkt på en akse, eller et krysningspunkt mellom to linjer |\n\n**Slik skisserer du området:**\n\n1. Kall de to mengdene $x$ og $y$, og skriv i klartekst hva de står for.\n2. Sett opp **ett vilkår per ressurs**, pluss $x \\ge 0$ og $y \\ge 0$.\n3. For hvert vilkår: bytt $\\le$ med $=$, finn skjæringspunktene med aksene, og tegn linjen.\n4. Gjør origotesten for å se hvilken side som gjelder.\n5. Skravér det som er igjen når alle vilkårene er tatt hensyn til.\n6. Finn hjørnepunktene — krysningspunktene ved å løse likningssett med addisjonsmetoden.\n7. Kontrollér hvert hjørnepunkt mot **alle** vilkårene.\n\nI kapittel 5.2 legger vi til et spørsmål til: *hvilket* av punktene i området gir mest penger?"
+    },
+    {
+      "id": "matok-5-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-1-ex-5",
+        "number": "5.1.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En gartner dyrker salat og urter og selger dem i kasser per uke.\n\n- Veksthusplass: 1 plassenhet per kasse salat og 1 plassenhet per kasse urter. Gartneren har 90 plassenheter.\n- Arbeidstid: 2 timer per kasse salat og 5 timer per kasse urter. Gartneren har 240 timer.\n- Marked: gartneren får ikke solgt mer enn 30 kasser urter i uka.\n\nLa $x$ være antall kasser salat og $y$ antall kasser urter.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp alle vilkårene.",
+            "solution": "Plass: $x + y \\le 90$. Tid: $2x + 5y \\le 240$. Marked: $y \\le 30$. I tillegg $x \\ge 0$ og $y \\ge 0$."
+          },
+          {
+            "label": "b",
+            "task": "Finn skjæringspunktene mellom tidslinjen og de to aksene.",
+            "solution": "$y = 0$ gir $2x = 240$, altså $(120, 0)$. $x = 0$ gir $5y = 240$, altså $(0, 48)$."
+          },
+          {
+            "label": "c",
+            "task": "Finn hjørnepunktet der plasslinjen og tidslinjen krysser hverandre.",
+            "solution": "Vi ganger plasslikningen med 2: $2x + 2y = 180$. Vi trekker den fra tidslikningen: $(2x + 5y) - (2x + 2y) = 240 - 180$, altså $3y = 60$ og $y = 20$. Da er $x = 90 - 20 = 70$. Hjørnepunktet er $(70, 20)$. Kontroll: $y = 20 \\le 30$, så markedsvilkåret er også oppfylt."
+          },
+          {
+            "label": "d",
+            "task": "Finn hjørnepunktet der markedslinjen $y = 30$ møter tidslinjen.",
+            "solution": "$2x + 5 \\cdot 30 = 240$ gir $2x = 90$, altså $x = 45$. Hjørnepunktet er $(45, 30)$. Kontroll: $45 + 30 = 75 \\le 90$, så plassvilkåret er oppfylt."
+          },
+          {
+            "label": "e",
+            "task": "Skriv opp alle hjørnepunktene, og forklar hvorfor $(0, 48)$ ikke er med.",
+            "solution": "Hjørnepunktene er $(0, 0)$, $(0, 30)$, $(45, 30)$, $(70, 20)$ og $(90, 0)$. Punktet $(0, 48)$ ligger på tidslinjen, men bryter markedsvilkåret: $48 > 30$. Gartneren har altså timer nok til 48 kasser urter, men får bare solgt 30."
+          },
+          {
+            "label": "f",
+            "task": "Skissér det lovlige området med alle tre vilkårene, og marker hjørnepunktene fra e).",
+            "solution": "**Plasslinjen** $x + y = 90$ går gjennom $(90, 0)$ og $(0, 90)$.\n\n**Tidslinjen** $2x + 5y = 240$ går gjennom $(120, 0)$ og $(0, 48)$.\n\n**Markedslinjen** $y = 30$ er en vannrett linje.\n\nOrigotesten på alle tre: $0 \\le 90$, $0 \\le 240$ og $0 \\le 30$ er sanne, så origo er lovlig i alle tre, og vi skraverer inn mot origo hver gang.\n\n![Koordinatsystem med x fra 0 til 100 og y fra 0 til 55. En rød linje merket 2x + 5y = 240 går fra (0, 48) ned til høyre, en blå linje merket x + y = 90 kommer bratt ned til (90, 0), og en lilla vannrett linje merket y = 30 skjærer begge. Det lovlige området er skravert grønt og har fem hjørner. To av dem er navngitt: (45, 30) og (70, 20). Punktet (0, 48) er markert med åpen ring og merket «bryter y = 30».](/images/content/matematikk-okonomi/matok-5-1-femkant.png)\n\n*Markedslinja $y \\le 30$ kutter toppen av området: $(0, 48)$ ligger på $2x + 5y = 240$, men bryter markedskravet. Området får dermed fem hjørner, ikke fire.*\n\nDet lovlige området er **femkanten** med hjørnene $(0, 0)$, $(0, 30)$, $(45, 30)$, $(70, 20)$ og $(90, 0)$. Legg merke til at markedslinjen $y = 30$ kutter toppen av området: uten den ville $(0, 48)$ vært et hjørne."
+          }
+        ],
+        "solution": "a) $x + y \\le 90$, $2x + 5y \\le 240$, $y \\le 30$, b) $(120, 0)$ og $(0, 48)$, c) $(70, 20)$, d) $(45, 30)$, e) $(0,0)$, $(0,30)$, $(45,30)$, $(70,20)$, $(90,0)$; $(0,48)$ bryter $y \\le 30$, f) femkanten med de fem hjørnene, der $y = 30$ kutter toppen.",
+        "hints": [
+          "Markedsvilkåret $y \\le 30$ er en vannrett linje.",
+          "Test hvert kandidatpunkt mot alle tre vilkårene før du kaller det et hjørnepunkt."
+        ],
+        "competenceGoals": [
+          "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+        {
+      "id": "matok-5-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-1-ex-6",
+        "number": "5.1.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et storkjøkken lager porsjoner av to retter, A og B, hver dag.\n\n- Arbeidstid: 4 minutter per porsjon A og 3 minutter per porsjon B. Kjøkkenet har 480 minutter.\n- Ovnsplass: 1 plassenhet per porsjon A og 2 plassenheter per porsjon B. Kjøkkenet har 200 plassenheter.\n\nLa $x$ være antall porsjoner A og $y$ antall porsjoner B. Bruk regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp de to vilkårene.",
+            "solution": "Tid: $4x + 3y \\le 480$. Ovn: $x + 2y \\le 200$."
+          },
+          {
+            "label": "b",
+            "task": "Lag et regneark med $x$ i kolonne A og $y$ i kolonne B, og la kolonne C og D regne ut venstresiden i hvert vilkår. Skriv formlene.",
+            "solution": "I C2: `=4*A2+3*B2`. I D2: `=A2+2*B2`. En «lovlig?»-kolonne i E2: `=HVIS(OG(C2<=480; D2<=200); \"lovlig\"; \"ikke lovlig\")`. Formlene fylles nedover."
+          },
+          {
+            "label": "c",
+            "task": "Bruk regnearket til å avgjøre om $(80, 60)$ og $(100, 55)$ er lovlige.",
+            "solution": "$(80, 60)$: tid $320 + 180 = 500 > 480$ — ikke lovlig (ovnen holder så vidt: $80 + 120 = 200$). $(100, 55)$: tid $400 + 165 = 565 > 480$ og ovn $100 + 110 = 210 > 200$ — ikke lovlig. Begge bryter tidsvilkåret."
+          },
+          {
+            "label": "d",
+            "task": "Finn hjørnepunktet der de to grenselinjene krysser hverandre.",
+            "solution": "Vi ganger ovnslikningen med 4: $4x + 8y = 800$. Vi trekker tidslikningen fra: $(4x + 8y) - (4x + 3y) = 800 - 480$, altså $5y = 320$ og $y = 64$. Da er $x = 200 - 2 \\cdot 64 = 72$. Hjørnepunktet er $(72, 64)$."
+          },
+          {
+            "label": "e",
+            "task": "Skriv opp alle hjørnepunktene, og drøft én forutsetning modellen bygger på.",
+            "solution": "På $y$-aksen: tid gir $y \\le 160$, ovn gir $y \\le 100$ — strengest er 100, så $(0, 100)$. På $x$-aksen: tid gir $x \\le 120$, ovn gir $x \\le 200$ — strengest er 120, så $(120, 0)$. Hjørnepunktene er $(0, 0)$, $(0, 100)$, $(72, 64)$ og $(120, 0)$. Forutsetningen er at tidsbruken per porsjon er den samme uansett hvor mange som lages. I virkeligheten går det ofte raskere per porsjon når man lager mange av gangen, og da er den rette linjen bare en tilnærming. Modellen forutsetter også at de to rettene kan lages uavhengig av hverandre, og at ingenting annet (råvarer, kjøleplass, personale) er knapt."
+          }
+        ],
+        "solution": "a) $4x + 3y \\le 480$ og $x + 2y \\le 200$, b) `=4*A2+3*B2` og `=A2+2*B2`, c) begge er ulovlige, d) $(72, 64)$, e) $(0,0)$, $(0,100)$, $(72,64)$, $(120,0)$; tidsbruken per porsjon antas konstant.",
+        "hints": [
+          "Lag én kolonne per vilkår, så ser du med én gang hvilket vilkår som ryker.",
+          "I d): gang ovnslikningen med 4 slik at begge får $4x$."
+        ],
+        "competenceGoals": [
+          "bruke og forklare lineære budsjettvilkår og skissere område i planet som er avgrensa av koordinataksane og eitt eller fleire budsjettvilkår"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Budsjettvilkår",
+      "definition": "En lineær ulikhet $ax + by \\le c$ som sier at samlet bruk av en ressurs ikke kan overstige det vi har til rådighet."
+    },
+    {
+      "term": "Grenselinje",
+      "definition": "Linjen $ax + by = c$ vi får når vi bytter ulikhetstegnet med likhetstegn. På den er ressursen brukt fullt ut."
+    },
+    {
+      "term": "Det lovlige området",
+      "definition": "Alle punkter $(x, y)$ som oppfyller alle budsjettvilkårene samtidig, sammen med $x \\ge 0$ og $y \\ge 0$. Området er avgrenset av koordinataksene og grenselinjene."
+    },
+    {
+      "term": "Origotesten",
+      "definition": "Å sette $x = 0$ og $y = 0$ inn i ulikheten for å se hvilken side av grenselinjen som skal skraveres. Virker bare når linjen ikke går gjennom origo."
+    },
+    {
+      "term": "Hjørnepunkt",
+      "definition": "Et hjørne i det lovlige området. Det er enten origo, et punkt der en grenselinje møter en akse, eller et punkt der to grenselinjer krysser hverandre."
+    }
+  ]
+}

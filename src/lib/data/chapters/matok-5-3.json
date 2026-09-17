@@ -1,0 +1,405 @@
+{
+  "id": "matok-5-3",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "5.3",
+  "title": "Optimering i praksis",
+  "description": "Produksjonsplanlegging, kosthold og fordeling — økonomiske og samfunnsfaglige problemer.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+  ],
+  "content": [
+    {
+      "id": "matok-5-3-section-intro",
+      "type": "text",
+      "content": "## Fra oppskrift til virkelighet\n\nMetoden fra kapittel 5.2 er ferdig: sett opp vilkårene, finn hjørnepunktene, regn ut objektfunksjonen i hvert av dem, velg det beste.\n\nI dette kapittelet bruker vi den på oppgaver slik de faktisk ser ut. Da dukker tre nye ting opp:\n\n- **Minstekrav** i stedet for maksgrenser. Et fôr må inneholde *minst* så mye protein, en rute må ha plass til *minst* så mange passasjerer. Da snur ulikhetstegnet, og området ser annerledes ut.\n- **Minimering** i stedet for maksimering. Vi vil ha lavest mulig kostnad, ikke størst mulig overskudd.\n- **Blandede vilkår**: noen ressurser har tak, andre har gulv, og i tillegg finnes det ofte politiske eller avtalefestede krav som «minst 10 timer skal gå til …».\n\nMetoden er den samme. Det er bare oversettelsen fra tekst til ulikheter som krever mer omtanke."
+    },
+    {
+      "id": "matok-5-3-section-minstekrav",
+      "type": "text",
+      "content": "## Minstekrav snur skraveringen\n\nEt **minstekrav** skrives med $\\ge$:\n\n$$ax + by \\ge c$$\n\nGrenselinjen er den samme som før, $ax + by = c$. Det eneste som endrer seg, er hvilken side vi skraverer. Origotesten avgjør fortsatt:\n\n- $2x + 3y \\le 24$: sett inn $(0, 0)$ og få $0 \\le 24$ — sant. Origo er med, og vi skraverer **mot** origo.\n- $2x + 3y \\ge 24$: sett inn $(0, 0)$ og få $0 \\ge 24$ — usant. Origo er ikke med, og vi skraverer **bort fra** origo.\n\nNB: Har vi bare minstekrav, blir området **ubegrenset** — det strekker seg uendelig opp mot høyre. Da finnes det ingen største verdi, men det finnes fortsatt en minste. Hjørnepunktsetningen gjelder for minimum så lenge området har hjørner og objektfunksjonen har positive koeffisienter, altså så lenge det koster noe å lage mer.\n\nHar vi både minstekrav og maksgrenser, blir området avgrenset på begge sider — som i figuren under."
+    },
+    {
+      "id": "matok-5-3-fig-origotest",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-5-3-origotest.png",
+      "alt": "Koordinatsystem med x fra minus 2 til 14 og y fra minus 2 til 10. En blå rett linje merket 2x + 3y = 24 går gjennom (0, 8) og (12, 0). Halvplanet OVER linjen er skravert grønt og merket «lovlig»; området under, der origo ligger, er merket «ulovlig». Origo er markert med en prikk og navngitt.",
+      "caption": "Med et minstekrav peker origotesten den andre veien: $0 \\ge 24$ er usant, så origo ligger på den ULOVLIGE siden — og vi skraverer bort fra origo.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-5-3-origotest.json (+ matok-5-3-origotest.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-5-3-fig-minimering",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-5-3-minimering.png",
+      "alt": "Koordinatsystem med x og y fra 0 til 13. Tre rette linjer: en blå merket 2x + 3y = 24 fra (0, 8) ned til (12, 0), en rød merket 2x + 3y = 30 fra (0, 10) ned mot høyre og parallell med den blå, og en oransje merket x + y = 12 fra (0, 12) ned til (12, 0). Området mellom de to parallelle linjene og under den oransje er skravert grønt. Fire hjørnepunkter er markert med prikker og navngitt: (0, 8), (0, 10), (6, 6) og (12, 0).",
+      "caption": "Et område med både et minstekrav og to kapasitetsgrenser. Den blå linjen er gulvet ($2x + 3y \\ge 24$), den røde er taket ($2x + 3y \\le 30$), og den oransje er en egen kapasitetsgrense ($x + y \\le 12$). Hjørnene er $(0, 8)$, $(0, 10)$, $(6, 6)$ og $(12, 0)$ — legg merke til at origo **ikke** er med.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-5-3-minimering.json (+ matok-5-3-minimering.kontroll.json, alle porter grønne)."
+    },
+    {
+      "id": "matok-5-3-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Billigst mulig fôrblanding",
+      "problem": "En gård blander to typer kraftfôr til melkekyrne.\n\n- Én sekk av fôr A gir 2 enheter protein og 1 enhet fiber, og koster 180 kr.\n- Én sekk av fôr B gir 1 enhet protein og 2 enheter fiber, og koster 150 kr.\n\nBlandingen må gi **minst** 20 enheter protein og **minst** 22 enheter fiber.\n\nHvor mange sekker av hver type bør gården kjøpe for å komme billigst mulig ut?",
+      "solution": "**Hva vet vi?** Innholdet per sekk og prisen per sekk, og to minstekrav.\n\n**Hva må vi finne?** Den billigste blandingen som oppfyller begge kravene.\n\n**Skritt 1 og 2. Navn og vilkår.** La $x$ være antall sekker av fôr A og $y$ antall sekker av fôr B.\n\nProtein: fôr A gir $2x$ enheter og fôr B gir $y$ enheter. (Vi skriver vanligvis ikke 1-tallet.) Til sammen minst 20:\n\n$$2x + y \\ge 20$$\n\nFiber: fôr A gir $x$ enheter og fôr B gir $2y$ enheter. Til sammen minst 22:\n\n$$x + 2y \\ge 22$$\n\nI tillegg er $x \\ge 0$ og $y \\ge 0$.\n\n**Skritt 3. Objektfunksjonen.** Kostnaden i kroner er\n\n$$K = 180x + 150y$$\n\nog den skal gjøres **minst**.\n\n**Skritt 4. Hjørnepunktene.** Proteinlinjen $2x + y = 20$ treffer aksene i $(10, 0)$ og $(0, 20)$. Fiberlinjen $x + 2y = 22$ treffer aksene i $(22, 0)$ og $(0, 11)$.\n\n*På $y$-aksen:* protein krever $y \\ge 20$, fiber krever $y \\ge 11$. Her er det **strengeste** kravet $y \\ge 20$, så hjørnet er $(0, 20)$.\n\nNB: Med minstekrav er det det **største** av kravene som bestemmer — motsatt av i kapittel 5.1, der vi valgte det minste. Grunnen er den samme: begge krav må være oppfylt.\n\n*På $x$-aksen:* protein krever $x \\ge 10$, fiber krever $x \\ge 22$. Strengest er $x \\ge 22$, så hjørnet er $(22, 0)$.\n\n*Krysningspunktet.* Vi løser likningssettet med addisjonsmetoden. Vi ganger den andre likningen med 2:\n\n$$x + 2y = 22 \\qquad | \\; \\cdot 2$$\n$$2x + 4y = 44$$\n\nVi trekker den første likningen fra denne:\n\n$$(2x + 4y) - (2x + y) = 44 - 20$$\n$$3y = 24 \\qquad | \\; : 3$$\n$$y = 8$$\n\nVi setter inn i den første likningen: $2x + 8 = 20$, altså $2x = 12$ og $x = 6$.\n\nKontroll: protein $2 \\cdot 6 + 8 = 20$ og fiber $6 + 2 \\cdot 8 = 22$. Begge kravene er akkurat oppfylt.\n\n**Skritt 5. Vi regner ut $K$ i hvert hjørne.**\n\n| Hjørnepunkt | $K = 180x + 150y$ |\n|---|---|\n| $(0, 20)$ | 3000 kr |\n| $(6, 8)$ | **2280 kr** |\n| $(22, 0)$ | 3960 kr |\n\n![Koordinatsystem med sekker fôr A langs x-aksen fra 0 til 26 og sekker fôr B langs y-aksen fra 0 til 22. En blå linje merket 2x + y = 20 går fra (0, 20) ned til (10, 0). En slakere rød linje merket x + 2y = 22 går fra (0, 11) ned til (22, 0). Området OVER begge linjene er skravert grønt, og skraveringen fortsetter helt ut til kanten av figuren både oppover og mot høyre. Tre hjørner er markert: (0, 20), (6, 8) og (22, 0). En grønn stiplet nivålinje merket K = 2280 berører området nøyaktig i (6, 8). En grønn pil merket «billigere» peker ned mot venstre.](/images/content/matematikk-okonomi/matok-5-3-forblanding.png)\n\n*Området er **ubegrenset** — skraveringen slutter ikke, den går ut av bildet. Likevel finnes minimum: nivålinjen skyves nedover til venstre til den så vidt berører området, og det siste punktet den treffer, er hjørnet $(6, 8)$.*\n\n**Svar:** Gården bør kjøpe 6 sekker av fôr A og 8 sekker av fôr B. Det koster 2280 kr, og blandingen gir nøyaktig 20 enheter protein og 22 enheter fiber.\n\nNB: Legg merke til at fôr B er billigst per sekk, men det lønner seg likevel ikke å kjøpe bare B. Da måtte gården ha 20 sekker for å få nok protein, og det ville koste 3000 kr. Den billigste veien er å bruke begge — akkurat som i kapittel 5.2 er det forholdet mellom pris og innhold som avgjør, ikke prisen alene."
+    },
+        {
+      "id": "matok-5-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-3-ex-1",
+        "number": "5.3.1",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et gartneri blander to gjødseltyper.\n\n- Én sekk av type I gir 3 enheter nitrogen og 1 enhet fosfor, og koster 120 kr.\n- Én sekk av type II gir 1 enhet nitrogen og 2 enheter fosfor, og koster 100 kr.\n\nBlandingen må gi minst 24 enheter nitrogen og minst 18 enheter fosfor.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp de to vilkårene og objektfunksjonen.",
+            "solution": "Nitrogen: $3x + y \\ge 24$. Fosfor: $x + 2y \\ge 18$. Kostnaden er $K = 120x + 100y$, som skal gjøres minst."
+          },
+          {
+            "label": "b",
+            "task": "Finn hjørnepunktet på $y$-aksen.",
+            "solution": "Nitrogen krever $y \\ge 24$, fosfor krever $y \\ge 9$. Strengest er $y \\ge 24$, så hjørnet er $(0, 24)$.",
+            "answer": 24
+          },
+          {
+            "label": "c",
+            "task": "Finn hjørnepunktet på $x$-aksen.",
+            "solution": "Nitrogen krever $x \\ge 8$, fosfor krever $x \\ge 18$. Strengest er $x \\ge 18$, så hjørnet er $(18, 0)$.",
+            "answer": 18
+          },
+          {
+            "label": "d",
+            "task": "Finn krysningspunktet mellom de to grenselinjene.",
+            "solution": "Vi ganger fosforlikningen med 3: $3x + 6y = 54$. Vi trekker nitrogenlikningen fra: $(3x + 6y) - (3x + y) = 54 - 24$, altså $5y = 30$ og $y = 6$. Da er $3x + 6 = 24$, altså $x = 6$. Punktet er $(6, 6)$."
+          },
+          {
+            "label": "e",
+            "task": "Regn ut kostnaden i alle tre hjørnene, og finn den billigste blandingen.",
+            "solution": "$K(0, 24) = 100 \\cdot 24 = 2400$ kr. $K(6, 6) = 720 + 600 = 1320$ kr. $K(18, 0) = 120 \\cdot 18 = 2160$ kr. Billigst er $(6, 6)$: 6 sekker av hver type, 1320 kr.",
+            "answer": 1320
+          }
+        ],
+        "solution": "a) $3x + y \\ge 24$, $x + 2y \\ge 18$, $K = 120x + 100y$, b) $(0, 24)$, c) $(18, 0)$, d) $(6, 6)$, e) 2400 kr, 1320 kr og 2160 kr — billigst er 6 sekker av hver, 1320 kr.",
+        "hints": [
+          "Med minstekrav er det det STØRSTE kravet som bestemmer hjørnet på aksen.",
+          "Gang opp den ene likningen slik at leddene med $x$ blir like store."
+        ],
+        "competenceGoals": [
+          "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-3-section-blandet",
+      "type": "text",
+      "content": "## Når noen vilkår har tak og andre har gulv\n\nDen vanligste typen i praksis er den blandede: en bedrift har både **kapasitetsgrenser** (tak) og **leveringsavtaler** (gulv).\n\n$$\\underbrace{x + y \\ge 6}_{\\text{avtale}} \\qquad \\underbrace{x + y \\le 14}_{\\text{maskinkapasitet}} \\qquad \\underbrace{3x + 4y \\le 48}_{\\text{ovnstid}}$$\n\nOmrådet blir da et belte mellom to parallelle linjer, kuttet av de andre vilkårene — som i figuren over. Framgangsmåten er uendret, men det er ekstra viktig å **teste hvert kandidatpunkt mot alle vilkårene**. Med fire eller fem linjer er det lett å ta med et skjæringspunkt som ligger utenfor området."
+    },
+    {
+      "id": "matok-5-3-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Produksjonsplan med leveringsavtale",
+      "problem": "Et bakeri lager grovbrød og loff, målt i hundre brød per dag.\n\n- Deigmaskinen klarer til sammen 1400 brød: $x + y \\le 14$.\n- Ovnen krever 3 tidsenheter per hundre grovbrød og 4 per hundre loff, og bakeriet har 48 tidsenheter: $3x + 4y \\le 48$.\n- Bakeriet har en avtale om å levere minst 600 brød til dagligvarebutikkene: $x + y \\ge 6$.\n\nBakeriet tjener 9 kr på et grovbrød og 11 kr på en loff.\n\nFinn produksjonen som gir størst fortjeneste.",
+      "solution": "**Objektfunksjonen.** Fortjenesten per hundre brød er 900 kr for grovbrød og 1100 kr for loff:\n\n$$z = 900x + 1100y$$\n\n**Hjørnepunktene.** Vi går rundt kanten.\n\n*På $y$-aksen:* avtalen krever $y \\ge 6$, deigmaskinen gir $y \\le 14$, ovnen gir $4y \\le 48$, altså $y \\le 12$. Strengeste tak er 12, så $y$ ligger mellom 6 og 12. Det gir **to** hjørner: $(0, 6)$ og $(0, 12)$.\n\n*På $x$-aksen:* avtalen krever $x \\ge 6$, deigmaskinen gir $x \\le 14$, ovnen gir $3x \\le 48$, altså $x \\le 16$. Strengeste tak er 14, så $x$ ligger mellom 6 og 14. Hjørnene er $(6, 0)$ og $(14, 0)$.\n\n*Deigmaskinen møter ovnen:*\n\n$$x + y = 14$$\n$$3x + 4y = 48$$\n\nVi ganger den første likningen med 3:\n\n$$x + y = 14 \\qquad | \\; \\cdot 3$$\n$$3x + 3y = 42$$\n\nVi trekker denne fra den andre likningen:\n\n$$(3x + 4y) - (3x + 3y) = 48 - 42$$\n$$y = 6$$\n\nDa er $x = 14 - 6 = 8$. Kandidaten er $(8, 6)$. Kontroll mot avtalen: $8 + 6 = 14 \\ge 6$ — lovlig.\n\n*Avtalen møter ovnen:* $x + y = 6$ og $3x + 4y = 48$ gir $3x + 3y = 18$, og $(3x + 4y) - (3x + 3y) = 48 - 18$, altså $y = 30$ og $x = -24$. Negativt, så dette punktet ligger utenfor området. Vi forkaster det.\n\n**Vi regner ut $z$ i hvert hjørne.**\n\n| Hjørnepunkt | $z = 900x + 1100y$ |\n|---|---|\n| $(0, 6)$ | 6600 kr |\n| $(0, 12)$ | 13 200 kr |\n| $(6, 0)$ | 5400 kr |\n| $(8, 6)$ | **13 800 kr** |\n| $(14, 0)$ | 12 600 kr |\n\n**Svar:** Bakeriet bør bake 800 grovbrød og 600 loff. Det gir 13 800 kr i fortjeneste.\n\nNB: To ting er verdt å merke seg. For det første er **både** deigmaskinen og ovnen brukt helt opp i det beste punktet ($8 + 6 = 14$ og $3 \\cdot 8 + 4 \\cdot 6 = 48$) — begge er knappe. For det andre spilte leveringsavtalen ingen rolle for svaret: bakeriet baker 1400 brød uansett, langt over de 600 avtalen krever. Et vilkår som ikke påvirker løsningen, kalles **ikke-bindende**, og det er nyttig å si fra om det: avtalen koster bakeriet ingenting."
+    },
+    {
+      "id": "matok-5-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-3-ex-2",
+        "number": "5.3.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En møbelprodusent lager stoler og krakker, målt i tiere per uke.\n\n- Verkstedet klarer til sammen 150 møbler: $x + y \\le 15$.\n- Lakkeringen krever 3 enheter per ti stoler og 2 enheter per ti krakker, og bedriften har 36 enheter: $3x + 2y \\le 36$.\n- En avtale krever minst 60 møbler i uka: $x + y \\ge 6$.\n\nFortjenesten er 300 kr per stol og 250 kr per krakk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp objektfunksjonen (per tier).",
+            "solution": "$z = 3000x + 2500y$, der $z$ er fortjenesten i kroner.",
+            "expressionAnswer": "3000x+2500y"
+          },
+          {
+            "label": "b",
+            "task": "Finn de to hjørnepunktene på $y$-aksen.",
+            "solution": "Avtalen krever $y \\ge 6$. Verkstedet gir $y \\le 15$, lakkeringen gir $2y \\le 36$, altså $y \\le 18$. Strengeste tak er 15. Hjørnene er $(0, 6)$ og $(0, 15)$."
+          },
+          {
+            "label": "c",
+            "task": "Finn de to hjørnepunktene på $x$-aksen.",
+            "solution": "Avtalen krever $x \\ge 6$. Verkstedet gir $x \\le 15$, lakkeringen gir $3x \\le 36$, altså $x \\le 12$. Strengeste tak er 12. Hjørnene er $(6, 0)$ og $(12, 0)$."
+          },
+          {
+            "label": "d",
+            "task": "Finn hjørnepunktet der verkstedlinjen og lakkeringslinjen krysser hverandre.",
+            "solution": "$x + y = 15$ ganges med 2: $2x + 2y = 30$. Vi trekker den fra $3x + 2y = 36$: $x = 6$. Da er $y = 15 - 6 = 9$. Punktet er $(6, 9)$. Kontroll mot avtalen: $6 + 9 = 15 \\ge 6$ — lovlig."
+          },
+          {
+            "label": "e",
+            "task": "Regn ut $z$ i alle fem hjørnene og finn den beste produksjonen.",
+            "solution": "$z(0, 6) = 15\\,000$, $z(0, 15) = 37\\,500$, $z(6, 0) = 18\\,000$, $z(6, 9) = 18\\,000 + 22\\,500 = 40\\,500$ og $z(12, 0) = 36\\,000$ kroner. Best er $(6, 9)$: 60 stoler og 90 krakker, 40 500 kr.",
+            "answer": 40500
+          }
+        ],
+        "solution": "a) $z = 3000x + 2500y$, b) $(0, 6)$ og $(0, 15)$, c) $(6, 0)$ og $(12, 0)$, d) $(6, 9)$, e) best er 60 stoler og 90 krakker, 40 500 kr.",
+        "hints": [
+          "På hver akse gir avtalen et gulv og de to kapasitetene et tak — det gir to hjørner per akse.",
+          "Husk å svare i antall møbler, ikke i tiere."
+        ],
+        "competenceGoals": [
+          "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-3-section-fordeling",
+      "type": "text",
+      "content": "## Fordeling og samfunnsfaglige problemstillinger\n\nLineær optimering brukes ikke bare til å tjene penger. Den brukes like ofte til å **fordele** noe knapt: timer i en hall, plasser på et kurs, ruter i en kollektivplan, vogner i et togsett.\n\nDa endrer to ting seg:\n\n- **Objektfunksjonen måler noe annet enn kroner** — for eksempel antall deltakere, antall passasjerplasser eller antall liter drivstoff.\n- **Noen vilkår er vedtak, ikke fysiske grenser.** «Minst 10 timer skal gå til ungdomstrening» er et krav noen har bestemt, ikke noe naturen tvinger fram. Slike vilkår er lette å endre, og derfor er det ekstra interessant å spørre hva som hadde skjedd uten dem.\n\nMatematikken er den samme. Men når vi tolker svaret, må vi si tydelig **hva** objektfunksjonen måler — og hva den ikke måler."
+    },
+    {
+      "id": "matok-5-3-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Fordeling av treningstimer",
+      "problem": "En idrettsklubb skal fordele treningstimer i hallen mellom barnetrening og ungdomstrening.\n\n- Hallen er ledig 30 timer i uka: $x + y \\le 30$.\n- Styret har vedtatt at minst 8 timer skal gå til barnetrening og minst 10 timer til ungdomstrening.\n- En time barnetrening koster 400 kr i trenerlønn, en time ungdomstrening 600 kr. Budsjettet er 15 200 kr.\n\nI gjennomsnitt møter 18 barn på en barnetime og 12 ungdommer på en ungdomstime. Klubben vil at flest mulig skal få trene.\n\nLa $x$ være antall timer barnetrening og $y$ antall timer ungdomstrening.",
+      "solution": "**Vilkårene.**\n\n$$x + y \\le 30 \\qquad \\text{(hallen)}$$\n$$x \\ge 8 \\qquad \\text{(vedtak)}$$\n$$y \\ge 10 \\qquad \\text{(vedtak)}$$\n$$400x + 600y \\le 15\\,200 \\qquad \\text{(budsjett)}$$\n\nBudsjettvilkåret forenkler vi ved å dele på 200:\n\n$$400x + 600y \\le 15\\,200 \\qquad | \\; : 200$$\n$$2x + 3y \\le 76$$\n\n**Objektfunksjonen.** Vi teller **deltakertimer**, altså hvor mange som får trene til sammen:\n\n$$D = 18x + 12y$$\n\n**Hjørnepunktene.**\n\n*$x = 8$ møter $y = 10$:* punktet $(8, 10)$. Kontroll: hall $18 \\le 30$, budsjett $16 + 30 = 46 \\le 76$ — lovlig.\n\n*$x = 8$ møter budsjettlinjen:* $2 \\cdot 8 + 3y = 76$ gir $3y = 60$, altså $y = 20$. Punktet $(8, 20)$. Kontroll: hall $28 \\le 30$ — lovlig.\n\n*Budsjettlinjen møter hall-linjen:*\n\n$$2x + 3y = 76$$\n$$x + y = 30$$\n\nVi ganger den andre likningen med 2:\n\n$$x + y = 30 \\qquad | \\; \\cdot 2$$\n$$2x + 2y = 60$$\n\nVi trekker denne fra den første:\n\n$$(2x + 3y) - (2x + 2y) = 76 - 60$$\n$$y = 16$$\n\nDa er $x = 30 - 16 = 14$. Punktet er $(14, 16)$.\n\n*$y = 10$ møter hall-linjen:* $x = 20$. Punktet $(20, 10)$. Kontroll: budsjett $40 + 30 = 70 \\le 76$ — lovlig.\n\n**Vi regner ut $D$ i hvert hjørne.**\n\n| Hjørnepunkt | $D = 18x + 12y$ |\n|---|---|\n| $(8, 10)$ | 264 |\n| $(8, 20)$ | 384 |\n| $(14, 16)$ | 444 |\n| $(20, 10)$ | **480** |\n\n![Koordinatsystem med timer barnetrening x fra 0 til 26 og timer ungdomstrening y fra 0 til 26. Fire grenselinjer: en blå merket x + y = 30, en rød merket 2x + 3y = 76, en loddrett oransje merket x = 8 og en vannrett lilla merket y = 10. Firkanten mellom dem er skravert grønn. De fire hjørnene er markert med prikker og merket med antall deltakertimer: D = 264 i (8, 10), D = 384 i (8, 20), D = 444 i (14, 16) og D = 480 i (20, 10).](/images/content/matematikk-okonomi/matok-5-3-treningstimer.png)\n\n*Fire vilkår av fire ulike typer: to tak (hallen og budsjettet) og to gulv (de to vedtakene). Den største verdien, $D = 480$, ligger i hjørnet $(20, 10)$.*\n\n**Svar:** Klubben bør sette opp 20 timer barnetrening og 10 timer ungdomstrening. Da får 480 deltakertimer trening i uka.\n\n**Tolkning.** Løsningen fyller hallen helt ($20 + 10 = 30$ timer) og bruker\n\n$$400 \\cdot 20 + 600 \\cdot 10 = 8000 + 6000 = 14\\,000$$\n\nkroner av budsjettet på 15 200 kr. **Hallen er den knappe ressursen, ikke pengene.** Klubben har 1200 kr til overs, men ingen ledige timer.\n\nNB: Legg merke til at løsningen legger ungdomstreningen på nøyaktig minstekravet 10 timer. Det er ikke fordi ungdomstrening er mindre verdt — det er fordi objektfunksjonen bare teller **hoder**, og det møter flere barn per time. Hadde styret ikke vedtatt minstekravet, ville modellen foreslått 30 timer barnetrening og null ungdomstrening. Vedtaket er nettopp der for å hindre det. Dette er et godt eksempel på at objektfunksjonen aldri måler alt vi bryr oss om."
+    },
+        {
+      "id": "matok-5-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-3-ex-3",
+        "number": "5.3.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et bibliotek skal fordele kurstimer mellom lesekurs og datakurs i en måned.\n\n- Kursrommet er ledig 40 timer: $x + y \\le 40$.\n- Biblioteket har bestemt at minst 10 timer skal gå til lesekurs og minst 6 timer til datakurs.\n- En lesekurstime koster 300 kr, en datakurstime 500 kr. Budsjettet er 15 000 kr.\n\nI gjennomsnitt møter 12 deltakere på en lesekurstime og 8 på en datakurstime.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp budsjettvilkåret, og forenkle det.",
+            "solution": "$300x + 500y \\le 15\\,000$. Vi deler på 100: $3x + 5y \\le 150$."
+          },
+          {
+            "label": "b",
+            "task": "Sett opp objektfunksjonen.",
+            "solution": "$D = 12x + 8y$, der $D$ er antall deltakertimer.",
+            "expressionAnswer": "12x+8y"
+          },
+          {
+            "label": "c",
+            "task": "Finn hjørnepunktet der budsjettlinjen møter romlinjen $x + y = 40$.",
+            "solution": "Vi ganger $x + y = 40$ med 3: $3x + 3y = 120$. Vi trekker den fra $3x + 5y = 150$: $2y = 30$, altså $y = 15$ og $x = 25$. Punktet er $(25, 15)$."
+          },
+          {
+            "label": "d",
+            "task": "De øvrige hjørnene er $(10, 6)$, $(10, 24)$ og $(34, 6)$. Regn ut $D$ i alle fire hjørnene.",
+            "solution": "$D(10, 6) = 120 + 48 = 168$. $D(10, 24) = 120 + 192 = 312$. $D(25, 15) = 300 + 120 = 420$. $D(34, 6) = 408 + 48 = 456$.",
+            "answer": 456
+          },
+          {
+            "label": "e",
+            "task": "Finn den beste fordelingen, og undersøk om det er rommet eller pengene som er den knappe ressursen.",
+            "solution": "Best er $(34, 6)$ med 456 deltakertimer. Der er romtiden $34 + 6 = 40$ timer — helt oppbrukt. Budsjettet er $300 \\cdot 34 + 500 \\cdot 6 = 10\\,200 + 3000 = 13\\,200$ kr av 15 000 kr, altså 1800 kr til overs. Rommet er den knappe ressursen. Skal biblioteket nå flere, hjelper det ikke å be om mer penger — de trenger flere ledige timer i rommet."
+          }
+        ],
+        "solution": "a) $3x + 5y \\le 150$, b) $D = 12x + 8y$, c) $(25, 15)$, d) 168, 312, 420 og 456, e) best er $(34, 6)$ med 456 deltakertimer; rommet er knapt, ikke pengene.",
+        "hints": [
+          "Del budsjettvilkåret på en felles faktor før du regner — det gjør tallene mye enklere.",
+          "Sett den beste løsningen inn i hvert vilkår og se hvilke som er oppfylt med likhet."
+        ],
+        "competenceGoals": [
+          "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-3-example-4",
+      "type": "example",
+      "title": "Eksempel 4 (Del 2): Fire vilkår og regneark",
+      "problem": "Et sagbruk lager terrassebord og kledning, målt i kubikkmeter per uke.\n\n- Tømmer: $x + y \\le 60$\n- Høvel: $2x + y \\le 90$\n- Tørke: $x + 3y \\le 126$\n- Avtale: minst 10 m³ kledning, altså $y \\ge 10$\n\nDekningsbidraget er 1800 kr per kubikkmeter terrassebord og 1500 kr per kubikkmeter kledning.\n\nBruk regneark til å finne den beste produksjonen, og si hvilke ressurser som er knappe.",
+      "solution": "**Objektfunksjonen** er\n\n$$z = 1800x + 1500y$$\n\n**Hjørnepunktene.** Med fire vilkår lønner det seg å være systematisk: vi finner alle skjæringspunkter som kan være hjørner, og tester hvert av dem mot **alle** vilkårene.\n\n*På $y$-aksen ($x = 0$):* avtalen gir $y \\ge 10$; tømmer gir $y \\le 60$, høvel $y \\le 90$, tørke $y \\le 42$. Strengeste tak er 42. Hjørnene er $(0, 10)$ og $(0, 42)$.\n\n*Tørke møter tømmer:*\n\n$$x + 3y = 126$$\n$$x + y = 60$$\n\nVi trekker den andre fra den første:\n\n$$(x + 3y) - (x + y) = 126 - 60$$\n$$2y = 66 \\qquad | \\; : 2$$\n$$y = 33$$\n\nDa er $x = 60 - 33 = 27$. Kandidaten er $(27, 33)$. Høvel: $2 \\cdot 27 + 33 = 87 \\le 90$ — lovlig.\n\n*Tømmer møter høvel:*\n\n$$x + y = 60$$\n$$2x + y = 90$$\n\nVi trekker den første fra den andre:\n\n$$(2x + y) - (x + y) = 90 - 60$$\n$$x = 30$$\n\nDa er $y = 30$. Kandidaten er $(30, 30)$. Tørke: $30 + 3 \\cdot 30 = 120 \\le 126$ — lovlig.\n\n*Høvel møter avtalen $y = 10$:* $2x + 10 = 90$ gir $x = 40$. Kandidaten er $(40, 10)$. Tømmer: $50 \\le 60$, tørke: $70 \\le 126$ — lovlig.\n\n**Regnearket.** Vi legger hjørnepunktene i kolonne A og B og lar regnearket regne ressursbruken og dekningsbidraget:\n\n```\n        A     B      C           D             E             F\n1       x     y      tømmer      høvel         tørke         z\n2       0     10     =A2+B2      =2*A2+B2      =A2+3*B2      =1800*A2+1500*B2\n```\n\nFormlene fylles nedover, og i en egen celle skriver vi `=MAKS(F2:F6)`.\n\n| Hjørnepunkt | tømmer / 60 | høvel / 90 | tørke / 126 | $z$ |\n|---|---|---|---|---|\n| $(0, 10)$ | 10 | 10 | 30 | 15 000 kr |\n| $(0, 42)$ | 42 | 42 | 126 | 63 000 kr |\n| $(27, 33)$ | 60 | 87 | 126 | 98 100 kr |\n| $(30, 30)$ | 60 | 90 | 120 | **99 000 kr** |\n| $(40, 10)$ | 50 | 90 | 70 | 87 000 kr |\n\n![Koordinatsystem med kubikkmeter terrassebord x fra 0 til 48 og kubikkmeter kledning y fra 0 til 48. Fire grenselinjer: en blå merket x + y = 60, en rød merket 2x + y = 90, en oransje merket x + 3y = 126 og en lilla vannrett merket y = 10. Det lovlige området er skravert grønt og har fem hjørner. Alle fem er markert med prikk, og to av dem, (27, 33) og (30, 30), er i tillegg navngitt; de ligger tett inntil hverandre.](/images/content/matematikk-okonomi/matok-5-3-sagbruket.png)\n\n*Fem hjørner, og to av dem ligger så tett at valget mellom dem trygt kan avgjøres av noe modellen ikke måler. $z = 1800x + 1500y$ gir 98 100 kr i $(27, 33)$ og 99 000 kr i $(30, 30)$.*\n\n**Svar:** Sagbruket bør lage 30 m³ terrassebord og 30 m³ kledning i uka. Det gir 99 000 kr i dekningsbidrag.\n\n**Hvilke ressurser er knappe?** I den beste raden ser vi at tømmeret er brukt helt opp ($60$ av $60$) og høvelen likeså ($90$ av $90$), mens tørka har litt igjen ($120$ av $126$).\n\n**Svar:** Tømmer og høveltid er de knappe ressursene. Skal sagbruket tjene mer, må det skaffe mer av begge — mer tømmer alene stopper på høvelen, og mer høveltid alene stopper på tømmeret.\n\nNB: Legg merke til hvor tett $(27, 33)$ og $(30, 30)$ ligger: 98 100 kr mot 99 000 kr, altså under én prosent. Når to hjørner er så nær hverandre, bør vi si det i svaret. Da vet den som skal bestemme, at valget mellom dem trygt kan avgjøres av noe modellen ikke måler — for eksempel hva kundene faktisk spør etter."
+    },
+        {
+      "id": "matok-5-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-3-ex-4",
+        "number": "5.3.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Et veksthus dyrker tomater og agurker, målt i hundre kilo per sesong.\n\n- Areal: $2x + y \\le 80$\n- Vann: $x + y \\le 50$\n- Arbeidstid: $x + 3y \\le 110$\n- Avtale: minst 500 kg tomater, altså $x \\ge 5$\n\nDekningsbidraget er 2200 kr per hundre kilo tomater og 1600 kr per hundre kilo agurker. Bruk regneark.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp objektfunksjonen, og skriv regnearkformelen for den når $x$ står i A2 og $y$ i B2.",
+            "solution": "$z = 2200x + 1600y$. I regneark: `=2200*A2+1600*B2`."
+          },
+          {
+            "label": "b",
+            "task": "Finn hjørnepunktet der areallinjen og vannlinjen krysser hverandre.",
+            "solution": "$2x + y = 80$ og $x + y = 50$. Vi trekker den andre fra den første: $x = 30$. Da er $y = 20$. Punktet er $(30, 20)$. Kontroll: arbeid $30 + 60 = 90 \\le 110$ — lovlig."
+          },
+          {
+            "label": "c",
+            "task": "Finn hjørnepunktet der vannlinjen og arbeidslinjen krysser hverandre.",
+            "solution": "$x + y = 50$ og $x + 3y = 110$. Vi trekker den første fra den andre: $2y = 60$, altså $y = 30$ og $x = 20$. Punktet er $(20, 30)$. Kontroll: areal $40 + 30 = 70 \\le 80$ — lovlig."
+          },
+          {
+            "label": "d",
+            "task": "De øvrige hjørnene er $(5, 0)$, $(40, 0)$ og $(5, 35)$. Regn ut $z$ i alle fem, og finn den beste produksjonen.",
+            "solution": "$z(5, 0) = 11\\,000$, $z(40, 0) = 88\\,000$, $z(30, 20) = 66\\,000 + 32\\,000 = 98\\,000$, $z(20, 30) = 44\\,000 + 48\\,000 = 92\\,000$ og $z(5, 35) = 11\\,000 + 56\\,000 = 67\\,000$ kroner. Best er $(30, 20)$ med 98 000 kr.",
+            "answer": 98000
+          },
+          {
+            "label": "e",
+            "task": "Undersøk hvilke ressurser som er knappe i den beste løsningen, og forklar hva det betyr for veksthuset.",
+            "solution": "Areal: $2 \\cdot 30 + 20 = 80$ av 80 — brukt opp. Vann: $30 + 20 = 50$ av 50 — brukt opp. Arbeid: $30 + 3 \\cdot 20 = 90$ av 110 — 20 enheter til overs. Areal og vann er knappe. Veksthuset har altså arbeidskraft nok; det er plass og vann som begrenser. Å ansette flere ville ikke gitt en eneste krone mer, mens et større veksthus eller mer vann ville gjort det."
+          }
+        ],
+        "solution": "a) $z = 2200x + 1600y$, `=2200*A2+1600*B2`, b) $(30, 20)$, c) $(20, 30)$, d) best er $(30, 20)$ med 98 000 kr, e) areal og vann er knappe, arbeidstid er det nok av.",
+        "hints": [
+          "Lag én kolonne per vilkår i regnearket — da ser du både lovligheten og hvilke ressurser som er brukt opp.",
+          "En ressurs er knapp når vilkåret er oppfylt med likhet i den beste løsningen."
+        ],
+        "competenceGoals": [
+          "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "matok-5-3-section-grenser",
+      "type": "text",
+      "content": "## Hva modellen ikke ser\n\nLineær optimering gir et presist svar. Presisjon er ikke det samme som riktighet, og en god besvarelse sier hva modellen forutsetter:\n\n1. **Alt er rettlinjet.** Modellen antar at dobbelt så mye produksjon bruker dobbelt så mye av hver ressurs, og gir dobbelt så mye fortjeneste. I virkeligheten går det ofte raskere per enhet når vi lager mange (stordriftsfordeler), og prisen faller gjerne når vi selger mer.\n2. **Alt kan deles.** Modellen tillater $7{,}5$ kakebokser. Må antallet være hele tall, må vi teste heltallspunktene, slik vi gjorde i kapittel 5.2.\n3. **Alle tall er sikre.** Koeffisientene er anslag. Derfor er det viktig å se på hvor tett de beste hjørnene ligger — er forskjellen én prosent, er «det beste» punktet ikke sikrere enn anslagene bak.\n4. **Objektfunksjonen måler alt som teller.** Den gjør den aldri. Deltakertimer måler ikke hvem som trenger tilbudet mest; kroner måler ikke arbeidsmiljø eller klimautslipp.\n\n## Oppsummering\n\n| Situasjon | Skrives | Hjørnet på aksen bestemmes av |\n|---|---|---|\n| Kapasitet (tak) | $ax + by \\le c$ | det **minste** av kravene |\n| Minstekrav (gulv) | $ax + by \\ge c$ | det **største** av kravene |\n| Vedtak om én variabel | $x \\ge k$ eller $y \\le k$ | en loddrett eller vannrett linje |\n\n**Slik løser du en praktisk optimeringsoppgave:**\n\n1. Skriv i klartekst hva $x$ og $y$ er, med enhet.\n2. Sett opp ett vilkår per ressurs, per avtale og per vedtak. Forenkle ved å dele på felles faktorer.\n3. Sett opp objektfunksjonen, og si hva den måler og om den skal gjøres størst eller minst.\n4. Finn hjørnepunktene, og **test hvert av dem mot alle vilkårene**.\n5. Sett verdiene i en tabell og velg den beste.\n6. Svar i ord, med enhet — og si hvilke ressurser som er brukt helt opp, og hvor mye modellen forutsetter."
+    },
+    {
+      "id": "matok-5-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-3-ex-5",
+        "number": "5.3.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et jernbaneselskap skal sette sammen et togsett av to vogntyper til en ekstraavgang.\n\n- En vogn av type A har 60 sitteplasser og 10 sykkelplasser, og koster 4000 kr per tur.\n- En vogn av type B har 40 sitteplasser og 20 sykkelplasser, og koster 3500 kr per tur.\n- Toget må ha minst 480 sitteplasser og minst 160 sykkelplasser.\n- Lokomotivet klarer høyst 12 vogner.\n\nLa $x$ være antall vogner av type A og $y$ antall av type B. Selskapet vil ha lavest mulig kostnad.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp de tre vilkårene, og forenkle de to første.",
+            "solution": "Sitteplasser: $60x + 40y \\ge 480$. Vi deler på 20: $3x + 2y \\ge 24$. Sykkelplasser: $10x + 20y \\ge 160$. Vi deler på 10: $x + 2y \\ge 16$. Vogner: $x + y \\le 12$. I tillegg $x \\ge 0$ og $y \\ge 0$."
+          },
+          {
+            "label": "b",
+            "task": "Sett opp objektfunksjonen, og si om den skal gjøres størst eller minst.",
+            "solution": "$K = 4000x + 3500y$, målt i kroner. Den skal gjøres **minst**.",
+            "expressionAnswer": "4000x+3500y"
+          },
+          {
+            "label": "c",
+            "task": "Finn hjørnepunktet der de to minstekravene møtes.",
+            "solution": "$3x + 2y = 24$ og $x + 2y = 16$. Vi trekker den andre fra den første: $2x = 8$, altså $x = 4$. Da er $4 + 2y = 16$, altså $y = 6$. Punktet er $(4, 6)$. Kontroll: $4 + 6 = 10 \\le 12$ — lovlig, og sitteplassene blir $60 \\cdot 4 + 40 \\cdot 6 = 480$, sykkelplassene $10 \\cdot 4 + 20 \\cdot 6 = 160$."
+          },
+          {
+            "label": "d",
+            "task": "De andre hjørnene er $(0, 12)$ og $(8, 4)$. Regn ut kostnaden i alle tre, og finn det billigste togsettet.",
+            "solution": "$K(0, 12) = 3500 \\cdot 12 = 42\\,000$ kr. $K(4, 6) = 16\\,000 + 21\\,000 = 37\\,000$ kr. $K(8, 4) = 32\\,000 + 14\\,000 = 46\\,000$ kr. Billigst er $(4, 6)$: 4 vogner av type A og 6 av type B, til 37 000 kr.",
+            "answer": 37000
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor det verken lønner seg å bruke bare type A eller bare type B.",
+            "solution": "Bare type B: for å få 480 sitteplasser trengs $480 : 40 = 12$ vogner, og det er akkurat på grensen av hva lokomotivet klarer. Det koster 42 000 kr. Bare type A: for å få 160 sykkelplasser trengs $160 : 10 = 16$ vogner, og det er mer enn de 12 lokomotivet klarer — altså umulig. Type A er sterkest på sitteplasser og type B på sykkelplasser, og siden begge krav må oppfylles samtidig, blir blandingen billigst. Løsningen $(4, 6)$ treffer dessuten begge minstekravene nøyaktig, uten en eneste plass til overs."
+          }
+        ],
+        "solution": "a) $3x + 2y \\ge 24$, $x + 2y \\ge 16$, $x + y \\le 12$, b) $K = 4000x + 3500y$ skal minimeres, c) $(4, 6)$, d) 42 000 kr, 37 000 kr og 46 000 kr — billigst er $(4, 6)$, e) type A er best på sitteplasser og type B på sykkelplasser, så blandingen vinner.",
+        "hints": [
+          "Del hvert vilkår på en felles faktor før du regner videre.",
+          "Sjekk til slutt hvor mange sitteplasser og sykkelplasser løsningen faktisk gir."
+        ],
+        "competenceGoals": [
+          "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-5-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-5-3-ex-6",
+        "number": "5.3.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et kaffebrenneri lager to blandinger og selger dem i sekker.\n\n- Blandingen «Mild» inneholder 3 kg arabica og 1 kg robusta per sekk.\n- Blandingen «Kraftig» inneholder 1 kg arabica og 3 kg robusta per sekk.\n- Brenneriet har 180 kg arabica og 180 kg robusta på lager.\n\nDekningsbidraget er 220 kr per sekk «Mild» og 260 kr per sekk «Kraftig».\n\nLa $x$ være antall sekker «Mild» og $y$ antall sekker «Kraftig».",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sett opp vilkårene og objektfunksjonen.",
+            "solution": "Arabica: $3x + y \\le 180$. Robusta: $x + 3y \\le 180$. Objektfunksjonen er $z = 220x + 260y$, som skal gjøres størst."
+          },
+          {
+            "label": "b",
+            "task": "Finn hjørnepunktet der de to grenselinjene krysser hverandre.",
+            "solution": "Vi ganger robustalikningen med 3: $3x + 9y = 540$. Vi trekker arabicalikningen fra: $(3x + 9y) - (3x + y) = 540 - 180$, altså $8y = 360$ og $y = 45$. Da er $3x + 45 = 180$, altså $x = 45$. Punktet er $(45, 45)$."
+          },
+          {
+            "label": "c",
+            "task": "Skriv opp alle hjørnepunktene og regn ut $z$ i hvert av dem.",
+            "solution": "På $y$-aksen: arabica gir $y \\le 180$, robusta gir $3y \\le 180$, altså $y \\le 60$ — hjørnet er $(0, 60)$. På $x$-aksen: arabica gir $x \\le 60$, robusta gir $x \\le 180$ — hjørnet er $(60, 0)$. Hjørnene er $(0, 0)$, $(0, 60)$, $(45, 45)$ og $(60, 0)$, med $z$ lik 0, 15 600, 21 600 og 13 200 kroner. Best er $(45, 45)$ med 21 600 kr.",
+            "answer": 21600
+          },
+          {
+            "label": "d",
+            "task": "Undersøk hvor mye arabica og robusta som blir brukt i den beste løsningen.",
+            "solution": "Arabica: $3 \\cdot 45 + 45 = 180$ kg av 180. Robusta: $45 + 3 \\cdot 45 = 180$ kg av 180. Begge lagrene tømmes helt. Ingen av råvarene er til overs, så begge er knappe samtidig."
+          },
+          {
+            "label": "e",
+            "task": "Drøft minst tre forhold modellen ikke tar hensyn til, og hva de kan bety for svaret.",
+            "solution": "For det første sier modellen ingenting om **etterspørselen**. Den foreslår 45 sekker av hver blanding, men hvis kundene bare vil ha «Kraftig», blir halvparten stående usolgt — og da er dekningsbidraget på papiret verdiløst. For det andre forutsetter modellen at **dekningsbidraget per sekk er fast**. Skal brenneriet selge 45 sekker av en blanding det vanligvis selger 20 av, må prisen trolig ned, og da faller dekningsbidraget. For det tredje ser modellen bort fra **tid og kapasitet**: brenning, pakking og lagerplass er ikke med som vilkår, selv om de er virkelige grenser. For det fjerde antar den at **blandingsforholdene er låst**. I praksis kan et brenneri ofte justere oppskriften litt, og da er ikke koeffisientene 3 og 1 faste tall, men valg. Svaret $(45, 45)$ bør derfor leses som «slik ser det ut hvis råvarene er det eneste som begrenser oss» — et godt utgangspunkt for en samtale, ikke en ordre."
+          }
+        ],
+        "solution": "a) $3x + y \\le 180$, $x + 3y \\le 180$, $z = 220x + 260y$, b) $(45, 45)$, c) hjørner $(0,0)$, $(0,60)$, $(45,45)$, $(60,0)$ med 0, 15 600, 21 600 og 13 200 kr — best er $(45, 45)$, d) begge lagrene tømmes helt, e) etterspørsel, prisendringer, kapasitet i brenning/pakking og justerbare blandingsforhold.",
+        "hints": [
+          "Gang opp den ene likningen slik at leddene med $x$ blir like store.",
+          "I e): tenk gjennom hva som må være sant for at svaret skal kunne gjennomføres i praksis."
+        ],
+        "competenceGoals": [
+          "bruke lineær optimering til å bestemme maksimum og minimum for lineære funksjonar over område i planet som er avgrensa av rette linjer, og bruke løysingane til å analysere økonomiske og samfunnsfaglege problemstillingar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Minstekrav",
+      "definition": "Et vilkår på formen $ax + by \\ge c$: en blanding må inneholde minst så mye, en rute må ha plass til minst så mange. Skraveringen ligger da bort fra origo."
+    },
+    {
+      "term": "Ubegrenset område",
+      "definition": "Et område som strekker seg uendelig langt i en retning. Har vi bare minstekrav, blir området ubegrenset — da finnes det en minste verdi, men ingen største."
+    },
+    {
+      "term": "Knapp ressurs",
+      "definition": "En ressurs som er brukt helt opp i den beste løsningen, slik at vilkåret er oppfylt med likhet. Det er disse det ville hjelpe å få mer av."
+    },
+    {
+      "term": "Ikke-bindende vilkår",
+      "definition": "Et vilkår som er oppfylt med god margin i den beste løsningen, og som derfor ikke påvirker svaret. En leveringsavtale bedriften uansett oppfyller, koster den ingenting."
+    },
+    {
+      "term": "Deltakertimer",
+      "definition": "Et eksempel på en objektfunksjon som måler noe annet enn kroner: antall personer ganger antall timer. Slike mål brukes når det knappe godet skal fordeles, ikke selges."
+    }
+  ]
+}

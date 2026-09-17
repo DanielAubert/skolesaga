@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { BunnyVideo } from '@/components/textbook/bunny-video';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -176,7 +177,7 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
     case 'proof':
       return <ProofBlock title={block.title} content={block.content} />;
     case 'example':
-      return <ExampleBlock title={block.title} problem={block.problem || block.content || ''} solution={block.solution || ''} solutionContent={block.solutionContent} steps={block.steps} solutionVideo={block.solutionVideo} />;
+      return <ExampleBlock title={block.title} problem={block.problem || block.content || ''} solution={block.solution || ''} solutionContent={block.solutionContent} steps={block.steps} solutionVideo={block.solutionVideo} solutionBunnyId={block.solutionBunnyId} videoUtkast={block.videoUtkast} />;
     case 'note':
       return <NoteBlock content={block.content} />;
     case 'warning':
@@ -184,7 +185,7 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
     case 'tip':
       return <TipBlock content={block.content} />;
     case 'video':
-      return <VideoBlock title={block.title} youtubeId={block.youtubeId} description={block.description} />;
+      return <VideoBlock title={block.title} youtubeId={block.youtubeId} bunnyVideoId={block.bunnyVideoId} videoUtkast={block.videoUtkast} description={block.description} />;
     case 'audio':
       return <AudioBlockComponent title={block.title} src={block.src} description={block.description} />;
     case 'geogebra':
@@ -335,6 +336,8 @@ function ExampleBlock({
   solutionContent,
   steps,
   solutionVideo,
+  solutionBunnyId,
+  videoUtkast,
 }: {
   title?: string;
   problem: string;
@@ -342,6 +345,8 @@ function ExampleBlock({
   solutionContent?: ExampleSolutionBlock[];
   steps?: string[];
   solutionVideo?: string;
+  solutionBunnyId?: string;
+  videoUtkast?: boolean;
 }) {
   const [showVideo, setShowVideo] = useState(false);
 
@@ -399,6 +404,28 @@ function ExampleBlock({
           <LatexRenderer content={problem} />
         </div>
 
+        {/* Videogjennomgang står OVER løsningen (Daniel 17/9) */}
+        {(solutionVideo || solutionBunnyId) && (
+          <div>
+            <Button
+              variant="ghost"
+              size="sm"
+              aria-expanded={showVideo} onClick={() => setShowVideo(!showVideo)}
+              className="text-red-600 dark:text-red-400 p-0 h-auto"
+            >
+              <Play className="h-4 w-4 mr-1" />
+              {showVideo ? 'Skjul video' : 'Se videogjennomgang'}
+            </Button>
+
+            {showVideo && solutionBunnyId && (
+              <BunnyVideo videoId={solutionBunnyId} title={title} utkast={videoUtkast} />
+            )}
+            {showVideo && !solutionBunnyId && solutionVideo && (
+              <YouTubeEmbed videoId={solutionVideo} title={title} />
+            )}
+          </div>
+        )}
+
         <div className="p-3 bg-green-100/40 dark:bg-green-900/15 rounded-md">
           {steps && steps.length > 0 ? (
             <ol className="list-decimal list-inside space-y-1">
@@ -413,23 +440,6 @@ function ExampleBlock({
           )}
         </div>
 
-        {solutionVideo && (
-          <div>
-            <Button
-              variant="ghost"
-              size="sm"
-              aria-expanded={showVideo} onClick={() => setShowVideo(!showVideo)}
-              className="text-red-600 dark:text-red-400 p-0 h-auto"
-            >
-              <Play className="h-4 w-4 mr-1" />
-              {showVideo ? 'Skjul video' : 'Se videogjennomgang'}
-            </Button>
-
-            {showVideo && (
-              <YouTubeEmbed videoId={solutionVideo} title={title} />
-            )}
-          </div>
-        )}
       </CardContent>
     </Card>
   );
@@ -488,12 +498,37 @@ function TipBlock({ content }: { content: string }) {
 function VideoBlock({
   title,
   youtubeId,
+  bunnyVideoId,
+  videoUtkast,
   description,
 }: {
   title?: string;
-  youtubeId: string;
+  youtubeId?: string;
+  bunnyVideoId?: string;
+  videoUtkast?: boolean;
   description?: string;
 }) {
+  if (bunnyVideoId) {
+    return (
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Play className="h-5 w-5 text-red-500" />
+            {title || 'Video'}
+          </CardTitle>
+          {description && (
+            <p className="text-sm text-muted-foreground">
+              <LatexRenderer content={description} inline />
+            </p>
+          )}
+        </CardHeader>
+        <CardContent>
+          <BunnyVideo videoId={bunnyVideoId} title={title} utkast={videoUtkast} />
+        </CardContent>
+      </Card>
+    );
+  }
+  if (!youtubeId) return null;
   return (
     <Card>
       <CardHeader className="pb-2">

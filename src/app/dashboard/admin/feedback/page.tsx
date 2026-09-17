@@ -288,8 +288,8 @@ export default function AdminFeedbackPage() {
                         </span>
                       </TableCell>
                       <TableCell className="align-top">
-                        <Badge variant={item.category === "feil" ? "destructive" : "secondary"}>
-                          {item.category === "feil" ? "Feil" : "Forbedring"}
+                        <Badge variant={item.category === "feil" ? "destructive" : item.category === "interesse" ? "outline" : "secondary"}>
+                          {item.category === "feil" ? "Feil" : item.category === "interesse" ? "Interesse" : "Forbedring"}
                         </Badge>
                       </TableCell>
                       <TableCell className="align-top">

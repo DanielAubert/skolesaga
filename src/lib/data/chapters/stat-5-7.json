@@ -1,0 +1,472 @@
+{
+  "id": "stat-5-7",
+  "courseId": "statistikk",
+  "chapterNumber": "5.7",
+  "title": "Gjennomsnitt og forventningsverdi, utvalgsstandardavvik og standardavvik",
+  "description": "Sammenhengen mellom det vi regner fra data og det modellen sier — og hvorfor vi deler på n − 1.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+  ],
+  "content": [
+    {
+      "id": "stat-5-7-section-intro",
+      "type": "text",
+      "content": "# Gjennomsnitt og forventningsverdi, utvalgsstandardavvik og standardavvik\n\nGjennom hele kapittel 5 har vi regnet på **modeller**: en fordeling er gitt, og vi finner $\\mu$ og $\\sigma$ ut av den. I kapittel 1 gjorde vi noe som ser nesten likt ut, men som er noe helt annet: vi regnet gjennomsnitt og standardavvik ut av **målte data**.\n\nDisse to verdenene må holdes fra hverandre — og samtidig forstås som to sider av samme sak. Her er hele oppstillingen:\n\n| | fra DATA (et utvalg) | fra MODELLEN (fordelingen) |\n|---|---|---|\n| midtpunkt | gjennomsnitt $\\bar{x}$ | forventningsverdi $\\mu$ |\n| spredning | utvalgsstandardavvik $s$ | standardavvik $\\sigma$ |\n| hvor kommer tallet fra? | vi har målt det | vi har antatt eller utledet det |\n| endrer det seg? | ja — nytt utvalg gir nytt $\\bar{x}$ | nei — $\\mu$ er en fast egenskap ved modellen |\n\n$\\bar{x}$ og $s$ er altså **tilfeldige** — de hopper litt hver gang vi trekker et nytt utvalg. $\\mu$ og $\\sigma$ står stille.\n\nSammenhengen mellom dem er hele poenget med statistikk: **vi bruker det vi har målt til å si noe om det vi ikke kan måle.**"
+    },
+    {
+      "id": "stat-5-7-def-formler",
+      "type": "definition",
+      "title": "De fire formlene",
+      "content": "**Fra data.** Har vi målt $n$ verdier $x_1, x_2, \\ldots, x_n$:\n\n$$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i$$\n\n$$s = \\sqrt{\\frac{1}{n - 1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\n**Fra modellen.** Har vi en stokastisk variabel $X$:\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k)$$\n\n$$\\sigma = \\sqrt{\\sum_k (k - \\mu)^2 \\cdot P(X = k)}$$\n\nLegg merke til at de to spredningsformlene er bygget likt: *summer de kvadrerte avvikene, del, og ta roten*. Den eneste forskjellen er hva vi deler på — og det er nettopp forskjellen dette kapittelet handler om.\n\n**NB:** Regner vi med **hele populasjonen** i hånden — ikke et utvalg — deler vi på $n$ i stedet for $n - 1$. Da kalles tallet **populasjonsstandardavviket** og skrives også $\\sigma$. Oppgaven må alltid si hvilken av de to det er snakk om."
+    },
+    {
+      "id": "stat-5-7-section-hvorfor-n1",
+      "type": "text",
+      "content": "## Hvorfor deler vi på $n - 1$?\n\nDette er et av de spørsmålene som virker som en tilfeldig regel, men som har en helt konkret grunn.\n\nNår vi skal måle hvor spredt dataene er, må vi måle avvikene fra *et sted*. I modellen måler vi fra $\\mu$ — et tall som ikke kommer fra dataene. Men når vi bare har et utvalg, kjenner vi ikke $\\mu$. Vi må bruke $\\bar{x}$ i stedet — og $\\bar{x}$ er regnet ut av de samme dataene.\n\nDa skjer det noe: $\\bar{x}$ ligger alltid så gunstig plassert som overhodet mulig i forhold til akkurat disse tallene. Summen $\\sum (x_i - \\bar{x})^2$ blir **den minste den kan bli** for noe som helst tall vi kunne målt fra. Hadde vi målt fra den sanne $\\mu$ i stedet, ville summen blitt større.\n\nDeler vi på $n$, får vi derfor systematisk et **for lite** tall. Å dele på $n - 1$ i stedet er akkurat den oppjusteringen som retter opp skjevheten — og det den retter opp *eksakt*, er skjevheten i **variansen**: $E(s^2) = \\sigma^2$.\n\n**Viktig presisering:** Legg merke til at det er $s^2$, ikke $s$, som blir treffsikker på denne måten. Kvadratroten er ikke en rett linje, så $s$ ligger fortsatt litt *under* $\\sigma$ i gjennomsnitt (ved $n = 5$ og normalfordelte data omtrent 6 % under, ved $n = 30$ under 1 %). Den lille skjevheten korrigerer vi ikke — $n - 1$ er korreksjonen vi gjør, og den gjelder variansen.\n\n**Et annet bilde på det samme:** avvikene fra gjennomsnittet summerer alltid til null:\n\n$$\\sum_{i=1}^{n} (x_i - \\bar{x}) = 0$$\n\nKjenner du derfor $n - 1$ av avvikene, er det siste bestemt — du kan regne det ut. Bare $n - 1$ av avvikene bærer ny informasjon. Vi sier at vi har $n - 1$ **frihetsgrader**, og det er dem vi deler på.\n\n**NB:** Forskjellen betyr mest når $n$ er liten. Ved $n = 5$ er det forskjell på å dele på 4 og på 5: $s$ blir $\\sqrt{\\frac{5}{4}} \\approx 1{,}118$ ganger $n$-versjonen, altså omtrent 12 % større. Ved $n = 1000$ er faktoren $\\sqrt{\\frac{1000}{999}} \\approx 1{,}0005$ — uten praktisk betydning."
+    },
+    {
+      "id": "stat-5-7-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Fem målinger",
+      "problem": "Fem elever brukte disse tidene (i minutter) på en oppgave:\n\n$$4, \\quad 7, \\quad 8, \\quad 10, \\quad 11$$\n\na) Finn gjennomsnittet $\\bar{x}$.\nb) Finn utvalgsstandardavviket $s$.\nc) Finn populasjonsstandardavviket (der vi deler på $n$), og sammenlign.",
+      "solution": "**Løsning:**\n\n**a)** Vi skriver formelen tom først, og setter så inn:\n\n$$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i = \\frac{4 + 7 + 8 + 10 + 11}{5} = \\frac{40}{5} = 8$$\n\n**b)** Vi regner avvikene og kvadratene i en tabell:\n\n| $x_i$ | 4 | 7 | 8 | 10 | 11 | **Sum** |\n|---|---|---|---|---|---|---|\n| $x_i - \\bar{x}$ | $-4$ | $-1$ | 0 | 2 | 3 | 0 |\n| $(x_i - \\bar{x})^2$ | 16 | 1 | 0 | 4 | 9 | 30 |\n\n*(Legg merke til Sum-cella i rad 2: avvikene summerer til 0, slik de alltid gjør. Det er en gratis kontroll på at $\\bar{x}$ er riktig regnet.)*\n\n![Et koordinatsystem der den vannrette aksen er merket måling nr. og viser 1 til 5, og den loddrette er merket verdi og viser 2, 4, 6, 8, 10 og 12. Fem blå punkter ligger over hvert sitt målingsnummer, i høydene 4, 7, 8, 10 og 11. En grå stiplet vannrett strek ligger i 8 tvers over figuren og er merket gjennomsnittet 8. Fra streken går en rød pil ned til punktet i måling 1, merket minus 4, og en ned til måling 2, merket minus 1. Måling 3 ligger på streken og er merket 0. To røde piler går opp fra streken til måling 4, merket pluss 2, og til måling 5, merket pluss 3. Øverst står regnestykket minus 4 minus 1 pluss 0 pluss 2 pluss 3 er lik 0.](/images/content/statistikk/stat-5-7-avvik-tallinje.png)\n\n*De fem avvikene fra gjennomsnittet summerer alltid til null. Kjenner du fire av dem, er det femte bestemt — det er bare $n - 1$ frie avvik i et utvalg på $n$. Derfor deler vi på $n - 1$ og ikke på $n$.*\n\nSå setter vi inn i formelen. Her er $n = 5$, så vi deler på $n - 1 = 4$:\n\n$$s = \\sqrt{\\frac{1}{n-1} \\sum (x_i - \\bar{x})^2} = \\sqrt{\\frac{30}{5 - 1}} = \\sqrt{\\frac{30}{4}} = \\sqrt{7{,}5} \\approx 2{,}74$$\n\n**c)** Deler vi i stedet på $n = 5$:\n\n$$\\sqrt{\\frac{30}{5}} = \\sqrt{6} \\approx 2{,}45$$\n\nForskjellen er $2{,}74 - 2{,}45 = 0{,}29$ minutter. Utvalgsstandardavviket $s$ er altså omtrent 12 % større enn $n$-versjonen — forholdet mellom dem er $\\sqrt{\\frac{5}{4}} \\approx 1{,}118$. Med bare fem målinger er det en merkbar forskjell.\n\n**Svar:** a) $\\bar{x} = 8$ minutter. b) $s = \\sqrt{7{,}5} \\approx 2{,}74$ minutter. c) $\\sqrt{6} \\approx 2{,}45$ minutter — $s$ er omtrent 12 % større enn dette.\n\n**Hvilken skal brukes?** Er de fem elevene et *utvalg*, og vi vil si noe om alle elever, bruker vi $s \\approx 2{,}74$. Er de fem elevene *hele* gruppen vi er interessert i, og vi bare beskriver dem, bruker vi $\\approx 2{,}45$. I praksis er den første situasjonen den vanligste, og det er derfor $s$ med $n - 1$ er standardvalget."
+    },
+    {
+      "id": "stat-5-7-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Åtte pasienter ventet disse antall minutter på legevakten:\n\n$$12, \\quad 15, \\quad 11, \\quad 18, \\quad 14, \\quad 13, \\quad 17, \\quad 12$$\n\nGjør den samme utregningen som i eksempel 1. Rund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\bar{x}$.",
+            "solution": "$\\bar{x} = \\frac{12 + 15 + 11 + 18 + 14 + 13 + 17 + 12}{8} = \\frac{112}{8} = 14$",
+            "answer": 14
+          },
+          {
+            "label": "b",
+            "task": "Sett opp tabellen med avvik og kvadrerte avvik, og kontroller at avvikene summerer til 0.",
+            "solution": "Avvik: $-2, 1, -3, 4, 0, -1, 3, -2$. Summen er 0. Kvadrater: $4, 1, 9, 16, 0, 1, 9, 4$.",
+            "answer": 0
+          },
+          {
+            "label": "c",
+            "task": "Finn summen av de kvadrerte avvikene.",
+            "solution": "$4 + 1 + 9 + 16 + 0 + 1 + 9 + 4 = 44$",
+            "answer": 44
+          },
+          {
+            "label": "d",
+            "task": "Finn utvalgsstandardavviket $s$.",
+            "solution": "$s = \\sqrt{\\frac{44}{8 - 1}} = \\sqrt{\\frac{44}{7}} \\approx \\sqrt{6{,}286} \\approx 2{,}51$",
+            "answer": 2.51
+          },
+          {
+            "label": "e",
+            "task": "Finn populasjonsstandardavviket (del på $n$), og oppgi hvor mange prosent STØRRE $s$ er enn dette.",
+            "solution": "$\\sqrt{\\frac{44}{8}} = \\sqrt{5{,}5} \\approx 2{,}35$. Forholdet er $\\frac{2{,}507}{2{,}345} = \\sqrt{\\frac{8}{7}} \\approx 1{,}069$, så $s$ er omtrent 6,9 % større.",
+            "answer": 2.35
+          }
+        ],
+        "hints": [
+          "Regn $\\bar{x}$ først. Summen av avvikene MÅ bli 0 — blir den ikke det, er gjennomsnittet feil."
+        ],
+        "solution": "a) 14, b) summen av avvik er 0, c) 44, d) $\\approx 2{,}51$, e) $\\approx 2{,}35$, og $s$ er ca. 6,9 % større",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-7-section-lov",
+      "type": "text",
+      "content": "## Loven om store tall\n\nVi har nå to størrelser som svarer til hverandre: $\\bar{x}$ fra data, $\\mu$ fra modellen. Hvordan henger de sammen?\n\nTenk deg at du kaster en terning $n$ ganger og regner gjennomsnittet av øynene. Med $n = 5$ kan gjennomsnittet lett bli 2,4 eller 4,8. Med $n = 100$ ligger det som regel mellom 3,2 og 3,8. Med $n = 10\\,000$ er det nesten alltid 3,49 eller 3,51.\n\nDette er **loven om store tall**: gjennomsnittet av mange uavhengige målinger nærmer seg forventningsverdien.\n\n$$\\bar{x} \\longrightarrow \\mu \\quad \\text{når } n \\text{ vokser}$$\n\nDet er dette som gjør statistikk mulig i det hele tatt. Vi kan ikke måle $\\mu$ direkte — men vi kan måle $\\bar{x}$, og vi vet at den nærmer seg $\\mu$.\n\nMen *hvor raskt* nærmer den seg? Det svaret er kanskje det mest nyttige resultatet i hele kapittelet."
+    },
+    {
+      "id": "stat-5-7-fig-store-talls-lov",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-5-7-store-talls-lov.png",
+      "alt": "En blå kurve viser det løpende gjennomsnittet av terningkast mot antall kast. Den vannrette aksen er merket antall kast og er logaritmisk, med tallene 1, 10, 100, 1000 og 10 000; den loddrette er merket gjennomsnitt og viser 1 til 6. Kurven starter i 1 etter det første kastet og svinger kraftig opp og ned i venstre del av figuren, mellom omtrent 2,8 og 3,5. Jo lenger til høyre, desto mindre blir svingningene, og fra omkring tusen kast ligger kurven praktisk talt oppå en rød stiplet vannrett linje merket my er lik 3,5. Øverst står tekstene få kast: store utslag til venstre og mange kast: rører seg knapt til høyre.",
+      "caption": "Loven om store tall: det løpende gjennomsnittet av terningkast nærmer seg $\\mu = 3{,}5$ etter hvert som antallet kast vokser. Kastene er simulert med en fast generator, så figuren er den samme hver gang; etter 10 000 kast er gjennomsnittet 3,50. Svingningene til venstre er den utvalgsvariasjonen $\\frac{\\sigma}{\\sqrt{n}}$ måler — den blir mindre, men aldri null. Merk at den vannrette aksen er logaritmisk: hvert steg er en tidobling av antall kast.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-5-7-store-talls-lov.json"
+    },
+    {
+      "id": "stat-5-7-theorem-xbar",
+      "type": "theorem",
+      "title": "Forventning og standardavvik til gjennomsnittet",
+      "content": "La $X_1, X_2, \\ldots, X_n$ være uavhengige målinger fra samme fordeling, med forventningsverdi $\\mu$ og standardavvik $\\sigma$. La\n\n$$\\bar{X} = \\frac{X_1 + X_2 + \\cdots + X_n}{n}$$\n\nDa gjelder\n\n$$E(\\bar{X}) = \\mu$$\n\n$$\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} \\qquad \\text{og} \\qquad SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$$",
+      "proof": "Vi setter $S = X_1 + X_2 + \\cdots + X_n$, altså $\\bar{X} = \\dfrac{S}{n}$.\n\n**Forventningsverdien.** Forventningsverdien til en sum er summen av forventningsverdiene, og alle $n$ leddene har forventningsverdi $\\mu$:\n\n$$E(S) = \\underbrace{\\mu + \\mu + \\cdots + \\mu}_{n \\text{ ledd}} = n \\cdot \\mu$$\n\nSå bruker vi regelen $E(aX) = a \\cdot E(X)$ fra kapittel 5.2, med $a = \\frac{1}{n}$:\n\n$$E(\\bar{X}) = E\\!\\left(\\frac{S}{n}\\right) = \\frac{1}{n} \\cdot E(S) = \\frac{1}{n} \\cdot n\\mu = \\mu$$\n\nDe to $n$-ene forkortes mot hverandre, og det som står igjen er $\\mu$.\n\n**Variansen.** For uavhengige variabler er variansen til summen summen av variansene:\n\n$$\\text{Var}(S) = \\underbrace{\\sigma^2 + \\sigma^2 + \\cdots + \\sigma^2}_{n \\text{ ledd}} = n \\cdot \\sigma^2$$\n\nSå bruker vi $\\text{Var}(aX) = a^2 \\cdot \\text{Var}(X)$ fra kapittel 5.3, igjen med $a = \\frac{1}{n}$:\n\n$$\\text{Var}(\\bar{X}) = \\text{Var}\\!\\left(\\frac{S}{n}\\right) = \\frac{1}{n^2} \\cdot \\text{Var}(S) = \\frac{1}{n^2} \\cdot n\\sigma^2 = \\frac{\\sigma^2}{n}$$\n\nog standardavviket er kvadratroten:\n\n$$SD(\\bar{X}) = \\sqrt{\\frac{\\sigma^2}{n}} = \\frac{\\sigma}{\\sqrt{n}}$$"
+    },
+    {
+      "id": "stat-5-7-warning-vanlig-feil",
+      "type": "warning",
+      "title": "Den vanligste feilen i denne utledningen",
+      "content": "Det er lett å skrive\n\n$$E(\\bar{X}) = \\frac{1}{n} \\cdot \\mu = \\frac{\\mu}{n} \\qquad \\textbf{(GALT)}$$\n\nFeilen er at $E(S)$ settes lik $\\mu$ i stedet for $n\\mu$. Summen av $n$ målinger har jo $n$ ganger så stor forventningsverdi som én måling — kaster du terningen 10 ganger, venter du en sum på omkring 35, ikke 3,5.\n\n**Rimelighetssjekken avslører den på ett sekund:** kast en terning 100 ganger og regn gjennomsnittet. Blir det omtrent 3,5, eller omtrent $\\frac{3{,}5}{100} = 0{,}035$? Et gjennomsnitt av terningkast kan umulig være 0,035 — det minste mulige gjennomsnittet er 1.\n\nHusk derfor:\n\n- **Midtpunktet flytter seg ikke.** $E(\\bar{X}) = \\mu$, uansett hvor mange målinger vi tar.\n- **Spredningen krymper.** $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$, og den går mot 0 når $n$ vokser.\n\nDet er nettopp derfor gjennomsnittet nærmer seg $\\mu$: det sikter riktig hele veien, og blir bare mer og mer treffsikkert."
+    },
+    {
+      "id": "stat-5-7-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor mye krymper spredningen?",
+      "problem": "Innholdet i en type saftflaske har forventningsverdi $\\mu = 500$ ml og standardavvik $\\sigma = 12$ ml.\n\na) Finn $E(\\bar{X})$ og $SD(\\bar{X})$ når vi måler 36 flasker.\nb) Finn de samme størrelsene for 144 flasker.\nc) Hvor mange flasker må vi måle for at $SD(\\bar{X})$ skal bli 1 ml?",
+      "solution": "**Løsning:**\n\n**a)** Forventningsverdien flytter seg ikke:\n\n$$E(\\bar{X}) = \\mu = 500 \\text{ ml}$$\n\nStandardavviket krymper med $\\sqrt{n}$:\n\n$$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{12}{\\sqrt{36}} = \\frac{12}{6} = 2 \\text{ ml}$$\n\n**b)** Med $n = 144$:\n\n$$E(\\bar{X}) = \\mu = 500 \\text{ ml}$$\n\n$$SD(\\bar{X}) = \\frac{12}{\\sqrt{144}} = \\frac{12}{12} = 1 \\text{ ml}$$\n\nVi firedoblet antall flasker, og halverte spredningen. Det er det $\\sqrt{n}$ gjør.\n\n**c)** Vi setter opp likningen med $n$ som ukjent:\n\n$$\\frac{12}{\\sqrt{n}} = 1$$\n\nGanger med $\\sqrt{n}$ på begge sider:\n\n$$12 = \\sqrt{n}$$\n\nog kvadrerer begge sider:\n\n$$12^2 = n$$\n\n$$n = 144$$\n\nSom vi allerede så i b).\n\n![En oransje kurve merket 12 delt på kvadratroten av n faller bratt fra venstre og flater ut mot høyre. Den vannrette aksen er merket n og går fra 0 til 200, den loddrette aksen er merket SD av x med strek over og viser 1, 2, 4, 6, 8, 10 og 12. To svarte punkter er markert på kurven med stiplede hjelpelinjer til den loddrette aksen: punktet 36 komma 2 og punktet 144 komma 1. Kurven faller raskt fram til omkring n lik 50 og er nesten flat etter n lik 120.](/images/content/statistikk/stat-5-7-sd-xbar-avtar.png)\n\n*Standardavviket til GJENNOMSNITTET, $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$, tegnet for $\\sigma = 12$. Kurven faller bratt i starten og flater ut: å firedoble $n$ fra 36 til 144 halverer usikkerheten fra 2 til 1, mens de neste 100 målingene knapt hjelper.*\n\n**Svar:** a) $E(\\bar{X}) = 500$ ml og $SD(\\bar{X}) = 2$ ml. b) $500$ ml og $1$ ml. c) 144 flasker.\n\n**NB — den viktigste praktiske konsekvensen:** For å halvere usikkerheten må du **firedoble** antall målinger. Vil du ti ganger så nøyaktig svar, må du måle hundre ganger så mye. Det er derfor store undersøkelser er så dyre — og derfor det sjelden lønner seg å øke utvalget fra 1000 til 1100."
+    },
+    {
+      "id": "stat-5-7-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En maskin fyller sekker med sand. Vekten har $\\mu = 25{,}0$ kg og $\\sigma = 0{,}8$ kg. Vi veier $n$ tilfeldige sekker og regner gjennomsnittsvekten $\\bar{X}$. Rund av til tre desimaler der det trengs.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $E(\\bar{X})$ når $n = 50$.",
+            "solution": "$E(\\bar{X}) = \\mu = 25{,}0$ kg — uavhengig av $n$.",
+            "answer": 25
+          },
+          {
+            "label": "b",
+            "task": "Finn $SD(\\bar{X})$ når $n = 50$.",
+            "solution": "$SD(\\bar{X}) = \\frac{0{,}8}{\\sqrt{50}} \\approx \\frac{0{,}8}{7{,}071} \\approx 0{,}113$ kg",
+            "answer": 0.113
+          },
+          {
+            "label": "c",
+            "task": "Finn $SD(\\bar{X})$ når $n = 200$.",
+            "solution": "$SD(\\bar{X}) = \\frac{0{,}8}{\\sqrt{200}} \\approx \\frac{0{,}8}{14{,}142} \\approx 0{,}057$ kg",
+            "answer": 0.057
+          },
+          {
+            "label": "d",
+            "task": "Hvor mange sekker må veies for at $SD(\\bar{X})$ skal bli høyst 0,05 kg?",
+            "solution": "$\\frac{0{,}8}{\\sqrt{n}} \\le 0{,}05 \\Rightarrow \\sqrt{n} \\ge \\frac{0{,}8}{0{,}05} = 16 \\Rightarrow n \\ge 256$. Minst 256 sekker.",
+            "answer": 256
+          },
+          {
+            "label": "e",
+            "task": "Forklar med én setning hvorfor $E(\\bar{X})$ er den samme i a) uansett hvor mange sekker vi veier.",
+            "solution": "Fordi gjennomsnittet sikter mot $\\mu$ uansett utvalgsstørrelse — flere målinger gjør det ikke mer treffsikkert i midten, bare mindre spredt rundt den.",
+            "answer": 25
+          }
+        ],
+        "hints": [
+          "$E(\\bar{X}) = \\mu$ alltid. Det er bare $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$ som avhenger av $n$."
+        ],
+        "solution": "a) 25,0 kg, b) $\\approx 0{,}113$ kg, c) $\\approx 0{,}057$ kg, d) minst 256 sekker, e) forventningen flytter seg ikke",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-7-section-estimat",
+      "type": "text",
+      "content": "## $\\bar{x}$ og $s$ som estimater\n\nVi er nå klare til å si hva det hele er godt for.\n\nI virkeligheten kjenner vi sjelden $\\mu$ og $\\sigma$. Vi har bare et utvalg. Da bruker vi de målte tallene som **estimater** — beste gjetning — for de ukjente:\n\n$$\\bar{x} \\ \\text{ er et estimat for } \\ \\mu \\qquad \\qquad s \\ \\text{ er et estimat for } \\ \\sigma$$\n\nAt $E(\\bar{X}) = \\mu$ er nettopp det som gjør $\\bar{x}$ til et **forventningsrett** estimat: den bommer ikke systematisk i noen retning. Noen utvalg gir litt for høyt, noen litt for lavt, men i gjennomsnitt treffer den.\n\nOg det er den samme egenskapen vi kjøpte oss da vi delte på $n - 1$ i stedet for $n$ — men der gjelder den **variansen**: korreksjonen gjør at $E(s^2) = \\sigma^2$, altså at $s^2$ er et forventningsrett estimat for $\\sigma^2$. Uten den ville $s^2$ systematisk undervurdert $\\sigma^2$. Standardavviket $s$ er derimot ikke helt forventningsrett for $\\sigma$ — det ligger i gjennomsnitt litt under — men med $n - 1$ treffer det mye bedre, og $s$ er tallet vi bruker i praksis.\n\n**I regneark** må du derfor velge riktig funksjon:\n\n| Funksjon | Deler på | Bruk når |\n|---|---|---|\n| `=STDAV.S(...)` | $n - 1$ | dataene er et **utvalg** (nesten alltid) |\n| `=STDAV.P(...)` | $n$ | dataene er **hele populasjonen** |\n\n`=GJENNOMSNITT(...)` gir $\\bar{x}$, og der finnes ingen slik felle."
+    },
+    {
+      "id": "stat-5-7-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Ti flasker fra produksjonen",
+      "problem": "En kvalitetskontrollør måler innholdet i ti tilfeldige flasker (i ml):\n\n$$498, \\ 502, \\ 495, \\ 507, \\ 500, \\ 503, \\ 496, \\ 504, \\ 499, \\ 501$$\n\na) Finn $\\bar{x}$ og $s$.\nb) Hva er estimatet for $\\mu$ og $\\sigma$ i produksjonen?\nc) Finn $SD(\\bar{X})$ for et utvalg på ti flasker, og forklar hva tallet betyr.",
+      "solution": "**Løsning:**\n\n**a)** Gjennomsnittet:\n\n$$\\bar{x} = \\frac{498 + 502 + 495 + 507 + 500 + 503 + 496 + 504 + 499 + 501}{10} = \\frac{5005}{10} = 500{,}5$$\n\nAvvikene fra 500,5 blir\n\n$$-2{,}5; \\ 1{,}5; \\ -5{,}5; \\ 6{,}5; \\ -0{,}5; \\ 2{,}5; \\ -4{,}5; \\ 3{,}5; \\ -1{,}5; \\ 0{,}5$$\n\n*(Kontroll: summen av avvikene er 0.)*\n\nDe kvadrerte avvikene summerer til\n\n$$\\sum (x_i - \\bar{x})^2 = 6{,}25 + 2{,}25 + 30{,}25 + 42{,}25 + 0{,}25 + 6{,}25 + 20{,}25 + 12{,}25 + 2{,}25 + 0{,}25 = 122{,}5$$\n\nog da er\n\n$$s = \\sqrt{\\frac{122{,}5}{10 - 1}} = \\sqrt{\\frac{122{,}5}{9}} \\approx \\sqrt{13{,}61} \\approx 3{,}69$$\n\n```\nregneark:   =GJENNOMSNITT(A1:A10)   gir 500,5\n            =STDAV.S(A1:A10)        gir 3,689\n```\n\n**b)** De ti flaskene er et utvalg fra produksjonen. Vi bruker dem som estimater:\n\n$$\\mu \\approx \\bar{x} = 500{,}5 \\text{ ml} \\qquad \\sigma \\approx s \\approx 3{,}69 \\text{ ml}$$\n\n**c)** Med $\\sigma \\approx 3{,}69$ og $n = 10$:\n\n$$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} \\approx \\frac{3{,}69}{\\sqrt{10}} \\approx \\frac{3{,}69}{3{,}162} \\approx 1{,}17 \\text{ ml}$$\n\nDette tallet sier hvor mye *gjennomsnittet* svinger fra utvalg til utvalg. Hadde kontrolløren målt ti nye flasker, ville hun fått et litt annet gjennomsnitt — typisk om lag 1,2 ml unna dette.\n\nLegg merke til forskjellen på de to spredningstallene: **enkeltflasker** varierer med omtrent 3,7 ml, mens **gjennomsnittet av ti** varierer med bare 1,2 ml.\n\n**Svar:** a) $\\bar{x} = 500{,}5$ ml og $s \\approx 3{,}69$ ml. b) $\\mu \\approx 500{,}5$ ml, $\\sigma \\approx 3{,}69$ ml. c) $\\approx 1{,}17$ ml — hvor mye gjennomsnittet av ti flasker svinger."
+    },
+    {
+      "id": "stat-5-7-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Fem målinger av innholdet i en pakke gav verdiene\n\n$$6, \\quad 9, \\quad 7, \\quad 10, \\quad 8$$\n\nRund av til to desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\bar{x}$.",
+            "solution": "$\\bar{x} = \\frac{6 + 9 + 7 + 10 + 8}{5} = \\frac{40}{5} = 8$",
+            "answer": 8
+          },
+          {
+            "label": "b",
+            "task": "Finn summen av de kvadrerte avvikene.",
+            "solution": "Avvik: $-2, 1, -1, 2, 0$ (summen er 0). Kvadrater: $4, 1, 1, 4, 0$, til sammen 10.",
+            "answer": 10
+          },
+          {
+            "label": "c",
+            "task": "Finn $s$.",
+            "solution": "$s = \\sqrt{\\frac{10}{5-1}} = \\sqrt{2{,}5} \\approx 1{,}58$",
+            "answer": 1.58
+          },
+          {
+            "label": "d",
+            "task": "Hvilke regnearkfunksjoner gir $\\bar{x}$ og $s$?",
+            "solution": "`=GJENNOMSNITT(A1:A5)` gir 8 og `=STDAV.S(A1:A5)` gir 1,58. Bruker du `=STDAV.P(A1:A5)` får du $\\sqrt{2} \\approx 1{,}41$ — populasjonsversjonen, som er feil her.",
+            "answer": 1.58
+          },
+          {
+            "label": "e",
+            "task": "Finn $SD(\\bar{X})$ når vi bruker $s$ som estimat for $\\sigma$.",
+            "solution": "$SD(\\bar{X}) \\approx \\frac{1{,}58}{\\sqrt{5}} \\approx \\frac{1{,}58}{2{,}236} \\approx 0{,}71$",
+            "answer": 0.71
+          }
+        ],
+        "hints": [
+          "Kontroller alltid at avvikene summerer til 0 før du kvadrerer."
+        ],
+        "solution": "a) 8, b) 10, c) $\\approx 1{,}58$, d) `GJENNOMSNITT` og `STDAV.S`, e) $\\approx 0{,}71$",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-7-example-4",
+      "type": "example",
+      "title": "Eksempel 4: Tre utvalg fra samme maskin",
+      "problem": "En maskin lager bolter. Vi vet fra produsenten at diameteren har $\\mu = 20{,}0$ mm og $\\sigma = 0{,}4$ mm. Tre kontrollører måler hver sine fem bolter (i mm):\n\n| | | | | | |\n|---|---|---|---|---|---|\n| **Utvalg A** | 19,8 | 20,3 | 20,1 | 19,6 | 20,4 |\n| **Utvalg B** | 20,2 | 19,9 | 20,5 | 20,0 | 19,7 |\n| **Utvalg C** | 19,5 | 20,1 | 20,2 | 20,4 | 19,9 |\n\na) Finn $\\bar{x}$ og $s$ for hvert utvalg.\nb) Hvilke av tallene i oppgaven er faste, og hvilke er tilfeldige?\nc) Passer spredningen mellom de tre gjennomsnittene med teorien?",
+      "solution": "**Løsning:**\n\n**a)** Vi regner utvalg A i sin helhet, og fører de to andre på samme måte.\n\n$$\\bar{x}_A = \\frac{19{,}8 + 20{,}3 + 20{,}1 + 19{,}6 + 20{,}4}{5} = \\frac{100{,}2}{5} = 20{,}04$$\n\nAvvikene fra 20,04 er $-0{,}24$; $0{,}26$; $0{,}06$; $-0{,}44$; $0{,}36$ — og de summerer til 0, som de skal. De kvadrerte avvikene summerer til\n\n$$\\sum (x_i - \\bar{x})^2 = 0{,}0576 + 0{,}0676 + 0{,}0036 + 0{,}1936 + 0{,}1296 = 0{,}452$$\n\n$$s_A = \\sqrt{\\frac{0{,}452}{5 - 1}} = \\sqrt{0{,}113} \\approx 0{,}34$$\n\nDe tre utvalgene gir:\n\n| | $\\bar{x}$ | $s$ |\n|---|---|---|\n| Utvalg A | 20,04 | 0,34 |\n| Utvalg B | 20,06 | 0,30 |\n| Utvalg C | 20,02 | 0,34 |\n\n**b)** $\\mu = 20{,}0$ mm og $\\sigma = 0{,}4$ mm er **faste**. De er egenskaper ved maskinen, og de er de samme uansett hvem som måler.\n\nDe seks tallene i tabellen er **tilfeldige**. Ingen av de tre kontrollørene fikk nøyaktig 20,0, og ingen fikk nøyaktig 0,4 — men alle traff i nærheten. Det er slik det skal være: $\\bar{x}$ er et estimat for $\\mu$, ikke $\\mu$ selv.\n\n**c)** Teorien sier at gjennomsnittene skal svinge med\n\n$$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{0{,}4}{\\sqrt{5}} \\approx \\frac{0{,}4}{2{,}236} \\approx 0{,}18 \\text{ mm}$$\n\nDe tre målte gjennomsnittene ligger $0{,}04$; $0{,}06$ og $0{,}02$ mm fra $\\mu = 20{,}0$ — altså godt innenfor 0,18 mm. Det passer fint. *(Med bare tre utvalg kan vi ikke si mer enn det; ingen av dem ligger urimelig langt unna.)*\n\n**Svar:** a) Se tabellen. b) $\\mu$ og $\\sigma$ er faste, $\\bar{x}$ og $s$ er tilfeldige. c) Ja — alle tre ligger innenfor ett standardavvik $SD(\\bar{X}) \\approx 0{,}18$ mm fra $\\mu$.\n\n**NB:** Legg merke til de to spredningstallene igjen. Enkeltboltene varierer med omtrent 0,34 mm ($s$), mens gjennomsnittet av fem varierer med bare 0,18 mm ($SD(\\bar{X})$). Det er den samme forskjellen som i eksempel 3 — og den er hele grunnen til at vi måler flere ganger."
+    },
+    {
+      "id": "stat-5-7-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Avgjør for hvert utsagn om størrelsen hører til DATA (et utvalg) eller til MODELLEN, og hvilket symbol som er riktig.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Vi målte 40 elever og fant en snitthøyde på 172 cm.»",
+            "solution": "Data. Dette er $\\bar{x} = 172$ cm — et gjennomsnitt regnet fra målinger."
+          },
+          {
+            "label": "b",
+            "task": "«Terningens forventede antall øyne er 3,5.»",
+            "solution": "Modell. Dette er $\\mu = 3{,}5$, utledet fra sannsynlighetsfordelingen, ikke målt."
+          },
+          {
+            "label": "c",
+            "task": "«Spredningen i utvalget var 6,2 cm, regnet med regnearkets STDAV.S.»",
+            "solution": "Data. Dette er $s = 6{,}2$ cm, utvalgsstandardavviket med $n - 1$ i nevneren."
+          },
+          {
+            "label": "d",
+            "task": "«Maskinen er spesifisert med et standardavvik på 0,4 mm.»",
+            "solution": "Modell. Dette er $\\sigma = 0{,}4$ mm — en oppgitt egenskap ved prosessen, ikke noe vi har regnet ut av et datasett."
+          },
+          {
+            "label": "e",
+            "task": "«Måler vi 40 nye elever, får vi neppe nøyaktig 172 cm igjen.» Hvilken av de fire størrelsene i a)–d) har denne egenskapen, og hvilke har den ikke?",
+            "solution": "$\\bar{x}$ og $s$ (a og c) er tilfeldige — de endrer seg med utvalget. $\\mu$ og $\\sigma$ (b og d) er faste egenskaper ved modellen og endrer seg ikke. Hvor mye $\\bar{x}$ svinger, måles av $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$."
+          }
+        ],
+        "hints": [
+          "Spør: har noen MÅLT dette tallet, eller er det ANTATT/UTLEDET fra en modell?"
+        ],
+        "solution": "a) data, $\\bar{x}$. b) modell, $\\mu$. c) data, $s$. d) modell, $\\sigma$. e) $\\bar{x}$ og $s$ svinger, $\\mu$ og $\\sigma$ står stille.",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-7-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "En terning har $\\mu = 3{,}5$ og $\\sigma = \\sqrt{\\frac{35}{12}} \\approx 1{,}708$ (fra kapittel 5.3). Vi kaster den $n$ ganger og regner gjennomsnittet $\\bar{X}$ av øynene. Rund av til tre desimaler.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $E(\\bar{X})$ og $SD(\\bar{X})$ når $n = 4$.",
+            "solution": "$E(\\bar{X}) = 3{,}5$ og $SD(\\bar{X}) = \\frac{1{,}708}{\\sqrt{4}} = \\frac{1{,}708}{2} \\approx 0{,}854$",
+            "answer": 0.854
+          },
+          {
+            "label": "b",
+            "task": "Finn $SD(\\bar{X})$ når $n = 100$.",
+            "solution": "$SD(\\bar{X}) = \\frac{1{,}708}{\\sqrt{100}} = \\frac{1{,}708}{10} \\approx 0{,}171$",
+            "answer": 0.171
+          },
+          {
+            "label": "c",
+            "task": "Finn $SD(\\bar{X})$ når $n = 10\\,000$.",
+            "solution": "$SD(\\bar{X}) = \\frac{1{,}708}{\\sqrt{10\\,000}} = \\frac{1{,}708}{100} \\approx 0{,}017$",
+            "answer": 0.017
+          },
+          {
+            "label": "d",
+            "task": "Sammenlign de tre svarene med innledningen til avsnittet om loven om store tall. Stemmer tallene med beskrivelsen der?",
+            "solution": "Ja. Med $n = 100$ er $SD(\\bar{X}) \\approx 0{,}17$, så gjennomsnittet ligger typisk innenfor $3{,}5 \\pm 0{,}34$ (to standardavvik), altså mellom 3,16 og 3,84 — som passer godt med intervallet 3,2–3,8 i innledningen. Med $n = 10\\,000$ er spredningen nede i 0,017.",
+            "answer": 0.34
+          },
+          {
+            "label": "e",
+            "task": "En elev påstår at $E(\\bar{X}) = \\frac{3{,}5}{100} = 0{,}035$ når $n = 100$. Vis at dette er umulig.",
+            "solution": "Gjennomsnittet av terningkast kan aldri bli mindre enn 1, siden alle utfallene er minst 1. Verdien 0,035 er derfor umulig. Feilen er at $E(S) = n \\cdot \\mu = 350$, ikke $\\mu$ — og $E(\\bar{X}) = \\frac{350}{100} = 3{,}5$.",
+            "answer": 3.5
+          }
+        ],
+        "hints": [
+          "$E(\\bar{X})$ er den samme i alle tre tilfellene. Det er bare nevneren $\\sqrt{n}$ som endrer seg."
+        ],
+        "solution": "a) 3,5 og $\\approx 0{,}854$, b) $\\approx 0{,}171$, c) $\\approx 0{,}017$, d) ja, e) umulig — gjennomsnittet er alltid minst 1, og $E(\\bar{X}) = 3{,}5$",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-7-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Hold de to verdenene fra hverandre: $\\bar{x}$ og $s$ kommer fra **data** og er tilfeldige; $\\mu$ og $\\sigma$ hører til **modellen** og står stille.\n- $\\bar{x} = \\frac{1}{n}\\sum x_i$ og $s = \\sqrt{\\frac{1}{n-1}\\sum (x_i - \\bar{x})^2}$.\n- Vi deler på $n - 1$ fordi avvikene måles fra $\\bar{x}$, som selv er regnet ut av de samme dataene. Summen $\\sum(x_i - \\bar{x})^2$ blir derfor systematisk for liten, og $n - 1$ retter opp skjevheten slik at $E(s^2) = \\sigma^2$ — det er **variansen** $s^2$ som blir forventningsrett, ikke $s$ selv. Bare $n - 1$ av avvikene bærer ny informasjon — de er **frihetsgradene**.\n- **Loven om store tall:** $\\bar{x} \\to \\mu$ når $n$ vokser.\n- **Fordelingen til gjennomsnittet:** $E(\\bar{X}) = \\mu$ og $SD(\\bar{X}) = \\dfrac{\\sigma}{\\sqrt{n}}$. Midtpunktet flytter seg ikke; spredningen krymper.\n- Aldri $E(\\bar{X}) = \\frac{\\mu}{n}$ — det ville betydd at gjennomsnittet av mange terningkast går mot null.\n- For å **halvere** usikkerheten i et gjennomsnitt må antall målinger **firedobles**.\n- I regneark: `STDAV.S` for utvalg ($n - 1$), `STDAV.P` for hele populasjonen ($n$).\n\nDette er siste kapittel i seksjon 5. I kapittel 6 skal vi se hvorfor gjennomsnittet ikke bare sikter riktig, men også får en helt bestemt *form* når $n$ vokser — den normalfordelte klokkekurven."
+    },
+    {
+      "id": "stat-5-7-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** Du skal undersøke $n - 1$-korreksjonen selv. Lag et regneark der du simulerer terningkast med `=TILFELDIGMELLOM(1;6)`, og husk at terningen har $\\mu = 3{,}5$ og $\\sigma^2 = \\frac{35}{12} \\approx 2{,}9167$.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag 200 rader med 5 terningkast hver (kolonne A–E). Regn gjennomsnittet av hver rad i kolonne F.",
+            "solution": "Kolonne F inneholder 200 simulerte verdier av $\\bar{X}$ for $n = 5$.",
+            "answer": 5
+          },
+          {
+            "label": "b",
+            "task": "Regn gjennomsnittet av hele kolonne F. Hvilket tall bør det ligge nær, og hva sier det om $E(\\bar{X})$?",
+            "solution": "Det bør ligge nær 3,5. Det illustrerer $E(\\bar{X}) = \\mu$ — gjennomsnittet av gjennomsnittene sikter mot $\\mu$, ikke mot $\\frac{\\mu}{5} = 0{,}7$.",
+            "answer": 3.5
+          },
+          {
+            "label": "c",
+            "task": "Regn `=STDAV.P(F1:F200)` for kolonne F. Hvilket tall sier teorien at dette skal ligge nær?",
+            "solution": "$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{5}} = \\frac{1{,}708}{2{,}236} \\approx 0{,}764$. De simulerte gjennomsnittene skal svinge med omtrent dette.",
+            "answer": 0.764
+          },
+          {
+            "label": "d",
+            "task": "Lag to nye kolonner: i kolonne G regner du `=VARIANS.P(A1:E1)` (deler på 5) og i kolonne H `=VARIANS.S(A1:E1)` (deler på 4), for hver rad. Regn så gjennomsnittet av hver av de to kolonnene.",
+            "solution": "Gjennomsnittet av kolonne H ligger nær den sanne variansen $\\frac{35}{12} \\approx 2{,}917$. Gjennomsnittet av kolonne G ligger nær $\\frac{4}{5} \\cdot 2{,}917 \\approx 2{,}333$ — systematisk for lavt.",
+            "answer": 2.917
+          },
+          {
+            "label": "e",
+            "task": "Hva viser sammenligningen i d)?",
+            "solution": "Den viser at $n$-versjonen undervurderer variansen systematisk, med faktoren $\\frac{n-1}{n} = \\frac{4}{5}$, mens $n-1$-versjonen treffer i gjennomsnitt. Det er nettopp dette som menes med at $s^2$ er et forventningsrett estimat for $\\sigma^2$ — og det er hele begrunnelsen for $n - 1$.",
+            "answer": 0.8
+          }
+        ],
+        "hints": [
+          "Trykk F9 noen ganger for å se at tallene svinger rundt de teoretiske verdiene, ikke treffer dem eksakt."
+        ],
+        "solution": "b) nær 3,5 ($E(\\bar{X}) = \\mu$), c) $\\approx 0{,}764$, d) H nær 2,917 og G nær 2,333, e) $n$-versjonen undervurderer med faktoren $\\frac{n-1}{n}$",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-5-7-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-5-7-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Måler vi nok, blir $\\bar{x}$ til slutt nøyaktig lik $\\mu$.» Drøft.",
+            "solution": "Ikke helt. $SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$ går mot 0, men den blir aldri 0 for endelig $n$. Gjennomsnittet kommer vilkårlig nær $\\mu$, men treffer ikke eksakt. Loven om store tall er en grensepåstand, ikke en garanti for et bestemt utvalg."
+          },
+          {
+            "label": "b",
+            "task": "«$SD(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$ betyr at enkeltmålingene blir mindre spredt når vi måler flere.» Hva er feilen?",
+            "solution": "Enkeltmålingene har alltid spredning $\\sigma$, uansett hvor mange vi tar. Det er **gjennomsnittet** som blir mindre spredt. Formelen sier noe om $\\bar{X}$, ikke om $X$."
+          },
+          {
+            "label": "c",
+            "task": "En avis skriver at en meningsmåling med 1000 spurte har «dobbelt så stor usikkerhet» som en med 2000. Er det riktig?",
+            "solution": "Nei. Usikkerheten går som $\\frac{1}{\\sqrt{n}}$, så forholdet er $\\frac{\\sqrt{2000}}{\\sqrt{1000}} = \\sqrt{2} \\approx 1{,}41$ — omtrent 41 % større, ikke dobbelt. For dobbelt så stor usikkerhet måtte utvalget vært fire ganger mindre.",
+            "answer": 1.41
+          },
+          {
+            "label": "d",
+            "task": "En elev har hele klassens 27 karakterer og vil beskrive spredningen i klassen. Skal hun bruke `STDAV.S` eller `STDAV.P`?",
+            "solution": "`STDAV.P`, hvis hun bare skal beskrive akkurat denne klassen — da har hun hele populasjonen. Vil hun derimot bruke klassen som et utvalg for å si noe om alle elever på trinnet, skal hun bruke `STDAV.S`. Spørsmålet er ikke hvor mange tall hun har, men hva hun vil uttale seg om."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor spiller forskjellen mellom $n$ og $n - 1$ nesten ingen rolle i store datasett?",
+            "solution": "Fordi forholdet $\\frac{n}{n-1}$ går mot 1. Ved $n = 5$ er det $\\frac{5}{4} = 1{,}25$ på variansen (12 % på standardavviket), ved $n = 1000$ er det $\\frac{1000}{999} \\approx 1{,}001$ (0,05 % på standardavviket). Korreksjonen er viktig nettopp der datagrunnlaget er tynt.",
+            "answer": 1.001
+          }
+        ],
+        "hints": [
+          "I c): usikkerheten går som $\\frac{1}{\\sqrt{n}}$, ikke som $\\frac{1}{n}$."
+        ],
+        "solution": "a) Nei — vilkårlig nær, ikke eksakt. b) Formelen gjelder $\\bar{X}$, ikke $X$. c) Nei — $\\sqrt{2} \\approx 1{,}41$ ganger. d) `STDAV.P` for å beskrive klassen, `STDAV.S` for å generalisere. e) Fordi $\\frac{n}{n-1} \\to 1$.",
+        "competenceGoals": [
+          "forklare samanhengen mellom gjennomsnitt og forventningsverdi, utvalsstandardavvik og standardavvik"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Gjennomsnitt (x̄)",
+      "definition": "$\\bar{x} = \\frac{1}{n}\\sum x_i$ — midtpunktet regnet ut av målte data. Det er tilfeldig: et nytt utvalg gir et nytt $\\bar{x}$."
+    },
+    {
+      "term": "Utvalgsstandardavvik (s)",
+      "definition": "$s = \\sqrt{\\frac{1}{n-1}\\sum (x_i - \\bar{x})^2}$ — spredningen regnet fra et utvalg. Vi deler på $n - 1$ fordi avvikene måles fra $\\bar{x}$, som selv kommer fra dataene. Korreksjonen gjør $s^2$ forventningsrett for $\\sigma^2$."
+    },
+    {
+      "term": "Frihetsgrader",
+      "definition": "Antall avvik som bærer ny informasjon. Siden avvikene fra $\\bar{x}$ alltid summerer til 0, er det siste bestemt av de andre — vi har $n - 1$ frihetsgrader."
+    },
+    {
+      "term": "Forventningsrett estimat",
+      "definition": "Et estimat som ikke bommer systematisk i noen retning. $\\bar{X}$ er forventningsrett for $\\mu$ fordi $E(\\bar{X}) = \\mu$, og $s^2$ er forventningsrett for $\\sigma^2$ nettopp på grunn av $n - 1$."
+    },
+    {
+      "term": "SD(X̄) = σ/√n",
+      "definition": "Standardavviket til gjennomsnittet av $n$ uavhengige målinger. Midtpunktet flytter seg ikke ($E(\\bar{X}) = \\mu$), men spredningen krymper med $\\sqrt{n}$."
+    }
+  ]
+}

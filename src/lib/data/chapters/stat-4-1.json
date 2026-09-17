@@ -1,0 +1,516 @@
+{
+  "id": "stat-4-1",
+  "courseId": "statistikk",
+  "chapterNumber": "4.1",
+  "title": "Uvisse, tilfeldighet og stokastiske forsøk",
+  "description": "Hva et stokastisk forsøk er, hva sannsynlighet måler, og store talls lov.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar",
+    "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+  ],
+  "keyTerms": [
+    {
+      "term": "Stokastisk forsøk",
+      "definition": "Et forsøk der vi på forhånd vet hvilke resultater som er mulige, men ikke hvilket av dem som kommer. «Stokastisk» kommer av det greske ordet for «å sikte» — vi sikter mot et resultat, men treffer ikke sikkert."
+    },
+    {
+      "term": "Utfall",
+      "definition": "Ett av de mulige resultatene av et stokastisk forsøk. Ett kast med en terning har seks utfall: 1, 2, 3, 4, 5 og 6."
+    },
+    {
+      "term": "Sannsynlighet",
+      "definition": "Et tall mellom 0 og 1 som måler hvor stor andel av gangene et utfall kommer når forsøket gjentas mange ganger. 0 betyr aldri, 1 betyr alltid."
+    },
+    {
+      "term": "Relativ frekvens",
+      "definition": "Antall ganger noe skjedde, delt på antall forsøk. Dette er sannsynligheten målt i praksis (empirisk sannsynlighet)."
+    },
+    {
+      "term": "Store talls lov",
+      "definition": "Jo flere ganger vi gjentar et stokastisk forsøk, desto nærmere legger den relative frekvensen seg den teoretiske sannsynligheten."
+    },
+    {
+      "term": "Uvisse",
+      "definition": "At vi ikke vet utfallet på forhånd. Uvisse er ikke det samme som uvitenhet: vi kan vite alt om forsøket og likevel ikke vite hva som kommer."
+    }
+  ],
+  "content": [
+    {
+      "id": "stat-4-1-section-intro",
+      "type": "text",
+      "content": "# Uvisse er noe vi kan regne med\n\nStatistikk handler om å trekke konklusjoner fra data. Men data svinger. Spør du 1000 personer om de har tenkt å stemme, og spør du 1000 andre neste uke, får du ikke det samme tallet — selv om ingen har ombestemt seg. Denne svingningen kalles **uvisse** (usikkerhet), og den er ikke en feil vi kan fjerne. Den er en egenskap ved det å måle noe på et utvalg i stedet for på alle.\n\nDet forbausende er at uvisse lar seg regne på. Vi kan ikke si hva ett kast med en terning gir, men vi kan si svært presist hvor ofte det gir en sekser i lengden. Verktøyet for det er **sannsynlighet**, og resten av dette kapittelet bygger det opp.\n\nVi begynner med å bli enige om hva slags forsøk vi snakker om."
+    },
+    {
+      "id": "stat-4-1-def-forsok",
+      "type": "definition",
+      "title": "Stokastisk forsøk",
+      "content": "Et **stokastisk forsøk** (tilfeldig forsøk) er et forsøk der\n\n1. vi på forhånd vet hvilke resultater som er mulige, og\n2. vi ikke på forhånd vet hvilket av dem som kommer.\n\nHvert mulige resultat kalles et **utfall**.\n\nOrdet *stokastisk* kommer fra gresk *stokhastikos*, «den som sikter». Vi vet hva vi sikter på, men vi treffer ikke sikkert."
+    },
+    {
+      "id": "stat-4-1-note-uvisse",
+      "type": "note",
+      "title": "Uvisse er ikke det samme som uvitenhet",
+      "content": "Det er lett å tenke at uvisse bare betyr at vi ikke har nok informasjon. Men selv om du kjenner terningen, bordet og hånden fullstendig, er terningkastet fortsatt uvisst i praksis: den minste forskjell i hvordan terningen slippes gir et annet resultat. Det er derfor vi behandler kastet som *tilfeldig* — ikke fordi vi er uvitende, men fordi resultatet ikke lar seg forutsi."
+    },
+    {
+      "id": "stat-4-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1",
+      "problem": "Avgjør om forsøkene under er stokastiske forsøk. Skriv opp utfallene der det er et stokastisk forsøk.\n\na) Vi kaster en terning én gang.\nb) Vi måler hvor mange minutter bussen er forsinket en tilfeldig morgen.\nc) Vi regner ut $12 \\cdot 7$.\nd) Vi trekker ett navn fra en klasseliste med 28 navn.",
+      "solution": "**Løsning:**\n\nVi sjekker de to kravene i definisjonen hver gang: *vet vi hvilke resultater som er mulige?* og *vet vi hvilket som kommer?*\n\na) Ja. Vi vet at resultatet blir ett av tallene 1, 2, 3, 4, 5 eller 6, men ikke hvilket.\n\nUtfallene er $1, 2, 3, 4, 5$ og $6$.\n\nb) Ja. Vi vet at forsinkelsen er et tall fra 0 minutter og oppover, men ikke hvilket.\n\nHer ser vi at utfallene ikke kan listes opp én for én — forsinkelsen kan være 2 minutter, men også 2,4 minutter. Slike forsøk kommer vi tilbake til i kapittel 4.3.\n\nc) Nei. Vi vet at svaret er $84$, hver eneste gang. Ingenting er uvisst, og da er det ikke et stokastisk forsøk.\n\nd) Ja. Vi vet at vi får ett av de 28 navnene, men ikke hvilket.\n\nUtfallene er de 28 navnene.\n\n**Svar:** a), b) og d) er stokastiske forsøk. c) er det ikke."
+    },
+    {
+      "id": "stat-4-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om forsøkene er stokastiske forsøk. Skriv «ja» eller «nei», og begrunn med de to kravene i definisjonen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vi kaster et pengestykke.",
+            "solution": "Ja. Mulige utfall er kron og mynt, og vi vet ikke hvilket vi får.",
+            "multipleChoiceOptions": [
+              "ja",
+              "nei"
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Vi måler omkretsen av en sirkel med radius 5 cm.",
+            "solution": "Nei. Omkretsen er $2\\pi \\cdot 5 \\approx 31{,}4$ cm hver gang. Ingenting er uvisst.",
+            "multipleChoiceOptions": [
+              "nei",
+              "ja"
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Vi teller hvor mange av de neste 50 kundene i en butikk som betaler kontant.",
+            "solution": "Ja. Mulige utfall er heltallene fra 0 til 50, og vi vet ikke hvilket.",
+            "multipleChoiceOptions": [
+              "ja",
+              "nei"
+            ]
+          },
+          {
+            "label": "d",
+            "task": "Vi slår opp folketallet i Norge 1. januar i fjor i SSBs statistikkbank.",
+            "solution": "Nei. Tallet ligger fast; vi vet det bare ikke ennå. Det er uvitenhet, ikke uvisse.",
+            "multipleChoiceOptions": [
+              "nei",
+              "ja"
+            ]
+          },
+          {
+            "label": "e",
+            "task": "Vi trekker ett kort fra en kortstokk med 52 kort.",
+            "solution": "Ja. Mulige utfall er de 52 kortene, og vi vet ikke hvilket vi får.",
+            "multipleChoiceOptions": [
+              "ja",
+              "nei"
+            ]
+          }
+        ],
+        "hints": [
+          "Still de to spørsmålene: Vet vi hvilke resultater som er mulige? Vet vi hvilket som kommer?"
+        ],
+        "solution": "a) ja, b) nei, c) ja, d) nei, e) ja",
+        "competenceGoals": [
+          "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-1-section-relfrek",
+      "type": "text",
+      "content": "## Sannsynlighet målt i praksis\n\nHvordan vet vi at sannsynligheten for kron er $0{,}5$? Den enkleste måten er å prøve: kast pengestykket mange ganger og se hvor stor **andel** av kastene som ga kron. Denne andelen kalles den relative frekvensen.\n\nLegg merke til hva som står under brøkstreken: alle kastene vi gjorde. Det er grunnmengden vår, og den skal alltid være identifisert før vi skriver brøken."
+    },
+    {
+      "id": "stat-4-1-formula-relfrek",
+      "type": "formula",
+      "title": "Relativ frekvens (empirisk sannsynlighet)",
+      "latex": "\\text{relativ frekvens} = \\frac{\\text{antall ganger det skjedde}}{\\text{antall forsøk}}",
+      "description": "Den relative frekvensen er alltid et tall mellom 0 og 1."
+    },
+    {
+      "id": "stat-4-1-theorem-store-tall",
+      "type": "theorem",
+      "title": "Store talls lov",
+      "content": "Når et stokastisk forsøk gjentas uavhengig mange ganger, nærmer den relative frekvensen til en hendelse seg sannsynligheten for hendelsen.\n\nMed andre ord: få forsøk gir et tall som spretter mye, mange forsøk gir et tall som legger seg til ro.\n\n**NB:** Loven sier ingenting om det *neste* kastet. At det har kommet fem kron på rad, gjør ikke mynt mer sannsynlig i sjette kast — pengestykket husker ingenting. Denne feilslutningen er så vanlig at den har fått navn: *spillerens feilslutning*."
+    },
+    {
+      "id": "stat-4-1-fig-store-tall",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-1-store-talls-lov.png",
+      "alt": "Et linjediagram over 2000 simulerte myntkast. Den vannrette aksen er merket antall kast og er tallsatt 1, 10, 100 og 1000 — hvert steg er en tidobling. Den loddrette aksen er merket andel kron og tallsatt 0; 0,2; 0,4; 0,6; 0,8 og 1,0. En rød stiplet vannrett linje ligger på 0,5 og er merket 0,5 — den teoretiske andelen. Den svarte kurven starter i 1,0 etter ett kast, faller til 0,25 rundt fire kast, stiger til 0,67 rundt tolv kast, og svinger stadig mindre jo lenger til høyre den kommer. Fra hundre kast og utover ligger den nær 0,5, og fra tusen kast og ut til to tusen ligger den tett inntil den røde linja. Nederst står: vannrett akse: hvert steg er en TIDOBLING av antall kast.",
+      "caption": "To tusen simulerte kast med et pengestykke. Andelen kron spretter i starten og roer seg jo flere kast vi gjør — det er store talls lov. Etter 2000 kast er andelen 0,5025. Merk at den vannrette aksen er logaritmisk: hvert steg mot høyre er en tidobling av antall kast.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-1-store-talls-lov.json"
+    },
+    {
+      "id": "stat-4-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2",
+      "problem": "En elev kaster et pengestykke og noterer hvor mange ganger han får kron:\n\n| Antall kast | Antall kron |\n|---|---|\n| 20 | 13 |\n| 200 | 109 |\n| 2000 | 1013 |\n| 20 000 | 10 036 |\n\na) Regn ut den relative frekvensen for kron i hver rad.\nb) Hva sier tallene om sannsynligheten for kron?",
+      "solution": "**Løsning:**\n\na) Vi bruker formelen for relativ frekvens. Under brøkstreken står alltid *antall kast*, altså alle forsøkene i den raden.\n\n$$\\text{relativ frekvens} = \\frac{\\text{antall kron}}{\\text{antall kast}}$$\n\n20 kast: $\\quad \\dfrac{13}{20} = 0{,}65$\n\n200 kast: $\\quad \\dfrac{109}{200} = 0{,}545$\n\n2000 kast: $\\quad \\dfrac{1013}{2000} = 0{,}5065$\n\n20 000 kast: $\\quad \\dfrac{10\\,036}{20\\,000} = 0{,}5018$\n\nb) Her ser vi at tallene beveger seg mot $0{,}5$ etter hvert som antall kast øker. Avviket fra $0{,}5$ krymper for hver rad:\n\n$0{,}15 \\rightarrow 0{,}045 \\rightarrow 0{,}0065 \\rightarrow 0{,}0018$\n\nDet er nøyaktig det store talls lov lover. Målingene støtter altså at sannsynligheten for kron er $0{,}5$.\n\n**Svar:** a) $0{,}65$, $0{,}545$, $0{,}5065$ og $0{,}5018$. b) Den relative frekvensen nærmer seg $0{,}5$, som er sannsynligheten for kron."
+    },
+    {
+      "id": "stat-4-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En trelastbutikk registrerer om kundene betaler med kort eller på annen måte. Av de 250 første kundene betalte 215 med kort.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Regn ut den relative frekvensen for korthandel. Svar med tre desimaler.",
+            "solution": "$\\frac{215}{250} = 0{,}860$",
+            "answer": 0.86
+          },
+          {
+            "label": "b",
+            "task": "Hvor mange av de 250 betalte på annen måte?",
+            "solution": "$250 - 215 = 35$",
+            "answer": 35
+          },
+          {
+            "label": "c",
+            "task": "Regn ut den relative frekvensen for de som betalte på annen måte. Svar med tre desimaler.",
+            "solution": "$\\frac{35}{250} = 0{,}140$",
+            "answer": 0.14
+          },
+          {
+            "label": "d",
+            "task": "Hva blir summen av de to relative frekvensene i a) og c)?",
+            "solution": "$0{,}860 + 0{,}140 = 1$",
+            "answer": 1
+          },
+          {
+            "label": "e",
+            "task": "Butikken antar at sannsynligheten for korthandel er 0,86. Neste dag betaler 190 av 250 kunder med kort. Regn ut den relative frekvensen denne dagen, med tre desimaler.",
+            "solution": "$\\frac{190}{250} = 0{,}760$. Den relative frekvensen svinger fra dag til dag — det er uvisse, ikke et tegn på at anslaget var galt.",
+            "answer": 0.76
+          }
+        ],
+        "hints": [
+          "Grunnmengden — det som står under brøkstreken — er alle de 250 kundene."
+        ],
+        "solution": "a) $0{,}860$, b) $35$, c) $0{,}140$, d) $1$, e) $0{,}760$",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-1-section-teoretisk",
+      "type": "text",
+      "content": "## Sannsynlighet regnet ut på forhånd\n\nNoen ganger trenger vi ikke kaste i det hele tatt. Er terningen rettferdig, er de seks utfallene **like sannsynlige**, og da kan vi regne sannsynligheten direkte:\n\nVi teller hvor mange utfall som er **gunstige** (som gir det vi spør etter), og deler på hvor mange utfall som er **mulige** i det hele tatt.\n\nDet siste tallet — de mulige — er grunnmengden. Hele forskjellen mellom to sannsynlighetsoppgaver ligger ofte i nevneren, så identifiser den før du skriver brøken."
+    },
+    {
+      "id": "stat-4-1-formula-gunstige",
+      "type": "formula",
+      "title": "Sannsynlighet når alle utfall er like sannsynlige",
+      "latex": "P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}",
+      "description": "P kommer av det latinske probabilitas, «sannsynlighet». A er hendelsen vi spør om."
+    },
+    {
+      "id": "stat-4-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3",
+      "problem": "Vi kaster én rettferdig terning. Bestem sannsynligheten for at terningen viser\n\na) fem øyne\nb) et partall\nc) minst fem øyne",
+      "solution": "**Løsning:**\n\nFørst identifiserer vi grunnmengden. Terningen har seks sider, så det er $6$ mulige utfall, og de er like sannsynlige. Tallet $6$ står under brøkstreken i alle tre deloppgavene.\n\na) Gunstige utfall: bare $5$. Det er $1$ gunstig utfall.\n\n$$P(\\text{fem øyne}) = \\frac{1}{6} \\approx 0{,}167$$\n\nb) Gunstige utfall: $2$, $4$ og $6$. Det er $3$ gunstige utfall.\n\n$$P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5$$\n\n(Vi forkorter først når brøken er ferdig — her $3/6$ til $1/2$.)\n\nc) «Minst fem» betyr fem eller mer. Gunstige utfall: $5$ og $6$. Det er $2$ gunstige utfall.\n\n$$P(\\text{minst fem øyne}) = \\frac{2}{6} = \\frac{1}{3} \\approx 0{,}333$$\n\n![Et rutenett med tre rader og seks kolonner. Kolonnene er terningutfallene 1 til 6, og hver rad er én deloppgave. Rad 1 er deloppgave a: bare cellen 5 er blå, 1 av 6. Rad 2 er deloppgave b: cellene 2, 4 og 6 er blå, 3 av 6. Rad 3 er deloppgave c: cellene 5 og 6 er blå, 2 av 6.](/images/content/statistikk/stat-4-1-gunstige-av-mulige.png)\n\n*De tre deloppgavene talt opp. Rad 1 er a) «terningen viser 5», rad 2 er b) «partall» og rad 3 er c) «minst 5». Formelen gunstige delt på mulige er nettopp å telle de fargede cellene i raden.*\n\n**Svar:** a) $\\frac{1}{6} \\approx 0{,}167$, b) $\\frac{1}{2} = 0{,}5$, c) $\\frac{1}{3} \\approx 0{,}333$"
+    },
+    {
+      "id": "stat-4-1-warning-minst",
+      "type": "warning",
+      "title": "«Minst» og «mer enn» er ikke det samme",
+      "content": "**Minst 5** betyr $5$ eller $6$ — to utfall. **Mer enn 5** betyr bare $6$ — ett utfall. En bokstav i oppgaveteksten flytter ett utfall fra den ene siden til den andre og endrer svaret fra $\\frac{1}{3}$ til $\\frac{1}{6}$. Les setningen to ganger før du teller."
+    },
+    {
+      "id": "stat-4-1-fig-minst-mot-mer-enn",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-4-1-minst-mot-mer-enn.png",
+      "alt": "Et rutenett med to rader og seks kolonner. Kolonnene er terningutfallene 1 til 6. Den øverste raden er merket terskel 5 og svarer til «minst 5»: cellene 5 og 6 er farget grønne, altså 2 av 6. Den nederste raden er merket terskel 6 og svarer til «mer enn 5»: bare cellen 6 er grønn, altså 1 av 6.",
+      "caption": "Ett ord flytter ett utfall. «Minst 5» tar med 5-eren, «mer enn 5» gjør det ikke — og sannsynligheten halveres fra 2/6 til 1/6.",
+      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-1-minst-mot-mer-enn.json"
+    },
+    {
+      "id": "stat-4-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gjør det samme som i eksempel 3. Vi trekker ett kort fra en vanlig kortstokk med 52 kort. Alle kortene er like sannsynlige. Oppgi svarene som forkortet brøk.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Sannsynligheten for å trekke hjerter.",
+            "solution": "13 av 52 kort er hjerter: $\\frac{13}{52} = \\frac{1}{4}$",
+            "expressionAnswer": "1/4"
+          },
+          {
+            "label": "b",
+            "task": "Sannsynligheten for å trekke et ess.",
+            "solution": "4 av 52 kort er ess: $\\frac{4}{52} = \\frac{1}{13}$",
+            "expressionAnswer": "1/13"
+          },
+          {
+            "label": "c",
+            "task": "Sannsynligheten for å trekke et rødt bildekort (knekt, dame eller konge i hjerter eller ruter).",
+            "solution": "$3 \\cdot 2 = 6$ av 52 kort: $\\frac{6}{52} = \\frac{3}{26}$",
+            "expressionAnswer": "3/26"
+          },
+          {
+            "label": "d",
+            "task": "Sannsynligheten for å trekke et kort som ikke er hjerter.",
+            "solution": "$52 - 13 = 39$ av 52 kort: $\\frac{39}{52} = \\frac{3}{4}$",
+            "expressionAnswer": "3/4"
+          },
+          {
+            "label": "e",
+            "task": "Sannsynligheten for å trekke spar ess.",
+            "solution": "1 av 52 kort: $\\frac{1}{52}$",
+            "expressionAnswer": "1/52"
+          }
+        ],
+        "hints": [
+          "Under brøkstreken står alltid 52 — det er grunnmengden. Det eneste som endrer seg, er hvor mange kort som er gunstige."
+        ],
+        "solution": "a) $\\frac{1}{4}$, b) $\\frac{1}{13}$, c) $\\frac{3}{26}$, d) $\\frac{3}{4}$, e) $\\frac{1}{52}$",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-1-section-tolkning",
+      "type": "text",
+      "content": "## Hva et sannsynlighetstall betyr\n\nEt sannsynlighetstall er ikke ferdig før det er oversatt til norsk. «$P = 0{,}3$» sier lite; «tre av ti ganger, i lengden» sier noe en leser kan bruke.\n\nAlle sannsynligheter ligger mellom $0$ og $1$:\n\n- $P(A) = 0$ betyr at $A$ aldri skjer.\n- $P(A) = 1$ betyr at $A$ alltid skjer.\n- $P(A) = 0{,}5$ betyr at $A$ skjer omtrent halvparten av gangene i lengden.\n\nVi kan også skrive sannsynligheten i prosent: $0{,}3 = 30\\ \\%$."
+    },
+    {
+      "id": "stat-4-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4",
+      "problem": "Meteorologisk institutt melder «30 % sannsynlighet for nedbør i Bergen i morgen».\n\na) Forklar i klartekst hva tallet betyr.\nb) En elev sier: «Det regnet ikke, så meldingen var feil.» Vurder påstanden.",
+      "solution": "**Løsning:**\n\na) Tallet gjelder ikke én dag, men en type dag. Av alle dager der været ser ut slik det gjør nå, kommer det nedbør på omtrent 3 av 10 av dem.\n\nVi kan si det slik: *hvis vi kunne kjøre morgendagen om igjen hundre ganger under de samme forholdene, ville det regne på rundt tretti av dem.*\n\nb) Påstanden holder ikke. En sannsynlighet på $30\\ \\%$ sier uttrykkelig at det er $70\\ \\%$ sannsynlighet for at det *ikke* kommer nedbør. At det ble oppholdsvær, er altså det mest sannsynlige utfallet — det motsier ikke meldingen i det hele tatt.\n\nDette er en kjent felle: **en enkelthendelse kan ikke gjøre en sannsynlighet feil.** Skal vi vurdere om meldingene er gode, må vi samle mange dager og se på den relative frekvensen. Regner det på omtrent $30\\ \\%$ av dagene som fikk meldingen «30 %», treffer meteorologene godt.\n\n**Svar:** a) Nedbør på omtrent 3 av 10 dager med slike forhold. b) Påstanden er ikke holdbar; én dag kan ikke avgjøre om en sannsynlighet er riktig."
+    },
+    {
+      "id": "stat-4-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Tolk og vurder. Skriv ett til tre setninger på hver deloppgave.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "En hurtigtest oppgir at sannsynligheten for et riktig svar er 0,97. Forklar tallet i klartekst.",
+            "solution": "Av 100 tester gir omtrent 97 riktig svar, i lengden. Omtrent 3 av 100 gir feil svar."
+          },
+          {
+            "label": "b",
+            "task": "En spiller har fått mynt fem ganger på rad og sier: «Nå må det bli kron.» Vurder påstanden.",
+            "solution": "Påstanden er gal (spillerens feilslutning). Pengestykket husker ikke tidligere kast, så sannsynligheten for kron er fortsatt $\\frac{1}{2}$."
+          },
+          {
+            "label": "c",
+            "task": "Kan en sannsynlighet være 1,4? Begrunn.",
+            "solution": "Nei. Antall gunstige utfall kan ikke være større enn antall mulige, så brøken kan ikke bli større enn 1."
+          },
+          {
+            "label": "d",
+            "task": "Hva betyr det at en hendelse har sannsynlighet 0?",
+            "solution": "At hendelsen ikke kan skje i dette forsøket — ingen av de mulige utfallene er gunstige."
+          },
+          {
+            "label": "e",
+            "task": "En avis skriver: «Sjansen for å vinne er én til en million, så det er praktisk talt umulig.» Er det riktig å si at det er umulig?",
+            "solution": "Nei. $\\frac{1}{1\\,000\\,000}$ er svært lite, men ikke null — hendelsen kan skje. «Praktisk talt umulig» er en vurdering, ikke en matematisk påstand."
+          }
+        ],
+        "hints": [
+          "Oversett alltid tallet til «så og så mange av hundre ganger, i lengden»."
+        ],
+        "solution": "a) ca. 97 av 100 tester gir riktig svar. b) Gal — spillerens feilslutning. c) Nei, sannsynlighet ligger mellom 0 og 1. d) Hendelsen kan ikke skje. e) Nei, liten sannsynlighet er ikke null.",
+        "competenceGoals": [
+          "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-1-section-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- Et **stokastisk forsøk** har kjente mulige resultater, men ukjent resultat. Hvert mulig resultat er et **utfall**.\n- **Uvisse** er en egenskap ved forsøket, ikke en mangel ved oss.\n- **Relativ frekvens** $= \\dfrac{\\text{antall ganger det skjedde}}{\\text{antall forsøk}}$ er sannsynligheten målt i praksis.\n- **Store talls lov:** mange forsøk gir en relativ frekvens som legger seg inntil sannsynligheten.\n- Når alle utfall er like sannsynlige: $P(A) = \\dfrac{\\text{gunstige}}{\\text{mulige}}$. Identifiser nevneren først.\n- $0 \\le P(A) \\le 1$. Svaret skal tolkes i klartekst til slutt.\n- **Spillerens feilslutning:** tidligere utfall påvirker ikke neste forsøk."
+    },
+    {
+      "id": "stat-4-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En kommune har 900 innbyggere i alderen 16–19 år. Ett navn trekkes tilfeldig til et ungdomsråd. 360 av ungdommene går på studieforberedende, 405 går på yrkesfag, og resten er verken i skole eller lære.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange er verken i skole eller lære?",
+            "solution": "$900 - 360 - 405 = 135$",
+            "answer": 135
+          },
+          {
+            "label": "b",
+            "task": "Bestem sannsynligheten for at den som trekkes, går på studieforberedende. Oppgi svaret som forkortet brøk.",
+            "solution": "$\\frac{360}{900} = \\frac{2}{5}$",
+            "expressionAnswer": "2/5"
+          },
+          {
+            "label": "c",
+            "task": "Bestem sannsynligheten for at den som trekkes, går på yrkesfag. Oppgi svaret som forkortet brøk.",
+            "solution": "$\\frac{405}{900} = \\frac{9}{20}$",
+            "expressionAnswer": "9/20"
+          },
+          {
+            "label": "d",
+            "task": "Bestem sannsynligheten for at den som trekkes, går på skole eller er i lære. Oppgi svaret som forkortet brøk.",
+            "solution": "$\\frac{360 + 405}{900} = \\frac{765}{900} = \\frac{17}{20}$",
+            "expressionAnswer": "17/20"
+          },
+          {
+            "label": "e",
+            "task": "Summen av svarene i b), c) og sannsynligheten for «verken skole eller lære» skal bli et bestemt tall. Hvilket, og hvorfor?",
+            "solution": "Summen blir $1$. De tre gruppene dekker alle de 900 ungdommene, og ingen er med i mer enn én gruppe, så de gunstige utfallene til sammen er alle de mulige.\n\n![Et rektangel som står for 900 ungdommer, delt i tre felt med bredder i forhold til andelene. Det blå feltet til venstre er merket studieforb., 360 og 2/5, det grønne i midten yrkesfag, 405 og 9/20, og det oransje til høyre verken, 135 og 3/20. Feltene dekker hele rektangelet uten overlapp.](/images/content/statistikk/stat-4-1-rektangel-900.png)\n\n*De 900 ungdommene fordelt på studieforberedende (blå), yrkesfag (grønn) og verken eller (oransje). Feltene dekker hele rektangelet, og derfor summerer 2/5 + 9/20 + 3/20 til 1.*",
+            "answer": 1
+          }
+        ],
+        "hints": [
+          "Grunnmengden er de 900 ungdommene i alle deloppgavene.",
+          "Forkort først når brøken er ferdig."
+        ],
+        "solution": "a) $135$, b) $\\frac{2}{5}$, c) $\\frac{9}{20}$, d) $\\frac{17}{20}$, e) $1$, fordi gruppene til sammen dekker hele grunnmengden.",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-4-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave (Del 2 — regneark).** Du skal undersøke store talls lov i et regneark. Formelen `=TILFELDIGMELLOM(1;6)` gir et tilfeldig heltall fra 1 til 6, altså ett terningkast.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Lag 2000 terningkast i kolonne A. Sett i celle B1 formelen `=HVIS(A1=6;1;0)` og kopier den nedover. Hva teller kolonne B?",
+            "solution": "Kolonne B er 1 når kastet ga sekser og 0 ellers. Summen av kolonne B er derfor antall seksere."
+          },
+          {
+            "label": "b",
+            "task": "Skriv en formel i celle C1 som gir den relative frekvensen for sekser etter de 10 første kastene, og en formel i C2 for etter alle 2000.",
+            "solution": "C1: `=SUMMER(B1:B10)/10` og C2: `=SUMMER(B1:B2000)/2000`"
+          },
+          {
+            "label": "c",
+            "task": "Hvilket av de to tallene i b) ligger normalt nærmest den teoretiske sannsynligheten? Hva er den teoretiske sannsynligheten, som brøk?",
+            "solution": "Tallet fra 2000 kast ligger normalt nærmest. Teoretisk sannsynlighet er $\\frac{1}{6} \\approx 0{,}167$.",
+            "expressionAnswer": "1/6"
+          },
+          {
+            "label": "d",
+            "task": "Trykk F9 slik at arket regnes om noen ganger. Beskriv hvordan de to tallene fra b) oppfører seg forskjellig.",
+            "solution": "Tallet fra 10 kast hopper mye (ofte mellom 0 og 0,4), mens tallet fra 2000 kast holder seg tett rundt 0,167. Flere forsøk gir mindre svingning — det er store talls lov."
+          },
+          {
+            "label": "e",
+            "task": "Forklar hvorfor dette forsøket ikke beviser at $P(\\text{sekser}) = \\frac{1}{6}$.",
+            "solution": "Simuleringen er bygd på at regnearket trekker de seks tallene like ofte. Vi måler altså modellen vi selv la inn, ikke en virkelig terning. Simulering kan støtte og belyse en sannsynlighet, men den erstatter ikke utregningen."
+          }
+        ],
+        "hints": [
+          "`=TILFELDIGMELLOM(1;6)` regnes om hver gang arket oppdateres — trykk F9 for nye kast.",
+          "Den relative frekvensen er alltid sum delt på antall kast."
+        ],
+        "solution": "a) Antall seksere. b) `=SUMMER(B1:B10)/10` og `=SUMMER(B1:B2000)/2000`. c) 2000-tallet; teoretisk $\\frac{1}{6}$. d) 10-kast-tallet hopper mye, 2000-kast-tallet ligger stabilt rundt 0,167. e) Vi måler modellen vi selv la inn.",
+        "competenceGoals": [
+          "utføre enkle stokastiske forsøk og bruke sannsyn til å beskrive og analysere utfalla"
+        ],
+        "tool": "none",
+        "allowsUpload": true,
+        "allowsSpreadsheet": true
+      }
+    },
+    {
+      "id": "stat-4-1-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-4-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøftingsoppgave.** Et nettsted som selger reiseforsikring, skriver: «Bare 2 % av alle reiser ender med skade — derfor er forsikring bortkastet for deg.»",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Forklar hva tallet 2 % betyr som relativ frekvens. Hva står under brøkstreken?",
+            "solution": "2 % betyr at 2 av 100 reiser, i lengden, endte med skade. Under brøkstreken står alle registrerte reiser."
+          },
+          {
+            "label": "b",
+            "task": "Drøft om en liten sannsynlighet alene er nok til å avgjøre om forsikring lønner seg.",
+            "solution": "Nei. Sannsynligheten sier hvor ofte noe skjer, ikke hvor mye det koster når det skjer. En sjelden hendelse med svært stor kostnad kan godt være verdt å forsikre seg mot. Man må se på sannsynlighet og konsekvens sammen."
+          },
+          {
+            "label": "c",
+            "task": "Nettstedets tall gjelder alle reiser samlet. Hvorfor er det problematisk å bruke tallet om «deg»?",
+            "solution": "Gjennomsnittet over alle reiser trenger ikke gjelde en enkelt reisende. En som klatrer i fjellet i tre uker, har ikke samme risiko som en som er en helg i en by. Vi bruker et tall fra én grunnmengde på en annen."
+          },
+          {
+            "label": "d",
+            "task": "Foreslå ett tall til som du ville hatt for å vurdere påstanden.",
+            "solution": "For eksempel gjennomsnittlig kostnad per skade, eller hvordan de 2 % fordeler seg på ulike reisetyper. Uten kostnaden kan ikke sannsynligheten alene avgjøre noe."
+          },
+          {
+            "label": "e",
+            "task": "Skriv om setningen slik at den blir statistisk redelig.",
+            "solution": "For eksempel: «Omtrent 2 av 100 registrerte reiser endte med en skademelding. Hvor mye dette betyr for deg, avhenger av hva slags reise du skal på, og hvor store utgifter en skade ville gitt.»"
+          }
+        ],
+        "hints": [
+          "Skille alltid mellom hvor ofte noe skjer og hvor mye det betyr når det skjer."
+        ],
+        "solution": "a) 2 av 100 reiser i lengden; nevneren er alle registrerte reiser. b) Nei — sannsynlighet og konsekvens må vurderes sammen. c) Gjennomsnitt over alle reiser gjelder ikke nødvendigvis en bestemt reisende. d) Kostnad per skade, eller fordeling på reisetype. e) Egen omskriving.",
+        "competenceGoals": [
+          "forklare omgrepa uvisse, tilfeldigskap og stokastiske variablar"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": []
+}

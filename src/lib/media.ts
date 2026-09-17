@@ -17,7 +17,9 @@ export function mediaUrl(path: string): string {
   if (!path || !MEDIA_BASE) return path;
   if (path.startsWith('http') || path.startsWith('data:')) return path;
   if (path.startsWith('/audio/') || path.startsWith('/images/')) {
-    return `${MEDIA_BASE}${path}`;
+    // Versjonsstempel per bygg (17.9.2026): figurer byttes med samme filnavn, og nettleseren viste gamle kopier
+    const v = process.env.NEXT_PUBLIC_MEDIA_VERSION;
+    return `${MEDIA_BASE}${path}${v ? `?v=${v}` : ''}`;
   }
   return path;
 }

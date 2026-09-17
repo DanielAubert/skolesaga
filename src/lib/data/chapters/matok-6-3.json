@@ -1,0 +1,252 @@
+{
+  "id": "matok-6-3",
+  "courseId": "matematikk-okonomi",
+  "chapterNumber": "6.3",
+  "title": "Derivasjonsregler",
+  "description": "Derivasjon av polynomer, potenser, e^x og ln x — reglene vi trenger i økonomi.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt",
+    "bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"
+  ],
+  "keyTerms": [
+    { "term": "Potensregelen", "definition": "$f(x) = x^n$ gir $f'(x) = n \\cdot x^{n-1}$ — eksponenten ned som faktor, og én mindre i eksponenten." },
+    { "term": "Konstantfaktor", "definition": "Et tall foran en funksjon blir stående: $f(x) = c \\cdot g(x)$ gir $f'(x) = c \\cdot g'(x)$." },
+    { "term": "Eksponentialfunksjonen", "definition": "$f(x) = e^x$ er den eneste funksjonen som er sin egen deriverte: $f'(x) = e^x$. Tallet $e \\approx 2{,}718$." },
+    { "term": "Den naturlige logaritmen", "definition": "$f(x) = \\ln x$ gir $f'(x) = \\frac{1}{x}$. Definert bare for $x > 0$." },
+    { "term": "Hurtigregel for $e^{kx}$", "definition": "$f(x) = e^{kx}$ gir $f'(x) = k \\cdot e^{kx}$ — konstanten i eksponenten kommer ned som faktor." }
+  ],
+  "content": [
+    {
+      "id": "matok-6-3-intro",
+      "type": "text",
+      "content": "## Reglene som gjør jobben kort\n\nI 6.2 deriverte vi fra definisjonen. Det virker alltid, men det er tungt — fire–fem linjer for hver eneste funksjon.\n\nHeldigvis trenger vi ikke gjøre det på nytt hver gang. Setter vi opp definisjonen én gang for $x^2$, én gang for $x^3$ og så videre, ser vi et mønster. Det mønsteret er **potensregelen**, og sammen med noen få andre regler dekker den alt vi trenger i økonomi.\n\nDe fem–seks reglene i dette kapittelet skal sitte. Det er ikke pugging for puggingens skyld: når derivasjonen går av seg selv, har du hodet fritt til å tenke på hva svaret betyr. Og det er der matematikken for økonomi egentlig ligger."
+    },
+    {
+      "id": "matok-6-3-teorem-grunnregler",
+      "type": "theorem",
+      "title": "Grunnreglene",
+      "content": "**Konstant:**\n$$f(x) = c \\quad \\Longrightarrow \\quad f'(x) = 0$$\n\n**Potensregelen:**\n$$f(x) = x^n \\quad \\Longrightarrow \\quad f'(x) = n \\cdot x^{\\,n-1}$$\n\n**Konstantfaktor:**\n$$f(x) = c \\cdot g(x) \\quad \\Longrightarrow \\quad f'(x) = c \\cdot g'(x)$$\n\n**Sum og differanse:**\n$$f(x) = g(x) \\pm h(x) \\quad \\Longrightarrow \\quad f'(x) = g'(x) \\pm h'(x)$$\n\nDe to siste er grunnen til at vi kan derivere et polynom **ledd for ledd**, og bare la tallene foran stå."
+    },
+    {
+      "id": "matok-6-3-tekst-usynlig",
+      "type": "text",
+      "content": "Potensregelen er lettere å bruke hvis vi først gjør det usynlige synlig.\n\n| Slik det står | Slik det egentlig er | Den deriverte |\n|---|---|---|\n| $x$ | $x^1$ | $1 \\cdot x^0 = 1$ |\n| $5x$ | $5 \\cdot x^1$ | $5 \\cdot 1 \\cdot x^0 = 5$ |\n| $x^2$ | $x^2$ | $2 \\cdot x^1 = 2x$ |\n| $7$ | $7 \\cdot x^0$ | $0$ |\n\n(Vi skriver vanligvis ikke 1-tallet i $x^1$, og vi skriver ikke $x^0$ bak et tall. Men når du deriverer, er det nettopp de usynlige tallene regelen får tak i.)\n\nNB: Et konstantledd blir $0$. Det **forsvinner ikke** fordi vi glemmer det — et konstantledd endrer seg ikke når $x$ endrer seg, og en endring som er null, er null. For en bedrift er det de faste kostnadene: de er der, men de vokser ikke med produksjonen."
+    },
+    {
+      "id": "matok-6-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Deriver et polynom ledd for ledd",
+      "problem": "En fabrikk har kostnadene\n\n$$K(x) = 0{,}02x^3 - 1{,}2x^2 + 45x + 8000$$\n\nkroner ved $x$ enheter.\n\na) Finn $K'(x)$.\n\nb) Finn $K'(20)$ og $K'(50)$, og tolk svarene.",
+      "solution": "**a)** Vi tar ett ledd om gangen og lar tallene foran stå:\n\n$$0{,}02x^3 \\quad \\longrightarrow \\quad 0{,}02 \\cdot 3x^2 = 0{,}06x^2$$\n$$-1{,}2x^2 \\quad \\longrightarrow \\quad -1{,}2 \\cdot 2x = -2{,}4x$$\n$$45x \\quad \\longrightarrow \\quad 45$$\n$$8000 \\quad \\longrightarrow \\quad 0$$\n\nSatt sammen:\n\n$$K'(x) = 0{,}06x^2 - 2{,}4x + 45$$\n\n**b)** Vi setter inn:\n\n$$K'(20) = 0{,}06 \\cdot 20^2 - 2{,}4 \\cdot 20 + 45$$\n$$K'(20) = 0{,}06 \\cdot 400 - 48 + 45 = 24 - 48 + 45 = 21$$\n\n$$K'(50) = 0{,}06 \\cdot 50^2 - 2{,}4 \\cdot 50 + 45$$\n$$K'(50) = 0{,}06 \\cdot 2500 - 120 + 45 = 150 - 120 + 45 = 75$$\n\n**Svar:** a) $K'(x) = 0{,}06x^2 - 2{,}4x + 45$. b) $K'(20) = 21$ og $K'(50) = 75$ kroner per enhet.\n\nTolkningen: ved 20 enheter koster det omtrent 21 kroner å lage én enhet til, ved 50 enheter omtrent 75 kroner. Fabrikken er altså mye dyrere å drive på høyt produksjonsnivå — det er typisk når maskiner og lokaler nærmer seg kapasitetsgrensen."
+    },
+    {
+      "id": "matok-6-3-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-3-oppg-1",
+        "number": "6.3.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Deriver funksjonene.",
+        "subTasks": [
+          { "label": "a", "task": "$f(x) = 4x^3 - 7x^2 + 2x - 9$", "solution": "$f'(x) = 4 \\cdot 3x^2 - 7 \\cdot 2x + 2 - 0 = 12x^2 - 14x + 2$", "expressionAnswer": "12x^2-14x+2" },
+          { "label": "b", "task": "$K(x) = 0{,}03x^3 - 1{,}5x^2 + 60x + 12\\,000$", "solution": "$K'(x) = 0{,}09x^2 - 3x + 60$", "expressionAnswer": "0.09x^2-3x+60" },
+          { "label": "c", "task": "$I(x) = 120x - 0{,}4x^2$", "solution": "$I'(x) = 120 - 0{,}8x$", "expressionAnswer": "120-0.8x" },
+          { "label": "d", "task": "$O(x) = -0{,}25x^2 + 85x - 3000$", "solution": "$O'(x) = -0{,}5x + 85$", "expressionAnswer": "-0.5x+85" },
+          { "label": "e", "task": "$P(x) = 5$", "solution": "$P'(x) = 0$ — en konstant funksjon endrer seg ikke.", "expressionAnswer": "0" }
+        ],
+        "solution": "a) $12x^2 - 14x + 2$, b) $0{,}09x^2 - 3x + 60$, c) $120 - 0{,}8x$, d) $-0{,}5x + 85$, e) $0$",
+        "hints": ["Ett ledd om gangen. Tallet foran blir stående.", "Husk at $x$ er $x^1$, og at et konstantledd deriveres til 0."],
+        "competenceGoals": ["bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-3-tekst-potens",
+      "type": "text",
+      "content": "## Potensregelen tåler mer enn hele tall\n\nPotensregelen gjelder for **alle** eksponenter — negative og brøker også. Det er nyttig, for i økonomi møter vi stadig uttrykk som\n\n$$\\frac{5000}{x} \\qquad \\text{og} \\qquad \\sqrt{x}$$\n\nTriks: **skriv om til potensform først**, deriver, og skriv om tilbake hvis svaret skal være pent.\n\n$$\\frac{1}{x^n} = x^{-n} \\qquad\\qquad \\sqrt{x} = x^{1/2}$$\n\n(Likheten gjelder begge veier! Det er den samme regelen som lar deg gå tilbake til slutt.)"
+    },
+    {
+      "id": "matok-6-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Brøk og rot",
+      "problem": "Deriver $f(x) = \\dfrac{5}{x} + 3\\sqrt{x}$ for $x > 0$.",
+      "solution": "**Steg 1 — skriv om til potensform.** Dette er hele knepet; når det er gjort, er derivasjonen rutine.\n\n$$\\frac{5}{x} = 5x^{-1} \\qquad\\qquad 3\\sqrt{x} = 3x^{1/2}$$\n$$f(x) = 5x^{-1} + 3x^{1/2}$$\n\n**Steg 2 — deriver ledd for ledd med potensregelen.** Eksponenten ned som faktor, og én mindre i eksponenten:\n\n$$5x^{-1} \\quad \\longrightarrow \\quad 5 \\cdot (-1) \\cdot x^{-2} = -5x^{-2}$$\n$$3x^{1/2} \\quad \\longrightarrow \\quad 3 \\cdot \\frac{1}{2} \\cdot x^{-1/2} = \\frac{3}{2}x^{-1/2}$$\n\n(Eksponentene: $-1 - 1 = -2$, og $\\frac{1}{2} - 1 = -\\frac{1}{2}$. Det er her de fleste feilene skjer — regn dem ut, ikke gjett dem.)\n\n$$f'(x) = -5x^{-2} + \\frac{3}{2}x^{-1/2}$$\n\n**Steg 3 — skriv om tilbake:**\n\n$$f'(x) = -\\frac{5}{x^2} + \\frac{3}{2\\sqrt{x}}$$\n\n**Kontroll med et tall.** Vi setter inn $x = 4$:\n\n$$f'(4) = -\\frac{5}{16} + \\frac{3}{2 \\cdot 2} = -\\frac{5}{16} + \\frac{3}{4} = -\\frac{5}{16} + \\frac{12}{16} = \\frac{7}{16} = 0{,}4375$$\n\n**Svar:** $f'(x) = -\\dfrac{5}{x^2} + \\dfrac{3}{2\\sqrt{x}}$"
+    },
+    {
+      "id": "matok-6-3-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-3-oppg-2",
+        "number": "6.3.2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Deriver. Skriv om til potensform først, og skriv svaret uten negative eksponenter. Alle funksjonene gjelder for $x > 0$.",
+        "subTasks": [
+          { "label": "a", "task": "$f(x) = \\dfrac{1}{x}$", "solution": "$f(x) = x^{-1}$ gir $f'(x) = -x^{-2} = -\\frac{1}{x^2}$", "expressionAnswer": "-1/x^2" },
+          { "label": "b", "task": "$f(x) = \\dfrac{8}{x^2}$", "solution": "$f(x) = 8x^{-2}$ gir $f'(x) = 8 \\cdot (-2)x^{-3} = -16x^{-3} = -\\frac{16}{x^3}$", "expressionAnswer": "-16/x^3" },
+          { "label": "c", "task": "$f(x) = \\sqrt{x}$", "solution": "$f(x) = x^{1/2}$ gir $f'(x) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$", "expressionAnswer": "1/(2*sqrt(x))" },
+          { "label": "d", "task": "$f(x) = 6\\sqrt{x} + \\dfrac{2}{x}$", "solution": "$f(x) = 6x^{1/2} + 2x^{-1}$ gir $f'(x) = 3x^{-1/2} - 2x^{-2} = \\frac{3}{\\sqrt{x}} - \\frac{2}{x^2}$", "expressionAnswer": "3/sqrt(x)-2/x^2" },
+          { "label": "e", "task": "En bedrift har enhetskostnaden $K(x) = \\dfrac{2000}{x} + 15$ kroner per enhet ved $x$ enheter. Finn $K'(x)$, og regn ut $K'(20)$.", "solution": "$K(x) = 2000x^{-1} + 15$ gir $K'(x) = -2000x^{-2} = -\\frac{2000}{x^2}$. $K'(20) = -\\frac{2000}{400} = -5$ kroner per enhet — enhetskostnaden synker med omtrent 5 kroner når produksjonen økes fra 20 til 21 enheter.", "answer": -5 }
+        ],
+        "solution": "a) $-\\frac{1}{x^2}$, b) $-\\frac{16}{x^3}$, c) $\\frac{1}{2\\sqrt{x}}$, d) $\\frac{3}{\\sqrt{x}} - \\frac{2}{x^2}$, e) $K'(x) = -\\frac{2000}{x^2}$ og $K'(20) = -5$ kr per enhet",
+        "hints": ["$\\frac{a}{x^n} = a \\cdot x^{-n}$ og $\\sqrt{x} = x^{1/2}$.", "Regn ut den nye eksponenten på papiret: $-2 - 1 = -3$."],
+        "competenceGoals": ["bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-3-teorem-eksp",
+      "type": "theorem",
+      "title": "Eksponentialfunksjonen og logaritmen",
+      "content": "$$f(x) = e^x \\quad \\Longrightarrow \\quad f'(x) = e^x$$\n\n$$f(x) = \\ln x \\quad \\Longrightarrow \\quad f'(x) = \\frac{1}{x} \\qquad (x > 0)$$\n\n**Hurtigregel** (den du trenger i økonomi, der veksten nesten alltid har en rentesats i eksponenten):\n\n$$f(x) = e^{kx} \\quad \\Longrightarrow \\quad f'(x) = k \\cdot e^{kx}$$\n\nKonstanten $k$ i eksponenten kommer altså ned som faktor foran. Sammen med konstantfaktorregelen gir det\n\n$$f(x) = c \\cdot e^{kx} \\quad \\Longrightarrow \\quad f'(x) = c \\cdot k \\cdot e^{kx}$$\n\nNB: $e^x$ er den eneste funksjonen som er sin egen deriverte. Det er nettopp derfor $e$ er det naturlige grunntallet for vekst: farten veksten skjer med, er proporsjonal med hvor mye du har."
+    },
+    {
+      "id": "matok-6-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Kontinuerlig vekst",
+      "problem": "Et fond forvalter en kapital som vokser kontinuerlig:\n\n$$B(t) = 250\\,000 \\cdot e^{0{,}08t}$$\n\nder $B(t)$ er kroner og $t$ er antall år.\n\na) Finn $B'(t)$.\n\nb) Hvor fort vokser kapitalen ved $t = 0$ og ved $t = 10$?",
+      "solution": "**a)** Her er $c = 250\\,000$ og $k = 0{,}08$. Hurtigregelen sier at $k$ kommer ned som faktor:\n\n$$B'(t) = 250\\,000 \\cdot 0{,}08 \\cdot e^{0{,}08t}$$\n$$B'(t) = 20\\,000 \\cdot e^{0{,}08t}$$\n\n**b)** Ved $t = 0$:\n\n$$B'(0) = 20\\,000 \\cdot e^{0} = 20\\,000 \\cdot 1 = 20\\,000$$\n\nVed $t = 10$:\n\n$$B'(10) = 20\\,000 \\cdot e^{0{,}08 \\cdot 10} = 20\\,000 \\cdot e^{0{,}8} \\approx 44\\,510{,}82$$\n\n**Svar:** a) $B'(t) = 20\\,000 \\cdot e^{0{,}08t}$. b) $20\\,000$ kroner per år ved starten, og omtrent $44\\,511$ kroner per år etter ti år.\n\nLegg merke til dette: $B(10) = 250\\,000 \\cdot e^{0{,}8} \\approx 556\\,385$ kroner, og\n\n$$\\frac{B'(10)}{B(10)} = \\frac{20\\,000 \\cdot e^{0{,}8}}{250\\,000 \\cdot e^{0{,}8}} = \\frac{20\\,000}{250\\,000} = 0{,}08$$\n\nDen **relative** vekstfarten er $8\\ \\%$ — den samme hele tiden. Det er nettopp det $k$ i eksponenten betyr: den kontinuerlige rentesatsen."
+    },
+    {
+      "id": "matok-6-3-fig-eksponentiell",
+      "type": "dynamic-plot",
+      "title": "Kapitalen B(t) med tangenten ved t = 10",
+      "description": "Den heltrukne kurven er kapitalen som vokser kontinuerlig med 8 prosent. Den stiplede linja er tangenten i punktet der t er 10; stigningstallet er den momentane vekstfarten, omtrent 44 511 kroner per år.",
+      "xRange": [0, 20],
+      "yRange": [0, 1300000],
+      "xLabel": "t (år)",
+      "yLabel": "kroner",
+      "functions": [
+        { "label": "$B(t) = 250\\,000e^{0{,}08t}$", "expression": "250000*exp(0.08*x)", "style": "solid" },
+        { "label": "tangent i $t = 10$", "expression": "44510.82*x + 111277.05", "style": "dashed" }
+      ],
+      "points": [
+        { "x": 10, "y": 556385.23, "label": "(10, 556 385)" }
+      ],
+      "height": 380
+    },
+    {
+      "id": "matok-6-3-fig-eksponentiell-statisk",
+      "type": "image",
+      "src": "/images/content/matematikk-okonomi/matok-6-3-eksponentiell-tangent.png",
+      "alt": "Koordinatsystem med tid t i år fra 0 til 16 langs den vannrette aksen og kroner fra 0 til 900000 langs den loddrette. En blå kurve B av t starter i 250000 kroner ved t lik 0 og stiger stadig brattere til nesten 900000 kroner ved t lik 16. Et punkt er markert på kurven ved t lik 10, der verdien er 556385 kroner. En rød rett linje merket tangent i t lik 10 berører kurven i dette punktet og ligger under kurven både til venstre og til høyre.",
+      "caption": "Tangenten i $t = 10$ har stigningstall $20\\,000 \\cdot e^{0{,}8} \\approx 44\\,511$ kroner per år — det er den momentane vekstfarten akkurat der.",
+      "kommentar": "spec: grafmotor-specs-nyematte/matematikk-okonomi/matok-6-3-eksponentiell-tangent.json (+ matok-6-3-eksponentiell-tangent.kontroll.json, alle porter grønne). Statisk variant av dynamic-plot-blokken matok-6-3-fig-eksponentiell. t-aksen er utvidet til 16 år så krumningen faktisk synes."
+    },
+    {
+      "id": "matok-6-3-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-3-oppg-3",
+        "number": "6.3.3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Deriver, og svar på spørsmålene.",
+        "subTasks": [
+          { "label": "a", "task": "$f(x) = e^x$", "solution": "$f'(x) = e^x$", "expressionAnswer": "e^x" },
+          { "label": "b", "task": "$f(x) = 5e^x$", "solution": "$f'(x) = 5e^x$ — konstantfaktoren blir stående.", "expressionAnswer": "5*e^x" },
+          { "label": "c", "task": "En konto har beløpet $B(t) = 40\\,000 \\cdot e^{0{,}05t}$ kroner etter $t$ år. Finn $B'(t)$.", "solution": "$B'(t) = 40\\,000 \\cdot 0{,}05 \\cdot e^{0{,}05t} = 2000e^{0{,}05t}$", "expressionAnswer": "2000*e^(0.05t)" },
+          { "label": "d", "task": "Regn ut $B'(0)$ og $B'(20)$. Rund av til nærmeste krone.", "solution": "$B'(0) = 2000 \\cdot e^0 = 2000$ kr per år. $B'(20) = 2000 \\cdot e^{1} \\approx 5437$ kr per år.", "answer": [2000, 5437] },
+          { "label": "e", "task": "Regn ut $\\frac{B'(20)}{B(20)}$, og forklar resultatet.", "solution": "$B(20) = 40\\,000e^1 \\approx 108\\,731$ kr, og $\\frac{2000e}{40\\,000e} = 0{,}05$. Den relative vekstfarten er 5 % per år uansett hvilket årstall vi ser på — det er den kontinuerlige rentesatsen.", "answer": 0.05 }
+        ],
+        "solution": "a) $e^x$, b) $5e^x$, c) $2000e^{0{,}05t}$, d) 2000 kr/år og ca. 5437 kr/år, e) $0{,}05$ — konstant relativ vekst på 5 %",
+        "hints": ["Hurtigregelen: tallet i eksponenten kommer ned som faktor.", "I e) forkortes $e^{0{,}05 \\cdot 20}$ bort i brøken."],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Logaritmisk kostnadsmodell",
+      "problem": "En bedrift har kostnadene\n\n$$K(x) = 400 \\ln x + 25x$$\n\nkroner ved $x$ enheter, for $x > 0$.\n\na) Finn $K'(x)$.\n\nb) Regn ut $K'(50)$ og $K'(100)$, og forklar hva sammenlikningen viser.",
+      "solution": "**a)** Vi deriverer ledd for ledd. Konstantfaktoren $400$ blir stående, og $\\ln x$ deriveres til $\\frac{1}{x}$:\n\n$$400 \\ln x \\quad \\longrightarrow \\quad 400 \\cdot \\frac{1}{x} = \\frac{400}{x}$$\n$$25x \\quad \\longrightarrow \\quad 25$$\n\n$$K'(x) = \\frac{400}{x} + 25$$\n\n**b)** Vi setter inn:\n\n$$K'(50) = \\frac{400}{50} + 25 = 8 + 25 = 33$$\n$$K'(100) = \\frac{400}{100} + 25 = 4 + 25 = 29$$\n\n![Koordinatsystem med antall enheter x fra 0 til 200 og kroner per enhet fra 0 til 60. En blå kurve merket K'(x) synker bratt fra venstre og flater ut mot høyre. To punkter er markert og navngitt: (50, 33) og (100, 29). En grå stiplet vannrett linje ligger ved 25 kroner og er merket «gulvet: 25 kr»; kurven nærmer seg den uten å nå den.](/images/content/matematikk-okonomi/matok-6-3-asymptote.png)\n\n*Grensekostnaden $K'(x) = \\frac{400}{x} + 25$ kommer aldri under 25 kroner. Brøken blir liten, men aldri null — og det er nettopp en asymptote.*\n\n**Svar:** a) $K'(x) = \\dfrac{400}{x} + 25$. b) $K'(50) = 33$ og $K'(100) = 29$ kroner per enhet.\n\nSammenlikningen viser at kostnaden ved én enhet til **synker** når produksjonen øker — fra 33 til 29 kroner. Det er stordriftsfordeler: logaritmeleddet vokser saktere og saktere, mens $25x$-leddet vokser jevnt. Uansett hvor stor produksjonen blir, kommer $K'$ aldri under 25 kroner, for $\\frac{400}{x}$ er positiv for alle $x > 0$."
+    },
+        {
+      "id": "matok-6-3-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-3-oppg-4",
+        "number": "6.3.4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "Deriver, og tolk resultatene. Alle funksjonene gjelder for $x > 0$.",
+        "subTasks": [
+          { "label": "a", "task": "$f(x) = \\ln x$", "solution": "$f'(x) = \\frac{1}{x}$", "expressionAnswer": "1/x" },
+          { "label": "b", "task": "$f(x) = 300 \\ln x$", "solution": "$f'(x) = \\frac{300}{x}$", "expressionAnswer": "300/x" },
+          { "label": "c", "task": "En nettbutikk får $N(x) = 120 + 45 \\ln x$ nye kunder per måned når de bruker $x$ tusen kroner på annonser. Finn $N'(x)$.", "solution": "$N'(x) = \\frac{45}{x}$", "expressionAnswer": "45/x" },
+          { "label": "d", "task": "Regn ut $N'(10)$ og $N'(100)$.", "solution": "$N'(10) = \\frac{45}{10} = 4{,}5$ og $N'(100) = \\frac{45}{100} = 0{,}45$ nye kunder per tusen kroner.", "answer": [4.5, 0.45] },
+          { "label": "e", "task": "Butikken vurderer å tidoble annonsebudsjettet fra 10 000 til 100 000 kroner. Hva forteller svarene i d) om den siste tusenlappen?", "solution": "Ved et budsjett på 10 000 kroner gir den neste tusenlappen omtrent 4,5 nye kunder. Ved 100 000 kroner gir den bare omtrent 0,45 — en tidel. Dette er avtakende utbytte: hver ekstra krone virker mindre enn den forrige. Om tidoblingen likevel lønner seg, avhenger av hva en kunde er verdt.\n\n![Koordinatsystem med markedsføringsbeløp x i tusen kroner fra 0 til 120 og antall kunder N(x) fra 0 til 400. En blå kurve stiger bratt i starten og flater av. To rette tangenter er tegnet: en bratt rød ved x lik 10, merket «x = 10: 4,5 nye kunder per tusen», og en nesten vannrett grønn ved x lik 100, merket «x = 100: 0,45».](/images/content/matematikk-okonomi/matok-6-3-avtakende.png)\n\n*Avtakende utbytte som to tangenter: den tiende tusenlappen gir ti ganger så mange nye kunder som den hundrede.*" }
+        ],
+        "solution": "a) $\\frac{1}{x}$, b) $\\frac{300}{x}$, c) $N'(x) = \\frac{45}{x}$, d) 4,5 og 0,45 nye kunder per tusen kroner, e) avtakende utbytte — den siste tusenlappen gir en tidel så mye",
+        "hints": ["$\\ln x$ deriveres til $\\frac{1}{x}$, og konstantfaktoren blir stående.", "I e): sammenlikn de to tallene fra d), ikke funksjonsverdiene."],
+        "competenceGoals": ["bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+        {
+      "id": "matok-6-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Overskuddet satt sammen av inntekt og kostnad",
+      "problem": "En bedrift har\n\n$$I(x) = 80x - 0{,}04x^2 \\qquad \\text{og} \\qquad K(x) = 0{,}01x^2 + 20x + 7000$$\n\nbegge i kroner ved $x$ enheter.\n\na) Finn overskuddsfunksjonen $O(x)$ og $O'(x)$.\n\nb) Løs likningen $O'(x) = 0$.\n\nc) Regn ut $I'$ og $K'$ i den $x$-verdien du fant, og forklar hva du ser.",
+      "solution": "**a)** Overskuddet er inntekten minus kostnadene:\n\n$$O(x) = I(x) - K(x)$$\n$$O(x) = (80x - 0{,}04x^2) - (0{,}01x^2 + 20x + 7000)$$\n\nVi løser opp parentesen — husk at minus foran snur alle fortegnene inni:\n\n$$O(x) = 80x - 0{,}04x^2 - 0{,}01x^2 - 20x - 7000$$\n$$O(x) = -0{,}05x^2 + 60x - 7000$$\n\nSå deriverer vi ledd for ledd:\n\n$$O'(x) = -0{,}1x + 60$$\n\n**b)** Vi løser likningen:\n\n$$-0{,}1x + 60 = 0 \\qquad | -60$$\n$$-0{,}1x = -60 \\qquad | : (-0{,}1)$$\n$$x = 600$$\n\n$O$ er en parabel som vender nedover ($a = -0{,}05 < 0$), så $x = 600$ er et toppunkt og ikke et bunnpunkt — det er der overskuddet er størst.\n\n**c)** Vi deriverer hver for seg og setter inn $x = 600$:\n\n$$I'(x) = 80 - 0{,}08x \\quad \\Longrightarrow \\quad I'(600) = 80 - 48 = 32$$\n$$K'(x) = 0{,}02x + 20 \\quad \\Longrightarrow \\quad K'(600) = 12 + 20 = 32$$\n\nDe er like.\n\n**Svar:** a) $O(x) = -0{,}05x^2 + 60x - 7000$ og $O'(x) = -0{,}1x + 60$. b) $x = 600$. c) $I'(600) = K'(600) = 32$ kroner per enhet.\n\nDette er ikke tilfeldig. Siden $O' = I' - K'$, betyr $O'(x) = 0$ akkurat det samme som $I'(x) = K'(x)$: **overskuddet er størst der grenseinntekten er lik grensekostnaden.** Den neste enheten koster nøyaktig like mye som den gir. Vi kommer tilbake til dette i 6.5."
+    },
+    {
+      "id": "matok-6-3-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering — reglene samlet\n\n| $f(x)$ | $f'(x)$ |\n|---|---|\n| $c$ (konstant) | $0$ |\n| $x^n$ | $n \\cdot x^{\\,n-1}$ |\n| $c \\cdot g(x)$ | $c \\cdot g'(x)$ |\n| $g(x) \\pm h(x)$ | $g'(x) \\pm h'(x)$ |\n| $e^x$ | $e^x$ |\n| $e^{kx}$ | $k \\cdot e^{kx}$ |\n| $\\ln x$ | $\\dfrac{1}{x}$ |\n\n**Arbeidsmåten:**\n1. Skriv om brøker og røtter til potensform.\n2. Deriver ledd for ledd. Konstantfaktorer blir stående.\n3. Skriv om tilbake til brøk eller rot hvis svaret skal være pent.\n4. Kontroller med et tall hvis du er usikker.\n\n**Vanlige feil:**\n- Glemme at $x$ er $x^1$, og derivere $5x$ til $5x$ i stedet for $5$.\n- Regne eksponenten feil for negative tall: $-2 - 1$ er $-3$, ikke $-1$.\n- La konstantleddet bli stående. Det deriveres til $0$."
+    },
+    {
+      "id": "matok-6-3-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-3-oppg-5",
+        "number": "6.3.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bedrift har kostnadene $K(x) = 0{,}01x^2 + 20x + 5000$ kroner og inntekten $I(x) = 60x - 0{,}03x^2$ kroner ved $x$ enheter.",
+        "subTasks": [
+          { "label": "a", "task": "Finn overskuddsfunksjonen $O(x)$.", "solution": "$O(x) = (60x - 0{,}03x^2) - (0{,}01x^2 + 20x + 5000) = -0{,}04x^2 + 40x - 5000$", "expressionAnswer": "-0.04x^2+40x-5000" },
+          { "label": "b", "task": "Finn $O'(x)$.", "solution": "$O'(x) = -0{,}08x + 40$", "expressionAnswer": "-0.08x+40" },
+          { "label": "c", "task": "Løs likningen $O'(x) = 0$.", "solution": "$-0{,}08x + 40 = 0$ gir $0{,}08x = 40$, altså $x = 500$.", "answer": 500 },
+          { "label": "d", "task": "Regn ut det største overskuddet.", "solution": "$O$ er en parabel som vender nedover ($a = -0{,}04 < 0$), så $x = 500$ gir det største overskuddet. $O(500) = -0{,}04 \\cdot 250\\,000 + 40 \\cdot 500 - 5000 = -10\\,000 + 20\\,000 - 5000 = 5000$ kr", "answer": 5000 },
+          { "label": "e", "task": "Vis at $I'(500) = K'(500)$, og forklar hvorfor det måtte bli slik.", "solution": "$I'(x) = 60 - 0{,}06x$ gir $I'(500) = 60 - 30 = 30$. $K'(x) = 0{,}02x + 20$ gir $K'(500) = 10 + 20 = 30$. De er like fordi $O' = I' - K'$, så $O'(500) = 0$ betyr nøyaktig at $I'(500) = K'(500)$.", "answer": 30 }
+        ],
+        "solution": "a) $O(x) = -0{,}04x^2 + 40x - 5000$, b) $O'(x) = -0{,}08x + 40$, c) $x = 500$, d) 5000 kr, e) begge er 30 kr per enhet",
+        "hints": ["Minustegnet foran parentesen snur alle fortegnene inni den.", "I e) trenger du ikke regne på nytt for å forklare — bruk at $O' = I' - K'$."],
+        "competenceGoals": ["bruke derivasjon og digitale verktøy til å bestemme og utforske nullpunkt, ekstremalpunkt og andre relevante kjenneteikn ved funksjonar som modellerer økonomiske samanhengar, og gi ei praktisk tolking av desse"],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "matok-6-3-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "matok-6-3-oppg-6",
+        "number": "6.3.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — digitale verktøy.** En kapital vokser kontinuerlig etter modellen\n\n$$B(t) = 80\\,000 \\cdot e^{0{,}042t}$$\n\nkroner etter $t$ år.",
+        "subTasks": [
+          { "label": "a", "task": "Finn $B'(t)$ for hånd, og kontroller svaret i CAS.", "solution": "$B'(t) = 80\\,000 \\cdot 0{,}042 \\cdot e^{0{,}042t} = 3360e^{0{,}042t}$. I CAS: `B(t):=80000*e^(0.042t)` og deretter `B'(t)`.", "expressionAnswer": "3360*e^(0.042t)" },
+          { "label": "b", "task": "Hvor fort vokser kapitalen i starten?", "solution": "$B'(0) = 3360 \\cdot e^0 = 3360$ kroner per år.", "answer": 3360 },
+          { "label": "c", "task": "Hvor stor er kapitalen etter 15 år, og hvor fort vokser den da? Rund av til nærmeste krone.", "solution": "$B(15) = 80\\,000e^{0{,}63} \\approx 150\\,209$ kr og $B'(15) = 3360e^{0{,}63} \\approx 6309$ kroner per år.", "answer": [150209, 6309] },
+          { "label": "d", "task": "Vis at $\\dfrac{B'(t)}{B(t)}$ er det samme tallet for alle $t$. Hvilket tall er det?", "solution": "$\\frac{3360e^{0{,}042t}}{80\\,000e^{0{,}042t}} = \\frac{3360}{80\\,000} = 0{,}042$. Eksponentialleddet forkortes bort, så forholdet er $0{,}042$ uansett $t$.", "answer": 0.042 },
+          { "label": "e", "task": "En rådgiver sier: «Kontoen vokser med 4,2 % i året, så etter 15 år har den vokst med $15 \\cdot 4{,}2\\ \\% = 63\\ \\%$.» Vurder påstanden.", "solution": "Påstanden er feil. Vekstfarten på 4,2 % gjelder av kapitalen slik den er til enhver tid, ikke av startkapitalen. Den faktiske veksten er $\\frac{150\\,209}{80\\,000} \\approx 1{,}878$, altså omtrent 87,8 %, ikke 63 %. Rådgiveren regner lineært i en situasjon som er eksponentiell. (Tallet 63 er derimot eksponenten $0{,}042 \\cdot 15 = 0{,}63$ — den er ikke en prosent, men det tallet $e$ skal opphøyes i.)" }
+        ],
+        "solution": "a) $B'(t) = 3360e^{0{,}042t}$, b) 3360 kr per år, c) ca. 150 209 kr og ca. 6309 kr per år, d) $0{,}042$, e) feil — veksten er eksponentiell, faktisk ca. 87,8 % på 15 år",
+        "hints": ["Hurtigregelen: $f(x) = ce^{kx}$ gir $f'(x) = cke^{kx}$.", "I d): hva skjer med $e^{0{,}042t}$ når du deler de to uttrykkene?"],
+        "competenceGoals": ["bruke gjennomsnittleg og momentan vekstfart til å beskrive endring i økonomiske modellar og tolke vekstfart som endring i til dømes kostnad, inntekt, etterspurnad eller profitt"],
+        "allowsUpload": true
+      }
+    }
+  ],
+  "exercises": []
+}

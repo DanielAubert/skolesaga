@@ -1,0 +1,559 @@
+{
+  "id": "stat-6-1",
+  "courseId": "statistikk",
+  "chapterNumber": "6.1",
+  "title": "Normalfordelingen",
+  "description": "Klokkekurven, parametrene μ og σ, og 68–95–99,7-regelen.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+    "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+  ],
+  "content": [
+    {
+      "id": "stat-6-1-section-intro",
+      "type": "text",
+      "content": "# Normalfordelingen\n\nI kapittel 5.6 lærte vi at sannsynlighet for en kontinuerlig variabel er **areal under tetthetskurven**. I kapittel 5.7 lærte vi at et gjennomsnitt sikter riktig og blir stadig mer treffsikkert når vi måler flere ganger.\n\nNå setter vi de to sammen, og møter den ene kurven som går igjen overalt:\n\n- høyden til voksne mennesker\n- vekten på pakker fra en pakkemaskin\n- blodtrykk, fødselsvekt, skostørrelse\n- måleusikkerheten i et laboratorium\n- poengsummen på en stor prøve\n\nMåler du noe av dette på mange nok, og tegner et histogram, får du hver gang omtrent den samme formen: en **klokke**. Høyest på midten, symmetrisk, og med haler som tynnes ut mot begge sider.\n\nDet finnes en grunn til at akkurat denne formen dukker opp så ofte — den heter sentralgrensesetningen, og vi tar den i kapittel 6.4. Her skal vi først bli kjent med selve kurven."
+    },
+    {
+      "id": "stat-6-1-section-hvorfor",
+      "type": "text",
+      "content": "## Hvorfor klokkeform?\n\nTenk på høyden til en voksen person. Den bestemmes ikke av én ting, men av **mange små bidrag** som virker sammen: arvestoff fra begge foreldre, kosthold i oppveksten, søvn, sykdom, tilfeldigheter.\n\nHvert bidrag trekker litt opp eller litt ned. For at noen skal bli svært høy, må mange av bidragene trekke oppover samtidig — og det er sjelden. De fleste får en blanding, og havner nær midten.\n\nDet er dette som lager klokkeformen:\n\n- **Mange verdier nær midten**, fordi de fleste får en blanding av bidrag som delvis opphever hverandre.\n- **Få verdier langt ute**, fordi det krever at nesten alle bidragene drar samme vei.\n- **Symmetri**, fordi det er like sjeldent at alle drar opp som at alle drar ned.\n\nKurven har et navn, og den er fullstendig bestemt av bare to tall."
+    },
+    {
+      "id": "stat-6-1-def-normal",
+      "type": "definition",
+      "title": "Normalfordelingen",
+      "content": "En kontinuerlig stokastisk variabel $X$ er **normalfordelt** med forventningsverdi $\\mu$ og standardavvik $\\sigma$ dersom tetthetsfunksjonen er\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\cdot e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}$$\n\n**Du skal aldri regne med denne formelen for hånd.** Den står her for at du skal se at kurven er *bestemt* — den er ikke tegnet på frihånd, og den inneholder ingen andre tall enn $\\mu$ og $\\sigma$.\n\nDet er de to tallene som betyr noe:\n\n- $\\mu$ sier **hvor** kurven ligger. Toppunktet er i $x = \\mu$, og kurven er symmetrisk om den loddrette linja der.\n- $\\sigma$ sier **hvor bred** kurven er. Stor $\\sigma$ gir en lav og flat klokke, liten $\\sigma$ en høy og smal.\n\nSom for alle tetthetsfunksjoner er det samlede arealet under kurven 1, og sannsynlighet er areal:\n\n$$P(a \\le X \\le b) = \\text{arealet under kurven mellom } a \\text{ og } b$$\n\n**NB:** Vi skriver $\\mu$ og $\\sigma$ som egne opplysninger, slik:\n\n> Vekten $X$ er normalfordelt med $\\mu = 500$ gram og $\\sigma = 12$ gram.\n\nDet er denne skrivemåten du skal bruke — både i egne besvarelser og når du leser oppgaveteksten."
+    },
+    {
+      "id": "stat-6-1-section-egenskaper",
+      "type": "text",
+      "content": "## Fire egenskaper som følger av symmetrien\n\nSymmetrien om $\\mu$ gir oss flere svar gratis, uten noen som helst regning:\n\n1. **Halvparten ligger på hver side:** $P(X \\le \\mu) = P(X \\ge \\mu) = 0{,}5$.\n2. **Like langt ut gir like mye:** $P(X \\le \\mu - a) = P(X \\ge \\mu + a)$ for ethvert tall $a$. Halene er speilbilder.\n3. **Middelverdi, median og typetall er det samme tallet**, nemlig $\\mu$. For en skjev fordeling — som ventetiden i kapittel 5.6 — er de tre forskjellige.\n4. **Kurven når aldri ned til $x$-aksen.** Uansett hvor langt ut du går, er det et lite areal igjen. Men det blir fort forsvinnende lite.\n\nPunkt 4 betyr strengt tatt at en normalfordelt høyde kunne vært negativ. Sannsynligheten for det er så liten at den ikke har noen praktisk betydning — men det minner oss om at normalfordelingen er en **modell**, ikke virkeligheten selv."
+    },
+    {
+      "id": "stat-6-1-theorem-68-95",
+      "type": "theorem",
+      "title": "68–95–99,7-regelen",
+      "content": "For enhver normalfordelt variabel $X$ med forventningsverdi $\\mu$ og standardavvik $\\sigma$ gjelder\n\n$$P(\\mu - \\sigma \\le X \\le \\mu + \\sigma) \\approx 0{,}68$$\n\n$$P(\\mu - 2\\sigma \\le X \\le \\mu + 2\\sigma) \\approx 0{,}95$$\n\n$$P(\\mu - 3\\sigma \\le X \\le \\mu + 3\\sigma) \\approx 0{,}997$$\n\nI ord: **omtrent 68 % ligger innenfor ett standardavvik fra midten, 95 % innenfor to, og 99,7 % innenfor tre.**\n\nLegg merke til at regelen ikke nevner noen konkrete tall — den gjelder for alle normalfordelinger, enten vi måler i centimeter, kroner eller timer. Det er derfor $\\sigma$ er en så nyttig måleenhet: den forteller hvor uvanlig en verdi er.\n\n*(De nøyaktige verdiene er 0,6827, 0,9545 og 0,9973. Vi runder av til 0,68, 0,95 og 0,997 når vi bruker regelen i hodet, og regner nøyaktig med verktøy i kapittel 6.3.)*"
+    },
+    {
+      "id": "stat-6-1-fig-68-95-997",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-1-normalkurve-68-95-997.png",
+      "alt": "Et koordinatsystem med en symmetrisk klokkeformet kurve. Den loddrette aksen er merket f av x, står til venstre for hele klokka og viser 0,1 til 0,5. Den vannrette aksen er merket antall sigma fra my, og midt under toppunktet står my; til venstre for my står minus 1, minus 2 og minus 3, til høyre 1, 2 og 3 — altså antall standardavvik fra forventningsverdien. Kurven er speilsymmetrisk om my og faller jevnt mot null mot begge sider uten å nå ned til aksen. Området under kurven mellom minus 1 og 1 er fylt med gult, og teksten 68 prosent står inne i det gule feltet. Stiplede grå loddrette streker går opp fra aksen til kurven ved minus 2, minus 1, 1 og 2.",
+      "caption": "Normalkurven med den vannrette aksen delt inn i standardavvik: 0 er $\\mu$, og hvert steg er ett $\\sigma$. Det gule feltet er $\\mu \\pm \\sigma$ og utgjør omtrent 68 % av arealet; de stiplede strekene ved $\\mu \\pm 2\\sigma$ avgrenser området som rommer omtrent 95 %. Figuren gjelder **enhver** normalfordeling — i eksempel 1 er $\\mu = 180$ cm og $\\sigma = 6$ cm, så merkene på aksen er 162, 168, 174, 180, 186, 192 og 198 centimeter.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-1-normalkurve-68-95-997.json"
+    },
+    {
+      "id": "stat-6-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Høyden til voksne menn",
+      "problem": "Høyden $X$ i centimeter til voksne menn i Norge kan modelleres som normalfordelt med $\\mu = 180$ cm og $\\sigma = 6$ cm.\n\na) Finn $P(X \\le 180)$.\nb) Finn sannsynligheten for at en tilfeldig valgt mann er mellom 174 cm og 186 cm.\nc) Finn sannsynligheten for at han er høyere enn 192 cm.\nd) I en forsamling på 500 menn — hvor mange venter vi er høyere enn 198 cm?",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu = 180$ og $\\sigma = 6$. *Hva må vi finne?* Fire sannsynligheter, alle sammen arealer under den samme klokkekurven.\n\nFør vi regner, oversetter vi grensene til **antall standardavvik fra midten**. Det er nøkkelgrepet i hele kapittelet:\n\n$$\\mu - \\sigma = 180 - 6 = 174 \\qquad \\mu + \\sigma = 180 + 6 = 186$$\n\n$$\\mu - 2\\sigma = 180 - 12 = 168 \\qquad \\mu + 2\\sigma = 180 + 12 = 192$$\n\n$$\\mu - 3\\sigma = 180 - 18 = 162 \\qquad \\mu + 3\\sigma = 180 + 18 = 198$$\n\n**a)** Tallet 180 er $\\mu$ selv, og kurven er symmetrisk om $\\mu$:\n\n$$P(X \\le 180) = P(X \\le \\mu) = 0{,}5$$\n\nHalvparten av mennene er lavere enn 180 cm. *(Føres ikke mer enn dette — symmetrien er hele begrunnelsen.)*\n\n**b)** Vi kjenner igjen 174 og 186 fra lista over: det er $\\mu - \\sigma$ og $\\mu + \\sigma$. Da er det første linje i 68–95–99,7-regelen:\n\n$$P(174 \\le X \\le 186) = P(\\mu - \\sigma \\le X \\le \\mu + \\sigma) \\approx 0{,}68$$\n\n**c)** Tallet 192 er $\\mu + 2\\sigma$. Regelen sier at 95 % ligger **mellom** $\\mu - 2\\sigma$ og $\\mu + 2\\sigma$. Da ligger\n\n$$1 - 0{,}95 = 0{,}05$$\n\nutenfor — men det er fordelt på **to** haler, én på hver side. Symmetrien sier at halene er like store, så vi deler på 2:\n\n$$P(X > 192) = \\frac{0{,}05}{2} = 0{,}025$$\n\n**d)** Tallet 198 er $\\mu + 3\\sigma$. Samme resonnement, med 99,7 %:\n\n$$P(X > 198) = \\frac{1 - 0{,}997}{2} = \\frac{0{,}003}{2} = 0{,}0015$$\n\nForventet antall av 500 menn er sannsynligheten ganger antallet:\n\n$$500 \\cdot 0{,}0015 = 0{,}75$$\n\n**Svar:** a) $0{,}5$. b) $\\approx 0{,}68$. c) $\\approx 0{,}025$. d) $0{,}75$ — altså mindre enn én person.\n\n**Tolkning:** I d) fant vi ikke «null menn». Vi fant at *hvis* du samler 500 menn mange ganger, vil du i gjennomsnitt finne trekvart person over 198 cm i hver forsamling. I praksis: som regel ingen, av og til én.\n\n**NB:** Legg merke til at vi aldri brukte tetthetsformelen. Vi oversatte grensene til antall $\\sigma$ fra $\\mu$, og leste av regelen. Det er slik hele kapittel 6.1 fungerer."
+    },
+    {
+      "id": "stat-6-1-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Gjør den samme.** Høyden $X$ i centimeter til voksne kvinner i Norge kan modelleres som normalfordelt med $\\mu = 167$ cm og $\\sigma = 6$ cm. Bruk 68–95–99,7-regelen.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv opp de seks grensene $\\mu \\pm \\sigma$, $\\mu \\pm 2\\sigma$ og $\\mu \\pm 3\\sigma$.",
+            "solution": "$\\mu \\pm \\sigma$: 161 og 173. $\\mu \\pm 2\\sigma$: 155 og 179. $\\mu \\pm 3\\sigma$: 149 og 185.",
+            "answer": [
+              149,
+              155,
+              161,
+              173,
+              179,
+              185
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Finn $P(161 \\le X \\le 173)$.",
+            "solution": "161 og 173 er $\\mu \\pm \\sigma$, så $P(161 \\le X \\le 173) \\approx 0{,}68$.",
+            "answer": 0.68
+          },
+          {
+            "label": "c",
+            "task": "Finn sannsynligheten for at en tilfeldig valgt kvinne er høyere enn 179 cm.",
+            "solution": "179 er $\\mu + 2\\sigma$. Utenfor $\\mu \\pm 2\\sigma$ ligger $1 - 0{,}95 = 0{,}05$, fordelt på to like haler: $P(X > 179) = \\frac{0{,}05}{2} = 0{,}025$.",
+            "answer": 0.025
+          },
+          {
+            "label": "d",
+            "task": "Finn sannsynligheten for at hun er lavere enn 149 cm.",
+            "solution": "149 er $\\mu - 3\\sigma$, så $P(X < 149) = \\frac{1 - 0{,}997}{2} = 0{,}0015$.",
+            "answer": 0.0015
+          },
+          {
+            "label": "e",
+            "task": "Hvor mange av 2000 tilfeldig valgte kvinner venter vi er høyere enn 179 cm?",
+            "solution": "$2000 \\cdot 0{,}025 = 50$ kvinner.",
+            "answer": 50
+          }
+        ],
+        "hints": [
+          "Regn først ut $\\mu \\pm \\sigma$, $\\mu \\pm 2\\sigma$ og $\\mu \\pm 3\\sigma$. Da vil du kjenne igjen hvert eneste tall i oppgaven.",
+          "«Utenfor» er alltid delt på to like haler — husk å dele på 2."
+        ],
+        "solution": "a) 161/173, 155/179, 149/185, b) $\\approx 0{,}68$, c) $\\approx 0{,}025$, d) $\\approx 0{,}0015$, e) 50 kvinner",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-section-halvdeler",
+      "type": "text",
+      "content": "## Å dele klokka i biter\n\nRegelen gir oss tre intervaller. Kombinerer vi dem med symmetrien, kommer vi mye lenger enn som så.\n\nSymmetrien sier at hvert av de tre intervallene er delt i to like halvdeler av $\\mu$:\n\n$$P(\\mu \\le X \\le \\mu + \\sigma) = \\frac{0{,}68}{2} = 0{,}34$$\n\n$$P(\\mu \\le X \\le \\mu + 2\\sigma) = \\frac{0{,}95}{2} = 0{,}475$$\n\n$$P(\\mu \\le X \\le \\mu + 3\\sigma) = \\frac{0{,}997}{2} \\approx 0{,}4985$$\n\nNå kan vi sette sammen biter fra hver side. Her er hele oppstillingen, med arealene mellom nabogrensene:\n\n| Område | Areal |\n|---|---|\n| under $\\mu - 3\\sigma$ | 0,0015 |\n| fra $\\mu - 3\\sigma$ til $\\mu - 2\\sigma$ | 0,0235 |\n| fra $\\mu - 2\\sigma$ til $\\mu - \\sigma$ | 0,135 |\n| fra $\\mu - \\sigma$ til $\\mu$ | 0,34 |\n| fra $\\mu$ til $\\mu + \\sigma$ | 0,34 |\n| fra $\\mu + \\sigma$ til $\\mu + 2\\sigma$ | 0,135 |\n| fra $\\mu + 2\\sigma$ til $\\mu + 3\\sigma$ | 0,0235 |\n| over $\\mu + 3\\sigma$ | 0,0015 |\n\n*(Kontroll: summen er $2 \\cdot (0{,}0015 + 0{,}0235 + 0{,}135 + 0{,}34) = 2 \\cdot 0{,}5 = 1$. Stemmer.)*\n\nMed denne tabellen kan du svare på alle spørsmål der grensene er hele antall $\\sigma$ fra $\\mu$ — bare legg sammen bitene du trenger. Er grensene noe annet, må vi vente til kapittel 6.2, der vi lærer å regne med vilkårlige grenser."
+    },
+    {
+      "id": "stat-6-1-fig-atte-biter",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-1-atte-biter.png",
+      "alt": "Standardnormalkurven over en akse merket z fra minus 3 til 3. Grå stiplede loddrette streker går fra aksen opp til kurven ved minus 3, minus 2, minus 1, 1, 2 og 3, slik at arealet under kurven deles i åtte biter. I hver bit står arealet skrevet: 0,0015 ytterst til venstre, så 0,0235, så 0,135, så 0,34, og speilvendt det samme på høyre side.",
+      "caption": "Klokka delt i åtte biter av $\\mu \\pm \\sigma$, $\\pm 2\\sigma$ og $\\pm 3\\sigma$. De åtte arealene summerer til 1. I stedet for å lese tabellen radvis kan du legge sammen de bitene spørsmålet gjelder: $0{,}34 + 0{,}34 = 0{,}68$, $0{,}135 + 0{,}34 + 0{,}34 + 0{,}135 = 0{,}95$, og så videre.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-1-atte-biter.json"
+    },
+    {
+      "id": "stat-6-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Levetiden til en lyspære",
+      "problem": "Levetiden $X$ i timer for en type LED-pære er normalfordelt med $\\mu = 1200$ timer og $\\sigma = 100$ timer.\n\na) Finn et intervall som inneholder levetiden til omtrent 68 % av pærene.\nb) Finn et intervall som inneholder levetiden til omtrent 95 % av pærene.\nc) Finn sannsynligheten for at en pære varer lenger enn 1400 timer.\nd) Finn $P(1100 < X < 1400)$.",
+      "solution": "**Løsning:**\n\n*Hva vet vi?* $\\mu = 1200$ og $\\sigma = 100$.\n\n**a)** 68 %-intervallet er $\\mu \\pm \\sigma$:\n\n$$\\mu - \\sigma = 1200 - 100 = 1100$$\n\n$$\\mu + \\sigma = 1200 + 100 = 1300$$\n\nIntervallet er $[1100,\\ 1300]$.\n\n**b)** 95 %-intervallet er $\\mu \\pm 2\\sigma$:\n\n$$\\mu - 2\\sigma = 1200 - 2 \\cdot 100 = 1000$$\n\n$$\\mu + 2\\sigma = 1200 + 2 \\cdot 100 = 1400$$\n\nIntervallet er $[1000,\\ 1400]$.\n\n**c)** Fra b) vet vi at 1400 er $\\mu + 2\\sigma$. Utenfor 95 %-intervallet ligger 5 %, fordelt på to haler:\n\n$$P(X > 1400) = \\frac{1 - 0{,}95}{2} = 0{,}025$$\n\n**d)** Her er de to grensene **ikke** like langt fra midten: 1100 er $\\mu - \\sigma$, mens 1400 er $\\mu + 2\\sigma$. Da kan vi ikke bruke én linje i regelen — vi må sette sammen to halvdeler:\n\n$$P(1100 < X < 1400) = \\underbrace{P(1100 < X < 1200)}_{\\text{halve 68 \\%-intervallet}} + \\underbrace{P(1200 < X < 1400)}_{\\text{halve 95 \\%-intervallet}}$$\n\n$$P(1100 < X < 1400) = \\frac{0{,}68}{2} + \\frac{0{,}95}{2} = 0{,}34 + 0{,}475 = 0{,}815$$\n\n**Svar:** a) $[1100,\\ 1300]$ timer. b) $[1000,\\ 1400]$ timer. c) $\\approx 0{,}025$. d) $\\approx 0{,}815$.\n\n**NB:** Det er svært vanlig å svare $\\frac{0{,}68 + 0{,}95}{2}$ i d) uten å tenke — det gir tilfeldigvis det samme her, men bare fordi begge leddene skulle halveres. Poenget er at **hver** side halveres for seg, og at du deretter legger sammen. Tegn gjerne kurven og skraver de to bitene før du summerer."
+    },
+    {
+      "id": "stat-6-1-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** Batteritiden $X$ i timer for en modell trådløse hodetelefoner er normalfordelt med $\\mu = 18$ timer og $\\sigma = 1{,}5$ timer.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn et intervall som inneholder batteritiden til omtrent 68 % av hodetelefonene.",
+            "solution": "$\\mu \\pm \\sigma$: $18 - 1{,}5 = 16{,}5$ og $18 + 1{,}5 = 19{,}5$. Intervallet er $[16{,}5;\\ 19{,}5]$.",
+            "answer": [
+              16.5,
+              19.5
+            ]
+          },
+          {
+            "label": "b",
+            "task": "Finn et intervall som inneholder batteritiden til omtrent 95 %.",
+            "solution": "$\\mu \\pm 2\\sigma$: $18 - 3 = 15$ og $18 + 3 = 21$. Intervallet er $[15,\\ 21]$.",
+            "answer": [
+              15,
+              21
+            ]
+          },
+          {
+            "label": "c",
+            "task": "Finn sannsynligheten for at et par varer kortere enn 15 timer.",
+            "solution": "15 er $\\mu - 2\\sigma$, så $P(X < 15) = \\frac{1 - 0{,}95}{2} = 0{,}025$.",
+            "answer": 0.025
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(16{,}5 < X < 21)$.",
+            "solution": "$16{,}5 = \\mu - \\sigma$ og $21 = \\mu + 2\\sigma$, så $P = \\frac{0{,}68}{2} + \\frac{0{,}95}{2} = 0{,}34 + 0{,}475 = 0{,}815$.",
+            "answer": 0.815
+          },
+          {
+            "label": "e",
+            "task": "Produsenten lover minst 13,5 timer. Hvor stor andel av parene holder ikke løftet?",
+            "solution": "$13{,}5 = \\mu - 3\\sigma$, så andelen er $\\frac{1 - 0{,}997}{2} = 0{,}0015$, altså 0,15 % — omtrent ett par av 667.",
+            "answer": 0.0015
+          }
+        ],
+        "hints": [
+          "Sjekk alltid først hvor mange standardavvik hver grense ligger fra $\\mu$.",
+          "Er grensene ulikt langt fra $\\mu$, deler du i to biter ved $\\mu$ og legger sammen."
+        ],
+        "solution": "a) $[16{,}5;\\ 19{,}5]$, b) $[15,\\ 21]$, c) $\\approx 0{,}025$, d) $\\approx 0{,}815$, e) $\\approx 0{,}0015$",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3: Å finne μ og σ fra et intervall",
+      "problem": "En pakkemaskin fyller sekker med hundefôr. Vekten er normalfordelt, og produsenten opplyser at **95 % av sekkene veier mellom 4,2 kg og 5,8 kg**.\n\na) Finn $\\mu$ og $\\sigma$.\nb) Finn sannsynligheten for at en tilfeldig sekk veier mindre enn 4,6 kg.",
+      "solution": "**Løsning:**\n\n**a)** Her er oppgaven snudd: sannsynligheten er gitt, og **parametrene** er ukjente. Nøkkelen er å kjenne igjen hvilke grenser 4,2 og 5,8 er.\n\n95 % hører til $\\mu \\pm 2\\sigma$. Altså er\n\n$$\\mu - 2\\sigma = 4{,}2 \\qquad \\text{og} \\qquad \\mu + 2\\sigma = 5{,}8$$\n\n*Hva vet vi nå?* At $\\mu$ ligger **midt mellom** de to grensene, siden kurven er symmetrisk:\n\n$$\\mu = \\frac{4{,}2 + 5{,}8}{2} = \\frac{10{,}0}{2} = 5{,}0$$\n\nOg at avstanden fra 4,2 til 5,8 er hele $4\\sigma$ — to standardavvik ned og to opp:\n\n$$4\\sigma = 5{,}8 - 4{,}2 = 1{,}6$$\n\nVi deler på 4 på begge sider:\n\n$$\\frac{4\\sigma}{4} = \\frac{1{,}6}{4}$$\n\n$$\\sigma = 0{,}4$$\n\n*(Kontroll: $\\mu - 2\\sigma = 5{,}0 - 0{,}8 = 4{,}2$ og $\\mu + 2\\sigma = 5{,}0 + 0{,}8 = 5{,}8$. Stemmer.)*\n\n**b)** Med $\\mu = 5{,}0$ og $\\sigma = 0{,}4$ ser vi at\n\n$$4{,}6 = 5{,}0 - 0{,}4 = \\mu - \\sigma$$\n\nUnder $\\mu - \\sigma$ ligger halve resten av 68 %-intervallet:\n\n$$P(X < 4{,}6) = \\frac{1 - 0{,}68}{2} = \\frac{0{,}32}{2} = 0{,}16$$\n\n**Svar:** a) $\\mu = 5{,}0$ kg og $\\sigma = 0{,}4$ kg. b) $\\approx 0{,}16$.\n\n**Tolkning:** Omtrent en sjettedel av sekkene veier under 4,6 kg. Skulle sekkene merkes «5 kg», er det verdt å merke seg at halvparten uansett veier mindre enn 5,0 kg — merkingen bør i så fall ligge lavere enn $\\mu$.\n\n**Huskeregelen:** bredden på et symmetrisk intervall er alltid et helt antall $\\sigma$ — $2\\sigma$ for 68 %, $4\\sigma$ for 95 % og $6\\sigma$ for 99,7 %. Del bredden på det tallet, så har du $\\sigma$."
+    },
+    {
+      "id": "stat-6-1-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** En tappemaskin fyller flasker med saft. Fyllmengden er normalfordelt, og 99,7 % av flaskene inneholder mellom 484 ml og 496 ml.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $\\mu$.",
+            "solution": "$\\mu$ ligger midt mellom: $\\mu = \\frac{484 + 496}{2} = 490$ ml.",
+            "answer": 490
+          },
+          {
+            "label": "b",
+            "task": "Finn $\\sigma$.",
+            "solution": "Bredden er $6\\sigma$ fordi 99,7 % hører til $\\mu \\pm 3\\sigma$: $6\\sigma = 496 - 484 = 12$, så $\\sigma = 2$ ml.",
+            "answer": 2
+          },
+          {
+            "label": "c",
+            "task": "Finn $P(488 \\le X \\le 492)$.",
+            "solution": "$488 = \\mu - \\sigma$ og $492 = \\mu + \\sigma$, så $P(488 \\le X \\le 492) \\approx 0{,}68$.",
+            "answer": 0.68
+          },
+          {
+            "label": "d",
+            "task": "Finn sannsynligheten for at en flaske inneholder mindre enn 486 ml.",
+            "solution": "$486 = \\mu - 2\\sigma$, så $P(X < 486) = \\frac{1 - 0{,}95}{2} = 0{,}025$.",
+            "answer": 0.025
+          },
+          {
+            "label": "e",
+            "task": "Flaskene merkes «500 ml». Hva synes du om det?",
+            "solution": "Det er ikke holdbart: $500 = \\mu + 5\\sigma$, så så godt som alle flasker inneholder mindre enn det som står på etiketten. Enten må maskinen stilles opp, eller merkingen ned."
+          }
+        ],
+        "hints": [
+          "Bredden på et 99,7 %-intervall er $6\\sigma$.",
+          "I e): hvor mange standardavvik over $\\mu$ ligger 500?"
+        ],
+        "solution": "a) $\\mu = 490$ ml, b) $\\sigma = 2$ ml, c) $\\approx 0{,}68$, d) $\\approx 0{,}025$, e) merkingen er for høy — 500 ml er $\\mu + 5\\sigma$",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-section-sigma-former",
+      "type": "text",
+      "content": "## Hva $\\sigma$ gjør med formen\n\nTo normalfordelinger med samme $\\mu$, men ulik $\\sigma$, har toppunktet på samme sted — men de ser helt forskjellige ut:\n\n- **Liten $\\sigma$:** høy og smal klokke. Verdiene klumper seg tett om $\\mu$.\n- **Stor $\\sigma$:** lav og bred klokke. Verdiene er spredt.\n\nGrunnen til at den smale også må være **høyere** er at arealet under begge kurvene er 1. Blir bunnen smalere, må toppen opp for at arealet skal holde seg.\n\nDette gjør $\\sigma$ til det avgjørende tallet i kvalitetskontroll. To maskiner kan treffe like godt i gjennomsnitt, og likevel være helt ulikt brukbare — det er $\\sigma$ som avgjør hvor mange enheter som havner utenfor toleransegrensene.\n\n**Et nyttig mål:** hvor mange standardavvik det er fra $\\mu$ ut til toleransegrensen. Er det 2, ryker omtrent 5 % av produksjonen. Er det 3, ryker 0,3 %. Er det 5, ryker praktisk talt ingenting."
+    },
+    {
+      "id": "stat-6-1-example-4",
+      "type": "example",
+      "title": "Eksempel 4: To maskiner, samme μ",
+      "problem": "Et meieri veier opp smør i pakker som skal veie 500 gram. Kravet er at pakkene skal veie mellom 480 g og 520 g.\n\nTo maskiner gir begge normalfordelt vekt med $\\mu = 500$ g, men\n- maskin A har $\\sigma = 10$ g\n- maskin B har $\\sigma = 20$ g\n\na) Finn for hver maskin andelen pakker som havner innenfor kravet.\nb) Meieriet pakker 10 000 pakker i døgnet. Hvor mange pakker må kasseres med hver av maskinene?\nc) Hva ville det kostet å skifte fra B til A, målt i kasserte pakker?",
+      "solution": "**Løsning:**\n\n*Grepet:* regn ut hvor mange standardavvik det er fra $\\mu = 500$ ut til grensene 480 og 520. Det er 20 gram hver vei.\n\n**a)** **Maskin A**, der $\\sigma = 10$:\n\n$$\\frac{20}{10} = 2 \\quad \\Longrightarrow \\quad 480 = \\mu - 2\\sigma \\ \\text{ og } \\ 520 = \\mu + 2\\sigma$$\n\n$$P(480 \\le X \\le 520) \\approx 0{,}95$$\n\n**Maskin B**, der $\\sigma = 20$:\n\n$$\\frac{20}{20} = 1 \\quad \\Longrightarrow \\quad 480 = \\mu - \\sigma \\ \\text{ og } \\ 520 = \\mu + \\sigma$$\n\n$$P(480 \\le X \\le 520) \\approx 0{,}68$$\n\n![To klokkeformede kurver i samme koordinatsystem. Begge er symmetriske om 500 gram, som står midt på den vannrette aksen; aksen er merket gram og viser 440, 460, 480, 500, 520, 540 og 560. Den oransje kurven er høy og smal og når opp til omtrent 0,04. Den blå er lav og bred og når bare opp til omtrent 0,02. To grå stiplede loddrette streker står i 480 og 520. Området under den blå kurven utenfor de to strekene er fylt med turkis, og området under den oransje kurven utenfor de samme strekene er fylt med gult og er tydelig mindre. Til venstre står maskin A kolon sigma-tegnet er lik 10 og ca. 5 prosent utenfor i oransje, til høyre maskin B kolon sigma-tegnet er lik 20 og ca. 32 prosent utenfor i blått.](/images/content/statistikk/stat-6-1-sigma-former.png)\n\n*Samme forventningsverdi, ulik $\\sigma$. Den smale kurven må være høyere, for arealet under begge er 1. Toleransegrensene 480 og 520 gram ligger $2\\sigma$ fra midten for maskin A, men bare $1\\sigma$ for maskin B — og det er hele forskjellen i kassasjon.*\n\n**b)** Andelen som kasseres er det som ligger utenfor:\n\n$$\\text{Maskin A:} \\quad 1 - 0{,}95 = 0{,}05 \\quad \\Longrightarrow \\quad 10\\,000 \\cdot 0{,}05 = 500 \\text{ pakker}$$\n\n$$\\text{Maskin B:} \\quad 1 - 0{,}68 = 0{,}32 \\quad \\Longrightarrow \\quad 10\\,000 \\cdot 0{,}32 = 3200 \\text{ pakker}$$\n\n**c)** Forskjellen er\n\n$$3200 - 500 = 2700 \\text{ pakker i døgnet}$$\n\n**Svar:** a) A: $\\approx 95$ %, B: $\\approx 68$ %. b) A: 500 pakker, B: 3200 pakker. c) 2700 færre kasserte pakker per døgn med maskin A.\n\n**Tolkning:** Begge maskinene «treffer riktig» — gjennomsnittsvekten er 500 gram for begge. Likevel kaster den ene bort seks ganger så mye som den andre. **Det er ikke $\\mu$ som avgjør kvaliteten, det er $\\sigma$.**\n\nDette er kjernen i industriell kvalitetskontroll: å presse $\\sigma$ nedover, slik at toleransegrensene havner stadig flere standardavvik fra midten."
+    },
+    {
+      "id": "stat-6-1-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "medium",
+        "task": "**Gjør den samme.** En fabrikk kjøper bolter som skal være 40,0 mm lange. Bolter kortere enn 39,5 mm eller lengre enn 40,5 mm kasseres. To leverandører tilbyr normalfordelte lengder med $\\mu = 40{,}0$ mm:\n\n- Nord: $\\sigma = 0{,}25$ mm\n- Sør: $\\sigma = 0{,}50$ mm",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Hvor mange standardavvik fra $\\mu$ ligger toleransegrensene hos hver leverandør?",
+            "solution": "Avstanden er $0{,}5$ mm hver vei. Nord: $\\frac{0{,}5}{0{,}25} = 2$ standardavvik. Sør: $\\frac{0{,}5}{0{,}5} = 1$ standardavvik.",
+            "answer": 2
+          },
+          {
+            "label": "b",
+            "task": "Finn andelen godkjente bolter fra hver leverandør.",
+            "solution": "Nord: $\\approx 0{,}95$. Sør: $\\approx 0{,}68$.",
+            "answer": 0.95
+          },
+          {
+            "label": "c",
+            "task": "Fabrikken bruker 20 000 bolter i uka. Hvor mange kasseres fra hver leverandør?",
+            "solution": "Nord: $20\\,000 \\cdot 0{,}05 = 1000$ bolter. Sør: $20\\,000 \\cdot 0{,}32 = 6400$ bolter.",
+            "answer": 1000
+          },
+          {
+            "label": "d",
+            "task": "Sør er 3 øre billigere per bolt, og en bolt fra Nord koster 1,20 kr. Hvilken leverandør er billigst når kassasjonen regnes med?",
+            "solution": "Nord: $20\\,000 \\cdot 1{,}20 = 24\\,000$ kr for 19 000 brukbare bolter, altså $\\frac{24\\,000}{19\\,000} \\approx 1{,}26$ kr per brukbar bolt. Sør: $20\\,000 \\cdot 1{,}17 = 23\\,400$ kr for 13 600 brukbare, altså $\\frac{23\\,400}{13\\,600} \\approx 1{,}72$ kr per brukbar bolt. Nord er klart billigst.",
+            "answer": 1.26
+          },
+          {
+            "label": "e",
+            "task": "Hvor stor må $\\sigma$ være for at toleransegrensene skal ligge $3\\sigma$ fra $\\mu$, og hvor mange bolter kasseres da?",
+            "solution": "$3\\sigma = 0{,}5$ gir $\\sigma = \\frac{0{,}5}{3} \\approx 0{,}17$ mm. Da kasseres $1 - 0{,}997 = 0{,}003$, altså $20\\,000 \\cdot 0{,}003 = 60$ bolter i uka.",
+            "answer": 60
+          }
+        ],
+        "hints": [
+          "Regn først avstanden fra $\\mu$ til grensen, og del på $\\sigma$.",
+          "I d): sammenlign pris per **brukbar** bolt, ikke per innkjøpt bolt."
+        ],
+        "solution": "a) Nord 2, Sør 1, b) 0,95 og 0,68, c) 1000 og 6400, d) Nord (≈ 1,26 kr mot ≈ 1,72 kr per brukbar bolt), e) $\\sigma \\approx 0{,}17$ mm og 60 bolter",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-warning-ikke-alt",
+      "type": "warning",
+      "title": "Ikke alt er normalfordelt",
+      "content": "Normalfordelingen er en modell, og den passer ikke på alt. Sjekk disse tre tingene før du bruker den:\n\n1. **Er fordelingen symmetrisk?** Inntekter, ventetider, husholdningsformue og skadeutbetalinger er **skjeve**: de har en lang hale mot høyre og ingen hale mot venstre. Der er normalfordelingen feil modell, og gjennomsnittet et dårlig midtpunkt (se kapittel 1.3).\n2. **Kan variabelen ta alle verdier i et intervall?** Antall barn i en familie, antall riktige på en prøve og antall som svarer ja i en spørreundersøkelse er **diskrete**. De kan noen ganger *tilnærmes* med en normalfordeling — det gjør vi i kapittel 6.5 — men de er ikke normalfordelte.\n3. **Er det én gruppe, eller flere blandet sammen?** Måler du høyden til alle voksne i Norge under ett, får du ikke én klokke, men to overlappende klokker lagt oppå hverandre — én for kvinner og én for menn. Toppen blir da bredere og flatere enn en ekte normalkurve.\n\n**Hvordan sjekke i praksis:** tegn et histogram av dataene, og se etter klokkeformen. Er den tydelig skjev, eller har den to topper, må du velge en annen modell."
+    },
+    {
+      "id": "stat-6-1-fig-blanding-to-grupper",
+      "type": "image",
+      "src": "/images/content/statistikk/stat-6-1-blanding-to-grupper.png",
+      "alt": "To kurver i samme koordinatsystem over en akse merket cm, med verdiene 150, 160, 170, 180 og 190. Den tykke oransje kurven har en bred, nesten flat topp med to svake kuler, den venstre ved omtrent 169,5 og den høyre ved omtrent 177,5, med et grunt søkk mellom dem. To grå stiplede streker står i 167 og 180 — det er de to gruppenes forventningsverdier, og de treffer bakkene, ikke kulene. Den stiplede blå kurven er en vanlig klokkekurve med én spiss topp midt mellom de to, litt høyere enn den oransje. Ute i halene ligger den blå kurven over den oransje på begge sider. Tekstene begge sammen i oransje og en ekte normalkurve i blått står øverst. Under kurven står my er lik 167 til venstre og my er lik 180 til høyre.",
+      "caption": "To grupper med $\\mu = 167$ cm og $\\mu = 180$ cm, begge med $\\sigma = 6$ cm og halvparten i hver. Den oransje kurven er de to gruppene sett under ett. Den stiplede blå har **nøyaktig samme** forventningsverdi og standardavvik, men er en ekte normalkurve — og formene er tydelig forskjellige. En blanding av to normalfordelinger er ikke selv normalfordelt.",
+      "kommentar": "spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-6-1-blanding-to-grupper.json"
+    },
+    {
+      "id": "stat-6-1-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Kjenn igjen situasjonen.** Avgjør for hver variabel om normalfordelingen er en rimelig modell. Begrunn kort.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Vekten til nyfødte barn i Norge.",
+            "solution": "Rimelig. Symmetrisk, kontinuerlig, og resultat av mange små bidrag. Dette er et av skolebokeksemplene på en normalfordelt størrelse."
+          },
+          {
+            "label": "b",
+            "task": "Årsinntekten til alle voksne i en kommune.",
+            "solution": "Ikke rimelig. Inntektsfordelinger er sterkt høyreskjeve: de fleste ligger samlet, mens noen få ligger svært høyt. Medianinntekten er derfor lavere enn gjennomsnittsinntekten."
+          },
+          {
+            "label": "c",
+            "task": "Antall elever som er borte fra skolen en tilfeldig dag.",
+            "solution": "Ikke uten videre — variabelen er diskret og teller. Med mange elever kan den likevel tilnærmes med en normalfordeling (kapittel 6.5)."
+          },
+          {
+            "label": "d",
+            "task": "Tiden til neste kunde ringer inn til en kundeservice.",
+            "solution": "Ikke rimelig. Ventetider er høyreskjeve, med en lang hale av lange ventetider — vi modellerte nettopp en slik i kapittel 5.6."
+          },
+          {
+            "label": "e",
+            "task": "Høyden til alle elevene på en ungdomsskole.",
+            "solution": "Tvilsomt. Her blandes flere grupper: gutter og jenter, og 8., 9. og 10. trinn i full vekst. Fordelingen blir bredere og kan få flere topper. Holder vi oss til én gruppe — for eksempel gutter på 10. trinn — er normalfordelingen langt rimeligere."
+          }
+        ],
+        "hints": [
+          "Spør: er fordelingen symmetrisk, er variabelen kontinuerlig, og er det én gruppe eller flere?"
+        ],
+        "solution": "a) rimelig, b) nei — høyreskjev, c) diskret, men kan tilnærmes, d) nei — høyreskjev, e) tvilsomt — flere grupper blandet",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-oppsummering",
+      "type": "text",
+      "content": "## Oppsummering\n\n- En **normalfordelt** variabel har en symmetrisk klokkeformet tetthetskurve som er fullstendig bestemt av to tall: $\\mu$ (hvor kurven ligger) og $\\sigma$ (hvor bred den er).\n- Vi skriver opplysningene som egne linjer: «$X$ er normalfordelt med $\\mu = \\ldots$ og $\\sigma = \\ldots$».\n- Symmetrien gir $P(X \\le \\mu) = 0{,}5$, og at halene er speilbilder: $P(X \\le \\mu - a) = P(X \\ge \\mu + a)$.\n- **68–95–99,7-regelen:** omtrent 68 % ligger innenfor $\\mu \\pm \\sigma$, 95 % innenfor $\\mu \\pm 2\\sigma$ og 99,7 % innenfor $\\mu \\pm 3\\sigma$.\n- **Framgangsmåten** er alltid den samme: regn ut hvor mange standardavvik grensen ligger fra $\\mu$, og les av regelen. «Utenfor» deles på to like haler.\n- Er grensene ulikt langt fra $\\mu$, deler du i to biter ved $\\mu$ og legger sammen halvdelene.\n- Går oppgaven motsatt vei, bruker du at $\\mu$ ligger midt i intervallet, og at bredden er $2\\sigma$ (68 %), $4\\sigma$ (95 %) eller $6\\sigma$ (99,7 %).\n- $\\sigma$ avgjør kvaliteten: hvor mange standardavvik det er ut til toleransegrensen, bestemmer hvor mye som kasseres.\n- Normalfordelingen passer **ikke** på skjeve fordelinger, og heller ikke uten videre på blandinger av flere grupper.\n\nI kapittel 6.2 tar vi neste skritt: å regne med **vilkårlige** grenser, ikke bare hele antall $\\sigma$."
+    },
+    {
+      "id": "stat-6-1-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Samleoppgave.** Poengsummen $X$ på en nasjonal prøve er tilnærmet normalfordelt med $\\mu = 42$ poeng og $\\sigma = 8$ poeng. 1200 elever tok prøven.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Finn $P(34 \\le X \\le 50)$, og forklar hva tallet betyr i denne sammenhengen.",
+            "solution": "$34 = \\mu - \\sigma$ og $50 = \\mu + \\sigma$, så $P(34 \\le X \\le 50) \\approx 0{,}68$. Omtrent 68 % av elevene — rundt 816 av 1200 — fikk mellom 34 og 50 poeng.",
+            "answer": 0.68
+          },
+          {
+            "label": "b",
+            "task": "Finn sannsynligheten for at en tilfeldig valgt elev fikk mer enn 58 poeng.",
+            "solution": "$58 = \\mu + 2\\sigma$, så $P(X > 58) = \\frac{1 - 0{,}95}{2} = 0{,}025$.",
+            "answer": 0.025
+          },
+          {
+            "label": "c",
+            "task": "Hvor mange av de 1200 elevene venter vi fikk mer enn 58 poeng?",
+            "solution": "$1200 \\cdot 0{,}025 = 30$ elever.",
+            "answer": 30
+          },
+          {
+            "label": "d",
+            "task": "Finn $P(42 \\le X \\le 58)$.",
+            "solution": "Fra $\\mu$ til $\\mu + 2\\sigma$ er halve 95 %-intervallet: $\\frac{0{,}95}{2} = 0{,}475$.",
+            "answer": 0.475
+          },
+          {
+            "label": "e",
+            "task": "Skolen vil gi ekstra oppfølging til de 2,5 % svakeste. Hvilken poenggrense gir det, og hvor mange elever gjelder det?",
+            "solution": "2,5 % i venstre hale svarer til $\\mu - 2\\sigma = 42 - 16 = 26$ poeng. Det gjelder $1200 \\cdot 0{,}025 = 30$ elever.",
+            "answer": 26
+          }
+        ],
+        "hints": [
+          "Alle grensene i oppgaven er hele antall $\\sigma$ fra $\\mu$ — finn ut hvilke.",
+          "I e) leter du etter grensen som har 2,5 % under seg. Hvilken hale kjenner du igjen?"
+        ],
+        "solution": "a) $\\approx 0{,}68$ (rundt 816 elever), b) $\\approx 0{,}025$, c) 30 elever, d) $\\approx 0{,}475$, e) 26 poeng, 30 elever",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Del 2 — regneark.** I et regneark har du 200 målte fyllmengder i milliliter fra en tappemaskin, i kolonne A.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "Skriv formlene som gir $\\bar{x}$ og $s$ for dataene, og forklar hvorfor du velger `STDAV.S` og ikke `STDAV.P`.",
+            "solution": "`=GJENNOMSNITT(A2:A201)` og `=STDAV.S(A2:A201)`. De 200 målingene er et **utvalg** fra produksjonen, ikke hele produksjonen, så vi deler på $n - 1$ (kapittel 5.7)."
+          },
+          {
+            "label": "b",
+            "task": "La regnearket vise $\\bar{x} = 249{,}6$ ml og $s = 1{,}8$ ml. Hvilket intervall venter du at omtrent 95 % av målingene ligger i, dersom fyllmengden er normalfordelt?",
+            "solution": "Vi bruker $\\bar{x}$ og $s$ som estimater for $\\mu$ og $\\sigma$: $249{,}6 \\pm 2 \\cdot 1{,}8$, altså fra $246{,}0$ til $253{,}2$ ml.",
+            "answer": 246
+          },
+          {
+            "label": "c",
+            "task": "Skriv en regnearkformel som teller hvor mange av de 200 målingene som faktisk ligger i intervallet fra b).",
+            "solution": "`=ANTALL.HVIS.SETT(A2:A201; \">=246\"; A2:A201; \"<=253,2\")`. Deler du svaret på 200, får du den målte andelen. Her gir tellingen 189 (se d)."
+          },
+          {
+            "label": "d",
+            "task": "Tellingen i c) gir 189. Stemmer det med modellen?",
+            "solution": "Modellen venter $200 \\cdot 0{,}95 = 190$ målinger i intervallet. 189 mot 190 er en forskjell på én måling, altså godt innenfor det tilfeldig variasjon kan forklare. Det taler for at normalfordelingen passer.",
+            "answer": 190
+          },
+          {
+            "label": "e",
+            "task": "Hvilken figur ville du laget i regnearket for å vurdere om fordelingen faktisk er klokkeformet, og hva ville fått deg til å forkaste normalmodellen?",
+            "solution": "Et histogram med klasser (kapittel 1.5). Jeg ville forkastet normalmodellen hvis histogrammet var tydelig skjevt, hadde to topper, eller var avkuttet i den ene enden — det siste skjer for eksempel hvis maskinen har en nedre sperre som hindrer underfylling."
+          }
+        ],
+        "hints": [
+          "$\\bar{x}$ og $s$ er estimater for $\\mu$ og $\\sigma$ — se kapittel 5.7.",
+          "Sammenlign alltid det modellen **venter** med det du faktisk **teller**."
+        ],
+        "solution": "a) `=GJENNOMSNITT(...)` og `=STDAV.S(...)` fordi dataene er et utvalg, b) $[246{,}0;\\ 253{,}2]$, c) `ANTALL.HVIS.SETT`, d) ja — modellen venter 190, vi teller 189, e) histogram; skjevhet, to topper eller avkutting forkaster modellen",
+        "competenceGoals": [
+          "kjenne til at sannsyn for kontinuerlege variablar er arealet under tettleiksfunksjonen, og bruke tabellar og digitale verktøy til å rekne ut areal",
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    },
+    {
+      "id": "stat-6-1-ex-block-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stat-6-1-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Drøfting.** Vurder påstandene under.",
+        "subTasks": [
+          {
+            "label": "a",
+            "task": "«Siden 99,7 % av verdiene ligger innenfor $\\mu \\pm 3\\sigma$, er det umulig å måle en verdi lenger ute enn det.» Drøft.",
+            "solution": "Galt. 0,3 % er ikke null. Måler du 10 000 enheter, venter du omkring 30 av dem utenfor $\\mu \\pm 3\\sigma$. Kurven når aldri ned til aksen, så enhver verdi er mulig — bare stadig mindre sannsynlig jo lenger ut du går."
+          },
+          {
+            "label": "b",
+            "task": "To fordelinger har samme $\\mu$. Kan den ene likevel gi flest verdier over et gitt tall $k > \\mu$?",
+            "solution": "Ja. Den med størst $\\sigma$ har tykkere haler, og gir derfor flest verdier langt fra $\\mu$ — både over og under. I eksempel 4 ga maskin B både flest undervektige og flest overvektige pakker, selv om begge maskinene hadde $\\mu = 500$ g."
+          },
+          {
+            "label": "c",
+            "task": "«Standardavviket til en normalfordeling kan leses av kurven.» Hvordan?",
+            "solution": "Ja, på to måter. Der kurven skifter fra å krumme nedover til å krumme oppover — i **vendepunktene** — ligger $\\mu - \\sigma$ og $\\mu + \\sigma$. Vendepunktene ligger altså $\\sigma$ til hver side av $\\mu$, og avstanden mellom dem er $2\\sigma$ til sammen. Og jo lavere toppen er, jo større er $\\sigma$, siden arealet alltid er 1."
+          },
+          {
+            "label": "d",
+            "task": "En elev regner $P(X > \\mu + 2\\sigma) = 1 - 0{,}95 = 0{,}05$. Hva er feilen, og hvor stor er den?",
+            "solution": "Eleven har glemt at 5 % er fordelt på **to** haler. Riktig svar er $\\frac{0{,}05}{2} = 0{,}025$ — eleven svarer dobbelt så høyt som riktig. Dette er den vanligste feilen i hele kapittelet, og en skisse med begge haler skravert avslører den umiddelbart."
+          },
+          {
+            "label": "e",
+            "task": "Hvorfor er $\\sigma$ et mer nyttig spredningsmål for en normalfordeling enn variasjonsbredden (største minus minste måling)?",
+            "solution": "Fordi variasjonsbredden bare bygger på to målinger — de to mest ekstreme — og derfor vokser med antall målinger: måler du flere, finner du før eller siden en enda mer ekstrem verdi. $\\sigma$ bygger på alle målingene og nærmer seg en fast verdi når $n$ vokser. I tillegg har $\\sigma$ en fast tolkning gjennom 68–95–99,7-regelen, som variasjonsbredden ikke har."
+          }
+        ],
+        "hints": [
+          "Tegn kurven og skraver det området påstanden gjelder — de fleste feilene blir synlige med én gang."
+        ],
+        "solution": "a) Nei — 0,3 % er ikke null. b) Ja — størst $\\sigma$ gir tykkest haler. c) Ja — ved vendepunktet ligger $\\mu \\pm \\sigma$, og lav topp betyr stor $\\sigma$. d) Eleven glemte å dele halen på 2; riktig er 0,025. e) Variasjonsbredden bygger på to målinger og vokser med $n$.",
+        "competenceGoals": [
+          "bruke normalfordeling og sentralgrensesetninga i problemløysing"
+        ],
+        "allowsUpload": true,
+        "allowsCanvasDrawing": true
+      }
+    }
+  ],
+  "exercises": [],
+  "keyTerms": [
+    {
+      "term": "Normalfordeling",
+      "definition": "Den symmetriske klokkeformede fordelingen som er fullstendig bestemt av forventningsverdien $\\mu$ og standardavviket $\\sigma$. Sannsynlighet er areal under kurven."
+    },
+    {
+      "term": "Forventningsverdi μ",
+      "definition": "Tallet som sier hvor normalkurven ligger. Toppunktet, medianen og middelverdien er alle lik $\\mu$, og kurven er symmetrisk om den loddrette linja gjennom $\\mu$."
+    },
+    {
+      "term": "Standardavvik σ",
+      "definition": "Tallet som sier hvor bred normalkurven er. Liten $\\sigma$ gir en høy og smal klokke, stor $\\sigma$ en lav og bred. Arealet er 1 uansett."
+    },
+    {
+      "term": "68–95–99,7-regelen",
+      "definition": "Omtrent 68 % av verdiene ligger innenfor $\\mu \\pm \\sigma$, 95 % innenfor $\\mu \\pm 2\\sigma$ og 99,7 % innenfor $\\mu \\pm 3\\sigma$ — for enhver normalfordeling."
+    },
+    {
+      "term": "Toleransegrense",
+      "definition": "Den øvre eller nedre grensen for hva som godtas i en produksjon. Hvor mange standardavvik det er fra $\\mu$ ut til grensen, avgjør hvor stor andel som må kasseres."
+    }
+  ]
+}
