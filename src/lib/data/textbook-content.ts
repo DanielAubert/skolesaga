@@ -26,14 +26,45 @@ const EMPTY: AllData = { chapters: {}, aliases: {} };
 // Bokmål: bundlet på disk, synkron lasting
 // ============================================================================
 
-let allData: AllData | null = null;
+// 17.9.2026: _all.json (234 MB, 12 500 kapitler) ble parset ved hver kald instans → sekunder per sidevisning.
+// Nå: _index.json (kapittel → kurs, aliaser) + _kurs/<kurs>.json lastes lat og caches per kurs.
+const CHAPTER_DIR = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters');
+interface Index { kurs: Record<string, string>; aliases: Record<string, string> }
+let index: Index | null = null;
+const kursCache = new Map<string, Record<string, TextbookChapter>>();
 
-function getData(): AllData {
-  if (!allData) {
-    const jsonPath = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters', '_all.json');
-    allData = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+function getIndex(): Index {
+  if (!index) index = JSON.parse(fs.readFileSync(path.join(CHAPTER_DIR, '_index.json'), 'utf-8'));
+  return index!;
+}
+
+function getKurs(kurs: string): Record<string, TextbookChapter> {
+  let k = kursCache.get(kurs);
+  if (!k) {
+    try {
+      k = JSON.parse(fs.readFileSync(path.join(CHAPTER_DIR, '_kurs', kurs + '.json'), 'utf-8'));
+    } catch {
+      k = {};
+    }
+    kursCache.set(kurs, k!);
   }
-  return allData!;
+  return k!;
+}
+
+/** Slår opp ett kapittel (med alias) uten å laste andre kurs. */
+function slaaOpp(chapterId: string): TextbookChapter | undefined {
+  const ix = getIndex();
+  const id = ix.aliases[chapterId] || chapterId;
+  const kurs = ix.kurs[id];
+  return kurs ? getKurs(kurs)[id] : undefined;
+}
+
+/** Bare for kall som trenger ALT (sitemap o.l.) — laster alle kursbunter. */
+function getData(): AllData {
+  const ix = getIndex();
+  const chapters: Record<string, TextbookChapter> = {};
+  for (const kurs of new Set(Object.values(ix.kurs))) Object.assign(chapters, getKurs(kurs));
+  return { chapters, aliases: ix.aliases };
 }
 
 // ============================================================================
@@ -76,8 +107,7 @@ function getRemote(malform: 'nn' | 'sme'): Promise<AllData> {
  * (oppgave-/treningssider, API-ruter, quiz-/flashcard-generering).
  */
 export function getChapterContent(chapterId: string): TextbookChapter | undefined {
-  const { chapters, aliases } = getData();
-  return chapters[chapterId] ?? chapters[aliases[chapterId]];
+  return slaaOpp(chapterId);
 }
 
 /**
@@ -117,10 +147,10 @@ export async function getSmeChapterIds(): Promise<string[]> {
 }
 
 export function getAllChapterIds(): string[] {
-  return Object.keys(getData().chapters);
+  return Object.keys(getIndex().kurs);
 }
 
 export function isChapterImplemented(chapterId: string): boolean {
-  const { chapters, aliases } = getData();
-  return chapterId in chapters || chapterId in aliases;
+  const ix = getIndex();
+  return chapterId in ix.kurs || chapterId in ix.aliases;
 }

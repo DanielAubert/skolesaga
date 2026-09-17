@@ -33,14 +33,20 @@ const nextConfig: NextConfig = {
   // Supabase Storage ved kjøretid og må IKKE bundles (273 MB > 250 MB-grensa).
   outputFileTracingExcludes: {
     '/**': [
+      './src/lib/data/chapters/_all.json',        // 234 MB — erstattet av _kurs/*.json (17.9.2026)
       './src/lib/data/chapters/_all.nn.json',
       './src/lib/data/chapters/_all.sme.json',
     ],
+  },
+  outputFileTracingIncludes: {
+    '/**': ['./src/lib/data/chapters/_index.json', './src/lib/data/chapters/_kurs/*.json'],
   },
   turbopack: {
     root: __dirname, // Explicitly set root to prevent parent directory inference
   },
   images: {
+    // 17.9.2026: bilder går via /media/… med ?v=<bygg> (medie-proxy med lang cache)
+    localPatterns: [{ pathname: '/media/**' }],
     remotePatterns: [
       {
         protocol: 'https',

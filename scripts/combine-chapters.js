@@ -20,6 +20,24 @@ fs.writeFileSync(
 
 console.log(`Kombinerte ${registry.chapterIds.length} kapitler til _all.json`);
 
+// Per-kurs-bunter (17.9.2026): _all.json er 234 MB og ble parset ved hver kald Vercel-instans (sekunder per
+// sidevisning). Serveren leser nå _kurs/<courseId>.json (typisk 0,3–3 MB) ved behov, via _index.json.
+const kursDir = path.join(dir, '_kurs');
+fs.mkdirSync(kursDir, { recursive: true });
+for (const f of fs.readdirSync(kursDir)) fs.unlinkSync(path.join(kursDir, f));
+const perKurs = {};
+const index = { kurs: {}, aliases: registry.aliases || {} };
+for (const id of registry.chapterIds) {
+  const kurs = (chapters[id] && chapters[id].courseId) || '_diverse';
+  (perKurs[kurs] = perKurs[kurs] || {})[id] = chapters[id];
+  index.kurs[id] = kurs;
+}
+for (const [kurs, kap] of Object.entries(perKurs)) {
+  fs.writeFileSync(path.join(kursDir, kurs + '.json'), JSON.stringify(kap));
+}
+fs.writeFileSync(path.join(dir, '_index.json'), JSON.stringify(index));
+console.log(`Skrev ${Object.keys(perKurs).length} kursbunter til _kurs/ og _index.json`);
+
 // ---------------------------------------------------------------------------
 // _dates.json — endringstidspunkt per kapittel, til <lastmod> i sitemapet.
 //

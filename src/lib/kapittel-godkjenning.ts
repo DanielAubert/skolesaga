@@ -6,6 +6,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { getServerSession } from 'next-auth';
+import { cookies } from 'next/headers';
 import { authOptions } from '@/lib/auth/config';
 
 export const GODKJENNINGSSTYRTE_KURS = ['statistikk', 'matematikk-okonomi'] as const;
@@ -15,10 +16,14 @@ interface Fil { _info?: string; kapitler: Record<string, Godkjenning> }
 
 const STI = path.join(process.cwd(), 'src', 'lib', 'data', 'kapittel-godkjenning.json');
 
+let cache: { mtime: number; data: Fil } | null = null;
 export function lesGodkjenninger(): Fil {
   try {
+    const mtime = fs.statSync(STI).mtimeMs;          // memo per filendring — kursiden kalte dette 44× per visning
+    if (cache && cache.mtime === mtime) return cache.data;
     const d = JSON.parse(fs.readFileSync(STI, 'utf-8')) as Fil;
-    return { ...d, kapitler: d.kapitler ?? {} };
+    cache = { mtime, data: { ...d, kapitler: d.kapitler ?? {} } };
+    return cache.data;
   } catch {
     return { kapitler: {} };
   }
@@ -49,6 +54,9 @@ export function erGodkjent(chapterId: string): boolean {
 /** Innlogget admin ser alle kapitler også på nettsiden (Daniel 17.9: «uten å logge seg inn via admin»). */
 export async function erAdminSesjon(): Promise<boolean> {
   try {
+    // Ingen sesjonscookie → ingen DB-oppslag (anonyme lesere er de fleste)
+    const c = await cookies();
+    if (!c.getAll().some((x) => x.name.includes('next-auth.session-token') || x.name.includes('authjs.session-token'))) return false;
     const s = await getServerSession(authOptions);
     return (s?.user as { role?: string } | undefined)?.role === 'admin';
   } catch {

@@ -19,7 +19,8 @@ export function mediaUrl(path: string): string {
   if (path.startsWith('/audio/') || path.startsWith('/images/')) {
     // Versjonsstempel per bygg (17.9.2026): figurer byttes med samme filnavn, og nettleseren viste gamle kopier
     const v = process.env.NEXT_PUBLIC_MEDIA_VERSION;
-    return `${MEDIA_BASE}${path}${v ? `?v=${v}` : ''}`;
+    // 17.9.2026: via egen medie-proxy (/media/…) som setter lang cache — Storage svarer alltid no-cache
+    return `/media${path}${v ? `?v=${v}` : ''}`;
   }
   return path;
 }
