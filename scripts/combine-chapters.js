@@ -22,9 +22,9 @@ console.log(`Kombinerte ${registry.chapterIds.length} kapitler til _all.json`);
 
 // Per-kurs-bunter (17.9.2026): _all.json er 234 MB og ble parset ved hver kald Vercel-instans (sekunder per
 // sidevisning). Serveren leser nå _kurs/<courseId>.json (typisk 0,3–3 MB) ved behov, via _index.json.
-const kursDir = path.join(dir, '_kurs');
+const kursDir = path.join(__dirname, '..', 'src', 'lib', 'data', 'kursbunter');   // egen mappe: chapters/ (234 MB rå) skal ikke spores inn i funksjonene
 fs.mkdirSync(kursDir, { recursive: true });
-for (const f of fs.readdirSync(kursDir)) fs.unlinkSync(path.join(kursDir, f));
+for (const f of fs.readdirSync(kursDir)) if (f.endsWith('.gz') || f === '_index.json') fs.unlinkSync(path.join(kursDir, f));
 const perKurs = {};
 const index = { kurs: {}, aliases: registry.aliases || {} };
 for (const id of registry.chapterIds) {
@@ -37,8 +37,8 @@ for (const [kurs, kap] of Object.entries(perKurs)) {
   // gzip (17.9.2026): rå bunter ga 764 MB funksjon på Vercel (grense 250 MB); gz er ~6× mindre
   fs.writeFileSync(path.join(kursDir, kurs + '.json.gz'), zlib.gzipSync(JSON.stringify(kap), { level: 6 }));
 }
-fs.writeFileSync(path.join(dir, '_index.json'), JSON.stringify(index));
-console.log(`Skrev ${Object.keys(perKurs).length} kursbunter til _kurs/ og _index.json`);
+fs.writeFileSync(path.join(kursDir, '_index.json'), JSON.stringify(index));
+console.log(`Skrev ${Object.keys(perKurs).length} kursbunter (gz) + _index.json til src/lib/data/kursbunter/`);
 
 // ---------------------------------------------------------------------------
 // _dates.json — endringstidspunkt per kapittel, til <lastmod> i sitemapet.

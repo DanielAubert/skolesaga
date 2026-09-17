@@ -28,13 +28,13 @@ const EMPTY: AllData = { chapters: {}, aliases: {} };
 
 // 17.9.2026: _all.json (234 MB, 12 500 kapitler) ble parset ved hver kald instans → sekunder per sidevisning.
 // Nå: _index.json (kapittel → kurs, aliaser) + _kurs/<kurs>.json lastes lat og caches per kurs.
-const CHAPTER_DIR = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters');
+const BUNT_DIR = path.join(process.cwd(), 'src', 'lib', 'data', 'kursbunter');   // gz-bunter + _index.json (prebuild); chapters/ spores ikke
 interface Index { kurs: Record<string, string>; aliases: Record<string, string> }
 let index: Index | null = null;
 const kursCache = new Map<string, Record<string, TextbookChapter>>();
 
 function getIndex(): Index {
-  if (!index) index = JSON.parse(fs.readFileSync(path.join(CHAPTER_DIR, '_index.json'), 'utf-8'));
+  if (!index) index = JSON.parse(fs.readFileSync(path.join(BUNT_DIR, '_index.json'), 'utf-8'));
   return index!;
 }
 
@@ -42,7 +42,7 @@ function getKurs(kurs: string): Record<string, TextbookChapter> {
   let k = kursCache.get(kurs);
   if (!k) {
     try {
-      k = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(CHAPTER_DIR, '_kurs', kurs + '.json.gz'))).toString('utf-8'));
+      k = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(BUNT_DIR, kurs + '.json.gz'))).toString('utf-8'));
     } catch {
       k = {};
     }

@@ -32,14 +32,12 @@ const nextConfig: NextConfig = {
   // Bokmål bundles inn (synkron fs-lasting). Nynorsk/nordsamisk hentes fra
   // Supabase Storage ved kjøretid og må IKKE bundles (273 MB > 250 MB-grensa).
   outputFileTracingExcludes: {
-    '/**': [
-      './src/lib/data/chapters/_all.json',        // 234 MB — erstattet av _kurs/*.json (17.9.2026)
-      './src/lib/data/chapters/_all.nn.json',
-      './src/lib/data/chapters/_all.sme.json',
-    ],
+    // 17.9.2026: kapittelfilene (12 520 stk, 234 MB) og _all*.json leses bare ved bygg (prebuild) —
+    // serveren leser src/lib/data/kursbunter/ (gz, 61 MB). Uten dette ble funksjonen 599–764 MB (grense 250).
+    '/**': ['./src/lib/data/chapters/*.json'],   // bare toppnivå: chapters/sme/ leses av sme-review ved kjøretid
   },
   outputFileTracingIncludes: {
-    '/**': ['./src/lib/data/chapters/_index.json', './src/lib/data/chapters/_kurs/*.json.gz'],
+    '/**': ['./src/lib/data/kursbunter/**'],
   },
   turbopack: {
     root: __dirname, // Explicitly set root to prevent parent directory inference
