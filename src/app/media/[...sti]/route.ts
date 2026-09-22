@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { tellLagerbytes } from '@/lib/egress-teller';
 
 /**
  * Medie-proxy (17.9.2026): Supabase Storage svarer «cache-control: no-cache» på alle objekter uansett upload-innstilling,
@@ -25,6 +26,10 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ sti: string
   if (!opp.ok) return new NextResponse('Ikke funnet', { status: opp.status === 400 ? 404 : opp.status });
   const type = opp.headers.get('content-type') || 'application/octet-stream';
   const body = await opp.arrayBuffer();
+  // Storage teller ikke med på databasens egress-måler, så proxyen teller selv.
+  // Uten await: innmeldingen skal aldri forsinke eller velte et bilde.
+  // Se src/lib/egress-teller.ts for hvorfor tallet er en øvre grense.
+  tellLagerbytes(body.byteLength);
   return new NextResponse(body, {
     status: 200,
     headers: {
