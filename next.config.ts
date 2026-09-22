@@ -27,7 +27,15 @@ const cspDirectives = [
 ].join('; ');
 
 const nextConfig: NextConfig = {
-  env: { NEXT_PUBLIC_MEDIA_VERSION: Date.now().toString(36) },   // cache-busting for bilder (17.9.2026)
+  // Cache-busting for medier. MÅ være en STABIL verdi: `Date.now()` her ga nytt
+  // versjonsmerke ved HVER bygging, og siden mediaUrl() henger merket på hver
+  // bilde- og lyd-URL, ble hele CDN-mellomlageret ugyldig ved hver utrulling —
+  // alle 2,5 GB ble hentet på nytt fra Supabase Storage, i hver region.
+  // Målt 22.9.2026: cached egress steg fra ~5 GB/døgn til 17–29 GB/døgn i takt
+  // med utrullingene 15.–22.9, og Pro-kvoten på 250 GB ble sprengt.
+  // BUMP DENNE MANUELT når en mediefil byttes med samme filnavn (det var den
+  // opprinnelige grunnen, 17.9: figurer ble byttet og nettleseren viste gamle).
+  env: { NEXT_PUBLIC_MEDIA_VERSION: '2026-09-22' },
   /* config options here */
   // Bokmål bundles inn (synkron fs-lasting). Nynorsk/nordsamisk hentes fra
   // Supabase Storage ved kjøretid og må IKKE bundles (273 MB > 250 MB-grensa).

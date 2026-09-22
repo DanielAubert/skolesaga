@@ -17,7 +17,11 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ sti: string
   if (!BASE || !/^(images|audio)\//.test(sti.join('/')) || sti.some((s) => s === '..')) {
     return new NextResponse('Ikke funnet', { status: 404 });
   }
-  const opp = await fetch(`${BASE}/${rel}`, { cache: 'no-store' });
+  // 22.9.2026: var `no-store` — da gikk HVER CDN-bom helt til Supabase. Med
+  // force-cache serverer Next sitt eget datalager oppstrøms, så en bom koster
+  // ett Supabase-treff i stedet for ett per forespørsel. Innholdet er
+  // uforanderlig per versjonsmerke (se NEXT_PUBLIC_MEDIA_VERSION), så det er trygt.
+  const opp = await fetch(`${BASE}/${rel}`, { cache: 'force-cache' });
   if (!opp.ok) return new NextResponse('Ikke funnet', { status: opp.status === 400 ? 404 : opp.status });
   const type = opp.headers.get('content-type') || 'application/octet-stream';
   const body = await opp.arrayBuffer();
