@@ -27,12 +27,12 @@ export function UserMenu() {
   if (!isAuthenticated || !user) {
     return (
       <div className="flex items-center gap-2">
-        <Link href="/login">
+        <Link prefetch={false} href="/login">
           <Button variant="ghost" size="sm">
             Logg inn
           </Button>
         </Link>
-        <Link href="/login?tab=signup">
+        <Link prefetch={false} href="/login?tab=signup">
           <Button size="sm">
             Registrer
           </Button>

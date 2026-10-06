@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container relative py-12 md:py-16">
         <div className="flex justify-center">
           <div className="max-w-md text-center">
-            <Link href="/" className="inline-flex items-center justify-center hover:opacity-80 transition-opacity">
+            <Link prefetch={false} href="/" className="inline-flex items-center justify-center hover:opacity-80 transition-opacity">
               <Logo size="md" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
@@ -22,7 +22,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/50 pt-8">
           <div className="flex flex-col items-center gap-4">
-            <Link
+            <Link prefetch={false}
               href="/"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -30,16 +30,16 @@ export function Footer() {
               Lærebok
             </Link>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-              <Link href="/personvern" className="hover:text-foreground transition-colors">
+              <Link prefetch={false} href="/personvern" className="hover:text-foreground transition-colors">
                 Personvern
               </Link>
-              <Link href="/vilkar" className="hover:text-foreground transition-colors">
+              <Link prefetch={false} href="/vilkar" className="hover:text-foreground transition-colors">
                 Vilkår
               </Link>
-              <Link href="/tilgjengelighet" className="hover:text-foreground transition-colors">
+              <Link prefetch={false} href="/tilgjengelighet" className="hover:text-foreground transition-colors">
                 Tilgjengelighet
               </Link>
-              <Link href="/kontakt" className="hover:text-foreground transition-colors">
+              <Link prefetch={false} href="/kontakt" className="hover:text-foreground transition-colors">
                 Kontakt
               </Link>
             </div>
@@ -54,7 +54,7 @@ export function Footer() {
             </p>
             <p className="text-center text-xs text-muted-foreground/70 mt-2">
               Innholdet er utviklet med støtte fra kunstig intelligens og kvalitetssikres løpende.{" "}
-              <Link href="/vilkar#ki-deklarasjon" className="underline hover:text-foreground transition-colors">
+              <Link prefetch={false} href="/vilkar#ki-deklarasjon" className="underline hover:text-foreground transition-colors">
                 Les mer
               </Link>
             </p>
