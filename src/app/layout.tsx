@@ -87,15 +87,8 @@ export const metadata: Metadata = {
     title: "Skolesaga - Interaktive lærebøker",
     description: "Gratis interaktive lærebøker for alle fag fra 5. klasse til VG3.",
   },
-  icons: {
-    icon: [
-      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-  },
+  // Ikonene kommer fra src/app/icon.tsx og src/app/apple-icon.tsx (Next legger lenkene inn selv). Den gamle lista
+  // pekte på /icons/*.png som ikke finnes, og ga ~1 200 404-svar i minuttet (6.10.2026, Vercel-kostnaden).
 };
 
 export default async function RootLayout({

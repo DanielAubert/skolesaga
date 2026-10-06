@@ -78,6 +78,18 @@ const nextConfig: NextConfig = {
   // Sikkerhetsnett: mediefilene er flyttet til Supabase Storage (bucket: media).
   // Render-koden bruker mediaUrl() fra src/lib/media.ts; disse redirectene fanger
   // opp eventuelle direkte lenker og referanser som ikke går via hjelperen.
+  // Nettlesere (særlig iOS) ber om faste ikonadresser selv om siden peker et annet sted. Uten disse ga
+  // /icons/apple-touch-icon.png alene ~1 200 404-svar i minuttet (6.10.2026). Ikonene lages av app/icon.tsx og
+  // app/apple-icon.tsx.
+  async rewrites() {
+    return [
+      { source: '/apple-touch-icon.png', destination: '/apple-icon' },
+      { source: '/apple-touch-icon-precomposed.png', destination: '/apple-icon' },
+      { source: '/icons/apple-touch-icon.png', destination: '/apple-icon' },
+      { source: '/icons/favicon-16x16.png', destination: '/icon' },
+      { source: '/icons/favicon-32x32.png', destination: '/icon' },
+    ];
+  },
   async redirects() {
     // /bok-prefikset ble fjernet 27. juli 2026. Kursene ligger nå i rota:
     //
