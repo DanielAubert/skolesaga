@@ -199,7 +199,12 @@ function renderMixedContent(content: string): string {
   result = result.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
     const ok = /^https?:\/\//i.test(url) || url.startsWith('/');
     const sanitizedUrl = ok ? mediaUrl(url) : '';
-    return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="max-width: 420px; width: 100%; height: auto; margin: 1rem auto; display: block;" />`;
+    // Figurstørrelse (7.10.2026): rasterbilder skaleres aldri opp over naturlig bredde, og ingen figur
+    // blir høyere enn 65 % av skjermhøyden (høye CAS-/motorfigurer i fasiten). SVG har ingen naturlig
+    // pikselbredde og fyller 420 px som før. Regel: FEILKLASSER-INNHOLD.md i eksamenssett.
+    const svg = /\.svg($|\?)/i.test(url);
+    const bredde = svg ? 'width: 100%; max-width: min(100%, 420px);' : 'width: auto; max-width: min(100%, 420px);';
+    return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="${bredde} height: auto; max-height: 65vh; object-fit: contain; margin: 1rem auto; display: block;" />`;
   });
 
   // Links ([text](url)) - internal chapter links (/<kurs>/<kapittel>) and external https

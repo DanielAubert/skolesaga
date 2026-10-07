@@ -445,3 +445,20 @@ function Axes({ cfg, tx, ty, ox, oy })   // x/y-akser med pilspisser
 function TickMarks({ cfg, tx, ty, ox, oy })  // Tick-merker med tall
 function GridLines({ cfg, tx, ty })       // Rutenett
 ```
+
+## Visningsstørrelse for bildefigurer (PNG/SVG-filer) — 7.10.2026
+
+Daniel 7.10.2026: «Bildene/figurene vises noen ganger alt for store på siden.» Målt før retting (www.skolesaga.no,
+1280×800): bildeblokkene fylte hele spalten (768 px), så en kvadratisk motorfigur i 1T 3.1 ble 96 % av skjermhøyden, og
+små SVG-er i 1T 5.1 ble blåst opp 2,6–3,8 ganger. Regelen ligger nå i komponentene, ikke i filene:
+
+| Hvor | Regel |
+|---|---|
+| Bildeblokk (`ImageBlockComponent` i `content-block-renderer.tsx`, også lesevennlig versjon) | raster: `width:auto`, høyst `min(100 %, 620 px)` — aldri over naturlig bredde; SVG: full bredde inntil 560 px; alle: høyst 65 % av skjermhøyden, sentrert, `object-fit: contain` |
+| Markdown-bilde `![…](…)` (teori, fasit, `exercise-answer-key.tsx` via `latex-renderer.tsx`) | som før høyst 420 px; raster `width:auto` (ingen oppskalering), høyst 65 vh |
+| Oppgavebilde (`textbook-exercise-item.tsx`) | høyst 28 rem, høyst 65 vh, `width:auto` |
+| Asymptote-figur | som SVG-bildeblokk (inntil 560 px, høyst 65 vh); `block.width` overstyrer bredden |
+
+Ikke endre PNG-ene for å få dem mindre: motorfigurene er laget for ca. 620 px visningsbredde. Trenger en figur å være
+bredere (bred tabell, tidslinje), lag en egen blokkvariant med begrunnelse — ikke fjern taket. Måleskript og før/etter:
+`fremdrift/figurstorrelse-0710/` i eksamenssett-repoet; feilklassen står i `FEILKLASSER-INNHOLD.md` der.

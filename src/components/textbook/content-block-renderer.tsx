@@ -697,6 +697,14 @@ function GeoGebraBlockComponent({
 function ImageBlockComponent({ block }: { block: ImageBlock }) {
   // Sjekk om bildet er designet for mørk bakgrunn og trenger mørk bakgrunn i lys modus
   const needsDarkBackground = block.src.includes('fortegnsregler');
+  // Figurstørrelse (Daniel 7.10.2026: «Bildene/figurene vises noen ganger alt for store på siden»):
+  // før dette fylte hver figur hele spalten (768 px) — en kvadratisk motorfigur ble 96 % av skjermhøyden
+  // på en 1280×800-skjerm, og små SVG-er ble blåst opp 3–4 ganger. Nå: rasterbilder aldri bredere enn
+  // naturlig størrelse og høyst 620 px (motorens tekst er satt for den bredden), SVG (ofte uten egen
+  // pikselstørrelse, ofte flere paneler) full bredde inntil 560 px, og ingen figur høyere enn 65 % av
+  // skjermhøyden. Full spaltebredde på mobil.
+  // Regel: FEILKLASSER-INNHOLD.md i eksamenssett, «Figurer vist for store».
+  const erSvg = /\.svg($|\?)/i.test(block.src);
 
   return (
     <figure className="my-6">
@@ -705,7 +713,8 @@ function ImageBlockComponent({ block }: { block: ImageBlock }) {
         src={mediaUrl(block.src)}
         alt={block.alt}
         className={cn(
-          'rounded-lg mx-auto',
+          'block rounded-lg mx-auto h-auto max-h-[65vh] object-contain',
+          erSvg ? 'w-full max-w-[min(100%,560px)]' : 'w-auto max-w-[min(100%,620px)]',
           block.caption && 'mb-2',
           needsDarkBackground && 'dark:bg-transparent dark:p-0 bg-gray-900 p-4 rounded-xl'
         )}
@@ -745,7 +754,7 @@ function AsymptoteBlockComponent({ block }: { block: AsymptoteBlock }) {
           <img
             src={mediaUrl(block.svgPath)}
             alt={block.caption || block.title || 'Asymptote-figur'}
-            className="max-w-full h-auto"
+            className="block w-full max-w-[min(100%,560px)] h-auto max-h-[65vh] object-contain"
             style={block.width ? { maxWidth: block.width } : undefined}
             onError={() => setImageError(true)}
           />

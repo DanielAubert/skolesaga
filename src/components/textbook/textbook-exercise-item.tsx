@@ -266,7 +266,7 @@ export function TextbookExerciseItem({
           <img
             src={exercise.image || ''}
             alt={exercise.image ? `Illustrasjon til oppgave ${exercise.number || ''}` : ''}
-            className="max-w-md mx-auto"
+            className="block max-w-[min(100%,28rem)] max-h-[65vh] w-auto h-auto object-contain mx-auto"
           />
         </div>
         <MultipleChoiceExercise
@@ -322,7 +322,7 @@ export function TextbookExerciseItem({
           <img
             src={exercise.image || ''}
             alt={exercise.image ? `Illustrasjon til oppgave ${exercise.number || ''}` : ''}
-            className="max-w-md mx-auto"
+            className="block max-w-[min(100%,28rem)] max-h-[65vh] w-auto h-auto object-contain mx-auto"
           />
         </div>
         <Exercise
@@ -364,7 +364,7 @@ export function TextbookExerciseItem({
           <img
             src={exercise.image || ''}
             alt={exercise.image ? `Illustrasjon til oppgave ${exercise.number || ''}` : ''}
-            className="max-w-md mx-auto"
+            className="block max-w-[min(100%,28rem)] max-h-[65vh] w-auto h-auto object-contain mx-auto"
           />
         </div>
         <GeoGebraExercise
@@ -415,7 +415,7 @@ export function TextbookExerciseItem({
         <img
           src={exercise.image || ''}
           alt={exercise.image ? `Illustrasjon til oppgave ${exercise.number || ''}` : ''}
-          className="max-w-md mx-auto"
+          className="block max-w-[min(100%,28rem)] max-h-[65vh] w-auto h-auto object-contain mx-auto"
         />
       </div>
 
