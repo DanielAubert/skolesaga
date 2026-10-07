@@ -981,13 +981,14 @@ function CollapsibleBlockComponent({
   return (
     <Card className="border border-dashed border-muted-foreground/25 shadow-none">
       <CardHeader className="pb-2">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-xl font-bold"><LatexRenderer content={title} inline /></CardTitle>
+        {/* 7.10.2026: flex-wrap — «Repetisjonsoppgåver» + «Vis repetisjonsoppgåver» (nowrap-knapp) ble 99 px for bredt ved 360 px */}
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <CardTitle className="text-xl font-bold min-w-0"><LatexRenderer content={title} inline /></CardTitle>
           <Button
             variant="outline"
             size="sm"
             aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)}
-            className="gap-2"
+            className="gap-2 max-w-full whitespace-normal h-auto min-h-8"
           >
             {isOpen ? (
               <>
@@ -1006,9 +1007,9 @@ function CollapsibleBlockComponent({
         {/* Progressjonsbar for repetisjonsoppgaver */}
         {exercises.length > 0 && (
           <div className="mt-3 pt-3 border-t">
-            <div className="flex items-center justify-between text-sm mb-2">
+            <div className="flex flex-wrap items-center justify-between gap-x-3 text-sm mb-2">
               <span className="text-muted-foreground">Din fremgang</span>
-              <div className="flex items-center gap-3 text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-x-3 text-muted-foreground">
                 {progressStats.total > 0 && (
                   <span className="flex items-center gap-1.5">
                     <span className="text-green-600 dark:text-green-400 font-medium">

@@ -170,6 +170,12 @@ export function GeoGebraEmbed({
       let appletWidth = config.width;
       let appletHeight = config.height;
 
+      // 7.10.2026: appleten fikk alltid config.width (900 px) og ble klippet av kortet på mobil
+      // (lasteboksen stakk 550 px ut til høyre ved 390 px). Uten fullskjerm: aldri bredere enn beholderen.
+      if (!isFullscreenRef.current && containerRef.current && containerRef.current.clientWidth > 0) {
+        appletWidth = Math.min(config.width, containerRef.current.clientWidth);
+      }
+
       if (isFullscreenRef.current && containerRef.current) {
         // Wait a frame for the container to be sized
         await new Promise(resolve => requestAnimationFrame(resolve));
@@ -350,7 +356,7 @@ export function GeoGebraEmbed({
           {isLoading && (
             <div
               className="absolute inset-0 flex items-center justify-center bg-muted/50 z-10"
-              style={isFullscreen ? undefined : { width, height }}
+              style={isFullscreen ? undefined : { width, maxWidth: '100%', height }}
             >
               <div className="flex flex-col items-center gap-2">
                 <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
@@ -361,7 +367,7 @@ export function GeoGebraEmbed({
           <div
             id={uniqueId}
             className={isFullscreen ? 'w-full h-full' : ''}
-            style={isFullscreen ? undefined : { width, height }}
+            style={isFullscreen ? undefined : { width, maxWidth: '100%', height }}
           />
         </div>
       </Card>

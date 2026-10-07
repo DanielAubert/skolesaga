@@ -32,7 +32,9 @@ export function UserMenu() {
             Logg inn
           </Button>
         </Link>
-        <Link prefetch={false} href="/login?tab=signup">
+        {/* 7.10.2026: under sm skjules «Registrer» (innloggingssiden har egen fane for det) — med begge
+            knappene ble hodelinja på kapittelsidene 165 px for bred ved 390 px og ga sidelengs scroll. */}
+        <Link prefetch={false} href="/login?tab=signup" className="hidden sm:block">
           <Button size="sm">
             Registrer
           </Button>

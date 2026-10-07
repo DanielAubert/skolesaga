@@ -270,19 +270,21 @@ export function TextbookChapterView({
       {/* Sticky header */}
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between gap-2 h-14">
             {/* Tilbake til kurs */}
             <Link
               href={`/${course.id}`}
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={`Tilbake til ${course.title}`}
+              className="flex shrink-0 items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ChevronLeft className="h-4 w-4" />
               <span className="hidden sm:inline">{course.title}</span>
-              <span className="sm:hidden">Tilbake</span>
+              {/* 7.10.2026: under 400 px bare pila — ellers ble hodelinja 13 px for bred ved 360 px */}
+              <span className="hidden min-[400px]:inline sm:hidden">Tilbake</span>
             </Link>
 
             {/* Kapittelnummer og tittel */}
-            <div className="text-center">
+            <div className="text-center min-w-0 truncate">
               <span className="font-semibold">
                 <span className="text-primary">{chapterMeta.number}</span>{' '}
                 <span className="hidden sm:inline">{chapterMeta.title}</span>
@@ -290,7 +292,7 @@ export function TextbookChapterView({
             </div>
 
             {/* Navigasjon og tema */}
-            <div className="flex items-center gap-1">
+            <div className="flex shrink-0 items-center gap-0.5 sm:gap-1">
               {prevChapter ? (
                 <Link href={`/${course.id}/${prevChapter.id}`}>
                   <Button variant="ghost" size="sm" className="gap-1">
@@ -653,12 +655,14 @@ export function TextbookChapterView({
 
           {/* Navigasjon nederst */}
           <nav className="mt-12 pt-8 border-t">
-            <div className="flex justify-between gap-4">
+            {/* 7.10.2026: knappene er whitespace-nowrap som standard — lange kapitteltitler presset
+                «Neste» 70 px ut av skjermen ved 360 px. Nå brytes titlene innenfor hver sin halvdel. */}
+            <div className="flex justify-between gap-2 sm:gap-4">
               {prevChapter ? (
-                <Link href={`/${course.id}/${prevChapter.id}`} className="flex-1">
-                  <Button variant="outline" className="w-full justify-start gap-2 h-auto py-3">
+                <Link href={`/${course.id}/${prevChapter.id}`} className="flex-1 min-w-0">
+                  <Button variant="outline" className="w-full justify-start gap-2 h-auto py-3 whitespace-normal">
                     <ChevronLeft className="h-4 w-4 shrink-0" />
-                    <div className="text-left">
+                    <div className="text-left min-w-0 break-words">
                       <div className="text-xs text-muted-foreground">Forrige</div>
                       <div className="font-medium">{prevChapter.number} {prevChapter.title}</div>
                     </div>
@@ -668,9 +672,9 @@ export function TextbookChapterView({
                 <div className="flex-1" />
               )}
               {nextChapter ? (
-                <Link href={`/${course.id}/${nextChapter.id}`} className="flex-1">
-                  <Button variant="outline" className="w-full justify-end gap-2 h-auto py-3">
-                    <div className="text-right">
+                <Link href={`/${course.id}/${nextChapter.id}`} className="flex-1 min-w-0">
+                  <Button variant="outline" className="w-full justify-end gap-2 h-auto py-3 whitespace-normal">
+                    <div className="text-right min-w-0 break-words">
                       <div className="text-xs text-muted-foreground">Neste</div>
                       <div className="font-medium">{nextChapter.number} {nextChapter.title}</div>
                     </div>

@@ -27,9 +27,14 @@ function AnswerGrid({ solution }: { solution: string }) {
     );
   }
 
+  // Fasit med figurer (7.10.2026, Skolesaga 1T 3.1): et bilde i en grid-celle blir 420 px bredt, og tre
+  // kolonner med figurer ga sidelengs scroll på mobil. Inneholder fasiten et markdown-bilde, vises
+  // deloppgavene som loddrett liste, og svaret leses over linjeskift så bildet ikke kuttes bort.
+  const harBilde = /!\[[^\]]*\]\([^)]+\)/.test(solution);
+
   // Parse hver del til label og svar
   const answers = parts.map(part => {
-    const match = part.match(/^([a-z])\)\s*(.+)/i);
+    const match = part.match(harBilde ? /^([a-z])\)\s*([\s\S]+)/i : /^([a-z])\)\s*(.+)/i);
     if (match) {
       // Fjern trailing komma eller mellomrom
       const answer = match[2].replace(/,\s*$/, '').trim();
@@ -46,9 +51,28 @@ function AnswerGrid({ solution }: { solution: string }) {
     );
   }
 
+  if (harBilde) {
+    return (
+      <div className="space-y-2">
+        {answers.map(({ label, answer }) => (
+          <div key={label} className="flex items-baseline gap-1.5">
+            <Badge variant="outline" className="shrink-0 h-5 w-5 flex items-center justify-center rounded-full text-xs">
+              {label}
+            </Badge>
+            <div className="prose prose-slate dark:prose-invert max-w-none min-w-0 flex-1 prose-p:my-1">
+              <LatexRenderer content={answer} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
+    // 7.10.2026: under sm én deloppgave per linje — i tre smale kolonner brøt KaTeX formlene midt i
+    // («8 − / 3 = / 5»). Med hele bredden brytes en formel bare når den faktisk er for lang, og da ved operatorene.
     <div
-      className="inline-grid grid-flow-col gap-x-12 gap-y-2"
+      className="flex flex-col gap-y-2 sm:inline-grid sm:grid-flow-col sm:gap-x-12"
       style={{ gridTemplateRows: `repeat(${Math.ceil(answers.length / 3)}, auto)` }}
     >
       {answers.map(({ label, answer }) => (

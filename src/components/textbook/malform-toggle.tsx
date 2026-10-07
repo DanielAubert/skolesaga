@@ -41,7 +41,8 @@ export function MalformToggle({ malform, available = true }: MalformToggleProps)
 
   return (
     <div className="flex items-center gap-1">
-      <Languages className="h-4 w-4 text-muted-foreground" aria-hidden />
+      {/* 7.10.2026: kort form (BM/NN) og uten ikon under sm, så hodelinja får plass ved 360–390 px */}
+      <Languages className="hidden sm:block h-4 w-4 text-muted-foreground" aria-hidden />
       <div className="flex rounded-md border bg-background p-0.5" role="group" aria-label="Målform">
         <button
           type="button"
@@ -53,8 +54,10 @@ export function MalformToggle({ malform, available = true }: MalformToggleProps)
               ? 'bg-primary text-primary-foreground'
               : 'text-muted-foreground hover:text-foreground'
           }`}
+          aria-label="Bokmål"
         >
-          Bokmål
+          <span className="sm:hidden">BM</span>
+          <span className="hidden sm:inline">Bokmål</span>
         </button>
         <button
           type="button"
@@ -67,8 +70,10 @@ export function MalformToggle({ malform, available = true }: MalformToggleProps)
               ? 'bg-primary text-primary-foreground'
               : 'text-muted-foreground hover:text-foreground'
           } ${!showNn ? 'cursor-not-allowed opacity-40' : ''}`}
+          aria-label="Nynorsk"
         >
-          Nynorsk
+          <span className="sm:hidden">NN</span>
+          <span className="hidden sm:inline">Nynorsk</span>
         </button>
       </div>
     </div>
