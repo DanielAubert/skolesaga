@@ -176,6 +176,9 @@ const GRADE_CONFIG: Record<string, {
       { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/courses/matematikk-2p-y.webp' },
       { courseId: 's1', name: 'Matematikk S1', icon: '📐', color: 'from-purple-500 to-violet-600', image: '/images/subjects/matematikk-s1-hero.webp' },
       { courseId: 'r1', name: 'Matematikk R1', icon: '📐', color: 'from-rose-500 to-pink-600', image: '/images/subjects/matematikk-r1-hero.webp' },
+      // Nye matematikkfag fra høsten 2027 (erstatter S1/S2; kan tas på Vg2 eller Vg3)
+      { courseId: 'statistikk', name: 'Statistikk', icon: '📊', color: 'from-cyan-500 to-blue-600', image: '/images/textbook/statistikk/course-hero.webp' },
+      { courseId: 'matematikk-okonomi', name: 'Matematikk for økonomi', icon: '💰', color: 'from-emerald-500 to-teal-600', image: '/images/textbook/matematikk-okonomi/course-hero.webp' },
       // Programfag realfag
       { courseId: 'fys1', name: 'Fysikk 1', icon: '⚛️', color: 'from-indigo-500 to-blue-600', image: '/images/subjects/fysikk1-hero.webp' },
       { courseId: 'kjemi1', name: 'Kjemi 1', icon: '🧪', color: 'from-orange-500 to-amber-600', image: '/images/subjects/kjemi1-hero.webp' },
@@ -217,6 +220,9 @@ const GRADE_CONFIG: Record<string, {
       // Matematikk
       { courseId: 's2', name: 'Matematikk S2', icon: '📐', color: 'from-violet-500 to-purple-600', image: '/images/subjects/matematikk-s2-hero.webp' },
       { courseId: 'r2', name: 'Matematikk R2', icon: '📐', color: 'from-pink-500 to-rose-600', image: '/images/subjects/matematikk-r2-hero.webp' },
+      // Nye matematikkfag fra høsten 2027 (erstatter S1/S2; kan tas på Vg2 eller Vg3)
+      { courseId: 'statistikk', name: 'Statistikk', icon: '📊', color: 'from-cyan-500 to-blue-600', image: '/images/textbook/statistikk/course-hero.webp' },
+      { courseId: 'matematikk-okonomi', name: 'Matematikk for økonomi', icon: '💰', color: 'from-emerald-500 to-teal-600', image: '/images/textbook/matematikk-okonomi/course-hero.webp' },
       // Programfag realfag
       { courseId: 'fysikk2', name: 'Fysikk 2', icon: '⚛️', color: 'from-indigo-500 to-blue-600', image: '/images/subjects/fysikk2-hero.webp' },
       { courseId: 'kjemi2', name: 'Kjemi 2', icon: '🧪', color: 'from-orange-500 to-amber-600', image: '/images/subjects/kjemi2-hero.webp' },
