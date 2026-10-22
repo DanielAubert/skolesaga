@@ -137,6 +137,11 @@ def blokktekst(b, ctx):
         return ut
     if t == 'collapsible':
         return []
+    # Oppgaver lagret direkte som blokk (type classic/multiple-choice med task på toppnivå, f.eks. r2-4-3-ov-*):
+    # felt() tok ikke med task, så utdraget viste bare løsningen (22.10.2026).
+    if isinstance(b.get('task'), str) and b['task'].strip() and not any(
+            f.tekst == b['task'] for f in F):
+        ut.append('OPPG: ' + rens(b['task']))
     for f in F:
         if f.rolle == 'tittel':
             continue

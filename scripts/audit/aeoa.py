@@ -32,7 +32,8 @@ KJENTE = re.compile(r'(forste|Forste|losning\w*|Losning\w*|ogsa|Ogsa|storre|hoyd
 IGNORER = set('''RegLin RegEksp RegPot RegPoly RegLog NLøs Løs Solve CAS GeoGebra Python
 cos sin tan log lg ln max min mod def print range for in and or not True False
 cm mm km kg dm dl ml kr kWh mol Hz dB pH ok OK Jan Feb Mar Apr Jun Jul Aug Sep Okt Nov Des
-Ola Anna Ali Omar Oda Jonas Sofie Nora Emma Oscar Tobias Jakob Lars Mona Maja Sara Hanna Ida Lea Noah Aksel Kasper Mats'''.split())
+Ola Anna Ali Omar Oda Jonas Sofie Nora Emma Oscar Tobias Jakob Lars Mona Maja Sara Hanna Ida Lea Noah Aksel Kasper Mats
+KO SO PO TO Monte Carlo RegLogist RegSin InversNormal rater metron poengsum frivillige Heron'''.split())  # 22.10.2026: falske treff fra S2/R1/2P-rettingen
 
 
 def _varianter(w):

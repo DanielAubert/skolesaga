@@ -352,7 +352,7 @@ export function TextbookChapterView({
             <div className="bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-6 px-6">
               <div className="container mx-auto">
                 <div className="max-w-3xl mx-auto">
-                  <h1 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">
+                  <h1 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg break-words hyphens-auto">
                     <span className="text-primary-foreground/90">{chapterMeta.number}</span>{' '}
                     {chapterMeta.title}
                   </h1>
@@ -384,7 +384,7 @@ export function TextbookChapterView({
             {!chapterMeta.coverImage && (
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h1 className="text-3xl sm:text-4xl font-bold mb-2">
+                  <h1 className="text-3xl sm:text-4xl font-bold mb-2 break-words hyphens-auto">
                     <span className="text-primary">{chapterMeta.number}</span>{' '}
                     {chapterMeta.title}
                   </h1>

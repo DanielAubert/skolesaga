@@ -172,7 +172,8 @@ function getChapterIcon(chapter: TextbookChapterMeta): LucideIcon {
   // Default
   return Lightbulb;
 }
-import { getCourse, getChaptersBySection, getSectionNames } from '@/lib/data/textbook-courses';
+import { getCourse, getChaptersBySection, getSectionNames, getChapterMeta } from '@/lib/data/textbook-courses';
+import { getMalform } from '@/lib/i18n/malform';
 import { kapittelLaast, erAdminSesjon, lesInspirasjon, INSPIRASJON_FARGE, INSPIRASJON_TEKST, godkjenningStyrt, antallGodkjente, kapittelMerke } from '@/lib/kapittel-godkjenning';
 import { LaererInngang } from '@/components/textbook/laerer-inngang';
 
@@ -221,7 +222,14 @@ export default async function CourseOverviewPage({ params }: PageProps) {
     notFound();
   }
 
-  const sections = getChaptersBySection(courseId);
+  // Nynorske kapitteltitler/-beskrivelser på /nn/<kurs> (22.10.2026: lista viste bokmål selv om kapittelsidene var nynorske).
+  const malform = await getMalform();
+  const sections = new Map(
+    Array.from(getChaptersBySection(courseId).entries()).map(([nr, kap]) => [
+      nr,
+      malform === 'nn' ? kap.map((ch) => getChapterMeta(courseId, ch.id, malform) ?? ch) : kap,
+    ]),
+  );
   const sectionNames = getSectionNames(courseId);
   const accent = getCourseAccent(courseId);
   const erHoyskole = course.level === 'Høyskole';

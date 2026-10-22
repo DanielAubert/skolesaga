@@ -18,7 +18,9 @@ const NORWEGIAN_TO_ENGLISH: Record<string, string> = {
   'Midtpunkt': 'Midpoint',
   'Vinkel': 'Angle',
   'Vinkelhalveringslinje': 'AngleBisector',
-  'Normal': 'PerpendicularLine',
+  // 'Normal' (norsk navn på PerpendicularLine) oversettes IKKE her: på engelsk er Normal(μ, σ, x, false)
+  // normalfordelingen, og 22.10.2026 ble Normal(0, 1, x, false) i s1-6-3/s2-4-3/s2-5-2/2p-3-2 gjort om til
+  // PerpendicularLine(0, 1, x, false) → «Ukjent kommando». To-argumentsformen håndteres i translateCommand.
   'Midtnormal': 'PerpendicularBisector',
   'Parallell': 'Line',
   'Tangent': 'Tangent',
@@ -52,6 +54,7 @@ const NORWEGIAN_TO_ENGLISH: Record<string, string> = {
   'Sum': 'Sum',
   'Produkt': 'Product',
   'Ekstremum': 'Extremum',
+  'Ekstremalpunkt': 'Extremum',
   'Vendepunkt': 'InflectionPoint',
   'Nullpunkt': 'Root',
   'Skjæring': 'Intersect',
@@ -75,6 +78,9 @@ const NORWEGIAN_TO_ENGLISH: Record<string, string> = {
   'RegLog': 'FitLog',
   'RegPot': 'FitPow',
   'RegSin': 'FitSin',
+  'RegEksp': 'FitExp',
+  'RegLogist': 'FitLogistic',
+  'Stigning': 'Slope',
 
   // Probability
   'Normalfordeling': 'Normal',
@@ -114,6 +120,7 @@ const NORWEGIAN_TO_ENGLISH: Record<string, string> = {
   // Other
   'Tekst': 'Text',
   'Hvis': 'If',
+  'Dersom': 'If',
   'TegnVinkel': 'Angle',
   'Punkt': 'Point',
   'Skjæringspunkt': 'Intersect',
@@ -125,6 +132,10 @@ const NORWEGIAN_TO_ENGLISH: Record<string, string> = {
  */
 export function translateCommand(norwegianCommand: string): string {
   let result = norwegianCommand;
+
+  // Normal(<Punkt>, <Linje>) — to argumenter uten nøsting — er norsk for PerpendicularLine.
+  // Normal(μ, σ, x, false) (fire argumenter) er normalfordelingen og står urørt.
+  result = result.replace(/(^|[^a-zA-ZæøåÆØÅ])Normal\(\s*([^(),]+?)\s*,\s*([^(),]+?)\s*\)/g, '$1PerpendicularLine($2, $3)');
 
   // Sort by length (longest first) to avoid partial replacements
   const sortedCommands = Object.entries(NORWEGIAN_TO_ENGLISH)
@@ -138,6 +149,36 @@ export function translateCommand(norwegianCommand: string): string {
   }
 
   return result;
+}
+
+/**
+ * Kommandoer som GeoGebra-appen «graphing» (Grafregner) ikke kjenner — evalCommand gir
+ * «Ukjent kommando» selv om navnet er riktig engelsk. Målt headless 22.10.2026 (deployggb.js, 5.0):
+ * hver kommando kalt i graphing og classic; listen er de som er ukjente i graphing og kjente i classic.
+ */
+const GRAPHING_UNKNOWN = new Set([
+  'Angle', 'AngleBisector', 'Area', 'Asymptote', 'Circle', 'CircularArc', 'CircularSector',
+  'CircumcircularArc', 'Coefficients', 'Cone', 'Cylinder', 'Degree', 'Dilate', 'Distance', 'Div',
+  'Ellipse', 'Expand', 'Factor', 'Hyperbola', 'IntersectPath', 'Limit', 'Locus', 'Midpoint', 'Mod',
+  'NSolve', 'OsculatingCircle', 'Parabola', 'PartialFractions', 'Perimeter', 'PerpendicularBisector',
+  'PerpendicularLine', 'Plane', 'Polar', 'Polygon', 'Polyline', 'Polynomial', 'Prism', 'Pyramid',
+  'Reflect', 'Rotate', 'Segment', 'Semicircle', 'Simplify', 'Slope', 'Solve', 'SolveODE', 'Sphere',
+  'Surface', 'Tangent', 'Translate', 'Volume',
+]);
+
+/**
+ * Velger app for et sett (allerede oversatte) kommandoer: ber blokken om «graphing», men bruker en
+ * kommando Grafregneren ikke kjenner (Tangent, Asymptote, Segment …), lastes GeoGebra Classic i stedet —
+ * ellers får eleven en feildialog i appleten.
+ */
+export function appForCommands<T extends string>(appName: T, translatedCommands: string[]): T | 'classic' {
+  if (appName !== 'graphing') return appName;
+  for (const cmd of translatedCommands) {
+    for (const m of cmd.matchAll(/([A-Za-z][A-Za-z0-9]*)\s*\(/g)) {
+      if (GRAPHING_UNKNOWN.has(m[1])) return 'classic';
+    }
+  }
+  return appName;
 }
 
 /**

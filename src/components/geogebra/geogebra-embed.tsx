@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useId, useCallback, useMemo } from 'react'
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Loader2, RotateCcw, Maximize2, Minimize2 } from 'lucide-react';
-import { translateCommand } from '@/lib/geogebra/command-translator';
+import { translateCommand, appForCommands } from '@/lib/geogebra/command-translator';
 
 declare global {
   interface Window {
@@ -56,6 +56,44 @@ export interface GeoGebraAPI {
   getYcoord: (name: string) => number;
   getObjectType: (name: string) => string;
   getDefinitionString: (name: string) => string;
+  setAxisLabels: (view: number, xLabel: string, yLabel: string, zLabel?: string) => void;
+}
+
+const ZOOM_RE = /^ZoomIn\s*[\(\[]\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*[\)\]]$/i;
+// SetAxisLabels er ingen GeoGebra-kommando (evalCommand gir «Ukjent kommando»), men API-et har setAxisLabels.
+const AXIS_LABELS_RE = /^SetAxisLabels\s*\(\s*(\d)\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*\)$/;
+
+/**
+ * Kjører blokkens kommandoer slik de står i innholdet: norske navn oversettes (evalCommand godtar bare
+ * engelske kommandonavn, uansett språk på appleten), SetAxisLabels går via API-et og ZoomIn med tall
+ * kjøres sist via setCoordSystem når objektene finnes.
+ */
+function runInitialCommands(api: GeoGebraAPI, commands: string[], getApi: () => GeoGebraAPI | null = () => api) {
+  const zoomCommands: { xmin: number; ymin: number; xmax: number; ymax: number }[] = [];
+  commands.forEach((cmd) => {
+    // Tom kommando (f.eks. initialCommands: [""] i r2-6-1) gir dialogen «Det du satte inn ble ikke akseptert».
+    if (!cmd || !cmd.trim()) return;
+    const zoomMatch = cmd.trim().match(ZOOM_RE);
+    const axisMatch = cmd.trim().match(AXIS_LABELS_RE);
+    if (zoomMatch) {
+      zoomCommands.push({
+        xmin: parseFloat(zoomMatch[1]),
+        ymin: parseFloat(zoomMatch[2]),
+        xmax: parseFloat(zoomMatch[3]),
+        ymax: parseFloat(zoomMatch[4]),
+      });
+    } else if (axisMatch) {
+      api.setAxisLabels?.(parseInt(axisMatch[1], 10), axisMatch[2], axisMatch[3]);
+    } else {
+      api.evalCommand(translateCommand(cmd));
+    }
+  });
+  if (zoomCommands.length > 0) {
+    setTimeout(() => {
+      const lastZoom = zoomCommands[zoomCommands.length - 1];
+      getApi()?.setCoordSystem(lastZoom.xmin, lastZoom.xmax, lastZoom.ymin, lastZoom.ymax);
+    }, 200);
+  }
 }
 
 interface GeoGebraApplet {
@@ -114,9 +152,17 @@ export function GeoGebraEmbed({
   initialCommandsRef.current = initialCommands;
   isFullscreenRef.current = isFullscreen;
 
+  // Grafregneren («graphing») kjenner ikke Tangent, Asymptote, Segment, PerpendicularLine m.fl. — bruker blokken
+  // slike kommandoer, lastes Classic (22.10.2026: 17 Skolesaga-sider viste «Ukjent kommando» i appleten).
+  const commandKey = initialCommands.join('\n');
+  const effectiveAppName = useMemo(
+    () => appForCommands(appName, commandKey ? commandKey.split('\n').map(translateCommand) : []),
+    [appName, commandKey],
+  );
+
   // Memoize config to prevent unnecessary re-renders
   const config = useMemo(() => ({
-    appName,
+    appName: effectiveAppName,
     width,
     height,
     showToolBar,
@@ -126,7 +172,7 @@ export function GeoGebraEmbed({
     enableRightClick,
     materialId,
     algebraWidth,
-  }), [appName, width, height, showToolBar, showAlgebraInput, showMenuBar, showResetIcon, enableRightClick, materialId, algebraWidth]);
+  }), [effectiveAppName, width, height, showToolBar, showAlgebraInput, showMenuBar, showResetIcon, enableRightClick, materialId, algebraWidth]);
 
   // Load GeoGebra script if not already loaded
   const loadGeoGebraScript = useCallback(() => {
@@ -214,31 +260,7 @@ export function GeoGebraEmbed({
             api.setXML(savedXmlRef.current);
             savedXmlRef.current = null;
           } else if (initialCommandsRef.current.length > 0) {
-            // Execute initial commands if any (translate Norwegian to English)
-            // First pass: execute all non-ZoomIn commands
-            const zoomCommands: { xmin: number; ymin: number; xmax: number; ymax: number }[] = [];
-            initialCommandsRef.current.forEach((cmd) => {
-              // Handle ZoomIn commands specially using setCoordSystem API
-              const zoomMatch = cmd.match(/^ZoomIn\s*[\(\[]\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*[\)\]]$/i);
-              if (zoomMatch) {
-                // Store zoom commands to execute after all other commands
-                zoomCommands.push({
-                  xmin: parseFloat(zoomMatch[1]),
-                  ymin: parseFloat(zoomMatch[2]),
-                  xmax: parseFloat(zoomMatch[3]),
-                  ymax: parseFloat(zoomMatch[4]),
-                });
-              } else {
-                api.evalCommand(translateCommand(cmd));
-              }
-            });
-            // Second pass: execute ZoomIn commands after a delay to ensure objects are rendered
-            if (zoomCommands.length > 0) {
-              setTimeout(() => {
-                const lastZoom = zoomCommands[zoomCommands.length - 1];
-                api.setCoordSystem(lastZoom.xmin, lastZoom.xmax, lastZoom.ymin, lastZoom.ymax);
-              }, 200);
-            }
+            runInitialCommands(api, initialCommandsRef.current);
           }
 
           // Notify parent component that API is ready
@@ -271,30 +293,7 @@ export function GeoGebraEmbed({
       apiRef.current.reset();
       // Re-run initial commands after reset (translate Norwegian to English)
       if (initialCommandsRef.current.length > 0) {
-        // First pass: execute all non-ZoomIn commands
-        const zoomCommands: { xmin: number; ymin: number; xmax: number; ymax: number }[] = [];
-        initialCommandsRef.current.forEach(cmd => {
-          // Handle ZoomIn commands specially using setCoordSystem API
-          const zoomMatch = cmd.match(/^ZoomIn\s*[\(\[]\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*[\)\]]$/i);
-          if (zoomMatch) {
-            // Store zoom commands to execute after all other commands
-            zoomCommands.push({
-              xmin: parseFloat(zoomMatch[1]),
-              ymin: parseFloat(zoomMatch[2]),
-              xmax: parseFloat(zoomMatch[3]),
-              ymax: parseFloat(zoomMatch[4]),
-            });
-          } else {
-            apiRef.current?.evalCommand(translateCommand(cmd));
-          }
-        });
-        // Second pass: execute ZoomIn commands after a delay to ensure objects are rendered
-        if (zoomCommands.length > 0) {
-          setTimeout(() => {
-            const lastZoom = zoomCommands[zoomCommands.length - 1];
-            apiRef.current?.setCoordSystem(lastZoom.xmin, lastZoom.xmax, lastZoom.ymin, lastZoom.ymax);
-          }, 200);
-        }
+        runInitialCommands(apiRef.current, initialCommandsRef.current, () => apiRef.current);
       }
     }
   };

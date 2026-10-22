@@ -228,7 +228,7 @@ class Kjoring(object):
                 else:
                     mål = tekst if hvor == 'tekst' else s
                 m = rx.search(mål)
-                if m and navn == 'læreplanprat' and 'fordypning' in s.lower():
+                if m and navn == 'læreplanprat' and ('fordypning' in s.lower() or 'fordjuping' in s.lower()):
                     alv = 'info'  # «Fordypning — ikke en del av læreplanen» er pålagt merking
                 if m:
                     self.f('forbudt', cid, fil, bid, fe.sti, '%s: %s' % (navn, ktx(mål, m.start(), m.end(), 35)),

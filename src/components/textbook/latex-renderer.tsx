@@ -149,7 +149,7 @@ function renderMixedContent(content: string): string {
   // Det rammer alle dunder-metoder i Python og all R-kolonnesyntaks.
   result = result.replace(/`([^`\n]+)`/g, (_, kode) => {
     kodeBlokker.push(
-      `<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono">${escapeHtml(kode as string)}</code>`
+      `<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono [overflow-wrap:anywhere]">${escapeHtml(kode as string)}</code>`
     );
     return `${KODE_START}${kodeBlokker.length - 1}${KODE_END}`;
   });
