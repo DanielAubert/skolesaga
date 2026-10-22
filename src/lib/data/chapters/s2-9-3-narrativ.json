@@ -285,7 +285,7 @@
     {
       "id": "s2-9-3-n-section3",
       "type": "text",
-      "content": "## Modeller: lån, p-rekker og populasjoner\n\nNå setter vi verktøyene i arbeid på tre ordentlige problemer.\n\n**Lånet.** Du låner 500 000 kroner til 5 % årlig rente og betaler 35 000 kroner i året. Restgjelden følger rekursjonen $a_{n+1} = 1{,}05 \\cdot a_n - 35\\,000$ med $a_0 = 500\\,000$ — renter på, betaling av. En while-løkke (`while a > 0:`) som oppdaterer gjelden og teller år, viser at lånet er nedbetalt etter cirka **24 år**; lagrer du verdiene i lister og plotter dem, ser du gjeldskurven krumme seg nedover — flatt i starten (rentene spiser mesteparten av betalingen), bratt mot slutten.\n\n**p-rekkene.** Hvilke rekker $\\sum_{n=1}^{\\infty} \\frac{1}{n^p}$ konvergerer? En for-løkke over $p$-verdiene $0{,}5$, $1$, $1{,}5$ og $2$ med akkumulator opp til $N = 10\\,000$ gir tallenes tale: $S_{10\\,000} \\approx 198{,}5$ for $p = 0{,}5$ (divergerer åpenbart), $\\approx 9{,}79$ for $p = 1$ (den harmoniske rekken — divergerer, men i sneglefart), $\\approx 2{,}612$ for $p = 1{,}5$ og $\\approx 1{,}6449$ for $p = 2$ (begge konvergerer). Numerikken *antyder* grensen ved $p = 1$ — og teorien bekrefter: konvergens hvis og bare hvis $p > 1$.\n\n**Populasjonen.** Den logistiske rekursjonen $P_{n+1} = r P_n \\left(1 - \\frac{P_n}{K}\\right)$ med $r = 2{,}8$, $K = 1000$ og $P_0 = 100$ simuleres med samme mønster — én oppdateringslinje i en løkke. Plottet viser at populasjonen svinger seg inn mot likevekten $P^* = K\\left(1 - \\frac{1}{r}\\right) \\approx 643$.\n\nTo advarsler fra skyttergravene til slutt: Python er **0-indeksert** og `range(1, n)` stopper på $n - 1$ — klassiske kilder til av-med-én-feil. Og **listeforståelser** som `[a1 * k**(n-1) for n in range(1, 21)]` gir kompakt kode når du vil lage hele følgen på én linje. GeoGebra kan brukes til tilsvarende utforskninger, men `matplotlib` er standardvalget i Python."
+      "content": "## Modeller: lån, p-rekker og populasjoner\n\nNå setter vi verktøyene i arbeid på tre ordentlige problemer.\n\n**Lånet.** Du låner 500 000 kroner til 5 % årlig rente og betaler 35 000 kroner i året. Restgjelden følger rekursjonen $a_{n+1} = 1{,}05 \\cdot a_n - 35\\,000$ med $a_0 = 500\\,000$ — renter på, betaling av. En while-løkke (`while a > 0:`) som oppdaterer gjelden og teller år, viser at lånet er nedbetalt etter **26 år**; lagrer du verdiene i lister og plotter dem, ser du gjeldskurven krumme seg nedover — flatt i starten (rentene spiser mesteparten av betalingen), bratt mot slutten.\n\n**p-rekkene.** Hvilke rekker $\\sum_{n=1}^{\\infty} \\frac{1}{n^p}$ konvergerer? En for-løkke over $p$-verdiene $0{,}5$, $1$, $1{,}5$ og $2$ med akkumulator opp til $N = 10\\,000$ gir tallenes tale: $S_{10\\,000} \\approx 198{,}5$ for $p = 0{,}5$ (divergerer åpenbart), $\\approx 9{,}79$ for $p = 1$ (den harmoniske rekken — divergerer, men i sneglefart), $\\approx 2{,}592$ for $p = 1{,}5$ og $\\approx 1{,}6448$ for $p = 2$ (begge konvergerer). Numerikken *antyder* grensen ved $p = 1$ — og teorien bekrefter: konvergens hvis og bare hvis $p > 1$.\n\n**Populasjonen.** Den logistiske rekursjonen $P_{n+1} = P_n + r P_n \\left(1 - \\frac{P_n}{K}\\right)$ med $r = 0{,}8$, $K = 1000$ og $P_0 = 100$ simuleres med samme mønster — én oppdateringslinje i en løkke. Plottet viser at populasjonen vokser raskt og flater ut mot bæreevnen $K = 1000$. Med $r = 1{,}8$ skyter populasjonen over 1000 og svinger seg inn mot bæreevnen.\n\nTo advarsler fra skyttergravene til slutt: Python er **0-indeksert** og `range(1, n)` stopper på $n - 1$ — klassiske kilder til av-med-én-feil. Og **listeforståelser** som `[a1 * k**(n-1) for n in range(1, 21)]` gir kompakt kode når du vil lage hele følgen på én linje. GeoGebra kan brukes til tilsvarende utforskninger, men `matplotlib` er standardvalget i Python."
     },
     {
       "id": "s2-9-3-n-quiz3",
@@ -328,7 +328,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Først legges renter på gjelden ($\\times 1{,}05$), deretter trekkes årsbetalingen fra. Simulering viser nedbetaling etter ca. 24 år."
+            "solution": "Først legges renter på gjelden ($\\times 1{,}05$), deretter trekkes årsbetalingen fra. Simulering viser nedbetaling etter 26 år."
           },
           {
             "id": "s2-9-3-n-quiz3-q1",
@@ -359,30 +359,30 @@
           },
           {
             "id": "s2-9-3-n-quiz3-q2",
-            "task": "Den logistiske modellen har $r = 2{,}8$ og $K = 1000$. Hvilken likevekt svinger populasjonen seg inn mot?",
+            "task": "Den logistiske modellen $P_{n+1} = P_n + rP_n\\left(1 - \\frac{P_n}{K}\\right)$ har $r = 0{,}8$ og $K = 1000$. Hvilken verdi nærmer populasjonen seg?",
             "options": [
               {
                 "id": "c",
-                "text": "$P^* = K(1 - \\frac{1}{r}) \\approx 643$",
-                "isCorrect": true
-              },
-              {
-                "id": "a",
-                "text": "$K = 1000$",
+                "text": "$P^* = \\frac{K}{2} = 500$",
                 "isCorrect": false
               },
               {
+                "id": "a",
+                "text": "$K = 1000$ (bæreevnen)",
+                "isCorrect": true
+              },
+              {
                 "id": "b",
-                "text": "$P^* = 500$",
+                "text": "$P^* = rK = 800$",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$P^* = \\frac{K}{r} \\approx 357$",
+                "text": "Populasjonen vokser uten grense",
                 "isCorrect": false
               }
             ],
-            "solution": "Likevekten for den logistiske rekursjonen er $P^* = K(1 - 1/r) = 1000(1 - \\frac{1}{2{,}8}) \\approx 643$ — synlig som vannrett asymptote i plottet."
+            "solution": "Likevekt: $rP^*\\left(1 - \\frac{P^*}{K}\\right) = 0$ gir $P^* = 0$ eller $P^* = K$. Med $0 < r < 2$ nærmer følgen seg bæreevnen $K = 1000$ — synlig som vannrett asymptote i plottet."
           },
           {
             "id": "s2-9-3-n-quiz3-q3",
@@ -417,7 +417,7 @@
     {
       "id": "s2-9-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering: teorien i tastene\n\nFølge- og rekketeorien fikk en maskin som medspiller. **For-løkker** håndterer kjent antall iterasjoner, **while-løkker** kjører til en betingelse brytes — «første ledd under 1», «endring under toleransen». Rekursive følger ble til én oppdateringslinje (`a = p*a + q`), delsummer til en **akkumulator** (`S += ledd`), og `matplotlib` gjorde konvergens synlig som kurver som flater ut.\n\nModellene viste spennvidden: lånerekursjonen $a_{n+1} = 1{,}05a_n - 35\\,000$ avslørte 24 års nedbetalingstid, p-rekkene tegnet grensen mellom konvergens ($p > 1$) og divergens, og den logistiske populasjonen svingte seg inn mot $P^* = K(1 - \\frac{1}{r}) \\approx 643$. **Newtons metode** $a_{n+1} = \\frac{1}{2}(a_n + \\frac{c}{a_n})$ demonstrerte at konvergens*hastighet* er en egenskap ved metoden — kvadratisk konvergens dobler antall riktige desimaler per runde, mens Leibniz-rekken for $\\frac{\\pi}{4}$ kravler mot målet.\n\nHusk håndverksdetaljene — 0-indeksering, eksklusive range-grenser, listeforståelser for kompakte følger — og husk arbeidsdelingen: analysen gir innsikt og bevis, numerikken gir utforskning og bekreftelse. Sammen er de sterkere enn hver for seg, og det er nettopp slik moderne matematikk drives — med penn i den ene hånden og tastatur i den andre."
+      "content": "## Oppsummering: teorien i tastene\n\nFølge- og rekketeorien fikk en maskin som medspiller. **For-løkker** håndterer kjent antall iterasjoner, **while-løkker** kjører til en betingelse brytes — «første ledd under 1», «endring under toleransen». Rekursive følger ble til én oppdateringslinje (`a = p*a + q`), delsummer til en **akkumulator** (`S += ledd`), og `matplotlib` gjorde konvergens synlig som kurver som flater ut.\n\nModellene viste spennvidden: lånerekursjonen $a_{n+1} = 1{,}05a_n - 35\\,000$ avslørte 26 års nedbetalingstid, p-rekkene tegnet grensen mellom konvergens ($p > 1$) og divergens, og den logistiske populasjonen flatet ut mot bæreevnen $K = 1000$. **Newtons metode** $a_{n+1} = \\frac{1}{2}(a_n + \\frac{c}{a_n})$ demonstrerte at konvergens*hastighet* er en egenskap ved metoden — kvadratisk konvergens dobler antall riktige desimaler per runde, mens Leibniz-rekken for $\\frac{\\pi}{4}$ kravler mot målet.\n\nHusk håndverksdetaljene — 0-indeksering, eksklusive range-grenser, listeforståelser for kompakte følger — og husk arbeidsdelingen: analysen gir innsikt og bevis, numerikken gir utforskning og bekreftelse. Sammen er de sterkere enn hver for seg, og det er nettopp slik moderne matematikk drives — med penn i den ene hånden og tastatur i den andre."
     }
   ],
   "exercises": []

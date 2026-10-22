@@ -26,7 +26,7 @@
       "type": "example",
       "title": "Sparing til bustad",
       "problem": "Du sparer 5000 kr per månad i 10 år. Månadleg rente er $0{,}3\\%$ (dvs. $r = 0{,}003$). Kor mykje har du spart totalt?",
-      "solution": "Vi har $b = 5000$, $r = 0{,}003$, $v = 1{,}003$ og $n = 120$ (månader).\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}003^{120} - 1}{0{,}003}$$\n\nRekn ut $1{,}003^{120}$: $1{,}003^{120} \\approx 1{,}4308$\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}4308 - 1}{0{,}003} = 5000 \\cdot \\frac{0{,}4308}{0{,}003} = 5000 \\cdot 143{,}6 \\approx 718\\,000 \\text{ kr}$$\n\n**Totalt innskot:** $5000 \\cdot 120 = 600\\,000$ kr\n**Opptente renter:** $718\\,000 - 600\\,000 = 118\\,000$ kr"
+      "solution": "$b = 5000$, $r = 0{,}003$, $v = 1{,}003$ og $n = 120$ (månader)\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}003^{120} - 1}{0{,}003}$$\n\n$1{,}003^{120} \\approx 1{,}432557$\n\n$$\\begin{aligned}\nK_{120} &\\approx 5000 \\cdot \\frac{0{,}432557}{0{,}003} \\\\\n&\\approx 5000 \\cdot 144{,}1857 \\\\\n&\\approx 720\\,929 \\text{ kr}\n\\end{aligned}$$\n\n**Totalt innskot:** $5000 \\cdot 120 = 600\\,000$ kr\n\n**Opptente renter:** $720\\,929 - 600\\,000 = 120\\,929$ kr\n\n**Svar:** Du har spart ca. 720 929 kr, og av dette er ca. 120 929 kr renter."
     },
     {
       "id": "s2-7-4-theorem-1",
@@ -57,7 +57,7 @@
       "type": "example",
       "title": "Rekn ut terminbeløp for annuitetslån",
       "problem": "Eit bustadlån på 3 000 000 kr har årleg rente $4\\%$ og løpetid 25 år med årlege terminar. Finn terminbeløpet.",
-      "solution": "Vi har $L = 3\\,000\\,000$, $r = 0{,}04$, $v = 1{,}04$ og $n = 25$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{25}}{1{,}04^{25} - 1}$$\n\nRekn ut $1{,}04^{25} \\approx 2{,}6658$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 2{,}6658}{2{,}6658 - 1} = 3\\,000\\,000 \\cdot \\frac{0{,}10663}{1{,}6658}$$\n\n$$T = 3\\,000\\,000 \\cdot 0{,}06401 \\approx 192\\,040 \\text{ kr}$$\n\n**Total innbetaling:** $192\\,040 \\cdot 25 = 4\\,801\\,000$ kr\n**Total rente:** $4\\,801\\,000 - 3\\,000\\,000 = 1\\,801\\,000$ kr"
+      "solution": "Vi har $L = 3\\,000\\,000$, $r = 0{,}04$, $v = 1{,}04$ og $n = 25$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{25}}{1{,}04^{25} - 1}$$\n\nRekn ut $1{,}04^{25} \\approx 2{,}6658$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 2{,}6658}{2{,}6658 - 1} \\approx 3\\,000\\,000 \\cdot \\frac{0{,}10663}{1{,}6658}$$\n\n$$T = 3\\,000\\,000 \\cdot 0{,}06401 \\approx 192\\,040 \\text{ kr}$$\n\n**Total innbetaling:** $192\\,040 \\cdot 25 = 4\\,801\\,000$ kr\n**Total rente:** $4\\,801\\,000 - 3\\,000\\,000 = 1\\,801\\,000$ kr\n\n**Svar:** Terminbeløpet er ca. 192 040 kr per år."
     },
     {
       "id": "s2-7-4-def-3",
@@ -70,7 +70,7 @@
       "type": "example",
       "title": "Samanlikning av serielån og annuitetslån",
       "problem": "Eit lån på 500 000 kr skal tilbakebetalast over 5 år med årleg rente $6\\%$. Samanlikn total rentekostnad for annuitetslån og serielån.",
-      "solution": "**Annuitetslån:**\n$T = 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}06^5}{1{,}06^5 - 1} = 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}3382}{0{,}3382} = 500\\,000 \\cdot 0{,}23740 = 118\\,698$ kr\n\nTotal: $118\\,698 \\cdot 5 = 593\\,490$ kr. Rente: $93\\,490$ kr.\n\n**Serielån:**\nAvdrag per år: $\\frac{500\\,000}{5} = 100\\,000$ kr.\n\n| År | Restgjeld | Rente | Avdrag | Termin |\n|----|-----------|-------|--------|--------|\n| 1 | 500 000 | 30 000 | 100 000 | 130 000 |\n| 2 | 400 000 | 24 000 | 100 000 | 124 000 |\n| 3 | 300 000 | 18 000 | 100 000 | 118 000 |\n| 4 | 200 000 | 12 000 | 100 000 | 112 000 |\n| 5 | 100 000 | 6 000 | 100 000 | 106 000 |\n\nTotal rente serielån: $30\\,000 + 24\\,000 + 18\\,000 + 12\\,000 + 6\\,000 = 90\\,000$ kr.\n\n**Serielånet gir $3\\,490$ kr lågare total rentekostnad.**"
+      "solution": "**Annuitetslån:**\n$T = 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}06^5}{1{,}06^5 - 1} \\approx 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}3382}{0{,}3382} \\approx 500\\,000 \\cdot 0{,}237396 \\approx 118\\,698$ kr\n\nTotal: $118\\,698 \\cdot 5 = 593\\,490$ kr. Rente: $93\\,490$ kr.\n\n**Serielån:**\nAvdrag per år: $\\frac{500\\,000}{5} = 100\\,000$ kr.\n\n| År | Restgjeld | Rente | Avdrag | Termin |\n|----|-----------|-------|--------|--------|\n| 1 | 500 000 | 30 000 | 100 000 | 130 000 |\n| 2 | 400 000 | 24 000 | 100 000 | 124 000 |\n| 3 | 300 000 | 18 000 | 100 000 | 118 000 |\n| 4 | 200 000 | 12 000 | 100 000 | 112 000 |\n| 5 | 100 000 | 6 000 | 100 000 | 106 000 |\n\nTotal rente serielån: $30\\,000 + 24\\,000 + 18\\,000 + 12\\,000 + 6\\,000 = 90\\,000$ kr.\n\n**Svar:** Annuitetslånet gir $93\\,490$ kr i renter og serielånet $90\\,000$ kr. Serielånet gir $3\\,490$ kr lågare total rentekostnad."
     },
     {
       "id": "s2-7-4-text-eksamenstips",
@@ -90,21 +90,21 @@
           {
             "label": "a",
             "task": "Du set inn 2000 kr per månad i 5 år. Månadleg rente er $0{,}4\\%$. Finn sluttkapitalen.",
-            "solution": "$b = 2000$, $r = 0{,}004$, $n = 60$. $K_{60} = 2000 \\cdot \\frac{1{,}004^{60} - 1}{0{,}004} = 2000 \\cdot \\frac{1{,}2706 - 1}{0{,}004} = 2000 \\cdot 67{,}65 \\approx 135\\,300$ kr.",
+            "solution": "$b = 2000$, $r = 0{,}004$, $n = 60$\n\n$K_{60} = 2000 \\cdot \\frac{1{,}004^{60} - 1}{0{,}004} \\approx 2000 \\cdot \\frac{0{,}27064}{0{,}004} \\approx 2000 \\cdot 67{,}660 \\approx 135\\,320$ kr\n\n**Svar:** Sluttkapitalen er ca. 135 320 kr.",
             "answer": [
-              135300,
               135320,
-              135320.36
+              135320.36,
+              135300
             ]
           },
           {
             "label": "b",
             "task": "Kor mykje av sluttkapitalen er opptente renter?",
-            "solution": "Totalt innskot: $2000 \\cdot 60 = 120\\,000$ kr. Renter: $135\\,300 - 120\\,000 = 15\\,300$ kr.",
+            "solution": "Totalt innskot: $2000 \\cdot 60 = 120\\,000$ kr\n\nRenter: $135\\,320 - 120\\,000 = 15\\,320$ kr\n\n**Svar:** Ca. 15 320 kr er renter.",
             "answer": [
-              15300,
               15320,
-              15320.36
+              15320.36,
+              15300
             ]
           }
         ],
@@ -126,7 +126,7 @@
           {
             "label": "a",
             "task": "Eit lån på 200 000 kr har årleg rente $5\\%$ og løpetid 10 år med årlege terminar. Finn det årlege terminbeløpet.",
-            "solution": "$T = 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^{10}}{1{,}05^{10} - 1} = 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}6289}{0{,}6289} = 200\\,000 \\cdot 0{,}12950 \\approx 25\\,901$ kr.",
+            "solution": "$T = 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^{10}}{1{,}05^{10} - 1} \\approx 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}6289}{0{,}6289} \\approx 200\\,000 \\cdot 0{,}12950 \\approx 25\\,901$ kr.",
             "answer": [
               25901,
               25900.91
@@ -161,7 +161,7 @@
           {
             "label": "a",
             "task": "Finn noverdien av 100 000 kr som blir motteke om 8 år, gitt $6\\%$ årleg rente.",
-            "solution": "$\\text{NV} = \\frac{100\\,000}{1{,}06^8} = \\frac{100\\,000}{1{,}5938} \\approx 62\\,741$ kr.",
+            "solution": "$\\text{NV} = \\frac{100\\,000}{1{,}06^8} \\approx \\frac{100\\,000}{1{,}5938} \\approx 62\\,741$ kr.",
             "answer": [
               62741,
               62741.24
@@ -212,9 +212,8 @@
           {
             "label": "a",
             "task": "Du ønskjer å ha 1 000 000 kr om 15 år. Kor mykje må du spare per månad dersom månadleg rente er $0{,}35\\%$?",
-            "solution": "$K_n = b \\cdot \\frac{v^n - 1}{r}$. $1\\,000\\,000 = b \\cdot \\frac{1{,}0035^{180} - 1}{0{,}0035}$. $1{,}0035^{180} \\approx 1{,}8776$. $b = \\frac{1\\,000\\,000 \\cdot 0{,}0035}{0{,}8776} = \\frac{3500}{0{,}8776} \\approx 3989$ kr per månad.",
+            "solution": "$K_n = b \\cdot \\frac{v^n - 1}{r}$\n\n$1\\,000\\,000 = b \\cdot \\frac{1{,}0035^{180} - 1}{0{,}0035}$\n\n$1{,}0035^{180} \\approx 1{,}875546$\n\n$b = \\frac{1\\,000\\,000 \\cdot 0{,}0035}{0{,}875546} = \\frac{3500}{0{,}875546} \\approx 3997{,}50$\n\n**Svar:** Du må spare ca. 3998 kr per månad.",
             "answer": [
-              3989,
               3998,
               3997.5,
               3997.503426564633
@@ -239,7 +238,7 @@
           {
             "label": "a",
             "task": "Eit annuitetslån på 1 500 000 kr har årleg rente $3{,}5\\%$ og løpetid 20 år. Finn terminbeløpet.",
-            "solution": "$T = 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}035^{20}}{1{,}035^{20} - 1} = 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}9898}{0{,}9898} = 1\\,500\\,000 \\cdot 0{,}07036 \\approx 105\\,541$ kr.",
+            "solution": "$T = 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}035^{20}}{1{,}035^{20} - 1} \\approx 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}9898}{0{,}9898} \\approx 1\\,500\\,000 \\cdot 0{,}07036 \\approx 105\\,541$ kr.",
             "answer": [
               105541,
               105542,
@@ -249,9 +248,8 @@
           {
             "label": "b",
             "task": "Finn restgjelda etter 10 år.",
-            "solution": "$R_{10} = 1\\,500\\,000 \\cdot 1{,}035^{10} - 105\\,541 \\cdot \\frac{1{,}035^{10} - 1}{0{,}035} = 1\\,500\\,000 \\cdot 1{,}4106 - 105\\,541 \\cdot \\frac{0{,}4106}{0{,}035} = 2\\,115\\,900 - 105\\,541 \\cdot 11{,}731 = 2\\,115\\,900 - 1\\,238\\,100 \\approx 877\\,800$ kr.",
+            "solution": "$R_{10} = 1\\,500\\,000 \\cdot 1{,}035^{10} - 105\\,541{,}62 \\cdot \\frac{1{,}035^{10} - 1}{0{,}035}$\n\n$1{,}035^{10} \\approx 1{,}410599$\n\n$R_{10} \\approx 2\\,115\\,898{,}1 - 105\\,541{,}62 \\cdot 11{,}731393 \\approx 2\\,115\\,898{,}1 - 1\\,238\\,150{,}2 \\approx 877\\,748$ kr\n\n**Svar:** Restgjelden etter 10 år er ca. 877 748 kr.",
             "answer": [
-              877800,
               877748,
               877747.96
             ]
@@ -275,7 +273,7 @@
           {
             "label": "a",
             "task": "Utlei spareformelen $K_n = b \\cdot \\frac{v^n - 1}{v - 1}$ frå ei geometrisk rekkje.",
-            "solution": "Innskot $b$ ved slutten av termin 1, 2, ..., $n$. Etter $n$ terminar har innskot $k$ fått renter i $n-k$ terminar: verdi $b \\cdot v^{n-k}$. Total: $K_n = b \\cdot v^{n-1} + b \\cdot v^{n-2} + \\cdots + b \\cdot v + b = b(1 + v + v^2 + \\cdots + v^{n-1}) = b \\cdot \\frac{v^n - 1}{v - 1}$."
+            "solution": "Innskot $b$ ved slutten av termin 1, 2, ..., $n$.\n\nEtter $n$ terminar har innskot $k$ fått renter i $n-k$ terminar: verdi $b \\cdot v^{n-k}$.\n\nTotal:\n\n$K_n = b \\cdot v^{n-1} + b \\cdot v^{n-2} + \\cdots + b \\cdot v + b = b(1 + v + v^2 + \\cdots + v^{n-1}) = b \\cdot \\frac{v^n - 1}{v - 1}$.\n\n**Svar:** $K_n = b \\cdot \\frac{v^n - 1}{v - 1}$"
           }
         ],
         "hints": [
@@ -296,7 +294,7 @@
           {
             "label": "a",
             "task": "Finn noverdien av 20 årlege utbetalingar på 80 000 kr, gitt $4\\%$ årleg rente.",
-            "solution": "$\\text{NV} = 80\\,000 \\cdot \\frac{1 - 1{,}04^{-20}}{0{,}04} = 80\\,000 \\cdot \\frac{1 - 0{,}4564}{0{,}04} = 80\\,000 \\cdot \\frac{0{,}5436}{0{,}04} = 80\\,000 \\cdot 13{,}590 \\approx 1\\,087\\,200$ kr.",
+            "solution": "$\\text{NV} = 80\\,000 \\cdot \\frac{1 - 1{,}04^{-20}}{0{,}04} \\approx 80\\,000 \\cdot \\frac{1 - 0{,}4564}{0{,}04} = 80\\,000 \\cdot \\frac{0{,}5436}{0{,}04} = 80\\,000 \\cdot 13{,}590 \\approx 1\\,087\\,200$ kr.",
             "answer": [
               1087200,
               1087226,
@@ -322,7 +320,7 @@
           {
             "label": "a",
             "task": "Eit lån på 400 000 kr med $5\\%$ årleg rente skal tilbakebetalast over 4 år. Rekn ut total rentekostnad for høvesvis annuitetslån og serielån.",
-            "solution": "Annuitet: $T = 400\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} = 400\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}2155}{0{,}2155} = 400\\,000 \\cdot 0{,}28201 = 112\\,804$. Total rente: $112\\,804 \\cdot 4 - 400\\,000 = 51\\,216$ kr. Serielån: avdrag $= 100\\,000$. Renter: $20\\,000 + 15\\,000 + 10\\,000 + 5\\,000 = 50\\,000$ kr. Differanse: $1\\,216$ kr."
+            "solution": "Annuitet: $T = 400\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} \\approx 400\\,000 \\cdot 0{,}282012 \\approx 112\\,805$ kr\n\nTotal rente, annuitetslån: $4 \\cdot 112\\,804{,}73 - 400\\,000 \\approx 51\\,219$ kr\n\nSerielån: avdrag $100\\,000$ kr, renter $20\\,000 + 15\\,000 + 10\\,000 + 5\\,000 = 50\\,000$ kr\n\n**Svar:** Annuitetslånet gir ca. 51 219 kr i renter og serielånet 50 000 kr, altså 1 219 kr meir for annuitetslånet."
           }
         ],
         "hints": [
@@ -343,9 +341,8 @@
           {
             "label": "a",
             "task": "Eit bustadlån på 4 000 000 kr har månadlege terminar og nominell rente $3{,}6\\%$. Løpetida er 30 år. Finn det månadlege terminbeløpet.",
-            "solution": "Månadleg rente: $r = \\frac{0{,}036}{12} = 0{,}003$, $n = 360$. $T = 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 1{,}003^{360}}{1{,}003^{360} - 1}$. $1{,}003^{360} \\approx 2{,}9408$. $T = 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 2{,}9408}{1{,}9408} = 4\\,000\\,000 \\cdot 0{,}004547 \\approx 18\\,187$ kr.",
+            "solution": "$r = \\frac{0{,}036}{12} = 0{,}003$ og $n = 360$\n\n$T = 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 1{,}003^{360}}{1{,}003^{360} - 1}$\n\n$1{,}003^{360} \\approx 2{,}939923$\n\n$T \\approx 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 2{,}939923}{1{,}939923} \\approx 4\\,000\\,000 \\cdot 0{,}00454645 \\approx 18\\,185{,}81$\n\n**Svar:** Det månadlege terminbeløpet er ca. 18 186 kr.",
             "answer": [
-              18187,
               18186,
               18185.81
             ]
@@ -353,10 +350,10 @@
           {
             "label": "b",
             "task": "Kor mykje betaler du totalt i renter over heile løpetida til lånet?",
-            "solution": "Total: $18\\,187 \\cdot 360 = 6\\,547\\,320$ kr. Rente: $6\\,547\\,320 - 4\\,000\\,000 = 2\\,547\\,320$ kr.",
+            "solution": "Totalt: $18\\,185{,}81 \\cdot 360 \\approx 6\\,546\\,893$ kr\n\nRenter: $6\\,546\\,893 - 4\\,000\\,000 = 2\\,546\\,893$ kr\n\n**Svar:** Du betaler ca. 2 546 900 kr i renter.",
             "answer": [
-              2547320,
               2546893,
+              2546900,
               2546893.04
             ]
           }
@@ -379,9 +376,8 @@
           {
             "label": "a",
             "task": "Ein pensjonist ønskjer å ta ut 15 000 kr per månad i 20 år frå ein sparekonto med $0{,}3\\%$ månadleg rente. Kor mykje må stå på kontoen ved pensjonsstart?",
-            "solution": "Noverdien av utbetalingane: $\\text{NV} = 15\\,000 \\cdot \\frac{1 - 1{,}003^{-240}}{0{,}003} = 15\\,000 \\cdot \\frac{1 - 0{,}4878}{0{,}003} = 15\\,000 \\cdot \\frac{0{,}5122}{0{,}003} = 15\\,000 \\cdot 170{,}73 \\approx 2\\,561\\,000$ kr.",
+            "solution": "Startbeløpet er noverdien av utbetalingane:\n\n$\\text{NV} = 15\\,000 \\cdot \\frac{1 - 1{,}003^{-240}}{0{,}003}$\n\n$1{,}003^{-240} \\approx 0{,}487277$\n\n$\\text{NV} \\approx 15\\,000 \\cdot \\frac{0{,}512723}{0{,}003} \\approx 15\\,000 \\cdot 170{,}9076 \\approx 2\\,563\\,614$ kr\n\n**Svar:** Det må stå ca. 2 563 614 kr på kontoen ved pensjonsstart.",
             "answer": [
-              2561000,
               2563614,
               2563614.09
             ]
@@ -405,9 +401,8 @@
           {
             "label": "a",
             "task": "Eit annuitetslån på 600 000 kr med $4\\%$ årleg rente og 15 års løpetid har vore betent i 8 år. Låntakaren ønskjer å auke terminbeløpet for å nedbetale resten av lånet på 5 år (i staden for 7). Finn det nye terminbeløpet.",
-            "solution": "Opphavleg: $T = 600\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{15}}{1{,}04^{15} - 1} = 600\\,000 \\cdot 0{,}08994 = 53\\,963$ kr. Restgjeld etter 8 år: $R_8 = 600\\,000 \\cdot 1{,}04^8 - 53\\,963 \\cdot \\frac{1{,}04^8 - 1}{0{,}04} = 820\\,997 - 53\\,963 \\cdot 9{,}2142 = 820\\,997 - 497\\,204 = 323\\,793$ kr. Nytt terminbeløp over 5 år: $T_{\\text{ny}} = 323\\,793 \\cdot \\frac{0{,}04 \\cdot 1{,}04^5}{1{,}04^5 - 1} = 323\\,793 \\cdot 0{,}22463 \\approx 72\\,751$ kr.",
+            "solution": "Opphavleg terminbeløp:\n\n$T = 600\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{15}}{1{,}04^{15} - 1} \\approx 600\\,000 \\cdot 0{,}0899411 \\approx 53\\,964{,}66$ kr\n\nRestgjeld etter 8 år:\n\n$R_8 = 600\\,000 \\cdot 1{,}04^8 - 53\\,964{,}66 \\cdot \\frac{1{,}04^8 - 1}{0{,}04}$\n\n$R_8 \\approx 821\\,141{,}43 - 53\\,964{,}66 \\cdot 9{,}214226 \\approx 821\\,141{,}43 - 497\\,242{,}59 \\approx 323\\,898{,}84$ kr\n\nNytt terminbeløp over 5 år:\n\n$T_{\\text{ny}} = 323\\,898{,}84 \\cdot \\frac{0{,}04 \\cdot 1{,}04^5}{1{,}04^5 - 1} \\approx 323\\,898{,}84 \\cdot 0{,}2246271 \\approx 72\\,756$ kr\n\n**Svar:** Det nye terminbeløpet er ca. 72 756 kr.",
             "answer": [
-              72751,
               72756,
               72756.46
             ]
@@ -431,7 +426,7 @@
           {
             "label": "a",
             "task": "Vis at terminbeløpet for eit serielån med $n$ terminar dannar ei aritmetisk følgje, og finn differansen.",
-            "solution": "Avdrag per termin: $A = \\frac{L}{n}$. Restgjeld etter termin $m$: $R_m = L - mA = L(1 - \\frac{m}{n})$. Rente i termin $m+1$: $r \\cdot R_m = rL(1 - \\frac{m}{n})$. Terminbeløp $m+1$: $T_{m+1} = A + rL(1 - \\frac{m}{n}) = \\frac{L}{n} + rL - \\frac{rLm}{n}$. Differanse: $T_{m+2} - T_{m+1} = -\\frac{rL}{n}$. Terminbeløpa dannar ei aritmetisk følgje med $d = -\\frac{rL}{n}$."
+            "solution": "Avdrag per termin:\n\n$A = \\frac{L}{n}$.\n\nRestgjeld etter termin $m$: $R_m = L - mA = L(1 - \\frac{m}{n})$.\n\nRente i termin $m+1$: $r \\cdot R_m = rL(1 - \\frac{m}{n})$.\n\nTerminbeløp $m+1$: $T_{m+1} = A + rL(1 - \\frac{m}{n}) = \\frac{L}{n} + rL - \\frac{rLm}{n}$.\n\nDifferanse: $T_{m+2} - T_{m+1} = -\\frac{rL}{n}$.\n\nTerminbeløpa dannar ei aritmetisk følgje med $d = -\\frac{rL}{n}$.\n\n**Svar:** Terminbeløpa er ei aritmetisk følgje med $d = -\\frac{rL}{n}$."
           }
         ],
         "hints": [
@@ -452,7 +447,7 @@
           {
             "label": "a",
             "task": "To investeringar blir tilbydde: A) 50 000 kr no, eller B) 10 000 kr per år i 6 år (første betaling om eitt år). Kva er best ved $5\\%$ rente?",
-            "solution": "Noverdi A: $50\\,000$ kr. Noverdi B: $10\\,000 \\cdot \\frac{1 - 1{,}05^{-6}}{0{,}05} = 10\\,000 \\cdot \\frac{1 - 0{,}7462}{0{,}05} = 10\\,000 \\cdot 5{,}076 = 50\\,760$ kr. Alternativ B har høgast noverdi ($760$ kr meir), og er dermed best."
+            "solution": "Noverdi A: $50\\,000$ kr\n\nNoverdi B: $10\\,000 \\cdot \\frac{1 - 1{,}05^{-6}}{0{,}05} \\approx 10\\,000 \\cdot \\frac{1 - 0{,}746215}{0{,}05} \\approx 10\\,000 \\cdot 5{,}0757 \\approx 50\\,757$ kr\n\n**Svar:** Alternativ B har høgast noverdi (757 kr meir) og er best."
           }
         ],
         "hints": [
@@ -597,7 +592,7 @@
               {
                 "label": "a",
                 "task": "Rekn ut terminbeløpet med annuitetsformelen $T = L \\cdot \\frac{r}{1 - (1+r)^{-n}}$. Rund av til næraste krone.",
-                "solution": "$T = 200\\,000 \\cdot \\frac{0{,}05}{1 - 1{,}05^{-10}} = \\frac{10\\,000}{0{,}38609} \\approx 25\\,901$ kr",
+                "solution": "$T = 200\\,000 \\cdot \\frac{0{,}05}{1 - 1{,}05^{-10}} \\approx \\frac{10\\,000}{0{,}38609} \\approx 25\\,901$ kr",
                 "answer": [
                   25901,
                   25900.9,
@@ -668,10 +663,10 @@
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "adeae6af45b574b7",
+    "sourceHash": "99ddbf3a6ddac0d3",
     "translatedAt": "2026-06-20T09:32:20.453Z",
-    "model": "claude-code-agent",
-    "strings": 139,
+    "model": "claude-code-agent (synk 21.10.2026)",
+    "strings": 141,
     "tm": {
       "603deadec3ba71ab": "Annuitetslån og sparing",
       "c8644c7f2a58b516": "Lær om annuitetsformelen, noverdi av betalingsrekkjer, og skilnaden mellom serielån og annuitetslån.",
@@ -682,73 +677,75 @@
       "6369db9ded73048e": "Dersom du set inn eit fast beløp $b$ ved slutten av kvar termin i $n$ terminar, og renta per termin er $r$ (vekstfaktor $v = 1 + r$), er **sluttkapitalen** (verdien etter $n$ terminar):\n\n$$K_n = b \\cdot \\frac{v^n - 1}{v - 1} = b \\cdot \\frac{(1+r)^n - 1}{r}$$\n\nDette er summen av ei geometrisk rekkje der kvart innskot veks med renter over ulik tid.",
       "c3f81952a10422f4": "Sparing til bustad",
       "c524737bbf366a3f": "Du sparer 5000 kr per månad i 10 år. Månadleg rente er $0{,}3\\%$ (dvs. $r = 0{,}003$). Kor mykje har du spart totalt?",
-      "8e505c774dcab1ac": "Vi har $b = 5000$, $r = 0{,}003$, $v = 1{,}003$ og $n = 120$ (månader).\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}003^{120} - 1}{0{,}003}$$\n\nRekn ut $1{,}003^{120}$: $1{,}003^{120} \\approx 1{,}4308$\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}4308 - 1}{0{,}003} = 5000 \\cdot \\frac{0{,}4308}{0{,}003} = 5000 \\cdot 143{,}6 \\approx 718\\,000 \\text{ kr}$$\n\n**Totalt innskot:** $5000 \\cdot 120 = 600\\,000$ kr\n**Opptente renter:** $718\\,000 - 600\\,000 = 118\\,000$ kr",
+      "77274acebac5bd70": "$b = 5000$, $r = 0{,}003$, $v = 1{,}003$ og $n = 120$ (månader)\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}003^{120} - 1}{0{,}003}$$\n\n$1{,}003^{120} \\approx 1{,}432557$\n\n$$\\begin{aligned}\nK_{120} &\\approx 5000 \\cdot \\frac{0{,}432557}{0{,}003} \\\\\n&\\approx 5000 \\cdot 144{,}1857 \\\\\n&\\approx 720\\,929 \\text{ kr}\n\\end{aligned}$$\n\n**Totalt innskot:** $5000 \\cdot 120 = 600\\,000$ kr\n\n**Opptente renter:** $720\\,929 - 600\\,000 = 120\\,929$ kr\n\n**Svar:** Du har spart ca. 720 929 kr, og av dette er ca. 120 929 kr renter.",
       "d2490cb5e06524f3": "Annuitetsformelen",
       "3100fc414cb98335": "Eit **annuitetslån** er eit lån der terminbeløpet (summen av avdrag og renter) er **konstant** gjennom heile løpetida til lånet.\n\nDersom lånebeløpet er $L$, renta per termin er $r$ (vekstfaktor $v = 1 + r$) og talet på terminar er $n$, er det faste terminbeløpet:\n\n$$T = L \\cdot \\frac{r \\cdot v^n}{v^n - 1} = L \\cdot \\frac{r(1+r)^n}{(1+r)^n - 1}$$\n\n**Utleiing:** Etter $n$ terminar skal restgjelda vere null. Lånet med renter etter $n$ terminar er $L \\cdot v^n$. Innbetalingane $T$ per termin med renter utgjer ei geometrisk rekkje med sum $T \\cdot \\frac{v^n - 1}{r}$. Sett lik: $L \\cdot v^n = T \\cdot \\frac{v^n - 1}{r}$, og løys for $T$.",
+      "dd8e8824a00e20f1": "Eit søylediagram over terminane i eit annuitetslån. Kvar søyle har same totale høgd og er delt i ein nedre del for avdrag og ein øvre del for renter. Rentedelen krympar og avdragsdelen veks utover i lånet. Ei minkande kurve over søylene viser restgjelda.",
+      "6f6bd2b427b2fe3a": "I eit annuitetslån er terminbeløpet konstant, men samansetjinga endrar seg: rentedelen søkk i takt med restgjelda, og avdragsdelen veks tilsvarande.",
       "7dcd6a08abe6e11c": "Noverdi",
       "b4e80a1e700fc1d6": "**Noverdien** av eit beløp $B$ som blir motteke om $n$ terminar ved rente $r$ er:\n\n$$\\text{NV} = \\frac{B}{(1+r)^n}$$\n\nNoverdien av ei rekkje like betalingar $T$ over $n$ terminar er:\n\n$$\\text{NV} = T \\cdot \\frac{1 - (1+r)^{-n}}{r}$$\n\nNoverdi blir brukt til å samanlikne betalingsstraumar som skjer på ulike tidspunkt.",
       "6807eb6437afe0ac": "## Serielån vs. annuitetslån\n\nI eit **serielån** er **avdraga** (ikkje terminbeløpet) konstante. Sidan restgjelda synk, synk også rentedelen, og dermed synk terminbeløpet over tid.\n\n| Eigenskap | Annuitetslån | Serielån |\n|----------|-------------|----------|\n| Terminbeløp | Konstant | Synk over tid |\n| Avdrag | Aukar over tid | Konstant |\n| Rentedel | Synk over tid | Synk over tid |\n| Total rente | Høgare | Lågare |\n| Populært til | Bustadlån (føreseielegheit) | Bedriftslån |\n\nSerielånet gir **lågare total rentekostnad** fordi du betaler ned raskare i starten.",
       "0fddce000639378b": "Rekn ut terminbeløp for annuitetslån",
-      "9d23a477e79b36c7": "Eit bustadlån på 3 000 000 kr har årleg rente $4\\%$ og løpetid 25 år med årlege terminar. Finn terminbeløpet.",
-      "83bf40be95da5d90": "Vi har $L = 3\\,000\\,000$, $r = 0{,}04$, $v = 1{,}04$ og $n = 25$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{25}}{1{,}04^{25} - 1}$$\n\nRekn ut $1{,}04^{25} \\approx 2{,}6658$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 2{,}6658}{2{,}6658 - 1} = 3\\,000\\,000 \\cdot \\frac{0{,}10663}{1{,}6658}$$\n\n$$T = 3\\,000\\,000 \\cdot 0{,}06401 \\approx 192\\,040 \\text{ kr}$$\n\n**Total innbetaling:** $192\\,040 \\cdot 25 = 4\\,801\\,000$ kr\n**Total rente:** $4\\,801\\,000 - 3\\,000\\,000 = 1\\,801\\,000$ kr",
+      "d5b4a44e204bb87b": "Eit bustadlån på 3 000 000 kr har årleg rente $4\\%$ og løpetid 25 år med årlege terminar. Finn terminbeløpet.",
+      "b2dff0934034bd57": "Vi har $L = 3\\,000\\,000$, $r = 0{,}04$, $v = 1{,}04$ og $n = 25$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{25}}{1{,}04^{25} - 1}$$\n\nRekn ut $1{,}04^{25} \\approx 2{,}6658$.\n\n$$T = 3\\,000\\,000 \\cdot \\frac{0{,}04 \\cdot 2{,}6658}{2{,}6658 - 1} \\approx 3\\,000\\,000 \\cdot \\frac{0{,}10663}{1{,}6658}$$\n\n$$T = 3\\,000\\,000 \\cdot 0{,}06401 \\approx 192\\,040 \\text{ kr}$$\n\n**Total innbetaling:** $192\\,040 \\cdot 25 = 4\\,801\\,000$ kr\n**Total rente:** $4\\,801\\,000 - 3\\,000\\,000 = 1\\,801\\,000$ kr\n\n**Svar:** Terminbeløpet er ca. 192 040 kr per år.",
       "9a7546a8cbf19ac2": "Restgjeld etter m terminar",
       "70a67e74edbbc7f9": "Restgjelda på eit annuitetslån etter $m$ terminar (av totalt $n$) er:\n\n$$R_m = L \\cdot v^m - T \\cdot \\frac{v^m - 1}{r}$$\n\nder $T$ er terminbeløpet, $v = 1 + r$ er vekstfaktoren.\n\nAlternativt kan restgjelda uttrykkjast som noverdien av dei gjenståande $n - m$ terminbeløpa:\n\n$$R_m = T \\cdot \\frac{1 - v^{-(n-m)}}{r}$$",
       "9f3be0bf078e04a8": "Samanlikning av serielån og annuitetslån",
-      "ca580a1441749d61": "Eit lån på 500 000 kr skal tilbakebetalast over 5 år med årleg rente $6\\%$. Samanlikn total rentekostnad for annuitetslån og serielån.",
-      "1247d11ff3f05906": "**Annuitetslån:**\n$T = 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}06^5}{1{,}06^5 - 1} = 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}3382}{0{,}3382} = 500\\,000 \\cdot 0{,}23740 = 118\\,698$ kr\n\nTotal: $118\\,698 \\cdot 5 = 593\\,490$ kr. Rente: $93\\,490$ kr.\n\n**Serielån:**\nAvdrag per år: $\\frac{500\\,000}{5} = 100\\,000$ kr.\n\n| År | Restgjeld | Rente | Avdrag | Termin |\n|----|-----------|-------|--------|--------|\n| 1 | 500 000 | 30 000 | 100 000 | 130 000 |\n| 2 | 400 000 | 24 000 | 100 000 | 124 000 |\n| 3 | 300 000 | 18 000 | 100 000 | 118 000 |\n| 4 | 200 000 | 12 000 | 100 000 | 112 000 |\n| 5 | 100 000 | 6 000 | 100 000 | 106 000 |\n\nTotal rente serielån: $30\\,000 + 24\\,000 + 18\\,000 + 12\\,000 + 6\\,000 = 90\\,000$ kr.\n\n**Serielånet gir $3\\,490$ kr lågare total rentekostnad.**",
+      "a9341023f850324d": "Eit lån på 500 000 kr skal tilbakebetalast over 5 år med årleg rente $6\\%$. Samanlikn total rentekostnad for annuitetslån og serielån.",
+      "e756f8a61b58c0fb": "**Annuitetslån:**\n$T = 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}06^5}{1{,}06^5 - 1} \\approx 500\\,000 \\cdot \\frac{0{,}06 \\cdot 1{,}3382}{0{,}3382} \\approx 500\\,000 \\cdot 0{,}237396 \\approx 118\\,698$ kr\n\nTotal: $118\\,698 \\cdot 5 = 593\\,490$ kr. Rente: $93\\,490$ kr.\n\n**Serielån:**\nAvdrag per år: $\\frac{500\\,000}{5} = 100\\,000$ kr.\n\n| År | Restgjeld | Rente | Avdrag | Termin |\n|----|-----------|-------|--------|--------|\n| 1 | 500 000 | 30 000 | 100 000 | 130 000 |\n| 2 | 400 000 | 24 000 | 100 000 | 124 000 |\n| 3 | 300 000 | 18 000 | 100 000 | 118 000 |\n| 4 | 200 000 | 12 000 | 100 000 | 112 000 |\n| 5 | 100 000 | 6 000 | 100 000 | 106 000 |\n\nTotal rente serielån: $30\\,000 + 24\\,000 + 18\\,000 + 12\\,000 + 6\\,000 = 90\\,000$ kr.\n\n**Svar:** Annuitetslånet gir $93\\,490$ kr i renter og serielånet $90\\,000$ kr. Serielånet gir $3\\,490$ kr lågare total rentekostnad.",
       "57dd75a08b871cd2": "## Tips for eksamen\n\nOppgåver om lån og sparing er svært vanlege på S2-eksamen. Nokre viktige punkt:\n\n1. **Ver nøye med terminlengd:** Sjekk om renta er årleg og terminane er månadlege (då må du dele renta på 12)\n2. **Skil mellom spareformel og låneformel:** Sparing gir sluttkapital, lån gir terminbeløp\n3. **Noverdi:** Bruk noverdi for å samanlikne betalingar på ulike tidspunkt\n4. **Vis utleiinga:** Sensor gir poeng for å vise korleis formlane kjem fram frå geometriske rekkjer",
       "0b8fb02075a0f346": "Løys oppgåvene:",
       "f2ed6b6d3e12306f": "Du set inn 2000 kr per månad i 5 år. Månadleg rente er $0{,}4\\%$. Finn sluttkapitalen.",
-      "964c9010ae5c0c00": "$b = 2000$, $r = 0{,}004$, $n = 60$. $K_{60} = 2000 \\cdot \\frac{1{,}004^{60} - 1}{0{,}004} = 2000 \\cdot \\frac{1{,}2706 - 1}{0{,}004} = 2000 \\cdot 67{,}65 \\approx 135\\,300$ kr.",
+      "da6091a3cdf48c20": "$b = 2000$, $r = 0{,}004$, $n = 60$\n\n$K_{60} = 2000 \\cdot \\frac{1{,}004^{60} - 1}{0{,}004} \\approx 2000 \\cdot \\frac{0{,}27064}{0{,}004} \\approx 2000 \\cdot 67{,}660 \\approx 135\\,320$ kr\n\n**Svar:** Sluttkapitalen er ca. 135 320 kr.",
       "90019ba73f56eacc": "Kor mykje av sluttkapitalen er opptente renter?",
-      "3a8e1c3c06f8e94c": "Totalt innskot: $2000 \\cdot 60 = 120\\,000$ kr. Renter: $135\\,300 - 120\\,000 = 15\\,300$ kr.",
+      "87ab9157ed83803a": "Totalt innskot: $2000 \\cdot 60 = 120\\,000$ kr\n\nRenter: $135\\,320 - 120\\,000 = 15\\,320$ kr\n\n**Svar:** Ca. 15 320 kr er renter.",
       "836c9611e7567bf4": "Kvart innskot blir forrenta ulikt lenge — geometrisk rekkje med kvotient $1{,}004$.",
-      "8b228f0a403d6a55": "Eit lån på 200 000 kr har årleg rente $5\\%$ og løpetid 10 år med årlege terminar. Finn det årlege terminbeløpet.",
-      "1ca8a0232fed1c85": "$T = 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^{10}}{1{,}05^{10} - 1} = 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}6289}{0{,}6289} = 200\\,000 \\cdot 0{,}12950 \\approx 25\\,901$ kr.",
+      "1841a6c2acc6fb22": "Eit lån på 200 000 kr har årleg rente $5\\%$ og løpetid 10 år med årlege terminar. Finn det årlege terminbeløpet.",
+      "a9abf7e162e3b68b": "$T = 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^{10}}{1{,}05^{10} - 1} \\approx 200\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}6289}{0{,}6289} \\approx 200\\,000 \\cdot 0{,}12950 \\approx 25\\,901$ kr.",
       "bfdc2039299c9d2c": "Finn total rentekostnad over heile løpetida til lånet.",
       "334b1ae2614cec86": "Total: $25\\,901 \\cdot 10 = 259\\,010$ kr. Rente: $259\\,010 - 200\\,000 = 59\\,010$ kr.",
       "1136c7e2f826c369": "Bruk annuitetsformelen $T = L\\frac{r}{1-(1+r)^{-n}}$.",
-      "5c7664dc96708770": "Finn noverdien av 100 000 kr som blir motteke om 8 år, gitt $6\\%$ årleg rente.",
-      "de29e7c9d7ea291b": "$\\text{NV} = \\frac{100\\,000}{1{,}06^8} = \\frac{100\\,000}{1{,}5938} \\approx 62\\,741$ kr.",
+      "3637f030b7f4cbb3": "Finn noverdien av 100 000 kr som blir motteke om 8 år, gitt $6\\%$ årleg rente.",
+      "7af010f346608a85": "$\\text{NV} = \\frac{100\\,000}{1{,}06^8} \\approx \\frac{100\\,000}{1{,}5938} \\approx 62\\,741$ kr.",
       "ba0679ab9146c5a9": "Kva tyder svaret i a) praktisk?",
-      "9878b79c6df5770c": "Det tyder at 62 741 kr investert i dag til $6\\%$ rente vil ha vakse til 100 000 kr etter 8 år. Dei to beløpa er likeverdige.",
+      "797398c2436fd788": "Det tyder at 62 741 kr investert i dag til $6\\%$ rente vil ha vakse til 100 000 kr etter 8 år. Dei to beløpa er likeverdige.",
       "268cb069e2f8b343": "Noverdi: $\\frac{100\\,000}{1{,}06^8}$.",
-      "e4bef4b7cc8b0d8d": "Eit serielån på 300 000 kr blir betalt tilbake over 6 år med årleg rente $4\\%$. Rekn ut terminbeløpet for det første og siste året.",
+      "92b7e927071b6c70": "Eit serielån på 300 000 kr blir betalt tilbake over 6 år med årleg rente $4\\%$. Rekn ut terminbeløpet for det første og siste året.",
       "5ad8796e4fcdfe34": "Avdrag: $\\frac{300\\,000}{6} = 50\\,000$ kr. År 1: rente $= 300\\,000 \\cdot 0{,}04 = 12\\,000$, termin $= 62\\,000$ kr. År 6: rente $= 50\\,000 \\cdot 0{,}04 = 2\\,000$, termin $= 52\\,000$ kr.",
       "726a344e5cd79ba6": "Serielån: avdraget er $\\frac{L}{n}$, renta blir rekna av restgjelda.",
-      "cc4d568f95c294a7": "Du ønskjer å ha 1 000 000 kr om 15 år. Kor mykje må du spare per månad dersom månadleg rente er $0{,}35\\%$?",
-      "b15bc9e8deb77b04": "$K_n = b \\cdot \\frac{v^n - 1}{r}$. $1\\,000\\,000 = b \\cdot \\frac{1{,}0035^{180} - 1}{0{,}0035}$. $1{,}0035^{180} \\approx 1{,}8776$. $b = \\frac{1\\,000\\,000 \\cdot 0{,}0035}{0{,}8776} = \\frac{3500}{0{,}8776} \\approx 3989$ kr per månad.",
+      "0b86b931d9b5bc0d": "Du ønskjer å ha 1 000 000 kr om 15 år. Kor mykje må du spare per månad dersom månadleg rente er $0{,}35\\%$?",
+      "2c7e4024d1064c7e": "$K_n = b \\cdot \\frac{v^n - 1}{r}$\n\n$1\\,000\\,000 = b \\cdot \\frac{1{,}0035^{180} - 1}{0{,}0035}$\n\n$1{,}0035^{180} \\approx 1{,}875546$\n\n$b = \\frac{1\\,000\\,000 \\cdot 0{,}0035}{0{,}875546} = \\frac{3500}{0{,}875546} \\approx 3997{,}50$\n\n**Svar:** Du må spare ca. 3998 kr per månad.",
       "0c09383a4900b98f": "Snu spareformelen og løys for terminbeløpet $b$.",
-      "c2644d1600d2e1e4": "Eit annuitetslån på 1 500 000 kr har årleg rente $3{,}5\\%$ og løpetid 20 år. Finn terminbeløpet.",
-      "8be5fcfc186c7c80": "$T = 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}035^{20}}{1{,}035^{20} - 1} = 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}9898}{0{,}9898} = 1\\,500\\,000 \\cdot 0{,}07036 \\approx 105\\,541$ kr.",
+      "8af14a7b8b249e3f": "Eit annuitetslån på 1 500 000 kr har årleg rente $3{,}5\\%$ og løpetid 20 år. Finn terminbeløpet.",
+      "a410309eb9dbaba5": "$T = 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}035^{20}}{1{,}035^{20} - 1} \\approx 1\\,500\\,000 \\cdot \\frac{0{,}035 \\cdot 1{,}9898}{0{,}9898} \\approx 1\\,500\\,000 \\cdot 0{,}07036 \\approx 105\\,541$ kr.",
       "c1bad6da46997817": "Finn restgjelda etter 10 år.",
-      "fd0c94df70c80721": "$R_{10} = 1\\,500\\,000 \\cdot 1{,}035^{10} - 105\\,541 \\cdot \\frac{1{,}035^{10} - 1}{0{,}035} = 1\\,500\\,000 \\cdot 1{,}4106 - 105\\,541 \\cdot \\frac{0{,}4106}{0{,}035} = 2\\,115\\,900 - 105\\,541 \\cdot 11{,}731 = 2\\,115\\,900 - 1\\,238\\,100 \\approx 877\\,800$ kr.",
+      "5063cde27be81852": "$R_{10} = 1\\,500\\,000 \\cdot 1{,}035^{10} - 105\\,541{,}62 \\cdot \\frac{1{,}035^{10} - 1}{0{,}035}$\n\n$1{,}035^{10} \\approx 1{,}410599$\n\n$R_{10} \\approx 2\\,115\\,898{,}1 - 105\\,541{,}62 \\cdot 11{,}731393 \\approx 2\\,115\\,898{,}1 - 1\\,238\\,150{,}2 \\approx 877\\,748$ kr\n\n**Svar:** Restgjelden etter 10 år er ca. 877 748 kr.",
       "0c1aaf6d78e804a1": "Restgjeld = noverdien av dei gjenverande terminbeløpa.",
       "2ad3a08f3200660a": "Utlei spareformelen $K_n = b \\cdot \\frac{v^n - 1}{v - 1}$ frå ei geometrisk rekkje.",
-      "9b6b7ea30205dc37": "Innskot $b$ ved slutten av termin 1, 2, ..., $n$. Etter $n$ terminar har innskot $k$ fått renter i $n-k$ terminar: verdi $b \\cdot v^{n-k}$. Total: $K_n = b \\cdot v^{n-1} + b \\cdot v^{n-2} + \\cdots + b \\cdot v + b = b(1 + v + v^2 + \\cdots + v^{n-1}) = b \\cdot \\frac{v^n - 1}{v - 1}$.",
+      "e23717b5c428dd11": "Innskot $b$ ved slutten av termin 1, 2, ..., $n$.\n\nEtter $n$ terminar har innskot $k$ fått renter i $n-k$ terminar: verdi $b \\cdot v^{n-k}$.\n\nTotal:\n\n$K_n = b \\cdot v^{n-1} + b \\cdot v^{n-2} + \\cdots + b \\cdot v + b = b(1 + v + v^2 + \\cdots + v^{n-1}) = b \\cdot \\frac{v^n - 1}{v - 1}$.\n\n**Svar:** $K_n = b \\cdot \\frac{v^n - 1}{v - 1}$",
       "971b7cd64e4c9775": "Innskota blir forrenta $n-1, n-2, \\ldots, 0$ gonger — summer rekkja.",
-      "4e74291a3567a090": "Finn noverdien av 20 årlege utbetalingar på 80 000 kr, gitt $4\\%$ årleg rente.",
-      "9f38e597653fd844": "$\\text{NV} = 80\\,000 \\cdot \\frac{1 - 1{,}04^{-20}}{0{,}04} = 80\\,000 \\cdot \\frac{1 - 0{,}4564}{0{,}04} = 80\\,000 \\cdot \\frac{0{,}5436}{0{,}04} = 80\\,000 \\cdot 13{,}590 \\approx 1\\,087\\,200$ kr.",
+      "15388c11620f8748": "Finn noverdien av 20 årlege utbetalingar på 80 000 kr, gitt $4\\%$ årleg rente.",
+      "9281ac484b407f53": "$\\text{NV} = 80\\,000 \\cdot \\frac{1 - 1{,}04^{-20}}{0{,}04} \\approx 80\\,000 \\cdot \\frac{1 - 0{,}4564}{0{,}04} = 80\\,000 \\cdot \\frac{0{,}5436}{0{,}04} = 80\\,000 \\cdot 13{,}590 \\approx 1\\,087\\,200$ kr.",
       "48052934123d9b8b": "Noverdi av annuitet: $NV = b\\frac{1-(1+r)^{-n}}{r}$.",
-      "094d93257b16c0e7": "Eit lån på 400 000 kr med $5\\%$ årleg rente skal tilbakebetalast over 4 år. Rekn ut total rentekostnad for høvesvis annuitetslån og serielån.",
-      "110c44e7419305b0": "Annuitet: $T = 400\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} = 400\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}2155}{0{,}2155} = 400\\,000 \\cdot 0{,}28201 = 112\\,804$. Total rente: $112\\,804 \\cdot 4 - 400\\,000 = 51\\,216$ kr. Serielån: avdrag $= 100\\,000$. Renter: $20\\,000 + 15\\,000 + 10\\,000 + 5\\,000 = 50\\,000$ kr. Differanse: $1\\,216$ kr.",
+      "1c3fc771132f9576": "Eit lån på 400 000 kr med $5\\%$ årleg rente skal tilbakebetalast over 4 år. Rekn ut total rentekostnad for høvesvis annuitetslån og serielån.",
+      "64a9a1c490e44721": "Annuitet: $T = 400\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} \\approx 400\\,000 \\cdot 0{,}282012 \\approx 112\\,805$ kr\n\nTotal rente, annuitetslån: $4 \\cdot 112\\,804{,}73 - 400\\,000 \\approx 51\\,219$ kr\n\nSerielån: avdrag $100\\,000$ kr, renter $20\\,000 + 15\\,000 + 10\\,000 + 5\\,000 = 50\\,000$ kr\n\n**Svar:** Annuitetslånet gir ca. 51 219 kr i renter og serielånet 50 000 kr, altså 1 219 kr meir for annuitetslånet.",
       "b61eba1fb80fb2b5": "Total rente = sum av terminbeløp minus lånebeløpet.",
-      "a45ea07dac1a9647": "Eit bustadlån på 4 000 000 kr har månadlege terminar og nominell rente $3{,}6\\%$. Løpetida er 30 år. Finn det månadlege terminbeløpet.",
-      "b5b63dc91bc31b51": "Månadleg rente: $r = \\frac{0{,}036}{12} = 0{,}003$, $n = 360$. $T = 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 1{,}003^{360}}{1{,}003^{360} - 1}$. $1{,}003^{360} \\approx 2{,}9408$. $T = 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 2{,}9408}{1{,}9408} = 4\\,000\\,000 \\cdot 0{,}004547 \\approx 18\\,187$ kr.",
+      "1bed086e492aaea3": "Eit bustadlån på 4 000 000 kr har månadlege terminar og nominell rente $3{,}6\\%$. Løpetida er 30 år. Finn det månadlege terminbeløpet.",
+      "b8193a10be8dcd08": "$r = \\frac{0{,}036}{12} = 0{,}003$ og $n = 360$\n\n$T = 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 1{,}003^{360}}{1{,}003^{360} - 1}$\n\n$1{,}003^{360} \\approx 2{,}939923$\n\n$T \\approx 4\\,000\\,000 \\cdot \\frac{0{,}003 \\cdot 2{,}939923}{1{,}939923} \\approx 4\\,000\\,000 \\cdot 0{,}00454645 \\approx 18\\,185{,}81$\n\n**Svar:** Det månadlege terminbeløpet er ca. 18 186 kr.",
       "0eebd1f7dac9a38c": "Kor mykje betaler du totalt i renter over heile løpetida til lånet?",
-      "f41fb39896f300fd": "Total: $18\\,187 \\cdot 360 = 6\\,547\\,320$ kr. Rente: $6\\,547\\,320 - 4\\,000\\,000 = 2\\,547\\,320$ kr.",
+      "9e7b8809ec39d01a": "Totalt: $18\\,185{,}81 \\cdot 360 \\approx 6\\,546\\,893$ kr\n\nRenter: $6\\,546\\,893 - 4\\,000\\,000 = 2\\,546\\,893$ kr\n\n**Svar:** Du betaler ca. 2 546 900 kr i renter.",
       "e593fcbd9fc5113b": "Månadsrente: $\\frac{3{,}6\\,\\%}{12} = 0{,}3\\,\\%$; tal på terminar $= 12 \\cdot$ år.",
-      "49e132608da6007d": "Ein pensjonist ønskjer å ta ut 15 000 kr per månad i 20 år frå ein sparekonto med $0{,}3\\%$ månadleg rente. Kor mykje må stå på kontoen ved pensjonsstart?",
-      "9dee157bccb7a082": "Noverdien av utbetalingane: $\\text{NV} = 15\\,000 \\cdot \\frac{1 - 1{,}003^{-240}}{0{,}003} = 15\\,000 \\cdot \\frac{1 - 0{,}4878}{0{,}003} = 15\\,000 \\cdot \\frac{0{,}5122}{0{,}003} = 15\\,000 \\cdot 170{,}73 \\approx 2\\,561\\,000$ kr.",
+      "58a43e03fe757900": "Ein pensjonist ønskjer å ta ut 15 000 kr per månad i 20 år frå ein sparekonto med $0{,}3\\%$ månadleg rente. Kor mykje må stå på kontoen ved pensjonsstart?",
+      "bd239ae24a532db8": "Startbeløpet er noverdien av utbetalingane:\n\n$\\text{NV} = 15\\,000 \\cdot \\frac{1 - 1{,}003^{-240}}{0{,}003}$\n\n$1{,}003^{-240} \\approx 0{,}487277$\n\n$\\text{NV} \\approx 15\\,000 \\cdot \\frac{0{,}512723}{0{,}003} \\approx 15\\,000 \\cdot 170{,}9076 \\approx 2\\,563\\,614$ kr\n\n**Svar:** Det må stå ca. 2 563 614 kr på kontoen ved pensjonsstart.",
       "4fbe3e48d2df3814": "Startbeløpet er noverdien av uttaka.",
-      "85f404080ab79303": "Eit annuitetslån på 600 000 kr med $4\\%$ årleg rente og 15 års løpetid har vore betent i 8 år. Låntakaren ønskjer å auke terminbeløpet for å nedbetale resten av lånet på 5 år (i staden for 7). Finn det nye terminbeløpet.",
-      "330dc8f0462e2776": "Opphavleg: $T = 600\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{15}}{1{,}04^{15} - 1} = 600\\,000 \\cdot 0{,}08994 = 53\\,963$ kr. Restgjeld etter 8 år: $R_8 = 600\\,000 \\cdot 1{,}04^8 - 53\\,963 \\cdot \\frac{1{,}04^8 - 1}{0{,}04} = 820\\,997 - 53\\,963 \\cdot 9{,}2142 = 820\\,997 - 497\\,204 = 323\\,793$ kr. Nytt terminbeløp over 5 år: $T_{\\text{ny}} = 323\\,793 \\cdot \\frac{0{,}04 \\cdot 1{,}04^5}{1{,}04^5 - 1} = 323\\,793 \\cdot 0{,}22463 \\approx 72\\,751$ kr.",
+      "3d4649574695cc87": "Eit annuitetslån på 600 000 kr med $4\\%$ årleg rente og 15 års løpetid har vore betent i 8 år. Låntakaren ønskjer å auke terminbeløpet for å nedbetale resten av lånet på 5 år (i staden for 7). Finn det nye terminbeløpet.",
+      "f09386e6cc291b51": "Opphavleg terminbeløp:\n\n$T = 600\\,000 \\cdot \\frac{0{,}04 \\cdot 1{,}04^{15}}{1{,}04^{15} - 1} \\approx 600\\,000 \\cdot 0{,}0899411 \\approx 53\\,964{,}66$ kr\n\nRestgjeld etter 8 år:\n\n$R_8 = 600\\,000 \\cdot 1{,}04^8 - 53\\,964{,}66 \\cdot \\frac{1{,}04^8 - 1}{0{,}04}$\n\n$R_8 \\approx 821\\,141{,}43 - 53\\,964{,}66 \\cdot 9{,}214226 \\approx 821\\,141{,}43 - 497\\,242{,}59 \\approx 323\\,898{,}84$ kr\n\nNytt terminbeløp over 5 år:\n\n$T_{\\text{ny}} = 323\\,898{,}84 \\cdot \\frac{0{,}04 \\cdot 1{,}04^5}{1{,}04^5 - 1} \\approx 323\\,898{,}84 \\cdot 0{,}2246271 \\approx 72\\,756$ kr\n\n**Svar:** Det nye terminbeløpet er ca. 72 756 kr.",
       "b4ee31626aa12f00": "Restgjelda er noverdien av dei gjenverande terminane.",
       "f914e0898b0b3825": "Vis at terminbeløpet for eit serielån med $n$ terminar dannar ei aritmetisk følgje, og finn differansen.",
-      "c669dc48ed54f75a": "Avdrag per termin: $A = \\frac{L}{n}$. Restgjeld etter termin $m$: $R_m = L - mA = L(1 - \\frac{m}{n})$. Rente i termin $m+1$: $r \\cdot R_m = rL(1 - \\frac{m}{n})$. Terminbeløp $m+1$: $T_{m+1} = A + rL(1 - \\frac{m}{n}) = \\frac{L}{n} + rL - \\frac{rLm}{n}$. Differanse: $T_{m+2} - T_{m+1} = -\\frac{rL}{n}$. Terminbeløpa dannar ei aritmetisk følgje med $d = -\\frac{rL}{n}$.",
+      "f37f482e0c584d9a": "Avdrag per termin:\n\n$A = \\frac{L}{n}$.\n\nRestgjeld etter termin $m$: $R_m = L - mA = L(1 - \\frac{m}{n})$.\n\nRente i termin $m+1$: $r \\cdot R_m = rL(1 - \\frac{m}{n})$.\n\nTerminbeløp $m+1$: $T_{m+1} = A + rL(1 - \\frac{m}{n}) = \\frac{L}{n} + rL - \\frac{rLm}{n}$.\n\nDifferanse: $T_{m+2} - T_{m+1} = -\\frac{rL}{n}$.\n\nTerminbeløpa dannar ei aritmetisk følgje med $d = -\\frac{rL}{n}$.\n\n**Svar:** Terminbeløpa er ei aritmetisk følgje med $d = -\\frac{rL}{n}$.",
       "a79ce4aaf8a59122": "Terminbeløp $= \\frac{L}{n} + r \\cdot$ restgjeld — restgjelda synk lineært.",
-      "47daa5df181cc1b4": "To investeringar blir tilbydde: A) 50 000 kr no, eller B) 10 000 kr per år i 6 år (første betaling om eitt år). Kva er best ved $5\\%$ rente?",
-      "223f658a1393bbe7": "Noverdi A: $50\\,000$ kr. Noverdi B: $10\\,000 \\cdot \\frac{1 - 1{,}05^{-6}}{0{,}05} = 10\\,000 \\cdot \\frac{1 - 0{,}7462}{0{,}05} = 10\\,000 \\cdot 5{,}076 = 50\\,760$ kr. Alternativ B har høgast noverdi ($760$ kr meir), og er dermed best.",
+      "264d2d6de2c4e403": "To investeringar blir tilbydde: A) 50 000 kr no, eller B) 10 000 kr per år i 6 år (første betaling om eitt år). Kva er best ved $5\\%$ rente?",
+      "6e31e0ec3cabcec3": "Noverdi A: $50\\,000$ kr\n\nNoverdi B: $10\\,000 \\cdot \\frac{1 - 1{,}05^{-6}}{0{,}05} \\approx 10\\,000 \\cdot \\frac{1 - 0{,}746215}{0{,}05} \\approx 10\\,000 \\cdot 5{,}0757 \\approx 50\\,757$ kr\n\n**Svar:** Alternativ B har høgast noverdi (757 kr meir) og er best.",
       "eadd0686d5a3f4b9": "Samanlikn noverdiane av dei to alternativa.",
       "6da808b080a441af": "## Oppsummering\n\n**Spareformel (faste innskot):**\n$$K_n = b \\cdot \\frac{(1+r)^n - 1}{r}$$\n\n**Annuitetsformel (fast terminbeløp):**\n$$T = L \\cdot \\frac{r(1+r)^n}{(1+r)^n - 1}$$\n\n**Noverdi av betalingsrekkje:**\n$$\\text{NV} = T \\cdot \\frac{1 - (1+r)^{-n}}{r}$$\n\n**Serielån:** Konstant avdrag $A = \\frac{L}{n}$, avtakande terminbeløp.\n\n**Hugs:**\n- Sjekk om renta er per termin eller per år\n- Bruk noverdi for å samanlikne betalingsalternativ\n- Vis utleiing frå geometriske rekkjer på eksamen",
       "f0db7f3333b88fb5": "Repetisjonsoppgåver",
@@ -782,7 +779,7 @@
       "4106218820b2ca8e": "Serielån: fast avdrag, synkande rente — terminbeløpa dannar ei aritmetisk følgje.",
       "a32845ea52e740dc": "Annuitetslån. Eit lån på 200 000 kr har 5 % årleg rente og løpetid 10 år med like terminbeløp.",
       "eac88726f4010ab9": "Rekn ut terminbeløpet med annuitetsformelen $T = L \\cdot \\frac{r}{1 - (1+r)^{-n}}$. Rund av til næraste krone.",
-      "b52008dff24f557f": "$T = 200\\,000 \\cdot \\frac{0{,}05}{1 - 1{,}05^{-10}} = \\frac{10\\,000}{0{,}38609} \\approx 25\\,901$ kr",
+      "a3b47f987f694d36": "$T = 200\\,000 \\cdot \\frac{0{,}05}{1 - 1{,}05^{-10}} \\approx \\frac{10\\,000}{0{,}38609} \\approx 25\\,901$ kr",
       "41341cb45a393fd5": "Forklar hovudskilnaden mellom annuitetslån og serielån, og kva for eitt som gir lågast samla rentekostnad.",
       "cb4b199876977bdf": "Annuitetslån har likt terminbeløp heile tida (låge avdrag først, høge til slutt); serielån har likt avdrag og dermed synkande terminbeløp. Serielånet betaler ned gjelda raskare i starten og gir difor lågast samla rentekostnad — men høgare belastning dei første åra.",
       "bd59d1adf5bcef0b": "a) $\\approx 25\\,901$ kr  b) Serielån gir lågast total rente",

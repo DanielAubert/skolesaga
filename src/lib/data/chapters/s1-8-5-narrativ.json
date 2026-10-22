@@ -120,7 +120,7 @@
     {
       "id": "s1-8-5-n-section1",
       "type": "text",
-      "content": "## Verktøyene i aksjon\n\n**GeoGebra og regresjon.** Boligprisindeksen legges inn som en liste: `data = {(0,100),(1,107),(2,113),(3,117),(4,119),(5,122),(6,138),(7,152),(8,158)}`. Så prøves kandidatene med kommandoene `FitLine(data)`, `FitExp(data)`, `FitPow(data)` og `FitLog(data)`, og `RSquare(data, modell)` gir $R^2$ for hver. Typisk resultat: lineær $\\hat{y} \\approx 7{,}3t + 95{,}3$ med $R^2 \\approx 0{,}93$, eksponentiell $\\hat{y} \\approx 99{,}9 \\cdot 1{,}06^t$ med $R^2 \\approx 0{,}96$ — velg eksponentiell, og tegn residualplottet med en `Sequence`-kommando som trekker modellverdien fra hver observasjon. GeoGebras øvrige statistikk-kommandoer — `Korrelasjon`, `Gjennomsnitt`, `Standardavvik`, `Median`, `FitPoly` — dekker resten av S1-behovet.\n\n**Excel og reallønn.** Et regneark med kolonnene År, Lønn, KPI og Reallønn, der reallønnsformelen er `=B2*100/C2`, viser med én gang forskjellen på nominell lønn og kjøpekraft over årene 2015–2024. Styrken er **hva-hvis-analysen**: endre KPI-verdiene og se umiddelbart hva en annen prisvekst ville betydd. Et linjediagram med både nominell lønn og reallønn forteller historien visuelt.\n\n**Python og vekstrater.** Med boligprisindeksen i en liste beregner en kort løkke den prosentvise veksten år for år — `vekst = (indeks[i] / indeks[i-1] - 1) * 100` — og det **geometriske gjennomsnittet** av vekstfaktoren finner du med `(indeks[-1] / indeks[0]) ** (1 / (len(indeks) - 1))`, som her gir cirka 5,85 % gjennomsnittlig årlig vekst. Tre verktøy, samme datasett — og samme konklusjon, hvilket i seg selv er en fin kontroll."
+      "content": "## Verktøyene i aksjon\n\n**GeoGebra og regresjon.** Prisindeksen for brukte boliger (SSB tabell 07230) legges inn som en liste: `data = {(0, 100), (1, 107), (2, 112.4), (3, 114), (4, 116.8), (5, 121.8), (6, 134.5), (7, 141.6), (8, 140.8)}`. Så prøves kandidatene med kommandoene `RegLin(data)`, `RegEksp(data)` og `RegPoly(data, 2)`, og `RKvadrat(data, modell)` gir $R^2$ for hver. Typisk resultat: lineær $\\hat{y} \\approx 5{,}32t + 99{,}7$ med $R^2 \\approx 0{,}95$, eksponentiell $\\hat{y} \\approx 100{,}8 \\cdot 1{,}045^t$ med $R^2 \\approx 0{,}96$ — nesten like gode, og prisvekst er prosentvis, så vi velger eksponentiell og tegner residualplottet med en `Følge`-kommando som trekker modellverdien fra hver observasjon. GeoGebras øvrige statistikk-kommandoer — `Korrelasjon`, `Gjennomsnitt`, `Standardavvik`, `Median`, `RegPoly` — dekker resten av S1-behovet.\n\n**Excel og reallønn.** Et regneark med kolonnene År, Lønn, KPI og Reallønn, der reallønnsformelen er `=B2*100/C2`, viser med én gang forskjellen på nominell lønn og kjøpekraft over årene 2015–2024. Styrken er **hva-hvis-analysen**: endre KPI-verdiene og se umiddelbart hva en annen prisvekst ville betydd. Et linjediagram med både nominell lønn og reallønn forteller historien visuelt.\n\n**Python og vekstrater.** Med boligprisindeksen i en liste beregner en kort løkke den prosentvise veksten år for år — `vekst = (indeks[i] / indeks[i-1] - 1) * 100` — og det **geometriske gjennomsnittet** av vekstfaktoren finner du med `(indeks[-1] / indeks[0]) ** (1 / (len(indeks) - 1))`, som her gir cirka 4,37 % gjennomsnittlig årlig vekst. Tre verktøy, samme datasett — og samme konklusjon, hvilket i seg selv er en fin kontroll."
     },
     {
       "id": "s1-8-5-n-quiz2",
@@ -144,17 +144,17 @@
             "options": [
               {
                 "id": "b",
-                "text": "FitExp(data)",
+                "text": "RegEksp(data)",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "FitLine(data)",
+                "text": "RegLin(data)",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "RSquare(data)",
+                "text": "RKvadrat(data)",
                 "isCorrect": false
               },
               {
@@ -163,7 +163,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "FitExp gir eksponentiell regresjon; FitLine er lineær, og RSquare beregner $R^2$ for en gitt modell."
+            "solution": "RegEksp gir eksponentiell regresjon; RegLin er lineær, og RKvadrat beregner $R^2$ for en gitt modell."
           },
           {
             "id": "s1-8-5-n-quiz2-q1",
@@ -194,30 +194,30 @@
           },
           {
             "id": "s1-8-5-n-quiz2-q2",
-            "task": "Boligprisindeksen gikk fra $100$ til $158$ på $8$ år. Hvordan beregnes gjennomsnittlig årlig vekstfaktor?",
+            "task": "Boligprisindeksen gikk fra $100$ til $140{,}8$ på $8$ år. Hvordan beregnes gjennomsnittlig årlig vekstfaktor?",
             "options": [
               {
                 "id": "a",
-                "text": "$\\frac{158 - 100}{8}$",
+                "text": "$\\frac{140{,}8 - 100}{8}$",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "$\\frac{158}{100 \\cdot 8}$",
+                "text": "$\\frac{140{,}8}{100 \\cdot 8}$",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$\\left(\\frac{158}{100}\\right)^{1/8}$",
+                "text": "$\\left(\\frac{140{,}8}{100}\\right)^{1/8}$",
                 "isCorrect": true
               },
               {
                 "id": "c",
-                "text": "$\\sqrt{158}$",
+                "text": "$\\sqrt{140{,}8}$",
                 "isCorrect": false
               }
             ],
-            "solution": "Geometrisk snitt: $(158/100)^{1/8} \\approx 1{,}0589$, altså ca. 5,9 % årlig vekst."
+            "solution": "Geometrisk snitt: $(140{,}8/100)^{1/8} \\approx 1{,}0437$, altså ca. 4,4 % årlig vekst."
           },
           {
             "id": "s1-8-5-n-quiz2-q3",
@@ -357,7 +357,7 @@
     {
       "id": "s1-8-5-n-summary",
       "type": "text",
-      "content": "## Oppsummering: håndverkerens verktøykasse\n\nTre ikoner på skjermen, og nå vet du når du klikker hvor. **GeoGebra** for interaktiv visualisering og ett-klikks regresjon (FitLine, FitExp, FitPow, RSquare — og residualplott via Sequence). **Excel** for tabelldata, indeksregulering og reallønn (`=B2*100/C2`) med hva-hvis-analysens umiddelbare respons. **Python** for store datasett, vekstrateberegninger og automatisering med full kontroll. Hovedregelen står seg: det enkleste verktøyet som løser oppgaven — og samsvar mellom verktøyene er gratis kvalitetskontroll.\n\nArbeidsflyten fra SSB-tabell til rapport går i fem steg: nedlasting, rensing, analyse, eksport, rapport med kilde og dato. Og rundt det hele: **ærlighetens tre regler** — vis verktøyet, vis dataene, vis modellvalget — samt fallgruvene som nå står på vaktlisten din: tause standardinnstillinger, skjult avrunding, relative kontra absolutte cellereferanser, pakkeversjoner og manipulerte akser.\n\nDet store ordet er **reproduserbarhet**: analysen din skal kunne gjentas av andre med samme resultat. Verktøyene regner; du dokumenterer, vurderer og står inne for. Dermed er alt på plass for finalen — det selvstendige samfunnsøkonomiske prosjektet i neste kapittel, der datasettet, verktøyene og dømmekraften endelig skal spille sammen i fullskala."
+      "content": "## Oppsummering: håndverkerens verktøykasse\n\nTre ikoner på skjermen, og nå vet du når du klikker hvor. **GeoGebra** for interaktiv visualisering og ett-klikks regresjon (RegLin, RegEksp, RegPot, RKvadrat — og residualplott via Følge). **Excel** for tabelldata, indeksregulering og reallønn (`=B2*100/C2`) med hva-hvis-analysens umiddelbare respons. **Python** for store datasett, vekstrateberegninger og automatisering med full kontroll. Hovedregelen står seg: det enkleste verktøyet som løser oppgaven — og samsvar mellom verktøyene er gratis kvalitetskontroll.\n\nArbeidsflyten fra SSB-tabell til rapport går i fem steg: nedlasting, rensing, analyse, eksport, rapport med kilde og dato. Og rundt det hele: **ærlighetens tre regler** — vis verktøyet, vis dataene, vis modellvalget — samt fallgruvene som nå står på vaktlisten din: tause standardinnstillinger, skjult avrunding, relative kontra absolutte cellereferanser, pakkeversjoner og manipulerte akser.\n\nDet store ordet er **reproduserbarhet**: analysen din skal kunne gjentas av andre med samme resultat. Verktøyene regner; du dokumenterer, vurderer og står inne for. Dermed er alt på plass for finalen — det selvstendige samfunnsøkonomiske prosjektet i neste kapittel, der datasettet, verktøyene og dømmekraften endelig skal spille sammen i fullskala."
     }
   ],
   "exercises": []

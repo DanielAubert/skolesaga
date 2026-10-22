@@ -4275,6 +4275,29 @@ export const COURSE_S1: TextbookCourse = {
       competenceGoals: ['modellere eksponentiell vekst og avtagning og sammenligne med lineær vekst'],
       linkedChapterId: 's1-1-9-narrativ',
     },
+    {
+      id: 's1-1-10',
+      number: '1.10',
+      title: 'Potenser og potensregler',
+      description: 'Potensreglene utledet fra definisjonen, negative og rasjonale eksponenter, forenkling, sammenlikning av tall, eksponentiallikninger med samme grunntall og potensmodeller.',
+      estimatedMinutes: 55,
+      exerciseCount: 15,
+      topics: ['Potensregler', 'Negative eksponenter', 'Rasjonale eksponenter', 'Eksponentiallikninger', 'Potensmodeller'],
+      competenceGoals: [
+        'utforske og forstå regneregler for potenser og logaritmer, og bruke ulike strategier for å løse eksponentialligninger og logaritmeligninger',
+        'utforske og gjøre rede for egenskapene ved potenser og logaritmer, og gi eksempler på reelle anvendelser av disse egenskapene',
+      ],
+    },
+    {
+      id: 's1-1-11',
+      number: '1.11',
+      title: 'Matematiske resonnementer og bevis',
+      description: 'Påstander som er sanne eller usanne, moteksempler, implikasjon og ekvivalens, og direkte bevis med bokstaver.',
+      estimatedMinutes: 50,
+      exerciseCount: 16,
+      topics: ['Påstander', 'Moteksempel', 'Implikasjon og ekvivalens', 'Direkte bevis'],
+      competenceGoals: ['uttrykke egne resonnementer ved hjelp av matematiske begreper og symbolspråk'],
+    },
     // Seksjon 2 utvidet
     {
       id: 's1-2-7',
@@ -4286,6 +4309,20 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Stykkevis definert', 'Absoluttverdifunksjon', 'Kontinuitet'],
       competenceGoals: ['analysere stykkevis definerte funksjoner og absoluttverdifunksjoner'],
       linkedChapterId: 's1-2-7-narrativ',
+    },
+    {
+      id: 's1-2-8',
+      number: '2.8',
+      title: 'Grenseverdier',
+      description: 'Grenseverdier med tabell og CAS, faktorisering og konjugatsetningen, ensidige grenseverdier, grenseverdier mot uendelig og den deriverte som grenseverdi.',
+      estimatedMinutes: 55,
+      exerciseCount: 15,
+      topics: ['Grenseverdi', 'Ensidige grenseverdier', 'Faktorisering og konjugatsetningen', 'Grenseverdi mot uendelig', 'Asymptoter'],
+      prerequisites: ['s1-2-2'],
+      competenceGoals: [
+        'bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner, og utforske og argumentere for anvendelser av grenseverdier',
+        'forstå begrepene gjennomsnittlig og momentan vekstfart, grenseverdi og derivasjon, og bruke disse for å løse praktiske problemer',
+      ],
     },
     // Seksjon 3 utvidet
     {
@@ -4446,6 +4483,21 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-6-7', 's1-7-3', 's1-8-5'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
       linkedChapterId: 's1-8-6-narrativ',
+    },
+    {
+      id: 's1-8-7',
+      number: '8.7',
+      title: 'Programmering i S1',
+      description: 'Python i S1: numerisk derivasjon og grensekostnad, søk etter toppunkt og når metoden svikter, simulering, opptelling av utfall og løkker som finner første verdi som oppfyller et krav.',
+      estimatedMinutes: 60,
+      exerciseCount: 16,
+      topics: ['Python', 'Numerisk derivasjon', 'Toppunktsøk', 'Simulering', 'Opptelling'],
+      prerequisites: ['s1-2-8', 's1-5-1'],
+      competenceGoals: [
+        'bruke digitale verktøy til å simulere og utforske utfall i stokastiske forsøk, og forstå begrepet stokastiske variabler',
+        'forstå begrepene gjennomsnittlig og momentan vekstfart, grenseverdi og derivasjon, og bruke disse for å løse praktiske problemer',
+        'anvende derivasjon til å analysere og forstå optimaliseringsproblemer',
+      ],
     },
   ],
 };
@@ -4985,6 +5037,17 @@ export const COURSE_S2: TextbookCourse = {
       competenceGoals: ['bruke implisitt derivasjon og relaterte rater i praktiske problemer'],
       linkedChapterId: 's2-3-8-narrativ',
     },
+    {
+      id: 's2-3-9',
+      number: '3.9',
+      title: 'Derivasjon, tangent og momentan vekstfart',
+      description: 'Gjennomsnittlig og momentan vekstfart, definisjonen av den deriverte, derivasjonsreglene, tangentlikning og tolkning av den deriverte i modeller og økonomi.',
+      estimatedMinutes: 60,
+      exerciseCount: 13,
+      topics: ['Gjennomsnittlig vekstfart', 'Momentan vekstfart', 'Den deriverte', 'Derivasjonsregler', 'Tangentlikning', 'Grensekostnad'],
+      prerequisites: ['s2-3-6'],
+      competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon og integrasjon', 'finne grensekostnader og grenseinntekter i økonomiske modeller, og gjøre rede for betydningen av disse størrelsene'],
+    },
     // Seksjon 4 utvidet
     {
       id: 's2-4-4',
@@ -5132,7 +5195,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 14,
       topics: ['Inntekt', 'Utgifter', 'Budsjett', 'Regnskap', 'Likviditet'],
-      competenceGoals: ['planleggje og gjere greie for eigen økonomi'],
+      competenceGoals: ['vurdere valg knyttet til personlig økonomi og reflektere over konsekvenser av å ta opp lån og å bruke kredittkort', 'utforske og forklare sammenhenger mellom prisindeks, kroneverdi, reallønn, nominell lønn og brutto- og nettoinntekt'],
       coverImage: '/images/subjects/2p-1-1-personlig-okonomi.webp',
     },
     {
@@ -5145,7 +5208,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Annuitetslån', 'Serielån', 'Effektiv rente', 'Sparing', 'Rentes rente'],
       prerequisites: ['2p-1-1'],
-      competenceGoals: ['rekne med og samanlikne ulike typar lån og spareformer'],
+      competenceGoals: ['vurdere valg knyttet til personlig økonomi og reflektere over konsekvenser av å ta opp lån og å bruke kredittkort', 'forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy'],
       coverImage: '/images/subjects/2p-1-2-lan-og-sparing.webp',
     },
     {
@@ -5157,7 +5220,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 12,
       topics: ['Trygdeavgift', 'Trinnskatt', 'Alminnelig inntekt', 'Fradrag', 'Nettolønn'],
-      competenceGoals: ['rekne med skattar og avgifter'],
+      competenceGoals: ['utforske og forklare sammenhenger mellom prisindeks, kroneverdi, reallønn, nominell lønn og brutto- og nettoinntekt', 'vurdere valg knyttet til personlig økonomi og reflektere over konsekvenser av å ta opp lån og å bruke kredittkort'],
       coverImage: '/images/subjects/2p-1-3-skatt-og-avgifter.webp',
     },
     {
@@ -5170,7 +5233,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Faste kostnader', 'Variable kostnader', 'Inntekter', 'Resultat', 'Nullpunkt'],
       prerequisites: ['2p-1-1'],
-      competenceGoals: ['bruke matematikk til å analysere økonomiske situasjonar'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy', 'utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
       coverImage: '/images/subjects/2p-1-4-bedriftsokonomi.webp',
     },
     {
@@ -5183,7 +5246,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Merverdiavgift', 'Særavgifter', 'Pris med og uten mva', 'Utgående og inngående mva'],
       prerequisites: ['2p-1-1'],
-      competenceGoals: ['rekne med prosentpoeng og prosentvis endring'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy'],
       coverImage: '/images/subjects/2p-1-5-prosentpoeng-og-endring.webp',
     },
     {
@@ -5205,7 +5268,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Prisindeks', 'Konsumprisindeksen', 'Kroneverdi', 'Reallønn', 'Kjøpekraft'],
       prerequisites: ['2p-1-6'],
-      competenceGoals: ['utforske og forklare sammenhenger mellom prisindeks, kroneverdi, reallønn, nominell lønn og brutto- og nettoinntekt'],
+      competenceGoals: ['utforske og forklare sammenhenger mellom prisindeks, kroneverdi, reallønn, nominell lønn og brutto- og nettoinntekt', 'forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy'],
     },
     // Seksjon 2: Funksjoner i praksis
     {
@@ -5217,7 +5280,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 13,
       topics: ['Lineære funksjoner', 'Stigningstall', 'Konstantledd', 'Modellering'],
-      competenceGoals: ['bruke lineære funksjonar til å beskrive praktiske situasjonar'],
+      competenceGoals: ['utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
       coverImage: '/images/subjects/2p-2-1-lineaere-modeller.webp',
     },
     {
@@ -5229,7 +5292,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 14,
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor', 'Halveringstid'],
-      competenceGoals: ['bruke eksponentielle funksjonar til å beskrive praktiske situasjonar'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy'],
       coverImage: '/images/subjects/2p-2-2-eksponentielle-modeller.webp',
     },
     {
@@ -5242,7 +5305,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Lineær regresjon', 'Eksponentiell regresjon', 'Korrelasjon', 'Modellvalg'],
       prerequisites: ['2p-2-1', '2p-2-2'],
-      competenceGoals: ['bruke digitale verktøy til å tilpasse funksjonar til data'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
       coverImage: '/images/subjects/2p-2-3-regresjon.webp',
     },
     {
@@ -5255,7 +5318,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Stykkevis lineær funksjon', 'Knekkpunkt', 'Takster og priser', 'Dersom-kommando'],
       prerequisites: ['2p-2-2'],
-      competenceGoals: ['rekne med sammensett rente og forstå rentesrenteeffekten'],
+      competenceGoals: ['utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
     },
     {
       id: '2p-2-5',
@@ -5267,7 +5330,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Regresjonslinje', 'R²', 'Interpolering', 'Ekstrapolering'],
       prerequisites: ['2p-2-4'],
-      competenceGoals: ['rekne med annuitetslån og setje opp nedbetalingsplanar'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
     },
     // Seksjon 3: Statistikk
     {
@@ -5279,7 +5342,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 12,
       topics: ['Gjennomsnitt', 'Median', 'Typetall', 'Standardavvik', 'Variasjonsbredde'],
-      competenceGoals: ['samle inn, analysere og presentere data'],
+      competenceGoals: ['bruke og vurdere valg av hensiktsmessige sentralmål og spredningsmål for statistisk datamateriale', 'analysere og presentere funn i datasett fra lokalsamfunn og media'],
       coverImage: '/images/subjects/2p-3-1-beskrivende-statistikk.webp',
     },
     {
@@ -5292,7 +5355,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Normalfordeling', 'Standardavvik', 'Empirisk regel', 'Z-skår'],
       prerequisites: ['2p-3-1'],
-      competenceGoals: ['bruke normalfordelinga i statistiske analysar'],
+      competenceGoals: [],
       coverImage: '/images/subjects/2p-3-2-normalfordeling.webp',
     },
     {
@@ -5304,7 +5367,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 13,
       topics: ['Kritisk analyse', 'Feilkilder', 'Manipulering', 'Statistisk signifikans'],
-      competenceGoals: ['vurdere statistiske framstillingar kritisk'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
       coverImage: '/images/subjects/2p-3-3-statistisk-analyse.webp',
     },
     {
@@ -5317,7 +5380,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Korrelasjon', 'Kausalitet', 'Tilfeldig samvariasjon', 'Bakenforliggende variabel', 'Mellomledd'],
       prerequisites: ['2p-3-1'],
-      competenceGoals: ['bruke regresjonsanalyse til å beskrive samanhengar i data'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
     },
     {
       id: '2p-3-5',
@@ -5329,7 +5392,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Tilfeldig feil', 'Systematisk feil', 'Selvseleksjon', 'Ledende spørsmål'],
       prerequisites: ['2p-3-4'],
-      competenceGoals: ['bruke statistiske modellar til å lage prognosar'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
     },
     // Seksjon 4: Sannsynlighet
     {
@@ -5341,7 +5404,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 14,
       topics: ['Utfallsrom', 'Hendelser', 'Addisjonssetningen', 'Multiplikasjonssetningen'],
-      competenceGoals: ['rekne med sannsyn i praktiske situasjonar'],
+      competenceGoals: [],
       coverImage: '/images/subjects/2p-4-1-sannsynlighetsregning.webp',
     },
     {
@@ -5354,7 +5417,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Betinget sannsynlighet', 'Uavhengighet', 'Bayes setning', 'Treediagram'],
       prerequisites: ['2p-4-1'],
-      competenceGoals: ['bruke omgrepet betinga sannsyn'],
+      competenceGoals: [],
       coverImage: '/images/subjects/2p-4-2-betinget-sannsynlighet.webp',
     },
     {
@@ -5367,7 +5430,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Binomiske forsøk', 'Binomisk formel', 'Forventningsverdi', 'Standardavvik'],
       prerequisites: ['2p-4-1'],
-      competenceGoals: ['bruke binomisk sannsynsmodell'],
+      competenceGoals: [],
       coverImage: '/images/subjects/2p-4-3-binomisk-sannsynlighet.webp',
     },
     {
@@ -5380,7 +5443,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Betinget sannsynlighet', 'Uavhengige hendelser', 'Multiplikasjonssetningen', 'Uten tilbakelegging'],
       prerequisites: ['2p-4-1'],
-      competenceGoals: ['bruke normalfordelinga som sannsynsmodell'],
+      competenceGoals: [],
     },
     // Seksjon 5: Geometri i praksis
     {
@@ -5392,7 +5455,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 14,
       topics: ['Areal', 'Volum', 'Overflate', 'Sammensatte figurer'],
-      competenceGoals: ['rekne med areal, volum og overflate i praktiske situasjonar'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid'],
       coverImage: '/images/subjects/2p-5-1-praktisk-geometri.webp',
     },
     {
@@ -5404,7 +5467,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 14,
       topics: ['Sinus', 'Cosinus', 'Tangens', 'Praktiske oppgaver', 'Landmåling'],
-      competenceGoals: ['bruke trigonometri til å løyse praktiske problem'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid'],
       coverImage: '/images/subjects/2p-5-2-trigonometri-i-praksis.webp',
     },
     {
@@ -5417,7 +5480,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Sinus', 'Cosinus', 'Tangens', 'Helningsvinkel'],
       prerequisites: ['2p-5-1'],
-      competenceGoals: ['rekne med areal av samansette figurar'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid'],
     },
     {
       id: '2p-5-4',
@@ -5429,7 +5492,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Vektor', 'Komponent', 'Resultantvektor', 'Vektoraddisjon'],
       prerequisites: ['2p-5-1'],
-      competenceGoals: ['rekne med volum og overflate av romfigurar'],
+      competenceGoals: [],
     },
     // Seksjon 6: Modellering
     {
@@ -5441,7 +5504,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 12,
       topics: ['Modellbygging', 'Forutsetninger', 'Validering', 'Tolkning'],
-      competenceGoals: ['lage og bruke matematiske modellar'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy', 'utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
       coverImage: '/images/subjects/2p-6-1-matematisk-modellering.webp',
     },
     {
@@ -5453,7 +5516,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 14,
       topics: ['Regneark', 'GeoGebra', 'Dataanalyse', 'Visualisering'],
-      competenceGoals: ['bruke digitale verktøy til å løyse problem'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy', 'analysere og presentere funn i datasett fra lokalsamfunn og media'],
       coverImage: '/images/subjects/2p-6-2-digitale-verktoy.webp',
     },
     {
@@ -5466,7 +5529,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Regresjon', 'R-kvadrat', 'Ekstrapolering', 'Interpolering'],
       prerequisites: ['2p-5-2'],
-      competenceGoals: ['bruke trigonometri til modellering og praktiske berekningar'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
     },
     {
       id: '2p-6-4',
@@ -5478,7 +5541,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Gyldighetsområde', 'Residual (avvik)', 'Korrelasjon og kausalitet', 'Velg den enkleste modellen'],
       prerequisites: ['2p-6-3'],
-      competenceGoals: ['bruke vektorar til å løyse praktiske problem i planet'],
+      competenceGoals: ['analysere og presentere funn i datasett fra lokalsamfunn og media'],
     },
     {
       id: '2p-6-5',
@@ -5488,7 +5551,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 12,
       topics: ['Sporingstabell', 'while-løkker', 'Lister og sentralmål', 'Funksjoner og if-tester', 'Tolke utskrift'],
-      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjonar med digitale verktøy', 'bruke og vurdere val av formålstenlege sentralmål og spreiingsmål for statistisk datamateriale'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy', 'bruke og vurdere valg av hensiktsmessige sentralmål og spredningsmål for statistisk datamateriale'],
     },
     {
       id: '2p-6-6',
@@ -5499,7 +5562,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Fra problem til program', 'Endre program', 'Likningssystem ved prøving', 'Nedbetalingsplan', 'Mange ledd'],
       prerequisites: ['2p-6-5'],
-      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjonar med digitale verktøy', 'utforske strategiar for å løyse likningar, likningssystem og ulikskapar og argumentere for tenkjemåtane sine', 'vurdere val knytte til personleg økonomi og reflektere over konsekvensar av å ta opp lån og å bruke kredittkort'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy', 'utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine', 'vurdere valg knyttet til personlig økonomi og reflektere over konsekvenser av å ta opp lån og å bruke kredittkort'],
     },
     // Seksjon 7: Algebra
     {
@@ -5511,7 +5574,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 10,
       topics: ['Likning', 'Ukjent', 'Løsning', 'Kontroll', 'Formel'],
-      competenceGoals: ['løyse likningar i praktiske samanhengar'],
+      competenceGoals: ['utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
       coverImage: '/images/subjects/2p-7-1-likninger.webp',
     },
     {
@@ -5524,7 +5587,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Likningssett', 'Innsettingsmetoden', 'Addisjonsmetoden'],
       prerequisites: ['2p-7-1'],
-      competenceGoals: ['løyse ulikskapar og tolke løysingane'],
+      competenceGoals: ['utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
     },
     {
       id: '2p-7-3',
@@ -5536,7 +5599,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Ulikhet', 'Løsningsmengde', 'Snu ulikhetstegnet'],
       prerequisites: ['2p-7-1'],
-      competenceGoals: ['arbeide med formlar og bokstavuttrykk'],
+      competenceGoals: ['utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tenkemåtene sine'],
     },
     // Seksjon 8: Måling og enheter
     {
@@ -5548,7 +5611,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 10,
       topics: ['Enhetsomregning', 'Enhetspris', 'Prissammenlikning', 'Valuta'],
-      competenceGoals: ['rekne med ulike einingar og konvertere mellom dei'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid', 'utforske og forklare sammenhenger mellom prisindeks, kroneverdi, reallønn, nominell lønn og brutto- og nettoinntekt'],
       coverImage: '/images/subjects/2p-8-1-enheter-og-konvertering.webp',
     },
     {
@@ -5561,7 +5624,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Gjeldende siffer', 'Absolutt feil', 'Relativ feil', 'Feilmargin'],
       prerequisites: ['2p-8-1'],
-      competenceGoals: ['vurdere feilkjelder og nøyaktigheit ved målingar'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid'],
     },
     // Seksjon 9: Tallregning
     {
@@ -5573,7 +5636,7 @@ export const COURSE_2P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 10,
       topics: ['Prosent', 'Promille', 'SI-prefiks'],
-      competenceGoals: ['forstå og arbeide med ulike typar tal'],
+      competenceGoals: ['forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy'],
     },
     {
       id: '2p-9-2',
@@ -5585,7 +5648,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Standardform', 'Potensregler', 'Store tall', 'Små tall'],
       prerequisites: ['2p-9-1'],
-      competenceGoals: ['rekne med potensar og røter'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid'],
       coverImage: '/images/subjects/2p-9-2-potenser-og-rotter.webp',
     },
     {
@@ -5598,7 +5661,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Avrunding', 'Gjeldende siffer', 'Overslag', 'Rimelige svar'],
       prerequisites: ['2p-9-2'],
-      competenceGoals: ['skrive tal på standardform og rekne med dei'],
+      competenceGoals: ['utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid'],
       coverImage: '/images/subjects/2p-9-3-standardform.webp',
     },
 

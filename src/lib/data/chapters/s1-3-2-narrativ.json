@@ -4,7 +4,7 @@
   "chapterNumber": "3.2",
   "title": "Derivasjonsregler",
   "subtitle": "Narrativ versjon",
-  "description": "En fortelling om verktøykassen som gjør derivasjon til håndverk — potensregelen, produkt- og kvotientregelen og vekstfunksjonenes egne regler.",
+  "description": "En fortelling om verktøykassen som gjør derivasjon til håndverk — potensregelen, produkt- og brøkregelen og vekstfunksjonenes egne regler.",
   "estimatedMinutes": 35,
   "competenceGoals": [
     "derivere polynomfunksjoner, potens-, eksponential- og logaritmefunksjoner",
@@ -15,7 +15,7 @@
     {
       "id": "s1-3-2-n-intro",
       "type": "text",
-      "content": "## Verktøykassen som sparer deg for timevis med arbeid\n\nI forrige kapittel deriverte vi $f(x) = x^2$ ved hjelp av definisjonen -- en hel grenseverdiberegning for én eneste funksjon. Se nå for deg at du jobber som analytiker i en bedrift, og sjefen sender deg en kostnadsmodell med ledd som $3x^4$, en brøk av to polynomer og en eksponentialfunksjon. Skulle du brukt definisjonen på alt dette, hadde dagen vært over før du var ferdig med første ledd.\n\nHeldigvis har matematikere gjort grovarbeidet én gang for alle. Resultatet er **derivasjonsreglene**: en verktøykasse av ferdige formler som lar oss derivere nesten hva som helst på sekunder. I dette kapittelet lærer du grunnreglene for polynomer, produktregelen, kvotientregelen og reglene for eksponential- og logaritmefunksjoner. Med disse i hånden blir derivasjon håndverk i stedet for slit."
+      "content": "## Verktøykassen som sparer deg for timevis med arbeid\n\nI forrige kapittel deriverte vi $f(x) = x^2$ ved hjelp av definisjonen -- en hel grenseverdiberegning for én eneste funksjon. Se nå for deg at du jobber som analytiker i en bedrift, og sjefen sender deg en kostnadsmodell med ledd som $3x^4$, en brøk av to polynomer og en eksponentialfunksjon. Skulle du brukt definisjonen på alt dette, hadde dagen vært over før du var ferdig med første ledd.\n\nHeldigvis har matematikere gjort grovarbeidet én gang for alle. Resultatet er **derivasjonsreglene**: en verktøykasse av ferdige formler som lar oss derivere nesten hva som helst på sekunder. I dette kapittelet lærer du grunnreglene for polynomer, produktregelen, brøkregelen og reglene for eksponential- og logaritmefunksjoner. Med disse i hånden blir derivasjon håndverk i stedet for slit."
     },
     {
       "id": "s1-3-2-n-section1",
@@ -153,7 +153,7 @@
     {
       "id": "s1-3-2-n-section2",
       "type": "text",
-      "content": "## Produkter og brøker -- når funksjoner samarbeider\n\nHva om funksjonen er et produkt av to uttrykk? Da frister det å derivere hver faktor for seg og gange sammen -- men det er feil! Derivasjon av produkter følger sin egen regel.\n\n**Produktregelen:** Hvis $f(x) = u(x) \\cdot v(x)$, så er\n\n$$f'(x) = u'(x) \\cdot v(x) + u(x) \\cdot v'(x)$$\n\nHuskeregelen er «derivert av første ganger andre, pluss første ganger derivert av andre». La oss derivere $f(x) = (x^2 + 1)(x^3 - 2x)$. Vi setter $u = x^2 + 1$ og $v = x^3 - 2x$, slik at $u' = 2x$ og $v' = 3x^2 - 2$. Da blir\n\n$$f'(x) = 2x(x^3 - 2x) + (x^2 + 1)(3x^2 - 2) = 2x^4 - 4x^2 + 3x^4 - 2x^2 + 3x^2 - 2 = 5x^4 - 3x^2 - 2$$\n\nFor brøker finnes en tilsvarende regel. **Kvotientregelen:** Hvis $f(x) = \\frac{u(x)}{v(x)}$, så er\n\n$$f'(x) = \\frac{u'(x) \\cdot v(x) - u(x) \\cdot v'(x)}{[v(x)]^2}$$\n\nHuskeregelen: «derivert av teller ganger nevner, minus teller ganger derivert av nevner -- delt på nevner i andre». Merk minustegnet: i kvotientregelen er rekkefølgen viktig!\n\nVi prøver på $f(x) = \\frac{x^2 - 1}{x + 2}$. Med $u = x^2 - 1$, $v = x + 2$, $u' = 2x$ og $v' = 1$:\n\n$$f'(x) = \\frac{2x(x + 2) - (x^2 - 1) \\cdot 1}{(x + 2)^2} = \\frac{2x^2 + 4x - x^2 + 1}{(x + 2)^2} = \\frac{x^2 + 4x + 1}{(x + 2)^2}$$"
+      "content": "## Produkter og brøker -- når funksjoner samarbeider\n\nHva om funksjonen er et produkt av to uttrykk? Da frister det å derivere hver faktor for seg og gange sammen -- men det er feil! Derivasjon av produkter følger sin egen regel.\n\n**Produktregelen:** Hvis $f(x) = u(x) \\cdot v(x)$, så er\n\n$$f'(x) = u'(x) \\cdot v(x) + u(x) \\cdot v'(x)$$\n\nHuskeregelen er «derivert av første ganger andre, pluss første ganger derivert av andre». La oss derivere $f(x) = (x^2 + 1)(x^3 - 2x)$. Vi setter $u = x^2 + 1$ og $v = x^3 - 2x$, slik at $u' = 2x$ og $v' = 3x^2 - 2$. Da blir\n\n$$\\begin{aligned}\nf'(x) &= 2x(x^3 - 2x) + (x^2 + 1)(3x^2 - 2) \\\\\n&= 2x^4 - 4x^2 + 3x^4 - 2x^2 + 3x^2 - 2 \\\\\n&= 5x^4 - 3x^2 - 2\n\\end{aligned}$$\n\nFor brøker finnes en tilsvarende regel. **Brøkregelen:** Hvis $f(x) = \\frac{u(x)}{v(x)}$, så er\n\n$$f'(x) = \\frac{u'(x) \\cdot v(x) - u(x) \\cdot v'(x)}{[v(x)]^2}$$\n\nHuskeregelen: «derivert av teller ganger nevner, minus teller ganger derivert av nevner -- delt på nevner i andre». Merk minustegnet: i brøkregelen er rekkefølgen viktig!\n\nVi prøver på $f(x) = \\frac{x^2 - 1}{x + 2}$. Med $u = x^2 - 1$, $v = x + 2$, $u' = 2x$ og $v' = 1$:\n\n$$\\begin{aligned}\nf'(x) &= \\frac{2x(x + 2) - (x^2 - 1) \\cdot 1}{(x + 2)^2} \\\\\n&= \\frac{2x^2 + 4x - x^2 + 1}{(x + 2)^2} \\\\\n&= \\frac{x^2 + 4x + 1}{(x + 2)^2}\n\\end{aligned}$$"
     },
     {
       "id": "s1-3-2-n-quiz2",
@@ -162,7 +162,7 @@
         "id": "s1-3-2-n-quiz2",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg selv på produkt- og kvotientregelen:",
+        "task": "Test deg selv på produkt- og brøkregelen:",
         "options": [
           {
             "id": "a",
@@ -250,7 +250,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "Kvotientregelen: $f' = \\frac{2x(x+2) - (x^2-1)}{(x+2)^2} = \\frac{x^2 + 4x + 1}{(x+2)^2}$. Husk minustegnet og at nevneren kvadreres."
+            "solution": "Brøkregelen: $f' = \\frac{2x(x+2) - (x^2-1)}{(x+2)^2} = \\frac{x^2 + 4x + 1}{(x+2)^2}$. Husk minustegnet og at nevneren kvadreres."
           }
         ],
         "solution": ""
@@ -392,7 +392,7 @@
     {
       "id": "s1-3-2-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nI dette kapittelet har vi fylt verktøykassen. **Grunnreglene** håndterer polynomer: $(c)' = 0$, potensregelen $(x^n)' = nx^{n-1}$, konstantfaktorer følger med, og summer deriveres ledd for ledd: $(f \\pm g)' = f' \\pm g'$. Slik fant vi at $3x^4 - 5x^2 + 2x - 7$ har derivert $12x^3 - 10x + 2$.\n\n**Produktregelen** $(uv)' = u'v + uv'$ og **kvotientregelen** $\\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2}$ tar hånd om produkter og brøker -- husk at man aldri bare kan derivere faktorene hver for seg.\n\nFor vekstfunksjonene gjelder $(e^x)' = e^x$, $(a^x)' = a^x \\ln a$, $(\\ln x)' = \\frac{1}{x}$ og $(\\log_a x)' = \\frac{1}{x \\ln a}$. Den vakreste innsikten er at $e^x$ er sin egen deriverte, og at eksponentiell vekst alltid har vekstfart proporsjonal med sin egen størrelse.\n\nMed disse reglene deriverer du raskt og sikkert -- men én type funksjon mangler fortsatt: funksjoner *inni* andre funksjoner, som $e^{2x+1}$. Det er tema for neste kapittel: kjerneregelen."
+      "content": "## Oppsummering\n\nI dette kapittelet har vi fylt verktøykassen. **Grunnreglene** håndterer polynomer: $(c)' = 0$, potensregelen $(x^n)' = nx^{n-1}$, konstantfaktorer følger med, og summer deriveres ledd for ledd: $(f \\pm g)' = f' \\pm g'$. Slik fant vi at $3x^4 - 5x^2 + 2x - 7$ har derivert $12x^3 - 10x + 2$.\n\n**Produktregelen** $(uv)' = u'v + uv'$ og **brøkregelen** $\\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2}$ tar hånd om produkter og brøker -- husk at man aldri bare kan derivere faktorene hver for seg.\n\nFor vekstfunksjonene gjelder $(e^x)' = e^x$, $(a^x)' = a^x \\ln a$, $(\\ln x)' = \\frac{1}{x}$ og $(\\log_a x)' = \\frac{1}{x \\ln a}$. Den vakreste innsikten er at $e^x$ er sin egen deriverte, og at eksponentiell vekst alltid har vekstfart proporsjonal med sin egen størrelse.\n\nMed disse reglene deriverer du raskt og sikkert -- men én type funksjon mangler fortsatt: funksjoner *inni* andre funksjoner, som $e^{2x+1}$. Det er tema for neste kapittel: kjerneregelen."
     }
   ],
   "exercises": []

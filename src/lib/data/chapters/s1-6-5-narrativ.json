@@ -123,7 +123,7 @@
     {
       "id": "s1-6-5-n-section1",
       "type": "text",
-      "content": "## Kvalitetskontrollen — og snarveien via binomialen\n\nTilbake til fabrikken. Partiet har $N = 50$ kort, hvorav $M = 5$ er defekte, og kvalitetssjefen tester $n = 8$. Hva er sjansen for at stikkprøven ikke avslører noen defekte i det hele tatt?\n\n$$P(X = 0) = \\frac{\\binom{5}{0}\\binom{45}{8}}{\\binom{50}{8}} = \\frac{215\\,553\\,195}{536\\,878\\,650} \\approx 0{,}401$$\n\nHele 40 % sjanse for at et parti med 10 % defekte slipper gjennom uten anmerkning! Forventet antall defekte i utvalget er $E(X) = 8 \\cdot \\frac{5}{50} = 0{,}8$. Og sannsynligheten for å finne minst to? Med $P(X = 1) \\approx 0{,}395$ blir\n\n$$P(X \\geq 2) = 1 - P(X = 0) - P(X = 1) \\approx 1 - 0{,}401 - 0{,}395 = 0{,}204$$\n\nSlike beregninger forteller bedriften hvor stor stikkprøven må være for at kontrollen skal være effektiv — en avveining mellom testkostnad og risiko.\n\nMen må vi alltid slite med de store binomialkoeffisientene? Nei. Når utvalget er lite i forhold til populasjonen — tommelfingerregel: $n < 0{,}05 \\cdot N$ — endrer hvert trekk sammensetningen så lite at trekking uten tilbakelegging nesten er det samme som med. Da kan vi approksimere med en binomialfordeling med $p = \\frac{M}{N}$:\n\n$$X \\approx \\text{Bin}\\!\\left(n, \\frac{M}{N}\\right)$$\n\nVelger du 10 fra en populasjon på 1 000, er binomialen en utmerket tilnærming; velger du 10 fra 15, må du bruke den hypergeometriske. Forskjellen ligger nettopp i den endelige populasjonskorreksjonen: i store populasjoner er den umerkelig, i små er den avgjørende."
+      "content": "## Kvalitetskontrollen — og snarveien via binomialen\n\nTilbake til fabrikken. Partiet har $N = 50$ kort, hvorav $M = 5$ er defekte, og kvalitetssjefen tester $n = 8$. Hva er sjansen for at stikkprøven ikke avslører noen defekte i det hele tatt?\n\n$$P(X = 0) = \\frac{\\binom{5}{0}\\binom{45}{8}}{\\binom{50}{8}} = \\frac{215\\,553\\,195}{536\\,878\\,650} \\approx 0{,}401$$\n\nHele 40 % sjanse for at et parti med 10 % defekte slipper gjennom uten anmerkning! Forventet antall defekte i utvalget er $E(X) = 8 \\cdot \\frac{5}{50} = 0{,}8$. Og sannsynligheten for å finne minst to? Med $P(X = 1) \\approx 0{,}423$ blir\n\n$$\\begin{aligned}\nP(X \\geq 2) &= 1 - P(X = 0) - P(X = 1) \\\\\n&\\approx 1 - 0{,}401 - 0{,}423 \\\\\n&= 0{,}176\n\\end{aligned}$$\n\nSlike beregninger forteller bedriften hvor stor stikkprøven må være for at kontrollen skal være effektiv — en avveining mellom testkostnad og risiko.\n\nMen må vi alltid slite med de store binomialkoeffisientene? Nei. Når utvalget er lite i forhold til populasjonen — tommelfingerregel: $n < 0{,}05 \\cdot N$ — endrer hvert trekk sammensetningen så lite at trekking uten tilbakelegging nesten er det samme som med. Da kan vi approksimere med en binomialfordeling med $p = \\frac{M}{N}$:\n\n$$X \\approx \\text{Bin}\\!\\left(n, \\frac{M}{N}\\right)$$\n\nVelger du 10 fra en populasjon på 1 000, er binomialen en utmerket tilnærming; velger du 10 fra 15, må du bruke den hypergeometriske. Forskjellen ligger nettopp i den endelige populasjonskorreksjonen: i store populasjoner er den umerkelig, i små er den avgjørende."
     },
     {
       "id": "s1-6-5-n-quiz2",
@@ -170,7 +170,7 @@
           },
           {
             "id": "s1-6-5-n-quiz2-q1",
-            "task": "I samme kontroll er $P(X = 0) \\approx 0{,}401$ og $P(X = 1) \\approx 0{,}395$. Hva er $P(X \\geq 2)$?",
+            "task": "I samme kontroll er $P(X = 0) \\approx 0{,}401$ og $P(X = 1) \\approx 0{,}423$. Hva er $P(X \\geq 2)$?",
             "options": [
               {
                 "id": "b",
@@ -179,7 +179,7 @@
               },
               {
                 "id": "a",
-                "text": "Ca. $0{,}20$",
+                "text": "Ca. $0{,}18$",
                 "isCorrect": true
               },
               {
@@ -193,7 +193,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$P(X \\geq 2) = 1 - P(X=0) - P(X=1) \\approx 1 - 0{,}401 - 0{,}395 = 0{,}204$."
+            "solution": "$P(X \\geq 2) = 1 - P(X=0) - P(X=1) \\approx 1 - 0{,}401 - 0{,}423 = 0{,}176$."
           },
           {
             "id": "s1-6-5-n-quiz2-q2",
@@ -211,7 +211,7 @@
               },
               {
                 "id": "d",
-                "text": "Når utvalget er lite i forhold til populasjonen (ca. $n < 0{,}05N$)",
+                "text": "Når utvalget er lite i forhold til populasjonen (ca. $n < 0{,}1N$)",
                 "isCorrect": true
               },
               {
@@ -247,7 +247,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "$\\frac{10}{15} = 67\\,\\%$ av populasjonen trekkes — langt over 5 %-grensen, så binomial tilnærming blir dårlig. Bruk hypergeometrisk."
+            "solution": "$\\frac{10}{15} = 67\\,\\%$ av populasjonen trekkes — langt over 10 %-grensen, så binomial tilnærming blir dårlig. Bruk hypergeometrisk."
           }
         ]
       }

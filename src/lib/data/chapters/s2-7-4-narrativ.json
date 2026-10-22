@@ -20,7 +20,7 @@
     {
       "id": "s2-7-4-n-section1",
       "type": "text",
-      "content": "## Sparing med faste innskudd\n\nSøsteren din setter inn et fast beløp $b$ ved slutten av hver termin i $n$ terminer. Poenget som gjør dette til en rekke, er at innskuddene får renter i *ulik* tid: det første innskuddet rekker å vokse i $n-1$ terminer og blir til $b \\cdot v^{n-1}$, det andre vokser i $n-2$ terminer, og det siste innskuddet rekker ikke å vokse i det hele tatt. Sluttkapitalen er summen\n\n$$K_n = b + bv + bv^2 + \\cdots + bv^{n-1}$$\n\n— en geometrisk rekke med første ledd $b$ og kvotient $v$! Sumformelen gir **spareformelen**:\n\n$$K_n = b \\cdot \\frac{v^n - 1}{v - 1} = b \\cdot \\frac{(1+r)^n - 1}{r}$$\n\nNå kan vi svare søsteren din. Hun sparer $b = 5000$ kr per måned i 10 år, altså $n = 120$ måneder, med månedlig rente $r = 0{,}003$ (0,3 %). Da er $v = 1{,}003$ og $1{,}003^{120} \\approx 1{,}4308$, så\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}4308 - 1}{0{,}003} = 5000 \\cdot 143{,}6 \\approx 718\\,000 \\text{ kr}$$\n\nSelv har hun bare skutt inn $5000 \\cdot 120 = 600\\,000$ kr — rentene har bidratt med 118 000 kr. Det er renters rente i praksis: hvert innskudd jobber for henne fra den dagen det settes inn.\n\nLegg merke til strukturen i formelen, for den kommer igjen: et fast beløp ganger en «rekkefaktor» $\\frac{v^n - 1}{r}$ som samler opp alle terminene med renter."
+      "content": "## Sparing med faste innskudd\n\nSøsteren din setter inn et fast beløp $b$ ved slutten av hver termin i $n$ terminer. Poenget som gjør dette til en rekke, er at innskuddene får renter i *ulik* tid: det første innskuddet rekker å vokse i $n-1$ terminer og blir til $b \\cdot v^{n-1}$, det andre vokser i $n-2$ terminer, og det siste innskuddet rekker ikke å vokse i det hele tatt. Sluttkapitalen er summen\n\n$$K_n = b + bv + bv^2 + \\cdots + bv^{n-1}$$\n\n— en geometrisk rekke med første ledd $b$ og kvotient $v$! Sumformelen gir **spareformelen**:\n\n$$K_n = b \\cdot \\frac{v^n - 1}{v - 1} = b \\cdot \\frac{(1+r)^n - 1}{r}$$\n\nNå kan vi svare søsteren din. Hun sparer $b = 5000$ kr per måned i 10 år, altså $n = 120$ måneder, med månedlig rente $r = 0{,}003$ (0,3 %). Da er $v = 1{,}003$ og $1{,}003^{120} \\approx 1{,}43256$, så\n\n$$K_{120} = 5000 \\cdot \\frac{1{,}43256 - 1}{0{,}003} = 5000 \\cdot 144{,}19 \\approx 720\\,929 \\text{ kr}$$\n\nSelv har hun bare skutt inn $5000 \\cdot 120 = 600\\,000$ kr — rentene har bidratt med 120 929 kr. Det er renters rente i praksis: hvert innskudd jobber for henne fra den dagen det settes inn.\n\nLegg merke til strukturen i formelen, for den kommer igjen: et fast beløp ganger en «rekkefaktor» $\\frac{v^n - 1}{r}$ som samler opp alle terminene med renter."
     },
     {
       "id": "s2-7-4-n-quiz1",
@@ -94,16 +94,16 @@
           },
           {
             "id": "s2-7-4-n-quiz1-q2",
-            "task": "Søsteren sparer 5000 kr/mnd i 120 måneder med $r = 0{,}003$ og ender med ca. 718 000 kr. Hvor mye av dette er renter?",
+            "task": "Søsteren sparer 5000 kr/mnd i 120 måneder med $r = 0{,}003$ og ender med ca. 720 929 kr. Hvor mye av dette er renter?",
             "options": [
               {
                 "id": "a",
-                "text": "$718\\,000$ kr",
+                "text": "$720\\,929$ kr",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "ca. $118\\,000$ kr",
+                "text": "ca. $120\\,929$ kr",
                 "isCorrect": true
               },
               {
@@ -117,7 +117,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Egne innskudd: $5000 \\cdot 120 = 600\\,000$ kr. Renter: $718\\,000 - 600\\,000 = 118\\,000$ kr."
+            "solution": "Egne innskudd: $5000 \\cdot 120 = 600\\,000$ kr. Renter: $720\\,929 - 600\\,000 = 120\\,929$ kr."
           },
           {
             "id": "s2-7-4-n-quiz1-q3",
@@ -416,7 +416,7 @@
     {
       "id": "s2-7-4-n-summary",
       "type": "text",
-      "content": "## Oppsummering: rekkene bak privatøkonomien\n\nSøsterens to store økonomiske beslutninger — spareplanen og boliglånet — viste seg å være to sider av samme geometriske rekke. **Spareformelen** $K_n = b \\cdot \\frac{(1+r)^n - 1}{r}$ ga sluttkapitalen av faste innskudd: 5000 kr i måneden ble til 718 000 kr på ti år, der 118 000 kr var renter. **Annuitetsformelen** $T = L \\cdot \\frac{r(1+r)^n}{(1+r)^n - 1}$ ga det faste terminbeløpet, utledet ved å sette lånet med renter lik innbetalingenes rekkesum.\n\n**Nåverdien** $\\text{NV} = \\frac{B}{(1+r)^n}$ — og for betalingsrekker $T \\cdot \\frac{1-(1+r)^{-n}}{r}$ — lar oss sammenligne beløp på tvers av tid, og restgjelden etter $m$ terminer er nettopp nåverdien av de gjenstående terminbeløpene. **Serielånet** med konstant avdrag $A = \\frac{L}{n}$ gir synkende terminbeløp og lavere total rente enn annuitetslånet, som til gjengjeld gir forutsigbarheten folk flest verdsetter i boligøkonomien.\n\nHusk arbeidsreglene: sjekk om renten gjelder per termin eller per år, hold spareformel og låneformel fra hverandre, bruk nåverdi ved sammenligning av betalingsstrømmer — og vis på eksamen hvordan formlene vokser ut av geometriske rekker. Den som forstår rekken bak formelen, trenger aldri pugge den."
+      "content": "## Oppsummering: rekkene bak privatøkonomien\n\nSøsterens to store økonomiske beslutninger — spareplanen og boliglånet — viste seg å være to sider av samme geometriske rekke. **Spareformelen** $K_n = b \\cdot \\frac{(1+r)^n - 1}{r}$ ga sluttkapitalen av faste innskudd: 5000 kr i måneden ble til 720 929 kr på ti år, der 120 929 kr var renter. **Annuitetsformelen** $T = L \\cdot \\frac{r(1+r)^n}{(1+r)^n - 1}$ ga det faste terminbeløpet, utledet ved å sette lånet med renter lik innbetalingenes rekkesum.\n\n**Nåverdien** $\\text{NV} = \\frac{B}{(1+r)^n}$ — og for betalingsrekker $T \\cdot \\frac{1-(1+r)^{-n}}{r}$ — lar oss sammenligne beløp på tvers av tid, og restgjelden etter $m$ terminer er nettopp nåverdien av de gjenstående terminbeløpene. **Serielånet** med konstant avdrag $A = \\frac{L}{n}$ gir synkende terminbeløp og lavere total rente enn annuitetslånet, som til gjengjeld gir forutsigbarheten folk flest verdsetter i boligøkonomien.\n\nHusk arbeidsreglene: sjekk om renten gjelder per termin eller per år, hold spareformel og låneformel fra hverandre, bruk nåverdi ved sammenligning av betalingsstrømmer — og vis på eksamen hvordan formlene vokser ut av geometriske rekker. Den som forstår rekken bak formelen, trenger aldri pugge den."
     }
   ],
   "exercises": []

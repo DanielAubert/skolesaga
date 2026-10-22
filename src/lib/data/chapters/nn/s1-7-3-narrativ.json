@@ -120,7 +120,7 @@
     {
       "id": "s1-7-3-n-section1",
       "type": "text",
-      "content": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriane. Målingane ved $x = 0, 3, 6, 9, 12$ timar blir transformerte: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og desse ligg pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}237x + 4{,}610$$\n\nTilbaketransformasjonen hentar ut modellen: $a = e^{4{,}610} \\approx 100$ og $b = e^{0{,}237} \\approx 1{,}267$, altså\n\n$$y = 100 \\cdot 1{,}267^x$$\n\nTolking: startbestanden er cirka 100 bakteriar, og talet veks cirka 26,7 % per time. Kontroll: $y(3) = 100 \\cdot 1{,}267^3 \\approx 203$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ blir handtert med same triks, men no blir *begge* variablane logaritmerte: $\\ln y = \\ln a + b \\ln x$, ei rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigingstal. Eit trafikkeksempel: bremselengder ved ulike fartar gir regresjonen $\\ln y = 1{,}97 \\ln x - 4{,}92$, altså $b \\approx 2$ og $a = e^{-4{,}92} \\approx 0{,}0073$:\n\n$$y \\approx 0{,}0073 \\cdot x^2$$\n\nBremselengda er tilnærma proporsjonal med *kvadratet* av farten — doblar du farten, blir bremselengda firedobla. Det er fysikkpensum gjenoppdaga i eit datasett.\n\nNår fleire modellar konkurrerer, blir fire kriterium brukte: **$R^2$** (høgare er betre, men pass på overtilpassing), **residualplottet** (den beste modellen har mønsterfrie residual), **fagleg rimelegheit** (gir modellforma meining i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdiar, òg litt utanfor dataområdet?). I GeoGebra gjer kommandoane RegLin, RegExp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets vel du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalet er og blir ditt ansvar."
+      "content": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriane. Målingane ved $x = 0, 3, 6, 9, 12$ timar blir transformerte: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og desse ligg pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}238x + 4{,}617$$\n\nTilbaketransformasjonen hentar ut modellen: $a = e^{4{,}617} \\approx 101$ og $b = e^{0{,}238} \\approx 1{,}269$, altså\n\n$$y = 101 \\cdot 1{,}269^x$$\n\nTolking: startbestanden er cirka 100 bakteriar, og talet veks cirka 26,9 % per time. Kontroll: $y(3) = 101 \\cdot 1{,}269^3 \\approx 206$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ blir handtert med same triks, men no blir *begge* variablane logaritmerte: $\\ln y = \\ln a + b \\ln x$, ei rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigingstal. Eit trafikkeksempel: bremselengder ved ulike fartar gir regresjonen $\\ln y = 1{,}99 \\ln x - 4{,}99$, altså $b \\approx 2$ og $a = e^{-4{,}99} \\approx 0{,}0068$:\n\n$$y \\approx 0{,}0068 \\cdot x^2$$\n\nBremselengda er tilnærma proporsjonal med *kvadratet* av farten — doblar du farten, blir bremselengda firedobla. Det er fysikkpensum gjenoppdaga i eit datasett.\n\nNår fleire modellar konkurrerer, blir fire kriterium brukte: **$R^2$** (høgare er betre, men pass på overtilpassing), **residualplottet** (den beste modellen har mønsterfrie residual), **fagleg rimelegheit** (gir modellforma meining i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdiar, òg litt utanfor dataområdet?). I GeoGebra gjer kommandoane RegLin, RegEksp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets vel du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalet er og blir ditt ansvar."
     },
     {
       "id": "s1-7-3-n-quiz2",
@@ -140,16 +140,16 @@
         "questions": [
           {
             "id": "s1-7-3-n-quiz2-q0",
-            "task": "Bakteriedataene gav $\\ln y = 0{,}237x + 4{,}610$. Kva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
+            "task": "Bakteriedataene gav $\\ln y = 0{,}238x + 4{,}617$. Kva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
             "options": [
               {
                 "id": "d",
-                "text": "$b = e^{0{,}237} \\approx 1{,}267$",
+                "text": "$b = e^{0{,}238} \\approx 1{,}269$",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "$b = 0{,}237$",
+                "text": "$b = 0{,}238$",
                 "isCorrect": false
               },
               {
@@ -159,11 +159,11 @@
               },
               {
                 "id": "c",
-                "text": "$b = \\ln 0{,}237$",
+                "text": "$b = \\ln 0{,}238$",
                 "isCorrect": false
               }
             ],
-            "solution": "Stigingstalet er $\\ln b$, så $b = e^{0{,}237} \\approx 1{,}267$ — cirka 26,7 % vekst per time."
+            "solution": "Stigingstalet er $\\ln b$, så $b = e^{0{,}238} \\approx 1{,}269$ — cirka 26,9 % vekst per time."
           },
           {
             "id": "s1-7-3-n-quiz2-q1",
@@ -194,7 +194,7 @@
           },
           {
             "id": "s1-7-3-n-quiz2-q2",
-            "task": "Bremselengdemodellen vart $y \\approx 0{,}0073 \\cdot x^2$. Kva skjer med bremselengda når farten blir dobla?",
+            "task": "Bremselengdemodellen vart $y \\approx 0{,}0068 \\cdot x^2$. Kva skjer med bremselengda når farten blir dobla?",
             "options": [
               {
                 "id": "a",
@@ -217,7 +217,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$y(2x) = 0{,}0073 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk samanheng gir firedobling."
+            "solution": "$y(2x) = 0{,}0068 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk samanheng gir firedobling."
           },
           {
             "id": "s1-7-3-n-quiz2-q3",
@@ -252,14 +252,14 @@
     {
       "id": "s1-7-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering: logaritmen som rettar ut kurvene\n\nBakteriane som nekta å følgje linja, føydde seg så snart aksane vart transformerte. Den store ideen i kapittelet er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir ei rett linje når $\\ln y$ blir plotta mot $x$ (stigingstal $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ blir brukte (stigingstalet er sjølve eksponenten $b$). Dermed blir heile verktøykassen frå lineær regresjon gjenbrukt på krumme samanhengar.\n\nTolkingane er konkrete: bakteriemodellen $y = 100 \\cdot 1{,}267^x$ las vi som startverdi 100 og 26,7 % vekst per time; bremselengdemodellen $y \\approx 0{,}0073x^2$ avslørte at bremselengd veks med kvadratet av farten. Eksponentiell modell passar ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flatar ut.\n\n**Modellvalet** kviler på fire bein: $R^2$, residualplott utan mønster, fagleg rimelegheit og fornuftige prediksjonar. Digitale verktøy — RegExp og RegPot i GeoGebra, trendlinjene i reknearket — gjer rekneabeidet, men valet og tolkinga er ditt. Og nettopp residuala, som her berre var eitt av kriteria, får heile rampelyset i neste kapittel: dei ser det $R^2$ ikkje ser."
+      "content": "## Oppsummering: logaritmen som rettar ut kurvene\n\nBakteriane som nekta å følgje linja, føydde seg så snart aksane vart transformerte. Den store ideen i kapittelet er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir ei rett linje når $\\ln y$ blir plotta mot $x$ (stigingstal $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ blir brukte (stigingstalet er sjølve eksponenten $b$). Dermed blir heile verktøykassen frå lineær regresjon gjenbrukt på krumme samanhengar.\n\nTolkingane er konkrete: bakteriemodellen $y = 101 \\cdot 1{,}269^x$ las vi som startverdi ca. 100 og 26,9 % vekst per time; bremselengdemodellen $y \\approx 0{,}0068x^2$ avslørte at bremselengd veks med kvadratet av farten. Eksponentiell modell passar ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flatar ut.\n\n**Modellvalet** kviler på fire bein: $R^2$, residualplott utan mønster, fagleg rimelegheit og fornuftige prediksjonar. Digitale verktøy — RegEksp og RegPot i GeoGebra, trendlinjene i reknearket — gjer rekneabeidet, men valet og tolkinga er ditt. Og nettopp residuala, som her berre var eitt av kriteria, får heile rampelyset i neste kapittel: dei ser det $R^2$ ikkje ser."
     }
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "4a1ef722556e2307",
+    "sourceHash": "ef672ba43d190d82",
     "translatedAt": "2026-06-20T08:35:01.905Z",
-    "model": "claude-code-agent",
+    "model": "claude-code-agent (synk 21.10.2026)",
     "strings": 54,
     "tm": {
       "20ab28ad90d865ae": "Ikkje-lineær regresjon",
@@ -277,44 +277,44 @@
       "8cec4cd2eb442fa8": "Konstant modell",
       "d4af96e9ba14a1e2": "Fast prosentvis vekst er kjenneteiknet på eksponentialfunksjonar.",
       "b4d4b69ccfc59c76": "Kva skjer med $y = a \\cdot b^x$ når vi tek $\\ln$ på begge sider?",
-      "9a72ae439f45604c": "Vi får $\\ln y = \\ln a + x \\ln b$ — ein lineær samanheng mellom $x$ og $\\ln y$",
       "a784192197b54e39": "Uttrykket blir ein parabel",
       "3a33b10ed642569c": "Vi får $\\ln y = a + b x^2$",
+      "9a72ae439f45604c": "Vi får $\\ln y = \\ln a + x \\ln b$ — ein lineær samanheng mellom $x$ og $\\ln y$",
       "f162330d5b343ae6": "Logaritmen kan ikkje brukast på eksponentialfunksjonar",
       "4de9e8b8042eb34b": "Logaritmen forvandlar den eksponentielle modellen til ei rett linje i $(x, \\ln y)$ — det er nøkkelen til eksponentiell regresjon.",
       "dc2673772e730c17": "Korleis ser eksponentiell vekst ut i eit spreiingsplott?",
       "7571de7a2500b01c": "Punkta følgjer ei rett linje",
       "8802225baa0b050d": "Punkta svingar periodisk",
-      "475f36d78c520641": "Kurva stig stadig raskare — ei J-form",
       "fb1c7a05419f7f46": "Punkta ligg på ei horisontal linje",
+      "475f36d78c520641": "Kurva stig stadig raskare — ei J-form",
       "8a503801917509df": "Eksponentiell vekst med $b > 1$ krummar oppover og stig raskare og raskare.",
-      "95d54d953187b55f": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriane. Målingane ved $x = 0, 3, 6, 9, 12$ timar blir transformerte: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og desse ligg pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}237x + 4{,}610$$\n\nTilbaketransformasjonen hentar ut modellen: $a = e^{4{,}610} \\approx 100$ og $b = e^{0{,}237} \\approx 1{,}267$, altså\n\n$$y = 100 \\cdot 1{,}267^x$$\n\nTolking: startbestanden er cirka 100 bakteriar, og talet veks cirka 26,7 % per time. Kontroll: $y(3) = 100 \\cdot 1{,}267^3 \\approx 203$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ blir handtert med same triks, men no blir *begge* variablane logaritmerte: $\\ln y = \\ln a + b \\ln x$, ei rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigingstal. Eit trafikkeksempel: bremselengder ved ulike fartar gir regresjonen $\\ln y = 1{,}97 \\ln x - 4{,}92$, altså $b \\approx 2$ og $a = e^{-4{,}92} \\approx 0{,}0073$:\n\n$$y \\approx 0{,}0073 \\cdot x^2$$\n\nBremselengda er tilnærma proporsjonal med *kvadratet* av farten — doblar du farten, blir bremselengda firedobla. Det er fysikkpensum gjenoppdaga i eit datasett.\n\nNår fleire modellar konkurrerer, blir fire kriterium brukte: **$R^2$** (høgare er betre, men pass på overtilpassing), **residualplottet** (den beste modellen har mønsterfrie residual), **fagleg rimelegheit** (gir modellforma meining i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdiar, òg litt utanfor dataområdet?). I GeoGebra gjer kommandoane RegLin, RegExp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets vel du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalet er og blir ditt ansvar.",
+      "0733637d792fb702": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriane. Målingane ved $x = 0, 3, 6, 9, 12$ timar blir transformerte: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og desse ligg pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}238x + 4{,}617$$\n\nTilbaketransformasjonen hentar ut modellen: $a = e^{4{,}617} \\approx 101$ og $b = e^{0{,}238} \\approx 1{,}269$, altså\n\n$$y = 101 \\cdot 1{,}269^x$$\n\nTolking: startbestanden er cirka 100 bakteriar, og talet veks cirka 26,9 % per time. Kontroll: $y(3) = 101 \\cdot 1{,}269^3 \\approx 206$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ blir handtert med same triks, men no blir *begge* variablane logaritmerte: $\\ln y = \\ln a + b \\ln x$, ei rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigingstal. Eit trafikkeksempel: bremselengder ved ulike fartar gir regresjonen $\\ln y = 1{,}99 \\ln x - 4{,}99$, altså $b \\approx 2$ og $a = e^{-4{,}99} \\approx 0{,}0068$:\n\n$$y \\approx 0{,}0068 \\cdot x^2$$\n\nBremselengda er tilnærma proporsjonal med *kvadratet* av farten — doblar du farten, blir bremselengda firedobla. Det er fysikkpensum gjenoppdaga i eit datasett.\n\nNår fleire modellar konkurrerer, blir fire kriterium brukte: **$R^2$** (høgare er betre, men pass på overtilpassing), **residualplottet** (den beste modellen har mønsterfrie residual), **fagleg rimelegheit** (gir modellforma meining i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdiar, òg litt utanfor dataområdet?). I GeoGebra gjer kommandoane RegLin, RegEksp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets vel du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalet er og blir ditt ansvar.",
       "961bdaaeb0a6f356": "Test deg sjølv på regresjon i praksis og modellval:",
-      "00da6a0dda2cb8fa": "Bakteriedataene gav $\\ln y = 0{,}237x + 4{,}610$. Kva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
-      "95dd23877605f3c7": "$b = 0{,}237$",
+      "ff25e6f3c8f7543d": "Bakteriedataene gav $\\ln y = 0{,}238x + 4{,}617$. Kva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
+      "dea1b5b48ef3ebaa": "$b = e^{0{,}238} \\approx 1{,}269$",
+      "ba42ce02da83f459": "$b = 0{,}238$",
       "114522f75045eb9c": "$b = 4{,}610$",
-      "00c9e65a54edcf49": "$b = \\ln 0{,}237$",
-      "657ad0f82e487932": "$b = e^{0{,}237} \\approx 1{,}267$",
-      "52b42cfd9be26016": "Stigingstalet er $\\ln b$, så $b = e^{0{,}237} \\approx 1{,}267$ — cirka 26,7 % vekst per time.",
+      "ba4f516a1c053889": "$b = \\ln 0{,}238$",
+      "fb241f6ba612d1ce": "Stigingstalet er $\\ln b$, så $b = e^{0{,}238} \\approx 1{,}269$ — cirka 26,9 % vekst per time.",
       "ee8ccc000a79ee9f": "Korleis blir potensmodellen $y = a \\cdot x^b$ linearisert?",
-      "8ad1e0b109618a89": "Ta logaritmen av begge variablane: $\\ln y$ mot $\\ln x$",
       "396a129cef4abe21": "Ta logaritmen berre av $y$",
+      "8ad1e0b109618a89": "Ta logaritmen av begge variablane: $\\ln y$ mot $\\ln x$",
       "f1ab85fb0c7c0040": "Kvadrer begge variablane",
       "7e932b17f79954b0": "Byt om $x$ og $y$",
       "8ce67ff25ef24442": "$\\ln y = \\ln a + b \\ln x$ — ei rett linje i $(\\ln x, \\ln y)$, der stigingstalet er eksponenten $b$.",
-      "3b0a14c3e9c9fa5e": "Bremselengdemodellen vart $y \\approx 0{,}0073 \\cdot x^2$. Kva skjer med bremselengda når farten blir dobla?",
+      "877a7bf8cd8143ee": "Bremselengdemodellen vart $y \\approx 0{,}0068 \\cdot x^2$. Kva skjer med bremselengda når farten blir dobla?",
       "dbb3244ea0f0556b": "Ho blir dobla",
-      "2cc416c617d2e24a": "Ho blir firedobla",
       "cf674b021ee9aa5b": "Ho blir halvert",
+      "2cc416c617d2e24a": "Ho blir firedobla",
       "5e86f93eb69ebdc9": "Ho blir åttedobla",
-      "478b56d32ff22765": "$y(2x) = 0{,}0073 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk samanheng gir firedobling.",
+      "b897d9b654bff287": "$y(2x) = 0{,}0068 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk samanheng gir firedobling.",
       "8bf6ccacdaeecd1a": "Kva for eit kriterium er IKKJE relevant når du vel beste modell?",
       "cc249e435382fe4d": "$R^2$-verdien",
       "ca7650a344694eaa": "Residualplottet",
-      "a60221e3edcde97f": "At modellen gir det resultatet du håpa på",
       "3adbbcf03a1996b1": "Fagleg rimelegheit i konteksten",
+      "a60221e3edcde97f": "At modellen gir det resultatet du håpa på",
       "3d3485ab680c15c6": "Modellen skal veljast etter tilpassing, residual og fagleg meining — aldri etter ønskt konklusjon.",
-      "5ce275d07b0e49c0": "## Oppsummering: logaritmen som rettar ut kurvene\n\nBakteriane som nekta å følgje linja, føydde seg så snart aksane vart transformerte. Den store ideen i kapittelet er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir ei rett linje når $\\ln y$ blir plotta mot $x$ (stigingstal $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ blir brukte (stigingstalet er sjølve eksponenten $b$). Dermed blir heile verktøykassen frå lineær regresjon gjenbrukt på krumme samanhengar.\n\nTolkingane er konkrete: bakteriemodellen $y = 100 \\cdot 1{,}267^x$ las vi som startverdi 100 og 26,7 % vekst per time; bremselengdemodellen $y \\approx 0{,}0073x^2$ avslørte at bremselengd veks med kvadratet av farten. Eksponentiell modell passar ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flatar ut.\n\n**Modellvalet** kviler på fire bein: $R^2$, residualplott utan mønster, fagleg rimelegheit og fornuftige prediksjonar. Digitale verktøy — RegExp og RegPot i GeoGebra, trendlinjene i reknearket — gjer rekneabeidet, men valet og tolkinga er ditt. Og nettopp residuala, som her berre var eitt av kriteria, får heile rampelyset i neste kapittel: dei ser det $R^2$ ikkje ser."
+      "d48e4a450f9934ac": "## Oppsummering: logaritmen som rettar ut kurvene\n\nBakteriane som nekta å følgje linja, føydde seg så snart aksane vart transformerte. Den store ideen i kapittelet er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir ei rett linje når $\\ln y$ blir plotta mot $x$ (stigingstal $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ blir brukte (stigingstalet er sjølve eksponenten $b$). Dermed blir heile verktøykassen frå lineær regresjon gjenbrukt på krumme samanhengar.\n\nTolkingane er konkrete: bakteriemodellen $y = 101 \\cdot 1{,}269^x$ las vi som startverdi ca. 100 og 26,9 % vekst per time; bremselengdemodellen $y \\approx 0{,}0068x^2$ avslørte at bremselengd veks med kvadratet av farten. Eksponentiell modell passar ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flatar ut.\n\n**Modellvalet** kviler på fire bein: $R^2$, residualplott utan mønster, fagleg rimelegheit og fornuftige prediksjonar. Digitale verktøy — RegEksp og RegPot i GeoGebra, trendlinjene i reknearket — gjer rekneabeidet, men valet og tolkinga er ditt. Og nettopp residuala, som her berre var eitt av kriteria, får heile rampelyset i neste kapittel: dei ser det $R^2$ ikkje ser."
     }
   }
 }

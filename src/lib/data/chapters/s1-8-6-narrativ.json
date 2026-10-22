@@ -122,7 +122,7 @@
     {
       "id": "s1-8-6-n-section1",
       "type": "text",
-      "content": "## Rapportens skjelett — og et helt eksempel\n\nEn typisk S1-prosjektrapport er på 4–8 sider og følger en fast struktur: **(1) Sammendrag** (ett avsnitt: hva spurte du om, hva fant du), **(2) Innledning og problemstilling** (bakgrunn, motivasjon, presist spørsmål), **(3) Data og metode** (kilder med URL og nedlastingsdato, databehandling, verktøy), **(4) Analyse og resultater** (tabeller, grafer, beregninger), **(5) Drøfting** (hva betyr funnene, begrensninger, korrelasjon vs. kausalitet), **(6) Konklusjon** (direkte svar på problemstillingen) og **(7) Kildeliste**.\n\nSe strukturen i et fullført eksempel: *Boligpriser og rente i Norge 2014–2024*. **Problemstillingen:** Hvor sterk er korrelasjonen mellom Norges Banks styringsrente og boligprisindeksen? Begrunnelsen er økonomisk: renten bestemmer hva folk kan betjene i lån. **Data og metode:** SSB tabell 06035 (boligprisindeks) og Norges Banks styringsrente, lastet ned som CSV, årlige snitt beregnet i Excel. **Analyse:** spredningsplott av (årlig snittrente, boligprisindeks) og lineær regresjon i GeoGebra ga $\\hat{y} = -7{,}4r + 145$ med $R^2 \\approx 0{,}42$ og $r \\approx -0{,}65$.\n\n**Drøftingen** er rapportens hjerte: $R^2 = 0{,}42$ er moderat — renten forklarer en del, men langt fra alt; demografi, byggekostnader og pandemiårene 2020–2022 (lave renter *og* boligprishopp) spiller inn. Korrelasjon er ikke kausalitet, men her finnes god teoretisk grunn til å tro at lav rente *delvis* driver prisene. **Konklusjonen** svarer direkte: moderat negativ sammenheng ($r \\approx -0{,}65$); boligprisene henger sammen med rentenivået, men bestemmes ikke av det alene. Videre arbeid kunne inkludert befolkning, bygging og lønn.\n\nLegg merke til tonen: presis, nøktern, åpen om begrensninger. Det er slik en rapport bygger tillit — ikke ved å overdrive funnene, men ved å vise at du forstår dem."
+      "content": "## Rapportens skjelett — og et helt eksempel\n\nEn typisk S1-prosjektrapport er på 4–8 sider og følger en fast struktur: **(1) Sammendrag** (ett avsnitt: hva spurte du om, hva fant du), **(2) Innledning og problemstilling** (bakgrunn, motivasjon, presist spørsmål), **(3) Data og metode** (kilder med URL og nedlastingsdato, databehandling, verktøy), **(4) Analyse og resultater** (tabeller, grafer, beregninger), **(5) Drøfting** (hva betyr funnene, begrensninger, korrelasjon vs. kausalitet), **(6) Konklusjon** (direkte svar på problemstillingen) og **(7) Kildeliste**.\n\nSe strukturen i et fullført eksempel: *Boligpriser og rente i Norge 2014–2024*. **Problemstillingen:** Hvordan henger Norges Banks styringsrente sammen med boligprisene? Begrunnelsen er økonomisk: renten bestemmer hva folk kan betjene i lån. **Data og metode:** SSB tabell 07230 (prisindeks for brukte boliger) og Norges Banks styringsrente, begge som årsgjennomsnitt, lastet ned som CSV og satt sammen i Excel. **Analyse:** spredningsplott av (årlig snittrente, boligprisindeks) og lineær regresjon i GeoGebra ga $\\hat{y} = 6{,}5r + 111{,}7$ med $R^2 \\approx 0{,}27$ og $r \\approx 0{,}52$ — en *positiv* sammenheng, stikk i strid med hypotesen.\n\n**Drøftingen** er rapportens hjerte: begge variablene steg over tid — boligprisene gjennom hele perioden, renten fra 2022 — så tiden selv er en konfunderende variabel. Ser vi i stedet på den årlige prisveksten mot renten, blir sammenhengen negativ ($r \\approx -0{,}59$): prisveksten var lavest da renten var høyest. Korrelasjon er ikke kausalitet, men dette passer med teorien om at dyre lån demper etterspørselen. **Konklusjonen** svarer direkte: nivåene samvarierer positivt fordi begge stiger over tid, mens prisveksten har en moderat negativ sammenheng med renten. Videre arbeid kunne inkludert befolkning, bygging og lønn.\n\nLegg merke til tonen: presis, nøktern, åpen om begrensninger. Det er slik en rapport bygger tillit — ikke ved å overdrive funnene, men ved å vise at du forstår dem."
     },
     {
       "id": "s1-8-6-n-quiz2",
@@ -169,11 +169,11 @@
           },
           {
             "id": "s1-8-6-n-quiz2-q1",
-            "task": "Eksempelprosjektet fant $r \\approx -0{,}65$ mellom styringsrente og boligprisindeks. Hva betyr det?",
+            "task": "Eksempelprosjektet fant $r \\approx 0{,}52$ mellom styringsrente og boligprisindeks. Hva er riktig tolkning?",
             "options": [
               {
                 "id": "a",
-                "text": "Lav rente forårsaker beviselig høye boligpriser",
+                "text": "Høy rente forårsaker høye boligpriser",
                 "isCorrect": false
               },
               {
@@ -188,19 +188,19 @@
               },
               {
                 "id": "b",
-                "text": "Moderat negativ samvariasjon — lavere rente er forbundet med høyere boligpriser",
+                "text": "Begge stiger over tid, så korrelasjonen mellom nivåene sier lite om årsak",
                 "isCorrect": true
               }
             ],
-            "solution": "Korrelasjonen er moderat negativ. Teorien støtter en delvis kausal tolkning, men dataene alene beviser den ikke."
+            "solution": "Tiden er en konfunderende variabel: boligprisene steg hele perioden og renten fra 2022. Årlig prisvekst mot rente gir derimot $r \\approx -0{,}59$."
           },
           {
             "id": "s1-8-6-n-quiz2-q2",
-            "task": "$R^2 = 0{,}42$ i eksempelet. Hva er riktig tolkning i drøftingen?",
+            "task": "$R^2 \\approx 0{,}27$ for nivåmodellen i eksempelet. Hva er riktig tolkning i drøftingen?",
             "options": [
               {
                 "id": "a",
-                "text": "Renten forklarer en del av variasjonen, men andre faktorer spiller også inn",
+                "text": "Renten forklarer en liten del av variasjonen i prisnivået, og andre faktorer spiller inn",
                 "isCorrect": true
               },
               {
@@ -210,7 +210,7 @@
               },
               {
                 "id": "c",
-                "text": "$42\\,\\%$ av boligene påvirkes av renten",
+                "text": "$27\\,\\%$ av boligene påvirkes av renten",
                 "isCorrect": false
               },
               {
@@ -219,7 +219,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Moderat $R^2$ er et ærlig og informativt resultat: renten er én av flere drivere — demografi, bygging og lønn bidrar også."
+            "solution": "Lav $R^2$ er et ærlig resultat: renten alene forklarer lite av prisnivået — trenden, demografi, bygging og lønn bidrar også."
           },
           {
             "id": "s1-8-6-n-quiz2-q3",
@@ -386,7 +386,7 @@
     {
       "id": "s1-8-6-n-summary",
       "type": "text",
-      "content": "## Oppsummering: prosjektet som samler hele faget\n\nDette er S1s svennestykke. **Prosessen** kjenner du nå fra ende til annen: et konkret, datatilgjengelig tema → presis problemstilling → data fra SSB, Norges Bank eller BRREG med URL og dato → bearbeiding dokumentert valg for valg → analyse med regresjon, korrelasjon og indeksregning → drøfting av usikkerhet, konfundere og kausalitet → konklusjon som svarer direkte på spørsmålet → kildeliste. Rapportens syv deler gir skjelettet, og eksempelprosjektet om boligpriser og rente viste kjøttet på beina: $r \\approx -0{,}65$, $R^2 \\approx 0{,}42$, og en drøfting som verken overdrev eller underslo.\n\n**Kvaliteten** måles på presisjon, dokumentasjon, metodeforståelse og — tyngst av alt — **faglig integritet**: ingen cherry-picking, ingen korrelasjon solgt som kausalitet, ingen manipulerte akser, og begrensningene åpent på bordet. De syv fellene har du som sjekkliste, og tidsplanen på cirka 22 timer over tre uker gjør prosjektet håndterbart.\n\nNår rapporten er levert, har du gjort det kompetansemålet beskriver: planlagt og gjennomført et selvstendig arbeid med reelle datasett, analysert og presentert funn. Men du har også gjort noe mer: du har øvd på den arbeidsformen som møter deg i studier og arbeidsliv — å forvandle et ekte spørsmål til data, dataene til innsikt, og innsikten til en tekst andre kan stole på. Det er matematikk som samfunnskompetanse. Lykke til!"
+      "content": "## Oppsummering: prosjektet som samler hele faget\n\nDette er S1s svennestykke. **Prosessen** kjenner du nå fra ende til annen: et konkret, datatilgjengelig tema → presis problemstilling → data fra SSB, Norges Bank eller BRREG med URL og dato → bearbeiding dokumentert valg for valg → analyse med regresjon, korrelasjon og indeksregning → drøfting av usikkerhet, konfundere og kausalitet → konklusjon som svarer direkte på spørsmålet → kildeliste. Rapportens syv deler gir skjelettet, og eksempelprosjektet om boligpriser og rente viste kjøttet på beina: $r \\approx 0{,}52$ mot hypotesen, tiden som konfunderende variabel, og en drøfting som verken overdrev eller underslo.\n\n**Kvaliteten** måles på presisjon, dokumentasjon, metodeforståelse og — tyngst av alt — **faglig integritet**: ingen cherry-picking, ingen korrelasjon solgt som kausalitet, ingen manipulerte akser, og begrensningene åpent på bordet. De syv fellene har du som sjekkliste, og tidsplanen på cirka 22 timer over tre uker gjør prosjektet håndterbart.\n\nNår rapporten er levert, har du gjort det prosjektet krever: planlagt og gjennomført et selvstendig arbeid med reelle datasett, analysert og presentert funn. Men du har også gjort noe mer: du har øvd på den arbeidsformen som møter deg i studier og arbeidsliv — å forvandle et ekte spørsmål til data, dataene til innsikt, og innsikten til en tekst andre kan stole på. Det er matematikk som samfunnskompetanse. Lykke til!"
     }
   ],
   "exercises": []

@@ -7,7 +7,6 @@
   "description": "Lær kunsten å finne ein funksjon som passar til data – frå temperaturmålingar og treningseffektar til bakterievekst og bilprisar. Ei forteljing om den beste rette linja, korrelasjonskoeffisienten, og når ei kurve er betre enn ei linje.",
   "estimatedMinutes": 35,
   "competenceGoals": [
-    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjonar med digitale verktøy",
     "analysere og presentere funn i datasett frå lokalsamfunn og media"
   ],
   "linkedChapterId": "2p-2-3",
@@ -447,15 +446,14 @@
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "dc39a51def6a52a7",
+    "sourceHash": "405f029cd0298fe0",
     "translatedAt": "2026-06-17T00:06:01.269Z",
     "model": "claude-code-agent (synk 21.10.2026)",
-    "strings": 88,
+    "strings": 87,
     "tm": {
       "4bc8b602fc642ff8": "Regresjon",
       "b195b06d1ed59702": "Narrativ versjon",
       "0c764a7a59e2e3e7": "Lær kunsten å finne ein funksjon som passar til data – frå temperaturmålingar og treningseffektar til bakterievekst og bilprisar. Ei forteljing om den beste rette linja, korrelasjonskoeffisienten, og når ei kurve er betre enn ei linje.",
-      "f4c063f77cf50e3f": "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjonar med digitale verktøy",
       "b32273a2297199df": "analysere og presentere funn i datasett frå lokalsamfunn og media",
       "8e0e31f593494985": "## Regresjon – å finne mønster i kaos\n\nI dei to førre kapitla har vi laga modellar *frå botnen av*: vi visste at ein taxi tek 60 kroner pluss 15 per km, og skreiv opp funksjonen direkte. Men i verkelegheita startar vi ofte den andre vegen – med ein haug datapunkt og spørsmålet: Finst det eit mønster her?\n\nKanskje du har målt temperaturen kvar time gjennom ein dag. Eller registrert samanhengen mellom treningsmengd og kvilepuls. Eller logga verdien av ein bruktbil over fleire år. Datapunkta ligg *nesten* på ei linje – eller ei kurve – men ikkje heilt. Regresjon er kunsten å finne den funksjonen som passar *best mogleg* til dataa dine.",
       "c68b1199612cd661": "## Lineær regresjon – den beste rette linja\n\n**Lineær regresjon** finn den rette linja $y = ax + b$ som ligg nærast mogleg alle datapunkta. Metoden vert kalla **minste kvadraters metode**: han minimerer summen av dei kvadrerte avstandane mellom datapunkta og linja. Du treng heldigvis ikkje gjere dette for hand – GeoGebra, Excel og kalkulatorar gjer det for deg.\n\nLat oss sjå det i praksis. Temperaturen vart målt kvar time frå kl. 08 til kl. 14:\n\n| Tid (t) | Temp (°C) |\n|:-:|:-:|\n| 0 | 5 |\n| 1 | 7 |\n| 2 | 8 |\n| 3 | 11 |\n| 4 | 12 |\n| 5 | 13 |\n| 6 | 15 |\n\nEit digitalt verktøy gir oss: $f(t) = 1{,}64t + 5{,}21$ med $r = 0{,}992$.\n\nKva betyr $r = 0{,}992$? Det er **korrelasjonskoeffisienten**, og han måler kor godt den rette linja passar til dataa. $r = 1$ betyr perfekt positiv samanheng (alle punkt på ei stigande linje). $r = -1$ betyr perfekt negativ samanheng. $r = 0$ betyr ingen lineær samanheng i det heile teke.\n\nI vårt tilfelle er $r = 0{,}992$, altså nesten perfekt. Temperaturen stig med ca. 1,6 °C per time.\n\nVi kan bruke modellen til å *føreseie*: Kva er temperaturen kl. 16 (altså $t = 8$)? $f(8) \\approx 18{,}4°C$. Men ver forsiktig – modellen gjeld neppe utanfor måleperioden. Kl. 22 (t = 14) ville modellen gi $f(14) \\approx 28{,}2°C$, noko som er usannsynleg i Noreg.",

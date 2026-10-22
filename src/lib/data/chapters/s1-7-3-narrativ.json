@@ -120,7 +120,7 @@
     {
       "id": "s1-7-3-n-section1",
       "type": "text",
-      "content": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriene. Målingene ved $x = 0, 3, 6, 9, 12$ timer transformeres: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og disse ligger pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}237x + 4{,}610$$\n\nTilbaketransformasjonen henter ut modellen: $a = e^{4{,}610} \\approx 100$ og $b = e^{0{,}237} \\approx 1{,}267$, altså\n\n$$y = 100 \\cdot 1{,}267^x$$\n\nTolkning: startbestanden er cirka 100 bakterier, og antallet vokser cirka 26,7 % per time. Kontroll: $y(3) = 100 \\cdot 1{,}267^3 \\approx 203$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ håndteres med samme triks, men nå logaritmeres *begge* variablene: $\\ln y = \\ln a + b \\ln x$, en rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigningstall. Et trafikkeksempel: bremselengder ved ulike farter gir regresjonen $\\ln y = 1{,}97 \\ln x - 4{,}92$, altså $b \\approx 2$ og $a = e^{-4{,}92} \\approx 0{,}0073$:\n\n$$y \\approx 0{,}0073 \\cdot x^2$$\n\nBremselengden er tilnærmet proporsjonal med *kvadratet* av farten — dobler du farten, firedobles bremselengden. Det er fysikkpensum gjenoppdaget i et datasett.\n\nNår flere modeller konkurrerer, brukes fire kriterier: **$R^2$** (høyere er bedre, men pass på overtilpasning), **residualplottet** (den beste modellen har mønsterfrie residualer), **faglig rimelighet** (gir modellformen mening i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdier, også litt utenfor dataområdet?). I GeoGebra gjør kommandoene RegLin, RegExp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets velger du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalget er og blir ditt ansvar."
+      "content": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriene. Målingene ved $x = 0, 3, 6, 9, 12$ timer transformeres: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og disse ligger pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}238x + 4{,}617$$\n\nTilbaketransformasjonen henter ut modellen: $a = e^{4{,}617} \\approx 101$ og $b = e^{0{,}238} \\approx 1{,}269$, altså\n\n$$y = 101 \\cdot 1{,}269^x$$\n\nTolkning: startbestanden er cirka 100 bakterier, og antallet vokser cirka 26,9 % per time. Kontroll: $y(3) = 101 \\cdot 1{,}269^3 \\approx 206$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ håndteres med samme triks, men nå logaritmeres *begge* variablene: $\\ln y = \\ln a + b \\ln x$, en rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigningstall. Et trafikkeksempel: bremselengder ved ulike farter gir regresjonen $\\ln y = 1{,}99 \\ln x - 4{,}99$, altså $b \\approx 2$ og $a = e^{-4{,}99} \\approx 0{,}0068$:\n\n$$y \\approx 0{,}0068 \\cdot x^2$$\n\nBremselengden er tilnærmet proporsjonal med *kvadratet* av farten — dobler du farten, firedobles bremselengden. Det er fysikkpensum gjenoppdaget i et datasett.\n\nNår flere modeller konkurrerer, brukes fire kriterier: **$R^2$** (høyere er bedre, men pass på overtilpasning), **residualplottet** (den beste modellen har mønsterfrie residualer), **faglig rimelighet** (gir modellformen mening i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdier, også litt utenfor dataområdet?). I GeoGebra gjør kommandoene RegLin, RegEksp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets velger du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalget er og blir ditt ansvar."
     },
     {
       "id": "s1-7-3-n-quiz2",
@@ -140,16 +140,16 @@
         "questions": [
           {
             "id": "s1-7-3-n-quiz2-q0",
-            "task": "Bakteriedataene ga $\\ln y = 0{,}237x + 4{,}610$. Hva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
+            "task": "Bakteriedataene ga $\\ln y = 0{,}238x + 4{,}617$. Hva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
             "options": [
               {
                 "id": "d",
-                "text": "$b = e^{0{,}237} \\approx 1{,}267$",
+                "text": "$b = e^{0{,}238} \\approx 1{,}269$",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "$b = 0{,}237$",
+                "text": "$b = 0{,}238$",
                 "isCorrect": false
               },
               {
@@ -159,11 +159,11 @@
               },
               {
                 "id": "c",
-                "text": "$b = \\ln 0{,}237$",
+                "text": "$b = \\ln 0{,}238$",
                 "isCorrect": false
               }
             ],
-            "solution": "Stigningstallet er $\\ln b$, så $b = e^{0{,}237} \\approx 1{,}267$ — cirka 26,7 % vekst per time."
+            "solution": "Stigningstallet er $\\ln b$, så $b = e^{0{,}238} \\approx 1{,}269$ — cirka 26,9 % vekst per time."
           },
           {
             "id": "s1-7-3-n-quiz2-q1",
@@ -194,7 +194,7 @@
           },
           {
             "id": "s1-7-3-n-quiz2-q2",
-            "task": "Bremselengdemodellen ble $y \\approx 0{,}0073 \\cdot x^2$. Hva skjer med bremselengden når farten dobles?",
+            "task": "Bremselengdemodellen ble $y \\approx 0{,}0068 \\cdot x^2$. Hva skjer med bremselengden når farten dobles?",
             "options": [
               {
                 "id": "a",
@@ -217,7 +217,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$y(2x) = 0{,}0073 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk sammenheng gir firedobling."
+            "solution": "$y(2x) = 0{,}0068 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk sammenheng gir firedobling."
           },
           {
             "id": "s1-7-3-n-quiz2-q3",
@@ -252,7 +252,7 @@
     {
       "id": "s1-7-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering: logaritmen som retter ut kurvene\n\nBakteriene som nektet å følge linjen, føyde seg så snart aksene ble transformert. Kapittelets store idé er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir en rett linje når $\\ln y$ plottes mot $x$ (stigningstall $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ brukes (stigningstallet er selve eksponenten $b$). Dermed gjenbrukes hele verktøykassen fra lineær regresjon på krumme sammenhenger.\n\nTolkningene er konkrete: bakteriemodellen $y = 100 \\cdot 1{,}267^x$ leste vi som startverdi 100 og 26,7 % vekst per time; bremselengdemodellen $y \\approx 0{,}0073x^2$ avslørte at bremselengde vokser med kvadratet av farten. Eksponentiell modell passer ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flater ut.\n\n**Modellvalget** hviler på fire bein: $R^2$, residualplott uten mønster, faglig rimelighet og fornuftige prediksjoner. Digitale verktøy — GeoGebras RegExp og RegPot, regnearkets trendlinjer — gjør regnearbeidet, men valget og tolkningen er ditt. Og nettopp residualene, som her kun var ett av kriteriene, får hele rampelyset i neste kapittel: de ser det $R^2$ ikke ser."
+      "content": "## Oppsummering: logaritmen som retter ut kurvene\n\nBakteriene som nektet å følge linjen, føyde seg så snart aksene ble transformert. Kapittelets store idé er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir en rett linje når $\\ln y$ plottes mot $x$ (stigningstall $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ brukes (stigningstallet er selve eksponenten $b$). Dermed gjenbrukes hele verktøykassen fra lineær regresjon på krumme sammenhenger.\n\nTolkningene er konkrete: bakteriemodellen $y = 101 \\cdot 1{,}269^x$ leste vi som startverdi ca. 100 og 26,9 % vekst per time; bremselengdemodellen $y \\approx 0{,}0068x^2$ avslørte at bremselengde vokser med kvadratet av farten. Eksponentiell modell passer ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flater ut.\n\n**Modellvalget** hviler på fire bein: $R^2$, residualplott uten mønster, faglig rimelighet og fornuftige prediksjoner. Digitale verktøy — GeoGebras RegEksp og RegPot, regnearkets trendlinjer — gjør regnearbeidet, men valget og tolkningen er ditt. Og nettopp residualene, som her kun var ett av kriteriene, får hele rampelyset i neste kapittel: de ser det $R^2$ ikke ser."
     }
   ],
   "exercises": []
