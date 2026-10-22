@@ -269,3 +269,13 @@ anon-policyer: all tilgang går via service-nøkkel i API-rutene).
 Indekser: (user_id, created_at DESC); partial på refusjon_status <> 'ingen'.
 Ruter: POST /api/ai-sensor (vurder + lagre), POST/GET/PATCH /api/ai-sensor/refusjon.
 Admin-UI: /dashboard/admin/ki-sensor.
+
+### skolesaga_sidevisninger / skolesaga_sidevisninger_dag (22.10.2026)
+
+Egen trafikklogg for Skolesaga — migrasjon `115_skolesaga_sidevisninger.sql` i eksamenssett-repoet (`../supabase/migrations/`).
+Én rad per sidevisning fra `/api/sidevisning`: `sti`, `sidetype`, `bok`, `kapittel`, `malform` (nb/nn), `kilde_host`,
+`enhet`, `land`, `innlogget`, `bruker_hash` (HMAC med samme `SIDEVISNING_HASH_NOKKEL` som eksamenssett), `okt`.
+Ingen IP, ingen cookie. RLS på, bare service_role. Adminsiden `/dashboard/admin/trafikk` leser kun aggregater via
+`skolesaga_trafikk(...)` og `skolesaga_aktivitet(...)`. `skolesaga_sidevisninger_vedlikehold(180)` ruller dager inn i
+`skolesaga_sidevisninger_dag` og sletter rå rader eldre enn 180 dager; kalles daglig av eksamenssetts cron
+`/api/cron/sidevisninger-rydd`. Egne tabeller, ikke delt med eksamenssetts `sidevisninger`.

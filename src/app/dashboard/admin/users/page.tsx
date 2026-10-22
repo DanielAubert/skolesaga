@@ -36,7 +36,7 @@ import {
 } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import { Trash2, Search, Users, RefreshCw, AlertTriangle, Flag, Mail, Download } from "lucide-react";
+import { Trash2, Search, Users, RefreshCw, AlertTriangle, Flag, Mail, Download, BarChart3 } from "lucide-react";
 
 interface User {
   id: string;
@@ -208,6 +208,12 @@ export default function AdminUsersPage() {
                     E-postliste (alle)
                   </Button>
                 </a>
+                <Link href="/dashboard/admin/trafikk">
+                  <Button variant="outline" size="sm">
+                    <BarChart3 className="h-4 w-4 mr-2" />
+                    Trafikk
+                  </Button>
+                </Link>
                 <Link href="/dashboard/admin/feedback">
                   <Button variant="outline" size="sm">
                     <Flag className="h-4 w-4 mr-2" />

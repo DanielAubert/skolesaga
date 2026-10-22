@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { Sidevisning } from "@/components/analytics/sidevisning";
 import { SkipNav } from "@/components/accessibility/skip-nav";
 // OPTIONAL: Toast notifications - can be removed by deleting import and <ToastProvider> wrapper
 import { ToastProvider } from "@/components/ui/toast";
@@ -138,6 +139,7 @@ export default async function RootLayout({
                     {children}
                     <Analytics />
                     <GoogleAnalytics />
+                    <Sidevisning />
                   </IllustrationApprovalProvider>
                 </StudentCoursesProvider>
               </ToastProvider>
