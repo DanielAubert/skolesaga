@@ -15,6 +15,12 @@
   "linkedChapterId": "r1-7-5",
   "content": [
     {
+      "id": "r1-7-5-narrativ-lk20-merknad",
+      "type": "note",
+      "title": "Fordjuping (utanfor læreplanen)",
+      "content": "**Utanfor R1 i gjeldande læreplan.** Trigonometriske funksjonar, likningar og identitetar høyrer til R2 i gjeldande læreplan (LK20), og sinus- og cosinussetninga høyrer til 1T. Kapittelet står her som repetisjon og fordjuping og er ikkje eksamensstoff i R1."
+    },
+    {
       "id": "r1-7-5-n-intro",
       "type": "text",
       "content": "## Farten til bølgja\n\nDu sit i pariserhjulet igjen. Høgda di følgjer ei sinuskurve – men kor *fort* stig du akkurat no? Det spørsmålet handlar om den deriverte, og i dette kapittelet skal vi derivere dei trigonometriske funksjonane.\n\nReglane viser seg å vere forbløffande elegante: den deriverte av sinus er cosinus, og den deriverte av cosinus er minus sinus. Dei to funksjonane jagar kvarandre i ein evig dans. Men det er éi føresetnad for at dansen skal gå opp: vinkelen *må* målast i radianar. Dette er sjølve grunnen til at matematikarar insisterer på radianar – i grader ville formlane fått stygge omrekningsfaktorar.\n\nVi skal òg kombinere dei nye reglane med kjerneregelen, og til slutt bruke derivasjon til å drøfte trigonometriske funksjonar: finne toppane og botnane i bølgjelandskapet."
@@ -22,7 +28,7 @@
     {
       "id": "r1-7-5-n-section1",
       "type": "text",
-      "content": "## Dei grunnleggjande derivasjonsreglane\n\nHer er kjernen i kapittelet:\n\n$$(\\sin x)' = \\cos x \\qquad (\\cos x)' = -\\sin x$$\n\nMerk minusteiknet hos cosinus – det er den vanlegaste glippen. Men kvifor er det rimeleg at $(\\sin x)' = \\cos x$? Sjå på sinusgrafen. I $x = 0$ stig han bratt – og der er $\\cos 0 = 1$, maksimal stiging. På toppen ved $x = \\frac{\\pi}{2}$ er tangenten horisontal – og $\\cos \\frac{\\pi}{2} = 0$. Ved $x = \\pi$ søkk grafen bratt – og $\\cos \\pi = -1$. Cosinuskurva *er* stigingstalet til sinuskurva, punkt for punkt.\n\nTangens deriverer vi med kvotientregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$:\n\n$$(\\tan x)' = \\frac{\\cos x \\cdot \\cos x - \\sin x \\cdot (-\\sin x)}{\\cos^2 x} = \\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$$\n\n– der den pytagoreiske identiteten rydda teljaren til $1$. Resultatet kan òg skrivast $1 + \\tan^2 x$.\n\nDei vanlege derivasjonsreglane gjeld sjølvsagt framleis. Til dømes: $f(x) = 3\\sin x$ gir $f'(x) = 3\\cos x$, og $g(x) = x^2 + \\cos x$ gir $g'(x) = 2x - \\sin x$. Med produktregelen: $h(x) = \\sin x \\cos x$ gir $h'(x) = \\cos x \\cdot \\cos x + \\sin x \\cdot (-\\sin x) = \\cos^2 x - \\sin^2 x = \\cos 2x$ – og her dukka dobbeltvinkelformelen opp som ein bonus!"
+      "content": "## Dei grunnleggjande derivasjonsreglane\n\nHer er kjernen i kapittelet:\n\n$$(\\sin x)' = \\cos x \\qquad (\\cos x)' = -\\sin x$$\n\nMerk minusteiknet hos cosinus – det er den vanlegaste glippen. Men kvifor er det rimeleg at $(\\sin x)' = \\cos x$? Sjå på sinusgrafen. I $x = 0$ stig han bratt – og der er $\\cos 0 = 1$, maksimal stiging. På toppen ved $x = \\frac{\\pi}{2}$ er tangenten horisontal – og $\\cos \\frac{\\pi}{2} = 0$. Ved $x = \\pi$ søkk grafen bratt – og $\\cos \\pi = -1$. Cosinuskurva *er* stigingstalet til sinuskurva, punkt for punkt.\n\nTangens deriverer vi med brøkregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$:\n\n$$\\begin{aligned}\n(\\tan x)' &= \\frac{\\cos x \\cdot \\cos x - \\sin x \\cdot (-\\sin x)}{\\cos^2 x} \\\\\n&= \\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} \\\\\n&= \\frac{1}{\\cos^2 x}\n\\end{aligned}$$\n\n– der den pytagoreiske identiteten rydda teljaren til $1$. Resultatet kan òg skrivast $1 + \\tan^2 x$.\n\nDei vanlege derivasjonsreglane gjeld sjølvsagt framleis. Til dømes: $f(x) = 3\\sin x$ gir $f'(x) = 3\\cos x$, og $g(x) = x^2 + \\cos x$ gir $g'(x) = 2x - \\sin x$. Med produktregelen: $h(x) = \\sin x \\cos x$ gir $h'(x) = \\cos x \\cdot \\cos x + \\sin x \\cdot (-\\sin x) = \\cos^2 x - \\sin^2 x = \\cos 2x$ – og her dukka dobbeltvinkelformelen opp som ein bonus!"
     },
     {
       "id": "r1-7-5-n-quiz1",
@@ -88,11 +94,11 @@
               },
               {
                 "id": "d",
-                "text": "$\\sec x$",
+                "text": "$-\\frac{1}{\\cos^2 x}$",
                 "isCorrect": false
               }
             ],
-            "solution": "Kvotientregelen på $\\frac{\\sin x}{\\cos x}$ gir $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$."
+            "solution": "Brøkregelen på $\\frac{\\sin x}{\\cos x}$ gir $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$."
           },
           {
             "id": "r1-7-5-n-quiz1-q2",
@@ -137,7 +143,7 @@
               },
               {
                 "id": "c",
-                "text": "$-\\cos 2x$",
+                "text": "$\\cos^2 x + \\sin^2 x$",
                 "isCorrect": false
               },
               {
@@ -155,7 +161,7 @@
     {
       "id": "r1-7-5-n-section2",
       "type": "text",
-      "content": "## Kjerneregelen i sving\n\nKva med $\\sin(3x)$ eller $\\cos(x^2)$? Når argumentet er ein samansett funksjon, treng vi kjerneregelen: deriver den ytre funksjonen, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$(\\sin u)' = \\cos u \\cdot u' \\qquad (\\cos u)' = -\\sin u \\cdot u' \\qquad (\\tan u)' = \\frac{u'}{\\cos^2 u}$$\n\nTre raske eksempel. For $f(x) = \\sin(3x)$ er kjernen $u = 3x$ med $u' = 3$, så $f'(x) = 3\\cos(3x)$. For $g(x) = \\cos(x^2)$ er kjernen $u = x^2$ med $u' = 2x$, så $g'(x) = -2x\\sin(x^2)$. For $h(x) = \\tan(2x + 1)$ er $u' = 2$, så $h'(x) = \\frac{2}{\\cos^2(2x+1)}$.\n\nNokre gonger må kjerneregelen brukast i fleire lag. Ta $f(x) = \\sin^2(3x)$, altså $[\\sin(3x)]^2$. Ytst har vi ein kvadratfunksjon, i midten sinus, inst $3x$. Vi skrel laga utanfrå og inn:\n\n$$f'(x) = 2\\sin(3x) \\cdot \\cos(3x) \\cdot 3 = 6\\sin(3x)\\cos(3x) = 3\\sin(6x)$$\n\nI siste steg kjende vi att dobbeltvinkelformelen $2\\sin u \\cos u = \\sin 2u$ med $u = 3x$. Slik spelar identitetane frå førre kapittel og derivasjonen saman – det er sjeldan tilfeldig kva for ei form som er penast."
+      "content": "## Kjerneregelen i sving\n\nKva med $\\sin(3x)$ eller $\\cos(x^2)$? Når argumentet er ein samansett funksjon, treng vi kjerneregelen: deriver den ytre funksjonen, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$\\begin{aligned}\n&(\\sin u)' = \\cos u \\cdot u' \\\\\n&(\\cos u)' = -\\sin u \\cdot u' \\\\\n&(\\tan u)' = \\frac{u'}{\\cos^2 u}\n\\end{aligned}$$\n\nTre raske eksempel. For $f(x) = \\sin(3x)$ er kjernen $u = 3x$ med $u' = 3$, så $f'(x) = 3\\cos(3x)$. For $g(x) = \\cos(x^2)$ er kjernen $u = x^2$ med $u' = 2x$, så $g'(x) = -2x\\sin(x^2)$. For $h(x) = \\tan(2x + 1)$ er $u' = 2$, så $h'(x) = \\frac{2}{\\cos^2(2x+1)}$.\n\nNokre gonger må kjerneregelen brukast i fleire lag. Ta $f(x) = \\sin^2(3x)$, altså $[\\sin(3x)]^2$. Ytst har vi ein kvadratfunksjon, i midten sinus, inst $3x$. Vi skrel laga utanfrå og inn:\n\n$$f'(x) = 2\\sin(3x) \\cdot \\cos(3x) \\cdot 3 = 6\\sin(3x)\\cos(3x) = 3\\sin(6x)$$\n\nI siste steg kjende vi att dobbeltvinkelformelen $2\\sin u \\cos u = \\sin 2u$ med $u = 3x$. Slik spelar identitetane frå førre kapittel og derivasjonen saman – det er sjeldan tilfeldig kva for ei form som er penast."
     },
     {
       "id": "r1-7-5-n-quiz2",
@@ -421,38 +427,40 @@
     {
       "id": "r1-7-5-n-summary",
       "type": "text",
-      "content": "## Oppsummering: dansen mellom sinus og cosinus\n\nVi har lært derivasjonsreglane til bølgjene: $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$ – to funksjonar som byter på å skildre stiginga til kvarandre, med eit minusteikn som einaste asymmetri. Tangens følgjer med på lasset: $(\\tan x)' = \\frac{1}{\\cos^2 x}$, utleidd med kvotientregelen og rydda opp av den pytagoreiske identiteten. Og hugs føresetnaden for det heile: vinkelen må målast i radianar.\n\nKjerneregelen utvidar reglane til samansette uttrykk: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$. Ved fleire lag skrel du utanfrå og inn, som i $\\sin^2(3x)$, der svaret $3\\sin(6x)$ fall pent på plass takka vere dobbeltvinkelformelen.\n\nTil slutt brukte vi alt saman til funksjonsdrøfting: deriver, faktoriser (aldri del bort ein faktor!), løys $f'(x) = 0$, og lat forteiknsanalysen avsløre toppar og botnar i bølgjelandskapet. Dermed er sirkelen slutta: einingssirkelen gav oss funksjonane, grafane gav oss formspråket, og derivasjonen gir oss full kontroll over kvar einaste bølgjetopp."
+      "content": "## Oppsummering: dansen mellom sinus og cosinus\n\nVi har lært derivasjonsreglane til bølgjene: $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$ – to funksjonar som byter på å skildre stiginga til kvarandre, med eit minusteikn som einaste asymmetri. Tangens følgjer med på lasset: $(\\tan x)' = \\frac{1}{\\cos^2 x}$, utleidd med brøkregelen og rydda opp av den pytagoreiske identiteten. Og hugs føresetnaden for det heile: vinkelen må målast i radianar.\n\nKjerneregelen utvidar reglane til samansette uttrykk: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$. Ved fleire lag skrel du utanfrå og inn, som i $\\sin^2(3x)$, der svaret $3\\sin(6x)$ fall pent på plass takka vere dobbeltvinkelformelen.\n\nTil slutt brukte vi alt saman til funksjonsdrøfting: deriver, faktoriser (aldri del bort ein faktor!), løys $f'(x) = 0$, og lat forteiknsanalysen avsløre toppar og botnar i bølgjelandskapet. Dermed er sirkelen slutta: einingssirkelen gav oss funksjonane, grafane gav oss formspråket, og derivasjonen gir oss full kontroll over kvar einaste bølgjetopp."
     }
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "c0bfc8ddd635e0b4",
-    "translatedAt": "2026-06-20T00:16:15.183Z",
-    "model": "claude-code-agent",
-    "strings": 90,
+    "sourceHash": "f4a6dcea3ce2163c",
+    "translatedAt": "2026-10-21T19:46:38.364Z",
+    "model": "claude-code-agent (synk 21.10.2026)",
+    "strings": 92,
     "tm": {
       "9a2a011b3c94cfd9": "Derivasjon av trigonometriske funksjonar",
       "b195b06d1ed59702": "Narrativ versjon",
       "514e282cfaa964d3": "Ei forteljing om dansen mellom sinus og cosinus – derivasjonsreglar, kjerneregelen i fleire lag og jakta på bølgjetoppane.",
       "244643ddc94eb9e7": "derivere sinus, cosinus og tangens",
-      "109b85ceb1206659": "bruke kjerneregelen på trigonometriske funksjonar",
-      "91d1c374c1689ec6": "drøfte trigonometriske funksjonar med derivasjon",
+      "63ad77bb414bbc7a": "bruke kjerneregelen på trigonometriske funksjonar",
+      "7658cde980d733b4": "drøfte trigonometriske funksjonar med derivasjon",
       "e7de89b44d86560e": "finne ekstremalpunkt og vendepunkt for trigonometriske funksjonar",
+      "1139401b5d60d445": "Fordjuping (utanfor læreplanen)",
+      "b5650d7680077640": "**Utanfor R1 i gjeldande læreplan.** Trigonometriske funksjonar, likningar og identitetar høyrer til R2 i gjeldande læreplan (LK20), og sinus- og cosinussetninga høyrer til 1T. Kapittelet står her som repetisjon og fordjuping og er ikkje eksamensstoff i R1.",
       "e0eef42378400d81": "## Farten til bølgja\n\nDu sit i pariserhjulet igjen. Høgda di følgjer ei sinuskurve – men kor *fort* stig du akkurat no? Det spørsmålet handlar om den deriverte, og i dette kapittelet skal vi derivere dei trigonometriske funksjonane.\n\nReglane viser seg å vere forbløffande elegante: den deriverte av sinus er cosinus, og den deriverte av cosinus er minus sinus. Dei to funksjonane jagar kvarandre i ein evig dans. Men det er éi føresetnad for at dansen skal gå opp: vinkelen *må* målast i radianar. Dette er sjølve grunnen til at matematikarar insisterer på radianar – i grader ville formlane fått stygge omrekningsfaktorar.\n\nVi skal òg kombinere dei nye reglane med kjerneregelen, og til slutt bruke derivasjon til å drøfte trigonometriske funksjonar: finne toppane og botnane i bølgjelandskapet.",
-      "35703acc8438710a": "## Dei grunnleggjande derivasjonsreglane\n\nHer er kjernen i kapittelet:\n\n$$(\\sin x)' = \\cos x \\qquad (\\cos x)' = -\\sin x$$\n\nMerk minusteiknet hos cosinus – det er den vanlegaste glippen. Men kvifor er det rimeleg at $(\\sin x)' = \\cos x$? Sjå på sinusgrafen. I $x = 0$ stig han bratt – og der er $\\cos 0 = 1$, maksimal stiging. På toppen ved $x = \\frac{\\pi}{2}$ er tangenten horisontal – og $\\cos \\frac{\\pi}{2} = 0$. Ved $x = \\pi$ søkk grafen bratt – og $\\cos \\pi = -1$. Cosinuskurva *er* stigingstalet til sinuskurva, punkt for punkt.\n\nTangens deriverer vi med kvotientregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$:\n\n$$(\\tan x)' = \\frac{\\cos x \\cdot \\cos x - \\sin x \\cdot (-\\sin x)}{\\cos^2 x} = \\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$$\n\n– der den pytagoreiske identiteten rydda teljaren til $1$. Resultatet kan òg skrivast $1 + \\tan^2 x$.\n\nDei vanlege derivasjonsreglane gjeld sjølvsagt framleis. Til dømes: $f(x) = 3\\sin x$ gir $f'(x) = 3\\cos x$, og $g(x) = x^2 + \\cos x$ gir $g'(x) = 2x - \\sin x$. Med produktregelen: $h(x) = \\sin x \\cos x$ gir $h'(x) = \\cos x \\cdot \\cos x + \\sin x \\cdot (-\\sin x) = \\cos^2 x - \\sin^2 x = \\cos 2x$ – og her dukka dobbeltvinkelformelen opp som ein bonus!",
+      "9d1f7b87cb8650f6": "## Dei grunnleggjande derivasjonsreglane\n\nHer er kjernen i kapittelet:\n\n$$(\\sin x)' = \\cos x \\qquad (\\cos x)' = -\\sin x$$\n\nMerk minusteiknet hos cosinus – det er den vanlegaste glippen. Men kvifor er det rimeleg at $(\\sin x)' = \\cos x$? Sjå på sinusgrafen. I $x = 0$ stig han bratt – og der er $\\cos 0 = 1$, maksimal stiging. På toppen ved $x = \\frac{\\pi}{2}$ er tangenten horisontal – og $\\cos \\frac{\\pi}{2} = 0$. Ved $x = \\pi$ søkk grafen bratt – og $\\cos \\pi = -1$. Cosinuskurva *er* stigingstalet til sinuskurva, punkt for punkt.\n\nTangens deriverer vi med brøkregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$:\n\n$$\\begin{aligned}\n(\\tan x)' &= \\frac{\\cos x \\cdot \\cos x - \\sin x \\cdot (-\\sin x)}{\\cos^2 x} \\\\\n&= \\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} \\\\\n&= \\frac{1}{\\cos^2 x}\n\\end{aligned}$$\n\n– der den pytagoreiske identiteten rydda teljaren til $1$. Resultatet kan òg skrivast $1 + \\tan^2 x$.\n\nDei vanlege derivasjonsreglane gjeld sjølvsagt framleis. Til dømes: $f(x) = 3\\sin x$ gir $f'(x) = 3\\cos x$, og $g(x) = x^2 + \\cos x$ gir $g'(x) = 2x - \\sin x$. Med produktregelen: $h(x) = \\sin x \\cos x$ gir $h'(x) = \\cos x \\cdot \\cos x + \\sin x \\cdot (-\\sin x) = \\cos^2 x - \\sin^2 x = \\cos 2x$ – og her dukka dobbeltvinkelformelen opp som ein bonus!",
       "ad2b200be6ff0271": "Test deg sjølv på derivasjonsreglane:",
       "4097889236a2af26": "placeholder",
       "b5afbcb84c5ab2d5": "Kva er $(\\cos x)'$?",
-      "7105366b47d6451c": "$\\sin x$",
       "e7bfd7b18f267039": "$-\\sin x$",
+      "7105366b47d6451c": "$\\sin x$",
       "307ec2110fbc04ef": "$-\\cos x$",
       "4f25a237b89b7e2a": "$\\frac{1}{\\cos^2 x}$",
       "4d9eb5ed7b9b3eba": "Den deriverte av cosinus er $-\\sin x$. Hugs minusteiknet!",
       "062e26b816a915fe": "Kva er $(\\tan x)'$?",
       "8017b4e57d4980a9": "$\\frac{1}{\\sin^2 x}$",
       "4564478099aa9c44": "$\\tan^2 x$",
-      "890804eeb279c77c": "$\\sec x$",
-      "aaad578eaab22105": "Kvotientregelen på $\\frac{\\sin x}{\\cos x}$ gir $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$.",
+      "dc34284cbbe5922d": "$-\\frac{1}{\\cos^2 x}$",
+      "5fa3fdea5c4a7995": "Brøkregelen på $\\frac{\\sin x}{\\cos x}$ gir $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$.",
       "dac7b95c86c6e046": "Kvifor må vinkelen målast i radianar når vi deriverer trigonometriske funksjonar?",
       "760a544220d94edb": "Fordi grader berre gjeld i geometri",
       "0520b2901d89265b": "Fordi kalkulatorar bruker radianar",
@@ -462,27 +470,27 @@
       "1bea43c82d16f245": "Kva er den deriverte av $h(x) = \\sin x \\cos x$?",
       "87c248a8ead689f1": "$\\sin^2 x - \\cos^2 x$",
       "b67a0efce9b1130f": "$2\\sin x \\cos x$",
-      "42e5fdeb9d36a0c0": "$-\\cos 2x$",
+      "dbbf396103ae9cae": "$\\cos^2 x + \\sin^2 x$",
       "cd790c06460e12cc": "$\\cos 2x$",
       "b5080001bf0ba33b": "Produktregelen gir $\\cos^2 x - \\sin^2 x$, som er nettopp dobbeltvinkelformelen for $\\cos 2x$.",
-      "dcc48eb8925edb3e": "## Kjerneregelen i sving\n\nKva med $\\sin(3x)$ eller $\\cos(x^2)$? Når argumentet er ein samansett funksjon, treng vi kjerneregelen: deriver den ytre funksjonen, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$(\\sin u)' = \\cos u \\cdot u' \\qquad (\\cos u)' = -\\sin u \\cdot u' \\qquad (\\tan u)' = \\frac{u'}{\\cos^2 u}$$\n\nTre raske eksempel. For $f(x) = \\sin(3x)$ er kjernen $u = 3x$ med $u' = 3$, så $f'(x) = 3\\cos(3x)$. For $g(x) = \\cos(x^2)$ er kjernen $u = x^2$ med $u' = 2x$, så $g'(x) = -2x\\sin(x^2)$. For $h(x) = \\tan(2x + 1)$ er $u' = 2$, så $h'(x) = \\frac{2}{\\cos^2(2x+1)}$.\n\nNokre gonger må kjerneregelen brukast i fleire lag. Ta $f(x) = \\sin^2(3x)$, altså $[\\sin(3x)]^2$. Ytst har vi ein kvadratfunksjon, i midten sinus, inst $3x$. Vi skrel laga utanfrå og inn:\n\n$$f'(x) = 2\\sin(3x) \\cdot \\cos(3x) \\cdot 3 = 6\\sin(3x)\\cos(3x) = 3\\sin(6x)$$\n\nI siste steg kjende vi att dobbeltvinkelformelen $2\\sin u \\cos u = \\sin 2u$ med $u = 3x$. Slik spelar identitetane frå førre kapittel og derivasjonen saman – det er sjeldan tilfeldig kva for ei form som er penast.",
+      "7f2b739045ca974c": "## Kjerneregelen i sving\n\nKva med $\\sin(3x)$ eller $\\cos(x^2)$? Når argumentet er ein samansett funksjon, treng vi kjerneregelen: deriver den ytre funksjonen, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$\\begin{aligned}\n&(\\sin u)' = \\cos u \\cdot u' \\\\\n&(\\cos u)' = -\\sin u \\cdot u' \\\\\n&(\\tan u)' = \\frac{u'}{\\cos^2 u}\n\\end{aligned}$$\n\nTre raske eksempel. For $f(x) = \\sin(3x)$ er kjernen $u = 3x$ med $u' = 3$, så $f'(x) = 3\\cos(3x)$. For $g(x) = \\cos(x^2)$ er kjernen $u = x^2$ med $u' = 2x$, så $g'(x) = -2x\\sin(x^2)$. For $h(x) = \\tan(2x + 1)$ er $u' = 2$, så $h'(x) = \\frac{2}{\\cos^2(2x+1)}$.\n\nNokre gonger må kjerneregelen brukast i fleire lag. Ta $f(x) = \\sin^2(3x)$, altså $[\\sin(3x)]^2$. Ytst har vi ein kvadratfunksjon, i midten sinus, inst $3x$. Vi skrel laga utanfrå og inn:\n\n$$f'(x) = 2\\sin(3x) \\cdot \\cos(3x) \\cdot 3 = 6\\sin(3x)\\cos(3x) = 3\\sin(6x)$$\n\nI siste steg kjende vi att dobbeltvinkelformelen $2\\sin u \\cos u = \\sin 2u$ med $u = 3x$. Slik spelar identitetane frå førre kapittel og derivasjonen saman – det er sjeldan tilfeldig kva for ei form som er penast.",
       "2dc62059be68345b": "Test deg sjølv på kjerneregelen:",
       "42ab4281a21a182a": "Kva er den deriverte av $f(x) = \\sin(3x)$?",
-      "01cb90b82c79e94f": "$\\cos(3x)$",
       "6445a7ad8646436f": "$3\\cos(3x)$",
+      "01cb90b82c79e94f": "$\\cos(3x)$",
       "39eb770c099e23ab": "$-3\\cos(3x)$",
       "65b741a0940cf968": "$3\\sin(3x)$",
       "a97736b074bd8aa7": "Kjernen er $u = 3x$ med $u' = 3$: $f'(x) = \\cos(3x) \\cdot 3 = 3\\cos(3x)$.",
       "656c65a591937a5f": "Kva er den deriverte av $g(x) = \\cos(x^2)$?",
       "1f014111ee5e0a3a": "$-\\sin(x^2)$",
-      "4431d9ccc8d4bb27": "$2x\\sin(x^2)$",
       "ecb23279781ab226": "$-2x\\sin(x^2)$",
+      "4431d9ccc8d4bb27": "$2x\\sin(x^2)$",
       "01e0ffc7519de63a": "$-\\sin(2x)$",
       "b0a2b6e6a79f7e93": "Kjernen er $u = x^2$ med $u' = 2x$: $g'(x) = -\\sin(x^2) \\cdot 2x = -2x\\sin(x^2)$.",
       "ab0cd45a1e59f2a0": "Kva er den deriverte av $h(x) = \\tan(2x+1)$?",
-      "498ef820f4816ca5": "$\\frac{2}{\\cos^2(2x+1)}$",
       "f75fbf09126a41ff": "$\\frac{1}{\\cos^2(2x+1)}$",
       "911ab3e76794ecc8": "$2\\tan(2x+1)$",
+      "498ef820f4816ca5": "$\\frac{2}{\\cos^2(2x+1)}$",
       "9424df1c4db9461b": "$\\frac{2}{\\sin^2(2x+1)}$",
       "9082d75ff7cda755": "$(\\tan u)' = \\frac{u'}{\\cos^2 u}$ med $u' = 2$ gir $\\frac{2}{\\cos^2(2x+1)}$.",
       "4ef5d9f4f19de7bc": "Kva er den deriverte av $f(x) = \\sin^2(3x)$, skrive enklast mogleg?",
@@ -494,21 +502,21 @@
       "c3051a8a37ff9587": "## Å drøfte bølgjelandskapet\n\nMed derivasjonsreglane på plass kan vi drøfte trigonometriske funksjonar akkurat som polynom: finn $f'(x)$, løys $f'(x) = 0$, og undersøk forteiknet for å skilje toppar frå botnar.\n\nLa oss drøfte $f(x) = 2\\sin x + \\cos(2x)$ på $[0, 2\\pi]$. Derivasjon gir $f'(x) = 2\\cos x - 2\\sin(2x)$. Her bruker vi dobbeltvinkelformelen $\\sin 2x = 2\\sin x\\cos x$ og faktoriserer:\n\n$$f'(x) = 2\\cos x - 4\\sin x \\cos x = 2\\cos x(1 - 2\\sin x)$$\n\nDette er nøkkelgrepet – eit produkt er null når éin av faktorane er null. $\\cos x = 0$ gir $x = \\frac{\\pi}{2}$ og $x = \\frac{3\\pi}{2}$. $\\sin x = \\frac{1}{2}$ gir $x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$. Fire kritiske punkt.\n\nFunksjonsverdiane: $f\\left(\\frac{\\pi}{6}\\right) = 2 \\cdot \\frac{1}{2} + \\cos\\frac{\\pi}{3} = \\frac{3}{2}$, og tilsvarande $f\\left(\\frac{5\\pi}{6}\\right) = \\frac{3}{2}$. Vidare $f\\left(\\frac{\\pi}{2}\\right) = 2 + \\cos\\pi = 1$ og $f\\left(\\frac{3\\pi}{2}\\right) = -2 + \\cos 3\\pi = -3$. Forteiknsanalyse av $f'$ viser at $x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$ er lokale toppunkt (begge med verdi $\\frac{3}{2}$), $x = \\frac{\\pi}{2}$ er eit lokalt botnpunkt (verdi $1$), og $x = \\frac{3\\pi}{2}$ er det globale botnpunktet (verdi $-3$).\n\nLegg merke til den doble toppen med ein liten dal imellom – eit landskap ei enkel sinuskurve aldri kunne laga. Det er samspelet mellom dei to ledda som skaper det, og derivasjonen avslører heile strukturen.",
       "18703f1ec565d94d": "Test deg sjølv på funksjonsdrøfting:",
       "305bb4ddb923c389": "Kva er $f'(x)$ for $f(x) = 2\\sin x + \\cos(2x)$, faktorisert?",
-      "88ba33b35a6f5044": "$2\\cos x(1 + 2\\sin x)$",
       "762ad97b1a5c9e65": "$2\\cos x(1 - 2\\sin x)$",
+      "88ba33b35a6f5044": "$2\\cos x(1 + 2\\sin x)$",
       "1cf726f952bcd5f5": "$2\\sin x(1 - 2\\cos x)$",
       "c61435c7cf893a8b": "$2\\cos x - \\sin(2x)$",
       "486e7ee36146cd1f": "$f'(x) = 2\\cos x - 2\\sin(2x) = 2\\cos x - 4\\sin x\\cos x = 2\\cos x(1 - 2\\sin x)$.",
       "725dfeee555d7d7d": "Kva for kritiske punkt gir faktoren $1 - 2\\sin x = 0$ i $[0, 2\\pi]$?",
       "43883e1879d3bea6": "$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$",
-      "37cd6c47e3e71449": "$x = \\frac{\\pi}{2}$ og $x = \\frac{3\\pi}{2}$",
       "cb4a2c94cef237ec": "$x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$",
+      "37cd6c47e3e71449": "$x = \\frac{\\pi}{2}$ og $x = \\frac{3\\pi}{2}$",
       "6cdeec933c26e55c": "$x = \\frac{7\\pi}{6}$ og $x = \\frac{11\\pi}{6}$",
       "63a9c1b3a15327aa": "$1 - 2\\sin x = 0$ gir $\\sin x = \\frac{1}{2}$, som har løysingane $x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$ i $[0, 2\\pi]$.",
       "6c1960008fcb8ba5": "Kva er det globale botnpunktet til $f(x) = 2\\sin x + \\cos(2x)$ på $[0, 2\\pi]$?",
-      "ac84f4fdec3119d3": "$x = \\frac{3\\pi}{2}$ med $f = -3$",
       "cc94d8a355634e69": "$x = \\frac{\\pi}{2}$ med $f = 1$",
       "fc4422088efd1e37": "$x = \\pi$ med $f = -1$",
+      "ac84f4fdec3119d3": "$x = \\frac{3\\pi}{2}$ med $f = -3$",
       "8572729eae967bb6": "$x = \\frac{3\\pi}{2}$ med $f = -1$",
       "927fb712357da89c": "$f\\left(\\frac{3\\pi}{2}\\right) = 2 \\cdot (-1) + \\cos 3\\pi = -2 - 1 = -3$, som er den lågaste verdien på intervallet.",
       "7e20b376ff0f073c": "Kvifor faktoriserer vi den deriverte i staden for å dele på $\\cos x$?",
@@ -517,7 +525,7 @@
       "7120e726e7a08dd4": "Fordi $\\cos x$ ikkje kan vere negativ",
       "17a50a2a4559472b": "Fordi vi mistar løysingane der $\\cos x = 0$ om vi deler",
       "f293dca0a999760e": "Å dele på $\\cos x$ kastar bort dei kritiske punkta $x = \\frac{\\pi}{2}$ og $x = \\frac{3\\pi}{2}$. Faktorisering held på alle løysingane.",
-      "55e8b4b390675220": "## Oppsummering: dansen mellom sinus og cosinus\n\nVi har lært derivasjonsreglane til bølgjene: $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$ – to funksjonar som byter på å skildre stiginga til kvarandre, med eit minusteikn som einaste asymmetri. Tangens følgjer med på lasset: $(\\tan x)' = \\frac{1}{\\cos^2 x}$, utleidd med kvotientregelen og rydda opp av den pytagoreiske identiteten. Og hugs føresetnaden for det heile: vinkelen må målast i radianar.\n\nKjerneregelen utvidar reglane til samansette uttrykk: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$. Ved fleire lag skrel du utanfrå og inn, som i $\\sin^2(3x)$, der svaret $3\\sin(6x)$ fall pent på plass takka vere dobbeltvinkelformelen.\n\nTil slutt brukte vi alt saman til funksjonsdrøfting: deriver, faktoriser (aldri del bort ein faktor!), løys $f'(x) = 0$, og lat forteiknsanalysen avsløre toppar og botnar i bølgjelandskapet. Dermed er sirkelen slutta: einingssirkelen gav oss funksjonane, grafane gav oss formspråket, og derivasjonen gir oss full kontroll over kvar einaste bølgjetopp."
+      "36a97546ab763315": "## Oppsummering: dansen mellom sinus og cosinus\n\nVi har lært derivasjonsreglane til bølgjene: $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$ – to funksjonar som byter på å skildre stiginga til kvarandre, med eit minusteikn som einaste asymmetri. Tangens følgjer med på lasset: $(\\tan x)' = \\frac{1}{\\cos^2 x}$, utleidd med brøkregelen og rydda opp av den pytagoreiske identiteten. Og hugs føresetnaden for det heile: vinkelen må målast i radianar.\n\nKjerneregelen utvidar reglane til samansette uttrykk: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$. Ved fleire lag skrel du utanfrå og inn, som i $\\sin^2(3x)$, der svaret $3\\sin(6x)$ fall pent på plass takka vere dobbeltvinkelformelen.\n\nTil slutt brukte vi alt saman til funksjonsdrøfting: deriver, faktoriser (aldri del bort ein faktor!), løys $f'(x) = 0$, og lat forteiknsanalysen avsløre toppar og botnar i bølgjelandskapet. Dermed er sirkelen slutta: einingssirkelen gav oss funksjonane, grafane gav oss formspråket, og derivasjonen gir oss full kontroll over kvar einaste bølgjetopp."
     }
   }
 }

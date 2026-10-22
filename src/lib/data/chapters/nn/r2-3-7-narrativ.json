@@ -213,7 +213,7 @@
               },
               {
                 "id": "c",
-                "text": "$(x^2)^3 = x^6 \\cdot x$",
+                "text": "$x^7$",
                 "isCorrect": false
               },
               {
@@ -253,7 +253,7 @@
           },
           {
             "id": "r2-3-7-n-quiz2-q3",
-            "task": "Kvifor byrjar arealfunksjonen $A(x) = \\int_0^x f(t)\\,dt$ å søkke der $f$ vert negativ?",
+            "task": "Kvifor begynner integralfunksjonen $A(x) = \\int_0^x f(t)\\,dt$ å minke der $f$ blir negativ?",
             "options": [
               {
                 "id": "a",
@@ -267,16 +267,16 @@
               },
               {
                 "id": "d",
-                "text": "Det stemmer ikkje — arealfunksjonar kan aldri søkke",
+                "text": "Det stemmer ikkje — integralfunksjonar kan aldri minke",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "Fordi nye arealbidrag under $x$-aksen tel negativt og trekkjer frå det akkumulerte arealet",
+                "text": "Fordi område under $t$-aksen gir negative bidrag til integralet",
                 "isCorrect": true
               }
             ],
-            "solution": "$A'(x) = f(x)$: negativ $f$ gjev negativ vekstrate for $A$. Forteiknsareal under aksen reduserer totalen."
+            "solution": "$A'(x) = f(x)$: negativ $f$ gir negativ vekstfart for $A$. $A(x)$ er netto areal med forteikn, og bidrag under aksen trekkjer frå."
           }
         ]
       }
@@ -421,15 +421,15 @@
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "222e6fd851f41315",
-    "translatedAt": "2026-06-20T00:37:51.016Z",
-    "model": "claude-code-agent",
+    "sourceHash": "e07741ee28f0af0d",
+    "translatedAt": "2026-10-22T15:11:52.040Z",
+    "model": "claude-code-agent (synk 21.10.2026)",
     "strings": 88,
     "tm": {
       "bd9e8c1eae5eaf1d": "Funksjonsdrøfting med integrasjon",
       "b195b06d1ed59702": "Narrativ versjon",
       "da3545a24bc6c792": "Ei forteljing om funksjonsdrøfting med integrasjon — trappa mellom f'', f' og f, arealfunksjonar som vert drøfta med forteikn, og den samlande ideen om at integralet av ein rate er den akkumulerte mengda.",
-      "cc9815ba11ee253a": "analysere og tolke ulike funksjonar ved å bruke derivasjon og integrasjon",
+      "47e03020b04c9a1c": "analysere og tolke ulike funksjonar ved å bruke derivasjon og integrasjon",
       "efa3d9a781a2ae70": "bruke integrasjon i praktiske bruksområde",
       "6691c64b30307259": "## Heile biletet: opp og ned trappa\n\nGjennom R1 og R2 har du bygd ei trapp av operasjonar: derivasjon tek deg eitt trinn *ned* — frå $f$ til $f'$, frå posisjon til fart, frå kostnad til marginalkostnad. Integrasjon tek deg eitt trinn *opp* att. Til no har du stort sett gått trappa i éi retning om gongen. I dette siste kapittelet går vi begge vegar i same oppgåve — og det er då funksjonsdrøftinga vert komplett.\n\nTenk på alt du no kan hente ut: kjenner du $f'$, gjev integrasjon deg $f$ tilbake — så nær som ein konstant, som eit kjent punkt spikrar fast. Kjenner du $f$, fortel arealfunksjonen $A(x) = \\int_a^x f(t)\\,dt$ korleis akkumulerte mengder veks — og fundamentalsetninga seier at $A$ veks og søkk i takt med forteiknet til $f$. Og i den verkelege verda: fart vert posisjon, akselerasjon vert fart, marginalkostnad vert totalkostnad — integralet av ein *rate* er alltid den *akkumulerte mengda*.\n\nDette kapittelet er finalen i R2-analysen: rekonstruksjon av funksjonar, arealfunksjonar med kjerneregel, gjennomsnittsverdiar, og bruksområde i fysikk og økonomi.",
       "1c39fcf443e3d6f7": "## Rekonstruksjon: frå $f'$ tilbake til $f$\n\nIntegrasjon opphevar derivasjon — nesten: $\\int f'(x)\\,dx = f(x) + C$. Den lause konstanten tyder at $f'$ åleine aldri avgjer $f$; vi treng eitt haldepunkt, typisk eit punkt på grafen. Oppskrifta: integrer, set inn punktet, løys for $C$.\n\nDøme: $f'(x) = 3x^2 - 4x + 1$ og grafen går gjennom $(2, 5)$. Integrasjon gjev $f(x) = x^3 - 2x^2 + x + C$, og kravet $f(2) = 5$ gjev $8 - 8 + 2 + C = 5$, altså $C = 3$:\n\n$$f(x) = x^3 - 2x^2 + x + 3$$\n\nStartar vi endå lenger ned — frå $f''$ — må vi opp to trinn, og kvart trinn har sin eigen konstant. Då trengst to vilkår. Døme: $f''(x) = 12x - 6$ med $f'(1) = 3$ og $f(1) = 5$. Første integrasjon: $f'(x) = 6x^2 - 6x + C_1$, og $f'(1) = 3$ gjev $C_1 = 3$. Andre integrasjon: $f(x) = 2x^3 - 3x^2 + 3x + C_2$, og $f(1) = 5$ gjev $C_2 = 3$. Ferdig — og alltid med gratis fasitkontroll: deriver svaret to gonger og sjekk begge vilkåra.\n\nDette er meir enn algebra-akrobatikk. Grafen til $f'$ åleine fortel mykje om $f$ — stig der $f' > 0$, søkk der $f' < 0$, ekstremalpunkt der $f'$ skiftar forteikn — men først med eit kjent punkt kan heile grafen *teiknast*. Døme: er $f'$ parabelen $-(x+1)(x-3) = -x^2 + 2x + 3$ og $f(0) = 2$, gjev integrasjonen $f(x) = -\\frac{x^3}{3} + x^2 + 3x + 2$, med minimum i $x = -1$ og maksimum i $x = 3$ — akkurat der $f'$ kryssar aksen.",
@@ -462,35 +462,35 @@
       "37f6dece709d58b2": "## Arealfunksjonen — og kjerneregelen på grensa\n\nDel 1 av fundamentalsetninga fortener eit attersyn med drøftingsbriller. **Arealfunksjonen** $A(x) = \\int_a^x f(t)\\,dt$ måler akkumulert areal, og $A'(x) = f(x)$. Det tyder at heile drøftingsapparatet kan brukast på $A$: han veks der $f > 0$, søkk der $f < 0$, og har ekstremalpunkt der $f$ skiftar forteikn.\n\nKonkret: lat $f(t) = 4 - t$ og $A(x) = \\int_0^x (4-t)\\,dt = 4x - \\frac{x^2}{2}$ for $0 \\leq x \\leq 6$. Sidan $A' = f$, veks $A$ fram til $x = 4$ — der $f$ kryssar aksen — og søkk etterpå: maksimum $A(4) = 8$. Tolkinga er fysisk klar: etter $x = 4$ kjem arealbidraga under aksen, og dei *trekkjer frå*.\n\nKva om øvre grense ikkje er $x$, men ein funksjon $g(x)$? Då må kjerneregelen på banen:\n\n$$\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x)) \\cdot g'(x)$$\n\nDøme: $\\frac{d}{dx}\\int_0^{x^2} t^3\\,dt = (x^2)^3 \\cdot 2x = 2x^7$, og $\\frac{d}{dx}\\int_1^{\\sin x} e^t\\,dt = e^{\\sin x}\\cos x$. Er *begge* grensene variable, vert integralet splitta først: $\\int_x^{x^2} t\\,dt$ vert derivert til $x^2 \\cdot 2x - x \\cdot 1 = 2x^3 - x$.\n\nI same ånd definerer integralet **gjennomsnittsverdien** av ein funksjon: $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$ — arealet fordelt jamt utover. Romtemperaturen $T(t) = 20 + 4\\sin\\frac{\\pi t}{6}$ over seks timar har gjennomsnitt $\\bar{T} = \\frac{1}{6}\\left(120 + \\frac{48}{\\pi}\\right) = 20 + \\frac{8}{\\pi} \\approx 22{,}55$ °C — ikkje $20$, for sinusbogen ligg over $20$ heile perioden $[0,6]$.",
       "d2a9c1cc1125e438": "Test deg sjølv på arealfunksjonar og gjennomsnitt:",
       "7b368af43a1504ba": "$A(x) = \\int_0^x (4 - t)\\,dt$ for $0 \\leq x \\leq 6$. Kvar har $A$ maksimumet sitt?",
+      "d14d177d812c2ded": "$x = 4$",
       "c8c0eaf983df3716": "$x = 6$",
       "0c82bd6cd3ab8ff8": "$x = 2$",
-      "d14d177d812c2ded": "$x = 4$",
       "25efa207f9f60f58": "$x = 0$",
       "f5f338a0e59174d4": "$A'(x) = 4 - x$, som er positiv før $4$ og negativ etter: maksimum i $x = 4$, med $A(4) = 16 - 8 = 8$.",
       "5bb579d7cd18dafe": "Kva er $\\frac{d}{dx}\\int_0^{x^2} t^3\\,dt$?",
-      "7488e966969da935": "$2x^7$",
       "61915a2afe51d4f9": "$x^6$",
-      "0a5742daf78df2c9": "$(x^2)^3 = x^6 \\cdot x$",
+      "7488e966969da935": "$2x^7$",
+      "ca053097f3268d53": "$x^7$",
       "63e2473004fc4669": "$3x^2$",
       "25d29cc5106d9459": "Fundamentalsetning + kjerneregel: $f(g(x)) \\cdot g'(x) = (x^2)^3 \\cdot 2x = 2x^7$.",
       "b20ef97f01dd30f5": "Kva er gjennomsnittsverdien til $f$ på $[a,b]$?",
       "5d2c7df807b3e299": "$\\frac{f(a) + f(b)}{2}$",
       "5fc46146d1b625a4": "$\\int_a^b f(x)\\,dx$",
-      "8b271933ac73063c": "$f\\left(\\frac{a+b}{2}\\right)$",
       "cfafa98cea2732c5": "$\\frac{1}{b-a}\\int_a^b f(x)\\,dx$",
+      "8b271933ac73063c": "$f\\left(\\frac{a+b}{2}\\right)$",
       "2f12489e1ab5109a": "Gjennomsnittet er integralet (det akkumulerte) delt på lengda til intervallet: $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$.",
-      "4a1b0a1e8e50202b": "Kvifor byrjar arealfunksjonen $A(x) = \\int_0^x f(t)\\,dt$ å søkke der $f$ vert negativ?",
+      "ab6fad67ecb9a648": "Kvifor begynner integralfunksjonen $A(x) = \\int_0^x f(t)\\,dt$ å minke der $f$ blir negativ?",
       "8c784de01f7c8370": "Fordi integralet då vert udefinert",
-      "6c97af4b6b856f3f": "Fordi nye arealbidrag under $x$-aksen tel negativt og trekkjer frå det akkumulerte arealet",
       "140734a382a1fc6e": "Fordi $A$ alltid søkk etter maksimumet sitt",
-      "f113c7a12e641b02": "Det stemmer ikkje — arealfunksjonar kan aldri søkke",
-      "8af5575c290074b4": "$A'(x) = f(x)$: negativ $f$ gjev negativ vekstrate for $A$. Forteiknsareal under aksen reduserer totalen.",
+      "dc50ed2f44d146fb": "Det stemmer ikkje — integralfunksjonar kan aldri minke",
+      "c2a4e8ee8626d06f": "Fordi område under $t$-aksen gir negative bidrag til integralet",
+      "5e41451d2e8dcd18": "$A'(x) = f(x)$: negativ $f$ gir negativ vekstfart for $A$. $A(x)$ er netto areal med forteikn, og bidrag under aksen trekkjer frå.",
       "122a90a75ad1db57": "## Rater og mengder: fysikk og økonomi\n\nDen store samlande ideen til slutt: **integralet av ein rate er den akkumulerte mengda**. Fart er endringsrate for posisjon, så $\\int v\\,dt$ er forflytning; akselerasjon er rate for fart; marginalkostnad er rate for totalkostnad; effekt er rate for energi. Alt du lærte om forteikn og oppdeling i kapittel 2.6, følgjer med på kjøpet.\n\n**Fysikk:** Ein partikkel har $v(t) = 3t^2 - 6t$ m/s og startar i $s(0) = 2$. Posisjonen: $s(t) = t^3 - 3t^2 + 2$ (integrasjon pluss startvilkår). Nullpunkta $v = 3t(t-2)$ viser at partikkelen ryggar på $(0,2)$ og går fram etter $t = 2$. Total *strekning* på $[0,4]$ krev difor oppdeling: $\\left|\\int_0^2 v\\,dt\\right| + \\int_2^4 v\\,dt = 4 + 20 = 24$ m, medan netto *forflytning* er $\\int_0^4 v\\,dt = 16$ m. To spørsmål, to svar — som alltid.\n\n**Økonomi:** Marginalkostnaden $MC(x) = 3x^2 - 12x + 15$ kr/eining med faste kostnader $1000$ kr gjev totalkostnaden $K(x) = x^3 - 6x^2 + 15x + 1000$ — integrasjon, der den faste kostnaden *er* konstanten $C$ i kjøt og blod. Kostnaden ved å auke produksjonen frå $10$ til $20$ einingar er $\\int_{10}^{20} MC(x)\\,dx = K(20) - K(10) = 5350$ kr — fundamentalsetninga som bedriftsøkonomi.\n\nTil eksamen kjem desse trådane gjerne fletta i éi oppgåve: gjeve $f'(x) = -x^2 + 4$ og $f(0) = 3$, finn $f$ (integrasjon: $-\\frac{x^3}{3} + 4x + 3$), klassifiser ekstremalpunkta (derivasjon: minimum i $x = -2$, maksimum i $x = 2$ via $f''(x) = -2x$), og rekn ut areal (integrasjon att). Opp og ned trappa i same oppgåve — det er full funksjonsdrøfting, og det er dit heile R2-analysen har sikta.",
       "b14c48cc24b56e92": "Test deg sjølv på rater og bruksområde:",
       "52d71f3e36aa3da9": "Ein partikkel har $v(t) = 3t^2 - 6t$ og $s(0) = 2$. Kva er posisjonen $s(t)$?",
+      "d5212f7cbda8805b": "$t^3 - 3t^2 + 2$",
       "51789751b2b7c711": "$6t - 6$",
       "ec6131da74fcc9b2": "$t^3 - 3t^2$",
-      "d5212f7cbda8805b": "$t^3 - 3t^2 + 2$",
       "10fb843ff2327412": "$3t^3 - 6t^2 + 2$",
       "0c1d6d344b61a7ca": "$s(t) = \\int v\\,dt = t^3 - 3t^2 + C$, og $s(0) = 2$ gjev $C = 2$.",
       "8ab5741fe49586c6": "For same partikkel: netto forflytning på $[0,4]$ er $16$ m. Kva er total tilbakelagd strekning?",
@@ -502,14 +502,14 @@
       "659df8535fb55685": "Ei bedrift har marginalkostnad $MC(x)$ og faste kostnader $1000$ kr. Kva representerer konstanten $C$ når vi integrerer $MC$?",
       "cf1d2dedeb02f8a0": "Marginalinntekta",
       "9f5eee2b02f1b3c9": "Produksjonsvolumet",
-      "cdae4b1eada114b1": "Gjennomsnittskostnaden",
       "f2048d2442b81486": "Dei faste kostnadene: $K(0) = C = 1000$",
+      "cdae4b1eada114b1": "Gjennomsnittskostnaden",
       "e6b5aec42f64b712": "Integrasjonskonstanten vert fastsett av $K(0) = 1000$ — dei faste kostnadene er bokstaveleg talt konstanten i totalkostnadsfunksjonen.",
       "20496ea04a461a75": "Kva er den generelle tolkinga av $\\int_a^b r(t)\\,dt$ når $r$ er ein rate (mengd per tidseining)?",
-      "a8045f84a606f980": "Den totale akkumulerte mengda frå $t = a$ til $t = b$",
       "0c534df8301d0d41": "Den maksimale raten i intervallet",
       "c7b23add26a34dac": "Den gjennomsnittlege raten",
       "89ff2a011b1b4513": "Endringa i raten",
+      "a8045f84a606f980": "Den totale akkumulerte mengda frå $t = a$ til $t = b$",
       "13731434748a6c26": "Integralet av ein rate gjev netto akkumulert mengd: fart $\\to$ forflytning, effekt $\\to$ energi, marginalkostnad $\\to$ kostnadsendring.",
       "6cdac699f4d792b6": "## Oppsummering: analysen samla\n\nTrappa står ferdig, og du går henne no i begge retningar. *Oppover*: $\\int f'(x)\\,dx = f(x) + C$, der kvart kjent punkt spikrar fast éin konstant — frå $f''$ trengst to vilkår, eitt per integrasjon, slik $f''(x) = 12x - 6$ med $f'(1) = 3$ og $f(1) = 5$ gav $f(x) = 2x^3 - 3x^2 + 3x + 3$. *Nedover*: forteiknet til $f'$ avslører kvar $f$ stig, søkk og snur. Og *på tvers*: arealfunksjonen $A(x) = \\int_a^x f(t)\\,dt$ vert drøfta med nøyaktig same apparat, sidan $A' = f$ — med kjerneregelvarianten $\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x))g'(x)$ for variable grenser, og gjennomsnittsverdien $\\bar{f} = \\frac{1}{b-a}\\int_a^b f\\,dx$ som den demokratiske fordelinga integralet gjer av arealet.\n\nDen samlande innsikta ber alt: integralet av ein rate er den akkumulerte mengda. Fart vart posisjon (og strekning kravde forteikns-oppdeling: $24$ m mot $16$ m netto), marginalkostnad vart totalkostnad med faste kostnader som integrasjonskonstant. Med følgjer og rekkjer, induksjon, heile integrasjonsverktøykassa, numerikk, volum og no full funksjonsdrøfting har du kjerna i R2-analysen på plass — trapp, verktøy og blikket som ser kva for nokre som trengst når."
     }

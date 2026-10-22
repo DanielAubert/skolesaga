@@ -14,12 +14,12 @@
     {
       "id": "r1-3-4-n-intro",
       "type": "text",
-      "content": "## Markien som kjøpte et teorem\n\nI 1696 utga den franske markien Guillaume de l'Hôpital verdens første lærebok i differensialregning. I den sto en regel for grenseverdier som skulle bære navnet hans inn i evigheten. Det pussige er at regelen slett ikke var hans: markien betalte den sveitsiske matematikeren Johann Bernoulli en fast årslønn mot å få bruke oppdagelsene hans -- og Bernoulli klaget bittert etterpå, men kontrakten var klar. Historiens kanskje mest vellykkede teoremkjøp.\n\nHva var det markien fikk for pengene? Et verktøy for nettopp det problemet du kjenner fra kapittel 3.1: **ubestemte former**. Når innsetting gir $\\frac{0}{0}$, kappes teller og nevner mot null, og svaret avhenger av hvem som taper kappløpet. Faktorisering og konjugering løste de algebraiske tilfellene -- men hva med $\\lim_{x \\to 0} \\frac{\\sin x}{x}$? Her er det ingenting å faktorisere. Sinus er ikke et polynom, og konjugattrikset biter ikke på trigonometri.\n\nBernoullis innsikt var like enkel som den er dyp: når to funksjoner kappes mot null, er det *farten deres* som avgjør -- og fart, det er nettopp hva den deriverte måler. I stedet for å sammenligne $f$ og $g$ der begge forsvinner, sammenligner vi $f'$ og $g'$.\n\nI dette kapittelet lærer du regelen og vilkårene for den, bruker den på formene $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$, avdekker veksthierarkiet mellom logaritmer, potenser og eksponentialfunksjoner -- og lærer omskrivingstriksene som temmer de øvrige ubestemte formene $0 \\cdot \\infty$, $\\infty - \\infty$, $0^0$, $1^\\infty$ og $\\infty^0$."
+      "content": "## Markien som kjøpte et teorem\n\n*Fordypning (utenfor læreplanen): L'Hôpitals regel er ikke en del av R1 og er ikke gitt på R1-eksamen. Kapitlet bruker også derivasjonsreglene fra kapittel 4, så det passer best å lese det etter delkapittel 4.4.*\n\nI 1696 utga den franske markien Guillaume de l'Hôpital verdens første lærebok i differensialregning. I den sto en regel for grenseverdier som skulle bære navnet hans inn i evigheten. Det pussige er at regelen slett ikke var hans: markien betalte den sveitsiske matematikeren Johann Bernoulli en fast årslønn mot å få bruke oppdagelsene hans -- og Bernoulli klaget bittert etterpå, men kontrakten var klar. Historiens kanskje mest vellykkede teoremkjøp.\n\nHva var det markien fikk for pengene? Et verktøy for nettopp det problemet du kjenner fra kapittel 3.1: **ubestemte former**. Når innsetting gir $\\frac{0}{0}$, kappes teller og nevner mot null, og svaret avhenger av hvem som taper kappløpet. Faktorisering og konjugering løste de algebraiske tilfellene -- men hva med $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$? Her er det ingenting å faktorisere. Eksponentialfunksjonen er ikke et polynom, og konjugattrikset biter ikke på den.\n\nBernoullis innsikt var like enkel som den er dyp: når to funksjoner kappes mot null, er det *farten deres* som avgjør -- og fart, det er nettopp hva den deriverte måler. I stedet for å sammenligne $f$ og $g$ der begge forsvinner, sammenligner vi $f'$ og $g'$.\n\nI dette kapittelet lærer du regelen og vilkårene for den, bruker den på formene $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$, avdekker veksthierarkiet mellom logaritmer, potenser og eksponentialfunksjoner -- og lærer omskrivingstriksene som temmer de øvrige ubestemte formene $0 \\cdot \\infty$, $\\infty - \\infty$, $0^0$, $1^\\infty$ og $\\infty^0$."
     },
     {
       "id": "r1-3-4-n-section1",
       "type": "text",
-      "content": "## Regelen -- og formen $\\frac{0}{0}$\n\nHer er teoremet markien betalte for. Hvis $\\lim_{x \\to a} \\frac{f(x)}{g(x)}$ gir en ubestemt form $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, og hvis $\\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$ eksisterer, så er\n\n$$\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$$\n\nRegelen gjelder også når $x \\to \\pm\\infty$. Og merk deg presiseringen som redder deg fra den vanligste feilen: vi deriverer teller og nevner **hver for seg**. Dette er *ikke* brøkregelen for derivasjon -- vi deriverer ikke brøken, vi bytter ut begge deltakerne i kappløpet med fartsmålerne deres.\n\nHvorfor virker det? Nær $a$ oppfører en deriverbar funksjon seg som tangenten sin: $f(x) \\approx f'(a)(x - a)$ når $f(a) = 0$, og tilsvarende for $g$. Da er $\\frac{f(x)}{g(x)} \\approx \\frac{f'(a)(x-a)}{g'(a)(x-a)} = \\frac{f'(a)}{g'(a)}$ -- forholdet mellom stigningstallene er alt som står igjen.\n\nSe den i aksjon på klassikeren. For $\\lim_{x \\to 0} \\frac{\\sin x}{x}$ gir innsetting $\\frac{0}{0}$, så vi deriverer oppe og nede:\n\n$$\\lim_{x \\to 0} \\frac{\\sin x}{x} = \\lim_{x \\to 0} \\frac{\\cos x}{1} = \\cos 0 = 1$$\n\nEtt steg, og en grenseverdi som plaget matematikere i århundrer, faller. Samme behandling tar $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$: formen er $\\frac{0}{0}$, deriverte gir $\\frac{e^x}{1}$, og innsetting gir $e^0 = 1$. Begge resultatene er fundamentale -- de sier at $\\sin x$ og $e^x - 1$ oppfører seg som $x$ selv helt inntil null, og du møter dem igjen både i fysikk og i senere matematikk."
+      "content": "## Regelen -- og formen $\\frac{0}{0}$\n\nHer er teoremet markien betalte for. Hvis $\\lim_{x \\to a} \\frac{f(x)}{g(x)}$ gir en ubestemt form $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, og hvis $\\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$ eksisterer, så er\n\n$$\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$$\n\nRegelen gjelder også når $x \\to \\pm\\infty$. Og merk deg presiseringen som redder deg fra den vanligste feilen: vi deriverer teller og nevner **hver for seg**. Dette er *ikke* brøkregelen for derivasjon -- vi deriverer ikke brøken, vi bytter ut begge deltakerne i kappløpet med fartsmålerne deres.\n\nHvorfor virker det? Nær $a$ oppfører en deriverbar funksjon seg som tangenten sin: $f(x) \\approx f'(a)(x - a)$ når $f(a) = 0$, og tilsvarende for $g$. Da er $\\frac{f(x)}{g(x)} \\approx \\frac{f'(a)(x-a)}{g'(a)(x-a)} = \\frac{f'(a)}{g'(a)}$ -- forholdet mellom stigningstallene er alt som står igjen.\n\nSe den i aksjon. For $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$ gir innsetting $\\frac{0}{0}$, så vi deriverer oppe og nede:\n\n$$\\lim_{x \\to 0} \\frac{e^x - 1}{x} = \\lim_{x \\to 0} \\frac{e^x}{1} = e^0 = 1$$\n\nEtt steg, og grenseverdien faller. Resultatet sier at $e^x - 1$ oppfører seg som $x$ selv helt inntil null.\n\nPass derimot på den andre klassikeren, $\\lim_{x \\to 0} \\frac{\\sin x}{x}$. Det er fristende å derivere oppe og nede og få $\\frac{\\cos x}{1} \\to 1$, men det er et sirkelargument: formelen $(\\sin x)' = \\cos x$ blir bevist nettopp ved hjelp av denne grenseverdien. Her må vi bruke en verditabell ($\\frac{\\sin x}{x} \\approx 0{,}998334$ for $x = 0{,}1$ og $\\approx 0{,}999983$ for $x = 0{,}01$) eller klemme brøken mellom $\\cos x$ og $1$, slik hovedkapitlet gjør. Svaret er $1$, men L'Hôpital er ikke veien dit."
     },
     {
       "id": "r1-3-4-n-quiz1",
@@ -39,16 +39,16 @@
         "questions": [
           {
             "id": "r1-3-4-n-quiz1-q0",
-            "task": "Hva er $\\lim_{x \\to 0} \\frac{\\sin x}{x}$?",
+            "task": "Hva er $\\lim_{x \\to 0} \\frac{e^{2x} - 1}{x}$?",
             "options": [
               {
                 "id": "b",
-                "text": "$1$",
+                "text": "$2$",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "$0$",
+                "text": "$1$",
                 "isCorrect": false
               },
               {
@@ -58,11 +58,11 @@
               },
               {
                 "id": "d",
-                "text": "$\\infty$",
+                "text": "$0$",
                 "isCorrect": false
               }
             ],
-            "solution": "Formen er $\\frac{0}{0}$. L'Hôpital: $\\lim \\frac{\\cos x}{1} = \\cos 0 = 1$."
+            "solution": "Formen er $\\frac{0}{0}$. L'Hôpital: $\\lim \\frac{2e^{2x}}{1} = 2e^0 = 2$. Den indre deriverte $2$ må være med."
           },
           {
             "id": "r1-3-4-n-quiz1-q1",
@@ -415,7 +415,7 @@
     {
       "id": "r1-3-4-n-summary",
       "type": "text",
-      "content": "## Fortellingen i et nøtteskall\n\nMarkien kjøpte, Bernoulli leverte, og du har nå verktøyet: når $\\lim \\frac{f(x)}{g(x)}$ gir en ubestemt form $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, og grensen av $\\frac{f'(x)}{g'(x)}$ eksisterer, er de to grensene like. Teller og nevner deriveres **hver for seg** -- vi bytter kappløpsdeltakerne med fartsmålerne deres -- og er den nye formen fortsatt ubestemt, gjentar vi behandlingen.\n\nSlik falt klassikerne: $\\frac{\\sin x}{x} \\to 1$ og $\\frac{e^x - 1}{x} \\to 1$ i null, $\\frac{x^2}{e^x} \\to 0$ og $\\frac{\\ln x}{x} \\to 0$ i uendelig. De to siste kondenserte til **veksthierarkiet** $\\ln x \\ll x^a \\ll e^x$: logaritmen tregest, eksponentialfunksjonen suverent raskest, og ethvert grensespørsmål mellom klassene er avgjort på forhånd.\n\nMen regelen har vilkår. Den gjelder *kun* ubestemte former -- på en snill brøk som $\\frac{x+1}{x+2}$ gir den feil svar -- og noen ganger er faktorisering fortsatt raskere. De forkledde formene krever omskriving først: $0 \\cdot \\infty$ flyttes til brøk ved å sende en faktor i nevneren, $\\infty - \\infty$ samles på fellesnevner, og potensformene $0^0$, $1^\\infty$ og $\\infty^0$ åpnes med $f^g = e^{g \\ln f}$.\n\nOppskriften er alltid den samme: sjekk formen, omskriv om nødvendig, deriver oppe og nede, gjenta ved behov. I neste kapittel snur vi perspektivet -- fra grenseverdier vi beregner eksakt, til ligninger vi må løse numerisk, med tangenten som veiviser."
+      "content": "## Fortellingen i et nøtteskall\n\nMarkien kjøpte, Bernoulli leverte, og du har nå verktøyet: når $\\lim \\frac{f(x)}{g(x)}$ gir en ubestemt form $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, og grensen av $\\frac{f'(x)}{g'(x)}$ eksisterer, er de to grensene like. Teller og nevner deriveres **hver for seg** -- vi bytter kappløpsdeltakerne med fartsmålerne deres -- og er den nye formen fortsatt ubestemt, gjentar vi behandlingen.\n\nSlik falt klassikerne: $\\frac{e^x - 1}{x} \\to 1$ i null, $\\frac{x^2}{e^x} \\to 0$ og $\\frac{\\ln x}{x} \\to 0$ i uendelig. De to siste kondenserte til **veksthierarkiet** $\\ln x \\ll x^a \\ll e^x$: logaritmen tregest, eksponentialfunksjonen suverent raskest, og ethvert grensespørsmål mellom klassene er avgjort på forhånd. Grenseverdien $\\frac{\\sin x}{x} \\to 1$ er derimot ikke et L'Hôpital-resultat: den må vises med verditabell eller innklemming, fordi $(\\sin x)' = \\cos x$ bygger på den.\n\nMen regelen har vilkår. Den gjelder *kun* ubestemte former -- på en snill brøk som $\\frac{x+1}{x+2}$ gir den feil svar -- og noen ganger er faktorisering fortsatt raskere. De forkledde formene krever omskriving først: $0 \\cdot \\infty$ flyttes til brøk ved å sende en faktor i nevneren, $\\infty - \\infty$ samles på fellesnevner, og potensformene $0^0$, $1^\\infty$ og $\\infty^0$ åpnes med $f^g = e^{g \\ln f}$.\n\nOppskriften er alltid den samme: sjekk formen, omskriv om nødvendig, deriver oppe og nede, gjenta ved behov. I neste kapittel snur vi perspektivet -- fra grenseverdier vi beregner eksakt, til likninger vi må løse numerisk, med tangenten som veiviser."
     }
   ],
   "exercises": []

@@ -4,13 +4,13 @@
   "chapterNumber": "3.2",
   "title": "Delvis integrasjon",
   "subtitle": "Narrativ versjon",
-  "description": "En fortelling om delvis integrasjon — produktregelen baklengs som byttehandel, med LIATE-regelen, gjentatte runder, det usynlige produktet i ln x og sirkelen som løser seg selv.",
+  "description": "En fortelling om delvis integrasjon — produktregelen baklengs som byttehandel, med valget av $u$, gjentatte runder, det usynlige produktet i ln x og sirkelen som løser seg selv.",
   "estimatedMinutes": 50,
   "competenceGoals": [
     "beherske teknikken delvis integrasjon",
     "velge riktig u og v' i delvis integrasjon",
     "bruke gjentatt delvis integrasjon",
-    "lose sirkulær delvis integrasjon",
+    "løse sirkulær delvis integrasjon",
     "anvende delvis integrasjon på bestemte integraler",
     "kombinere delvis integrasjon med andre teknikker"
   ],
@@ -24,7 +24,7 @@
     {
       "id": "r2-3-2-n-section1",
       "type": "text",
-      "content": "## Formelen og det første byttet\n\nLa oss ta $\\int x \\cdot e^x\\,dx$ med en gang. Vi må fordele rollene: én faktor blir $u$ (og skal *deriveres*), den andre blir $v'$ (og skal *integreres*). Velg $u = x$, $v' = e^x$, slik at $u' = 1$ og $v = e^x$:\n\n$$\\int x e^x\\,dx = x e^x - \\int 1 \\cdot e^x\\,dx = xe^x - e^x + C = e^x(x - 1) + C$$\n\nDet nye integralet, $\\int e^x\\,dx$, var trivielt — byttet lønte seg. Kontroll: $(e^x(x-1))' = e^x(x-1) + e^x = xe^x$. ✓\n\nHva om vi hadde valgt omvendt, $u = e^x$ og $v' = x$? Da ville det nye integralet blitt $\\int \\frac{x^2}{2}e^x\\,dx$ — *verre* enn utgangspunktet. Valget av $u$ er altså avgjørende, og her hjelper huskeregelen **LIATE**, en prioritert liste for hvem som bør være $u$:\n\n**L**ogaritmer — **I**nverse trigonometriske — **A**lgebraiske (polynomer) — **T**rigonometriske — **E**ksponentialfunksjoner.\n\nLogikken bak: funksjoner høyt på listen (logaritmer) er vonde å integrere men snille å derivere, mens funksjoner nederst (eksponentialer) tåler integrasjon uten å vokse i kompleksitet. Polynomer i midten blir gradvis enklere for hver derivasjon — $x^3 \\to 3x^2 \\to 6x \\to 6 \\to 0$.\n\nEtt eksempel til: $\\int x \\sin x\\,dx$. LIATE sier $u = x$ (algebraisk over trigonometrisk), $v' = \\sin x$, $v = -\\cos x$:\n\n$$\\int x \\sin x\\,dx = -x\\cos x + \\int \\cos x\\,dx = -x\\cos x + \\sin x + C$$"
+      "content": "## Formelen og det første byttet\n\nLa oss ta $\\int x \\cdot e^x\\,dx$ med en gang. Vi må fordele rollene: én faktor blir $u$ (og skal *deriveres*), den andre blir $v'$ (og skal *integreres*). Velg $u = x$, $v' = e^x$, slik at $u' = 1$ og $v = e^x$:\n\n$$\\int x e^x\\,dx = x e^x - \\int 1 \\cdot e^x\\,dx = xe^x - e^x + C = e^x(x - 1) + C$$\n\nDet nye integralet, $\\int e^x\\,dx$, var trivielt — byttet lønte seg. Kontroll: $(e^x(x-1))' = e^x(x-1) + e^x = xe^x$. ✓\n\nHva om vi hadde valgt omvendt, $u = e^x$ og $v' = x$? Da ville det nye integralet blitt $\\int \\frac{x^2}{2}e^x\\,dx$ — *verre* enn utgangspunktet. Valget av $u$ er altså avgjørende. Regelen er: velg som $u$ den faktoren som blir enklere når den deriveres, og som $v'$ en faktor som er lett å integrere. $\\ln x$ er vond å integrere, men den deriverte $\\frac{1}{x}$ er enkel, så $\\ln x$ blir $u$. Polynomer blir også $u$, fordi graden synker for hver derivasjon — $x^3 \\to 3x^2 \\to 6x \\to 6 \\to 0$. $e^x$, $\\sin x$ og $\\cos x$ er gode valg for $v'$, fordi de ikke blir mer kompliserte av å integreres.\n\nEtt eksempel til: $\\int x \\sin x\\,dx$. Polynomet $x$ blir $u$, og $v' = \\sin x$ gir $v = -\\cos x$:\n\n$$\\int x \\sin x\\,dx = -x\\cos x + \\int \\cos x\\,dx = -x\\cos x + \\sin x + C$$"
     },
     {
       "id": "r2-3-2-n-quiz1",
@@ -98,7 +98,7 @@
           },
           {
             "id": "r2-3-2-n-quiz1-q2",
-            "task": "Hva sier LIATE-regelen om integralet $\\int x \\sin x\\,dx$?",
+            "task": "Hvilket valg av $u$ er best for integralet $\\int x \\sin x\\,dx$?",
             "options": [
               {
                 "id": "b",
@@ -117,11 +117,11 @@
               },
               {
                 "id": "a",
-                "text": "Velg $u = x$, siden algebraiske funksjoner prioriteres over trigonometriske",
+                "text": "Velg $u = x$, siden polynomet blir enklere når det deriveres",
                 "isCorrect": true
               }
             ],
-            "solution": "LIATE: Logaritmer, Inverse trig., Algebraiske, Trigonometriske, Eksponential. $x$ (A) står over $\\sin x$ (T), så $u = x$. Resultat: $-x\\cos x + \\sin x + C$."
+            "solution": "Polynomet $x$ blir enklere ved derivasjon ($u' = 1$), mens $\\sin x$ er lett å integrere. Altså $u = x$ og $v' = \\sin x$. Resultat: $-x\\cos x + \\sin x + C$."
           },
           {
             "id": "r2-3-2-n-quiz1-q3",
@@ -156,7 +156,7 @@
     {
       "id": "r2-3-2-n-section2",
       "type": "text",
-      "content": "## Det usynlige produktet og gjentatte runder\n\nNoen integraler skjuler produktet sitt. Se på $\\int \\ln x\\,dx$ — bare én funksjon? Trikset er å skrive $\\ln x = \\ln x \\cdot 1$. LIATE setter logaritmen øverst, så $u = \\ln x$, $v' = 1$, som gir $u' = \\frac{1}{x}$ og $v = x$:\n\n$$\\int \\ln x\\,dx = x\\ln x - \\int \\frac{1}{x} \\cdot x\\,dx = x\\ln x - \\int 1\\,dx = x\\ln x - x + C$$\n\nEt resultat verdt å huske — og samme triks knekker de inverse trigonometriske funksjonene. For $\\int \\arctan x\\,dx$ velger vi $u = \\arctan x$ (med $u' = \\frac{1}{1+x^2}$) og $v' = 1$:\n\n$$\\int \\arctan x\\,dx = x\\arctan x - \\int \\frac{x}{1+x^2}\\,dx = x\\arctan x - \\frac{1}{2}\\ln(1+x^2) + C$$\n\nder restintegralet var et $\\frac{g'}{g}$-mønster — substitusjon og delvis integrasjon i samarbeid.\n\nNår polynomet har grad to eller høyere, må vi sveive flere runder. $\\int x^2 e^x\\,dx$: første runde med $u = x^2$ gir $x^2e^x - \\int 2xe^x\\,dx$; andre runde på restintegralet gir $2xe^x - 2e^x$. Samlet:\n\n$$\\int x^2 e^x\\,dx = e^x(x^2 - 2x + 2) + C$$\n\nTilsvarende gir to runder $\\int x^2 \\sin x\\,dx = (2 - x^2)\\cos x + 2x\\sin x + C$. Mønsteret: grad $n$ krever $n$ runder, og polynomet deriveres ett hakk per runde til det forsvinner. For lange tilfeller finnes en **tabellarisk metode** — sett opp kolonner med vekslende fortegn, derivertene av $u$ nedover ($x^3, 3x^2, 6x, 6, 0$) og integralene av $v'$ nedover, og summer diagonalproduktene. For $\\int x^3 e^{2x}\\,dx$ gir den $\\frac{e^{2x}}{8}(4x^3 - 6x^2 + 6x - 3) + C$ uten mellomregninger."
+      "content": "## Det usynlige produktet og gjentatte runder\n\nNoen integraler skjuler produktet sitt. Se på $\\int \\ln x\\,dx$ — bare én funksjon? Trikset er å skrive $\\ln x = \\ln x \\cdot 1$. Logaritmen er lett å derivere, men vond å integrere, så $u = \\ln x$, $v' = 1$, som gir $u' = \\frac{1}{x}$ og $v = x$:\n\n$$\\begin{aligned}\n\\int \\ln x\\,dx &= x\\ln x - \\int \\frac{1}{x} \\cdot x\\,dx \\\\\n&= x\\ln x - \\int 1\\,dx \\\\\n&= x\\ln x - x + C\n\\end{aligned}$$\n\nEt resultat verdt å huske. Samme valg virker når logaritmen står sammen med et polynom. For $\\int x\\ln x\\,dx$ velger vi $u = \\ln x$ og $v' = x$, slik at $u' = \\frac{1}{x}$ og $v = \\frac{x^2}{2}$:\n\n$$\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\int \\frac{x^2}{2} \\cdot \\frac{1}{x}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$$\n\nder restintegralet forenkles til $\\int \\frac{x}{2}\\,dx$ før vi integrerer.\n\nNår polynomet har grad to eller høyere, må vi sveive flere runder. $\\int x^2 e^x\\,dx$: første runde med $u = x^2$ gir $x^2e^x - \\int 2xe^x\\,dx$; andre runde på restintegralet gir $2xe^x - 2e^x$. Samlet:\n\n$$\\int x^2 e^x\\,dx = e^x(x^2 - 2x + 2) + C$$\n\nTilsvarende gir to runder $\\int x^2 \\sin x\\,dx = (2 - x^2)\\cos x + 2x\\sin x + C$. Mønsteret: grad $n$ krever $n$ runder, og polynomet deriveres ett hakk per runde til det forsvinner. For lange tilfeller finnes en **tabellarisk metode** — sett opp kolonner med vekslende fortegn, derivertene av $u$ nedover ($x^3, 3x^2, 6x, 6, 0$) og integralene av $v'$ nedover, og summer diagonalproduktene. For $\\int x^3 e^{2x}\\,dx$ gir den $\\frac{e^{2x}}{8}(4x^3 - 6x^2 + 6x - 3) + C$ uten mellomregninger."
     },
     {
       "id": "r2-3-2-n-quiz2",
@@ -257,11 +257,11 @@
           },
           {
             "id": "r2-3-2-n-quiz2-q3",
-            "task": "I beregningen av $\\int \\arctan x\\,dx$ dukker restintegralet $\\int \\frac{x}{1+x^2}\\,dx$ opp. Hvordan løses det?",
+            "task": "I beregningen av $\\int x\\ln x\\,dx$ med $u = \\ln x$ og $v' = x$ dukker restintegralet $\\int \\frac{x^2}{2} \\cdot \\frac{1}{x}\\,dx$ opp. Hvordan løses det?",
             "options": [
               {
                 "id": "d",
-                "text": "Med substitusjonen $t = 1 + x^2$, som gir $\\frac{1}{2}\\ln(1+x^2)$",
+                "text": "Forkort først: $\\frac{x^2}{2} \\cdot \\frac{1}{x} = \\frac{x}{2}$, som gir $\\frac{x^2}{4}$",
                 "isCorrect": true
               },
               {
@@ -276,11 +276,11 @@
               },
               {
                 "id": "c",
-                "text": "Det er et standardintegral lik $\\arctan x$",
+                "text": "Det gir $\\ln x$",
                 "isCorrect": false
               }
             ],
-            "solution": "Telleren er (halvparten av) nevnerens deriverte: $\\frac{g'}{g}$-mønsteret. Teknikkene samarbeider ofte — delvis integrasjon først, substitusjon på resten."
+            "solution": "Brøken forkortes: $\\frac{x^2}{2} \\cdot \\frac{1}{x} = \\frac{x}{2}$, og $\\int \\frac{x}{2}\\,dx = \\frac{x^2}{4}$. Altså er $\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$."
           }
         ]
       }
@@ -288,7 +288,7 @@
     {
       "id": "r2-3-2-n-section3",
       "type": "text",
-      "content": "## Sirkelen som løser seg selv — og bestemte integraler\n\nNå til teknikkens mest forbløffende øyeblikk. Prøv $I = \\int e^x \\sin x\\,dx$. Med $u = e^x$, $v' = \\sin x$:\n\n$$I = -e^x\\cos x + \\int e^x\\cos x\\,dx$$\n\nNy runde på restintegralet, samme rollefordeling:\n\n$$\\int e^x\\cos x\\,dx = e^x\\sin x - \\int e^x\\sin x\\,dx = e^x\\sin x - I$$\n\nVi er tilbake der vi startet — integralet $I$ dukker opp på høyre side! Men det er ikke et nederlag; det er en *likning*:\n\n$$I = -e^x\\cos x + e^x\\sin x - I \\implies 2I = e^x(\\sin x - \\cos x) \\implies I = \\frac{e^x(\\sin x - \\cos x)}{2} + C$$\n\nDette kalles **sirkulær delvis integrasjon**, og det fungerer alltid for produkter av eksponential- og trigonometriske funksjoner — to runder, så løses likningen for $I$. (Pass nøye på fortegnet foran $I$; det avgjør om du får $2I$ eller $0 = \\ldots$.) Generelt: $\\int e^{ax}\\sin(bx)\\,dx = \\frac{e^{ax}(a\\sin bx - b\\cos bx)}{a^2+b^2} + C$.\n\nFor bestemte integraler tas grensene med hele veien:\n\n$$\\int_a^b uv'\\,dx = \\Big[uv\\Big]_a^b - \\int_a^b u'v\\,dx$$\n\nEksempel: $\\int_0^1 xe^x\\,dx = \\left[xe^x\\right]_0^1 - \\int_0^1 e^x\\,dx = e - (e - 1) = 1$. Pent og rundt.\n\nNår velger man så hva? Tommelfingerregelen: *prøv substitusjon først* — ser du en kjerne med sin deriverte, er det raskere. Delvis integrasjon er riktig når integranden er et produkt av to *ulike* funksjonstyper og ingen av dem er den andres kjerne-derivert. Og i anvendelser dukker teknikken opp overalt: gjennomsnittsverdier som $\\frac{1}{2}\\int_0^2 xe^{-x}\\,dx = \\frac{1 - 3e^{-2}}{2}$, arealer, volumer og sannsynlighetsregningens forventningsverdier."
+      "content": "## Sirkelen som løser seg selv — og bestemte integraler\n\nNå til teknikkens mest forbløffende øyeblikk. Prøv $I = \\int e^x \\sin x\\,dx$. Med $u = e^x$, $v' = \\sin x$:\n\n$$I = -e^x\\cos x + \\int e^x\\cos x\\,dx$$\n\nNy runde på restintegralet, samme rollefordeling:\n\n$$\\int e^x\\cos x\\,dx = e^x\\sin x - \\int e^x\\sin x\\,dx = e^x\\sin x - I$$\n\nVi er tilbake der vi startet — integralet $I$ dukker opp på høyre side! Men det er ikke et nederlag; det er en *likning*:\n\n$$\\begin{aligned}\n&I = -e^x\\cos x + e^x\\sin x - I \\\\\n\\implies {}&2I = e^x(\\sin x - \\cos x) \\\\\n\\implies {}&I = \\frac{e^x(\\sin x - \\cos x)}{2} + C\n\\end{aligned}$$\n\nDette kalles **sirkulær delvis integrasjon**, og det fungerer alltid for produkter av eksponential- og trigonometriske funksjoner — to runder, så løses likningen for $I$. (Pass nøye på fortegnet foran $I$; det avgjør om du får $2I$ eller $0 = \\ldots$.) Generelt: $\\int e^{ax}\\sin(bx)\\,dx = \\frac{e^{ax}(a\\sin bx - b\\cos bx)}{a^2+b^2} + C$.\n\nFor bestemte integraler tas grensene med hele veien:\n\n$$\\int_a^b uv'\\,dx = \\Big[uv\\Big]_a^b - \\int_a^b u'v\\,dx$$\n\nEksempel: $\\int_0^1 xe^x\\,dx = \\left[xe^x\\right]_0^1 - \\int_0^1 e^x\\,dx = e - (e - 1) = 1$. Pent og rundt.\n\nNår velger man så hva? Tommelfingerregelen: *prøv substitusjon først* — ser du en kjerne med sin deriverte, er det raskere. Delvis integrasjon er riktig når integranden er et produkt av to *ulike* funksjonstyper og ingen av dem er den andres kjerne-derivert. Og i anvendelser dukker teknikken opp overalt: gjennomsnittsverdier som $\\frac{1}{2}\\int_0^2 xe^{-x}\\,dx = \\frac{1 - 3e^{-2}}{2}$, arealer, volumer og sannsynlighetsregningens forventningsverdier."
     },
     {
       "id": "r2-3-2-n-quiz3",
@@ -420,7 +420,7 @@
     {
       "id": "r2-3-2-n-summary",
       "type": "text",
-      "content": "## Oppsummering: byttehandelen som lønner seg\n\nDelvis integrasjon er produktregelen baklengs: $\\int uv'\\,dx = uv - \\int u'v\\,dx$ — en byttehandel der vi flytter derivasjonen fra én faktor til den andre og betaler med leddet $uv$ og et minustegn. Handelen lønner seg når det nye integralet er enklere, og **LIATE** (Logaritmer, Inverse trig., Algebraiske, Trigonometriske, Eksponentialer) forteller hvem som bør være $u$: det som blir snillere av å deriveres.\n\nVerktøykassen rommer nå flere spesialiteter: det usynlige produktet ($\\int \\ln x\\,dx = x\\ln x - x + C$ via faktoren $1$), gjentatte runder for polynomer av høyere grad ($\\int x^2e^x\\,dx = e^x(x^2-2x+2) + C$, eventuelt med tabellarisk bokføring), og den sirkulære varianten der integralet vender tilbake og løses som likning — $\\int e^x\\sin x\\,dx = \\frac{e^x(\\sin x - \\cos x)}{2} + C$. Bestemte integraler tar grensene med i hvert ledd: $\\int_0^1 xe^x\\,dx = 1$. Og strategien på toppen: prøv substitusjon først, grip til delvis integrasjon når produktet er ekte.\n\nTo teknikker er på plass. Den tredje gjelder brøker av polynomer — rasjonale funksjoner — og bygger på en idé fra brøkregningens barndom: å spalte det sammensatte i enkle deler."
+      "content": "## Oppsummering: byttehandelen som lønner seg\n\nDelvis integrasjon er produktregelen baklengs: $\\int uv'\\,dx = uv - \\int u'v\\,dx$ — en byttehandel der vi flytter derivasjonen fra én faktor til den andre og betaler med leddet $uv$ og et minustegn. Handelen lønner seg når det nye integralet er enklere, og regelen for valget er enkel: $u$ er faktoren som blir enklere av å deriveres ($\\ln x$ og polynomer), og $v'$ er en faktor som er lett å integrere.\n\nVerktøykassen rommer nå flere spesialiteter: det usynlige produktet ($\\int \\ln x\\,dx = x\\ln x - x + C$ via faktoren $1$), gjentatte runder for polynomer av høyere grad ($\\int x^2e^x\\,dx = e^x(x^2-2x+2) + C$, eventuelt med tabellarisk bokføring), og den sirkulære varianten der integralet vender tilbake og løses som likning — $\\int e^x\\sin x\\,dx = \\frac{e^x(\\sin x - \\cos x)}{2} + C$. Bestemte integraler tar grensene med i hvert ledd: $\\int_0^1 xe^x\\,dx = 1$. Og strategien på toppen: prøv substitusjon først, grip til delvis integrasjon når produktet er ekte.\n\nTo teknikker er på plass. Den tredje gjelder brøker av polynomer — rasjonale funksjoner — og bygger på en idé fra brøkregningens barndom: å spalte det sammensatte i enkle deler."
     }
   ],
   "exercises": []

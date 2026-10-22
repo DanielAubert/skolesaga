@@ -2,14 +2,14 @@
   "id": "r1-4-4-narrativ",
   "courseId": "r1",
   "chapterNumber": "4.4",
-  "title": "Produktregelen og kvotientregelen",
+  "title": "Produktregelen og brøkregelen",
   "subtitle": "Narrativ versjon",
-  "description": "En fortelling om produktregelen og kvotientregelen -- hvorfor (f · g)' ≠ f' · g', hvordan reglene egentlig virker, og hvordan de samarbeider med kjerneregelen.",
+  "description": "En fortelling om produktregelen og brøkregelen -- hvorfor (f · g)' ≠ f' · g', hvordan reglene egentlig virker, og hvordan de samarbeider med kjerneregelen.",
   "estimatedMinutes": 38,
   "competenceGoals": [
     "beherske produktregelen for derivasjon av produkter",
-    "beherske kvotientregelen for derivasjon av brøker",
-    "kunne kombinere produkt-/kvotientregelen med kjerneregelen",
+    "beherske brøkregelen for derivasjon av brøker",
+    "kunne kombinere produkt-/brøkregelen med kjerneregelen",
     "vite når man skal bruke hvilken derivasjonsregel"
   ],
   "linkedChapterId": "r1-4-4",
@@ -17,12 +17,12 @@
     {
       "id": "r1-4-4-n-intro",
       "type": "text",
-      "content": "## Fellen alle går i\n\nHer er en felle nesten alle går i minst én gang: du skal derivere et produkt, som $x^2 \\cdot e^x$, og tenker «jeg deriverer bare hver faktor for seg og ganger sammen». Det høres fornuftig ut – men det er feil, og vi kan bevise det med verdens enkleste eksempel.\n\nLa $h(x) = x \\cdot x$. Det er jo bare $x^2$, så vi vet at $h'(x) = 2x$. Men deriverer vi hver faktor for seg og ganger, får vi $1 \\cdot 1 = 1$. Og $1$ er definitivt ikke $2x$. Altså: $(f \\cdot g)' \\neq f' \\cdot g'$. Produkter og brøker av funksjoner trenger sine egne regler.\n\nI dette kapittelet fullfører vi derivasjonsverktøykassa med de to siste store reglene: **produktregelen** for funksjoner som ganges sammen, og **kvotientregelen** for funksjoner som deles på hverandre. Du lærer også å kombinere dem med kjerneregelen fra forrige kapittel – og, kanskje viktigst av alt, å se raskt hvilken regel en gitt funksjon krever. Når dette kapittelet er fordøyd, finnes det knapt en funksjon i R1-pensumet du ikke kan derivere."
+      "content": "## Fellen alle går i\n\nHer er en felle nesten alle går i minst én gang: du skal derivere et produkt, som $x^2 \\cdot e^x$, og tenker «jeg deriverer bare hver faktor for seg og ganger sammen». Det høres fornuftig ut – men det er feil, og vi kan bevise det med verdens enkleste eksempel.\n\nLa $h(x) = x \\cdot x$. Det er jo bare $x^2$, så vi vet at $h'(x) = 2x$. Men deriverer vi hver faktor for seg og ganger, får vi $1 \\cdot 1 = 1$. Og $1$ er definitivt ikke $2x$. Altså: $(f \\cdot g)' \\neq f' \\cdot g'$. Produkter og brøker av funksjoner trenger sine egne regler.\n\nI dette kapittelet fullfører vi derivasjonsverktøykassa med de to siste store reglene: **produktregelen** for funksjoner som ganges sammen, og **brøkregelen** for funksjoner som deles på hverandre. Du lærer også å kombinere dem med kjerneregelen fra forrige kapittel – og, kanskje viktigst av alt, å se raskt hvilken regel en gitt funksjon krever. Når dette kapittelet er fordøyd, finnes det knapt en funksjon i R1-pensumet du ikke kan derivere."
     },
     {
       "id": "r1-4-4-n-section1",
       "type": "text",
-      "content": "## Produktregelen: begge får derivere – etter tur\n\nProduktregelen lyder: hvis $h(x) = f(x) \\cdot g(x)$, så er $(f \\cdot g)' = f' \\cdot g + f \\cdot g'$. Huskeregelen er en liten regle: *derivert av første ganger andre, pluss første ganger derivert av andre*. Hver faktor får sin tur til å bli derivert, mens den andre står og ser på – og så summerer vi.\n\nLa oss derivere $h(x) = x^2 \\cdot e^x$. Vi setter $f(x) = x^2$ med $f'(x) = 2x$, og $g(x) = e^x$ med $g'(x) = e^x$. Regelen gir $h'(x) = 2x \\cdot e^x + x^2 \\cdot e^x$. Faktoriserer vi ut $e^x$, blir svaret ryddig: $h'(x) = (x^2 + 2x)e^x = x(x+2)e^x$. Å faktorisere svaret slik er god vane – det blir gull verdt når vi senere skal finne ut hvor den deriverte er null.\n\nEt eksempel med trigonometri: $h(x) = x \\cdot \\sin x$. Med $f(x) = x$, $f'(x) = 1$ og $g(x) = \\sin x$, $g'(x) = \\cos x$ får vi $h'(x) = \\sin x + x\\cos x$.\n\nHva om det er *tre* faktorer, som $h(x) = x^2 \\cdot e^x \\cdot \\ln x$? Da bruker vi produktregelen to ganger, og mønsteret generaliserer vakkert: $(f \\cdot g \\cdot k)' = f' g k + f g' k + f g k'$ – hver faktor deriveres etter tur mens de andre venter. Med $f' = 2x$, $g' = e^x$ og $k' = \\frac{1}{x}$ blir summen $2x e^x \\ln x + x^2 e^x \\ln x + x^2 e^x \\cdot \\frac{1}{x}$, som kan samles til $xe^x(2\\ln x + x\\ln x + 1)$."
+      "content": "## Produktregelen: begge får derivere – etter tur\n\nProduktregelen lyder: hvis $h(x) = f(x) \\cdot g(x)$, så er $(f \\cdot g)' = f' \\cdot g + f \\cdot g'$. Huskeregelen er en liten regle: *derivert av første ganger andre, pluss første ganger derivert av andre*. Hver faktor får sin tur til å bli derivert, mens den andre står og ser på – og så summerer vi.\n\nLa oss derivere $h(x) = x^2 \\cdot e^x$. Vi setter $f(x) = x^2$ med $f'(x) = 2x$, og $g(x) = e^x$ med $g'(x) = e^x$. Regelen gir $h'(x) = 2x \\cdot e^x + x^2 \\cdot e^x$. Faktoriserer vi ut $e^x$, blir svaret ryddig: $h'(x) = (x^2 + 2x)e^x = x(x+2)e^x$. Å faktorisere svaret slik er god vane – det blir gull verdt når vi senere skal finne ut hvor den deriverte er null.\n\nEt eksempel med logaritme: $h(x) = x^2 \\cdot \\ln x$. Med $f(x) = x^2$, $f'(x) = 2x$ og $g(x) = \\ln x$, $g'(x) = \\frac{1}{x}$ får vi $h'(x) = 2x\\ln x + x$.\n\nHva om det er *tre* faktorer, som $h(x) = x^2 \\cdot e^x \\cdot \\ln x$? Da bruker vi produktregelen to ganger, og mønsteret generaliserer vakkert: $(f \\cdot g \\cdot k)' = f' g k + f g' k + f g k'$ – hver faktor deriveres etter tur mens de andre venter. Med $f' = 2x$, $g' = e^x$ og $k' = \\frac{1}{x}$ blir summen $2x e^x \\ln x + x^2 e^x \\ln x + x^2 e^x \\cdot \\frac{1}{x}$, som kan samles til $xe^x(2\\ln x + x\\ln x + 1)$."
     },
     {
       "id": "r1-4-4-n-quiz1",
@@ -96,30 +96,30 @@
           },
           {
             "id": "r1-4-4-n-quiz1-q2",
-            "task": "Hva er den deriverte av $h(x) = x \\sin x$?",
+            "task": "Hva er den deriverte av $h(x) = x^2 \\ln x$?",
             "options": [
               {
                 "id": "b",
-                "text": "$\\cos x$",
+                "text": "$2$",
                 "isCorrect": false
               },
               {
                 "id": "a",
-                "text": "$\\sin x + x\\cos x$",
+                "text": "$2x\\ln x + x$",
                 "isCorrect": true
               },
               {
                 "id": "c",
-                "text": "$x \\cos x$",
+                "text": "$2x\\ln x$",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$\\sin x - x \\cos x$",
+                "text": "$2x\\ln x - x$",
                 "isCorrect": false
               }
             ],
-            "solution": "Produktregelen med $f(x) = x$ og $g(x) = \\sin x$: $h'(x) = 1 \\cdot \\sin x + x \\cdot \\cos x = \\sin x + x\\cos x$."
+            "solution": "Produktregelen med $f(x) = x^2$ og $g(x) = \\ln x$: $h'(x) = 2x \\cdot \\ln x + x^2 \\cdot \\frac{1}{x} = 2x\\ln x + x$."
           },
           {
             "id": "r1-4-4-n-quiz1-q3",
@@ -154,7 +154,7 @@
     {
       "id": "r1-4-4-n-section2",
       "type": "text",
-      "content": "## Kvotientregelen: pass på minusen\n\nBrøker av funksjoner får sin egen regel. Hvis $h(x) = \\frac{f(x)}{g(x)}$ og $g(x) \\neq 0$, så er $\\left(\\frac{f}{g}\\right)' = \\frac{f' \\cdot g - f \\cdot g'}{g^2}$. Reglen ligner produktregelen, men med to viktige forskjeller: det er **minus** i telleren, ikke pluss – og hele uttrykket deles på nevneren i andre. Huskeregelen: *derivert av teller ganger nevner, minus teller ganger derivert av nevner, delt på nevner i andre*. Og fordi det er minus der, spiller rekkefølgen rolle: det er $f'g - fg'$, aldri omvendt.\n\nLa oss prøve på $h(x) = \\frac{x^2}{e^x}$. Teller: $f(x) = x^2$, $f'(x) = 2x$. Nevner: $g(x) = e^x$, $g'(x) = e^x$. Regelen gir $h'(x) = \\frac{2x \\cdot e^x - x^2 \\cdot e^x}{(e^x)^2}$. Faktoriserer vi ut $e^x$ i telleren og forkorter mot nevneren $e^{2x}$, lander vi på $h'(x) = \\frac{2x - x^2}{e^x} = \\frac{x(2-x)}{e^x}$.\n\nKvotientregelen gir oss også en perle på kjøpet: den deriverte av tangens. Vi skriver $\\tan x = \\frac{\\sin x}{\\cos x}$ og deriverer: $\\frac{\\cos x \\cdot \\cos x - \\sin x \\cdot (-\\sin x)}{\\cos^2 x} = \\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x}$. Og siden $\\cos^2 x + \\sin^2 x = 1$ – den trigonometriske identiteten over alle – får vi det elegante resultatet $(\\tan x)' = \\frac{1}{\\cos^2 x}$, som også kan skrives $1 + \\tan^2 x$. Et halvt minutt med kvotientregelen, og en helt ny derivasjonsformel er født."
+      "content": "## Brøkregelen: pass på minusen\n\nBrøker av funksjoner får sin egen regel. Hvis $h(x) = \\frac{f(x)}{g(x)}$ og $g(x) \\neq 0$, så er $\\left(\\frac{f}{g}\\right)' = \\frac{f' \\cdot g - f \\cdot g'}{g^2}$. Reglen ligner produktregelen, men med to viktige forskjeller: det er **minus** i telleren, ikke pluss – og hele uttrykket deles på nevneren i andre. Huskeregelen: *derivert av teller ganger nevner, minus teller ganger derivert av nevner, delt på nevner i andre*. Og fordi det er minus der, spiller rekkefølgen rolle: det er $f'g - fg'$, aldri omvendt.\n\nLa oss prøve på $h(x) = \\frac{x^2}{e^x}$. Teller: $f(x) = x^2$, $f'(x) = 2x$. Nevner: $g(x) = e^x$, $g'(x) = e^x$. Regelen gir $h'(x) = \\frac{2x \\cdot e^x - x^2 \\cdot e^x}{(e^x)^2}$. Faktoriserer vi ut $e^x$ i telleren og forkorter mot nevneren $e^{2x}$, lander vi på $h'(x) = \\frac{2x - x^2}{e^x} = \\frac{x(2-x)}{e^x}$."
     },
     {
       "id": "r1-4-4-n-quiz2",
@@ -163,7 +163,7 @@
         "id": "r1-4-4-n-quiz2",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg selv på kvotientregelen:",
+        "task": "Test deg selv på brøkregelen:",
         "options": [
           {
             "id": "a",
@@ -174,7 +174,7 @@
         "questions": [
           {
             "id": "r1-4-4-n-quiz2-q0",
-            "task": "Hva er kvotientregelen for $\\left(\\frac{f}{g}\\right)'$?",
+            "task": "Hva er brøkregelen for $\\left(\\frac{f}{g}\\right)'$?",
             "options": [
               {
                 "id": "a",
@@ -197,7 +197,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "Kvotientregelen har minus i telleren, og rekkefølgen er viktig: $\\frac{f'g - fg'}{g^2}$."
+            "solution": "Brøkregelen har minus i telleren, og rekkefølgen er viktig: $\\frac{f'g - fg'}{g^2}$."
           },
           {
             "id": "r1-4-4-n-quiz2-q1",
@@ -224,34 +224,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Kvotientregelen gir $\\frac{2xe^x - x^2e^x}{e^{2x}} = \\frac{2x - x^2}{e^x} = \\frac{x(2-x)}{e^x}$."
-          },
-          {
-            "id": "r1-4-4-n-quiz2-q2",
-            "task": "Hva er den deriverte av $\\tan x$?",
-            "options": [
-              {
-                "id": "b",
-                "text": "$\\frac{1}{\\sin^2 x}$",
-                "isCorrect": false
-              },
-              {
-                "id": "a",
-                "text": "$\\frac{1}{\\cos^2 x}$",
-                "isCorrect": true
-              },
-              {
-                "id": "c",
-                "text": "$-\\frac{1}{\\cos^2 x}$",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "$\\frac{\\cos x}{\\sin x}$",
-                "isCorrect": false
-              }
-            ],
-            "solution": "Skriv $\\tan x = \\frac{\\sin x}{\\cos x}$ og bruk kvotientregelen: $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$, siden $\\cos^2 x + \\sin^2 x = 1$."
+            "solution": "Brøkregelen gir $\\frac{2xe^x - x^2e^x}{e^{2x}} = \\frac{2x - x^2}{e^x} = \\frac{x(2-x)}{e^x}$."
           }
         ]
       }
@@ -259,7 +232,7 @@
     {
       "id": "r1-4-4-n-section3",
       "type": "text",
-      "content": "## Når reglene jobber sammen\n\nI virkeligheten kommer funksjonene sjelden i rene kategorier. Ofte er en av faktorene i et produkt selv en sammensatt funksjon – og da må produktregelen og kjerneregelen samarbeide.\n\nTa $h(x) = x^2 \\cdot e^{3x}$. Dette er et produkt, så vi starter med produktregelen. Men når vi skal derivere faktoren $e^{3x}$, trengs kjerneregelen: kjernen $3x$ har derivert 3, så $(e^{3x})' = 3e^{3x}$. Produktregelen gir dermed $h'(x) = 2x \\cdot e^{3x} + x^2 \\cdot 3e^{3x} = e^{3x}(2x + 3x^2) = xe^{3x}(2 + 3x)$.\n\nSamme historie med brøker. For $h(x) = \\frac{\\ln(x^2+1)}{x}$ deriverer vi telleren med kjerneregelen: $(\\ln(x^2+1))' = \\frac{2x}{x^2+1}$. Kvotientregelen gir så $h'(x) = \\frac{\\frac{2x}{x^2+1} \\cdot x - \\ln(x^2+1) \\cdot 1}{x^2}$, som kan ryddes til $\\frac{2x^2 - (x^2+1)\\ln(x^2+1)}{x^2(x^2+1)}$.\n\nHvordan vet du hvilken regel du skal gripe til? Still deg spørsmålet: *hva er den ytterste strukturen i uttrykket?* Er det en enkel standardfunksjon som $x^n$, $e^x$, $\\ln x$ eller $\\sin x$, bruker du standardreglene direkte. Er det en funksjon *inni* en funksjon, som $e^{x^2}$ eller $\\sin(3x)$ – kjerneregelen. Er det to funksjoner *ganget* sammen, som $x \\cdot e^x$ – produktregelen. Er det en *brøk* av to funksjoner, som $\\frac{\\sin x}{x}$ – kvotientregelen. Og før du velger i det hele tatt: sjekk om uttrykket kan forenkles! $\\frac{1}{x^2}$ er raskere som $x^{-2}$ med potensregelen, og $\\frac{e^x}{e^{2x}}$ bør forenkles til $e^{-x}$ før du rører en eneste regel."
+      "content": "## Når reglene jobber sammen\n\nI virkeligheten kommer funksjonene sjelden i rene kategorier. Ofte er en av faktorene i et produkt selv en sammensatt funksjon – og da må produktregelen og kjerneregelen samarbeide.\n\nTa $h(x) = x^2 \\cdot e^{3x}$. Dette er et produkt, så vi starter med produktregelen. Men når vi skal derivere faktoren $e^{3x}$, trengs kjerneregelen: kjernen $3x$ har derivert 3, så $(e^{3x})' = 3e^{3x}$. Produktregelen gir dermed $h'(x) = 2x \\cdot e^{3x} + x^2 \\cdot 3e^{3x} = e^{3x}(2x + 3x^2) = xe^{3x}(2 + 3x)$.\n\nSamme historie med brøker. For $h(x) = \\frac{\\ln(x^2+1)}{x}$ deriverer vi telleren med kjerneregelen: $(\\ln(x^2+1))' = \\frac{2x}{x^2+1}$. Brøkregelen gir så $h'(x) = \\frac{\\frac{2x}{x^2+1} \\cdot x - \\ln(x^2+1) \\cdot 1}{x^2}$, som kan ryddes til $\\frac{2x^2 - (x^2+1)\\ln(x^2+1)}{x^2(x^2+1)}$.\n\nHvordan vet du hvilken regel du skal gripe til? Still deg spørsmålet: *hva er den ytterste strukturen i uttrykket?* Er det en enkel standardfunksjon som $x^n$, $e^x$ eller $\\ln x$, bruker du standardreglene direkte. Er det en funksjon *inni* en funksjon, som $e^{x^2}$ eller $e^{3x}$ – kjerneregelen. Er det to funksjoner *ganget* sammen, som $x \\cdot e^x$ – produktregelen. Er det en *brøk* av to funksjoner, som $\\frac{\\ln x}{x}$ – brøkregelen. Og før du velger i det hele tatt: sjekk om uttrykket kan forenkles! $\\frac{1}{x^2}$ er raskere som $x^{-2}$ med potensregelen, og $\\frac{e^x}{e^{2x}}$ bør forenkles til $e^{-x}$ før du rører en eneste regel."
     },
     {
       "id": "r1-4-4-n-quiz3",
@@ -298,7 +271,7 @@
               },
               {
                 "id": "d",
-                "text": "$6xe^{3x}$",
+                "text": "$3x^2e^{3x}$",
                 "isCorrect": false
               }
             ],
@@ -306,7 +279,7 @@
           },
           {
             "id": "r1-4-4-n-quiz3-q1",
-            "task": "Hvilken regel er den naturlige førstevalget for å derivere $\\sin(3x)$?",
+            "task": "Hvilken regel er den naturlige førstevalget for å derivere $e^{3x}$?",
             "options": [
               {
                 "id": "a",
@@ -315,7 +288,7 @@
               },
               {
                 "id": "c",
-                "text": "Kvotientregelen",
+                "text": "Brøkregelen",
                 "isCorrect": false
               },
               {
@@ -329,7 +302,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "$\\sin(3x)$ er en sammensatt funksjon – $\\sin u$ med kjerne $u = 3x$. Da er kjerneregelen riktig verktøy."
+            "solution": "$e^{3x}$ er en sammensatt funksjon – $e^u$ med kjerne $u = 3x$. Da er kjerneregelen riktig verktøy."
           },
           {
             "id": "r1-4-4-n-quiz3-q2",
@@ -342,7 +315,7 @@
               },
               {
                 "id": "b",
-                "text": "Kvotientregelen med $f = 1$ og $g = x^2$",
+                "text": "Brøkregelen med $f = 1$ og $g = x^2$",
                 "isCorrect": false
               },
               {
@@ -356,7 +329,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Kvotientregelen fungerer, men omskrivingen $\\frac{1}{x^2} = x^{-2}$ gir svaret $-2x^{-3}$ på ett steg. Forenkle alltid først hvis du kan."
+            "solution": "Brøkregelen fungerer, men omskrivingen $\\frac{1}{x^2} = x^{-2}$ gir svaret $-2x^{-3}$ på ett steg. Forenkle alltid først hvis du kan."
           }
         ]
       }
@@ -364,7 +337,7 @@
     {
       "id": "r1-4-4-n-summary",
       "type": "text",
-      "content": "## Verktøykassa er komplett\n\nMed dette kapittelet har du de fire store derivasjonsreglene samlet. **Produktregelen**, $(f \\cdot g)' = f'g + fg'$, lar hver faktor bli derivert etter tur – og for tre faktorer fortsetter mønsteret med tre ledd. **Kvotientregelen**, $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$, håndterer brøker – med den lumske minusen i telleren der rekkefølgen $f'g - fg'$ er hellig. Som bonus ga den oss $(\\tan x)' = \\frac{1}{\\cos^2 x}$.\n\nDu har også sett reglene samarbeide: når en faktor eller teller selv er sammensatt, som i $x^2 e^{3x}$ eller $\\frac{\\ln(x^2+1)}{x}$, går kjerneregelen inn som hjelpemotor i produkt- eller kvotientregelen.\n\nDet viktigste grepet er likevel blikket: se på uttrykkets ytterste struktur. Standardfunksjon? Direkte regel. Funksjon i funksjon? Kjerneregel. Produkt? Produktregel. Brøk? Kvotientregel. Og aller først – kan uttrykket forenkles, slik at du slipper de tunge reglene helt?\n\nHusk fellen vi startet med: $(f \\cdot g)' \\neq f' \\cdot g'$. Nå vet du ikke bare *at* det er feil, men nøyaktig hva som er riktig i stedet. Herfra skal derivasjonen settes i arbeid – på funksjonsdrøfting, optimering og alt det den deriverte egentlig ble oppfunnet for."
+      "content": "## Verktøykassa er komplett\n\nMed dette kapittelet har du de fire store derivasjonsreglene samlet. **Produktregelen**, $(f \\cdot g)' = f'g + fg'$, lar hver faktor bli derivert etter tur – og for tre faktorer fortsetter mønsteret med tre ledd. **Brøkregelen**, $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$, håndterer brøker – med den lumske minusen i telleren der rekkefølgen $f'g - fg'$ er hellig.\n\nDu har også sett reglene samarbeide: når en faktor eller teller selv er sammensatt, som i $x^2 e^{3x}$ eller $\\frac{\\ln(x^2+1)}{x}$, går kjerneregelen inn som hjelpemotor i produkt- eller brøkregelen.\n\nDet viktigste grepet er likevel blikket: se på uttrykkets ytterste struktur. Standardfunksjon? Direkte regel. Funksjon i funksjon? Kjerneregel. Produkt? Produktregel. Brøk? Brøkregel. Og aller først – kan uttrykket forenkles, slik at du slipper de tunge reglene helt?\n\nHusk fellen vi startet med: $(f \\cdot g)' \\neq f' \\cdot g'$. Nå vet du ikke bare *at* det er feil, men nøyaktig hva som er riktig i stedet. Herfra skal derivasjonen settes i arbeid – på funksjonsdrøfting, optimering og alt det den deriverte egentlig ble oppfunnet for."
     }
   ],
   "exercises": []

@@ -7,8 +7,8 @@
   "description": "Ei forteljing om aritmetiske følgjer — frå Gauss' geniale parings-triks som niåring til formlane for ledd og summar i jamt veksande tallmønster.",
   "estimatedMinutes": 30,
   "competenceGoals": [
-    "forsta og bruke formler for aritmetiske følger",
-    "anvende aritmetiske følger i praktiske situasjoner"
+    "forstå og bruke formlar for aritmetiske følgjer",
+    "bruke aritmetiske følgjer i praktiske situasjonar"
   ],
   "linkedChapterId": "r2-1-2",
   "content": [
@@ -262,16 +262,16 @@
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "3f20f03dd92703ee",
-    "translatedAt": "2026-06-20T00:39:24.694Z",
-    "model": "claude-code-agent",
+    "sourceHash": "b4de0ab33e1d6665",
+    "translatedAt": "2026-10-21T19:46:38.417Z",
+    "model": "claude-code-agent (synk 21.10.2026)",
     "strings": 40,
     "tm": {
       "7fb17ef922ec543d": "Aritmetiske følgjer",
       "b195b06d1ed59702": "Narrativ versjon",
       "6c88642748e495fa": "Ei forteljing om aritmetiske følgjer — frå Gauss' geniale parings-triks som niåring til formlane for ledd og summar i jamt veksande tallmønster.",
-      "ca60049539f326e4": "forsta og bruke formler for aritmetiske følger",
-      "d34919f5b636efeb": "anvende aritmetiske følger i praktiske situasjoner",
+      "e4a8040ebc2f5624": "forstå og bruke formlar for aritmetiske følgjer",
+      "d34919f5b636efeb": "bruke aritmetiske følgjer i praktiske situasjonar",
       "e7baae0ba2694d38": "## Den late skoleguten og det geniale trikset\n\nDet vert fortalt at den tyske matematikaren Carl Friedrich Gauss som niåring fekk ei straffeoppgåve av læraren: legg saman alle tala frå $1$ til $100$. Medan klassekameratane sveitta over kolonnar med addisjon, leverte Gauss svaret etter få sekund: $5050$. Trikset hans? Han para tala frå kvar si ende — $1 + 100 = 101$, $2 + 99 = 101$, $3 + 98 = 101$ — og innsåg at han hadde $50$ slike par. Altså $50 \\cdot 101 = 5050$.\n\nTala $1, 2, 3, \\ldots, 100$ er eit eksempel på ei **aritmetisk følgje**: ei følgje der du legg til det same talet for kvart steg. Slike følgjer dukkar opp overalt — i sparepengar som veks med fast beløp kvar månad, i seteradene i eit amfi og i prislister med fast påslag. I dette kapittelet skal vi finne formlar for både ledda og summen, og du skal få sjå at barndomstrikset til Gauss er sjølve nøkkelen til sumformelen.",
       "4a56d664149fc9d0": "## Kva kjenneteiknar ei aritmetisk følgje?\n\nTenk deg at du set av $500$ kroner kvar månad. Sparesaldoen din blir $500, 1000, 1500, 2000, 2500, \\ldots$ — for kvart steg vert det same beløpet lagt til. Dette er kjernen i ei **aritmetisk følgje**: differansen mellom påfølgjande ledd er konstant. Vi kallar han $d$ og skriv $d = a_{n+1} - a_n$.\n\nDifferansen kan godt vere negativ. Følgja $20, 17, 14, 11, \\ldots$ er aritmetisk med $d = -3$ — ho søkk like jamt som sparekontoen voks. Vil du sjekke om ei følgje er aritmetisk, reknar du rett og slett ut differansane: for $2, 5, 8, 11, 14, \\ldots$ får vi $5-2 = 3$, $8-5 = 3$ og $11-8 = 3$. Konstant differanse, altså aritmetisk med $d = 3$.\n\nNo til den eksplisitte formelen. For å kome frå $a_1$ til $a_n$ tek vi $n - 1$ steg, og kvart steg legg til $d$. Dermed:\n\n$$a_n = a_1 + (n-1) \\cdot d$$\n\nHar ei følgje $a_1 = 7$ og $d = 4$, blir ledd nummer femti $a_{50} = 7 + 49 \\cdot 4 = 7 + 196 = 203$. Formelen verkar òg baklengs: veit vi at $a_3 = 11$ og $a_7 = 27$, er det $7 - 3 = 4$ steg mellom dei, så $27 = 11 + 4d$, som gjev $d = 4$.",
       "b08c2ba712cfe9bd": "Test deg sjølv på aritmetiske følgjer:",
@@ -294,15 +294,15 @@
       "e8dd990eda6c4433": "Ei aritmetisk følgje har $a_1 = 4$ og $a_{10} = 31$. Kva er summen av dei ti første ledda?",
       "d0bdab909bfb0da2": "$S_{10} = \\frac{10(a_1 + a_{10})}{2} = \\frac{10(4 + 31)}{2} = \\frac{350}{2} = 175$.",
       "cd813b61fd8dab01": "Du sparar $1000$ kr første månad og aukar med $200$ kr kvar månad. Kor mykje har du spart til saman etter $12$ månader?",
-      "8edf94af14f1d270": "$25\\,200$ kr",
       "59f806b3ed431317": "$26\\,400$ kr",
       "afb88a3cd1d2ead3": "$24\\,000$ kr",
       "b6f706bb3a32fc6e": "$13\\,200$ kr",
+      "8edf94af14f1d270": "$25\\,200$ kr",
       "86e6845a22da0348": "$S_{12} = \\frac{12}{2}(2 \\cdot 1000 + 11 \\cdot 200) = 6 \\cdot 4200 = 25\\,200$ kr.",
       "a27158386b5bf175": "Kva tolking av sumformelen $S_n = \\frac{n(a_1 + a_n)}{2}$ er rett?",
+      "86cde09400aa7da6": "Gjennomsnittet av første og siste ledd, ganga med talet på ledd",
       "17c04a7fb2e30b0e": "Differansen ganga med talet på ledd",
       "2aa5f0e59f0a798d": "Det midtarste leddet ganga med differansen",
-      "86cde09400aa7da6": "Gjennomsnittet av første og siste ledd, ganga med talet på ledd",
       "574f93afb7e994d3": "Halvparten av siste ledd ganga med talet på ledd",
       "898b8d0b57c0c2fa": "$\\frac{a_1 + a_n}{2}$ er gjennomsnittet av første og siste ledd, og i ei aritmetisk følgje er dette òg gjennomsnittet av alle ledda. Summen blir gjennomsnittet ganga med $n$.",
       "59cf78e421bef0fe": "## Oppsummering: jamne steg og smarte par\n\nEi aritmetisk følgje er matematikkens jamne trapp: differansen $d = a_{n+1} - a_n$ er den same heile vegen, anten han er positiv som i sparekontoen eller negativ som i ein jamt synkande temperatur. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ tek oss direkte til eit kva som helst trinn, og kjenner vi to ledd, kan vi alltid rekne oss tilbake til både $d$ og $a_1$.\n\nDen store gevinsten i kapittelet er sumformelen. Gauss' parings-triks — første pluss siste, andre pluss nest siste — gav oss $S_n = \\frac{n(a_1 + a_n)}{2}$, gjennomsnittet av ytterledda ganga med talet på ledd. Med varianten $S_n = \\frac{n}{2}(2a_1 + (n-1)d)$ slepp vi til og med å kjenne det siste leddet. Dermed kan eit heilt års sparing, hundrevis av seterader eller summen av dei tusen første oddetala reknast ut på éi linje. I neste kapittel byter vi ut addisjon med multiplikasjon og møter dei geometriske følgjene — der veks ikkje trappa jamt, men stadig brattare."

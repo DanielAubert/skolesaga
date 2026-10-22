@@ -15,6 +15,12 @@
   "linkedChapterId": "r1-8-1",
   "content": [
     {
+      "id": "r1-8-1-narrativ-lk20-merknad",
+      "type": "note",
+      "title": "Fordjuping (utanfor læreplanen)",
+      "content": "**Utanfor R1 i gjeldande læreplan.** Kombinatorikk og sannsyn er ikkje ein del av R1 i gjeldande læreplan (LK20). Kapittelet står her som fordjuping og er ikkje eksamensstoff i R1."
+    },
+    {
       "id": "r1-8-1-n-intro",
       "type": "text",
       "content": "## Kunsten å telje utan å telje\n\nDu står framfor menyen på ein kafé: to hovudrettar og tre dessertar. Kor mange forskjellige måltid kan du setje saman? Du kunne ramsa opp alle – burgar med is, burgar med kake, burgar med frukt, pasta med is... – men det finst ein snarveg: $2 \\cdot 3 = 6$. Ferdig.\n\nDette er **kombinatorikk**: kunsten å telje talet på moglegheiter *utan* å liste opp alle saman. Det høyrest beskjedent ut, men det er sjølve grunnmuren under sannsynsrekninga du skal lære i resten av kapittel 8 – for å finne sannsynet for noko, må du nesten alltid telje kor mange måtar det kan skje på.\n\nI dette kapittelet lærer du dei to grunnprinsippa som nesten all teljing byggjer på: **multiplikasjonsprinsippet** (for val som blir gjorde etter kvarandre) og **addisjonsprinsippet** (for val som utelukkar kvarandre). Og du får eit visuelt verktøy på kjøpet: valtreet."
@@ -375,14 +381,14 @@
                 "isCorrect": false
               },
               {
-                "id": "c",
-                "text": "Vala må vere uavhengige",
-                "isCorrect": false
-              },
-              {
                 "id": "d",
                 "text": "Alternativa må vere gjensidig utelukkande",
                 "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Vala må vere uavhengige",
+                "isCorrect": false
               }
             ],
             "solution": "Ingen utfall skal kunne teljast to gonger – alternativa må ikkje ha felles utfall."
@@ -398,7 +404,7 @@
               },
               {
                 "id": "c",
-                "text": "$26^5 \\cdot 10^5$",
+                "text": "$2 \\cdot 26^3 \\cdot 10^2$",
                 "isCorrect": false
               },
               {
@@ -426,10 +432,10 @@
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "34a889e375b8cfc8",
-    "translatedAt": "2026-06-20T00:22:25.752Z",
-    "model": "claude-code-agent",
-    "strings": 76,
+    "sourceHash": "562a964baa830c58",
+    "translatedAt": "2026-10-21T19:46:38.372Z",
+    "model": "claude-code-agent (synk 21.10.2026)",
+    "strings": 78,
     "tm": {
       "04dc0e3cb71b58ae": "Multiplikasjonsprinsippet og valtre",
       "b195b06d1ed59702": "Narrativ versjon",
@@ -438,6 +444,8 @@
       "fa96bc5367787867": "bruke multiplikasjonsprinsippet på samansette val",
       "3c434336612f9e8e": "bruke addisjonsprinsippet når val utelukkar kvarandre",
       "cc87b8dbe7b49826": "kombinere prinsippa i praktiske teljeproblem",
+      "1139401b5d60d445": "Fordjuping (utanfor læreplanen)",
+      "2915ab35a3e4d62a": "**Utanfor R1 i gjeldande læreplan.** Kombinatorikk og sannsyn er ikkje ein del av R1 i gjeldande læreplan (LK20). Kapittelet står her som fordjuping og er ikkje eksamensstoff i R1.",
       "846a48f6f8467f9f": "## Kunsten å telje utan å telje\n\nDu står framfor menyen på ein kafé: to hovudrettar og tre dessertar. Kor mange forskjellige måltid kan du setje saman? Du kunne ramsa opp alle – burgar med is, burgar med kake, burgar med frukt, pasta med is... – men det finst ein snarveg: $2 \\cdot 3 = 6$. Ferdig.\n\nDette er **kombinatorikk**: kunsten å telje talet på moglegheiter *utan* å liste opp alle saman. Det høyrest beskjedent ut, men det er sjølve grunnmuren under sannsynsrekninga du skal lære i resten av kapittel 8 – for å finne sannsynet for noko, må du nesten alltid telje kor mange måtar det kan skje på.\n\nI dette kapittelet lærer du dei to grunnprinsippa som nesten all teljing byggjer på: **multiplikasjonsprinsippet** (for val som blir gjorde etter kvarandre) og **addisjonsprinsippet** (for val som utelukkar kvarandre). Og du får eit visuelt verktøy på kjøpet: valtreet.",
       "b5ca53614ecb54ff": "## Valtre og multiplikasjonsprinsippet\n\nEit **valtre** er eit kart over alle moglegheitene. Kvart val er ei forgreining, og kvar veg frå rota til eit blad er eitt komplett utfall. Sei at du har 2 skjorter (kvit, blå) og 3 bukser (svart, grå, beige). Frå «kvit» går tre greiner – kvit-svart, kvit-grå, kvit-beige – og frå «blå» går tre til. Seks blad, seks antrekk.\n\nTreet avslører mønsteret: kvar av dei 2 skjortene gir 3 bukseval, altså $2 \\cdot 3 = 6$. Dette generaliserer til **multiplikasjonsprinsippet**: om eit samansett val består av $k$ delval som kan gjerast på høvesvis $n_1, n_2, \\ldots, n_k$ måtar, og vala er uavhengige av kvarandre, er totalt tal på moglegheiter\n\n$$n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$$\n\nLa oss skalere opp. Eit kodeord består av 3 bokstavar (norsk alfabet, 29 bokstavar) etterfølgt av 2 siffer. Med gjentaking tillaten: $29 \\cdot 29 \\cdot 29 \\cdot 10 \\cdot 10 = 29^3 \\cdot 10^2 = 2\\,438\\,900$ kodeord. Eller bilskilt med 2 bokstavar (engelsk alfabet, 26) og 5 siffer: $26^2 \\cdot 10^5 = 67\\,600\\,000$ moglegheiter. Prøv å liste opp *det* i eit valtre – prinsippet gjer jobben på sekund.\n\nValtreet er likevel uvurderleg når talet er lite, eller når vilkåra endrar seg undervegs i valsekvensen. Prinsippet er motoren; treet er kartet.",
       "a75f80d8204ada31": "Test deg sjølv på multiplikasjonsprinsippet:",
@@ -445,14 +453,14 @@
       "304635e8b3a0cc1f": "Du har 2 skjorter og 3 bukser. Kor mange antrekk kan du lage?",
       "7de8c80f9a091acc": "Multiplikasjonsprinsippet: $2 \\cdot 3 = 6$ antrekk – kvar skjorte kan kombinerast med kvar bukse.",
       "3ebaf02ff2046c1d": "Eit kodeord har 3 bokstavar (29 moglege) og 2 siffer (10 moglege), med gjentaking tillaten. Kor mange kodeord finst?",
-      "15352a21bf9702a4": "$29 \\cdot 3 + 10 \\cdot 2$",
       "b611a2a76163eafc": "$29^3 \\cdot 10^2$",
+      "15352a21bf9702a4": "$29 \\cdot 3 + 10 \\cdot 2$",
       "83083444dc76a2dc": "$3^{29} \\cdot 2^{10}$",
       "2b92d3ca671a8754": "Fem delval etter kvarandre: $29 \\cdot 29 \\cdot 29 \\cdot 10 \\cdot 10 = 29^3 \\cdot 10^2 = 2\\,438\\,900$.",
       "69fb950300f5a966": "Kva representerer kvart blad (endepunkt) i eit valtre?",
-      "da744d9ddba7639a": "Eitt komplett utfall – éin heil valsekvens",
       "400a8e4cd8eaa819": "Eitt delval",
       "b06b25f783c7fda3": "Talet på moglegheiter i neste steg",
+      "da744d9ddba7639a": "Eitt komplett utfall – éin heil valsekvens",
       "b580eb46f681008e": "Ein umogleg kombinasjon",
       "51f0c9563a70e99c": "Kvar veg frå rot til blad svarar til éin fullstendig sekvens av val, altså eitt utfall.",
       "b99ebfbdcb55f170": "Kor mange bilskilt med 2 bokstavar (26 moglege) og 5 siffer finst?",
@@ -469,15 +477,15 @@
       "974d98aadfa0e48a": "Utan gjentaking søkk talet på moglegheiter for kvart val: $29 \\cdot 28 \\cdot 27$.",
       "74e63a2c4f1bd48b": "Kvifor blir det færre moglegheiter utan gjentaking enn med?",
       "22763294acf2830e": "Fordi addisjonsprinsippet blir brukt i staden",
-      "bf02af539306cb45": "Fordi valtreet får fleire greiner",
       "d99eb0ec348355d8": "Fordi kvart val fjernar éi moglegheit for dei neste vala",
+      "bf02af539306cb45": "Fordi valtreet får fleire greiner",
       "23cb483bb9a80fe2": "Det blir ikkje færre – talet er det same",
       "09be75546374cf74": "Kvart brukt element er utelukka i seinare delval, så faktorane søkk: $n$, $n-1$, $n-2$, ...",
       "c08e0af59038e454": "Kva for ein situasjon inneber val UTAN gjentaking?",
       "a4f02dc030fdb577": "Å kaste ein terning fire gonger",
       "ab19313a3fccbe5c": "Å velje ein firesifra PIN-kode",
-      "e51e3fd6485e7726": "Å svare på fem ja/nei-spørsmål",
       "37bb6ac057fc0d64": "Å setje opp rekkjefølgja på eit stafettlag",
+      "e51e3fd6485e7726": "Å svare på fem ja/nei-spørsmål",
       "a612eca563017f99": "Same løpar kan ikkje gå to etappar – kvart val fjernar ei moglegheit. Terningkast, PIN-kodar og ja/nei-svar tillèt gjentaking.",
       "4fd38ca4ab45a7a0": "Eit kodeord skal ha 2 ulike siffer. På kor mange måtar kan siffera veljast (rekkjefølgja tel)?",
       "5addbb7af51dec43": "Første siffer: 10 moglegheiter, andre: 9 (må vere ulikt). $10 \\cdot 9 = 90$.",
@@ -489,20 +497,20 @@
       "af671d23b1db2a73": "Vala utelukkar kvarandre – vi vel anten ein gut eller ei jente. Addisjonsprinsippet gir $15 + 12 = 27$.",
       "71a81efa4bcf6ef5": "Kva for ein hugseregel knyter språk til rekneoperasjon?",
       "742323c0401bfac2": "«og» tyder addisjon, «eller» tyder multiplikasjon",
-      "d92c7c24bf0f4a4f": "«og» og «eller» tyder begge multiplikasjon",
       "eadd9fb36307ca37": "«og» tyder multiplikasjon, «eller» tyder addisjon",
+      "d92c7c24bf0f4a4f": "«og» og «eller» tyder begge multiplikasjon",
       "e35f9946aff8b7d5": "«eller» tyder subtraksjon",
       "325ac1c755d84202": "Val som blir gjorde etter kvarandre («og») blir multipliserte; alternativ som utelukkar kvarandre («eller») blir adderte.",
       "b521638ddb444d84": "Kva er kravet for å kunne bruke addisjonsprinsippet?",
       "15631b87c9a5e869": "Alternativa må overlappe mest mogleg",
       "8b44db69bb350056": "Alle delval må ha like mange moglegheiter",
-      "20f7e8b238e40cfd": "Vala må vere uavhengige",
       "539c8db80a208789": "Alternativa må vere gjensidig utelukkande",
+      "20f7e8b238e40cfd": "Vala må vere uavhengige",
       "be014a4d450c6451": "Ingen utfall skal kunne teljast to gonger – alternativa må ikkje ha felles utfall.",
       "0146ac71f5a48bd4": "Eit passord er anten 3 bokstavar + 2 siffer eller 2 bokstavar + 3 siffer (26 bokstavar, gjentaking OK). Kor mange passord?",
-      "3152f024d94dba3e": "$26^3 \\cdot 10^2 + 26^2 \\cdot 10^3 = 2\\,433\\,600$",
       "b8ff7aa30230abb5": "$26^3 \\cdot 10^2 \\cdot 26^2 \\cdot 10^3$",
-      "89071106adfa7c26": "$26^5 \\cdot 10^5$",
+      "fd2fcd87d4778395": "$2 \\cdot 26^3 \\cdot 10^2$",
+      "3152f024d94dba3e": "$26^3 \\cdot 10^2 + 26^2 \\cdot 10^3 = 2\\,433\\,600$",
       "1f9e3c53ceb28e18": "Multiplikasjon innanfor kvar type, addisjon mellom typane: $1\\,757\\,600 + 676\\,000 = 2\\,433\\,600$.",
       "bc774bc250b4f809": "## Oppsummering: og gangar, eller adderer\n\nFrå kafémenyen til bilskiltregisteret har vi sett same idé i arbeid: systematisk teljing utan oppramsing. Valtreet visualiserer moglegheitene – kvar forgreining eit delval, kvart blad eit komplett utfall – og avslører mønsteret bak **multiplikasjonsprinsippet**: $k$ delval etter kvarandre med $n_1, n_2, \\ldots, n_k$ moglegheiter gir $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ utfall totalt.\n\nUtan gjentaking gjeld prinsippet framleis, men faktorane søkk trinn for trinn: $n$, $n-1$, $n-2$, ... – eit mønster som får namnet permutasjon i neste kapittel.\n\n**Addisjonsprinsippet** tek seg av alternativ som utelukkar kvarandre: då adderer vi moglegheitene. Og språket leier deg rett nesten kvar gong: «og» tyder gange, «eller» tyder pluss. Samansette problem – som passordet med to tillatne strukturar – blir løyste ved å multiplisere innanfor kvart alternativ og addere mellom dei. Med desse to prinsippa i ryggraden er du klar for neste steg: permutasjonar, kombinasjonar og dei store spørsmåla om rekkjefølgje."
     }

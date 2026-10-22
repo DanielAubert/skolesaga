@@ -9,7 +9,7 @@
   "competenceGoals": [
     "bestemme monotoniegenskaper ved hjelp av den deriverte",
     "finne og klassifisere ekstremalpunkter",
-    "finne vendepunkter ved hjelp av andrederiverte",
+    "finne vendepunkter ved hjelp av dobbeltderiverte",
     "bestemme asymptoter (vertikale, horisontale og skrå)",
     "utføre fullstendig funksjonsdrøfting"
   ],
@@ -18,12 +18,12 @@
     {
       "id": "r1-4-6-n-intro",
       "type": "text",
-      "content": "## Å lese et landskap uten å se det\n\nTenk deg at du skal beskrive en fjelltur for en venn – men du har bare kartet, ikke bildene. Hvor går stien oppover? Hvor er toppene og dalene? Hvor flater terrenget ut, og hvor stuper det mot stupkanten? En funksjon er et slikt landskap, og **funksjonsdrøfting** er kunsten å lese det – systematisk og uten å gjette.\n\nI dette kapittelet samler vi alt derivasjonen kan fortelle oss om en graf. Vi undersøker definisjonsmengden (hvor finnes landskapet i det hele tatt?), nullpunktene (hvor krysser stien havnivå?), monotoniegenskapene (hvor går det opp og ned?), ekstremalpunktene (toppene og dalene), vendepunktene (hvor svinger krumningen?) og asymptotene (hvordan oppfører landskapet seg ved verdens ende?). Med alt dette på plass kan du tegne en presis skisse av en graf du aldri har sett.\n\nHovedverktøyene er de to deriverte: $f'$ forteller om *retningen* – opp eller ned – mens $f''$ forteller om *krumningen* – smiler grafen eller er den sur? Vi skal bygge opp hele apparatet steg for steg, og avslutte med en fullstendig drøfting av en funksjon med både asymptoter og ekstremalpunkter. Ta på fjellskoene."
+      "content": "## Å lese et landskap uten å se det\n\nTenk deg at du skal beskrive en fjelltur for en venn – men du har bare kartet, ikke bildene. Hvor går stien oppover? Hvor er toppene og dalene? Hvor flater terrenget ut, og hvor stuper det mot stupkanten? En funksjon er et slikt landskap, og **funksjonsdrøfting** er kunsten å lese det – systematisk og uten å gjette.\n\nI dette kapittelet samler vi alt derivasjonen kan fortelle oss om en graf. Vi undersøker definisjonsmengden (hvor finnes landskapet i det hele tatt?), nullpunktene (hvor krysser stien havnivå?), monotoniegenskapene (hvor går det opp og ned?), ekstremalpunktene (toppene og dalene), vendepunktene (hvor svinger krumningen?) og asymptotene (hvordan oppfører landskapet seg ved verdens ende?). Med alt dette på plass kan du tegne en presis skisse av en graf du aldri har sett.\n\nHovedverktøyene er de to deriverte: $f'$ forteller om *retningen* – opp eller ned – mens $f''$ forteller om *krumningen* – vender grafen den hule siden opp eller ned? Vi skal bygge opp hele apparatet steg for steg, og avslutte med en fullstendig drøfting av en funksjon med både asymptoter og ekstremalpunkter. Ta på fjellskoene."
     },
     {
       "id": "r1-4-6-n-section1",
       "type": "text",
-      "content": "## Opp eller ned? Spør den deriverte\n\nDet første spørsmålet om ethvert landskap er: hvor går det oppover? **Monotoniteoremet** gir svaret. La $f$ være deriverbar på et intervall $I$. Hvis $f'(x) > 0$ for alle $x$ i $I$, er $f$ **strengt voksende** der. Hvis $f'(x) < 0$, er $f$ **strengt avtagende**. Og hvis $f'(x) = 0$ overalt på intervallet, er $f$ konstant – flatmark.\n\nMetoden for å kartlegge dette er alltid den samme: finn $f'(x)$, løs $f'(x) = 0$ for å finne de **stasjonære punktene**, sett opp et **fortegnsskjema** for $f'$, og les av hvor den deriverte er positiv og negativ.\n\nLa oss gjøre det for $f(x) = x^3 - 3x$. Den deriverte er $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$, med nullpunkter $x = -1$ og $x = 1$. Faktoriseringen gjør fortegnsanalysen enkel: for $x < -1$ er begge faktorene negative, så produktet er positivt – grafen stiger. Mellom $-1$ og $1$ har faktorene ulikt fortegn, så $f'(x) < 0$ – grafen synker. For $x > 1$ er begge positive igjen – grafen stiger.\n\nKonklusjon: $f$ er strengt voksende på $(-\\infty, -1)$ og $(1, \\infty)$, og strengt avtagende på $(-1, 1)$. Uten å ha tegnet et eneste punkt vet vi allerede grovformen: opp, ned, opp – en klassisk tredjegradskurve med en topp og en dal. Hvor toppen og dalen ligger nøyaktig, er neste seksjons jobb."
+      "content": "## Opp eller ned? Spør den deriverte\n\nDet første spørsmålet om ethvert landskap er: hvor går det oppover? **Monotoniteoremet** gir svaret. La $f$ være deriverbar på et intervall $I$. Hvis $f'(x) > 0$ for alle $x$ i $I$, er $f$ **strengt voksende** der. Hvis $f'(x) < 0$, er $f$ **strengt avtagende**. Og hvis $f'(x) = 0$ overalt på intervallet, er $f$ konstant – flatmark.\n\nMetoden for å kartlegge dette er alltid den samme: finn $f'(x)$, løs $f'(x) = 0$ for å finne de **stasjonære punktene**, sett opp et **fortegnsskjema** for $f'$, og les av hvor den deriverte er positiv og negativ.\n\nLa oss gjøre det for $f(x) = x^3 - 3x$. Den deriverte er $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$, med nullpunkter $x = -1$ og $x = 1$. Faktoriseringen gjør fortegnsanalysen enkel: for $x < -1$ er begge faktorene negative, så produktet er positivt – grafen stiger. Mellom $-1$ og $1$ har faktorene ulikt fortegn, så $f'(x) < 0$ – grafen synker. For $x > 1$ er begge positive igjen – grafen stiger.\n\nKonklusjon: $f$ er strengt voksende på $\\langle \\leftarrow, -1 \\rangle$ og $\\langle 1, \\rightarrow \\rangle$, og strengt avtagende på $\\langle -1, 1 \\rangle$. Uten å ha tegnet et eneste punkt vet vi allerede grovformen: opp, ned, opp – en klassisk tredjegradskurve med en topp og en dal. Hvor toppen og dalen ligger nøyaktig, er neste seksjons jobb."
     },
     {
       "id": "r1-4-6-n-quiz1",
@@ -62,7 +62,7 @@
               },
               {
                 "id": "d",
-                "text": "Grafen er konveks der",
+                "text": "Grafen vender den hule siden opp der",
                 "isCorrect": false
               }
             ],
@@ -74,7 +74,7 @@
             "options": [
               {
                 "id": "a",
-                "text": "Bare på $(1, \\infty)$",
+                "text": "Bare på $\\langle 1, \\rightarrow \\rangle$",
                 "isCorrect": false
               },
               {
@@ -89,7 +89,7 @@
               },
               {
                 "id": "c",
-                "text": "På $(-\\infty, -1)$ og $(1, \\infty)$",
+                "text": "På $\\langle \\leftarrow, -1 \\rangle$ og $\\langle 1, \\rightarrow \\rangle$",
                 "isCorrect": true
               }
             ],
@@ -128,7 +128,7 @@
     {
       "id": "r1-4-6-n-section2",
       "type": "text",
-      "content": "## Topper og daler\n\nEt **ekstremalpunkt** er et punkt der funksjonen har en lokal maksimums- eller minimumsverdi – en fjelltopp eller en dalbunn. Kandidatene er de stasjonære punktene, der $f'(c) = 0$ og tangenten er horisontal. Men ikke alle kandidater er ekte topper: vi trenger en test.\n\n**Første derivasjonstest** leser fortegnsskjemaet. Skifter $f'$ fra positiv til negativ i $x = c$ – altså opp, så ned – står du på et **lokalt maksimum**. Skifter den fra negativ til positiv, er du i et **lokalt minimum**. Og skifter ikke $f'$ fortegn i det hele tatt, har du et **terrassepunkt**: grafen flater ut, men fortsetter samme vei, som en avsats i en trapp.\n\n**Andre derivasjonstest** spør krumningen til råds. Er $f''(c) < 0$ i et stasjonært punkt, krummer grafen nedover – lokalt maksimum. Er $f''(c) > 0$, krummer den oppover – lokalt minimum. Men er $f''(c) = 0$, gir testen ingen konklusjon, og du må tilbake til fortegnsskjemaet.\n\nTilbake til $f(x) = x^3 - 3x$ med stasjonære punkter $x = -1$ og $x = 1$. Fortegnsskjemaet sa: pluss, minus, pluss. Altså lokalt maksimum i $x = -1$ og lokalt minimum i $x = 1$. Med andre derivasjonstest: $f''(x) = 6x$, og $f''(-1) = -6 < 0$ bekrefter maksimum, mens $f''(1) = 6 > 0$ bekrefter minimum. Koordinatene finner vi ved innsetting: toppunktet er $(-1, f(-1)) = (-1, 2)$ og bunnpunktet $(1, f(1)) = (1, -2)$. To tester, samme svar – velg den som er raskest i situasjonen."
+      "content": "## Topper og daler\n\nEt **ekstremalpunkt** er et punkt der funksjonen har en lokal maksimums- eller minimumsverdi – en fjelltopp eller en dalbunn. Kandidatene er de stasjonære punktene, der $f'(c) = 0$ og tangenten er horisontal. Men ikke alle kandidater er ekte topper: vi trenger en test.\n\n**Testen med fortegnsskjema** leser fortegnsskjemaet. Skifter $f'$ fra positiv til negativ i $x = c$ – altså opp, så ned – står du på et **lokalt maksimum**. Skifter den fra negativ til positiv, er du i et **lokalt minimum**. Og skifter ikke $f'$ fortegn i det hele tatt, har du et **terrassepunkt**: grafen flater ut, men fortsetter samme vei, som en avsats i en trapp.\n\n**Dobbeltderiverttesten** spør krumningen til råds. Er $f''(c) < 0$ i et stasjonært punkt, krummer grafen nedover – lokalt maksimum. Er $f''(c) > 0$, krummer den oppover – lokalt minimum. Men er $f''(c) = 0$, gir testen ingen konklusjon, og du må tilbake til fortegnsskjemaet.\n\nTilbake til $f(x) = x^3 - 3x$ med stasjonære punkter $x = -1$ og $x = 1$. Fortegnsskjemaet så: pluss, minus, pluss. Altså lokalt maksimum i $x = -1$ og lokalt minimum i $x = 1$. Med dobbeltderiverttesten: $f''(x) = 6x$, og $f''(-1) = -6 < 0$ bekrefter maksimum, mens $f''(1) = 6 > 0$ bekrefter minimum. Koordinatene finner vi ved innsetting: toppunktet er $(-1, f(-1)) = (-1, 2)$ og bunnpunktet $(1, f(1)) = (1, -2)$. To tester, samme svar – velg den som er raskest i situasjonen."
     },
     {
       "id": "r1-4-6-n-quiz2",
@@ -175,7 +175,7 @@
           },
           {
             "id": "r1-4-6-n-quiz2-q1",
-            "task": "Hva sier andre derivasjonstest når $f'(c) = 0$ og $f''(c) > 0$?",
+            "task": "Hva sier dobbeltderiverttesten når $f'(c) = 0$ og $f''(c) > 0$?",
             "options": [
               {
                 "id": "a",
@@ -198,7 +198,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Positiv andrederivert betyr at grafen krummer oppover (smiler) – det stasjonære punktet er et lokalt minimum."
+            "solution": "Positiv dobbeltderivert betyr at grafen vender den hule siden opp – det stasjonære punktet er et lokalt minimum."
           },
           {
             "id": "r1-4-6-n-quiz2-q2",
@@ -233,7 +233,7 @@
             "options": [
               {
                 "id": "c",
-                "text": "Bruker første derivasjonstest med fortegnsskjema",
+                "text": "Undersøker fortegnet til $f'$ med fortegnsskjema",
                 "isCorrect": true
               },
               {
@@ -252,7 +252,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Når $f''(c) = 0$, gir andre derivasjonstest ingen konklusjon. Da må du undersøke fortegnet til $f'$ rundt punktet med fortegnsskjema."
+            "solution": "Når $f''(c) = 0$, gir dobbeltderiverttesten ingen konklusjon. Da må du undersøke fortegnet til $f'$ rundt punktet med fortegnsskjema."
           }
         ]
       }
@@ -260,7 +260,7 @@
     {
       "id": "r1-4-6-n-section3",
       "type": "text",
-      "content": "## Når grafen skifter humør\n\nDen deriverte fanger retningen – men en graf har også *krumning*. Tenk på forskjellen mellom innsiden av en skål og utsiden av en kuppel. Hvis $f''(x) > 0$, er grafen **konveks**: den buer oppover og «smiler». Hvis $f''(x) < 0$, er grafen **konkav**: den buer nedover og er «sur». Krumningen merkes godt selv om begge deler kan skje mens grafen stiger – tenk på forskjellen mellom en stadig brattere motbakke og en motbakke som slaker av.\n\nEt **vendepunkt** er stedet der grafen skifter humør – fra konkav til konveks eller omvendt. Kravet er todelt: $f''(c) = 0$ *og* $f''$ må faktisk skifte fortegn i $x = c$. Det første alene er ikke nok, akkurat som $f'(c) = 0$ alene ikke garanterte ekstremalpunkt.\n\nLa oss finne vendepunktene til vår gamle kjenning $f(x) = x^3 - 3x$. Vi deriverer to ganger: $f'(x) = 3x^2 - 3$ og $f''(x) = 6x$. Likningen $f''(x) = 0$ gir $x = 0$. Så sjekker vi fortegnsskiftet: for $x < 0$ er $f''(x) = 6x < 0$ – konkav; for $x > 0$ er $f''(x) > 0$ – konveks. Fortegnet skifter, så $x = 0$ er et ekte vendepunkt. Koordinatene: $f(0) = 0$, altså vendepunkt i $(0, 0)$.\n\nDet stemmer perfekt med bildet vi har bygget: grafen kommer opp til toppen i $(-1, 2)$, krummer surt nedover gjennom dalsøkket, snur krumningen i origo, og smiler seg ned til bunnen i $(1, -2)$ før den stiger mot uendelig. Vendepunktet er nøyaktig midt mellom topp og bunn – tredjegradsfunksjonens skjulte symmetri."
+      "content": "## Når grafen skifter humør\n\nDen deriverte fanger retningen – men en graf har også *krumning*. Tenk på forskjellen mellom innsiden av en skål og utsiden av en kuppel. Hvis $f''(x) > 0$, vender grafen **den hule siden opp**: den buer oppover. Hvis $f''(x) < 0$, vender grafen **den hule siden ned**: den buer nedover. Krumningen merkes godt selv om begge deler kan skje mens grafen stiger – tenk på forskjellen mellom en stadig brattere motbakke og en motbakke som slaker av.\n\nEt **vendepunkt** er stedet der grafen skifter humør – fra å vende den hule siden ned til å vende den opp, eller omvendt. Kravet er todelt: $f''(c) = 0$ *og* $f''$ må faktisk skifte fortegn i $x = c$. Det første alene er ikke nok, akkurat som $f'(c) = 0$ alene ikke garanterte ekstremalpunkt.\n\nLa oss finne vendepunktene til vår gamle kjenning $f(x) = x^3 - 3x$. Vi deriverer to ganger: $f'(x) = 3x^2 - 3$ og $f''(x) = 6x$. Likningen $f''(x) = 0$ gir $x = 0$. Så sjekker vi fortegnsskiftet: for $x < 0$ er $f''(x) = 6x < 0$ – hul side ned; for $x > 0$ er $f''(x) > 0$ – hul side opp. Fortegnet skifter, så $x = 0$ er et ekte vendepunkt. Koordinatene: $f(0) = 0$, altså vendepunkt i $(0, 0)$.\n\nDet stemmer perfekt med bildet vi har bygget: grafen kommer opp til toppen i $(-1, 2)$, buer nedover med den hule siden ned, snur krumningen i origo, og buer seg ned til bunnen i $(1, -2)$ før den stiger mot uendelig. Vendepunktet er nøyaktig midt mellom topp og bunn – tredjegradsfunksjonens skjulte symmetri."
     },
     {
       "id": "r1-4-6-n-quiz3",
@@ -303,7 +303,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Et vendepunkt krever både $f''(c) = 0$ og at andrederiverte faktisk skifter fortegn – altså at krumningen snur."
+            "solution": "Et vendepunkt krever både $f''(c) = 0$ og at dobbeltderiverte faktisk skifter fortegn – altså at krumningen snur."
           },
           {
             "id": "r1-4-6-n-quiz3-q1",
@@ -311,7 +311,7 @@
             "options": [
               {
                 "id": "b",
-                "text": "Grafen er konkav – den buer nedover",
+                "text": "Grafen vender den hule siden ned",
                 "isCorrect": false
               },
               {
@@ -321,7 +321,7 @@
               },
               {
                 "id": "a",
-                "text": "Grafen er konveks – den buer oppover og «smiler»",
+                "text": "Grafen vender den hule siden opp",
                 "isCorrect": true
               },
               {
@@ -330,7 +330,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Positiv andrederivert betyr konveks graf (buer oppover). Krumning og stigning er uavhengige: en konveks graf kan både stige og synke."
+            "solution": "Positiv dobbeltderivert betyr at grafen vender den hule siden opp. Krumning og stigning er uavhengige: en graf som vender den hule siden opp, kan både stige og synke."
           },
           {
             "id": "r1-4-6-n-quiz3-q2",
@@ -497,7 +497,7 @@
     {
       "id": "r1-4-6-n-section5",
       "type": "text",
-      "content": "## Den store ekspedisjonen\n\nNå setter vi sammen hele verktøykassa og drøfter $f(x) = \\frac{x^2}{x-1}$ fra a til å. Sjekklisten er fast: definisjonsmengde, symmetri, nullpunkter, asymptoter, førstederivert med monotoni og ekstremalpunkter, andrederivert med vendepunkter – og til slutt skissen.\n\n**Definisjonsmengden** er alt unntatt der nevneren er null: $D_f = \\mathbb{R} \\setminus \\{1\\}$. **Symmetri**: $f(-x) = \\frac{x^2}{-x-1}$ er verken $f(x)$ eller $-f(x)$, så ingen symmetri. **Nullpunkter**: $x^2 = 0$ gir bare $x = 0$.\n\n**Asymptoter**: nevneren gir vertikal asymptote $x = 1$. Polynomdivisjon gir $f(x) = x + 1 + \\frac{1}{x-1}$, så skrå asymptote $y = x + 1$.\n\n**Førstederiverte** krever kvotientregelen: $f'(x) = \\frac{2x(x-1) - x^2}{(x-1)^2} = \\frac{x^2 - 2x}{(x-1)^2} = \\frac{x(x-2)}{(x-1)^2}$. Stasjonære punkter: $x = 0$ og $x = 2$. Nevneren er alltid positiv, så fortegnet styres av telleren $x(x-2)$: positiv for $x < 0$, negativ mellom 0 og 2 (unntatt i $x=1$ der funksjonen ikke finnes), positiv for $x > 2$. Dermed: lokalt **maksimum** i $(0, 0)$ og lokalt **minimum** i $(2, 4)$.\n\nLegg merke til det pussige: maksimumsverdien 0 er *lavere* enn minimumsverdien 4! Det er den vertikale asymptoten som gjør det mulig – grafen består av to atskilte grener.\n\n**Andrederiverte**: $f''(x) = \\frac{2}{(x-1)^3}$, som aldri er null – ingen vendepunkter. Grenen til venstre for $x=1$ er konkav, grenen til høyre konveks.\n\nDermed kan vi tegne: en gren som stiger til toppen i origo og dykker mot asymptoten, og en gren som kommer ned fra $+\\infty$, bunner ut i $(2,4)$ og legger seg langs $y = x + 1$."
+      "content": "## Den store ekspedisjonen\n\nNå setter vi sammen hele verktøykassa og drøfter $f(x) = \\frac{x^2}{x-1}$ fra a til å. Sjekklisten er fast: definisjonsmengde, symmetri, nullpunkter, asymptoter, førstederivert med monotoni og ekstremalpunkter, dobbeltderivert med vendepunkter – og til slutt en skisse av grafen.\n\n**Definisjonsmengden** er alt unntatt der nevneren er null: $D_f = \\mathbb{R} \\setminus \\{1\\}$. **Symmetri**: $f(-x) = \\frac{x^2}{-x-1}$ er verken $f(x)$ eller $-f(x)$, så ingen symmetri. **Nullpunkter**: $x^2 = 0$ gir bare $x = 0$.\n\n**Asymptoter**: nevneren gir vertikal asymptote $x = 1$. Polynomdivisjon gir $f(x) = x + 1 + \\frac{1}{x-1}$, så skrå asymptote $y = x + 1$.\n\n**Førstederiverte** krever brøkregelen: $f'(x) = \\frac{2x(x-1) - x^2}{(x-1)^2} = \\frac{x^2 - 2x}{(x-1)^2} = \\frac{x(x-2)}{(x-1)^2}$. Stasjonære punkter: $x = 0$ og $x = 2$. Nevneren er alltid positiv, så fortegnet styres av telleren $x(x-2)$: positiv for $x < 0$, negativ mellom 0 og 2 (unntatt i $x=1$ der funksjonen ikke finnes), positiv for $x > 2$. Dermed: lokalt **maksimum** i $(0, 0)$ og lokalt **minimum** i $(2, 4)$.\n\nLegg merke til det pussige: maksimumsverdien 0 er *lavere* enn minimumsverdien 4! Det er den vertikale asymptoten som gjør det mulig – grafen består av to atskilte grener.\n\n**Dobbeltderiverte**: $f''(x) = \\frac{2}{(x-1)^3}$, som aldri er null – ingen vendepunkter. Grenen til venstre for $x=1$ vender den hule siden ned, grenen til høyre vender den opp.\n\nDermed kan vi tegne: en gren som stiger til toppen i origo og dykker mot asymptoten, og en gren som kommer ned fra $+\\infty$, bunner ut i $(2,4)$ og legger seg langs $y = x + 1$."
     },
     {
       "id": "r1-4-6-n-quiz5",
@@ -602,7 +602,7 @@
     {
       "id": "r1-4-6-n-summary",
       "type": "text",
-      "content": "## Kartet er tegnet\n\nFunksjonsdrøfting er detektivarbeid med fast metode, og nå har du hele verktøysettet. **Monotonien** leses av fortegnet til $f'$: positiv betyr voksende, negativ betyr avtagende, og fortegnsskjemaet er kartet. **Ekstremalpunktene** ligger blant de stasjonære punktene der $f'(c) = 0$, og klassifiseres enten med første derivasjonstest (fortegnsskifte i $f'$) eller andre derivasjonstest ($f''(c) < 0$ gir maksimum, $f''(c) > 0$ gir minimum, og $f''(c) = 0$ gir ingen konklusjon). Husk terrassepunktet – den falske toppen der $f'$ ikke skifter fortegn.\n\n**Krumningen** styres av $f''$: positiv betyr konveks (smiler), negativ betyr konkav (sur), og et **vendepunkt** krever både $f''(c) = 0$ og fortegnsskifte. **Asymptotene** beskriver grensene: vertikale der nevneren kollapser, horisontale når $f(x)$ flater ut mot et tall i det uendelige, og skrå når grafen legger seg langs en linje $y = ax + b$ – som polynomdivisjon avslører på et blunk.\n\nDen fullstendige drøftingen av $\\frac{x^2}{x-1}$ viste hvordan brikkene faller på plass til et helt bilde – inkludert overraskelsen der et lokalt maksimum lå lavere enn et lokalt minimum. Det er nettopp derfor vi sier *lokalt*: hver topp gjelder bare sitt eget nabolag. I kapitlene som kommer, skal denne analysen settes i arbeid på praktiske optimeringsproblemer, der toppene og bunnene er kroner, kvadratmeter og sekunder."
+      "content": "## Kartet er tegnet\n\nFunksjonsdrøfting er detektivarbeid med fast metode, og nå har du hele verktøysettet. **Monotonien** leses av fortegnet til $f'$: positiv betyr voksende, negativ betyr avtagende, og fortegnsskjemaet er kartet. **Ekstremalpunktene** ligger blant de stasjonære punktene der $f'(c) = 0$, og klassifiseres enten med testen med fortegnsskjema (fortegnsskifte i $f'$) eller dobbeltderiverttesten ($f''(c) < 0$ gir maksimum, $f''(c) > 0$ gir minimum, og $f''(c) = 0$ gir ingen konklusjon). Husk terrassepunktet – den falske toppen der $f'$ ikke skifter fortegn.\n\n**Krumningen** styres av $f''$: positiv betyr hul side opp, negativ betyr hul side ned, og et **vendepunkt** krever både $f''(c) = 0$ og fortegnsskifte. **Asymptotene** beskriver grensene: vertikale der nevneren kollapser, horisontale når $f(x)$ flater ut mot et tall i det uendelige, og skrå når grafen legger seg langs en linje $y = ax + b$ – som polynomdivisjon avslører på et blunk.\n\nDen fullstendige drøftingen av $\\frac{x^2}{x-1}$ viste hvordan brikkene faller på plass til et helt bilde – inkludert overraskelsen der et lokalt maksimum lå lavere enn et lokalt minimum. Det er nettopp derfor vi sier *lokalt*: hver topp gjelder bare sitt eget nabolag. I kapitlene som kommer, skal denne analysen settes i arbeid på praktiske optimeringsproblemer, der toppene og bunnene er kroner, kvadratmeter og sekunder."
     }
   ],
   "exercises": []

@@ -23,7 +23,7 @@
     {
       "id": "r2-3-5-n-section1",
       "type": "text",
-      "content": "## Metodene blir kode\n\nLa oss starte der forrige kapittel sluttet: venstre rektangelmetode. Som Python-funksjon:\n\n```python\ndef rektangelmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = 0\n    for i in range(n):\n        total += f(a + i * h)\n    return h * total\n```\n\nMønsteret er metoden selv: steglengde $h = \\frac{b-a}{n}$, en løkke som summerer funksjonsverdier, og multiplikasjon med $h$ til slutt. Med `f = lambda x: x**2` og $n = 1000$ gir den $0{,}332834$ for $\\int_0^1 x^2\\,dx = \\frac{1}{3}$ — feil $0{,}0005$, omtrent $0{,}15\\,\\%$.\n\nTrapesmetoden er nesten lik; bare endepunktene behandles spesielt (vekt $\\frac{1}{2}$):\n\n```python\ndef trapesmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = (f(a) + f(b)) / 2\n    for i in range(1, n):\n        total += f(a + i * h)\n    return h * total\n```\n\nOg Simpson krever partall $n$ og to løkker — én for vekt $4$ (odde indekser), én for vekt $2$ (indre like indekser):\n\n```python\ndef simpson(f, a, b, n):\n    if n % 2 != 0:\n        raise ValueError(\"n må være et partall\")\n    h = (b - a) / n\n    total = f(a) + f(b)\n    for i in range(1, n, 2):\n        total += 4 * f(a + i * h)\n    for i in range(2, n, 2):\n        total += 2 * f(a + i * h)\n    return (h / 3) * total\n```\n\nStyrkeprøven: $\\int_0^{\\pi} \\sin x\\,dx = 2$. Med bare $n = 10$ gir trapesmetoden feil $1{,}65 \\cdot 10^{-2}$, mens Simpson gir $6{,}78 \\cdot 10^{-6}$ — over to tusen ganger mer nøyaktig for samme arbeid. Ti linjer kode gjenskaper hele forrige kapittels teori."
+      "content": "## Metodene blir kode\n\nLa oss starte der forrige kapittel sluttet: venstre rektangelmetode. Som Python-funksjon:\n\n```python\ndef rektangelmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = 0\n    for i in range(n):\n        total += f(a + i * h)\n    return h * total\n```\n\nMønsteret er metoden selv: steglengde $h = \\frac{b-a}{n}$, en løkke som summerer funksjonsverdier, og multiplikasjon med $h$ til slutt. Med `f = lambda x: x**2` og $n = 1000$ gir den $0{,}332833$ for $\\int_0^1 x^2\\,dx = \\frac{1}{3}$ — feil $0{,}0005$, omtrent $0{,}15\\,\\%$.\n\nTrapesmetoden er nesten lik; bare endepunktene behandles spesielt (vekt $\\frac{1}{2}$):\n\n```python\ndef trapesmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = (f(a) + f(b)) / 2\n    for i in range(1, n):\n        total += f(a + i * h)\n    return h * total\n```\n\nOg Simpson krever partall $n$ og to løkker — én for vekt $4$ (odde indekser), én for vekt $2$ (indre like indekser):\n\n```python\ndef simpson(f, a, b, n):\n    if n % 2 != 0:\n        raise ValueError(\n            \"n må være et partall\"\n        )\n    h = (b - a) / n\n    total = f(a) + f(b)\n    for i in range(1, n, 2):\n        total += 4 * f(a + i * h)\n    for i in range(2, n, 2):\n        total += 2 * f(a + i * h)\n    return (h / 3) * total\n```\n\nStyrkeprøven: $\\int_0^{\\pi} \\sin x\\,dx = 2$. Med bare $n = 10$ gir trapesmetoden feil $1{,}65 \\cdot 10^{-2}$, mens Simpson gir $1{,}10 \\cdot 10^{-4}$ — omtrent 150 ganger mer nøyaktig for samme arbeid. Ti linjer kode gjenskaper hele forrige kapittels teori."
     },
     {
       "id": "r2-3-5-n-quiz1",
@@ -111,7 +111,7 @@
               },
               {
                 "id": "a",
-                "text": "Over $2000$ ganger",
+                "text": "Omtrent $150$ ganger",
                 "isCorrect": true
               },
               {
@@ -120,7 +120,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Trapes: feil $1{,}65 \\cdot 10^{-2}$; Simpson: $6{,}78 \\cdot 10^{-6}$. Forholdet er over $2000$ — parabeltilnærmingen lønner seg."
+            "solution": "Trapes: feil $1{,}65 \\cdot 10^{-2}$; Simpson: $1{,}10 \\cdot 10^{-4}$. Forholdet er omtrent $150$ — parabeltilnærmingen lønner seg."
           },
           {
             "id": "r2-3-5-n-quiz1-q3",
@@ -155,7 +155,7 @@
     {
       "id": "r2-3-5-n-section2",
       "type": "text",
-      "content": "## Konvergens du kan se — og proffverktøyene\n\nTeorien lovet at trapesfeilen går som $O(1/n^2)$. Med en liten testløkke kan vi *se* det. For $\\int_0^1 e^x\\,dx = e - 1$ skriver vi ut feilen for $n = 10, 20, 40, 80, 160, 320$ og forholdet mellom påfølgende feil:\n\n```\nn      Feil        Faktor\n10     3.87e-05    -\n20     9.68e-06    4.00\n40     2.42e-06    4.00\n80     6.05e-07    4.00\n```\n\nFaktoren er nøyaktig $4$ hver gang $n$ dobles — konvergensorden $O(1/n^2)$, eksperimentelt bekreftet. For Simpson ville tilsvarende tabell vist faktor $16$. Slik feilanalyse er god praksis hver gang du bruker numerikk: kjør med økende $n$, og se at svaret stabiliserer seg.\n\nI praksis slipper du ofte å skrive metodene selv. **SciPy** har ferdige, optimaliserte rutiner:\n\n```python\nfrom scipy import integrate\nresultat, feil = integrate.quad(f, 0, np.inf)\n```\n\n`quad` velger punkter adaptivt, håndterer til og med uendelige grenser, og returnerer både svaret og et feilestimat — for $\\int_0^{\\infty} e^{-x^2}\\,dx$ treffer den fasiten $\\frac{\\sqrt{\\pi}}{2}$ med feil under $10^{-8}$. For *måledata* finnes `numpy.trapz`: har du tidspunkter `t = [0, 1, 2, 3, 4, 5]` og målte hastigheter `v = [0, 5, 8, 10, 9, 6]`, gir `np.trapz(v, t)` tilbakelagt strekning $34{,}5$ meter direkte fra tabellen — trapesmetoden på ekte data, én linje.\n\nArbeidsdelingen er typisk for beregningsorientert matematikk: skriv metodene selv én gang for å *forstå* dem, bruk biblioteket etterpå for å *anvende* dem."
+      "content": "## Konvergens du kan se — og proffverktøyene\n\nTeorien lovet at trapesfeilen går som $O(1/n^2)$. Med en liten testløkke kan vi *se* det. For $\\int_0^1 e^x\\,dx = e - 1$ skriver vi ut feilen for $n = 10, 20, 40, 80, 160, 320$ og forholdet mellom påfølgende feil:\n\n```\nn      Feil        Faktor\n10     1.43e-03    -\n20     3.58e-04    4.00\n40     8.95e-05    4.00\n80     2.24e-05    4.00\n160    5.59e-06    4.00\n320    1.40e-06    4.00\n```\n\nFaktoren er nøyaktig $4$ hver gang $n$ dobles — konvergensorden $O(1/n^2)$, eksperimentelt bekreftet. For Simpson ville tilsvarende tabell vist faktor $16$. Slik feilanalyse er god praksis hver gang du bruker numerikk: kjør med økende $n$, og se at svaret stabiliserer seg.\n\nI praksis slipper du ofte å skrive metodene selv. **SciPy** har ferdige, optimaliserte rutiner:\n\n```python\nfrom scipy import integrate\n\nresultat, feil = integrate.quad(\n    f, 0, np.inf\n)\n```\n\n`quad` velger punkter adaptivt, håndterer til og med uendelige grenser, og returnerer både svaret og et feilestimat — for $\\int_0^{\\infty} e^{-x^2}\\,dx$ treffer den fasiten $\\frac{\\sqrt{\\pi}}{2}$ med feil under $10^{-8}$. For *måledata* finnes `numpy.trapezoid`: har du tidspunkter `t = [0, 1, 2, 3, 4, 5]` og målte hastigheter `v = [0, 5, 8, 10, 9, 6]`, gir `np.trapezoid(v, t)` tilbakelagt strekning $35{,}0$ meter direkte fra tabellen — trapesmetoden på ekte data, én linje.\n\nArbeidsdelingen er typisk for beregningsorientert matematikk: skriv metodene selv én gang for å *forstå* dem, bruk biblioteket etterpå for å *anvende* dem."
     },
     {
       "id": "r2-3-5-n-quiz2",
@@ -243,7 +243,7 @@
               },
               {
                 "id": "d",
-                "text": "Bruk np.trapz(v, t) — trapesmetoden på tabelldata",
+                "text": "Bruk np.trapezoid(v, t) — trapesmetoden på tabelldata",
                 "isCorrect": true
               },
               {
@@ -252,7 +252,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "np.trapz integrerer diskrete datapunkter med trapesmetoden. quad krever en funksjon, ikke en tabell — og en antiderivert finnes ikke for rene måledata."
+            "solution": "np.trapezoid integrerer diskrete datapunkter med trapesmetoden. quad krever en funksjon, ikke en tabell — og en antiderivert finnes ikke for rene måledata."
           },
           {
             "id": "r2-3-5-n-quiz2-q3",
@@ -419,7 +419,7 @@
     {
       "id": "r2-3-5-n-summary",
       "type": "text",
-      "content": "## Oppsummering: ti linjer kode, tusen rektangler\n\nNumerisk integrasjon gikk i dette kapittelet fra håndarbeid til maskinkraft. De tre klassiske metodene ble Python-funksjoner på under ti linjer hver: rektangelmetoden som en ren sum-løkke, trapesmetoden med halve vekter på endepunktene, og Simpson med vekslende vekter $4$ og $2$ (og partallskrav på $n$). Eksperimentene bekreftet teorien i sanntid: trapesfeilen falt med faktor $4$ per dobling av $n$ ($O(1/n^2)$), og Simpson slo trapes med en faktor over $2000$ på $\\int_0^{\\pi}\\sin x\\,dx$ allerede ved $n = 10$.\n\nProffverktøyene tar over derfra: `scipy.integrate.quad` integrerer adaptivt med feilestimat på kjøpet — også over uendelige intervaller — og `np.trapz` integrerer rene måledata. Og Monte Carlo viste numerikkens ville side: tilfeldige punkter som estimerer integraler (og $\\pi$), med treg, men dimensjonsuavhengig konvergens $O(1/\\sqrt{N})$ som gjør metoden uunnværlig i mange dimensjoner.\n\nArbeidsregelen du tar med videre: forstå metoden ved å skrive den selv, bruk biblioteket i produksjon, og verifiser alltid mot kjente integraler eller økende $n$. Med både analytiske og numeriske verktøy i kassen er du klar for integralregningens mest håndgripelige anvendelse: å regne ut volumet av ting — fra vinglass til planeter."
+      "content": "## Oppsummering: ti linjer kode, tusen rektangler\n\nNumerisk integrasjon gikk i dette kapittelet fra håndarbeid til maskinkraft. De tre klassiske metodene ble Python-funksjoner på under ti linjer hver: rektangelmetoden som en ren sum-løkke, trapesmetoden med halve vekter på endepunktene, og Simpson med vekslende vekter $4$ og $2$ (og partallskrav på $n$). Eksperimentene bekreftet teorien i sanntid: trapesfeilen falt med faktor $4$ per dobling av $n$ ($O(1/n^2)$), og Simpson slo trapes med en faktor på omtrent $150$ på $\\int_0^{\\pi}\\sin x\\,dx$ allerede ved $n = 10$.\n\nProffverktøyene tar over derfra: `scipy.integrate.quad` integrerer adaptivt med feilestimat på kjøpet — også over uendelige intervaller — og `np.trapezoid` integrerer rene måledata. Og Monte Carlo viste numerikkens ville side: tilfeldige punkter som estimerer integraler (og $\\pi$), med treg, men dimensjonsuavhengig konvergens $O(1/\\sqrt{N})$ som gjør metoden uunnværlig i mange dimensjoner.\n\nArbeidsregelen du tar med videre: forstå metoden ved å skrive den selv, bruk biblioteket i produksjon, og verifiser alltid mot kjente integraler eller økende $n$. Med både analytiske og numeriske verktøy i kassen er du klar for integralregningens mest håndgripelige anvendelse: å regne ut volumet av ting — fra vinglass til planeter."
     }
   ],
   "exercises": []

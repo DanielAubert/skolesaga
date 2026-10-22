@@ -7,13 +7,19 @@
   "description": "Ei forteljing om å bevise baklengs – tvillinglogikken til kontrapositiven, kollapsen i kontradiksjonen, kvadratrota av to og Euklids udødelege primtalsbevis.",
   "estimatedMinutes": 32,
   "competenceGoals": [
-    "utføre kontrapositiv bevisfoering",
+    "utføre kontrapositiv bevisføring",
     "utføre bevis ved kontradiksjon (sjølvmotseiing)",
-    "bevise at sqrt(2) er irrasjonell",
+    "bevise at √2 er irrasjonell",
     "forstå Euklids bevis for uendeleg mange primtal"
   ],
   "linkedChapterId": "r1-9-3",
   "content": [
+    {
+      "id": "r1-9-3-narrativ-lk20-merknad",
+      "type": "note",
+      "title": "Fordjuping (utanfor læreplanen)",
+      "content": "**Utanfor R1 i gjeldande læreplan.** Bevisteknikkar som induksjon og motseiingsbevis høyrer til R2 i gjeldande læreplan (LK20). Kapittelet står her som fordjuping og er ikkje eksamensstoff i R1."
+    },
     {
       "id": "r1-9-3-n-intro",
       "type": "text",
@@ -22,7 +28,7 @@
     {
       "id": "r1-9-3-n-section1",
       "type": "text",
-      "content": "## Kontrapositivt bevis – tvillingen som er lettare å fange\n\nHugs frå 9.1: $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalente – alltid begge sanne eller begge usanne. «Viss det regnar, er bakken våt» er nøyaktig same påstand som «viss bakken ikkje er våt, regnar det ikkje». Det tyder at du fritt kan velje kva av dei to du beviser.\n\nNår løner byttet seg? Når negasjonane er *enklare å rekne med* enn originalane. Klassisk eksempel: *viss $n^2$ er odde, så er $n$ odde.* Direkte åtak er klønete – «$n^2$ odde» er ein tung føresetnad å starte frå ($n = \\sqrt{\\text{oddetal}}$... og kva så?). Men kontrapositiven er: *viss $n$ er partal, så er $n^2$ partal* – og «$n$ er partal» er ein draumestart, for då er $n = 2k$, og vi kan rekne!\n\n$$n^2 = (2k)^2 = 4k^2 = 2(2k^2)$$\n\nSidan $2k^2$ er eit heiltal, er $n^2$ partal. $\\square$ Dermed er òg originalen bevist: vi har vist $\\neg Q \\Rightarrow \\neg P$, som er ekvivalent med $P \\Rightarrow Q$.\n\nMønsteret å sjå etter: føresetnaden i originalen er «negativ» eller strukturlaus (odde, irrasjonell, ikkje-deleleg), medan negasjonen er «positiv» og konkret (partal, brøk, deleleg). Då gjev kontrapositiven deg ein handfast definisjon å starte frå i staden for eit tomrom. Merk dette vesle beviset, forresten – det blir ein byggjekloss i det store beviset i neste seksjon."
+      "content": "## Kontrapositivt bevis – tvillingen som er lettare å fange\n\nHugs frå 9.1: $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalente – alltid begge sanne eller begge usanne. «Viss det regnar, er bakken våt» er nøyaktig same påstand som «viss bakken ikkje er våt, regnar det ikkje». Det tyder at du fritt kan velje kva av dei to du beviser.\n\nNår løner det seg å byte? Når negasjonane er *enklare å rekne med* enn originalane. Klassisk eksempel: *viss $n^2$ er partal, så er $n$ partal.* Direkte åtak er klønete – «$n^2$ partal» er ein tung føresetnad å starte frå ($n = \\sqrt{\\text{partal}}$... og kva så?). Men kontrapositiven er: *viss $n$ er odde, så er $n^2$ odde* – og «$n$ er odde» er ein draumestart, for då er $n = 2k + 1$, og vi kan rekne!\n\n$$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$$\n\nSidan $2k^2 + 2k$ er eit heiltal, er $n^2$ odde. $\\square$ Dermed er òg originalen bevist: vi har vist $\\neg Q \\Rightarrow \\neg P$, som er ekvivalent med $P \\Rightarrow Q$.\n\nMønsteret å sjå etter: føresetnaden i originalen seier lite å rekne med (her eit utsegn om $n^2$, eller «irrasjonell», «ikkje-deleleg»), medan negasjonen av konklusjonen gjev ei konkret form (her $n = 2k + 1$). Då gjev kontrapositiven deg ein handfast definisjon å starte frå i staden for eit tomrom. Merk dette vesle beviset, forresten – det blir ein byggjekloss i det store beviset i neste seksjon."
     },
     {
       "id": "r1-9-3-n-quiz1",
@@ -69,21 +75,21 @@
           },
           {
             "id": "r1-9-3-n-quiz1-q1",
-            "task": "Kva er kontrapositiven av «viss $n^2$ er odde, så er $n$ odde»?",
+            "task": "Kva er kontrapositiven av «viss $n^2$ er partal, så er $n$ partal»?",
             "options": [
               {
                 "id": "a",
                 "text": "Viss $n$ er odde, så er $n^2$ odde",
-                "isCorrect": false
+                "isCorrect": true
               },
               {
                 "id": "b",
                 "text": "Viss $n$ er partal, så er $n^2$ partal",
-                "isCorrect": true
+                "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "Viss $n^2$ er partal, så er $n$ partal",
+                "text": "Viss $n^2$ er odde, så er $n$ odde",
                 "isCorrect": false
               },
               {
@@ -92,7 +98,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Vi negerer begge og byter retning: ikkje-odde tyder partal, så kontrapositiven blir «$n$ partal $\\Rightarrow$ $n^2$ partal»."
+            "solution": "Vi negerer begge og byter retning: ikkje-partal tyder odde, så kontrapositiven blir «$n$ odde $\\Rightarrow$ $n^2$ odde»."
           },
           {
             "id": "r1-9-3-n-quiz1-q2",
@@ -110,7 +116,7 @@
               },
               {
                 "id": "c",
-                "text": "Fordi «$n$ er partal» gjev den konkrete forma $n = 2k$ å rekne med",
+                "text": "Fordi «$n$ er odde» gjev den konkrete forma $n = 2k + 1$ å rekne med",
                 "isCorrect": true
               },
               {
@@ -119,7 +125,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Føresetnaden «$n$ partal» vert omsett direkte til $n = 2k$, og så er det berre å kvadrere. Originalens «$n^2$ odde» gjev ingen slik handfast start."
+            "solution": "Føresetnaden «$n$ odde» vert omsett direkte til $n = 2k + 1$, og så er det berre å kvadrere. Originalens «$n^2$ partal» gjev ingen slik handfast start."
           },
           {
             "id": "r1-9-3-n-quiz1-q3",
@@ -155,7 +161,7 @@
     {
       "id": "r1-9-3-n-section2",
       "type": "text",
-      "content": "## Kontradiksjon – og det berømte beviset for at $\\sqrt{2}$ er irrasjonell\n\nKontradiksjonsbeviset (reductio ad absurdum) har tre akter. **Anta** at påstanden $P$ er usann. **Utlei** konsekvensar logisk, til du når ei sjølvmotseiing – noko openbert falskt, eller noko som motseier antakinga sjølv. **Konkluder**: antakinga $\\neg P$ må vere feil, altså er $P$ sann. Metoden kviler på lova om det utelukka tredje: ein påstand er anten sann eller usann, noko tredje finst ikkje.\n\nNo, juvelen. **Påstand: $\\sqrt{2}$ er irrasjonell.**\n\nAnta det motsette: $\\sqrt{2}$ er rasjonell, altså $\\sqrt{2} = \\frac{a}{b}$ for heiltal $a, b$ – og vi krev at brøken er *maksimalt forkorta*: $a$ og $b$ har ingen felles faktorar. Kvadrer begge sider:\n\n$$2 = \\frac{a^2}{b^2} \\quad \\Rightarrow \\quad a^2 = 2b^2$$\n\nAltså er $a^2$ partal. Og her gjenbrukar vi resultatet frå førre seksjon (i kontrapositiv form): er $a^2$ partal, må $a$ vere partal. Skriv $a = 2k$ og set inn: $4k^2 = 2b^2$, så $b^2 = 2k^2$. Men då er $b^2$ partal – og dermed er òg $b$ partal!\n\nNo har vi motseiinga: både $a$ og $b$ er partal, altså har dei felles faktor 2 – men brøken skulle vere maksimalt forkorta. Antakinga har øydelagt seg sjølv. Altså er $\\sqrt{2}$ irrasjonell. $\\square$\n\nDette beviset, kjent sidan antikkens Hellas, sjokkerte pytagorearane: det finst lengder – som diagonalen i eit einingskvadrat – som ingen brøk kan skildre. Legg òg merke til arkitekturen: eit lite kontrapositivt lemma bar det store kontradiksjonsbeviset. Slik vert matematikk bygd – resultat på resultat."
+      "content": "## Kontradiksjon – og det berømte beviset for at $\\sqrt{2}$ er irrasjonell\n\nKontradiksjonsbeviset (reductio ad absurdum) har tre akter. **Anta** at påstanden $P$ er usann. **Utlei** konsekvensar logisk, til du når ei sjølvmotseiing – noko openbert falskt, eller noko som motseier antakinga sjølv. **Konkluder**: antakinga $\\neg P$ må vere feil, altså er $P$ sann. Metoden kviler på lova om det utelukka tredje: ein påstand er anten sann eller usann, noko tredje finst ikkje.\n\nNo, juvelen. **Påstand: $\\sqrt{2}$ er irrasjonell.**\n\nAnta det motsette: $\\sqrt{2}$ er rasjonell, altså $\\sqrt{2} = \\frac{a}{b}$ for heiltal $a, b$ – og vi krev at brøken er *maksimalt forkorta*: $a$ og $b$ har ingen felles faktorar. Kvadrer begge sider:\n\n$$2 = \\frac{a^2}{b^2} \\quad \\Rightarrow \\quad a^2 = 2b^2$$\n\nAltså er $a^2$ partal. Og her gjenbrukar vi resultatet frå førre seksjon: er $a^2$ partal, må $a$ vere partal. Skriv $a = 2k$ og set inn: $4k^2 = 2b^2$, så $b^2 = 2k^2$. Men då er $b^2$ partal – og dermed er òg $b$ partal!\n\nNo har vi motseiinga: både $a$ og $b$ er partal, altså har dei felles faktor 2 – men brøken skulle vere maksimalt forkorta. Antakinga har øydelagt seg sjølv. Altså er $\\sqrt{2}$ irrasjonell. $\\square$\n\nDette beviset, kjent sidan antikkens Hellas, sjokkerte pytagorearane: det finst lengder – som diagonalen i eit einingskvadrat – som ingen brøk kan skildre. Legg òg merke til arkitekturen: eit lite kontrapositivt lemma bar det store kontradiksjonsbeviset. Slik vert matematikk bygd – resultat på resultat."
     },
     {
       "id": "r1-9-3-n-quiz2",
@@ -243,7 +249,7 @@
               },
               {
                 "id": "d",
-                "text": "«$n^2$ partal $\\Rightarrow$ $n$ partal» – kontrapositiven frå førre seksjon",
+                "text": "«$n^2$ partal $\\Rightarrow$ $n$ partal» – bevist kontrapositivt i førre seksjon",
                 "isCorrect": true
               },
               {
@@ -252,7 +258,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$a^2 = 2b^2$ viser at $a^2$ er partal, og lemmaet (bevist kontrapositivt) gjev at $a$ sjølv er partal."
+            "solution": "$a^2 = 2b^2$ viser at $a^2$ er partal, og setninga frå førre seksjon (bevist via kontrapositiven «$n$ odde $\\Rightarrow$ $n^2$ odde») gjev at $a$ sjølv er partal."
           },
           {
             "id": "r1-9-3-n-quiz2-q3",
@@ -421,25 +427,27 @@
     {
       "id": "r1-9-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering: bakvegane til sanninga\n\nNår den direkte vegen er stengd, går logikken bakvegar. Det **kontrapositive beviset** utnyttar at $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er same påstand i to drakter: bevis den varianten der føresetnaden er konkret og reknbar – slik «$n$ partal $\\Rightarrow n^2$ partal» med $n = 2k$ var ein leik, medan originalen «$n^2$ odde $\\Rightarrow n$ odde» var vrang.\n\n**Kontradiksjonsbeviset** antar at påstanden er usann og utleier ei sjølvmotseiing: då må antakinga forkastast. Slik fall $\\sqrt{2}$-beviset – antakinga om ein maksimalt forkorta brøk enda med at både teljar og nemnar var partal – og slik viste Euklid at primtala er uendeleg mange, ved å konstruere talet $N = p_1 \\cdots p_n + 1$ som ingen av dei lista primtala deler.\n\nVerktøykassa er no komplett: direkte bevis når vegen er open, kontrapositiv når negasjonane er enklast, kontradiksjon ved umoglegheit og ikkje-eksistens, induksjon for alle naturlege tal – og moteksempelet når påstanden skal fellast, ikkje bevisast. Desse metodane er meir enn pensum; dei er sjølve tenkjemåten som har bore matematikken frå Euklid til i dag."
+      "content": "## Oppsummering: bakvegane til sanninga\n\nNår den direkte vegen er stengd, går logikken bakvegar. Det **kontrapositive beviset** utnyttar at $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er same påstand i to drakter: bevis den varianten der føresetnaden er konkret og reknbar – slik «$n$ odde $\\Rightarrow n^2$ odde» med $n = 2k + 1$ var ein leik, medan originalen «$n^2$ partal $\\Rightarrow n$ partal» var vrang.\n\n**Kontradiksjonsbeviset** antar at påstanden er usann og utleier ei sjølvmotseiing: då må antakinga forkastast. Slik fall $\\sqrt{2}$-beviset – antakinga om ein maksimalt forkorta brøk enda med at både teljar og nemnar var partal – og slik viste Euklid at primtala er uendeleg mange, ved å konstruere talet $N = p_1 \\cdots p_n + 1$ som ingen av dei lista primtala deler.\n\nVerktøykassa er no komplett: direkte bevis når vegen er open, kontrapositiv når negasjonane er enklast, kontradiksjon ved umoglegheit og ikkje-eksistens, induksjon for alle naturlege tal – og moteksempelet når påstanden skal fellast, ikkje bevisast. Desse metodane er meir enn pensum; dei er sjølve tenkjemåten som har bore matematikken frå Euklid til i dag."
     }
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "5a95c9b80f1a210a",
-    "translatedAt": "2026-06-20T00:39:24.692Z",
-    "model": "claude-code-agent",
-    "strings": 90,
+    "sourceHash": "f512b30d298ac1ad",
+    "translatedAt": "2026-10-21T19:46:38.410Z",
+    "model": "claude-code-agent (synk 21.10.2026)",
+    "strings": 92,
     "tm": {
       "cc1bcd93cccef114": "Kontrapositiv og kontradiksjon",
       "b195b06d1ed59702": "Narrativ versjon",
       "ee17710c6bf67ca0": "Ei forteljing om å bevise baklengs – tvillinglogikken til kontrapositiven, kollapsen i kontradiksjonen, kvadratrota av to og Euklids udødelege primtalsbevis.",
-      "a04a37851e27884d": "utføre kontrapositiv bevisfoering",
+      "8e0d3392677e26e4": "utføre kontrapositiv bevisføring",
       "cfa3b301d37c35f9": "utføre bevis ved kontradiksjon (sjølvmotseiing)",
-      "cfaa860785f58482": "bevise at sqrt(2) er irrasjonell",
-      "a0fc2a9c28240c20": "forstå Euklids bevis for uendeleg mange primtal",
+      "3c317c99808b9b71": "bevise at √2 er irrasjonell",
+      "4cf6e53058895d41": "forstå Euklids bevis for uendeleg mange primtal",
+      "1139401b5d60d445": "Fordjuping (utanfor læreplanen)",
+      "511958290e8a2500": "**Utanfor R1 i gjeldande læreplan.** Bevisteknikkar som induksjon og motseiingsbevis høyrer til R2 i gjeldande læreplan (LK20). Kapittelet står her som fordjuping og er ikkje eksamensstoff i R1.",
       "40f5809b6b7aaee3": "## Å bevise baklengs\n\nNokre påstandar nektar å la seg bevise rett fram. Prøv å vise direkte at $\\sqrt{2}$ ikkje kan skrivast som ein brøk – kvar byrjar du i det heile teke? Å vise at noko *ikkje finst*, at noko er *umogleg*, krev ein annan type åtak.\n\nHeldigvis har logikken to elegante bakvegar. Den første kjenner du alt frå kapittel 9.1: implikasjonen $P \\Rightarrow Q$ er logisk ekvivalent med sin **kontrapositiv** $\\neg Q \\Rightarrow \\neg P$ – så når originalen er vrang, kan du bevise tvillingen i staden. Den andre er endå meir dristig: i eit **kontradiksjonsbevis** antar du at påstanden din er *usann*, og følgjer antakinga logisk til ho kollapsar i ei sjølvmotseiing. Då må antakinga ha vore feil – og påstanden er sann.\n\nMed desse to metodane skal vi bevise to av dei mest berømte resultata i matematikkhistoria: at $\\sqrt{2}$ er irrasjonell, og Euklids 2300 år gamle perle om at primtala aldri tek slutt.",
-      "12d7a2451ef7db54": "## Kontrapositivt bevis – tvillingen som er lettare å fange\n\nHugs frå 9.1: $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalente – alltid begge sanne eller begge usanne. «Viss det regnar, er bakken våt» er nøyaktig same påstand som «viss bakken ikkje er våt, regnar det ikkje». Det tyder at du fritt kan velje kva av dei to du beviser.\n\nNår løner byttet seg? Når negasjonane er *enklare å rekne med* enn originalane. Klassisk eksempel: *viss $n^2$ er odde, så er $n$ odde.* Direkte åtak er klønete – «$n^2$ odde» er ein tung føresetnad å starte frå ($n = \\sqrt{\\text{oddetal}}$... og kva så?). Men kontrapositiven er: *viss $n$ er partal, så er $n^2$ partal* – og «$n$ er partal» er ein draumestart, for då er $n = 2k$, og vi kan rekne!\n\n$$n^2 = (2k)^2 = 4k^2 = 2(2k^2)$$\n\nSidan $2k^2$ er eit heiltal, er $n^2$ partal. $\\square$ Dermed er òg originalen bevist: vi har vist $\\neg Q \\Rightarrow \\neg P$, som er ekvivalent med $P \\Rightarrow Q$.\n\nMønsteret å sjå etter: føresetnaden i originalen er «negativ» eller strukturlaus (odde, irrasjonell, ikkje-deleleg), medan negasjonen er «positiv» og konkret (partal, brøk, deleleg). Då gjev kontrapositiven deg ein handfast definisjon å starte frå i staden for eit tomrom. Merk dette vesle beviset, forresten – det blir ein byggjekloss i det store beviset i neste seksjon.",
+      "fee5a57db0a7db49": "## Kontrapositivt bevis – tvillingen som er lettare å fange\n\nHugs frå 9.1: $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalente – alltid begge sanne eller begge usanne. «Viss det regnar, er bakken våt» er nøyaktig same påstand som «viss bakken ikkje er våt, regnar det ikkje». Det tyder at du fritt kan velje kva av dei to du beviser.\n\nNår løner det seg å byte? Når negasjonane er *enklare å rekne med* enn originalane. Klassisk eksempel: *viss $n^2$ er partal, så er $n$ partal.* Direkte åtak er klønete – «$n^2$ partal» er ein tung føresetnad å starte frå ($n = \\sqrt{\\text{partal}}$... og kva så?). Men kontrapositiven er: *viss $n$ er odde, så er $n^2$ odde* – og «$n$ er odde» er ein draumestart, for då er $n = 2k + 1$, og vi kan rekne!\n\n$$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$$\n\nSidan $2k^2 + 2k$ er eit heiltal, er $n^2$ odde. $\\square$ Dermed er òg originalen bevist: vi har vist $\\neg Q \\Rightarrow \\neg P$, som er ekvivalent med $P \\Rightarrow Q$.\n\nMønsteret å sjå etter: føresetnaden i originalen seier lite å rekne med (her eit utsegn om $n^2$, eller «irrasjonell», «ikkje-deleleg»), medan negasjonen av konklusjonen gjev ei konkret form (her $n = 2k + 1$). Då gjev kontrapositiven deg ein handfast definisjon å starte frå i staden for eit tomrom. Merk dette vesle beviset, forresten – det blir ein byggjekloss i det store beviset i neste seksjon.",
       "1164f9405d8ff96a": "Test deg sjølv på kontrapositivt bevis:",
       "4097889236a2af26": "placeholder",
       "7ef800b4ce4e1276": "Kva påstand er logisk ekvivalent med $P \\Rightarrow Q$?",
@@ -448,30 +456,30 @@
       "00a3cc494fcd8cc1": "$\\neg P \\Rightarrow \\neg Q$",
       "f906c225531459f3": "$P \\Rightarrow \\neg Q$",
       "09c0092720512973": "Kontrapositiven $\\neg Q \\Rightarrow \\neg P$ er alltid sann nøyaktig når originalen er sann. ($Q \\Rightarrow P$ er den omvende – ein heilt annan påstand.)",
-      "3cb72e47f50df58d": "Kva er kontrapositiven av «viss $n^2$ er odde, så er $n$ odde»?",
+      "232dbee64c9c8594": "Kva er kontrapositiven av «viss $n^2$ er partal, så er $n$ partal»?",
       "7abceaefe4eadab5": "Viss $n$ er odde, så er $n^2$ odde",
       "0c2ff1520d7acda3": "Viss $n$ er partal, så er $n^2$ partal",
-      "ab12f67d2703d5ec": "Viss $n^2$ er partal, så er $n$ partal",
+      "94c290669baeec1e": "Viss $n^2$ er odde, så er $n$ odde",
       "863aa457686ce8b4": "Viss $n$ er odde, så er $n^2$ partal",
-      "7705830a60b938bf": "Vi negerer begge og byter retning: ikkje-odde tyder partal, så kontrapositiven blir «$n$ partal $\\Rightarrow$ $n^2$ partal».",
+      "88b88540c9a9ae2f": "Vi negerer begge og byter retning: ikkje-partal tyder odde, så kontrapositiven blir «$n$ odde $\\Rightarrow$ $n^2$ odde».",
       "edb3d944ba887164": "Kvifor er kontrapositiven lettare å bevise i dette eksempelet?",
       "6d2d612b11e11631": "Fordi han er ein svakare påstand",
       "f54f88b61b67873b": "Fordi kvadrattal alltid er partal",
-      "6503c81f2b9de5b8": "Fordi «$n$ er partal» gjev den konkrete forma $n = 2k$ å rekne med",
+      "0478e1531396e53a": "Fordi «$n$ er odde» gjev den konkrete forma $n = 2k + 1$ å rekne med",
       "78cc05a103fae86a": "Fordi han ikkje krev algebra",
-      "ae2467fa9ccde553": "Føresetnaden «$n$ partal» vert omsett direkte til $n = 2k$, og så er det berre å kvadrere. Originalens «$n^2$ odde» gjev ingen slik handfast start.",
+      "4cd01ebab7b4d072": "Føresetnaden «$n$ odde» vert omsett direkte til $n = 2k + 1$, og så er det berre å kvadrere. Originalens «$n^2$ partal» gjev ingen slik handfast start.",
       "09e1702ea9d9c9a2": "Vi har bevist kontrapositiven $\\neg Q \\Rightarrow \\neg P$. Kva kan vi konkludere om originalen $P \\Rightarrow Q$?",
       "2f6b5c7ee73063e5": "Han må undersøkjast separat",
       "28c4d7da744bc4d3": "Han er sannsynlegvis sann",
       "16c251937cf90dab": "Han er usann",
       "444a49874d734e73": "Han er bevist – dei to er logisk ekvivalente",
       "7600aef3dec7586b": "Logisk ekvivalens tyder at beviset for den eine er eit bevis for den andre. Ingen ekstra jobb trengst.",
-      "e93d3a9d878111b2": "## Kontradiksjon – og det berømte beviset for at $\\sqrt{2}$ er irrasjonell\n\nKontradiksjonsbeviset (reductio ad absurdum) har tre akter. **Anta** at påstanden $P$ er usann. **Utlei** konsekvensar logisk, til du når ei sjølvmotseiing – noko openbert falskt, eller noko som motseier antakinga sjølv. **Konkluder**: antakinga $\\neg P$ må vere feil, altså er $P$ sann. Metoden kviler på lova om det utelukka tredje: ein påstand er anten sann eller usann, noko tredje finst ikkje.\n\nNo, juvelen. **Påstand: $\\sqrt{2}$ er irrasjonell.**\n\nAnta det motsette: $\\sqrt{2}$ er rasjonell, altså $\\sqrt{2} = \\frac{a}{b}$ for heiltal $a, b$ – og vi krev at brøken er *maksimalt forkorta*: $a$ og $b$ har ingen felles faktorar. Kvadrer begge sider:\n\n$$2 = \\frac{a^2}{b^2} \\quad \\Rightarrow \\quad a^2 = 2b^2$$\n\nAltså er $a^2$ partal. Og her gjenbrukar vi resultatet frå førre seksjon (i kontrapositiv form): er $a^2$ partal, må $a$ vere partal. Skriv $a = 2k$ og set inn: $4k^2 = 2b^2$, så $b^2 = 2k^2$. Men då er $b^2$ partal – og dermed er òg $b$ partal!\n\nNo har vi motseiinga: både $a$ og $b$ er partal, altså har dei felles faktor 2 – men brøken skulle vere maksimalt forkorta. Antakinga har øydelagt seg sjølv. Altså er $\\sqrt{2}$ irrasjonell. $\\square$\n\nDette beviset, kjent sidan antikkens Hellas, sjokkerte pytagorearane: det finst lengder – som diagonalen i eit einingskvadrat – som ingen brøk kan skildre. Legg òg merke til arkitekturen: eit lite kontrapositivt lemma bar det store kontradiksjonsbeviset. Slik vert matematikk bygd – resultat på resultat.",
+      "a5ef4c00c0268490": "## Kontradiksjon – og det berømte beviset for at $\\sqrt{2}$ er irrasjonell\n\nKontradiksjonsbeviset (reductio ad absurdum) har tre akter. **Anta** at påstanden $P$ er usann. **Utlei** konsekvensar logisk, til du når ei sjølvmotseiing – noko openbert falskt, eller noko som motseier antakinga sjølv. **Konkluder**: antakinga $\\neg P$ må vere feil, altså er $P$ sann. Metoden kviler på lova om det utelukka tredje: ein påstand er anten sann eller usann, noko tredje finst ikkje.\n\nNo, juvelen. **Påstand: $\\sqrt{2}$ er irrasjonell.**\n\nAnta det motsette: $\\sqrt{2}$ er rasjonell, altså $\\sqrt{2} = \\frac{a}{b}$ for heiltal $a, b$ – og vi krev at brøken er *maksimalt forkorta*: $a$ og $b$ har ingen felles faktorar. Kvadrer begge sider:\n\n$$2 = \\frac{a^2}{b^2} \\quad \\Rightarrow \\quad a^2 = 2b^2$$\n\nAltså er $a^2$ partal. Og her gjenbrukar vi resultatet frå førre seksjon: er $a^2$ partal, må $a$ vere partal. Skriv $a = 2k$ og set inn: $4k^2 = 2b^2$, så $b^2 = 2k^2$. Men då er $b^2$ partal – og dermed er òg $b$ partal!\n\nNo har vi motseiinga: både $a$ og $b$ er partal, altså har dei felles faktor 2 – men brøken skulle vere maksimalt forkorta. Antakinga har øydelagt seg sjølv. Altså er $\\sqrt{2}$ irrasjonell. $\\square$\n\nDette beviset, kjent sidan antikkens Hellas, sjokkerte pytagorearane: det finst lengder – som diagonalen i eit einingskvadrat – som ingen brøk kan skildre. Legg òg merke til arkitekturen: eit lite kontrapositivt lemma bar det store kontradiksjonsbeviset. Slik vert matematikk bygd – resultat på resultat.",
       "e58a508199329dcf": "Test deg sjølv på bevis ved kontradiksjon:",
       "9a43e8baacdc9630": "Kva er første steg i eit kontradiksjonsbevis for påstanden $P$?",
+      "8ba9b6079430a31a": "Anta at $P$ er usann (anta $\\neg P$)",
       "bf8db06cb73ef2ea": "Bevise kontrapositiven",
       "041bc67adee87814": "Sjekke nokre eksempel",
-      "8ba9b6079430a31a": "Anta at $P$ er usann (anta $\\neg P$)",
       "96107f0784b1e825": "Anta at $P$ er sann",
       "a8089307ab9d4613": "Vi antar det motsette av det vi vil vise, og jaktar på ei sjølvmotseiing som tvingar antakinga i kne.",
       "defc76356ddbf7fc": "I beviset for at $\\sqrt{2}$ er irrasjonell: kvifor vert det kravd at brøken $\\frac{a}{b}$ er maksimalt forkorta?",
@@ -483,14 +491,14 @@
       "605f43e9dc5b931b": "Frå $a^2 = 2b^2$ konkluderer vi at $a$ er partal. Kva resultat vert brukt?",
       "1ee6d3aae574b11d": "Bernoullis ulikskap",
       "a847f209c7b19c4b": "Euklids teorem",
+      "8b0a4683d390444f": "«$n^2$ partal $\\Rightarrow$ $n$ partal» – bevist kontrapositivt i førre seksjon",
       "58ad48d24e62f1d6": "Pytagoras' setning",
-      "c1610e804d957112": "«$n^2$ partal $\\Rightarrow$ $n$ partal» – kontrapositiven frå førre seksjon",
-      "570e29931585d77a": "$a^2 = 2b^2$ viser at $a^2$ er partal, og lemmaet (bevist kontrapositivt) gjev at $a$ sjølv er partal.",
+      "b33fafe4bf355207": "$a^2 = 2b^2$ viser at $a^2$ er partal, og setninga frå førre seksjon (bevist via kontrapositiven «$n$ odde $\\Rightarrow$ $n^2$ odde») gjev at $a$ sjølv er partal.",
       "54d15efd644377bb": "Kva er sjølvmotseiinga som fullfører beviset?",
-      "7b88496c14ba06fb": "Både $a$ og $b$ er partal, endå brøken skulle vere maksimalt forkorta",
       "36a8aed8be71c5cd": "$\\sqrt{2}$ viser seg å vere lik $\\frac{3}{2}$",
       "a59e39dd9a5821fe": "$b$ blir null",
       "0bcf984e629dc13b": "$a^2$ blir negativt",
+      "7b88496c14ba06fb": "Både $a$ og $b$ er partal, endå brøken skulle vere maksimalt forkorta",
       "8955cdf35e71a291": "Begge har faktor 2 – i strid med antakinga om forkorta brøk. Antakinga «$\\sqrt{2}$ rasjonell» må forkastast.",
       "b95215e5597e11fb": "## Euklids teorem – og kunsten å velje metode\n\nEit kontradiksjonsbevis til, kanskje det vakraste som finst. **Euklids teorem (ca. 300 f.Kr.): det finst uendeleg mange primtal.**\n\nAnta det motsette: primtala er endeleg mange, og heile lista er $p_1, p_2, \\ldots, p_n$. Konstruer no talet\n\n$$N = p_1 \\cdot p_2 \\cdot \\ldots \\cdot p_n + 1$$\n\n– produktet av *alle* primtala, pluss éin. Sidan $N > 1$, har $N$ minst éin primfaktor $p$. Men kva for ein? Deler du $N$ på $p_1$, blir resten 1. På $p_2$? Rest 1. På kvart einaste primtal i lista gjev $N$ rest 1 – ingen av dei deler $N$. Så primfaktoren $p$ er eit primtal som *ikkje står på lista*. Men lista skulle innehalde alle primtal! Kontradiksjon – og dermed finst det uendeleg mange primtal. $\\square$\n\nTo tusen tre hundre år gammalt, fire linjer langt, og framleis eit førebilete for kva eit bevis kan vere.\n\nDu har no fire bevismetodar, og valet mellom dei følgjer ganske faste signal. **Direkte bevis** når vegen frå antaking til konklusjon er farbar – definisjonar inn, algebra, konklusjon ut. **Kontrapositiv** når negasjonane er meir konkrete å rekne med enn originalane. **Kontradiksjon** når påstanden handlar om umoglegheit eller ikkje-eksistens – «kan ikkje skrivast som», «finst ikkje», «er uendeleg mange» – for då gjev antakinga om det motsette deg noko handfast å rive ned. **Induksjon** når påstanden gjeld alle naturlege tal. Det fine er at metodane samarbeider, slik kontrapositiv-lemmaet bar $\\sqrt{2}$-beviset: verktøykassa er éin heilskap.",
       "192cc79f018e5595": "Test deg sjølv på Euklids teorem og metodeval:",
@@ -518,7 +526,7 @@
       "0bb0f2448175a550": "Moteksempel",
       "d23bb8534e0b1b95": "Kontradiksjon",
       "69654a0377ed6069": "Ved umoglegheits- og ikkje-eksistenspåstandar gjev antakinga om det motsette deg noko konkret å utleie ei sjølvmotseiing frå – heimebana til kontradiksjonen.",
-      "6b5db4d96c118f09": "## Oppsummering: bakvegane til sanninga\n\nNår den direkte vegen er stengd, går logikken bakvegar. Det **kontrapositive beviset** utnyttar at $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er same påstand i to drakter: bevis den varianten der føresetnaden er konkret og reknbar – slik «$n$ partal $\\Rightarrow n^2$ partal» med $n = 2k$ var ein leik, medan originalen «$n^2$ odde $\\Rightarrow n$ odde» var vrang.\n\n**Kontradiksjonsbeviset** antar at påstanden er usann og utleier ei sjølvmotseiing: då må antakinga forkastast. Slik fall $\\sqrt{2}$-beviset – antakinga om ein maksimalt forkorta brøk enda med at både teljar og nemnar var partal – og slik viste Euklid at primtala er uendeleg mange, ved å konstruere talet $N = p_1 \\cdots p_n + 1$ som ingen av dei lista primtala deler.\n\nVerktøykassa er no komplett: direkte bevis når vegen er open, kontrapositiv når negasjonane er enklast, kontradiksjon ved umoglegheit og ikkje-eksistens, induksjon for alle naturlege tal – og moteksempelet når påstanden skal fellast, ikkje bevisast. Desse metodane er meir enn pensum; dei er sjølve tenkjemåten som har bore matematikken frå Euklid til i dag."
+      "5617fa9bc5da6151": "## Oppsummering: bakvegane til sanninga\n\nNår den direkte vegen er stengd, går logikken bakvegar. Det **kontrapositive beviset** utnyttar at $P \\Rightarrow Q$ og $\\neg Q \\Rightarrow \\neg P$ er same påstand i to drakter: bevis den varianten der føresetnaden er konkret og reknbar – slik «$n$ odde $\\Rightarrow n^2$ odde» med $n = 2k + 1$ var ein leik, medan originalen «$n^2$ partal $\\Rightarrow n$ partal» var vrang.\n\n**Kontradiksjonsbeviset** antar at påstanden er usann og utleier ei sjølvmotseiing: då må antakinga forkastast. Slik fall $\\sqrt{2}$-beviset – antakinga om ein maksimalt forkorta brøk enda med at både teljar og nemnar var partal – og slik viste Euklid at primtala er uendeleg mange, ved å konstruere talet $N = p_1 \\cdots p_n + 1$ som ingen av dei lista primtala deler.\n\nVerktøykassa er no komplett: direkte bevis når vegen er open, kontrapositiv når negasjonane er enklast, kontradiksjon ved umoglegheit og ikkje-eksistens, induksjon for alle naturlege tal – og moteksempelet når påstanden skal fellast, ikkje bevisast. Desse metodane er meir enn pensum; dei er sjølve tenkjemåten som har bore matematikken frå Euklid til i dag."
     }
   }
 }

@@ -17,6 +17,12 @@
   "linkedChapterId": "r1-8-7",
   "content": [
     {
+      "id": "r1-8-7-narrativ-lk20-merknad",
+      "type": "note",
+      "title": "Fordypning (utenfor læreplanen)",
+      "content": "**Utenfor R1 i gjeldende læreplan.** Kombinatorikk og sannsynlighet er ikke en del av R1 i gjeldende læreplan (LK20). Kapitlet står her som fordypning og er ikke eksamensstoff i R1."
+    },
+    {
       "id": "r1-8-7-n-intro",
       "type": "text",
       "content": "## Med eller uten tilbakelegging?\n\nTo spill, tilsynelatende like: I det første kaster du en terning ti ganger og teller seksere. I det andre trekker du fem kort fra en kortstokk og teller hjerter. Begge handler om å telle «suksesser» i en serie trekk – men under panseret er de fundamentalt forskjellige.\n\nTerningen har ingen hukommelse: sannsynligheten for en sekser er $\\frac{1}{6}$ i hvert eneste kast, uansett hva som kom før. Kortstokken husker alt: trekker du en hjerter, er det færre hjerter igjen, og sannsynligheten synker for neste trekk. Det første er trekning *med* tilbakelegging (eller tilsvarende), det andre *uten*.\n\nTo fordelinger matcher de to verdenene: den **binomiske** fordelingen for uavhengige forsøk med konstant sannsynlighet, og den **hypergeometriske** for trekning uten tilbakelegging fra en endelig populasjon. I dette kapittelet lærer du begge formler – og det viktigste av alt: å diagnostisere riktig hvilken som gjelder. Å velge riktig fordeling er like viktig som selve regningen."
@@ -24,7 +30,7 @@
     {
       "id": "r1-8-7-n-section1",
       "type": "text",
-      "content": "## Binomisk fordeling – terningens verden\n\nDen binomiske fordelingen kjenner du fra kapittel 8.5, så her repeterer vi kort og setter den i arbeid. Forutsetningene: fast antall forsøk $n$, to utfall per forsøk, konstant suksesssannsynlighet $p$, uavhengige forsøk. Da er $X \\sim B(n, p)$ med\n\n$$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$\n\nog de hendige formlene $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $\\sigma(X) = \\sqrt{np(1-p)}$.\n\nTerningspillet: ti kast, $X$ = antall seksere. Hvert kast er uavhengig med $p = \\frac{1}{6}$, så $X \\sim B(10, \\frac{1}{6})$. Sannsynligheten for nøyaktig tre seksere: $P(X = 3) = \\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7 \\approx 0{,}155$. Forventningen er $E(X) = \\frac{10}{6} \\approx 1{,}67$ og variansen $\\frac{25}{18} \\approx 1{,}39$.\n\nEt eksamensaktuelt mønster er «minst»-spørsmål. En elev gjetter på 8 flervalgsoppgaver med fire alternativer: $X \\sim B(8;\\, 0{,}25)$. Sannsynligheten for minst 3 riktige går raskest via komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$. Vi summerer de tre små: $P(X=0) = 0{,}75^8 \\approx 0{,}100$, $P(X=1) = 8 \\cdot 0{,}25 \\cdot 0{,}75^7 \\approx 0{,}267$ og $P(X=2) = 28 \\cdot 0{,}0625 \\cdot 0{,}75^6 \\approx 0{,}311$. Dermed $P(X \\geq 3) \\approx 1 - 0{,}679 = 0{,}321$. Omtrent én av tre gjettere klarer tre riktige eller mer."
+      "content": "## Binomisk fordeling – terningens verden\n\nDen binomiske fordelingen kjenner du fra kapittel 8.5, så her repeterer vi kort og setter den i arbeid. Forutsetningene: fast antall forsøk $n$, to utfall per forsøk, konstant suksesssannsynlighet $p$, uavhengige forsøk. Da er $X \\sim \\text{Bin}(n, p)$ med\n\n$$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$\n\nog de hendige formlene $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $\\sigma(X) = \\sqrt{np(1-p)}$.\n\nTerningspillet: ti kast, $X$ = antall seksere. Hvert kast er uavhengig med $p = \\frac{1}{6}$, så $X \\sim \\text{Bin}(10, \\frac{1}{6})$. Sannsynligheten for nøyaktig tre seksere: $P(X = 3) = \\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7 \\approx 0{,}155$. Forventningen er $E(X) = \\frac{10}{6} \\approx 1{,}67$ og variansen $\\frac{25}{18} \\approx 1{,}39$.\n\nEt eksamensaktuelt mønster er «minst»-spørsmål. En elev gjetter på 8 flervalgsoppgaver med fire alternativer: $X \\sim \\text{Bin}(8;\\, 0{,}25)$. Sannsynligheten for minst 3 riktige går raskest via komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$. Vi summerer de tre små: $P(X=0) = 0{,}75^8 \\approx 0{,}100$, $P(X=1) = 8 \\cdot 0{,}25 \\cdot 0{,}75^7 \\approx 0{,}267$ og $P(X=2) = 28 \\cdot 0{,}0625 \\cdot 0{,}75^6 \\approx 0{,}311$. Dermed $P(X \\geq 3) \\approx 1 - 0{,}679 = 0{,}321$. Omtrent én av tre gjettere klarer tre riktige eller mer."
     },
     {
       "id": "r1-8-7-n-quiz1",
@@ -71,7 +77,7 @@
           },
           {
             "id": "r1-8-7-n-quiz1-q1",
-            "task": "Hva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim B(10, \\frac{1}{6})$?",
+            "task": "Hva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim \\text{Bin}(10, \\frac{1}{6})$?",
             "options": [
               {
                 "id": "a",
@@ -125,7 +131,7 @@
           },
           {
             "id": "r1-8-7-n-quiz1-q3",
-            "task": "Hva er $P(X = 0)$ for $X \\sim B(8;\\, 0{,}25)$?",
+            "task": "Hva er $P(X = 0)$ for $X \\sim \\text{Bin}(8;\\, 0{,}25)$?",
             "options": [
               {
                 "id": "a",
@@ -250,7 +256,7 @@
               },
               {
                 "id": "d",
-                "text": "$13 \\cdot \\frac{5}{52}$ $= 1{,}25$, men formelen er feil",
+                "text": "$\\frac{5}{13} \\approx 0{,}38$",
                 "isCorrect": false
               }
             ],
@@ -423,7 +429,7 @@
     {
       "id": "r1-8-7-n-summary",
       "type": "text",
-      "content": "## Oppsummering: terningen og kortstokken\n\nTo verdener, to fordelinger. I terningens verden – uavhengige forsøk med konstant suksesssannsynlighet, eller trekning med tilbakelegging – gjelder den binomiske fordelingen $X \\sim B(n, p)$ med $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. I kortstokkens verden – trekning uten tilbakelegging fra en endelig populasjon med $M$ suksesser blant $N$ – gjelder den hypergeometriske $X \\sim H(N, M, n)$ med $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ og den intuitive forventningen $E(X) = n \\cdot \\frac{M}{N}$.\n\nDiagnosen stilles med ett spørsmål: endres sannsynligheten underveis? Og glem ikke fluktruten: når populasjonen er mer enn ti ganger utvalget, er binomisk en utmerket tilnærming til hypergeometrisk – det er derfor meningsmålinger slipper unna med den enkle modellen.\n\nDermed er sannsynlighetskapittelet komplett: fra telleprinsippene via klassisk og betinget sannsynlighet til Bayes og de to store fordelingene. Sjekk alltid forutsetningene før du velger modell – det er der forskjellen på rett og galt svar ligger."
+      "content": "## Oppsummering: terningen og kortstokken\n\nTo verdener, to fordelinger. I terningens verden – uavhengige forsøk med konstant suksesssannsynlighet, eller trekning med tilbakelegging – gjelder den binomiske fordelingen $X \\sim \\text{Bin}(n, p)$ med $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. I kortstokkens verden – trekning uten tilbakelegging fra en endelig populasjon med $M$ suksesser blant $N$ – gjelder den hypergeometriske $X \\sim H(N, M, n)$ med $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ og den intuitive forventningen $E(X) = n \\cdot \\frac{M}{N}$.\n\nDiagnosen stilles med ett spørsmål: endres sannsynligheten underveis? Og glem ikke fluktruten: når populasjonen er mer enn ti ganger utvalget, er binomisk en utmerket tilnærming til hypergeometrisk – det er derfor meningsmålinger slipper unna med den enkle modellen.\n\nDermed er sannsynlighetskapittelet komplett: fra telleprinsippene via klassisk og betinget sannsynlighet til Bayes og de to store fordelingene. Sjekk alltid forutsetningene før du velger modell – det er der forskjellen på rett og galt svar ligger."
     }
   ],
   "exercises": []

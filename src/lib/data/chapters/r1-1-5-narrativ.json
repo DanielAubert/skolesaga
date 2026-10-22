@@ -17,12 +17,12 @@
     {
       "id": "r1-1-5-n-intro",
       "type": "text",
-      "content": "## Verden er ikke eksakt -- den er innenfor toleranse\n\nPå en fabrikk som lager kulelagre, er ingen kule *nøyaktig* $10{,}000$ mm i diameter. Kravet i tegningen lyder i stedet: diameteren skal avvike fra $10$ mm med mindre enn $0{,}05$ mm. Matematisk er det en ulikhet med absoluttverdi:\n\n$$|d - 10| < 0{,}05$$\n\nAvstanden fra $d$ til $10$ skal være under $0{,}05$. Slik tenker ingeniører, kjemikere og programmerere hele tiden: medisindoser skal ligge i et trygt intervall, en rakettbane innenfor en korridor, en numerisk feil under en toleranse. Mens likninger handler om *eksakte* treff, handler ulikheter om *områder* -- og svarene er ikke enkeltpunkter, men intervaller.\n\nI dette kapittelet bygger vi opp verktøykassen i tre etapper. Først **lineære ulikheter** og språket for å beskrive svarene: intervallnotasjon, med runde og firkantede parenteser som forteller om endepunktene er med eller ikke. Underveis møter du regelen alle snubler i minst én gang: ganger eller deler du med et negativt tall, *snur* ulikhetstegnet.\n\nDeretter **kvadratiske og rasjonale ulikheter**, der løsningen krever et genialt lite diagram: fortegnslinjen, som viser hvor hvert uttrykk er positivt og negativt. Og til slutt **absoluttverdien** -- avstandsmåleren som gjorde kulelager-kravet så kompakt -- med sine egne likninger og ulikheter. La oss starte der alt er kjent: med det lineære."
+      "content": "## Verden er ikke eksakt -- den er innenfor toleranse\n\nPå en fabrikk som lager kulelagre, er ingen kule *nøyaktig* $10{,}000$ mm i diameter. Kravet i tegningen lyder i stedet: diameteren skal avvike fra $10$ mm med mindre enn $0{,}05$ mm. Matematisk er det en ulikhet med absoluttverdi:\n\n$$|d - 10| < 0{,}05$$\n\nAvstanden fra $d$ til $10$ skal være under $0{,}05$. Slik tenker ingeniører, kjemikere og programmerere hele tiden: medisindoser skal ligge i et trygt intervall, en rakettbane innenfor en korridor, en numerisk feil under en toleranse. Mens likninger handler om *eksakte* treff, handler ulikheter om *områder* -- og svarene er ikke enkeltpunkter, men intervaller.\n\nI dette kapittelet bygger vi opp verktøykassen i tre etapper. Først **lineære ulikheter** og språket for å beskrive svarene: intervallnotasjon, med vinkelparenteser og hakeparenteser som forteller om endepunktene er med eller ikke. Underveis møter du regelen alle snubler i minst én gang: ganger eller deler du med et negativt tall, *snur* ulikhetstegnet.\n\nDeretter **kvadratiske og rasjonale ulikheter**, der løsningen krever et genialt lite diagram: fortegnslinjen, som viser hvor hvert uttrykk er positivt og negativt. Og til slutt **absoluttverdien** -- avstandsmåleren som gjorde kulelager-kravet så kompakt -- med sine egne likninger og ulikheter. La oss starte der alt er kjent: med det lineære."
     },
     {
       "id": "r1-1-5-n-section1",
       "type": "text",
-      "content": "## Lineære ulikheter og intervallenes språk\n\nEn ulikhet løses nesten som en likning: du kan legge til og trekke fra det samme på begge sider, og du kan gange og dele med positive tall. Men **ganger eller deler du med et negativt tall, snur ulikhetstegnet**. Hvorfor? Tenk på $2 < 5$. Gang begge sider med $-1$: $-2$ og $-5$. På tallinja ligger $-5$ til *venstre* for $-2$, så nå er $-5 < -2$ -- rekkefølgen er speilvendt.\n\nSe det i praksis. Ulikheten $3x - 7 < 2x + 5$ gir $x < 12$ uten dramatikk. Men $-2x + 3 \\geq 7$ gir $-2x \\geq 4$, og når vi deler med $-2$, snur tegnet: $x \\leq -2$.\n\nSvarene skriver vi med **intervallnotasjon**. Rund parentes betyr at endepunktet *ikke* er med, hakeparentes at det *er* med: $(a, b)$ er alle $x$ med $a < x < b$, mens $[a, b]$ tar med endepunktene. Blandinger som $[a, b)$ er lov, og mot uendelig bruker vi alltid rund parentes -- $\\infty$ er ikke et tall man kan «nå». Løsningene ovenfor blir dermed $(-\\infty, 12)$ og $(-\\infty, -2]$.\n\n**Doble ulikheter** klemmer $x$ fra begge kanter og løses ved å gjøre samme operasjon på alle tre deler. Fra $-1 \\leq 2x - 3 < 5$ legger vi til $3$ over hele linja: $2 \\leq 2x < 8$, og deler på $2$: $1 \\leq x < 4$. Svaret er det halvåpne intervallet $[1, 4)$ -- venstre endepunkt med, høyre ikke. Legg merke til hvordan notasjonen bærer presis informasjon: én parentesform skiller «minst 1» fra «mer enn 1»."
+      "content": "## Lineære ulikheter og intervallenes språk\n\nEn ulikhet løses nesten som en likning: du kan legge til og trekke fra det samme på begge sider, og du kan gange og dele med positive tall. Men **ganger eller deler du med et negativt tall, snur ulikhetstegnet**. Hvorfor? Tenk på $2 < 5$. Gang begge sider med $-1$: $-2$ og $-5$. På tallinja ligger $-5$ til *venstre* for $-2$, så nå er $-5 < -2$ -- rekkefølgen er speilvendt.\n\nSe det i praksis. Ulikheten $3x - 7 < 2x + 5$ gir $x < 12$ uten dramatikk. Men $-2x + 3 \\geq 7$ gir $-2x \\geq 4$, og når vi deler med $-2$, snur tegnet: $x \\leq -2$.\n\nSvarene skriver vi med **intervallnotasjon**. Vinkelparentes betyr at endepunktet *ikke* er med, hakeparentes at det *er* med: $\\langle a, b \\rangle$ er alle $x$ med $a < x < b$, mens $[a, b]$ tar med endepunktene. Blandinger som $[a, b \\rangle$ er lov, og uten ende mot venstre eller høyre skriver vi $\\leftarrow$ eller $\\rightarrow$ med vinkelparentes. Løsningene ovenfor blir dermed $\\langle \\leftarrow, 12 \\rangle$ og $\\langle \\leftarrow, -2]$.\n\n**Doble ulikheter** klemmer $x$ fra begge kanter og løses ved å gjøre samme operasjon på alle tre deler. Fra $-1 \\leq 2x - 3 < 5$ legger vi til $3$ over hele linja: $2 \\leq 2x < 8$, og deler på $2$: $1 \\leq x < 4$. Svaret er det halvåpne intervallet $[1, 4 \\rangle$ -- venstre endepunkt med, høyre ikke. Legg merke til hvordan notasjonen bærer presis informasjon: én parentesform skiller «minst 1» fra «mer enn 1»."
     },
     {
       "id": "r1-1-5-n-quiz1",
@@ -65,7 +65,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Trekk $2x$ fra begge sider og legg til $7$: $x < 12$, altså $(-\\infty, 12)$."
+            "solution": "Trekk $2x$ fra begge sider og legg til $7$: $x < 12$, altså $\\langle \\leftarrow, 12 \\rangle$."
           },
           {
             "id": "r1-1-5-n-quiz1-q1",
@@ -100,26 +100,26 @@
             "options": [
               {
                 "id": "b",
-                "text": "$x \\in (1, 4]$",
+                "text": "$x \\in \\langle 1, 4]$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$x \\in [-2, 1)$",
+                "text": "$x \\in [-2, 1 \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$x \\in (1, 4)$",
+                "text": "$x \\in \\langle 1, 4 \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "a",
-                "text": "$x \\in [1, 4)$",
+                "text": "$x \\in [1, 4 \\rangle$",
                 "isCorrect": true
               }
             ],
-            "solution": "Legg til $3$: $2 \\leq 2x < 8$. Del på $2$: $1 \\leq x < 4$, altså $[1, 4)$."
+            "solution": "Legg til $3$: $2 \\leq 2x < 8$. Del på $2$: $1 \\leq x < 4$, altså $[1, 4 \\rangle$."
           },
           {
             "id": "r1-1-5-n-quiz1-q3",
@@ -127,26 +127,26 @@
             "options": [
               {
                 "id": "d",
-                "text": "$(a, \\infty)$",
+                "text": "$\\langle a, \\rightarrow \\rangle$",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "$[a, \\infty)$",
+                "text": "$[a, \\rightarrow \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "$(\\infty, a)$",
+                "text": "$\\langle \\leftarrow, a \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$[a, \\infty]$",
+                "text": "$\\langle \\leftarrow, a]$",
                 "isCorrect": false
               }
             ],
-            "solution": "Streng ulikhet gir rund parentes ved $a$, og mot $\\infty$ bruker vi alltid rund parentes: $(a, \\infty)$."
+            "solution": "Streng ulikhet gir vinkelparentes ved $a$, og uten ende mot høyre skriver vi $\\rightarrow$ med vinkelparentes: $\\langle a, \\rightarrow \\rangle$."
           }
         ]
       }
@@ -154,7 +154,7 @@
     {
       "id": "r1-1-5-n-section2",
       "type": "text",
-      "content": "## Fortegnslinjen -- kart over pluss og minus\n\nHva med $x^2 - x - 6 > 0$? Å «ta kvadratrot på begge sider» fører galt av sted. Nøkkelinnsikten er en annen: et faktorisert uttrykk kan bare skifte fortegn i nullpunktene sine. Mellom nullpunktene er fortegnet konstant. Så vi faktoriserer, finner nullpunktene, og tegner et kart -- **fortegnslinjen**.\n\nHer: $x^2 - x - 6 = (x-3)(x+2)$, med nullpunkter $x = -2$ og $x = 3$. De deler tallinja i tre soner. For $x < -2$ er begge faktorene negative, og produktet positivt. Mellom $-2$ og $3$ er $(x+2)$ positiv men $(x-3)$ negativ -- produktet negativt. For $x > 3$ er begge positive. Vi ville ha produktet *positivt*, så svaret er\n\n$$x \\in (-\\infty, -2) \\cup (3, \\infty)$$\n\nTo adskilte intervaller, limt sammen med unionstegnet. Endepunktene er ikke med, siden ulikheten var streng.\n\nSamme metode tar **rasjonale ulikheter** som $\\frac{x-1}{x+3} \\geq 0$ -- en brøk skifter jo også bare fortegn der teller eller nevner er null. Kritiske punkter: $x = 1$ (teller) og $x = -3$ (nevner). Fortegnslinjen gir positivt utenfor og negativt mellom, så løsningen er $(-\\infty, -3) \\cup [1, \\infty)$. Legg nøye merke til parentesene: $x = 1$ er med (brøken er null, og «$\\geq$» tillater null), men $x = -3$ er *aldri* med -- der er brøken udefinert.\n\nOg en advarsel med rød skrift: **gang aldri en ulikhet med et uttrykk som kan være negativt**, slik som nevneren $(x+3)$. Du vet ikke om tegnet skal snus eller ikke, for det avhenger av $x$. Fortegnslinjen omgår hele problemet -- den spør bare hvor ting er positivt og negativt, og den svarer alltid riktig."
+      "content": "## Fortegnslinjen -- kart over pluss og minus\n\nHva med $x^2 - x - 6 > 0$? Å «ta kvadratrot på begge sider» fører galt av sted. Nøkkelinnsikten er en annen: et faktorisert uttrykk kan bare skifte fortegn i nullpunktene sine. Mellom nullpunktene er fortegnet konstant. Så vi faktoriserer, finner nullpunktene, og tegner et kart -- **fortegnslinjen**.\n\nHer: $x^2 - x - 6 = (x-3)(x+2)$, med nullpunkter $x = -2$ og $x = 3$. De deler tallinja i tre soner. For $x < -2$ er begge faktorene negative, og produktet positivt. Mellom $-2$ og $3$ er $(x+2)$ positiv men $(x-3)$ negativ -- produktet negativt. For $x > 3$ er begge positive. Vi ville ha produktet *positivt*, så svaret er\n\n$$x \\in \\langle \\leftarrow, -2 \\rangle \\cup \\langle 3, \\rightarrow \\rangle$$\n\nTo adskilte intervaller, limt sammen med unionstegnet. Endepunktene er ikke med, siden ulikheten var streng.\n\nSamme metode tar **rasjonale ulikheter** som $\\frac{x-1}{x+3} \\geq 0$ -- en brøk skifter jo også bare fortegn der teller eller nevner er null. Kritiske punkter: $x = 1$ (teller) og $x = -3$ (nevner). Fortegnslinjen gir positivt utenfor og negativt mellom, så løsningen er $\\langle \\leftarrow, -3 \\rangle \\cup [1, \\rightarrow \\rangle$. Legg nøye merke til parentesene: $x = 1$ er med (brøken er null, og «$\\geq$» tillater null), men $x = -3$ er *aldri* med -- der er brøken udefinert.\n\nOg en advarsel med rød skrift: **gang aldri en ulikhet med et uttrykk som kan være negativt**, slik som nevneren $(x+3)$. Du vet ikke om tegnet skal snus eller ikke, for det avhenger av $x$. Fortegnslinjen omgår hele problemet -- den spør bare hvor ting er positivt og negativt, og den svarer alltid riktig."
     },
     {
       "id": "r1-1-5-n-quiz2",
@@ -178,22 +178,22 @@
             "options": [
               {
                 "id": "a",
-                "text": "$x \\in (-2, 3)$",
+                "text": "$x \\in \\langle -2, 3 \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$x \\in (-\\infty, -3) \\cup (2, \\infty)$",
+                "text": "$x \\in \\langle \\leftarrow, -3 \\rangle \\cup \\langle 2, \\rightarrow \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "$x \\in (-\\infty, -2) \\cup (3, \\infty)$",
+                "text": "$x \\in \\langle \\leftarrow, -2 \\rangle \\cup \\langle 3, \\rightarrow \\rangle$",
                 "isCorrect": true
               },
               {
                 "id": "d",
-                "text": "$x \\in (-3, 2)$",
+                "text": "$x \\in \\langle -3, 2 \\rangle$",
                 "isCorrect": false
               }
             ],
@@ -232,12 +232,12 @@
             "options": [
               {
                 "id": "d",
-                "text": "$(-\\infty, -3) \\cup [1, \\infty)$",
+                "text": "$\\langle \\leftarrow, -3 \\rangle \\cup [1, \\rightarrow \\rangle$",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "$(-\\infty, -3] \\cup [1, \\infty)$",
+                "text": "$\\langle \\leftarrow, -3] \\cup [1, \\rightarrow \\rangle$",
                 "isCorrect": false
               },
               {
@@ -247,7 +247,7 @@
               },
               {
                 "id": "c",
-                "text": "$(-3, 1)$",
+                "text": "$\\langle -3, 1]$",
                 "isCorrect": false
               }
             ],
@@ -274,7 +274,7 @@
               },
               {
                 "id": "d",
-                "text": "$x \\in (-2, 2)$",
+                "text": "$x \\in \\langle -2, 2 \\rangle$",
                 "isCorrect": false
               }
             ],
@@ -286,7 +286,7 @@
     {
       "id": "r1-1-5-n-section3",
       "type": "text",
-      "content": "## Absoluttverdien -- matematikkens avstandsmåler\n\nTilbake til kulelageret: $|d - 10| < 0{,}05$. Nå har vi verktøyene til å forstå og løse slike krav. **Absoluttverdien** er definert stykkevis:\n\n$$|a| = \\begin{cases} a & \\text{hvis } a \\geq 0 \\\\ -a & \\text{hvis } a < 0 \\end{cases}$$\n\nmen den geometriske tolkningen er den du bør tenke med: $|a|$ er *avstanden* fra $a$ til null, og $|a - b|$ er avstanden mellom $a$ og $b$. Avstander er aldri negative, og $|-a| = |a|$. Absoluttverdien oppfører seg pent med produkt og kvotient, $|ab| = |a||b|$, og for summer gjelder **trekantulikheten** $|a+b| \\leq |a| + |b|$ -- en omvei er aldri kortere enn den rette veien.\n\n**Likninger** med absoluttverdi har typisk to løsninger, for to tall har samme avstand til null. $|2x-3| = 7$ betyr at $2x - 3$ er enten $7$ eller $-7$, som gir $x = 5$ eller $x = -2$.\n\n**Ulikheter** med absoluttverdi deler seg i to mønstre, og begge blir åpenbare med avstandsbildet. *Innenfor*: $|f(x)| < c$ betyr at $f(x)$ ligger mellom $-c$ og $c$, altså $-c < f(x) < c$ -- en dobbel ulikhet. *Utenfor*: $|f(x)| > c$ betyr at $f(x)$ ligger lenger ute enn $c$ på en av sidene: $f(x) < -c$ eller $f(x) > c$ -- to adskilte intervaller.\n\nEksempel på hver: $|x - 2| < 5$ sier at $x$ er nærmere $2$ enn $5$ enheter, altså $-3 < x < 7$, svaret er $(-3, 7)$. Og $|2x+1| \\geq 3$ gir $2x + 1 \\leq -3$ eller $2x + 1 \\geq 3$, altså $x \\leq -2$ eller $x \\geq 1$: svaret er $(-\\infty, -2] \\cup [1, \\infty)$. Kulelager-kravet? $|d - 10| < 0{,}05$ betyr $d \\in (9{,}95,\\; 10{,}05)$ -- toleranseintervallet, sort på hvitt."
+      "content": "## Absoluttverdien -- matematikkens avstandsmåler\n\nTilbake til kulelageret: $|d - 10| < 0{,}05$. Nå har vi verktøyene til å forstå og løse slike krav. **Absoluttverdien** er definert stykkevis:\n\n$$|a| = \\begin{cases} a & \\text{hvis } a \\geq 0 \\\\ -a & \\text{hvis } a < 0 \\end{cases}$$\n\nmen den geometriske tolkningen er den du bør tenke med: $|a|$ er *avstanden* fra $a$ til null, og $|a - b|$ er avstanden mellom $a$ og $b$. Avstander er aldri negative, og $|-a| = |a|$. Absoluttverdien oppfører seg pent med produkt og kvotient, $|ab| = |a||b|$, og for summer gjelder **trekantulikheten** $|a+b| \\leq |a| + |b|$ -- en omvei er aldri kortere enn den rette veien.\n\n**Likninger** med absoluttverdi har typisk to løsninger, for to tall har samme avstand til null. $|2x-3| = 7$ betyr at $2x - 3$ er enten $7$ eller $-7$, som gir $x = 5$ eller $x = -2$.\n\n**Ulikheter** med absoluttverdi deler seg i to mønstre, og begge blir åpenbare med avstandsbildet. *Innenfor*: $|f(x)| < c$ betyr at $f(x)$ ligger mellom $-c$ og $c$, altså $-c < f(x) < c$ -- en dobbel ulikhet. *Utenfor*: $|f(x)| > c$ betyr at $f(x)$ ligger lenger ute enn $c$ på en av sidene: $f(x) < -c$ eller $f(x) > c$ -- to adskilte intervaller.\n\nEksempel på hver: $|x - 2| < 5$ sier at avstanden fra $x$ til $2$ er mindre enn $5$, altså $-3 < x < 7$, svaret er $\\langle -3, 7 \\rangle$. Og $|2x+1| \\geq 3$ gir $2x + 1 \\leq -3$ eller $2x + 1 \\geq 3$, altså $x \\leq -2$ eller $x \\geq 1$: svaret er $\\langle \\leftarrow, -2] \\cup [1, \\rightarrow \\rangle$. Kulelager-kravet? $|d - 10| < 0{,}05$ betyr $d \\in \\langle 9{,}95;\\; 10{,}05 \\rangle$ -- toleranseintervallet, sort på hvitt."
     },
     {
       "id": "r1-1-5-n-quiz3",
@@ -342,21 +342,21 @@
               },
               {
                 "id": "b",
-                "text": "$x \\in (-5, 5)$",
+                "text": "$x \\in \\langle -5, 5 \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$x \\in (-\\infty, -3) \\cup (7, \\infty)$",
+                "text": "$x \\in \\langle \\leftarrow, -3 \\rangle \\cup \\langle 7, \\rightarrow \\rangle$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$x \\in (-3, 7)$",
+                "text": "$x \\in \\langle -3, 7 \\rangle$",
                 "isCorrect": true
               }
             ],
-            "solution": "$|x-2| < 5$ betyr $-5 < x - 2 < 5$, altså $-3 < x < 7$. Geometrisk: $x$ er nærmere $2$ enn $5$ enheter."
+            "solution": "$|x-2| < 5$ betyr $-5 < x - 2 < 5$, altså $-3 < x < 7$. Geometrisk: avstanden fra $x$ til $2$ er mindre enn $5$."
           },
           {
             "id": "r1-1-5-n-quiz3-q2",
@@ -364,7 +364,7 @@
             "options": [
               {
                 "id": "a",
-                "text": "$x \\in (-\\infty, -2] \\cup [1, \\infty)$",
+                "text": "$x \\in \\langle \\leftarrow, -2] \\cup [1, \\rightarrow \\rangle$",
                 "isCorrect": true
               },
               {
@@ -418,7 +418,7 @@
     {
       "id": "r1-1-5-n-summary",
       "type": "text",
-      "content": "## Fortellingen i et nøtteskall\n\nKulelagerfabrikken lærte oss at virkeligheten sjelden krever eksakte verdier -- den krever verdier *innenfor grenser*. Det er ulikhetenes domene, og nå behersker du det.\n\n**Lineære ulikheter** løses som likninger, med ett unntak hugget i stein: multiplikasjon eller divisjon med negativt tall snur ulikhetstegnet. Svarene formuleres med **intervallnotasjon** -- rund parentes for endepunkter som ikke er med, hakeparentes for dem som er med, og alltid rund parentes mot $\\pm\\infty$.\n\n**Kvadratiske og rasjonale ulikheter** løses med fortegnslinjen: flytt alt over på én side, faktoriser, finn nullpunktene (og nevnerens nullpunkter), og les av hvor uttrykket har riktig fortegn. Husk at nevnerens nullpunkter aldri er med i løsningen, og gang aldri med et uttrykk hvis fortegn du ikke kjenner.\n\n**Absoluttverdien** $|a|$ er avstanden fra $a$ til null, og $|a-b|$ er avstanden mellom $a$ og $b$. Likningen $|f(x)| = c$ spalter seg i to tilfeller, og ulikhetene følger to mønstre: $|f(x)| < c$ gir det sammenhengende båndet $-c < f(x) < c$, mens $|f(x)| > c$ gir to ytterintervaller.\n\nDisse verktøyene er ikke pensum for pensumets skyld. Fortegnslinjen blir selve arbeidsmetoden når du skal drøfte monotoni med $f'(x) > 0$ i derivasjonskapitlene, og absoluttverdi-tenkningen om «vilkårlig nær» er kjernen i grenseverdibegrepet som venter i kapittel 3. Du har nettopp lært presisjonsspråket for resten av R1."
+      "content": "## Fortellingen i et nøtteskall\n\nKulelagerfabrikken lærte oss at virkeligheten sjelden krever eksakte verdier -- den krever verdier *innenfor grenser*. Det er ulikhetenes område, og nå behersker du det.\n\n**Lineære ulikheter** løses som likninger, med ett unntak hugget i stein: multiplikasjon eller divisjon med negativt tall snur ulikhetstegnet. Svarene formuleres med **intervallnotasjon** -- vinkelparentes for endepunkter som ikke er med, hakeparentes for dem som er med, og alltid vinkelparentes mot $\\leftarrow$ og $\\rightarrow$.\n\n**Kvadratiske og rasjonale ulikheter** løses med fortegnslinjen: flytt alt over på én side, faktoriser, finn nullpunktene (og nevnerens nullpunkter), og les av hvor uttrykket har riktig fortegn. Husk at nevnerens nullpunkter aldri er med i løsningen, og gang aldri med et uttrykk hvis fortegn du ikke kjenner.\n\n**Absoluttverdien** $|a|$ er avstanden fra $a$ til null, og $|a-b|$ er avstanden mellom $a$ og $b$. Likningen $|f(x)| = c$ spalter seg i to tilfeller, og ulikhetene følger to mønstre: $|f(x)| < c$ gir det sammenhengende båndet $-c < f(x) < c$, mens $|f(x)| > c$ gir to ytterintervaller.\n\nDisse verktøyene er ikke pensum for pensumets skyld. Fortegnslinjen blir selve arbeidsmetoden når du skal drøfte monotoni med $f'(x) > 0$ i derivasjonskapitlene, og absoluttverdi-tenkningen om «vilkårlig nær» er kjernen i grenseverdibegrepet som venter i kapittel 3. Du har nettopp lært presisjonsspråket for resten av R1."
     }
   ],
   "exercises": []

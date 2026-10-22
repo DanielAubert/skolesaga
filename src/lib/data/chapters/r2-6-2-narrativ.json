@@ -23,7 +23,7 @@
     {
       "id": "r2-6-2-n-section1",
       "type": "text",
-      "content": "## Å derivere en vektor — komponentvis\n\nHvordan deriverer man en *vektor*? Svaret er befriende enkelt: **komponentvis**. Hver komponent er en vanlig funksjon av $t$, og vi deriverer dem hver for seg med reglene du allerede kan:\n\n$$\\vec{r}\\,'(t) = [x'(t), y'(t)]$$\n\nFor $\\vec{r}(t) = [t^2 + 1, t^3 - 2t]$ blir $\\vec{r}\\,'(t) = [2t, 3t^2 - 2]$. For sirkelen $\\vec{r}(t) = [3\\cos t, 3\\sin t]$ blir $\\vec{r}\\,'(t) = [-3\\sin t, 3\\cos t]$. Ingen nye derivasjonsregler — bare to gamle om gangen.\n\nDet geometriske innholdet er desto rikere: $\\vec{r}\\,'(t)$ er en **tangentvektor** til kurven i punktet $\\vec{r}(t)$, og den peker i retningen kurven gjennomløpes når $t$ øker. Sjekk sirkelen ved $t = \\frac{\\pi}{2}$: posisjonen er $(0, 3)$, toppen av sirkelen, og tangentvektoren er $\\vec{r}\\,'(\\frac{\\pi}{2}) = [-3, 0]$ — rett mot venstre, nøyaktig dit bevegelsen mot klokka skal. Og skalarproduktet $\\vec{r} \\cdot \\vec{r}\\,' = (3\\cos t)(-3\\sin t) + (3\\sin t)(3\\cos t) = 0$ for alle $t$: tangenten står alltid vinkelrett på radien.\n\nTrenger du bare *retningen*, normerer du: **enhetstangentvektoren** er $\\hat{T}(t) = \\frac{\\vec{r}\\,'(t)}{|\\vec{r}\\,'(t)|}$, definert der $\\vec{r}\\,'(t) \\neq \\vec{0}$.\n\nTangentvektoren gir også tangentlinjer på direkten. For parabelen $\\vec{r}(t) = (t, t^2)$ i $t = 2$: punkt $(2, 4)$, tangentvektor $\\vec{r}\\,'(2) = (1, 4)$, stigningstall $\\frac{4}{1} = 4$, og linjen $y - 4 = 4(x - 2)$, altså $y = 4x - 4$. Vil du heller ha tangentlinjen på parameterform, skriver du $\\vec{\\ell}(s) = (2, 4) + s(1, 4)$ — punkt pluss retning, som i kapittel 5."
+      "content": "## Å derivere en vektor — komponentvis\n\nHvordan deriverer man en *vektor*? Svaret er befriende enkelt: **komponentvis**. Hver komponent er en vanlig funksjon av $t$, og vi deriverer dem hver for seg med reglene du allerede kan:\n\n$$\\vec{r}\\,'(t) = [x'(t), y'(t)]$$\n\nFor $\\vec{r}(t) = [t^2 + 1, t^3 - 2t]$ blir $\\vec{r}\\,'(t) = [2t, 3t^2 - 2]$. For sirkelen $\\vec{r}(t) = [3\\cos t, 3\\sin t]$ blir $\\vec{r}\\,'(t) = [-3\\sin t, 3\\cos t]$. Ingen nye derivasjonsregler — bare to gamle om gangen.\n\nDet geometriske innholdet er desto rikere: $\\vec{r}\\,'(t)$ er en **tangentvektor** til kurven i punktet $\\vec{r}(t)$, og den peker i retningen kurven gjennomløpes når $t$ øker. Sjekk sirkelen ved $t = \\frac{\\pi}{2}$: posisjonen er $(0, 3)$, toppen av sirkelen, og tangentvektoren er $\\vec{r}\\,'(\\frac{\\pi}{2}) = [-3, 0]$ — rett mot venstre, nøyaktig dit bevegelsen mot klokka skal. Og skalarproduktet $\\vec{r} \\cdot \\vec{r}\\,' = (3\\cos t)(-3\\sin t) + (3\\sin t)(3\\cos t) = 0$ for alle $t$: tangenten står alltid vinkelrett på radien.\n\nTrenger du bare *retningen*, normerer du: **enhetstangentvektoren** er $\\hat{T}(t) = \\frac{\\vec{r}\\,'(t)}{|\\vec{r}\\,'(t)|}$, definert der $\\vec{r}\\,'(t) \\neq \\vec{0}$.\n\nTangentvektoren gir også tangentlinjer på direkten. For parabelen $\\vec{r}(t) = [t, t^2]$ i $t = 2$: punkt $(2, 4)$, tangentvektor $\\vec{r}\\,'(2) = [1, 4]$, stigningstall $\\frac{4}{1} = 4$, og linjen $y - 4 = 4(x - 2)$, altså $y = 4x - 4$. Vil du heller ha tangentlinjen på parameterform, skriver du $\\vec{\\ell}(s) = [2, 4] + s[1, 4]$ — punkt pluss retning, som i kapittel 5."
     },
     {
       "id": "r2-6-2-n-quiz1",
@@ -124,7 +124,7 @@
           },
           {
             "id": "r2-6-2-n-quiz1-q3",
-            "task": "Kurven $\\vec{r}(t) = (t, t^2)$ har tangentvektor $(1, 4)$ i $t = 2$. Hva er stigningstallet til tangentlinjen der?",
+            "task": "Kurven $\\vec{r}(t) = [t, t^2]$ har tangentvektor $[1, 4]$ i $t = 2$. Hva er stigningstallet til tangentlinjen der?",
             "options": [
               {
                 "id": "a",
@@ -155,7 +155,7 @@
     {
       "id": "r2-6-2-n-section2",
       "type": "text",
-      "content": "## Pilen og tallet: normal, hastighet og fart\n\nTangentvektoren har en tvilling. Snur du $(a, b)$ en kvart omdreining, får du **normalvektoren** $\\vec{n} = (-b, a)$ (mot klokka) eller $(b, -a)$ (med klokka) — og kontrollen er ett skalarprodukt: $(a, b) \\cdot (-b, a) = -ab + ab = 0$. For kurven $\\vec{r}(t) = (t^2, t^3)$ i $t = 1$ er tangentvektoren $\\vec{r}\\,'(1) = (2, 3)$ og normalvektoren $(-3, 2)$, med $(2,3) \\cdot (-3,2) = -6 + 6 = 0$ som kvittering. Normeres den, får vi enhetsnormalen $\\hat{N} = \\frac{\\vec{n}}{|\\vec{n}|}$.\n\nNår parameteren er *tid*, skifter tangentvektoren navn og blir fysikk: $\\vec{v}(t) = \\vec{r}\\,'(t)$ er **hastighetsvektoren** — pilen på instrumentpanelet. Den forteller både hvilken retning dronen flyr og hvor raskt. **Farten** er tallet under pilen: lengden\n\n$$v(t) = |\\vec{r}\\,'(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$$\n\nSkillet er verdt å banke fast: *hastighet* er en vektor med retning, *fart* er et ikke-negativt tall. På engelsk: velocity og speed.\n\nRegn på sirkelen $\\vec{r}(t) = (3\\cos t, 3\\sin t)$: farten er $\\sqrt{9\\sin^2 t + 9\\cos^2 t} = \\sqrt{9} = 3$ — konstant! Punktet går rundt med jevn fart mens *retningen* endres hele tiden; det er sirkelbevegelsens signatur. På parabelbanen $\\vec{r}(t) = (t, t^2)$ derimot er $v(t) = \\sqrt{1 + 4t^2}$ — farten øker med tiden, fra $1$ ved start til $\\sqrt{17} \\approx 4{,}12$ ved $t = 2$.\n\nOg deriverer du en gang til, får du **akselerasjonsvektoren** $\\vec{a}(t) = \\vec{r}\\,''(t)$ — endringen i hastigheten. For $\\vec{r}(t) = (t^2, t^3)$: $\\vec{v}(t) = (2t, 3t^2)$ gir $\\vec{v}(1) = (2, 3)$ med fart $\\sqrt{13}$, og $\\vec{a}(t) = (2, 6t)$ gir $\\vec{a}(1) = (2, 6)$. Et kast med startfart $20$ m/s i $60°$ har $\\vec{v}(t) = (10, 10\\sqrt{3} - 10t)$ — konstant horisontalt, fallende vertikalt, og på toppen ($t = \\sqrt{3}$) er bare den horisontale komponenten igjen."
+      "content": "## Pilen og tallet: normal, hastighet og fart\n\nTangentvektoren har en tvilling. Snur du $[a, b]$ en kvart omdreining, får du **normalvektoren** $\\vec{n} = [-b, a]$ (mot klokka) eller $[b, -a]$ (med klokka) — og kontrollen er ett skalarprodukt: $[a, b] \\cdot [-b, a] = -ab + ab = 0$. For kurven $\\vec{r}(t) = [t^2, t^3]$ i $t = 1$ er tangentvektoren $\\vec{r}\\,'(1) = [2, 3]$ og normalvektoren $[-3, 2]$, med $[2, 3] \\cdot [-3, 2] = -6 + 6 = 0$ som kvittering. Normeres den, får vi enhetsnormalen $\\hat{N} = \\frac{\\vec{n}}{|\\vec{n}|}$.\n\nNår parameteren er *tid*, skifter tangentvektoren navn og blir fysikk: $\\vec{v}(t) = \\vec{r}\\,'(t)$ er **hastighetsvektoren** — pilen på instrumentpanelet. Den forteller både hvilken retning dronen flyr og hvor raskt. **Farten** er tallet under pilen: lengden\n\n$$v(t) = |\\vec{r}\\,'(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$$\n\nSkillet er verdt å banke fast: *hastighet* er en vektor med retning, *fart* er et ikke-negativt tall.\n\nRegn på sirkelen $\\vec{r}(t) = [3\\cos t, 3\\sin t]$: farten er $\\sqrt{9\\sin^2 t + 9\\cos^2 t} = \\sqrt{9} = 3$ — konstant! Punktet går rundt med jevn fart mens *retningen* endres hele tiden; det er sirkelbevegelsens signatur. På parabelbanen $\\vec{r}(t) = [t, t^2]$ derimot er $v(t) = \\sqrt{1 + 4t^2}$ — farten øker med tiden, fra $1$ ved start til $\\sqrt{17} \\approx 4{,}12$ ved $t = 2$.\n\nOg deriverer du en gang til, får du **akselerasjonsvektoren** $\\vec{a}(t) = \\vec{r}\\,''(t)$ — endringen i hastigheten. For $\\vec{r}(t) = [t^2, t^3]$: $\\vec{v}(t) = [2t, 3t^2]$ gir $\\vec{v}(1) = [2, 3]$ med fart $\\sqrt{13}$, og $\\vec{a}(t) = [2, 6t]$ gir $\\vec{a}(1) = [2, 6]$. Et kast med startfart $20$ m/s i $60°$ har $\\vec{v}(t) = [10, 10\\sqrt{3} - 10t]$ — konstant horisontalt, fallende vertikalt, og på toppen ($t = \\sqrt{3}$) er bare den horisontale komponenten igjen."
     },
     {
       "id": "r2-6-2-n-quiz2",
@@ -175,30 +175,30 @@
         "questions": [
           {
             "id": "r2-6-2-n-quiz2-q0",
-            "task": "Tangentvektoren er $(2, 3)$. Hvilken vektor er en normalvektor?",
+            "task": "Tangentvektoren er $[2, 3]$. Hvilken vektor er en normalvektor?",
             "options": [
               {
                 "id": "d",
-                "text": "$(-3, 2)$",
+                "text": "$[-3, 2]$",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "$(3, 2)$",
+                "text": "$[3, 2]$",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "$(2, -3)$",
+                "text": "$[2, -3]$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$(-2, -3)$",
+                "text": "$[-2, -3]$",
                 "isCorrect": false
               }
             ],
-            "solution": "Regelen $(a, b) \\to (-b, a)$ gir $(-3, 2)$, og $(2,3) \\cdot (-3,2) = -6 + 6 = 0$ bekrefter at de står vinkelrett."
+            "solution": "Regelen $[a, b] \\to [-b, a]$ gir $[-3, 2]$, og $[2, 3] \\cdot [-3, 2] = -6 + 6 = 0$ bekrefter at de står vinkelrett."
           },
           {
             "id": "r2-6-2-n-quiz2-q1",
@@ -225,11 +225,11 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$\\vec{v}(t) = \\vec{r}\\,'(t)$ er en vektor (velocity); farten $v(t) = |\\vec{v}(t)|$ er et ikke-negativt tall (speed)."
+            "solution": "$\\vec{v}(t) = \\vec{r}\\,'(t)$ er en vektor; farten $v(t) = |\\vec{v}(t)|$ er et ikke-negativt tall."
           },
           {
             "id": "r2-6-2-n-quiz2-q2",
-            "task": "Hva er farten til partikkelen $\\vec{r}(t) = (3\\cos t, 3\\sin t)$?",
+            "task": "Hva er farten til partikkelen $\\vec{r}(t) = [3\\cos t, 3\\sin t]$?",
             "options": [
               {
                 "id": "a",
@@ -279,7 +279,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Akselerasjonen er den deriverte av hastigheten, altså den andrederiverte av posisjonen — for $(t^2, t^3)$ blir den $(2, 6t)$."
+            "solution": "Akselerasjonen er den deriverte av hastigheten, altså den dobbeltderiverte av posisjonen — for $[t^2, t^3]$ blir den $[2, 6t]$."
           }
         ]
       }
@@ -287,7 +287,7 @@
     {
       "id": "r2-6-2-n-section3",
       "type": "text",
-      "content": "## Tripptelleren: buelengde\n\nEtt instrument gjenstår: tripptelleren. Hvor *langt* har dronen fløyet — ikke luftlinjen fra start til mål, men selve den buktende banen?\n\nIntuisjonen er hverdagslig: går du med konstant fart $v$ i tiden $T$, har du gått $v \\cdot T$. Varierer farten, må vi summere små biter fart ganger tid — altså integrere. **Buelengden** av kurven $\\vec{r}(t)$ fra $t = a$ til $t = b$ er\n\n$$L = \\int_a^b |\\vec{r}\\,'(t)|\\, dt = \\int_a^b \\sqrt{(x'(t))^2 + (y'(t))^2}\\, dt$$\n\n— integralet av farten over tid. Her møtes kapittelets derivasjon og fjorårets integrasjon i én formel.\n\nTest den der fasiten er kjent. Sirkelen $\\vec{r}(t) = (3\\cos t, 3\\sin t)$, $t \\in [0, 2\\pi]$: farten er konstant $3$, så $L = \\int_0^{2\\pi} 3\\, dt = 6\\pi$ — og omkretsformelen $2\\pi r = 6\\pi$ nikker bekreftende. Linjestykket fra $(1, 2)$ til $(4, 6)$, parametrisert $\\vec{r}(t) = (1 + 3t, 2 + 4t)$ for $t \\in [0, 1]$: farten er $\\sqrt{9 + 16} = 5$, så $L = 5$ — nøyaktig hva avstandsformelen sier.\n\nSå en bane uten fasit: $\\vec{r}(t) = (t, \\frac{2}{3}t^{3/2})$ for $t \\in [0, 3]$. Derivasjon gir $\\vec{r}\\,'(t) = (1, \\sqrt{t})$ og fart $\\sqrt{1 + t}$ — og med substitusjonen $u = 1 + t$:\n\n$$L = \\int_0^3 \\sqrt{1 + t}\\, dt = \\left[\\frac{2}{3}(1+t)^{3/2}\\right]_0^3 = \\frac{2}{3}(8 - 1) = \\frac{14}{3} \\approx 4{,}67$$\n\nSlik regnes lengden av enhver bane: deriver, ta lengden, integrer. Integralet kan bli stridt — for bilen langs $\\vec{r}(t) = (t^2, 2t)$ må $\\int 2\\sqrt{t^2 + 1}\\, dt$ slås opp eller tas numerisk — men oppskriften svikter aldri. Fart er buelengdens derivert; buelengde er fartens integral. Instrumentpanelet er komplett."
+      "content": "## Tripptelleren: buelengde\n\nEtt instrument gjenstår: tripptelleren. Hvor *langt* har dronen fløyet — ikke luftlinjen fra start til mål, men selve den buktende banen?\n\nIntuisjonen er hverdagslig: går du med konstant fart $v$ i tiden $T$, har du gått $v \\cdot T$. Varierer farten, må vi summere små biter fart ganger tid — altså integrere. **Buelengden** av kurven $\\vec{r}(t)$ fra $t = a$ til $t = b$ er\n\n$$L = \\int_a^b |\\vec{r}\\,'(t)|\\, dt = \\int_a^b \\sqrt{(x'(t))^2 + (y'(t))^2}\\, dt$$\n\n— integralet av farten over tid. Her møtes derivasjonen fra dette kapitlet og integrasjonen fra tidligere i R2 i én formel.\n\nTest den der fasiten er kjent. Sirkelen $\\vec{r}(t) = [3\\cos t, 3\\sin t]$, $t \\in [0, 2\\pi]$: farten er konstant $3$, så $L = \\int_0^{2\\pi} 3\\, dt = 6\\pi$ — og omkretsformelen $2\\pi r = 6\\pi$ nikker bekreftende. Linjestykket fra $(1, 2)$ til $(4, 6)$, parametrisert $\\vec{r}(t) = [1 + 3t, 2 + 4t]$ for $t \\in [0, 1]$: farten er $\\sqrt{9 + 16} = 5$, så $L = 5$ — nøyaktig hva avstandsformelen sier.\n\nSå en bane uten fasit: $\\vec{r}(t) = [t, \\frac{2}{3}t^{3/2}]$ for $t \\in [0, 3]$. Derivasjon gir $\\vec{r}\\,'(t) = [1, \\sqrt{t}]$ og fart $\\sqrt{1 + t}$ — og med substitusjonen $u = 1 + t$:\n\n$$L = \\int_0^3 \\sqrt{1 + t}\\, dt = \\left[\\frac{2}{3}(1+t)^{3/2}\\right]_0^3 = \\frac{2}{3}(8 - 1) = \\frac{14}{3} \\approx 4{,}67$$\n\nSlik regnes lengden av enhver bane: deriver, ta lengden, integrer. Integralet kan bli stridt — for bilen langs $\\vec{r}(t) = [t^2, 2t]$ må $\\int 2\\sqrt{t^2 + 1}\\, dt$ slås opp eller tas numerisk — men oppskriften svikter aldri. Fart er buelengdens derivert; buelengde er fartens integral. Instrumentpanelet er komplett."
     },
     {
       "id": "r2-6-2-n-quiz3",
@@ -334,7 +334,7 @@
           },
           {
             "id": "r2-6-2-n-quiz3-q1",
-            "task": "Hva er buelengden av sirkelen $\\vec{r}(t) = (3\\cos t, 3\\sin t)$ for $t \\in [0, 2\\pi]$?",
+            "task": "Hva er buelengden av sirkelen $\\vec{r}(t) = [3\\cos t, 3\\sin t]$ for $t \\in [0, 2\\pi]$?",
             "options": [
               {
                 "id": "c",
@@ -361,7 +361,7 @@
           },
           {
             "id": "r2-6-2-n-quiz3-q2",
-            "task": "Linjestykket $\\vec{r}(t) = (1 + 3t, 2 + 4t)$, $t \\in [0, 1]$, har fart $5$. Hva er lengden?",
+            "task": "Linjestykket $\\vec{r}(t) = [1 + 3t, 2 + 4t]$, $t \\in [0, 1]$, har fart $5$. Hva er lengden?",
             "options": [
               {
                 "id": "b",
@@ -388,7 +388,7 @@
           },
           {
             "id": "r2-6-2-n-quiz3-q3",
-            "task": "For $\\vec{r}(t) = (t, \\frac{2}{3}t^{3/2})$ er farten $\\sqrt{1 + t}$. Hva er buelengden for $t \\in [0, 3]$?",
+            "task": "For $\\vec{r}(t) = [t, \\frac{2}{3}t^{3/2}]$ er farten $\\sqrt{1 + t}$. Hva er buelengden for $t \\in [0, 3]$?",
             "options": [
               {
                 "id": "a",
@@ -419,7 +419,7 @@
     {
       "id": "r2-6-2-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nInstrumentpanelets fire visere viste seg å være én regneoperasjon i fire forkledninger. **Vektorfunksjonen** $\\vec{r}(t) = [x(t), y(t)]$ er posisjonen; derives den **komponentvis**, $\\vec{r}\\,'(t) = [x'(t), y'(t)]$, får vi pilen — tangentvektoren som peker i bevegelsesretningen, vinkelrett på radien når banen er en sirkel, og klar til å normeres til enhetstangenten $\\hat{T} = \\frac{\\vec{r}\\,'}{|\\vec{r}\\,'|}$ eller dreies $90°$ til normalvektoren $(a, b) \\to (-b, a)$.\n\nMed tid som parameter ble tangentvektoren til **hastighetsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$, og lengden ble **farten** $v(t) = \\sqrt{(x')^2 + (y')^2}$ — vektor med retning mot tall uten: sirkelen $(3\\cos t, 3\\sin t)$ holdt konstant fart $3$ med stadig ny retning, parabelbanen $(t, t^2)$ akselererte med $v(t) = \\sqrt{1 + 4t^2}$. Enda en derivasjon ga **akselerasjonsvektoren** $\\vec{a}(t) = \\vec{r}\\,''(t)$.\n\nOg tripptelleren: **buelengden** $L = \\int_a^b |\\vec{r}\\,'(t)|\\,dt$, fartens integral. Sirkelen ga $6\\pi = 2\\pi r$, linjestykket ga $5$ i samsvar med avstandsformelen, og $\\int_0^3 \\sqrt{1+t}\\,dt = \\frac{14}{3}$ viste oppskriften på nye baner: deriver, ta lengden, integrer.\n\nTangentlinjer fikk vi gratis underveis — punkt, tangentvektor, stigningstall $\\frac{y'}{x'}$.\n\nI neste kapittel tar fysikken over rattet for alvor: posisjon, hastighet og akselerasjon i kast, karuseller og satellittbaner — Newtons verden, regnet med vektorfunksjoner."
+      "content": "## Oppsummering\n\nInstrumentpanelets fire visere viste seg å være én regneoperasjon i fire forkledninger. **Vektorfunksjonen** $\\vec{r}(t) = [x(t), y(t)]$ er posisjonen; derives den **komponentvis**, $\\vec{r}\\,'(t) = [x'(t), y'(t)]$, får vi pilen — tangentvektoren som peker i bevegelsesretningen, vinkelrett på radien når banen er en sirkel, og klar til å normeres til enhetstangenten $\\hat{T} = \\frac{\\vec{r}\\,'}{|\\vec{r}\\,'|}$ eller dreies $90°$ til normalvektoren $[a, b] \\to [-b, a]$.\n\nMed tid som parameter ble tangentvektoren til **hastighetsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$, og lengden ble **farten** $v(t) = \\sqrt{(x')^2 + (y')^2}$ — vektor med retning mot tall uten: sirkelen $[3\\cos t, 3\\sin t]$ holdt konstant fart $3$ med stadig ny retning, parabelbanen $[t, t^2]$ akselererte med $v(t) = \\sqrt{1 + 4t^2}$. Enda en derivasjon ga **akselerasjonsvektoren** $\\vec{a}(t) = \\vec{r}\\,''(t)$.\n\nOg tripptelleren: **buelengden** $L = \\int_a^b |\\vec{r}\\,'(t)|\\,dt$, fartens integral. Sirkelen ga $6\\pi = 2\\pi r$, linjestykket ga $5$ i samsvar med avstandsformelen, og $\\int_0^3 \\sqrt{1+t}\\,dt = \\frac{14}{3}$ viste oppskriften på nye baner: deriver, ta lengden, integrer.\n\nTangentlinjer fikk vi gratis underveis — punkt, tangentvektor, stigningstall $\\frac{y'}{x'}$.\n\nI neste kapittel tar fysikken over rattet for alvor: posisjon, hastighet og akselerasjon i kast, karuseller og satellittbaner — Newtons verden, regnet med vektorfunksjoner."
     }
   ],
   "exercises": []

@@ -14,7 +14,7 @@
     {
       "id": "r1-1-2-n-intro",
       "type": "text",
-      "content": "## Oppfinnelsen som forlenget astronomenes liv\n\nSkottland, 1614. Den eksentriske godseieren John Napier publiserer et verk han har brukt tjue år av livet på: en bok med tabeller over noe han kaller *logaritmer*. På denne tiden satt astronomer som Johannes Kepler begravd i regnearbeid -- baneberegninger krevde multiplikasjon av tall med mange siffer, for hånd, om og om igjen. Napiers tabeller forvandlet hver slik multiplikasjon til en enkel addisjon. Matematikeren Laplace skal senere ha sagt at logaritmene «fordoblet astronomenes levetid» ved å halvere arbeidet deres.\n\nHva var trikset? Napier hadde oppdaget en dyp sammenheng: når du *ganger* potenser med samme grunntall, *adderer* du eksponentene. Hvis hvert tall kan skrives som en potens av et fast grunntall, kan all multiplikasjon oversettes til addisjon i eksponentenes verden -- og logaritmen er nettopp oversettelsen, den som finner eksponenten.\n\nI dag har kalkulatoren overtatt regnearbeidet, men logaritmene er blitt viktigere enn noensinne. Richterskalaen for jordskjelv, pH-skalaen i kjemi, desibelskalaen for lyd og informasjonsmåling i informatikk er alle logaritmiske. Og i R1 er logaritmen verktøyet som lar oss løse ligninger der den ukjente sitter fast i en eksponent.\n\nI dette kapittelet bygger vi fundamentet: først utvider vi potensbegrepet til alle reelle eksponenter, så møter vi logaritmen som potensens motstykke -- og til slutt ser vi at de to opphever hverandre fullstendig."
+      "content": "## Oppfinnelsen som forlenget astronomenes liv\n\nSkottland, 1614. Den eksentriske godseieren John Napier publiserer et verk han har brukt tjue år av livet på: en bok med tabeller over noe han kaller *logaritmer*. På denne tiden satt astronomer som Johannes Kepler begravd i regnearbeid -- baneberegninger krevde multiplikasjon av tall med mange siffer, for hånd, om og om igjen. Napiers tabeller forvandlet hver slik multiplikasjon til en enkel addisjon. Matematikeren Laplace skal senere ha sagt at logaritmene «fordoblet astronomenes levetid» ved å halvere arbeidet deres.\n\nHva var trikset? Napier hadde oppdaget en dyp sammenheng: når du *ganger* potenser med samme grunntall, *adderer* du eksponentene. Hvis hvert tall kan skrives som en potens av et fast grunntall, kan all multiplikasjon oversettes til addisjon i eksponentenes verden -- og logaritmen er nettopp oversettelsen, den som finner eksponenten.\n\nI dag har kalkulatoren overtatt regnearbeidet, men logaritmene er blitt viktigere enn noensinne. Richterskalaen for jordskjelv, pH-skalaen i kjemi, desibelskalaen for lyd og informasjonsmåling i informatikk er alle logaritmiske. Og i R1 er logaritmen verktøyet som lar oss løse likninger der den ukjente sitter fast i en eksponent.\n\nI dette kapittelet bygger vi fundamentet: først utvider vi potensbegrepet til alle reelle eksponenter, så møter vi logaritmen som potensens motstykke -- og til slutt ser vi at de to opphever hverandre fullstendig."
     },
     {
       "id": "r1-1-2-n-section1",
@@ -151,7 +151,7 @@
     {
       "id": "r1-1-2-n-section2",
       "type": "text",
-      "content": "## Logaritmen -- jakten på eksponenten\n\nEn logaritme svarer på ett bestemt spørsmål: *hvilken eksponent må grunntallet opphøyes i for å gi dette tallet?* Formelt, for $a > 0$, $a \\neq 1$ og $b > 0$:\n\n$$\\log_a b = x \\quad \\Leftrightarrow \\quad a^x = b$$\n\nSpør du «$\\log_2 32$?», spør du egentlig «$2$ opphøyd i hva gir $32$?» -- og svaret er $5$, siden $2^5 = 32$. To grunntall er så vanlige at de har egne navn: den **naturlige logaritmen** $\\ln x = \\log_e x$ med Eulers tall $e \\approx 2{,}718$ som grunntall, og den **briggske logaritmen** (tierlogaritmen) $\\lg x = \\log_{10} x$. Noen verdier bør sitte i ryggmargen: $\\ln 1 = 0$ og $\\lg 1 = 0$ (fordi $a^0 = 1$), og $\\ln e = 1$ og $\\lg 10 = 1$ (fordi $a^1 = a$).\n\nNapiers store innsikt blir nå til tre **logaritmeregler**, som er potensreglene lest baklengs. For $x, y > 0$:\n\n$$\\log_a(xy) = \\log_a x + \\log_a y$$\n$$\\log_a\\left(\\frac{x}{y}\\right) = \\log_a x - \\log_a y$$\n$$\\log_a(x^r) = r \\cdot \\log_a x$$\n\nProdukt blir sum, kvotient blir differanse, og potenser kan «hentes ned» som faktorer. Akkurat dette siste er grunnen til at logaritmer løser eksponentialligninger -- men det kommer i neste kapittel.\n\nSe reglene i aksjon: $\\lg 100 + \\lg 10 = \\lg 1000 = 3$. $\\ln 8 - \\ln 2 = \\ln \\frac{8}{2} = \\ln 4$. Og $2\\ln 3 + \\ln 4 = \\ln 9 + \\ln 4 = \\ln 36$ -- her brukte vi først potensregelen baklengs, så produktregelen. Hver gang gjør logaritmen tung multiplikasjon om til lett addisjon, nøyaktig slik den gjorde for Kepler."
+      "content": "## Logaritmen -- jakten på eksponenten\n\nEn logaritme svarer på ett bestemt spørsmål: *hvilken eksponent må grunntallet opphøyes i for å gi dette tallet?* Formelt, for $a > 0$, $a \\neq 1$ og $b > 0$:\n\n$$\\log_a b = x \\quad \\Leftrightarrow \\quad a^x = b$$\n\nSpør du «$\\log_2 32$?», spør du egentlig «$2$ opphøyd i hva gir $32$?» -- og svaret er $5$, siden $2^5 = 32$. To grunntall er så vanlige at de har egne navn: den **naturlige logaritmen** $\\ln x = \\log_e x$ med Eulers tall $e \\approx 2{,}718$ som grunntall, og den **briggske logaritmen** (tierlogaritmen) $\\lg x = \\log_{10} x$. Noen verdier bør sitte i ryggmargen: $\\ln 1 = 0$ og $\\lg 1 = 0$ (fordi $a^0 = 1$), og $\\ln e = 1$ og $\\lg 10 = 1$ (fordi $a^1 = a$).\n\nNapiers store innsikt blir nå til tre **logaritmeregler**, som er potensreglene lest baklengs. For $x, y > 0$:\n\n$$\\log_a(xy) = \\log_a x + \\log_a y$$\n$$\\log_a\\left(\\frac{x}{y}\\right) = \\log_a x - \\log_a y$$\n$$\\log_a(x^r) = r \\cdot \\log_a x$$\n\nProdukt blir sum, kvotient blir differanse, og potenser kan «hentes ned» som faktorer. Akkurat dette siste er grunnen til at logaritmer løser eksponentiallikninger -- men det kommer i neste kapittel.\n\nSe reglene i aksjon: $\\lg 100 + \\lg 10 = \\lg 1000 = 3$. $\\ln 8 - \\ln 2 = \\ln \\frac{8}{2} = \\ln 4$. Og $2\\ln 3 + \\ln 4 = \\ln 9 + \\ln 4 = \\ln 36$ -- her brukte vi først potensregelen baklengs, så produktregelen. Hver gang gjør logaritmen tung multiplikasjon om til lett addisjon, nøyaktig slik den gjorde for Kepler."
     },
     {
       "id": "r1-1-2-n-quiz2",
@@ -221,7 +221,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Kvotientregelen: $\\ln 8 - \\ln 2 = \\ln\\frac{8}{2} = \\ln 4$."
+            "solution": "Brøkregelen: $\\ln 8 - \\ln 2 = \\ln\\frac{8}{2} = \\ln 4$."
           },
           {
             "id": "r1-1-2-n-quiz2-q2",
@@ -349,7 +349,7 @@
               },
               {
                 "id": "d",
-                "text": "$\\ln\\frac{7}{5}$",
+                "text": "$\\ln 7 \\cdot \\ln 5$",
                 "isCorrect": false
               }
             ],
