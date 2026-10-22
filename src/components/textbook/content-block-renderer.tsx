@@ -312,7 +312,7 @@ function ProofBlock({ title, content }: { title?: string; content: string }) {
     <Card className="border-border/60 border-l-4 border-l-muted-foreground/40 bg-muted/30 shadow-none">
       <CardHeader className="pb-2">
         <CardTitle className="text-lg text-muted-foreground">
-          {title || 'Bevis'}
+          <LatexRenderer content={title || 'Bevis'} inline />
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -396,7 +396,7 @@ function ExampleBlock({
       <CardHeader className="px-4">
         <CardTitle className="text-lg flex items-center gap-2 text-green-700 dark:text-green-300">
           <span className="text-xl">✏️</span>
-          {title || 'Eksempel'}
+          <LatexRenderer content={title || 'Eksempel'} inline />
         </CardTitle>
       </CardHeader>
       <CardContent className="px-4 space-y-2 text-sm sm:text-base">
@@ -666,7 +666,7 @@ function GeoGebraBlockComponent({
       <CardHeader className="pb-2">
         <CardTitle className="text-lg flex items-center gap-2 text-orange-700 dark:text-orange-300">
           <span className="text-xl">📊</span>
-          {title || 'GeoGebra'}
+          <LatexRenderer content={title || 'GeoGebra'} inline />
         </CardTitle>
         {description && (
           <p className="text-sm text-muted-foreground">
@@ -740,7 +740,7 @@ function AsymptoteBlockComponent({ block }: { block: AsymptoteBlock }) {
     <figure className="my-6">
       {block.title && (
         <div className="text-center text-sm font-medium text-muted-foreground mb-2">
-          {block.title}
+          <LatexRenderer content={block.title} inline />
         </div>
       )}
       <div className="flex justify-center">

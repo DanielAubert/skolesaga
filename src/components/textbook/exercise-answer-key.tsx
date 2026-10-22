@@ -15,8 +15,14 @@ interface ExerciseAnswerKeyProps {
 // Parser fasit-streng og viser i grid-format
 // Forventer format: "a) svar, b) svar, c) svar" eller "a) svar  b) svar  c) svar"
 function AnswerGrid({ solution }: { solution: string }) {
-  // Matcher "a)", "b)", osv. med svarene
-  const parts = solution.split(/(?=\b[a-z]\))/i).filter(p => p.trim());
+  // Matcher "a)", "b)", osv. med svarene — bare utenfor matte: «v)» i $d(2v) = 4d(v)$ delte før fasiten midt i en
+  // formel, så $-parene brakk og prosa ble vist som kursiv matte (1t-8-4-narrativ, 22.10.2026).
+  const matte: string[] = [];
+  const parkert = solution.replace(/\$\$[\s\S]*?\$\$|\$[^$]*\$/g, (m) => `\u0000${matte.push(m) - 1}\u0000`);
+  const parts = parkert
+    .split(/(?=\b[a-z]\))/i)
+    .map((del) => del.replace(/\u0000(\d+)\u0000/g, (_, i) => matte[Number(i)]))
+    .filter(p => p.trim());
 
   // Hvis det ikke ser ut som deloppgaver, vis som vanlig tekst
   if (parts.length <= 1 || !solution.match(/[a-z]\)/i)) {
@@ -80,9 +86,11 @@ function AnswerGrid({ solution }: { solution: string }) {
           <Badge variant="outline" className="shrink-0 h-5 w-5 flex items-center justify-center rounded-full text-xs">
             {label}
           </Badge>
-          <span className="prose prose-slate dark:prose-invert max-w-none">
+          {/* min-w-0 + flex-1: som flex-element med innholdsbredde målte breddetilpasningen plassen som formelens egen
+              bredde og krympet svaret i en løkke ned til 0,4 px (22.10.2026). */}
+          <div className="prose prose-slate dark:prose-invert max-w-none min-w-0 flex-1">
             <LatexRenderer content={answer} />
-          </span>
+          </div>
         </div>
       ))}
     </div>

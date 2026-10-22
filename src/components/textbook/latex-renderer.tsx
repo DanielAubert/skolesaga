@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef, type RefObject } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import { mediaUrl } from '@/lib/media';
+import { tilpassBredde } from '@/lib/visning/tilpass-bredde-dom';
 
 function escapeHtml(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -21,11 +22,46 @@ export function LatexRenderer({ content, className, inline }: LatexRendererProps
     return inline ? renderInlineContent(content) : renderMixedContent(content);
   }, [content, inline]);
 
+  // Formler, tabeller og kode bredere enn spalten krympes så de får plass — aldri sidelengs scroll på mobil
+  // (tilpassBredde, samme regel som eksamenssett). ResizeObserver kjører på nytt når en lukket boks åpnes.
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    if (!/katex|<table|<pre/.test(html)) return;
+    const kjor = () => tilpassBredde(el);
+    kjor();
+    document.fonts?.ready.then(kjor).catch(() => {});
+    // Sikring mot løkke (22.10.2026): i en forelder med innholdsbredde krymper elementet selv når formelen krympes, og
+    // en ResizeObserver som svarer på det, krympet svaret i fasitboksen ned til 0,4 px. Observeren kjører fortsatt på
+    // alle endringer (KaTeX-skriften lastes sent og gjør formlene bredere etter første måling), men høyst 6 ganger per
+    // sekund per element — en løkke stopper der, vanlige endringer (skrift lastet, boks åpnet, vindu endret) kommer gjennom.
+    let vindu = 0;
+    let antall = 0;
+    let totalt = 0;
+    const ro = new ResizeObserver(() => {
+      if (++totalt > 40) return ro.disconnect();
+      const naa = Date.now();
+      if (naa - vindu > 1000) {
+        vindu = naa;
+        antall = 0;
+      }
+      if (++antall > 6) return;
+      kjor();
+    });
+    ro.observe(el);
+    window.addEventListener('resize', kjor);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', kjor);
+    };
+  }, [html]);
+
   if (inline) {
-    return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+    return <span ref={ref as RefObject<HTMLSpanElement>} className={className} dangerouslySetInnerHTML={{ __html: html }} />;
   }
 
-  return <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+  return <div ref={ref as RefObject<HTMLDivElement>} className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 // Escapet dollartegn (\$) skal være et LITERALT dollartegn, ikke matte-avgrenser.

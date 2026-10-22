@@ -442,7 +442,7 @@ export function TextbookExerciseItem({
                   <Badge variant="outline" className={badgeClasses}>
                     {subTask.label}
                   </Badge>
-                  <div className="prose prose-slate dark:prose-invert max-w-none flex-1 text-sm sm:text-base">
+                  <div className="prose prose-slate dark:prose-invert max-w-none min-w-0 flex-1 text-sm sm:text-base">
                     <LatexRenderer content={subTask.task} />
                   </div>
                 </div>
@@ -735,7 +735,7 @@ export function TextbookExerciseItem({
                         <Badge variant="outline" className="shrink-0 h-5 w-5 flex items-center justify-center rounded-full text-sm bg-green-100 dark:bg-green-900">
                           {subTask.label}
                         </Badge>
-                        <div className="prose prose-slate dark:prose-invert max-w-none flex-1">
+                        <div className="prose prose-slate dark:prose-invert max-w-none min-w-0 flex-1">
                           <LatexRenderer content={subTask.solution} />
                         </div>
                       </div>
@@ -944,7 +944,7 @@ function SavedSubmissionDisplay({
     <Card className="border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/20">
       <CardContent className="pt-4">
         <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300 mb-2">
               {isViewingAsStudent ? (
                 <>
