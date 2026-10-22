@@ -21,7 +21,7 @@
     {
       "id": "1t-5-8-n-section1",
       "type": "text",
-      "content": "## Konstruere og måle – trekanten under lupen\n\nLa oss bygge en trekant fra grunnen. Tre punkter: `A = (0, 0)`, `B = (5, 0)` og `C = (2, 4)`. Sidene kan tegnes med tre kommandoer – `Linjestykke(A, B)`, `Linjestykke(B, C)` og `Linjestykke(C, A)` – men det finnes en snarvei som gjør alt på én gang: `Mangekant(A, B, C)` tegner hele trekanten og viser arealet i algebrafeltet.\n\nSå måler vi. Lengder finner du med `Avstand(A, B)` eller `Lengde(a)` der `a` er et linjestykke. Vinkler måles med `Vinkel(A, B, C)` – og legg godt merke til konvensjonen: kommandoen måler vinkelen ved det *midterste* punktet, altså $\\angle ABC$ i hjørnet $B$. Arealet av en mangekant gir `Areal(mangekant)`.\n\nFor trekanten vår gir målingene: `Avstand(A, B)` $= 5$, `Avstand(B, C)` $= \\sqrt{9 + 16} = 5$ og `Avstand(C, A)` $= \\sqrt{4 + 16} \\approx 4{,}47$. To like sider – trekanten er likebeint! Vinklene: `Vinkel(C, A, B)` $\\approx 63{,}4°$, `Vinkel(A, B, C)` $\\approx 53{,}1°$ og `Vinkel(B, C, A)` $\\approx 63{,}4°$. De to like vinklene bekrefter det likebeinte, og summen er $63{,}4° + 53{,}1° + 63{,}4° = 179{,}9° \\approx 180°$ – akkurat som vinkelsummen i en trekant skal være.\n\nDen siste sjekken er et godt eksempel på arbeidsmåten: bruk kjente geometriske sannheter (vinkelsum 180°, Pythagoras, likebeinte egenskaper) til å kontrollere at konstruksjonen og målingene henger sammen."
+      "content": "## Konstruere og måle – trekanten under lupen\n\nLa oss bygge en trekant fra grunnen. Tre punkter: `A = (0, 0)`, `B = (5, 0)` og `C = (2, 4)`. Sidene kan tegnes med tre kommandoer – `Linjestykke(A, B)`, `Linjestykke(B, C)` og `Linjestykke(C, A)` – men det finnes en snarvei som gjør alt på én gang: `Mangekant(A, B, C)` tegner hele trekanten og viser arealet i algebrafeltet.\n\nSå måler vi. Lengder finner du med `Avstand(A, B)` eller `Lengde(a)` der `a` er et linjestykke. Vinkler måles med `Vinkel(C, B, A)` – og legg godt merke til konvensjonen: kommandoen måler vinkelen ved det *midterste* punktet $B$, og den måler *mot klokka* fra $BC$ til $BA$. Står punktene i feil rekkefølge, får du den ytre vinkelen, for eksempel $296{,}6°$ i stedet for $63{,}4°$. Da snur du rekkefølgen. Arealet av en mangekant gir `Areal(mangekant)`.\n\nFor trekanten vår gir målingene: `Avstand(A, B)` $= 5$, `Avstand(B, C)` $= \\sqrt{9 + 16} = 5$ og `Avstand(C, A)` $= \\sqrt{4 + 16} \\approx 4{,}47$. To like sider – trekanten er likebeint! Vinklene: `Vinkel(B, A, C)` $\\approx 63{,}4°$, `Vinkel(C, B, A)` $\\approx 53{,}1°$ og `Vinkel(A, C, B)` $\\approx 63{,}4°$. De to like vinklene bekrefter det likebeinte, og summen er $63{,}4° + 53{,}1° + 63{,}4° = 179{,}9° \\approx 180°$ – akkurat som vinkelsummen i en trekant skal være.\n\nDen siste sjekken er et godt eksempel på arbeidsmåten: bruk kjente geometriske sannheter (vinkelsum 180°, Pytagoras, likebeinte egenskaper) til å kontrollere at konstruksjonen og målingene henger sammen."
     },
     {
       "id": "1t-5-8-n-quiz1",
@@ -91,7 +91,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Vinkel(A, B, C) måler $\\angle ABC$ – vinkelen i hjørnet $B$, det midterste punktet i kommandoen."
+            "solution": "Vinkel(A, B, C) måler $\\angle ABC$ – vinkelen i hjørnet $B$, det midterste punktet i kommandoen. GeoGebra måler mot klokka fra $BA$ til $BC$, så rekkefølgen avgjør om du får vinkelen i trekanten eller den ytre vinkelen."
           },
           {
             "id": "1t-5-8-n-quiz1-q2",
@@ -153,7 +153,7 @@
     {
       "id": "1t-5-8-n-section2",
       "type": "text",
-      "content": "## Trigonometri – når GeoGebra løser trekanten\n\nNå kobler vi på trigonometrien. GeoGebra beregner trigonometriske verdier direkte: skriv `sin(30°)`, `cos(60°)` eller `tan(45°)` og få svaret umiddelbart. Men legg nøye merke til gradtegnet! Skriver du `sin(30)` uten °, tolker GeoGebra tallet som radianer – en helt annen vinkel. Vil du jobbe i radianer med vilje, skriver du for eksempel `sin(π/6)`. De inverse funksjonene heter `asin`, `acos` og `atan` – `asin(0.5)` gir vinkelen som har sinusverdi 0,5, altså 30°.\n\nMed dette kan GeoGebra løse trekanter. Tenk deg en trekant der vinklene er $A = 40°$ og $B = 60°$, og siden $a = 5$ (siden overfor vinkel $A$). Hva er siden $b$? Sinussetningen sier $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$, så $b = \\frac{a \\cdot \\sin B}{\\sin A}$. I CAS skriver vi det rett fram:\n\n`a = 5`, `A = 40°`, `B = 60°` og `b = a * sin(B) / sin(A)`.\n\nGeoGebra svarer $b \\approx 6{,}74$. Kontrollen for hånd: $b = \\frac{5 \\cdot \\sin(60°)}{\\sin(40°)} = \\frac{5 \\cdot 0{,}866}{0{,}643} \\approx 6{,}74$. Samme svar – verktøyet og formelen er enige.\n\nDette mønsteret gjelder alle trekantberegninger: du velger riktig setning (sinussetningen eller cosinussetningen), setter opp formelen, og lar GeoGebra ta seg av tallknusingen. Og når du leverer en løsning: forklar alltid hvilke kommandoer du brukte og hvilken setning som ligger bak. Verktøyet regner – men begrunnelsen er din."
+      "content": "## Trigonometri – når GeoGebra løser trekanten\n\nNå kobler vi på trigonometrien. GeoGebra beregner trigonometriske verdier direkte: skriv `sin(30°)`, `cos(60°)` eller `tan(45°)` og få svaret umiddelbart. Men legg nøye merke til gradtegnet! Skriver du `sin(30)` uten °, tolker GeoGebra tallet som radianer – en helt annen vinkel. Vil du jobbe i radianer med vilje, skriver du for eksempel `sin(π/6)`. Skal de inverse funksjonene gi vinkelen i grader, bruker du `asind`, `acosd` og `atand` – `asind(0.5)` gir vinkelen som har sinusverdi 0,5, altså 30°. Uten d, `asin(0.5)`, kommer svaret i radianer.\n\nMed dette kan GeoGebra løse trekanter. Tenk deg en trekant der vinklene er $A = 40°$ og $B = 60°$, og siden $a = 5$ (siden overfor vinkel $A$). Hva er siden $b$? Sinussetningen sier $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$, så $b = \\frac{a \\cdot \\sin B}{\\sin A}$. I algebrafeltet skriver vi det rett fram:\n\n`a = 5`, `A = 40°`, `B = 60°` og `b = a * sin(B) / sin(A)`.\n\nGeoGebra svarer $b \\approx 6{,}74$. Kontrollen for hånd: $b = \\frac{5 \\cdot \\sin(60°)}{\\sin(40°)} = \\frac{5 \\cdot 0{,}866}{0{,}643} \\approx 6{,}74$. Samme svar – verktøyet og formelen er enige.\n\nDette mønsteret gjelder alle trekantberegninger: du velger riktig setning (sinussetningen eller cosinussetningen), setter opp formelen, og lar GeoGebra ta seg av tallknusingen. Og når du leverer en løsning: forklar alltid hvilke kommandoer du brukte og hvilken setning som ligger bak. Verktøyet regner – men begrunnelsen er din."
     },
     {
       "id": "1t-5-8-n-quiz2",
@@ -204,26 +204,26 @@
             "options": [
               {
                 "id": "a",
-                "text": "sin(0.5)",
+                "text": "`sin(0.5)`",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "asin(0.5)",
+                "text": "`asind(0.5)`",
                 "isCorrect": true
               },
               {
                 "id": "c",
-                "text": "Vinkel(0.5)",
+                "text": "`Vinkel(0.5)`",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "cos(0.5)",
+                "text": "`cos(0.5)`",
                 "isCorrect": false
               }
             ],
-            "solution": "De inverse trigonometriske funksjonene heter asin, acos og atan. asin(0.5) gir 30°."
+            "solution": "Skal svaret være i grader, bruker du asind, acosd og atand. `asind(0.5)` gir 30°; `asin(0.5)` gir 0,52 radianer."
           },
           {
             "id": "1t-5-8-n-quiz2-q2",
@@ -285,7 +285,7 @@
     {
       "id": "1t-5-8-n-summary",
       "type": "text",
-      "content": "## Passer, linjal og prosessor\n\nDet digitale tegnebrettet har vist hva det duger til. Du konstruerer med punkter som `A = (0, 0)`, binder dem sammen med `Linjestykke(A, B)` eller hele figuren med `Mangekant(A, B, C)`, og tegner sirkler med `Sirkel(A, 5)`. Målingene gjør GeoGebra på kommando: `Avstand(A, B)` for lengder, `Vinkel(A, B, C)` for vinkelen ved det midterste punktet $B$, og `Areal()` for flateinnhold – slik vi avslørte at trekanten vår var likebeint med vinkelsum 180°.\n\nPå trigonometrisiden beregner GeoGebra `sin(30°)`, `cos(60°)` og `tan(45°)` direkte – husk gradtegnet, ellers tolkes tallet som radianer – og de inverse funksjonene `asin`, `acos` og `atan` finner vinkler fra verdier. Dermed kan hele trekanter løses: sinussetningen $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$ ble til én CAS-linje og svaret $b \\approx 6{,}74$, bekreftet av håndregningen.\n\nTo prinsipper binder det hele sammen. Bruk geometriens kjente sannheter – vinkelsum, Pythagoras, setningene – som kontrollstasjoner for det verktøyet forteller deg. Og dokumentér alltid kommandoene dine når du leverer en løsning. GeoGebra er presisjonen til passeren og kraften til en datamaskin i ett – men geometrikeren er fortsatt deg."
+      "content": "## Passer, linjal og prosessor\n\nDet digitale tegnebrettet har vist hva det duger til. Du konstruerer med punkter som `A = (0, 0)`, binder dem sammen med `Linjestykke(A, B)` eller hele figuren med `Mangekant(A, B, C)`, og tegner sirkler med `Sirkel(A, 5)`. Målingene gjør GeoGebra på kommando: `Avstand(A, B)` for lengder, `Vinkel(A, B, C)` for vinkelen ved det midterste punktet $B$ (målt mot klokka, så rekkefølgen betyr noe), og `Areal()` for flateinnhold – slik vi avslørte at trekanten vår var likebeint med vinkelsum 180°.\n\nPå trigonometrisiden beregner GeoGebra `sin(30°)`, `cos(60°)` og `tan(45°)` direkte – husk gradtegnet, ellers tolkes tallet som radianer – og de inverse funksjonene `asind`, `acosd` og `atand` finner vinkler fra verdier. Dermed kan hele trekanter løses: sinussetningen $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$ ble til én linje i algebrafeltet og svaret $b \\approx 6{,}74$, bekreftet av håndregningen.\n\nTo prinsipper binder det hele sammen. Bruk geometriens kjente sannheter – vinkelsum, Pytagoras, setningene – som kontrollstasjoner for det verktøyet forteller deg. Og dokumentér alltid kommandoene dine når du leverer en løsning. GeoGebra er presisjonen til passeren og kraften til en datamaskin i ett – men geometrikeren er fortsatt deg."
     }
   ],
   "exercises": []

@@ -7,7 +7,7 @@
   "description": "En fortelling om å oversette virkeligheten til formler – fra issalg og bakteriekolonier til kunsten å velge riktig modell.",
   "estimatedMinutes": 30,
   "competenceGoals": [
-    "bruke digitale verktøy til a analysere store datamengder, finne mønster og presentere funn"
+    "bruke digitale verktøy til å analysere store datamengder, finne mønster og presentere funn"
   ],
   "linkedChapterId": "2p-6-3",
   "content": [
@@ -19,7 +19,7 @@
     {
       "id": "2p-6-3-n-section1",
       "type": "text",
-      "content": "## Maskinen finner linjen – og gir den karakter\n\nNår kioskeieren mater dataene inn i GeoGebra og ber om **lineær regresjon**, leter programmet etter linjen $y = ax + b$ som samlet sett ligger nærmest alle punktene. For issalget får hun kanskje modellen $y = 7x - 67$, der $x$ er temperaturen og $y$ er antall solgte is. Stigningstallet $7$ betyr at hun i snitt selger $7$ flere is per grad varmere.\n\nMen hvor god er modellen? Det svarer **forklaringsgraden** $R^2$ på – et tall mellom $0$ og $1$ som verktøyet alltid leverer sammen med modellen. Tolkningen er konkret: $R^2 = 0{,}99$ betyr at modellen forklarer $99\\,\\%$ av variasjonen i dataene, en nesten perfekt tilpasning. $R^2 = 0{,}42$ betyr at modellen bare forklarer $42\\,\\%$ – da ligger punktene spredt langt fra linjen, og modellen er upålitelig. Tommelfingerregelen: over $0{,}9$ er svært godt, under $0{,}5$ er dårlig.\n\nMed $R^2 = 0{,}99$ tør kioskeieren bruke modellen. Værmeldingen lover $22$ grader i morgen, og modellen anslår $y = 7 \\cdot 22 - 67 = 154 - 67 = 87$ is. Hun legger $90$ is i fryseren og føler seg trygg.\n\nMerk hva $R^2$ *ikke* sier: at modellen er «99 % riktig», eller at 99 % av punktene ligger på linjen. Det er andelen av variasjonen som modellen fanger opp – verken mer eller mindre. Og som vi snart skal se, kan selv en modell med skyhøy $R^2$ gå fullstendig i baret utenfor sitt eget område."
+      "content": "## Maskinen finner linjen – og gir den karakter\n\nNår kioskeieren mater dataene inn i GeoGebra og ber om **lineær regresjon**, leter programmet etter linjen $y = ax + b$ som samlet sett ligger nærmest alle punktene. For issalget får hun kanskje modellen $y = 13{,}13x - 77{,}96$, der $x$ er temperaturen og $y$ er antall solgte is. Stigningstallet $13{,}13$ betyr at hun i snitt selger ca. $13$ flere is per grad varmere.\n\nMen hvor god er modellen? Det svarer **forklaringsgraden** $R^2$ på – et tall mellom $0$ og $1$ som verktøyet alltid leverer sammen med modellen. Tolkningen er konkret: $R^2 = 0{,}99$ betyr at modellen forklarer $99\\,\\%$ av variasjonen i dataene, en nesten perfekt tilpasning. $R^2 = 0{,}42$ betyr at modellen bare forklarer $42\\,\\%$ – da ligger punktene spredt langt fra linjen, og modellen er upålitelig. Tommelfingerregelen: over $0{,}9$ er svært godt, under $0{,}5$ er dårlig.\n\nMed $R^2 = 0{,}999$ tør kioskeieren bruke modellen. Værmeldingen lover $22$ grader i morgen, og modellen anslår $y = 13{,}13 \\cdot 22 - 77{,}96 \\approx 211$ is. Hun legger $220$ is i fryseren og føler seg trygg.\n\nMerk hva $R^2$ *ikke* sier: at modellen er «99 % riktig», eller at 99 % av punktene ligger på linjen. Det er andelen av variasjonen som modellen fanger opp – verken mer eller mindre. Og som vi snart skal se, kan selv en modell med skyhøy $R^2$ gå fullstendig i baret utenfor sitt eget område."
     },
     {
       "id": "2p-6-3-n-quiz1",
@@ -67,30 +67,30 @@
           },
           {
             "id": "2p-6-3-n-quiz1-q1",
-            "task": "Issalgmodellen er $y = 7x - 67$. Hvor mange is anslår modellen ved 22 °C?",
+            "task": "Issalgmodellen er $y = 13{,}13x - 77{,}96$. Hvor mange is anslår modellen ved 22 °C?",
             "options": [
               {
                 "id": "a",
-                "text": "Ca. 110 is",
+                "text": "Ca. 190 is",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "Ca. 87 is",
+                "text": "Ca. 211 is",
                 "isCorrect": true
               },
               {
                 "id": "c",
-                "text": "Ca. 154 is",
+                "text": "Ca. 289 is",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Ca. 67 is",
+                "text": "Ca. 78 is",
                 "isCorrect": false
               }
             ],
-            "solution": "$y = 7 \\cdot 22 - 67 = 154 - 67 = 87$ is."
+            "solution": "$y = 13{,}13 \\cdot 22 - 77{,}96 \\approx 211$ is."
           },
           {
             "id": "2p-6-3-n-quiz1-q2",
@@ -231,7 +231,7 @@
     {
       "id": "2p-6-3-n-section3",
       "type": "text",
-      "content": "## Når modellen lyver – grensene for ekstrapolering\n\nTilbake til kioskeieren og hennes nesten perfekte modell $y = 7x - 67$ med $R^2 = 0{,}99$. En kjølig vårdag viser gradestokken $5$ grader, og hun taster inn: $y = 7 \\cdot 5 - 67 = -32$. Modellen spår at hun selger *minus* trettito is. Skal kundene levere is tilbake?\n\nSelvsagt ikke – modellen har brutt sammen. Dataene hennes kom fra sommerdager mellom $15$ og $30$ grader, og innenfor det området er modellen utmerket. Men ved $5$ grader er hun langt *utenfor* dataområdet, og der finnes ingen garanti for at mønsteret holder. Å bruke modellen innenfor dataområdet kalles **interpolasjon** og er som regel trygt; å bruke den utenfor kalles **ekstrapolasjon** og blir mer og mer usikkert jo lenger ut du går – til svarene blir direkte meningsløse, som negativt issalg.\n\nDet viktige er at $R^2$ ikke redder deg her. Forklaringsgraden måler bare hvor godt modellen passer *de dataene den ble laget av* – den sier ingenting om verden utenfor. En modell med $R^2 = 0{,}99$ kan være katastrofalt feil ti grader unna sitt eget område.\n\nDerfor avsluttes all god modellering med det samme spørsmålet: *Er svaret rimelig?* En modell er en forenkling av virkeligheten, gyldig innenfor et begrenset område. Bruk den der den hører hjemme, vær ydmyk utenfor – og stol mer på sunn fornuft enn på desimalene fra regresjonsverktøyet."
+      "content": "## Når modellen lyver – grensene for ekstrapolering\n\nTilbake til kioskeieren og hennes nesten perfekte modell $y = 13{,}13x - 77{,}96$ med $R^2 = 0{,}999$. En kjølig vårdag viser gradestokken $5$ grader, og hun taster inn: $y = 13{,}13 \\cdot 5 - 77{,}96 \\approx -12$. Modellen spår at hun selger *minus* tolv is. Skal kundene levere is tilbake?\n\nSelvsagt ikke – modellen har brutt sammen. Dataene hennes kom fra sommerdager mellom $12$ og $29$ grader, og innenfor det området er modellen utmerket. Men ved $5$ grader er hun langt *utenfor* dataområdet, og der finnes ingen garanti for at mønsteret holder. Å bruke modellen innenfor dataområdet kalles **interpolering** og er som regel trygt; å bruke den utenfor kalles **ekstrapolering** og blir mer og mer usikkert jo lenger ut du går – til svarene blir direkte meningsløse, som negativt issalg.\n\nDet viktige er at $R^2$ ikke redder deg her. Forklaringsgraden måler bare hvor godt modellen passer *de dataene den ble laget av* – den sier ingenting om verden utenfor. En modell med $R^2 = 0{,}99$ kan være katastrofalt feil ti grader unna sitt eget område.\n\nDerfor avsluttes all god modellering med det samme spørsmålet: *Er svaret rimelig?* En modell er en forenkling av virkeligheten, gyldig innenfor et begrenset område. Bruk den der den hører hjemme, vær ydmyk utenfor – og stol mer på sunn fornuft enn på desimalene fra regresjonsverktøyet."
     },
     {
       "id": "2p-6-3-n-quiz3",
@@ -252,11 +252,11 @@
         "questions": [
           {
             "id": "2p-6-3-n-quiz3-q0",
-            "task": "Issalgmodellen $y = 7x - 67$ gir $y = -32$ for $x = 5$ °C. Hva forteller dette?",
+            "task": "Issalgmodellen $y = 13{,}13x - 77{,}96$ gir $y \\approx -12$ for $x = 5$ °C. Hva forteller dette?",
             "options": [
               {
                 "id": "b",
-                "text": "Kiosken skylder kundene 32 is",
+                "text": "Kiosken skylder kundene 12 is",
                 "isCorrect": false
               },
               {
@@ -283,12 +283,12 @@
             "options": [
               {
                 "id": "c",
-                "text": "Interpolasjon / ekstrapolasjon",
+                "text": "Interpolering / ekstrapolering",
                 "isCorrect": true
               },
               {
                 "id": "a",
-                "text": "Ekstrapolasjon / interpolasjon",
+                "text": "Ekstrapolering / interpolering",
                 "isCorrect": false
               },
               {
@@ -302,7 +302,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Innenfor dataområdet: interpolasjon (pålitelig). Utenfor: ekstrapolasjon (usikkert, kan gi urimelige svar)."
+            "solution": "Innenfor dataområdet: interpolering (pålitelig). Utenfor: ekstrapolering (usikkert, kan gi urimelige svar)."
           },
           {
             "id": "2p-6-3-n-quiz3-q2",
@@ -337,7 +337,7 @@
     {
       "id": "2p-6-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nKioskeierens regneark viste veien gjennom hele modelleringsprosessen. **Regresjon** lar et digitalt verktøy finne funksjonen som passer best til et datasett, og **forklaringsgraden** $R^2$ gir modellen karakter: nær $1$ er svært godt, under $0{,}5$ er dårlig – men husk at $R^2$ måler andelen av variasjonen som forklares, ikke at modellen er «riktig».\n\nValget av modelltype er ditt: konstant økning i *antall* peker mot en **lineær** modell $y = ax + b$, vekst med fast *prosent* – som bakteriene med vekstfaktor $1{,}3$ – peker mot en **eksponentiell** modell $y = a \\cdot b^x$, og data som snur, mot en kvadratisk. Og uansett hvor høy $R^2$ er, gjelder modellen bare innenfor sitt dataområde: **interpolasjon** er trygt, **ekstrapolasjon** er risikabelt, og minus trettito solgte is er en umulighet uansett hvor fin formelen ser ut. Det siste ordet har alltid rimelighetssjekken din."
+      "content": "## Oppsummering\n\nKioskeierens regneark viste veien gjennom hele modelleringsprosessen. **Regresjon** lar et digitalt verktøy finne funksjonen som passer best til et datasett, og **forklaringsgraden** $R^2$ gir modellen karakter: nær $1$ er svært godt, under $0{,}5$ er dårlig – men husk at $R^2$ måler andelen av variasjonen som forklares, ikke at modellen er «riktig».\n\nValget av modelltype er ditt: konstant økning i *antall* peker mot en **lineær** modell $y = ax + b$, vekst med fast *prosent* – som bakteriene med vekstfaktor $1{,}3$ – peker mot en **eksponentiell** modell $y = a \\cdot b^x$, og data som snur, mot en kvadratisk. Og uansett hvor høy $R^2$ er, gjelder modellen bare innenfor sitt dataområde: **interpolering** er trygt, **ekstrapolering** er risikabelt, og minus tolv solgte is er en umulighet uansett hvor fin formelen ser ut. Det siste ordet har alltid rimelighetssjekken din."
     }
   ],
   "exercises": []

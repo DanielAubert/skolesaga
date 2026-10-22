@@ -22,7 +22,7 @@
     {
       "id": "1t-1-9-n-intro",
       "type": "text",
-      "content": "## Nullpunkter og faktorer -- en dyp sammenheng\n\nI forrige kapittel lærte du å utføre polynomdivisjon steg for steg. Nå skal vi oppdage noe fascinerende: det finnes en direkte kobling mellom **nullpunktene** til et polynom og **faktorene** det kan deles opp i.\n\nTenk deg at du har polynomet $P(x) = x^2 - 5x + 6$. Hvis du setter inn $x = 2$, får du $P(2) = 4 - 10 + 6 = 0$. Tallet $2$ er altså et **nullpunkt** -- en $x$-verdi som gjør polynomet lik null. Og det viser seg at når $2$ er et nullpunkt, så er $(x - 2)$ en **faktor** i polynomet. Faktisk er $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nDenne sammenhengen er ikke tilfeldig. Den er en grunnleggende egenskap ved polynomer, og den gir oss to kraftige verktøy: **faktorteoremet** og **restteoremet**. Sammen lar de oss bryte ned polynomer til sine minste bestanddeler og avgjøre om en divisjon går opp -- uten å faktisk utføre hele divisjonen. I dette kapittelet skal vi utforske begge tesetene, lære å finne nullpunkter systematisk, og mestre kunsten å faktorisere polynomer fullstendig."
+      "content": "## Nullpunkter og faktorer -- en dyp sammenheng\n\nI forrige kapittel lærte du å utføre polynomdivisjon steg for steg. Nå skal vi oppdage noe fascinerende: det finnes en direkte kobling mellom **nullpunktene** til et polynom og **faktorene** det kan deles opp i.\n\nTenk deg at du har polynomet $P(x) = x^2 - 5x + 6$. Hvis du setter inn $x = 2$, får du $P(2) = 4 - 10 + 6 = 0$. Tallet $2$ er altså et **nullpunkt** -- en $x$-verdi som gjør polynomet lik null. Og det viser seg at når $2$ er et nullpunkt, så er $(x - 2)$ en **faktor** i polynomet. Faktisk er $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nDenne sammenhengen er ikke tilfeldig. Den er en grunnleggende egenskap ved polynomer, og den gir oss to kraftige verktøy: **faktorteoremet** og **restteoremet**. Sammen lar de oss bryte ned polynomer til sine minste bestanddeler og avgjøre om en divisjon går opp -- uten å faktisk utføre hele divisjonen. I dette kapittelet skal vi utforske begge teoremene, lære å finne nullpunkter systematisk, og mestre kunsten å faktorisere polynomer fullstendig."
     },
     {
       "id": "1t-1-9-n-section1",
@@ -263,7 +263,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Siden $P(-1) = 0$, er $(x + 1)$ en faktor. Divisjon gir $(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$. Vi faktoriserer kvotienten: to tall som ganger til $6$ og summerer til $5$ er $2$ og $3$. Altså: $x^2 + 5x + 6 = (x+2)(x+3)$. Komplett: $(x+1)(x+2)(x+3)$."
+            "solution": "$P(-1) = 0$, så $(x + 1)$ er en faktor.\n\n$(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$\n\n$x^2 + 5x + 6 = (x + 2)(x + 3)$ (produkt $6$, sum $5$)\n\n**Svar:** $(x + 1)(x + 2)(x + 3)$"
           },
           {
             "id": "1t-1-9-n-quiz2-q3",
@@ -471,7 +471,7 @@
     {
       "id": "1t-1-9-n-section4",
       "type": "text",
-      "content": "## Fullstendig faktorisering -- strategi\n\nNå har vi alle verktøyene vi trenger for å faktorisere polynomer fullstendig. Her er strategien, steg for steg:\n\n**1.** Finn ett nullpunkt $a$ ved å prøve divisorer av konstantleddet.\n**2.** Divider polynomet på $(x - a)$ med lang divisjon.\n**3.** Faktoriser kvotienten videre (om mulig).\n**4.** Gjenta til du ikke kan faktorisere mer.\n\nLa oss ta $P(x) = x^3 - 7x + 6$. Konstantleddet er $6$, så vi prøver: $P(1) = 1 - 7 + 6 = 0$. Flott, $x = 1$ er et nullpunkt.\n\nVi deler: $(x^3 - 7x + 6) : (x - 1)$. Husk å skrive dividenden som $x^3 + 0x^2 - 7x + 6$ for å inkludere null-leddet. Divisjonen gir $x^2 + x - 6$.\n\nNå faktoriserer vi $x^2 + x - 6$. Vi leter etter to tall som ganger til $-6$ og summerer til $1$. Det er $3$ og $-2$: $x^2 + x - 6 = (x + 3)(x - 2)$.\n\nEndelig svar: $P(x) = (x - 1)(x + 3)(x - 2)$.\n\nLa oss ta et vanskeligere eksempel: $P(x) = x^3 + 2x^2 - x - 2$. Prøv $P(1) = 1 + 2 - 1 - 2 = 0$. $(x - 1)$ er en faktor. Divisjon gir $x^2 + 3x + 2 = (x + 1)(x + 2)$. Altså: $P(x) = (x - 1)(x + 1)(x + 2)$.\n\nNoen ganger finner du nullpunktet på andre forsøk. For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = -2 \\neq 0$, men $P(-1) = -1 - 4 - 1 + 6 = 0$. Så $(x + 1)$ er en faktor. Divisjon gir $x^2 - 5x + 6 = (x - 2)(x - 3)$. Altså: $P(x) = (x + 1)(x - 2)(x - 3)$."
+      "content": "## Fullstendig faktorisering -- strategi\n\nNå har vi alle verktøyene vi trenger for å faktorisere polynomer fullstendig. Her er strategien, steg for steg:\n\n**1.** Finn ett nullpunkt $a$ ved å prøve divisorer av konstantleddet.\n**2.** Divider polynomet på $(x - a)$ med lang divisjon.\n**3.** Faktoriser kvotienten videre (om mulig).\n**4.** Gjenta til du ikke kan faktorisere mer.\n\nLa oss ta $P(x) = x^3 - 7x + 6$. Konstantleddet er $6$, så vi prøver: $P(1) = 1 - 7 + 6 = 0$. Flott, $x = 1$ er et nullpunkt.\n\nVi deler: $(x^3 - 7x + 6) : (x - 1)$. Husk å skrive dividenden som $x^3 + 0x^2 - 7x + 6$ for å inkludere null-leddet. Divisjonen gir $x^2 + x - 6$.\n\nNå faktoriserer vi $x^2 + x - 6$. Vi leter etter to tall som ganger til $-6$ og summerer til $1$. Det er $3$ og $-2$: $x^2 + x - 6 = (x + 3)(x - 2)$.\n\nEndelig svar: $P(x) = (x - 1)(x + 3)(x - 2)$.\n\nLa oss ta et vanskeligere eksempel: $P(x) = x^3 + 2x^2 - x - 2$. Prøv $P(1) = 1 + 2 - 1 - 2 = 0$. $(x - 1)$ er en faktor. Divisjon gir $x^2 + 3x + 2 = (x + 1)(x + 2)$. Altså: $P(x) = (x - 1)(x + 1)(x + 2)$.\n\nNoen ganger finner du nullpunktet på andre forsøk. For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = 1 - 4 + 1 + 6 = 4 \\neq 0$, men $P(-1) = -1 - 4 - 1 + 6 = 0$. Så $(x + 1)$ er en faktor. Divisjon gir $x^2 - 5x + 6 = (x - 2)(x - 3)$. Altså: $P(x) = (x + 1)(x - 2)(x - 3)$."
     },
     {
       "id": "1t-1-9-n-quiz4",
@@ -549,7 +549,7 @@
             "options": [
               {
                 "id": "a",
-                "text": "$(x - 1)(x - 2)(x + 3)$",
+                "text": "$(x + 1)(x - 2)(x + 3)$",
                 "isCorrect": false
               },
               {
@@ -564,11 +564,11 @@
               },
               {
                 "id": "c",
-                "text": "$(x - 1)(x - 3)(x + 2)$",
+                "text": "$(x + 1)(x - 3)(x + 2)$",
                 "isCorrect": false
               }
             ],
-            "solution": "Siden $P(1) = 0$, deler vi: $(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$. Vi faktoriserer: to tall som ganger til $-6$ og summerer til $1$ er $3$ og $-2$. Altså $x^2 + x - 6 = (x + 3)(x - 2)$. Komplett: $(x-1)(x+3)(x-2)$."
+            "solution": "$P(1) = 0$, så $(x - 1)$ er en faktor.\n\n$(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$\n\n$x^2 + x - 6 = (x + 3)(x - 2)$ (produkt $-6$, sum $1$)\n\n**Svar:** $(x - 1)(x + 3)(x - 2)$"
           },
           {
             "id": "1t-1-9-n-quiz4-q3",
@@ -653,7 +653,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Start med $P(1) = 1 - 10 + 9 = 0$, så $(x-1)$ er en faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Prøv $P(-1) = -1 + 1 + 9 - 9 = 0$, så $(x+1)$ er en faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$."
+            "solution": "$P(1) = 1 - 10 + 9 = 0$, så $(x - 1)$ er en faktor.\n\n$P(-1) = 1 - 10 + 9 = 0$, så $(x + 1)$ er også en faktor.\n\n$(x^4 - 10x^2 + 9) : (x^2 - 1) = x^2 - 9 = (x - 3)(x + 3)$\n\n**Svar:** $(x - 1)(x + 1)(x - 3)(x + 3)$"
           },
           {
             "id": "1t-1-9-n-quiz5-q1",
@@ -711,7 +711,7 @@
           },
           {
             "id": "1t-1-9-n-quiz5-q3",
-            "task": "Hva er faktoriseringen av $x^4 - 16$?",
+            "task": "Hva er den fullstendige faktoriseringen av $x^4 - 16$?",
             "options": [
               {
                 "id": "a",
@@ -734,7 +734,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Vi kan starte med $P(2) = 16 - 16 = 0$, så $(x - 2)$ er en faktor. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Prøv $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x + 2)$ er en faktor. Ny divisjon gir $x^2 + 4$, som ikke har reelle nullpunkter. Svaret $(x^2 - 4)(x^2 + 4)$ er ufullstendig -- $(x^2 - 4)$ kan faktoriseres videre til $(x-2)(x+2)$."
+            "solution": "$P(2) = 16 - 16 = 0$, så $(x - 2)$ er en faktor.\n\n$P(-2) = 16 - 16 = 0$, så $(x + 2)$ er en faktor.\n\n$(x^4 - 16) : (x^2 - 4) = x^2 + 4$, som ikke har reelle nullpunkter.\n\n$(x^2 - 4)(x^2 + 4)$ er ikke ferdig faktorisert, fordi $x^2 - 4 = (x - 2)(x + 2)$.\n\n**Svar:** $(x - 2)(x + 2)(x^2 + 4)$"
           },
           {
             "id": "1t-1-9-n-quiz5-q4",
@@ -761,7 +761,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "$x^2 + 1 = 0$ gir $x^2 = -1$, som ikke har noen reell løsning. Siden $x^2 \\geq 0$ for alle reelle $x$, er $x^2 + 1 \\geq 1 > 0$ alltid. Polynomet har ingen reelle nullpunkter og kan ikke faktoriseres videre over de reelle tallene."
+            "solution": "$x^2 + 1 = 0$ gir $x^2 = -1$, som ikke har noen reell løsning.\n\n$x^2 \\geq 0$ for alle reelle $x$, så $x^2 + 1 \\geq 1 > 0$.\n\n**Svar:** $x^2 + 1$ har ingen reelle nullpunkter og kan ikke faktoriseres videre over de reelle tallene."
           }
         ]
       }

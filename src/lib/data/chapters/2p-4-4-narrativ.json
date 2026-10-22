@@ -7,10 +7,16 @@
   "description": "En fortelling om kuler som ikke legges tilbake – hvordan sannsynligheter endrer seg når du vet hva som allerede har skjedd.",
   "estimatedMinutes": 30,
   "competenceGoals": [
-    "berekne sannsyn ved hjelp av systematiske oppteljingar og bruke addisjonsprinsippet og multiplikasjonsprinsippet"
+    "Fordypning: beregne betinget sannsynlighet med multiplikasjonssetningen og krysstabeller"
   ],
   "linkedChapterId": "2p-4-4",
   "content": [
+    {
+      "id": "2p-4-4-n-fordypning",
+      "type": "note",
+      "title": "Fordypning",
+      "content": "**Fordypning — ikke en del av 2P-læreplanen.** Sannsynlighetsregning hører ikke til kompetansemålene i 2P. Stoffet blir ikke prøvd på 2P-eksamen, men kan leses som fordypning."
+    },
     {
       "id": "2p-4-4-n-intro",
       "type": "text",
@@ -19,7 +25,7 @@
     {
       "id": "2p-4-4-n-section1",
       "type": "text",
-      "content": "## Gitt at … – den nye spillereglen\n\nVi skriver **betinget sannsynlighet** som $P(B \\mid A)$, og leser det «sannsynligheten for $B$ gitt at $A$ har inntruffet». Den loddrette streken betyr altså «gitt at» – informasjonen om at $A$ har skjedd, endrer spillebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynligheten for at *begge* hendelsene inntreffer.\n\nSnur vi formelen, får vi **multiplikasjonsprinsippet**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynligheten for at begge skjer, er sjansen for den første, ganget med sjansen for den andre *gitt at* den første har skjedd.\n\nLa oss bruke det. En pose inneholder $4$ røde og $6$ blå kuler, og du trekker to kuler uten å legge den første tilbake. Hva er sjansen for at begge er røde? Første trekk: $P(R_1) = \\frac{4}{10}$. Men nå er situasjonen endret – det ligger bare $3$ røde igjen blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonsprinsippet gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigste grepet: etter første trekk oppdaterer vi *både* telleren og nevneren. Én kule mindre i posen, én rød mindre å trekke. Det er nettopp dette «uten tilbakelegging» betyr – hvert trekk endrer forutsetningene for det neste."
+      "content": "## Gitt at … – den nye spillereglen\n\nVi skriver **betinget sannsynlighet** som $P(B \\mid A)$, og leser det «sannsynligheten for $B$ gitt at $A$ har inntruffet». Den loddrette streken betyr altså «gitt at» – informasjonen om at $A$ har skjedd, endrer spillebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynligheten for at *begge* hendelsene inntreffer.\n\nSnur vi formelen, får vi **multiplikasjonssetningen**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynligheten for at begge skjer, er sjansen for den første, ganget med sjansen for den andre *gitt at* den første har skjedd.\n\nLa oss bruke det. En pose inneholder $4$ røde og $6$ blå kuler, og du trekker to kuler uten å legge den første tilbake. Hva er sjansen for at begge er røde? Første trekk: $P(R_1) = \\frac{4}{10}$. Men nå er situasjonen endret – det ligger bare $3$ røde igjen blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonssetningen gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigste grepet: etter første trekk oppdaterer vi *både* telleren og nevneren. Én kule mindre i posen, én rød mindre å trekke. Det er nettopp dette «uten tilbakelegging» betyr – hvert trekk endrer forutsetningene for det neste."
     },
     {
       "id": "2p-4-4-n-quiz1",
@@ -204,7 +210,7 @@
     {
       "id": "2p-4-4-n-section3",
       "type": "text",
-      "content": "## Uavhengige hendelser – og trikset med «minst én»\n\nNoen ganger påvirker ikke hendelsene hverandre i det hele tatt. Da kalles de **uavhengige**, og kjennetegnet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrer ingenting. For uavhengige hendelser blir multiplikasjonsprinsippet ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVærmeldingen sier $70\\,\\%$ sjanse for regn på mandag og $40\\,\\%$ på tirsdag, uavhengig av hverandre. Sjansen for regn begge dager er da $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Ingen oppdatering nødvendig – tirsdagens vær bryr seg ikke om mandagens.\n\nTil slutt et av sannsynlighetsregningens mest elegante triks. En fabrikk vet at $2\\,\\%$ av produktene er defekte, og du trekker to produkter fra et stort parti. Hva er sjansen for *minst ett* defekt? Å regne direkte er kronglete – «minst ett» kan bety ett eller to defekte, altså flere tilfeller å holde styr på. Men motsatsen til «minst ett defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser ordene «minst én» i en oppgave, gå via komplementet – det sparer deg nesten alltid for arbeid."
+      "content": "## Uavhengige hendelser – og trikset med «minst én»\n\nNoen ganger påvirker ikke hendelsene hverandre i det hele tatt. Da kalles de **uavhengige**, og kjennetegnet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrer ingenting. For uavhengige hendelser blir multiplikasjonssetningen ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVærmeldingen sier $70\\,\\%$ sjanse for regn på mandag og $40\\,\\%$ på tirsdag, uavhengig av hverandre. Sjansen for regn begge dager er da $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Ingen oppdatering nødvendig – tirsdagens vær bryr seg ikke om mandagens.\n\nTil slutt et av sannsynlighetsregningens mest elegante triks. En fabrikk vet at $2\\,\\%$ av produktene er defekte, og du trekker to produkter fra et stort parti. Hva er sjansen for *minst ett* defekt? Å regne direkte er kronglete – «minst ett» kan bety ett eller to defekte, altså flere tilfeller å holde styr på. Men motsatsen til «minst ett defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser ordene «minst én» i en oppgave, gå via komplementet – det sparer deg nesten alltid for arbeid."
     },
     {
       "id": "2p-4-4-n-quiz3",
@@ -261,7 +267,7 @@
               },
               {
                 "id": "a",
-                "text": "$4\\,\\%$ (fordi $2\\,\\% + 2\\,\\% = 4\\,\\%$)",
+                "text": "$1 - 0{,}02^2 \\approx 99{,}96\\,\\%$",
                 "isCorrect": false
               },
               {
@@ -302,7 +308,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Uavhengighet betyr at $P(B \\mid A) = P(B)$. Da forenkles multiplikasjonsprinsippet til $P(A \\cap B) = P(A) \\cdot P(B)$."
+            "solution": "Uavhengighet betyr at $P(B \\mid A) = P(B)$. Da forenkles multiplikasjonssetningen til $P(A \\cap B) = P(A) \\cdot P(B)$."
           }
         ]
       }
@@ -310,7 +316,7 @@
     {
       "id": "2p-4-4-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nVi startet med et ess som forandret kortstokken, og nå har du hele verktøykassen. **Betinget sannsynlighet** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allerede har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonsprinsippet** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lar oss regne på hendelser i rekkefølge – og ved trekning *uten tilbakelegging* må både teller og nevner oppdateres etter hvert trekk.\n\n**Valgtreet** holder orden på det hele: multipliser langs grenene, og adder sannsynlighetene for ulike veier som fører til samme resultat – som de to veiene til «ett eple og én pære». Er hendelsene **uavhengige**, gjelder $P(B \\mid A) = P(B)$, og alt forenkles til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgaven spør om «minst én», husker du snarveien: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Fra kortspill til kvalitetskontroll – det er samme matematikk hele veien."
+      "content": "## Oppsummering\n\nVi startet med et ess som forandret kortstokken, og nå har du hele verktøykassen. **Betinget sannsynlighet** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allerede har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonssetningen** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lar oss regne på hendelser i rekkefølge – og ved trekning *uten tilbakelegging* må både teller og nevner oppdateres etter hvert trekk.\n\n**Valgtreet** holder orden på det hele: multipliser langs grenene, og adder sannsynlighetene for ulike veier som fører til samme resultat – som de to veiene til «ett eple og én pære». Er hendelsene **uavhengige**, gjelder $P(B \\mid A) = P(B)$, og alt forenkles til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgaven spør om «minst én», husker du snarveien: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Fra kortspill til kvalitetskontroll – det er samme matematikk hele veien."
     }
   ],
   "exercises": []

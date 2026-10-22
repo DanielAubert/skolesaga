@@ -4,7 +4,7 @@
   "chapterNumber": "6.1",
   "title": "Matematisk argumentasjon",
   "subtitle": "Narrativ versjon",
-  "description": "En fortelling om hvordan du bygger vanntette matematiske argumenter – fra premisser til konklusjon, med eksempler på direkte bevis, kontraposisjon og motbevis.",
+  "description": "En fortelling om hvordan du bygger vanntette matematiske argumenter – fra premisser til konklusjon, med eksempler på direkte bevis, kontraposisjon og bevis ved selvmotsigelse.",
   "estimatedMinutes": 40,
   "competenceGoals": [
     "argumentere for tenkemåtene sine"
@@ -179,7 +179,7 @@
               },
               {
                 "id": "c",
-                "text": "$2m + 2n + 2$",
+                "text": "$2(m + n) - 1$",
                 "isCorrect": false
               }
             ],
@@ -279,7 +279,7 @@
     {
       "id": "1t-6-1-n-section3",
       "type": "text",
-      "content": "## Logiske slutninger og implikasjon\n\nFor å bygge sterke argumenter trenger vi å forstå logiske sammenhenger. Den viktigste er **implikasjon**: «Hvis $P$ er sant, så er $Q$ sant», som skrives $P \\Rightarrow Q$.\n\nFor eksempel: «Hvis $n$ er delelig med 4, så er $n$ delelig med 2.» Dette er sant – hvert tall som kan deles på 4, kan også deles på 2. Men den motsatte retningen er *ikke* sant: at et tall er delelig med 2 betyr ikke at det er delelig med 4. Tallet 6 er delelig med 2, men ikke med 4.\n\nDenne asymmetrien er viktig. $P \\Rightarrow Q$ er *ikke* det samme som $Q \\Rightarrow P$. «Hvis det regner, er bakken våt» betyr ikke at «hvis bakken er våt, regner det» – bakken kan jo også være våt fordi noen har vært ute med hageslangen.\n\nMen her er noe fascinerende: selv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er forskjellige, finnes det en annen utsagn som *er* logisk ekvivalent med $P \\Rightarrow Q$. Det er **kontraposisjonen**: «Hvis ikke $Q$, så ikke $P$», altså $\\neg Q \\Rightarrow \\neg P$.\n\n«Hvis det regner, er bakken våt» er logisk det samme som «Hvis bakken *ikke* er våt, regner det *ikke*.» Denne ekvivalensen er nyttig som bevismetode: noen ganger er det lettere å vise kontraposisjonen enn det opprinnelige utsagnet."
+      "content": "## Logiske slutninger og implikasjon\n\nFor å bygge sterke argumenter trenger vi å forstå logiske sammenhenger. Den viktigste er **implikasjon**: «Hvis $P$ er sant, så er $Q$ sant», som skrives $P \\Rightarrow Q$.\n\nFor eksempel: «Hvis $n$ er delelig med 4, så er $n$ delelig med 2.» Dette er sant – hvert tall som kan deles på 4, kan også deles på 2. Men den motsatte retningen er *ikke* sant: at et tall er delelig med 2 betyr ikke at det er delelig med 4. Tallet 6 er delelig med 2, men ikke med 4.\n\nDenne asymmetrien er viktig. $P \\Rightarrow Q$ er *ikke* det samme som $Q \\Rightarrow P$. «Hvis det regner, er bakken våt» betyr ikke at «hvis bakken er våt, regner det» – bakken kan jo også være våt fordi noen har vært ute med hageslangen.\n\nMen her er noe fascinerende: selv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er forskjellige, finnes det et annet utsagn som *er* logisk ekvivalent med $P \\Rightarrow Q$. Det er **kontraposisjonen**: «Hvis ikke $Q$, så ikke $P$», altså $\\text{ikke } Q \\Rightarrow \\text{ikke } P$.\n\n«Hvis det regner, er bakken våt» er logisk det samme som «Hvis bakken *ikke* er våt, regner det *ikke*.» Denne ekvivalensen er nyttig som bevismetode: noen ganger er det lettere å vise kontraposisjonen enn det opprinnelige utsagnet."
     },
     {
       "id": "1t-6-1-n-quiz3",
@@ -363,21 +363,21 @@
               },
               {
                 "id": "b",
-                "text": "$P \\Rightarrow \\neg Q$ (negasjonen)",
+                "text": "$P \\Rightarrow \\text{ikke } Q$ (negasjonen)",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$\\neg P \\Rightarrow \\neg Q$",
+                "text": "$\\text{ikke } P \\Rightarrow \\text{ikke } Q$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$\\neg Q \\Rightarrow \\neg P$ (kontraposisjonen)",
+                "text": "$\\text{ikke } Q \\Rightarrow \\text{ikke } P$ (kontraposisjonen)",
                 "isCorrect": true
               }
             ],
-            "solution": "Kontraposisjonen $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Hvis det regner, er bakken våt» betyr det samme som «Hvis bakken IKKE er våt, regner det IKKE.»"
+            "solution": "Kontraposisjonen $\\text{ikke } Q \\Rightarrow \\text{ikke } P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Hvis det regner, er bakken våt» betyr det samme som «Hvis bakken IKKE er våt, regner det IKKE.»"
           },
           {
             "id": "1t-6-1-n-quiz3-q3",
@@ -419,7 +419,7 @@
     {
       "id": "1t-6-1-n-section4",
       "type": "text",
-      "content": "## Bevis ved kontraposisjon og motbevis\n\nLa oss bruke kontraposisjon i praksis. Vi vil vise at «hvis $n^2$ er partall, så er $n$ partall.» I stedet for å vise dette direkte, viser vi kontraposisjonen: «hvis $n$ er oddetall, så er $n^2$ oddetall.»\n\nLa $n$ være et oddetall, altså $n = 2k + 1$ for et helt tall $k$. Da er:\n\n$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$\n\nDette er på formen $2m + 1$, altså et oddetall. Vi har vist kontraposisjonen, og dermed er det opprinnelige utsagnet også sant.\n\nEn annen viktig bevismetode er **motbevis** (bevis ved selvmotsigelse). Her antar vi at konklusjonen er *usann* og viser at dette fører til noe umulig – en selvmotsigelse.\n\nDet mest berømte motbeviset viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsatte: $\\sqrt{2} = \\frac{p}{q}$ der brøken er fullt forkortet. Da er $2 = \\frac{p^2}{q^2}$, altså $p^2 = 2q^2$. Siden $p^2$ er partall, er $p$ partall (det viste vi nettopp). La $p = 2k$. Da er $4k^2 = 2q^2$, som gir $q^2 = 2k^2$, altså er $q$ også partall. Men da har $p$ og $q$ begge faktor 2, noe som motsier at brøken var fullt forkortet. Selvmotsigelse! Altså er $\\sqrt{2}$ irrasjonalt."
+      "content": "## Bevis ved kontraposisjon og bevis ved selvmotsigelse\n\nLa oss bruke kontraposisjon i praksis. Vi vil vise at «hvis $n^2$ er partall, så er $n$ partall.» I stedet for å vise dette direkte, viser vi kontraposisjonen: «hvis $n$ er oddetall, så er $n^2$ oddetall.»\n\nLa $n$ være et oddetall, altså $n = 2k + 1$ for et helt tall $k$. Da er:\n\n$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$\n\nDette er på formen $2m + 1$, altså et oddetall. Vi har vist kontraposisjonen, og dermed er det opprinnelige utsagnet også sant.\n\nEn annen viktig bevismetode er **bevis ved selvmotsigelse** (indirekte bevis). Her antar vi at konklusjonen er *usann* og viser at dette fører til noe umulig – en selvmotsigelse.\n\nDet mest berømte beviset ved selvmotsigelse viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsatte: $\\sqrt{2} = \\frac{p}{q}$ der brøken er fullt forkortet. Da er $2 = \\frac{p^2}{q^2}$, altså $p^2 = 2q^2$. Siden $p^2$ er partall, er $p$ partall (det viste vi nettopp). La $p = 2k$. Da er $4k^2 = 2q^2$, som gir $q^2 = 2k^2$, altså er $q$ også partall. Men da har $p$ og $q$ begge faktor 2, noe som motsier at brøken var fullt forkortet. Selvmotsigelse! Altså er $\\sqrt{2}$ irrasjonalt."
     },
     {
       "id": "1t-6-1-n-quiz4",
@@ -428,7 +428,7 @@
         "id": "1t-6-1-n-quiz4",
         "number": "Quiz 4",
         "type": "multiple-choice",
-        "task": "Test deg selv på kontraposisjon og motbevis:",
+        "task": "Test deg selv på kontraposisjon og bevis ved selvmotsigelse:",
         "options": [
           {
             "id": "a",
@@ -463,7 +463,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "I et motbevis antar vi at det vi ønsker å bevise er usant, utleder logiske konsekvenser, og viser at vi når en selvmotsigelse (noe umulig). Dermed var antagelsen feil."
+            "solution": "I et bevis ved selvmotsigelse antar vi at det vi ønsker å bevise er usant, utleder logiske konsekvenser, og viser at vi når en selvmotsigelse (noe umulig). Dermed var antagelsen feil."
           },
           {
             "id": "1t-6-1-n-quiz4-q1",
@@ -532,7 +532,7 @@
     {
       "id": "1t-6-1-n-section5",
       "type": "text",
-      "content": "## Fallgruver og feilslutninger\n\nDet er like viktig å gjenkjenne feil argumenter som å bygge korrekte. La oss se på en klassisk feilslutning som «beviser» at $2 = 1$.\n\nLa $a = b$. Da er $a^2 = ab$, altså $a^2 - b^2 = ab - b^2$. Vi faktoriserer begge sider: $(a + b)(a - b) = b(a - b)$. Vi deler på $(a - b)$ og får $a + b = b$. Siden $a = b$, gir dette $2b = b$, altså $2 = 1$.\n\nHva gikk galt? Feilen er å dele på $(a - b)$. Siden vi antok at $a = b$, er $a - b = 0$, og vi kan aldri dele på null. Dette er et eksempel på at hvert eneste steg i et argument må være gyldig – én feil ødelegger hele kjeden.\n\nEn annen vanlig feil er å forveksle et utsagn med dets omvending. «Alle hunder er dyr» betyr ikke at «alle dyr er hunder.» I matematikken: «alle primtall større enn 2 er oddetall» betyr ikke at «alle oddetall er primtall» (9 er oddetall, men ikke primtall).\n\nVi kan oppsummere bevismetodene. I et **direkte bevis** viser vi $P \\Rightarrow Q$ steg for steg. I et **kontrapositivt bevis** viser vi i stedet at $\\neg Q \\Rightarrow \\neg P$. I et **motbevis** antar vi $\\neg Q$ og finner en selvmotsigelse. Hvilken metode du velger, avhenger av hva som er lettest for det aktuelle problemet."
+      "content": "## Fallgruver og feilslutninger\n\nDet er like viktig å gjenkjenne feil argumenter som å bygge korrekte. La oss se på en klassisk feilslutning som «beviser» at $2 = 1$.\n\nLa $a = b$. Da er $a^2 = ab$, altså $a^2 - b^2 = ab - b^2$. Vi faktoriserer begge sider: $(a + b)(a - b) = b(a - b)$. Vi deler på $(a - b)$ og får $a + b = b$. Siden $a = b$, gir dette $2b = b$, altså $2 = 1$.\n\nHva gikk galt? Feilen er å dele på $(a - b)$. Siden vi antok at $a = b$, er $a - b = 0$, og vi kan aldri dele på null. Dette er et eksempel på at hvert eneste steg i et argument må være gyldig – én feil ødelegger hele kjeden.\n\nEn annen vanlig feil er å forveksle et utsagn med dets omvending. «Alle hunder er dyr» betyr ikke at «alle dyr er hunder.» I matematikken: «alle primtall større enn 2 er oddetall» betyr ikke at «alle oddetall er primtall» (9 er oddetall, men ikke primtall).\n\nVi kan oppsummere bevismetodene. I et **direkte bevis** viser vi $P \\Rightarrow Q$ steg for steg. I et **kontrapositivt bevis** viser vi i stedet at $\\text{ikke } Q \\Rightarrow \\text{ikke } P$. I et **bevis ved selvmotsigelse** antar vi $\\text{ikke } Q$ og finner en selvmotsigelse. Hvilken metode du velger, avhenger av hva som er lettest for det aktuelle problemet."
     },
     {
       "id": "1t-6-1-n-quiz5",
@@ -580,7 +580,7 @@
           },
           {
             "id": "1t-6-1-n-quiz5-q1",
-            "task": "Hvilken bevismetode viser $P \\Rightarrow Q$ ved å vise $\\neg Q \\Rightarrow \\neg P$?",
+            "task": "Hvilken bevismetode viser $P \\Rightarrow Q$ ved å vise $\\text{ikke } Q \\Rightarrow \\text{ikke } P$?",
             "options": [
               {
                 "id": "a",
@@ -589,7 +589,7 @@
               },
               {
                 "id": "b",
-                "text": "Motbevis (selvmotsigelse)",
+                "text": "Bevis ved selvmotsigelse",
                 "isCorrect": false
               },
               {
@@ -603,7 +603,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Et kontrapositivt bevis viser $\\neg Q \\Rightarrow \\neg P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Noen ganger er dette lettere enn å vise det opprinnelige utsagnet direkte."
+            "solution": "Et kontrapositivt bevis viser $\\text{ikke } Q \\Rightarrow \\text{ikke } P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Noen ganger er dette lettere enn å vise det opprinnelige utsagnet direkte."
           },
           {
             "id": "1t-6-1-n-quiz5-q2",
@@ -638,7 +638,7 @@
             "options": [
               {
                 "id": "d",
-                "text": "Motbevis (bevis ved selvmotsigelse)",
+                "text": "Bevis ved selvmotsigelse (indirekte bevis)",
                 "isCorrect": true
               },
               {
@@ -657,7 +657,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Vi antar det *motsatte* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleder noe umulig. Det er et motbevis, eller bevis ved selvmotsigelse."
+            "solution": "Vi antar det *motsatte* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleder noe umulig. Det er et bevis ved selvmotsigelse, også kalt indirekte bevis."
           }
         ]
       }
@@ -672,7 +672,7 @@
     {
       "id": "1t-6-1-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nEt **matematisk argument** er en logisk kjede fra forutsetninger til konklusjon. Hvert steg må begrunnes med definisjoner, aksiomer, tidligere setninger eller logiske slutninger. Et enkelt eksempel er *ikke* et bevis – det viser bare at noe kan skje, ikke at det alltid skjer.\n\n**Direkte bevis** er den mest naturlige metoden: vi starter med premissene og arbeider oss steg for steg til konklusjonen. Nøkkelen er å representere tallene generelt med bokstaver (for eksempel $2k$ for partall, $2k + 1$ for oddetall) og vise at resultatet har den ønskede formen.\n\n**Kontraposisjon** utnytter at $P \\Rightarrow Q$ er logisk ekvivalent med $\\neg Q \\Rightarrow \\neg P$. Noen ganger er den motsatte retningen lettere å vise.\n\n**Motbevis** (bevis ved selvmotsigelse) antar at konklusjonen er usann og utleder noe umulig. Det klassiske beviset for at $\\sqrt{2}$ er irrasjonalt bruker denne teknikken.\n\nHusk også å være på vakt mot feilslutninger. Sjekk at hvert steg er gyldig – spesielt at du ikke deler på null, forveksler en implikasjon med dens omvending, eller generaliserer fra enkeltstående eksempler."
+      "content": "## Oppsummering\n\nEt **matematisk argument** er en logisk kjede fra forutsetninger til konklusjon. Hvert steg må begrunnes med definisjoner, aksiomer, tidligere setninger eller logiske slutninger. Et enkelt eksempel er *ikke* et bevis – det viser bare at noe kan skje, ikke at det alltid skjer.\n\n**Direkte bevis** er den mest naturlige metoden: vi starter med premissene og arbeider oss steg for steg til konklusjonen. Nøkkelen er å representere tallene generelt med bokstaver (for eksempel $2k$ for partall, $2k + 1$ for oddetall) og vise at resultatet har den ønskede formen.\n\n**Kontraposisjon** utnytter at $P \\Rightarrow Q$ er logisk ekvivalent med $\\text{ikke } Q \\Rightarrow \\text{ikke } P$. Noen ganger er $\\text{ikke } Q \\Rightarrow \\text{ikke } P$ lettere å vise enn $P \\Rightarrow Q$.\n\n**Bevis ved selvmotsigelse** (indirekte bevis) antar at konklusjonen er usann og utleder noe umulig. Det klassiske beviset for at $\\sqrt{2}$ er irrasjonalt bruker denne teknikken.\n\nHusk også å være på vakt mot feilslutninger. Sjekk at hvert steg er gyldig – spesielt at du ikke deler på null, forveksler en implikasjon med dens omvending, eller generaliserer fra enkeltstående eksempler."
     }
   ],
   "exercises": []

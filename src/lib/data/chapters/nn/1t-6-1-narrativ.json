@@ -4,7 +4,7 @@
   "chapterNumber": "6.1",
   "title": "Matematisk argumentasjon",
   "subtitle": "Narrativ versjon",
-  "description": "Ei forteljing om korleis du byggjer vasstette matematiske argument – frå premiss til konklusjon, med døme på direkte bevis, kontraposisjon og motbevis.",
+  "description": "Ei forteljing om korleis du byggjer vasstette matematiske argument – frå premiss til konklusjon, med døme på direkte bevis, kontraposisjon og bevis ved sjølvmotseiing.",
   "estimatedMinutes": 40,
   "competenceGoals": [
     "argumentere for tenkjemåtane sine"
@@ -179,7 +179,7 @@
               },
               {
                 "id": "c",
-                "text": "$2m + 2n + 2$",
+                "text": "$2(m + n) - 1$",
                 "isCorrect": false
               }
             ],
@@ -279,7 +279,7 @@
     {
       "id": "1t-6-1-n-section3",
       "type": "text",
-      "content": "## Logiske slutningar og implikasjon\n\nFor å byggje sterke argument treng vi å forstå logiske samanhengar. Den viktigaste er **implikasjon**: «Viss $P$ er sant, så er $Q$ sant», som skrivast $P \\Rightarrow Q$.\n\nTil dømes: «Viss $n$ er deleleg med 4, så er $n$ deleleg med 2.» Dette er sant – kvart tal som kan delast på 4, kan også delast på 2. Men den motsette retninga er *ikkje* sann: at eit tal er deleleg med 2 betyr ikkje at det er deleleg med 4. Talet 6 er deleleg med 2, men ikkje med 4.\n\nDenne asymmetrien er viktig. $P \\Rightarrow Q$ er *ikkje* det same som $Q \\Rightarrow P$. «Viss det regnar, er bakken våt» betyr ikkje at «viss bakken er våt, regnar det» – bakken kan jo også vere våt fordi nokon har vore ute med hageslangen.\n\nMen her er noko fascinerande: sjølv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er forskjellige, finst det eit anna utsegn som *er* logisk ekvivalent med $P \\Rightarrow Q$. Det er **kontraposisjonen**: «Viss ikkje $Q$, så ikkje $P$», altså $\\neg Q \\Rightarrow \\neg P$.\n\n«Viss det regnar, er bakken våt» er logisk det same som «Viss bakken *ikkje* er våt, regnar det *ikkje*.» Denne ekvivalensen er nyttig som bevismetode: nokre gonger er det lettare å vise kontraposisjonen enn det opphavlege utsegnet."
+      "content": "## Logiske slutningar og implikasjon\n\nFor å byggje sterke argument treng vi å forstå logiske samanhengar. Den viktigaste er **implikasjon**: «Viss $P$ er sant, så er $Q$ sant», som skrivast $P \\Rightarrow Q$.\n\nTil dømes: «Viss $n$ er deleleg med 4, så er $n$ deleleg med 2.» Dette er sant – kvart tal som kan delast på 4, kan også delast på 2. Men den motsette retninga er *ikkje* sann: at eit tal er deleleg med 2 betyr ikkje at det er deleleg med 4. Talet 6 er deleleg med 2, men ikkje med 4.\n\nDenne asymmetrien er viktig. $P \\Rightarrow Q$ er *ikkje* det same som $Q \\Rightarrow P$. «Viss det regnar, er bakken våt» betyr ikkje at «viss bakken er våt, regnar det» – bakken kan jo også vere våt fordi nokon har vore ute med hageslangen.\n\nMen her er noko fascinerande: sjølv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er forskjellige, finst det eit anna utsegn som *er* logisk ekvivalent med $P \\Rightarrow Q$. Det er **kontraposisjonen**: «Viss ikkje $Q$, så ikkje $P$», altså $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$.\n\n«Viss det regnar, er bakken våt» er logisk det same som «Viss bakken *ikkje* er våt, regnar det *ikkje*.» Denne ekvivalensen er nyttig som bevismetode: nokre gonger er det lettare å vise kontraposisjonen enn det opphavlege utsegnet."
     },
     {
       "id": "1t-6-1-n-quiz3",
@@ -363,21 +363,21 @@
               },
               {
                 "id": "b",
-                "text": "$P \\Rightarrow \\neg Q$ (negasjonen)",
+                "text": "$P \\Rightarrow \\text{ikkje } Q$ (negasjonen)",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$\\neg P \\Rightarrow \\neg Q$",
+                "text": "$\\text{ikkje } P \\Rightarrow \\text{ikkje } Q$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$\\neg Q \\Rightarrow \\neg P$ (kontraposisjonen)",
+                "text": "$\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$ (kontraposisjonen)",
                 "isCorrect": true
               }
             ],
-            "solution": "Kontraposisjonen $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Viss det regnar, er bakken våt» betyr det same som «Viss bakken IKKJE er våt, regnar det IKKJE.»"
+            "solution": "Kontraposisjonen $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Viss det regnar, er bakken våt» betyr det same som «Viss bakken IKKJE er våt, regnar det IKKJE.»"
           },
           {
             "id": "1t-6-1-n-quiz3-q3",
@@ -419,7 +419,7 @@
     {
       "id": "1t-6-1-n-section4",
       "type": "text",
-      "content": "## Bevis ved kontraposisjon og motbevis\n\nLa oss bruke kontraposisjon i praksis. Vi vil vise at «viss $n^2$ er partal, så er $n$ partal.» I staden for å vise dette direkte, viser vi kontraposisjonen: «viss $n$ er oddetal, så er $n^2$ oddetal.»\n\nLa $n$ vere eit oddetal, altså $n = 2k + 1$ for eit heilt tal $k$. Da er:\n\n$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$\n\nDette er på forma $2m + 1$, altså eit oddetal. Vi har vist kontraposisjonen, og dermed er det opphavlege utsegnet også sant.\n\nEi anna viktig bevismetode er **motbevis** (bevis ved sjølvmotseiing). Her antar vi at konklusjonen er *usann* og viser at dette fører til noko umogleg – ei sjølvmotseiing.\n\nDet mest berømte motbeviset viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsette: $\\sqrt{2} = \\frac{p}{q}$ der brøken er fullt forkorta. Da er $2 = \\frac{p^2}{q^2}$, altså $p^2 = 2q^2$. Sidan $p^2$ er partal, er $p$ partal (det viste vi nettopp). La $p = 2k$. Da er $4k^2 = 2q^2$, som gir $q^2 = 2k^2$, altså er $q$ også partal. Men da har $p$ og $q$ begge faktor 2, noko som motseier at brøken var fullt forkorta. Sjølvmotseiing! Altså er $\\sqrt{2}$ irrasjonalt."
+      "content": "## Bevis ved kontraposisjon og bevis ved sjølvmotseiing\n\nLa oss bruke kontraposisjon i praksis. Vi vil vise at «viss $n^2$ er partal, så er $n$ partal.» I staden for å vise dette direkte, viser vi kontraposisjonen: «viss $n$ er oddetal, så er $n^2$ oddetal.»\n\nLa $n$ vere eit oddetal, altså $n = 2k + 1$ for eit heilt tal $k$. Då er:\n\n$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$\n\nDette er på forma $2m + 1$, altså eit oddetal. Vi har vist kontraposisjonen, og dermed er det opphavlege utsegnet også sant.\n\nEi anna viktig bevismetode er **bevis ved sjølvmotseiing** (indirekte bevis). Her antar vi at konklusjonen er *usann* og viser at dette fører til noko umogleg – ei sjølvmotseiing.\n\nDet mest berømte beviset ved sjølvmotseiing viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsette: $\\sqrt{2} = \\frac{p}{q}$ der brøken er fullt forkorta. Då er $2 = \\frac{p^2}{q^2}$, altså $p^2 = 2q^2$. Sidan $p^2$ er partal, er $p$ partal (det viste vi nettopp). La $p = 2k$. Då er $4k^2 = 2q^2$, som gir $q^2 = 2k^2$, altså er $q$ også partal. Men då har $p$ og $q$ begge faktor 2, noko som motseier at brøken var fullt forkorta. Sjølvmotseiing! Altså er $\\sqrt{2}$ irrasjonalt."
     },
     {
       "id": "1t-6-1-n-quiz4",
@@ -428,7 +428,7 @@
         "id": "1t-6-1-n-quiz4",
         "number": "Quiz 4",
         "type": "multiple-choice",
-        "task": "Test deg sjølv på kontraposisjon og motbevis:",
+        "task": "Test deg sjølv på kontraposisjon og bevis ved sjølvmotseiing:",
         "options": [
           {
             "id": "a",
@@ -463,7 +463,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "I eit motbevis antar vi at det vi ønskjer å bevise er usant, utleier logiske konsekvensar, og viser at vi når ei sjølvmotseiing (noko umogleg). Dermed var antakinga feil."
+            "solution": "I eit bevis ved sjølvmotseiing antar vi at det vi ønskjer å bevise er usant, utleier logiske konsekvensar, og viser at vi når ei sjølvmotseiing (noko umogleg). Dermed var antakinga feil."
           },
           {
             "id": "1t-6-1-n-quiz4-q1",
@@ -532,7 +532,7 @@
     {
       "id": "1t-6-1-n-section5",
       "type": "text",
-      "content": "## Fallgruver og feilslutningar\n\nDet er like viktig å kjenne att feil argument som å byggje korrekte. La oss sjå på ei klassisk feilslutning som «beviser» at $2 = 1$.\n\nLa $a = b$. Da er $a^2 = ab$, altså $a^2 - b^2 = ab - b^2$. Vi faktoriserer begge sider: $(a + b)(a - b) = b(a - b)$. Vi deler på $(a - b)$ og får $a + b = b$. Sidan $a = b$, gir dette $2b = b$, altså $2 = 1$.\n\nKva gjekk gale? Feilen er å dele på $(a - b)$. Sidan vi antok at $a = b$, er $a - b = 0$, og vi kan aldri dele på null. Dette er eit døme på at kvart einaste steg i eit argument må vere gyldig – éin feil øydelegg heile kjeda.\n\nEi anna vanleg feil er å forveksle eit utsegn med omvendinga sitt. «Alle hundar er dyr» betyr ikkje at «alle dyr er hundar.» I matematikken: «alle primtal større enn 2 er oddetal» betyr ikkje at «alle oddetal er primtal» (9 er oddetal, men ikkje primtal).\n\nVi kan oppsummere bevismetodane. I eit **direkte bevis** viser vi $P \\Rightarrow Q$ steg for steg. I eit **kontrapositivt bevis** viser vi i staden at $\\neg Q \\Rightarrow \\neg P$. I eit **motbevis** antar vi $\\neg Q$ og finn ei sjølvmotseiing. Kva metode du vel, avheng av kva som er lettast for det aktuelle problemet."
+      "content": "## Fallgruver og feilslutningar\n\nDet er like viktig å kjenne att feil argument som å byggje korrekte. La oss sjå på ei klassisk feilslutning som «beviser» at $2 = 1$.\n\nLa $a = b$. Då er $a^2 = ab$, altså $a^2 - b^2 = ab - b^2$. Vi faktoriserer begge sider: $(a + b)(a - b) = b(a - b)$. Vi deler på $(a - b)$ og får $a + b = b$. Sidan $a = b$, gir dette $2b = b$, altså $2 = 1$.\n\nKva gjekk gale? Feilen er å dele på $(a - b)$. Sidan vi antok at $a = b$, er $a - b = 0$, og vi kan aldri dele på null. Dette er eit døme på at kvart einaste steg i eit argument må vere gyldig – éin feil øydelegg heile kjeda.\n\nEi anna vanleg feil er å forveksle eit utsegn med omvendinga sitt. «Alle hundar er dyr» betyr ikkje at «alle dyr er hundar.» I matematikken: «alle primtal større enn 2 er oddetal» betyr ikkje at «alle oddetal er primtal» (9 er oddetal, men ikkje primtal).\n\nVi kan oppsummere bevismetodane. I eit **direkte bevis** viser vi $P \\Rightarrow Q$ steg for steg. I eit **kontrapositivt bevis** viser vi i staden at $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$. I eit **bevis ved sjølvmotseiing** antar vi $\\text{ikkje } Q$ og finn ei sjølvmotseiing. Kva metode du vel, avheng av kva som er lettast for det aktuelle problemet."
     },
     {
       "id": "1t-6-1-n-quiz5",
@@ -580,7 +580,7 @@
           },
           {
             "id": "1t-6-1-n-quiz5-q1",
-            "task": "Kva bevismetode viser $P \\Rightarrow Q$ ved å vise $\\neg Q \\Rightarrow \\neg P$?",
+            "task": "Kva bevismetode viser $P \\Rightarrow Q$ ved å vise $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$?",
             "options": [
               {
                 "id": "a",
@@ -589,7 +589,7 @@
               },
               {
                 "id": "b",
-                "text": "Motbevis (sjølvmotseiing)",
+                "text": "Bevis ved sjølvmotseiing",
                 "isCorrect": false
               },
               {
@@ -603,7 +603,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Eit kontrapositivt bevis viser $\\neg Q \\Rightarrow \\neg P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Nokre gonger er dette lettare enn å vise det opphavlege utsegnet direkte."
+            "solution": "Eit kontrapositivt bevis viser $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Nokre gonger er dette lettare enn å vise det opphavlege utsegnet direkte."
           },
           {
             "id": "1t-6-1-n-quiz5-q2",
@@ -638,7 +638,7 @@
             "options": [
               {
                 "id": "d",
-                "text": "Motbevis (bevis ved sjølvmotseiing)",
+                "text": "Bevis ved sjølvmotseiing (indirekte bevis)",
                 "isCorrect": true
               },
               {
@@ -657,7 +657,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Vi antar det *motsette* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleier noko umogleg. Det er eit motbevis, eller bevis ved sjølvmotseiing."
+            "solution": "Vi antar det *motsette* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleier noko umogleg. Det er eit bevis ved sjølvmotseiing, også kalla indirekte bevis."
           }
         ]
       }
@@ -672,19 +672,19 @@
     {
       "id": "1t-6-1-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nEit **matematisk argument** er ei logisk kjede frå føresetnader til konklusjon. Kvart steg må grunngivast med definisjonar, aksiom, tidlegare setningar eller logiske slutningar. Eit enkelt døme er *ikkje* eit bevis – det viser berre at noko kan skje, ikkje at det alltid skjer.\n\n**Direkte bevis** er den mest naturlege metoden: vi startar med premissa og arbeider oss steg for steg til konklusjonen. Nøkkelen er å representere tala generelt med bokstavar (til dømes $2k$ for partal, $2k + 1$ for oddetal) og vise at resultatet har den ønskte forma.\n\n**Kontraposisjon** utnyttar at $P \\Rightarrow Q$ er logisk ekvivalent med $\\neg Q \\Rightarrow \\neg P$. Nokre gonger er den motsette retninga lettare å vise.\n\n**Motbevis** (bevis ved sjølvmotseiing) antar at konklusjonen er usann og utleier noko umogleg. Det klassiske beviset for at $\\sqrt{2}$ er irrasjonalt bruker denne teknikken.\n\nHugs også å vere på vakt mot feilslutningar. Sjekk at kvart steg er gyldig – spesielt at du ikkje deler på null, forvekslar ein implikasjon med omvendinga sin, eller generaliserer frå einskildståande døme."
+      "content": "## Oppsummering\n\nEit **matematisk argument** er ei logisk kjede frå føresetnader til konklusjon. Kvart steg må grunngivast med definisjonar, aksiom, tidlegare setningar eller logiske slutningar. Eit enkelt døme er *ikkje* eit bevis – det viser berre at noko kan skje, ikkje at det alltid skjer.\n\n**Direkte bevis** er den mest naturlege metoden: vi startar med premissa og arbeider oss steg for steg til konklusjonen. Nøkkelen er å representere tala generelt med bokstavar (til dømes $2k$ for partal, $2k + 1$ for oddetal) og vise at resultatet har den ønskte forma.\n\n**Kontraposisjon** utnyttar at $P \\Rightarrow Q$ er logisk ekvivalent med $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$. Nokre gonger er $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$ lettare å vise enn $P \\Rightarrow Q$.\n\n**Bevis ved sjølvmotseiing** (indirekte bevis) antar at konklusjonen er usann og utleier noko umogleg. Det klassiske beviset for at $\\sqrt{2}$ er irrasjonalt bruker denne teknikken.\n\nHugs også å vere på vakt mot feilslutningar. Sjekk at kvart steg er gyldig – spesielt at du ikkje deler på null, forvekslar ein implikasjon med omvendinga sin, eller generaliserer frå einskildståande døme."
     }
   ],
   "exercises": [],
   "_meta": {
-    "sourceHash": "0322ac34461212fe",
+    "sourceHash": "d6b60ff1779ce50a",
     "translatedAt": "2026-06-16T23:50:11.312Z",
-    "model": "claude-code-agent",
+    "model": "claude-code-agent (synk 21.10.2026)",
     "strings": 141,
     "tm": {
       "f8e7639693721189": "Matematisk argumentasjon",
       "b195b06d1ed59702": "Narrativ versjon",
-      "ecacfbcc1edefec5": "Ei forteljing om korleis du byggjer vasstette matematiske argument – frå premiss til konklusjon, med døme på direkte bevis, kontraposisjon og motbevis.",
+      "c0c8194887d82ad8": "Ei forteljing om korleis du byggjer vasstette matematiske argument – frå premiss til konklusjon, med døme på direkte bevis, kontraposisjon og bevis ved sjølvmotseiing.",
       "d1fbb9954bdc32d3": "argumentere for tenkjemåtane sine",
       "d2c9d9ef5d3f774f": "Lytt til denne delen",
       "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
@@ -695,12 +695,12 @@
       "13aef468afe67574": "Kva er skilnaden mellom eit døme og eit bevis?",
       "185cb0be1c48d00c": "Det er ingen skilnad – begge viser at noko er sant",
       "f1910e6a4df34726": "Eit bevis bruker tal, eit døme bruker bokstavar",
-      "904f7eb6ac5dd07f": "Eit døme viser at noko kan vere sant, eit bevis viser at det alltid er sant",
       "bd24179952020a9b": "Eit bevis er lengre enn eit døme",
+      "904f7eb6ac5dd07f": "Eit døme viser at noko kan vere sant, eit bevis viser at det alltid er sant",
       "7a04b37744bf8eef": "Eit døme viser at noko *kan* vere sant (til dømes at $2 + 4 = 6$ er partal), medan eit bevis viser at det *alltid* er sant for alle tilfelle. Sjølv tusen døme utgjer ikkje eit bevis.",
       "cb5ef4ffeaec015c": "Kva er dei tre delane i eit godt matematisk argument?",
-      "9a307befef91dc34": "Innleiing, hovuddel, avslutning",
       "9c6dc74d97d0cc93": "Føresetnader, resonnement, konklusjon",
+      "9a307befef91dc34": "Innleiing, hovuddel, avslutning",
       "eb9f6f0df5b78264": "Hypotese, eksperiment, resultat",
       "9ad4545d53cd0041": "Tal, formlar, svar",
       "f49ae28df4136cff": "Eit godt argument har: (1) **Føresetnader** – kva veit vi? (2) **Resonnement** – ei kjede av logiske steg. (3) **Konklusjon** – kva har vi vist?",
@@ -716,28 +716,28 @@
       "b17dc6de8d419725": "Vi vil vise at summen av eit partal og eit oddetal alltid er oddetal. Kva er summen $2m + (2n + 1)$?",
       "16ff017df10ac2c4": "$4mn + 1$",
       "52dd817011600aed": "$2(m + n + 1)$",
-      "4d745acae18dc2de": "$2m + 2n + 2$",
       "55eaae4becaabe12": "$2(m + n) + 1$",
+      "0a55033a09f1548d": "$2(m + n) - 1$",
       "3802dd91f864f5b8": "$2m + (2n + 1) = 2m + 2n + 1 = 2(m + n) + 1$. Dette er på forma $2k + 1$ der $k = m + n$, altså eit oddetal.",
       "9c705afb86dd0e1b": "Produktet av to oddetal $(2m+1)(2n+1)$ er lik:",
-      "2e1204388da3698f": "$4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ – eit oddetal",
       "0e07733c6e97fe66": "$4mn + 1$ – eit oddetal",
       "11019abf2133d4c2": "$2mn + m + n + 1$ – eit partal",
       "5ce41505bd6a195e": "$4mn + 2$ – eit partal",
+      "2e1204388da3698f": "$4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ – eit oddetal",
       "94580036eed47f52": "$(2m+1)(2n+1) = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$. Dette er på forma $2k + 1$, altså eit oddetal. Produktet av to oddetal er alltid oddetal.",
       "451194779dd81954": "Summen av tre påfølgjande heile tal $n + (n+1) + (n+2)$ er lik:",
+      "1335f2e2996f9759": "$3(n + 1)$",
       "6a97c5a27b084e5c": "$3n$",
       "586d773c681fc227": "$n^3 + 3$",
-      "1335f2e2996f9759": "$3(n + 1)$",
       "16ec9704e70a441b": "$3n + 1$",
       "e0fe3d6fd75b2110": "$n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$. Sidan dette er $3 \\cdot (\\text{heilt tal})$, er summen alltid deleleg med 3.",
       "f61058b40fb28431": "Kva er nøkkelen i eit direkte bevis?",
       "6a2e4cf4a8f70a92": "Å finne eit motdøme",
+      "1ace49069bebfef7": "Å velje ein smart representasjon og vise at resultatet har ønskt form",
       "4f0415d74ce715e0": "Å anta det motsette av konklusjonen",
       "70ea268ab3c26a13": "Å sjekke mange taldøme",
-      "1ace49069bebfef7": "Å velje ein smart representasjon og vise at resultatet har ønskt form",
       "c34a03bf8f3ea007": "I eit direkte bevis vel vi ein generell representasjon (f.eks. $2k$ for partal), gjer berekningar, og viser at resultatet har den eigenskapen vi ønskjer å bevise.",
-      "85f2497bfaaece4f": "## Logiske slutningar og implikasjon\n\nFor å byggje sterke argument treng vi å forstå logiske samanhengar. Den viktigaste er **implikasjon**: «Viss $P$ er sant, så er $Q$ sant», som skrivast $P \\Rightarrow Q$.\n\nTil dømes: «Viss $n$ er deleleg med 4, så er $n$ deleleg med 2.» Dette er sant – kvart tal som kan delast på 4, kan også delast på 2. Men den motsette retninga er *ikkje* sann: at eit tal er deleleg med 2 betyr ikkje at det er deleleg med 4. Talet 6 er deleleg med 2, men ikkje med 4.\n\nDenne asymmetrien er viktig. $P \\Rightarrow Q$ er *ikkje* det same som $Q \\Rightarrow P$. «Viss det regnar, er bakken våt» betyr ikkje at «viss bakken er våt, regnar det» – bakken kan jo også vere våt fordi nokon har vore ute med hageslangen.\n\nMen her er noko fascinerande: sjølv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er forskjellige, finst det eit anna utsegn som *er* logisk ekvivalent med $P \\Rightarrow Q$. Det er **kontraposisjonen**: «Viss ikkje $Q$, så ikkje $P$», altså $\\neg Q \\Rightarrow \\neg P$.\n\n«Viss det regnar, er bakken våt» er logisk det same som «Viss bakken *ikkje* er våt, regnar det *ikkje*.» Denne ekvivalensen er nyttig som bevismetode: nokre gonger er det lettare å vise kontraposisjonen enn det opphavlege utsegnet.",
+      "ab9795a7d828b36b": "## Logiske slutningar og implikasjon\n\nFor å byggje sterke argument treng vi å forstå logiske samanhengar. Den viktigaste er **implikasjon**: «Viss $P$ er sant, så er $Q$ sant», som skrivast $P \\Rightarrow Q$.\n\nTil dømes: «Viss $n$ er deleleg med 4, så er $n$ deleleg med 2.» Dette er sant – kvart tal som kan delast på 4, kan også delast på 2. Men den motsette retninga er *ikkje* sann: at eit tal er deleleg med 2 betyr ikkje at det er deleleg med 4. Talet 6 er deleleg med 2, men ikkje med 4.\n\nDenne asymmetrien er viktig. $P \\Rightarrow Q$ er *ikkje* det same som $Q \\Rightarrow P$. «Viss det regnar, er bakken våt» betyr ikkje at «viss bakken er våt, regnar det» – bakken kan jo også vere våt fordi nokon har vore ute med hageslangen.\n\nMen her er noko fascinerande: sjølv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er forskjellige, finst det eit anna utsegn som *er* logisk ekvivalent med $P \\Rightarrow Q$. Det er **kontraposisjonen**: «Viss ikkje $Q$, så ikkje $P$», altså $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$.\n\n«Viss det regnar, er bakken våt» er logisk det same som «Viss bakken *ikkje* er våt, regnar det *ikkje*.» Denne ekvivalensen er nyttig som bevismetode: nokre gonger er det lettare å vise kontraposisjonen enn det opphavlege utsegnet.",
       "2b6fafa73725b23a": "Test deg sjølv på logiske slutningar og implikasjon:",
       "662815b272a5d026": "Kva er kontraposisjonen av «Viss $n^2$ er partal, så er $n$ partal»?",
       "08c5bb998d49f2f3": "Viss $n$ er oddetal, så er $n^2$ oddetal",
@@ -747,68 +747,68 @@
       "a66a76efc83bbd74": "Kontraposisjonen av «Viss $P$, så $Q$» er «Viss ikkje $Q$, så ikkje $P$». Her er $P$ = «$n^2$ er partal» og $Q$ = «$n$ er partal». Kontraposisjon: «Viss $n$ er oddetal, så er $n^2$ oddetal.»",
       "ea82c8093d93ee1c": "«Viss det regnar, er bakken våt.» Er det sant at «Viss bakken er våt, regnar det»?",
       "ed6b91e603c63763": "Ja, det er logisk ekvivalent",
-      "aa45f505d00281d0": "Nei, omvendinga er ikkje nødvendigvis sann",
       "8f3492bec3944ff2": "Ja, det er kontraposisjonen",
+      "aa45f505d00281d0": "Nei, omvendinga er ikkje nødvendigvis sann",
       "0ccca7afaa0a3b6e": "Nei, fordi regn aldri gjer bakken våt",
       "6dbc9ebe909895d9": "$P \\Rightarrow Q$ er *ikkje* det same som $Q \\Rightarrow P$. Bakken kan vere våt av andre grunnar (f.eks. hageslange). Omvendinga av ein sann implikasjon er ikkje nødvendigvis sann.",
       "88f8f4bd7b04272a": "Kva er logisk ekvivalent med $P \\Rightarrow Q$?",
       "4e1fc19293d5767b": "$Q \\Rightarrow P$ (omvendinga)",
-      "92cdc5f1361eab6b": "$P \\Rightarrow \\neg Q$ (negasjonen)",
-      "2f4aa935a8930cc8": "$\\neg Q \\Rightarrow \\neg P$ (kontraposisjonen)",
-      "00a3cc494fcd8cc1": "$\\neg P \\Rightarrow \\neg Q$",
-      "f8c64bdb38c89f05": "Kontraposisjonen $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Viss det regnar, er bakken våt» betyr det same som «Viss bakken IKKJE er våt, regnar det IKKJE.»",
+      "999df7563c7d4d5d": "$P \\Rightarrow \\text{ikkje } Q$ (negasjonen)",
+      "5f2450001ea99f7a": "$\\text{ikkje } P \\Rightarrow \\text{ikkje } Q$",
+      "43bfe6d2d89af19a": "$\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$ (kontraposisjonen)",
+      "f5e2dc6c7c08d3ca": "Kontraposisjonen $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Viss det regnar, er bakken våt» betyr det same som «Viss bakken IKKJE er våt, regnar det IKKJE.»",
       "e4c11aa2dd012a78": "«Alle primtal større enn 2 er oddetal.» Betyr det at alle oddetal er primtal?",
       "cde9e58a9a4e1f36": "Ja",
       "e5d372bb5aaae5a9": "Nei – til dømes er 9 oddetal men ikkje primtal",
       "3216a85f474e8d12": "Ja, men berre for tal under 100",
       "45614c1b1a9c8286": "Det avheng av definisjonen av primtal",
       "0429c598e64199f7": "Nei. $P \\Rightarrow Q$ betyr ikkje $Q \\Rightarrow P$. At eit primtal > 2 er oddetal betyr ikkje at alle oddetal er primtal. Talet 9 = 3 $\\times$ 3 er oddetal, men ikkje primtal.",
-      "9ae199d01603d95a": "## Bevis ved kontraposisjon og motbevis\n\nLa oss bruke kontraposisjon i praksis. Vi vil vise at «viss $n^2$ er partal, så er $n$ partal.» I staden for å vise dette direkte, viser vi kontraposisjonen: «viss $n$ er oddetal, så er $n^2$ oddetal.»\n\nLa $n$ vere eit oddetal, altså $n = 2k + 1$ for eit heilt tal $k$. Da er:\n\n$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$\n\nDette er på forma $2m + 1$, altså eit oddetal. Vi har vist kontraposisjonen, og dermed er det opphavlege utsegnet også sant.\n\nEi anna viktig bevismetode er **motbevis** (bevis ved sjølvmotseiing). Her antar vi at konklusjonen er *usann* og viser at dette fører til noko umogleg – ei sjølvmotseiing.\n\nDet mest berømte motbeviset viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsette: $\\sqrt{2} = \\frac{p}{q}$ der brøken er fullt forkorta. Da er $2 = \\frac{p^2}{q^2}$, altså $p^2 = 2q^2$. Sidan $p^2$ er partal, er $p$ partal (det viste vi nettopp). La $p = 2k$. Da er $4k^2 = 2q^2$, som gir $q^2 = 2k^2$, altså er $q$ også partal. Men da har $p$ og $q$ begge faktor 2, noko som motseier at brøken var fullt forkorta. Sjølvmotseiing! Altså er $\\sqrt{2}$ irrasjonalt.",
-      "97007785b85cba43": "Test deg sjølv på kontraposisjon og motbevis:",
+      "5de266fcbb29c88f": "## Bevis ved kontraposisjon og bevis ved sjølvmotseiing\n\nLa oss bruke kontraposisjon i praksis. Vi vil vise at «viss $n^2$ er partal, så er $n$ partal.» I staden for å vise dette direkte, viser vi kontraposisjonen: «viss $n$ er oddetal, så er $n^2$ oddetal.»\n\nLa $n$ vere eit oddetal, altså $n = 2k + 1$ for eit heilt tal $k$. Då er:\n\n$n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$\n\nDette er på forma $2m + 1$, altså eit oddetal. Vi har vist kontraposisjonen, og dermed er det opphavlege utsegnet også sant.\n\nEi anna viktig bevismetode er **bevis ved sjølvmotseiing** (indirekte bevis). Her antar vi at konklusjonen er *usann* og viser at dette fører til noko umogleg – ei sjølvmotseiing.\n\nDet mest berømte beviset ved sjølvmotseiing viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsette: $\\sqrt{2} = \\frac{p}{q}$ der brøken er fullt forkorta. Då er $2 = \\frac{p^2}{q^2}$, altså $p^2 = 2q^2$. Sidan $p^2$ er partal, er $p$ partal (det viste vi nettopp). La $p = 2k$. Då er $4k^2 = 2q^2$, som gir $q^2 = 2k^2$, altså er $q$ også partal. Men då har $p$ og $q$ begge faktor 2, noko som motseier at brøken var fullt forkorta. Sjølvmotseiing! Altså er $\\sqrt{2}$ irrasjonalt.",
+      "3ef28693d580e45a": "Test deg sjølv på kontraposisjon og bevis ved sjølvmotseiing:",
       "708220723b23c3c4": "I eit bevis ved sjølvmotseiing, kva gjer vi?",
       "d7b38c038d33add3": "Vi finn eit motdøme",
       "9ebd66385d32bd8b": "Vi viser kontraposisjonen direkte",
       "72b33a905cd84b53": "Vi antar det motsette av konklusjonen og viser at det fører til ei sjølvmotseiing",
       "5689dc64023a5f4b": "Vi sjekkar mange døme til vi er sikre",
-      "f6a40b70940cac6d": "I eit motbevis antar vi at det vi ønskjer å bevise er usant, utleier logiske konsekvensar, og viser at vi når ei sjølvmotseiing (noko umogleg). Dermed var antakinga feil.",
+      "5bd941c2057e7fc3": "I eit bevis ved sjølvmotseiing antar vi at det vi ønskjer å bevise er usant, utleier logiske konsekvensar, og viser at vi når ei sjølvmotseiing (noko umogleg). Dermed var antakinga feil.",
       "7bd61bce523231b8": "Vi viser at «$n$ oddetal $\\Rightarrow$ $n^2$ oddetal» med kontraposisjon. La $n = 2k + 1$. Kva er $n^2$?",
       "0e348902292d0cbd": "$4k^2 + 1$",
-      "690132456f456b38": "$2(2k^2 + 2k) + 1$ – eit oddetal",
       "b98841996a7c39c6": "$4k^2 + 4k$ – eit partal",
       "cf39e13018836082": "$2k^2 + 1$ – eit oddetal",
+      "690132456f456b38": "$2(2k^2 + 2k) + 1$ – eit oddetal",
       "f15646997fec4c48": "$n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$. Dette er på forma $2m + 1$, altså eit oddetal. Dermed er kontraposisjonen vist.",
       "9d32e6f315490832": "I beviset for at $\\sqrt{2}$ er irrasjonalt, kva er sjølvmotseiinga?",
-      "1778ce339a2a6a85": "Vi finn at $\\sqrt{2} = 2$",
       "61b8e3cc9d90f2f9": "Vi finn at $p$ og $q$ begge er partal, men vi antok at brøken $\\frac{p}{q}$ var forkorta",
+      "1778ce339a2a6a85": "Vi finn at $\\sqrt{2} = 2$",
       "afe2f6ed287daf11": "Vi finn at $p = q$",
       "15c143b20f83ea2d": "Vi finn at $p^2$ er negativt",
       "0c1ce68f6117188c": "Vi antok $\\sqrt{2} = \\frac{p}{q}$ med brøken fullt forkorta. Vi utleidde at både $p$ og $q$ er partal – altså har dei felles faktor 2. Det motseier at brøken var forkorta. Sjølvmotseiing!",
-      "38489c18a8ac3977": "## Fallgruver og feilslutningar\n\nDet er like viktig å kjenne att feil argument som å byggje korrekte. La oss sjå på ei klassisk feilslutning som «beviser» at $2 = 1$.\n\nLa $a = b$. Da er $a^2 = ab$, altså $a^2 - b^2 = ab - b^2$. Vi faktoriserer begge sider: $(a + b)(a - b) = b(a - b)$. Vi deler på $(a - b)$ og får $a + b = b$. Sidan $a = b$, gir dette $2b = b$, altså $2 = 1$.\n\nKva gjekk gale? Feilen er å dele på $(a - b)$. Sidan vi antok at $a = b$, er $a - b = 0$, og vi kan aldri dele på null. Dette er eit døme på at kvart einaste steg i eit argument må vere gyldig – éin feil øydelegg heile kjeda.\n\nEi anna vanleg feil er å forveksle eit utsegn med omvendinga sitt. «Alle hundar er dyr» betyr ikkje at «alle dyr er hundar.» I matematikken: «alle primtal større enn 2 er oddetal» betyr ikkje at «alle oddetal er primtal» (9 er oddetal, men ikkje primtal).\n\nVi kan oppsummere bevismetodane. I eit **direkte bevis** viser vi $P \\Rightarrow Q$ steg for steg. I eit **kontrapositivt bevis** viser vi i staden at $\\neg Q \\Rightarrow \\neg P$. I eit **motbevis** antar vi $\\neg Q$ og finn ei sjølvmotseiing. Kva metode du vel, avheng av kva som er lettast for det aktuelle problemet.",
+      "e8d7d41c465ca197": "## Fallgruver og feilslutningar\n\nDet er like viktig å kjenne att feil argument som å byggje korrekte. La oss sjå på ei klassisk feilslutning som «beviser» at $2 = 1$.\n\nLa $a = b$. Då er $a^2 = ab$, altså $a^2 - b^2 = ab - b^2$. Vi faktoriserer begge sider: $(a + b)(a - b) = b(a - b)$. Vi deler på $(a - b)$ og får $a + b = b$. Sidan $a = b$, gir dette $2b = b$, altså $2 = 1$.\n\nKva gjekk gale? Feilen er å dele på $(a - b)$. Sidan vi antok at $a = b$, er $a - b = 0$, og vi kan aldri dele på null. Dette er eit døme på at kvart einaste steg i eit argument må vere gyldig – éin feil øydelegg heile kjeda.\n\nEi anna vanleg feil er å forveksle eit utsegn med omvendinga sitt. «Alle hundar er dyr» betyr ikkje at «alle dyr er hundar.» I matematikken: «alle primtal større enn 2 er oddetal» betyr ikkje at «alle oddetal er primtal» (9 er oddetal, men ikkje primtal).\n\nVi kan oppsummere bevismetodane. I eit **direkte bevis** viser vi $P \\Rightarrow Q$ steg for steg. I eit **kontrapositivt bevis** viser vi i staden at $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$. I eit **bevis ved sjølvmotseiing** antar vi $\\text{ikkje } Q$ og finn ei sjølvmotseiing. Kva metode du vel, avheng av kva som er lettast for det aktuelle problemet.",
       "5ad567bb57de20be": "Test deg sjølv på fallgruver og bevismetodar:",
       "2c330d7199762480": "Kva er feilen i «beviset» for at $2 = 1$ der vi startar med $a = b$?",
       "ac78913c1dcd1222": "Vi kan ikkje skrive $a^2 = ab$",
-      "3b6b805f135b37c5": "Faktoriseringa er feil",
       "299b8ce813ab3772": "Vi deler på $(a - b) = 0$, som er divisjon med null",
+      "3b6b805f135b37c5": "Faktoriseringa er feil",
       "2dbc0276738241fb": "Vi kan ikkje anta at $a = b$",
       "6be58bda3d32731a": "Sidan $a = b$, er $a - b = 0$. Å dele på $(a - b)$ er divisjon med null – noko som aldri er tillate. Alle steg før dette er korrekte.",
-      "6758f2cc7c6e9fe2": "Kva bevismetode viser $P \\Rightarrow Q$ ved å vise $\\neg Q \\Rightarrow \\neg P$?",
+      "e8c23f65012fbd5d": "Kva bevismetode viser $P \\Rightarrow Q$ ved å vise $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$?",
       "e1768320b8002201": "Direkte bevis",
-      "80cef63af547c11d": "Motbevis (sjølvmotseiing)",
+      "d7227be341551fb0": "Bevis ved sjølvmotseiing",
       "0b9687b85626e037": "Kontrapositivt bevis",
       "4f9632cf7954d2d0": "Induksjonsbevis",
-      "487d02998319444b": "Eit kontrapositivt bevis viser $\\neg Q \\Rightarrow \\neg P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Nokre gonger er dette lettare enn å vise det opphavlege utsegnet direkte.",
+      "6164ce12f29a0b48": "Eit kontrapositivt bevis viser $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Nokre gonger er dette lettare enn å vise det opphavlege utsegnet direkte.",
       "78b0c98d2dba5867": "Ein elev sjekkar at $n^2 + n + 41$ er primtal for $n = 0, 1, 2, \\ldots, 39$ og konkluderer at formelen alltid gir primtal. Kva er feil med dette?",
       "570cb5f0937a0c31": "Formelen er skriven feil",
-      "852cc883f4b4bea8": "Ein kan ikkje trekkje ein generell konklusjon frå eit endeleg tal døme",
       "4d8b4647837cd676": "Berekningane er feil",
       "46eb667542134adc": "Primtal er ikkje godt definert",
+      "852cc883f4b4bea8": "Ein kan ikkje trekkje ein generell konklusjon frå eit endeleg tal døme",
       "5ee615b81223faa8": "Sjølv 40 vellukka døme er ikkje eit bevis. For $n = 40$ gir formelen $40^2 + 40 + 41 = 1681 = 41^2$, som IKKJE er primtal. Ein kan aldri generalisere frå døme.",
       "b0f137d3d98b4650": "Kva bevismetode brukast i følgjande: «Vi antar at $\\sqrt{2}$ er rasjonalt, og utleier ei sjølvmotseiing»?",
-      "040cbe0b1be92ef3": "Motbevis (bevis ved sjølvmotseiing)",
-      "cbad0dd144d526fe": "Vi antar det *motsette* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleier noko umogleg. Det er eit motbevis, eller bevis ved sjølvmotseiing.",
+      "ecb40272967835cf": "Bevis ved sjølvmotseiing (indirekte bevis)",
+      "9ac30566b960bf53": "Vi antar det *motsette* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleier noko umogleg. Det er eit bevis ved sjølvmotseiing, også kalla indirekte bevis.",
       "79eeeec37aef74be": "Lytt til oppsummeringa",
       "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
-      "e7efbda3c4e866e0": "## Oppsummering\n\nEit **matematisk argument** er ei logisk kjede frå føresetnader til konklusjon. Kvart steg må grunngivast med definisjonar, aksiom, tidlegare setningar eller logiske slutningar. Eit enkelt døme er *ikkje* eit bevis – det viser berre at noko kan skje, ikkje at det alltid skjer.\n\n**Direkte bevis** er den mest naturlege metoden: vi startar med premissa og arbeider oss steg for steg til konklusjonen. Nøkkelen er å representere tala generelt med bokstavar (til dømes $2k$ for partal, $2k + 1$ for oddetal) og vise at resultatet har den ønskte forma.\n\n**Kontraposisjon** utnyttar at $P \\Rightarrow Q$ er logisk ekvivalent med $\\neg Q \\Rightarrow \\neg P$. Nokre gonger er den motsette retninga lettare å vise.\n\n**Motbevis** (bevis ved sjølvmotseiing) antar at konklusjonen er usann og utleier noko umogleg. Det klassiske beviset for at $\\sqrt{2}$ er irrasjonalt bruker denne teknikken.\n\nHugs også å vere på vakt mot feilslutningar. Sjekk at kvart steg er gyldig – spesielt at du ikkje deler på null, forvekslar ein implikasjon med omvendinga sin, eller generaliserer frå einskildståande døme."
+      "0e6452482847d7a8": "## Oppsummering\n\nEit **matematisk argument** er ei logisk kjede frå føresetnader til konklusjon. Kvart steg må grunngivast med definisjonar, aksiom, tidlegare setningar eller logiske slutningar. Eit enkelt døme er *ikkje* eit bevis – det viser berre at noko kan skje, ikkje at det alltid skjer.\n\n**Direkte bevis** er den mest naturlege metoden: vi startar med premissa og arbeider oss steg for steg til konklusjonen. Nøkkelen er å representere tala generelt med bokstavar (til dømes $2k$ for partal, $2k + 1$ for oddetal) og vise at resultatet har den ønskte forma.\n\n**Kontraposisjon** utnyttar at $P \\Rightarrow Q$ er logisk ekvivalent med $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$. Nokre gonger er $\\text{ikkje } Q \\Rightarrow \\text{ikkje } P$ lettare å vise enn $P \\Rightarrow Q$.\n\n**Bevis ved sjølvmotseiing** (indirekte bevis) antar at konklusjonen er usann og utleier noko umogleg. Det klassiske beviset for at $\\sqrt{2}$ er irrasjonalt bruker denne teknikken.\n\nHugs også å vere på vakt mot feilslutningar. Sjekk at kvart steg er gyldig – spesielt at du ikkje deler på null, forvekslar ein implikasjon med omvendinga sin, eller generaliserer frå einskildståande døme."
     }
   }
 }

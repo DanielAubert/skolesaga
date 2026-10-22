@@ -126,7 +126,7 @@
     {
       "id": "1t-7-4-n-section2",
       "type": "text",
-      "content": "## Tangenter og stigningstall – den deriverte gjort synlig\n\nHva *er* egentlig den deriverte i et punkt? Det er stigningstallet til **tangenten** – den rette linjen som berører grafen i punktet og har nøyaktig samme stigning som grafen der. I GeoGebra kan du tegne den og se selv.\n\nKommandoen er `Tangent(A, f)`, der `A` er et punkt på grafen. Vil du ha tangenten der $x = 2$, kan du skrive `Tangent((2, f(2)), f)` direkte. Og når tangenten er tegnet, henter `Stigning(linje)` ut stigningstallet – som per definisjon er verdien av den deriverte i punktet.\n\nLa oss se hele kjeden i aksjon for $f(x) = x^2 - 4x + 3$ i punktet der $x = 3$. Vi skriver fire linjer: `f(x) = x^2 - 4x + 3`, så `A = (3, f(3))` som legger punktet på grafen, deretter `t = Tangent(A, f)` som tegner tangenten, og til slutt `a = Stigning(t)`. GeoGebra svarer $a = 2$.\n\nKontrollen for hånd tar fem sekunder: $f'(x) = 2x - 4$, så $f'(3) = 2 \\cdot 3 - 4 = 2$. Tangentens stigningstall og den deriverte er samme tall – det er selve kjernen i derivasjonsbegrepet, og nå har du *sett* det på skjermen.\n\nDra gjerne punktet $A$ langs grafen og se tangenten vippe: bratt oppover der grafen stiger raskt, flat i bunnpunktet, bratt nedover der den synker. Den lille animasjonen er kanskje den beste derivasjonsforklaringen som finnes."
+      "content": "## Tangenter og stigningstall – den deriverte gjort synlig\n\nHva *er* egentlig den deriverte i et punkt? Det er stigningstallet til **tangenten** – den rette linjen som går gjennom punktet og har nøyaktig samme stigning som grafen der. I GeoGebra kan du tegne den og se selv.\n\nKommandoen er `Tangent(A, f)`, der `A` er et punkt på grafen. Vil du ha tangenten der $x = 2$, kan du skrive `Tangent((2, f(2)), f)` direkte. Og når tangenten er tegnet, henter `Stigning(linje)` ut stigningstallet – som per definisjon er verdien av den deriverte i punktet.\n\nLa oss se hele kjeden i aksjon for $f(x) = x^2 - 4x + 3$ i punktet der $x = 3$. Vi skriver fire linjer: `f(x) = x^2 - 4x + 3`, så `A = (3, f(3))` som legger punktet på grafen, deretter `t = Tangent(A, f)` som tegner tangenten, og til slutt `a = Stigning(t)`. GeoGebra svarer $a = 2$.\n\nKontrollen for hånd tar fem sekunder: $f'(x) = 2x - 4$, så $f'(3) = 2 \\cdot 3 - 4 = 2$. Tangentens stigningstall og den deriverte er samme tall – det er selve kjernen i derivasjonsbegrepet, og nå har du *sett* det på skjermen.\n\nDra gjerne punktet $A$ langs grafen og se tangenten vippe: bratt oppover der grafen stiger raskt, flat i bunnpunktet, bratt nedover der den synker. Den lille animasjonen er kanskje den beste derivasjonsforklaringen som finnes."
     },
     {
       "id": "1t-7-4-n-quiz2",
@@ -165,11 +165,11 @@
               },
               {
                 "id": "b",
-                "text": "En rett linje som berører grafen i ett punkt med samme stigningstall som grafen der",
+                "text": "En rett linje gjennom ett punkt på grafen med samme stigningstall som grafen der",
                 "isCorrect": true
               }
             ],
-            "solution": "Tangenten berører grafen i ett punkt og har samme stigningstall som grafen i akkurat det punktet – stigningstallet er verdien av den deriverte."
+            "solution": "Tangenten går gjennom ett punkt på grafen og har samme stigningstall som grafen i akkurat det punktet – stigningstallet er verdien av den deriverte."
           },
           {
             "id": "1t-7-4-n-quiz2-q1",
@@ -258,7 +258,7 @@
     {
       "id": "1t-7-4-n-section3",
       "type": "text",
-      "content": "## To grafer, én historie – f og f' side om side\n\nDen siste – og kanskje viktigste – øvelsen er å tegne grafene til $f$ og $f'$ i samme koordinatsystem og lese dem som én fortelling. Sammenhengen er denne: Der $f$ er **stigende**, er $f' > 0$ (grafen til den deriverte ligger over $x$-aksen). Der $f$ er **synkende**, er $f' < 0$. Og der $f$ har **topp- eller bunnpunkt**, er $f' = 0$ – grafen til den deriverte krysser $x$-aksen nøyaktig der originalgrafen har horisontal tangent.\n\nLa oss analysere $f(x) = x^3 - 3x$ på denne måten. Vi skriver `f(x) = x^3 - 3x`, så `g(x) = Derivert(f)` og `Nullpunkt(g)`. GeoGebra forteller at $g(x) = 3x^2 - 3$ har nullpunkter i $x = -1$ og $x = 1$ – kandidatene til topp- og bunnpunkt for $f$.\n\nSå leser vi fortegnet til $g$: For $x < -1$ er $g(x) > 0$, så $f$ er stigende. Mellom $-1$ og $1$ er $g(x) < 0$, så $f$ er synkende. For $x > 1$ er $g(x) > 0$, og $f$ stiger igjen. Konklusjonen følger av seg selv: $f$ har et toppunkt ved $x = -1$ (stiger inn, synker ut) og et bunnpunkt ved $x = 1$ (synker inn, stiger ut).\n\nVil du gå rett på, finner `Løs(f'(x) = 0)` i CAS alle $x$-verdier med horisontal tangent. Men poenget med å se begge grafene er forståelsen: den deriverte er ikke et mystisk nytt objekt – den er fartsmåleren til $f$, tegnet som sin egen graf."
+      "content": "## To grafer, én historie – f og f' side om side\n\nDen siste – og kanskje viktigste – øvelsen er å tegne grafene til $f$ og $f'$ i samme koordinatsystem og lese dem som én fortelling. Sammenhengen er denne: Der $f$ er **stigende**, er $f' > 0$ (grafen til den deriverte ligger over $x$-aksen). Der $f$ er **synkende**, er $f' < 0$. Og der $f$ har **topp- eller bunnpunkt**, er $f' = 0$ – grafen til den deriverte krysser $x$-aksen nøyaktig der originalgrafen har vannrett tangent.\n\nLa oss analysere $f(x) = x^3 - 3x$ på denne måten. Vi skriver `f(x) = x^3 - 3x`, så `g(x) = Derivert(f)` og `Nullpunkt(g)`. GeoGebra forteller at $g(x) = 3x^2 - 3$ har nullpunkter i $x = -1$ og $x = 1$ – kandidatene til topp- og bunnpunkt for $f$.\n\nSå leser vi fortegnet til $g$: For $x < -1$ er $g(x) > 0$, så $f$ er stigende. Mellom $-1$ og $1$ er $g(x) < 0$, så $f$ er synkende. For $x > 1$ er $g(x) > 0$, og $f$ stiger igjen. Konklusjonen følger av seg selv: $f$ har et toppunkt ved $x = -1$ (stiger inn, synker ut) og et bunnpunkt ved $x = 1$ (synker inn, stiger ut).\n\nVil du gå rett på, finner `Løs(f'(x) = 0)` i CAS alle $x$-verdier med vannrett tangent. Men poenget med å se begge grafene er forståelsen: den deriverte er ikke et mystisk nytt objekt – den er fartsmåleren til $f$, tegnet som sin egen graf."
     },
     {
       "id": "1t-7-4-n-quiz3",
@@ -359,7 +359,7 @@
           },
           {
             "id": "1t-7-4-n-quiz3-q3",
-            "task": "Hvilken CAS-kommando finner alle $x$-verdier der grafen til $f$ har horisontal tangent?",
+            "task": "Hvilken CAS-kommando finner alle $x$-verdier der grafen til $f$ har vannrett tangent?",
             "options": [
               {
                 "id": "b",
@@ -390,7 +390,7 @@
     {
       "id": "1t-7-4-n-summary",
       "type": "text",
-      "content": "## Fartsmåleren på skjermen\n\nDen deriverte er ikke lenger usynlig. Med `Derivert(f)` får du den deriverte funksjonen $f'(x)$ algebraisk – som da $x^4 - 2x^2 + x$ ble til $4x^3 - 4x + 1$, bekreftet av håndregningen. Med `Tangent(A, f)` legger du tangenten inntil grafen i et punkt, `Stigning(t)` leser av stigningstallet, og snarveien `f'(a)` gir den deriverte i $x = a$ direkte – slik $f'(3) = 2$ stemte perfekt med tangentens stigning for $f(x) = x^2 - 4x + 3$.\n\nDen store innsikten er samspillet mellom de to grafene: der $f$ stiger, ligger $f'$ over $x$-aksen; der $f$ synker, ligger den under; og der $f$ snur – i topp- og bunnpunkter – krysser $f'$ aksen, fordi tangenten er horisontal og $f' = 0$. Slik avslørte $3x^2 - 3$ at $x^3 - 3x$ har toppunkt i $x = -1$ og bunnpunkt i $x = 1$, og `Løs(f'(x) = 0)` finner slike punkter på kommando.\n\nTa med deg arbeidsvanen videre: la GeoGebra regne, men kontrollér mot derivasjonsreglene du kan for hånd. Når skjermen og hodet ditt er enige, har du både fart og forståelse – og den deriverte har gått fra formel til noe du faktisk kan se."
+      "content": "## Fartsmåleren på skjermen\n\nDen deriverte er ikke lenger usynlig. Med `Derivert(f)` får du den deriverte funksjonen $f'(x)$ algebraisk – som da $x^4 - 2x^2 + x$ ble til $4x^3 - 4x + 1$, bekreftet av håndregningen. Med `Tangent(A, f)` legger du tangenten inntil grafen i et punkt, `Stigning(t)` leser av stigningstallet, og snarveien `f'(a)` gir den deriverte i $x = a$ direkte – slik $f'(3) = 2$ stemte perfekt med tangentens stigning for $f(x) = x^2 - 4x + 3$.\n\nDen store innsikten er samspillet mellom de to grafene: der $f$ stiger, ligger $f'$ over $x$-aksen; der $f$ synker, ligger den under; og der $f$ snur – i topp- og bunnpunkter – krysser $f'$ aksen, fordi tangenten er vannrett og $f' = 0$. Slik avslørte $3x^2 - 3$ at $x^3 - 3x$ har toppunkt i $x = -1$ og bunnpunkt i $x = 1$, og `Løs(f'(x) = 0)` finner slike punkter på kommando.\n\nTa med deg arbeidsvanen videre: la GeoGebra regne, men kontrollér mot derivasjonsreglene du kan for hånd. Når skjermen og hodet ditt er enige, har du både fart og forståelse – og den deriverte har gått fra formel til noe du faktisk kan se."
     }
   ],
   "exercises": []

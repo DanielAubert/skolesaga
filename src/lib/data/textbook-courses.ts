@@ -606,6 +606,7 @@ export const SECTION_NAMES_1T: Record<string, string> = {
   '6': 'Bevis og argumentasjon',
   '7': 'Vekstfart og derivasjon',
   '8': 'Modellering og regresjon',
+  '9': 'Programmering',
 };
 
 // Seksjonsnavn for 1P

@@ -28,7 +28,7 @@
     {
       "id": "1t-7-7-n-section1",
       "type": "text",
-      "content": "## Topp- og bunnpunkt – der grafen snur\n\nVi har allerede lært at $f'(x) = 0$ i punkter der grafen har en horisontal tangent. Disse punktene er kandidater for **toppunkt** (lokalt maksimum) eller **bunnpunkt** (lokalt minimum), og vi kaller dem **ekstremalpunkt**.\n\nFremgangsmåten er systematisk. Først finner du $f'(x)$. Deretter løser du likningen $f'(x) = 0$ for å finne kandidatene. Til slutt bruker du **andrederiverte** for å avgjøre hva slags punkt det er: hvis $f''(a) < 0$, er $(a, f(a))$ et toppunkt (grafen bøyer nedover), og hvis $f''(a) > 0$, er det et bunnpunkt (grafen bøyer oppover).\n\nLa oss prøve med $f(x) = x^3 - 3x$. Først: $f'(x) = 3x^2 - 3$. Vi setter $f'(x) = 0$: $3x^2 - 3 = 0$, altså $x^2 = 1$, som gir $x = -1$ eller $x = 1$. Andrederiverte er $f''(x) = 6x$. Vi sjekker: $f''(-1) = -6 < 0$, altså er $x = -1$ et toppunkt. $f''(1) = 6 > 0$, altså er $x = 1$ et bunnpunkt. Funksjonsverdiene er $f(-1) = 2$ og $f(1) = -2$. Vi har toppunkt $(-1, 2)$ og bunnpunkt $(1, -2)$."
+      "content": "## Topp- og bunnpunkt – der grafen snur\n\nVi har allerede lært at $f'(x) = 0$ i punkter der grafen har en vannrett tangent. Disse punktene er kandidater for **toppunkt** (lokalt maksimum) eller **bunnpunkt** (lokalt minimum), og vi kaller dem **ekstremalpunkt**.\n\nFremgangsmåten er systematisk. Først finner du $f'(x)$. Deretter løser du likningen $f'(x) = 0$ for å finne kandidatene. Til slutt lager du en **fortegnslinje** for $f'(x)$: skifter $f'$ fra $+$ til $-$, er punktet et toppunkt, og skifter $f'$ fra $-$ til $+$, er det et bunnpunkt. Har $f'$ samme fortegn på begge sider, er punktet et **terrassepunkt**.\n\nLa oss prøve med $f(x) = x^3 - 3x$. Først: $f'(x) = 3x^2 - 3 = 3(x + 1)(x - 1)$. Vi setter $f'(x) = 0$ og får $x = -1$ eller $x = 1$. Fortegnslinja viser at $f'(x) > 0$ når $x < -1$, $f'(x) < 0$ når $-1 < x < 1$ og $f'(x) > 0$ når $x > 1$. I $x = -1$ skifter $f'$ fra $+$ til $-$ (toppunkt), og i $x = 1$ skifter $f'$ fra $-$ til $+$ (bunnpunkt). Funksjonsverdiene er $f(-1) = 2$ og $f(1) = -2$. Vi har toppunkt $(-1, 2)$ og bunnpunkt $(1, -2)$.\n\nFor $g(x) = x^3$ er $g'(x) = 3x^2$, som er null i $x = 0$ og positiv på begge sider, så grafen flater ut uten å snu. Punktet $(0, 0)$ er et terrassepunkt.\n\nVi kan også bruke den **dobbeltderiverte**: hvis $f''(a) < 0$, er $(a, f(a))$ et toppunkt (grafen vender den hule sida ned), og hvis $f''(a) > 0$, er det et bunnpunkt (grafen vender den hule sida opp). For $f(x) = x^3 - 3x$ er $f''(x) = 6x$, så $f''(-1) = -6 < 0$ (toppunkt) og $f''(1) = 6 > 0$ (bunnpunkt). Er $f''(a) = 0$, gir denne metoden ikke svar, og vi bruker fortegnslinja."
     },
     {
       "id": "1t-7-7-n-quiz1",
@@ -99,11 +99,11 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Første steg er å finne $f'(x)$ og sette den lik null: $f'(x) = 0$. Dette gir kandidatene for ekstremalpunkt – punkter der grafen har horisontal tangent."
+            "solution": "Første steg er å finne $f'(x)$ og sette den lik null: $f'(x) = 0$. Dette gir kandidatene for ekstremalpunkt – punkter der grafen har vannrett tangent."
           },
           {
             "id": "1t-7-7-n-quiz1-q2",
-            "task": "Hvis $f''(a) < 0$, hva slags punkt er $(a, f(a))$?",
+            "task": "Hvis $f'(a) = 0$ og $f''(a) < 0$, hva slags punkt er $(a, f(a))$?",
             "options": [
               {
                 "id": "a",
@@ -112,7 +112,7 @@
               },
               {
                 "id": "c",
-                "text": "Vendepunkt",
+                "text": "Terrassepunkt",
                 "isCorrect": false
               },
               {
@@ -126,7 +126,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "$f''(a) < 0$ betyr at grafen bøyer nedover (er konkav) i det punktet. Dermed er det et **toppunkt** (lokalt maksimum)."
+            "solution": "$f''(a) < 0$ betyr at grafen vender den hule sida ned i det punktet. Dermed er det et **toppunkt** (lokalt maksimum)."
           },
           {
             "id": "1t-7-7-n-quiz1-q3",
@@ -281,7 +281,7 @@
     {
       "id": "1t-7-7-n-section3",
       "type": "text",
-      "content": "## Fart og akselerasjon – derivasjon beskriver bevegelse\n\nEn av de mest naturlige anvendelsene av derivasjon er å analysere bevegelse. Hvis $s(t)$ beskriver posisjonen til et objekt som funksjon av tid $t$, gir den deriverte $s'(t) = v(t)$ oss **farten** (hastigheten). Deriverer vi enda en gang, gir andrederiverte $s''(t) = v'(t) = a(t)$ oss **akselerasjonen**.\n\nLa oss se på en partikkel som beveger seg med posisjonsfunksjon $s(t) = t^3 - 6t^2 + 9t$, der $s$ er i meter og $t$ i sekunder. Farten er $v(t) = s'(t) = 3t^2 - 12t + 9$, og akselerasjonen er $a(t) = v'(t) = 6t - 12$.\n\nNår er partikkelen i ro? Det skjer når $v(t) = 0$: $3t^2 - 12t + 9 = 0$, altså $t^2 - 4t + 3 = 0$, som gir $(t - 1)(t - 3) = 0$. Partikkelen er i ro ved $t = 1$ sekund og $t = 3$ sekunder.\n\nPositiv fart betyr at partikkelen beveger seg i positiv retning, negativ fart betyr den motsatte retningen. Vi kan skrive $v(t) = 3(t-1)(t-3)$ og lese av fortegnene: farten er positiv når $t < 1$ eller $t > 3$, og negativ mellom $t = 1$ og $t = 3$."
+      "content": "## Fart og akselerasjon – derivasjon beskriver bevegelse\n\nEn av de mest naturlige anvendelsene av derivasjon er å analysere bevegelse. Hvis $s(t)$ beskriver posisjonen til et objekt som funksjon av tid $t$, gir den deriverte $s'(t) = v(t)$ oss **farten** (hastigheten). Deriverer vi enda en gang, gir dobbeltderiverte $s''(t) = v'(t) = a(t)$ oss **akselerasjonen**.\n\nLa oss se på en partikkel som beveger seg med posisjonsfunksjon $s(t) = t^3 - 6t^2 + 9t$, der $s$ er i meter og $t$ i sekunder. Farten er $v(t) = s'(t) = 3t^2 - 12t + 9$, og akselerasjonen er $a(t) = v'(t) = 6t - 12$.\n\nNår er partikkelen i ro? Det skjer når $v(t) = 0$: $3t^2 - 12t + 9 = 0$, altså $t^2 - 4t + 3 = 0$, som gir $(t - 1)(t - 3) = 0$. Partikkelen er i ro ved $t = 1$ sekund og $t = 3$ sekunder.\n\nPositiv fart betyr at partikkelen beveger seg i positiv retning, negativ fart betyr den motsatte retningen. Vi kan skrive $v(t) = 3(t-1)(t-3)$ og lese av fortegnene: farten er positiv når $t < 1$ eller $t > 3$, og negativ mellom $t = 1$ og $t = 3$."
     },
     {
       "id": "1t-7-7-n-quiz3",
@@ -421,7 +421,7 @@
     {
       "id": "1t-7-7-n-section4",
       "type": "text",
-      "content": "## Profittmaksimering – økonomi møter matematikk\n\nOptimering er spesielt viktig i økonomi. Tenk deg en bedrift som produserer en vare. Profittfunksjonen er $P(x) = -x^2 + 40x - 300$ kroner, der $x$ er antall enheter produsert per dag.\n\nHvor mange enheter bør bedriften produsere for å maksimere profitten? Vi deriverer: $P'(x) = -2x + 40$. Vi setter $P'(x) = 0$: $-2x + 40 = 0$, altså $x = 20$. Andrederiverte er $P''(x) = -2 < 0$, som bekrefter at dette er et toppunkt (maksimum). Maksimal profitt er $P(20) = -400 + 800 - 300 = 100$ kroner per dag.\n\nEt annet eksempel: profittfunksjonen er $P(x) = -2x^2 + 100x - 800$. Vi får $P'(x) = -4x + 100 = 0$, altså $x = 25$ enheter. Maksimal profitt er $P(25) = -2 \\cdot 625 + 2500 - 800 = -1250 + 2500 - 800 = 450$ kroner.\n\nLegg merke til at profittfunksjonen alltid har negativ koeffisient foran $x^2$, noe som betyr at grafen er en nedovervendt parabel. Det garanterer at det finnes et maksimum. Dette er typisk for mange økonomiske modeller."
+      "content": "## Profittmaksimering – økonomi møter matematikk\n\nOptimering er spesielt viktig i økonomi. Tenk deg en bedrift som produserer en vare. Profittfunksjonen er $P(x) = -x^2 + 40x - 300$ kroner, der $x$ er antall enheter produsert per dag.\n\nHvor mange enheter bør bedriften produsere for å maksimere profitten? Vi deriverer: $P'(x) = -2x + 40$. Vi setter $P'(x) = 0$: $-2x + 40 = 0$, altså $x = 20$. Dobbeltderiverte er $P''(x) = -2 < 0$, som bekrefter at dette er et toppunkt (maksimum). Maksimal profitt er $P(20) = -400 + 800 - 300 = 100$ kroner per dag.\n\nEt annet eksempel: profittfunksjonen er $P(x) = -2x^2 + 100x - 800$. Vi får $P'(x) = -4x + 100 = 0$, altså $x = 25$ enheter. Maksimal profitt er $P(25) = -2 \\cdot 625 + 2500 - 800 = -1250 + 2500 - 800 = 450$ kroner.\n\nLegg merke til at profittfunksjoner av andre grad ofte har negativ koeffisient foran $x^2$, noe som betyr at grafen er en nedovervendt parabel. Det garanterer at det finnes et maksimum. Dette er typisk for mange økonomiske modeller."
     },
     {
       "id": "1t-7-7-n-quiz4",
@@ -713,7 +713,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$A''(x) = -2$, og $A''(6) = -2 < 0$. Negativ andrederiverte betyr at grafen bøyer nedover, altså er det et **maksimum**."
+            "solution": "$A''(x) = -2$, og $A''(6) = -2 < 0$. Negativ dobbeltderiverte betyr at grafen vender den hule sida ned, altså er det et **maksimum**."
           }
         ]
       }
@@ -728,7 +728,7 @@
     {
       "id": "1t-7-7-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nI dette kapittelet har vi sett derivasjon i aksjon gjennom praktiske problemer.\n\nFor å finne **ekstremalpunkt** (topp- og bunnpunkt) setter vi $f'(x) = 0$ og løser for $x$. Vi bruker **andrederiverte** for å avgjøre type: $f''(a) < 0$ betyr toppunkt og $f''(a) > 0$ betyr bunnpunkt.\n\n**Optimeringsproblemer** løses i fire steg: sett opp funksjonen som skal optimeres, finn der $f'(x) = 0$, kontroller at det er riktig type ekstremalpunkt, og sjekk at løsningen er realistisk. Vi har sett eksempler med gjerdeproblem, profittmaksimering og geometrisk optimering.\n\nFor **bevegelse** gjelder at derivert av posisjon gir fart ($v(t) = s'(t)$), og derivert av fart gir akselerasjon ($a(t) = s''(t)$). Farten er null når objektet er i ro, positiv fart betyr bevegelse i positiv retning, og negativ fart betyr motsatt retning. Akselerasjonen forteller om farten øker eller minker."
+      "content": "## Oppsummering\n\nI dette kapittelet har vi sett derivasjon i aksjon gjennom praktiske problemer.\n\nFor å finne **ekstremalpunkt** (topp- og bunnpunkt) setter vi $f'(x) = 0$ og løser for $x$. Vi bruker en **fortegnslinje** for $f'$ for å avgjøre type: skifte fra $+$ til $-$ gir toppunkt, fra $-$ til $+$ bunnpunkt, og samme fortegn på begge sider gir terrassepunkt. Den **dobbeltderiverte** kan også brukes: $f''(a) < 0$ betyr toppunkt og $f''(a) > 0$ betyr bunnpunkt.\n\n**Optimeringsproblemer** løses i fire steg: sett opp funksjonen som skal optimeres, finn der $f'(x) = 0$, kontroller at det er riktig type ekstremalpunkt, og sjekk at løsningen er realistisk. Vi har sett eksempler med gjerdeproblem, profittmaksimering og geometrisk optimering.\n\nFor **bevegelse** gjelder at derivert av posisjon gir fart ($v(t) = s'(t)$), og derivert av fart gir akselerasjon ($a(t) = s''(t)$). Farten er null når objektet er i ro, positiv fart betyr bevegelse i positiv retning, og negativ fart betyr motsatt retning. Akselerasjonen forteller om farten øker eller minker."
     }
   ],
   "exercises": []

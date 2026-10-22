@@ -19,7 +19,7 @@
     {
       "id": "2p-2-5-n-section1",
       "type": "text",
-      "content": "## Den beste linjen og tallet som måler den\n\nNår du ber GeoGebra eller et regneark om **lineær regresjon**, leter verktøyet etter linjen $y = ax + b$ som ligger så tett på alle datapunktene som mulig. Metoden bak kalles **minste kvadraters metode**: for hver mulig linje måles avstanden fra hvert punkt til linjen, avstandene kvadreres og summeres – og linjen med minst sum vinner. Du slipper å regne dette for hånd; poenget er å forstå hva verktøyet gjør.\n\nFor iskiosken kan resultatet bli noe slikt som $y = 2{,}5x - 18$, der $x$ er temperaturen og $y$ er antall solgte is. Nå kan du svare på spørsmålet fra i sted: ved $20$ grader anslår modellen $y = 2{,}5 \\cdot 20 - 18 = 32$ is. Stigningstallet $2{,}5$ har også en konkret tolkning: for hver grad varmere selger du i snitt $2{,}5$ flere is.\n\nMen hvor god er egentlig modellen? Det måles med **forklaringsgraden** $R^2$, et tall mellom $0$ og $1$. Er $R^2 = 1$, ligger alle punktene perfekt på linjen. Er $R^2 = 0{,}92$, sier vi at modellen forklarer $92\\,\\%$ av variasjonen i dataene – en svært god tilpasning. Som tommelfingerregel: over $0{,}9$ er svært godt, under $0{,}5$ er svakt. Merk at $R^2 = 0{,}92$ *ikke* betyr at modellen er «92 % riktig» eller at 92 % av punktene ligger på linjen – det er andelen av variasjonen som forklares."
+      "content": "## Den beste linjen og tallet som måler den\n\nNår du ber GeoGebra eller et regneark om **lineær regresjon**, leter verktøyet etter linjen $y = ax + b$ som ligger så tett på alle datapunktene som mulig. Metoden bak kalles **minste kvadraters metode**: for hver mulig linje måles avstanden fra hvert punkt til linjen, avstandene kvadreres og summeres – og linjen med minst sum vinner. Du slipper å regne dette for hånd; poenget er å forstå hva verktøyet gjør.\n\nFor iskiosken gir GeoGebra $y = 11{,}76x - 57{,}89$, der $x$ er temperaturen og $y$ er antall solgte is. Nå kan du svare på spørsmålet fra i sted: ved $20$ grader anslår modellen $y = 11{,}76 \\cdot 20 - 57{,}89 \\approx 177$ is. Stigningstallet $11{,}76$ har også en konkret tolkning: for hver grad varmere selger du i snitt ca. $12$ flere is.\n\nMen hvor god er egentlig modellen? Det måles med **forklaringsgraden** $R^2$, et tall mellom $0$ og $1$. Er $R^2 = 1$, ligger alle punktene perfekt på linjen. Er $R^2 = 0{,}92$, sier vi at modellen forklarer $92\\,\\%$ av variasjonen i dataene – en svært god tilpasning. Jo nærmere $1$, desto bedre passer modellen; nær $0$ passer den dårlig. Merk at $R^2 = 0{,}92$ *ikke* betyr at modellen er «92 % riktig» eller at 92 % av punktene ligger på linjen – det er andelen av variasjonen som forklares."
     },
     {
       "id": "2p-2-5-n-quiz1",
@@ -40,30 +40,30 @@
         "questions": [
           {
             "id": "2p-2-5-n-quiz1-q0",
-            "task": "Regresjonslinjen for issalget er $y = 2{,}5x - 18$. Hvor mange is anslår modellen ved 20 °C?",
+            "task": "Regresjonslinjen for issalget er $y = 11{,}76x - 57{,}89$. Hvor mange is anslår modellen ved 20 °C?",
             "options": [
               {
                 "id": "a",
-                "text": "50 is",
+                "text": "235 is",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "68 is",
+                "text": "293 is",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "25 is",
+                "text": "12 is",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "32 is",
+                "text": "177 is",
                 "isCorrect": true
               }
             ],
-            "solution": "$y = 2{,}5 \\cdot 20 - 18 = 50 - 18 = 32$ is."
+            "solution": "$y = 11{,}76 \\cdot 20 - 57{,}89 \\approx 177$ is."
           },
           {
             "id": "2p-2-5-n-quiz1-q1",
@@ -125,7 +125,7 @@
     {
       "id": "2p-2-5-n-section2",
       "type": "text",
-      "content": "## Innenfor og utenfor – interpolering og ekstrapolering\n\nNå har du en modell med høy $R^2$. Betyr det at du kan bruke den til hva som helst? Absolutt ikke – og her kommer kapittelets viktigste advarsel.\n\nEn treningsmodell sier at tiden på 3000-meteren avhenger av ukentlige treningstimer: $y = -0{,}8x + 16$, der $y$ er tiden i minutter. For $x = 5$ treningstimer gir modellen $y = -0{,}8 \\cdot 5 + 16 = 12$ minutter – rimelig nok. Men hva med en som trener $25$ timer i uka? Modellen sier $y = -0{,}8 \\cdot 25 + 16 = -4$ minutter. Minus fire minutter! Ingen løper 3000 meter på negativ tid – modellen har brutt sammen.\n\nProblemet er at modellen ble laget med data fra et begrenset område, kanskje $2$ til $10$ treningstimer. Å bruke modellen *innenfor* dataområdet kalles **interpolering**, og det er som regel trygt. Å bruke den *utenfor* kalles **ekstrapolering**, og da beveger du deg på tynn is: du antar at mønsteret fortsetter, uten data som støtter det. Jo lenger ut du går, desto mer usikkert blir anslaget – og til slutt blir det meningsløst, som negativt issalg på kalde dager eller negative løpstider.\n\nEt fornuftig eksempel på interpolering: en nettbutikk har en regresjonslinje $y = 6{,}9x + 1{,}1$ for omsetning (i tusen kroner) mot antall besøkende (i tusen), basert på data mellom $2\\,000$ og $12\\,000$ besøkende. Ved $7\\,000$ besøkende anslår modellen $y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$, altså rundt $49\\,400$ kroner. Det er innenfor dataområdet – et anslag vi kan stole på."
+      "content": "## Innenfor og utenfor – interpolering og ekstrapolering\n\nNå har du en modell med høy $R^2$. Betyr det at du kan bruke den til hva som helst? Absolutt ikke – og her kommer kapittelets viktigste advarsel.\n\nEn treningsmodell sier at tiden på 3000-meteren avhenger av ukentlige treningstimer: $y = -0{,}8x + 16$, der $y$ er tiden i minutter. For $x = 5$ treningstimer gir modellen $y = -0{,}8 \\cdot 5 + 16 = 12$ minutter – rimelig nok. Men hva med en som trener $25$ timer i uka? Modellen sier $y = -0{,}8 \\cdot 25 + 16 = -4$ minutter. Minus fire minutter! Ingen løper 3000 meter på negativ tid – modellen har brutt sammen.\n\nProblemet er at modellen ble laget med data fra et begrenset område, kanskje $2$ til $8$ treningstimer. Å bruke modellen *innenfor* dataområdet kalles **interpolering**, og det er som regel trygt. Å bruke den *utenfor* kalles **ekstrapolering**, og da beveger du deg på tynn is: du antar at mønsteret fortsetter, uten data som støtter det. Jo lenger ut du går, desto mer usikkert blir anslaget – og til slutt blir det meningsløst, som negativt issalg på kalde dager eller negative løpstider.\n\nEt fornuftig eksempel på interpolering: en nettbutikk har en regresjonslinje $y = 6{,}9x + 1{,}1$ for omsetning (i tusen kroner) mot antall besøkende (i tusen), basert på data mellom $2\\,000$ og $12\\,000$ besøkende. Ved $7\\,000$ besøkende anslår modellen $y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$, altså rundt $49\\,400$ kroner. Det er innenfor dataområdet – et anslag vi kan stole på."
     },
     {
       "id": "2p-2-5-n-quiz2",

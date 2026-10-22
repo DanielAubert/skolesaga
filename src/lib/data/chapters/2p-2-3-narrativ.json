@@ -4,7 +4,7 @@
   "chapterNumber": "2.3",
   "title": "Regresjon",
   "subtitle": "Narrativ versjon",
-  "description": "Lær kunsten å finne en funksjon som passer til data -- fra temperaturmålinger og treningseffekter til bakterievekst og bilpriser. En fortelling om den beste rette linjen, korrelasjonskoeffisienten, og når en kurve er bedre enn en linje.",
+  "description": "Lær kunsten å finne en funksjon som passer til data – fra temperaturmålinger og treningseffekter til bakterievekst og bilpriser. En fortelling om den beste rette linjen, korrelasjonskoeffisienten, og når en kurve er bedre enn en linje.",
   "estimatedMinutes": 35,
   "competenceGoals": [
     "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
@@ -15,12 +15,12 @@
     {
       "id": "2p-2-3-n-intro",
       "type": "text",
-      "content": "## Regresjon -- å finne mønster i kaos\n\nI de to forrige kapitlene har vi laget modeller *fra bunnen av*: vi visste at en taxi tar 60 kroner pluss 15 per km, og skrev opp funksjonen direkte. Men i virkeligheten starter vi ofte den andre veien -- med en haug datapunkter og spørsmålet: Finnes det et mønster her?\n\nKanskje du har målt temperaturen hver time gjennom en dag. Eller registrert sammenhengen mellom treningsmengde og hvilepuls. Eller logget verdien av en bruktbil over flere år. Datapunktene ligger *nesten* på en linje -- eller en kurve -- men ikke helt. Regresjon er kunsten å finne den funksjonen som passer *best mulig* til dataene dine."
+      "content": "## Regresjon – å finne mønster i kaos\n\nI de to forrige kapitlene har vi laget modeller *fra bunnen av*: vi visste at en taxi tar 60 kroner pluss 15 per km, og skrev opp funksjonen direkte. Men i virkeligheten starter vi ofte den andre veien – med en haug datapunkter og spørsmålet: Finnes det et mønster her?\n\nKanskje du har målt temperaturen hver time gjennom en dag. Eller registrert sammenhengen mellom treningsmengde og hvilepuls. Eller logget verdien av en bruktbil over flere år. Datapunktene ligger *nesten* på en linje – eller en kurve – men ikke helt. Regresjon er kunsten å finne den funksjonen som passer *best mulig* til dataene dine."
     },
     {
       "id": "2p-2-3-n-section1",
       "type": "text",
-      "content": "## Lineær regresjon -- den beste rette linjen\n\n**Lineær regresjon** finner den rette linjen $y = ax + b$ som ligger nærmest mulig alle datapunktene. Metoden kalles **minste kvadraters metode**: den minimerer summen av de kvadrerte avstandene mellom datapunktene og linjen. Du trenger heldigvis ikke gjøre dette for hånd -- GeoGebra, Excel og kalkulatorer gjør det for deg.\n\nLa oss se det i praksis. Temperaturen ble målt hver time fra kl. 08 til kl. 14:\n\n| Tid (t) | 0 | 1 | 2 | 3 | 4 | 5 | 6 |\n|---------|---|---|---|---|---|---|---|\n| Temp (°C) | 5 | 7 | 8 | 11 | 12 | 13 | 15 |\n\nEt digitalt verktøy gir oss: $f(t) = 1{,}61t + 5{,}14$ med $r = 0{,}995$.\n\nHva betyr $r = 0{,}995$? Det er **korrelasjonskoeffisienten**, og den måler hvor godt den rette linjen passer til dataene. $r = 1$ betyr perfekt positiv sammenheng (alle punkter på en stigende linje). $r = -1$ betyr perfekt negativ sammenheng. $r = 0$ betyr ingen lineær sammenheng i det hele tatt.\n\nI vårt tilfelle er $r = 0{,}995$, altså nesten perfekt. Temperaturen stiger med ca. 1,6 °C per time.\n\nVi kan bruke modellen til å *forutsi*: Hva er temperaturen kl. 16 (altså $t = 8$)? $f(8) = 1{,}61 \\cdot 8 + 5{,}14 = 18{,}0°C$. Men vær forsiktig -- modellen gjelder neppe utenfor måleperioden. Kl. 22 (t = 14) ville modellen gi $f(14) = 27{,}7°C$, noe som er usannsynlig i Norge."
+      "content": "## Lineær regresjon – den beste rette linjen\n\n**Lineær regresjon** finner den rette linjen $y = ax + b$ som ligger nærmest mulig alle datapunktene. Metoden kalles **minste kvadraters metode**: den minimerer summen av de kvadrerte avstandene mellom datapunktene og linjen. Du trenger heldigvis ikke gjøre dette for hånd – GeoGebra, Excel og kalkulatorer gjør det for deg.\n\nLa oss se det i praksis. Temperaturen ble målt hver time fra kl. 08 til kl. 14:\n\n| Tid (t) | Temp (°C) |\n|:-:|:-:|\n| 0 | 5 |\n| 1 | 7 |\n| 2 | 8 |\n| 3 | 11 |\n| 4 | 12 |\n| 5 | 13 |\n| 6 | 15 |\n\nEt digitalt verktøy gir oss: $f(t) = 1{,}64t + 5{,}21$ med $r = 0{,}992$.\n\nHva betyr $r = 0{,}992$? Det er **korrelasjonskoeffisienten**, og den måler hvor godt den rette linjen passer til dataene. $r = 1$ betyr perfekt positiv sammenheng (alle punkter på en stigende linje). $r = -1$ betyr perfekt negativ sammenheng. $r = 0$ betyr ingen lineær sammenheng i det hele tatt.\n\nI vårt tilfelle er $r = 0{,}992$, altså nesten perfekt. Temperaturen stiger med ca. 1,6 °C per time.\n\nVi kan bruke modellen til å *forutsi*: Hva er temperaturen kl. 16 (altså $t = 8$)? $f(8) \\approx 18{,}4°C$. Men vær forsiktig – modellen gjelder neppe utenfor måleperioden. Kl. 22 (t = 14) ville modellen gi $f(14) \\approx 28{,}2°C$, noe som er usannsynlig i Norge."
     },
     {
       "id": "2p-2-3-n-quiz1",
@@ -59,15 +59,15 @@
               },
               {
                 "id": "b",
-                "text": "Middels sterk negativ sammenheng -- når x øker, avtar y",
+                "text": "Sterk negativ sammenheng – når x øker, avtar y",
                 "isCorrect": true
               }
             ],
-            "solution": "$r = -0{,}85$ er negativt ($y$ avtar når $x$ øker) og $|r| = 0{,}85$ ligger mellom 0,7 og 0,9, altså middels til sterk korrelasjon."
+            "solution": "$r = -0{,}85$ er negativt ($y$ avtar når $x$ øker) og $|r| = 0{,}85 \\ge 0{,}7$, altså sterk korrelasjon."
           },
           {
             "id": "2p-2-3-n-quiz1-q1",
-            "task": "Hva betyr $r = 0{,}995$ i temperatureksempelet?",
+            "task": "Hva betyr $r = 0{,}992$ i temperatureksempelet?",
             "options": [
               {
                 "id": "b",
@@ -76,7 +76,7 @@
               },
               {
                 "id": "a",
-                "text": "Temperaturen er 99,5 grader",
+                "text": "Temperaturen er 99,2 grader",
                 "isCorrect": false
               },
               {
@@ -86,11 +86,11 @@
               },
               {
                 "id": "d",
-                "text": "Temperaturen stiger med 0,995 grader per time",
+                "text": "Temperaturen stiger med 0,992 grader per time",
                 "isCorrect": false
               }
             ],
-            "solution": "$r = 0{,}995$ er svært nær 1, noe som betyr nesten perfekt positiv lineær sammenheng. Punktene ligger nesten på en rett linje."
+            "solution": "$r = 0{,}992$ er svært nær 1, noe som betyr nesten perfekt positiv lineær sammenheng. Punktene ligger nesten på en rett linje."
           }
         ],
         "solution": ""
@@ -99,7 +99,7 @@
     {
       "id": "2p-2-3-n-section2",
       "type": "text",
-      "content": "## Korrelasjonskoeffisienten -- hvor sterk er sammenhengen?\n\nLa oss dvele litt ved $r$-verdien, for den er et nøkkelverktøy i regresjonsanalyse. Her er en guide:\n\nNår $|r| > 0{,}9$ har vi **sterk korrelasjon**. Punktene ligger tett inntil linjen, og modellen er pålitelig. Når $0{,}7 < |r| < 0{,}9$ har vi **middels korrelasjon**. Det er en tydelig sammenheng, men med mer spredning. Når $|r| < 0{,}5$ har vi **svak korrelasjon**. En lineær modell er trolig ikke den beste beskrivelsen.\n\n$r^2$ -- korrelasjonskoeffisienten i andre potens -- kalles **forklart varians**. Den forteller hvor stor andel av variasjonen i dataene som forklares av modellen. Hvis $r = 0{,}995$, er $r^2 = 0{,}990$. Det betyr at 99 prosent av variasjonen i temperaturen forklares av tiden -- bare 1 prosent er tilfeldig variasjon.\n\nLa oss se på et nytt eksempel. Sammenhengen mellom ukentlig trening og hvilepuls ble undersøkt:\n\n| Timer trening | 0 | 2 | 4 | 6 | 8 | 10 |\n|---|---|---|---|---|---|---|\n| Hvilepuls | 78 | 72 | 68 | 63 | 60 | 56 |\n\nLineær regresjon gir: $f(x) \\approx -2{,}13x + 77{,}5$ med $r \\approx -0{,}998$. Sammenhengen er sterkt negativ -- mer trening gir lavere hvilepuls. For en person som trener 7 timer per uke: $f(7) = -2{,}13 \\cdot 7 + 77{,}5 \\approx 62{,}6$ slag per minutt.\n\nLegg merke til at $r$ er *negativ* fordi sammenhengen er negativ: mer trening gir *lavere* puls. Styrken på sammenhengen avgjøres av $|r|$, altså absoluttverdien."
+      "content": "## Korrelasjonskoeffisienten – hvor sterk er sammenhengen?\n\nLa oss dvele litt ved $r$-verdien, for den er et nøkkelverktøy i regresjonsanalyse. Her er en guide:\n\nNår $|r| \\ge 0{,}7$ har vi **sterk korrelasjon**. Punktene ligger tett inntil linjen, og modellen er pålitelig. Når $0{,}3 \\le |r| < 0{,}7$ har vi **moderat korrelasjon**. Det er en tydelig sammenheng, men med mer spredning. Når $|r| < 0{,}3$ har vi **svak korrelasjon** eller ingen lineær sammenheng. En lineær modell er da trolig ikke den beste beskrivelsen.\n\n$R^2$ – korrelasjonskoeffisienten i andre potens – kalles **forklaringsgrad**. Den forteller hvor stor andel av variasjonen i dataene som forklares av modellen. Hvis $r = 0{,}992$, er $R^2 = 0{,}984$. Det betyr at 98 prosent av variasjonen i temperaturen forklares av tiden – bare 2 prosent er tilfeldig variasjon.\n\nLa oss se på et nytt eksempel. Sammenhengen mellom ukentlig trening og hvilepuls ble undersøkt:\n\n| Timer trening | 0 | 2 | 4 | 6 | 8 | 10 |\n|---|---|---|---|---|---|---|\n| Hvilepuls | 78 | 72 | 68 | 63 | 60 | 56 |\n\nLineær regresjon gir: $f(x) \\approx -2{,}16x + 76{,}95$ med $r \\approx -0{,}995$. Sammenhengen er sterkt negativ – mer trening gir lavere hvilepuls. For en person som trener 7 timer per uke: $f(7) \\approx 61{,}9$ slag per minutt.\n\nLegg merke til at $r$ er *negativ* fordi sammenhengen er negativ: mer trening gir *lavere* puls. Styrken på sammenhengen avgjøres av $|r|$, altså absoluttverdien."
     },
     {
       "id": "2p-2-3-n-quiz2",
@@ -108,7 +108,7 @@
         "id": "2p-2-3-n-quiz2",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg selv på r² og korrelasjonsstyrke:",
+        "task": "Test deg selv på R² og korrelasjonsstyrke:",
         "options": [
           {
             "id": "a",
@@ -119,7 +119,7 @@
         "questions": [
           {
             "id": "2p-2-3-n-quiz2-q0",
-            "task": "Hvis $r^2 = 0{,}96$ for en regresjonsmodell, hva betyr det?",
+            "task": "Hvis $R^2 = 0{,}96$ for en regresjonsmodell, hva betyr det?",
             "options": [
               {
                 "id": "a",
@@ -142,11 +142,11 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$r^2 = 0{,}96$ betyr at 96 % av variasjonen i dataene forklares av modellen. De resterende 4 % skyldes andre faktorer eller tilfeldig variasjon."
+            "solution": "$R^2 = 0{,}96$ betyr at 96 % av variasjonen i dataene forklares av modellen. De resterende 4 % skyldes andre faktorer eller tilfeldig variasjon."
           },
           {
             "id": "2p-2-3-n-quiz2-q1",
-            "task": "En lineær regresjon gir $r \\approx -0{,}998$ for sammenhengen mellom trening og hvilepuls. Hva betyr det negative fortegnet?",
+            "task": "En lineær regresjon gir $r \\approx -0{,}995$ for sammenhengen mellom trening og hvilepuls. Hva betyr det negative fortegnet?",
             "options": [
               {
                 "id": "a",
@@ -155,7 +155,7 @@
               },
               {
                 "id": "c",
-                "text": "Sammenhengen er negativ -- mer trening gir lavere puls",
+                "text": "Sammenhengen er negativ – mer trening gir lavere puls",
                 "isCorrect": true
               },
               {
@@ -169,7 +169,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Negativt fortegn på $r$ betyr at sammenhengen er negativ: når den ene variabelen øker, synker den andre. Styrken avgjøres av $|r|$, og $|{-}0{,}998| = 0{,}998$ er svært sterk korrelasjon."
+            "solution": "Negativt fortegn på $r$ betyr at sammenhengen er negativ: når den ene variabelen øker, synker den andre. Styrken avgjøres av $|r|$, og $|{-}0{,}995| = 0{,}995$ er sterk korrelasjon, nesten perfekt."
           },
           {
             "id": "2p-2-3-n-quiz2-q2",
@@ -187,7 +187,7 @@
               },
               {
                 "id": "b",
-                "text": "Svak korrelasjon -- en lineær modell er trolig ikke den beste",
+                "text": "Moderat korrelasjon – en tydelig, men ikke sterk lineær sammenheng",
                 "isCorrect": true
               },
               {
@@ -196,7 +196,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Når $|r| < 0{,}5$ har vi svak korrelasjon. $r = 0{,}45$ er positiv, men svak -- en lineær modell beskriver bare $0{,}45^2 = 0{,}20$, altså 20 % av variasjonen i dataene."
+            "solution": "Når $0{,}3 \\le |r| < 0{,}7$ har vi moderat korrelasjon. $r = 0{,}45$ er positiv og moderat – en lineær modell beskriver bare $0{,}45^2 = 0{,}20$, altså 20 % av variasjonen i dataene."
           }
         ],
         "solution": ""
@@ -205,7 +205,7 @@
     {
       "id": "2p-2-3-n-section3",
       "type": "text",
-      "content": "## Eksponentiell regresjon -- når linjen ikke passer\n\nNoen ganger ser du tydelig at datapunktene ikke følger en rett linje. De bøyer oppover eller nedover. Da kan eksponentiell regresjon gi bedre tilpasning. Metoden finner tallene $a$ og $b$ i modellen $f(x) = a \\cdot b^x$.\n\nHer er verdien av en bil over flere år:\n\n| År | 0 | 1 | 2 | 3 | 4 | 5 |\n|----|---|---|---|---|---|---|\n| Verdi (1000 kr) | 350 | 290 | 245 | 200 | 168 | 140 |\n\nEksponentiell regresjon gir: $f(t) = 349 \\cdot 0{,}833^t$ med $r^2 = 0{,}998$. Tolkning: Bilen mister ca. $1 - 0{,}833 = 16{,}7$ prosent av verdien hvert år. Startverdien i modellen (349 000 kr) er svært nær den faktiske (350 000 kr).\n\nEt annet eksempel: Bakterier i en kultur ble telt over noen timer:\n\n| Timer | 0 | 1 | 2 | 3 | 4 | 5 |\n|-------|---|---|---|---|---|---|\n| Antall | 100 | 150 | 230 | 340 | 510 | 780 |\n\nHer kurver tallene tydelig oppover. Eksponentiell regresjon gir: $f(t) \\approx 99{,}5 \\cdot 1{,}51^t$. Vekstprosenten er ca. 51 prosent per time! Etter 8 timer: $f(8) \\approx 99{,}5 \\cdot 25{,}6 \\approx 2\\,547$ bakterier.\n\nHusk at du trenger et **digitalt verktøy** for regresjon. I GeoGebra bruker du kommandoene FitLinje for lineær og FitExp for eksponentiell regresjon. I Excel bruker du diagramverktøyet med trendlinje."
+      "content": "## Eksponentiell regresjon – når linjen ikke passer\n\nNoen ganger ser du tydelig at datapunktene ikke følger en rett linje. De bøyer oppover eller nedover. Da kan eksponentiell regresjon gi bedre tilpasning. Metoden finner tallene $a$ og $b$ i modellen $f(x) = a \\cdot b^x$.\n\nHer er verdien av en bil over flere år:\n\n| År | Verdi (1000 kr) |\n|:-:|:-:|\n| 0 | 350 |\n| 1 | 290 |\n| 2 | 245 |\n| 3 | 200 |\n| 4 | 168 |\n| 5 | 140 |\n\nEksponentiell regresjon gir: $f(t) = 350 \\cdot 0{,}832^t$ med $R^2 = 0{,}9996$. Tolkning: Bilen mister ca. $1 - 0{,}832 = 16{,}8$ prosent av verdien hvert år. Startverdien i modellen (ca. 350 000 kr) er svært nær den faktiske (350 000 kr).\n\nEt annet eksempel: Bakterier i en kultur ble telt over noen timer:\n\n| Timer | Antall |\n|:-:|:-:|\n| 0 | 100 |\n| 1 | 150 |\n| 2 | 230 |\n| 3 | 340 |\n| 4 | 510 |\n| 5 | 780 |\n\nHer kurver tallene tydelig oppover. Eksponentiell regresjon gir: $f(t) \\approx 100 \\cdot 1{,}506^t$. Vekstprosenten er ca. 51 prosent per time! Etter 8 timer: $f(8) \\approx 2\\,650$ bakterier.\n\nHusk at du trenger et **digitalt verktøy** for regresjon. I GeoGebra bruker du kommandoene RegLin for lineær og RegEksp for eksponentiell regresjon. I Excel bruker du diagramverktøyet med trendlinje."
     },
     {
       "id": "2p-2-3-n-quiz3",
@@ -252,16 +252,16 @@
           },
           {
             "id": "2p-2-3-n-quiz3-q1",
-            "task": "Eksponentiell regresjon for en bils verdi gir $f(t) = 349 \\cdot 0{,}833^t$. Hva betyr tallet $0{,}833$?",
+            "task": "Eksponentiell regresjon for en bils verdi gir $f(t) = 350 \\cdot 0{,}832^t$. Hva betyr tallet $0{,}832$?",
             "options": [
               {
                 "id": "a",
-                "text": "Bilen mister 83,3 % av verdien hvert år",
+                "text": "Bilen mister 83,2 % av verdien hvert år",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "Bilen beholder 83,3 % av verdien hvert år, altså mister ca. 16,7 %",
+                "text": "Bilen beholder 83,2 % av verdien hvert år, altså mister ca. 16,8 %",
                 "isCorrect": true
               },
               {
@@ -271,11 +271,11 @@
               },
               {
                 "id": "d",
-                "text": "Bilen mister en fast sum på 0,833 tusen kr per år",
+                "text": "Bilen mister en fast sum på 0,832 tusen kr per år",
                 "isCorrect": false
               }
             ],
-            "solution": "Vekstfaktoren $b = 0{,}833$ betyr at bilen beholder $83{,}3\\%$ av verdien hvert år. Verdifallet er $1 - 0{,}833 = 0{,}167$, altså ca. $16{,}7\\%$ per år."
+            "solution": "Vekstfaktoren $b = 0{,}832$ betyr at bilen beholder $83{,}2\\%$ av verdien hvert år. Verdifallet er $1 - 0{,}832 = 0{,}168$, altså ca. $16{,}8\\%$ per år."
           }
         ],
         "solution": ""
@@ -284,7 +284,7 @@
     {
       "id": "2p-2-3-n-section4",
       "type": "text",
-      "content": "## Modellvalg -- lineær eller eksponentiell?\n\nOfte har du data og vet ikke på forhånd hvilken modell som passer best. Her er en oppskrift:\n\n**Steg 1: Plot dataene.** Lag et punktdiagram og se. Følger punktene en rett linje? Eller bøyer de opp eller ned? Det visuelle inntrykket er ofte en god pekepinn.\n\n**Steg 2: Kjør begge regresjoner.** Bruk digitalt verktøy til å gjøre både lineær og eksponentiell regresjon. Sammenlign $r^2$-verdiene. Den modellen med høyest $r^2$ forklarer mest av variasjonen i dataene.\n\n**Steg 3: Vurder konteksten.** Hva gir *mening* i situasjonen? Strømforbruk som avtar med en fast prosent? Eller med et fast beløp? Noen ganger forteller fagets logikk deg hvilken modell som er riktig, selv om $r^2$-verdiene er like.\n\n**Steg 4: Vær forsiktig med ekstrapolering.** Å bruke modellen langt utenfor dataintervallet er risikabelt. Temperaturmodellen vår forutsa 18 °C kl. 16, noe som er rimelig. Men kl. 22 ga den 27,7 °C -- tydelig feil. Modeller er gode *innenfor* dataintervallet, men upålitelige langt utenfor.\n\nTommelfingerregel: Velg den enkleste modellen som gir god tilpasning ($r^2 > 0{,}9$). Hvis begge modeller gir nesten lik $r^2$, velg den som gir mest mening i sammenhengen.\n\nEt godt eksempel: For et datasett gir lineær regresjon $r^2 = 0{,}87$ og eksponentiell regresjon $r^2 = 0{,}96$. Den eksponentielle modellen forklarer 96 prosent av variasjonen mot 87 prosent for den lineære. Valget er klart."
+      "content": "## Modellvalg – lineær eller eksponentiell?\n\nOfte har du data og vet ikke på forhånd hvilken modell som passer best. Her er en oppskrift:\n\n**Plott dataene.** Lag et punktdiagram og se. Følger punktene en rett linje? Eller bøyer de opp eller ned? Det visuelle inntrykket er ofte en god pekepinn.\n\n**Kjør begge regresjonene.** Bruk digitalt verktøy til å gjøre både lineær og eksponentiell regresjon. Sammenlign $R^2$-verdiene. Den modellen med høyest $R^2$ forklarer mest av variasjonen i dataene.\n\n**Vurder situasjonen.** Hva gir *mening* i situasjonen? Strømforbruk som avtar med en fast prosent? Eller med et fast beløp? Noen ganger forteller fagets logikk deg hvilken modell som er riktig, selv om $R^2$-verdiene er like.\n\n**Vær forsiktig med ekstrapolering.** Å bruke modellen langt utenfor dataintervallet er risikabelt. Temperaturmodellen vår forutsa 18 °C kl. 16, noe som er rimelig. Men kl. 22 ga den 28,2 °C – tydelig feil. Modeller er gode *innenfor* dataintervallet, men upålitelige langt utenfor.\n\nTommelfingerregel: Velg den enkleste modellen som gir god tilpasning ($R^2 > 0{,}9$). Hvis begge modeller gir nesten lik $R^2$, velg den som gir mest mening i sammenhengen.\n\nEt godt eksempel: For et datasett gir lineær regresjon $R^2 = 0{,}87$ og eksponentiell regresjon $R^2 = 0{,}96$. Den eksponentielle modellen forklarer 96 prosent av variasjonen mot 87 prosent for den lineære. Valget er klart."
     },
     {
       "id": "2p-2-3-n-quiz4",
@@ -304,7 +304,7 @@
         "questions": [
           {
             "id": "2p-2-3-n-quiz4-q0",
-            "task": "For et datasett gir lineær regresjon $r^2 = 0{,}87$ og eksponentiell regresjon $r^2 = 0{,}96$. Hvilken modell passer best?",
+            "task": "For et datasett gir lineær regresjon $R^2 = 0{,}87$ og eksponentiell regresjon $R^2 = 0{,}96$. Hvilken modell passer best?",
             "options": [
               {
                 "id": "a",
@@ -313,7 +313,7 @@
               },
               {
                 "id": "b",
-                "text": "Eksponentiell, fordi $r^2 = 0{,}96 > 0{,}87$",
+                "text": "Eksponentiell, fordi $R^2 = 0{,}96 > 0{,}87$",
                 "isCorrect": true
               },
               {
@@ -327,11 +327,11 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Den eksponentielle modellen har høyest $r^2$, altså forklarer den mest av variasjonen i dataene (96 % mot 87 %). Selv om den lineære er enklere, gir den eksponentielle klart bedre tilpasning."
+            "solution": "Den eksponentielle modellen har høyest $R^2$, altså forklarer den mest av variasjonen i dataene (96 % mot 87 %). Selv om den lineære er enklere, gir den eksponentielle klart bedre tilpasning."
           },
           {
             "id": "2p-2-3-n-quiz4-q1",
-            "task": "Både lineær og eksponentiell regresjon gir $r^2 \\approx 0{,}99$ for strømforbruk over 6 måneder. Den lineære modellen gir negativt forbruk for $x = 9$. Hva bør du velge?",
+            "task": "Lineær regresjon gir $R^2 \\approx 0{,}99$ og eksponentiell regresjon $R^2 \\approx 0{,}95$ for strømforbruk over 6 måneder. Den lineære modellen gir negativt forbruk for $x = 9$. Hva bør du velge?",
             "options": [
               {
                 "id": "a",
@@ -340,7 +340,7 @@
               },
               {
                 "id": "b",
-                "text": "Det spiller ingen rolle siden $r^2$ er lik",
+                "text": "Lineær, fordi den har høyest $R^2$",
                 "isCorrect": false
               },
               {
@@ -354,7 +354,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Selv om $r^2$ er nesten lik, gir den lineære modellen *negative* verdier for strømforbruk utenfor dataintervallet -- og negativt strømforbruk gir ingen mening. Den eksponentielle modellen nærmer seg 0, men blir aldri negativ, og er derfor et bedre valg."
+            "solution": "Selv om den lineære modellen har litt høyere $R^2$, gir den lineære modellen *negative* verdier for strømforbruk utenfor dataintervallet – og negativt strømforbruk gir ingen mening. Den eksponentielle modellen nærmer seg 0, men blir aldri negativ, og er derfor et bedre valg."
           }
         ],
         "solution": ""
@@ -363,7 +363,7 @@
     {
       "id": "2p-2-3-n-section5",
       "type": "text",
-      "content": "## Regresjon i praksis -- et realistisk eksempel\n\nLa oss avslutte med et eksempel som viser hvordan modellvalg ikke alltid er opplagt. Strømforbruket i en bolig ble registrert fra januar til juni:\n\n| Måned | Jan | Feb | Mar | Apr | Mai | Jun |\n|-------|-----|-----|-----|-----|-----|-----|\n| kWh | 2 400 | 2 100 | 1 700 | 1 200 | 800 | 600 |\n\nMed $x = 1$ for januar osv., gir lineær regresjon $f(x) \\approx -360x + 2\\,720$ med $r^2 \\approx 0{,}99$. Eksponentiell regresjon gir $f(x) \\approx 3\\,070 \\cdot 0{,}77^x$ med $r^2 \\approx 0{,}99$. Begge modeller passer utmerket! Hvordan velger vi?\n\nTenk på juli ($x = 7$). Lineær: $f(7) = -360 \\cdot 7 + 2\\,720 = 200$ kWh. Eksponentiell: $f(7) = 3\\,070 \\cdot 0{,}77^7 \\approx 480$ kWh. Og i september ($x = 9$)? Lineær: $f(9) = -360 \\cdot 9 + 2\\,720 = -520$ kWh -- *negativt* strømforbruk! Det gir ingen mening. Den eksponentielle modellen gir $f(9) \\approx 285$ kWh, som i det minste er positivt.\n\nHer vinner den eksponentielle modellen fordi strømforbruket naturlig flater ut -- du kan ikke bruke negativt med strøm. Lineære modeller som gir negative verdier for noe som *ikke kan* være negativt, er et klassisk varselsignal om at modellen er feil.\n\nNeste gang du har data og lurer på sammenhengen -- prøv begge modelltyper, sammenlign $r^2$, og vurder hva som gir mening. Regresjon er ikke bare matematikk -- det er også sunn fornuft."
+      "content": "## Regresjon i praksis – et realistisk eksempel\n\nLa oss avslutte med et eksempel som viser hvordan modellvalg ikke alltid er opplagt. Strømforbruket i en bolig ble registrert fra januar til juni:\n\n| Måned | kWh |\n|:-:|:-:|\n| Jan | 2 400 |\n| Feb | 2 100 |\n| Mar | 1 700 |\n| Apr | 1 200 |\n| Mai | 800 |\n| Jun | 600 |\n\nMed $x = 1$ for januar osv., gir lineær regresjon $f(x) \\approx -382{,}9x + 2\\,806{,}7$ med $R^2 \\approx 0{,}989$. Eksponentiell regresjon gir $f(x) \\approx 3\\,609 \\cdot 0{,}748^x$ med $R^2 \\approx 0{,}946$. Begge modellene passer godt, og den lineære har til og med litt høyere $R^2$. Hvordan velger vi?\n\nTenk på juli ($x = 7$). Lineær: $f(7) \\approx 127$ kWh. Eksponentiell: $f(7) \\approx 472$ kWh. Og i september ($x = 9$)? Lineær: $f(9) \\approx -639$ kWh – *negativt* strømforbruk! Det gir ingen mening. Den eksponentielle modellen gir $f(9) \\approx 264$ kWh, som i det minste er positivt.\n\nHer vinner den eksponentielle modellen fordi strømforbruket naturlig flater ut – du kan ikke bruke negativt med strøm. Lineære modeller som gir negative verdier for noe som *ikke kan* være negativt, er et klassisk varselsignal om at modellen er feil.\n\nNeste gang du har data og lurer på sammenhengen – prøv begge modelltyper, sammenlign $R^2$, og vurder hva som gir mening. Regresjon er ikke bare matematikk – det er også sunn fornuft."
     },
     {
       "id": "2p-2-3-n-quiz5",
@@ -402,7 +402,7 @@
               },
               {
                 "id": "a",
-                "text": "Modellen gjelder bare innenfor dataintervallet -- utenfor vet vi ikke om mønsteret holder",
+                "text": "Modellen gjelder bare innenfor dataintervallet – utenfor vet vi ikke om mønsteret holder",
                 "isCorrect": true
               }
             ],
@@ -414,7 +414,7 @@
             "options": [
               {
                 "id": "d",
-                "text": "Vi ekstrapolerer langt utenfor dataintervallet -- temperaturen synker naturlig om kvelden",
+                "text": "Vi ekstrapolerer langt utenfor dataintervallet – temperaturen synker naturlig om kvelden",
                 "isCorrect": true
               },
               {
@@ -429,7 +429,7 @@
               },
               {
                 "id": "c",
-                "text": "$r^2$ er for lav",
+                "text": "$R^2$ er for lav",
                 "isCorrect": false
               }
             ],
@@ -442,7 +442,7 @@
     {
       "id": "2p-2-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nRegresjon er et kraftig verktøy for å finne mønstre i data og lage modeller vi kan bruke til å forstå sammenhenger og gjøre prediksjoner.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Regresjon**: Finne funksjonen som passer best til datapunkter\n- **Lineær regresjon**: $y = ax + b$ -- den beste rette linjen gjennom dataene\n- **Eksponentiell regresjon**: $y = a \\cdot b^x$ -- den beste eksponentielle kurven\n- **Minste kvadraters metode**: Minimerer summen av kvadrerte avvik fra modellen\n- **Korrelasjonskoeffisienten $r$**: Måler styrken på lineær sammenheng ($-1$ til $1$)\n- **$r^2$ (forklart varians)**: Andelen av variasjon forklart av modellen\n- **Ekstrapolering**: Å bruke modellen utenfor dataintervallet -- vær forsiktig!\n\n**Det viktigste du tar med deg:**\nData alene forteller deg ingenting -- du må finne mønsteret. Regresjon er verktøyet som avslører sammenhengen bak tallene. Men husk: en modell er bare så god som forutsetningene den bygger på. Velg modell med omhu, vurder $r^2$, og bruk sunn fornuft. Og vær spesielt forsiktig med å forutsi langt utenfor dataene du har."
+      "content": "## Oppsummering\n\nRegresjon er et kraftig verktøy for å finne mønstre i data og lage modeller vi kan bruke til å forstå sammenhenger og gjøre prediksjoner.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Regresjon**: Finne funksjonen som passer best til datapunkter\n- **Lineær regresjon**: $y = ax + b$ – den beste rette linjen gjennom dataene\n- **Eksponentiell regresjon**: $y = a \\cdot b^x$ – den beste eksponentielle kurven\n- **Minste kvadraters metode**: Minimerer summen av kvadrerte avvik fra modellen\n- **Korrelasjonskoeffisienten $r$**: Måler styrken på lineær sammenheng ($-1$ til $1$)\n- **$R^2$ (forklaringsgrad)**: Andelen av variasjon forklart av modellen\n- **Ekstrapolering**: Å bruke modellen utenfor dataintervallet – vær forsiktig!\n\n**Det viktigste du tar med deg:**\nData alene forteller deg ingenting – du må finne mønsteret. Regresjon er verktøyet som avslører sammenhengen bak tallene. Men husk: en modell er bare så god som forutsetningene den bygger på. Velg modell med omhu, vurder $R^2$, og bruk sunn fornuft. Og vær spesielt forsiktig med å forutsi langt utenfor dataene du har."
     }
   ],
   "exercises": []

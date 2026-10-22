@@ -22,7 +22,7 @@
     {
       "id": "1t-1-8-n-intro",
       "type": "text",
-      "content": "## Divisjon med bokstaver\n\nTenk tilbake til da du lærte lang divisjon med tall. Du satte opp dividenden, plasserte divisoren til venstre, og jobbet deg gjennom sifferne ett om gangen. Polynomdivisjon er nøyaktig det samme -- bare med algebraiske uttrykk i stedet for tall.\n\nNår vi deler et polynom $P(x)$ på et annet polynom $D(x)$, får vi et resultat som følger en velkjent struktur:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nHer er $P(x)$ **dividenden** -- det polynomet vi deler. $D(x)$ er **divisoren** -- det vi deler på. $Q(x)$ er **kvotienten** -- svaret vårt. Og $R(x)$ er **resten**, som kan være null dersom divisjonen går opp.\n\nDenne sammenhengen er helt lik den du kjenner fra vanlige tall. Når du deler $17$ på $5$, får du kvotienten $3$ og resten $2$, fordi $17 = 5 \\cdot 3 + 2$. Med polynomer fungerer det på akkurat samme måte -- vi bare bytter ut tallene med uttrykk som inneholder $x$. I dette kapittelet skal vi bygge opp ferdighetene steg for steg, fra de enkleste delingene til full lang divisjon."
+      "content": "## Divisjon med bokstaver\n\nTenk tilbake til da du lærte lang divisjon med tall. Du skrev dividenden, kolon og divisoren til høyre, og jobbet deg gjennom sifrene ett om gangen. Polynomdivisjon er nøyaktig det samme -- bare med algebraiske uttrykk i stedet for tall.\n\nNår vi deler et polynom $P(x)$ på et annet polynom $D(x)$, får vi et resultat som følger en velkjent struktur:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nHer er $P(x)$ **dividenden** -- det polynomet vi deler. $D(x)$ er **divisoren** -- det vi deler på. $Q(x)$ er **kvotienten** -- svaret vårt. Og $R(x)$ er **resten**, som kan være null dersom divisjonen går opp.\n\nDenne sammenhengen er helt lik den du kjenner fra vanlige tall. Når du deler $17$ på $5$, får du kvotienten $3$ og resten $2$, fordi $17 = 5 \\cdot 3 + 2$. Med polynomer fungerer det på akkurat samme måte -- vi bare bytter ut tallene med uttrykk som inneholder $x$. I dette kapittelet skal vi bygge opp ferdighetene steg for steg, fra de enkleste delingene til full lang divisjon."
     },
     {
       "id": "1t-1-8-n-section1",
@@ -286,11 +286,11 @@
               },
               {
                 "id": "d",
-                "text": "$x^2 + x + x^0$",
+                "text": "$x^2 + 1$",
                 "isCorrect": false
               }
             ],
-            "solution": "Ledd for ledd: $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$. Merk at svaret $x^2 + x + x^0$ skriver $x^0$ i stedet for $1$, men $x^0 = 1$ så dette er teknisk sett likt -- dog skriver vi alltid $1$, ikke $x^0$."
+            "solution": "Ledd for ledd:\n\n$\\frac{x^4}{x^2} = x^2$\n\n$\\frac{x^3}{x^2} = x$\n\n$\\frac{x^2}{x^2} = 1$\n\n**Svar:** $x^2 + x + 1$"
           }
         ]
       }
@@ -305,7 +305,7 @@
     {
       "id": "1t-1-8-n-section3",
       "type": "text",
-      "content": "## Lang divisjon av polynomer -- steg for steg\n\nNå er vi klare for hovedteknikken: **polynomdivisjon med lang divisjon**. Metoden ligner på vanlig lang divisjon med tall, og den følger fire steg som gjentas til vi er ferdige.\n\n**Fremgangsmåten:**\n1. Del det første leddet i dividenden på det første leddet i divisoren.\n2. Gang svaret med hele divisoren.\n3. Trekk fra resultatet.\n4. Gjenta til graden av resten er lavere enn graden av divisoren.\n\nLa oss gå gjennom et konkret eksempel: $(x^2 + 5x + 6) : (x + 2)$.\n\n**Steg 1:** Vi ser på det første leddet i dividenden, $x^2$, og deler det på det første leddet i divisoren, $x$. Vi får $\\frac{x^2}{x} = x$. Dette er det første leddet i kvotienten.\n\n**Steg 2:** Vi ganger $x$ med hele divisoren $(x + 2)$: $x \\cdot (x + 2) = x^2 + 2x$.\n\n**Steg 3:** Vi trekker fra: $(x^2 + 5x + 6) - (x^2 + 2x) = 3x + 6$. Nå jobber vi videre med $3x + 6$.\n\n**Steg 4:** Vi deler $3x$ på $x$: $\\frac{3x}{x} = 3$. Så ganger vi $3$ med $(x + 2)$: $3x + 6$. Vi trekker fra: $(3x + 6) - (3x + 6) = 0$.\n\nResten er $0$, så divisjonen går opp! Svaret er $(x^2 + 5x + 6) : (x + 2) = x + 3$.\n\nVi kan sjekke: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Denne kontrollen er et fantastisk verktøy -- du kan alltid sjekke svaret ditt ved å gange kvotienten med divisoren og legge til eventuell rest."
+      "content": "## Lang divisjon av polynomer -- steg for steg\n\nNå er vi klare for hovedteknikken: **polynomdivisjon med lang divisjon**. Metoden ligner på vanlig lang divisjon med tall, og den følger fire steg som gjentas til vi er ferdige.\n\n**Fremgangsmåten:**\n1. Del det første leddet i dividenden på det første leddet i divisoren.\n2. Gang svaret med hele divisoren.\n3. Trekk fra resultatet.\n4. Gjenta til graden av resten er lavere enn graden av divisoren.\n\nLa oss gå gjennom et konkret eksempel: $(x^2 + 5x + 6) : (x + 2)$.\n\nFørst ser vi på det første leddet i dividenden, $x^2$, og deler det på det første leddet i divisoren, $x$. Vi får $\\frac{x^2}{x} = x$. Dette er det første leddet i kvotienten.\n\nSå ganger vi $x$ med hele divisoren $(x + 2)$: $x \\cdot (x + 2) = x^2 + 2x$.\n\nDeretter trekker vi fra: $(x^2 + 5x + 6) - (x^2 + 2x) = 3x + 6$. Nå jobber vi videre med $3x + 6$.\n\nSå deler vi $3x$ på $x$: $\\frac{3x}{x} = 3$. Så ganger vi $3$ med $(x + 2)$: $3x + 6$. Vi trekker fra: $(3x + 6) - (3x + 6) = 0$.\n\nResten er $0$, så divisjonen går opp! Svaret er $(x^2 + 5x + 6) : (x + 2) = x + 3$.\n\nVi kan sjekke: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Denne kontrollen er et fantastisk verktøy -- du kan alltid sjekke svaret ditt ved å gange kvotienten med divisoren og legge til eventuell rest."
     },
     {
       "id": "1t-1-8-n-quiz3",
@@ -375,7 +375,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Steg 1: $x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk fra: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Steg 2: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk fra: $0$. Kvotienten er $x + 3$."
+            "solution": "$x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk fra: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Så: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk fra: $0$. Kvotienten er $x + 3$."
           },
           {
             "id": "1t-1-8-n-quiz3-q2",
@@ -444,7 +444,7 @@
     {
       "id": "1t-1-8-n-section4",
       "type": "text",
-      "content": "## Når divisjonen ikke går opp -- rest\n\nIkke alle polynomdivisjoner går opp. Akkurat som $17 : 5 = 3$ med rest $2$, kan vi få en rest også med polynomer. Når resten ikke er null, skriver vi svaret på formen:\n\n$$\\frac{P(x)}{D(x)} = Q(x) + \\frac{R(x)}{D(x)}$$\n\nLa oss se på $(x^2 + 5x + 8) : (x + 2)$.\n\nVi starter som for. $\\frac{x^2}{x} = x$. Gang: $x(x + 2) = x^2 + 2x$. Trekk fra: $(x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8$.\n\nNeste runde: $\\frac{3x}{x} = 3$. Gang: $3(x + 2) = 3x + 6$. Trekk fra: $(3x + 8) - (3x + 6) = 2$.\n\nNå har vi en rest på $2$. Siden graden av resten ($0$, fordi $2$ er en konstant) er lavere enn graden av divisoren ($1$, fordi $x + 2$ er førstegrads), stopper vi her.\n\nSvaret skrives: $(x^2 + 5x + 8) : (x + 2) = x + 3 + \\frac{2}{x + 2}$\n\nLa oss sjekke med formelen $P(x) = D(x) \\cdot Q(x) + R(x)$: $(x + 2)(x + 3) + 2 = x^2 + 5x + 6 + 2 = x^2 + 5x + 8$. Stemmer!\n\nHer er et eksempel til: $(2x^2 + 5x + 1) : (x + 2)$. Første runde: $\\frac{2x^2}{x} = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk fra: $x + 1$. Andre runde: $\\frac{x}{x} = 1$. Gang: $1 \\cdot (x + 2) = x + 2$. Trekk fra: $(x + 1) - (x + 2) = -1$. Svaret er $2x + 1$ med rest $-1$."
+      "content": "## Når divisjonen ikke går opp -- rest\n\nIkke alle polynomdivisjoner går opp. Akkurat som $17 = 3 \\cdot 5 + 2$ (17 delt på 5 gir 3 med rest 2), kan vi få en rest også med polynomer. Når resten ikke er null, skriver vi svaret på formen:\n\n$$\\frac{P(x)}{D(x)} = Q(x) + \\frac{R(x)}{D(x)}$$\n\nLa oss se på $(x^2 + 5x + 8) : (x + 2)$.\n\nVi starter som før. $\\frac{x^2}{x} = x$. Gang: $x(x + 2) = x^2 + 2x$. Trekk fra: $(x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8$.\n\nNeste runde: $\\frac{3x}{x} = 3$. Gang: $3(x + 2) = 3x + 6$. Trekk fra: $(3x + 8) - (3x + 6) = 2$.\n\nNå har vi en rest på $2$. Siden graden av resten ($0$, fordi $2$ er en konstant) er lavere enn graden av divisoren ($1$, fordi $x + 2$ er førstegrads), stopper vi her.\n\nSvaret skrives: $(x^2 + 5x + 8) : (x + 2) = x + 3 + \\frac{2}{x + 2}$\n\nLa oss sjekke med formelen $P(x) = D(x) \\cdot Q(x) + R(x)$: $(x + 2)(x + 3) + 2 = x^2 + 5x + 6 + 2 = x^2 + 5x + 8$. Stemmer!\n\nHer er et eksempel til: $(2x^2 + 5x + 1) : (x + 2)$. Første runde: $\\frac{2x^2}{x} = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk fra: $x + 1$. Andre runde: $\\frac{x}{x} = 1$. Gang: $1 \\cdot (x + 2) = x + 2$. Trekk fra: $(x + 1) - (x + 2) = -1$. Svaret er $2x + 1$ med rest $-1$."
     },
     {
       "id": "1t-1-8-n-quiz4",
@@ -495,7 +495,7 @@
             "options": [
               {
                 "id": "a",
-                "text": "$x + 3$ rest $2$",
+                "text": "$x + 3 + \\frac{2}{x}$",
                 "isCorrect": false
               },
               {
@@ -707,7 +707,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Et tredjegradspolynom delt på et førstegradspolynom gir en andregradskotient. I første runde finner vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ runder -- generelt like mange runder som graden av kvotienten pluss $1$."
+            "solution": "Et tredjegradspolynom delt på et førstegradspolynom gir en andregradskvotient. I første runde finner vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ runder -- generelt like mange runder som graden av kvotienten pluss $1$."
           }
         ]
       }
