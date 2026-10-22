@@ -46,7 +46,9 @@ const nextConfig: NextConfig = {
     '/**': ['./src/lib/data/chapters/*.json'],   // bare toppnivå: chapters/sme/ leses av sme-review ved kjøretid
   },
   outputFileTracingIncludes: {
-    '/**': ['./src/lib/data/kursbunter/**'],
+    // meta/_all.nn.json (nynorske kapitteltitler, 1,2 MB) leses med fs ved kjøretid i getChapterMeta — uten den her
+    // kom fila ikke med i funksjonen, og alle /nn/-sider viste kapitteltittelen på bokmål (sett 22.10.2026).
+    '/**': ['./src/lib/data/kursbunter/**', './src/lib/data/meta/_all.nn.json'],
   },
   turbopack: {
     root: __dirname, // Explicitly set root to prevent parent directory inference
