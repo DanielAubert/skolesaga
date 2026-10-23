@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { getCourse, getChapterMeta, getNextChapter, getPrevChapter, getChapterPrerequisites, getDependentChapters } from '@/lib/data/textbook-courses';
 import { getChapterContentLocalized, hasNynorskVersion } from '@/lib/data/textbook-content';
 import { getMalform } from '@/lib/i18n/malform';
@@ -66,6 +66,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       // er en påstand Google kontrollerer.
       harNynorsk: await hasNynorskVersion(chapterId),
     }),
+    // Skjulte kapitler (utenfor gjeldende læreplan, Daniel 23.10.2026) vises fortsatt via direkte lenke, men indekseres ikke.
+    ...(chapterMeta.skjult ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
@@ -78,6 +80,11 @@ export default async function ChapterPage({ params, searchParams }: PageProps) {
 
   if (!course || !chapterMeta) {
     notFound();
+  }
+
+  // Sammenslått kapittel (Daniel 23.10.2026): gammel URL videresendes til kapitlet innholdet nå står i.
+  if (chapterMeta.erstattesAv) {
+    permanentRedirect(`${malform === 'nn' ? '/nn' : ''}/${courseId}/${chapterMeta.erstattesAv}`);
   }
 
   // Kapittelgodkjenning (Daniel 17.9.2026): ugodkjente kapitler i de nye bøkene viser en smakebit (beskrivelse, mål, første eksempel)

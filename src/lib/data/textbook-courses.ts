@@ -212,7 +212,7 @@ import {
 // TEXTBOOK_COURSES - Samler alle kurs i én array
 // ============================================================================
 
-export const TEXTBOOK_COURSES: TextbookCourse[] = [
+const TEXTBOOK_COURSES_ALLE: TextbookCourse[] = [
   COURSE_5,
   COURSE_NORSK_5,
   COURSE_ENGELSK_5,
@@ -420,6 +420,22 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_FRISOR_BLOMSTER_VG1,
 ];
 
+/** Kapitler som vises i løypa: ikke skjulte (utenfor læreplanen) og ikke sammenslåtte (Daniel 23.10.2026). */
+export function erSynligKapittel(ch: TextbookChapterMeta): boolean {
+  return !ch.skjult && !ch.erstattesAv;
+}
+
+// Alle lister, navigasjon, tellinger og sitemap bruker den synlige utgaven. Skjulte og sammenslåtte kapitler
+// finnes fortsatt i TEXTBOOK_COURSES_ALLE, slik at kapittelsiden kan vises (skjult) eller videresende (erstattesAv).
+export const TEXTBOOK_COURSES: TextbookCourse[] = TEXTBOOK_COURSES_ALLE.map((c) =>
+  c.chapters.some((ch) => !erSynligKapittel(ch)) ? { ...c, chapters: c.chapters.filter(erSynligKapittel) } : c,
+);
+
+/** Kapittelmeta også for skjulte og sammenslåtte kapitler (brukes av kapittelsiden). */
+export function getKapittelMetaAlle(courseId: string, chapterId: string): TextbookChapterMeta | undefined {
+  return TEXTBOOK_COURSES_ALLE.find((c) => c.id === courseId)?.chapters.find((ch) => ch.id === chapterId);
+}
+
 // ============================================================================
 // Hjelpefunksjoner
 // ============================================================================
@@ -459,13 +475,13 @@ export function getChapterMeta(
   malform: Malform = 'nb',
 ): TextbookChapterMeta | undefined {
   const course = getCourse(courseId);
-  let meta = course?.chapters.find((c) => c.id === chapterId);
+  let meta = course?.chapters.find((c) => c.id === chapterId) ?? getKapittelMetaAlle(courseId, chapterId);
   // Fallback: narrativ-kapittel som ikke har en egen metadata-oppføring. Syntetiser
   // meta fra originalkapittelet som peker hit via linkedChapterId, slik at både
   // «Lesevennlig versjon»-toggle og selve narrativ-ruten virker — uten å måtte
   // duplisere en metadata-oppføring for hvert eneste narrativ-kapittel.
   if (!meta && chapterId.endsWith('-narrativ')) {
-    const original = course?.chapters.find((c) => c.linkedChapterId === chapterId);
+    const original = TEXTBOOK_COURSES_ALLE.find((c) => c.id === courseId)?.chapters.find((c) => c.linkedChapterId === chapterId);
     if (original) {
       meta = {
         ...original,
@@ -474,6 +490,12 @@ export function getChapterMeta(
         linkedChapterId: original.id,
         isNarrativeVersion: true,
       };
+      // Sammenslått original (23.10.2026): den lesevennlige versjonen videresendes til målets lesevennlige versjon
+      // når den finnes, ellers til målkapitlet.
+      if (original.erstattesAv) {
+        const maal = TEXTBOOK_COURSES_ALLE.find((c) => c.id === courseId)?.chapters.find((c) => c.id === original.erstattesAv);
+        meta.erstattesAv = maal?.linkedChapterId ?? original.erstattesAv;
+      }
     }
   }
   if (!meta || malform !== 'nn') return meta;

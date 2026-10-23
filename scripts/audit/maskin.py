@@ -74,7 +74,7 @@ FORBUDT = [
     ('IQR/interkvartil', r'\bIQR\b|[Ii]nterkvartil\w*', 'feil', 'alt', None),
     ('arcsin/arccos/arctan', r'arc(?:sin|cos|tan)', 'feil', 'alt', None),
     ('engelsk huskeregel', r'\b(?:SOH|CAH|TOA|PEMDAS|BODMAS|FOIL|PEEL)\b', 'feil', 'alt', None),
-    ('«Steg N»', r'(?:^|\*\*|\()\s*Steg \d+\b', 'feil', 'tekst', None),
+    ('«Steg N»', r'(?:^|\*\*|\()\s*(?:Steg|Skritt|Trinn) \d+\b', 'feil', 'tekst', None),
     ('vitenskapelig notasjon', r'[Vv]itenskapel[ei]g (?:notasjon|form)', 'feil', 'tekst', None),
     ('kvotientregel', r'[Kk]votientregel\w*', 'feil', 'tekst', None),
     ('ligning (→ likning)', r'\b[Ll]igning\w*|\w+(?<![Ss]ammen)ligning\w*', 'bør', 'tekst', None),

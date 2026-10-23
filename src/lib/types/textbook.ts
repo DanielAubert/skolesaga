@@ -39,6 +39,9 @@ export interface TextbookChapterMeta {
   auraColor?: string;            // Farge for tekst-aura (rgba format), matcher bakgrunnsbildet
   linkedChapterId?: string;      // ID til alternativ versjon av samme kapittel
   isNarrativeVersion?: boolean;  // Er dette en narrativ (lesevennlig) versjon?
+  // Daniel 23.10.2026 («skjul kapitlene utenfor planen og slå sammen dobbeltkapitlene»):
+  skjult?: boolean;              // Utenfor gjeldende læreplan: ikke i løypa/navigasjon/sitemap, men URL-en virker (noindex)
+  erstattesAv?: string;          // Slått sammen inn i dette kapitlet: URL-en videresendes dit, ikke i løypa
 }
 
 // ============================================================================
