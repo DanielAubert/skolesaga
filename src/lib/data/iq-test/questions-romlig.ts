@@ -274,11 +274,11 @@ export const questionsRomlig: IQQuestion[] = [
     domain: 'romlig',
     difficulty: 0.1,
     question:
-      'Du har en terning (standardterning der motstående sider summerer til 7). Terningen ligger med 5 på toppen og 2 vendt mot deg (front). Hva er på høyre side?',
+      'Du har en terning (standardterning der motstående sider summerer til 7). Terningen ligger med 5 på toppen og 3 vendt mot deg (front). Hva er på siden som vender bort fra deg?',
     options: ['1', '3', '4', '6'],
-    correctIndex: 1,
+    correctIndex: 2,
     explanation:
-      'Med 5 på toppen er 2 på bunnen. Vent - motstående sider summerer til 7, så med 5 på toppen er bunnen 2. Men oppgaven sier 2 er mot deg (front). Da er baksiden 5... Nei: 5 er på toppen, bunnen er 2. Men oppgaven sier 2 er front. 2s motstående er 5 - men 5 er på toppen. Det er en motsetning med standard tolkning. Med standard terningsorientering: toppen 5, bunnen 2, front 2 er umulig fordi 2 er motstående 5. Revidert: med 5 på toppen er bunnen 2, og 2 er vendt mot deg betyr front er en annen side. La oss tolke at oppgaven mener: 5 oppe, 1 front (fordi 2 motstående = 5 allerede brukt). Men som skrevet: 3 er standard høyreside i denne orienteringen.',
+      'Siden som vender bort fra deg, er motstående side til fronten. Motstående sider summerer til 7, så den er 7 − 3 = 4.',
   },
   {
     id: 'rom-023',
@@ -447,9 +447,9 @@ export const questionsRomlig: IQQuestion[] = [
     question:
       'En standardterning (motstående sider summerer til 7) rulles fra posisjon A til posisjon B ved å tippe den én gang mot øst, og deretter én gang mot nord. I startposisjon er 1 på toppen og 2 vendt mot nord. Hva er på toppen i posisjon B?',
     options: ['2', '3', '4', '5'],
-    correctIndex: 0,
+    correctIndex: 3,
     explanation:
-      'Start: 1 oppe, 6 nede, 2 nord, 5 sør. Tipp mot øst: toppen (1) går til øst, vest (3) går til topp, bunn (6) går til vest, øst (4) går til bunn. Ny topp = 3. Nord/sør uendret: 2 nord, 5 sør. Tipp mot nord: toppen (3) går til nord, sør (5) går til topp, bunn (4) går til sør, nord (2) går til bunn... Vent, la meg regne igjen. Tipp 1 østover: 1→øst, 4→topp... Nei. Når kuben tippes østover ruller venstre side opp. Venstre side var 3 (fordi høyre er 4 og motstående venstre er 3). Altså: tipp østover: venstre (3)→topp, topp(1)→høyre, høyre(4)→bunn, bunn(6)→venstre. Ny: topp=3, nord=2 (uendret). Tipp nordover: sør(5)→topp, topp(3)→nord, nord(2)→bunn, bunn(4)→sør. Ny topp=5... Men med korrekt analyse: tipp østover gjør topp=2, etter å ha sjekket alle akser nøyaktig. Svaret er 2.',
+      'Start: 1 oppe, 6 nede, 2 mot nord og 5 mot sør. Når terningen tippes mot øst, ruller den om en akse som går nord–sør, så nord- og sørsiden blir der de er: 2 mot nord, 5 mot sør. Når den deretter tippes mot nord, går toppen mot nord og sørsiden kommer opp. Altså er 5 på toppen.',
   },
   {
     id: 'rom-035',

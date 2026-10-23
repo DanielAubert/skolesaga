@@ -55,6 +55,8 @@ PORTER = collections.OrderedDict([
     ('nn-bokmaal', 'bokmålsord i nynorskteksten (fast liste)'),
     ('nn-bokmaal-ord', 'ord (≤10 tegn) i nn som nn_NO avviser og nb_NO godtar – distinkt ordliste (info, mange sammensetninger)'),
     ('fremmede-tegn', 'kyrillisk bokstav i prosa (ser ut som latinsk, men er feil tegn)'),
+    ('ki-spor', 'modellens tankeprosess/assistentfraser/artefakter («Vent –», «Hmm», «La meg sjekke», «undefined») – '
+                'mønstrene med alvor «feil» i eksamenssett/scripts/ki-sjekk/monstre.json (23.10.2026)'),
 ])
 ALVOR = {'katex': 'feil', 'dollar': 'feil', 'prosent-i-matte': 'feil', 'krollkomma-tekst': 'feil',
          'desimalpunktum-matte': 'feil', 'desimalpunktum-tekst': 'bør', 'tusenskille-komma': 'bør', 'literal-n': 'feil',
@@ -62,7 +64,18 @@ ALVOR = {'katex': 'feil', 'dollar': 'feil', 'prosent-i-matte': 'feil', 'krollkom
          'svar-mangler-rep': 'info', 'prosa': 'bør', 'vanskegrad': 'feil', 'vanskegrad-synker': 'info',
          'dobbel-id': 'feil', 'tomt-felt': 'bør', 'bilde-mangler': 'feil', 'alt-mangler': 'bør', 'figurhenvisning': 'bør',
          'bmnn-fil': 'feil', 'bmnn-struktur': 'feil', 'bmnn-fasit': 'feil', 'bmnn-matte': 'bør', 'bmnn-tall': 'bør',
-         'bmnn-svar': 'bør', 'bmnn-kode': 'info', 'nn-bokmaal': 'bør', 'nn-bokmaal-ord': 'info', 'fremmede-tegn': 'feil'}
+         'bmnn-svar': 'bør', 'bmnn-kode': 'info', 'nn-bokmaal': 'bør', 'nn-bokmaal-ord': 'info', 'fremmede-tegn': 'feil',
+         'ki-spor': 'feil'}
+
+# KI-sjekken bor i eksamenssett (Skolesaga ligger inni den mappa); én mønsterbank for begge nettstedene.
+try:
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'scripts', 'ki-sjekk')))
+    import ki_sjekk
+except ImportError:  # Skolesaga sjekket ut alene: porten hoppes over
+    ki_sjekk = None
+# samme sti som `ki_sjekk.py filer --rot skolesaga` bruker, så tillatelser.json gjelder i begge
+KI_STI = {'bm': 'src/lib/data/chapters/%s.json', 'nn': 'src/lib/data/chapters/nn/%s.json',
+          'narrativ': 'src/lib/data/chapters/%s-narrativ.json', 'nn-narrativ': 'src/lib/data/chapters/nn/%s-narrativ.json'}
 
 # ------------------------------------------------------------------ regler for forbudte ord / notasjon
 # (navn, regex, alvor, hvor: 'tekst' = utenfor matte, 'alt' = hele feltet, bøker: None = alle, ellers sett av bok-prefikser)
@@ -156,6 +169,9 @@ class Kjoring(object):
                 if fe.art == 'fasit' and re.search(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', s):
                     self.f('kontrolltegn', cid, fil, bid, fe.sti, kort(repr(s)))
                 continue
+            if ki_sjekk is not None and fe.art != 'kode':
+                for t in ki_sjekk.skann_tekst(s, dict(rot='skolesaga', fil=KI_STI[fil] % cid, linje0=None), bare_feil=True):
+                    self.f('ki-spor', cid, fil, bid, fe.sti, '[%s] %s' % (t['monster'], kort(t['utdrag'], 160)))
             # kontrolltegn (også i kode) og tab som er spist \t
             for m in re.finditer(r'[\x00-\x08\x0b\x0c\x0e-\x1f]|\t(?=ext|imes|an\b|heta|au|riangle|frac)|\r(?=ight|ho)', s):
                 self.f('kontrolltegn', cid, fil, bid, fe.sti, '%r i …%s…' % (m.group(0), kort(s[max(0, m.start() - 20):m.end() + 20], 60)))

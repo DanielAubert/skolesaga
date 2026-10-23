@@ -73,6 +73,7 @@ hunspell ikke finnes lokalt — svarene hurtiglagres i `cache/`, så kjente ord 
 | bilde-mangler / alt-mangler | feil / bør | bildesti finnes ikke i `public/`; bilde uten alt-tekst |
 | figurhenvisning | bør | «figuren (nedenfor)» uten figur i blokka eller ±3 naboblokker |
 | fremmede-tegn | feil | kyrillisk bokstav i prosa («Fellesnemнaren») |
+| ki-spor | feil | modellens tankeprosess, assistentfraser og artefakter («Vent –», «Hmm», «La meg sjekke», «Oops», «undefined»): «feil»-mønstrene i `../scripts/ki-sjekk/monstre.json` (eksamenssett-rota), unntak i `tillatelser.json` der. Treff betyr nesten alltid at oppgaven rundt også er feil — regn på nytt (FEILKLASSER E1, 23.10.2026). Hele Skolesaga: `python3 scripts/ki-sjekk/ki_sjekk.py filer --rot skolesaga` fra eksamenssett-rota |
 | bmnn-fil/-struktur/-fasit | feil | nn-fil mangler; blokk-id-er, rekkefølge, typer, felt; answer/isCorrect/difficulty/bildesti ulike |
 | bmnn-matte/-tall/-svar | bør | formler, tall i teksten, antall `**Svar` ulike i samme felt |
 | bmnn-kode | info | GeoGebra-kommandoer ulike (kan være nynorske kommandonavn) |

@@ -308,17 +308,17 @@ export const EXERCISES_R1_DERIVASJON: ValidatedExercise[] = [
   },
   {
     id: 'r1-der-6',
-    task: 'Finn andrederiverte av f(x) = x³ - 6x² + 9x. Beregn f\'\'(2) og lagre i variabelen dd.',
+    task: 'Finn den dobbeltderiverte av f(x) = x³ - 6x² + 9x. Beregn f\'\'(3) og lagre i variabelen dd.',
     initialCommands: ['f(x) = x^3 - 6*x^2 + 9*x', 'ZoomIn[-5, -5, 10, 10]'],
     validations: [
       {
         id: 'r1-der-6-a',
         type: 'value',
         name: 'dd',
-        description: 'f\'\'(2) skal være -12',
-        expected: -12,
+        description: 'f\'\'(3) skal være 6',
+        expected: 6,
         tolerance: 0.01,
-        hint: 'f\'(x) = 3x² - 12x + 9, f\'\'(x) = 6x - 12. Derfor f\'\'(2) = 12 - 12 = 0... vent, det blir 0!',
+        hint: 'f\'(x) = 3x² - 12x + 9, f\'\'(x) = 6x - 12. Derfor f\'\'(3) = 18 - 12 = 6',
       },
     ],
   },

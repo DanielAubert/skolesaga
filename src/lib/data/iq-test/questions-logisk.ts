@@ -403,11 +403,11 @@ export const questionsLogisk: IQQuestion[] = [
     domain: 'logisk',
     difficulty: 1.3,
     question:
-      'En av tre mistenkte - Ali, Berit eller Carl - begikk en forbrytelse. De avgir følgende forklaringer: Ali: "Berit gjorde det." Berit: "Carl gjorde det." Carl: "Berit lyver." Nøyaktig én av dem snakker sant. Hvem begikk forbrytelsen?',
+      'En av tre mistenkte - Ali, Berit eller Carl - begikk en forbrytelse. De avgir følgende forklaringer: Ali: "Berit gjorde det." Berit: "Carl gjorde det." Carl: "Berit lyver." Nøyaktig to av dem snakker sant. Hvem begikk forbrytelsen?',
     options: ['Ali', 'Berit', 'Carl', 'Umulig å avgjøre'],
-    correctIndex: 0,
+    correctIndex: 1,
     explanation:
-      'Berit sier "Carl gjorde det" og Carl sier "Berit lyver", dvs. Carl sier "Carl gjorde det IKKE." Disse to sier motsatte ting, så nøyaktig én av dem snakker sant. Siden bare én person totalt snakker sant, må Ali lyve. Ali sier "Berit gjorde det", og siden Ali lyver, gjorde Berit det IKKE. Av Berit og Carl snakker én sant: Hvis Berit snakker sant, gjorde Carl det - men da lyver Carl ("Berit lyver" er usant, dvs. Berit snakker sant - konsistent). Vent, la oss sjekke: Hvis Carl gjorde det, snakker Berit sant og Carl lyver - men Carl sier "Berit lyver" som da er usant = Carl lyver. Konsistent, men da er det Carl. La oss sjekke Ali-scenariet: Hvis Ali gjorde det, lyver Ali ("Berit gjorde det" er usant ✓), Berit sier "Carl gjorde det" som er usant (Berit lyver ✓), Carl sier "Berit lyver" som er sant ✓. Nøyaktig én (Carl) snakker sant. Det stemmer! Ali begikk forbrytelsen.',
+      'Carl sier "Berit lyver". Det er sant nøyaktig når Berits påstand er usann, så nøyaktig én av Berit og Carl snakker sant. Da må Ali være den andre som snakker sant, og Ali sier at Berit gjorde det. Kontroll: Berit gjorde det, så Berits påstand («Carl gjorde det») er usann og Carls påstand («Berit lyver») er sann. Ali og Carl snakker sant – nøyaktig to.',
   },
   {
     id: 'log-028',
@@ -441,7 +441,7 @@ export const questionsLogisk: IQQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'A sier "Vi er alle løgnere." Hvis A er sannsi, snakker A sant, men da er ikke alle løgnere (A er sannsi) - selvmotsigelse. Altså er A en løgner, og påstanden er usann: ikke alle er løgnere, dvs. minst én er sannsi. Hvis B er sannsi, snakker B sant: nøyaktig én er sannsi. Det betyr A og C er løgnere, og B er den eneste sannsieren. La oss sjekke: A er løgner ✓, B er sannsi ✓, C er løgner. Nøyaktig én sannsi ✓. B er en sannsi.',
+      'A sier "Vi er alle løgnere." Hvis A er sannsi, snakker A sant, men da er ikke alle løgnere (A er sannsi) - selvmotsigelse. Altså er A en løgner, og påstanden er usann: ikke alle er løgnere, dvs. minst én er sannsi. Anta at B er løgner. Da er A og B løgnere, og siden minst én er sannsi, må C være sannsi. Da er nøyaktig én sannsi, og B snakker sant – en selvmotsigelse. Altså er B sannsi (og C er løgner, siden nøyaktig én er sannsi).',
   },
   {
     id: 'log-030',
@@ -464,11 +464,11 @@ export const questionsLogisk: IQQuestion[] = [
     domain: 'logisk',
     difficulty: 1.8,
     question:
-      'Tre venner har hver sin jobb: lærer, lege og advokat. Og de bor i tre forskjellige byer: Oslo, Bergen og Trondheim. Vi vet: 1) Legen bor ikke i Oslo. 2) Læreren bor i Trondheim. 3) Siri er ikke lærer. 4) Tor bor i Oslo. 5) Ulla er lege. Hvor bor Siri?',
+      'Tre venner har hver sin jobb: lærer, lege og advokat. Og de bor i tre forskjellige byer: Oslo, Bergen og Trondheim. Vi vet: 1) Legen bor ikke i Oslo. 2) Læreren bor i Trondheim. 3) Siri er ikke lærer. 4) Tor bor ikke i Oslo. 5) Ulla er lege. Hvor bor Siri?',
     options: ['Oslo', 'Bergen', 'Trondheim', 'Kan ikke avgjøres'],
-    correctIndex: 1,
+    correctIndex: 0,
     explanation:
-      'Ulla er lege (5), og legen bor ikke i Oslo (1). Tor bor i Oslo (4). Læreren bor i Trondheim (2). Siri er ikke lærer (3). Altså er Tor eller Ulla lærer. Ulla er lege, så Tor er lærer. Læreren bor i Trondheim, men Tor bor i Oslo - selvmotsigelse? Nei: Tor bor i Oslo og er lærer, men læreren bor i Trondheim. Altså er Tor ikke læreren. Da er Siri ikke lærer (3) og Tor er ikke lærer. Altså er Ulla lærer. Men Ulla er lege (5) - selvmotsigelse. La meg re-evaluere: Ulla er lege, Siri er ikke lærer, altså er Siri advokat og Tor er lærer. Læreren (Tor) bor i Trondheim - men Tor bor i Oslo (4). Selvmotsigelse igjen. Hmm, la oss anta Tor bor i Oslo og er ikke læreren. Siri er ikke lærer. Altså er Ulla lærer. Men Ulla er lege. Det virker som vi trenger å se premissene som: Ulla er lege og bor ikke i Oslo. Tor bor i Oslo. Læreren bor i Trondheim. Siri er ikke lærer. Altså er Tor læreren (den eneste gjenværende), men Tor bor i Oslo, ikke Trondheim. Premissene er inkonsistente med kun disse tolkningene, men korrekt svar basert på oppgavens intensjon: Ulla (lege) bor i Bergen (ikke Oslo), Tor i Oslo, Siri i Trondheim - men Siri er ikke lærer. Mest logisk: Siri bor i Bergen.',
+      'Ulla er lege (5). Siri er ikke lærer (3), så Siri er advokat og Tor er lærer. Læreren bor i Trondheim (2), så Tor bor i Trondheim, som stemmer med (4). Legen Ulla bor ikke i Oslo (1), så Ulla bor i Bergen. Da gjenstår Oslo for Siri.',
   },
   {
     id: 'log-032',
@@ -495,12 +495,12 @@ export const questionsLogisk: IQQuestion[] = [
     options: [
       'A=sant, B=usant, C=sant',
       'A=sant, B=sant, C=usant',
-      'A=usant, B=sant, C=usant',
+      'A=sant, B=sant, C=sant',
       'A=usant, B=usant, C=sant',
     ],
     correctIndex: 0,
     explanation:
-      'La oss sjekke A=sant, B=usant, C=sant: (sant ∨ usant)=sant ✓, (usant ∨ sant)=sant ✓, (sant ∨ usant)=sant ✓. Alle tre ledd er sanne, altså er uttrykket sant. De andre alternativene: B: (s∨s)∧(u∨u)∧(u∨s) = s∧u∧s = usant. C: (u∨s)∧(s∨u)∧(u∨s) = s∧s∧s = sant. Vent - C fungerer også! La meg re-sjekke C: ¬B=usant→¬B∨¬C = usant∨sant = sant. Ja, C fungerer. Men la oss re-sjekke: (¬B ∨ ¬C) med B=sant, C=usant: (usant ∨ sant) = sant ✓. OK, la meg sjekke A: (sant∨usant)=sant, (usant∨sant)=sant, (sant∨usant)=sant. Korrekt!',
+      'A=sant, B=usant, C=sant: (sant ∨ usant) = sant, (usant ∨ sant) = sant, (sant ∨ usant) = sant. Alle tre ledd er sanne, så uttrykket er sant. A=sant, B=sant, C=usant: (¬A ∨ C) = (usant ∨ usant) = usant. A=sant, B=sant, C=sant: (¬B ∨ ¬C) = (usant ∨ usant) = usant. A=usant, B=usant, C=sant: (A ∨ B) = (usant ∨ usant) = usant.',
   },
   {
     id: 'log-034',
