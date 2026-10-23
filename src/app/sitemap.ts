@@ -1,3 +1,4 @@
+import { visFlashcards } from '@/lib/data/flashcard-counts';
 import chapterDates from '@/lib/data/chapters/_dates.json';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -195,12 +196,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'weekly',
         priority: 0.8,
       },
-      {
+      ...(visFlashcards(course.id) ? [{
         url: `${BASE_URL}/${course.id}/flashcards`,
         lastModified: newest,
-        changeFrequency: 'monthly',
+        changeFrequency: 'monthly' as const,
         priority: 0.5,
-      },
+      }] : []),
       {
         url: `${BASE_URL}/${course.id}/kompetansemal`,
         lastModified: newest,

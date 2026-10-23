@@ -4,6 +4,7 @@ import { getCourse, getSectionNames } from '@/lib/data/textbook-courses';
 import { getFlashcardDefinitions } from '@/lib/data/flashcard-definitions';
 import { FlashcardClient } from './flashcard-client';
 import { pageMetadata } from '@/lib/seo';
+import { visFlashcards } from '@/lib/data/flashcard-counts';
 
 interface PageProps {
   params: Promise<{ courseId: string }>;
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
   // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
-  if (!course || getFlashcardDefinitions(courseId).length === 0) {
+  if (!course || !visFlashcards(courseId) || getFlashcardDefinitions(courseId).length === 0) {
     notFound();
   }
 
@@ -41,7 +42,7 @@ export default async function FlashcardsPage({ params, searchParams }: PageProps
   const { seksjon } = await searchParams;
   const course = getCourse(courseId);
 
-  if (!course) {
+  if (!course || !visFlashcards(courseId)) {
     notFound();
   }
 

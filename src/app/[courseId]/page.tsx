@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
-import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-counts';
+import { getFlashcardDefinitionCount, visFlashcards } from '@/lib/data/flashcard-counts';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { getKildegrunnlag } from '@/lib/data/kildegrunnlag';
 import { HoyskoleDisclaimer } from '@/components/textbook/hoyskole-disclaimer';
@@ -359,7 +359,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
             </span>
             <ChevronRight className="h-4 w-4" />
           </Link>
-          {getFlashcardDefinitionCount(courseId) > 0 && (
+          {visFlashcards(courseId) && (
             <Link
               href={`/${courseId}/flashcards`}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"

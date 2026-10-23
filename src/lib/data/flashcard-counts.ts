@@ -37,3 +37,14 @@ export function getFlashcardDefinitionCount(courseId: string): number {
   }
   return sum;
 }
+
+/**
+ * Daniel 23.10.2026: «Flashcards kan du fjerne midlertidig ifra skolesagasidene dersom det er så få slik som her.»
+ * Bøker under sidens minstekrav (500 kort) viser ikke flashcards — knapp, rute og sitemap følger denne.
+ * Senk/fjern grensen når bøkene har fått kortene sine.
+ */
+export const MIN_FLASHCARDS = 500;
+
+export function visFlashcards(courseId: string): boolean {
+  return getFlashcardDefinitionCount(courseId) >= MIN_FLASHCARDS;
+}
