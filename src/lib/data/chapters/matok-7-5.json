@@ -132,13 +132,13 @@
           {
             "label": "e",
             "task": "Drøft om du vil stole på svaret i d).",
-            "solution": "Nei. Hele det norske elsykkelsalget ligger i størrelsesorden 100 000 sykler i året, så modellen gir én forhandler over halvparten av markedet. Eksponentiell vekst kan ikke fortsette lenge — markedet blir mettet, konkurrenter kommer til, og folk som allerede har elsykkel, kjøper ikke ny hvert år. Modellen er laget fra seks år med data og ekstrapolerer ti år videre. Den er god for å beskrive årene 2019–2024 og brukbar for et år eller to framover, men ikke for 2034.\n\n![Koordinatsystem med antall år etter 2019 fra 0 til 18 langs den vannrette aksen og antall elsykler fra 0 til 150000 langs den loddrette. Seks røde målepunkter ligger helt nede ved aksen, mellom 1200 og 4460. En blå kurve merket N(t) = 1200 · 1,30^t går gjennom dem og stiger stadig brattere til nesten 135000 ved t lik 18. En grå stiplet vannrett linje ved 100000 er merket «hele det norske markedet», og kurven bryter gjennom den. En oransje stiplet loddrett linje ved t lik 5 er merket «målingene slutter».](/images/content/matematikk-okonomi/matok-7-5-elsykkel.png)\n\n*Modellen er laget av seks år med data (alt til venstre for den oransje linja) og brukt ti år videre. Da passerer den hele det norske markedet — og det er målestokken som gjør ekstrapoleringen urimelig, ikke regningen.*"
+            "solution": "Ifølge SSBs importstatistikk ble det importert mellom om lag 105 000 og 245 000 elektriske sykler i året i 2019–2024, og om lag 53 000 vanlige elsykler (pedaldrevne, høyst 250 W) i 2025.\n\nDa ville én forhandler med 61 400 solgte sykler stått for mellom en firedel og over halvparten av hele landets import i 2019–2024 — og for flere sykler enn hele importen av vanlige elsykler i 2025. Det er urimelig for én forhandler.\n\nEksponentiell vekst kan ikke fortsette lenge: markedet blir mettet, konkurrenter kommer til, og folk som allerede har elsykkel, kjøper ikke ny hvert år.\n\nModellen er laget fra seks år med data og ekstrapolerer ti år videre.\n\n**Svar:** Nei. Modellen er god for å beskrive årene 2019–2024 og brukbar for et år eller to framover, men ikke for 2034.\n\n![Koordinatsystem med antall år etter 2019 fra 0 til 18 langs den vannrette aksen og antall elsykler fra 0 til 150 000 langs den loddrette. Seks røde målepunkter ligger helt nede ved aksen, mellom 1200 og 4460. En blå kurve merket N(t) = 1200 · 1,30^t går gjennom dem og stiger stadig brattere til nesten 135 000 ved t lik 18; punktet ved t lik 15 er markert og merket «ca. 61 400 i 2034». En grå stiplet vannrett linje ved 105 000 er merket «laveste årlige import av elektriske sykler 2019–2024», og kurven bryter gjennom den like etter t lik 17. En oransje stiplet loddrett linje ved t lik 5 er merket «målingene slutter».](/images/content/matematikk-okonomi/matok-7-5-elsykkel-v2.png)\n\n*Modellen er laget av seks år med data (alt til venstre for den oransje linja) og brukt ti år videre. Da når én forhandler opp mot det hele landet har importert av elektriske sykler i et år — og det er målestokken som gjør ekstrapoleringen urimelig, ikke regningen.*"
           }
         ],
         "solution": "a) differansene øker — ikke lineært, b) forholdstallene er ca. 1,30 — eksponentielt, c) $N(t) = 1200 \\cdot 1{,}30^t$, d) ca. 61 400 sykler, e) urealistisk: eksponentiell vekst stanser når markedet mettes.",
         "hints": [
           "Konstante differanser gir lineær modell, konstante forholdstall gir eksponentiell.",
-          "I e): sammenlign svaret med hvor stort markedet er."
+          "I e): sammenlign svaret med hvor mange elsykler som blir importert til Norge i året."
         ],
         "competenceGoals": [
           "vurdere føresetnader, gyldigheitsområde og avgrensingar ved økonomiske modellar og bruke vurderingane til å tolke resultata i praktiske situasjonar"
@@ -191,7 +191,7 @@
           {
             "label": "e",
             "task": "Hvor mye taper bedriften i uken på kapasitetsgrensen, og hva ville du rådet den til?",
-            "solution": "$O(240) = -0{,}25 \\cdot 57\\,600 + 28\\,800 - 8000 = -14\\,400 + 28\\,800 - 8000 = 6400$ kr. Tapet er $6400 - 5500 = 900$ kr i uken, altså om lag 47 000 kr i året. En utvidelse lønner seg bare hvis den koster mindre enn dette — og da må vi dessuten sjekke om modellen fortsatt gjelder ved 240 enheter, siden den er laget for dagens produksjonslinje."
+            "solution": "$$O(240) = -0{,}25 \\cdot 57\\,600 + 28\\,800 - 8000$$\n$$O(240) = -14\\,400 + 28\\,800 - 8000 = 6400$$\n$$6400 - 5500 = 900$$\n\nTapet er 900 kr i uken, altså om lag $900 \\cdot 52 = 46\\,800 \\approx 47\\,000$ kr i året.\n\nEn utvidelse lønner seg bare hvis den koster mindre enn dette — og da må vi dessuten sjekke om modellen fortsatt gjelder ved 240 enheter, siden den er laget for dagens produksjonslinje.\n\n**Svar:** Bedriften taper 900 kr i uken. Den bør bare utvide hvis utvidelsen koster mindre enn om lag 47 000 kr i året."
           }
         ],
         "solution": "a) $x = 240$, b) nei, c) $O'(180) = 30 > 0$ — stigende, d) 5500 kr, e) tapet er 900 kr i uken, og en utvidelse må måles mot det.",
@@ -210,8 +210,8 @@
       "id": "matok-7-5-example-4",
       "type": "example",
       "title": "Eksempel 4: En modell som aldri tar slutt",
-      "problem": "I kapittel 7.3 brukte vi etterspørselskurven\n\n$$E(x) = \\frac{1000}{x + 5}$$\n\nUndersøk hva modellen sier når $x$ blir stor, og vurder om det er rimelig.",
-      "solution": "Vi regner ut noen verdier:\n\n$$E(5) = \\frac{1000}{10} = 100$$\n$$E(50) = \\frac{1000}{55} \\approx 18{,}18$$\n$$E(500) = \\frac{1000}{505} \\approx 1{,}98$$\n$$E(5000) = \\frac{1000}{5005} \\approx 0{,}20$$\n\nVerdiene blir mindre og mindre, men aldri null:\n\n$$\\lim_{x \\to \\infty} \\frac{1000}{x + 5} = 0$$\n\nModellen sier altså at det alltid finnes flere kjøpere, bare prisen settes lavt nok. Vil vi selge 99 995 enheter, må prisen ned i 1 øre:\n\n$$\\frac{1000}{x + 5} = 0{,}01 \\qquad | \\; \\cdot (x + 5)$$\n$$1000 = 0{,}01(x + 5) \\qquad | \\; : 0{,}01$$\n$$100\\,000 = x + 5$$\n$$x = 99\\,995$$\n\n**Er det rimelig?** Nei, ikke uten videre:\n\n- Det finnes et endelig antall mennesker i markedet. En etterspørselskurve som aldri treffer $x$-aksen, sier at markedet er uendelig stort.\n- Svært lave priser ville i praksis utløst noe helt annet enn mer salg: folk ville kjøpt for videresalg, eller mistenkt at varen var defekt.\n\n![Koordinatsystem med antall enheter x fra 0 til 200 og pris i kroner fra 0 til 120. En blå kurve merket E(x) = 1000/(x + 5) faller bratt fra venstre og flater ut mot x-aksen uten å treffe den. To punkter på kurven er markert med prikk og navngitt: markedskrysset ved 37 enheter og 23,8 kroner, og punktet (50; 18,2) litt lenger ute. En tekst sier at kurven aldri treffer x-aksen.](/images/content/matematikk-okonomi/matok-7-5-asymptote.png)\n\n*Modellen er brukbar i området den er laget for — rundt markedskrysset ved 37 enheter. At kurven aldri treffer $x$-aksen, betyr matematisk at det alltid finnes flere kjøpere, og det slutter å gjelde lenge før prisen er 1 øre.*\n\n**Svar:** Modellen er brukbar i det området den er laget for — rundt markedskrysset ved 37 enheter. Utenfor blir den urimelig, og den skal ikke brukes til å svare på spørsmål om massesalg til lave priser.\n\nNB: Legg merke til at det ikke er noe galt med funksjonen $\\frac{1000}{x+5}$ i seg selv. Det er **koblingen** mellom funksjonen og virkeligheten som slutter å gjelde. En modell har alltid et gyldighetsområde, også når formelen er definert overalt."
+      "problem": "I kapittel 7.3 brukte vi etterspørselskurven\n\n$$p(x) = \\frac{1000}{x + 5}$$\n\nUndersøk hva modellen sier når $x$ blir stor, og vurder om det er rimelig.",
+      "solution": "Vi regner ut noen verdier:\n\n$$p(5) = \\frac{1000}{10} = 100$$\n$$p(50) = \\frac{1000}{55} \\approx 18{,}18$$\n$$p(500) = \\frac{1000}{505} \\approx 1{,}98$$\n$$p(5000) = \\frac{1000}{5005} \\approx 0{,}20$$\n\nVerdiene blir mindre og mindre, men aldri null:\n\n$$\\lim_{x \\to \\infty} \\frac{1000}{x + 5} = 0$$\n\nModellen sier altså at det alltid finnes flere kjøpere, bare prisen settes lavt nok. Vil vi selge 99 995 enheter, må prisen ned i 1 øre:\n\n$$\\frac{1000}{x + 5} = 0{,}01 \\qquad | \\; \\cdot (x + 5)$$\n$$1000 = 0{,}01(x + 5) \\qquad | \\; : 0{,}01$$\n$$100\\,000 = x + 5$$\n$$x = 99\\,995$$\n\n**Er det rimelig?** Nei, ikke uten videre:\n\n- Det finnes et endelig antall mennesker i markedet. En etterspørselskurve som aldri treffer $x$-aksen, sier at markedet er uendelig stort.\n- Svært lave priser ville i praksis utløst noe helt annet enn mer salg: folk ville kjøpt for videresalg, eller mistenkt at varen var defekt.\n\n![Koordinatsystem med antall enheter x fra 0 til 200 og pris i kroner fra 0 til 120. En blå kurve merket p(x) = 1000/(x + 5) faller bratt fra venstre og flater ut mot x-aksen uten å treffe den. To punkter på kurven er markert med prikk og navngitt: markedskrysset ved om lag 37,3 enheter og 23,65 kroner, og punktet (50; 18,2) litt lenger ute. En tekst sier at kurven aldri treffer x-aksen.](/images/content/matematikk-okonomi/matok-7-5-asymptote-v2.png)\n\n*Modellen er brukbar i området den er laget for — rundt markedskrysset ved om lag 37,3 enheter og 23,65 kr. At kurven aldri treffer $x$-aksen, betyr matematisk at det alltid finnes flere kjøpere, og det slutter å gjelde lenge før prisen er 1 øre.*\n\n**Svar:** Modellen er brukbar i det området den er laget for — rundt markedskrysset ved om lag 37,3 enheter. Utenfor blir den urimelig, og den skal ikke brukes til å svare på spørsmål om massesalg til lave priser.\n\nNB: Legg merke til at det ikke er noe galt med funksjonen $\\frac{1000}{x+5}$ i seg selv. Det er **koblingen** mellom funksjonen og virkeligheten som slutter å gjelde. En modell har alltid et gyldighetsområde, også når formelen er definert overalt."
     },
         {
       "id": "matok-7-5-ex-block-4",
@@ -282,7 +282,7 @@
           {
             "label": "a",
             "task": "Vis at $I(p) = 4000p - 50p^2$, og finn prisen konsulenten anbefaler (i kroner).",
-            "solution": "$I(p) = p \\cdot q(p) = p(4000 - 50p) = 4000p - 50p^2$. $I'(p) = 4000 - 100p = 0$ gir $p = 40$ kr. $I''(p) = -100 < 0$, altså toppunkt.",
+            "solution": "$I(p) = p \\cdot q(p) = p(4000 - 50p) = 4000p - 50p^2$. $I'(p) = 4000 - 100p = -100(p - 40)$ er null for $p = 40$, positiv for $p < 40$ og negativ for $p > 40$, altså toppunkt.\n\n**Svar:** Konsulenten anbefaler 40 kr.",
             "answer": 40
           },
           {
@@ -305,10 +305,10 @@
           {
             "label": "e",
             "task": "Drøft modellen: hvilke forutsetninger bygger den på, og hva bør kommunen gjøre?",
-            "solution": "Forutsetninger: at etterspørselen er lineær i hele prisområdet, at den er den samme for alle konserter, at alle som vil, får plass, og at det ikke er kostnader ved å selge en billett til. Modellen sier dessuten at 4000 personer vil inn gratis — et tall som er større enn hallen tre ganger om.\n\n**Prisområdet modellen er laget for** er $50 \\le p \\le 80$. Under 50 kr vil flere ha billett enn hallen har plasser, og ved 80 kr kollapser modellen: $q(80) = 4000 - 4000 = 0$, altså null solgte billetter, og over 80 kr gir den negativt billettsalg. Den øvre grensen er derfor ikke et tegn på at modellen slutter å gjelde der — det er punktet der den bryter sammen. Hvor langt modellen faktisk holder, vet vi ikke uten å vite hvilke billettsalg den er laget fra; i beste fall kunne den vært gyldig opp mot 80 kr.\n\nInnenfor det mulige prisområdet er inntekten $I(p) = p(4000 - 50p)$ synkende — toppunktet ligger ved 40 kr, altså til venstre for 50 — så 50 kr gir størst inntekt blant de prisene som er mulige. Kommunen bør sette prisen til 50 kr, men først be om å få vite hvilke data modellen bygger på: er den laget fra faktiske billettsalg, eller er den gjettet?"
+            "solution": "Forutsetninger: at etterspørselen er lineær i hele prisområdet, at den er den samme for alle konserter, at alle som vil, får plass, og at det ikke er kostnader ved å selge en billett til. Modellen sier dessuten at 4000 personer vil inn gratis — mer enn to og en halv gang så mange som hallen rommer ($4000 : 1500 \\approx 2{,}7$).\n\nVi må skille mellom to områder.\n\n**Prisområdet der modellen gir mulige svar i denne hallen** er $50 \\le p < 80$.\n\nUnder 50 kr vil flere ha billett enn hallen har plasser.\n\nVed 80 kr gir modellen null solgte billetter, og over 80 kr gir den negativt billettsalg:\n\n$$q(80) = 4000 - 4000 = 0$$\n\n**Området modellen er laget fra** kjenner vi ikke. Det avhenger av hvilke billettsalg konsulenten bygde på, og er modellen laget fra salg ved helt andre priser, kan den være upålitelig også mellom 50 og 80 kr.\n\nInnenfor $50 \\le p < 80$ er $I'(p) = 4000 - 100p$ negativ, så inntekten synker. Toppunktet ved 40 kr ligger til venstre for 50, og 50 kr gir størst inntekt blant de prisene som er mulige.\n\n**Svar:** Kommunen bør sette prisen til 50 kr, men først be om å få vite hvilke data modellen bygger på: er den laget fra faktiske billettsalg, eller er den gjettet?"
           }
         ],
-        "solution": "a) 40 kr, b) 2000 billetter, c) hallen tar bare 1500 — kapasiteten er ikke med i modellen, d) 50 kr gir 75 000 kr, e) prisområdet modellen er laget for er $50 \\le p \\le 80$ (ved 80 kr kollapser den), og innenfor det er 50 kr den beste prisen.",
+        "solution": "a) 40 kr, b) 2000 billetter, c) hallen tar bare 1500 — kapasiteten er ikke med i modellen, d) 50 kr gir 75 000 kr, e) modellen gir mulige svar i hallen for $50 \\le p < 80$ (ved 80 kr gir den null billetter), mens området den er laget fra, er ukjent; innenfor det mulige området er 50 kr den beste prisen.",
         "hints": [
           "Sjekk alltid om svaret er mulig i den virkelige situasjonen.",
           "Når toppunktet ligger utenfor det mulige området, ser du på endepunktet."
@@ -328,7 +328,7 @@
         "number": "7.5.6",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "En bedrift har målt strømforbruket sitt i gigawattimer (GWh), der $x$ er antall år etter 2020:\n\n| $x$ | 0 | 2 | 4 | 6 | 8 |\n|---|---|---|---|---|---|\n| Forbruk | 120 | 150 | 196 | 258 | 336 |\n\nLineær regresjon gir $f(x) = 27x + 104$, og kvadratisk regresjon gir $g(x) = 2x^2 + 11x + 120$. Bruk regneark eller GeoGebra.",
+        "task": "En bedrift har målt strømforbruket sitt i gigawattimer (GWh), der $x$ er antall år etter 2018:\n\n| $x$ | 0 | 2 | 4 | 6 | 8 |\n|---|---|---|---|---|---|\n| Forbruk | 120 | 150 | 196 | 258 | 336 |\n\nLineær regresjon gir $f(x) = 27x + 104$, og kvadratisk regresjon gir $g(x) = 2x^2 + 11x + 120$. Bruk regneark eller GeoGebra.",
         "subTasks": [
           {
             "label": "a",
@@ -342,22 +342,22 @@
           },
           {
             "label": "c",
-            "task": "Hva gir de to modellene for 2030 ($x = 10$)?",
+            "task": "Hva gir de to modellene for 2028 ($x = 10$)?",
             "solution": "$f(10) = 270 + 104 = 374$ GWh og $g(10) = 200 + 110 + 120 = 430$ GWh.",
             "answer": 430
           },
           {
             "label": "d",
-            "task": "Hva gir de to modellene for 2040 ($x = 20$)?",
+            "task": "Hva gir de to modellene for 2038 ($x = 20$)?",
             "solution": "$f(20) = 540 + 104 = 644$ GWh og $g(20) = 800 + 220 + 120 = 1140$ GWh — nesten det dobbelte."
           },
           {
             "label": "e",
-            "task": "Drøft hvilken modell du vil bruke til å planlegge strømavtalen for 2030, og hvilke forbehold du vil ta.",
-            "solution": "Til 2030 vil jeg bruke den kvadratiske modellen, både fordi den treffer alle målingene og fordi avviksmønsteret til den lineære viser at formen er feil. Men jeg tar forbehold: modellen bygger på åtte år med data, og 2030 ligger to år utenfor måleområdet. Den forutsetter dessuten at veksten fortsetter av samme grunn som før — at bedriften vokser i samme takt, at ingen energieffektivisering kommer, og at ingen produksjonslinje legges ned. For 2040 vil jeg ikke bruke noen av dem: da ekstrapolerer vi mer enn dobbelt så langt som dataene rekker, og modellene er uenige om nesten 500 GWh. Da er svaret ikke et tall, men en anbefaling om å måle på nytt underveis."
+            "task": "Drøft hvilken modell du vil bruke til å planlegge strømavtalen for 2028, og hvilke forbehold du vil ta.",
+            "solution": "Til 2028 vil jeg bruke den kvadratiske modellen, både fordi den treffer alle målingene og fordi avviksmønsteret til den lineære viser at formen er feil.\n\nMen jeg tar forbehold: modellen bygger på åtte år med data, og 2028 ligger to år utenfor måleområdet. Den forutsetter dessuten at veksten fortsetter av samme grunn som før — at bedriften vokser i samme takt, at ingen energieffektivisering kommer, og at ingen produksjonslinje legges ned.\n\nFor 2038 vil jeg ikke bruke noen av dem: da ekstrapolerer vi mer enn dobbelt så langt som dataene rekker, og modellene er uenige om nesten 500 GWh.\n\n**Svar:** Den kvadratiske modellen til 2028, med forbehold. For 2038 er svaret ikke et tall, men en anbefaling om å måle på nytt underveis."
           }
         ],
-        "solution": "a) lineær bommer med opptil 16 GWh, kvadratisk treffer eksakt, b) den kvadratiske — avvikene til den lineære har et krummingsmønster, c) 374 GWh og 430 GWh, d) 644 GWh og 1140 GWh, e) kvadratisk til 2030 med forbehold, ingen av dem til 2040.",
+        "solution": "a) lineær bommer med opptil 16 GWh, kvadratisk treffer eksakt, b) den kvadratiske — avvikene til den lineære har et krummingsmønster, c) 374 GWh og 430 GWh, d) 644 GWh og 1140 GWh, e) kvadratisk til 2028 med forbehold, ingen av dem til 2038.",
         "hints": [
           "Se på fortegnsmønsteret i avvikene, ikke bare på størrelsen.",
           "Hvor langt utenfor måleområdet spør oppgaven?"

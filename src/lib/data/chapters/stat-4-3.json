@@ -286,14 +286,14 @@
     {
       "id": "stat-4-3-section-lage-modell",
       "type": "text",
-      "content": "## Hvor sannsynlighetene kommer fra\n\nNår du skal lage en modell, henter du tallene fra én av tre kilder:\n\n**1. Symmetri (teoretisk).** Terningen har seks like sider, kortstokken 52 like kort. Symmetrien gir en uniform modell uten at vi trenger data.\n\n**2. Data (empirisk).** Vi har ingen symmetri å støtte oss på, men vi har observasjoner. Da bruker vi de relative frekvensene som sannsynligheter — for eksempel andelen av kundene som betalte kontant i fjor. Store talls lov er begrunnelsen: med nok observasjoner ligger den relative frekvensen nær sannsynligheten.\n\n**3. Vurdering (subjektiv).** For engangshendelser finnes verken symmetri eller gjentatte forsøk. «Sannsynligheten for at prosjektet blir ferdig i tide er 70 %» er et fagfolks anslag. Det kan være godt begrunnet, men det er en vurdering, og bør merkes som det.\n\nUansett kilde gjelder det samme til slutt: **modellen må vurderes mot virkeligheten.** Passer den ikke, er det modellen som skal endres — ikke dataene."
+      "content": "## Hvor sannsynlighetene kommer fra\n\nNår du skal lage en modell, henter du tallene fra én av tre kilder:\n\n**1. Symmetri (teoretisk).** Terningen har seks like sider, kortstokken 52 like kort. Symmetrien gir en uniform modell uten at vi trenger data.\n\n**2. Data (empirisk).** Vi har ingen symmetri å støtte oss på, men vi har observasjoner. Da bruker vi de relative frekvensene som sannsynligheter — for eksempel andelen av kundene som betalte kontant i fjor. Store talls lov er begrunnelsen: med nok observasjoner ligger den relative frekvensen nær sannsynligheten.\n\n**3. Vurdering (subjektiv).** For engangshendelser finnes verken symmetri eller gjentatte forsøk. «Sannsynligheten for at prosjektet blir ferdig i tide er 70 %» er en fagpersons anslag. Det kan være godt begrunnet, men det er en vurdering, og bør merkes som det.\n\nUansett kilde gjelder det samme til slutt: **modellen må vurderes mot virkeligheten.** Passer den ikke, er det modellen som skal endres — ikke dataene."
     },
     {
       "id": "stat-4-3-example-4",
       "type": "example",
       "title": "Eksempel 4",
       "problem": "Vurder om en uniform modell er rimelig i hvert tilfelle. Begrunn.\n\na) En rettferdig terning kastes. $S$ er de seks sidene.\nb) Vi trekker en tilfeldig dag i et år og spør hvilken ukedag det er. $S$ er de sju ukedagene.\nc) Vi spør en tilfeldig person i Norge om hvilken landsdel hun bor i. $S$ er de fem landsdelene.\nd) En stiftemaskin kastes i været. $S$ er $\\{\\text{lander på siden},\\ \\text{lander på enden}\\}$.",
-      "solution": "**Løsning:**\n\nVi stiller det samme spørsmålet hver gang: *finnes det en symmetri eller en annen grunn til at utfallene skulle være like sannsynlige?*\n\na) Ja. Terningen er symmetrisk — alle sider er like store og like tunge. Uniform modell er rimelig, og hvert utfall får $\\frac{1}{6}$.\n\nb) Nesten. Et år har 365 dager, og $365 = 52 \\cdot 7 + 1$. Én ukedag forekommer altså 53 ganger og de øvrige 52 ganger. Avviket er lite ($\\frac{53}{365} \\approx 0{,}145$ mot $\\frac{52}{365} \\approx 0{,}142$), så den uniforme modellen er en god tilnærming — men den er ikke helt eksakt. Her er det riktig å si begge deler.\n\nc) Nei. Landsdelene har svært ulikt folketall; Østlandet har langt flere innbyggere enn Nord-Norge. Her må vi bruke en **empirisk** modell med folketallene fra SSB som grunnlag, ikke $\\frac{1}{5}$ på hver.\n\nd) Nei. En stiftemaskin er ikke symmetrisk, og vi har ingen grunn til å tro at de to måtene å lande på er like sannsynlige. Her finnes bare én farbar vei: kast den mange ganger og bruk de relative frekvensene — altså en **empirisk** modell.\n\n**Svar:** a) ja (symmetri), b) god tilnærming, men ikke eksakt, c) nei — bruk folketall, d) nei — bruk et forsøk."
+      "solution": "**Løsning:**\n\nVi stiller det samme spørsmålet hver gang: *finnes det en symmetri eller en annen grunn til at utfallene skulle være like sannsynlige?*\n\na) Ja. Terningen er symmetrisk — alle sider er like store og like tunge. Uniform modell er rimelig, og hvert utfall får $\\frac{1}{6}$.\n\nb) Nesten. Et år har 365 dager:\n\n$$365 = 52 \\cdot 7 + 1$$\n\nÉn ukedag forekommer altså 53 ganger og de øvrige 52 ganger (i et skuddår er det to ukedager som forekommer 53 ganger).\n\n$$\\frac{53}{365} \\approx 0{,}145 \\qquad \\text{mot} \\qquad \\frac{52}{365} \\approx 0{,}142$$\n\nAvviket er lite, så den uniforme modellen er en god tilnærming — men den er ikke helt eksakt.\n\nc) Nei. Landsdelene har svært ulikt folketall; Østlandet har langt flere innbyggere enn Nord-Norge. Her må vi bruke en **empirisk** modell med folketallene fra SSB som grunnlag, ikke $\\frac{1}{5}$ på hver.\n\nd) Nei. En stiftemaskin er ikke symmetrisk, og vi har ingen grunn til å tro at de to måtene å lande på er like sannsynlige. Her finnes bare én farbar vei: kast den mange ganger og bruk de relative frekvensene — altså en **empirisk** modell.\n\n**Svar:** a) ja (symmetri), b) god tilnærming, men ikke eksakt, c) nei — bruk folketall, d) nei — bruk et forsøk."
     },
     {
       "id": "stat-4-3-ex-block-4",
@@ -383,7 +383,7 @@
           {
             "label": "e",
             "task": "Kommunen trekker fire søknader, én for hver av fire potter, og legger søknaden tilbake mellom hver trekning. Bestem sannsynligheten for at ingen av de fire trekningene gir et idrettslag. Skriv svaret som en potens av en forkortet brøk.",
-            "solution": "$P(\\text{ikke idrettslag}) = 1 - \\frac{3}{10} = \\frac{7}{10}$ i hver trekning. Fire uavhengige trekninger gir $\\left(\\frac{7}{10}\\right)^4$.",
+            "solution": "$P(\\text{ikke idrettslag}) = 1 - \\frac{3}{10} = \\frac{7}{10}$ i hver trekning, siden søknaden legges tilbake.\n\nFørste trekning gir ikke idrettslag i $7$ av $10$ tilfeller. Av disse gir også andre trekning ikke idrettslag i $7$ av $10$, altså $\\frac{7}{10} \\cdot \\frac{7}{10}$ av gangene. Slik fortsetter det for tredje og fjerde trekning.\n\n$$\\frac{7}{10} \\cdot \\frac{7}{10} \\cdot \\frac{7}{10} \\cdot \\frac{7}{10} = \\left(\\frac{7}{10}\\right)^4$$\n\nRegelen om å gange sannsynligheter for uavhengige hendelser kommer i kapittel 4.5.\n\n**Svar:** $\\left(\\frac{7}{10}\\right)^4$",
             "expressionAnswer": "(7/10)^4"
           }
         ],
@@ -487,7 +487,7 @@
           }
         ],
         "hints": [
-          "Skille mellom hva vi ikke vet og hva modellen påstår."
+          "Skill mellom hva vi ikke vet og hva modellen påstår."
         ],
         "solution": "a) Kravet om like sannsynlige utfall. b) Vurdering, eventuelt støttet av data. c) Bedre, men gyldig bare hvis forholdene er uendret. d) Uvitenhet er ikke det samme som en uniform modell. e) Egen omskriving.",
         "competenceGoals": [

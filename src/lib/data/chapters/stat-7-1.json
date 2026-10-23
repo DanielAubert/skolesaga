@@ -142,7 +142,7 @@
           {
             "label": "e",
             "task": "Hvor mange ganger så mange måtte spørres i d) som i oppgaven? Passer det med $\\sqrt{n}$-regelen?",
-            "solution": "$\\frac{1824}{400} = 4{,}56$ ganger så mange. Standardfeilen skulle ned fra 2,14 til 1,00, altså med faktoren 2,14 — og $2{,}14^2 \\approx 4{,}56$. Det passer: utvalget må ganges med kvadratet av den ønskede forbedringen.",
+            "solution": "$\\frac{1824}{400} = 4{,}56$ ganger så mange.\n\nStandardfeilen skulle ned fra 2,14 til 1,00 prosentpoeng, altså med faktoren\n\n$$\\frac{0{,}02135}{0{,}01} \\approx 2{,}135 \\qquad 2{,}135^2 \\approx 4{,}56$$ Det passer: utvalget må ganges med kvadratet av den ønskede forbedringen.\n\n**Svar:** 4,56 ganger så mange, som er kvadratet av forbedringsfaktoren 2,135.",
             "answer": 4.56
           }
         ],
@@ -240,7 +240,7 @@
       "type": "example",
       "title": "Eksempel 4: Estimering i regneark",
       "problem": "En eiendomsmegler har kvadratmeterprisen (i kroner) for 20 tilfeldig valgte leiligheter solgt i en bydel:\n\n| | | | | |\n|---|---|---|---|---|\n| 48 500 | 52 300 | 45 900 | 61 200 | 55 400 |\n| 49 800 | 58 100 | 43 700 | 51 600 | 56 800 |\n| 47 200 | 62 500 | 50 300 | 53 900 | 46 400 |\n| 59 700 | 44 800 | 54 600 | 57 300 | 50 900 |\n\na) Bruk regneark til å finne $\\bar{x}$, $s$ og standardfeilen.\nb) Estimer andelen leiligheter i bydelen som koster over 55 000 kr per kvadratmeter.\nc) Hvilket av de to estimatene er sikrest, målt i forhold til sin egen størrelse?",
-      "solution": "**Løsning:**\n\n**a)** Vi legger de 20 tallene i A1:A20 og skriver:\n\n```\n=GJENNOMSNITT(A1:A20)      gir 52 545\n=STDAV.S(A1:A20)           gir 5583,3\n=ANTALL(A1:A20)            gir 20\n=STDAV.S(A1:A20)/ROT(20)   gir 1248,5\n```\n\nAltså\n\n$$\\bar{x} = 52\\,545 \\text{ kr} \\qquad s \\approx 5583 \\text{ kr} \\qquad SE(\\bar{x}) \\approx 1249 \\text{ kr}$$\n\n**b)** Vi teller hvor mange som er over 55 000:\n\n```\n=ANTALL.HVIS(A1:A20;\">55000\")   gir 7\n```\n\n$$\\hat{p} = \\frac{7}{20} = 0{,}35$$\n\nKontrollen: $n\\hat{p} = 7$ og $n(1-\\hat{p}) = 13$, begge over 5 — akkurat innenfor. Standardfeilen:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{0{,}35 \\cdot 0{,}65}{20}} = \\sqrt{0{,}011375} \\approx 0{,}107$$\n\nAltså nesten 11 prosentpoeng.\n\n**c)** Vi sammenligner hver standardfeil med sitt eget estimat:\n\n$$\\frac{1249}{52\\,545} \\approx 0{,}024 = 2{,}4 \\,\\% \\qquad \\text{mot} \\qquad \\frac{0{,}107}{0{,}35} \\approx 0{,}306 = 30{,}6 \\,\\%$$\n\nGjennomsnittet er altså mye sikrere anslått enn andelen.\n\n**Svar:** a) $\\bar{x} = 52\\,545$ kr, $s \\approx 5583$ kr, $SE \\approx 1249$ kr. b) $\\hat{p} = 0{,}35$ med $SE \\approx 0{,}107$. c) Gjennomsnittet — standardfeilen er 2,4 % av estimatet mot 30,6 % for andelen.\n\n**Hvorfor er andelen så mye dårligere?** Fordi vi kastet bort informasjon. Da vi delte leilighetene i «over» og «under» 55 000, ble en pris på 62 500 og en på 55 100 like — begge ble bare «over». Tjue tall som forteller mye, ble tjue tall som forteller lite. **Vil du estimere en andel presist, trenger du langt større utvalg enn til et gjennomsnitt.**"
+      "solution": "**Løsning:**\n\n**a)** Vi legger de 20 tallene i A1:A20 og skriver:\n\n```\n=GJENNOMSNITT(A1:A20)      gir 52 545\n=STDAV.S(A1:A20)           gir 5583,3\n=ANTALL(A1:A20)            gir 20\n=STDAV.S(A1:A20)/ROT(20)   gir 1248,5\n```\n\nAltså\n\n$$\\bar{x} = 52\\,545 \\text{ kr} \\qquad s \\approx 5583 \\text{ kr} \\qquad SE(\\bar{x}) \\approx 1249 \\text{ kr}$$\n\n**b)** Vi teller hvor mange som er over 55 000:\n\n```\n=ANTALL.HVIS(A1:A20;\">55000\")   gir 7\n```\n\n$$\\hat{p} = \\frac{7}{20} = 0{,}35$$\n\nKontrollen: $n\\hat{p} = 7$ og $n(1-\\hat{p}) = 13$, begge over 5 — akkurat innenfor. Standardfeilen:\n\n$$SE(\\hat{p}) = \\sqrt{\\frac{0{,}35 \\cdot 0{,}65}{20}} = \\sqrt{0{,}011375} \\approx 0{,}107$$\n\nAltså nesten 11 prosentpoeng.\n\n**c)** Vi sammenligner hver standardfeil med sitt eget estimat:\n\n$$\\frac{1249}{52\\,545} \\approx 0{,}024 = 2{,}4 \\,\\% \\qquad \\text{mot} \\qquad \\frac{0{,}107}{0{,}35} \\approx 0{,}306 = 30{,}6 \\,\\%$$\n\nGjennomsnittet er altså mye sikrere anslått enn andelen.\n\n**Svar:** a) $\\bar{x} = 52\\,545$ kr, $s \\approx 5583$ kr, $SE \\approx 1249$ kr. b) $\\hat{p} = 0{,}35$ med $SE \\approx 0{,}107$. c) Gjennomsnittet — standardfeilen er 2,4 % av estimatet mot 30,6 % for andelen.\n\n**Merk:** Andelen er så mye dårligere anslått fordi vi kastet bort informasjon. Da vi delte leilighetene i «over» og «under» 55 000, ble en pris på 62 500 og en på 55 100 like — begge ble bare «over». Tjue tall som forteller mye, ble tjue tall som forteller lite. **Vil du estimere en andel presist, trenger du langt større utvalg enn til et gjennomsnitt.**"
     },
     {
       "id": "stat-7-1-ex-block-4",
@@ -275,7 +275,7 @@
           {
             "label": "e",
             "task": "Regn standardfeilen til snittvekten i d), og forklar hvorfor 497,6 ikke i seg selv beviser at maskinen fyller for lite.",
-            "solution": "$SE = \\frac{4{,}2}{\\sqrt{30}} \\approx 0{,}77$ gram. Avviket fra 500 er 2,4 gram, altså omtrent 3 standardfeil — det er ganske mye, men et enkelt utvalg svinger, og spørsmålet om det er bevis nok, er nettopp det hypotesetesten i kapittel 7.5 skal svare på.",
+            "solution": "$SE = \\frac{4{,}2}{\\sqrt{30}} \\approx 0{,}77$ gram.\n\nAvviket fra 500 er 2,4 gram, altså omtrent 3 standardfeil.\n\nDet er ganske mye, men et enkelt utvalg svinger. Om det er bevis nok, er nettopp det hypotesetesten i kapittel 7.5 skal svare på.\n\n**Svar:** $SE \\approx 0{,}77$ gram. Ett utvalg alene beviser ikke at maskinen fyller for lite; det avgjøres med en hypotesetest.",
             "answer": 0.77
           }
         ],
@@ -327,7 +327,7 @@
           {
             "label": "e",
             "task": "Sett de fire svarene i en tabell. Hva skjer med antallet hver gang kravet halveres?",
-            "solution": "| krav | 3 ml | 2 ml | 1,5 ml | 1 ml |\n|---|---|---|---|---|\n| $n$ | 16 | 36 | 64 | 144 |\n\nFra 3 ml til 1,5 ml (halvering) går $n$ fra 16 til 64 — firedobling. Fra 2 ml til 1 ml går $n$ fra 36 til 144 — firedobling igjen. Å halvere standardfeilen koster fire ganger så mange målinger.",
+            "solution": "| krav | 3 ml | 2 ml | 1,5 ml | 1 ml |\n|---|---|---|---|---|\n| $n$ | 16 | 36 | 64 | 144 |\n\nFra 3 ml til 1,5 ml (halvering) går $n$ fra 16 til 64 — firedobling. Fra 2 ml til 1 ml går $n$ fra 36 til 144 — firedobling igjen.\n\n**Svar:** Hver gang kravet halveres, firedobles antallet målinger.",
             "answer": 4
           }
         ],
@@ -423,7 +423,7 @@
           {
             "label": "c",
             "task": "For hvilken verdi av $\\hat{p}$ er standardfeilen størst, når $n$ er fast? Regn ut $SE$ for $\\hat{p} = 0{,}1$, $0{,}3$ og $0{,}5$ med $n = 1000$.",
-            "solution": "Produktet $\\hat{p}(1-\\hat{p})$ er størst når $\\hat{p} = 0{,}5$. Med $n = 1000$: $\\hat{p} = 0{,}1$ gir 0,95 prosentpoeng, $\\hat{p} = 0{,}3$ gir 1,45 og $\\hat{p} = 0{,}5$ gir 1,58. Derfor regner byråene ofte med $\\hat{p} = 0{,}5$ når de planlegger utvalgsstørrelsen — da er de på den sikre siden uansett hva svaret blir.",
+            "solution": "Produktet $\\hat{p}(1-\\hat{p})$ er størst når $\\hat{p} = 0{,}5$. Med $n = 1000$:\n\n$\\hat{p} = 0{,}1$: $SE = \\sqrt{\\frac{0{,}1 \\cdot 0{,}9}{1000}} \\approx 0{,}0095$, altså 0,95 prosentpoeng\n\n$\\hat{p} = 0{,}3$: $SE = \\sqrt{\\frac{0{,}3 \\cdot 0{,}7}{1000}} \\approx 0{,}0145$, altså 1,45 prosentpoeng\n\n$\\hat{p} = 0{,}5$: $SE = \\sqrt{\\frac{0{,}5 \\cdot 0{,}5}{1000}} \\approx 0{,}0158$, altså 1,58 prosentpoeng\n\nDerfor regner byråene ofte med $\\hat{p} = 0{,}5$ når de planlegger utvalgsstørrelsen — da er de på den sikre siden uansett hva svaret blir.\n\n**Svar:** Standardfeilen er størst for $\\hat{p} = 0{,}5$ (1,58 prosentpoeng).",
             "answer": 0.5
           },
           {

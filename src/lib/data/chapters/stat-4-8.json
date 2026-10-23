@@ -42,14 +42,14 @@
     {
       "id": "stat-4-8-section-oppskrift",
       "type": "text",
-      "content": "## Framgangsmåten\n\nEnhver simulering følger de samme fem skrittene, enten du bruker regneark eller programmering:\n\n1. **Bestem modellen.** Hva er utfallene, og hvor sannsynlig er hvert av dem?\n2. **Simuler ett forsøk.** Trekk tilfeldige tall etter modellen.\n3. **Avgjør om hendelsen inntraff.** Skriv betingelsen som en test som gir sant eller usant.\n4. **Gjenta mange ganger og tell.** Hold en teller over hvor mange ganger hendelsen inntraff.\n5. **Del på antall forsøk, og tolk svaret.**\n\nSkritt 1 er det viktigste — og det maskinen ikke kan gjøre for deg. **Simuleringen måler den modellen du ga den**, ikke virkeligheten. Er modellen gal, blir svaret galt uansett hvor mange forsøk du kjører."
+      "content": "## Framgangsmåten\n\nEnhver simulering følger de samme fem skrittene, enten du bruker regneark eller programmering:\n\n1. **Bestem modellen.** Hva er utfallene, og hvor sannsynlig er hvert av dem?\n2. **Simuler ett forsøk.** Trekk tilfeldige tall etter modellen.\n3. **Avgjør om hendelsen inntraff.** Skriv betingelsen som en test som gir sant eller usant.\n4. **Gjenta mange ganger og tell.** Hold en teller over hvor mange ganger hendelsen inntraff.\n5. **Del på antall forsøk, og tolk svaret.**\n\nModellen er det viktigste — og det maskinen ikke kan gjøre for deg. **Simuleringen måler den modellen du ga den**, ikke virkeligheten. Er modellen gal, blir svaret galt uansett hvor mange forsøk du kjører."
     },
     {
       "id": "stat-4-8-example-1",
       "type": "example",
       "title": "Eksempel 1",
       "problem": "Vi vil anslå sannsynligheten for at summen av to terninger blir minst 10. Beskriv en simulering i regneark, og sammenlign med den teoretiske verdien.",
-      "solution": "**Løsning:**\n\n**Skritt 1 — modellen.** To terninger, hver med seks like sannsynlige utfall.\n\n**Skritt 2 — ett forsøk.** I celle A1 og B1 legger vi ett terningkast hver:\n\n```\nA1:  =TILFELDIGMELLOM(1;6)\nB1:  =TILFELDIGMELLOM(1;6)\n```\n\nI C1 regner vi summen:\n\n```\nC1:  =A1+B1\n```\n\n**Skritt 3 — testen.** I D1 skriver vi 1 når hendelsen inntraff, og 0 ellers:\n\n```\nD1:  =HVIS(C1>=10;1;0)\n```\n\n**Skritt 4 — gjenta og tell.** Vi merker A1:D1 og drar nedover til rad 5000. Så teller vi:\n\n```\nF1:  =SUMMER(D1:D5000)\n```\n\n**Skritt 5 — del og tolk.**\n\n```\nF2:  =F1/5000\n```\n\nEn kjøring gir typisk et tall rundt $0{,}17$. Trykker vi F9, regnes arket om med nye tilfeldige tall, og vi får et litt annet tall hver gang — det er uvissheten i selve simuleringen.\n\n**Den teoretiske verdien.** Summen blir minst 10 for parene\n\n$$(4,6),\\ (5,5),\\ (6,4),\\ (5,6),\\ (6,5),\\ (6,6)$$\n\nDet er 6 av de 36 utfallene:\n\n$$P(\\text{minst 10}) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167$$\n\nSimuleringen treffer altså godt. Merk rekkefølgen her: vi *kunne* regnet det ut med en gang, og simuleringen var strengt tatt unødvendig. Poenget er at metoden virker på et problem vi kan kontrollere — da tør vi bruke den på problemer vi ikke kan kontrollere.\n\n**Svar:** Simuleringen gir omtrent $0{,}17$; den teoretiske verdien er $\\frac{1}{6} \\approx 0{,}167$."
+      "solution": "**Løsning:**\n\n**Modellen.** To terninger, hver med seks like sannsynlige utfall.\n\n**Ett forsøk.** I celle A1 og B1 legger vi ett terningkast hver:\n\n```\nA1:  =TILFELDIGMELLOM(1;6)\nB1:  =TILFELDIGMELLOM(1;6)\n```\n\nI C1 regner vi summen:\n\n```\nC1:  =A1+B1\n```\n\n**Testen.** I D1 skriver vi 1 når hendelsen inntraff, og 0 ellers:\n\n```\nD1:  =HVIS(C1>=10;1;0)\n```\n\n**Gjenta og tell.** Vi merker A1:D1 og drar nedover til rad 5000. Så teller vi:\n\n```\nF1:  =SUMMER(D1:D5000)\n```\n\n**Del og tolk.**\n\n```\nF2:  =F1/5000\n```\n\nEn kjøring gir typisk et tall rundt $0{,}17$. Trykker vi F9, regnes arket om med nye tilfeldige tall, og vi får et litt annet tall hver gang — det er uvissheten i selve simuleringen.\n\n**Den teoretiske verdien.** Summen blir minst 10 for parene\n\n$$(4,6),\\ (5,5),\\ (6,4),\\ (5,6),\\ (6,5),\\ (6,6)$$\n\nDet er 6 av de 36 utfallene:\n\n$$P(\\text{minst 10}) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167$$\n\nSimuleringen treffer altså godt. Merk rekkefølgen her: vi *kunne* regnet det ut med en gang, og simuleringen var strengt tatt unødvendig. Poenget er at metoden virker på et problem vi kan kontrollere — da tør vi bruke den på problemer vi ikke kan kontrollere.\n\n**Svar:** Simuleringen gir omtrent $0{,}17$; den teoretiske verdien er $\\frac{1}{6} \\approx 0{,}167$."
     },
     {
       "id": "stat-4-8-note-f9",
@@ -117,7 +117,7 @@
       "type": "example",
       "title": "Eksempel 2",
       "problem": "I et spill kaster du to terninger. Du vinner dersom minst én av dem viser 5 eller 6.\n\na) Skriv et program som anslår vinnersannsynligheten.\nb) Bestem vinnersannsynligheten ved regning, og sammenlign.",
-      "solution": "**Løsning:**\n\na) Vi følger de fem skrittene.\n\n```python\nimport random\n\nantall = 100000\ntreff = 0\n\nfor i in range(antall):\n    t1 = random.randint(1, 6)\n    t2 = random.randint(1, 6)\n    if t1 >= 5 or t2 >= 5:\n        treff = treff + 1\n\nprint(treff / antall)\n```\n\n- `random.randint(1, 6)` er ett terningkast — skritt 2.\n- `if t1 >= 5 or t2 >= 5` er testen. `or` betyr «eller», og det er det inklusive «eller» fra kapittel 4.4: vinner du med begge, teller det også — skritt 3.\n- `treff = treff + 1` øker telleren. Legg merke til at ett likhetstegn *tilordner* en verdi; det er ikke en likning — skritt 4.\n- Siste linje deler på antall forsøk — skritt 5.\n\nProgrammet skriver ut et tall rundt $0{,}556$.\n\nb) Vi regner med komplementet, slik kapittel 4.2 lærte oss. Det motsatte av «minst én viser 5 eller 6» er «ingen av dem viser 5 eller 6», altså at begge viser 1, 2, 3 eller 4.\n\nFor én terning:\n\n$$P(\\text{høyst 4}) = \\frac{4}{6} = \\frac{2}{3}$$\n\nTerningene er uavhengige, så vi ganger:\n\n$$P(\\text{ingen 5 eller 6}) = \\frac{2}{3} \\cdot \\frac{2}{3} = \\frac{4}{9}$$\n\n$$P(\\text{vinner}) = 1 - \\frac{4}{9} = \\frac{9}{9} - \\frac{4}{9} = \\frac{5}{9} \\approx 0{,}556$$\n\nSimuleringen og utregningen stemmer overens. Da vet vi to ting: utregningen er trolig riktig, og programmet gjør trolig det det skal.\n\n**Svar:** a) Et program som teller treff i 100 000 kast; det gir omtrent $0{,}556$. b) $\\frac{5}{9} \\approx 0{,}556$."
+      "solution": "**Løsning:**\n\na) Vi følger de fem skrittene.\n\n```python\nimport random\n\nantall = 100000\ntreff = 0\n\nfor i in range(antall):\n    t1 = random.randint(1, 6)\n    t2 = random.randint(1, 6)\n    if t1 >= 5 or t2 >= 5:\n        treff = treff + 1\n\nprint(treff / antall)\n```\n\n- `random.randint(1, 6)` er ett terningkast — ett forsøk.\n- `if t1 >= 5 or t2 >= 5` er testen. `or` betyr «eller», og det er det inklusive «eller» fra kapittel 4.4: vinner du med begge, teller det også — testen.\n- `treff = treff + 1` øker telleren. Legg merke til at ett likhetstegn *tilordner* en verdi; det er ikke en likning — telleren.\n- Siste linje deler på antall forsøk — del og tolk.\n\nProgrammet skriver ut et tall rundt $0{,}556$.\n\nb) Vi regner med komplementet, slik kapittel 4.2 lærte oss. Det motsatte av «minst én viser 5 eller 6» er «ingen av dem viser 5 eller 6», altså at begge viser 1, 2, 3 eller 4.\n\nFor én terning:\n\n$$P(\\text{høyst 4}) = \\frac{4}{6} = \\frac{2}{3}$$\n\nTerningene er uavhengige, så vi ganger:\n\n$$P(\\text{ingen 5 eller 6}) = \\frac{2}{3} \\cdot \\frac{2}{3} = \\frac{4}{9}$$\n\n$$P(\\text{vinner}) = 1 - \\frac{4}{9} = \\frac{9}{9} - \\frac{4}{9} = \\frac{5}{9} \\approx 0{,}556$$\n\nSimuleringen og utregningen stemmer overens. Da vet vi to ting: utregningen er trolig riktig, og programmet gjør trolig det det skal.\n\n**Svar:** a) Et program som teller treff i 100 000 kast; det gir omtrent $0{,}556$. b) $\\frac{5}{9} \\approx 0{,}556$."
     },
     {
       "id": "stat-4-8-ex-block-2",
@@ -181,7 +181,7 @@
       "type": "example",
       "title": "Eksempel 3",
       "problem": "Forklar hvilken sannsynlighet programmet under anslår, og hvorfor simulering er et rimelig valg her.\n\n```python\nimport random\n\nn = 200000\nteller = 0\n\nfor i in range(n):\n    p = 1\n    for k in range(3):\n        p = p * random.randint(1, 6)\n    if p > 100:\n        teller = teller + 1\n\nprint(teller / n)\n```",
-      "solution": "**Løsning:**\n\n**Komponentene:**\n\n- `n = 200000` er antall forsøk, og `teller = 0` er telleren. Begge settes før løkka begynner.\n- Den ytre løkka `for i in range(n)` gjentar hele forsøket 200 000 ganger.\n- `p = 1` nullstiller — eller rettere, *én-stiller* — produktet foran hvert forsøk. Det må stå **inne i** den ytre løkka; sto det utenfor, ville produktet vokst gjennom alle forsøkene.\n- Den indre løkka `for k in range(3)` kjører tre ganger. Hver gang ganges `p` med et nytt terningkast. Etter tre runder er `p` produktet av tre terningkast.\n- `if p > 100` er testen: er produktet større enn 100?\n- `teller = teller + 1` øker telleren når testen slår til.\n- `print(teller / n)` skriver ut andelen — altså anslaget.\n\n**Flyten, to gjennomløp:**\n\n*Første gjennomløp av den ytre løkka.* `p` settes til 1. Indre løkke: si at terningene gir 4, 6 og 5. Da blir `p` først $1 \\cdot 4 = 4$, så $4 \\cdot 6 = 24$, så $24 \\cdot 5 = 120$. Testen $120 > 100$ slår til, og `teller` blir 1.\n\n*Andre gjennomløp.* `p` settes til 1 igjen. Si at terningene gir 2, 3 og 6. Da blir `p` $2$, så $6$, så $36$. Testen $36 > 100$ slår ikke til, og `teller` står stille på 1.\n\nOg så videre, 200 000 ganger. Til slutt deles telleren på 200 000.\n\n**Hvilken sannsynlighet?** Programmet anslår\n\n$$P(\\text{produktet av tre terningkast er større enn } 100)$$\n\n**Hvorfor simulering?** Utfallsrommet har $6^3 = 216$ utfall, og det finnes ingen enkel formel for hvor mange av dem som gir produkt over 100 — vi måtte gått gjennom alle 216 og telt. Det lar seg gjøre, men det er tungvint for hånd. Simuleringen gir svaret på et sekund, og gir dessuten en metode som fortsatt virker om vi går opp til fire eller fem terninger, der opptellingen blir uoverkommelig.\n\n**Svar:** Programmet anslår sannsynligheten for at produktet av tre terningkast blir større enn 100."
+      "solution": "**Løsning:**\n\n**Komponentene:**\n\n- `n = 200000` er antall forsøk, og `teller = 0` er telleren. Begge settes før løkka begynner.\n- Den ytre løkka `for i in range(n)` gjentar hele forsøket 200 000 ganger.\n- `p = 1` nullstiller — eller rettere, *én-stiller* — produktet foran hvert forsøk. Det må stå **inne i** den ytre løkka; sto det utenfor, ville produktet vokst gjennom alle forsøkene.\n- Den indre løkka `for k in range(3)` kjører tre ganger. Hver gang ganges `p` med et nytt terningkast. Etter tre runder er `p` produktet av tre terningkast.\n- `if p > 100` er testen: er produktet større enn 100?\n- `teller = teller + 1` øker telleren når testen slår til.\n- `print(teller / n)` skriver ut andelen — altså anslaget.\n\n**Flyten, to gjennomløp:**\n\n*Første gjennomløp av den ytre løkka.* `p` settes til 1. Si at terningene i den indre løkka gir 4, 6 og 5:\n\n$$1 \\cdot 4 = 4 \\qquad 4 \\cdot 6 = 24 \\qquad 24 \\cdot 5 = 120$$\n\nTesten $120 > 100$ slår til, og `teller` blir 1.\n\n*Andre gjennomløp.* `p` settes til 1 igjen. Si at terningene gir 2, 3 og 6:\n\n$$1 \\cdot 2 = 2 \\qquad 2 \\cdot 3 = 6 \\qquad 6 \\cdot 6 = 36$$\n\nTesten $36 > 100$ slår ikke til, og `teller` står stille på 1.\n\nOg så videre, 200 000 ganger. Til slutt deles telleren på 200 000.\n\n**Hvilken sannsynlighet?** Programmet anslår\n\n$$P(\\text{produktet av tre terningkast er større enn } 100)$$\n\n**Hvorfor simulering?** Utfallsrommet har $6^3 = 216$ utfall, og det finnes ingen enkel formel for hvor mange av dem som gir produkt over 100 — vi måtte gått gjennom alle 216 og telt. Det lar seg gjøre, men det er tungvint for hånd. Simuleringen gir svaret på et sekund, og gir dessuten en metode som fortsatt virker om vi går opp til fire eller fem terninger, der opptellingen blir uoverkommelig.\n\n**Svar:** Programmet anslår sannsynligheten for at produktet av tre terningkast blir større enn 100."
     },
     {
       "id": "stat-4-8-ex-block-3",
@@ -235,7 +235,7 @@
     {
       "id": "stat-4-8-section-usikkerhet",
       "type": "text",
-      "content": "## Hvor nøyaktig er en simulering?\n\nEt simuleringssvar er en **måling**, ikke en fasit. To kjøringer av samme program gir ulike tall, og forskjellen er ikke en feil — den er uvissheten.\n\nDen viktigste regelen å huske er denne:\n\n**For å halvere usikkerheten må du firedoble antall forsøk.**\n\nGrunnen er at usikkerheten synker som $\\dfrac{1}{\\sqrt{n}}$: firedobler du $n$, dobles $\\sqrt{n}$, og usikkerheten halveres. Det betyr at de første tusen forsøkene gir mye, mens de neste hundre tusen gir stadig mindre igjen for arbeidet.\n\nDerfor skal du **aldri oppgi et simuleringssvar med flere desimaler enn simuleringen kan bære**. Har du kjørt 1000 forsøk, er «0,3427» en påstand du ikke har dekning for; «omtrent 0,34» er ærlig."
+      "content": "## Hvor nøyaktig er en simulering?\n\nEt simuleringssvar er en **måling**, ikke en fasit. To kjøringer av samme program gir ulike tall, og forskjellen er ikke en feil — den er uvissheten.\n\nDen viktigste regelen å huske er denne:\n\n**For å halvere usikkerheten må du firedoble antall forsøk.**\n\nGrunnen er at usikkerheten synker som $\\dfrac{1}{\\sqrt{n}}$: firedobler du $n$, dobles $\\sqrt{n}$, og usikkerheten halveres.\n\nSom grov regel havner anslaget nesten alltid innenfor $\\pm\\dfrac{1}{\\sqrt{n}}$ fra den sanne sannsynligheten. Det er en grov **øvre feilmargin** (samme tommelfingerregel som i kapittel 3.1), ikke det typiske avviket — det typiske avviket er som regel mindre. Det betyr at de første tusen forsøkene gir mye, mens de neste hundre tusen gir stadig mindre igjen for arbeidet.\n\nDerfor skal du **aldri oppgi et simuleringssvar med flere desimaler enn simuleringen kan bære**. Har du kjørt 1000 forsøk, er «0,3427» en påstand du ikke har dekning for; «omtrent 0,34» er ærlig."
     },
     {
       "id": "stat-4-8-fig-simulering",
@@ -249,8 +249,8 @@
       "id": "stat-4-8-example-4",
       "type": "example",
       "title": "Eksempel 4",
-      "problem": "Figuren over viser 10 000 simulerte kast med to terninger sammenlignet med de teoretiske sannsynlighetene.\n\na) Hvorfor er søylene høyest i midten?\nb) Det største avviket mellom simulert og teoretisk andel er $0{,}0085$. Er det stort eller lite?\nc) Hvor mange kast måtte vi kjørt for å halvere det typiske avviket?",
-      "solution": "**Løsning:**\n\na) Fordi summene i midten kan oppnås på flest måter. Sum 7 kan komme av 6 av de 36 tallparene, mens sum 2 bare kan komme av ett — nemlig $(1,1)$.\n\n$$P(\\text{sum } 7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167 \\qquad P(\\text{sum } 2) = \\frac{1}{36} \\approx 0{,}028$$\n\nDette er det samme poenget som i kapittel 4.3: de 11 summene er ikke like sannsynlige, selv om de 36 parene er det.\n\nb) Det er lite. Avviket $0{,}0085$ skal sammenlignes med selve sannsynligheten det gjelder, $0{,}167$. Det tilsvarer omtrent 5 % av verdien, og en simulering på 10 000 forsøk kan ikke love bedre enn dette.\n\nEn nyttig målestokk: med 10 000 forsøk ligger det typiske avviket i størrelsesorden $\\frac{1}{\\sqrt{10\\,000}} = \\frac{1}{100} = 0{,}01$. Vårt største avvik er altså akkurat der man skulle vente.\n\nc) Usikkerheten synker som $\\frac{1}{\\sqrt{n}}$. Skal den halveres, må $\\sqrt{n}$ dobles, og da må $n$ firedobles:\n\n$$4 \\cdot 10\\,000 = 40\\,000 \\text{ kast}$$\n\n**Svar:** a) Fordi de midtre summene kan oppnås på flere måter. b) Lite — det er i den størrelsesorden 10 000 forsøk gir. c) 40 000 kast."
+      "problem": "Figuren over viser 10 000 simulerte kast med to terninger sammenlignet med de teoretiske sannsynlighetene.\n\na) Hvorfor er søylene høyest i midten?\nb) Det største avviket mellom simulert og teoretisk andel er $0{,}0086$, ved sum 5. Er det stort eller lite?\nc) Hvor mange kast måtte vi kjørt for å halvere usikkerheten?",
+      "solution": "**Løsning:**\n\na) Fordi summene i midten kan oppnås på flest måter. Sum 7 kan komme av 6 av de 36 tallparene, mens sum 2 bare kan komme av ett — nemlig $(1,1)$.\n\n$$P(\\text{sum } 7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}167 \\qquad P(\\text{sum } 2) = \\frac{1}{36} \\approx 0{,}028$$\n\nDette er det samme poenget som i kapittel 4.3: de 11 summene er ikke like sannsynlige, selv om de 36 parene er det.\n\nb) Det er lite. Avviket ligger ved sum 5, og skal sammenlignes med sannsynligheten der:\n\n$$P(\\text{sum } 5) = \\frac{4}{36} \\approx 0{,}111$$\n\n$$\\frac{0{,}0086}{0{,}111} \\approx 0{,}08$$\n\nAvviket er omtrent 8 % av verdien.\n\nEn nyttig målestokk er den grove øvre feilmarginen: med 10 000 forsøk havner anslaget nesten alltid innenfor\n\n$$\\pm\\frac{1}{\\sqrt{10\\,000}} = \\pm\\frac{1}{100} = \\pm 0{,}01$$\n\nVårt største avvik, $0{,}0086$, ligger innenfor.\n\nc) Usikkerheten synker som $\\frac{1}{\\sqrt{n}}$. Skal den halveres, må $\\sqrt{n}$ dobles, og da må $n$ firedobles:\n\n$$4 \\cdot 10\\,000 = 40\\,000 \\text{ kast}$$\n\n**Svar:** a) Fordi de midtre summene kan oppnås på flere måter. b) Lite — det ligger innenfor den grove feilmarginen $\\pm 0{,}01$ som 10 000 forsøk gir. c) 40 000 kast."
     },
     {
       "id": "stat-4-8-ex-block-4",
@@ -264,19 +264,19 @@
         "subTasks": [
           {
             "label": "a",
-            "task": "En simulering med 2500 forsøk gir anslaget 0,384. Omtrent hvor stort er det typiske avviket, regnet som $\\frac{1}{\\sqrt{n}}$? Svar med to desimaler.",
+            "task": "En simulering med 2500 forsøk gir anslaget 0,384. Hvor stor er den grove feilmarginen $\\frac{1}{\\sqrt{n}}$? Svar med to desimaler.",
             "solution": "$\\frac{1}{\\sqrt{2500}} = \\frac{1}{50} = 0{,}02$",
             "answer": 0.02
           },
           {
             "label": "b",
-            "task": "Hvor mange forsøk trengs for å halvere avviket i a)?",
+            "task": "Hvor mange forsøk trengs for å halvere feilmarginen i a)?",
             "solution": "Firedobling: $4 \\cdot 2500 = 10\\,000$",
             "answer": 10000
           },
           {
             "label": "c",
-            "task": "Hvor mange forsøk trengs for å gjøre avviket ti ganger mindre enn i a)?",
+            "task": "Hvor mange forsøk trengs for å gjøre feilmarginen ti ganger mindre enn i a)?",
             "solution": "$\\sqrt{n}$ må bli ti ganger større, så $n$ må bli hundre ganger større: $100 \\cdot 2500 = 250\\,000$",
             "answer": 250000
           },
@@ -292,8 +292,8 @@
           }
         ],
         "hints": [
-          "$\\frac{1}{\\sqrt{n}}$ er en grov, men brukbar målestokk på hvor mye anslaget svinger.",
-          "Skal avviket bli $k$ ganger mindre, må $n$ bli $k^2$ ganger større."
+          "$\\frac{1}{\\sqrt{n}}$ er en grov øvre feilmargin: anslaget havner nesten alltid innenfor $\\pm\\frac{1}{\\sqrt{n}}$.",
+          "Skal feilmarginen bli $k$ ganger mindre, må $n$ bli $k^2$ ganger større."
         ],
         "solution": "a) $0{,}02$, b) $10\\,000$, c) $250\\,000$, d) for mange desimaler, e) «omtrent 0,38»",
         "competenceGoals": [
@@ -396,7 +396,7 @@
           {
             "label": "e",
             "task": "Laget vurderer å kjøpe 30 lodd i stedet. Blir sannsynligheten for minst én gevinst dobbelt så stor? Regn ut og forklar.",
-            "solution": "Nei. Med 30 lodd blir sannsynligheten for ingen gevinst $\\approx 0{,}266$, så minst én gevinst har sannsynlighet $\\approx 0{,}734$ — ikke $2 \\cdot 0{,}470 = 0{,}940$. Sannsynligheter for «minst én» kan aldri dobles på denne måten, for de kan ikke overstige 1. Det som dobles, er det forventede antallet gevinster.",
+            "solution": "Med 30 lodd blir sannsynligheten for ingen gevinst $\\approx 0{,}266$.\n\n$$P(\\text{minst én gevinst}) \\approx 1 - 0{,}266 = 0{,}734$$\n\nDet er ikke $2 \\cdot 0{,}470 = 0{,}940$. Sannsynligheter for «minst én» kan aldri dobles på denne måten, for de kan ikke overstige 1. Det som dobles, er det forventede antallet gevinster.\n\n**Svar:** Nei, $\\approx 0{,}734$.",
             "answer": 0.734
           }
         ],
@@ -452,7 +452,7 @@
         ],
         "hints": [
           "Spør hva som skjer med en storm som treffer en hel by samtidig.",
-          "Skille mellom usikkerhet i målingen og feil i modellen."
+          "Skill mellom usikkerhet i målingen og feil i modellen."
         ],
         "solution": "a) nei, skader henger sammen, b) for lavt, c) nei — feilen er i modellen, d) felles værfaktor og kalibrering mot historiske data, e) simuleringen er aldri bedre enn modellen",
         "competenceGoals": [

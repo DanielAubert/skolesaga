@@ -12,7 +12,7 @@
     {
       "id": "stat-5-2-section-intro",
       "type": "text",
-      "content": "# Forventningsverdi\n\nI kapittel 5.1 satte vi opp hele sannsynlighetsfordelingen til en stokastisk variabel. Ofte trenger vi et *ett* tall som sier hvor fordelingen ligger. Det tallet er **forventningsverdien**.\n\nTenk deg at du kaster en terning tusen ganger og regner ut gjennomsnittet av alle øynene. Du får ikke akkurat samme tall hver gang du gjentar forsøket, men du får hver gang noe som ligger svært nær 3,5. Forventningsverdien er nettopp dette tallet: **gjennomsnittet i det lange løp**.\n\nVi skriver forventningsverdien som $E(X)$ (E for *expectation*), og vi bruker den greske bokstaven $\\mu$ (my) som navn på den:\n\n$$\\mu = E(X)$$\n\nSymbolet $\\mu$ er forventningsverdien. Du vil møte begge skrivemåtene, og de betyr nøyaktig det samme."
+      "content": "# Forventningsverdi\n\nI kapittel 5.1 satte vi opp hele sannsynlighetsfordelingen til en stokastisk variabel. Ofte trenger vi *ett* tall som sier hvor fordelingen ligger. Det tallet er **forventningsverdien**.\n\nTenk deg at du kaster en terning tusen ganger og regner ut gjennomsnittet av alle øynene. Du får ikke akkurat samme tall hver gang du gjentar forsøket, men du får hver gang noe som ligger svært nær 3,5. Forventningsverdien er nettopp dette tallet: **gjennomsnittet i det lange løp**.\n\nVi skriver forventningsverdien som $E(X)$ (E for *expectation*), og vi bruker den greske bokstaven $\\mu$ (my) som navn på den:\n\n$$\\mu = E(X)$$\n\nSymbolet $\\mu$ er forventningsverdien. Du vil møte begge skrivemåtene, og de betyr nøyaktig det samme."
     },
     {
       "id": "stat-5-2-def-forventning",
@@ -95,7 +95,7 @@
       "type": "example",
       "title": "Eksempel 2: Vekten av en sekk",
       "problem": "På en palle ligger det sekker med tre ulike vekter. En fjerdedel av sekkene veier 4 kg, halvparten veier 5 kg og en fjerdedel veier 10 kg. La $X$ være vekten av en tilfeldig valgt sekk.\n\nVis at $E(X) = 6$ kg.",
-      "solution": "**Løsning:**\n\n*Hva vet vi?* Verdiene 4, 5 og 10 med sannsynlighetene $\\frac{1}{4}$, $\\frac{1}{2}$ og $\\frac{1}{4}$.\n\n*Hva må vi finne?* $\\mu = E(X)$, og vi skal *vise* at den blir 6.\n\nVi tegner tabellen. Her velger vi å skrive alle brøkene med nevner 4, for det er den fellesnevneren vi trenger i summen:\n\n| $k$ | 4 | 5 | 10 | **Sum** |\n|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{4}$ | $\\frac{2}{4}$ | $\\frac{1}{4}$ | $\\frac{4}{4} = 1$ |\n| $k \\cdot P(X = k)$ | $\\frac{4}{4}$ | $\\frac{10}{4}$ | $\\frac{10}{4}$ | $\\frac{24}{4}$ |\n\n*(At $\\frac{1}{2} = \\frac{2}{4}$ føres ikke — vi skriver bare fellesnevneren med én gang.)*\n\nFormelen først, så tallene:\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k) = 4 \\cdot \\frac{1}{4} + 5 \\cdot \\frac{1}{2} + 10 \\cdot \\frac{1}{4}$$\n\n$$= \\frac{4}{4} + \\frac{10}{4} + \\frac{10}{4} = \\frac{4 + 10 + 10}{4} = \\frac{24}{4} = 6$$\n\n![Et søylediagram med tre blå søyler over 4, 5 og 10 på en vannrett akse merket kg. Høydene er 0,25, 0,5 og 0,25 og står skrevet over søylene. Under aksen står en liten trekant med spissen opp i 6, merket μ er lik 6. En grå stiplet loddrett strek står litt til høyre for 6, ved 6,33, med teksten midt mellom tallene 6,33.](/images/content/statistikk/stat-5-2-sekker-vippepunkt.png)\n\n*Vippa står i $\\mu = 6$ kg, ikke i midtpunktet av tallene 4, 5 og 10. Gjennomsnittet av selve verdiene er $\\frac{4+5+10}{3} \\approx 6{,}33$ (grå strek), men sekken på 5 kg er dobbelt så sannsynlig som de to andre og trekker balansepunktet mot venstre. Forventningsverdien er et vektet gjennomsnitt.*\n\n**Svar:** $E(X) = 6$ kg, slik oppgaven ba oss vise.\n\n**Tolkning:** Tar vi mange sekker fra pallen, veier de i gjennomsnitt 6 kg. Skal du frakte 100 sekker, kan du regne med omtrent $100 \\cdot 6 \\text{ kg} = 600$ kg. Legg merke til at 6 kg ligger *mellom* 5 og 10 — den tunge sekken drar gjennomsnittet opp selv om den er sjelden."
+      "solution": "**Løsning:**\n\n*Hva vet vi?* Verdiene 4, 5 og 10 med sannsynlighetene $\\frac{1}{4}$, $\\frac{1}{2}$ og $\\frac{1}{4}$.\n\n*Hva må vi finne?* $\\mu = E(X)$, og vi skal *vise* at den blir 6.\n\nVi tegner tabellen. Her velger vi å skrive alle brøkene med nevner 4, for det er den fellesnevneren vi trenger i summen:\n\n| $k$ | 4 | 5 | 10 | **Sum** |\n|---|---|---|---|---|\n| $P(X = k)$ | $\\frac{1}{4}$ | $\\frac{2}{4}$ | $\\frac{1}{4}$ | $\\frac{4}{4} = 1$ |\n| $k \\cdot P(X = k)$ | $\\frac{4}{4}$ | $\\frac{10}{4}$ | $\\frac{10}{4}$ | $\\frac{24}{4}$ |\n\n*(At $\\frac{1}{2} = \\frac{2}{4}$ føres ikke — vi skriver bare fellesnevneren med én gang.)*\n\nFormelen først, så tallene:\n\n$$\\mu = E(X) = \\sum_k k \\cdot P(X = k) = 4 \\cdot \\frac{1}{4} + 5 \\cdot \\frac{1}{2} + 10 \\cdot \\frac{1}{4}$$\n\n$$= \\frac{4}{4} + \\frac{10}{4} + \\frac{10}{4} = \\frac{4 + 10 + 10}{4} = \\frac{24}{4} = 6$$\n\n![Et søylediagram med tre blå søyler over 4, 5 og 10 på en vannrett akse merket kg. Høydene er 0,25, 0,5 og 0,25 og står skrevet over søylene. Under aksen står en liten trekant med spissen opp i 6, merket μ er lik 6. En grå stiplet loddrett strek står litt til høyre for 6, ved 6,33, med teksten midt mellom tallene 6,33.](/images/content/statistikk/stat-5-2-sekker-vippepunkt.png)\n\n*Vippa står i $\\mu = 6$ kg, ikke i midtpunktet av tallene 4, 5 og 10.*\n\nGjennomsnittet av selve verdiene er $\\frac{4+5+10}{3} \\approx 6{,}33$ (grå strek).\n\nSekken på 5 kg er dobbelt så sannsynlig som de to andre og trekker balansepunktet mot venstre. Forventningsverdien er et vektet gjennomsnitt.\n\n**Svar:** $E(X) = 6$ kg, slik oppgaven ba oss vise.\n\n**Tolkning:** Tar vi mange sekker fra pallen, veier de i gjennomsnitt 6 kg. Skal du frakte 100 sekker, kan du regne med omtrent $100 \\cdot 6 \\text{ kg} = 600$ kg. Legg merke til at 6 kg ligger *mellom* 5 og 10 — den tunge sekken drar gjennomsnittet opp selv om den er sjelden."
     },
     {
       "id": "stat-5-2-ex-block-2",
@@ -133,8 +133,7 @@
           {
             "label": "e",
             "task": "Forklar hvorfor $E(X)$ ikke er lik gjennomsnittet av tallene 2, 5 og 10.",
-            "solution": "Gjennomsnittet av 2, 5 og 10 er $\\frac{17}{3} \\approx 5{,}67$. Det ville forutsatt at de tre vektene var like vanlige. Her er 2 kg dobbelt så vanlig som 5 kg, og forventningsverdien vekter hver verdi med sin egen sannsynlighet.",
-            "answer": 5.67
+            "solution": "Gjennomsnittet av 2, 5 og 10 er $\\frac{17}{3} \\approx 5{,}67$. Det ville forutsatt at de tre vektene var like vanlige. Her er 2 kg dobbelt så vanlig som 5 kg, og forventningsverdien vekter hver verdi med sin egen sannsynlighet."
           }
         ],
         "hints": [
@@ -191,8 +190,7 @@
           {
             "label": "c",
             "task": "Er spillet rettferdig? Begrunn svaret.",
-            "solution": "Ja. Forventet gevinst er 20 kr og innsatsen er 20 kr, så forventet netto er $E(X - 20) = 20 - 20 = 0$ kr.",
-            "answer": 0
+            "solution": "Ja. Forventet gevinst er 20 kr og innsatsen er 20 kr, så forventet netto er $E(X - 20) = 20 - 20 = 0$ kr."
           },
           {
             "label": "d",
@@ -314,7 +312,7 @@
           {
             "label": "e",
             "task": "Hvor mange bestillinger må kaféen ha i en time for at overskuddet skal bli positivt?",
-            "solution": "Vi setter overskuddet lik null og løser: $85x - 450 = 0 \\Rightarrow x = \\frac{450}{85} \\approx 5{,}3$. Nullpunktet er ikke et helt tall, så overskuddet kan ikke bli nøyaktig null. Med 5 bestillinger er overskuddet $85 \\cdot 5 - 450 = -25$ kr, med 6 er det $85 \\cdot 6 - 450 = 60$ kr. Kaféen må altså ha minst 6 bestillinger i timen for å gå i pluss.",
+            "solution": "Vi setter overskuddet lik null og løser:\n\n$$85x - 450 = 0 \\quad\\Rightarrow\\quad x = \\frac{450}{85} \\approx 5{,}3$$\n\nNullpunktet er ikke et helt tall, så overskuddet kan ikke bli nøyaktig null.\n\nMed 5 bestillinger: $85 \\cdot 5 - 450 = -25$ kr.\n\nMed 6 bestillinger: $85 \\cdot 6 - 450 = 60$ kr.\n\n**Svar:** Kaféen må ha minst 6 bestillinger i timen for å gå i pluss.",
             "answer": 6
           }
         ],

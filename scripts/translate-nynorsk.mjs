@@ -36,10 +36,12 @@ const TRANSLATE_KEYS = new Set([
   'title', 'subtitle', 'description', 'content', 'problem', 'solution',
   'task', 'caption', 'alt', 'explanation', 'hint', 'feedback', 'term',
   'definition', 'buttonText', 'question', 'text',
+  'proof', // 23.10.2026: bevis sto igjen på bokmål i nn-filene
 ]);
 // Array-felter med rene strenger som skal oversettes element-for-element
 const TRANSLATE_STRING_ARRAYS = new Set([
   'competenceGoals', 'topics', 'steps', 'hints',
+  'multipleChoiceOptions', // 23.10.2026: svaralternativ sto igjen på bokmål i nn-filene
 ]);
 // Nøkler som ALDRI røres (IDer, kode, math, media, struktur)
 const SKIP_KEYS = new Set([

@@ -91,13 +91,13 @@
       "type": "example",
       "title": "Eksempel 2 – Kvartiler for ventetid",
       "problem": "Elleve pasienter ble spurt hvor mange minutter de ventet på legevakten:\n\n$$12,\\quad 9,\\quad 35,\\quad 4,\\quad 15,\\quad 22,\\quad 7,\\quad 14,\\quad 6,\\quad 18,\\quad 11$$\n\nFinn medianen, kvartilene, kvartilbredden og variasjonsbredden.",
-      "solution": "**Steg 1 — sorter.** Uten dette steget blir alt etterpå feil:\n\n$$4,\\quad 6,\\quad 7,\\quad 9,\\quad 11,\\quad \\mathbf{12},\\quad 14,\\quad 15,\\quad 18,\\quad 22,\\quad 35$$\n\n**Steg 2 — medianen.** Her er $n = 11$, et oddetall, så medianen ligger på plass\n\n$$\\frac{n+1}{2} = \\frac{11+1}{2} = 6$$\n\nVerdien på sjette plass er $Q_2 = 12$ minutter.\n\n**Steg 3 — nedre kvartil.** Den nedre halvdelen er de fem verdiene foran\nmedianen (medianen selv holdes utenfor):\n\n$$4,\\quad 6,\\quad \\mathbf{7},\\quad 9,\\quad 11 \\qquad \\Rightarrow \\qquad Q_1 = 7$$\n\n**Steg 4 — øvre kvartil.** Den øvre halvdelen er de fem verdiene etter medianen:\n\n$$14,\\quad 15,\\quad \\mathbf{18},\\quad 22,\\quad 35 \\qquad \\Rightarrow \\qquad Q_3 = 18$$\n\n**Steg 5 — bredder.**\n\n$$\\text{kvartilbredde} = Q_3 - Q_1 = 18 - 7 = 11$$\n\n$$\\text{variasjonsbredde} = 35 - 4 = 31$$\n\n![En tallinje merket ventetid i minutter fra 0 til 36. De elleve sorterte ventetidene 4, 6, 7, 9, 11, 12, 14, 15, 18, 22 og 35 er markert som svarte prikker. Tre loddrette streker er merket Q1 lik 7 og Q3 lik 18 i blått og Q2 lik 12 i grønt. Under tallinja ligger to måletreker: en blå fra 7 til 18 merket 11 og merket kvartilbredde, og en grå fra 4 til 35 merket 31 og merket variasjonsbredde.](/images/content/statistikk/stat-1-3-kvartiler.png)\n\n*Kvartilene deler materialet i fire. Den ene lange ventetiden på 35 minutter blåser opp variasjonsbredden til 31 minutter, mens kvartilbredden på 11 minutter knapt merker den.*\n\n**Svar:** $Q_1 = 7$, $Q_2 = 12$, $Q_3 = 18$ minutter. Kvartilbredden er $11$\nminutter og variasjonsbredden $31$ minutter.\n\n**Tolkning:** Halvparten av pasientene ventet mellom $7$ og $18$ minutter. Den\nstore variasjonsbredden skyldes i hovedsak den ene som ventet $35$ minutter —\nkvartilbredden merker knapt den observasjonen."
+      "solution": "**Sorter.** Uten sortering blir alt etterpå feil:\n\n$$4,\\quad 6,\\quad 7,\\quad 9,\\quad 11,\\quad \\mathbf{12},\\quad 14,\\quad 15,\\quad 18,\\quad 22,\\quad 35$$\n\n**Medianen.** Her er $n = 11$, et oddetall, så medianen ligger på plass\n\n$$\\frac{n+1}{2} = \\frac{11+1}{2} = 6$$\n\nVerdien på sjette plass er $Q_2 = 12$ minutter.\n\n**Nedre kvartil.** Den nedre halvdelen er de fem verdiene foran\nmedianen (medianen selv holdes utenfor):\n\n$$4,\\quad 6,\\quad \\mathbf{7},\\quad 9,\\quad 11 \\qquad \\Rightarrow \\qquad Q_1 = 7$$\n\n**Øvre kvartil.** Den øvre halvdelen er de fem verdiene etter medianen:\n\n$$14,\\quad 15,\\quad \\mathbf{18},\\quad 22,\\quad 35 \\qquad \\Rightarrow \\qquad Q_3 = 18$$\n\n**Bredder.**\n\n$$\\text{kvartilbredde} = Q_3 - Q_1 = 18 - 7 = 11$$\n\n$$\\text{variasjonsbredde} = 35 - 4 = 31$$\n\n![En tallinje merket ventetid i minutter fra 0 til 36. De elleve sorterte ventetidene 4, 6, 7, 9, 11, 12, 14, 15, 18, 22 og 35 er markert som svarte prikker. Tre loddrette streker er merket Q1 lik 7 og Q3 lik 18 i blått og Q2 lik 12 i grønt. Under tallinja ligger to måletreker: en blå fra 7 til 18 merket 11 og merket kvartilbredde, og en grå fra 4 til 35 merket 31 og merket variasjonsbredde.](/images/content/statistikk/stat-1-3-kvartiler.png)\n\n*Kvartilene deler materialet i fire. Den ene lange ventetiden på 35 minutter blåser opp variasjonsbredden til 31 minutter, mens kvartilbredden på 11 minutter knapt merker den.*\n\n**Svar:** $Q_1 = 7$, $Q_2 = 12$, $Q_3 = 18$ minutter. Kvartilbredden er $11$\nminutter og variasjonsbredden $31$ minutter.\n\n**Tolkning:** Halvparten av pasientene ventet mellom $7$ og $18$ minutter. Den\nstore variasjonsbredden skyldes i hovedsak den ene som ventet $35$ minutter —\nkvartilbredden merker knapt den observasjonen."
     },
     {
       "id": "stat-1-3-warning-kvartil",
       "type": "warning",
       "title": "NB: Verktøy kan gi andre kvartiler enn du gjør for hånd",
-      "content": "Det finnes flere måter å plassere kvartilene på når $n$ ikke er delelig med\nfire. Metoden over er den vi bruker for hånd. Regneark (`KVARTIL`) og GeoGebra\nbruker en metode som regner seg fram til en verdi mellom to observasjoner, og\nkan derfor gi et litt annet tall: for ventetidene over gir regnearket\n$Q_1 = 8$ og $Q_3 = 16{,}5$, mens vi for hånd fikk $7$ og $18$.\n\nIngen av delene er feil — det er to ulike definisjoner. Du må bare **si hvilken\ndu har brukt**, og bruke den samme hele veien når du sammenligner\ndatamaterialer."
+      "content": "Det finnes flere måter å plassere kvartilene på når $n$ ikke er delelig med\nfire. Metoden over er den vi bruker for hånd, og det er også den GeoGebra bruker:\n`Q1(liste)` og `Q3(liste)` gir $7$ og $18$ for ventetidene over.\n\nRegneark (`KVARTIL`) bruker en metode som regner seg fram til en verdi mellom to\nobservasjoner, og kan derfor gi et litt annet tall: for ventetidene over gir\nregnearket $Q_1 = 8$ og $Q_3 = 16{,}5$, mens vi for hånd fikk $7$ og $18$.\n\nIngen av metodene er feil — det er to ulike definisjoner. Du må bare **si hvilken\ndu har brukt**, og bruke den samme hele veien når du sammenligner\ndatamaterialer."
     },
     {
       "id": "stat-1-3-ex-block-2",
@@ -173,13 +173,13 @@
       "type": "example",
       "title": "Eksempel 3 – Standardavvik for hånd",
       "problem": "Fem laksefileter fra samme parti ble veid. Vektene var (i gram)\n\n$$48,\\quad 52,\\quad 50,\\quad 46,\\quad 54$$\n\na) Finn standardavviket $\\sigma$ når vi ser på disse fem som hele materialet.\n\nb) Finn utvalgsstandardavviket $s$ når de fem er et utvalg fra hele partiet.",
-      "solution": "**Steg 1 — gjennomsnittet.** Standardavviket måler avstand fra gjennomsnittet,\nså det må vi ha først:\n\n$$\\bar{x} = \\frac{48 + 52 + 50 + 46 + 54}{5} = \\frac{250}{5} = 50$$\n\nVi deler på $5$ fordi det er $5$ fileter.\n\n**Steg 2 — avvikstabellen.** Vi setter opp én rad per observasjon, og fyller\nkolonne for kolonne:\n\n| $x_i$ | $x_i - \\bar{x}$ | $(x_i - \\bar{x})^2$ |\n|---|---|---|\n| 48 | $48 - 50 = -2$ | $(-2)^2 = 4$ |\n| 52 | $52 - 50 = 2$ | $2^2 = 4$ |\n| 50 | $50 - 50 = 0$ | $0^2 = 0$ |\n| 46 | $46 - 50 = -4$ | $(-4)^2 = 16$ |\n| 54 | $54 - 50 = 4$ | $4^2 = 16$ |\n| **Sum** | **0** | **40** |\n\n*(Kontroll som har et poeng: summen i midtkolonnen skal alltid bli $0$. Blir den\nikke det, har vi regnet feil gjennomsnitt eller feil avvik — og da er det ingen\nvits i å gå videre.)*\n\n![En tallinje merket vekt i gram fra 44 til 56, med de fem filetvektene 46, 48, 50, 52 og 54 markert som blå prikker. En rød stiplet loddrett linje står ved gjennomsnittet 50 gram. Over tallinja går fire røde piler ut fra den stiplede linja, én til hver av de fire prikkene som ikke ligger i 50, merket minus 4, minus 2, pluss 2 og pluss 4. Pilene står parvis i samme høyde — minus 4 og pluss 4 øverst, minus 2 og pluss 2 under — så hvert par ser ut som én dobbeltpil gjennom gjennomsnittslinja. Under tallinja er avvikene tegnet som kvadrater med sidekant lik avviket: to store blå kvadrater med side 4 og areal 16, og inni dem to mindre oransje kvadrater med side 2 og areal 4. Arealene 16, 4, 4 og 16 er skrevet inn. Nederst står: avvikene summerer til 0, arealene til 40.](/images/content/statistikk/stat-1-3-avvik.png)\n\n*Avviket er avstanden fra gjennomsnittet, og kvadratet har avviket som sidekant. Avvikene selv summerer til null — arealene gjør det ikke, og det er derfor vi kvadrerer før vi summerer.*\n\n**Steg 3 a) — standardavviket $\\sigma$.** Formelen først, tom:\n\n$$\\sigma = \\sqrt{\\frac{\\text{summen av kvadrerte avvik}}{n}}$$\n\nog så med tall:\n\n$$\\sigma = \\sqrt{\\frac{40}{5}} = \\sqrt{8} = 2{,}828\\ldots \\approx 2{,}83$$\n\n**Svar a):** $\\sigma \\approx 2{,}83$ gram.\n\n**Steg 3 b) — utvalgsstandardavviket $s$.** Samme sum over brøkstreken, men vi\ndeler på $n - 1 = 4$:\n\n$$s = \\sqrt{\\frac{40}{5 - 1}} = \\sqrt{\\frac{40}{4}} = \\sqrt{10} = 3{,}162\\ldots \\approx 3{,}16$$\n\n**Svar b):** $s \\approx 3{,}16$ gram.\n\n**Her ser vi at** $s > \\sigma$, slik det alltid er: vi deler den samme summen på\net mindre tall. Forskjellen er stor her fordi $n$ bare er $5$."
+      "solution": "**Gjennomsnittet.** Standardavviket måler avstand fra gjennomsnittet,\nså det må vi ha først:\n\n$$\\bar{x} = \\frac{48 + 52 + 50 + 46 + 54}{5} = \\frac{250}{5} = 50$$\n\nVi deler på $5$ fordi det er $5$ fileter.\n\n**Avvikstabellen.** Vi setter opp én rad per observasjon, og fyller\nkolonne for kolonne:\n\n| $x_i$ | $x_i - \\bar{x}$ | $(x_i - \\bar{x})^2$ |\n|---|---|---|\n| 48 | $48 - 50 = -2$ | $(-2)^2 = 4$ |\n| 52 | $52 - 50 = 2$ | $2^2 = 4$ |\n| 50 | $50 - 50 = 0$ | $0^2 = 0$ |\n| 46 | $46 - 50 = -4$ | $(-4)^2 = 16$ |\n| 54 | $54 - 50 = 4$ | $4^2 = 16$ |\n| **Sum** | **0** | **40** |\n\n*(Kontroll som har et poeng: summen i midtkolonnen skal alltid bli $0$. Blir den\nikke det, har vi regnet feil gjennomsnitt eller feil avvik — og da er det ingen\nvits i å gå videre.)*\n\n![En tallinje merket vekt i gram fra 44 til 56, med de fem filetvektene 46, 48, 50, 52 og 54 markert som blå prikker. En rød stiplet loddrett linje står ved gjennomsnittet 50 gram. Over tallinja går fire røde piler ut fra den stiplede linja, én til hver av de fire prikkene som ikke ligger i 50, merket minus 4, minus 2, pluss 2 og pluss 4. Pilene står parvis i samme høyde — minus 4 og pluss 4 øverst, minus 2 og pluss 2 under — så hvert par ser ut som én dobbeltpil gjennom gjennomsnittslinja. Under tallinja er avvikene tegnet som kvadrater med sidekant lik avviket: to store blå kvadrater med side 4 og areal 16, og inni dem to mindre oransje kvadrater med side 2 og areal 4. Arealene 16, 4, 4 og 16 er skrevet inn. Nederst står: avvikene summerer til 0, arealene til 40.](/images/content/statistikk/stat-1-3-avvik.png)\n\n*Avviket er avstanden fra gjennomsnittet, og kvadratet har avviket som sidekant. Avvikene selv summerer til null — arealene gjør det ikke, og det er derfor vi kvadrerer før vi summerer.*\n\n**a) Standardavviket $\\sigma$.** Formelen først, tom:\n\n$$\\sigma = \\sqrt{\\frac{\\text{summen av kvadrerte avvik}}{n}}$$\n\nog så med tall:\n\n$$\\sigma = \\sqrt{\\frac{40}{5}} = \\sqrt{8} = 2{,}828\\ldots \\approx 2{,}83$$\n\n**Svar a):** $\\sigma \\approx 2{,}83$ gram.\n\n**b) Utvalgsstandardavviket $s$.** Samme sum over brøkstreken, men vi\ndeler på $n - 1 = 4$:\n\n$$s = \\sqrt{\\frac{40}{5 - 1}} = \\sqrt{\\frac{40}{4}} = \\sqrt{10} = 3{,}162\\ldots \\approx 3{,}16$$\n\n**Svar b):** $s \\approx 3{,}16$ gram.\n\n**Her ser vi at** $s > \\sigma$, slik det alltid er: vi deler den samme summen på\net mindre tall. Forskjellen er stor her fordi $n$ bare er $5$."
     },
     {
       "id": "stat-1-3-tip-verktoy",
       "type": "tip",
       "title": "Standardavvik med verktøy",
-      "content": "Alle kalkulatorer med statistikkmeny og alle regneark har egne funksjoner for\nstandardavvik — og de har **to** av dem, én for hver formel:\n\n| | Regneark | GeoGebra |\n|---|---|---|\n| $\\sigma$ (del på $n$) | `=STDAV.P(område)` | `sd(liste)` |\n| $s$ (del på $n-1$) | `=STDAV.S(område)` | `stdevsample(liste)` |\n\nBokstaven P står for *populasjon* og S for *stikkprøve* (utvalg). Velger du feil\nfunksjon, får du et tall som ser riktig ut, men som svarer på et annet spørsmål.\n\nSkriv likevel opp formelen og avvikstabellen når oppgaven ber om utregning —\nverktøyet gir svaret, føringen viser at du vet hva svaret betyr."
+      "content": "Alle kalkulatorer med statistikkmeny og alle regneark har egne funksjoner for\nstandardavvik — og de har **to** av dem, én for hver formel:\n\n| | Regneark | GeoGebra |\n|---|---|---|\n| $\\sigma$ (del på $n$) | `=STDAV.P(område)` | `SD(liste)` |\n| $s$ (del på $n-1$) | `=STDAV.S(område)` | `SampleSD(liste)` |\n\nI norsk GeoGebra vises de to kommandoene som `stavvp(liste)` og `stavv(liste)`.\n\nI regnearket står bokstaven P for *populasjon* og S for *stikkprøve* (utvalg). Velger du feil\nfunksjon, får du et tall som ser riktig ut, men som svarer på et annet spørsmål.\n\nSkriv likevel opp formelen og avvikstabellen når oppgaven ber om utregning —\nverktøyet gir svaret, føringen viser at du vet hva svaret betyr."
     },
     {
       "id": "stat-1-3-ex-block-3",
@@ -201,7 +201,7 @@
             "label": "b",
             "task": "Sett opp avvikstabellen og finn summen av de kvadrerte avvikene.",
             "answer": 10,
-            "solution": "| $x_i$ | $x_i - \\bar{x}$ | $(x_i-\\bar{x})^2$ |\n|---|---|---|\n| 38 | $-2$ | 4 |\n| 40 | 0 | 0 |\n| 41 | 1 | 1 |\n| 39 | $-1$ | 1 |\n| 42 | 2 | 4 |\n| 40 | 0 | 0 |\n| **Sum** | **0** | **10** |"
+            "solution": "| $x_i$ | $x_i - \\bar{x}$ | $(x_i-\\bar{x})^2$ |\n|---|---|---|\n| 38 | $-2$ | 4 |\n| 40 | 0 | 0 |\n| 41 | 1 | 1 |\n| 39 | $-1$ | 1 |\n| 42 | 2 | 4 |\n| 40 | 0 | 0 |\n| **Sum** | **0** | **10** |\n\n**Svar:** Summen av de kvadrerte avvikene er $10$."
           },
           {
             "label": "c",
@@ -309,7 +309,7 @@
             "label": "b",
             "task": "Finn standardavviket. Hvilken av funksjonene `STDAV.P` og `STDAV.S` skal du bruke her, og hvorfor?",
             "answer": 2.66,
-            "solution": "`STDAV.S`, fordi de $20$ bestillingene er et **utvalg** som skal si noe om alle bestillingene i året. Da deler vi på $n - 1 = 19$, og får $s \\approx 2{,}66$ dager. (Til sammenligning gir `STDAV.P` $\\sigma \\approx 2{,}59$ dager.)"
+            "solution": "`STDAV.S`, fordi de $20$ bestillingene er et **utvalg** som skal si noe om alle bestillingene i året.\n\nDa deler vi på $n - 1 = 19$:\n\n$$s \\approx 2{,}66$$\n\nTil sammenligning gir `STDAV.P` $\\sigma \\approx 2{,}59$ dager.\n\n**Svar:** `STDAV.S`, som gir $s \\approx 2{,}66$ dager."
           },
           {
             "label": "c",
@@ -319,7 +319,7 @@
               3,
               1.12
             ],
-            "solution": "Uten uteliggeren: $\\bar{x} = \\frac{60}{19} \\approx 3{,}16$ dager, median fortsatt $3$ dager, og $s \\approx 1{,}12$ dager. Standardavviket ble mer enn halvert, gjennomsnittet falt med en halv dag, og medianen og kvartilbredden står stille."
+            "solution": "Uten uteliggeren er $n = 19$:\n\n$$\\bar{x} = \\frac{60}{19} \\approx 3{,}16$$\n\nMedianen er fortsatt $3$ dager, og `STDAV.S` gir $s \\approx 1{,}12$ dager.\n\nStandardavviket ble mer enn halvert, gjennomsnittet falt med en halv dag, og medianen og kvartilbredden står stille.\n\n**Svar:** $\\bar{x} \\approx 3{,}16$ dager, median $3$ dager og $s \\approx 1{,}12$ dager. Standardavviket endrer seg mest."
           },
           {
             "label": "d",
@@ -330,7 +330,7 @@
           {
             "label": "e",
             "task": "Butikken vil oppgi ett tall for leveringstiden på nettsiden. Hva bør de oppgi, og hva bør de eventuelt si i tillegg?",
-            "solution": "Medianen (eller gjennomsnittet uten uteliggeren) beskriver den vanlige kunden best: halvparten får varen innen $3$ dager. Gjennomsnittet $3{,}7$ dager er dratt opp av én forsinket bestilling.\n\nDet ærligste er å oppgi begge deler: «vanlig leveringstid $2$–$4$ dager ($95\\ \\%$ innen $5$ dager)». Da får kunden vite både typisk tid og hvor ofte det går galt.\n\n**Andre muligheter:** oppgi $Q_1$ og $Q_3$ som et intervall, eller oppgi andelen som kom fram innen $3$, $5$ og $7$ dager — det siste sier mest, men krever mer plass."
+            "solution": "Medianen (eller gjennomsnittet uten uteliggeren) beskriver den vanlige kunden best: halvparten får varen innen $3$ dager. Gjennomsnittet $3{,}7$ dager er dratt opp av én forsinket bestilling.\n\nDet ærligste er å oppgi begge deler: «vanlig leveringstid $2$–$4$ dager ($95\\ \\%$ innen $5$ dager)». Da får kunden vite både typisk tid og hvor ofte det går galt.\n\n**Svar:** Medianen, $3$ dager, sammen med «$95\\ \\%$ innen $5$ dager».\n\n**Andre muligheter:** oppgi $Q_1$ og $Q_3$ som et intervall, eller oppgi andelen som kom fram innen $3$, $5$ og $7$ dager — det siste sier mest, men krever mer plass."
           }
         ],
         "solution": "a) $3{,}7$ dager, median $3$, kvartilbredde $2$, b) `STDAV.S` gir $s \\approx 2{,}66$, c) uten $14$: $\\bar{x} \\approx 3{,}16$, median $3$, $s \\approx 1{,}12$, d) $95\\ \\%$",
@@ -359,7 +359,7 @@
               500,
               500
             ],
-            "solution": "Bedrift 1: $\\bar{x} = \\frac{480 + 490 + 500 + 510 + 520}{5} = \\frac{2500}{5} = 500$.\n\nBedrift 2: $\\bar{x} = \\frac{380 + 420 + 500 + 580 + 620}{5} = \\frac{2500}{5} = 500$.\n\nBegge bedriftene har altså gjennomsnitt $500$ og median $500$ tusen kroner."
+            "solution": "Bedrift 1: $\\bar{x} = \\frac{480 + 490 + 500 + 510 + 520}{5} = \\frac{2500}{5} = 500$.\n\nBedrift 2: $\\bar{x} = \\frac{380 + 420 + 500 + 580 + 620}{5} = \\frac{2500}{5} = 500$.\n\nMedianen er den midterste av de fem sorterte lønningene, $500$, i begge bedriftene.\n\n**Svar:** Begge bedriftene har gjennomsnitt $500$ og median $500$ tusen kroner."
           },
           {
             "label": "b",
@@ -368,7 +368,7 @@
               14.14,
               91.21
             ],
-            "solution": "Bedrift 1: summen av kvadrerte avvik er $400 + 100 + 0 + 100 + 400 = 1000$, så $\\sigma_1 = \\sqrt{\\frac{1000}{5}} = \\sqrt{200} \\approx 14{,}14$.\n\nBedrift 2: $14400 + 6400 + 0 + 6400 + 14400 = 41600$, så $\\sigma_2 = \\sqrt{\\frac{41600}{5}} = \\sqrt{8320} \\approx 91{,}21$."
+            "solution": "Bedrift 1: summen av kvadrerte avvik er $400 + 100 + 0 + 100 + 400 = 1000$, så $\\sigma_1 = \\sqrt{\\frac{1000}{5}} = \\sqrt{200} \\approx 14{,}14$.\n\nBedrift 2: $14400 + 6400 + 0 + 6400 + 14400 = 41600$, så $\\sigma_2 = \\sqrt{\\frac{41600}{5}} = \\sqrt{8320} \\approx 91{,}21$.\n\n**Svar:** $\\sigma_1 \\approx 14{,}14$ og $\\sigma_2 \\approx 91{,}21$ tusen kroner."
           },
           {
             "label": "c",
@@ -378,12 +378,12 @@
           {
             "label": "d",
             "task": "Hvilken bedrift ville du valgt, og hvilken tilleggsinformasjon ville du bedt om først?",
-            "solution": "Det finnes ikke ett riktig svar, men begrunnelsen må bygge på tallene. Vil du ha forutsigbarhet, taler bedrift 1. Tror du at du havner i toppen av fordelingen, kan bedrift 2 gi mer.\n\nTilleggsinformasjon å be om: **hvem** de fem er (nyansatte eller ledere?), hvor mange ansatte bedriften har totalt, hva startlønnen for en i din stilling er, og hvordan lønnen utvikler seg over tid. Fem lønninger er et lite utvalg, og vi vet ikke hvordan de er valgt ut."
+            "solution": "Det finnes ikke ett riktig svar, men begrunnelsen må bygge på tallene. Vil du ha forutsigbarhet, taler bedrift 1. Tror du at du havner i toppen av fordelingen, kan bedrift 2 gi mer.\n\nTilleggsinformasjon å be om: **hvem** de fem er (nyansatte eller ledere?), hvor mange ansatte bedriften har totalt, hva startlønnen for en i din stilling er, og hvordan lønnen utvikler seg over tid. Fem lønninger er et lite utvalg, og vi vet ikke hvordan de er valgt ut.\n\n**Svar:** Bedrift 1 gir forutsigbar lønn, bedrift 2 mulighet for høyere lønn. Spør først om hvem de fem er og hva startlønnen i stillingen er."
           },
           {
             "label": "e",
             "task": "Bedrift 2 skriver i annonsen: «Hos oss tjener de ansatte i gjennomsnitt $500\\ 000$ kroner — akkurat som hos konkurrenten.» Er det en dekkende beskrivelse?",
-            "solution": "Tallet er riktig, men beskrivelsen er ikke dekkende. Setningen «akkurat som hos konkurrenten» får det til å høres ut som om de to bedriftene er like, mens spredningen er helt forskjellig ($\\sigma \\approx 14$ mot $\\approx 91$). En søker som bare ser gjennomsnittet, får ikke vite at lønnen i bedrift 2 kan bli $380$ tusen.\n\n**Andre muligheter:** annonsen kunne oppgitt lønnsspennet ($380$–$620$ tusen), eller startlønn for stillingen det søkes til — det er tallet søkeren faktisk trenger."
+            "solution": "Tallet er riktig, men beskrivelsen er ikke dekkende.\n\nSetningen «akkurat som hos konkurrenten» får det til å høres ut som om de to bedriftene er like, mens spredningen er helt forskjellig ($\\sigma_1 \\approx 14$ mot $\\sigma_2 \\approx 91$).\n\nEn søker som bare ser gjennomsnittet, får ikke vite at lønnen i bedrift 2 kan bli $380$ tusen.\n\n**Svar:** Nei. Gjennomsnittet stemmer, men det skjuler at spredningen i bedrift 2 er over seks ganger så stor.\n\n**Andre muligheter:** annonsen kunne oppgitt lønnsspennet ($380$–$620$ tusen), eller startlønn for stillingen det søkes til — det er tallet søkeren faktisk trenger."
           }
         ],
         "solution": "a) begge $500$ tusen kr, b) $\\sigma_1 \\approx 14{,}14$ og $\\sigma_2 \\approx 91{,}21$, c) helt ulik spredning, d) begrunnet valg, e) sant, men ikke dekkende",
@@ -395,7 +395,7 @@
     {
       "id": "stat-1-3-section-oppsummering",
       "type": "text",
-      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n*(Ingen av radene under er ny informasjon — hver av dem er utledet, regnet ut eller definert tidligere i kapittelet.)*\n\n| Spredningsmål | Formel | Bruker | Robust mot uteliggere? |\n|---|---|---|---|\n| Variasjonsbredde | $x_{\\text{maks}} - x_{\\text{min}}$ | 2 observasjoner | Nei |\n| Kvartilbredde | $Q_3 - Q_1$ | midterste $50\\ \\%$ | Ja |\n| Varians | $\\frac{1}{n}\\sum (x_i - \\bar{x})^2$ | alle | Nei |\n| Standardavvik | $\\sqrt{\\text{varians}}$ | alle | Nei |\n\n- **Kvartilene** deler et sortert materiale i fire like store deler. $Q_1$ er\n  medianen i nedre halvdel, $Q_3$ er medianen i øvre halvdel.\n- **Avvikene** $x_i - \\bar{x}$ summerer seg alltid til $0$. Derfor kvadrerer vi\n  dem før vi summerer — og tar kvadratroten til slutt, så enheten stemmer igjen.\n- **$\\sigma$ deler på $n$** (hele materialet), **$s$ deler på $n - 1$** (utvalg\n  som skal si noe om en større populasjon). $s$ er alltid størst. I regneark:\n  `STDAV.P` og `STDAV.S`.\n- **Å sammenligne to materialer**: oppgi alltid både et sentralmål og et\n  spredningsmål, og forklar konklusjonen med tallene.\n\n### Husk\n- Sjekk at avvikene summerer seg til $0$ før du går videre.\n- Standardavviket er aldri negativt. Er $\\sigma = 0$, er alle observasjonene like.\n- Å legge det samme tallet til alle observasjonene endrer ikke spredningen."
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært:\n\n| Spredningsmål | Formel | Bruker | Robust mot uteliggere? |\n|---|---|---|---|\n| Variasjonsbredde | $x_{\\text{maks}} - x_{\\text{min}}$ | 2 observasjoner | Nei |\n| Kvartilbredde | $Q_3 - Q_1$ | midterste $50\\ \\%$ | Ja |\n| Varians | $\\frac{1}{n}\\sum (x_i - \\bar{x})^2$ | alle | Nei |\n| Standardavvik | $\\sqrt{\\text{varians}}$ | alle | Nei |\n\n- **Kvartilene** deler et sortert materiale i fire like store deler. $Q_1$ er\n  medianen i nedre halvdel, $Q_3$ er medianen i øvre halvdel.\n- **Avvikene** $x_i - \\bar{x}$ summerer seg alltid til $0$. Derfor kvadrerer vi\n  dem før vi summerer — og tar kvadratroten til slutt, så enheten stemmer igjen.\n- **$\\sigma$ deler på $n$** (hele materialet), **$s$ deler på $n - 1$** (utvalg\n  som skal si noe om en større populasjon). $s$ er alltid størst. I regneark:\n  `STDAV.P` og `STDAV.S`.\n- **Å sammenligne to materialer**: oppgi alltid både et sentralmål og et\n  spredningsmål, og forklar konklusjonen med tallene.\n\n### Husk\n- Sjekk at avvikene summerer seg til $0$ før du går videre.\n- Standardavviket er aldri negativt. Er $\\sigma = 0$, er alle observasjonene like.\n- Å legge det samme tallet til alle observasjonene endrer ikke spredningen."
     }
   ],
   "exercises": [],
@@ -406,11 +406,11 @@
     },
     {
       "term": "Kvartil",
-      "definition": "Verdiene Q1, Q2 og Q3 som deler et sortert datamateriale i fire like store deler."
+      "definition": "Verdiene Q₁, Q₂ og Q₃ som deler et sortert datamateriale i fire like store deler."
     },
     {
       "term": "Kvartilbredde",
-      "definition": "Q3 − Q1, bredden på området der de midterste 50 % av observasjonene ligger."
+      "definition": "Q₃ − Q₁, bredden på området der de midterste 50 % av observasjonene ligger."
     },
     {
       "term": "Varians",

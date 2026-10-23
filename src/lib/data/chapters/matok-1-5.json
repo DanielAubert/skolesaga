@@ -23,8 +23,8 @@
 "id": "matok-1-5-example-1",
 "type": "example",
 "title": "Eksempel 1 — hva skjer når vi deler året i flere og flere terminer?",
-"problem": "1 krone settes i banken i ett år med $100\\,\\%$ nominell rente. Regn ut sluttbeløpet når renten tilskrives $m$ ganger i året, for $m = 1, 2, 4, 12, 52, 365, 8\\,760$ (timer) og $525\\,600$ (minutter).",
-"solution": "**Løsning:**\n\n**Hva vet vi?** Nominell rente $100\\,\\%$ gir $r = 1$. Terminrenten er $\\frac{1}{m}$, og det er $m$ terminer.\n\nSluttbeløpet blir altså\n\n$$\\left(1 + \\frac{1}{m}\\right)^m$$\n\nI regnearket legger vi $m$-verdiene i kolonne A og formelen `=(1+1/A2)^A2` i B2, og drar den nedover.\n\n| $m$ | $\\left(1 + \\frac{1}{m}\\right)^m$ |\n|---|---|\n| 1 | 2,000000000 |\n| 2 | 2,250000000 |\n| 4 | 2,441406250 |\n| 12 | 2,613035290 |\n| 52 | 2,692596954 |\n| 365 | 2,714567482 |\n| 8 760 | 2,718126692 |\n| 525 600 | 2,718279243 |\n| 31 536 000 | 2,718281778 |\n\n**Svar:** Beløpet vokser, men det går **ikke** mot uendelig. Det låser seg fast rundt $2{,}71828\\ldots$\n\n**NB:** Se på hvor desimalene stivner. Etter $m = 8\\,760$ er de tre første desimalene låst ($2{,}718$). Etter $m = 525\\,600$ er de fire første låst ($2{,}7182$). Uansett hvor fint vi deler opp året, kommer vi aldri over $2{,}7182818\\ldots$ Det tallet har fått sitt eget navn."
+"problem": "1 krone settes i banken i ett år med $100\\,\\%$ nominell rente. Regn ut sluttbeløpet når renten tilskrives $m$ ganger i året, for $m = 1, 2, 4, 12, 52, 365, 8\\,760$ (timer), $525\\,600$ (minutter) og $31\\,536\\,000$ (sekunder).",
+"solution": "**Løsning:**\n\n**Hva vet vi?** Nominell rente $100\\,\\%$ gir $r = 1$. Terminrenten er $\\frac{1}{m}$, og det er $m$ terminer.\n\nSluttbeløpet blir altså\n\n$$\\left(1 + \\frac{1}{m}\\right)^m$$\n\nI regnearket legger vi $m$-verdiene i kolonne A og formelen `=(1+1/A2)^A2` i B2, og drar den nedover.\n\n| $m$ | $\\left(1 + \\frac{1}{m}\\right)^m$ |\n|---|---|\n| 1 | 2,000000000 |\n| 2 | 2,250000000 |\n| 4 | 2,441406250 |\n| 12 | 2,613035290 |\n| 52 | 2,692596954 |\n| 365 | 2,714567482 |\n| 8 760 | 2,718126692 |\n| 525 600 | 2,718279243 |\n| 31 536 000 | 2,718281778 |\n\n**Svar:** Beløpet vokser, men det går **ikke** mot uendelig. Det låser seg fast rundt $2{,}71828\\ldots$\n\n**NB:** Se på hvor desimalene stivner.\n\nEtter $m = 8\\,760$ er de tre første desimalene låst ($2{,}718$).\n\nEtter $m = 525\\,600$ er de fire første låst ($2{,}7182$).\n\nUansett hvor fint vi deler opp året, kommer vi aldri over $2{,}7182818\\ldots$ Det tallet har fått sitt eget navn."
 },
 {
 "id": "matok-1-5-def-e",
@@ -150,7 +150,7 @@
 "type": "example",
 "title": "Eksempel 3 — hvor mye må settes inn i dag?",
 "problem": "Et fond regner med kontinuerlig avkastning på $4\\,\\%$. Hvor mye må settes inn i dag for å ha $1\\,000\\,000$ kr om 20 år?",
-"solution": "**Løsning:**\n\n**Hva vet vi?** $K_{20} = 1\\,000\\,000$ kr, $r = 0{,}04$ og $t = 20$.\n**Hva må vi finne?** Startkapitalen $K_0$.\n\nVi setter inn i formelen med $K_0$ som ukjent:\n\n$K_0 \\cdot e^{0{,}04 \\cdot 20} = 1\\,000\\,000$\n\n$K_0 \\cdot e^{0{,}8} = 1\\,000\\,000$\n\nVi deler på $e^{0{,}8}$ på begge sider:\n\n$K_0 = \\frac{1\\,000\\,000}{e^{0{,}8}} = \\frac{1\\,000\\,000}{2{,}225541} \\approx 449\\,328{,}96$\n\n**Svar:** Det må settes inn omtrent $449\\,329$ kr i dag.\n\nVi kontrollerer: $449\\,328{,}96 \\cdot e^{0{,}8} = 1\\,000\\,000$. Det stemmer.\n\n*(Føres ikke)* Dette kan også skrives $K_0 = K_t \\cdot e^{-r\\,t}$, siden $\\frac{1}{e^{0{,}8}} = e^{-0{,}8}$. Den formen møter du ofte i økonomifag, og den er praktisk fordi den bare er én multiplikasjon."
+"solution": "**Løsning:**\n\n**Hva vet vi?** $K_{20} = 1\\,000\\,000$ kr, $r = 0{,}04$ og $t = 20$.\n**Hva må vi finne?** Startkapitalen $K_0$.\n\nVi setter inn i formelen med $K_0$ som ukjent:\n\n$K_0 \\cdot e^{0{,}04 \\cdot 20} = 1\\,000\\,000$\n\n$K_0 \\cdot e^{0{,}8} = 1\\,000\\,000$\n\nVi deler på $e^{0{,}8}$ på begge sider:\n\n$K_0 = \\frac{1\\,000\\,000}{e^{0{,}8}} \\approx \\frac{1\\,000\\,000}{2{,}22554093} \\approx 449\\,328{,}96$\n\n**Svar:** Det må settes inn omtrent $449\\,329$ kr i dag.\n\nVi kontrollerer: $449\\,328{,}96 \\cdot e^{0{,}8} \\approx 1\\,000\\,000$. Det stemmer.\n\n*(Føres ikke)* Dette kan også skrives $K_0 = K_t \\cdot e^{-r\\,t}$, siden $\\frac{1}{e^{0{,}8}} = e^{-0{,}8}$. Den formen møter du ofte i økonomifag, og den er praktisk fordi den bare er én multiplikasjon."
 },
 {
 "id": "matok-1-5-ex-block-2",
@@ -263,7 +263,7 @@
 "type": "example",
 "title": "Eksempel 4 — betyr det noe på lang sikt?",
 "problem": "$100\\,000$ kr plasseres i 40 år med $5\\,\\%$ nominell rente. Sammenlign årlig, månedlig og kontinuerlig rentetilskriving.",
-"solution": "**Løsning:**\n\n**Årlig** ($m = 1$):\n\n$100\\,000 \\cdot 1{,}05^{40} = 100\\,000 \\cdot 7{,}039989 \\approx 703\\,998{,}87\\text{ kr}$\n\n**Månedlig** ($m = 12$, altså $12 \\cdot 40 = 480$ terminer):\n\n$100\\,000 \\cdot \\left(1 + \\frac{5}{1200}\\right)^{480} \\approx 735\\,841{,}73\\text{ kr}$\n\n**Kontinuerlig**:\n\n$100\\,000 \\cdot e^{0{,}05 \\cdot 40} = 100\\,000 \\cdot e^{2} = 100\\,000 \\cdot 7{,}389056 \\approx 738\\,905{,}61\\text{ kr}$\n\n![Et stolpediagram med to blå stolper merket «årlig → månedlig» og «månedlig → kontinuerlig» under aksen. Loddrett akse viser kroner fra 0 til 35 000. Den første stolpen er 31 843 kr høy, den andre bare 3 064 kr — omtrent en tiendedel. Verdiene står over stolpene. Ved siden av står «100 000 kr i 40 år med 5 % nominell rente» og «sluttbeløp: 703 999 / 735 842 / 738 906 kr».](/images/content/matematikk-okonomi/matok-1-5-soyler-tilskriving.png)\n\n*Gevinsten ved å gå fra årlig til månedlig tilskriving er omtrent ti ganger så stor som gevinsten ved å gå videre til kontinuerlig. Den store gevinsten ligger i de første stegene, ikke i å presse $m$ mot uendelig.*\n\n**Svar:** Årlig gir omtrent $704\\,000$ kr, månedlig omtrent $736\\,000$ kr og kontinuerlig omtrent $739\\,000$ kr.\n\n**NB:** Her er poenget verdt å dvele ved. Å gå fra årlig til månedlig tilskriving ga nesten $32\\,000$ kr. Å gå videre fra månedlig til kontinuerlig ga bare rundt $3\\,000$ kr — en tiendedel så mye. På ett år var forskjellene småpenger (kapittel 1.4); på førti år er de merkbare, men den store gevinsten ligger i de første stegene, ikke i å presse $m$ mot uendelig."
+"solution": "**Løsning:**\n\n**Årlig** ($m = 1$):\n\n$100\\,000 \\cdot 1{,}05^{40} \\approx 100\\,000 \\cdot 7{,}0399887 \\approx 703\\,998{,}87\\text{ kr}$\n\n**Månedlig** ($m = 12$, altså $12 \\cdot 40 = 480$ terminer):\n\n$100\\,000 \\cdot \\left(1 + \\frac{5}{1200}\\right)^{480} \\approx 735\\,841{,}73\\text{ kr}$\n\n**Kontinuerlig**:\n\n$100\\,000 \\cdot e^{0{,}05 \\cdot 40} = 100\\,000 \\cdot e^{2} \\approx 100\\,000 \\cdot 7{,}3890561 \\approx 738\\,905{,}61\\text{ kr}$\n\n![Et stolpediagram med to blå stolper merket «årlig → månedlig» og «månedlig → kontinuerlig» under aksen. Loddrett akse viser kroner fra 0 til 35 000. Den første stolpen er 31 843 kr høy, den andre bare 3 064 kr — omtrent en tiendedel. Verdiene står over stolpene. Ved siden av står «100 000 kr i 40 år med 5 % nominell rente» og «sluttbeløp: 703 999 / 735 842 / 738 906 kr».](/images/content/matematikk-okonomi/matok-1-5-soyler-tilskriving.png)\n\n*Gevinsten ved å gå fra årlig til månedlig tilskriving er omtrent ti ganger så stor som gevinsten ved å gå videre til kontinuerlig. Den store gevinsten ligger i de første stegene, ikke i å presse $m$ mot uendelig.*\n\n**Svar:** Årlig gir omtrent $704\\,000$ kr, månedlig omtrent $736\\,000$ kr og kontinuerlig omtrent $739\\,000$ kr.\n\n**NB:** Her er poenget verdt å dvele ved. Å gå fra årlig til månedlig tilskriving ga nesten $32\\,000$ kr. Å gå videre fra månedlig til kontinuerlig ga bare rundt $3\\,000$ kr — en tiendedel så mye. På ett år var forskjellene småpenger (kapittel 1.4); på førti år er de merkbare, men den store gevinsten ligger i de første stegene, ikke i å presse $m$ mot uendelig."
 },
 {
 "id": "matok-1-5-plot-lang-sikt",
@@ -305,7 +305,7 @@
 "type": "example",
 "title": "Eksempel 5 — doblingstid med kontinuerlig rente",
 "problem": "Med kontinuerlig rente på $5\\,\\%$: hvor lang tid tar det før kapitalen har doblet seg? Finn svaret med én desimal ved å prøve deg fram i et regneark.",
-"solution": "**Løsning:**\n\n**Hva vet vi?** $r = 0{,}05$. Vi vil ha $K_t = 2 \\cdot K_0$.\n\nVi setter opp likningen:\n\n$K_0 \\cdot e^{0{,}05\\,t} = 2 \\cdot K_0$\n\nVi deler på $K_0$ på begge sider — startkapitalen forsvinner, akkurat som i kapittel 1.2:\n\n$e^{0{,}05\\,t} = 2$\n\nHer står den ukjente i eksponenten. Vi prøver oss fram i regnearket med formelen `=EKSP(0,05*A2)`:\n\n| $t$ | $e^{0{,}05t}$ |\n|---|---|\n| 13,0 | 1,915541 |\n| 13,5 | 1,964033 |\n| 13,9 | 2,003709 |\n| 13,86 | 1,999706 |\n\nVerdien passerer 2 mellom $t = 13{,}86$ og $t = 13{,}9$.\n\n**Svar:** Doblingstiden er omtrent $13{,}9$ år.\n\n**NB:** Tommelfingerregelen $\\frac{72}{5} = 14{,}4$ år bommer med et halvt år her. Regelen er laget for årlig tilskriving og er en grov tilnærming; med kontinuerlig rente er den eksakte doblingstiden $\\frac{\\ln 2}{r}$, og den formelen får vi bruk for i kapittel 3.4 når vi har lært logaritmer. Inntil da er regnearket verktøyet."
+"solution": "**Løsning:**\n\n**Hva vet vi?** $r = 0{,}05$. Vi vil ha $K_t = 2 \\cdot K_0$.\n\nVi setter opp likningen:\n\n$K_0 \\cdot e^{0{,}05\\,t} = 2 \\cdot K_0$\n\nVi deler på $K_0$ på begge sider — startkapitalen forsvinner, akkurat som i kapittel 1.2:\n\n$e^{0{,}05\\,t} = 2$\n\nHer står den ukjente i eksponenten. Vi prøver oss fram i regnearket med formelen `=EKSP(0,05*A2)`:\n\n| $t$ | $e^{0{,}05t}$ |\n|---|---|\n| 13,0 | 1,915541 |\n| 13,5 | 1,964033 |\n| 13,8 | 1,993716 |\n| 13,86 | 1,999706 |\n| 13,9 | 2,003709 |\n\nVerdien passerer 2 mellom $t = 13{,}86$ og $t = 13{,}9$.\n\n**Svar:** Doblingstiden er omtrent $13{,}9$ år.\n\n**NB:** Tommelfingerregelen $\\frac{72}{5} = 14{,}4$ år bommer med et halvt år her. Regelen er laget for årlig tilskriving og er en grov tilnærming; med kontinuerlig rente er den eksakte doblingstiden $\\frac{\\ln 2}{r}$, og den formelen får vi bruk for i kapittel 3.4 når vi har lært logaritmer. Inntil da er regnearket verktøyet."
 },
 {
 "id": "matok-1-5-ex-block-4",
@@ -320,19 +320,19 @@
 {
 "label": "a",
 "task": "$r = 2{,}0\\,\\%$",
-"solution": "$e^{0{,}02 \\cdot 34{,}6} \\approx 1{,}997707$ og $e^{0{,}02 \\cdot 34{,}7} \\approx 2{,}001706$. Grensen passeres mellom 34,6 og 34,7, og doblingstiden er omtrent $34{,}7$ år.",
+"solution": "$e^{0{,}02 \\cdot 34{,}6} \\approx 1{,}997707$ og $e^{0{,}02 \\cdot 34{,}7} \\approx 2{,}001706$\n\nGrensen passeres mellom $34{,}6$ og $34{,}7$. For å avrunde riktig sjekker vi midtpunktet:\n\n$$e^{0{,}02 \\cdot 34{,}65} \\approx 1{,}999706 < 2$$\n\nVerdien er fortsatt under 2 ved $34{,}65$, så doblingstiden ligger nærmere $34{,}7$.\n\n**Svar:** Doblingstiden er omtrent $34{,}7$ år.",
 "answer": 34.7
 },
 {
 "label": "b",
 "task": "$r = 4{,}0\\,\\%$",
-"solution": "$e^{0{,}04 \\cdot 17{,}3} \\approx 1{,}997707$ og $e^{0{,}04 \\cdot 17{,}4} \\approx 2{,}005714$. Doblingstiden er omtrent $17{,}3$ år.",
+"solution": "$e^{0{,}04 \\cdot 17{,}3} \\approx 1{,}997707$ og $e^{0{,}04 \\cdot 17{,}4} \\approx 2{,}005714$\n\nGrensen passeres mellom $17{,}3$ og $17{,}4$. Vi sjekker midtpunktet:\n\n$$e^{0{,}04 \\cdot 17{,}35} \\approx 2{,}001706 > 2$$\n\nVerdien har alt passert 2 ved $17{,}35$, så doblingstiden ligger nærmere $17{,}3$.\n\n**Svar:** Doblingstiden er omtrent $17{,}3$ år.",
 "answer": 17.3
 },
 {
 "label": "c",
 "task": "$r = 8{,}0\\,\\%$",
-"solution": "$e^{0{,}08 \\cdot 8{,}6} \\approx 1{,}989732$ og $e^{0{,}08 \\cdot 8{,}7} \\approx 2{,}005714$. Doblingstiden er omtrent $8{,}7$ år.",
+"solution": "$e^{0{,}08 \\cdot 8{,}6} \\approx 1{,}989732$ og $e^{0{,}08 \\cdot 8{,}7} \\approx 2{,}005714$\n\nGrensen passeres mellom $8{,}6$ og $8{,}7$. Vi sjekker midtpunktet:\n\n$$e^{0{,}08 \\cdot 8{,}65} \\approx 1{,}997707 < 2$$\n\nVerdien er fortsatt under 2 ved $8{,}65$, så doblingstiden ligger nærmere $8{,}7$.\n\n**Svar:** Doblingstiden er omtrent $8{,}7$ år.",
 "answer": 8.7
 },
 {
@@ -411,7 +411,7 @@
 {
 "label": "e",
 "task": "Regn ut den reale årlige vekstfaktoren, og drøft hva svaret i d) betyr for kunden.",
-"solution": "Den reale vekstfaktoren er $\\frac{e^{0{,}055}}{1{,}025} = \\frac{1{,}056541}{1{,}025} \\approx 1{,}030771$, altså en realvekst på omtrent $3{,}08\\,\\%$ per år.\n\nKontoutskriften vil vise nesten $348\\,000$ kr — en nominell økning på $93\\,\\%$. Men målt i det pengene faktisk kan kjøpe, har kunden gått fra $180\\,000$ kr til rundt $259\\,000$ kr, altså en økning på omtrent $44\\,\\%$. Nesten halvparten av den flotte nominelle veksten er spist av prisstigningen. Det er derfor økonomer nesten alltid oppgir avkastning **realt**: en nominell avkastning gir ikke mening uten å vite hva inflasjonen var i samme periode.\n\nEn siste kommentar til modellen: $5{,}5\\,\\%$ kontinuerlig avkastning er en *forutsetning*, ikke et løfte. Et fond svinger, og modellen sier bare hva som skjer hvis gjennomsnittet holder seg."
+"solution": "Den reale vekstfaktoren er\n\n$$\\frac{e^{0{,}055}}{1{,}025} \\approx \\frac{1{,}0565406}{1{,}025} \\approx 1{,}030771$$\n\naltså en realvekst på omtrent $3{,}08\\,\\%$ per år.\n\nKontoutskriften vil vise nesten $348\\,000$ kr — en nominell økning på $93\\,\\%$. Men målt i det pengene faktisk kan kjøpe, har kunden gått fra $180\\,000$ kr til rundt $259\\,000$ kr, altså en økning på omtrent $44\\,\\%$. Mer enn halvparten av den nominelle veksten er spist av prisstigningen. Det er derfor økonomer nesten alltid oppgir avkastning **realt**: en nominell avkastning gir ikke mening uten å vite hva inflasjonen var i samme periode.\n\nEn siste kommentar til modellen: $5{,}5\\,\\%$ kontinuerlig avkastning er en *forutsetning*, ikke et løfte. Et fond svinger, og modellen sier bare hva som skjer hvis gjennomsnittet holder seg."
 }
 ],
 "hints": [
@@ -480,7 +480,7 @@
 {
 "label": "e",
 "task": "Drøft: hvorfor sier vi at $e$ er en **grenseverdi** og ikke bare «det tallet uttrykket blir til slutt»? Og hvorfor er det likevel helt uproblematisk å bruke $e^{\\,r\\,t}$ når vi regner på penger?",
-"solution": "Fordi uttrykket $\\left(1 + \\frac{1}{m}\\right)^m$ aldri *blir* $e$, uansett hvor stor $m$ er. Regnearket viser hvorfor: for hver tidobling av $m$ kommer vi nærmere, men avviket blir aldri null — det blir bare mindre og mindre. En grenseverdi er nettopp dette: en verdi vi kan komme så nær vi bare vil, uten noen gang å nå den. Ingen endelig $m$ gir $e$.\n\nSamtidig er det uproblematisk å bruke $e^{\\,r\\,t}$ i praksis. Allerede ved $m = 365$ stemmer $\\left(1 + \\frac{r}{m}\\right)^m$ med $e^{\\,r}$ til sjette desimal, og på et innskudd på en million kroner betyr sjette desimal noen få kroner i året. Modellen er altså enklere å regne med enn virkeligheten, og feilen den gjør er mindre enn avrundingen til nærmeste krone."
+"solution": "Fordi uttrykket $\\left(1 + \\frac{1}{m}\\right)^m$ aldri *blir* $e$, uansett hvor stor $m$ er. Regnearket viser hvorfor: for hver tidobling av $m$ kommer vi nærmere, men avviket blir aldri null — det blir bare mindre og mindre. En grenseverdi er nettopp dette: en verdi vi kan komme så nær vi bare vil, uten noen gang å nå den. Ingen endelig $m$ gir $e$.\n\nSamtidig er det uproblematisk å bruke $e^{\\,r\\,t}$ i praksis.\n\nAllerede ved $m = 365$ stemmer $\\left(1 + \\frac{r}{m}\\right)^m$ med $e^{\\,r}$ i de fem første desimalene for vanlige renter. For $r = 0{,}06$ er tallene $1{,}061831$ og $1{,}061837$.\n\nPå et innskudd på en million kroner utgjør forskjellen noen få kroner i året.\n\nModellen er altså enklere å regne med enn virkeligheten, og feilen den gjør er ubetydelig sammenlignet med usikkerheten i selve renten."
 }
 ],
 "hints": [
@@ -488,7 +488,7 @@
 "$e$ får du med `=EKSP(1)`.",
 "I c): del avviket i én rad på avviket i raden under og se hva du får."
 ],
-"solution": "a) `=(1+1/A2)^A2` og `=EKSP(1)-B2`, b) $2{,}716923932$ og $2{,}718280469$, c) avviket blir omtrent ti ganger mindre per tidobling, d) $1{,}040810766$ og $1{,}040810774$, e) drøfting — grenseverdien nås aldri, men avviket er mindre enn avrundingen til nærmeste krone",
+"solution": "a) `=(1+1/A2)^A2` og `=EKSP(1)-B2`, b) $2{,}716923932$ og $2{,}718280469$, c) avviket blir omtrent ti ganger mindre per tidobling, d) $1{,}040810766$ og $1{,}040810774$, e) drøfting — grenseverdien nås aldri, men avviket er ubetydelig sammenlignet med usikkerheten i renten",
 "competenceGoals": [
 "utforske kontinuerleg rente ved hjelp av digitale verktøy og forklare forskjellen på nominell, effektiv og kontinuerleg rente"
 ],

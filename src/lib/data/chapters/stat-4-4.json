@@ -30,7 +30,7 @@
     {
       "id": "stat-4-4-section-intro",
       "type": "text",
-      "content": "# Hvorfor vi ikke bare kan legge sammen\n\nI en klasse på 40 elever har 24 deltidsjobb og 18 driver med organisert idrett. Hvor mange gjør minst én av delene?\n\nDet fristende svaret er $24 + 18 = 42$. Men klassen har bare 40 elever — svaret kan ikke bli 42. Noe har gått galt.\n\nFeilen er at elevene som gjør **begge** deler, er telt med i begge tallene. De er telt to ganger. Skal vi rette opp, må vi trekke dem fra igjen én gang. Det er hele innholdet i addisjonssetningen."
+      "content": "# Når vi ikke bare kan legge sammen\n\nI en klasse på 40 elever har 24 deltidsjobb og 18 driver med organisert idrett. Hvor mange gjør minst én av delene?\n\nDet fristende svaret er $24 + 18 = 42$. Men klassen har bare 40 elever — svaret kan ikke bli 42. Noe har gått galt.\n\nFeilen er at elevene som gjør **begge** deler, er telt med i begge tallene. De er telt to ganger. Skal vi rette opp, må vi trekke dem fra igjen én gang. Det er hele innholdet i addisjonssetningen."
     },
     {
       "id": "stat-4-4-theorem-addisjon",
@@ -42,10 +42,10 @@
     {
       "id": "stat-4-4-fig-venn",
       "type": "image",
-      "src": "/images/content/statistikk/stat-4-4-venn-deltidsjobb.png",
-      "alt": "Et venndiagram. Et rektangel er merket U lik 40 oppe i venstre hjørne. Inne i rektangelet ligger to overlappende sirkler. Den blå sirkelen til venstre er merket D, den grønne til høyre er merket I. I den delen av D som ikke overlapper, står tallet 13. I overlappet står tallet 11. I den delen av I som ikke overlapper, står tallet 7. Utenfor begge sirklene, men inne i rektangelet, står tallet 9.",
-      "caption": "De 40 elevene fordelt på deltidsjobb ($D$) og organisert idrett ($I$). Tallene i de fire feltene er antall elever, og de summerer til 40.",
-      "kommentar": "Spec: ~/Documents/losningsfilmer-arbeid/grafmotor-specs-nyematte/statistikk/stat-4-4-venn-deltidsjobb.json"
+      "src": "/images/content/statistikk/stat-4-4-venn-deltidsjobb-s.png",
+      "alt": "Et venndiagram. Et rektangel er merket S lik 40 oppe i venstre hjørne. Inne i rektangelet ligger to overlappende sirkler. Den blå sirkelen til venstre er merket D, den grønne til høyre er merket I. I den delen av D som ikke overlapper, står tallet 13. I overlappet står tallet 11. I den delen av I som ikke overlapper, står tallet 7. Utenfor begge sirklene, men inne i rektangelet, står tallet 9.",
+      "caption": "De 40 elevene fordelt på deltidsjobb ($D$) og organisert idrett ($I$). Rektangelet er utfallsrommet med alle 40 elevene. Tallene i de fire feltene er antall elever, og de summerer til 40.",
+      "kommentar": "spec: grafmotor-specs-skolesaga-2110/stat/stat-4-4/stat-4-4-venn-deltidsjobb-s.json (grafmotor, alle porter grønne; figuragent stat, 23.10.2026); erstattet /images/content/statistikk/stat-4-4-venn-deltidsjobb.png"
     },
     {
       "id": "stat-4-4-example-1",
@@ -130,7 +130,7 @@
       "type": "example",
       "title": "Eksempel 2",
       "problem": "Vi trekker ett kort fra en kortstokk med 52 kort.\n\na) Bestem sannsynligheten for at kortet er hjerter eller spar.\nb) Bestem sannsynligheten for at kortet er hjerter eller et bildekort (knekt, dame eller konge).\nc) Forklar hvorfor framgangsmåten er forskjellig i a) og b).",
-      "solution": "**Løsning:**\n\na) La $H$ = «hjerter» og $S$ = «spar». Et kort kan ikke være både hjerter og spar, så hendelsene er disjunkte og $P(H \\cap S) = 0$.\n\n$$P(H \\cup S) = P(H) + P(S) = \\frac{13}{52} + \\frac{13}{52} = \\frac{26}{52} = \\frac{1}{2}$$\n\nb) La $H$ = «hjerter» og $B$ = «bildekort». Nå kan begge skje samtidig: hjerter knekt, hjerter dame og hjerter konge er både hjerter og bildekort. Snittet har altså 3 kort.\n\n$$P(H) = \\frac{13}{52} \\qquad P(B) = \\frac{3 \\cdot 4}{52} = \\frac{12}{52} \\qquad P(H \\cap B) = \\frac{3}{52}$$\n\nVi bruker den generelle addisjonssetningen:\n\n$$P(H \\cup B) = P(H) + P(B) - P(H \\cap B) = \\frac{13}{52} + \\frac{12}{52} - \\frac{3}{52}$$\n\n$$= \\frac{13 + 12 - 3}{52} = \\frac{22}{52} = \\frac{11}{26} \\approx 0{,}423$$\n\nHer forkorter vi først når brøken er ferdig: $22$ og $52$ har begge faktoren $2$, så $\\frac{22}{52} = \\frac{11}{26}$.\n\nc) Forskjellen ligger i om hendelsene kan skje samtidig. I a) utelukker fargene hverandre, og da er snittet tomt. I b) overlapper hendelsene, og hadde vi lagt sammen uten å trekke fra, ville vi telt de tre hjerter-bildekortene to ganger og fått $\\frac{25}{52}$ — for mye.\n\n**Svar:** a) $\\frac{1}{2}$. b) $\\frac{11}{26} \\approx 0{,}423$. c) I a) er hendelsene disjunkte, i b) overlapper de."
+      "solution": "**Løsning:**\n\na) La $H$ = «hjerter» og $A$ = «spar». Et kort kan ikke være både hjerter og spar, så hendelsene er disjunkte og $P(H \\cap A) = 0$.\n\n$$P(H \\cup A) = P(H) + P(A) = \\frac{13}{52} + \\frac{13}{52} = \\frac{26}{52} = \\frac{1}{2}$$\n\nb) La $H$ = «hjerter» og $B$ = «bildekort». Nå kan begge skje samtidig: hjerter knekt, hjerter dame og hjerter konge er både hjerter og bildekort. Snittet har altså 3 kort.\n\n$$P(H) = \\frac{13}{52} \\qquad P(B) = \\frac{3 \\cdot 4}{52} = \\frac{12}{52} \\qquad P(H \\cap B) = \\frac{3}{52}$$\n\nVi bruker den generelle addisjonssetningen:\n\n$$P(H \\cup B) = P(H) + P(B) - P(H \\cap B) = \\frac{13}{52} + \\frac{12}{52} - \\frac{3}{52}$$\n\n$$= \\frac{13 + 12 - 3}{52} = \\frac{22}{52} = \\frac{11}{26} \\approx 0{,}423$$\n\nHer forkorter vi først når brøken er ferdig: $22$ og $52$ har begge faktoren $2$, så $\\frac{22}{52} = \\frac{11}{26}$.\n\nc) Forskjellen ligger i om hendelsene kan skje samtidig.\n\nHjerter og spar utelukker hverandre, og da er snittet tomt.\n\nHjerter og bildekort overlapper. Hadde vi lagt sammen uten å trekke fra, ville vi telt de tre hjerter-bildekortene to ganger og fått $\\frac{25}{52}$ — for mye.\n\n**Svar:** a) $\\frac{1}{2}$. b) $\\frac{11}{26} \\approx 0{,}423$. c) I a) er hendelsene disjunkte, i b) overlapper de."
     },
     {
       "id": "stat-4-4-ex-block-2",
@@ -195,7 +195,7 @@
       "type": "example",
       "title": "Eksempel 3",
       "problem": "En kommune spør 200 innbyggere om de har brukt biblioteket eller svømmehallen det siste året. 86 har brukt biblioteket, 74 har brukt svømmehallen, og 118 har brukt minst én av dem.\n\nEn innbygger trekkes tilfeldig. Bestem sannsynligheten for at hun\n\na) har brukt begge tilbudene\nb) bare har brukt biblioteket\nc) verken har brukt biblioteket eller svømmehallen",
-      "solution": "**Løsning:**\n\nHva vet vi? $P(B) = \\frac{86}{200}$, $P(S) = \\frac{74}{200}$ og $P(B \\cup S) = \\frac{118}{200}$.\n\nHva må vi finne? Først snittet — det er feltet i midten, og de andre feltene følger av det.\n\na) Vi bruker addisjonssetningen, men nå er det snittet som er ukjent. Vi skriver formelen tom først:\n\n$$P(B \\cup S) = P(B) + P(S) - P(B \\cap S)$$\n\n$$\\frac{118}{200} = \\frac{86}{200} + \\frac{74}{200} - P(B \\cap S)$$\n\n$$\\frac{118}{200} = \\frac{160}{200} - P(B \\cap S)$$\n\nVi legger til $P(B \\cap S)$ og trekker fra $\\frac{118}{200}$ på begge sider:\n\n$$P(B \\cap S) = \\frac{160}{200} - \\frac{118}{200} = \\frac{42}{200} = \\frac{21}{100} = 0{,}21$$\n\nAltså har 42 av de 200 brukt begge tilbudene.\n\nb) «Bare biblioteket» er de som er i $B$, men ikke i snittet:\n\n$$P(\\text{bare bibliotek}) = P(B) - P(B \\cap S) = \\frac{86}{200} - \\frac{42}{200} = \\frac{44}{200} = \\frac{11}{50} = 0{,}22$$\n\nc) «Verken–eller» er komplementet til unionen:\n\n$$P((B \\cup S)') = 1 - P(B \\cup S) = \\frac{200}{200} - \\frac{118}{200} = \\frac{82}{200} = \\frac{41}{100} = 0{,}41$$\n\n**Kontroll:** de fire feltene skal summere til 200: $44 + 42 + 32 + 82 = 200$. Det stemmer.\n\n![Venndiagram med rektangelet U lik 200 og to overlappende sirkler B for bibliotek og S for svømmehall. Det er 44 i bare bibliotek, 42 i snittet, 32 i bare svømmehall og 82 utenfor begge sirklene.](/images/content/statistikk/stat-4-4-venn-bibliotek.png)\n\n*Kontrollen i eksempelet leses rett av figuren: 44 + 42 + 32 + 82 = 200. Midtfeltet 42 er det eksempelet regner seg baklengs til.*\n\n**Svar:** a) $0{,}21$, b) $0{,}22$, c) $0{,}41$."
+      "solution": "**Løsning:**\n\nLa $B$ = «har brukt biblioteket» og $H$ = «har brukt svømmehallen».\n\nHva vet vi? $P(B) = \\frac{86}{200}$, $P(H) = \\frac{74}{200}$ og $P(B \\cup H) = \\frac{118}{200}$.\n\nHva må vi finne? Først snittet — det er feltet i midten, og de andre feltene følger av det.\n\na) Vi bruker addisjonssetningen, men nå er det snittet som er ukjent. Vi skriver formelen tom først:\n\n$$P(B \\cup H) = P(B) + P(H) - P(B \\cap H)$$\n\n$$\\frac{118}{200} = \\frac{86}{200} + \\frac{74}{200} - P(B \\cap H)$$\n\n$$\\frac{118}{200} = \\frac{160}{200} - P(B \\cap H)$$\n\nVi legger til $P(B \\cap H)$ og trekker fra $\\frac{118}{200}$ på begge sider:\n\n$$P(B \\cap H) = \\frac{160}{200} - \\frac{118}{200} = \\frac{42}{200} = \\frac{21}{100} = 0{,}21$$\n\nAltså har 42 av de 200 brukt begge tilbudene.\n\nb) «Bare biblioteket» er de som er i $B$, men ikke i snittet:\n\n$$P(\\text{bare bibliotek}) = P(B) - P(B \\cap H) = \\frac{86}{200} - \\frac{42}{200} = \\frac{44}{200} = \\frac{11}{50} = 0{,}22$$\n\nc) «Verken–eller» er komplementet til unionen:\n\n$$P((B \\cup H)') = 1 - P(B \\cup H) = \\frac{200}{200} - \\frac{118}{200} = \\frac{82}{200} = \\frac{41}{100} = 0{,}41$$\n\n**Kontroll:** de fire feltene skal summere til 200: $44 + 42 + 32 + 82 = 200$. Det stemmer.\n\n![Venndiagram med rektangelet S lik 200 og to overlappende sirkler B for bibliotek og H for svømmehall. Det er 44 i bare bibliotek, 42 i snittet, 32 i bare svømmehall og 82 utenfor begge sirklene.](/images/content/statistikk/stat-4-4-venn-bibliotek-s.png)\n\n*Kontrollen i eksempelet leses rett av figuren: 44 + 42 + 32 + 82 = 200. Midtfeltet 42 er det eksempelet regner seg baklengs til.*\n\n**Svar:** a) $0{,}21$, b) $0{,}22$, c) $0{,}41$."
     },
     {
       "id": "stat-4-4-ex-block-3",
@@ -239,7 +239,7 @@
           }
         ],
         "hints": [
-          "Tegn et venndiagram med 150 i universet og 18 i midtfeltet.",
+          "Tegn et venndiagram med 150 i utfallsrommet og 18 i midtfeltet.",
           "Kontroll: de fire feltene skal summere til 150."
         ],
         "solution": "a) $0{,}88$, b) $0{,}12$, c) $0{,}48$, d) $0{,}76$, e) $18$",
@@ -268,7 +268,7 @@
       "type": "example",
       "title": "Eksempel 4",
       "problem": "En russebuss selger 500 billetter. Blant kjøperne har 300 vippset, 260 har brukt kort og 120 har brukt begge betalingsmåter. Ingen har brukt andre måter.\n\nUndersøk om opplysningene henger sammen, og forklar hva tallene betyr for hvor mange som har betalt med bare én metode.",
-      "solution": "**Løsning:**\n\nHva vet vi? $|V| = 300$, $|K| = 260$, $|V \\cap K| = 120$, og $|V \\cup K| = 500$ siden ingen har brukt andre måter.\n\nHva må vi sjekke? Om addisjonssetningen gir 500 når vi setter inn:\n\n$$|V \\cup K| = |V| + |K| - |V \\cap K| = 300 + 260 - 120 = 440$$\n\nHer ser vi at noe skurrer: setningen gir 440, ikke 500. Da kan ikke alle opplysningene være riktige samtidig — 60 av kjøperne ville ha betalt på en måte som ikke er nevnt.\n\nEnten har flere brukt begge metodene enn oppgitt, eller så finnes det en tredje betalingsmåte (kontant, eller en venn som betalte). Det er verdt å merke seg at addisjonssetningen kan brukes som en **kontroll**: stemmer ikke tallene, er datagrunnlaget ufullstendig.\n\nHadde tallene i stedet vært $|V \\cap K| = 60$, ville vi fått\n\n$$300 + 260 - 60 = 500$$\n\nog da ville regnskapet gått opp. Antallet som bare vippset, ville vært $300 - 60 = 240$, og antallet som bare brukte kort, $260 - 60 = 200$.\n\n**Kontroll:** $240 + 60 + 200 = 500$.\n\n**Svar:** Opplysningene henger ikke sammen — addisjonssetningen gir 440 og ikke 500, så 60 kjøpere er uforklarte. Med $|V \\cap K| = 60$ ville regnskapet gått opp, og 240 ville bare ha vippset, 200 bare brukt kort."
+      "solution": "**Løsning:**\n\nHva vet vi? $|V| = 300$, $|K| = 260$, $|V \\cap K| = 120$, og $|V \\cup K| = 500$ siden ingen har brukt andre måter.\n\nHva må vi sjekke? Om addisjonssetningen gir 500 når vi setter inn:\n\n$$|V \\cup K| = |V| + |K| - |V \\cap K| = 300 + 260 - 120 = 440$$\n\nHer ser vi at noe skurrer: setningen gir 440, ikke 500. Da kan ikke alle opplysningene være riktige samtidig — 60 av kjøperne ville ha betalt på en måte som ikke er nevnt.\n\nEnten har færre brukt begge metodene enn oppgitt (60 i stedet for 120), eller så finnes det en tredje betalingsmåte (kontant, eller en venn som betalte). Det er verdt å merke seg at addisjonssetningen kan brukes som en **kontroll**: stemmer ikke tallene, er datagrunnlaget ufullstendig.\n\nHadde tallene i stedet vært $|V \\cap K| = 60$, ville vi fått\n\n$$300 + 260 - 60 = 500$$\n\nog da ville regnskapet gått opp. Antallet som bare vippset, ville vært $300 - 60 = 240$, og antallet som bare brukte kort, $260 - 60 = 200$.\n\n**Kontroll:** $240 + 60 + 200 = 500$.\n\n**Svar:** Opplysningene henger ikke sammen — addisjonssetningen gir 440 og ikke 500, så 60 kjøpere er uforklarte. Med $|V \\cap K| = 60$ ville regnskapet gått opp, og 240 ville bare ha vippset, 200 bare brukt kort."
     },
     {
       "id": "stat-4-4-ex-block-4",
@@ -336,17 +336,17 @@
         "number": "5",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En videregående skole har 600 elever. 420 har busskort, 150 sykler til skolen om sommeren, og 90 gjør begge deler. Én elev trekkes tilfeldig. La $B$ = «har busskort» og $S$ = «sykler om sommeren». Oppgi svarene som forkortet brøk.",
+        "task": "**Samleoppgave (Del 1 — uten hjelpemidler).** En videregående skole har 600 elever. 420 har busskort, 150 sykler til skolen om sommeren, og 90 gjør begge deler. Én elev trekkes tilfeldig. La $B$ = «har busskort» og $Y$ = «sykler om sommeren». Oppgi svarene som forkortet brøk.",
         "subTasks": [
           {
             "label": "a",
-            "task": "Bestem $P(B \\cap S)$.",
+            "task": "Bestem $P(B \\cap Y)$.",
             "solution": "$\\frac{90}{600} = \\frac{3}{20}$",
             "expressionAnswer": "3/20"
           },
           {
             "label": "b",
-            "task": "Bestem $P(B \\cup S)$.",
+            "task": "Bestem $P(B \\cup Y)$.",
             "solution": "$\\frac{420}{600} + \\frac{150}{600} - \\frac{90}{600} = \\frac{480}{600} = \\frac{4}{5}$",
             "expressionAnswer": "4/5"
           },
@@ -452,7 +452,7 @@
           {
             "label": "b",
             "task": "Skriv opp den riktige formelen, og forklar hvilket tall avisen mangler.",
-            "solution": "$P(K \\cup S) = P(K) + P(S) - P(K \\cap S) = 0{,}45 + 0{,}38 - P(K \\cap S)$. Avisen mangler andelen som er misfornøyd med begge deler."
+            "solution": "La $K$ = «misfornøyd med kollektivtilbudet» og $L$ = «misfornøyd med skoletilbudet».\n\n$P(K \\cup L) = P(K) + P(L) - P(K \\cap L) = 0{,}45 + 0{,}38 - P(K \\cap L)$. Avisen mangler andelen som er misfornøyd med begge deler."
           },
           {
             "label": "c",
@@ -473,7 +473,7 @@
         "hints": [
           "Kan en person være misfornøyd med begge tilbudene?"
         ],
-        "solution": "a) Dobbelttelling — snittet er ikke trukket fra. b) $P(K \\cup S) = 0{,}45 + 0{,}38 - P(K \\cap S)$; snittet mangler. c) Mellom $0{,}45$ og $0{,}83$. d) Bare hvis hendelsene er disjunkte. e) Egen omskriving.",
+        "solution": "a) Dobbelttelling — snittet er ikke trukket fra. b) $P(K \\cup L) = 0{,}45 + 0{,}38 - P(K \\cap L)$; snittet mangler. c) Mellom $0{,}45$ og $0{,}83$. d) Bare hvis hendelsene er disjunkte. e) Egen omskriving.",
         "competenceGoals": [
           "bruke den generelle addisjonssetninga for sannsyn og lova om totalt sannsyn i problemløysing"
         ],
