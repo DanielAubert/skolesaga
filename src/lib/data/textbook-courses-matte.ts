@@ -6286,7 +6286,6 @@ export const COURSE_R1: TextbookCourse = {
     },
     {
       id: 'r1-3-4',
-      skjult: true,
       number: '3.4',
       title: "L'Hôpitals regel",
       description: 'Beregne grenseverdier av ubestemte former som 0/0 og ∞/∞.',
