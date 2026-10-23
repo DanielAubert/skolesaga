@@ -26,7 +26,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Lesestrategier', 'Førlesing', 'Underveislesing', 'Etterlesing'],
       competenceGoals: ['bruke ulike lesestrategier tilpasset formålet med lesingen'],
-      wip: true, linkedChapterId: 'norsk-5-1-1-narrativ' },
+      linkedChapterId: 'norsk-5-1-1-narrativ' },
     {
       id: 'norsk-5-1-2',
       number: '1.2',
@@ -36,7 +36,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eventyr', 'Fortelling', 'Hovedperson', 'Handling', 'Spenningskurve'],
       competenceGoals: ['lese og samtale om tekster i ulike sjangere'],
-      wip: true, linkedChapterId: 'norsk-5-1-2-narrativ' },
+      linkedChapterId: 'norsk-5-1-2-narrativ' },
     {
       id: 'norsk-5-1-3',
       number: '1.3',
@@ -46,7 +46,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Fagtekst', 'Overskrift', 'Avsnitt', 'Nøkkelord', 'Faktasetninger'],
       competenceGoals: ['finne informasjon i ulike typer tekster'],
-      wip: true, linkedChapterId: 'norsk-5-1-3-narrativ' },
+      linkedChapterId: 'norsk-5-1-3-narrativ' },
     // Kapittel 2: Skriving
     {
       id: 'norsk-5-2-1',
@@ -57,7 +57,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Fortelling', 'Innledning', 'Hoveddel', 'Avslutning', 'Beskrivelser'],
       competenceGoals: ['skrive fortellende tekster med innledning, hoveddel og avslutning'],
-      wip: true, linkedChapterId: 'norsk-5-2-1-narrativ' },
+      linkedChapterId: 'norsk-5-2-1-narrativ' },
     {
       id: 'norsk-5-2-2',
       number: '2.2',
@@ -67,7 +67,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Sakprosa', 'Fakta', 'Fagtekst', 'Kilder', 'Overskrifter'],
       competenceGoals: ['skrive tekster med saklig innhold'],
-      wip: true, linkedChapterId: 'norsk-5-2-2-narrativ' },
+      linkedChapterId: 'norsk-5-2-2-narrativ' },
     {
       id: 'norsk-5-2-3',
       number: '2.3',
@@ -77,7 +77,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Punktum', 'Komma', 'Stor bokstav', 'Rettskriving'],
       competenceGoals: ['bruke grunnleggende tegnsetting'],
-      wip: true, linkedChapterId: 'norsk-5-2-3-narrativ' },
+      linkedChapterId: 'norsk-5-2-3-narrativ' },
     // Kapittel 3: Grammatikk
     {
       id: 'norsk-5-3-1',
@@ -88,7 +88,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Substantiv', 'Verb', 'Bøying', 'Entall', 'Flertall', 'Presens', 'Preteritum'],
       competenceGoals: ['kjenne til og bruke grunnleggende begreper om språk og tekst'],
-      wip: true, linkedChapterId: 'norsk-5-3-1-narrativ' },
+      linkedChapterId: 'norsk-5-3-1-narrativ' },
     {
       id: 'norsk-5-3-2',
       number: '3.2',
@@ -98,7 +98,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Adjektiv', 'Gradbøying', 'Positiv', 'Komparativ', 'Superlativ'],
       competenceGoals: ['kjenne til og bruke grunnleggende begreper om språk og tekst'],
-      wip: true, linkedChapterId: 'norsk-5-3-2-narrativ' },
+      linkedChapterId: 'norsk-5-3-2-narrativ' },
     {
       id: 'norsk-5-3-3',
       number: '3.3',
@@ -108,7 +108,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Setning', 'Subjekt', 'Verbal', 'Setningsledd'],
       competenceGoals: ['kjenne til grunnleggende setningsstruktur'],
-      wip: true, linkedChapterId: 'norsk-5-3-3-narrativ' },
+      linkedChapterId: 'norsk-5-3-3-narrativ' },
     // Kapittel 4: Muntlig
     {
       id: 'norsk-5-4-1',
@@ -119,7 +119,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Presentasjon', 'Fremføring', 'Øyekontakt', 'Stemmebruk'],
       competenceGoals: ['presentere tekster og tema muntlig'],
-      wip: true, linkedChapterId: 'norsk-5-4-1-narrativ' },
+      linkedChapterId: 'norsk-5-4-1-narrativ' },
     {
       id: 'norsk-5-4-2',
       number: '4.2',
@@ -129,7 +129,7 @@ export const COURSE_NORSK_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Samtale', 'Diskusjon', 'Lytte', 'Argumentere'],
       competenceGoals: ['delta i samtaler og diskusjoner'],
-      wip: true, linkedChapterId: 'norsk-5-4-2-narrativ' },
+      linkedChapterId: 'norsk-5-4-2-narrativ' },
       { id: 'norsk-5-4-3', number: '4.3', title: 'Drama og rollespill', description: 'Lær å uttrykke deg gjennom drama, rollespill og teater.', estimatedMinutes: 45, exerciseCount: 1, topics: [], competenceGoals: ['bruke drama og rollespill for å utforske tekster og situasjoner'], linkedChapterId: 'norsk-5-4-3-narrativ' },
     { id: 'norsk-5-5-1', number: '5.1', title: 'Eventyr', description: 'Lær om eventyrets kjennetegn og hvordan eventyr er bygget opp.', estimatedMinutes: 50, exerciseCount: 2, topics: [], competenceGoals: ['gjenkjenne og forklare kjennetegn ved eventyr'], linkedChapterId: 'norsk-5-5-1-narrativ' },
     { id: 'norsk-5-5-2', number: '5.2', title: 'Fabler og sagn', description: 'Lær om fabler med snakkende dyr og sagn om helter.', estimatedMinutes: 45, exerciseCount: 1, topics: [], competenceGoals: ['kjenne til ulike typer fortellinger som fabel og sagn'], linkedChapterId: 'norsk-5-5-2-narrativ' },
@@ -157,7 +157,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Reading', 'Stories', 'Comprehension', 'Characters'],
       competenceGoals: ['lese og forstå tekster av ulik lengde og i ulike sjangre'],
-      wip: true, linkedChapterId: 'engelsk-5-1-1-narrativ' },
+      linkedChapterId: 'engelsk-5-1-1-narrativ' },
     {
       id: 'engelsk-5-1-2',
       number: '1.2',
@@ -167,7 +167,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Vocabulary', 'Word families', 'Synonyms', 'Antonyms'],
       competenceGoals: ['bruke relevante læringsstrategier for å utvide ordforrådet'],
-      wip: true, linkedChapterId: 'engelsk-5-1-2-narrativ' },
+      linkedChapterId: 'engelsk-5-1-2-narrativ' },
     // Chapter 2: Grammar basics
     {
       id: 'engelsk-5-2-1',
@@ -178,7 +178,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Present simple', 'Present continuous', 'Verbs', 'Time expressions'],
       competenceGoals: ['bruke grunnleggende språklige strukturer'],
-      wip: true, linkedChapterId: 'engelsk-5-2-1-narrativ' },
+      linkedChapterId: 'engelsk-5-2-1-narrativ' },
     {
       id: 'engelsk-5-2-2',
       number: '2.2',
@@ -188,7 +188,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Past simple', 'Regular verbs', 'Irregular verbs', 'Yesterday'],
       competenceGoals: ['bruke grunnleggende språklige strukturer'],
-      wip: true, linkedChapterId: 'engelsk-5-2-2-narrativ' },
+      linkedChapterId: 'engelsk-5-2-2-narrativ' },
     {
       id: 'engelsk-5-2-3',
       number: '2.3',
@@ -198,7 +198,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Pronouns', 'Adjectives', 'Describing', 'Subject pronouns', 'Object pronouns'],
       competenceGoals: ['bruke grunnleggende språklige strukturer'],
-      wip: true, linkedChapterId: 'engelsk-5-2-3-narrativ' },
+      linkedChapterId: 'engelsk-5-2-3-narrativ' },
     // Chapter 3: Writing
     {
       id: 'engelsk-5-3-1',
@@ -209,7 +209,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Sentences', 'Word order', 'Capital letters', 'Punctuation'],
       competenceGoals: ['skrive enkle tekster som forteller og beskriver'],
-      wip: true, linkedChapterId: 'engelsk-5-3-1-narrativ' },
+      linkedChapterId: 'engelsk-5-3-1-narrativ' },
     {
       id: 'engelsk-5-3-2',
       number: '3.2',
@@ -219,7 +219,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Personal writing', 'Family', 'Hobbies', 'Interests'],
       competenceGoals: ['skrive enkle tekster som forteller og beskriver'],
-      wip: true, linkedChapterId: 'engelsk-5-3-2-narrativ' },
+      linkedChapterId: 'engelsk-5-3-2-narrativ' },
     // Chapter 4: Speaking and culture
     {
       id: 'engelsk-5-4-1',
@@ -230,7 +230,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Greetings', 'Questions', 'Answers', 'Polite phrases'],
       competenceGoals: ['bruke enkle kommunikasjonsstrategier'],
-      wip: true, linkedChapterId: 'engelsk-5-4-1-narrativ' },
+      linkedChapterId: 'engelsk-5-4-1-narrativ' },
     {
       id: 'engelsk-5-4-2',
       number: '4.2',
@@ -240,7 +240,7 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['UK', 'USA', 'Culture', 'Traditions', 'Geography'],
       competenceGoals: ['utforske levemåter og tradisjoner i noen engelskspråklige land'],
-      wip: true, linkedChapterId: 'engelsk-5-4-2-narrativ' },
+      linkedChapterId: 'engelsk-5-4-2-narrativ' },
       { id: 'engelsk-5-1-3', number: '1.3', title: 'Building Vocabulary - Family and Friends', description: 'Learn words about family members and describing people.', estimatedMinutes: 40, exerciseCount: 2, topics: [], competenceGoals: ['talk about family and people you know'], linkedChapterId: 'engelsk-5-1-3-narrativ' },
     { id: 'engelsk-5-2-4', number: '2.4', title: 'Adjectives', description: 'Learn words that describe things and people.', estimatedMinutes: 40, exerciseCount: 3, topics: [], competenceGoals: ['use describing words in English'], linkedChapterId: 'engelsk-5-2-4-narrativ' },
     { id: 'engelsk-5-3-3', number: '3.3', title: 'Capital Letters and Punctuation', description: 'Learn when to use capital letters and punctuation marks.', estimatedMinutes: 35, exerciseCount: 2, topics: [], competenceGoals: ['use basic punctuation in English'], linkedChapterId: 'engelsk-5-3-3-narrativ' },
@@ -268,7 +268,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Skjelett', 'Bein', 'Muskler', 'Ledd', 'Bevegelse'],
       competenceGoals: ['beskrive og forklare funksjonen til noen organer og organsystemer i kroppen'],
-      wip: true, linkedChapterId: 'naturfag-5-1-1-narrativ' },
+      linkedChapterId: 'naturfag-5-1-1-narrativ' },
     {
       id: 'naturfag-5-1-2',
       number: '1.2',
@@ -278,7 +278,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Fordøyelse', 'Munn', 'Magesekk', 'Tarm', 'Næringsstoffer'],
       competenceGoals: ['beskrive og forklare funksjonen til noen organer og organsystemer i kroppen'],
-      wip: true, linkedChapterId: 'naturfag-5-1-2-narrativ' },
+      linkedChapterId: 'naturfag-5-1-2-narrativ' },
     {
       id: 'naturfag-5-1-3',
       number: '1.3',
@@ -288,7 +288,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Hjerte', 'Blod', 'Blodårer', 'Puls', 'Oksygen'],
       competenceGoals: ['beskrive og forklare funksjonen til noen organer og organsystemer i kroppen'],
-      wip: true, linkedChapterId: 'naturfag-5-1-3-narrativ' },
+      linkedChapterId: 'naturfag-5-1-3-narrativ' },
     // Kapittel 2: Dyr og natur
     {
       id: 'naturfag-5-2-1',
@@ -299,7 +299,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Pattedyr', 'Pels', 'Unger', 'Norske dyr'],
       competenceGoals: ['beskrive kjennetegn ved noen dyregrupper'],
-      wip: true, linkedChapterId: 'naturfag-5-2-1-narrativ' },
+      linkedChapterId: 'naturfag-5-2-1-narrativ' },
     {
       id: 'naturfag-5-2-2',
       number: '2.2',
@@ -309,7 +309,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Fugler', 'Insekter', 'Vinger', 'Fjær', 'Bein'],
       competenceGoals: ['beskrive kjennetegn ved noen dyregrupper'],
-      wip: true, linkedChapterId: 'naturfag-5-2-2-narrativ' },
+      linkedChapterId: 'naturfag-5-2-2-narrativ' },
     {
       id: 'naturfag-5-2-3',
       number: '2.3',
@@ -319,7 +319,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Næringskjede', 'Produsent', 'Forbruker', 'Nedbryter', 'Økosystem'],
       competenceGoals: ['forklare hvordan næringsstoffer og energi overføres i næringskjeder'],
-      wip: true, linkedChapterId: 'naturfag-5-2-3-narrativ' },
+      linkedChapterId: 'naturfag-5-2-3-narrativ' },
     // Kapittel 3: Planter
     {
       id: 'naturfag-5-3-1',
@@ -330,7 +330,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Rot', 'Stengel', 'Blad', 'Blomst', 'Frø'],
       competenceGoals: ['beskrive hvordan planter formerer seg'],
-      wip: true, linkedChapterId: 'naturfag-5-3-1-narrativ' },
+      linkedChapterId: 'naturfag-5-3-1-narrativ' },
     {
       id: 'naturfag-5-3-2',
       number: '3.2',
@@ -340,7 +340,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Fotosyntese', 'Sollys', 'Karbondioksid', 'Vann', 'Oksygen'],
       competenceGoals: ['forklare fotosyntesen og dens betydning for livet på jorda'],
-      wip: true, linkedChapterId: 'naturfag-5-3-2-narrativ' },
+      linkedChapterId: 'naturfag-5-3-2-narrativ' },
     // Kapittel 4: Teknologi og forskning
     {
       id: 'naturfag-5-4-1',
@@ -351,7 +351,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Forsøk', 'Hypotese', 'Observasjon', 'Konklusjon'],
       competenceGoals: ['stille spørsmål, planlegge og gjennomføre undersøkelser'],
-      wip: true, linkedChapterId: 'naturfag-5-4-1-narrativ' },
+      linkedChapterId: 'naturfag-5-4-1-narrativ' },
     {
       id: 'naturfag-5-4-2',
       number: '4.2',
@@ -361,7 +361,7 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Teknologi', 'Oppfinnelser', 'Hverdagsteknologi'],
       competenceGoals: ['utforske teknologiske produkter og vurdere brukervennlighet'],
-      wip: true, linkedChapterId: 'naturfag-5-4-2-narrativ' },
+      linkedChapterId: 'naturfag-5-4-2-narrativ' },
   ],
 };
 
@@ -385,7 +385,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Norge', 'Fjell', 'Fjorder', 'Landsdeler', 'Byer', 'Kart'],
       competenceGoals: ['utforske geografiske forhold i Norge'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-1-1-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-1-1-narrativ' },
     {
       id: 'samfunnsfag-5-1-2',
       number: '1.2',
@@ -395,7 +395,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Samer', 'Urfolk', 'Sápmi', 'Reindrift', 'Samisk kultur'],
       competenceGoals: ['utforske samisk kultur og tradisjoner'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-1-2-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-1-2-narrativ' },
     // Kapittel 2: Norsk historie
     {
       id: 'samfunnsfag-5-2-1',
@@ -406,7 +406,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Vikinger', 'Vikingskip', 'Handelsreiser', 'Vikingsamfunn'],
       competenceGoals: ['utforske og beskrive sentrale trekk ved vikingtiden'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-2-1-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-2-1-narrativ' },
     {
       id: 'samfunnsfag-5-2-2',
       number: '2.2',
@@ -416,7 +416,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Middelalder', 'Kirken', 'Konger', 'Svartedauden'],
       competenceGoals: ['utforske og beskrive sentrale trekk ved norsk middelalder'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-2-2-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-2-2-narrativ' },
     // Kapittel 3: Demokrati og samfunn
     {
       id: 'samfunnsfag-5-3-1',
@@ -427,7 +427,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Demokrati', 'Valg', 'Folkestyre', 'Stemmerett'],
       competenceGoals: ['forklare hva demokrati er og gjøre rede for regler på skolen og i samfunnet'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-3-1-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-3-1-narrativ' },
     {
       id: 'samfunnsfag-5-3-2',
       number: '3.2',
@@ -437,7 +437,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Kommune', 'Ordfører', 'Kommunestyre', 'Tjenester'],
       competenceGoals: ['utforske hvordan kommunen styres'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-3-2-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-3-2-narrativ' },
     // Kapittel 4: Bærekraft og miljø
     {
       id: 'samfunnsfag-5-4-1',
@@ -448,7 +448,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Miljø', 'Natur', 'Forurensning', 'Resirkulering'],
       competenceGoals: ['utforske og drøfte hvordan vi kan ta vare på naturen'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-4-1-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-4-1-narrativ' },
     {
       id: 'samfunnsfag-5-4-2',
       number: '4.2',
@@ -458,7 +458,7 @@ export const COURSE_SAMFUNNSFAG_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Bærekraft', 'FNs bærekraftsmål', 'Fremtiden'],
       competenceGoals: ['utforske og gi eksempler på bærekraftig utvikling'],
-      wip: true, linkedChapterId: 'samfunnsfag-5-4-2-narrativ' },
+      linkedChapterId: 'samfunnsfag-5-4-2-narrativ' },
   ],
 };
 
@@ -482,7 +482,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Bibelen', 'Det gamle testamentet', 'Det nye testamentet', 'Bibelfortellinger'],
       competenceGoals: ['beskrive og reflektere over sentrale tekster og fortellinger'],
-      wip: true, linkedChapterId: 'krle-5-1-1-narrativ' },
+      linkedChapterId: 'krle-5-1-1-narrativ' },
     {
       id: 'krle-5-1-2',
       number: '1.2',
@@ -492,7 +492,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Jul', 'Påske', 'Pinse', 'Høytider', 'Tradisjoner'],
       competenceGoals: ['beskrive og reflektere over kristne høytider'],
-      wip: true, linkedChapterId: 'krle-5-1-2-narrativ' },
+      linkedChapterId: 'krle-5-1-2-narrativ' },
     // Kapittel 2: Andre religioner
     {
       id: 'krle-5-2-1',
@@ -503,7 +503,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Islam', 'Koranen', 'Profeten Muhammad', 'De fem søyler', 'Moské'],
       competenceGoals: ['beskrive hovedtrekk ved islam'],
-      wip: true, linkedChapterId: 'krle-5-2-1-narrativ' },
+      linkedChapterId: 'krle-5-2-1-narrativ' },
     {
       id: 'krle-5-2-2',
       number: '2.2',
@@ -513,7 +513,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Jødedom', 'Toraen', 'Synagoge', 'Sabbat', 'Jødiske høytider'],
       competenceGoals: ['beskrive hovedtrekk ved jødedommen'],
-      wip: true, linkedChapterId: 'krle-5-2-2-narrativ' },
+      linkedChapterId: 'krle-5-2-2-narrativ' },
     // Kapittel 3: Livssyn og filosofi
     {
       id: 'krle-5-3-1',
@@ -524,7 +524,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Livssyn', 'Humanisme', 'Tro', 'Verdier'],
       competenceGoals: ['samtale om og reflektere over hva livssyn er'],
-      wip: true, linkedChapterId: 'krle-5-3-1-narrativ' },
+      linkedChapterId: 'krle-5-3-1-narrativ' },
     {
       id: 'krle-5-3-2',
       number: '3.2',
@@ -534,7 +534,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Filosofi', 'Store spørsmål', 'Undring', 'Samtale'],
       competenceGoals: ['undre seg og stille spørsmål om livet'],
-      wip: true, linkedChapterId: 'krle-5-3-2-narrativ' },
+      linkedChapterId: 'krle-5-3-2-narrativ' },
     // Kapittel 4: Etikk
     {
       id: 'krle-5-4-1',
@@ -545,7 +545,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Etikk', 'Rett og galt', 'Valg', 'Konsekvenser'],
       competenceGoals: ['samtale om etiske spørsmål'],
-      wip: true, linkedChapterId: 'krle-5-4-1-narrativ' },
+      linkedChapterId: 'krle-5-4-1-narrativ' },
     {
       id: 'krle-5-4-2',
       number: '4.2',
@@ -555,7 +555,7 @@ export const COURSE_KRLE_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Vennskap', 'Respekt', 'Mobbing', 'Inkludering'],
       competenceGoals: ['reflektere over hvordan vi behandler hverandre'],
-      wip: true, linkedChapterId: 'krle-5-4-2-narrativ' },
+      linkedChapterId: 'krle-5-4-2-narrativ' },
   ],
 };
 
@@ -579,7 +579,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Tegning', 'Blyant', 'Skravering', 'Lys og skygge'],
       competenceGoals: ['bruke ulike teknikker i tegning'],
-      wip: true, linkedChapterId: 'kunst-5-1-1-narrativ' },
+      linkedChapterId: 'kunst-5-1-1-narrativ' },
     {
       id: 'kunst-5-1-2',
       number: '1.2',
@@ -589,7 +589,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Farger', 'Primærfarger', 'Sekundærfarger', 'Fargeblanding'],
       competenceGoals: ['utforske farger og fargeteori'],
-      wip: true, linkedChapterId: 'kunst-5-1-2-narrativ' },
+      linkedChapterId: 'kunst-5-1-2-narrativ' },
     {
       id: 'kunst-5-1-3',
       number: '1.3',
@@ -599,7 +599,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 4,
       topics: ['Akvarell', 'Våt-i-våt', 'Penselteknikk', 'Vann'],
       competenceGoals: ['bruke ulike maleteknikker'],
-      wip: true, linkedChapterId: 'kunst-5-1-3-narrativ' },
+      linkedChapterId: 'kunst-5-1-3-narrativ' },
     // Kapittel 2: Forming
     {
       id: 'kunst-5-2-1',
@@ -610,7 +610,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 4,
       topics: ['Leire', 'Forming', 'Skulptur', 'Teknikker'],
       competenceGoals: ['bruke ulike materialer i tredimensjonal forming'],
-      wip: true, linkedChapterId: 'kunst-5-2-1-narrativ' },
+      linkedChapterId: 'kunst-5-2-1-narrativ' },
     {
       id: 'kunst-5-2-2',
       number: '2.2',
@@ -620,7 +620,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Papir', 'Klipping', 'Bretting', 'Collage'],
       competenceGoals: ['utforske og bruke ulike materialer'],
-      wip: true, linkedChapterId: 'kunst-5-2-2-narrativ' },
+      linkedChapterId: 'kunst-5-2-2-narrativ' },
     // Kapittel 3: Design
     {
       id: 'kunst-5-3-1',
@@ -631,7 +631,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Mønster', 'Symmetri', 'Gjentagelse', 'Design'],
       competenceGoals: ['utforske og bruke mønster og symmetri i design'],
-      wip: true, linkedChapterId: 'kunst-5-3-1-narrativ' },
+      linkedChapterId: 'kunst-5-3-1-narrativ' },
     {
       id: 'kunst-5-3-2',
       number: '3.2',
@@ -641,7 +641,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 4,
       topics: ['Design', 'Funksjon', 'Form', 'Produkt'],
       competenceGoals: ['designe og lage enkle produkter'],
-      wip: true, linkedChapterId: 'kunst-5-3-2-narrativ' },
+      linkedChapterId: 'kunst-5-3-2-narrativ' },
     // Kapittel 4: Kunsthistorie
     {
       id: 'kunst-5-4-1',
@@ -652,7 +652,7 @@ export const COURSE_KUNST_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Kunsthistorie', 'Kunstnere', 'Kunstverk', 'Munch', 'Picasso'],
       competenceGoals: ['utforske kunst fra ulike perioder og kulturer'],
-      wip: true, linkedChapterId: 'kunst-5-4-1-narrativ' },
+      linkedChapterId: 'kunst-5-4-1-narrativ' },
       { id: 'kunst-5-4-2', number: '4.2', title: 'Norske kunstnere og kunst fra vår tid', description: 'Utforsk norsk kunst og kunstnere som lever og arbeider i dag.', estimatedMinutes: 50, exerciseCount: 4, topics: [], competenceGoals: ['utforske og samtale om norsk kunst og samtidskunst', 'forstå at kunst kan uttrykke følelser og budskap'], linkedChapterId: 'kunst-5-4-2-narrativ' },
   ],
 };
@@ -704,7 +704,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Næringsstoffer', 'Karbohydrater', 'Proteiner', 'Fett', 'Vitaminer'],
       competenceGoals: ['forklare hva kroppen trenger av næringsstoffer'],
-      wip: true, linkedChapterId: 'mat-5-1-1-narrativ' },
+      linkedChapterId: 'mat-5-1-1-narrativ' },
     {
       id: 'mat-5-1-2',
       number: '1.2',
@@ -714,7 +714,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Kosthold', 'Matvarepyramide', 'Måltider', 'Balanse'],
       competenceGoals: ['vurdere kosthold og gi eksempler på gode valg'],
-      wip: true, linkedChapterId: 'mat-5-1-2-narrativ' },
+      linkedChapterId: 'mat-5-1-2-narrativ' },
     // Kapittel 2: Hygiene og mattrygghet
     {
       id: 'mat-5-2-1',
@@ -725,7 +725,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Hygiene', 'Håndvask', 'Rengjøring', 'Mattrygghet'],
       competenceGoals: ['praktisere god hygiene i arbeidet med mat'],
-      wip: true, linkedChapterId: 'mat-5-2-1-narrativ' },
+      linkedChapterId: 'mat-5-2-1-narrativ' },
     {
       id: 'mat-5-2-2',
       number: '2.2',
@@ -735,7 +735,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Oppbevaring', 'Kjøleskap', 'Frys', 'Holdbarhet'],
       competenceGoals: ['forklare grunnleggende prinsipper for oppbevaring av mat'],
-      wip: true, linkedChapterId: 'mat-5-2-2-narrativ' },
+      linkedChapterId: 'mat-5-2-2-narrativ' },
     // Kapittel 3: Matlaging
     {
       id: 'mat-5-3-1',
@@ -746,7 +746,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Oppskrift', 'Mål', 'Ingredienser', 'Fremgangsmåte'],
       competenceGoals: ['bruke oppskrifter og lage enkle retter'],
-      wip: true, linkedChapterId: 'mat-5-3-1-narrativ' },
+      linkedChapterId: 'mat-5-3-1-narrativ' },
     {
       id: 'mat-5-3-2',
       number: '3.2',
@@ -756,7 +756,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 4,
       topics: ['Matlaging', 'Frokost', 'Lunsj', 'Mellommåltid'],
       competenceGoals: ['lage enkle og næringsrike måltider'],
-      wip: true, linkedChapterId: 'mat-5-3-2-narrativ' },
+      linkedChapterId: 'mat-5-3-2-narrativ' },
     // Kapittel 4: Mat og kultur
     {
       id: 'mat-5-4-1',
@@ -767,7 +767,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Norsk mat', 'Tradisjoner', 'Høytidsmat', 'Lokalmat'],
       competenceGoals: ['utforske norske mattradisjoner'],
-      wip: true, linkedChapterId: 'mat-5-4-1-narrativ' },
+      linkedChapterId: 'mat-5-4-1-narrativ' },
     {
       id: 'mat-5-4-2',
       number: '4.2',
@@ -777,7 +777,7 @@ export const COURSE_MAT_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Internasjonal mat', 'Kulturer', 'Råvarer', 'Krydder'],
       competenceGoals: ['utforske mat fra ulike kulturer'],
-      wip: true, linkedChapterId: 'mat-5-4-2-narrativ' },
+      linkedChapterId: 'mat-5-4-2-narrativ' },
   ],
 };
 
@@ -801,7 +801,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Løping', 'Hopping', 'Kasting', 'Fangst', 'Koordinasjon'],
       competenceGoals: ['utføre grunnleggende bevegelser'],
-      wip: true, linkedChapterId: 'kroppsoving-5-1-1-narrativ' },
+      linkedChapterId: 'kroppsoving-5-1-1-narrativ' },
     {
       id: 'kroppsoving-5-1-2',
       number: '1.2',
@@ -811,7 +811,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Balanse', 'Smidighet', 'Stretch', 'Øvelser'],
       competenceGoals: ['øve på balanse og kroppsbeherskelse'],
-      wip: true, linkedChapterId: 'kroppsoving-5-1-2-narrativ' },
+      linkedChapterId: 'kroppsoving-5-1-2-narrativ' },
     // Kapittel 2: Ballspill
     {
       id: 'kroppsoving-5-2-1',
@@ -822,7 +822,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Fotball', 'Pasning', 'Dribbling', 'Skudd', 'Regler'],
       competenceGoals: ['delta i ballspill og samarbeide med andre'],
-      wip: true, linkedChapterId: 'kroppsoving-5-2-1-narrativ' },
+      linkedChapterId: 'kroppsoving-5-2-1-narrativ' },
     {
       id: 'kroppsoving-5-2-2',
       number: '2.2',
@@ -832,7 +832,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Handball', 'Basketball', 'Kast', 'Dribling', 'Samspill'],
       competenceGoals: ['delta i ulike ballspill'],
-      wip: true, linkedChapterId: 'kroppsoving-5-2-2-narrativ' },
+      linkedChapterId: 'kroppsoving-5-2-2-narrativ' },
     // Kapittel 3: Friluftsliv
     {
       id: 'kroppsoving-5-3-1',
@@ -843,7 +843,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Tur', 'Natur', 'Pakke sekk', 'Kart', 'Orientering'],
       competenceGoals: ['planlegge og gjennomføre turer i nærmiljøet'],
-      wip: true, linkedChapterId: 'kroppsoving-5-3-1-narrativ' },
+      linkedChapterId: 'kroppsoving-5-3-1-narrativ' },
     {
       id: 'kroppsoving-5-3-2',
       number: '3.2',
@@ -853,7 +853,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Allemannsrett', 'Ferdsel', 'Naturen', 'Regler'],
       competenceGoals: ['forstå og praktisere allemannsretten'],
-      wip: true, linkedChapterId: 'kroppsoving-5-3-2-narrativ' },
+      linkedChapterId: 'kroppsoving-5-3-2-narrativ' },
     // Kapittel 4: Helse og trening
     {
       id: 'kroppsoving-5-4-1',
@@ -864,7 +864,7 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Helse', 'Aktivitet', 'Trening', 'Kropp'],
       competenceGoals: ['forklare hvorfor fysisk aktivitet er viktig for helsen'],
-      wip: true, linkedChapterId: 'kroppsoving-5-4-1-narrativ' },
+      linkedChapterId: 'kroppsoving-5-4-1-narrativ' },
     {
       id: 'kroppsoving-5-4-2',
       number: '4.2',
@@ -874,6 +874,6 @@ export const COURSE_KROPPSOVING_5: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Fair play', 'Samarbeid', 'Respekt', 'Sportsånd'],
       competenceGoals: ['vise god sportsånd og respektere andre'],
-      wip: true, linkedChapterId: 'kroppsoving-5-4-2-narrativ' },
+      linkedChapterId: 'kroppsoving-5-4-2-narrativ' },
   ],
 };

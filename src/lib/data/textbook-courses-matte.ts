@@ -297,7 +297,6 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['GeoGebra CAS', 'Div()', 'Mod()'],
       prerequisites: ['1t-1-7'],
       coverImage: '/images/subjects/1t-2-11-polynomdivisjon-i-geogebra.webp',
-      wip: true,
       linkedChapterId: '1t-2-11-narrativ',
     },
 
@@ -324,7 +323,6 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['y = ax + b', 'Stigningstall', 'Konstantledd', 'Tegne linjer'],
       prerequisites: ['1t-3-1'],
       coverImage: '/images/subjects/1t-3-2-lineaere-funksjoner.webp',
-      wip: true,
       linkedChapterId: '1t-3-2-narrativ',
     },
     { id: '1t-3-2-narrativ', number: '3.2', title: 'Lineære funksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om de rette linjene -- hvordan stigningstall og konstantledd bestemmer linjens retning og posisjon i koordinatsystemet.', estimatedMinutes: 40, exerciseCount: 5, topics: ['y = ax + b', 'Stigningstall', 'Konstantledd', 'Tegne linjer'], linkedChapterId: '1t-3-2', isNarrativeVersion: true },
@@ -415,7 +413,6 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['GeoGebra', 'Grafisk analyse', 'Nullpunkter', 'Ekstremalpunkter'],
       coverImage: '/images/subjects/1t-3-9-funksjonsdroftning-i-geogebra.webp',
-      wip: true,
       linkedChapterId: '1t-3-9-narrativ',
     },
 
@@ -593,7 +590,6 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 7,
       topics: ['GeoGebra Geometri', 'Konstruksjoner', 'Trigonometri'],
       coverImage: '/images/subjects/1t-5-8-geometri-og-trigonometri-i-geogebra.webp',
-      wip: true,
       linkedChapterId: '1t-5-8-narrativ',
     },
 
@@ -678,7 +674,6 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['GeoGebra CAS', 'Derivert()', 'Tangent'],
       prerequisites: ['1t-7-3'],
       coverImage: '/images/subjects/1t-7-4-derivasjon-i-geogebra.webp',
-      wip: true,
       linkedChapterId: '1t-7-4-narrativ',
     },
     {
@@ -692,7 +687,6 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-7-2'],
       competenceGoals: ['gjere greie for definisjonen av den deriverte', 'bruke numerisk derivasjon'],
       coverImage: '/images/subjects/1t-7-5-definisjonen-av-derivasjon-og-numerisk-derivasjon.webp',
-      wip: true,
       linkedChapterId: '1t-7-5-narrativ',
     },
     { id: '1t-7-5-narrativ', number: '7.5', title: 'Definisjonen av derivasjon og numerisk derivasjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om grenseverdien som definerer det hele -- den formelle definisjonen av den deriverte og hvordan datamaskiner tilnærmer seg den numerisk.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Grenseverdi', 'Derivasjonsdefinisjonen', 'Numerisk derivasjon', 'Differenskvotient'], linkedChapterId: '1t-7-5', isNarrativeVersion: true },
@@ -707,7 +701,6 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-7-3'],
       competenceGoals: ['derivere polynomfunksjonar', 'bruke derivasjonsreglar'],
       coverImage: '/images/subjects/1t-7-6-derivasjon-av-polynomfunksjoner.webp',
-      wip: true,
       linkedChapterId: '1t-7-6-narrativ',
     },
     { id: '1t-7-6-narrativ', number: '7.6', title: 'Derivasjon av polynomfunksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om de tre gyllne reglene -- potensregelen, konstantregelen og sumregelen som gjør derivasjon av polynomer til en lek.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Potensregelen', 'Konstantregelen', 'Sumregelen', 'Polynomderivering'], linkedChapterId: '1t-7-6', isNarrativeVersion: true },
@@ -722,7 +715,6 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-7-6'],
       competenceGoals: ['bruke derivasjon til å løyse praktiske problem', 'finne ekstremalpunkt'],
       coverImage: '/images/subjects/1t-7-7-praktisk-bruk-av-derivasjon.webp',
-      wip: true,
       linkedChapterId: '1t-7-7-narrativ',
     },
     { id: '1t-7-7-narrativ', number: '7.7', title: 'Praktisk bruk av derivasjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om derivasjonens superkrefter i praksis -- fra å finne den raskeste farten til å optimere arealer og minimere kostnader.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Optimering', 'Fart og akselerasjon', 'Maksimum og minimum', 'Praktiske problemer'], linkedChapterId: '1t-7-7', isNarrativeVersion: true },
@@ -1580,7 +1572,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
       linkedChapterId: '8-1-1-narrativ',
-      wip: true,
     },
     {
       id: '8-1-2',
@@ -1593,7 +1584,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
       linkedChapterId: '8-1-2-narrativ',
-      wip: true,
     },
     {
       id: '8-1-3',
@@ -1606,7 +1596,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
       linkedChapterId: '8-1-3-narrativ',
-      wip: true,
     },
     {
       id: '8-1-4',
@@ -1619,7 +1608,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
       linkedChapterId: '8-1-4-narrativ',
-      wip: true,
     },
     {
       id: '8-1-5',
@@ -1632,7 +1620,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske og bruke eigenskapane ved potensar og røter i berekningar og i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=400&fit=crop',
       linkedChapterId: '8-1-5-narrativ',
-      wip: true,
     },
 
     // Kapittel 2: Primtall og faktorisering (KM203)
@@ -1700,7 +1687,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
       linkedChapterId: '8-2-1-narrativ',
-      wip: true,
     },
     {
       id: '8-2-2',
@@ -1714,7 +1700,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
       linkedChapterId: '8-2-2-narrativ',
-      wip: true,
     },
     {
       id: '8-2-3',
@@ -1728,7 +1713,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
       coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
       linkedChapterId: '8-2-3-narrativ',
-      wip: true,
     },
     {
       id: '8-8-1',
@@ -1781,7 +1765,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
       linkedChapterId: '8-3-1-narrativ',
-      wip: true,
     },
     {
       id: '8-4-1',
@@ -1795,7 +1778,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
       linkedChapterId: '8-4-1-narrativ',
-      wip: true,
     },
     {
       id: '8-3-4',
@@ -1844,7 +1826,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
       coverImage: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&h=400&fit=crop',
       linkedChapterId: '8-4-3-narrativ',
-      wip: true,
     },
 
     // Kapittel 5: Funksjoner og grafer (KM199, KM232)
@@ -1871,7 +1852,7 @@ export const COURSE_8: TextbookCourse = {
       prerequisites: ['8-10-1'],
       competenceGoals: ['utforske, forklare og sammenligne funksjoner knyttet til praktiske situasjoner'],
       coverImage: 'https://images.unsplash.com/photo-1545987796-200d7b240791?w=800&h=400&fit=crop',
-      wip: true, linkedChapterId: '8-4-4-narrativ' },
+      linkedChapterId: '8-4-4-narrativ' },
     {
       id: '8-3-2',
       number: '5.3',
@@ -1884,7 +1865,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=400&fit=crop',
       linkedChapterId: '8-3-2-narrativ',
-      wip: true,
     },
     {
       id: '8-3-3',
@@ -1897,7 +1877,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
       linkedChapterId: '8-3-3-narrativ',
-      wip: true,
     },
     {
       id: '8-10-2',
@@ -1922,7 +1901,7 @@ export const COURSE_8: TextbookCourse = {
       topics: ['Grafer', 'Avlesing', 'Tolkning', 'Praktiske sammenhenger'],
       competenceGoals: ['representere funksjoner på ulike måter og vise sammenhenger mellom representasjonene'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      wip: true, linkedChapterId: '8-4-5-narrativ' },
+      linkedChapterId: '8-4-5-narrativ' },
     {
       id: '8-10-3',
       number: '5.7',
@@ -1949,7 +1928,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
       linkedChapterId: '8-5-1-narrativ',
-      wip: true,
     },
     {
       id: '8-5-2',
@@ -1963,7 +1941,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar og presentere resultat'],
       coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
       linkedChapterId: '8-5-2-narrativ',
-      wip: true,
     },
     {
       id: '8-5-3',
@@ -1976,7 +1953,6 @@ export const COURSE_8: TextbookCourse = {
       competenceGoals: ['bruke programmering til å utforske sannsyn'],
       coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
       linkedChapterId: '8-5-3-narrativ',
-      wip: true,
     },
 
     // Kapittel 7: Måleenheter (KM242)
@@ -2135,7 +2111,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Potenser', 'Potensregler', 'Kvadratrot', 'Røtter'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-1-2',
@@ -2148,7 +2123,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Brøk', 'Multiplikasjon', 'Divisjon', 'Sammensatte uttrykk'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-1-3',
@@ -2161,7 +2135,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Prosent', 'Prosentvis endring', 'Vekstfaktor', 'Økning', 'Nedgang'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-1-4',
@@ -2175,7 +2148,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-1-1'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 2: Algebra
@@ -2190,7 +2162,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Faktorisering', 'Felles faktor', 'Primtallsfaktorisering'],
       competenceGoals: ['bruke faktorisering og primtall i berekningar'],
       coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-2-2',
@@ -2204,7 +2175,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-2-1'],
       competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-2-3',
@@ -2217,7 +2187,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Brøklikninger', 'Fellesnevner', 'Løsning'],
       competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
       coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-2-4',
@@ -2231,7 +2200,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-2-3'],
       competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
       coverImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 3: Funksjoner
@@ -2246,7 +2214,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Lineær funksjon', 'y = ax + b', 'Graf', 'Funksjonsuttrykk'],
       competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-3-2',
@@ -2260,7 +2227,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-3-1'],
       competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-3-3',
@@ -2274,7 +2240,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-3-2'],
       competenceGoals: ['representere funksjonar på ulike måtar og veksle mellom representasjonane'],
       coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 4: Geometri
@@ -2289,7 +2254,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Pytagoras', 'Hypotenus', 'Katet', 'Rettvinklet trekant'],
       competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
       coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-4-2',
@@ -2302,7 +2266,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Formlikhet', 'Målestokk', 'Forholdstall', 'Skalering'],
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-4-3',
@@ -2316,7 +2279,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-4-1'],
       competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
       coverImage: 'https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-4-4',
@@ -2329,7 +2291,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Konstruksjon', 'Passer', 'Linjal', 'Midtnormal', 'Halveringslinjer'],
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 5: Økonomi
@@ -2344,7 +2305,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Rente', 'Rentesrente', 'Innskudd', 'Sparekonto'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-5-2',
@@ -2358,7 +2318,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-5-1'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-5-3',
@@ -2371,7 +2330,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Budsjett', 'Inntekt', 'Utgift', 'Privatøkonomi'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 6: Statistikk og sannsynlighet
@@ -2386,7 +2344,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Gjennomsnitt', 'Median', 'Variasjonsbredde', 'Spredningsmål'],
       competenceGoals: ['bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-6-2',
@@ -2400,7 +2357,6 @@ export const COURSE_9: TextbookCourse = {
       prerequisites: ['9-6-1'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar og presentere resultat'],
       coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-6-3',
@@ -2413,7 +2369,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Sannsynlighet', 'Sammensatte hendelser', 'Produktregelen', 'Sumregelen'],
       competenceGoals: ['bruke programmering til å utforske sannsyn'],
       coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 7: Mønster og generalisering (KM241)
@@ -2428,7 +2383,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Tallmønstre', 'Tallfølger', 'Aritmetisk følge', 'Geometrisk følge'],
       competenceGoals: ['utforske og generalisere mønster'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-7-2',
@@ -2441,7 +2395,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Figurtall', 'Geometriske mønstre', 'Visuell algebra'],
       competenceGoals: ['utforske og generalisere mønster'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-7-3',
@@ -2454,7 +2407,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Generalisering', 'Algebraiske uttrykk', 'Formler', 'Bevis'],
       competenceGoals: ['utforske og generalisere mønster'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-7-4',
@@ -2467,7 +2419,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Rekursiv formel', 'Eksplisitt formel', 'Tallfølger', 'Modellering'],
       competenceGoals: ['utforske og generalisere mønster'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 8: Polygoner og kongruens (KM239, KM240)
@@ -2482,7 +2433,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Polygoner', 'Vinkelsummer', 'Regulære polygoner', 'Diagonaler'],
       competenceGoals: ['utforske eigenskapar ved polygoner og bruke kongruens'],
       coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-8-2',
@@ -2495,7 +2445,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Kongruens', 'SSS', 'SAS', 'ASA', 'Trekanter'],
       competenceGoals: ['utforske eigenskapar ved polygoner og bruke kongruens'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-8-3',
@@ -2508,7 +2457,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Formlikhet', 'Medianer', 'Tyngdepunkt', 'Forholdstall'],
       competenceGoals: ['utforske eigenskapar ved polygoner og bruke kongruens'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 9: Romgeometri (KM237)
@@ -2523,7 +2471,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Prisme', 'Sylinder', 'Overflate', 'Volum'],
       competenceGoals: ['berekne overflate og volum av tredimensjonale figurar'],
       coverImage: 'https://images.unsplash.com/photo-1605106702734-205df224ecce?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-9-2',
@@ -2536,7 +2483,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Kjegle', 'Pyramide', 'Overflate', 'Volum'],
       competenceGoals: ['berekne overflate og volum av tredimensjonale figurar'],
       coverImage: 'https://images.unsplash.com/photo-1605106702734-205df224ecce?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-9-3',
@@ -2549,7 +2495,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Kule', 'Sammensatte figurer', 'Volum', 'Overflate'],
       competenceGoals: ['berekne overflate og volum av tredimensjonale figurar'],
       coverImage: 'https://images.unsplash.com/photo-1605106702734-205df224ecce?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 10: Kritisk statistikk og data (KM235, KM243)
@@ -2564,7 +2509,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Kvartiler', 'IQR', 'Boksplott', 'Spredningsmål'],
       competenceGoals: ['vurdere og argumentere for om statistiske framstillingar gir riktig inntrykk av datamaterialet'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-10-2',
@@ -2577,7 +2521,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Kritisk vurdering', 'Medier', 'Statistikk', 'Manipulering'],
       competenceGoals: ['vurdere og argumentere for om statistiske framstillingar gir riktig inntrykk av datamaterialet'],
       coverImage: 'https://images.unsplash.com/photo-1504711434969-e33886168d9c?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-10-3',
@@ -2590,7 +2533,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Data', 'Manipulering', 'Synspunkter', 'Etikk'],
       competenceGoals: ['bruke data til å uttrykke og underbyggje eigne synspunkt'],
       coverImage: 'https://images.unsplash.com/photo-1504711434969-e33886168d9c?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 11: Programmering og simulering (KM236)
@@ -2605,7 +2547,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Python', 'Variabler', 'Løkker', 'Funksjoner'],
       competenceGoals: ['bruke programmering til å utforske matematiske eigenskapar og samanhengar, og til å utforske sannsyn'],
       coverImage: 'https://images.unsplash.com/photo-1515879218367-8466d910auj7?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-11-2',
@@ -2618,7 +2559,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Simulering', 'Tilfeldige forsøk', 'Sannsynlighet', 'Store talls lov'],
       competenceGoals: ['bruke programmering til å utforske sannsyn'],
       coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-11-3',
@@ -2631,7 +2571,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Modellering', 'Funksjonsplotting', 'Numeriske metoder'],
       competenceGoals: ['bruke programmering til å utforske matematiske eigenskapar og samanhengar'],
       coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
-      wip: true,
     },
 
     // Kapittel 12: Problemløsning og tentamen (KM238)
@@ -2646,7 +2585,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Geometrisk problemløsning', 'Strategi', 'Endrede forutsetninger'],
       competenceGoals: ['utforske korleis endring i føresetnadene påverkar resultat ved geometriske problemstillingar'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-12-2',
@@ -2659,7 +2597,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Problemløsning', 'Strategier', 'Modellering', 'Kommunikasjon'],
       competenceGoals: ['utforske korleis endring i føresetnadene påverkar resultat ved geometriske problemstillingar'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
-      wip: true,
     },
     {
       id: '9-12-3',
@@ -2672,7 +2609,6 @@ export const COURSE_9: TextbookCourse = {
       topics: ['Tentamen', 'Eksamen', 'Repetisjon', 'Eksamenstips'],
       competenceGoals: ['utforske korleis endring i føresetnadene påverkar resultat ved geometriske problemstillingar'],
       coverImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop',
-      wip: true,
     },
   ],
 };
@@ -3195,7 +3131,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Prosent', 'Prosentvis endring', 'Vekstfaktor', 'Rabatt', 'Påslag'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: '/images/subjects/1p-1-1-prosentregning.webp',
-      wip: true,
       linkedChapterId: '1p-1-1-narrativ',
     },
     {
@@ -3208,7 +3143,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Vekstfaktor', 'Eksponentiell vekst', 'Forrentning', 'Inflasjon'],
       prerequisites: ['1p-1-1'],
       coverImage: '/images/subjects/1p-1-2-gjentatt-prosentvis-endring.webp',
-      wip: true,
       linkedChapterId: '1p-1-2-narrativ',
     },
     {
@@ -3221,7 +3155,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Budsjett', 'Inntekt', 'Utgift', 'Overskudd', 'Underskudd'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
       coverImage: '/images/subjects/1p-1-3-budsjett-og-regnskap.webp',
-      wip: true,
       linkedChapterId: '1p-1-3-narrativ',
     },
     {
@@ -3259,7 +3192,6 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Rasjonale tall', 'Brøk', 'Desimaltall', 'Prosent', 'Overslag'],
       coverImage: '/images/subjects/1p-2-1-tall-og-tallforstaelse.webp',
-      wip: true,
       linkedChapterId: '1p-2-1-narrativ',
     },
     {
@@ -3272,7 +3204,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Forholdstall', 'Skala', 'Kart', 'Modeller', 'Blandingsforhold'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: '/images/subjects/1p-2-2-forholdstall-og-skala.webp',
-      wip: true,
       linkedChapterId: '1p-2-2-narrativ',
     },
     {
@@ -3285,7 +3216,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Førstegradslikning', 'Praktiske problemer', 'Modellering'],
       competenceGoals: ['modellere og løyse praktiske problem ved å setje opp enkle likningar'],
       coverImage: '/images/subjects/1p-2-3-likninger-i-praksis.webp',
-      wip: true,
       linkedChapterId: '1p-2-3-narrativ',
     },
     {
@@ -3336,7 +3266,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Lineær funksjon', 'Stigningstall', 'Konstantledd', 'Grafisk fremstilling'],
       competenceGoals: ['utforske og beskrive lineære funksjonar i praktiske situasjonar'],
       coverImage: '/images/subjects/1p-3-1-lineaere-funksjoner.webp',
-      wip: true,
       linkedChapterId: '1p-3-1-narrativ',
     },
     {
@@ -3349,7 +3278,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Modellering', 'Tilpasning', 'Tolkning', 'Praktiske problemer'],
       prerequisites: ['1p-3-1'],
       coverImage: '/images/subjects/1p-3-2-lineaer-modellering.webp',
-      wip: true,
       linkedChapterId: '1p-3-2-narrativ',
     },
     {
@@ -3362,7 +3290,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Eksponentialfunksjon', 'Vekst', 'Nedgang', 'Halveringstid', 'Doblingtid'],
       prerequisites: ['1p-1-2'],
       coverImage: '/images/subjects/1p-3-3-eksponentialfunksjoner.webp',
-      wip: true,
       linkedChapterId: '1p-3-3-narrativ',
     },
     {
@@ -3412,7 +3339,6 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Målestokk', 'Enheter', 'Omregning', 'Praktisk måling'],
       coverImage: '/images/subjects/1p-4-1-malestokk-og-enheter.webp',
-      wip: true,
       linkedChapterId: '1p-4-1-narrativ',
     },
     {
@@ -3425,7 +3351,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Areal', 'Omkrets', 'Sammensatte figurer', 'Praktiske beregninger'],
       competenceGoals: ['bruke geometriske omgrep i praktiske samanhengar'],
       coverImage: '/images/subjects/1p-4-2-areal-og-omkrets.webp',
-      wip: true,
       linkedChapterId: '1p-4-2-narrativ',
     },
     {
@@ -3438,7 +3363,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Volum', 'Overflate', 'Sylinder', 'Prisme', 'Kjegle', 'Kule'],
       prerequisites: ['1p-4-2'],
       coverImage: '/images/subjects/1p-4-3-volum-og-overflate.webp',
-      wip: true,
       linkedChapterId: '1p-4-3-narrativ',
     },
     {
@@ -3477,7 +3401,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Datainnsamling', 'Utvalg', 'Populasjon', 'Feilkilder', 'Spørreskjema'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar'],
       coverImage: '/images/subjects/1p-5-1-datainnsamling.webp',
-      wip: true,
       linkedChapterId: '1p-5-1-narrativ',
     },
     {
@@ -3490,7 +3413,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Gjennomsnitt', 'Median', 'Typetall', 'Variasjonsbredde', 'Standardavvik'],
       prerequisites: ['1p-5-1'],
       coverImage: '/images/subjects/1p-5-2-sentralmal-og-spredning.webp',
-      wip: true,
       linkedChapterId: '1p-5-2-narrativ',
     },
     {
@@ -3504,7 +3426,6 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-5-2'],
       competenceGoals: ['presentere og tolke statistiske data'],
       coverImage: '/images/subjects/1p-5-3-diagrammer-og-presentasjon.webp',
-      wip: true,
       linkedChapterId: '1p-5-3-narrativ',
     },
     {
@@ -3531,7 +3452,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Sannsynlighet', 'Gunstige utfall', 'Mulige utfall', 'Relativ frekvens'],
       competenceGoals: ['bruke sannsynligheit i praktiske situasjonar'],
       coverImage: '/images/subjects/1p-6-1-grunnleggende-sannsynlighet.webp',
-      wip: true,
       linkedChapterId: '1p-6-1-narrativ',
     },
     {
@@ -3544,7 +3464,6 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Sammensatte hendelser', 'Og-sannsynlighet', 'Eller-sannsynlighet', 'Trediagram'],
       prerequisites: ['1p-6-1'],
       coverImage: '/images/subjects/1p-6-2-sammensatte-hendelser.webp',
-      wip: true,
       linkedChapterId: '1p-6-2-narrativ',
     },
     {
@@ -7358,7 +7277,6 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-2'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-7-linjer-i-rommet.webp',
-      wip: true,
       linkedChapterId: 'r2-5-7-narrativ',
     },
     {
@@ -7372,7 +7290,6 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-6', 'r2-5-7'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-8-avstand-punkt-linje-og-punkt-plan.webp',
-      wip: true,
       linkedChapterId: 'r2-5-8-narrativ',
     },
 
