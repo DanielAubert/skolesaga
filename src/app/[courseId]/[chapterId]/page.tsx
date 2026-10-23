@@ -170,7 +170,7 @@ export default async function ChapterPage({ params, searchParams }: PageProps) {
       title={`${course.title}: ${chapterMeta.number} ${chapterMeta.title}`}
       url={`/${courseId}/${chapterId}`}
     />
-    {(lokalGodkjenningsmodus() || erAdmin) && (
+    {lokalGodkjenningsmodus() && godkjenningStyrt(courseId) && (
       <GodkjennKapittel chapterId={chapterId} chapterLabel={`kapittel ${chapterMeta.number}`} />
     )}
     {(() => { const merke = kapittelMerke(courseId, chapterId); return merke ? (
