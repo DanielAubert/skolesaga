@@ -4513,7 +4513,6 @@ export const COURSE_S2: TextbookCourse = {
     },
     {
       id: 's2-1-6',
-      skjult: true,
       number: '1.6',
       title: 'Delvis integrasjon',
       description: 'Bruke delvis integrasjon for produkter av funksjoner.',
