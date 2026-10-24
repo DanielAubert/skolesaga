@@ -7,7 +7,7 @@
   "description": "En fortelling om hvordan datamaskinen tar over når penn og papir gir opp -- og hvordan Eulers metode lar deg simulere alt fra en fallende ball til en planet i bane.",
   "estimatedMinutes": 45,
   "competenceGoals": [
-    "bruke Eulers metode til å løse enkle differensiallikninger",
+    "bruke Eulers metode til å regne ut bevegelse steg for steg",
     "programmere simuleringer av fysiske systemer i Python",
     "modellere bevegelse med variabel akselerasjon",
     "analysere og visualisere numeriske resultater"
@@ -17,12 +17,12 @@
     {
       "id": "fys1-1-3-n-intro",
       "type": "text",
-      "content": "## Når penn og papir gir opp\n\nI forrige kapittel så vi at en tennisball møter så mye luftmotstand at vi ikke kan ignorere den. Men da oppstår et nytt problem: hvis du faktisk tar med luftmotstanden, blir ligningen umulig å løse med penn og papir. Du sitter fast.\n\nDette er ikke et særtilfelle. Veldig mange spennende fysiske problemer mangler en *analytisk* løsning -- altså en pen formel du kan skrive ned. Fritt fall med luftmotstand, tre planeter som trekker i hverandre, værsimuleringer, kvanteproblemer: alle er for kompliserte for tradisjonell algebra. Løsningen er å la datamaskinen gjøre grovarbeidet.\n\nEn **numerisk metode** er en algoritme som deler opp et problem i mange små steg og beregner en tilnærmet løsning steg for steg, med kontrollert presisjon. Fordelen er enorm: du kan løse problemer som ikke har noen formel-løsning i det hele tatt, du får svaret raskt, og du kan tegne grafer og animasjoner. Ulempen er at svaret er tilnærmet -- aldri helt eksakt -- og at feil kan hope seg opp underveis.\n\nVerktøyet vi bruker er **Python**, det desidert mest populære språket i vitenskapelig programmering. Det er lett å lære, gratis, og har kraftige biblioteker som NumPy for tallknusing og Matplotlib for grafer. Med litt Python kan du simulere fysikk som Galileo bare kunne drømme om."
+      "content": "## Når penn og papir gir opp\n\nI forrige kapittel så vi at en tennisball møter så mye luftmotstand at vi ikke kan ignorere den. Men da oppstår et nytt problem: hvis du faktisk tar med luftmotstanden, blir ligningen umulig å løse med penn og papir. Du sitter fast.\n\nDette er ikke et særtilfelle. Veldig mange spennende fysiske problemer mangler en *analytisk* løsning -- altså en pen formel du kan skrive ned. Fritt fall med luftmotstand, tre planeter som trekker i hverandre, værsimuleringer, krefter som endrer seg underveis: alle er for kompliserte for tradisjonell algebra. Løsningen er å la datamaskinen gjøre grovarbeidet.\n\nEn **numerisk metode** er en algoritme som deler opp et problem i mange små steg og beregner en tilnærmet løsning steg for steg, med kontrollert presisjon. Fordelen er enorm: du kan løse problemer som ikke har noen formel-løsning i det hele tatt, du får svaret raskt, og du kan tegne grafer og animasjoner. Ulempen er at svaret er tilnærmet -- aldri helt eksakt -- og at feil kan hope seg opp underveis.\n\nVerktøyet vi bruker er **Python**, det desidert mest populære språket i vitenskapelig programmering. Det er lett å lære, gratis, og har kraftige biblioteker som NumPy for tallknusing og Matplotlib for grafer. Med litt Python kan du simulere fysikk som Galileo bare kunne drømme om."
     },
     {
       "id": "fys1-1-3-n-section1",
       "type": "text",
-      "content": "## Newtons lov, men som differensialligning\n\nFor å forstå numeriske metoder må vi se Newtons andre lov med nye øyne. En **differensialligning** er ganske enkelt en ligning som inneholder deriverte -- altså endringsrater.\n\nAkselerasjon er jo endringsraten til farten, som igjen er endringsraten til posisjonen: $a = \\frac{dv}{dt} = \\frac{d^2 s}{dt^2}$. Setter vi dette inn i $F = ma$, får vi $m\\frac{d^2 s}{dt^2} = F$. Dette er en andreordens differensialligning, og den er selve hjertet i mekanikken.\n\nNoen ganger er den snill. For fritt fall uten luftmotstand er kraften $F = -mg$, så ligningen blir $\\frac{d^2 s}{dt^2} = -g$, med den velkjente analytiske løsningen $s(t) = s_0 + v_0 t - \\frac{1}{2}gt^2$. Penn og papir holder.\n\nMen legg til luftmotstand, og snillheten forsvinner. Nå er $m\\frac{dv}{dt} = -mg + \\frac{1}{2}C_d \\rho A v^2$, og denne har *ingen* analytisk løsning. For å angripe den numerisk skriver vi den om til et system av to koblede **førsteordens** ligninger: $\\frac{ds}{dt} = v$ og $\\frac{dv}{dt} = -g + \\frac{C_d \\rho A v^2}{2m}$. Posisjonen endres med farten, og farten endres med akselerasjonen. Det er denne formen datamaskinen elsker."
+      "content": "## Newtons lov når akselerasjonen endrer seg\n\nFor å forstå numeriske metoder må vi se Newtons andre lov med nye øyne. Loven gir akselerasjonen fra kreftene: $a = \\frac{\\sum F}{m}$. Er kraftsummen konstant, er akselerasjonen konstant -- og da har vi bevegelseslikningene.\n\nNoen ganger er det så enkelt. For fritt fall uten luftmotstand er eneste kraft tyngden, så $a = -g$, og vi får den velkjente formelen $s(t) = s_0 + v_0 t - \\frac{1}{2}gt^2$. Penn og papir holder.\n\nMen legg til luftmotstand, og det enkle forsvinner. Med $F_L = kv^2$ blir akselerasjonen $a = -g + \\frac{k}{m}v^2$ når ballen faller. Akselerasjonen endrer seg nå med farten, og farten endrer seg med akselerasjonen. Bevegelseslikningene for konstant akselerasjon gjelder ikke lenger. I stedet regner vi bevegelsen ut steg for steg: posisjonen endres med farten, og farten endres med akselerasjonen. Det er denne oppskriften datamaskinen elsker."
     },
     {
       "id": "fys1-1-3-n-quiz1",
@@ -31,7 +31,7 @@
         "id": "fys1-1-3-n-quiz1",
         "number": "Quiz 1",
         "type": "multiple-choice",
-        "task": "Test deg selv på numeriske metoder og differensiallikninger:",
+        "task": "Test deg selv på numeriske metoder:",
         "options": [
           {
             "id": "a",
@@ -70,57 +70,57 @@
           },
           {
             "id": "fys1-1-3-n-quiz1-q1",
-            "task": "Hva er en differensialligning?",
+            "task": "Når kan vi IKKE bruke bevegelseslikningene for konstant akselerasjon?",
             "options": [
               {
                 "id": "a",
-                "text": "En ligning uten ukjente",
+                "text": "Når vi ser bort fra luftmotstand",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "En ligning som inneholder deriverte (endringsrater)",
+                "text": "Når akselerasjonen endrer seg underveis, for eksempel på grunn av luftmotstand",
                 "isCorrect": true
               },
               {
                 "id": "b",
-                "text": "En ligning som bare inneholder hele tall",
+                "text": "Når farten er null ved start",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "En graf",
+                "text": "Når vi regner i meter",
                 "isCorrect": false
               }
             ],
-            "solution": "En differensialligning kobler en størrelse til sine egne endringsrater, som $\\frac{dv}{dt}=a$."
+            "solution": "Bevegelseslikningene forutsetter konstant akselerasjon. Med luftmotstand endrer akselerasjonen seg med farten, og da må vi regne numerisk."
           },
           {
             "id": "fys1-1-3-n-quiz1-q2",
-            "task": "Hvorfor skriver vi om Newtons 2. lov til et system av førsteordens ligninger?",
+            "task": "Hva gjør vi i hvert steg i en numerisk simulering av bevegelse?",
             "options": [
               {
                 "id": "a",
-                "text": "For å gjøre den mer komplisert",
+                "text": "Gjetter en ny fart",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "Fordi andreordens ligninger er forbudt",
+                "text": "Bruker bare startfarten",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "For at Eulers metode skal kunne brukes",
+                "text": "Regner ut akselerasjonen, oppdaterer farten og så posisjonen",
                 "isCorrect": true
               },
               {
                 "id": "c",
-                "text": "For å fjerne tyngdekraften",
+                "text": "Fjerner tyngdekraften",
                 "isCorrect": false
               }
             ],
-            "solution": "Eulers metode jobber med førsteordens ligninger. Vi splitter $\\frac{d^2s}{dt^2}$ i $\\frac{ds}{dt}=v$ og $\\frac{dv}{dt}=a$."
+            "solution": "I hvert lite tidssteg regner vi akselerasjonen fra kreftene, oppdaterer farten med $\\Delta v = a\\,\\Delta t$ og posisjonen med $\\Delta s = v\\,\\Delta t$."
           }
         ]
       }
@@ -128,7 +128,7 @@
     {
       "id": "fys1-1-3-n-section2",
       "type": "text",
-      "content": "## Eulers metode -- ett lite steg av gangen\n\nNå kommer den enkle, geniale ideen som lar datamaskinen løse ligningene: **Eulers metode**. Forestill deg at du står på en kurve og bare kan se i hvilken retning den peker akkurat der du står -- altså den deriverte, hellingen på tangenten. Da kan du gjette deg framover ved å ta et lite skritt i den retningen, sjekke hellingen på nytt, ta et nytt lite skritt, og slik fortsette.\n\nMatematisk: hvis $\\frac{dy}{dt} = f(t, y)$ og du kjenner $y$ akkurat nå, kan du anslå verdien et lite tidssteg $\\Delta t$ senere som $y(t + \\Delta t) \\approx y(t) + f(t, y)\\cdot \\Delta t$. Skrevet som en oppskrift datamaskinen kan gjenta i det uendelige blir det $y_{n+1} = y_n + f(t_n, y_n)\\cdot \\Delta t$, og $t_{n+1} = t_n + \\Delta t$.\n\nLa oss kjenne på det med eksponentiell vekst, $\\frac{dy}{dt} = ky$ med $y(0) = 1$ og $k = 0{,}5$. Den analytiske løsningen er $y(t) = e^{kt}$, så vi kan sammenligne. Med $\\Delta t = 0{,}1$: i første steg er $\\frac{dy}{dt} = 0{,}5 \\cdot 1 = 0{,}5$, så $y_1 = 1 + 0{,}5 \\cdot 0{,}1 = 1{,}05$. I neste steg er $\\frac{dy}{dt} = 0{,}5 \\cdot 1{,}05 = 0{,}525$, så $y_2 = 1{,}05 + 0{,}525 \\cdot 0{,}1 = 1{,}1025$. Ved $t = 1$ gir Euler 1,6289 mot den eksakte verdien 1,6487 -- et avvik på bare 1,2 %. Ikke verst for så enkel matematikk.\n\nEt fint poeng: når akselerasjonen er konstant, blir Euler faktisk *eksakt*. En bil som akselererer med $a = 2$ m/s² fra hvile har farten $v = at$ -- en rett linje. Eulers metode følger tangenten, som her *er* en rett linje, så hvert steg $v_{n+1} = v_n + 2 \\cdot \\Delta t$ treffer perfekt: 0, 2, 4, 6, 8, 10 m/s etter fem sekunder, helt uten feil. Euler er eksakt for lineære problemer; det er bare når kurven faktisk krummer at feilen sniker seg inn."
+      "content": "## Eulers metode -- ett lite steg av gangen\n\nNå kommer den enkle, geniale ideen som lar datamaskinen regne ut bevegelsen: **Eulers metode**. Over et svært kort tidssteg $\\Delta t$ endrer farten og akselerasjonen seg nesten ikke. Da kan vi regne som om de er konstante i akkurat det steget, ta et lite skritt framover, regne ut akselerasjonen på nytt, ta et nytt lite skritt, og slik fortsette.\n\nSom en oppskrift datamaskinen kan gjenta i det uendelige: $v_{n+1} = v_n + a_n \\cdot \\Delta t$, så $s_{n+1} = s_n + v_{n+1} \\cdot \\Delta t$, og til slutt $t_{n+1} = t_n + \\Delta t$. Akselerasjonen $a_n$ regner vi ut fra kreftene akkurat nå.\n\nEt fint poeng: når akselerasjonen er konstant, blir Euler faktisk *eksakt* for farten. En bil som akselererer med $a = 2$ m/s² fra hvile, har farten $v = at$ -- en rett linje i $v$–$t$-grafen. Hvert steg $v_{n+1} = v_n + 2 \\cdot \\Delta t$ treffer perfekt: 0, 2, 4, 6, 8, 10 m/s etter fem sekunder, helt uten feil. Det er først når akselerasjonen endrer seg, at feilen sniker seg inn -- og den blir mindre jo kortere tidssteg vi velger."
     },
     {
       "id": "fys1-1-3-n-quiz2",
@@ -149,30 +149,30 @@
         "questions": [
           {
             "id": "fys1-1-3-n-quiz2-q0",
-            "task": "Hva er grunnformelen i Eulers metode?",
+            "task": "Hvordan oppdaterer vi farten i Eulers metode?",
             "options": [
               {
                 "id": "a",
-                "text": "$y_{n+1} = y_n + f(t_n,y_n)\\cdot \\Delta t$",
+                "text": "$v_{n+1} = v_n + a_n \\cdot \\Delta t$",
                 "isCorrect": true
               },
               {
                 "id": "b",
-                "text": "$y_{n+1} = y_n \\cdot \\Delta t$",
+                "text": "$v_{n+1} = v_n \\cdot \\Delta t$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$y_{n+1} = f(t_n,y_n)$",
+                "text": "$v_{n+1} = a_n$",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$y_{n+1} = y_n - \\Delta t$",
+                "text": "$v_{n+1} = v_n - \\Delta t$",
                 "isCorrect": false
               }
             ],
-            "solution": "Eulers metode tar ett lite steg langs tangenten: ny verdi = gammel verdi pluss derivert ganger tidssteg."
+            "solution": "Eulers metode tar ett lite steg av gangen: ny fart = gammel fart pluss akselerasjon ganger tidssteg."
           },
           {
             "id": "fys1-1-3-n-quiz2-q1",
@@ -203,7 +203,7 @@
           },
           {
             "id": "fys1-1-3-n-quiz2-q2",
-            "task": "Når gir Eulers metode et eksakt svar?",
+            "task": "Når gir Eulers metode eksakt fart?",
             "options": [
               {
                 "id": "a",
@@ -212,7 +212,7 @@
               },
               {
                 "id": "c",
-                "text": "Når problemet er lineært, f.eks. konstant akselerasjon",
+                "text": "Når akselerasjonen er konstant",
                 "isCorrect": true
               },
               {
@@ -222,11 +222,11 @@
               },
               {
                 "id": "d",
-                "text": "Bare for eksponentiell vekst",
+                "text": "Bare når farten er null",
                 "isCorrect": false
               }
             ],
-            "solution": "For lineære problemer er kurven en rett linje, og Euler følger tangenten perfekt. Feil oppstår først når kurven krummer."
+            "solution": "Med konstant akselerasjon er $v$–$t$-grafen en rett linje, og hvert Euler-steg treffer den perfekt. Feil oppstår først når akselerasjonen endrer seg."
           }
         ]
       }
@@ -234,7 +234,7 @@
     {
       "id": "fys1-1-3-n-section3",
       "type": "text",
-      "content": "## Fra idé til Python-kode\n\nNå skal vi oversette tankegangen til kode. Du trenger overraskende lite Python for å komme i gang. Du lager **variabler** (`m = 0.5`, `g = 9.81`), du regner med dem (`Ek = 0.5 * m * v**2`, der `**` betyr opphøyd i), og du lagrer mange verdier i **lister** eller NumPy-**arrays**. Du gjentar handlinger med **løkker** -- en `while`-løkke kjører så lenge en betingelse holder, perfekt for «kjør til ballen treffer bakken». Og du pakker gjenbrukbar kode i **funksjoner** med `def`.\n\nSelve Eulers metode blir nesten en direkte avskrift av formelen. For fritt fall fra 100 m setter du startverdiene, og inne i løkken regner du akselerasjonen `a = -g`, oppdaterer farten `v = v + a*dt`, oppdaterer posisjonen `s = s + v*dt`, og øker tiden `t = t + dt` -- helt til `s` blir null. Underveis lagrer du alle verdiene i lister så du kan tegne dem etterpå med Matplotlib.\n\nDen virkelige kraften viser seg når du legger til luftmotstand. Ta en ball på 0,5 kg med radius 0,05 m sluppet fra 100 m. Tverrsnittet er $A = \\pi r^2 \\approx 0{,}00785$ m². Akselerasjonen er ikke lenger konstant, men $a = -g + \\frac{C_d \\rho A v^2}{2m}$ -- den avhenger av farten, og det er nettopp derfor ingen pen formel finnes. Datamaskinen bryr seg ikke; den regner bare steg for steg.\n\nResultatet er lærerikt. Med luftmotstand bruker ballen rundt 4,87 s på fallet og treffer med cirka 42 m/s, mens uten luftmotstand er det 4,52 s og 44 m/s. Luftmotstanden gjør altså fallet både lengre og litt langsommere. Den teoretiske **terminalhastigheten** -- der luftmotstand og tyngde balanserer -- er $v_{term} = \\sqrt{\\frac{2mg}{C_d \\rho A}} \\approx 71$ m/s, men ballen rekker ikke å komme dit på bare 100 m. På en hastighet-tid-graf ser du dette tydelig: kurven *med* luftmotstand begynner å flate ut og nærme seg terminalhastigheten, mens den uten luftmotstand fortsetter rett opp som en strek."
+      "content": "## Fra idé til Python-kode\n\nNå skal vi oversette tankegangen til kode. Du trenger overraskende lite Python for å komme i gang. Du lager **variabler** (`m = 0.5`, `g = 9.81`), du regner med dem (`Ek = 0.5 * m * v**2`, der `**` betyr opphøyd i), og du lagrer mange verdier i **lister** eller NumPy-**arrays**. Du gjentar handlinger med **løkker** -- en `while`-løkke kjører så lenge en betingelse holder, perfekt for «kjør til ballen treffer bakken». Og du pakker gjenbrukbar kode i **funksjoner** med `def`.\n\nSelve Eulers metode blir nesten en direkte avskrift av formelen. For fritt fall fra 100 m setter du startverdiene, og inne i løkken regner du akselerasjonen `a = -g`, oppdaterer farten `v = v + a*dt`, oppdaterer posisjonen `s = s + v*dt`, og øker tiden `t = t + dt` -- helt til `s` blir null. Underveis lagrer du alle verdiene i lister så du kan tegne dem etterpå med Matplotlib.\n\nDen virkelige kraften viser seg når du legger til luftmotstand. Ta en ball på 0,5 kg med luftmotstandskonstant $k = 0{,}0024$ kg/m, sluppet fra 100 m. Akselerasjonen er ikke lenger konstant, men $a = -g + \\frac{k}{m}v^2$ -- den avhenger av farten, og det er nettopp derfor ingen pen formel finnes. Datamaskinen bryr seg ikke; den regner bare steg for steg.\n\nResultatet er lærerikt. Med luftmotstand bruker ballen rundt 4,9 s på fallet og treffer med cirka 36 m/s, mens uten luftmotstand er det 4,5 s og 44 m/s. Luftmotstanden gjør altså fallet både lengre og langsommere. Den teoretiske **terminalhastigheten** -- der luftmotstand og tyngde balanserer -- er $v_t = \\sqrt{\\frac{mg}{k}} \\approx 45$ m/s, men ballen rekker ikke å komme dit på bare 100 m. På en hastighet-tid-graf ser du dette tydelig: kurven *med* luftmotstand begynner å flate ut og nærme seg terminalhastigheten, mens den uten luftmotstand fortsetter rett opp som en strek."
     },
     {
       "id": "fys1-1-3-n-quiz3",
@@ -305,7 +305,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "Når $a$ avhenger av $v$ (og $v$ av $a$), blir ligningen koblet på en måte som ikke lar seg løse med vanlig integrasjon. Derfor må vi regne numerisk."
+            "solution": "Når $a$ avhenger av $v$ (og $v$ av $a$), er akselerasjonen ikke konstant, og bevegelseslikningene gjelder ikke. Derfor må vi regne numerisk."
           },
           {
             "id": "fys1-1-3-n-quiz3-q2",
@@ -473,7 +473,7 @@
     {
       "id": "fys1-1-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nNår penn og papir gir opp, tar datamaskinen over. En **numerisk metode** løser et problem ved å dele det i mange små steg og regne seg fram til en tilnærmet løsning -- uunnværlig for problemer uten analytisk løsning, som fritt fall med luftmotstand.\n\nNøkkelen er å se Newtons andre lov som en **differensialligning**, $m\\frac{d^2 s}{dt^2} = F$, og skrive den om til et system av førsteordens ligninger, $\\frac{ds}{dt} = v$ og $\\frac{dv}{dt} = a$. **Eulers metode** løser dem ved å ta ett lite steg langs tangenten av gangen: $y_{n+1} = y_n + f(t_n, y_n)\\cdot \\Delta t$. Den er eksakt for lineære problemer som konstant akselerasjon, og en god tilnærming ellers.\n\nI **Python** blir dette nesten en direkte avskrift av formelen, med variabler, lister, løkker og funksjoner -- og med NumPy og Matplotlib til tallknusing og grafer. Simuleringen av en fallende ball avslørte både lengre falltid og lavere slutthastighet med luftmotstand, og pekte mot en **terminalhastighet** på rundt 71 m/s. Til slutt lærte vi den viktigste skruen: **tidssteget** $\\Delta t$. For lite gir treghet, for stort gir unøyaktighet og ustabilitet. Sjekk alltid konvergens, vær bevisst på at feil akkumuleres, og husk -- god fysikksimulering handler om mange små, kontrollerte steg."
+      "content": "## Oppsummering\n\nNår penn og papir gir opp, tar datamaskinen over. En **numerisk metode** løser et problem ved å dele det i mange små steg og regne seg fram til en tilnærmet løsning -- uunnværlig for problemer uten analytisk løsning, som fritt fall med luftmotstand.\n\nNøkkelen er at Newtons andre lov gir akselerasjonen fra kreftene, $a = \\frac{\\sum F}{m}$, også når kreftene endrer seg underveis. **Eulers metode** regner bevegelsen ut ved å ta ett lite steg av gangen: $v_{n+1} = v_n + a_n \\cdot \\Delta t$ og $s_{n+1} = s_n + v_{n+1} \\cdot \\Delta t$. Den gir eksakt fart når akselerasjonen er konstant, og en god tilnærming ellers.\n\nI **Python** blir dette nesten en direkte avskrift av formelen, med variabler, lister, løkker og funksjoner -- og med NumPy og Matplotlib til tallknusing og grafer. Simuleringen av en fallende ball avslørte både lengre falltid og lavere slutthastighet med luftmotstand, og pekte mot en **terminalhastighet** på rundt 45 m/s. Til slutt lærte vi den viktigste skruen: **tidssteget** $\\Delta t$. For lite gir treghet, for stort gir unøyaktighet og ustabilitet. Sjekk alltid konvergens, vær bevisst på at feil akkumuleres, og husk -- god fysikksimulering handler om mange små, kontrollerte steg."
     }
   ],
   "exercises": []

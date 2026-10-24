@@ -822,7 +822,7 @@ export const SECTION_NAMES_ENGELSK_VG1: Record<string, string> = {
 
 // Seksjonsnavn for Kjemi 1
 export const SECTION_NAMES_KJEMI1: Record<string, string> = {
-  '1': 'Atomets oppbygging',
+  '1': 'Atomets oppbygning',
   '2': 'Atommodeller og spektroskopi',
   '3': 'Kjemiske bindinger',
   '4': 'Kjemiske reaksjoner',

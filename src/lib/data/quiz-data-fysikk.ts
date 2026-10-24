@@ -1338,12 +1338,12 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor trenger vi numeriske metoder for å beregne fall med luftmotstand?',
     options: [
-      'Fordi akselerasjonen avhenger av farten, noe som gjør likningen vanskelig å løse analytisk',
+      'Fordi akselerasjonen avhenger av farten, så den er ikke konstant og bevegelseslikningene gjelder ikke',
       'Fordi tyngdeakselerasjonen endrer seg under fallet',
       'Fordi datamaskiner ikke kan regne med konstant akselerasjon',
       'Fordi luftmotstand gjør at energien ikke er bevart',
     ],
-    explanation: 'Med luftmotstand avhenger akselerasjonen av farten (f.eks. $a = g - \\frac{k}{m}v^2$). Slike differensiallikninger er vanskelige eller umulige å løse analytisk, og da bruker vi Eulers metode.',
+    explanation: 'Med luftmotstand avhenger akselerasjonen av farten (f.eks. $a = g - \\frac{k}{m}v^2$). Akselerasjonen er altså ikke konstant, og bevegelseslikningene for konstant akselerasjon gjelder ikke. Da regner vi steg for steg med Eulers metode.',
   },
 ],
 
@@ -1351,22 +1351,22 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom forflytning og tilbakelagt strekning?',
     options: [
-      'Forflytning er en vektor fra start- til sluttposisjon, strekning er hele veilengden',
+      'Forflytning er endringen i posisjon fra start til slutt, strekning er hele veilengden',
       'Forflytning er alltid lengre enn strekningen',
       'Strekning har retning, forflytning har det ikke',
       'De er alltid like store',
     ],
-    explanation: 'Forflytning $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$ er en vektor som peker fra startposisjon til sluttposisjon, mens strekning er den totale veilengden (en skalar). Strekningen er alltid minst like stor som forflytningens beløp.',
+    explanation: 'Forflytningen $\\Delta s = s_2 - s_1$ er endringen i posisjon fra start til slutt, og fortegnet viser retningen. Tilbakelagt strekning er hele veilengden og er aldri negativ. Strekningen er alltid minst like stor som forflytningen uten fortegn.',
   },
   {
     question: 'Hvordan er momentan hastighet definert?',
     options: [
-      'Som den deriverte av posisjonen med hensyn på tid: $\\vec{v} = \\frac{d\\vec{r}}{dt}$',
+      'Som stigningstallet til tangenten i $s$–$t$-grafen i det tidspunktet',
       'Som posisjonen delt på total tid',
-      'Som den deriverte av akselerasjonen med hensyn på tid',
-      'Som arealet under posisjonsgrafen',
+      'Som stigningstallet til tangenten i $v$–$t$-grafen',
+      'Som arealet under $s$–$t$-grafen',
     ],
-    explanation: 'Momentan hastighet er den deriverte av posisjon med hensyn på tid, $\\vec{v} = \\frac{d\\vec{r}}{dt}$, og beskriver hvor raskt og i hvilken retning objektet beveger seg akkurat nå.',
+    explanation: 'Momentan hastighet er hastigheten i ett bestemt tidspunkt. Vi finner den som stigningstallet til tangenten i $s$–$t$-grafen i det tidspunktet. Fortegnet viser retningen. Stigningstallet i $v$–$t$-grafen er akselerasjonen.',
   },
   {
     question: 'En bil øker farten fra 10 m/s til 25 m/s på 5,0 s. Hva er gjennomsnittsakselerasjonen?',
@@ -1379,7 +1379,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     explanation: '$a = \\frac{\\Delta v}{\\Delta t} = \\frac{25 - 10}{5{,}0} = \\frac{15}{5{,}0} = 3{,}0$ m/s².',
   },
   {
-    question: 'En løper løper én hel runde på en 400 m bane på 50 s og ender der hun startet. Hva er beløpet av gjennomsnittshastigheten (vektoren)?',
+    question: 'En løper løper én hel runde på en 400 m bane på 50 s og ender der hun startet. Hva er gjennomsnittshastigheten?',
     options: [
       '0 m/s',
       '8 m/s',
@@ -1503,59 +1503,6 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Det avhenger av kulenes form',
     ],
     explanation: 'I fritt fall (uten luftmotstand) faller alle objekter med samme tyngdeakselerasjon $g \\approx 9{,}8$ m/s², uavhengig av massen. Derfor lander de samtidig.',
-  },
-],
-
-  'fys1-2-4': [
-  {
-    question: 'En ball kastes med fart 20 m/s i vinkel 30° over horisontalen. Hva er den vertikale komponenten av starthastigheten?',
-    options: [
-      '10 m/s',
-      '17,3 m/s',
-      '20 m/s',
-      '5,0 m/s',
-    ],
-    explanation: '$v_y = v \\sin\\theta = 20 \\cdot \\sin 30° = 20 \\cdot 0{,}5 = 10$ m/s. Den horisontale komponenten er $v_x = 20 \\cos 30° \\approx 17{,}3$ m/s.',
-  },
-  {
-    question: 'Hvordan beveger et prosjektil seg horisontalt i et skrått kast uten luftmotstand?',
-    options: [
-      'Med konstant fart, fordi ingen krefter virker horisontalt',
-      'Med konstant akselerasjon g',
-      'Det bremser gradvis opp',
-      'Det akselererer gradvis',
-    ],
-    explanation: 'Uten luftmotstand virker bare tyngdekraften, som er vertikal. Horisontalt er det derfor ingen akselerasjon, og $v_x$ er konstant under hele kastet.',
-  },
-  {
-    question: 'Hva gjelder for hastigheten i toppunktet av banen i et skrått kast?',
-    options: [
-      '$v_y = 0$, men $v_x$ er uendret',
-      'Både $v_x$ og $v_y$ er null',
-      '$v_x = 0$, men $v_y$ er uendret',
-      'Hastigheten er størst i toppunktet',
-    ],
-    explanation: 'I toppunktet er den vertikale hastighetskomponenten null ($v_y = 0$), mens den horisontale komponenten $v_x$ er den samme hele tiden. Total fart er derfor minst i toppunktet, men ikke null.',
-  },
-  {
-    question: 'En hastighetsvektor har komponentene $v_x = 3{,}0$ m/s og $v_y = 4{,}0$ m/s. Hva er beløpet av vektoren?',
-    options: [
-      '5,0 m/s',
-      '7,0 m/s',
-      '12 m/s',
-      '3,5 m/s',
-    ],
-    explanation: '$v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{3{,}0^2 + 4{,}0^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5{,}0$ m/s.',
-  },
-  {
-    question: 'Ved hvilken utkastvinkel får et prosjektil størst rekkevidde på flat mark (uten luftmotstand)?',
-    options: [
-      '45°',
-      '30°',
-      '60°',
-      '90°',
-    ],
-    explanation: 'Rekkevidden er $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$, som er størst når $\\sin(2\\theta) = 1$, altså når $2\\theta = 90°$ og $\\theta = 45°$.',
   },
 ],
 
@@ -1694,7 +1641,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Den er uavhengig av farten',
       'Den er proporsjonal med kvadratroten av farten',
     ],
-    explanation: 'I den kvadratiske modellen er $F = \\frac{1}{2}\\rho C_d A v^2$. Dobler du farten, firedobles luftmotstanden.',
+    explanation: 'I den kvadratiske modellen er $F = kv^2$, der $k$ avhenger av form, størrelse og lufta. Dobler du farten, firedobles luftmotstanden.',
   },
   {
     question: 'En fallskjermhopper med masse 80 kg faller med terminalfart. Hvor stor er luftmotstanden? (g = 9,8 m/s²)',
@@ -1715,59 +1662,6 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Fordi luftmotstanden er konstant under hele fallet',
     ],
     explanation: 'Luftmotstanden, og dermed akselerasjonen, avhenger av farten og endrer seg gjennom fallet. Da kan vi ikke bruke bevegelseslikningene for konstant akselerasjon, men må regne steg for steg numerisk.',
-  },
-],
-
-  'fys1-3-4': [
-  {
-    question: 'En bil kjører med fart 10 m/s i en sirkel med radius 20 m. Hva er sentripetalakselerasjonen?',
-    options: [
-      '5,0 m/s²',
-      '0,50 m/s²',
-      '2,0 m/s²',
-      '200 m/s²',
-    ],
-    explanation: '$a_s = \\frac{v^2}{r} = \\frac{10^2}{20} = \\frac{100}{20} = 5{,}0$ m/s².',
-  },
-  {
-    question: 'I hvilken retning peker sentripetalakselerasjonen ved uniform sirkelbevegelse?',
-    options: [
-      'Innover mot sentrum av sirkelen',
-      'Utover fra sentrum',
-      'Langs tangenten til sirkelen',
-      'Nedover mot bakken',
-    ],
-    explanation: 'Sentripetalakselerasjonen peker alltid mot sentrum av sirkelbanen. Den skyldes at hastighetens retning endrer seg hele tiden, selv om farten er konstant.',
-  },
-  {
-    question: 'Hva skjer med en stein i en slynge hvis snoren plutselig ryker?',
-    options: [
-      'Steinen fortsetter rett frem langs tangenten til sirkelen',
-      'Steinen fortsetter i sirkelbanen',
-      'Steinen slynges rett utover fra sentrum',
-      'Steinen stopper umiddelbart',
-    ],
-    explanation: 'Uten sentripetalkraft er det ingen kraft som bøyer banen, og steinen fortsetter med konstant hastighet langs tangenten (Newtons 1. lov). Den slynges ikke radielt utover — "sentrifugalkraften" er en fiktiv kraft.',
-  },
-  {
-    question: 'Et objekt med masse 2,0 kg går i sirkel med radius 4,0 m og fart 6,0 m/s. Hvor stor sentripetalkraft kreves?',
-    options: [
-      '18 N',
-      '3,0 N',
-      '12 N',
-      '72 N',
-    ],
-    explanation: '$F_s = \\frac{mv^2}{r} = \\frac{2{,}0 \\cdot 6{,}0^2}{4{,}0} = \\frac{72}{4{,}0} = 18$ N.',
-  },
-  {
-    question: 'Hvilken kraft gir sentripetalkraften når en bil kjører gjennom en flat rundkjøring?',
-    options: [
-      'Friksjonskraften mellom dekkene og veien',
-      'Normalkraften fra veien',
-      'Tyngdekraften',
-      'Motorkraften fremover',
-    ],
-    explanation: 'Sentripetalkraft er ikke en egen krafttype, men den resulterende kraften mot sentrum. På flat vei er det friksjonen mellom dekk og asfalt som peker mot sentrum og holder bilen i svingen.',
   },
 ],
 
@@ -1836,14 +1730,14 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     explanation: '$E_p = mgh = 2{,}0 \\cdot 9{,}81 \\cdot 5{,}0 = 98{,}1 \\approx 98$ J.',
   },
   {
-    question: 'En fjær med fjærkonstant 200 N/m presses sammen 0,10 m. Hvor mye elastisk potensiell energi lagres?',
+    question: 'En fjær med fjærkonstant 200 N/m presses sammen 0,10 m. Hvor stor kraft må vi bruke?',
     options: [
-      '1,0 J',
-      '20 J',
-      '2,0 J',
-      '10 J',
+      '20 N',
+      '2000 N',
+      '2,0 N',
+      '1,0 N',
     ],
-    explanation: '$E_p = \\frac{1}{2}kx^2 = \\frac{1}{2} \\cdot 200 \\cdot 0{,}10^2 = \\frac{1}{2} \\cdot 200 \\cdot 0{,}010 = 1{,}0$ J.',
+    explanation: 'Hookes lov: $F = kx = 200 \\cdot 0{,}10 = 20$ N. Fjæren lagrer energi når den presses sammen, og gir energien tilbake når den slippes.',
   },
   {
     question: 'En ball slippes fra 20 m høyde uten luftmotstand. Hva er farten like før den treffer bakken? (g = 9,81 m/s²)',
@@ -2207,44 +2101,44 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     explanation: 'Elementærladningen er $e = 1{,}602 \\cdot 10^{-19}$ C — ladningen til et proton (elektronet har $-e$). All ladning er hele multipler av denne.',
   },
   {
-    question: 'Hva skjer med kraften mellom to punktladninger hvis avstanden dobles?',
+    question: 'Hva skjer med den elektriske kraften mellom to ladde kuler når avstanden mellom dem blir større?',
     options: [
-      'Den blir en fjerdedel så stor',
-      'Den halveres',
-      'Den dobles',
-      'Den er uendret',
+      'Kraften blir svakere',
+      'Kraften blir sterkere',
+      'Kraften er uendret',
+      'Kraften skifter retning',
     ],
-    explanation: 'Coulombs lov: $F = k\\frac{q_1 q_2}{r^2}$. Kraften avtar med kvadratet av avstanden, så dobbel avstand gir $F/4$.',
+    explanation: 'Den elektriske kraften blir svakere jo lenger fra hverandre ladningene er, og sterkere jo større ladningene er. Om kraften tiltrekker eller frastøter, avhenger bare av om ladningene er like eller ulike.',
   },
   {
-    question: 'En ladning på 4,0·10⁻⁶ C opplever en elektrisk kraft på 2,0·10⁻³ N. Hvor sterkt er feltet der ladningen er?',
+    question: 'En ladning på 2,0 C går gjennom en spenning på 12 V. Hvor mye elektrisk energi omsettes?',
     options: [
-      '500 N/C',
-      '8,0·10⁻⁹ N/C',
-      '2,0·10³ N/C',
-      '0,002 N/C',
+      '24 J',
+      '6,0 J',
+      '0,17 J',
+      '14 J',
     ],
-    explanation: '$E = \\frac{F}{q} = \\frac{2{,}0 \\cdot 10^{-3}}{4{,}0 \\cdot 10^{-6}} = 500$ N/C.',
+    explanation: '$W = qU = 2{,}0 \\cdot 12 = 24$ J. Spenningen er energi per ladning, så energien er ladning ganger spenning.',
   },
   {
-    question: 'Hvilken retning har de elektriske feltlinjene?',
+    question: 'To ballonger er gnidd mot håret og har begge fått negativ ladning. Hva skjer når de holdes nær hverandre?',
     options: [
-      'Fra positive ladninger mot negative ladninger',
-      'Fra negative ladninger mot positive ladninger',
-      'Alltid i sirkler rundt ladningen',
-      'Alltid parallelt med jordoverflaten',
+      'De frastøter hverandre',
+      'De tiltrekker hverandre',
+      'De påvirker ikke hverandre',
+      'De mister ladningen sin',
     ],
-    explanation: 'Feltlinjene viser retningen en positiv prøveladning ville blitt dyttet — de peker ut fra positive ladninger og inn mot negative ladninger.',
+    explanation: 'Like ladninger frastøter hverandre. Begge ballongene er negative, så de skyves fra hverandre.',
   },
   {
-    question: 'To parallelle plater har spenningen 12 V og avstand 0,020 m. Hvor sterkt er det uniforme feltet mellom dem?',
+    question: 'Et elektron går gjennom en spenning på 1,0 V. Hvor mye energi får det?',
     options: [
-      '600 V/m',
-      '0,24 V/m',
-      '60 V/m',
-      '0,0017 V/m',
+      '1,0 eV, som er $1{,}602 \\cdot 10^{-19}$ J',
+      '1,0 J',
+      '1,0 eV, som er $9{,}11 \\cdot 10^{-31}$ J',
+      '$1{,}602 \\cdot 10^{-19}$ eV',
     ],
-    explanation: 'For et uniformt felt: $E = \\frac{U}{d} = \\frac{12}{0{,}020} = 600$ V/m.',
+    explanation: '$W = qU = e \\cdot 1{,}0 \\text{ V} = 1{,}602 \\cdot 10^{-19}$ J. Denne energien kalles ett elektronvolt (1 eV).',
   },
 ],
 
@@ -2376,14 +2270,14 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     explanation: '$E = E_2 - E_1 = (-3{,}4) - (-13{,}6) = 10{,}2$ eV. Fotonenergien er differansen mellom energinivåene.',
   },
   {
-    question: 'Hva skjer i fotoelektrisk effekt hvis lysets frekvens er under grensefrekvensen?',
+    question: 'Et metall belyses med lys der hvert foton har for lite energi til å frigjøre et elektron. Hva skjer hvis lyset gjøres mer intenst?',
     options: [
       'Ingen elektroner frigjøres, uansett hvor intenst lyset er',
       'Elektroner frigjøres hvis lyset er intenst nok',
       'Elektroner frigjøres med høy kinetisk energi',
       'Metallet smelter',
     ],
-    explanation: 'Hvert foton har energien $E = hf$. Er $hf$ mindre enn arbeidsfunksjonen $W$, kan ikke ett foton frigjøre et elektron — og høyere intensitet betyr bare flere slike utilstrekkelige fotoner. Dette kunne ikke forklares klassisk.',
+    explanation: 'Hvert foton har energien $E = hf$, og ett foton kan frigjøre høyst ett elektron. Har hvert foton for lite energi, frigjøres ingen elektroner. Mer intenst lys gir bare flere fotoner med for lite energi. Dette kunne ikke bølgemodellen for lys forklare.',
   },
   {
     question: 'Hva viste Rutherfords gullfolie-eksperiment?',

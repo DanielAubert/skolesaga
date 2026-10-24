@@ -3,6 +3,22 @@
 Dette repoet (Skolesaga) arver instruksjonene fra `../CLAUDE.md` (eksamenssett).
 Reglene under gjelder spesifikt for Skolesaga og OVERSTYRER ved konflikt.
 
+
+## Aldri stoff som er for avansert for faget (Daniel 24.10.2026, regel)
+
+«Det skal ikke være stoff som er for avansert for faget i noe fag på skolesaga. Regel». Hvert kapittel holder seg
+innenfor gjeldende læreplan for faget og trinnet (bekreft planen på data.udir.no, jf. ../CLAUDE.md). Stoff fra et
+høyere trinn (Kjemi 2 i Kjemi 1, Fysikk 2 i Fysikk 1, R2 i R1, universitetsstoff i VGS o.l.) tas ut eller flyttes til
+riktig bok — det merkes ikke bare som «utvidet». Gjelder tekst, eksempler, oppgaver, figurer og videoer, og sjekkes ved
+hver ny eller endret seksjon. Grensetilfeller legges fram for Daniel.
+
+## Figurer: grafmotoren er standard (5.9.26, Daniels vedtak)
+
+Alle figurer til Skolesaga (lærebok, oppgaver, forelesninger, videoer) lages
+med grafmotoren i `~/Documents/losningsfilmer-arbeid/grafmotor_losning.py` —
+samme motor og samme dobbel-audit-protokoll (`FIGURAUDIT-PROTOKOLL.md`) som
+eksamenssett-løsningene. Aldri hånd-SVG for noe motoren dekker.
+
 ## ⚠️ DELT SUPABASE-DATABASE MED EKSAMENSSETT.NO
 
 Skolesaga og eksamenssett.no (kodebasen i foreldremappa `../`) deler ETT

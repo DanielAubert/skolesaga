@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getCourse, getChapterMeta } from "@/lib/data/textbook-courses";
 import { QuizClient } from "./quiz-client";
 import { getQuizQuestions } from "@/lib/data/quiz-data";
@@ -62,6 +62,11 @@ export default async function QuizPage({ params }: PageProps) {
 
   if (!course || !chapterMeta) {
     notFound();
+  }
+
+  // Sammenslått/uttatt kapittel (erstattesAv, 23.–24.10.2026): quizen følger kapittelsiden til målkapitlet.
+  if (chapterMeta.erstattesAv) {
+    permanentRedirect(`${malform === 'nn' ? '/nn' : ''}/${courseId}/${chapterMeta.erstattesAv}/quiz`);
   }
 
   // Get quiz questions - try generic first, then chemistry-specific
