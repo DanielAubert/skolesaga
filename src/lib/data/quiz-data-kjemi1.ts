@@ -158,6 +158,36 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Metallkarakteren øker nedover i gruppene og mot venstre i periodene. Derfor er de mest typiske metallene (som cesium) nede til venstre, mens ikke-metallene er oppe til høyre.',
   },
+  {
+    question: 'Hvordan endrer reaktiviteten til alkalimetallene seg nedover gruppe 1?',
+    options: [
+      'Den øker, fordi valenselektronet holdes svakere',
+      'Den minker, fordi atomene blir større',
+      'Den minker, fordi kjerneladningen øker',
+      'Den er lik, fordi alle har ett valenselektron',
+    ],
+    explanation: 'Nedover gruppa ligger valenselektronet lenger fra kjernen og skjermes av flere indre elektroner, så det avgis lettere. Derfor reagerer kalium kraftigere med vann enn natrium, og natrium kraftigere enn litium.',
+  },
+  {
+    question: 'Hvilke produkter dannes når natrium reagerer med vann?',
+    options: [
+      'Natriumioner, hydroksidioner og hydrogengass',
+      'Natriumioner, oksidioner og oksygengass',
+      'Natriumoksid og hydrogengass',
+      'Natriumhydrid og oksygengass',
+    ],
+    explanation: '2Na + 2H₂O → 2Na⁺ + 2OH⁻ + H₂. Hydroksidionene gjør løsningen basisk, og gassen som bobler av, er hydrogen.',
+  },
+  {
+    question: 'Klorvann tilsettes en løsning av kaliumbromid, og løsningen blir gulbrun. Hvorfor?',
+    options: [
+      'Klor tar elektroner fra bromidionene, og det dannes brom',
+      'Bromidionene tar elektroner fra klor, og det dannes klorid som er gulbrunt',
+      'Kaliumionene reagerer med klor og danner et gulbrunt salt',
+      'Klor og brom danner et gulbrunt bunnfall',
+    ],
+    explanation: 'Klor står over brom i gruppe 17 og tar opp elektroner sterkere: Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂. Brom farger løsningen gulbrun. Kaliumionene er tilskuerioner, og kloridioner er fargeløse.',
+  },
 ],
 
   'kjemi1-1-4': [
@@ -316,6 +346,66 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       '0,050',
     ],
     explanation: '$A = \\varepsilon c l = 200 \\cdot 0{,}010 \\cdot 1{,}0 = 2{,}0$.',
+  },
+  {
+    question: 'Et salt gir kraftig gul flamme i en flammeprøve. Hvilket metallion inneholder saltet trolig?',
+    options: [
+      'Na⁺',
+      'K⁺',
+      'Li⁺',
+      'Cu²⁺',
+    ],
+    explanation: 'Natrium sender ut sterkt gult lys ved 589 nm. Kalium gir fiolett, litium karminrød og kobber blågrønn flamme.',
+  },
+  {
+    question: 'Et salt gir rød flamme. Hvorfor kan flammeprøven alene ikke avgjøre hvilket metallion saltet inneholder?',
+    options: [
+      'Litium, strontium og kalsium gir alle rødlige flammer',
+      'Den røde fargen kommer fra anionet i saltet',
+      'Rød flamme betyr at saltet ikke inneholder metallioner',
+      'Alle metaller gir rød flamme når flammen er varm nok',
+    ],
+    explanation: 'Li⁺ (karminrød), Sr²⁺ (rød) og Ca²⁺ (oransjerød) er vanskelige å skille med øyet. Fargen kommer fra metallet, ikke anionet, og ulike metaller gir ulike farger. Et spektroskop som viser linjene, kan skille dem.',
+  },
+  {
+    question: 'Hvorfor ser en elev på flammen gjennom blått koboltglass når hun leter etter kalium i et salt som også inneholder natrium?',
+    options: [
+      'Koboltglasset stopper det gule natriumlyset, så den fiolette kaliumfargen blir synlig',
+      'Koboltglasset gjør den gule natriumfargen sterkere',
+      'Koboltglasset gjør om kaliumioner til frie atomer',
+      'Koboltglasset farger flammen blå når kalium er til stede',
+    ],
+    explanation: 'Selv spor av natrium gir så sterkt gult lys at kaliums fiolette farge dekkes. Det blå glasset absorberer det gule lyset og slipper gjennom det fiolette.',
+  },
+  {
+    question: 'Hva måler et AAS-instrument (atomabsorpsjonsspektroskopi)?',
+    options: [
+      'Hvor mye lys frie atomer av ett grunnstoff absorberer',
+      'Hvor mye lys atomene sender ut i flammen',
+      'Hvilke bindinger molekylene i prøven har',
+      'Hvor mye synlig lys fargede molekyler i løsningen absorberer',
+    ],
+    explanation: 'I AAS blir prøven til frie atomer i en flamme, og en lampe med samme grunnstoff sender lys gjennom. Instrumentet måler hvor mye av lyset som absorberes. Utsendt lys måles i AES, bindinger med IR og fargede stoffer med UV-Vis.',
+  },
+  {
+    question: 'En vannprøve fortynnes fra 10,0 mL til 20,0 mL før AAS-målingen. Standardkurven gir 1,41 mg/L kobber i den fortynnede prøven. Hva er kobberkonsentrasjonen i vannet?',
+    options: [
+      '2,8 mg/L',
+      '1,41 mg/L',
+      '0,71 mg/L',
+      '14,1 mg/L',
+    ],
+    explanation: 'Prøven ble fortynnet til dobbelt volum, så konsentrasjonen i vannet er dobbelt så stor: 1,41 mg/L · 20,0/10,0 = 2,8 mg/L. 0,71 mg/L får du hvis du deler i stedet for å gange, og 1,41 mg/L hvis du glemmer fortynningen.',
+  },
+  {
+    question: 'Hvilken metode passer best til å finne ut om en fargeløs væske har O–H-bindinger?',
+    options: [
+      'IR-spektroskopi',
+      'AAS',
+      'Flammeprøve',
+      'UV-Vis med standardkurve',
+    ],
+    explanation: 'Infrarød stråling får bindingene til å vibrere, og hver bindingstype absorberer ved sine egne bølgelengder. AAS og flammeprøven påviser grunnstoffer, og en fargeløs væske absorberer ikke synlig lys.',
   },
 ],
 
@@ -476,6 +566,36 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Stoffer løses best i løsemidler med samme type mellommolekylære krefter. Polart salt og sukker løses i polart vann, mens upolart fett løses i upolare løsemidler som heksan.',
   },
+  {
+    question: 'Hva holder partiklene sammen i et molekylgitter, som i fast jod (I₂)?',
+    options: [
+      'Mellommolekylære krefter mellom molekylene',
+      'Kovalente bindinger mellom alle atomene i gitteret',
+      'Ionebindinger mellom positive og negative ioner',
+      'Frie elektroner mellom positive ioner',
+    ],
+    explanation: 'I et molekylgitter er bindingene inni molekylene kovalente, men molekylene holdes sammen av mellommolekylære krefter. Kovalente bindinger gjennom hele gitteret er et atomgitter, ionebindinger et ionegitter og frie elektroner et metallgitter.',
+  },
+  {
+    question: 'Et stoff smelter ved omtrent 1700 °C, leder ikke strøm og løses verken i vann eller heksan. Hvilken gittertype har det trolig?',
+    options: [
+      'Atomgitter',
+      'Molekylgitter',
+      'Ionegitter',
+      'Metallgitter',
+    ],
+    explanation: 'Svært høyt smeltepunkt betyr at sterke bindinger må brytes. Et ionegitter ville ledet som smelte og ofte løst seg i vann, et metallgitter ville ledet strøm, og et molekylgitter har lavt smeltepunkt. Stoffet passer med et atomgitter, som kvarts (SiO₂).',
+  },
+  {
+    question: 'Hvorfor kan grafitt brukes i blyanter?',
+    options: [
+      'Lagene av karbonatomer holdes sammen av svake krefter og glir lett av',
+      'Karbonatomene i grafitt er bundet med svake kovalente bindinger i alle retninger',
+      'Grafitt er et molekylgitter av små karbonmolekyler',
+      'Grafitt er et metall som er mykt',
+    ],
+    explanation: 'I grafitt er hvert karbonatom bundet sterkt til tre andre i plane lag, men lagene holdes sammen av svake krefter. Lagene glir derfor av på papiret. Grafitt er et atomgitter av ikke-metallet karbon.',
+  },
 ],
 
   'kjemi1-4-1': [
@@ -635,6 +755,66 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Sink avgir to elektroner og oksideres: Zn → Zn²⁺ + 2e⁻. Kobberionet tar opp elektronene og reduseres: Cu²⁺ + 2e⁻ → Cu.',
   },
+  {
+    question: 'En jernspiker legges i en blå løsning av kobber(II)sulfat. Hva skjer?',
+    options: [
+      'Jern oksideres, og kobber felles ut som et rødbrunt belegg',
+      'Kobber oksideres, og jern felles ut på spikeren',
+      'Ingenting, fordi jern er mer edelt enn kobber',
+      'Det bobler av hydrogengass fra spikeren',
+    ],
+    explanation: 'Jern står til venstre for kobber i spenningsrekka og reduserer Cu²⁺: Fe + Cu²⁺ → Fe²⁺ + Cu. Den blå fargen fra Cu²⁺ blir svakere. Velger du at kobber oksideres eller at jern er mer edelt, har du snudd rekka. Hydrogengass dannes bare når metallet reagerer med H⁺ i en syre.',
+  },
+  {
+    question: 'Hvilket metall løses i fortynnet saltsyre og gir hydrogengass?',
+    options: [
+      'Sink',
+      'Kobber',
+      'Sølv',
+      'Gull',
+    ],
+    explanation: 'Bare metaller til venstre for H₂ i spenningsrekka kan redusere H⁺ til H₂: Zn + 2H⁺ → Zn²⁺ + H₂. Kobber, sølv og gull står til høyre for H₂ og løses ikke i saltsyre.',
+  },
+  {
+    question: 'Et metall X reagerer med løsninger av både Y²⁺ og Z²⁺. Metall Y reagerer med Z²⁺, men ikke med X²⁺. Hvilken rekkefølge har metallene fra mest uedel til mest edel?',
+    options: [
+      'X, Y, Z',
+      'Z, Y, X',
+      'Y, X, Z',
+      'X, Z, Y',
+    ],
+    explanation: 'Et metall reduserer ionene til metaller som er mer edle. X reduserer ionene til begge de andre og er mest uedelt. Y reduserer bare Z²⁺, så Z er mest edelt. Z, Y, X er rekka snudd.',
+  },
+  {
+    question: 'Hva må til for at jern skal ruste?',
+    options: [
+      'Både vann og oksygen',
+      'Bare oksygen',
+      'Bare vann',
+      'Salt og karbondioksid',
+    ],
+    explanation: 'Jern oksideres og oksygen reduseres, og reaksjonen krever en vannfilm der ioner kan vandre. En spiker i tørr luft eller i kokt vann uten luft ruster nesten ikke. Salt gjør at rustingen går raskere, men er ikke nødvendig.',
+  },
+  {
+    question: 'Hvorfor ruster ikke jernet i en ripe i et galvanisert (sinkbelagt) stålrør?',
+    options: [
+      'Sink er mer uedelt enn jern og oksideres i stedet for jernet',
+      'Sink er mer edelt enn jern og skyver oksygenet bort',
+      'Sinklaget dekker fortsatt jernet i ripa',
+      'Sink omdanner rusten tilbake til jern',
+    ],
+    explanation: 'Sink står til venstre for jern i spenningsrekka og gir lettere fra seg elektroner. Sinken ofres og tæres bort, mens jernet blir liggende som metall (offerbeskyttelse). I ripa er jernet ikke dekket, så skjerming kan ikke forklare det.',
+  },
+  {
+    question: 'Et stålskrog skal beskyttes med et offermetall. Hvilket metall kan brukes?',
+    options: [
+      'Magnesium',
+      'Kobber',
+      'Tinn',
+      'Sølv',
+    ],
+    explanation: 'Offermetallet må være mer uedelt enn jern, slik at det oksideres i stedet for stålet. Magnesium står til venstre for jern. Kobber, tinn og sølv står til høyre for jern og ville fått jernet til å ruste raskere.',
+  },
 ],
 
   'kjemi1-5-1': [
@@ -687,6 +867,56 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       'Molmassen måles i kg og atommassen i gram',
     ],
     explanation: 'Den relative atommassen i periodesystemet (i u) er numerisk lik molmassen i g/mol. Karbon har f.eks. atommasse 12,01 u og molmasse 12,01 g/mol.',
+  },
+  {
+    question: 'Hva er den empiriske formelen til eten, C₂H₄?',
+    options: [
+      'CH₂',
+      'C₂H₄',
+      'CH₄',
+      'C₂H₂',
+    ],
+    explanation: 'Den empiriske formelen er det enkleste heltallsforholdet: 2 : 4 = 1 : 2, altså CH₂. C₂H₄ er molekylformelen. CH₄ og C₂H₂ har et annet forhold mellom C og H.',
+  },
+  {
+    question: 'Et stoff inneholder 75 % karbon og 25 % hydrogen (masseprosent). Hva er den empiriske formelen? Bruk C = 12 og H = 1 g/mol.',
+    options: [
+      'CH₄',
+      'C₃H',
+      'CH₃',
+      'C₆H₂₅',
+    ],
+    explanation: 'I 100 g er det 75/12 = 6,25 mol C og 25/1 = 25 mol H. Forholdet er 6,25 : 25 = 1 : 4, altså CH₄. C₃H får du hvis du bruker prosentene direkte (75 : 25 = 3 : 1) uten å regne om til mol. C₆H₂₅ får du hvis du ikke deler stoffmengdene på den minste.',
+  },
+  {
+    question: 'Et stoff har empirisk formel CH₂O og molmasse 180 g/mol. Hva er molekylformelen? Bruk C = 12, H = 1 og O = 16 g/mol.',
+    options: [
+      'C₆H₁₂O₆',
+      'C₃H₆O₃',
+      'CH₂O',
+      'C₁₂H₂₄O₁₂',
+    ],
+    explanation: 'M(CH₂O) = 12 + 2 + 16 = 30 g/mol, og 180/30 = 6. Molekylformelen er seks empiriske enheter: C₆H₁₂O₆. C₃H₆O₃ har molmasse 90 g/mol og C₁₂H₂₄O₁₂ 360 g/mol.',
+  },
+  {
+    question: 'Hva er molmassen til CuSO₄ · 5H₂O når M(CuSO₄) = 159,6 g/mol og M(H₂O) = 18,0 g/mol?',
+    options: [
+      '249,6 g/mol',
+      '177,6 g/mol',
+      '159,6 g/mol',
+      '888,0 g/mol',
+    ],
+    explanation: 'Krystallvannet regnes med: 159,6 + 5 · 18,0 = 249,6 g/mol. 177,6 g/mol tar bare med ett vannmolekyl, 159,6 g/mol er det vannfrie saltet, og 888,0 g/mol er (159,6 + 18,0) · 5.',
+  },
+  {
+    question: 'En elev varmer et hydrat for kort, slik at noe krystallvann blir igjen. Hvordan påvirker det den beregnede verdien av x i MgSO₄ · xH₂O?',
+    options: [
+      'x blir for lav',
+      'x blir for høy',
+      'x blir riktig, fordi massen av saltet ikke endres',
+      'x blir riktig, fordi vannet ikke regnes med',
+    ],
+    explanation: 'Vann som er igjen, gjør at massetapet blir for lite og at det som veies som vannfritt salt, veier for mye. Stoffmengden vann blir for liten og stoffmengden salt for stor, så x = n(H₂O)/n(MgSO₄) blir for lav.',
   },
 ],
 
@@ -953,6 +1183,36 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Bindingsbrudd er alltid endotermt (krever energi), mens bindingsdannelse alltid er eksotermt (frigjør energi). Nettoresultatet avgjør om reaksjonen samlet er ekso- eller endoterm.',
   },
+  {
+    question: 'Etanol har ΔcH° = −1367 kJ/mol og M = 46,1 g/mol. Hvor mye energi gir 1 g etanol ved forbrenning?',
+    options: [
+      '29,7 kJ',
+      '1367 kJ',
+      '63 019 kJ',
+      '0,034 kJ',
+    ],
+    explanation: 'Energi per gram er 1367 kJ/mol delt på 46,1 g/mol = 29,7 kJ/g. 1367 kJ er energien per mol. 63 019 kJ får du ved å gange, og 0,034 kJ ved å dele molmassen på entalpien.',
+  },
+  {
+    question: 'Hvorfor gir hydrogen mer energi per gram enn oktan, selv om oktan gir mer energi per mol?',
+    options: [
+      'Hydrogenmolekylet har svært liten molmasse',
+      'Hydrogen har høyere forbrenningsentalpi per mol',
+      'Hydrogen brenner ved høyere temperatur enn oktan',
+      'Oktan inneholder oksygen som ikke gir energi',
+    ],
+    explanation: 'Hydrogen gir 286 kJ/mol og oktan 5470 kJ/mol, men 1 mol H₂ veier bare 2,02 g mot 114,2 g for oktan. Per gram blir det 142 kJ/g mot 47,9 kJ/g. Oktan, C₈H₁₈, inneholder ikke oksygen.',
+  },
+  {
+    question: 'Et kakestykke inneholder 10 g fett og 30 g karbohydrat. Hvor mye energi gir det? Bruk 37 kJ/g for fett og 17 kJ/g for karbohydrat.',
+    options: [
+      '880 kJ',
+      '1480 kJ',
+      '54 kJ',
+      '1280 kJ',
+    ],
+    explanation: '10 · 37 + 30 · 17 = 370 + 510 = 880 kJ. 1480 kJ får du hvis du bruker 37 kJ/g for begge, og 1280 kJ hvis du bytter verdiene for fett og karbohydrat. 54 kJ er bare summen av energiverdiene per gram.',
+  },
 ],
 
   'kjemi1-6-3': [
@@ -1005,6 +1265,36 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       'Pulveret har høyere konsentrasjon',
     ],
     explanation: 'Reaksjonen skjer på overflaten av det faste stoffet. Findeling gir mye større samlet overflate og dermed flere effektive kollisjoner per sekund.',
+  },
+  {
+    question: 'I et forsøk øker gassvolumet fra 52 mL til 66 mL mellom t = 40 s og t = 60 s. Hva er den gjennomsnittlige reaksjonsfarten i intervallet?',
+    options: [
+      '0,70 mL/s',
+      '1,1 mL/s',
+      '1,3 mL/s',
+      '14 mL/s',
+    ],
+    explanation: 'Fart = endring i volum delt på tid: (66 − 52) mL / (60 − 40) s = 14 mL / 20 s = 0,70 mL/s. 1,1 mL/s er 66/60, som er gjennomsnittet fra start. 1,3 mL/s er 52/40, og 14 mL er bare volumendringen.',
+  },
+  {
+    question: 'Marmor reagerer med saltsyre i en åpen kolbe som står på en vekt. Hva tilsvarer massetapet som vekten viser?',
+    options: [
+      'Massen av CO₂ som slipper ut',
+      'Massen av marmor som løses',
+      'Massen av vann som dannes',
+      'Massen av saltsyre som fordamper',
+    ],
+    explanation: 'CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. Bare CO₂ forlater kolben, så massetapet er massen av gassen som er dannet. Marmor som løses og vann som dannes, blir værende i kolben.',
+  },
+  {
+    question: 'En graf av gassvolum mot tid er brattest i starten og flater ut. Hva viser det?',
+    options: [
+      'Reaksjonsfarten avtar fordi reaktantene brukes opp',
+      'Reaksjonsfarten øker fordi det dannes mer produkt',
+      'Aktiveringsenergien øker mens reaksjonen går',
+      'Reaksjonen blir endoterm etter en stund',
+    ],
+    explanation: 'Stigningstallet er reaksjonsfarten. Den er størst i starten, når konsentrasjonen av reaktantene er størst. Aktiveringsenergien og ΔH hører til reaksjonen og endres ikke underveis.',
   },
 ],
 
@@ -1324,6 +1614,26 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'pH-skalaen er logaritmisk: hver pH-enhet tilsvarer en faktor 10. To enheter forskjell gir 10² = 100 ganger høyere [H₃O⁺].',
   },
+  {
+    question: 'Hvor mange milliliter NaOH-løsning med 0,10 mol/L trengs for å nøytralisere 20,0 mL HNO₃ med 0,15 mol/L?',
+    options: [
+      '30 mL',
+      '20 mL',
+      '13 mL',
+      '60 mL',
+    ],
+    explanation: 'n(HNO₃) = 0,15 · 0,0200 = 3,0 · 10⁻³ mol = n(NaOH). V = 3,0 · 10⁻³ / 0,10 = 0,030 L = 30 mL. 13 mL får du hvis du snur forholdet mellom konsentrasjonene, og 60 mL hvis du dobler som for en toprotisk syre.',
+  },
+  {
+    question: 'Hvor mange mol NaOH trengs for å nøytralisere 0,0050 mol H₂SO₄?',
+    options: [
+      '0,010 mol',
+      '0,0050 mol',
+      '0,0025 mol',
+      '0,020 mol',
+    ],
+    explanation: 'H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O, så n(NaOH) = 2 · 0,0050 = 0,010 mol. 0,0050 mol bygger på molforholdet 1 : 1, og 0,0025 mol på at forholdet er snudd.',
+  },
 ],
 
   'kjemi1-9-3': [
@@ -1376,6 +1686,56 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       'NH₃ reagerer ikke med vann',
     ],
     explanation: 'NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. Ammoniakk er en svak base, så bare en liten andel av molekylene tar opp protoner. Det dannes likevel nok OH⁻ til at løsningen blir basisk.',
+  },
+  {
+    question: 'Hvilket salt gir en sur løsning i vann?',
+    options: [
+      'NH₄NO₃',
+      'KNO₃',
+      'CH₃COONa',
+      'Na₂CO₃',
+    ],
+    explanation: 'NH₄⁺ er en svak syre: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺. KNO₃ er nøytralt, mens acetat og karbonat er svake baser og gir basiske løsninger.',
+  },
+  {
+    question: 'Hvorfor er en løsning av natriumfluorid, NaF, svakt basisk?',
+    options: [
+      'F⁻ er basen til den svake syren HF og tar opp protoner fra vann',
+      'Na⁺ avgir protoner til vannet og danner NaOH',
+      'F⁻ er basen til en sterk syre og reagerer fullstendig',
+      'NaF inneholder hydroksidioner fra produksjonen',
+    ],
+    explanation: 'F⁻ + H₂O ⇌ HF + OH⁻. Na⁺ påvirker ikke pH. HF er en svak syre, ikke en sterk, og NaF inneholder ingen OH⁻ før fluoridionet reagerer med vann.',
+  },
+  {
+    question: 'Ammoniakk titreres med saltsyre. Hvordan er løsningen ved ekvivalenspunktet?',
+    options: [
+      'Svakt sur, fordi den inneholder NH₄⁺',
+      'Nøytral, fordi syre og base har reagert',
+      'Svakt basisk, fordi den inneholder NH₃',
+      'Sterkt sur, fordi HCl er i overskudd',
+    ],
+    explanation: 'Ved ekvivalenspunktet er alt NH₃ blitt NH₄Cl, og NH₄⁺ er en svak syre. Det er ikke overskudd av HCl før etter ekvivalenspunktet.',
+  },
+  {
+    question: 'Hvorfor begynner tannemaljen å løses når pH i tannbelegget synker under omtrent 5,5?',
+    options: [
+      'Basene i hydroksylapatitt, OH⁻ og fosfat, reagerer med H₃O⁺',
+      'Kalsiumionene i emaljen blir oksidert av syren',
+      'Sukkeret reagerer direkte med kalsiumet i emaljen',
+      'Spyttet blir basisk og løser opp emaljen',
+    ],
+    explanation: 'Ca₅(PO₄)₃OH + 4 H₃O⁺ → 5 Ca²⁺ + 3 HPO₄²⁻ + 5 H₂O. Sukker virker indirekte: bakteriene lager syre av det. Spyttet nøytraliserer syren og beskytter.',
+  },
+  {
+    question: 'Hvorfor gjør fluorid tannemaljen mer motstandsdyktig mot syre?',
+    options: [
+      'Fluorapatitt dannes, og F⁻ er en svakere base enn OH⁻',
+      'Fluorid gjør spyttet surere slik at bakteriene dør',
+      'Fluorid dreper alle bakteriene som lager syre',
+      'Fluorid danner et beskyttende lag av plast på tennene',
+    ],
+    explanation: 'F⁻ bytter ut OH⁻ i emaljen og gir Ca₅(PO₄)₃F. Fluorid tar dårligere opp H₃O⁺ enn hydroksid, så emaljen løses mindre i syre.',
   },
 ],
 
@@ -1430,6 +1790,46 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Nær ekvivalenspunktet endrer pH seg brått. Én dråpe kan da gi fargeomslaget, og titrerer vi for raskt, går vi forbi ekvivalenspunktet og får for stort volum.',
   },
+  {
+    question: 'Det går med 2,0 mmol MnO₄⁻ for å oksidere alt Fe²⁺ i en prøve: 5 Fe²⁺ + MnO₄⁻ + 8 H⁺ → 5 Fe³⁺ + Mn²⁺ + 4 H₂O. Hvor mye Fe²⁺ var det i prøven?',
+    options: [
+      '10 mmol',
+      '2,0 mmol',
+      '0,40 mmol',
+      '16 mmol',
+    ],
+    explanation: 'Molforholdet Fe²⁺ : MnO₄⁻ er 5 : 1, så n(Fe²⁺) = 5 · 2,0 mmol = 10 mmol. 0,40 mmol får du hvis du deler på 5 i stedet for å gange, og 16 mmol hvis du bruker koeffisienten til H⁺.',
+  },
+  {
+    question: 'Hvordan ser vi endepunktet når Fe²⁺ titreres med kaliumpermanganat?',
+    options: [
+      'Første dråpe i overskudd gir en svak rosa farge som blir stående',
+      'Løsningen blir fargeløs fordi Fe³⁺ er fargeløst',
+      'Det dannes et rødbrunt bunnfall av sølvkromat',
+      'Stivelsen i løsningen gir en blå farge',
+    ],
+    explanation: 'MnO₄⁻ er fiolett og blir til nesten fargeløst Mn²⁺ så lenge det er Fe²⁺ igjen. Fe³⁺ er gulbrunt. Rødbrunt bunnfall hører til Mohrs metode, og blå farge med stivelse til jodtitrering.',
+  },
+  {
+    question: 'Ved kloridbestemmelse med sølvnitrat brukes kaliumkromat som indikator. Hva viser endepunktet?',
+    options: [
+      'Rødbrunt sølvkromat felles når kloridet er brukt opp',
+      'Hvitt sølvklorid begynner å felles ut',
+      'Løsningen blir blå fordi kromat reagerer med klorid',
+      'Bunnfallet av sølvklorid løses opp igjen',
+    ],
+    explanation: 'Sølvklorid felles først. Først når nesten alt Cl⁻ er felt, blir det nok Ag⁺ til at rødbrunt Ag₂CrO₄ felles. Hvitt AgCl dannes fra første dråpe.',
+  },
+  {
+    question: 'Hvorfor gir en titrering med EDTA bare summen av kalsium og magnesium i vannet?',
+    options: [
+      'EDTA danner kompleks med både Ca²⁺ og Mg²⁺ i forholdet 1 : 1',
+      'EDTA reagerer bare med kalsium og overser magnesium',
+      'Magnesium felles ut som hydroksid før titreringen',
+      'Indikatoren skifter farge én gang for hvert metall',
+    ],
+    explanation: 'EDTA binder begge ionene, ett om gangen, så titrervolumet gir den samlede stoffmengden. Hardheten oppgis derfor ofte som om alt var kalsium.',
+  },
 ],
 
   'kjemi1-10-1': [
@@ -1483,6 +1883,56 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'I strekformler tegnes karbonskjelettet som sikksakklinjer: hvert hjørne/endepunkt er ett C-atom, og det underforståtte antall H fyller opp til fire bindinger per karbon.',
   },
+  {
+    question: 'Hvorfor har dekan, C₁₀H₂₂, høyere kokepunkt enn pentan, C₅H₁₂?',
+    options: [
+      'Lengre kjede gir sterkere van der Waals-krefter mellom molekylene',
+      'Dekan danner hydrogenbindinger mellom molekylene',
+      'Dekan har sterkere kovalente bindinger mellom C-atomene',
+      'Dekan er et polart molekyl med dipolkrefter',
+    ],
+    explanation: 'Alkaner er upolare. Med flere elektroner og større kontaktflate blir London-kreftene sterkere. Kokingen bryter ikke kovalente bindinger, bare krefter mellom molekylene.',
+  },
+  {
+    question: 'Hvor i destillasjonstårnet tas bensinfraksjonen ut sammenliknet med dieselfraksjonen?',
+    options: [
+      'Høyere oppe, fordi bensin har lavere kokepunkt',
+      'Lenger nede, fordi bensin har lavere kokepunkt',
+      'Høyere oppe, fordi bensin har høyere kokepunkt',
+      'På samme sted, fordi begge er drivstoff',
+    ],
+    explanation: 'Tårnet er kaldest øverst. Stoffer med lavt kokepunkt holder seg som gass lengst og kondenserer høyt oppe.',
+  },
+  {
+    question: 'Finn x i krakkingslikningen C₁₆H₃₄ → C₁₀H₂₂ + x C₂H₄.',
+    options: [
+      '3',
+      '2',
+      '6',
+      '4',
+    ],
+    explanation: 'Karbon: 16 = 10 + 2x gir x = 3. Kontroll med hydrogen: 22 + 3 · 4 = 34. x = 6 får du hvis du glemmer at hvert etenmolekyl har to C-atomer (16 − 10 = 6).',
+  },
+  {
+    question: 'Et hydrokarbon gir 0,0300 mol CO₂ og 0,0300 mol H₂O ved fullstendig forbrenning. Hva er den empiriske formelen?',
+    options: [
+      'CH₂',
+      'CH',
+      'CH₄',
+      'C₂H',
+    ],
+    explanation: 'n(C) = 0,0300 mol og n(H) = 2 · 0,0300 = 0,0600 mol, så C : H = 1 : 2. Svarer du CH, har du glemt at hvert vannmolekyl har to H-atomer.',
+  },
+  {
+    question: 'Hvorfor kan oksygeninnholdet i et organisk stoff ikke regnes ut fra massen av CO₂ og H₂O ved forbrenningsanalyse?',
+    options: [
+      'Oksygenet i produktene kommer også fra lufta',
+      'Oksygen danner ikke CO₂ eller H₂O',
+      'Oksygen forsvinner som O₂ under forbrenningen',
+      'CO₂ inneholder ikke oksygen',
+    ],
+    explanation: 'En stor del av oksygenet i CO₂ og H₂O kommer fra O₂ i lufta. Oksygenmassen i prøven finnes derfor som resten: m(prøve) − m(C) − m(H).',
+  },
 ],
 
   'kjemi1-10-2': [
@@ -1535,6 +1985,36 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       '-syre',
     ],
     explanation: 'Alkoholer ender på -ol (etanol), aldehyder på -al (etanal), ketoner på -on (propanon) og karboksylsyrer på -syre (etansyre).',
+  },
+  {
+    question: 'Hvilken væske avfarger bromvann raskt i mørket?',
+    options: [
+      'Heks-1-en',
+      '2-metylpentan',
+      'Etanol',
+      'Propanon',
+    ],
+    explanation: 'Brom reagerer raskt med C=C-bindingen i heks-1-en. 2-metylpentan er mettet, og etanol og propanon har ingen C=C-binding.',
+  },
+  {
+    question: 'Surgjort kaliumdikromat tilsettes propanal og propanon og varmes svakt. Hva skjer?',
+    options: [
+      'Løsningen med propanal blir grønn, propanon forblir oransje',
+      'Begge løsningene blir grønne',
+      'Løsningen med propanon blir grønn, propanal forblir oransje',
+      'Ingen av løsningene endrer farge',
+    ],
+    explanation: 'Aldehyder oksideres og gjør dikromatet grønt. Ketoner oksideres ikke, så fargen forblir oransje.',
+  },
+  {
+    question: 'Hvordan kan natron, NaHCO₃, skille etansyre fra etanol?',
+    options: [
+      'Det bruser med etansyre, men ikke med etanol',
+      'Det bruser med etanol, men ikke med etansyre',
+      'Natron gjør etanol blå',
+      'Begge bruser like mye',
+    ],
+    explanation: 'Etansyre er en karboksylsyre: CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂. Etanol er ikke sur nok til å reagere.',
   },
 ],
 
@@ -1642,6 +2122,26 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Drivhusgasser som CO₂ og CH₄ absorberer utgående infrarød stråling og sender deler av energien tilbake mot jordoverflaten. Økte konsentrasjoner forsterker drivhuseffekten.',
   },
+  {
+    question: 'pH i overflatevannet i havet har sunket fra 8,2 til 8,1. Hvor mye har [H₃O⁺] økt?',
+    options: [
+      'Omtrent 26 %',
+      'Omtrent 1 %',
+      'Omtrent 10 %',
+      'Omtrent 100 %',
+    ],
+    explanation: '10^0,1 ≈ 1,26, så [H₃O⁺] har økt med ca. 26 %. 1 % får du hvis du regner som om pH-skalaen var lineær, og 100 % hører til en nedgang på 0,3.',
+  },
+  {
+    question: 'Hvorfor gjør havforsuring det vanskeligere for skjell å bygge skall av CaCO₃?',
+    options: [
+      'H₃O⁺ binder karbonationer som hydrogenkarbonat',
+      'CO₂ oksiderer kalsiumionene i sjøvannet',
+      'Havet blir surt med pH under 7 overalt',
+      'Saltinnholdet i havet synker når CO₂ løses',
+    ],
+    explanation: 'CO₃²⁻ + H₃O⁺ → HCO₃⁻ + H₂O, så det blir færre karbonationer igjen. Havet er fortsatt basisk, med pH rundt 8,1.',
+  },
 ],
 
   'kjemi1-11-2': [
@@ -1694,6 +2194,66 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       'Råstoffer som er billigst mulig',
     ],
     explanation: 'Grønn kjemi prioriterer råstoffer som fornyes, f.eks. planteoljer, cellulose og annen biomasse, fremfor fossile råstoffer som olje og kull.',
+  },
+  {
+    question: 'En fabrikk lager 50 kg produkt og 200 kg avfall per dag. Hva er E-faktoren?',
+    options: [
+      '4',
+      '0,25',
+      '250',
+      '0,80',
+    ],
+    explanation: 'E = m(avfall) / m(produkt) = 200 / 50 = 4. 0,25 får du hvis du deler produktet på avfallet, og 0,80 hvis du deler avfallet på all masse.',
+  },
+  {
+    question: 'Hva tar E-faktoren med som atomøkonomien ikke tar med?',
+    options: [
+      'Løsemidler og produkt som går tapt',
+      'Koeffisientene i den balanserte likningen',
+      'Molmassen til det ønskede produktet',
+      'Biproduktene som står i likningen',
+    ],
+    explanation: 'Atomøkonomien regnes fra den balanserte likningen. E-faktoren måler alt som blir avfall i prosessen, også løsemidler, reagenser og tap.',
+  },
+  {
+    question: 'En reaksjon har atomøkonomi 50 % og går fullstendig etter likningen. Hva er den lavest mulige E-faktoren?',
+    options: [
+      '1',
+      '0,5',
+      '2',
+      '0',
+    ],
+    explanation: 'E_min = 1/a − 1 = 1/0,50 − 1 = 1: halve massen blir produkt og halve blir biprodukt. 0 gjelder bare atomøkonomi 100 %.',
+  },
+  {
+    question: 'Hvorfor kan bioetanol gi lavere netto CO₂-utslipp enn bensin selv om begge gir CO₂ når de brennes?',
+    options: [
+      'Karbonet i bioetanol ble nylig tatt opp fra lufta av plantene',
+      'Etanol gir ikke CO₂ når det brennes i en motor',
+      'Etanol gir mye mindre CO₂ per megajoule enn bensin',
+      'Gjæringen tar opp CO₂ fra lufta i stedet for å avgi det',
+    ],
+    explanation: 'Per megajoule gir etanol og bensin omtrent like mye CO₂. Forskjellen er at karbonet i bioetanol kom fra lufta nylig, mens karbonet i bensin er fossilt. Gjæringen gir CO₂, den tar ikke opp.',
+  },
+  {
+    question: 'Hvor mange mol etanol gir 1 mol glukose ved fullstendig gjæring?',
+    options: [
+      '2 mol',
+      '1 mol',
+      '3 mol',
+      '6 mol',
+    ],
+    explanation: 'C₆H₁₂O₆ → 2 C₂H₅OH + 2 CO₂. 6 mol får du hvis du teller karbonatomene i glukose.',
+  },
+  {
+    question: 'Hvorfor er ikke bioetanol helt karbonnøytralt?',
+    options: [
+      'Dyrking, gjødsel, destillasjon og transport bruker energi',
+      'Etanol inneholder fossilt karbon fra råolje',
+      'Plantene tar ikke opp CO₂ mens de vokser',
+      'Etanol brenner alltid ufullstendig i bilmotorer',
+    ],
+    explanation: 'Karbonet i etanolen kommer fra lufta, men produksjonen bruker energi som ofte er fossil, og rydding av skog eller myr kan frigjøre lagret karbon.',
   },
 ],
 
@@ -1748,6 +2308,26 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Ved destillasjon kokes blandingen, og stoffet med lavest kokepunkt fordamper først og kondenseres i kjøleren. Filtrering skiller derimot fast stoff fra væske etter partikkelstørrelse.',
   },
+  {
+    question: 'En elev undersøker hvordan temperaturen påvirker reaksjonsfarten mellom magnesium og saltsyre. Hva er den avhengige variabelen?',
+    options: [
+      'Tiden reaksjonen tar',
+      'Temperaturen',
+      'Konsentrasjonen av saltsyren',
+      'Massen av magnesium',
+    ],
+    explanation: 'Den avhengige variabelen er den eleven måler: tiden. Temperaturen er den uavhengige variabelen, og konsentrasjon og masse holdes konstant.',
+  },
+  {
+    question: '25,00 mL eddik med omtrent 1,2 mol/L eddiksyre skal titreres med 0,100 mol/L NaOH i en 50 mL byrette. Hva bør eleven gjøre?',
+    options: [
+      'Fortynne eddiken omtrent ti ganger først',
+      'Titrere eddiken ufortynnet med samme byrette',
+      'Bruke en mer fortynnet NaOH-løsning',
+      'Bruke målesylinder i stedet for pipette',
+    ],
+    explanation: 'Ufortynnet trengs nesten 300 mL NaOH. Fortynnet ti ganger blir titrervolumet rundt 29 mL. En mer fortynnet NaOH ville gjort volumet enda større.',
+  },
 ],
 
   'kjemi1-12-2': [
@@ -1800,6 +2380,36 @@ const quizData_kjemi1: Record<string, QuizQuestion[]> = {
       '2 %',
     ],
     explanation: 'Relativ usikkerhet = 0,2/50,0 = 0,004 = 0,4 %.',
+  },
+  {
+    question: 'Fem titrervolumer er 24,35, 24,40, 24,30, 25,60 og 24,35 mL. Hvilken måling avviker?',
+    options: [
+      '25,60 mL',
+      '24,30 mL',
+      '24,40 mL',
+      'Ingen av dem',
+    ],
+    explanation: 'De fire andre ligger innenfor 0,10 mL, mens 25,60 mL ligger over 1 mL unna. Gjennomsnittet av de fire er 24,35 mL.',
+  },
+  {
+    question: 'En simulering gir pH 6,98 for saltsyre med 1,0 · 10⁻⁸ mol/L. Hvorfor gir den ikke pH 8?',
+    options: [
+      'Vannets autoprotolyse gir mer H₃O⁺ enn syren',
+      'HCl er en svak syre ved lave konsentrasjoner',
+      'pH-skalaen slutter ved 7',
+      'Simuleringen har regnefeil',
+    ],
+    explanation: 'Ved så lav konsentrasjon er H₃O⁺ fra vannet selv viktigst. En syre kan ikke gi basisk løsning. HCl er sterk ved alle konsentrasjoner.',
+  },
+  {
+    question: 'Hvorfor er interpolering sikrere enn ekstrapolering?',
+    options: [
+      'Vi leser av innenfor området der vi har målinger',
+      'Ekstrapolering bruker flere målepunkter enn interpolering',
+      'Interpolering krever ingen graf eller tabell',
+      'Ekstrapolering gir alltid for høye verdier',
+    ],
+    explanation: 'Mellom målepunktene vet vi at sammenhengen holder. Utenfor dem kan sammenhengen endre seg uten at dataene viser det.',
   },
 ],
 

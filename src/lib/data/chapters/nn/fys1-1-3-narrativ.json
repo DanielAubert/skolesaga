@@ -2,27 +2,27 @@
   "id": "fys1-1-3-narrativ",
   "courseId": "fys1",
   "chapterNumber": "1.3",
-  "title": "Numeriske metoder og programmering",
+  "title": "Python for fysikk",
   "subtitle": "Narrativ versjon",
-  "description": "Ei forteljing om korleis datamaskinen tek over når penn og papir gir opp -- og korleis Eulers metode lèt deg simulere alt frå ein fallande ball til ein planet i bane.",
-  "estimatedMinutes": 45,
+  "description": "Om korleis nokre få linjer Python reknar ut ein formel for mange verdiar, handsamar målingar frå eit forsøk og teiknar dei saman med ein modell.",
+  "estimatedMinutes": 35,
   "competenceGoals": [
-    "bruke Eulers metode til å regne ut bevegelse steg for steg",
-    "programmere simuleringer av fysiske systemer i Python",
-    "modellere bevegelse med variabel akselerasjon",
-    "analysere og visualisere numeriske resultater"
+    "bruke variablar, lister, løkker og if-testar i Python til fysikkutrekningar",
+    "rekne ut tabellar av verdiar frå formlar og frå måledata",
+    "plotte måledata og ein modell i same koordinatsystem",
+    "lese eit program, seie kva det skriv ut, og finne og rette feil"
   ],
   "linkedChapterId": "fys1-1-3",
   "content": [
     {
       "id": "fys1-1-3-n-intro",
       "type": "text",
-      "content": "## Når penn og papir gir opp\n\nI førre kapittel såg vi at ein tennisball møter så mykje luftmotstand at vi ikkje kan ignorere han. Men då oppstår eit nytt problem: viss du faktisk tek med luftmotstanden, blir likninga umogleg å løyse med penn og papir. Du sit fast.\n\nDette er ikkje eit særtilfelle. Veldig mange spennande fysiske problem manglar ei *analytisk* løysing -- altså ein pen formel du kan skrive ned. Fritt fall med luftmotstand, tre planetar som trekkjer i kvarandre, værsimuleringar, krefter som endrar seg undervegs: alle er for kompliserte for tradisjonell algebra. Løysinga er å la datamaskinen gjere grovarbeidet.\n\nEin **numerisk metode** er ein algoritme som deler opp eit problem i mange små steg og bereknar ei tilnærma løysing steg for steg, med kontrollert presisjon. Fordelen er enorm: du kan løyse problem som ikkje har noka formel-løysing i det heile, du får svaret raskt, og du kan teikne grafar og animasjonar. Ulempa er at svaret er tilnærma -- aldri heilt eksakt -- og at feil kan hope seg opp undervegs.\n\nVerktøyet vi bruker er **Python**, det desidert mest populære språket i vitskapleg programmering. Det er lett å lære, gratis, og har kraftige bibliotek som NumPy for tallknusing og Matplotlib for grafar. Med litt Python kan du simulere fysikk som Galileo berre kunne drøyme om."
+      "content": "## Kvifor programmere i fysikk?\n\nMykje av reknearbeidet i fysikk er den same utrekninga gjenteken. Den kinetiske energien til ein bil ved fire ulike fartar, farten mellom ti målepunkt i eit forsøk, fallstrekninga for ei heil rekkje tider: formelen er den same, berre tala skiftar. Eit program gjer slike gjentakingar raskt, utan slurvefeil, og kan teikne resultata som ein graf etterpå.\n\nVi brukar **Python**, og vi treng overraskande lite av det. Nokre få byggjesteinar rekk langt: variablar som tek vare på tal, lister med mange verdiar, løkker som gjer det same for kvar verdi, if-testar som berre gjer noko når eit vilkår er oppfylt, og eit bibliotek som teiknar grafar. Med dei kan vi både rekne ut formlar og handsame målingar frå eigne forsøk. Seinare, i kapittel 3.4, brukar vi dei same byggjesteinane til å rekne ut rørsle steg for steg."
     },
     {
       "id": "fys1-1-3-n-section1",
       "type": "text",
-      "content": "## Newtons lov når akselerasjonen endrar seg\n\nFor å forstå numeriske metodar må vi sjå Newtons andre lov med nye auge. Lova gir akselerasjonen frå kreftene: $a = \\frac{\\sum F}{m}$. Er kraftsummen konstant, er akselerasjonen konstant -- og då har vi rørslelikningane.\n\nNokre gonger er det så enkelt. For fritt fall utan luftmotstand er einaste kraft tyngda, så $a = -g$, og vi får den velkjende formelen $s(t) = s_0 + v_0 t - \\frac{1}{2}gt^2$. Penn og papir held.\n\nMen legg til luftmotstand, og det enkle forsvinn. Med $F_L = kv^2$ blir akselerasjonen $a = -g + \\frac{k}{m}v^2$ når ballen fell. Akselerasjonen endrar seg no med farten, og farten endrar seg med akselerasjonen. Rørslelikningane for konstant akselerasjon gjeld ikkje lenger. I staden reknar vi rørsla ut steg for steg: posisjonen endrar seg med farten, og farten endrar seg med akselerasjonen. Det er denne oppskrifta datamaskina elskar."
+      "content": "## Variablar og rekning\n\nEin **variabel** er eit namn på eit tal: `m = 0.50` og `v = 12.0`. Python veit ingenting om einingar, så eininga skriv vi i ein kommentar bak `#`, og vi held oss til SI-einingar gjennom heile programmet. Rekneteikna er dei vanlege, med to ting å passe på: gonge blir skrive `*`, og opphøgd i blir skrive `**`, så $\\tfrac{1}{2}mv^2$ blir `0.5 * m * v**2`. Skriv du `v^2`, får du noko heilt anna.\n\nPython følgjer vanleg rekkjefølgje, så `s / (2 * a)` og `s / 2 * a` er to ulike ting. Bruk parentesar når du er i tvil. Desimaltal blir skrivne med punktum, `0.5`, fordi komma skil to verdiar frå kvarandre.\n\nMed `print` skriv programmet ut resultatet. Ein f-streng som `f\"{Ek:.1f} J\"` bestemmer kor mange desimalar som blir viste, slik at utskrifta blir lett å lese. Med $m = 0{,}50$ kg og $v = 12{,}0$ m/s skriv programmet `36.0 J`."
     },
     {
       "id": "fys1-1-3-n-quiz1",
@@ -31,7 +31,7 @@
         "id": "fys1-1-3-n-quiz1",
         "number": "Quiz 1",
         "type": "multiple-choice",
-        "task": "Test deg sjølv på numeriske metodar:",
+        "task": "Test deg sjølv på variablar og rekning:",
         "options": [
           {
             "id": "a",
@@ -43,84 +43,84 @@
         "questions": [
           {
             "id": "fys1-1-3-n-quiz1-q0",
-            "task": "Kva er hovudgrunnen til at vi treng numeriske metodar i fysikk?",
+            "task": "Korleis blir $v^2$ skrive i Python?",
             "options": [
               {
-                "id": "b",
-                "text": "Mange problem har inga analytisk løysing med penn og papir",
-                "isCorrect": true
-              },
-              {
                 "id": "a",
-                "text": "Dei er alltid meir eksakte enn analytiske løysingar",
+                "text": "`v^2`",
                 "isCorrect": false
               },
               {
+                "id": "b",
+                "text": "`v**2`",
+                "isCorrect": true
+              },
+              {
                 "id": "c",
-                "text": "Dei krev ingen datamaskin",
+                "text": "`v*2`",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Dei er enklare enn å rekne i hovudet",
+                "text": "`2**v`",
                 "isCorrect": false
               }
             ],
-            "solution": "Numeriske metodar gir tilnærma løysingar på problem -- som fritt fall med luftmotstand -- som ikkje kan løysast eksakt med algebra."
+            "solution": "Opphøgd i blir skrive `**`. `v*2` er $2v$, `2**v` er $2^v$, og `v^2` tyder noko heilt anna i Python."
           },
           {
             "id": "fys1-1-3-n-quiz1-q1",
-            "task": "Når kan vi IKKJE bruke rørslelikningane for konstant akselerasjon?",
+            "task": "Kva skriv `print(0.5 * 2.0 * 3.0**2)` ut?",
             "options": [
               {
                 "id": "a",
-                "text": "Når vi ser bort frå luftmotstand",
+                "text": "`36.0`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`6.0`",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "Når akselerasjonen endrar seg undervegs, til dømes på grunn av luftmotstand",
+                "text": "`9.0`",
                 "isCorrect": true
               },
               {
-                "id": "b",
-                "text": "Når farten er null ved start",
-                "isCorrect": false
-              },
-              {
                 "id": "d",
-                "text": "Når vi reknar i meter",
+                "text": "`18.0`",
                 "isCorrect": false
               }
             ],
-            "solution": "Rørslelikningane føreset konstant akselerasjon. Med luftmotstand endrar akselerasjonen seg med farten, og då må vi rekne numerisk."
+            "solution": "Potensen blir rekna først: $3{,}0^2 = 9{,}0$, og $0{,}5 \\cdot 2{,}0 \\cdot 9{,}0 = 9{,}0$. 6,0 kjem av `3.0*2`, 18,0 av å gløyme $0{,}5$."
           },
           {
             "id": "fys1-1-3-n-quiz1-q2",
-            "task": "Kva gjer vi i kvart steg i ein numerisk simulering av rørsle?",
+            "task": "Kvifor skriv vi `v = 50 / 3.6` når farten er 50 km/h?",
             "options": [
               {
                 "id": "a",
-                "text": "Gjettar ein ny fart",
-                "isCorrect": false
+                "text": "For å rekne om til m/s",
+                "isCorrect": true
               },
               {
                 "id": "b",
-                "text": "Bruker berre startfarten",
+                "text": "For å rekne om til km/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å få farten i timar",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Reknar ut akselerasjonen, oppdaterer farten og så posisjonen",
-                "isCorrect": true
-              },
-              {
-                "id": "c",
-                "text": "Fjernar tyngdekrafta",
+                "text": "For å runde av farten",
                 "isCorrect": false
               }
             ],
-            "solution": "I kvart lite tidssteg reknar vi akselerasjonen frå kreftene, oppdaterer farten med $\\Delta v = a\\,\\Delta t$ og posisjonen med $\\Delta s = v\\,\\Delta t$."
+            "solution": "1 m/s = 3,6 km/h, så vi deler på 3,6 for å få farten i m/s. Då kan han brukast i formlar med SI-einingar."
           }
         ]
       }
@@ -128,7 +128,7 @@
     {
       "id": "fys1-1-3-n-section2",
       "type": "text",
-      "content": "## Eulers metode -- eitt lite steg om gongen\n\nNo kjem den enkle, geniale ideen som lèt datamaskina rekne ut rørsla: **Eulers metode**. Over eit svært kort tidssteg $\\Delta t$ endrar farten og akselerasjonen seg nesten ikkje. Då kan vi rekne som om dei er konstante i akkurat det steget, ta eit lite skritt framover, rekne ut akselerasjonen på nytt, ta eit nytt lite skritt, og slik halde fram.\n\nSom ei oppskrift datamaskina kan gjenta i det uendelege: $v_{n+1} = v_n + a_n \\cdot \\Delta t$, så $s_{n+1} = s_n + v_{n+1} \\cdot \\Delta t$, og til slutt $t_{n+1} = t_n + \\Delta t$. Akselerasjonen $a_n$ reknar vi ut frå kreftene akkurat no.\n\nEit fint poeng: når akselerasjonen er konstant, blir Euler faktisk *eksakt* for farten. Ein bil som akselererer med $a = 2$ m/s² frå kvile, har farten $v = at$ -- ei rett linje i $v$–$t$-grafen. Kvart steg $v_{n+1} = v_n + 2 \\cdot \\Delta t$ treffer perfekt: 0, 2, 4, 6, 8, 10 m/s etter fem sekund, heilt utan feil. Det er først når akselerasjonen endrar seg, at feilen sniker seg inn -- og han blir mindre di kortare tidssteg vi vel."
+      "content": "## Lister, løkker og tabellar\n\nEi **liste** samlar mange verdiar under eitt namn: `farter = [30, 50, 80, 110]`. Elementa blir nummererte frå null, så `farter[0]` er 30 og `farter[3]` er 110. Med ei **for-løkke** går programmet gjennom lista og gjer dei same linjene for kvar verdi. Linjene som høyrer til løkka, har innrykk, og det er innrykket åleine som fortel Python kvar løkka sluttar.\n\nSlik lagar vi ein tabell frå ein formel. For ein stein som blir sleppt frå ro, er $s = \\tfrac{1}{2}gt^2$. Ei løkke over tidene 0, 0,5, 1,0, 1,5 og 2,0 s skriv ut 0, 1,23, 4,91, 11,04 og 19,62 m. Tabellen viser noko formelen seier, men som er lettare å sjå i tal: dobbelt så lang tid gir fire gonger så lang strekning.\n\nSomme gonger veit vi ikkje kor mange gonger noko skal gjentakast. Ein sprettball som når 70 % av førre høgd, skal sprette til han ikkje lenger kjem over ei viss høgd. Då passar ei **while-løkke**, som går så lenge eit vilkår er sant. Og ein **if-test** gjer berre noko når vilkåret er oppfylt, til dømes å skrive ei åtvaring når stopplengda blir over 50 m."
     },
     {
       "id": "fys1-1-3-n-quiz2",
@@ -137,7 +137,7 @@
         "id": "fys1-1-3-n-quiz2",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg sjølv på Eulers metode:",
+        "task": "Test deg sjølv på lister og løkker:",
         "options": [
           {
             "id": "a",
@@ -149,84 +149,84 @@
         "questions": [
           {
             "id": "fys1-1-3-n-quiz2-q0",
-            "task": "Korleis oppdaterer vi farten i Eulers metode?",
+            "task": "Kva verdiar får `i` i løkka `for i in range(1, 4):`?",
             "options": [
               {
                 "id": "a",
-                "text": "$v_{n+1} = v_n + a_n \\cdot \\Delta t$",
-                "isCorrect": true
+                "text": "1, 2, 3 og 4",
+                "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "$v_{n+1} = v_n \\cdot \\Delta t$",
+                "text": "0, 1, 2 og 3",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$v_{n+1} = a_n$",
-                "isCorrect": false
+                "text": "1, 2 og 3",
+                "isCorrect": true
               },
               {
                 "id": "d",
-                "text": "$v_{n+1} = v_n - \\Delta t$",
+                "text": "0, 1, 2, 3 og 4",
                 "isCorrect": false
               }
             ],
-            "solution": "Eulers metode tek eitt lite steg om gongen: ny fart = gammal fart pluss akselerasjon gonger tidssteg."
+            "solution": "`range(1, 4)` startar på 1 og stoppar før 4. Med `range(4)` ville ho starta på 0."
           },
           {
             "id": "fys1-1-3-n-quiz2-q1",
-            "task": "Ein bil akselererer med $a=2$ m/s² frå kvile. Euler med $\\Delta t=1$ s gir kva fart etter 3 s?",
+            "task": "Lista er `t = [0.0, 0.5, 1.0, 1.5]`. Kva er `t[1]`?",
             "options": [
               {
                 "id": "a",
-                "text": "3 m/s",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "9 m/s",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "2 m/s",
+                "text": "`0.0`",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "6 m/s",
+                "text": "`0.5`",
                 "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "`1.0`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`1.5`",
+                "isCorrect": false
               }
             ],
-            "solution": "$v$ aukar med $2\\cdot 1 = 2$ kvart steg: 0, 2, 4, 6 m/s. Etter 3 s er farten 6 m/s -- og det stemmer eksakt med $v=at$."
+            "solution": "Elementa blir nummererte frå 0, så `t[0]` er `0.0` og `t[1]` er `0.5`. `1.0` får du dersom du trur nummereringa startar på 1."
           },
           {
             "id": "fys1-1-3-n-quiz2-q2",
-            "task": "Når gir Eulers metode eksakt fart?",
+            "task": "Når passar ei while-løkke betre enn ei for-løkke?",
             "options": [
               {
                 "id": "a",
-                "text": "Aldri",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "Når akselerasjonen er konstant",
+                "text": "Når vi ikkje veit på førehand kor mange gonger løkka skal gå",
                 "isCorrect": true
               },
               {
                 "id": "b",
-                "text": "Berre ved store tidssteg",
+                "text": "Når vi skal gå gjennom alle verdiane i ei liste",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når løkka skal gå nøyaktig ti gonger",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Berre når farten er null",
+                "text": "Når programmet ikkje har noko vilkår",
                 "isCorrect": false
               }
             ],
-            "solution": "Med konstant akselerasjon er $v$–$t$-grafen ei rett linje, og kvart Euler-steg treffer ho perfekt. Feil oppstår først når akselerasjonen endrar seg."
+            "solution": "Ei while-løkke går så lenge vilkåret er sant, så ho passar når talet på rundar er ukjent, som når ein ball skal sprette til han er låg nok. For ei liste eller eit kjent tal på rundar er for-løkka enklast."
           }
         ]
       }
@@ -234,7 +234,7 @@
     {
       "id": "fys1-1-3-n-section3",
       "type": "text",
-      "content": "## Frå idé til Python-kode\n\nNo skal vi omsetje tankegangen til kode. Du treng overraskande lite Python for å kome i gang. Du lagar **variablar** (`m = 0.5`, `g = 9.81`), du reknar med dei (`Ek = 0.5 * m * v**2`, der `**` tyder opphøgd i), og du lagrar mange verdiar i **lister** eller NumPy-**arrays**. Du gjentek handlingar med **løkker** -- ei `while`-løkke køyrer så lenge eit vilkår held, perfekt for «køyr til ballen treff bakken». Og du pakkar gjenbrukbar kode i **funksjonar** med `def`.\n\nSjølve Eulers metode blir nesten ei direkte avskrift av formelen. For fritt fall frå 100 m set du startverdiane, og inne i løkka reknar du akselerasjonen `a = -g`, oppdaterer farten `v = v + a*dt`, oppdaterer posisjonen `s = s + v*dt`, og aukar tida `t = t + dt` -- heilt til `s` blir null. Undervegs lagrar du alle verdiane i lister så du kan teikne dei etterpå med Matplotlib.\n\nDen verkelege krafta viser seg når du legg til luftmotstand. Ta ein ball på 0,5 kg med luftmotstandskonstant $k = 0{,}0024$ kg/m, sleppt frå 100 m. Akselerasjonen er ikkje lenger konstant, men $a = -g + \\frac{k}{m}v^2$ -- han avheng av farten, og det er nettopp difor ingen pen formel finst. Datamaskina bryr seg ikkje; ho reknar berre steg for steg.\n\nResultatet er lærerikt. Med luftmotstand bruker ballen rundt 4,9 s på fallet og treffer med cirka 36 m/s, medan utan luftmotstand er det 4,5 s og 44 m/s. Luftmotstanden gjer altså fallet både lengre og langsamare. Den teoretiske **terminalfarten** -- der luftmotstand og tyngd balanserer -- er $v_t = \\sqrt{\\frac{mg}{k}} \\approx 45$ m/s, men ballen rekk ikkje å kome dit på berre 100 m. På ein fart-tid-graf ser du dette tydeleg: kurva *med* luftmotstand byrjar å flate ut og nærme seg terminalfarten, medan den utan luftmotstand held fram rett opp som ein strek."
+      "content": "## Måledata, modellar og plott\n\nDen verkelege nytten kjem når vi har målingar. Ei vogn blir sleppt frå ro på eit skråplan, og ein rørslesensor måler posisjonen kvart 0,2 s: 0, 0,050, 0,190, 0,435, 0,765 og 1,205 m. Vi legg tidene og posisjonane i kvar si liste og lèt ei løkke rekne ut gjennomsnittsfarten i kvart intervall, $\\frac{s_i - s_{i-1}}{t_i - t_{i-1}}$. Fartane blir 0,25, 0,70, 1,23, 1,65 og 2,20 m/s. Farten aukar med omtrent like mykje kvar gong, så akselerasjonen ser ut til å vere konstant.\n\nDet kan vi teste med ein modell. Er akselerasjonen konstant, er $s = \\tfrac{1}{2}at^2$, og kvart målepunkt gir ein verdi for $a = \\frac{2s}{t^2}$. Gjennomsnittet blir 2,42 m/s². No kan programmet rekne ut modellen for mange tider og teikne han som ei kurve, med målingane som punkt i same koordinatsystem. Ligg punkta på kurva, utan at avvika følgjer eit mønster, beskriv modellen rørsla godt.\n\nPlottet lagar vi med biblioteket `matplotlib`: `plt.plot(t, s, \"o\")` for målepunkta og `plt.plot(t_modell, s_modell)` for kurva, med storleik og eining på begge aksane. Det er den same arbeidsmåten vi brukar seinare, når ein modell skal samanliknast med eit forsøk."
     },
     {
       "id": "fys1-1-3-n-quiz3",
@@ -243,7 +243,7 @@
         "id": "fys1-1-3-n-quiz3",
         "number": "Quiz 3",
         "type": "multiple-choice",
-        "task": "Test deg sjølv på simulering og programmering:",
+        "task": "Test deg sjølv på måledata og modellar:",
         "options": [
           {
             "id": "a",
@@ -255,217 +255,84 @@
         "questions": [
           {
             "id": "fys1-1-3-n-quiz3-q0",
-            "task": "Kva tyder `v**2` i Python?",
+            "task": "Ei vogn er ved 0,190 m etter 0,4 s og ved 0,435 m etter 0,6 s. Kva er gjennomsnittsfarten i intervallet?",
             "options": [
               {
                 "id": "a",
-                "text": "$2v$",
-                "isCorrect": false
+                "text": "1,23 m/s",
+                "isCorrect": true
               },
               {
                 "id": "b",
-                "text": "$v$ delt på 2",
+                "text": "0,73 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,245 m/s",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "$v$ opphøgd i 2, altså $v^2$",
-                "isCorrect": true
-              },
-              {
-                "id": "c",
-                "text": "kvadratrota av $v$",
+                "text": "1,09 m/s",
                 "isCorrect": false
               }
             ],
-            "solution": "I Python er `**` potens-operatoren, så `v**2` er $v^2$."
+            "solution": "$\\bar v = \\frac{0{,}435 - 0{,}190}{0{,}6 - 0{,}4} = \\frac{0{,}245}{0{,}2} \\approx 1{,}23$ m/s. 0,245 er berre strekninga, 0,73 m/s er $0{,}435/0{,}6$ (frå start), og 1,09 m/s er $0{,}435/0{,}4$."
           },
           {
             "id": "fys1-1-3-n-quiz3-q1",
-            "task": "Kvifor har fritt fall MED luftmotstand ingen pen analytisk formel?",
+            "task": "Ei vogn startar frå ro og har rulla 1,205 m nedover skråplanet etter 1,0 s. Kva gir modellen $s = \\tfrac{1}{2}at^2$ for $a$?",
             "options": [
               {
-                "id": "b",
-                "text": "Fordi tyngdekrafta forsvinn",
+                "id": "a",
+                "text": "1,21 m/s²",
                 "isCorrect": false
               },
               {
+                "id": "b",
+                "text": "2,41 m/s²",
+                "isCorrect": true
+              },
+              {
                 "id": "c",
-                "text": "Fordi ballen ikkje rører seg",
+                "text": "4,82 m/s²",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Fordi Python ikkje tillèt det",
+                "text": "0,60 m/s²",
                 "isCorrect": false
-              },
-              {
-                "id": "a",
-                "text": "Fordi akselerasjonen avheng av farten via $v^2$-leddet",
-                "isCorrect": true
               }
             ],
-            "solution": "Når $a$ avheng av $v$ (og $v$ av $a$), er akselerasjonen ikkje konstant, og rørslelikningane gjeld ikkje. Difor må vi rekne numerisk."
+            "solution": "$a = \\frac{2s}{t^2} = \\frac{2 \\cdot 1{,}205}{1{,}0^2} = 2{,}41$ m/s². 1,21 får du ved å gløyme faktoren 2, og 4,82 ved å gonge med 4."
           },
           {
             "id": "fys1-1-3-n-quiz3-q2",
-            "task": "Kva er terminalhastigheit?",
-            "options": [
-              {
-                "id": "b",
-                "text": "Farten der luftmotstanden balanserer tyngdekrafta, så akselerasjonen blir null",
-                "isCorrect": true
-              },
-              {
-                "id": "a",
-                "text": "Den høgaste farten lyset kan ha",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "Farten ved start av fallet",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "Ein fart som berre finst i vakuum",
-                "isCorrect": false
-              }
-            ],
-            "solution": "Når luftmotstanden veks til å bli like stor som tyngdekrafta, blir nettokrafta null og farten konstant -- terminalhastigheita."
-          },
-          {
-            "id": "fys1-1-3-n-quiz3-q3",
-            "task": "I simuleringa var falltida lengre med luftmotstand enn utan. Kvifor?",
+            "task": "Korleis bør målingar og modell teiknast i same plott?",
             "options": [
               {
                 "id": "a",
-                "text": "Luftmotstanden gjer ballen tyngre",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "Luftmotstanden bremsar ballen, så han bruker lengre tid",
+                "text": "Målingane som punkt og modellen som ei kurve",
                 "isCorrect": true
               },
               {
                 "id": "b",
-                "text": "Tyngdekrafta aukar",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "Det var ein feil i koden",
-                "isCorrect": false
-              }
-            ],
-            "solution": "Luftmotstanden verkar oppover mot rørsla og reduserer farten, slik at ballen bruker litt lengre tid på å nå bakken."
-          }
-        ]
-      }
-    },
-    {
-      "id": "fys1-1-3-n-section4",
-      "type": "text",
-      "content": "## Tidssteget -- den vesle knappen som avgjer alt\n\nDet finst éin skrue du absolutt må forstå når du jobbar numerisk: **tidssteget** $\\Delta t$ (i kode ofte kalla `dt`). Det avgjer heile kvaliteten på simuleringa.\n\nVel du eit *for lite* tidssteg, blir resultatet svært nøyaktig -- men berekninga blir treg, fordi du må gjere enormt mange steg. Vel du eit *for stort* tidssteg, går det fort, men nøyaktigheita ryk, og i verste fall blir løysinga direkte ustabil og eksploderer. Den gode framgangsmåten er å starte lite (til dømes $dt = 0{,}001$), prøve fleire verdiar, og sjekke *konvergens*: når svaret nesten ikkje endrar seg om du halverer $dt$, er du på trygg grunn. For eit fall frå 100 m som tek rundt 4,5 s bør du bruke minst tusen steg, altså $dt$ omkring 0,0045 s eller mindre.\n\nDu må òg vere klar over at Eulers metode berre er ei tilnærming, og at **feil akkumulerast**. Det kjem av tre ting: avrundingsfeil fordi datamaskinen har avgrensa presisjon, diskretiseringsfeil fordi vi erstattar ein jamn, kontinuerleg prosess med hakkete små steg, og reine stabilitetsproblem ved for store tidssteg.\n\nKorleis demmer du opp? Bruk mindre tidssteg, valider mot analytiske løysingar der dei finst, og test konvergens. For verkeleg krevjande oppgåver -- som å simulere planetbanar over millionar av år -- er Euler altfor grov; der ville dei små feila hope seg opp til at planeten «flyg ut av solsystemet». Då treng ein meir avanserte metodar som Runge-Kutta, som du møter seinare. Men prinsippet er det same: eitt lite, kontrollert steg av gongen."
-    },
-    {
-      "id": "fys1-1-3-n-quiz4",
-      "type": "exercise",
-      "exercise": {
-        "id": "fys1-1-3-n-quiz4",
-        "number": "Quiz 4",
-        "type": "multiple-choice",
-        "task": "Test deg sjølv på tidssteg og feilkjelder:",
-        "options": [
-          {
-            "id": "a",
-            "text": "placeholder",
-            "isCorrect": true
-          }
-        ],
-        "solution": "",
-        "questions": [
-          {
-            "id": "fys1-1-3-n-quiz4-q0",
-            "task": "Kva er ei ulempe ved eit altfor lite tidssteg $\\Delta t$?",
-            "options": [
-              {
-                "id": "a",
-                "text": "Resultatet blir ustabilt",
-                "isCorrect": false
-              },
-              {
-                "id": "b",
-                "text": "Resultatet blir mindre nøyaktig",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "Berekninga blir treg fordi det krevst svært mange steg",
-                "isCorrect": true
-              },
-              {
-                "id": "c",
-                "text": "Tyngdekrafta forsvinn",
-                "isCorrect": false
-              }
-            ],
-            "solution": "Lite tidssteg gir høg nøyaktigheit, men kostar mange berekningar og dermed lengre køyretid. For stort tidssteg gir derimot unøyaktigheit og ustabilitet."
-          },
-          {
-            "id": "fys1-1-3-n-quiz4-q1",
-            "task": "Korleis sjekkar du at tidssteget er lite nok (konvergens)?",
-            "options": [
-              {
-                "id": "b",
-                "text": "Du vel alltid $dt=1$",
+                "text": "Begge som punkt utan aksar",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "Du aukar $dt$ til svaret endrar seg mykje",
+                "text": "Målingane som ei kurve og modellen som punkt",
                 "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Du gjettar",
-                "isCorrect": false
-              },
-              {
-                "id": "a",
-                "text": "Du reduserer $dt$ til svaret nesten ikkje endrar seg lenger",
-                "isCorrect": true
-              }
-            ],
-            "solution": "Når du halverer $dt$ og resultatet knapt endrar seg, har løysinga konvergert, og du kan stole på ho."
-          },
-          {
-            "id": "fys1-1-3-n-quiz4-q2",
-            "task": "Kva er ei kjelde til feil i Eulers metode?",
-            "options": [
-              {
-                "id": "b",
-                "text": "Diskretiseringsfeil -- ein kontinuerleg prosess blir tilnærma med diskrete steg",
-                "isCorrect": true
-              },
-              {
-                "id": "a",
-                "text": "At metoden er for nøyaktig",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "At han ikkje bruker tidssteg",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "At han berre verkar utan datamaskin",
+                "text": "Berre modellen, sidan han er meir nøyaktig",
                 "isCorrect": false
               }
             ],
-            "solution": "Euler erstattar ei jamn, kontinuerleg rørsle med hakkete steg. Det gir diskretiseringsfeil, i tillegg til avrundingsfeil og moglege stabilitetsproblem."
+            "solution": "Målingane er einskildverdiar og blir viste som punkt. Modellen gjeld for alle tider og blir teikna som ei samanhengande kurve. Då ser vi om punkta ligg på kurva."
           }
         ]
       }
@@ -473,112 +340,9 @@
     {
       "id": "fys1-1-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nNår penn og papir gir opp, tek datamaskinen over. Ein **numerisk metode** løyser eit problem ved å dele det i mange små steg og rekne seg fram til ei tilnærma løysing -- uunnverleg for problem utan analytisk løysing, som fritt fall med luftmotstand.\n\nNøkkelen er at Newtons andre lov gir akselerasjonen frå kreftene, $a = \\frac{\\sum F}{m}$, også når kreftene endrar seg undervegs. **Eulers metode** reknar rørsla ut ved å ta eitt lite steg om gongen: $v_{n+1} = v_n + a_n \\cdot \\Delta t$ og $s_{n+1} = s_n + v_{n+1} \\cdot \\Delta t$. Han gir eksakt fart når akselerasjonen er konstant, og ei god tilnærming elles.\n\nI **Python** blir dette nesten ei direkte avskrift av formelen, med variablar, lister, løkker og funksjonar -- og med NumPy og Matplotlib til tallknusing og grafar. Simuleringa av ein fallande ball avslørte både lengre falltid og lågare sluttfart med luftmotstand, og peika mot ei **terminalhastigheit** på rundt 45 m/s. Til slutt lærte vi den viktigaste skruen: **tidssteget** $\\Delta t$. For lite gir treghet, for stort gir unøyaktigheit og ustabilitet. Sjekk alltid konvergens, ver medviten på at feil akkumulerast, og hugs -- god fysikksimulering handlar om mange små, kontrollerte steg."
+      "content": "## Oppsummering\n\nEit program gjer den same utrekninga mange gonger, raskt og utan reknefeil. **Variablar** tek vare på tala, med eininga i ein kommentar, og rekneteikna er vanlege bortsett frå `*` for gonge og `**` for opphøgd i. Desimaltal blir skrivne med punktum.\n\n**Lister** samlar mange verdiar, nummererte frå null. Ei **for-løkke** gjer det same for kvar verdi og lagar tabellar frå formlar, ei **while-løkke** går så lenge eit vilkår er sant, og ein **if-test** gjer noko berre når vilkåret er oppfylt. Innrykket bestemmer kva linjer som høyrer saman.\n\nMed **måledata** i lister reknar programmet ut gjennomsnittsfart, gjennomsnitt og konstantar i ein modell, og `matplotlib` teiknar målingane som punkt og modellen som ei kurve. Ligg punkta på kurva, passar modellen. Dei same byggjesteinane brukar vi i kapittel 3.4 til å rekne ut rørsle steg for steg."
     }
   ],
   "exercises": [],
-  "_meta": {
-    "sourceHash": "fc431dd8abb078bc",
-    "translatedAt": "2026-06-20T22:49:07.068Z",
-    "model": "claude-code-agent",
-    "strings": 99,
-    "tm": {
-      "0401cc9238fb89da": "Numeriske metoder og programmering",
-      "b195b06d1ed59702": "Narrativ versjon",
-      "8045eaf3a8e22933": "Ei forteljing om korleis datamaskinen tek over når penn og papir gir opp -- og korleis Eulers metode lèt deg simulere alt frå ein fallande ball til ein planet i bane.",
-      "898595a2b22e48ff": "bruke Eulers metode til å regne ut bevegelse steg for steg",
-      "ee5ae8c132a66756": "programmere simuleringer av fysiske systemer i Python",
-      "b4474661c5ad2f1d": "modellere bevegelse med variabel akselerasjon",
-      "6bad21a57eed2fc9": "analysere og visualisere numeriske resultater",
-      "f8f3b9e4ae4e5cc9": "## Når penn og papir gir opp\n\nI førre kapittel såg vi at ein tennisball møter så mykje luftmotstand at vi ikkje kan ignorere han. Men då oppstår eit nytt problem: viss du faktisk tek med luftmotstanden, blir likninga umogleg å løyse med penn og papir. Du sit fast.\n\nDette er ikkje eit særtilfelle. Veldig mange spennande fysiske problem manglar ei *analytisk* løysing -- altså ein pen formel du kan skrive ned. Fritt fall med luftmotstand, tre planetar som trekkjer i kvarandre, værsimuleringar, krefter som endrar seg undervegs: alle er for kompliserte for tradisjonell algebra. Løysinga er å la datamaskinen gjere grovarbeidet.\n\nEin **numerisk metode** er ein algoritme som deler opp eit problem i mange små steg og bereknar ei tilnærma løysing steg for steg, med kontrollert presisjon. Fordelen er enorm: du kan løyse problem som ikkje har noka formel-løysing i det heile, du får svaret raskt, og du kan teikne grafar og animasjonar. Ulempa er at svaret er tilnærma -- aldri heilt eksakt -- og at feil kan hope seg opp undervegs.\n\nVerktøyet vi bruker er **Python**, det desidert mest populære språket i vitskapleg programmering. Det er lett å lære, gratis, og har kraftige bibliotek som NumPy for tallknusing og Matplotlib for grafar. Med litt Python kan du simulere fysikk som Galileo berre kunne drøyme om.",
-      "4d7db12a311a7cef": "## Newtons lov når akselerasjonen endrar seg\n\nFor å forstå numeriske metodar må vi sjå Newtons andre lov med nye auge. Lova gir akselerasjonen frå kreftene: $a = \\frac{\\sum F}{m}$. Er kraftsummen konstant, er akselerasjonen konstant -- og då har vi rørslelikningane.\n\nNokre gonger er det så enkelt. For fritt fall utan luftmotstand er einaste kraft tyngda, så $a = -g$, og vi får den velkjende formelen $s(t) = s_0 + v_0 t - \\frac{1}{2}gt^2$. Penn og papir held.\n\nMen legg til luftmotstand, og det enkle forsvinn. Med $F_L = kv^2$ blir akselerasjonen $a = -g + \\frac{k}{m}v^2$ når ballen fell. Akselerasjonen endrar seg no med farten, og farten endrar seg med akselerasjonen. Rørslelikningane for konstant akselerasjon gjeld ikkje lenger. I staden reknar vi rørsla ut steg for steg: posisjonen endrar seg med farten, og farten endrar seg med akselerasjonen. Det er denne oppskrifta datamaskina elskar.",
-      "88d06b0827f13c11": "Test deg sjølv på numeriske metodar:",
-      "4097889236a2af26": "placeholder",
-      "ddc7da1a9580e0b0": "Kva er hovudgrunnen til at vi treng numeriske metodar i fysikk?",
-      "fde6c268bcd3f96e": "Mange problem har inga analytisk løysing med penn og papir",
-      "f9b54dc2bbc3e9a6": "Dei er alltid meir eksakte enn analytiske løysingar",
-      "344c5d3ed6cc4392": "Dei krev ingen datamaskin",
-      "71e7abf367a360e9": "Dei er enklare enn å rekne i hovudet",
-      "5bafce547cd2df11": "Numeriske metodar gir tilnærma løysingar på problem -- som fritt fall med luftmotstand -- som ikkje kan løysast eksakt med algebra.",
-      "01be6008b58d31cf": "Når kan vi IKKJE bruke rørslelikningane for konstant akselerasjon?",
-      "5bcb05bb6d5bcbbb": "Når vi ser bort frå luftmotstand",
-      "d20cc3615a1a4460": "Når akselerasjonen endrar seg undervegs, til dømes på grunn av luftmotstand",
-      "b4dd8a88010cdb1f": "Når farten er null ved start",
-      "d32906bcb33e0486": "Når vi reknar i meter",
-      "779050d27899d1b5": "Rørslelikningane føreset konstant akselerasjon. Med luftmotstand endrar akselerasjonen seg med farten, og då må vi rekne numerisk.",
-      "240224e63d8ae448": "Kva gjer vi i kvart steg i ein numerisk simulering av rørsle?",
-      "f4eb526347dfd3c5": "Gjettar ein ny fart",
-      "0dce7b3c91dfd07c": "Bruker berre startfarten",
-      "98115257f3e9d64f": "Reknar ut akselerasjonen, oppdaterer farten og så posisjonen",
-      "3f7e47e9418b6159": "Fjernar tyngdekrafta",
-      "f80627d9e66ac98b": "I kvart lite tidssteg reknar vi akselerasjonen frå kreftene, oppdaterer farten med $\\Delta v = a\\,\\Delta t$ og posisjonen med $\\Delta s = v\\,\\Delta t$.",
-      "24fd0938dffab40f": "## Eulers metode -- eitt lite steg om gongen\n\nNo kjem den enkle, geniale ideen som lèt datamaskina rekne ut rørsla: **Eulers metode**. Over eit svært kort tidssteg $\\Delta t$ endrar farten og akselerasjonen seg nesten ikkje. Då kan vi rekne som om dei er konstante i akkurat det steget, ta eit lite skritt framover, rekne ut akselerasjonen på nytt, ta eit nytt lite skritt, og slik halde fram.\n\nSom ei oppskrift datamaskina kan gjenta i det uendelege: $v_{n+1} = v_n + a_n \\cdot \\Delta t$, så $s_{n+1} = s_n + v_{n+1} \\cdot \\Delta t$, og til slutt $t_{n+1} = t_n + \\Delta t$. Akselerasjonen $a_n$ reknar vi ut frå kreftene akkurat no.\n\nEit fint poeng: når akselerasjonen er konstant, blir Euler faktisk *eksakt* for farten. Ein bil som akselererer med $a = 2$ m/s² frå kvile, har farten $v = at$ -- ei rett linje i $v$–$t$-grafen. Kvart steg $v_{n+1} = v_n + 2 \\cdot \\Delta t$ treffer perfekt: 0, 2, 4, 6, 8, 10 m/s etter fem sekund, heilt utan feil. Det er først når akselerasjonen endrar seg, at feilen sniker seg inn -- og han blir mindre di kortare tidssteg vi vel.",
-      "701dc8b544a1623a": "Test deg sjølv på Eulers metode:",
-      "1c5aeb61fce1bcbd": "Korleis oppdaterer vi farten i Eulers metode?",
-      "8fa05bdddb6f5344": "$v_{n+1} = v_n + a_n \\cdot \\Delta t$",
-      "3a7086e1f240a823": "$v_{n+1} = v_n \\cdot \\Delta t$",
-      "f3112f64af06aeed": "$v_{n+1} = a_n$",
-      "db58518ee302f335": "$v_{n+1} = v_n - \\Delta t$",
-      "5faef4a9c26dc5ec": "Eulers metode tek eitt lite steg om gongen: ny fart = gammal fart pluss akselerasjon gonger tidssteg.",
-      "95cc8fe6c29a9987": "Ein bil akselererer med $a=2$ m/s² frå kvile. Euler med $\\Delta t=1$ s gir kva fart etter 3 s?",
-      "98eb3d3acd667ca7": "3 m/s",
-      "4b13e675102dcae0": "9 m/s",
-      "e46ded096c448568": "2 m/s",
-      "7dcce980f8df0ca3": "6 m/s",
-      "b4075e42b0d11249": "$v$ aukar med $2\\cdot 1 = 2$ kvart steg: 0, 2, 4, 6 m/s. Etter 3 s er farten 6 m/s -- og det stemmer eksakt med $v=at$.",
-      "d178dba8264f403a": "Når gir Eulers metode eksakt fart?",
-      "72816c36bd404a80": "Aldri",
-      "e87a91eb534691d9": "Når akselerasjonen er konstant",
-      "916b404aed1cb1b8": "Berre ved store tidssteg",
-      "81de5018ffa97b1d": "Berre når farten er null",
-      "d69abb4db892836c": "Med konstant akselerasjon er $v$–$t$-grafen ei rett linje, og kvart Euler-steg treffer ho perfekt. Feil oppstår først når akselerasjonen endrar seg.",
-      "8c2813903e037fbb": "## Frå idé til Python-kode\n\nNo skal vi omsetje tankegangen til kode. Du treng overraskande lite Python for å kome i gang. Du lagar **variablar** (`m = 0.5`, `g = 9.81`), du reknar med dei (`Ek = 0.5 * m * v**2`, der `**` tyder opphøgd i), og du lagrar mange verdiar i **lister** eller NumPy-**arrays**. Du gjentek handlingar med **løkker** -- ei `while`-løkke køyrer så lenge eit vilkår held, perfekt for «køyr til ballen treff bakken». Og du pakkar gjenbrukbar kode i **funksjonar** med `def`.\n\nSjølve Eulers metode blir nesten ei direkte avskrift av formelen. For fritt fall frå 100 m set du startverdiane, og inne i løkka reknar du akselerasjonen `a = -g`, oppdaterer farten `v = v + a*dt`, oppdaterer posisjonen `s = s + v*dt`, og aukar tida `t = t + dt` -- heilt til `s` blir null. Undervegs lagrar du alle verdiane i lister så du kan teikne dei etterpå med Matplotlib.\n\nDen verkelege krafta viser seg når du legg til luftmotstand. Ta ein ball på 0,5 kg med luftmotstandskonstant $k = 0{,}0024$ kg/m, sleppt frå 100 m. Akselerasjonen er ikkje lenger konstant, men $a = -g + \\frac{k}{m}v^2$ -- han avheng av farten, og det er nettopp difor ingen pen formel finst. Datamaskina bryr seg ikkje; ho reknar berre steg for steg.\n\nResultatet er lærerikt. Med luftmotstand bruker ballen rundt 4,9 s på fallet og treffer med cirka 36 m/s, medan utan luftmotstand er det 4,5 s og 44 m/s. Luftmotstanden gjer altså fallet både lengre og langsamare. Den teoretiske **terminalfarten** -- der luftmotstand og tyngd balanserer -- er $v_t = \\sqrt{\\frac{mg}{k}} \\approx 45$ m/s, men ballen rekk ikkje å kome dit på berre 100 m. På ein fart-tid-graf ser du dette tydeleg: kurva *med* luftmotstand byrjar å flate ut og nærme seg terminalfarten, medan den utan luftmotstand held fram rett opp som ein strek.",
-      "f9906e331157baeb": "Test deg sjølv på simulering og programmering:",
-      "8baef9a3603040b0": "Kva tyder `v**2` i Python?",
-      "a342253685b9f1e8": "$2v$",
-      "648b7b90182ed1c3": "$v$ delt på 2",
-      "f9185a08e92a3e9a": "$v$ opphøgd i 2, altså $v^2$",
-      "5ba28ccf6aa98786": "kvadratrota av $v$",
-      "302e96dedb169790": "I Python er `**` potens-operatoren, så `v**2` er $v^2$.",
-      "aadce472778f0c8f": "Kvifor har fritt fall MED luftmotstand ingen pen analytisk formel?",
-      "62a2432f9d30e3cd": "Fordi tyngdekrafta forsvinn",
-      "9532abf23819bcdd": "Fordi ballen ikkje rører seg",
-      "02ea2a63dd3a92e4": "Fordi Python ikkje tillèt det",
-      "94ec1792f4845a42": "Fordi akselerasjonen avheng av farten via $v^2$-leddet",
-      "abded6e021ec2f02": "Når $a$ avheng av $v$ (og $v$ av $a$), er akselerasjonen ikkje konstant, og rørslelikningane gjeld ikkje. Difor må vi rekne numerisk.",
-      "7ae20de2b02ba3e0": "Kva er terminalhastigheit?",
-      "7104f386d00ddcb3": "Farten der luftmotstanden balanserer tyngdekrafta, så akselerasjonen blir null",
-      "7ce222f9e88aaa30": "Den høgaste farten lyset kan ha",
-      "554cbdec390dd76a": "Farten ved start av fallet",
-      "2045edc369e17d50": "Ein fart som berre finst i vakuum",
-      "6a39ddfa6a917af6": "Når luftmotstanden veks til å bli like stor som tyngdekrafta, blir nettokrafta null og farten konstant -- terminalhastigheita.",
-      "6cb3029eb4024119": "I simuleringa var falltida lengre med luftmotstand enn utan. Kvifor?",
-      "6299c6ade4ddb8c6": "Luftmotstanden gjer ballen tyngre",
-      "d4b91d7d5f18456d": "Luftmotstanden bremsar ballen, så han bruker lengre tid",
-      "85ab1d5d398dd549": "Tyngdekrafta aukar",
-      "b9e0b7e70fddde87": "Det var ein feil i koden",
-      "e5f253fc5f67b38c": "Luftmotstanden verkar oppover mot rørsla og reduserer farten, slik at ballen bruker litt lengre tid på å nå bakken.",
-      "777ceaec21c60f15": "## Tidssteget -- den vesle knappen som avgjer alt\n\nDet finst éin skrue du absolutt må forstå når du jobbar numerisk: **tidssteget** $\\Delta t$ (i kode ofte kalla `dt`). Det avgjer heile kvaliteten på simuleringa.\n\nVel du eit *for lite* tidssteg, blir resultatet svært nøyaktig -- men berekninga blir treg, fordi du må gjere enormt mange steg. Vel du eit *for stort* tidssteg, går det fort, men nøyaktigheita ryk, og i verste fall blir løysinga direkte ustabil og eksploderer. Den gode framgangsmåten er å starte lite (til dømes $dt = 0{,}001$), prøve fleire verdiar, og sjekke *konvergens*: når svaret nesten ikkje endrar seg om du halverer $dt$, er du på trygg grunn. For eit fall frå 100 m som tek rundt 4,5 s bør du bruke minst tusen steg, altså $dt$ omkring 0,0045 s eller mindre.\n\nDu må òg vere klar over at Eulers metode berre er ei tilnærming, og at **feil akkumulerast**. Det kjem av tre ting: avrundingsfeil fordi datamaskinen har avgrensa presisjon, diskretiseringsfeil fordi vi erstattar ein jamn, kontinuerleg prosess med hakkete små steg, og reine stabilitetsproblem ved for store tidssteg.\n\nKorleis demmer du opp? Bruk mindre tidssteg, valider mot analytiske løysingar der dei finst, og test konvergens. For verkeleg krevjande oppgåver -- som å simulere planetbanar over millionar av år -- er Euler altfor grov; der ville dei små feila hope seg opp til at planeten «flyg ut av solsystemet». Då treng ein meir avanserte metodar som Runge-Kutta, som du møter seinare. Men prinsippet er det same: eitt lite, kontrollert steg av gongen.",
-      "f633e48a71d69492": "Test deg sjølv på tidssteg og feilkjelder:",
-      "1c13b583ff1d2cb0": "Kva er ei ulempe ved eit altfor lite tidssteg $\\Delta t$?",
-      "f40ffbc11c1f915b": "Resultatet blir ustabilt",
-      "aa44876edef7647f": "Resultatet blir mindre nøyaktig",
-      "bf79991749535933": "Berekninga blir treg fordi det krevst svært mange steg",
-      "b1e35eeeccb71907": "Tyngdekrafta forsvinn",
-      "9c810e56cd6fe24b": "Lite tidssteg gir høg nøyaktigheit, men kostar mange berekningar og dermed lengre køyretid. For stort tidssteg gir derimot unøyaktigheit og ustabilitet.",
-      "edcb8c43007c0a9d": "Korleis sjekkar du at tidssteget er lite nok (konvergens)?",
-      "0e6d5eab17380a23": "Du vel alltid $dt=1$",
-      "06720cfdf0c6c0de": "Du aukar $dt$ til svaret endrar seg mykje",
-      "de6e8f9360851664": "Du gjettar",
-      "3afa13614dda8ace": "Du reduserer $dt$ til svaret nesten ikkje endrar seg lenger",
-      "50f03adf1b109e36": "Når du halverer $dt$ og resultatet knapt endrar seg, har løysinga konvergert, og du kan stole på ho.",
-      "60422d230e61c303": "Kva er ei kjelde til feil i Eulers metode?",
-      "128b13f2819180d0": "Diskretiseringsfeil -- ein kontinuerleg prosess blir tilnærma med diskrete steg",
-      "375239a8db8e6eb5": "At metoden er for nøyaktig",
-      "5a85d53023fac264": "At han ikkje bruker tidssteg",
-      "1b5ac8483fcf0169": "At han berre verkar utan datamaskin",
-      "d8b5476ee51aece2": "Euler erstattar ei jamn, kontinuerleg rørsle med hakkete steg. Det gir diskretiseringsfeil, i tillegg til avrundingsfeil og moglege stabilitetsproblem.",
-      "d320696a1e5a7b31": "## Oppsummering\n\nNår penn og papir gir opp, tek datamaskinen over. Ein **numerisk metode** løyser eit problem ved å dele det i mange små steg og rekne seg fram til ei tilnærma løysing -- uunnverleg for problem utan analytisk løysing, som fritt fall med luftmotstand.\n\nNøkkelen er at Newtons andre lov gir akselerasjonen frå kreftene, $a = \\frac{\\sum F}{m}$, også når kreftene endrar seg undervegs. **Eulers metode** reknar rørsla ut ved å ta eitt lite steg om gongen: $v_{n+1} = v_n + a_n \\cdot \\Delta t$ og $s_{n+1} = s_n + v_{n+1} \\cdot \\Delta t$. Han gir eksakt fart når akselerasjonen er konstant, og ei god tilnærming elles.\n\nI **Python** blir dette nesten ei direkte avskrift av formelen, med variablar, lister, løkker og funksjonar -- og med NumPy og Matplotlib til tallknusing og grafar. Simuleringa av ein fallande ball avslørte både lengre falltid og lågare sluttfart med luftmotstand, og peika mot ei **terminalhastigheit** på rundt 45 m/s. Til slutt lærte vi den viktigaste skruen: **tidssteget** $\\Delta t$. For lite gir treghet, for stort gir unøyaktigheit og ustabilitet. Sjekk alltid konvergens, ver medviten på at feil akkumulerast, og hugs -- god fysikksimulering handlar om mange små, kontrollerte steg."
-    }
-  }
+  "_meta": {"sourceHash":"a36946d2c28bb121","translatedAt":"2026-10-25T14:07:34.318Z","model":"claude-code-agent","strings":64,"tm":{"6251474d2597b144":"Python for fysikk","b195b06d1ed59702":"Narrativ versjon","dbe01769a9be1203":"Om korleis nokre få linjer Python reknar ut ein formel for mange verdiar, handsamar målingar frå eit forsøk og teiknar dei saman med ein modell.","34bbba36620d5dd4":"bruke variablar, lister, løkker og if-testar i Python til fysikkutrekningar","546d7da1ed2d79d0":"rekne ut tabellar av verdiar frå formlar og frå måledata","4c7e1081f4e858a4":"plotte måledata og ein modell i same koordinatsystem","8e93b883707536a5":"lese eit program, seie kva det skriv ut, og finne og rette feil","55a9336e292678ee":"## Kvifor programmere i fysikk?\n\nMykje av reknearbeidet i fysikk er den same utrekninga gjenteken. Den kinetiske energien til ein bil ved fire ulike fartar, farten mellom ti målepunkt i eit forsøk, fallstrekninga for ei heil rekkje tider: formelen er den same, berre tala skiftar. Eit program gjer slike gjentakingar raskt, utan slurvefeil, og kan teikne resultata som ein graf etterpå.\n\nVi brukar **Python**, og vi treng overraskande lite av det. Nokre få byggjesteinar rekk langt: variablar som tek vare på tal, lister med mange verdiar, løkker som gjer det same for kvar verdi, if-testar som berre gjer noko når eit vilkår er oppfylt, og eit bibliotek som teiknar grafar. Med dei kan vi både rekne ut formlar og handsame målingar frå eigne forsøk. Seinare, i kapittel 3.4, brukar vi dei same byggjesteinane til å rekne ut rørsle steg for steg.","e17b6d3ba8dd00da":"## Variablar og rekning\n\nEin **variabel** er eit namn på eit tal: `m = 0.50` og `v = 12.0`. Python veit ingenting om einingar, så eininga skriv vi i ein kommentar bak `#`, og vi held oss til SI-einingar gjennom heile programmet. Rekneteikna er dei vanlege, med to ting å passe på: gonge blir skrive `*`, og opphøgd i blir skrive `**`, så $\\tfrac{1}{2}mv^2$ blir `0.5 * m * v**2`. Skriv du `v^2`, får du noko heilt anna.\n\nPython følgjer vanleg rekkjefølgje, så `s / (2 * a)` og `s / 2 * a` er to ulike ting. Bruk parentesar når du er i tvil. Desimaltal blir skrivne med punktum, `0.5`, fordi komma skil to verdiar frå kvarandre.\n\nMed `print` skriv programmet ut resultatet. Ein f-streng som `f\"{Ek:.1f} J\"` bestemmer kor mange desimalar som blir viste, slik at utskrifta blir lett å lese. Med $m = 0{,}50$ kg og $v = 12{,}0$ m/s skriv programmet `36.0 J`.","c5024c61906379d7":"Test deg sjølv på variablar og rekning:","4097889236a2af26":"placeholder","cd7ca354124cb2d5":"Korleis blir $v^2$ skrive i Python?","71d7f96dd7e73bc9":"`v^2`","e4dfc4611df3f594":"`v**2`","88ad865a7d16b374":"`v*2`","b3e975d08db84af4":"`2**v`","d2e553b6e60f0691":"Opphøgd i blir skrive `**`. `v*2` er $2v$, `2**v` er $2^v$, og `v^2` tyder noko heilt anna i Python.","b23ab8e8751dcc5e":"Kva skriv `print(0.5 * 2.0 * 3.0**2)` ut?","3525b323404d0e65":"Potensen blir rekna først: $3{,}0^2 = 9{,}0$, og $0{,}5 \\cdot 2{,}0 \\cdot 9{,}0 = 9{,}0$. 6,0 kjem av `3.0*2`, 18,0 av å gløyme $0{,}5$.","42230e3bd77acc82":"Kvifor skriv vi `v = 50 / 3.6` når farten er 50 km/h?","915aba3edf19b201":"For å rekne om til m/s","bb70cc7186ac9d2a":"For å rekne om til km/s","2afa27f70b48e435":"For å få farten i timar","b9da77ab525edc5b":"For å runde av farten","e847026e585eee3b":"1 m/s = 3,6 km/h, så vi deler på 3,6 for å få farten i m/s. Då kan han brukast i formlar med SI-einingar.","ae26a754e9dd6135":"## Lister, løkker og tabellar\n\nEi **liste** samlar mange verdiar under eitt namn: `farter = [30, 50, 80, 110]`. Elementa blir nummererte frå null, så `farter[0]` er 30 og `farter[3]` er 110. Med ei **for-løkke** går programmet gjennom lista og gjer dei same linjene for kvar verdi. Linjene som høyrer til løkka, har innrykk, og det er innrykket åleine som fortel Python kvar løkka sluttar.\n\nSlik lagar vi ein tabell frå ein formel. For ein stein som blir sleppt frå ro, er $s = \\tfrac{1}{2}gt^2$. Ei løkke over tidene 0, 0,5, 1,0, 1,5 og 2,0 s skriv ut 0, 1,23, 4,91, 11,04 og 19,62 m. Tabellen viser noko formelen seier, men som er lettare å sjå i tal: dobbelt så lang tid gir fire gonger så lang strekning.\n\nSomme gonger veit vi ikkje kor mange gonger noko skal gjentakast. Ein sprettball som når 70 % av førre høgd, skal sprette til han ikkje lenger kjem over ei viss høgd. Då passar ei **while-løkke**, som går så lenge eit vilkår er sant. Og ein **if-test** gjer berre noko når vilkåret er oppfylt, til dømes å skrive ei åtvaring når stopplengda blir over 50 m.","d9903ed5b00bd9b2":"Test deg sjølv på lister og løkker:","3bb4d54d4d9e27df":"Kva verdiar får `i` i løkka `for i in range(1, 4):`?","ec7be8aaf81b5ac2":"1, 2, 3 og 4","ced84547c7e74a93":"0, 1, 2 og 3","81ff2efc884e12d3":"1, 2 og 3","ee8ad1d70ef6b12e":"0, 1, 2, 3 og 4","c584fbe3682cbb7d":"`range(1, 4)` startar på 1 og stoppar før 4. Med `range(4)` ville ho starta på 0.","433c79a6efe175da":"Lista er `t = [0.0, 0.5, 1.0, 1.5]`. Kva er `t[1]`?","036509a3081ca624":"Elementa blir nummererte frå 0, så `t[0]` er `0.0` og `t[1]` er `0.5`. `1.0` får du dersom du trur nummereringa startar på 1.","3c70d769617667d7":"Når passar ei while-løkke betre enn ei for-løkke?","66446ccf725261ef":"Når vi ikkje veit på førehand kor mange gonger løkka skal gå","db6b4773e2f9efa6":"Når vi skal gå gjennom alle verdiane i ei liste","9ebaeff099548867":"Når løkka skal gå nøyaktig ti gonger","612df11efd7b892a":"Når programmet ikkje har noko vilkår","b32f1878cdea77aa":"Ei while-løkke går så lenge vilkåret er sant, så ho passar når talet på rundar er ukjent, som når ein ball skal sprette til han er låg nok. For ei liste eller eit kjent tal på rundar er for-løkka enklast.","40ea92c8bedb8343":"## Måledata, modellar og plott\n\nDen verkelege nytten kjem når vi har målingar. Ei vogn blir sleppt frå ro på eit skråplan, og ein rørslesensor måler posisjonen kvart 0,2 s: 0, 0,050, 0,190, 0,435, 0,765 og 1,205 m. Vi legg tidene og posisjonane i kvar si liste og lèt ei løkke rekne ut gjennomsnittsfarten i kvart intervall, $\\frac{s_i - s_{i-1}}{t_i - t_{i-1}}$. Fartane blir 0,25, 0,70, 1,23, 1,65 og 2,20 m/s. Farten aukar med omtrent like mykje kvar gong, så akselerasjonen ser ut til å vere konstant.\n\nDet kan vi teste med ein modell. Er akselerasjonen konstant, er $s = \\tfrac{1}{2}at^2$, og kvart målepunkt gir ein verdi for $a = \\frac{2s}{t^2}$. Gjennomsnittet blir 2,42 m/s². No kan programmet rekne ut modellen for mange tider og teikne han som ei kurve, med målingane som punkt i same koordinatsystem. Ligg punkta på kurva, utan at avvika følgjer eit mønster, beskriv modellen rørsla godt.\n\nPlottet lagar vi med biblioteket `matplotlib`: `plt.plot(t, s, \"o\")` for målepunkta og `plt.plot(t_modell, s_modell)` for kurva, med storleik og eining på begge aksane. Det er den same arbeidsmåten vi brukar seinare, når ein modell skal samanliknast med eit forsøk.","9d5e9717a710e88e":"Test deg sjølv på måledata og modellar:","4ea51ce3bde83a71":"Ei vogn er ved 0,190 m etter 0,4 s og ved 0,435 m etter 0,6 s. Kva er gjennomsnittsfarten i intervallet?","7ae5e54ce9ad1a12":"1,23 m/s","ed6c134dbc2eddc9":"0,73 m/s","9743b8fb33d7033f":"0,245 m/s","9e8d823742df21eb":"1,09 m/s","dc217f30fd3e2f94":"$\\bar v = \\frac{0{,}435 - 0{,}190}{0{,}6 - 0{,}4} = \\frac{0{,}245}{0{,}2} \\approx 1{,}23$ m/s. 0,245 er berre strekninga, 0,73 m/s er $0{,}435/0{,}6$ (frå start), og 1,09 m/s er $0{,}435/0{,}4$.","e3152349b234350b":"Ei vogn startar frå ro og har rulla 1,205 m nedover skråplanet etter 1,0 s. Kva gir modellen $s = \\tfrac{1}{2}at^2$ for $a$?","1cd37c8a8fa41e56":"1,21 m/s²","9166e1aebf4f5eff":"2,41 m/s²","740f769aba9cd7a9":"4,82 m/s²","5622588d7442365e":"0,60 m/s²","7541745a12471d0a":"$a = \\frac{2s}{t^2} = \\frac{2 \\cdot 1{,}205}{1{,}0^2} = 2{,}41$ m/s². 1,21 får du ved å gløyme faktoren 2, og 4,82 ved å gonge med 4.","8e7b0011d570d694":"Korleis bør målingar og modell teiknast i same plott?","cef3617556021fc8":"Målingane som punkt og modellen som ei kurve","0db6d6cfd3ec8465":"Begge som punkt utan aksar","0d6da6ce28554a54":"Målingane som ei kurve og modellen som punkt","7beff651fdfb139c":"Berre modellen, sidan han er meir nøyaktig","d0593dcd9fee49c6":"Målingane er einskildverdiar og blir viste som punkt. Modellen gjeld for alle tider og blir teikna som ei samanhengande kurve. Då ser vi om punkta ligg på kurva.","7681a173ba6f1112":"## Oppsummering\n\nEit program gjer den same utrekninga mange gonger, raskt og utan reknefeil. **Variablar** tek vare på tala, med eininga i ein kommentar, og rekneteikna er vanlege bortsett frå `*` for gonge og `**` for opphøgd i. Desimaltal blir skrivne med punktum.\n\n**Lister** samlar mange verdiar, nummererte frå null. Ei **for-løkke** gjer det same for kvar verdi og lagar tabellar frå formlar, ei **while-løkke** går så lenge eit vilkår er sant, og ein **if-test** gjer noko berre når vilkåret er oppfylt. Innrykket bestemmer kva linjer som høyrer saman.\n\nMed **måledata** i lister reknar programmet ut gjennomsnittsfart, gjennomsnitt og konstantar i ein modell, og `matplotlib` teiknar målingane som punkt og modellen som ei kurve. Ligg punkta på kurva, passar modellen. Dei same byggjesteinane brukar vi i kapittel 3.4 til å rekne ut rørsle steg for steg."}}
 }

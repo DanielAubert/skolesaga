@@ -81,7 +81,7 @@ KI_STI = {'bm': 'src/lib/data/chapters/%s.json', 'nn': 'src/lib/data/chapters/nn
 # (navn, regex, alvor, hvor: 'tekst' = utenfor matte, 'alt' = hele feltet, bøker: None = alle, ellers sett av bok-prefikser)
 UNDER_R1 = {'1p', '1t', '2p', '2py', '8', '9', '10'}
 FORBUDT = [
-    ('konveks/konkav', r'\b[Kk]onve[kc]s\w*|\b[Kk]onkav\w*', 'feil', 'tekst', None),
+    ('konveks/konkav', r'\b[Kk]onve[kc]s(?!jon)\w*|\b[Kk]onkav\w*', 'feil', 'tekst', None),
     ('smilende/sur graf', r'\b[Ss]mil(?:er|ende)\b|\bsur(?:t)?\b', 'bør', 'tekst', None),
     ('andrederivert', r'\b[Aa]ndrederiv\w*|\b[Aa]ndre deriverte\b', 'feil', 'tekst', None),
     ('IQR/interkvartil', r'\bIQR\b|[Ii]nterkvartil\w*', 'feil', 'alt', None),
@@ -126,7 +126,7 @@ LATEX_N = re.compile(r'\\n(?:eq|e|eg|abla|u|ot|otin|i|ewline|ormalsize|olimits|a
 KOMMANDOER = r'frac|dfrac|cdot|sqrt|approx|times|left|right|text|mathrm|infty|langle|rangle|leq|geq|neq|implies|Rightarrow|Leftrightarrow'
 MISTET = re.compile(r'(?<![\\a-zA-Z])(?:' + KOMMANDOER + r')(?=[{\s(\[]|$)')
 STEGLINJE = re.compile(r'(?m)^\s*(?:\*\*)?\s*\d{1,2}[.)]\s+(?:\*\*)?\S')
-SVAR = re.compile(r'\*\*\s*Svar')
+SVAR = re.compile(r'\*\*\s*Svar(?![a-zæøå])')
 DIFF_OK = ('lett', 'medium', 'vanskelig')
 DIFF_RANG = {'lett': 0, 'medium': 1, 'middels': 1, 'vanskelig': 2}
 UTEN_SVAR_OK = re.compile(r'\b(?:Vis at|Bevis|Forklar|Begrunn|Tegn|Skisser|Lag|Beskriv|Diskuter|Drøft|Vurder|'
@@ -424,7 +424,7 @@ class Kjoring(object):
                     tb = collections.Counter(tall_i(utenfor_matte(fb.tekst, fb.art)))
                     self.f('bmnn-tall', cid, 'nn', i, s, 'bare bm: %s · bare nn: %s' % (
                         sorted((ta - tb).elements())[:6], sorted((tb - ta).elements())[:6]))
-                if len(SVAR.findall(fa.tekst)) != len(re.findall(r'\*\*\s*Svar', fb.tekst)):
+                if len(SVAR.findall(fa.tekst)) != len(re.findall(r'\*\*\s*Svar(?![a-zæøå])', fb.tekst)):
                     self.f('bmnn-svar', cid, 'nn', i, s, '%d vs %d' % (len(SVAR.findall(fa.tekst)), len(SVAR.findall(fb.tekst))))
 
     # ---------------------------------------------------------------- KaTeX (én node-prosess for alt)

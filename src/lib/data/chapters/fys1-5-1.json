@@ -3,14 +3,16 @@
   "courseId": "fys1",
   "chapterNumber": "5.1",
   "title": "Temperatur og varme",
-  "description": "Lær om temperatur, varme som energioverføring, termisk likevekt og spesifikk varmekapasitet.",
-  "estimatedMinutes": 50,
+  "description": "Lær om temperatur, varme som energioverføring, termisk likevekt, spesifikk varmekapasitet og faseoverganger med smeltevarme og fordampingsvarme.",
+  "estimatedMinutes": 70,
   "competenceGoals": [
     "forklare forskjellen mellom temperatur og varme",
     "gjøre om mellom celsius og kelvin",
     "forklare hva termisk likevekt er",
     "bruke formelen Q = mcΔT til beregninger",
-    "beskrive hva spesifikk varmekapasitet er"
+    "beskrive hva spesifikk varmekapasitet er",
+    "forklare hva som skjer med energien ved smelting og fordamping",
+    "regne med smeltevarme og fordampingsvarme og tolke en oppvarmingskurve"
   ],
   "content": [
     {
@@ -69,13 +71,62 @@
       "id": "fys1-5-1-ex-termisk-likevekt-beregning",
       "type": "example",
       "title": "Eksempel: Termisk likevekt - blandingstemperatur",
-      "problem": "En aluminiumskloss på 0,50 kg med temperatur 100°C senkes ned i 1,0 kg vann med temperatur 20°C. Hva blir slutttemperaturen når termisk likevekt er oppnådd?\n\nAntatt at varmetap til omgivelsene er neglisjerbart.\n\n**Spesifikk varmekapasitet:**\n- Aluminium: $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$",
-      "solution": "**Gitt:**\n- Aluminium: $m_{\\text{Al}} = 0{,}50 \\text{ kg}$, $T_{\\text{Al,start}} = 100 \\text{°C}$, $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $m_{\\text{vann}} = 1{,}0 \\text{ kg}$, $T_{\\text{vann,start}} = 20 \\text{°C}$, $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Slutttemperatur: $T$ (ukjent)\n\n**Prinsipp:**\nVarmen som aluminium avgir = Varmen som vann mottar\n\n$$Q_{\\text{Al}} = -Q_{\\text{vann}}$$\n\n**Aluminiums temperatur synker (avgir varme):**\n\n$$Q_{\\text{Al}} = m_{\\text{Al}} c_{\\text{Al}} (T - T_{\\text{Al,start}})$$\n\n$$Q_{\\text{Al}} = 0{,}50 \\cdot 900 \\cdot (T - 100)$$\n\n**Vannets temperatur stiger (mottar varme):**\n\n$$Q_{\\text{vann}} = m_{\\text{vann}} c_{\\text{vann}} (T - T_{\\text{vann,start}})$$\n\n$$Q_{\\text{vann}} = 1{,}0 \\cdot 4180 \\cdot (T - 20)$$\n\n**Energibevaring:**\n\n$$Q_{\\text{Al}} + Q_{\\text{vann}} = 0$$\n\n$$0{,}50 \\cdot 900 \\cdot (T - 100) + 1{,}0 \\cdot 4180 \\cdot (T - 20) = 0$$\n\n$$450(T - 100) + 4180(T - 20) = 0$$\n\n$$450T - 45\\,000 + 4180T - 83\\,600 = 0$$\n\n$$4630T = 128\\,600$$\n\n$$T = \\frac{128\\,600}{4630} \\approx 27{,}8 \\text{°C}$$\n\n**Svar:** Slutttemperaturen blir omtrent 28°C.\n\n**Tolkning:** Temperaturen øker lite (fra 20°C til 28°C) fordi vann har mye høyere spesifikk varmekapasitet enn aluminium. Vannet \"dominerer\" temperaturendringen."
+      "problem": "En aluminiumskloss på 0,50 kg med temperatur 100°C senkes ned i 1,0 kg vann med temperatur 20°C. Hva blir sluttemperaturen når termisk likevekt er oppnådd?\n\nAntatt at varmetap til omgivelsene er neglisjerbart.\n\n**Spesifikk varmekapasitet:**\n- Aluminium: $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$",
+      "solution": "**Gitt:**\n- Aluminium: $m_{\\text{Al}} = 0{,}50 \\text{ kg}$, $T_{\\text{Al,start}} = 100 \\text{°C}$, $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $m_{\\text{vann}} = 1{,}0 \\text{ kg}$, $T_{\\text{vann,start}} = 20 \\text{°C}$, $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Sluttemperatur: $T$ (ukjent)\n\n**Prinsipp:**\nVarmen som aluminium avgir = Varmen som vann mottar\n\n$$Q_{\\text{Al}} = -Q_{\\text{vann}}$$\n\n**Aluminiums temperatur synker (avgir varme):**\n\n$$Q_{\\text{Al}} = m_{\\text{Al}} c_{\\text{Al}} (T - T_{\\text{Al,start}})$$\n\n$$Q_{\\text{Al}} = 0{,}50 \\cdot 900 \\cdot (T - 100)$$\n\n**Vannets temperatur stiger (mottar varme):**\n\n$$Q_{\\text{vann}} = m_{\\text{vann}} c_{\\text{vann}} (T - T_{\\text{vann,start}})$$\n\n$$Q_{\\text{vann}} = 1{,}0 \\cdot 4180 \\cdot (T - 20)$$\n\n**Energibevaring:**\n\n$$Q_{\\text{Al}} + Q_{\\text{vann}} = 0$$\n\n$$0{,}50 \\cdot 900 \\cdot (T - 100) + 1{,}0 \\cdot 4180 \\cdot (T - 20) = 0$$\n\n$$450(T - 100) + 4180(T - 20) = 0$$\n\n$$450T - 45\\,000 + 4180T - 83\\,600 = 0$$\n\n$$4630T = 128\\,600$$\n\n$$T = \\frac{128\\,600}{4630} \\approx 27{,}8 \\text{°C}$$\n\n**Svar:** Sluttemperaturen blir omtrent 28°C.\n\n**Tolkning:** Temperaturen øker lite (fra 20°C til 28°C) fordi vann har mye høyere spesifikk varmekapasitet enn aluminium. Vannet \"dominerer\" temperaturendringen."
+    },
+    {
+      "id": "fys1-5-1-faseoverganger",
+      "type": "text",
+      "content": "# Faseoverganger\n\nNår is varmes jevnt, stiger temperaturen til $0\\,°\\text{C}$. Der stopper den opp en stund, selv om kokeplata fortsatt gir energi. Først når all isen har smeltet, begynner temperaturen å stige igjen. Det samme skjer ved $100\\,°\\text{C}$ når vannet koker.\n\n## Hvor blir energien av?\n\nTemperaturen er et mål på den gjennomsnittlige kinetiske energien til molekylene. Når temperaturen står stille, øker ikke den kinetiske energien. Energien går i stedet til å bryte bindingene som holder molekylene sammen:\n\n- **Smelting** (fast stoff → væske): molekylene rives løs fra de faste plassene sine i krystallgitteret.\n- **Fordamping** (væske → gass): molekylene rives helt løs fra hverandre.\n\nDen motsatte veien, ved **størkning** (væske → fast stoff) og **kondensasjon** (gass → væske), gir stoffet fra seg den samme energien.\n\n## Spesifikk smeltevarme og fordampingsvarme\n\nDen **spesifikke smeltevarmen** $l_{\\text{s}}$ er energien som trengs for å smelte $1\\text{ kg}$ av et stoff ved smeltepunktet. Skal vi smelte $m$ kilogram, trengs $m$ ganger så mye:\n\n$$Q = m\\,l_{\\text{s}}$$\n\nPå samme måte er den **spesifikke fordampingsvarmen** $l_{\\text{f}}$ energien som trengs for å fordampe $1\\text{ kg}$ ved kokepunktet:\n\n$$Q = m\\,l_{\\text{f}}$$\n\nEnheten er J/kg. Temperaturen endres ikke under en faseovergang, så det er ingen $\\Delta T$ i disse formlene.\n\n| Vann | Verdi |\n|------|-------|\n| Spesifikk smeltevarme $l_{\\text{s}}$ | $334\\text{ kJ/kg} = 3{,}34 \\cdot 10^5\\text{ J/kg}$ |\n| Spesifikk fordampingsvarme $l_{\\text{f}}$ | $2260\\text{ kJ/kg} = 2{,}26 \\cdot 10^6\\text{ J/kg}$ |\n| Spesifikk varmekapasitet, is | $2100\\text{ J/(kg}\\cdot°\\text{C)}$ |\n| Spesifikk varmekapasitet, vann | $4180\\text{ J/(kg}\\cdot°\\text{C)}$ |\n\nFordampingsvarmen til vann er nesten sju ganger så stor som smeltevarmen. Å rive molekylene helt fra hverandre krever mye mer energi enn å løsne dem fra gitteret."
+    },
+    {
+      "id": "fys1-5-1-def-smeltevarme",
+      "type": "definition",
+      "title": "Spesifikk smeltevarme",
+      "content": "Spesifikk smeltevarme $l_{\\text{s}}$ er energien som trengs for å smelte 1 kg av et stoff ved smeltepunktet, uten at temperaturen endres. For $m$ kg er $Q = m\\,l_{\\text{s}}$."
+    },
+    {
+      "id": "fys1-5-1-def-fordampingsvarme",
+      "type": "definition",
+      "title": "Spesifikk fordampingsvarme",
+      "content": "Spesifikk fordampingsvarme $l_{\\text{f}}$ er energien som trengs for å fordampe 1 kg av et stoff ved kokepunktet, uten at temperaturen endres. For $m$ kg er $Q = m\\,l_{\\text{f}}$."
+    },
+    {
+      "id": "fys1-5-1-oppvarmingskurve",
+      "type": "text",
+      "content": "# Oppvarmingskurven\n\nEn **oppvarmingskurve** viser temperaturen til et stoff mot tilført energi (eller mot tid når effekten er jevn). For is som varmes til damp har kurven fem deler:\n\n- Isen varmes til $0\\,°\\text{C}$: $Q = m\\,c_{\\text{is}}\\,\\Delta T$, kurven stiger.\n- Isen smelter ved $0\\,°\\text{C}$: $Q = m\\,l_{\\text{s}}$, kurven er flat.\n- Vannet varmes til $100\\,°\\text{C}$: $Q = m\\,c_{\\text{vann}}\\,\\Delta T$, kurven stiger.\n- Vannet koker ved $100\\,°\\text{C}$: $Q = m\\,l_{\\text{f}}$, kurven er flat.\n- Dampen varmes videre: kurven stiger igjen.\n\nHvor bratt kurven stiger, avhenger av den spesifikke varmekapasiteten. Is har mindre $c$ enn vann, så kurven er brattere for is enn for vann. Hvor lange de flate delene er, avhenger av smelte- og fordampingsvarmen."
+    },
+    {
+      "id": "fys1-5-1-ex-oppvarmingskurve",
+      "type": "example",
+      "title": "Eksempel: Fra frossen is til damp",
+      "problem": "En kjele inneholder $0{,}50\\text{ kg}$ is med temperatur $-18\\,°\\text{C}$. Kokeplata gir isen og vannet en jevn effekt på $1{,}5\\text{ kW}$. Se bort fra kjelen og varmetap.\n\nBruk $c_{\\text{is}} = 2100\\text{ J/(kg}\\cdot°\\text{C)}$, $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$, $l_{\\text{s}} = 3{,}34 \\cdot 10^5\\text{ J/kg}$ og $l_{\\text{f}} = 2{,}26 \\cdot 10^6\\text{ J/kg}$.\n\na) Regn ut energien som trengs i hver del av prosessen fram til alt er vann ved $100\\,°\\text{C}$.\n\nb) Hvor lang tid tar det fra start til vannet begynner å koke?\n\nc) Hvor lang tid tar det deretter å koke bort alt vannet?",
+      "solution": "**a)**\n\nIsen varmes fra $-18\\,°\\text{C}$ til $0\\,°\\text{C}$:\n\n$$Q_1 = m\\,c_{\\text{is}}\\,\\Delta T = 0{,}50 \\cdot 2100 \\cdot 18\\text{ J} = 1{,}89 \\cdot 10^4\\text{ J}$$\n\nIsen smelter:\n\n$$Q_2 = m\\,l_{\\text{s}} = 0{,}50 \\cdot 3{,}34 \\cdot 10^5\\text{ J} = 1{,}67 \\cdot 10^5\\text{ J}$$\n\nVannet varmes fra $0\\,°\\text{C}$ til $100\\,°\\text{C}$:\n\n$$Q_3 = m\\,c_{\\text{vann}}\\,\\Delta T = 0{,}50 \\cdot 4180 \\cdot 100\\text{ J} = 2{,}09 \\cdot 10^5\\text{ J}$$\n\n**Svar:** a) $1{,}9 \\cdot 10^4\\text{ J}$, $1{,}67 \\cdot 10^5\\text{ J}$ og $2{,}09 \\cdot 10^5\\text{ J}$, til sammen $3{,}95 \\cdot 10^5\\text{ J}$.\n\n**b)**\n\n$$t = \\frac{Q_1 + Q_2 + Q_3}{P} = \\frac{3{,}949 \\cdot 10^5\\text{ J}}{1500\\text{ W}} \\approx 263\\text{ s}$$\n\n**Svar:** b) Omtrent $263\\text{ s}$, litt under $4{,}5$ minutter.\n\n**c)**\n\n$$Q_4 = m\\,l_{\\text{f}} = 0{,}50 \\cdot 2{,}26 \\cdot 10^6\\text{ J} = 1{,}13 \\cdot 10^6\\text{ J}$$\n\n$$t = \\frac{Q_4}{P} = \\frac{1{,}13 \\cdot 10^6\\text{ J}}{1500\\text{ W}} \\approx 753\\text{ s}$$\n\n**Svar:** c) Omtrent $750\\text{ s}$, det vil si $12{,}5$ minutter. Det tar nesten tre ganger så lang tid som hele oppvarmingen fram til kokepunktet, fordi fordampingsvarmen er så stor."
+    },
+    {
+      "id": "fys1-5-1-fig-oppvarmingskurve",
+      "type": "image",
+      "src": "/images/content/fys1/fys1-5-1-oppvarmingskurve-is.png",
+      "alt": "Oppvarmingskurve med temperatur i grader celsius på andreaksen fra minus 20 til 120 og tilført energi i kilojoule på førsteaksen fra 0 til 1600. Kurven starter i minus 18 grader, stiger bratt til 0 grader ved omtrent 19 kJ, er flat ved 0 grader (merket smelting) fram til omtrent 186 kJ, stiger jevnt til 100 grader ved omtrent 395 kJ, og er flat ved 100 grader (merket koking) fram til omtrent 1525 kJ.",
+      "caption": "Oppvarmingskurven for 0,50 kg is fra −18 °C i eksemplet over. De to flate delene er faseovergangene: smeltingen ved 0 °C og kokingen ved 100 °C, som er nesten sju ganger så lang.",
+      "kommentar": "spec: adhv-box:~/losningsfilmer-arbeid/grafmotor-specs-kapitler-fysikk1/termofysikk/fys1-termofysikk-faseoverganger-d2-01-losning.json (gjenbrukt fra kapittelsidene, blindet figuraudit OK 25.10.2026)"
+    },
+    {
+      "id": "fys1-5-1-ex-is-i-brus",
+      "type": "example",
+      "title": "Eksempel: Isbit i brus",
+      "problem": "En isbit med masse $40\\text{ g}$ og temperatur $0\\,°\\text{C}$ legges i $0{,}30\\text{ kg}$ brus med temperatur $22\\,°\\text{C}$. Regn brus som vann, og se bort fra glasset og varmeutveksling med lufta. Bruk $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$ og $l_{\\text{s}} = 3{,}34 \\cdot 10^5\\text{ J/kg}$.\n\na) Vis at all isen smelter.\n\nb) Finn sluttemperaturen.",
+      "solution": "**a)**\n\nEnergi som trengs for å smelte isen:\n\n$$Q_{\\text{smelt}} = m_{\\text{is}}\\,l_{\\text{s}} = 0{,}040 \\cdot 3{,}34 \\cdot 10^5\\text{ J} \\approx 1{,}34 \\cdot 10^4\\text{ J}$$\n\nStørste energi brusen kan avgi (avkjøling til $0\\,°\\text{C}$):\n\n$$Q_{\\text{brus}} = 0{,}30 \\cdot 4180 \\cdot 22\\text{ J} \\approx 2{,}76 \\cdot 10^4\\text{ J}$$\n\n$Q_{\\text{brus}} > Q_{\\text{smelt}}$, så all isen smelter, og sluttemperaturen blir over $0\\,°\\text{C}$.\n\n**Svar:** a) Smeltingen krever $1{,}34 \\cdot 10^4\\text{ J}$, og brusen kan avgi $2{,}76 \\cdot 10^4\\text{ J}$.\n\n**b)**\n\nAvgitt av brusen = smelting + oppvarming av smeltevannet fra $0\\,°\\text{C}$ til $T$:\n\n$$0{,}30 \\cdot 4180 \\cdot (22 - T) = 0{,}040 \\cdot 3{,}34 \\cdot 10^5 + 0{,}040 \\cdot 4180 \\cdot T$$\n\n$$27\\,588 - 1254\\,T = 13\\,360 + 167{,}2\\,T$$\n\n$$T = \\frac{14\\,228}{1421{,}2} \\approx 10{,}0\\,°\\text{C}$$\n\n**Svar:** b) Omtrent $10\\,°\\text{C}$."
+    },
+    {
+      "id": "fys1-5-1-is-smelter-delvis",
+      "type": "text",
+      "content": "## Når ikke all isen smelter\n\nBlandes is og vann, må vi først sjekke om det finnes nok energi til å smelte all isen. Sammenlign energien vannet kan avgi ved å kjøles til $0\\,°\\text{C}$, med energien isen trenger for å varmes til $0\\,°\\text{C}$ og smelte:\n\n- Har vannet mer enn nok energi, smelter all isen, og sluttemperaturen blir over $0\\,°\\text{C}$. Da regner vi som i eksemplet over.\n- Har vannet for lite energi, smelter bare en del av isen. Is og vann kan bare være i likevekt ved smeltepunktet, så sluttemperaturen blir $0\\,°\\text{C}$. Energien som er igjen etter at isen er varmet til $0\\,°\\text{C}$, bestemmer hvor mye is som smelter: $m = Q/l_{\\text{s}}$."
     },
     {
       "id": "fys1-5-1-oppsummering",
       "type": "text",
-      "content": "## Oppsummering\n\n- **Temperatur** er et mål på gjennomsnittlig kinetisk energi per molekyl i et stoff\n- **Varme** er energi som overføres fra høy til lav temperatur, måles i joule (J)\n- Omregning mellom temperaturskalaer: $T_{\\text{K}} = T_{\\text{°C}} + 273{,}15$\n- **Termisk likevekt** oppstår når to legemer har samme temperatur (ingen netto varmeoverføring)\n- **Spesifikk varmekapasitet** ($c$) er varme per kg for 1°C temperaturendring, måles i J/(kg·°C)\n- Formel for varme: $Q = mc\\Delta T$ hvor $\\Delta T = T_{\\text{slutt}} - T_{\\text{start}}$\n- Vann har høy spesifikk varmekapasitet ($c = 4180$ J/(kg·°C)), metaller har lav\n- Ved termisk likevekt i isolert system: $Q_{\\text{tapt}} = Q_{\\text{mottatt}}$"
+      "content": "## Oppsummering\n\n- **Temperatur** er et mål på gjennomsnittlig kinetisk energi per molekyl i et stoff\n- **Varme** er energi som overføres fra høy til lav temperatur, måles i joule (J)\n- Omregning mellom temperaturskalaer: $T_{\\text{K}} = T_{\\text{°C}} + 273{,}15$\n- **Termisk likevekt** oppstår når to legemer har samme temperatur (ingen netto varmeoverføring)\n- **Spesifikk varmekapasitet** ($c$) er varme per kg for 1°C temperaturendring, måles i J/(kg·°C)\n- Formel for varme: $Q = mc\\Delta T$ hvor $\\Delta T = T_{\\text{slutt}} - T_{\\text{start}}$\n- Vann har høy spesifikk varmekapasitet ($c = 4180$ J/(kg·°C)), metaller har lav\n- Ved termisk likevekt i isolert system: $Q_{\\text{tapt}} = Q_{\\text{mottatt}}$\n- Under en **faseovergang** er temperaturen konstant; energien bryter bindinger mellom molekylene\n- **Smeltevarme:** $Q = m\\,l_{\\text{s}}$, **fordampingsvarme:** $Q = m\\,l_{\\text{f}}$ (vann: $l_{\\text{s}} = 334\\text{ kJ/kg}$, $l_{\\text{f}} = 2260\\text{ kJ/kg}$)\n- En **oppvarmingskurve** stiger når temperaturen endres ($Q = mc\\Delta T$) og er flat under smelting og koking\n- Blandes is og vann og ikke all isen smelter, blir sluttemperaturen $0\\,°\\text{C}$"
     }
   ],
   "exercises": [
@@ -167,8 +218,8 @@
       "number": "7",
       "type": "classic",
       "difficulty": "medium",
-      "task": "En kopp aluminium på 0,20 kg med temperatur 80°C settes ned i 0,50 kg vann med temperatur 20°C. Hva blir slutttemperaturen?\n\n**Spesifikk varmekapasitet:**\n- Aluminium: $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$",
-      "solution": "**Gitt:**\n- Aluminium: $m_{\\text{Al}} = 0{,}20 \\text{ kg}$, $T_{\\text{Al}} = 80 \\text{°C}$, $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $m_{\\text{vann}} = 0{,}50 \\text{ kg}$, $T_{\\text{vann}} = 20 \\text{°C}$, $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Slutttemperatur: $T$ (ukjent)\n\n**Energibevaring:**\n\n$$Q_{\\text{Al}} + Q_{\\text{vann}} = 0$$\n\n$$m_{\\text{Al}} c_{\\text{Al}} (T - 80) + m_{\\text{vann}} c_{\\text{vann}} (T - 20) = 0$$\n\n$$0{,}20 \\cdot 900 \\cdot (T - 80) + 0{,}50 \\cdot 4180 \\cdot (T - 20) = 0$$\n\n$$180(T - 80) + 2090(T - 20) = 0$$\n\n$$180T - 14\\,400 + 2090T - 41\\,800 = 0$$\n\n$$2270T = 56\\,200$$\n\n$$T = \\frac{56\\,200}{2270} \\approx 24{,}8 \\text{°C}$$\n\n**Svar:** Slutttemperaturen blir omtrent 25°C.",
+      "task": "En kopp aluminium på 0,20 kg med temperatur 80°C settes ned i 0,50 kg vann med temperatur 20°C. Hva blir sluttemperaturen?\n\n**Spesifikk varmekapasitet:**\n- Aluminium: $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$",
+      "solution": "**Gitt:**\n- Aluminium: $m_{\\text{Al}} = 0{,}20 \\text{ kg}$, $T_{\\text{Al}} = 80 \\text{°C}$, $c_{\\text{Al}} = 900 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $m_{\\text{vann}} = 0{,}50 \\text{ kg}$, $T_{\\text{vann}} = 20 \\text{°C}$, $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Sluttemperatur: $T$ (ukjent)\n\n**Energibevaring:**\n\n$$Q_{\\text{Al}} + Q_{\\text{vann}} = 0$$\n\n$$m_{\\text{Al}} c_{\\text{Al}} (T - 80) + m_{\\text{vann}} c_{\\text{vann}} (T - 20) = 0$$\n\n$$0{,}20 \\cdot 900 \\cdot (T - 80) + 0{,}50 \\cdot 4180 \\cdot (T - 20) = 0$$\n\n$$180(T - 80) + 2090(T - 20) = 0$$\n\n$$180T - 14\\,400 + 2090T - 41\\,800 = 0$$\n\n$$2270T = 56\\,200$$\n\n$$T = \\frac{56\\,200}{2270} \\approx 24{,}8 \\text{°C}$$\n\n**Svar:** Sluttemperaturen blir omtrent 25°C.",
       "hints": [
         "Bruk energibevaring",
         "Varme tapt = Varme mottatt"
@@ -182,7 +233,7 @@
       "type": "classic",
       "difficulty": "medium",
       "task": "Hvorfor har vann høy spesifikk varmekapasitet, og hvordan påvirker dette klimaet ved kysten?",
-      "solution": "**Hvorfor vann har høy spesifikk varmekapasitet:**\n\nVann har høy spesifikk varmekapasitet ($c = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$) fordi:\n\n1. **Hydrogenbindinger:** Vannmolekyler er bundet sammen med sterke hydrogenbindinger\n2. **Energi til å bryte bindinger:** Mye energi trengs for å øke molekylenes kinetiske energi fordi energien også brukes til å svekke hydrogenbindinger\n3. **Små molekyler:** Vann har relativt mange molekyler per kg (høy antall frihetsgrader)\n\n**Effekt på klima ved kysten:**\n\n**1. Stabile temperaturer:**\n- Havet varmes langsomt opp om sommeren\n- Havet avkjøles langsomt om vinteren\n- Kysten har mindre temperatursvingninger enn innlandet\n\n**2. Mild vinter:**\n- Havet avgir varme langsomt\n- Holder kysten varmere om vinteren\n\n**3. Kjølig sommer:**\n- Havet tar opp mye varme\n- Holder kysten kjøligere om sommeren\n\n**4. Moderat klima:**\n- Mindre ekstreme temperaturer\n- \"Maritimt klima\" ved kysten\n- \"Kontinentalt klima\" inne i landet (store temperatursvingninger)\n\n**Eksempel:**\n- Bergen (kyst): Vinter ~0°C, Sommer ~16°C (forskjell 16°C)\n- Karasjok (innland): Vinter ~-15°C, Sommer ~13°C (forskjell 28°C)\n\n**Konklusjon:** Vannets høye spesifikke varmekapasitet gjør at havet fungerer som en \"termostat\" som stabiliserer temperaturene ved kysten.",
+      "solution": "**Hvorfor vann har høy spesifikk varmekapasitet:**\n\nVann har høy spesifikk varmekapasitet ($c = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$) fordi:\n\n- **Hydrogenbindinger:** Vannmolekyler er bundet sammen med sterke hydrogenbindinger\n- **Energi til å bryte bindinger:** Mye energi trengs for å øke molekylenes kinetiske energi fordi energien også brukes til å svekke hydrogenbindinger\n- **Små molekyler:** Vann har relativt mange molekyler per kg\n\n**Effekt på klima ved kysten:**\n\n**Stabile temperaturer:**\n- Havet varmes langsomt opp om sommeren\n- Havet avkjøles langsomt om vinteren\n- Kysten har mindre temperatursvingninger enn innlandet\n\n**Mild vinter:**\n- Havet avgir varme langsomt\n- Holder kysten varmere om vinteren\n\n**Kjølig sommer:**\n- Havet tar opp mye varme\n- Holder kysten kjøligere om sommeren\n\n**Moderat klima:**\n- Mindre ekstreme temperaturer\n- \"Maritimt klima\" ved kysten\n- \"Kontinentalt klima\" inne i landet (store temperatursvingninger)\n\n**Eksempel:**\n- Bergen (kyst): Vinter ~0°C, Sommer ~16°C (forskjell 16°C)\n- Karasjok (innland): Vinter ~-15°C, Sommer ~13°C (forskjell 28°C)\n\n**Konklusjon:** Vannets høye spesifikke varmekapasitet gjør at havet fungerer som en \"termostat\" som stabiliserer temperaturene ved kysten.",
       "hints": [
         "Hva betyr høy spesifikk varmekapasitet?",
         "Hvordan påvirker havet temperaturen?"
@@ -209,12 +260,82 @@
       "number": "10",
       "type": "classic",
       "difficulty": "vanskelig",
-      "task": "Et stykke kobber på 0,30 kg med ubestemt temperatur senkes ned i 0,80 kg vann med temperatur 18°C. Slutttemperaturen blir 25°C. Hva var kobberets starttemperatur?\n\n**Spesifikk varmekapasitet:**\n- Kobber: $c_{\\text{Cu}} = 385 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$",
-      "solution": "**Gitt:**\n- Kobber: $m_{\\text{Cu}} = 0{,}30 \\text{ kg}$, $T_{\\text{Cu,start}} = ?$, $c_{\\text{Cu}} = 385 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $m_{\\text{vann}} = 0{,}80 \\text{ kg}$, $T_{\\text{vann,start}} = 18 \\text{°C}$, $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Slutttemperatur: $T = 25 \\text{°C}$\n\n**Energibevaring:**\n\n$$Q_{\\text{Cu}} + Q_{\\text{vann}} = 0$$\n\n**Varmen som kobber avgir:**\n\n$$Q_{\\text{Cu}} = m_{\\text{Cu}} c_{\\text{Cu}} (T - T_{\\text{Cu,start}})$$\n\n$$Q_{\\text{Cu}} = 0{,}30 \\cdot 385 \\cdot (25 - T_{\\text{Cu,start}})$$\n\n**Varmen som vann mottar:**\n\n$$Q_{\\text{vann}} = m_{\\text{vann}} c_{\\text{vann}} (T - T_{\\text{vann,start}})$$\n\n$$Q_{\\text{vann}} = 0{,}80 \\cdot 4180 \\cdot (25 - 18)$$\n\n$$Q_{\\text{vann}} = 3344 \\cdot 7 = 23\\,408 \\text{ J}$$\n\n**Energibevaring:**\n\n$$Q_{\\text{Cu}} + Q_{\\text{vann}} = 0$$\n\n$$0{,}30 \\cdot 385 \\cdot (25 - T_{\\text{Cu,start}}) + 23\\,408 = 0$$\n\n$$115{,}5 \\cdot (25 - T_{\\text{Cu,start}}) = -23\\,408$$\n\n$$25 - T_{\\text{Cu,start}} = \\frac{-23\\,408}{115{,}5}$$\n\n$$25 - T_{\\text{Cu,start}} = -202{,}6$$\n\n$$T_{\\text{Cu,start}} = 25 + 202{,}6 = 227{,}6 \\text{°C}$$\n\n**Svar:** Kobberets starttemperatur var omtrent 228°C.",
+      "task": "Et stykke kobber på 0,30 kg med ubestemt temperatur senkes ned i 0,80 kg vann med temperatur 18°C. Sluttemperaturen blir 25°C. Hva var kobberets starttemperatur?\n\n**Spesifikk varmekapasitet:**\n- Kobber: $c_{\\text{Cu}} = 385 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$",
+      "solution": "**Gitt:**\n- Kobber: $m_{\\text{Cu}} = 0{,}30 \\text{ kg}$, $T_{\\text{Cu,start}} = ?$, $c_{\\text{Cu}} = 385 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Vann: $m_{\\text{vann}} = 0{,}80 \\text{ kg}$, $T_{\\text{vann,start}} = 18 \\text{°C}$, $c_{\\text{vann}} = 4180 \\text{ J/(kg}\\cdot\\text{°C)}$\n- Sluttemperatur: $T = 25 \\text{°C}$\n\n**Energibevaring:**\n\n$$Q_{\\text{Cu}} + Q_{\\text{vann}} = 0$$\n\n**Varmen som kobber avgir:**\n\n$$Q_{\\text{Cu}} = m_{\\text{Cu}} c_{\\text{Cu}} (T - T_{\\text{Cu,start}})$$\n\n$$Q_{\\text{Cu}} = 0{,}30 \\cdot 385 \\cdot (25 - T_{\\text{Cu,start}})$$\n\n**Varmen som vann mottar:**\n\n$$Q_{\\text{vann}} = m_{\\text{vann}} c_{\\text{vann}} (T - T_{\\text{vann,start}})$$\n\n$$Q_{\\text{vann}} = 0{,}80 \\cdot 4180 \\cdot (25 - 18)$$\n\n$$Q_{\\text{vann}} = 3344 \\cdot 7 = 23\\,408 \\text{ J}$$\n\n**Energibevaring:**\n\n$$Q_{\\text{Cu}} + Q_{\\text{vann}} = 0$$\n\n$$0{,}30 \\cdot 385 \\cdot (25 - T_{\\text{Cu,start}}) + 23\\,408 = 0$$\n\n$$115{,}5 \\cdot (25 - T_{\\text{Cu,start}}) = -23\\,408$$\n\n$$25 - T_{\\text{Cu,start}} = \\frac{-23\\,408}{115{,}5}$$\n\n$$25 - T_{\\text{Cu,start}} = -202{,}6$$\n\n$$T_{\\text{Cu,start}} = 25 + 202{,}6 = 227{,}6 \\text{°C}$$\n\n**Svar:** Kobberets starttemperatur var omtrent 228°C.",
       "hints": [
         "Bruk energibevaring",
         "Finn først varmen som vann mottar",
         "Løs for ukjent starttemperatur"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-1-ex-11",
+      "number": "11",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Is varmes jevnt med en kokeplate. Temperaturen stiger til $0\\,°\\text{C}$, står så stille en stund, og stiger deretter igjen.\n\nHva går energien fra kokeplata til mens temperaturen står stille?",
+      "solution": "Temperaturen er konstant, så den gjennomsnittlige kinetiske energien til molekylene endres ikke.\n\nEnergien går til å bryte bindingene som holder vannmolekylene på plass i krystallgitteret, slik at isen smelter.\n\n**Svar:** Energien smelter isen. Den bryter bindinger mellom molekylene i stedet for å øke farten deres.",
+      "hints": [
+        "Hva er temperatur et mål på?",
+        "Hva skjer med isen mens temperaturen står stille?"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-1-ex-12",
+      "number": "12",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Hvor mye energi trengs for å smelte $0{,}25\\text{ kg}$ is med temperatur $0\\,°\\text{C}$ og deretter varme smeltevannet til $20\\,°\\text{C}$?\n\nBruk $l_{\\text{s}} = 3{,}34 \\cdot 10^5\\text{ J/kg}$ og $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$.",
+      "solution": "Smelting:\n\n$$Q_1 = m\\,l_{\\text{s}} = 0{,}25 \\cdot 3{,}34 \\cdot 10^5\\text{ J} = 8{,}35 \\cdot 10^4\\text{ J}$$\n\nOppvarming:\n\n$$Q_2 = m\\,c_{\\text{vann}}\\,\\Delta T = 0{,}25 \\cdot 4180 \\cdot 20\\text{ J} = 2{,}09 \\cdot 10^4\\text{ J}$$\n\n$$Q = Q_1 + Q_2 = 1{,}044 \\cdot 10^5\\text{ J}$$\n\n**Svar:** Omtrent $104\\text{ kJ}$.",
+      "hints": [
+        "Del prosessen i smelting og oppvarming",
+        "Under smeltingen er $\\Delta T = 0$"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-1-ex-13",
+      "number": "13",
+      "type": "classic",
+      "difficulty": "medium",
+      "task": "Damp ved $100\\,°\\text{C}$ gir verre brannskader enn like mye vann ved $100\\,°\\text{C}$.\n\nSammenlign energien huden får fra $10\\text{ g}$ vann som kjøles fra $100\\,°\\text{C}$ til $40\\,°\\text{C}$, med energien fra $10\\text{ g}$ damp som først kondenserer og så kjøles på samme måte.\n\nBruk $l_{\\text{f}} = 2{,}3 \\cdot 10^6\\text{ J/kg}$ og $c_{\\text{vann}} = 4200\\text{ J/(kg}\\cdot°\\text{C)}$.",
+      "solution": "Vann som kjøles:\n\n$$Q_{\\text{vann}} = mc\\Delta T = 0{,}010 \\cdot 4200 \\cdot 60\\text{ J} \\approx 2{,}5 \\cdot 10^3\\text{ J}$$\n\nDamp som kondenserer:\n\n$$Q_{\\text{kond}} = m\\,l_{\\text{f}} = 0{,}010 \\cdot 2{,}3 \\cdot 10^6\\text{ J} = 2{,}3 \\cdot 10^4\\text{ J}$$\n\nDamp i alt: $2{,}3 \\cdot 10^4\\text{ J} + 2{,}5 \\cdot 10^3\\text{ J} \\approx 2{,}55 \\cdot 10^4\\text{ J}$\n\n**Svar:** Vannet gir omtrent $2{,}5\\text{ kJ}$ og dampen omtrent $25\\text{ kJ}$, rundt ti ganger så mye. Forskjellen er fordampingsvarmen som frigjøres når dampen kondenserer på huden.",
+      "hints": [
+        "Damp avgir energi både når den kondenserer og når vannet kjøles",
+        "Kondensasjon frigjør like mye energi som fordamping krever"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-1-ex-14",
+      "number": "14",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "I en isolert beholder blandes $0{,}50\\text{ kg}$ is med temperatur $-10\\,°\\text{C}$ og $0{,}40\\text{ kg}$ vann med temperatur $15\\,°\\text{C}$.\n\nBruk $c_{\\text{is}} = 2100\\text{ J/(kg}\\cdot°\\text{C)}$, $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$ og $l_{\\text{s}} = 3{,}34 \\cdot 10^5\\text{ J/kg}$.\n\na) Vis at ikke all isen kan smelte.\n\nb) Hvor mye av isen smelter?\n\nc) Forklar hvorfor sluttemperaturen blir $0\\,°\\text{C}$.",
+      "solution": "**a)**\n\nStørste energi vannet kan avgi (avkjøling til $0\\,°\\text{C}$):\n\n$$Q_{\\text{vann}} = 0{,}40 \\cdot 4180 \\cdot 15\\text{ J} = 2{,}508 \\cdot 10^4\\text{ J}$$\n\nIsen varmes til $0\\,°\\text{C}$:\n\n$$Q_1 = 0{,}50 \\cdot 2100 \\cdot 10\\text{ J} = 1{,}05 \\cdot 10^4\\text{ J}$$\n\nAll isen smelter:\n\n$$Q_2 = 0{,}50 \\cdot 3{,}34 \\cdot 10^5\\text{ J} = 1{,}67 \\cdot 10^5\\text{ J}$$\n\n$Q_1 + Q_2 \\approx 1{,}8 \\cdot 10^5\\text{ J}$, som er mye mer enn $2{,}5 \\cdot 10^4\\text{ J}$.\n\n**Svar:** a) Å smelte all isen krever omtrent $1{,}8 \\cdot 10^5\\text{ J}$, men vannet kan bare avgi $2{,}5 \\cdot 10^4\\text{ J}$.\n\n**b)**\n\nEnergi igjen til smelting:\n\n$$2{,}508 \\cdot 10^4\\text{ J} - 1{,}05 \\cdot 10^4\\text{ J} = 1{,}458 \\cdot 10^4\\text{ J}$$\n\n$$m = \\frac{Q}{l_{\\text{s}}} = \\frac{1{,}458 \\cdot 10^4\\text{ J}}{3{,}34 \\cdot 10^5\\text{ J/kg}} \\approx 0{,}044\\text{ kg}$$\n\n**Svar:** b) Omtrent $44\\text{ g}$ is smelter.\n\n**c)** Sluttemperaturen kan ikke være over $0\\,°\\text{C}$, for da måtte all isen ha smeltet. Den kan heller ikke være under $0\\,°\\text{C}$, for da måtte alt vannet ha frosset. Det ville frigjort $0{,}40 \\cdot 4180 \\cdot 15\\text{ J} + 0{,}40 \\cdot 3{,}34 \\cdot 10^5\\text{ J} \\approx 1{,}6 \\cdot 10^5\\text{ J}$, mens isen kan ta opp høyst $1{,}05 \\cdot 10^4\\text{ J}$ før den når $0\\,°\\text{C}$. Is og vann er bare i likevekt med hverandre ved smeltepunktet.\n\n**Svar:** c) Blandingen av is og vann er i likevekt bare ved smeltepunktet, $0\\,°\\text{C}$.",
+      "hints": [
+        "Finn først hvor mye energi vannet kan avgi før det når $0\\,°\\text{C}$",
+        "Isen må varmes til $0\\,°\\text{C}$ før den kan smelte"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-1-ex-15",
+      "number": "15",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "En gruppe skal bestemme den spesifikke smeltevarmen til is. De har $0{,}250\\text{ kg}$ vann med temperatur $30{,}0\\,°\\text{C}$ i et isoporbeger. De tørker noen isbiter med papir og slipper dem i vannet. Når isen har smeltet og temperaturen er stabil, er den $12{,}4\\,°\\text{C}$. Ved å veie begeret før og etter finner de at isen hadde masse $46\\text{ g}$. Bruk $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$.\n\na) Sett opp energibalansen og regn ut $l_{\\text{s}}$. Anta at isen holdt $0\\,°\\text{C}$.\n\nb) Tabellverdien er $334\\text{ kJ/kg}$. Hvor stort er avviket i prosent?\n\nc) Forklar hvorfor gruppa tørker isbitene. Hvilken vei blir resultatet feil om de ikke gjør det?\n\nd) Isen kom rett fra en fryser. Forklar hvordan det kan forklare avviket i b).",
+      "solution": "**a)**\n\nAvgitt av vannet = smelting + oppvarming av smeltevannet fra $0\\,°\\text{C}$ til $12{,}4\\,°\\text{C}$:\n\n$$m_{\\text{v}}\\,c\\,(30{,}0 - 12{,}4) = m_{\\text{is}}\\,l_{\\text{s}} + m_{\\text{is}}\\,c\\,(12{,}4 - 0)$$\n\n$$0{,}250 \\cdot 4180 \\cdot 17{,}6\\text{ J} = 18\\,392\\text{ J}$$\n\n$$0{,}046 \\cdot 4180 \\cdot 12{,}4\\text{ J} \\approx 2384\\text{ J}$$\n\n$$l_{\\text{s}} = \\frac{18\\,392 - 2384}{0{,}046}\\text{ J/kg} \\approx 3{,}48 \\cdot 10^5\\text{ J/kg}$$\n\n**Svar:** a) Omtrent $348\\text{ kJ/kg}$.\n\n**b)**\n\n$$\\frac{348 - 334}{334} \\approx 0{,}042$$\n\n**Svar:** b) Omtrent $4\\,\\%$ for høy.\n\n**c)** Vann som henger på isen, er allerede smeltet og trenger ingen smeltevarme, men det regnes med i massen av is. Da deles energien på en for stor masse.\n\n**Svar:** c) Uten tørking blir $l_{\\text{s}}$ for lav.\n\n**d)** Is rett fra fryseren kan holde $-10$ til $-20\\,°\\text{C}$. Da går en del av energien fra vannet til å varme isen opp til $0\\,°\\text{C}$, men i regnestykket regnes all den energien som smeltevarme.\n\n**Svar:** d) Is under $0\\,°\\text{C}$ gir for høy $l_{\\text{s}}$, og det passer med avviket i b).",
+      "hints": [
+        "Vannet avgir energi til både smelting og oppvarming av smeltevannet",
+        "Smeltevannet varmes fra $0\\,°\\text{C}$ til sluttemperaturen"
       ],
       "allowsUpload": true,
       "allowsCanvasDrawing": true

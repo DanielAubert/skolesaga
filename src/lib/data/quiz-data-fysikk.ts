@@ -1296,54 +1296,94 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 
   'fys1-1-3': [
   {
-    question: 'Hva er en numerisk metode?',
+    question: 'Hvordan skrives $\\tfrac{1}{2}mv^2$ i Python?',
     options: [
-      'En algoritme som finner en tilnærmet løsning ved å dele problemet i mange små steg',
-      'En metode som alltid gir eksakte svar',
-      'En metode for å måle med tallverdier i laboratoriet',
-      'En grafisk metode for å lese av verdier fra diagram',
+      '`0.5 * m * v**2`',
+      '`0.5 * m * v^2`',
+      '`0,5 * m * v**2`',
+      '`0.5 * m * v * 2`',
     ],
-    explanation: 'En numerisk metode beregner en tilnærmet løsning på et matematisk problem ved å dele det opp i mange små steg. Den brukes når analytiske løsninger ikke finnes eller er for kompliserte.',
+    explanation: 'Gange skrives `*`, opphøyd i skrives `**`, og desimaltall har punktum. `v^2` er ikke $v^2$ i Python, `0,5` blir to tall, og `v * 2` er $2v$.',
   },
   {
-    question: 'Hvordan oppdateres hastigheten i ett steg av Eulers metode?',
+    question: 'Python skal regne ut $\\dfrac{s}{2a}$. Hvilken linje er riktig?',
     options: [
-      '$v_{ny} = v + a \\cdot \\Delta t$',
-      '$v_{ny} = v \\cdot a \\cdot \\Delta t$',
-      '$v_{ny} = a / \\Delta t$',
-      '$v_{ny} = v + \\frac{1}{2} a \\Delta t^2$',
+      '`s / (2 * a)`',
+      '`s / 2 * a`',
+      '`s / 2a`',
+      '`(s / 2) * a`',
     ],
-    explanation: 'I Eulers metode antar vi at akselerasjonen er konstant i hvert lille tidssteg, slik at den nye hastigheten blir $v_{ny} = v + a \\cdot \\Delta t$.',
+    explanation: 'Uten parentes regner Python fra venstre: `s / 2 * a` er $\\frac{s}{2} \\cdot a$, det samme som `(s / 2) * a`. `2a` uten gangetegn gir feilmelding.',
   },
   {
-    question: 'Et objekt starter i ro med akselerasjon 9,8 m/s². Hva blir hastigheten etter ett Euler-steg med Δt = 0,1 s?',
+    question: 'Lista er `t = [0.0, 0.2, 0.4, 0.6]`. Hva er `t[1]` og `len(t)`?',
     options: [
-      '0,98 m/s',
-      '9,8 m/s',
-      '0,098 m/s',
-      '1,96 m/s',
+      '`0.2` og `4`',
+      '`0.0` og `4`',
+      '`0.2` og `3`',
+      '`0.4` og `4`',
     ],
-    explanation: '$v = v_0 + a \\cdot \\Delta t = 0 + 9{,}8 \\cdot 0{,}1 = 0{,}98$ m/s.',
+    explanation: 'Elementene nummereres fra 0, så `t[1]` er det andre elementet, 0.2. `len(t)` er antallet elementer, 4. Velger du 0.0, har du trodd at nummereringen starter på 1.',
   },
   {
-    question: 'Hvordan kan vi gjøre Eulers metode mer nøyaktig?',
+    question: 'Hva skriver programmet `for v in [10, 20, 30]: print(v / 2)` ut?',
     options: [
-      'Bruke mindre tidssteg Δt',
-      'Bruke større tidssteg Δt',
-      'Fjerne startbetingelsene',
-      'Kjøre programmet flere ganger med samme Δt',
+      '`5.0`, `10.0` og `15.0` på hver sin linje',
+      '`30.0`',
+      '`5.0` én gang',
+      '`[5.0, 10.0, 15.0]`',
     ],
-    explanation: 'Feilen i Eulers metode minker når tidssteget Δt blir mindre, fordi antakelsen om konstant akselerasjon i hvert steg da blir bedre. Prisen er flere beregninger.',
+    explanation: 'Løkka gjør `print` én gang for hver verdi i lista, så det blir tre linjer. Python skriver ikke ut en liste når du deler hvert tall for seg.',
   },
   {
-    question: 'Hvorfor trenger vi numeriske metoder for å beregne fall med luftmotstand?',
+    question: 'Når passer en while-løkke bedre enn en for-løkke?',
     options: [
-      'Fordi akselerasjonen avhenger av farten, så den er ikke konstant og bevegelseslikningene gjelder ikke',
-      'Fordi tyngdeakselerasjonen endrer seg under fallet',
-      'Fordi datamaskiner ikke kan regne med konstant akselerasjon',
-      'Fordi luftmotstand gjør at energien ikke er bevart',
+      'Når vi ikke vet på forhånd hvor mange ganger løkka skal gå',
+      'Når vi skal gå gjennom alle verdiene i en liste',
+      'Når løkka skal gå nøyaktig ti ganger',
+      'Når programmet ikke har noen betingelse',
     ],
-    explanation: 'Med luftmotstand avhenger akselerasjonen av farten (f.eks. $a = g - \\frac{k}{m}v^2$). Akselerasjonen er altså ikke konstant, og bevegelseslikningene for konstant akselerasjon gjelder ikke. Da regner vi steg for steg med Eulers metode.',
+    explanation: 'En while-løkke går så lenge betingelsen er sann, for eksempel til en sprettball er lav nok. For en liste eller et kjent antall runder er for-løkka enklest.',
+  },
+  {
+    question: 'En ball når 70 % av forrige høyde i hvert sprett og slippes fra 2,0 m. Hva skriver `h = 2.0; n = 0; while h > 0.5: h = 0.7 * h; n = n + 1` til slutt i `n`?',
+    options: [
+      '4',
+      '3',
+      '5',
+      '2',
+    ],
+    explanation: 'Høydene blir 1,4, 0,98, 0,686 og 0,480 m. Etter tre sprett er høyden fortsatt over 0,5 m, så løkka går én gang til, og `n` blir 4.',
+  },
+  {
+    question: 'Posisjonen til en vogn er 0,190 m ved 0,4 s og 0,435 m ved 0,6 s. Hvilken programlinje gir gjennomsnittsfarten i intervallet når målingene ligger i listene `t` og `s` med nummer `i = 3`?',
+    options: [
+      '`(s[i] - s[i-1]) / (t[i] - t[i-1])`',
+      '`s[i] / t[i]`',
+      '`(s[i] - s[i-1]) * (t[i] - t[i-1])`',
+      '`(s[i] + s[i-1]) / 2`',
+    ],
+    explanation: 'Gjennomsnittsfart er posisjonsendring delt på tidsendring: $\\frac{0{,}435 - 0{,}190}{0{,}6 - 0{,}4} \\approx 1{,}23$ m/s. `s[i] / t[i]` gir gjennomsnittsfarten fra start, og `(s[i] + s[i-1]) / 2` er en middelposisjon, ikke en fart.',
+  },
+  {
+    question: 'En vogn starter fra ro og har rullet 1,205 m etter 1,0 s. Hva gir modellen $s = \\tfrac{1}{2}at^2$ for $a$?',
+    options: [
+      '2,41 m/s²',
+      '1,21 m/s²',
+      '4,82 m/s²',
+      '1,205 m/s²',
+    ],
+    explanation: '$a = \\frac{2s}{t^2} = \\frac{2 \\cdot 1{,}205}{1{,}0^2} = 2{,}41$ m/s². 1,21 får du ved å glemme faktoren 2, og 4,82 ved å gange med 4.',
+  },
+  {
+    question: 'Hvordan bør målinger og en modell tegnes i samme plott?',
+    options: [
+      'Målingene som punkter og modellen som en kurve',
+      'Begge som punkter uten enheter på aksene',
+      'Målingene som en kurve og modellen som punkter',
+      'Bare modellen, fordi målingene har usikkerhet',
+    ],
+    explanation: 'Målingene er enkeltverdier og vises som punkter (`"o"`). Modellen gjelder for alle tider og tegnes som en sammenhengende kurve. Da ser vi om punktene ligger på kurven.',
   },
 ],
 
@@ -1397,6 +1437,36 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Bare i vakuum',
     ],
     explanation: 'I toppunktet av et vertikalt kast er farten et øyeblikk null, men tyngdeakselerasjonen virker hele tiden ($a = -g$). Akselerasjon beskriver endring i hastighet, ikke hastigheten selv.',
+  },
+  {
+    question: 'Tangenten til s–t-grafen for en løper i t = 3,0 s går gjennom (1,0 s; 2,0 m) og (5,0 s; 14 m). Hva er momentanfarten i t = 3,0 s?',
+    options: [
+      '3,0 m/s',
+      '4,7 m/s',
+      '2,8 m/s',
+      '12 m/s',
+    ],
+    explanation: 'Momentanfarten er stigningstallet til tangenten: $v = \\frac{14 - 2{,}0}{5{,}0 - 1{,}0} = \\frac{12}{4{,}0} = 3{,}0$ m/s. 4,7 m/s får du ved å dele 14 m på 3,0 s, 2,8 m/s ved å dele 14 m på 5,0 s, og 12 m/s er bare Δs uten å dele på Δt.',
+  },
+  {
+    question: 'En s–t-graf har vannrett tangent i t = 2,0 s. Hva vet du om bevegelsen i dette øyeblikket?',
+    options: [
+      'Farten er null',
+      'Akselerasjonen er null',
+      'Objektet er i origo',
+      'Farten er størst',
+    ],
+    explanation: 'Stigningstallet til en vannrett tangent er null, og stigningstallet i en s–t-graf er farten. Akselerasjonen leser du av v–t-grafen, ikke s–t-grafen. Posisjonen kan være hva som helst, og størst fart har objektet der s–t-grafen er brattest.',
+  },
+  {
+    question: 'En v–t-graf synker, men blir slakere og slakere. Hva skjer med akselerasjonen?',
+    options: [
+      'Den er negativ og nærmer seg null',
+      'Den er negativ og blir mer og mer negativ',
+      'Den er positiv og øker',
+      'Den er konstant, fordi farten minker jevnt',
+    ],
+    explanation: 'Akselerasjonen er stigningstallet til tangenten i v–t-grafen. Grafen synker, så stigningstallet er negativt. Den blir slakere, så stigningstallet nærmer seg null. Konstant akselerasjon ville gitt en rett linje.',
   },
 ],
 
@@ -1653,15 +1723,138 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Ved terminalfart balanserer luftmotstanden tyngdekraften: $F_L = mg = 80 \\cdot 9{,}8 = 784$ N.',
   },
+],
+
+  'fys1-3-5': [
+  {
+    question: 'Hva er en numerisk metode?',
+    options: [
+      'En metode som regner i små steg og gir et tilnærmet svar',
+      'En metode som gir det eksakte svaret med én enkelt formel',
+      'En metode for å måle tallverdier nøyaktig i laboratoriet',
+      'En metode for å lese av verdier fra en graf eller et diagram',
+    ],
+    explanation: 'En numerisk metode beregner en tilnærmet løsning på et matematisk problem ved å dele det opp i mange små steg. Den brukes når analytiske løsninger ikke finnes eller er for kompliserte.',
+  },
+  {
+    question: 'Hvordan oppdateres hastigheten i ett steg av Eulers metode?',
+    options: [
+      '$v_{\\text{ny}} = v + a \\cdot \\Delta t$',
+      '$v_{\\text{ny}} = v \\cdot a \\cdot \\Delta t$',
+      '$v_{\\text{ny}} = a / \\Delta t$',
+      '$v_{\\text{ny}} = v + \\frac{1}{2} a \\Delta t^2$',
+    ],
+    explanation: 'I Eulers metode antar vi at akselerasjonen er konstant i hvert lille tidssteg, slik at den nye hastigheten blir $v_{\\text{ny}} = v + a \\cdot \\Delta t$.',
+  },
+  {
+    question: 'Et objekt starter i ro med akselerasjon 9,8 m/s². Hva blir hastigheten etter ett Euler-steg med Δt = 0,1 s?',
+    options: [
+      '0,98 m/s',
+      '9,8 m/s',
+      '0,098 m/s',
+      '1,96 m/s',
+    ],
+    explanation: '$v = v_0 + a \\cdot \\Delta t = 0 + 9{,}8 \\cdot 0{,}1 = 0{,}98$ m/s.',
+  },
+  {
+    question: 'Hvordan kan vi gjøre Eulers metode mer nøyaktig?',
+    options: [
+      'Bruke mindre tidssteg Δt',
+      'Bruke større tidssteg Δt',
+      'Fjerne startbetingelsene',
+      'Kjøre programmet flere ganger med samme Δt',
+    ],
+    explanation: 'Feilen i Eulers metode minker når tidssteget Δt blir mindre, fordi antakelsen om konstant akselerasjon i hvert steg da blir bedre. Prisen er flere beregninger.',
+  },
   {
     question: 'Hvorfor brukes numeriske metoder (som Eulers metode) for å beregne fall med luftmotstand?',
     options: [
-      'Fordi akselerasjonen endrer seg med farten, slik at likningene for konstant akselerasjon ikke gjelder',
+      'Fordi akselerasjonen endrer seg med farten',
       'Fordi tyngdekraften varierer tilfeldig',
-      'Fordi bevegelsen er todimensjonal',
+      'Fordi bevegelsen skjer i to dimensjoner',
       'Fordi luftmotstanden er konstant under hele fallet',
     ],
     explanation: 'Luftmotstanden, og dermed akselerasjonen, avhenger av farten og endrer seg gjennom fallet. Da kan vi ikke bruke bevegelseslikningene for konstant akselerasjon, men må regne steg for steg numerisk.',
+  },
+  {
+    question: 'En fallskjermhopper på 80 kg har farten 9,81 m/s. Luftmotstanden er $kv^2$ med $k = 0{,}25$ kg/m. Hva er akselerasjonen nedover akkurat da?',
+    options: [
+      '9,51 m/s²',
+      '9,81 m/s²',
+      '0,30 m/s²',
+      '−14,3 m/s²',
+    ],
+    explanation: '$a = g - \\frac{k}{m}v^2 = 9{,}81 - \\frac{0{,}25}{80} \\cdot 9{,}81^2 = 9{,}51$ m/s². 9,81 m/s² glemmer luftmotstanden, 0,30 m/s² er bare luftmotstandsleddet, og −14,3 m/s² får du ved å glemme å dele luftmotstanden på massen.',
+  },
+  {
+    question: 'I et program for en bil som bremser fra 30 m/s, står linja `a = -(R + k * v**2) / m` før løkka. Hva skjer med modellen?',
+    options: [
+      'Luftmotstanden ved 30 m/s blir brukt i alle stegene',
+      'Programmet blir mer nøyaktig',
+      'Luftmotstanden blir null i alle stegene',
+      'Løkka stopper aldri',
+    ],
+    explanation: 'Linja regnes bare ut én gang, med startfarten, så akselerasjonen blir konstant og luftmotstanden følger ikke farten ned. Løkka stopper fortsatt, fordi farten minker i hvert steg.',
+  },
+  {
+    question: 'En ball på 0,50 kg med $k = 0{,}0024$ kg/m slippes fra ro. Et program gir farten 52 m/s. Hva tyder det på?',
+    options: [
+      'Fortegnet på luftmotstanden er trolig feil',
+      'Tidssteget er for lite',
+      'Fallet var for kort',
+      'Programmet regner riktig',
+    ],
+    explanation: 'Terminalfarten er $\\sqrt{mg/k} = \\sqrt{0{,}50 \\cdot 9{,}81 / 0{,}0024} = 45{,}2$ m/s. En gjenstand som slippes fra ro, kan ikke falle fortere enn det, så luftmotstanden virker trolig i feil retning i programmet.',
+  },
+  {
+    question: 'Et program simulerer 5,0 s med `dt = 0.1` og `for i in range(50):`. Eleven endrer til `dt = 0.05`, men lar løkka stå. Hvor lang tid simuleres nå?',
+    options: [
+      '2,5 s',
+      '5,0 s',
+      '10 s',
+      '0,25 s',
+    ],
+    explanation: 'Simulert tid er antall steg ganger tidssteget: $50 \\cdot 0{,}05$ s $= 2{,}5$ s. For å simulere 5,0 s må løkka gå 100 ganger.',
+  },
+  {
+    question: 'Et program med `dt = 0.01` gir en feil på 0,10 m i fallstrekningen. Omtrent hvor stor blir feilen med `dt = 0.001`?',
+    options: [
+      '0,01 m',
+      '0,10 m',
+      '0,001 m',
+      '1,0 m',
+    ],
+    explanation: 'Feilen i Eulers metode er omtrent proporsjonal med tidssteget, så ti ganger mindre steg gir omtrent ti ganger mindre feil. 0,001 m ville krevd at feilen minket med kvadratet av tidssteget.',
+  },
+  {
+    question: 'Hvorfor kvadreres avvikene mellom modell og måling før de summeres når vi skal finne den beste verdien av $k$?',
+    options: [
+      'For at positive og negative avvik ikke skal oppheve hverandre',
+      'For at summen skal få enheten meter',
+      'For at små avvik skal telle mer enn store',
+      'For at programmet skal gå raskere',
+    ],
+    explanation: 'Uten kvadrering kunne avvikene +2 cm og −2 cm gitt summen null. Kvadreringen gjør alle ledd positive, og store avvik teller mer enn små. Enheten blir m², ikke m.',
+  },
+  {
+    question: 'En muffinsform på 0,80 g faller med terminalfarten 1,24 m/s. Hva er $k$ i modellen $L = kv^2$?',
+    options: [
+      '$5{,}1 \\cdot 10^{-3}$ kg/m',
+      '$6{,}3 \\cdot 10^{-3}$ kg/m',
+      '$5{,}1$ kg/m',
+      '$5{,}2 \\cdot 10^{-4}$ kg/m',
+    ],
+    explanation: '$k = \\frac{mg}{v_t^2} = \\frac{0{,}00080 \\cdot 9{,}81}{1{,}24^2} = 5{,}1 \\cdot 10^{-3}$ kg/m. $6{,}3 \\cdot 10^{-3}$ får du ved å dele på $v_t$, 5,1 kg/m ved å regne massen i gram, og $5{,}2 \\cdot 10^{-4}$ ved å glemme $g$.',
+  },
+  {
+    question: 'Når massen til en fallende papirkjegle dobles, blir terminalfarten ca. 1,4 ganger så stor. Hvilken modell for luftmotstanden passer?',
+    options: [
+      '$L = kv^2$',
+      '$L = kv$',
+      'ingen luftmotstand',
+      '$L = kv^3$',
+    ],
+    explanation: 'Med $L = kv^2$ er $v_t = \\sqrt{mg/k}$, så dobbel masse gir $\\sqrt{2} \\approx 1{,}4$ ganger så stor terminalfart. Med $L = kv$ ville den blitt dobbelt så stor, og uten luftmotstand finnes det ingen terminalfart.',
   },
 ],
 
@@ -1716,6 +1909,36 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Arbeid-energi-teoremet: $W_{netto} = \\Delta E_k = E_{k,slutt} - E_{k,start}$. Positivt netto arbeid øker farten, negativt netto arbeid (f.eks. fra friksjon) bremser objektet.',
   },
+  {
+    question: 'To kraner løfter like tunge laster like høyt. Kran A bruker 15 s, kran B bruker 45 s. Hvilket utsagn er riktig?',
+    options: [
+      'A har tre ganger så stor effekt som B',
+      'A gjør tre ganger så stort arbeid som B',
+      'B har tre ganger så stor effekt som A',
+      'A og B har like stor effekt',
+    ],
+    explanation: 'Arbeidet $mgh$ er det samme for begge. Effekten er $P = \\frac{W}{t}$, så en tredjedel av tiden gir tre ganger så stor effekt. Den som tror at lang tid gir stor effekt, har byttet om teller og nevner.',
+  },
+  {
+    question: 'En bil kjører med konstant fart 20 m/s, og luftmotstand og rullemotstand er til sammen 600 N. Hvor stor effekt må drivkraften ha?',
+    options: [
+      '12 kW',
+      '30 W',
+      '620 W',
+      '0 W',
+    ],
+    explanation: 'Ved konstant fart er drivkraften like stor som motstanden: $P = Fv = 600 \\cdot 20 = 12\\,000$ W. 30 W får du ved å dele kraften på farten, 620 W ved å legge dem sammen, og 0 W hvis du tror at null akselerasjon betyr null effekt.',
+  },
+  {
+    question: 'Hvor mange joule er 1 kWh?',
+    options: [
+      '3,6 MJ',
+      '1000 J',
+      '3600 J',
+      '60 kJ',
+    ],
+    explanation: '$1 \\text{ kWh} = 1000 \\text{ W} \\cdot 3600 \\text{ s} = 3{,}6 \\cdot 10^6$ J. 1000 J har glemt timen, 3600 J har glemt kilo, og 60 kJ regner med minutter i stedet for sekunder.',
+  },
 ],
 
   'fys1-4-2': [
@@ -1768,6 +1991,26 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Fordi g varierer med høyden',
     ],
     explanation: 'Det er bare endringer $\\Delta E_p$ som inngår i fysiske beregninger, så nullnivået ($h = 0$) kan velges der det er mest praktisk.',
+  },
+  {
+    question: 'Et lodd med masse 0,20 kg henger i ro i en fjær og strekker den 4,0 cm. Hva er fjærkonstanten? Bruk g = 9,81 m/s².',
+    options: [
+      '49 N/m',
+      '0,49 N/m',
+      '0,078 N/m',
+      '5,0 N/m',
+    ],
+    explanation: 'I ro er fjærkraften lik tyngden: $F = 0{,}20 \\cdot 9{,}81 = 1{,}96$ N, og $k = \\frac{F}{x} = \\frac{1{,}96}{0{,}040} \\approx 49$ N/m. 0,49 N/m bruker x = 4,0 i stedet for 0,040 m, 0,078 N/m ganger F med x, og 5,0 N/m bruker massen i stedet for tyngden.',
+  },
+  {
+    question: 'En fjær følger Hookes lov. Kraften som trengs for å strekke den 3,0 cm, er 6,0 N. Hvor stor kraft trengs for å strekke den 9,0 cm?',
+    options: [
+      '18 N',
+      '54 N',
+      '12 N',
+      '2,0 N',
+    ],
+    explanation: 'Hookes lov $F = kx$ sier at kraften er proporsjonal med forlengelsen. Tre ganger så stor forlengelse gir tre ganger så stor kraft: $3 \\cdot 6{,}0 = 18$ N. 54 N kvadrerer forholdet, 12 N legger til 6,0 N, og 2,0 N deler i stedet for å gange.',
   },
 ],
 
@@ -1875,6 +2118,46 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Ved bremsing omdannes organisert kinetisk energi til uorganisert termisk energi som sprer seg. Energien er bevart, men kvaliteten er senket — den spredte varmen samler seg aldri spontant tilbake til nyttig arbeid.',
   },
+  {
+    question: 'Et kraftverk har damp på 477 °C og kjølevann på 27 °C. Hva er den største virkningsgraden kraftverket kan ha?',
+    options: [
+      '60 %',
+      '94 %',
+      '6 %',
+      '100 %',
+    ],
+    explanation: 'Temperaturene må være i kelvin: $T_v = 750$ K og $T_k = 300$ K, så $\\eta_{\\text{maks}} = 1 - \\frac{300}{750} = 0{,}60$. 94 % får du med grader celsius ($1 - \\frac{27}{477}$), 6 % er forholdet $\\frac{27}{477}$, og 100 % ville krevd at maskinen ikke avga varme.',
+  },
+  {
+    question: 'En varmepumpe bruker 1,5 kWh elektrisk energi og gir 4,5 kWh varme inn i et hus. Hvor kommer de andre 3,0 kWh fra?',
+    options: [
+      'Fra uteluften',
+      'Fra friksjon i kompressoren',
+      'Varmepumpen lager dem',
+      'Fra strømnettet',
+    ],
+    explanation: 'Energien er bevart: $Q_k = Q_v - W = 4{,}5 - 1{,}5 = 3{,}0$ kWh hentes fra uteluften, som er kaldere enn huset. Strømmen gjør det mulig å flytte varmen fra kaldt til varmt. Varmepumpen lager ikke energi, og strømmåleren viser all strømmen den bruker.',
+  },
+  {
+    question: 'En varmepumpe gir 4,2 kW varme og bruker 1,4 kW elektrisk effekt. Hva er varmefaktoren?',
+    options: [
+      '3,0',
+      '0,33',
+      '2,8',
+      '5,6',
+    ],
+    explanation: 'Varmefaktoren er varme inn i huset delt på elektrisk effekt: $\\varepsilon = \\frac{4{,}2}{1{,}4} = 3{,}0$. 0,33 har byttet om teller og nevner, 2,8 kW er varmen hentet fra uteluften, og 5,6 er summen av effektene.',
+  },
+  {
+    question: 'Hvorfor kan ingen varmekraftmaskin gjøre all tilført varme om til arbeid?',
+    options: [
+      'Den må avgi noe varme til et kaldere sted for å kunne gjenta syklusen',
+      'Friksjon i maskinen gjør en del av arbeidet om til varme',
+      'Energien går tapt i maskinen',
+      'Varme går av seg selv fra kaldt til varmt',
+    ],
+    explanation: 'Ingen maskin som går i syklus, kan gjøre all tilført varme om til arbeid; en del må alltid gå til det kalde stedet (termofysikkens andre lov). Det gjelder også uten friksjon. Energien går ikke tapt, og varme går av seg selv fra varmt til kaldt, ikke motsatt.',
+  },
 ],
 
   'fys1-5-1': [
@@ -1927,6 +2210,46 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Energi som bare finnes i gasser',
     ],
     explanation: 'Varme er energi i overføring fra varmt til kaldt legeme, målt i joule. Det er ikke en tilstand et legeme "har" — et legeme har indre energi, ikke varme.',
+  },
+  {
+    question: 'Is ved $0$ °C varmes jevnt og smelter. Hvorfor står temperaturen stille mens isen smelter?',
+    options: [
+      'Energien bryter bindingene mellom vannmolekylene',
+      'Energien øker farten til vannmolekylene',
+      'Isen kan ikke ta opp mer energi før den er smeltet',
+      'Energien går tapt til lufta rundt isen',
+    ],
+    explanation: 'Temperaturen måler den gjennomsnittlige kinetiske energien til molekylene. Under smeltingen går energien til å bryte bindingene i krystallgitteret, så farten og temperaturen endres ikke. Isen tar opp energi hele tiden, ellers ville den ikke smeltet.',
+  },
+  {
+    question: 'Hvor mye energi trengs for å smelte $0{,}30$ kg is ved $0$ °C? Spesifikk smeltevarme for is er $334$ kJ/kg.',
+    options: [
+      '$100$ kJ',
+      '$334$ kJ',
+      '$1113$ kJ',
+      '$678$ kJ',
+    ],
+    explanation: '$Q = m\\,l_{\\text{s}} = 0{,}30 \\cdot 334$ kJ $\\approx 100$ kJ. $334$ kJ er for 1 kg, $1113$ kJ kommer av å dele på massen i stedet for å gange, og $678$ kJ bruker fordampingsvarmen $2260$ kJ/kg.',
+  },
+  {
+    question: 'På en oppvarmingskurve for vann er den flate delen ved $100$ °C mye lengre enn den flate delen ved $0$ °C. Hva er grunnen?',
+    options: [
+      'Fordampingsvarmen er mye større enn smeltevarmen',
+      'Vann har større spesifikk varmekapasitet enn is',
+      'Kokeplata gir mer effekt ved høy temperatur',
+      'Det er mer vann ved $100$ °C enn det var is ved $0$ °C',
+    ],
+    explanation: 'Lengden på de flate delene er energien til faseovergangene: $l_{\\text{f}} = 2260$ kJ/kg mot $l_{\\text{s}} = 334$ kJ/kg, nesten sju ganger så mye. Den spesifikke varmekapasiteten bestemmer hvor bratte de skrå delene er, og massen er den samme hele veien.',
+  },
+  {
+    question: 'Mye is ved $-5$ °C legges i litt vann ved $10$ °C. Vannet har ikke nok energi til å smelte all isen. Hva blir sluttemperaturen når det er likevekt?',
+    options: [
+      '$0$ °C',
+      'Mellom $-5$ °C og $0$ °C',
+      'Mellom $0$ °C og $10$ °C',
+      '$2{,}5$ °C, gjennomsnittet av starttemperaturene',
+    ],
+    explanation: 'Is og vann kan bare være i likevekt ved smeltepunktet. Smelter ikke all isen, ender blandingen på $0$ °C. Under $0$ °C måtte alt vannet ha frosset, og over $0$ °C måtte all isen ha smeltet.',
   },
 ],
 
@@ -1981,6 +2304,46 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Begge har samme temperatur, men metall har mye høyere varmeledningsevne enn tre. Metallet leder derfor raskt varme bort fra huden, og det føles kaldt.',
   },
+  {
+    question: 'En gass avgir $300$ J varme samtidig som omgivelsene gjør $100$ J arbeid på den. Hva er endringen i den indre energien? Bruk $\\Delta U = Q + W$.',
+    options: [
+      '$-200$ J',
+      '$+400$ J',
+      '$+200$ J',
+      '$-400$ J',
+    ],
+    explanation: 'Avgitt varme gir $Q = -300$ J, og arbeid på gassen gir $W = +100$ J. $\\Delta U = -300 + 100 = -200$ J. $+200$ J har feil fortegn på begge, og $\\pm 400$ J kommer av å legge sammen tallverdiene.',
+  },
+  {
+    question: 'En gass i en sylinder utvider seg og skyver stempelet ut. Hvilket fortegn har $W$ i $\\Delta U = Q + W$?',
+    options: [
+      'Negativt, fordi gassen gjør arbeid på omgivelsene',
+      'Positivt, fordi gassen gjør arbeid',
+      'Null, fordi stempelet beveger seg fritt',
+      'Positivt, fordi volumet øker',
+    ],
+    explanation: '$W$ er arbeidet omgivelsene gjør på gassen. Når gassen skyver stempelet ut, gjør gassen arbeid på omgivelsene, og da er $W$ negativ.',
+  },
+  {
+    question: 'Bremseskivene på en bil blir varme når bilen bremser, selv om de ikke får varme fra noe varmere. Hva øker den indre energien til skivene?',
+    options: [
+      'Friksjonsarbeidet fra bremseklossene',
+      'Varmestråling fra motoren',
+      'Varme fra lufta rundt hjulene',
+      'Strøm fra bilbatteriet',
+    ],
+    explanation: 'Etter $\\Delta U = Q + W$ kan den indre energien øke ved arbeid uten varme. Bremseklossene gjør et friksjonsarbeid på skivene, og den kinetiske energien til bilen blir indre energi i skivene.',
+  },
+  {
+    question: 'En vannkoker på $1000$ W varmer $0{,}50$ kg vann fra $20$ °C til $100$ °C på $200$ s. Hva er virkningsgraden? Bruk $c = 4180$ J/(kg·°C).',
+    options: [
+      '$84\\,\\%$',
+      '$100\\,\\%$',
+      '$16\\,\\%$',
+      '$63\\,\\%$',
+    ],
+    explanation: 'Til vannet: $Q = 0{,}50 \\cdot 4180 \\cdot 80$ J $= 167\\,200$ J. Tilført: $E = Pt = 1000 \\cdot 200$ J $= 200\\,000$ J. $\\eta = 167\\,200 / 200\\,000 \\approx 0{,}84$. $16\\,\\%$ er andelen som går tapt, og $63\\,\\%$ bruker $\\Delta T = 60$ °C i stedet for $80$ °C.',
+  },
 ],
 
   'fys1-5-3': [
@@ -2033,6 +2396,46 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Bare sorte legemer kan absorbere stråling',
     ],
     explanation: 'Kirchhoffs lov sier at et legemes evne til å absorbere stråling er lik dets evne til å emittere stråling ved samme bølgelengde. En matt, sort overflate både absorberer og stråler godt.',
+  },
+  {
+    question: 'Hvilken av disse strålingstypene har størst frekvens?',
+    options: [
+      'Ultrafiolett stråling',
+      'Synlig lys',
+      'Infrarød stråling',
+      'Mikrobølger',
+    ],
+    explanation: 'Med $c = \\lambda f$ har kortest bølgelengde størst frekvens. Ultrafiolett har kortere bølgelengde enn synlig lys, infrarød og mikrobølger.',
+  },
+  {
+    question: 'Et foton har bølgelengde $400$ nm. Hva er energien i elektronvolt? Bruk $h = 6{,}63 \\cdot 10^{-34}$ J·s, $c = 3{,}00 \\cdot 10^8$ m/s og $1$ eV $= 1{,}60 \\cdot 10^{-19}$ J.',
+    options: [
+      '$3{,}1$ eV',
+      '$5{,}0$ eV',
+      '$1{,}6$ eV',
+      '$0{,}31$ eV',
+    ],
+    explanation: '$E = hc/\\lambda = 4{,}97 \\cdot 10^{-19}$ J, og delt på $1{,}60 \\cdot 10^{-19}$ gir det $3{,}1$ eV. $5{,}0$ eV kommer av å bruke joule-tallet direkte, og $1{,}6$ eV er halve verdien.',
+  },
+  {
+    question: 'Bølgelengden til lys halveres. Hva skjer med energien til hvert foton?',
+    options: [
+      'Den dobles',
+      'Den halveres',
+      'Den blir fire ganger så stor',
+      'Den er uendret',
+    ],
+    explanation: '$E = hc/\\lambda$, så energien er omvendt proporsjonal med bølgelengden. Halv bølgelengde gir dobbel energi. Fire ganger så stor ville krevd at energien var omvendt proporsjonal med $\\lambda^2$.',
+  },
+  {
+    question: 'Hvorfor kan UV-stråling bleke farger, mens svært sterkt rødt lys ikke kan det?',
+    options: [
+      'Hvert UV-foton har nok energi til å bryte en binding',
+      'Rødt lys inneholder færre fotoner enn UV-stråling',
+      'UV-stråling går raskere enn rødt lys',
+      'Rødt lys har kortere bølgelengde enn UV',
+    ],
+    explanation: 'Det er hvert enkelt foton som må bryte en binding i fargestoffet. UV har kortere bølgelengde og derfor mer energi per foton. Sterkere rødt lys gir flere fotoner, men hvert har for lite energi. All elektromagnetisk stråling har samme fart.',
   },
 ],
 
@@ -2087,6 +2490,36 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Is har høy albedo og reflekterer mye sollys. Når isen smelter, blottlegges mørkt hav med lav albedo som absorberer mer solenergi. Det gir mer oppvarming og mer smelting — en selvforsterkende (positiv) tilbakekobling.',
   },
+  {
+    question: 'I en enlags atmosfæremodell absorberer bakken $Q = 200$ W/m² fra sola, og atmosfærelaget absorberer all varmestråling fra bakken. Hvor mye stråler bakken ut per kvadratmeter?',
+    options: [
+      '$400$ W/m²',
+      '$200$ W/m²',
+      '$100$ W/m²',
+      '$800$ W/m²',
+    ],
+    explanation: 'Laget må stråle ut $P_a = Q$ i rommet og like mye ned. Bakken får $Q + P_a = 2Q$ og stråler ut $400$ W/m². $200$ W/m² er jorda uten atmosfære, og $100$ W/m² er halvparten i stedet for det dobbelte.',
+  },
+  {
+    question: 'I en enlags atmosfæremodell har atmosfærelaget temperaturen $T_a$. Hva er temperaturen ved bakken?',
+    options: [
+      '$2^{1/4}\\,T_a$',
+      '$2\\,T_a$',
+      '$T_a$',
+      '$\\sqrt{2}\\,T_a$',
+    ],
+    explanation: 'Bakken stråler ut dobbelt så mye som laget: $\\sigma T_b^4 = 2\\sigma T_a^4$, så $T_b = 2^{1/4}\\,T_a \\approx 1{,}19\\,T_a$. $2\\,T_a$ dobler temperaturen i stedet for strålingen, og $\\sqrt{2}\\,T_a$ bruker andre potens i stedet for fjerde.',
+  },
+  {
+    question: 'Hvorfor gir den enlags atmosfæremodellen høyere temperatur ved bakken (omtrent $303$ K) enn den målte ($288$ K)?',
+    options: [
+      'Den virkelige atmosfæren absorberer bare en del av varmestrålingen fra bakken',
+      'Modellen regner ikke med albedoen',
+      'Atmosfæren stråler mer ned enn opp',
+      'Sola stråler sterkere enn modellen antar',
+    ],
+    explanation: 'Modellen lar laget absorbere all varmestråling, men en del går rett ut i rommet. Bakken mister også energi ved fordamping og konveksjon. Albedoen er allerede med i den absorberte solstrålingen, og laget stråler like mye begge veier.',
+  },
 ],
 
   'fys1-6-1': [
@@ -2139,6 +2572,46 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       '$1{,}602 \\cdot 10^{-19}$ eV',
     ],
     explanation: '$W = qU = e \\cdot 1{,}0 \\text{ V} = 1{,}602 \\cdot 10^{-19}$ J. Denne energien kalles ett elektronvolt (1 eV).',
+  },
+  {
+    question: 'En plaststav gnis mot en klut og blir negativt ladet. Hva har skjedd?',
+    options: [
+      'Elektroner har gått fra kluten til staven',
+      'Protoner har gått fra staven til kluten',
+      'Elektroner har gått fra staven til kluten',
+      'Det er laget ny negativ ladning i staven',
+    ],
+    explanation: 'Bare elektronene kan flytte seg, protonene sitter fast i kjernene. Staven har fått elektroner, og kluten har fått like stor positiv ladning. Ladning lages ikke, den flyttes.',
+  },
+  {
+    question: 'En negativt ladd ballong trekker til seg en tom brusboks av aluminium som ikke er ladet. Hva er forklaringen?',
+    options: [
+      'Elektronene i boksen skyves bort, og den positive siden nærmest ballongen tiltrekkes sterkest',
+      'Boksen får elektroner fra ballongen gjennom lufta',
+      'Aluminium er alltid positivt ladet',
+      'Tyngdekraften mellom ballongen og boksen blir sterkere',
+    ],
+    explanation: 'Dette er influens. Siden nærmest blir positiv og siden lengst borte negativ, og tiltrekningen på den nære siden er størst. Boksen er fortsatt uladet totalt.',
+  },
+  {
+    question: 'Et batteri har spenning 3,7 V og kan levere ladningen 10 000 C. Hvor mye energi kan det levere?',
+    options: [
+      '37 kJ',
+      '2,7 kJ',
+      '10 kJ',
+      '3,7 kJ',
+    ],
+    explanation: '$W = QU = 10\\,000\\ \\mathrm{C} \\cdot 3{,}7\\ \\mathrm{V} = 37\\,000\\ \\mathrm{J}$. 2,7 kJ får du ved å dele ladningen på spenningen.',
+  },
+  {
+    question: 'Hvor mye ladning er 2000 mAh?',
+    options: [
+      '7200 C',
+      '2000 C',
+      '2,0 C',
+      '120 C',
+    ],
+    explanation: '2000 mAh er 2,0 A i 3600 s: $Q = 2{,}0\\ \\mathrm{A} \\cdot 3600\\ \\mathrm{s} = 7200$ C. 120 C får du hvis du regner timen som 60 sekunder.',
   },
 ],
 
@@ -2299,6 +2772,36 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
     ],
     explanation: 'Energinivåene i atomet er kvantiserte. Når et elektron hopper fra ett nivå til et lavere, sendes det ut et foton med energi nøyaktig lik differansen, $E = hf$. Hvert grunnstoff har sitt unike sett av nivåer og dermed sitt unike linjespektrum.',
   },
+  {
+    question: 'Hvilken observasjon viste at Rutherfords atommodell ikke kunne være hele forklaringen?',
+    options: [
+      'At atomer er stabile og sender ut linjespektre',
+      'At de fleste alfapartikler går rett gjennom gullfolie',
+      'At atomer kan rives fra hverandre',
+      'At atomer har elektroner',
+    ],
+    explanation: 'Etter klassisk fysikk skulle et elektron i bane stråle ut energi og falle inn i kjernen, og det ville gitt et sammenhengende spektrum. At de fleste alfapartiklene gikk rett gjennom, var tvert imot et argument for Rutherford.',
+  },
+  {
+    question: 'Hva er gyldighetsområdet til Bohrs atommodell?',
+    options: [
+      'Atomer og ioner med ett elektron',
+      'Alle atomer i det periodiske systemet',
+      'Bare atomkjerner',
+      'Bare atomer med fylte skall',
+    ],
+    explanation: 'Bohrs energinivåer gir riktige bølgelengder for hydrogen og ioner med ett elektron, men gale tall for helium og andre atomer med flere elektroner.',
+  },
+  {
+    question: 'Hvordan beskriver den moderne atommodellen elektronet?',
+    options: [
+      'Som en elektronsky der modellen gir sannsynligheten for å finne elektronet ulike steder',
+      'Som en partikkel i en bestemt sirkelbane med fast radius',
+      'Som en ladning spredt jevnt utover hele atomet',
+      'Som en partikkel som kan ha alle mulige energier',
+    ],
+    explanation: 'I den moderne modellen har elektronet ingen bestemt bane, men energinivåene er fortsatt faste. Sirkelbanen er Bohrs modell, og spredt ladning er Thomsons.',
+  },
 ],
 
   'fys1-6-5': [
@@ -2351,6 +2854,222 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'I vanlige stjerner som Solen',
     ],
     explanation: 'Big Bang ga i hovedsak hydrogen og helium, og vanlige stjerner fusjonerer opp til jern. Grunnstoff tyngre enn jern krever de ekstreme forholdene i supernovaer og nøytronstjernekollisjoner.',
+  },
+  {
+    question: 'Hva står langs den vannrette aksen i et HR-diagram, og hvilken vei øker den?',
+    options: [
+      'Overflatetemperaturen, som øker mot venstre',
+      'Overflatetemperaturen, som øker mot høyre',
+      'Massen, som øker mot venstre',
+      'Avstanden fra jorda, som øker mot høyre',
+    ],
+    explanation: 'I et HR-diagram står overflatetemperaturen langs den vannrette aksen, med de varmeste stjernene til venstre. Den loddrette aksen er utstrålt effekt.',
+  },
+  {
+    question: 'En stjerne har samme overflatetemperatur som sola, men 10 ganger så stor radius. Hvor mange ganger så mye stråler den ut?',
+    options: [
+      '100',
+      '10',
+      '1000',
+      '10 000',
+    ],
+    explanation: '$\\frac{L}{L_\\text{sol}} = \\left(\\frac{R}{R_\\text{sol}}\\right)^2 \\cdot \\left(\\frac{T}{T_\\text{sol}}\\right)^4 = 10^2 \\cdot 1 = 100$. 10 får du hvis du glemmer kvadratet, og 10 000 hvis du bruker fjerde potens på radien.',
+  },
+  {
+    question: 'Sirius B er mye varmere enn sola, men stråler ut mye mindre. Hva er grunnen?',
+    options: [
+      'Radien er svært liten, omtrent som jordas',
+      'Den er mye lenger borte enn sola',
+      'Den har nesten ikke fusjon på overflaten',
+      'Den sender bare ut infrarød stråling',
+    ],
+    explanation: 'Utstrålt effekt er proporsjonal med $R^2 T^4$. Sirius B er en hvit dverg med svært liten radius, så overflaten er liten. Avstanden påvirker hvor lyssterk stjernen ser ut, ikke hvor mye den stråler ut.',
+  },
+],
+
+  'fys1-6-6': [
+  {
+    question: 'Hvor mange nøytroner har kjernen ${}^{131}_{53}\\mathrm{I}$ (jod-131)?',
+    options: [
+      '78',
+      '53',
+      '131',
+      '184',
+    ],
+    explanation: 'Nøytrontallet er $N = A - Z = 131 - 53 = 78$. 53 er protontallet, 131 er nukleontallet, og 184 er summen av dem.',
+  },
+  {
+    question: 'Hva skjer med protontallet og nukleontallet når en kjerne sender ut en alfapartikkel?',
+    options: [
+      'Protontallet blir 2 mindre og nukleontallet 4 mindre',
+      'Protontallet blir 1 større og nukleontallet er uendret',
+      'Protontallet blir 4 mindre og nukleontallet 2 mindre',
+      'Begge er uendret',
+    ],
+    explanation: 'En alfapartikkel er ${}^{4}_{2}\\mathrm{He}$ med 2 protoner og 4 nukleoner. Protontallet 1 større og uendret nukleontall er $\\beta^-$-henfall, og begge uendret er gammastråling.',
+  },
+  {
+    question: 'En kilde sender ut stråling som går gjennom et papirark, men stoppes av noen millimeter aluminium. Hvilken stråling er det?',
+    options: [
+      'Betastråling',
+      'Alfastråling',
+      'Gammastråling',
+      'Både alfa- og gammastråling',
+    ],
+    explanation: 'Alfastråling stoppes av papiret, og gammastråling går gjennom tynne metallplater og svekkes først av tykt bly eller betong.',
+  },
+  {
+    question: 'Hvorfor endrer ikke gammastråling protontallet eller nukleontallet i kjernen?',
+    options: [
+      'Gammastrålingen er et foton som bare tar med seg energi',
+      'Gammastrålingen er et nøytron som ikke har ladning',
+      'Gammastrålingen kommer fra elektronene rundt kjernen',
+      'Gammastrålingen tar med seg like mange protoner som nøytroner',
+    ],
+    explanation: 'En eksitert kjerne går ned til en lavere energitilstand og sender ut energiforskjellen som et foton. Et foton har verken ladning eller nukleontall.',
+  },
+  {
+    question: 'Karbon-14, ${}^{14}_{6}\\mathrm{C}$, sender ut $\\beta^-$-stråling. Hvilken kjerne blir dannet?',
+    options: [
+      '${}^{14}_{7}\\mathrm{N}$',
+      '${}^{14}_{5}\\mathrm{B}$',
+      '${}^{10}_{4}\\mathrm{Be}$',
+      '${}^{13}_{6}\\mathrm{C}$',
+    ],
+    explanation: 'Ved $\\beta^-$-henfall blir et nøytron til et proton: protontallet blir $6 + 1 = 7$ (nitrogen), og nukleontallet er uendret. ${}^{14}_{5}\\mathrm{B}$ får du med feil fortegn, og ${}^{10}_{4}\\mathrm{Be}$ er alfahenfall.',
+  },
+  {
+    question: 'Hvilken partikkel er $X$ i reaksjonen ${}^{14}_{7}\\mathrm{N} + {}^{4}_{2}\\mathrm{He} \\rightarrow {}^{17}_{8}\\mathrm{O} + X$?',
+    options: [
+      'Et proton',
+      'Et nøytron',
+      'Et elektron',
+      'En alfapartikkel',
+    ],
+    explanation: '$A_X = 14 + 4 - 17 = 1$ og $Z_X = 7 + 2 - 8 = 1$. Nukleontall 1 og ladning 1 er et proton. Et nøytron har ladning 0.',
+  },
+  {
+    question: 'Uran-238, ${}^{238}_{92}\\mathrm{U}$, blir til bly-206, ${}^{206}_{82}\\mathrm{Pb}$, gjennom alfa- og $\\beta^-$-henfall. Hvor mange alfahenfall er med?',
+    options: [
+      '8',
+      '10',
+      '32',
+      '6',
+    ],
+    explanation: 'Bare alfahenfall endrer nukleontallet, med 4 hver gang: $\\frac{238 - 206}{4} = 8$. 10 er forskjellen i protontall, 32 er forskjellen i nukleontall, og 6 er antallet $\\beta^-$-henfall.',
+  },
+  {
+    question: 'Jod-131 har halveringstid 8,0 døgn. Hvor stor del av kjernene er igjen etter 32 døgn?',
+    options: [
+      'En sekstendel',
+      'En firedel',
+      'En åttendedel',
+      'Ingen',
+    ],
+    explanation: '32 døgn er 4 halveringstider, og $\\left(\\tfrac{1}{2}\\right)^4 = \\tfrac{1}{16}$. En firedel får du ved å dele på antall halveringstider i stedet for å halvere.',
+  },
+  {
+    question: 'En GM-teller viser 420 tellinger per minutt fra en kilde. Uten kilden viser den 20 per minutt. Halveringstiden er 3,0 minutter. Hva viser telleren etter 6,0 minutter?',
+    options: [
+      '120 per minutt',
+      '105 per minutt',
+      '100 per minutt',
+      '210 per minutt',
+    ],
+    explanation: 'Kilden gir $420 - 20 = 400$ per minutt. Etter 2 halveringstider er det $400 \\cdot \\tfrac{1}{4} = 100$ fra kilden, og med bakgrunnen blir det 120. 105 får du ved å halvere uten å trekke fra bakgrunnen, og 100 hvis du glemmer å legge bakgrunnen til igjen.',
+  },
+],
+
+  'fys1-6-7': [
+  {
+    question: 'Hvilken av disse er en energibærer og ikke en energikilde?',
+    options: [
+      'Hydrogen',
+      'Vind',
+      'Uran',
+      'Sollys',
+    ],
+    explanation: 'Hydrogen må lages med energi fra en annen kilde, for eksempel elektrolyse med strøm, og bærer energien videre. Vind, uran og sollys er energikilder.',
+  },
+  {
+    question: 'Et vindkraftverk har installert effekt 3,0 MW og en brukstid på 3000 timer. Hvor mye energi gir det i året?',
+    options: [
+      '9,0 GWh',
+      '1000 MWh',
+      '26 GWh',
+      '9,0 MW',
+    ],
+    explanation: '$E = P \\cdot t = 3{,}0\\ \\mathrm{MW} \\cdot 3000\\ \\mathrm{h} = 9000\\ \\mathrm{MWh} = 9{,}0\\ \\mathrm{GWh}$. 26 GWh er full effekt i alle årets 8760 timer, og 9,0 MW har feil enhet: energi måles i Wh, ikke W.',
+  },
+  {
+    question: 'Hvorfor sier den installerte effekten til et vindkraftverk lite om hvor mye energi det gir i et år?',
+    options: [
+      'Effekten i vinden er proporsjonal med $v^3$, og vindfarten varierer',
+      'Vindturbiner har lavere virkningsgrad om sommeren',
+      'Strømnettet tar bare imot energi om natta',
+      'Installert effekt måles i kWh og ikke i kW',
+    ],
+    explanation: 'Halv vindfart gir en åttendedel av effekten, så kraftverket går sjelden med full effekt. Derfor er brukstiden ofte bare rundt en tredel av året.',
+  },
+  {
+    question: 'En energikjede har virkningsgradene 0,90, 0,95 og 0,40. Hva er den samlede virkningsgraden?',
+    options: [
+      '0,34',
+      '0,40',
+      '0,75',
+      '2,25',
+    ],
+    explanation: 'Virkningsgradene ganges: $0{,}90 \\cdot 0{,}95 \\cdot 0{,}40 = 0{,}342$. 0,40 er det svakeste leddet alene, 0,75 er gjennomsnittet, og 2,25 er summen.',
+  },
+  {
+    question: 'Et kjernekraftverk får 3000 MW varme fra reaktoren og leverer 1000 MW elektrisk effekt. Hvor stor effekt går til kjølevannet?',
+    options: [
+      '2000 MW',
+      '1000 MW',
+      '3000 MW',
+      '4000 MW',
+    ],
+    explanation: 'Varmen som ikke blir elektrisk energi, må bort: $3000 - 1000 = 2000$ MW. Termofysikkens andre lov krever at en stor del av varmen avgis ved lav temperatur.',
+  },
+  {
+    question: 'Hvilket argument er et fysikkargument for vindkraft sammen med norsk vannkraft?',
+    options: [
+      'Vannmagasinene kan reguleres og jevne ut at vindkraften varierer',
+      'Vindkraft gir jevnere produksjon enn vannkraft',
+      'Vindturbiner har høyere virkningsgrad enn vannturbiner',
+      'Vindkraft trenger mindre areal enn kjernekraft',
+    ],
+    explanation: 'Vindkraft varierer med været, og regulerbar vannkraft kan produsere mer når det er lite vind. Vindkraft er ikke jevnere, har lavere virkningsgrad enn vannkraft og krever mer areal enn kjernekraft.',
+  },
+  {
+    question: 'Fisjon av 1 kg uran-235 gir omtrent $8 \\cdot 10^{13}$ J, og 1 kg kull gir omtrent $3 \\cdot 10^{7}$ J. Omtrent hvor mange kilo kull gir like mye energi som 1 kg uran-235?',
+    options: [
+      '$3 \\cdot 10^{6}$ kg',
+      '$3 \\cdot 10^{3}$ kg',
+      '$2 \\cdot 10^{21}$ kg',
+      '$8 \\cdot 10^{6}$ kg',
+    ],
+    explanation: '$\\frac{8 \\cdot 10^{13}\\ \\mathrm{J}}{3 \\cdot 10^{7}\\ \\mathrm{J/kg}} \\approx 3 \\cdot 10^{6}$ kg. $2 \\cdot 10^{21}$ får du ved å gange i stedet for å dele, og $8 \\cdot 10^{6}$ ved å trekke fra eksponentene uten å dele tallene foran.',
+  },
+  {
+    question: 'En reklame sier: «Varmepumpen bruker bare 1,5 kW i året.» Hva er galt?',
+    options: [
+      'kW er effekt, og årsforbruket må oppgis i kWh',
+      '1,5 kW er for lite for en varmepumpe',
+      'Varmepumper oppgis alltid i W og ikke i kW',
+      'Ingenting, kW i året er det samme som kWh',
+    ],
+    explanation: 'Effekt sier hvor fort energien brukes. Energien i løpet av et år er effekt ganger tid og måles i kWh. kWh er kW ganget med timer, ikke kW per år.',
+  },
+  {
+    question: 'Påstand: «Én kvadratmeter solceller gir nok strøm til 10 000 km med elbil i året.» Sollyset gir 900 kWh per kvadratmeter i året, solcellene har virkningsgrad 20 %, og bilen bruker 0,18 kWh per km. Hvor langt holder energien egentlig?',
+    options: [
+      'Ca. 1000 km',
+      'Ca. 5000 km',
+      'Ca. 10 000 km',
+      'Ca. 100 km',
+    ],
+    explanation: '$0{,}20 \\cdot 900\\ \\mathrm{kWh} = 180\\ \\mathrm{kWh}$, og $\\frac{180\\ \\mathrm{kWh}}{0{,}18\\ \\mathrm{kWh/km}} = 1000$ km. 5000 km får du hvis du glemmer virkningsgraden. Påstanden bommer med en faktor ti.',
   },
 ],
 

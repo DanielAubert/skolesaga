@@ -1,0 +1,347 @@
+{
+  "id": "fys1-3-5-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "3.4",
+  "title": "Numeriske metoder for bevegelse",
+  "subtitle": "Narrativ versjon",
+  "description": "Om hvordan et program regner ut et fall med luftmotstand ett lite tidssteg av gangen, og hvordan vi finner luftmotstanden ved å sammenligne programmet med en video.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "regne ut bevegelse steg for steg med Eulers metode når akselerasjonen ikke er konstant",
+    "programmere fall med luftmotstand i Python og kontrollere resultatet med terminalfarten",
+    "velge tidssteg og stoppbetingelse og vurdere hvor nøyaktig programmet er",
+    "sammenligne en simulering med målinger og bestemme luftmotstandstallet"
+  ],
+  "linkedChapterId": "fys1-3-5",
+  "content": [
+    {
+      "id": "fys1-3-5-n-intro",
+      "type": "text",
+      "content": "## Når akselerasjonen ikke står stille\n\nBevegelseslikningene fra kapittel 2.3 er effektive, men de har én forutsetning: akselerasjonen må være konstant. For en stein i fritt fall uten luftmotstand holder det, for der er tyngden den eneste kraften og $a = g$ hele veien.\n\nMed luftmotstand går det ikke. Luftmotstanden $L = kv^2$ vokser med farten, og med positiv retning nedover gir Newtons andre lov $a = g - \\frac{k}{m}v^2$. Akselerasjonen endrer seg altså med farten, og farten endrer seg med akselerasjonen. Det finnes ingen fast verdi av $a$ vi kan sette inn i bevegelseslikningene.\n\nLøsningen er å dele bevegelsen opp i korte tidssteg. Over et kort nok steg endrer farten seg så lite at akselerasjonen nesten er konstant. Da kan vi regne steget ut, regne ut akselerasjonen på nytt med den nye farten, og fortsette. Det blir mange steg, men hvert steg er enkelt, og et program gjør dem på et øyeblikk."
+    },
+    {
+      "id": "fys1-3-5-n-section1",
+      "type": "text",
+      "content": "## Eulers metode -- ett lite steg av gangen\n\nIdeen bak **Eulers metode** kommer rett fra definisjonene. Akselerasjon er fartsendring per tid, så over et kort tidssteg er $\\Delta v = a\\,\\Delta t$. Fart er posisjonsendring per tid, så $\\Delta s = v\\,\\Delta t$. Ett steg består da av fire ting: regn ut akselerasjonen fra kreftene med farten du har nå, finn ny fart $v_{\\text{ny}} = v + a\\,\\Delta t$, finn ny posisjon $s_{\\text{ny}} = s + v_{\\text{ny}}\\,\\Delta t$, og legg $\\Delta t$ til tiden.\n\nTa en fallskjermhopper på 80 kg med $k = 0{,}25$ kg/m før skjermen åpnes, og bruk et grovt tidssteg på 1 s. I starten er farten null, så $a = 9{,}81$ m/s², og etter ett sekund er farten 9,81 m/s. Nå er det litt luftmotstand, og akselerasjonen faller til 9,51 m/s². Etter to sekunder er farten 19,32 m/s, akselerasjonen 8,64 m/s², og etter tre sekunder er farten 27,96 m/s. Uten luftmotstand ville den vært 29,4 m/s. Vi ser hvordan luftmotstanden bremser økningen litt mer for hvert steg.\n\nNår akselerasjonen faktisk er konstant, gir metoden helt riktig fart. En bil som akselererer med 2 m/s² fra ro, får 2, 4, 6, 8 og 10 m/s etter fem steg på ett sekund, akkurat som $v = at$. Feilen kommer først når akselerasjonen endrer seg innenfor et steg, og den blir mindre jo kortere steget er."
+    },
+    {
+      "id": "fys1-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Eulers metode:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-5-n-quiz1-q0",
+            "task": "Hvordan finner Eulers metode den nye farten etter ett tidssteg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$v_{\\text{ny}} = v + a\\,\\Delta t$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$v_{\\text{ny}} = v \\cdot a\\,\\Delta t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$v_{\\text{ny}} = v + \\frac{1}{2}a\\,\\Delta t^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v_{\\text{ny}} = a\\,\\Delta t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Akselerasjonen er fartsendring per tid, så $\\Delta v = a\\,\\Delta t$, og den nye farten er den gamle pluss $\\Delta v$. Alternativet uten $v$ glemmer farten vi hadde fra før."
+          },
+          {
+            "id": "fys1-3-5-n-quiz1-q1",
+            "task": "En stein faller fra ro uten luftmotstand. Hva er farten etter ett Euler-steg med $\\Delta t = 0{,}10$ s?",
+            "options": [
+              {
+                "id": "a",
+                "text": "9,81 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0,49 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,98 m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "0,098 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$v = 0 + 9{,}81 \\cdot 0{,}10 = 0{,}98$ m/s. 0,49 m/s er $\\frac{1}{2}g\\,\\Delta t$, og 9,81 m/s er farten etter ett helt sekund."
+          },
+          {
+            "id": "fys1-3-5-n-quiz1-q2",
+            "task": "Hvorfor kan vi ikke bruke $v = v_0 + at$ for et fall med luftmotstand $L = kv^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi tyngden endrer seg under fallet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi akselerasjonen endrer seg med farten",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi farten er konstant hele tiden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi massen endrer seg med farten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Akselerasjonen er $a = g - \\frac{k}{m}v^2$ og blir mindre når farten øker. Bevegelseslikningene krever konstant akselerasjon. Tyngden og massen er de samme hele tiden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-5-n-section2",
+      "type": "text",
+      "content": "## Fra idé til program\n\nI Python blir Eulers metode en `while`-løkke. Før løkka setter vi konstantene og startverdiene. Inne i løkka står de fire linjene for ett steg, og betingelsen i `while` bestemmer når vi er ferdige, for eksempel `while s < 100` for et fall på 100 m. Lister tar vare på tidene og fartene, så vi kan plotte farten mot tiden etterpå.\n\nEn ball på 0,50 kg med $k = 0{,}0024$ kg/m sluppet fra 100 m gir et lærerikt resultat. Programmet bruker 4,88 s på fallet, og farten ved bakken er 35,5 m/s. Uten luftmotstand ville fallet tatt 4,52 s og endt i 44,3 m/s. Terminalfarten er $v_t = \\sqrt{mg/k} = 45{,}2$ m/s, og den gir en rask kontroll: farten i programmet skal flate ut mot $v_t$ og aldri gå forbi. Gjør den det, er fortegnet på luftmotstanden trolig feil.\n\nTo valg avgjør om programmet er til å stole på. Det ene er **tidssteget**. Feilen i Eulers metode er omtrent proporsjonal med $\\Delta t$, så ti ganger mindre steg gir omtrent ti ganger mindre feil. Kjør programmet med halvt så stort steg: endrer svaret seg lite, er steget lite nok. Det andre er **stoppbetingelsen**. `while v > 0` stopper når en ball snur på toppen, ikke når den treffer bakken, så tenk gjennom hva løkka egentlig venter på.\n\nLuftmotstanden trenger ikke være $kv^2$. Svært små og lette ting, som støv og frø, følger bedre $L = kv$. I programmet er det bare én linje som endres, og det er nettopp styrken: alle krefter vi kan skrive som en formel, kan stå i akselerasjonslinja."
+    },
+    {
+      "id": "fys1-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på simulering i Python:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-5-n-quiz2-q0",
+            "task": "I et program for en bil som bremser fra 30 m/s, står linja `a = -(R + k * v**2) / m` før løkka. Hva skjer med modellen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Luftmotstanden ved 30 m/s blir brukt i alle stegene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Programmet blir mer nøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Luftmotstanden blir null i alle stegene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Løkka stopper aldri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linja regnes bare ut én gang, med startfarten 30 m/s, så akselerasjonen blir konstant. Luftmotstanden følger ikke farten ned, og bilen bremser for kraftig. Løkka stopper fortsatt, fordi farten minker i hvert steg."
+          },
+          {
+            "id": "fys1-3-5-n-quiz2-q1",
+            "task": "En ball på 0,50 kg med $k = 0{,}0024$ kg/m slippes fra ro. Et program gir en fart på 52 m/s. Hva er galt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tidssteget er for lite",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ingenting, farten kan bli så stor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fallet var for kort",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Farten er over terminalfarten, så fortegnet er trolig feil",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$v_t = \\sqrt{0{,}50 \\cdot 9{,}81 / 0{,}0024} = 45{,}2$ m/s. En gjenstand som slippes fra ro, kan ikke falle fortere enn terminalfarten, så luftmotstanden virker trolig i feil retning i programmet."
+          },
+          {
+            "id": "fys1-3-5-n-quiz2-q2",
+            "task": "Et program bruker `dt = 0.01` og gir en feil på 0,10 m i fallstrekningen. Omtrent hvor stor blir feilen med `dt = 0.001`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0,10 m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0,01 m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "0,001 m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1,0 m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Feilen i Eulers metode er omtrent proporsjonal med tidssteget. Ti ganger mindre steg gir ti ganger mindre feil. 0,001 m ville krevd at feilen avtok med kvadratet av tidssteget."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-5-n-section3",
+      "type": "text",
+      "content": "## Modell mot måling\n\nEt program er bare så godt som modellen i det. For å teste modellen slipper vi noe lett, for eksempel en muffinsform av papir på 0,80 g, filmer fallet og leser av hvor langt den har falt hvert tidels sekund. Etter 1,0 s har formen falt 1,14 m. Uten luftmotstand ville den falt 4,9 m, så luftmotstanden er alt annet enn liten.\n\nSå lar vi programmet prøve seg fram. Vi simulerer fallet med flere verdier av $k$ og lagrer posisjonen ved de samme tidene som i målingene. For hver $k$ regner vi ut summen av de kvadrerte avvikene mellom modell og måling. Kvadreringen gjør at positive og negative avvik ikke opphever hverandre. For muffinsformen blir summen minst for $k = 5{,}0 \\cdot 10^{-3}$ kg/m, og da treffer modellen alle målepunktene innenfor en centimeter.\n\nSvaret kan kontrolleres uten programmet. Den siste delen av fallet er nesten rett i $s$–$t$-grafen: formen faller med terminalfarten, som stigningstallet gir til 1,24 m/s. Da er $k = mg/v_t^2 = 5{,}1 \\cdot 10^{-3}$ kg/m, nesten det samme.\n\nTil slutt vurderer vi selve modellen. Passer kurven dårlig for alle verdier av $k$, kan det være formen på modellen som er feil, og vi prøver $L = kv$. En annen test er å legge to former i hverandre: med $L = kv^2$ skal terminalfarten bli $\\sqrt{2}$ ganger så stor, med $L = kv$ dobbelt så stor. Slik blir programmet ikke bare en kalkulator, men et verktøy for å finne ut hvordan naturen faktisk oppfører seg."
+    },
+    {
+      "id": "fys1-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modell mot måling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-5-n-quiz3-q0",
+            "task": "Hvorfor kvadreres avvikene mellom modell og måling før de summeres?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For at positive og negative avvik ikke skal oppheve hverandre",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "For at summen skal få enheten meter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For at små avvik skal telle mer enn store",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For at programmet skal gå raskere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten kvadrering kunne et avvik på +2 cm og et på −2 cm gitt summen null. Kvadreringen gjør alle ledd positive, og store avvik teller mer enn små, ikke omvendt. Enheten blir m², ikke m."
+          },
+          {
+            "id": "fys1-3-5-n-quiz3-q1",
+            "task": "En muffinsform på 0,80 g faller med terminalfarten 1,24 m/s. Hva er $k$ i modellen $L = kv^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6{,}3 \\cdot 10^{-3}$ kg/m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5{,}1 \\cdot 10^{-3}$ kg/m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$5{,}1$ kg/m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5{,}2 \\cdot 10^{-4}$ kg/m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$k = \\dfrac{mg}{v_t^2} = \\dfrac{0{,}00080 \\cdot 9{,}81}{1{,}24^2} = 5{,}1 \\cdot 10^{-3}$ kg/m. $6{,}3 \\cdot 10^{-3}$ kommer av å dele på $v_t$, 5,1 av massen i gram."
+          },
+          {
+            "id": "fys1-3-5-n-quiz3-q2",
+            "task": "Når massen til en fallende papirkjegle dobles, blir terminalfarten 1,4 ganger så stor. Hvilken modell for luftmotstanden passer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$L = kv$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "ingen luftmotstand",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$L = kv^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$L = kv^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $L = kv^2$ er $v_t = \\sqrt{mg/k}$, så dobbel masse gir $\\sqrt{2} \\approx 1{,}4$ ganger så stor terminalfart. Med $L = kv$ ville den blitt dobbelt så stor, og uten luftmotstand finnes det ingen terminalfart."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår akselerasjonen endrer seg underveis, gjelder ikke bevegelseslikningene. **Eulers metode** deler bevegelsen i korte tidssteg og bruker definisjonene direkte: $\\Delta v = a\\,\\Delta t$ og $\\Delta s = v\\,\\Delta t$, med akselerasjonen regnet ut på nytt fra kreftene i hvert steg. Med konstant akselerasjon gir metoden riktig fart, og ellers blir feilen mindre jo kortere steget er.\n\nI Python blir metoden en løkke med konstanter, startverdier, fire linjer per steg og en stoppbetingelse. Et fall med luftmotstand $L = kv^2$ eller $L = kv$ krever bare en annen akselerasjonslinje, og **terminalfarten** er en rask kontroll av at programmet regner riktig. Tidssteget prøves ved å halvere det og se om svaret endrer seg.\n\nTil slutt møtte vi **modell mot måling**: vi sammenligner programmet med målinger fra video eller forsøk, prøver oss fram med $k$ til summen av de kvadrerte avvikene er minst, kontrollerer med den målte terminalfarten og vurderer om modellen har riktig form."
+    }
+  ],
+  "exercises": []
+}

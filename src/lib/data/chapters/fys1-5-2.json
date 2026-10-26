@@ -3,20 +3,54 @@
   "courseId": "fys1",
   "chapterNumber": "5.2",
   "title": "Varmeoverføringer",
-  "description": "Lær om de tre metodene for varmeoverføring: varmeledning, konveksjon og varmestråling.",
-  "estimatedMinutes": 55,
+  "description": "Lær om indre energi og termofysikkens første lov, de tre måtene varme overføres på, isolasjon, U-verdi og varmetap.",
+  "estimatedMinutes": 75,
   "competenceGoals": [
     "forklare forskjellen mellom varmeledning, konveksjon og varmestråling",
     "forklare hva som gir stor eller liten varmestrøm gjennom et materiale",
     "forklare hvordan isolasjon virker",
     "sammenligne hvor godt bygningselementer isolerer",
-    "forklare U-verdi og dens betydning"
+    "forklare U-verdi og dens betydning",
+    "forklare hva indre energi er",
+    "bruke termofysikkens første lov ΔU = Q + W med riktig fortegn",
+    "regne ut varmetap og virkningsgrad ved oppvarming med Q = mcΔT"
   ],
   "content": [
     {
       "id": "fys1-5-2-intro",
       "type": "text",
-      "content": "# Varmeoverføringer\n\nVarme kan overføres på tre måter:\n\n1. **Varmeledning** (konduksjon)\n2. **Konveksjon**\n3. **Varmestråling** (radiasjon)\n\nAlle tre prosessene kan skje samtidig, men én metode dominerer ofte avhengig av situasjonen."
+      "content": "# Varmeoverføringer\n\nFørst ser vi på hva den indre energien til et system er, og hvordan den endres når systemet får varme eller blir utsatt for arbeid. Deretter ser vi på hvordan varmen overføres.\n\nVarme kan overføres på tre måter:\n\n1. **Varmeledning** (konduksjon)\n2. **Konveksjon**\n3. **Varmestråling** (radiasjon)\n\nAlle tre prosessene kan skje samtidig, men én metode dominerer ofte avhengig av situasjonen."
+    },
+    {
+      "id": "fys1-5-2-indre-energi",
+      "type": "text",
+      "content": "# Indre energi, varme og arbeid\n\n## Indre energi\n\nPartiklene i et stoff beveger seg hele tiden, og de holdes sammen av bindinger. Den **indre energien** $U$ til et system er summen av\n\n- den kinetiske energien til alle partiklene (bevegelsen), og\n- den potensielle energien i bindingene mellom dem.\n\nNår temperaturen stiger, øker den kinetiske delen. Under en faseovergang (kapittel 5.1) er temperaturen konstant, men den potensielle delen endres.\n\n## To måter å endre den indre energien på\n\nDen indre energien kan endres på to måter:\n\n- **Varme** $Q$: energi som går over fordi det er en temperaturforskjell, for eksempel fra en kokeplate til en kjele.\n- **Arbeid** $W$: energi som overføres ved at en kraft virker over en strekning, for eksempel når et stempel presser sammen en gass, eller når friksjon varmer bremseskivene på en bil.\n\n## Termofysikkens første lov\n\nEnergi kan ikke oppstå eller forsvinne. Endringen i den indre energien er derfor lik energien som tilføres som varme, pluss energien som tilføres som arbeid:\n\n$$\\Delta U = Q + W$$\n\nFortegnene bestemmes fra systemets side:\n\n| Størrelse | Positiv når | Negativ når |\n|---|---|---|\n| $Q$ | varme tilføres systemet | systemet avgir varme |\n| $W$ | omgivelsene gjør arbeid **på** systemet | systemet gjør arbeid på omgivelsene |\n\nEn gass som utvider seg og skyver et stempel ut, gjør arbeid på omgivelsene, så da er $W$ negativ. Presses gassen sammen, er $W$ positiv.\n\nTermofysikkens første lov er loven om bevaring av energi, brukt på et system som kan utveksle både varme og arbeid med omgivelsene."
+    },
+    {
+      "id": "fys1-5-2-def-indre-energi",
+      "type": "definition",
+      "title": "Indre energi",
+      "content": "Indre energi $U$ er summen av den kinetiske energien til alle partiklene i et system og den potensielle energien i bindingene mellom dem."
+    },
+    {
+      "id": "fys1-5-2-def-forste-lov",
+      "type": "definition",
+      "title": "Termofysikkens første lov",
+      "content": "Termofysikkens første lov: $\\Delta U = Q + W$. Endringen i den indre energien er lik varmen $Q$ som tilføres systemet pluss arbeidet $W$ som omgivelsene gjør på systemet."
+    },
+    {
+      "id": "fys1-5-2-ex-forste-lov",
+      "type": "example",
+      "title": "Eksempel: Gass i sylinder gjennom to prosesser",
+      "problem": "En gass i en sylinder med stempel har indre energi $U_0 = 4{,}0\\text{ kJ}$.\n\na) Gassen tilføres $1200\\text{ J}$ varme og utvider seg slik at den gjør $450\\text{ J}$ arbeid på omgivelsene. Finn den nye indre energien.\n\nb) Deretter skyves stempelet inn, slik at omgivelsene gjør $300\\text{ J}$ arbeid på gassen. Samtidig avgir gassen $500\\text{ J}$ varme. Finn den indre energien nå.",
+      "solution": "**a)**\n\n$Q = +1200\\text{ J}$, $W = -450\\text{ J}$\n\n$$\\Delta U = Q + W = 1200\\text{ J} - 450\\text{ J} = 750\\text{ J}$$\n\n$$U_1 = 4000\\text{ J} + 750\\text{ J} = 4750\\text{ J}$$\n\n**Svar:** a) $4{,}75\\text{ kJ}$\n\n**b)**\n\n$Q = -500\\text{ J}$, $W = +300\\text{ J}$\n\n$$\\Delta U = -500\\text{ J} + 300\\text{ J} = -200\\text{ J}$$\n\n$$U_2 = 4750\\text{ J} - 200\\text{ J} = 4550\\text{ J}$$\n\n**Svar:** b) $4{,}55\\text{ kJ}$"
+    },
+    {
+      "id": "fys1-5-2-ex-bremseskiver",
+      "type": "example",
+      "title": "Eksempel: Bremseskiver som blir varme",
+      "problem": "En bil med masse $1200\\text{ kg}$ bremser fra $72\\text{ km/h}$ til ro. De fire bremseskivene er av stål og har samlet masse $8{,}0\\text{ kg}$. Anta at $80\\,\\%$ av den kinetiske energien blir indre energi i bremseskivene. Bruk $c_{\\text{stål}} = 460\\text{ J/(kg}\\cdot°\\text{C)}$.\n\na) Hvor mye øker temperaturen i bremseskivene?\n\nb) Skivene får nesten ingen varme fra en varmere kilde, men den indre energien øker likevel. Forklar med termofysikkens første lov.",
+      "solution": "**a)**\n\n$72\\text{ km/h} = 20\\text{ m/s}$\n\n$$E_k = \\tfrac{1}{2}mv^2 = \\tfrac{1}{2} \\cdot 1200 \\cdot 20^2\\text{ J} = 2{,}4 \\cdot 10^5\\text{ J}$$\n\n$$\\Delta U = 0{,}80 \\cdot 2{,}4 \\cdot 10^5\\text{ J} = 1{,}92 \\cdot 10^5\\text{ J}$$\n\n$$\\Delta T = \\frac{\\Delta U}{mc} = \\frac{1{,}92 \\cdot 10^5}{8{,}0 \\cdot 460}\\,°\\text{C} \\approx 52\\,°\\text{C}$$\n\n**Svar:** a) Omtrent $52\\,°\\text{C}$\n\n**b)** I $\\Delta U = Q + W$ er $Q \\approx 0$. Bremseklossene gjør et friksjonsarbeid på skivene, så $W > 0$, og det arbeidet øker den indre energien.\n\n**Svar:** b) Økningen kommer fra arbeidet $W$, ikke fra varme $Q$."
     },
     {
       "id": "fys1-5-2-varmeledning",
@@ -63,9 +97,21 @@
       "content": "U-verdien (varmegjennomgangskoeffisienten) beskriver hvor godt et bygningselement isolerer. Måles i W/(m²·K). Lav U-verdi betyr god isolasjon."
     },
     {
+      "id": "fys1-5-2-varmetap",
+      "type": "text",
+      "content": "# Varmetap og virkningsgrad ved oppvarming\n\nNår vi varmer noe, går en del av energien til omgivelsene: gjennom veggene i en kjele, opp med lufta over den, eller som stråling. Med $Q = mc\\Delta T$ (kapittel 5.1) finner vi energien som faktisk gikk til stoffet vi ville varme. Sammenligner vi med energien som ble tilført, finner vi varmetapet og virkningsgraden:\n\n$$\\text{varmetap} = E_{\\text{tilført}} - mc\\Delta T \\qquad \\eta = \\frac{mc\\Delta T}{E_{\\text{tilført}}}$$\n\nMed elektrisk oppvarming er den tilførte energien $E = Pt$. God isolasjon gir lite varmetap og høy virkningsgrad."
+    },
+    {
+      "id": "fys1-5-2-ex-vannkoker",
+      "type": "example",
+      "title": "Eksempel: Varmetap i en vannkoker",
+      "problem": "En vannkoker med effekt $2000\\text{ W}$ varmer $1{,}2\\text{ kg}$ vann fra $12\\,°\\text{C}$ til $100\\,°\\text{C}$ på $4$ minutter og $10$ sekunder. Bruk $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$.\n\na) Hvor mye energi gikk til vannet?\n\nb) Hvor stort var varmetapet, og hva var virkningsgraden?",
+      "solution": "**a)**\n\n$$Q = mc\\Delta T = 1{,}2 \\cdot 4180 \\cdot 88\\text{ J} \\approx 4{,}41 \\cdot 10^5\\text{ J}$$\n\n**Svar:** a) Omtrent $441\\text{ kJ}$\n\n**b)**\n\n$t = 4 \\cdot 60\\text{ s} + 10\\text{ s} = 250\\text{ s}$\n\n$$E = Pt = 2000\\text{ W} \\cdot 250\\text{ s} = 5{,}00 \\cdot 10^5\\text{ J}$$\n\n$$\\text{varmetap} = 5{,}00 \\cdot 10^5\\text{ J} - 4{,}41 \\cdot 10^5\\text{ J} \\approx 5{,}9 \\cdot 10^4\\text{ J}$$\n\n$$\\eta = \\frac{4{,}41 \\cdot 10^5}{5{,}00 \\cdot 10^5} \\approx 0{,}88$$\n\n**Svar:** b) Varmetapet var omtrent $59\\text{ kJ}$, og virkningsgraden omtrent $88\\,\\%$."
+    },
+    {
       "id": "fys1-5-2-oppsummering",
       "type": "text",
-      "content": "## Oppsummering\n\n- **Tre metoder for varmeoverføring:** varmeledning (direkte kontakt), konveksjon (bevegelse av væske/gass), og varmestråling (elektromagnetisk stråling)\n- **Varmeledning:** Energi overføres mellom molekyler uten at molekylene selv beveger seg. Tykkere materiale og dårligere varmeleder gir mindre varmestrøm\n- **Varmeledningsevne** ($k$): Høy for metaller (f.eks. kobber: 400 W/(m·K)), lav for isolatorer (f.eks. luft: 0,026 W/(m·K))\n- **Konveksjon:** Varm væske/gass stiger (lavere tetthet), kald synker, skaper sirkulasjon\n- **Varmestråling:** Eneste varmeoverføring gjennom vakuum, går med lysets hastighet\n- **U-verdi** (varmegjennomgangskoeffisient): Beskriver bygningselements isolasjonsevne. Lav U-verdi = god isolasjon\n- **Isolasjon** reduserer varmetap ved å bruke materialer med lav $k$-verdi og luftlommer"
+      "content": "## Oppsummering\n\n- **Tre metoder for varmeoverføring:** varmeledning (direkte kontakt), konveksjon (bevegelse av væske/gass), og varmestråling (elektromagnetisk stråling)\n- **Varmeledning:** Energi overføres mellom molekyler uten at molekylene selv beveger seg. Tykkere materiale og dårligere varmeleder gir mindre varmestrøm\n- **Varmeledningsevne** ($k$): Høy for metaller (f.eks. kobber: 400 W/(m·K)), lav for isolatorer (f.eks. luft: 0,026 W/(m·K))\n- **Konveksjon:** Varm væske/gass stiger (lavere tetthet), kald synker, skaper sirkulasjon\n- **Varmestråling:** Eneste varmeoverføring gjennom vakuum, går med lysets hastighet\n- **U-verdi** (varmegjennomgangskoeffisient): Beskriver bygningselements isolasjonsevne. Lav U-verdi = god isolasjon\n- **Isolasjon** reduserer varmetap ved å bruke materialer med lav $k$-verdi og luftlommer\n- **Indre energi** $U$: kinetisk energi til partiklene pluss potensiell energi i bindingene\n- **Termofysikkens første lov:** $\\Delta U = Q + W$, der $Q > 0$ når varme tilføres systemet og $W > 0$ når omgivelsene gjør arbeid på systemet\n- **Varmetap ved oppvarming:** tilført energi minus $mc\\Delta T$; virkningsgrad $\\eta = mc\\Delta T / E_{\\text{tilført}}$"
     }
   ],
   "exercises": [
@@ -75,7 +121,7 @@
       "type": "classic",
       "difficulty": "lett",
       "task": "Forklar forskjellen mellom varmeledning, konveksjon og varmestråling. Gi ett eksempel på hver.",
-      "solution": "**1. Varmeledning (konduksjon):**\n\n**Definisjon:** Varme overføres gjennom direkte kontakt mellom molekyler\n\n**Hvordan:** Molekyler kolliderer og overfører energi fra raskere til langsommere molekyler\n\n**Krever:** Direkte kontakt, stoff (fast, væske eller gass)\n\n**Eksempel:** Håndtaket på en panne blir varmt når pannen varmes på komfyren\n\n---\n\n**2. Konveksjon:**\n\n**Definisjon:** Varme overføres ved at varmt stoff beveger seg\n\n**Hvordan:** Varm væske/gass stiger (lavere tetthet), kald synker, sirkulasjon oppstår\n\n**Krever:** Væske eller gass som kan strømme\n\n**Eksempel:** Varm luft fra en radiator stiger opp og sirkulerer i rommet\n\n---\n\n**3. Varmestråling (radiasjon):**\n\n**Definisjon:** Varme overføres ved elektromagnetisk stråling\n\n**Hvordan:** Legemer sender ut stråling som transporterer energi\n\n**Krever:** Intet medium (kan gå gjennom vakuum)\n\n**Eksempel:** Solens varme når jorden gjennom vakuum i verdensrommet\n\n---\n\n**Sammenligning:**\n\n| Metode | Medium | Bevegelse | Eksempel |\n|--------|--------|-----------|----------|\n| Varmeledning | Stoff | Energi, ikke stoff | Panne |\n| Konveksjon | Væske/gass | Stoffet beveger seg | Radiator |\n| Varmestråling | Intet (vakuum OK) | Stråling | Solen |",
+      "solution": "**Varmeledning (konduksjon):**\n\n**Definisjon:** Varme overføres gjennom direkte kontakt mellom molekyler\n\n**Hvordan:** Molekyler kolliderer og overfører energi fra raskere til langsommere molekyler\n\n**Krever:** Direkte kontakt, stoff (fast, væske eller gass)\n\n**Eksempel:** Håndtaket på en panne blir varmt når pannen varmes på komfyren\n\n---\n\n**Konveksjon:**\n\n**Definisjon:** Varme overføres ved at varmt stoff beveger seg\n\n**Hvordan:** Varm væske/gass stiger (lavere tetthet), kald synker, sirkulasjon oppstår\n\n**Krever:** Væske eller gass som kan strømme\n\n**Eksempel:** Varm luft fra en radiator stiger opp og sirkulerer i rommet\n\n---\n\n**Varmestråling (radiasjon):**\n\n**Definisjon:** Varme overføres ved elektromagnetisk stråling\n\n**Hvordan:** Legemer sender ut stråling som transporterer energi\n\n**Krever:** Intet medium (kan gå gjennom vakuum)\n\n**Eksempel:** Solens varme når jorden gjennom vakuum i verdensrommet\n\n---\n\n**Sammenligning:**\n\n| Metode | Medium | Bevegelse | Eksempel |\n|--------|--------|-----------|----------|\n| Varmeledning | Stoff | Energi, ikke stoff | Panne |\n| Konveksjon | Væske/gass | Stoffet beveger seg | Radiator |\n| Varmestråling | Intet (vakuum OK) | Stråling | Solen |",
       "hints": [
         "Tenk på hvordan energien overføres",
         "Krever de et medium?"
@@ -89,7 +135,7 @@
       "type": "classic",
       "difficulty": "lett",
       "task": "Hvorfor er metaller gode varmeledere?",
-      "solution": "**Årsaker:**\n\n**1. Frie elektroner:**\n- Metaller har frie elektroner (ikke bundet til atomer)\n- Elektronene kan bevege seg fritt gjennom metallet\n- Elektroner i varm ende beveger seg raskt\n- Disse elektronene kolliderer med elektroner i kald ende\n- Energi overføres raskt gjennom elektronene\n\n**2. Tett atomstruktur:**\n- Metallatomer er tett pakket\n- Kort avstand mellom atomer\n- Vibrasjoner overføres lett fra atom til atom\n\n**3. Begge mekanismer:**\n- Både frie elektroner og atomvibrasjoner bidrar\n- Elektronene er den viktigste mekanismen i metaller\n- Derfor er metaller mye bedre varmeledere enn ikke-metaller\n\n**Sammenligning:**\n- **Kobber:** $k = 400 \\text{ W/(m}\\cdot\\text{K)}$ (meget god)\n- **Tre:** $k = 0{,}12 \\text{ W/(m}\\cdot\\text{K)}$ (dårlig)\n- Forholdet: Kobber leder varme ~3300 ganger bedre enn tre!\n\n**Konklusjon:** Metaller er gode varmeledere pga. frie elektroner som raskt transporterer energi.",
+      "solution": "**Årsaker:**\n\n**Frie elektroner:**\n- Metaller har frie elektroner (ikke bundet til atomer)\n- Elektronene kan bevege seg fritt gjennom metallet\n- Elektroner i varm ende beveger seg raskt\n- Disse elektronene kolliderer med elektroner i kald ende\n- Energi overføres raskt gjennom elektronene\n\n**Tett atomstruktur:**\n- Metallatomer er tett pakket\n- Kort avstand mellom atomer\n- Vibrasjoner overføres lett fra atom til atom\n\n**Begge mekanismer:**\n- Både frie elektroner og atomvibrasjoner bidrar\n- Elektronene er den viktigste mekanismen i metaller\n- Derfor er metaller mye bedre varmeledere enn ikke-metaller\n\n**Sammenligning:**\n- **Kobber:** $k = 400 \\text{ W/(m}\\cdot\\text{K)}$ (meget god)\n- **Tre:** $k = 0{,}12 \\text{ W/(m}\\cdot\\text{K)}$ (dårlig)\n- Forholdet: Kobber leder varme ~3300 ganger bedre enn tre!\n\n**Konklusjon:** Metaller er gode varmeledere pga. frie elektroner som raskt transporterer energi.",
       "hints": [
         "Hva er spesielt med metallers struktur?",
         "Tenk på frie elektroner"
@@ -103,7 +149,7 @@
       "type": "classic",
       "difficulty": "medium",
       "task": "Forklar hvordan dobbeltglass reduserer varmetap bedre enn enkeltglass.",
-      "solution": "**Dobbeltglass:**\n\nDobbeltglass består av to glasspanel med et luftlag (eller gass som argon) mellom.\n\n**Hvordan det reduserer varmetap:**\n\n**1. Varmeledning reduseres:**\n- Luft har lav varmeledningsevne ($k = 0{,}026 \\text{ W/(m}\\cdot\\text{K)}$)\n- Glass har høyere varmeledningsevne ($k = 0{,}8 \\text{ W/(m}\\cdot\\text{K)}$)\n- Luftlaget fungerer som isolasjon\n- Mindre varme ledes gjennom\n\n**2. Konveksjon reduseres:**\n- Luftlaget er tynt (typisk 10-15 mm)\n- For tynt til at konveksjonsstrømmer kan etableres\n- Luft holder seg stillestående\n- Stillestående luft isolerer bedre enn strømmende luft\n\n**3. Varmestråling reduseres (ved lavemisjonsglass):**\n- Spesialbehandlet glass reflekterer infrarød stråling\n- Varme stråles tilbake inn i rommet\n- Mindre varmetap via stråling\n\n**Sammenligning:**\n\n| Type | U-verdi (W/(m²·K)) | Varmetap (relativ) |\n|------|-------------------|-------------------|\n| Enkeltglass | 5,0 | 100% |\n| Dobbeltglass | 1,2 | 24% |\n| Tredobbeltglass | 0,8 | 16% |\n\n**Konklusjon:** Dobbeltglass reduserer varmetap til ~24% sammenlignet med enkeltglass, hovedsakelig ved å redusere varmeledning og konveksjon.",
+      "solution": "**Dobbeltglass:**\n\nDobbeltglass består av to glasspanel med et luftlag (eller gass som argon) mellom.\n\n**Hvordan det reduserer varmetap:**\n\n**Varmeledning reduseres:**\n- Luft har lav varmeledningsevne ($k = 0{,}026 \\text{ W/(m}\\cdot\\text{K)}$)\n- Glass har høyere varmeledningsevne ($k = 0{,}8 \\text{ W/(m}\\cdot\\text{K)}$)\n- Luftlaget fungerer som isolasjon\n- Mindre varme ledes gjennom\n\n**Konveksjon reduseres:**\n- Luftlaget er tynt (typisk 10-15 mm)\n- For tynt til at konveksjonsstrømmer kan etableres\n- Luft holder seg stillestående\n- Stillestående luft isolerer bedre enn strømmende luft\n\n**Varmestråling reduseres (ved lavemisjonsglass):**\n- Spesialbehandlet glass reflekterer infrarød stråling\n- Varme stråles tilbake inn i rommet\n- Mindre varmetap via stråling\n\n**Sammenligning:**\n\n| Type | U-verdi (W/(m²·K)) | Varmetap (relativ) |\n|------|-------------------|-------------------|\n| Enkeltglass | 5,0 | 100% |\n| Dobbeltglass | 1,2 | 24% |\n| Tredobbeltglass | 0,8 | 16% |\n\n**Konklusjon:** Dobbeltglass reduserer varmetap til ~24% sammenlignet med enkeltglass, hovedsakelig ved å redusere varmeledning og konveksjon.",
       "hints": [
         "Hva er mellom glassene?",
         "Tenk på alle tre metoder for varmeoverføring"
@@ -117,7 +163,7 @@
       "type": "classic",
       "difficulty": "medium",
       "task": "Hvorfor blir det kaldere på natten i ørkenen enn i regnskogen, selv om begge har varmt klima?",
-      "solution": "**Årsaker:**\n\n**Ørken:**\n\n**1. Liten luftfuktighet:**\n- Tørr luft inneholder lite vanndamp\n- Vanndamp er en drivhusgass\n- Lite vanndamp → lite drivhuseffekt\n- Varme stråles raskt ut i verdensrommet (varmestråling)\n\n**2. Ingen skydekke:**\n- Skyfri himmel\n- Intet som hindrer varmestråling ut i verdensrommet\n- Varme forsvinner raskt om natten\n\n**3. Lav spesifikk varmekapasitet (sand):**\n- Sand har lav spesifikk varmekapasitet\n- Varmes raskt opp om dagen\n- Avkjøles raskt om natten\n\n---\n\n**Regnskog:**\n\n**1. Høy luftfuktighet:**\n- Fuktig luft inneholder mye vanndamp\n- Vanndamp absorberer infrarød stråling\n- Drivhuseffekt holder på varmen\n- Varme stråles tilbake til bakken\n\n**2. Skydekke:**\n- Ofte skyer om natten\n- Skyer reflekterer varmestråling tilbake til bakken\n- Varme holdes nær bakken\n\n**3. Vegetasjon:**\n- Planter avgir vanndamp (transpirasjon)\n- Øker luftfuktigheten\n- Forsterker drivhuseffekten\n\n---\n\n**Sammenligning:**\n\n| Faktor | Ørken | Regnskog |\n|--------|-------|----------|\n| Luftfuktighet | Lav | Høy |\n| Skyer | Få | Mange |\n| Varmestråling ut | Stor | Liten |\n| Temperaturfall natt | Stort | Lite |\n\n**Konklusjon:** Ørkenen mister varme raskt om natten pga. lav luftfuktighet og skyfri himmel, mens regnskogen holder på varmen pga. høy luftfuktighet og skydekke.",
+      "solution": "**Årsaker:**\n\n**Ørken:**\n\n**Liten luftfuktighet:**\n- Tørr luft inneholder lite vanndamp\n- Vanndamp er en drivhusgass\n- Lite vanndamp → lite drivhuseffekt\n- Varme stråles raskt ut i verdensrommet (varmestråling)\n\n**Ingen skydekke:**\n- Skyfri himmel\n- Intet som hindrer varmestråling ut i verdensrommet\n- Varme forsvinner raskt om natten\n\n**Lav spesifikk varmekapasitet (sand):**\n- Sand har lav spesifikk varmekapasitet\n- Varmes raskt opp om dagen\n- Avkjøles raskt om natten\n\n---\n\n**Regnskog:**\n\n**Høy luftfuktighet:**\n- Fuktig luft inneholder mye vanndamp\n- Vanndamp absorberer infrarød stråling\n- Drivhuseffekt holder på varmen\n- Varme stråles tilbake til bakken\n\n**Skydekke:**\n- Ofte skyer om natten\n- Skyer reflekterer varmestråling tilbake til bakken\n- Varme holdes nær bakken\n\n**Vegetasjon:**\n- Planter avgir vanndamp (transpirasjon)\n- Øker luftfuktigheten\n- Forsterker drivhuseffekten\n\n---\n\n**Sammenligning:**\n\n| Faktor | Ørken | Regnskog |\n|--------|-------|----------|\n| Luftfuktighet | Lav | Høy |\n| Skyer | Få | Mange |\n| Varmestråling ut | Stor | Liten |\n| Temperaturfall natt | Stort | Lite |\n\n**Konklusjon:** Ørkenen mister varme raskt om natten pga. lav luftfuktighet og skyfri himmel, mens regnskogen holder på varmen pga. høy luftfuktighet og skydekke.",
       "hints": [
         "Tenk på varmestråling",
         "Hva holder på varmen?",
@@ -132,7 +178,7 @@
       "type": "classic",
       "difficulty": "medium",
       "task": "Hvorfor brukes flamingo (polystyren) som isolasjon i bygninger?",
-      "solution": "**Egenskaper ved flamingo (polystyren):**\n\n**1. Lav varmeledningsevne:**\n- $k \\approx 0{,}03 \\text{ W/(m}\\cdot\\text{K)}$\n- Meget lav sammenlignet med andre materialer\n- God isolator\n\n**2. Inneholder luft:**\n- 98% av volumet er luft\n- Luft har lav varmeledningsevne ($k = 0{,}026 \\text{ W/(m}\\cdot\\text{K)}$)\n- Luften er fanget i små, lukkede celler\n- Forhindrer konveksjon\n\n**3. Lav tetthet (lett):**\n- Lett å transportere og montere\n- Belaster ikke konstruksjonen\n\n**4. Fuktsikker:**\n- Absorberer ikke vann\n- Beholder isolasjonsevnen i fuktige forhold\n\n**5. Billig:**\n- Kostnadseffektivt isolasjonsmateriale\n\n**6. Lett å bearbeide:**\n- Kan kuttes i ønsket form\n\n**Ulemper:**\n\n**1. Brennbar:**\n- Kan brenne og slippe ut giftige gasser\n- Må beskyttes med brannhemmende materialer\n\n**2. Ikke bærekraftig:**\n- Laget av petroleum\n- Brytes ikke ned biologisk\n\n**Konklusjon:** Flamingo brukes fordi det har lav varmeledningsevne, er lett, billig og fuktsikkert, men må håndteres forsiktig pga. brannfare.",
+      "solution": "**Egenskaper ved flamingo (polystyren):**\n\n**Lav varmeledningsevne:**\n- $k \\approx 0{,}03 \\text{ W/(m}\\cdot\\text{K)}$\n- Meget lav sammenlignet med andre materialer\n- God isolator\n\n**Inneholder luft:**\n- 98% av volumet er luft\n- Luft har lav varmeledningsevne ($k = 0{,}026 \\text{ W/(m}\\cdot\\text{K)}$)\n- Luften er fanget i små, lukkede celler\n- Forhindrer konveksjon\n\n**Lav tetthet (lett):**\n- Lett å transportere og montere\n- Belaster ikke konstruksjonen\n\n**Fuktsikker:**\n- Absorberer ikke vann\n- Beholder isolasjonsevnen i fuktige forhold\n\n**Billig:**\n- Kostnadseffektivt isolasjonsmateriale\n\n**Lett å bearbeide:**\n- Kan kuttes i ønsket form\n\n**Ulemper:**\n\n**Brennbar:**\n- Kan brenne og slippe ut giftige gasser\n- Må beskyttes med brannhemmende materialer\n\n**Ikke bærekraftig:**\n- Laget av petroleum\n- Brytes ikke ned biologisk\n\n**Konklusjon:** Flamingo brukes fordi det har lav varmeledningsevne, er lett, billig og fuktsikkert, men må håndteres forsiktig pga. brannfare.",
       "hints": [
         "Hva er strukturen til flamingo?",
         "Hva er fordeler og ulemper?"
@@ -146,11 +192,123 @@
       "type": "classic",
       "difficulty": "vanskelig",
       "task": "Forklar hvorfor romdrakter for astronauter er hvite på utsiden, men har mange lag med reflekterende folie på innsiden.",
-      "solution": "**Romdrakt-design for temperaturregulering:**\n\nAstronauter møter ekstreme temperaturer i verdensrommet:\n- **I sollys:** Opp til +120°C\n- **I skyggen:** Ned til -150°C\n\n**Hvit ytre overflate:**\n\n**1. Reflekterer sollys:**\n- Hvit overflate reflekterer det meste av synlig lys og infrarød stråling\n- Mindre absorpsjon av solens varme\n- Forhindrer overoppheting i sollys\n\n**2. God emitter i infrarødt:**\n- Hvit overflate er også en god emitter av infrarød stråling\n- Overflødig varme fra astronautens kropp kan stråles ut\n- Forhindrer at astronauten blir for varm\n\n**3. Lav absorpsjon:**\n- Lav absorpsjon → lav oppvarming fra solen\n- Kritisk når solen skinner direkte på drakten\n\n---\n\n**Reflekterende folie på innsiden:**\n\n**1. Reduserer varmestråling:**\n- Reflekterende folie (aluminiumsbelagt Mylar) reflekterer infrarød stråling\n- Kroppens varmestråling reflekteres tilbake\n- Holder på varmen fra kroppen\n\n**2. Flere lag (isolasjon):**\n- Mange lag skaper luftlommer\n- Luft er god isolator\n- Reduserer varmeledning\n\n**3. Vakuum mellom lag:**\n- Noen romdrakter har vakuum mellom lagene\n- Ingen konveksjon i vakuum\n- Kun varmestråling kan skje\n- Reflekterende folie minimerer varmestråling\n\n---\n\n**Sammenligning:**\n\n| Lag | Funksjon | Metode |\n|-----|----------|--------|\n| Hvit utside | Reflekterer sol, sender ut overskuddsvarme | Varmestråling |\n| Reflekterende innsiden | Holder på kroppens varme | Varmestråling |\n| Flere lag | Isolasjon | Varmeledning/konveksjon |\n\n---\n\n**Konklusjon:**\n\n**Hvit utside:**\n- Beskytter mot solens intense varme\n- Sender ut overskuddsvarme\n\n**Reflekterende innsiden:**\n- Holder på kroppens varme i ekstrem kulde\n- Forhindrer varmetap\n\nDette systemet lar astronauten holde konstant temperatur (~20°C) selv når utsiden veksler mellom +120°C og -150°C.",
+      "solution": "**Romdrakt-design for temperaturregulering:**\n\nAstronauter møter ekstreme temperaturer i verdensrommet:\n- **I sollys:** Opp til +120°C\n- **I skyggen:** Ned til -150°C\n\n**Hvit ytre overflate:**\n\n**Reflekterer sollys:**\n- Hvit overflate reflekterer det meste av synlig lys og infrarød stråling\n- Mindre absorpsjon av solens varme\n- Forhindrer overoppheting i sollys\n\n**God emitter i infrarødt:**\n- Hvit overflate er også en god emitter av infrarød stråling\n- Overflødig varme fra astronautens kropp kan stråles ut\n- Forhindrer at astronauten blir for varm\n\n**Lav absorpsjon:**\n- Lav absorpsjon → lav oppvarming fra solen\n- Kritisk når solen skinner direkte på drakten\n\n---\n\n**Reflekterende folie på innsiden:**\n\n**Reduserer varmestråling:**\n- Reflekterende folie (aluminiumsbelagt Mylar) reflekterer infrarød stråling\n- Kroppens varmestråling reflekteres tilbake\n- Holder på varmen fra kroppen\n\n**Flere lag (isolasjon):**\n- Mange lag skaper luftlommer\n- Luft er god isolator\n- Reduserer varmeledning\n\n**Vakuum mellom lag:**\n- Noen romdrakter har vakuum mellom lagene\n- Ingen konveksjon i vakuum\n- Kun varmestråling kan skje\n- Reflekterende folie minimerer varmestråling\n\n---\n\n**Sammenligning:**\n\n| Lag | Funksjon | Metode |\n|-----|----------|--------|\n| Hvit utside | Reflekterer sol, sender ut overskuddsvarme | Varmestråling |\n| Reflekterende innsiden | Holder på kroppens varme | Varmestråling |\n| Flere lag | Isolasjon | Varmeledning/konveksjon |\n\n---\n\n**Konklusjon:**\n\n**Hvit utside:**\n- Beskytter mot solens intense varme\n- Sender ut overskuddsvarme\n\n**Reflekterende innsiden:**\n- Holder på kroppens varme i ekstrem kulde\n- Forhindrer varmetap\n\nDette systemet lar astronauten holde konstant temperatur (~20°C) selv når utsiden veksler mellom +120°C og -150°C.",
       "hints": [
         "Tenk på varmestråling",
         "Hva skjer i sollys vs. skyggen?",
         "Refleksjon og emisjon"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-11",
+      "number": "7",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "En gass i en sylinder får tilført $500\\text{ J}$ varme. Samtidig utvider gassen seg og gjør $200\\text{ J}$ arbeid på omgivelsene.\n\nHvor mye endres den indre energien til gassen? Velg ett svar og begrunn det.\n\nA $+700\\text{ J}$ B $+300\\text{ J}$ C $-300\\text{ J}$ D $+200\\text{ J}$",
+      "solution": "$Q = +500\\text{ J}$, $W = -200\\text{ J}$\n\n$$\\Delta U = Q + W = 500\\text{ J} - 200\\text{ J} = +300\\text{ J}$$\n\nA får du med feil fortegn på arbeidet. C har feil fortegn: gassen får mer energi inn som varme enn den gir fra seg som arbeid. D er bare arbeidet.\n\n**Svar:** B",
+      "hints": [
+        "Gjør gassen arbeid på omgivelsene, er $W$ negativ",
+        "Bruk $\\Delta U = Q + W$"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-12",
+      "number": "8",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Du pumper opp et sykkeldekk. I ett pumpetak gjør du $60\\text{ J}$ arbeid på lufta i pumpa, mens lufta avgir $15\\text{ J}$ varme til pumpesylinderen.\n\na) Hvor mye endres den indre energien til lufta?\n\nb) Hva skjer med temperaturen til lufta?",
+      "solution": "**a)**\n\n$W = +60\\text{ J}$, $Q = -15\\text{ J}$\n\n$$\\Delta U = Q + W = -15\\text{ J} + 60\\text{ J} = +45\\text{ J}$$\n\n**Svar:** a) Den indre energien øker med $45\\text{ J}$.\n\n**b)** Den indre energien øker, så molekylene får større kinetisk energi.\n\n**Svar:** b) Temperaturen stiger. Det er derfor pumpa blir varm.",
+      "hints": [
+        "Arbeid på lufta er positivt",
+        "Avgitt varme er negativ"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-13",
+      "number": "9",
+      "type": "classic",
+      "difficulty": "medium",
+      "task": "Forklar hva som er forskjellen på temperatur, varme og indre energi. Bruk en kopp kaffe og et badekar med vann ved samme temperatur som eksempel.",
+      "solution": "Temperatur er et mål på den gjennomsnittlige kinetiske energien per molekyl. Kaffen og badevannet har samme temperatur, så molekylene beveger seg i gjennomsnitt like raskt.\n\nIndre energi er den samlede energien til alle molekylene. Badekaret har mange flere molekyler, så det har mye større indre energi enn kaffen.\n\nVarme er energi som går over fordi det er en temperaturforskjell. Siden kaffen og badevannet har samme temperatur, går det ingen varme mellom dem om de settes i kontakt.\n\n**Svar:** Samme temperatur, ulik indre energi (badekaret har mest), og ingen varme mellom dem fordi det ikke er noen temperaturforskjell.",
+      "hints": [
+        "Temperatur handler om hvert molekyl, indre energi om alle",
+        "Varme krever en temperaturforskjell"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-14",
+      "number": "10",
+      "type": "classic",
+      "difficulty": "medium",
+      "task": "En godt isolert varmtvannsbereder inneholder $200\\text{ kg}$ vann ved $70\\,°\\text{C}$. Når den er slått av, synker temperaturen med $2{,}0\\,°\\text{C}$ i løpet av ett døgn. Bruk $c_{\\text{vann}} = 4180\\text{ J/(kg}\\cdot°\\text{C)}$.\n\na) Hvor stort er varmetapet i løpet av døgnet?\n\nb) Hva er det gjennomsnittlige varmetapet i watt?\n\nc) Foreslå to måter å gjøre varmetapet mindre på, og si hvilken varmeoverføring hver av dem bremser.",
+      "solution": "**a)**\n\n$$Q = mc\\Delta T = 200 \\cdot 4180 \\cdot 2{,}0\\text{ J} \\approx 1{,}67 \\cdot 10^6\\text{ J}$$\n\n**Svar:** a) Omtrent $1{,}7\\text{ MJ}$\n\n**b)**\n\n$t = 24 \\cdot 3600\\text{ s} = 86\\,400\\text{ s}$\n\n$$P = \\frac{Q}{t} = \\frac{1{,}672 \\cdot 10^6\\text{ J}}{86\\,400\\text{ s}} \\approx 19\\text{ W}$$\n\n**Svar:** b) Omtrent $19\\text{ W}$\n\n**c)** Tykkere isolasjon rundt tanken gir mindre varmeledning gjennom veggen. Isolerte rør ut fra tanken gir mindre varmeledning ut gjennom rørene. En blank folie innerst i isolasjonen reflekterer varmestråling tilbake mot tanken.\n\n**Svar:** c) For eksempel tykkere isolasjon og isolerte rør (ledning) og reflekterende folie (stråling).",
+      "hints": [
+        "Varmetapet er energien vannet mister",
+        "Effekt er energi per tid"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-15",
+      "number": "11",
+      "type": "classic",
+      "difficulty": "medium",
+      "task": "Tabellen viser U-verdier for fire bygningselementer.\n\n| Bygningselement | U-verdi (W/(m²·K)) |\n|---|---|\n| Moderne yttervegg | $0{,}18$ |\n| Vindu med to lag glass | $1{,}2$ |\n| Vindu med ett lag glass | $5{,}0$ |\n| Vindu med tre lag glass | $0{,}8$ |\n\na) Hvilket element isolerer best? Begrunn svaret.\n\nb) Hvor mange ganger så mye varme slipper gjennom én kvadratmeter vindu med to lag glass som én kvadratmeter moderne yttervegg, ved samme temperaturforskjell?\n\nc) En familie bytter et vindu med to lag glass til et vindu med tre lag glass. Hvor stor del av varmetapet gjennom vinduet blir igjen?",
+      "solution": "**a)** Lav U-verdi betyr lite varme gjennom per kvadratmeter og grad temperaturforskjell.\n\n**Svar:** a) Den moderne ytterveggen, med lavest U-verdi.\n\n**b)**\n\n$$\\frac{1{,}2}{0{,}18} \\approx 6{,}7$$\n\n**Svar:** b) Omtrent $6{,}7$ ganger så mye.\n\n**c)**\n\n$$\\frac{0{,}8}{1{,}2} \\approx 0{,}67$$\n\n**Svar:** c) Omtrent $67\\,\\%$, to tredeler, av varmetapet blir igjen.",
+      "hints": [
+        "U-verdien er varmestrøm per kvadratmeter og per grad",
+        "Sammenlign U-verdiene direkte når areal og temperaturforskjell er like"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-16",
+      "number": "12",
+      "type": "classic",
+      "difficulty": "medium",
+      "task": "En ullgenser holder deg varm når den er tørr, men mye dårligere når den er gjennomvåt. Forklar hvorfor.\n\nStillestående luft har varmeledningsevne $0{,}026\\text{ W/(m}\\cdot\\text{K)}$, og vann har omtrent $0{,}6\\text{ W/(m}\\cdot\\text{K)}$.",
+      "solution": "En tørr genser er full av små luftlommer. Luft leder varme svært dårlig, og lommene er så små at lufta ikke kan sirkulere, så både ledning og konveksjon blir små.\n\nEr genseren våt, fyller vannet luftlommene. Vann leder varme omtrent $0{,}6/0{,}026 \\approx 23$ ganger så godt som luft, så varmen ledes mye lettere fra huden og ut. Vann som fordamper fra genseren, tar i tillegg med seg fordampingsvarme.\n\n**Svar:** Vannet erstatter lufta som isolerer, og vann leder varme over tjue ganger så godt. Fordamping kjøler i tillegg.",
+      "hints": [
+        "Hva er det som isolerer i en tørr genser?",
+        "Sammenlign varmeledningsevnene"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-17",
+      "number": "13",
+      "type": "classic",
+      "difficulty": "medium",
+      "task": "En termos holder kaffe varm i mange timer. Den har dobbel vegg med vakuum mellom, blanke (speilende) flater på innsiden av veggene og en kork av isolerende materiale.\n\nForklar hvordan termosen bremser hver av de tre formene for varmeoverføring.",
+      "solution": "Varmeledning krever stoff. I vakuumet mellom veggene er det nesten ingen partikler som kan overføre energi, og korken leder varme dårlig.\n\nKonveksjon krever en væske eller gass som kan strømme. Vakuumet har ingen gass, og korken hindrer at varm luft og damp strømmer ut av åpningen.\n\nVarmestråling kan gå gjennom vakuum. De blanke flatene reflekterer varmestrålingen fra kaffen tilbake og stråler selv lite ut.\n\n**Svar:** Vakuum stopper ledning og konveksjon mellom veggene, korken stopper ledning og konveksjon i åpningen, og de blanke flatene reflekterer varmestrålingen.",
+      "hints": [
+        "Hvilke av de tre formene trenger et stoff?",
+        "Hva gjør en blank flate med stråling?"
+      ],
+      "allowsUpload": true,
+      "allowsCanvasDrawing": true
+    },
+    {
+      "id": "fys1-5-2-ex-18",
+      "number": "14",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "En elev har $0{,}50\\text{ kg}$ blyhagl i et papprør som er lukket i begge ender. Røret er $1{,}00\\text{ m}$ langt. Eleven snur røret raskt $50$ ganger, slik at haglet faller hele lengden hver gang. Bruk $c_{\\text{bly}} = 130\\text{ J/(kg}\\cdot°\\text{C)}$ og $g = 9{,}81\\text{ m/s}^2$.\n\na) Forklar hvorfor temperaturen til haglet stiger, og vis at den teoretiske temperaturøkningen er $\\Delta T = \\dfrac{Ngh}{c}$, der $N$ er antall fall og $h$ fallhøyden.\n\nb) Regn ut den teoretiske temperaturøkningen.\n\nc) Eleven måler en økning på $3{,}1\\,°\\text{C}$. Gi to grunner til at den målte økningen er mindre.\n\nd) Hvorfor er bly bedre enn aluminium ($c = 900\\text{ J/(kg}\\cdot°\\text{C)}$) i dette forsøket?",
+      "solution": "**a)** Når haglet faller, blir potensiell energi til kinetisk energi. I bunnen stopper haglet brått, og den kinetiske energien blir indre energi. Det er arbeid som øker den indre energien, ikke varme fra en varmere kilde.\n\n$$N\\,mgh = mc\\,\\Delta T$$\n\n$$\\Delta T = \\frac{Ngh}{c}$$\n\n**Svar:** a) Massen forkorter seg, og $\\Delta T = Ngh/c$.\n\n**b)**\n\n$$\\Delta T = \\frac{50 \\cdot 9{,}81 \\cdot 1{,}00}{130}\\,°\\text{C} \\approx 3{,}8\\,°\\text{C}$$\n\n**Svar:** b) Omtrent $3{,}8\\,°\\text{C}$\n\n**c)** Haglet ligger som en søyle i bunnen, så fallhøyden er mindre enn $1{,}00\\text{ m}$. En del av energien går til å varme røret og lufta, og haglet avgir varme til omgivelsene under forsøket.\n\n**Svar:** c) For eksempel kortere fallhøyde enn rørlengden og energi som går til røret og lufta.\n\n**d)** $\\Delta T$ er omvendt proporsjonal med $c$:\n\n$$\\Delta T_{\\text{Al}} = \\frac{50 \\cdot 9{,}81 \\cdot 1{,}00}{900}\\,°\\text{C} \\approx 0{,}5\\,°\\text{C}$$\n\n**Svar:** d) Med aluminium blir økningen bare omtrent $0{,}5\\,°\\text{C}$, for liten til å måles sikkert. Bly har liten $c$ og gir stor nok økning.",
+      "hints": [
+        "Hver gang haglet faller, går potensiell energi $mgh$ over til indre energi",
+        "Sett $N\\,mgh = mc\\Delta T$"
       ],
       "allowsUpload": true,
       "allowsCanvasDrawing": true

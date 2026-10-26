@@ -5,13 +5,14 @@
   "title": "Jordas strålingsbalanse og klimaendringer",
   "subtitle": "Narrativ versjon",
   "description": "En fortelling om regnestykket som avgjør jordas temperatur -- hvorfor planeten egentlig burde vært frossen, og hvordan atmosfæren holder oss varme.",
-  "estimatedMinutes": 42,
+  "estimatedMinutes": 48,
   "competenceGoals": [
     "forklare jordas strålingsbalanse",
     "beregne jordas likevektstemperatur",
     "forklare drivhuseffekten",
     "beskrive albedo og dens betydning",
-    "forklare årsakene til og konsekvensene av klimaendringer"
+    "forklare årsakene til og konsekvensene av klimaendringer",
+    "regne ut temperaturen ved bakken med en enlags atmosfæremodell"
   ],
   "linkedChapterId": "fys1-5-4",
   "content": [
@@ -339,6 +340,112 @@
       }
     },
     {
+      "id": "fys1-5-4-n-section-modell",
+      "type": "text",
+      "content": "## En atmosfære i ett lag -- drivhuseffekten i tall\n\nVi kan regne på drivhuseffekten med en enkel modell. Tenk deg atmosfæren som ett tynt lag som slipper gjennom alt sollyset, men absorberer all varmestråling fra bakken -- og som selv stråler like mye opp som ned. Bakken absorberer $Q = 238$ W/m² fra sola. Her er $Q$ stråling per kvadratmeter, ikke varme i joule som i kapittel 5.1 og 5.2.\n\nSett utenfra er det bare laget som stråler ut i rommet, så for at jorda skal være i balanse, må laget sende ut $P_a = Q$. Laget får $P_b$ fra bakken og stråler ut $P_a$ i begge retninger, så $P_b = 2P_a$. Bakken får altså både $Q$ fra sola og $P_a$ fra laget, og stråler ut $P_b = 2Q = 476$ W/m² -- dobbelt så mye som den får fra sola.\n\nDa blir temperaturen i laget $T_a = (Q/\\sigma)^{1/4} \\approx 255$ K, nøyaktig det samme som jorda uten atmosfære, mens bakken får $T_b = 2^{1/4}\\,T_a \\approx 303$ K. Det er for varmt -- den målte gjennomsnittstemperaturen er $288$ K. Modellen overdriver fordi den virkelige atmosfæren slipper en del av varmestrålingen rett ut, og fordi bakken også mister energi ved fordamping og konveksjon. Lar vi laget absorbere bare en andel $f$, blir balansen for bakken $P_b = Q + \\tfrac{f}{2}P_b$, og med $f \\approx 0{,}78$ treffer modellen $288$ K. Mer drivhusgass gir større $f$ -- og høyere temperatur ved bakken."
+    },
+    {
+      "id": "fys1-5-4-n-quiz-modell",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-5-4-n-quiz-modell",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på atmosfæremodellen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-5-4-n-quiz-modell-q0",
+            "task": "I en enlags atmosfæremodell absorberer bakken $Q$ fra sola, og laget absorberer all varmestråling fra bakken. Hvor mye stråler bakken ut?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2Q$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$Q/2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4Q$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Laget stråler ut $P_a = Q$ i rommet og like mye ned, så bakken får $Q + P_a = 2Q$ og stråler ut $2Q$. Uten atmosfære ville det vært $Q$. $Q/2$ kommer av å dele på 2 i stedet for å gange, $4Q$ av å doble to ganger."
+          },
+          {
+            "id": "fys1-5-4-n-quiz-modell-q1",
+            "task": "I en enlags modell for jorda har atmosfærelaget $255$ K. Omtrent hvilken temperatur får bakken?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$255$ K",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$510$ K",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$303$ K",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$288$ K",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_b = 2^{1/4}\\,T_a \\approx 1{,}19 \\cdot 255$ K $\\approx 303$ K. Å doble temperaturen gir $510$ K, men det er strålingen som dobles, ikke temperaturen. $288$ K er den målte temperaturen, ikke modellens svar."
+          },
+          {
+            "id": "fys1-5-4-n-quiz-modell-q2",
+            "task": "Hvorfor gir den enlags modellen høyere temperatur ved bakken enn den målte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellen ser bort fra albedoen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den virkelige atmosfæren absorberer ikke all varmestrålingen fra bakken",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Sola stråler mer enn modellen regner med",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Atmosfæren stråler mer ned enn opp",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modellen lar laget absorbere all varmestråling, men en del går rett ut i rommet. Albedoen er allerede regnet med i $Q = 238$ W/m², og laget stråler like mye opp som ned."
+          }
+        ]
+      }
+    },
+    {
       "id": "fys1-5-4-n-section4",
       "type": "text",
       "content": "## Klimaendringer -- når balansen forskyves\n\nFysikken viser at balansen kan forskyves, og målinger viser at den er det. Den globale gjennomsnittstemperaturen har steget med rundt 1,1 °C siden førindustriell tid (1850-1900). Samtidig har konsentrasjonen av CO₂ i atmosfæren økt fra rundt 280 ppm (deler per million) i 1750 til over 420 ppm i dag -- en økning på omtrent 50 %, og det høyeste nivået på minst 800 000 år, lest ut av iskjerner. Andre observasjoner følger samme mønster: isbreer smelter, havet stiger med rundt 3,3 mm i året, og arktisk havis krymper.\n\nHvorfor stiger CO₂? Hovedkildene er **forbrenning av fossilt brensel** -- kull, olje og naturgass -- som frigjør karbon lagret i millioner av år, og som står for omtrent tre fjerdedeler av CO₂-utslippene. **Avskoging** bidrar også, siden trær ellers tar opp CO₂ gjennom fotosyntese, og **jordbruk** slipper ut metan (fra husdyr og rismarker) og lystgass (fra gjødsel).\n\nKonsekvensene av økt oppvarming spenner vidt. Mer hyppige og intense hetebølger, stigende havnivå som truer kystområder, kraftigere nedbør og flom enkelte steder og tørke andre, press på økosystemer som korallrev, og virkninger på matproduksjon og bosetting. FNs klimapanel (IPCC) har laget flere scenarier avhengig av framtidige utslipp -- fra rundt +1,4 °C ved sterke kutt til over +4 °C ved fortsatt høye utslipp innen 2100. Parisavtalen fra 2015 satte som mål å holde oppvarmingen godt under 2 °C, helst 1,5 °C.\n\nLøsningene fysikken og forskningen peker på, går i tre retninger: redusere utslipp (fornybar energi, elektrifisering, energieffektivisering), fjerne CO₂ (skogplanting, karbonfangst), og tilpasse seg (flomsikring, robuste avlinger). For å gjøre det konkret: en bensinbil som kjører 15 000 km i året med 0,6 liter/mil forbrenner $1500 \\cdot 0{,}6 = 900$ liter bensin, og siden hver liter gir 2,3 kg CO₂, blir utslippet $900 \\cdot 2{,}3 = 2070$ kg $\\approx 2{,}1$ tonn CO₂ årlig. Til sammenligning ligger et gjennomsnittlig norsk fotavtrykk på rundt 8 tonn per person per år. Slik kobler fysikken i dette kapittelet -- Stefan-Boltzmann, albedo og drivhuseffekt -- de store linjene i klimaet til helt konkrete tall i hverdagen."
@@ -348,7 +455,7 @@
       "type": "exercise",
       "exercise": {
         "id": "fys1-5-4-n-quiz4",
-        "number": "Quiz 4",
+        "number": "Quiz 5",
         "type": "multiple-choice",
         "task": "Test deg selv på klimaendringer:",
         "options": [
@@ -474,7 +581,7 @@
     {
       "id": "fys1-5-4-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nJordas temperatur er et regnskap: energi inn fra sola mot energi ut i rommet. Av solkonstanten $S_0 = 1361$ W/m² blir gjennomsnittet $\\frac{S_0}{4} = 340$ W/m², og etter at **albedoen** (jordas ~0,30) har reflektert bort en del, absorberes 238 W/m².\n\nSetter vi inn lik ut, $\\frac{S_0}{4}(1-\\alpha) = \\sigma T^4$, gir regnestykket en **likevektstemperatur** på bare $-18$ °C -- altfor kaldt for liv. De manglende 33 gradene opp til faktiske $+15$ °C skyldes **drivhuseffekten**: atmosfæren slipper inn solas synlige lys, men drivhusgassene (vanndamp, CO₂, metan) fanger jordas utgående infrarøde varmestråling og sender en del tilbake. Den naturlige effekten er helt nødvendig for liv.\n\n**Klimaendringer** oppstår når balansen forskyves -- CO₂ har økt rundt 50 % siden førindustriell tid, hovedsakelig fra forbrenning av fossilt brensel, og temperaturen har steget om lag 1,1 °C. Selvforsterkende tilbakekoblinger som is-albedo og vanndamp kan forsterke endringen. Forskningen peker på tre svar: redusere utslipp, fjerne CO₂ og tilpasse seg. Slik knytter den samme fysikken -- Stefan-Boltzmann, albedo og drivhuseffekt -- de store klimalinjene til helt konkrete tall, helt ned til CO₂-utslippet fra en enkelt bil."
+      "content": "## Oppsummering\n\nJordas temperatur er et regnskap: energi inn fra sola mot energi ut i rommet. Av solkonstanten $S_0 = 1361$ W/m² blir gjennomsnittet $\\frac{S_0}{4} = 340$ W/m², og etter at **albedoen** (jordas ~0,30) har reflektert bort en del, absorberes 238 W/m².\n\nSetter vi inn lik ut, $\\frac{S_0}{4}(1-\\alpha) = \\sigma T^4$, gir regnestykket en **likevektstemperatur** på bare $-18$ °C -- altfor kaldt for liv. De manglende 33 gradene opp til faktiske $+15$ °C skyldes **drivhuseffekten**: atmosfæren slipper inn solas synlige lys, men drivhusgassene (vanndamp, CO₂, metan) fanger jordas utgående infrarøde varmestråling og sender en del tilbake. Den naturlige effekten er helt nødvendig for liv. Med atmosfæren som ett lag som absorberer all varmestråling, stråler bakken ut $2Q$ og får $2^{1/4} \\cdot 255$ K $\\approx 303$ K -- for varmt, fordi den virkelige atmosfæren slipper en del av strålingen ut.\n\n**Klimaendringer** oppstår når balansen forskyves -- CO₂ har økt rundt 50 % siden førindustriell tid, hovedsakelig fra forbrenning av fossilt brensel, og temperaturen har steget om lag 1,1 °C. Selvforsterkende tilbakekoblinger som is-albedo og vanndamp kan forsterke endringen. Forskningen peker på tre svar: redusere utslipp, fjerne CO₂ og tilpasse seg. Slik knytter den samme fysikken -- Stefan-Boltzmann, albedo og drivhuseffekt -- de store klimalinjene til helt konkrete tall, helt ned til CO₂-utslippet fra en enkelt bil."
     }
   ],
   "exercises": []
