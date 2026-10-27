@@ -8,11 +8,13 @@ const cspDirectives = [
   "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.geogebra.org https://*.geogebra.org",
   // Styles: self + inline (required by Tailwind/React) + GeoGebra (22.10.2026: uten stilarkene sine tegnet appletene seg
   // som tomme hvite bokser på alle kapittelsider med GeoGebra — CSP-feil på simple-bundle.css/bundle.css/fonts.css)
-  "style-src 'self' 'unsafe-inline' https://www.geogebra.org https://*.geogebra.org",
+  // + jsdelivr (27.10.2026): Monaco-editoren i Python-boka laster editor.main.css derfra — uten den ble det skjulte
+  // inndatafeltet en synlig tekstboks over koden, og ikonfonten (codicon) manglet
+  "style-src 'self' 'unsafe-inline' https://www.geogebra.org https://*.geogebra.org https://cdn.jsdelivr.net",
   // Images: self + data URIs + external image sources
   "img-src 'self' data: blob: https://www.geogebra.org https://*.geogebra.org https://*.google-analytics.com https://images.unsplash.com https://img.youtube.com https://xerfxuoxqdptoxkiefju.supabase.co",
   // Fonts: self only (Next.js bundles fonts at build time)
-  "font-src 'self' data: https://www.geogebra.org https://*.geogebra.org",
+  "font-src 'self' data: https://www.geogebra.org https://*.geogebra.org https://cdn.jsdelivr.net",
   // Audio/video: self + Supabase Storage (lydbøker ligger i media-bucketen)
   "media-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co",
   // API connections: self + Supabase + Feide/Dataporten + Google Analytics + Google OAuth
