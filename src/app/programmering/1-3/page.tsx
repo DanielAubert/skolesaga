@@ -11,7 +11,6 @@ import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 
@@ -52,17 +51,6 @@ export default function Chapter13Page() {
               I dette kapitlet skal du lære om alle regneoperatorene i Python: pluss, minus,
               gange, dele, eksponenter, heltallsdivisjon og modulo.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image23.png"
-              alt="Regneoperatorer i Python"
-              width={260}
-              height={480}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -145,7 +133,6 @@ a =
 b =
 
 # Regn ut verdiene
-
 
 # Print resultatene
 print(c)
@@ -237,12 +224,9 @@ c = "tekststrenger er litt rart."
 
 # Oppgave a)
 
-
 # Oppgave b)
 
-
 # Oppgave c)
-
 
 # Oppgave d)
 
@@ -355,9 +339,7 @@ print("9 // 4 =", 9 // 4)   # 2`}
                 description={`a) Skriv print(5**3) og print(2**8) for å finne ut hva 5³ og hva 2⁸ blir.\n\nb) Skriv print(9 // 4) for å finne ut av heltallsdivisjonen 9//4 blir.\n\nc) Bruk print(9 % 4) for å finne ut resten i divisjonen over (altså modulo)`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
-
 
 # Oppgave c)
 

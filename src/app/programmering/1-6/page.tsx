@@ -10,9 +10,7 @@ import { ChapterNavigation } from "@/components/book/chapter-navigation";
 import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
-
 
 export default function Chapter16Page() {
   useKeyboardNavigation('1-6');
@@ -52,17 +50,6 @@ export default function Chapter16Page() {
               I dette kapitlet skal du lære å definere egne funksjoner, bruke parametere,
               return-verdier og forstå variable scope.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image78.png"
-              alt="Funksjoner i Python"
-              width={280}
-              height={373}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -135,7 +122,6 @@ tegn_linje()`}
                 title="Oppgave 1.20 (funksjon_test2.py)"
                 description={'Kopier koden i eksempelet ovenfor og kjør programmet. \nNB: Dersom du fjerner print() funksjonen rundt gladmelding() så vil fremdeles programmet kjøre, men det vil ikke komme noen utskrift. \nIstedenfor return resultat skriv return "Du er superflink" og kjør programmet.'}
                 initialCode={`# Definer funksjonen
-
 
 # Kall funksjonen
 
@@ -238,7 +224,6 @@ legg_sammen(10, 25)`}
                 description={'Definer en funksjon du kaller femplussto(). Husk kolon (:)\nI funksjonen skal du sette resultat = 5 + 2\nReturner resultat.\nKall på funksjonen inne i en print()-funksjon.'}
                 initialCode={`# Definer funksjonen
 
-
 # Kall funksjonen
 
 `}
@@ -339,7 +324,6 @@ print("Absoluttverdien av 3:", absolutt_verdi(3))`}
                 description={'Definer en funksjon kalt x_pluss_3 som tar imot argumentet x. Her må du altså skrive x_pluss_3(x).\nI funksjonen sett resultat lik x+3. \nReturner resultatet.\nKall på funksjonen med x verdi 2 inne i en print()-funksjon (altså skriv: print(x_pluss_3(2)) ). (Allerede skrevet i koden) Kjør programmet.'}
                 initialCode={`# Definer funksjonen
 
-
 # Kall funksjonen
 print(x_pluss_3(2))`}
                 difficulty="lett"
@@ -373,12 +357,10 @@ print(x_pluss_3(2))`}
                 description={'Lag en funksjon kalt x_ganger_y la funksjonen ta imot 2 argumenter x og y. La funksjonen returnere x*y.\n\nTest funksjonen først ved å kalle print(x_ganger_y(3, 4)). Du skal få 12.\n\nGjør deretter en modifikasjon i funksjonen din. Legg nå til en tredje variabel z. Funksjonen skal nå returnere x*y*z.\n\nKall funksjonen med print(x_ganger_y(3, 4, 2)). Du skal få 24.'}
                 initialCode={`# Definer funksjonen med to parametere (x, y)
 
-
 # Test med to parametere
 print(x_ganger_y(3, 4))
 
 # Modifiser funksjonen til å ta tre parametere (x, y, z)
-
 
 # Test med tre parametere
 print(x_ganger_y(3, 4, 2))
@@ -416,7 +398,6 @@ print(x_ganger_y(3, 4, 2))
                 title="Oppgave 1.24 (valgfri_funk.py)"
                 description={'Lag en funksjon hvor du selv bestemmer funksjonsnavn, antall argumenter som skal inn og ikke minst hva funksjonen skal returnere. Kjør funksjonen. \n\nLag gjerne flere funksjoner!'}
                 initialCode={`# Lag din egen funksjon
-
 
 # Test funksjonen
 

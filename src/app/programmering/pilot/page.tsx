@@ -11,7 +11,6 @@ import { ReadingTimeBadge } from "@/components/book/reading-time-badge";
 import { getChapterById } from "@/lib/data/book-chapters";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 
@@ -58,17 +57,6 @@ export default function PilotChapterPage() {
               I dette kapitlet skal du lære om grunnleggende konsepter i Python: hvordan skrive kommentarer,
               bruke print()-funksjonen, og forstå feilmeldinger.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image6.png"
-              alt="Kommentarer i Python"
-              width={350}
-              height={263}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -226,9 +214,7 @@ b) Bruk print()-funksjonen til å skrive ut tallet 71. Her trenger du ikke bruke
 c) Nederst i eksempelet over ser du at vi har brukt fler "argumenter" inne i print()-funksjonen. Skriv én print()-funksjon med "3 + 2 =" og 5 som argumentene. Husk å sette komma imellom argumentene.`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
-
 
 # Oppgave c)
 

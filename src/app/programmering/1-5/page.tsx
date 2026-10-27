@@ -11,7 +11,6 @@ import { ChapterNavigation } from "@/components/book/chapter-navigation";
 import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
 
 export default function Chapter15Page() {
@@ -52,17 +51,6 @@ export default function Chapter15Page() {
               I dette kapitlet skal du lære om betingelser, if-elif-else, sammenligningsoperatorer
               og logiske operatorer for å lage programmer som tar beslutninger.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image55.png"
-              alt="Sammenligningsoperatorer"
-              width={280}
-              height={373}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -382,14 +370,6 @@ tall = int(input("Skriv inn et tall: "))
                 ]}
                 storageKey="1-5-exercise-1-12"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0112.studenthjelp.no/"
-                  youtubeId="Iyj2YblIBYY"
-                  title="Løsningsforslag Oppgave 1.12"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
           </section>
 
@@ -481,14 +461,6 @@ temp = int(input("Temperatur i grader: "))
                 ]}
                 storageKey="1-5-exercise-1-13"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0113.studenthjelp.no/"
-                  youtubeId="7YF3SHIrxoo"
-                  title="Løsningsforslag Oppgave 1.14"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
           </section>
 
@@ -593,14 +565,6 @@ medlemskap = input("Medlemskap (ja/nei): ")
                 ]}
                 storageKey="1-5-exercise-1-14"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0114.studenthjelp.no/"
-                  youtubeId="OLQUDZFNHVo"
-                  title="Løsningsforslag Oppgave 1.15"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
 
             {/* Exercise 1.15 */}
@@ -639,14 +603,6 @@ dag = input("Hvilken dag er det? ")
                 ]}
                 storageKey="1-5-exercise-1-15"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0115.studenthjelp.no/"
-                  youtubeId="3QUbHTvN3X4"
-                  title="Løsningsforslag Oppgave 1.16"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
 
             {/* Exercise 1.16 */}
@@ -675,14 +631,6 @@ q = 900
                 ]}
                 storageKey="1-5-exercise-1-16"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0116.studenthjelp.no/"
-                  youtubeId="eBXxwumkJrA"
-                  title="Løsningsforslag Oppgave 1.17"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
 
             {/* Exercise 1.17 */}
@@ -710,14 +658,6 @@ x = "Ja"
                 ]}
                 storageKey="1-5-exercise-1-17"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0117.studenthjelp.no/"
-                  youtubeId="9m01oWFnuv0"
-                  title="Løsningsforslag Oppgave 1.18"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
 
             {/* Exercise 1.18 */}
@@ -749,14 +689,6 @@ pris = 150
                 chapterId="1-5"
                 exerciseId="1.18"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0118.studenthjelp.no/"
-                  youtubeId="eC_d3BiFXqw"
-                  title="Løsningsforslag Oppgave 1.19"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
 
             {/* Exercise 1.19 */}
@@ -779,14 +711,6 @@ pris = 150
                 chapterId="1-5"
                 exerciseId="1.19"
               />
-              <div className="mt-4">
-                <VideoLink
-                  url="http://pyløs0119.studenthjelp.no/"
-                  youtubeId="zLr6bEfxnns"
-                  title="Løsningsforslag Oppgave 1.20"
-                  description="Se videoløsning for denne oppgaven."
-                />
-              </div>
             </div>
           </section>
 

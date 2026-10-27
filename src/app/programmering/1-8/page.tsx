@@ -11,9 +11,7 @@ import { ChapterNavigation } from "@/components/book/chapter-navigation";
 import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
-
 
 export default function Chapter18Page() {
   useKeyboardNavigation('1-8');
@@ -53,17 +51,6 @@ export default function Chapter18Page() {
               I dette kapitlet skal du lære om repetisjon med while-løkker, og hvordan du
               bruker break og continue for å kontrollere løkkeflyt.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image59.png"
-              alt="While-løkker"
-              width={280}
-              height={373}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -339,7 +326,6 @@ while True:
 b) Gjør en endring i programmet ditt slik at vilkåret blir oppfylt etter løkken har kjørt 3 ganger.`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
 
 `}
@@ -380,9 +366,7 @@ b) Gjør en endring i koden slik at programmet skriver ut hvor mange ganger ett 
 c) Gjør endringer i programmet slik at du nå ser hvor mange ganger et stort tall må halveres for å få det mindre enn et lite tall.`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
-
 
 # Oppgave c)
 
@@ -426,12 +410,9 @@ c) Etter while løkken bryter la programmet skrive ut: "Funksjonen har ett nullp
 d) Sett nå epsilon = 0.5 og kjør programmet igjen. Er svaret nå annerledes? Prøv med epsilon = 0.1, 0.01 og 0.001.`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
 
-
 # Oppgave c)
-
 
 # Oppgave d)
 

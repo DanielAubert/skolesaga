@@ -10,7 +10,6 @@ import { ChapterNavigation } from "@/components/book/chapter-navigation";
 import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
 
 export default function Chapter14Page() {
@@ -50,17 +49,6 @@ export default function Chapter14Page() {
               I dette kapitlet skal du lære å ta imot input fra brukeren og konvertere
               mellom ulike datatyper for å lage interaktive programmer.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image38.png"
-              alt="Input fra bruker"
-              width={305}
-              height={426}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -189,7 +177,6 @@ print("Du er", hoyde, "meter høy")`}
 tall1 = int(input("Skriv inn første tall: "))
 
 # Oppgave b) Be om andre tall
-
 
 # Oppgave c) Regn ut og skriv ut summen
 `}
@@ -344,9 +331,7 @@ d) Gjør en endring i programmet slik at \`b = input("Skriv inn ett flyttall: ")
 e) For å løse problemet ifra oppgave d) gjør nok en endring på b og skriv \`b = float(b)\` i linjen like under \`b = input("Skriv inn ett flyttall: ")\`. Her er det viktig at denne linjen kommer før \`print(a+b)\`.`}
                 initialCode={`# Oppgave a) Skriv koden for a og b her
 
-
 # Oppgave b) Konverter a til heltall
-
 
 # Oppgave c) Skriv ut summen
 
@@ -403,9 +388,7 @@ pris_kg_banan = 45
 
 # Oppgave b) Hent antall kilo fra bruker (husk float!)
 
-
 # Oppgave c) Regn ut kostnad for hver frukt
-
 
 # Oppgave d) Skriv ut resultatene
 

@@ -10,9 +10,7 @@ import { ChapterNavigation } from "@/components/book/chapter-navigation";
 import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
-
 
 export default function Chapter19Page() {
   useKeyboardNavigation('1-9');
@@ -52,17 +50,6 @@ export default function Chapter19Page() {
               I dette kapitlet skal du lære om for-løkker, range()-funksjonen, iterering
               over lister, og list comprehension.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/book-images/image87.png"
-              alt="Lister og for-løkker"
-              width={240}
-              height={320}
-              className="rounded-lg shadow-md"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -303,7 +290,6 @@ priser = [34, 80, 20, 19, 128]
 
 # Oppgave a)
 
-
 # Oppgave b)
 
 `}
@@ -397,12 +383,9 @@ c) Lag en for-løkke (for i in x:) som kjører koden y.append(f(i))
 d) Når koden er utført, skriv ut resultatet (y).`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
 
-
 # Oppgave c)
-
 
 # Oppgave d)
 
@@ -445,9 +428,7 @@ b) Sett r_2 = range(3,10). Hva blir de 3 første elementene i r_2? Det siste? Te
 c) Sett r_3 = range(4,20,3). Hva tror du vil være de 3 første elementene i r_3? Hva med det siste? Test antagelsen din ved å skrive print(r_3[0], r_3[1], r_3[2], r_3[-1])`}
                 initialCode={`# Oppgave a)
 
-
 # Oppgave b)
-
 
 # Oppgave c)
 
@@ -484,7 +465,6 @@ c) Sett r_3 = range(4,20,3). Hva tror du vil være de 3 første elementene i r_3
                 title="Oppgave 1.37 (varer_priser.py)"
                 description={'I denne koden har vi med en liste med varer og i en annen liste så har vi prisene til disse varene lagret (i riktig rekkefølge selvsagt). Husk at len()-funksjonen returnerer lengden til en liste.\nLag listene vare = ["Eple", "Brød", "Skinke"] og pris = [10,20,25]\nSkriv for i in range(len(vare)): for å kjøre koden\nprint(vare[i], " koster ",pris[i], " kroner")\nKjør koden.\nNB: Her kunne vi også bruk 3 istedenfor len(varer), men da må vi i så fall endre koden vår om vi ønsker å forlenge listene.\nVi får vite at en Paprika koster 12 kroner på denne butikken. Legg til informasjonen på relevante steder i listene og kjør koden igjen'}
                 initialCode={`# Definer listene
-
 
 # For-løkke med range(len())
 
@@ -523,12 +503,9 @@ c) Sett r_3 = range(4,20,3). Hva tror du vil være de 3 første elementene i r_3
                 description={'Definer funksjonen  og sett den lik . Sett x = [] og y = []\nBruk range(start, stopp, skritt) til å lage en for-løkke som lagrer alle tallene 10,20,30,...,100 i x.\nModifiser for-løkken slik at den samtidig lagrer f(10), f(20)...f(100) i y\nVed hjelp av en ny for-løkken la programmet skrive ut (10,f(10)), (20,f(20))...(100,f(100))'}
                 initialCode={`# Definer funksjonen
 
-
 # Tom lister
 
-
 # For-løkke
-
 
 # Print resultatet
 `}

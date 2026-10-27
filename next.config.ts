@@ -128,6 +128,8 @@ const nextConfig: NextConfig = {
       // 28. juli 2026, som i tillegg er et faktisk søkeord.
       { source: '/book', destination: '/programmering', permanent: true },
       { source: '/book/:path*', destination: '/programmering/:path*', permanent: true },
+      // Kapittel 1.1 ligger på /programmering/pilot; alle de andre på /programmering/<nr>.
+      { source: '/programmering/1-1', destination: '/programmering/pilot', permanent: true },
     ];
 
     const mediaBase = process.env.NEXT_PUBLIC_SUPABASE_URL

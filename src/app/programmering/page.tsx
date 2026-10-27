@@ -1,14 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MainNav } from "@/components/navigation/main-nav";
 import { Footer } from "@/components/layout/footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image from "next/image";
-import { BookOpen, Play, CheckCircle2, GraduationCap, School, Calculator, Construction } from "lucide-react";
+import { BookOpen, Play, GraduationCap, School, Calculator, Code2 } from "lucide-react";
 import { getChaptersByCategory, getLevelDisplayName, type ChapterCategory } from "@/lib/data/book-chapters";
 
 // Category styling with colors matching the image
@@ -109,6 +108,20 @@ export default function BookIndexPage() {
   const [selectedCategory, setSelectedCategory] = useState<ChapterCategory>("8-klasse");
   const chapters = getChaptersByCategory(selectedCategory);
 
+  // Valgt trinn står i adressen (?niva=1T), så tilbakeknappen fra et kapittel lander på samme trinn
+  // og en lenke kan peke rett på et trinn.
+  useEffect(() => {
+    const niva = new URLSearchParams(window.location.search).get("niva");
+    if (niva && niva in categoryLabels) setSelectedCategory(niva as ChapterCategory);
+  }, []);
+
+  const velgTrinn = (category: ChapterCategory) => {
+    setSelectedCategory(category);
+    const url = new URL(window.location.href);
+    url.searchParams.set("niva", category);
+    window.history.replaceState(null, "", url);
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-gray-100 dark:bg-gradient-to-b dark:from-background dark:via-background dark:to-muted/5">
       <MainNav />
@@ -118,32 +131,27 @@ export default function BookIndexPage() {
           <div className="bg-white dark:bg-background rounded-lg shadow-sm p-6 sm:p-8">
             {/* Hero Section */}
             <div className="mb-8 text-center">
-              <div className="inline-block mb-6">
-                <Image
-                  src="/book-images/image1.png"
-                  alt="Python logo"
-                  width={120}
-                  height={120}
-                  className="mx-auto"
-                />
+              <div className="inline-flex mb-6 p-4 rounded-2xl bg-green-500/10 text-green-600 dark:text-green-400">
+                <Code2 className="h-12 w-12" aria-hidden="true" />
               </div>
               <h1 className="mb-4 text-4xl md:text-5xl font-bold">
                 Python for ungdomsskole og VGS
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Interaktiv lærebok med videogjennomganger, øvelser med automatisk retting,
-                og praktiske eksempler tilpasset hvert klassetrinn.
+                Interaktiv lærebok med kode du kjører rett i nettleseren, øvelser med automatisk
+                retting og praktiske eksempler tilpasset hvert klassetrinn.
               </p>
             </div>
 
             {/* Grunnleggende ferdigheter - separate button */}
             <div className="flex justify-center mb-6">
               <button
-                onClick={() => setSelectedCategory("grunnleggende")}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
+                onClick={() => velgTrinn("grunnleggende")}
+                aria-pressed={selectedCategory === "grunnleggende"}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all bg-green-500 text-white ${
                   selectedCategory === "grunnleggende"
-                    ? "bg-green-500 text-white shadow-lg scale-105"
-                    : "bg-green-500 text-white hover:opacity-90"
+                    ? "shadow-lg ring-2 ring-offset-2 ring-green-500 ring-offset-white dark:ring-offset-background"
+                    : "opacity-80 hover:opacity-100"
                 }`}
               >
                 Grunnleggende ferdigheter
@@ -155,11 +163,12 @@ export default function BookIndexPage() {
               {gradeLevels.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  onClick={() => velgTrinn(category)}
+                  aria-pressed={selectedCategory === category}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${categoryStyles[category].bgColor} text-white ${
                     selectedCategory === category
-                      ? `${categoryStyles[category].bgColor} text-white shadow-lg scale-105`
-                      : `${categoryStyles[category].bgColor} text-white hover:opacity-90`
+                      ? "shadow-lg ring-2 ring-offset-2 ring-gray-400 ring-offset-white dark:ring-offset-background"
+                      : "opacity-80 hover:opacity-100"
                   }`}
                 >
                   {categoryLabels[category]}
@@ -196,14 +205,7 @@ export default function BookIndexPage() {
                                 {getLevelDisplayName(chapter.level)}
                               </Badge>
                             )}
-                            {chapter.wip && (
-                              <Badge variant="outline" className="text-amber-600 border-amber-500 bg-amber-50 dark:bg-amber-950/50">
-                                <Construction className="h-3 w-3 mr-1" />
-                                Under arbeid
-                              </Badge>
-                            )}
                           </div>
-                          <CheckCircle2 className={`h-5 w-5 ${categoryStyles[selectedCategory].color}`} />
                         </div>
                         <CardTitle className="text-xl">{chapter.title}</CardTitle>
                         <CardDescription>{chapter.description}</CardDescription>

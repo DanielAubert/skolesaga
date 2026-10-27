@@ -8,7 +8,7 @@ import {
   getOverallProgressPercentage
 } from '@/lib/data/book-chapters';
 import { cn } from '@/lib/utils';
-import { BookOpen, CheckCircle2, Menu, X, Clock } from 'lucide-react';
+import { BookOpen, CheckCircle2, X, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 
@@ -87,13 +87,13 @@ export function TableOfContents({ currentChapterId, className }: TableOfContents
       {isMobile && (
         <Button
           variant="outline"
-          size="icon"
-          className="fixed top-4 left-4 z-50 lg:hidden shadow-lg"
+          className="fixed bottom-4 left-4 z-50 lg:hidden shadow-lg gap-2 bg-background"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Lukk innholdsfortegnelse" : "Åpne innholdsfortegnelse"}
           aria-expanded={isOpen}
         >
-          {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {isOpen ? <X className="h-4 w-4" /> : <BookOpen className="h-4 w-4" />}
+          {isOpen ? "Lukk" : "Kapitler"}
         </Button>
       )}
 

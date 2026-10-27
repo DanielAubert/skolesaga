@@ -67,14 +67,14 @@ export default function Chapter32Page() {
             <Card className="mb-6">
               <CardContent className="pt-6">
                 <h3 className="font-semibold mb-3">Uten liste (tungvint):</h3>
-                <pre className="text-sm p-4 bg-muted rounded mb-4">
+                <pre className="text-sm p-4 bg-muted rounded mb-4 whitespace-pre-wrap break-words">
 {`karakter1 = 5
 karakter2 = 4
 karakter3 = 6
 karakter4 = 5`}
                 </pre>
                 <h3 className="font-semibold mb-3">Med liste (smart!):</h3>
-                <pre className="text-sm p-4 bg-muted rounded">
+                <pre className="text-sm p-4 bg-muted rounded whitespace-pre-wrap break-words">
 {`karakterer = [5, 4, 6, 5]`}
                 </pre>
               </CardContent>
@@ -137,7 +137,7 @@ print("Tom liste:", tom_liste)`}
             <Card className="mb-6 bg-muted/50">
               <CardContent className="pt-6">
                 <h3 className="font-semibold mb-3">Indeksering i Python:</h3>
-                <pre className="text-sm p-4 bg-background rounded">
+                <pre className="text-sm p-4 bg-background rounded whitespace-pre-wrap break-words">
 {`Liste:   ["Anna", "Erik", "Sofie", "Lars"]
 Indeks:     0       1        2        3`}
                 </pre>

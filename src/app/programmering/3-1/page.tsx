@@ -99,7 +99,7 @@ export default function Chapter31Page() {
             <Card className="mb-6 bg-muted/50">
               <CardContent className="pt-6">
                 <h3 className="font-semibold mb-3">Oppbygning av en funksjon:</h3>
-                <pre className="text-sm p-4 bg-background rounded">
+                <pre className="text-sm p-4 bg-background rounded whitespace-pre-wrap break-words">
 {`def funksjonsnavn():
     # Kode som skal kjøres
     print("Dette er en funksjon!")
@@ -171,7 +171,7 @@ doble(100)`}
 
             <InfoBox type="tip" title="Flere parametre">
               En funksjon kan ha flere parametre! Skill dem med komma:
-              <pre className="mt-2 text-sm">
+              <pre className="mt-2 text-sm whitespace-pre-wrap break-words">
 {`def legg_sammen(tall1, tall2):
     sum = tall1 + tall2
     print(sum)`}

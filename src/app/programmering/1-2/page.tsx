@@ -9,7 +9,6 @@ import { ChapterNavigation } from "@/components/book/chapter-navigation";
 import { ChapterProgressBar } from "@/components/book/chapter-progress-bar";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import Image from "next/image";
 import { BookOpen } from "lucide-react";
 import { useKeyboardNavigation } from "@/hooks/use-keyboard-navigation";
 
@@ -50,17 +49,6 @@ export default function Chapter12Page() {
               I dette kapitlet skal du lære om ulike datatyper i Python og hvordan du
               oppretter og bruker variabler.
             </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-6 sm:mb-8 flex justify-center">
-            <Image
-              src="/book-images/image19.png"
-              alt="Variabler og datatyper i Python"
-              width={800}
-              height={238}
-              className="rounded-lg shadow-md w-full h-auto"
-            />
           </div>
 
           {/* Video Introduction */}
@@ -236,7 +224,6 @@ b =
 c =
 
 # Oppgave b)
-
 
 # Oppgave c)
 print(a)
