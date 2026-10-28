@@ -148,7 +148,7 @@ export function buildSensorContext(opts: {
 /** Systemprompt + brukermelding for vurderingen. Tier styrer dybden:
  * 1 «Karakter + hvorfor» (standard): siterer studentens formuleringer, kobler
  *   til sensornøkler/typiske feil.
- * 2 «Ditt avsnitt til A» (premium): + A-stresstest-rubrikk, omskriver ETT
+ * 2 «Ditt avsnitt til A» (utvidet): + A-stresstest-rubrikk, omskriver ETT
  *   avsnitt til toppnivå, anbefaler neste øvelse. */
 export function buildSensorPrompt(
   ctx: SensorContext,
@@ -178,7 +178,7 @@ export function buildSensorPrompt(
   const tierEkstra =
     tier === 2
       ? [
-          'I tillegg (premium-vurdering):',
+          'I tillegg (utvidet vurdering):',
           '- Fyll "rubrikk" med en A-stresstest — svar kort på: (i) er den sterkeste innvendingen/motargumentet med? (ii) er betingelsen som ville snudd konklusjonen navngitt? (iii) gjør drøftingen/subsumsjonen faktisk arbeid, eller listes det bare? (iv) er konklusjonen en posisjon eller en balanseøvelse?',
           '- Fyll "omskriving": velg avsnittet i studentens svar med størst forbedringspotensial og skriv det om til toppnivå (A) — behold studentens innhold og stemme, vis grepet.',
           '- Fyll "nesteOvelse": anbefal én konkret neste øvelse (helst et kapittel/en oppgavetype fra pensumlisten over, ellers en presis egentreningsøvelse).',

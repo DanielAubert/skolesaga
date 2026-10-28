@@ -2,6 +2,7 @@ import { DefaultSession, DefaultUser } from "next-auth";
 import { DefaultJWT } from "next-auth/jwt";
 
 export type UserRole = "student" | "teacher" | "admin";
+// Speiler users.subscription_tier i den delte databasen (eksamenssett.no eier verdiene). Vises aldri på Skolesaga.
 export type SubscriptionTier = "free" | "premium" | "school";
 export type AuthProvider = "email" | "google" | "microsoft" | "feide";
 
@@ -75,13 +76,3 @@ export interface ExerciseAttempt {
   createdAt: Date;
 }
 
-export interface TeacherSubscription {
-  id: string;
-  userId: string;
-  tier: SubscriptionTier;
-  startedAt: Date;
-  expiresAt?: Date;
-  stripeCustomerId?: string;
-  stripeSubscriptionId?: string;
-  createdAt: Date;
-}

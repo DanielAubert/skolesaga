@@ -34,7 +34,7 @@ export async function GET() {
 
     const { data, error } = await supabase
       .from("users")
-      .select("name, email, role, organization, birth_year, grade_level, phone, subscription_tier, marketing_consent, marketing_consent_source, auth_provider")
+      .select("name, email, role, organization, birth_year, grade_level, phone, marketing_consent, marketing_consent_source, auth_provider")
       .eq("id", session.user.id)
       .single();
 
@@ -54,7 +54,6 @@ export async function GET() {
       birthYear: data.birth_year,
       gradeLevel: data.grade_level,
       phone: data.phone,
-      subscriptionTier: data.subscription_tier,
       marketingConsent: data.marketing_consent === true,
       // null = brukeren har aldri tatt stilling til e-postsamtykke
       marketingConsentAsked: data.marketing_consent_source !== null,

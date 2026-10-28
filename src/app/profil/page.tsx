@@ -32,7 +32,6 @@ interface UserProfile {
   birthYear?: number;
   gradeLevel?: string;
   phone?: string;
-  subscriptionTier?: string;
   marketingConsent?: boolean;
 }
 
@@ -61,7 +60,7 @@ export default function ProfilePage() {
 
   const handleOpenConfirmDelete = async () => {
     setConfirmDelete(true);
-    // Kontoen er felles med eksamenssett.no – sjekk om kjøp/abonnement ryker
+    // Kontoen er felles med eksamenssett.no – sjekk om data der også slettes
     try {
       const response = await fetch("/api/user/deletion-impact");
       if (response.ok) {
@@ -435,7 +434,7 @@ export default function ProfilePage() {
                   {deleteError && (
                     <p className="text-sm text-destructive" role="alert">{deleteError}</p>
                   )}
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-3">
                     <Button
                       variant="destructive"
                       onClick={handleDeleteAccount}

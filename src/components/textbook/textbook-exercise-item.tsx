@@ -33,19 +33,13 @@ import { MultipleChoiceExercise } from './multiple-choice-exercise';
 import { SequentialQuizExercise } from './sequential-quiz-exercise';
 import { TeacherCommentPanel, TeacherCommentDisplay } from './teacher-comment-panel';
 import { AiSensorPanel, aiSensorEnabled } from './ai-sensor-panel';
-import { FasitGate } from './fasit-gate';
 import { useExerciseSubmission, useSubmitAnswer, useRecordAttempt, Submission } from '@/lib/textbook/hooks';
 import { useUser } from '@/lib/auth/hooks';
 import { CheckCircle2 } from 'lucide-react';
 import { getExerciseSubTaskProgress, type SubTaskStatus } from '@/lib/textbook/progress';
 import { Exercise } from '@/components/book/exercise';
-import dynamic from 'next/dynamic';
+import { GjorIGeoGebra } from '@/components/geogebra/gjor-i-geogebra';
 
-// Dynamisk import av GeoGebra for å unngå SSR-problemer
-const GeoGebraExercise = dynamic(
-  () => import('@/components/geogebra/geogebra-exercise').then((mod) => mod.GeoGebraExercise),
-  { ssr: false, loading: () => <div className="h-64 bg-muted animate-pulse rounded-lg" /> }
-);
 
 interface TextbookExerciseItemProps {
   exercise: TextbookExercise;
@@ -340,49 +334,9 @@ export function TextbookExerciseItem({
     );
   }
 
-  // Håndter interaktive GeoGebra-oppgaver
-  if (exercise.type === 'interactive' && exercise.tool?.startsWith('geogebra')) {
-    const appType = exercise.geogebraAppType || 'graphing';
-
-    return (
-      <div className="space-y-4">
-        {/* Anbefalt-badge */}
-        {isRecommended && exercise.difficulty && (
-          <RecommendedBadge difficulty={exercise.difficulty} />
-        )}
-        {genreTag && (
-          <div className="mb-2">
-            <GenreBadge tag={genreTag} />
-          </div>
-        )}
-        <div className="prose prose-slate dark:prose-invert max-w-none">
-          <LatexRenderer content={taskText} />
-        </div>
-        {/* Oppgaveillustrasjon - rendres alltid for å unngå hydration mismatch */}
-        <div className="my-4" style={{ display: exercise.image ? 'block' : 'none' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={exercise.image || ''}
-            alt={exercise.image ? `Illustrasjon til oppgave ${exercise.number || ''}` : ''}
-            className="block max-w-[min(100%,28rem)] max-h-[65vh] w-auto h-auto object-contain mx-auto"
-          />
-        </div>
-        <GeoGebraExercise
-          exercise={{
-            id: exercise.id,
-            task: '',
-            validations: exercise.validation || [],
-            initialCommands: exercise.initialCommands,
-            appName: appType,
-          }}
-          chapterId={chapterId}
-        />
-        {exercise.hints && exercise.hints.length > 0 && (
-          <HintsSection hints={exercise.hints} showHints={showHints} setShowHints={setShowHints} />
-        )}
-      </div>
-    );
-  }
+  // GeoGebra-oppgaver (tool: geogebra-*) var tidligere innbygde appleter med automatisk sjekk. GeoGebra bygges
+  // ikke lenger inn (lisens, Daniel 28.10.2026); oppgaven vises som klassisk oppgave med løsning, og
+  // startkommandoene står i en «Gjør dette i GeoGebra»-boks under oppgaveteksten.
 
   // Klassiske oppgaver (papir og blyant)
   return (
@@ -418,6 +372,14 @@ export function TextbookExerciseItem({
           className="block max-w-[min(100%,28rem)] max-h-[65vh] w-auto h-auto object-contain mx-auto"
         />
       </div>
+
+      {exercise.tool?.startsWith('geogebra') && (
+        <GjorIGeoGebra
+          kommandoer={exercise.initialCommands}
+          kommandoOverskrift="Start med å skrive inn dette, én linje om gangen:"
+          kontekst={[exercise.task, ...(exercise.subTasks ?? []).map((d) => d.task)].join(' ')}
+        />
+      )}
 
       {/* Deloppgaver - vises alltid som liste */}
       {exercise.subTasks && exercise.subTasks.length > 0 && (() => {
@@ -724,7 +686,6 @@ export function TextbookExerciseItem({
           </Button>
 
           {showSolution && (
-            <FasitGate exerciseId={exercise.id}>
             <div className="mt-3 p-4 bg-green-50/50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800">
               <h4 className="font-semibold text-green-700 dark:text-green-300 mb-3">Løsning</h4>
               {exercise.subTasks && exercise.subTasks.some(st => st.solution) ? (
@@ -748,7 +709,6 @@ export function TextbookExerciseItem({
                 </div>
               ) : null}
             </div>
-            </FasitGate>
           )}
         </div>
       )}

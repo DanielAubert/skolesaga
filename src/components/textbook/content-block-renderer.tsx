@@ -25,8 +25,8 @@ import { FinanceCalculator } from './finance-calculator';
 import { DynamicPlot } from './dynamic-plot';
 import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
 import { SafeSvg } from './safe-svg';
-import dynamic from 'next/dynamic';
 import { mediaUrl } from '@/lib/media';
+import { GjorIGeoGebra } from '@/components/geogebra/gjor-i-geogebra';
 import { ProveSvarFelt } from './prove-svar-felt';
 import {
   AngleIntroIllustration,
@@ -117,11 +117,6 @@ import {
   StaircaseNumbersIllustration,
 } from './illustrations/pattern-illustrations';
 
-// Dynamisk import av GeoGebra for å unngå SSR-problemer
-const GeoGebraEmbed = dynamic(
-  () => import('@/components/geogebra/geogebra-embed').then((mod) => mod.GeoGebraEmbed),
-  { ssr: false, loading: () => <div className="h-96 bg-muted animate-pulse rounded-lg" /> }
-);
 
 interface ContentBlockRendererProps {
   block: TextbookContentBlock;
@@ -189,7 +184,8 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
     case 'audio':
       return <AudioBlockComponent title={block.title} src={block.src} description={block.description} />;
     case 'geogebra':
-      return <GeoGebraBlockComponent title={block.title} description={block.description} materialId={block.materialId} commands={block.commands} appType={block.appType} />;
+      // Ingen innbygd GeoGebra (lisens, Daniel 28.10.2026): instruksjonsboks med kommandoene + lenke.
+      return <GjorIGeoGebra tittel={block.title} beskrivelse={block.description} kommandoer={block.commands} kommandoOverskrift={block.appType === 'cas' ? 'Skriv inn én linje om gangen i CAS:' : undefined} />;
     case 'image':
       return <FilteredImageBlock block={block} />;
     case 'formula':
@@ -639,52 +635,6 @@ function AudioBlockComponent({
           <source src={mediaUrl(src)} type="audio/mpeg" />
           Nettleseren din støtter ikke lydavspilling.
         </audio>
-      </CardContent>
-    </Card>
-  );
-}
-
-// ============================================================================
-// GeoGebra
-// ============================================================================
-
-function GeoGebraBlockComponent({
-  title,
-  description,
-  materialId,
-  commands,
-  appType,
-}: {
-  title?: string;
-  description?: string;
-  materialId?: string;
-  commands?: string[];
-  appType?: 'graphing' | 'geometry' | 'classic' | '3d' | 'cas' | 'scientific';
-}) {
-  return (
-    <Card className="border-orange-200/60 dark:border-orange-900/40 shadow-none">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg flex items-center gap-2 text-orange-700 dark:text-orange-300">
-          <span className="text-xl">📊</span>
-          <LatexRenderer content={title || 'GeoGebra'} inline />
-        </CardTitle>
-        {description && (
-          <p className="text-sm text-muted-foreground">
-            <LatexRenderer content={description} inline />
-          </p>
-        )}
-      </CardHeader>
-      <CardContent>
-        <GeoGebraEmbed
-          materialId={materialId}
-          appName={appType || 'graphing'}
-          initialCommands={commands}
-          height={400}
-          showToolBar={true}
-          showAlgebraInput={true}
-          showResetIcon={true}
-          enableRightClick={true}
-        />
       </CardContent>
     </Card>
   );

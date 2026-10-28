@@ -3,7 +3,8 @@
 /**
  * AI-sensor-panel: skriv/lim inn besvarelsen, velg nivå, få vurdering med
  * bokstavkarakter. Vurderinger lagres server-side; er man misfornøyd kan man
- * be om refusjon (går til admin-gjennomgang).
+ * melde inn vurderingen (går til admin-gjennomgang). Begge nivåene er like
+ * tilgjengelige for alle — ingen nivåer er knyttet til kjøp.
  *
  * SKJULT: rendres kun når NEXT_PUBLIC_AI_SENSOR_ENABLED === 'true'
  * (og API-ruta krever i tillegg AI_SENSOR_ENABLED=true server-side).
@@ -37,13 +38,11 @@ const TIERS = [
   {
     id: 1,
     navn: 'Karakter + hvorfor',
-    klipp: 1,
     kort: 'Bokstavkarakter + vurdering som siterer dine formuleringer',
   },
   {
     id: 2,
     navn: 'Ditt avsnitt til A',
-    klipp: 3,
     kort: '+ A-stresstest, ett av dine avsnitt omskrevet til toppnivå, neste øvelse',
   },
 ] as const;
@@ -69,7 +68,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [vurderingId, setVurderingId] = useState<string | null>(null);
   const [raw, setRaw] = useState<string | null>(null);
-  // Refusjon
+  // Innmelding av vurderingen
   const [visRefusjon, setVisRefusjon] = useState(false);
   const [refBegrunnelse, setRefBegrunnelse] = useState('');
   const [refStatus, setRefStatus] = useState<'ingen' | 'sender' | 'sendt' | 'feil'>('ingen');
@@ -152,10 +151,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
                 tier === t.id ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'
               }`}
             >
-              <div className="flex items-center justify-between">
-                <span className="font-medium">{t.navn}</span>
-                <span className="text-xs text-muted-foreground">{t.klipp} klipp</span>
-              </div>
+              <span className="font-medium">{t.navn}</span>
               <p className="mt-1 text-xs text-muted-foreground">{t.kort}</p>
             </button>
           ))}
@@ -190,7 +186,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
               </>
             ) : (
               <>
-                <Sparkles className="h-4 w-4 mr-2" /> Vurder med KI ({TIERS[tier - 1].klipp} klipp)
+                <Sparkles className="h-4 w-4 mr-2" /> Vurder med KI
               </>
             )}
           </Button>
@@ -262,7 +258,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
               </p>
             )}
 
-            {/* Premium-felter (nivå 2) */}
+            {/* Utvidede felter (nivå 2) */}
             {verdict.rubrikk && verdict.rubrikk.length > 0 && (
               <div>
                 <p className="font-medium">A-stresstest</p>
@@ -294,7 +290,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
               ikke en garanti for sensors dom.
             </p>
 
-            {/* Refusjon */}
+            {/* Innmelding av vurderingen */}
             {vurderingId && refStatus !== 'sendt' && (
               <div className="border-t pt-3">
                 {!visRefusjon ? (
@@ -304,13 +300,13 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
                     className="inline-flex items-center gap-1 text-xs text-muted-foreground underline hover:text-foreground"
                   >
                     <Flag className="h-3 w-3" />
-                    Ikke fornøyd med vurderingen? Meld den inn og be om refusjon
+                    Ikke fornøyd med vurderingen? Meld den inn
                   </button>
                 ) : (
                   <div className="space-y-2">
                     <p className="text-xs text-muted-foreground">
                       Fortell kort hva som var galt (feil fakta, traff ikke oppgaven, for
-                      generisk …). En admin ser på saken; godkjennes den, tilbakeføres klippene.
+                      generisk …). En admin ser på saken.
                     </p>
                     <textarea
                       className="w-full min-h-20 rounded-md border bg-background p-2 text-sm"

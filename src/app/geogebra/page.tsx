@@ -10,7 +10,7 @@ import { GEOGEBRA_LEVELS, GEOGEBRA_COURSES } from "@/lib/data/geogebra-chapters"
 
 export const metadata: Metadata = {
   title: "GeoGebra-lærebok - Fra 8. klasse til R2",
-  description: "Lær GeoGebra fra bunnen av. Interaktiv lærebok tilpasset hvert klassetrinn fra 8. klasse til R2. CAS-regning, grafer og geometri.",
+  description: "Lær GeoGebra fra bunnen av. Lærebok tilpasset hvert klassetrinn fra 8. klasse til R2. CAS-regning, grafer og geometri.",
   keywords: "GeoGebra, CAS, kalkulator, matematikk, grafer, geometri, lærebok, VGS, ungdomsskole, 1P, 1T, 2P, S1, S2, R1, R2",
 };
 
@@ -68,7 +68,7 @@ export default function GeoGebraIndexPage() {
                 </Badge>
                 <Badge variant="secondary" className="text-sm py-1 px-3">
                   <Calculator className="h-4 w-4 mr-1" />
-                  Interaktive øvelser
+                  Øvelser med fasit
                 </Badge>
               </div>
 
@@ -170,10 +170,10 @@ export default function GeoGebraIndexPage() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Interaktive øvelser</h3>
+                  <h3 className="font-semibold mb-2">Øvelser med fasit</h3>
                   <p className="text-sm text-muted-foreground">
-                    Alle kapitlene har innebygde GeoGebra-applets der du kan
-                    eksperimentere direkte i nettleseren.
+                    Hvert kapittel har kommandoene du skal skrive inn, og øvelser med hint og fasit.
+                    Du jobber i GeoGebra i en egen fane.
                   </p>
                 </div>
               </div>

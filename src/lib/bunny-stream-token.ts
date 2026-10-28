@@ -5,10 +5,7 @@ import crypto from "crypto";
  *
  * Bakgrunn: `/api/solution-videos` gater OPPSLAGET (hasCourseAccess), men
  * ikke AVSPILLINGEN. Uten token er `iframe.mediadelivery.net/embed/<lib>/<guid>`
- * en evigvarende, delbar lenke — betalingsmuren forsvinner i det GUID-en er
- * ute. Videoen er det første ekte premium-aktivumet paa VGS-loesningssidene
- * (loesnings-HTML-en ligger i /public og er kun klient-blurret), saa den kan
- * ikke arve en beskyttelse som ikke finnes. Den maa baere sin egen.
+ * en evigvarende, delbar lenke. Signert embed gir lenker som utloeper.
  *
  * Bunnys oppskrift for embed view token (docs: Stream → Embed View Token
  * Authentication): sha256_hex(token_security_key + video_id + expiration),

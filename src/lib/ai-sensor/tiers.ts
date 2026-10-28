@@ -1,10 +1,10 @@
 /**
  * KI-sensorens modellstige — to synlige nivåer (panel-testet juli 2026).
  *
- * Designbeslutning (produkteier): INGEN synlig Haiku-tier — et tynt gratisnivå
- * vaksinerer mot produktet («nesten verdiløst» — toppjegeren). Gratis-smaken er
- * samme kvalitet som standard (Sonnet); kostnaden (~0,4–0,8 kr/vurdering) er
- * marginal. Haiku finnes kun som skjult nødbrems via AI_SENSOR_MODEL_OVERRIDE.
+ * Begge nivåene er åpne for alle; ingen er knyttet til kjøp (Skolesaga er
+ * ikke-kommersiell, Daniel 28.10.26). `klipp` er bare en intern kostnadsvekt
+ * (lagres som klipp_kostnad) og vises ikke. Haiku finnes kun som skjult
+ * nødbrems via AI_SENSOR_MODEL_OVERRIDE.
  *
  * Navnene sier hva man FÅR (3 av 4 paneltestere ba om det uavhengig).
  */

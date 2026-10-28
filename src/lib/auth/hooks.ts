@@ -110,8 +110,3 @@ export function useIsStudent() {
   const { user } = useUser();
   return user?.role === "student";
 }
-
-export function useIsPremium() {
-  const { user } = useUser();
-  return user?.subscriptionTier === "premium" || user?.subscriptionTier === "school";
-}

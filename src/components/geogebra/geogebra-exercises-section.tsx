@@ -12,7 +12,7 @@ import {
   Trophy,
   RotateCcw,
 } from 'lucide-react';
-import { GeoGebraExercise } from './geogebra-exercise';
+import { GeoGebraOppgave } from './geogebra-oppgave';
 import { useGeoGebraProgress } from '@/hooks/use-geogebra-progress';
 import type { ValidatedExercise } from '@/lib/geogebra/validation-types';
 import { cn } from '@/lib/utils';
@@ -26,7 +26,7 @@ interface GeoGebraExercisesSectionProps {
 export function GeoGebraExercisesSection({
   chapterId,
   exercises,
-  title = 'Øvelser med sjekk',
+  title = 'Øvelser',
 }: GeoGebraExercisesSectionProps) {
   const [expandedExercise, setExpandedExercise] = useState<string | null>(null);
   const {
@@ -154,16 +154,9 @@ export function GeoGebraExercisesSection({
                   >
                     {exercise.task}
                   </p>
-                  {status?.attempts && status.attempts > 0 && (
+                  {status?.completedAt && (
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      {status.attempts} forsøk
-                      {status.completedAt && (
-                        <>
-                          {' '}
-                          · Fullført{' '}
-                          {new Date(status.completedAt).toLocaleDateString('nb-NO')}
-                        </>
-                      )}
+                      Gjort {new Date(status.completedAt).toLocaleDateString('nb-NO')}
                     </p>
                   )}
                 </div>
@@ -180,9 +173,8 @@ export function GeoGebraExercisesSection({
 
               {/* Expanded exercise content */}
               {isExpanded && (
-                <GeoGebraExercise
+                <GeoGebraOppgave
                   exercise={exercise}
-                  chapterId={chapterId}
                   onComplete={handleExerciseComplete}
                   isCompleted={isCompleted}
                 />

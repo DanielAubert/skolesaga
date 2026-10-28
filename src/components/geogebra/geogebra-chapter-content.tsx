@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { GeoGebraLayout } from './geogebra-layout';
-import { GeoGebraEmbed } from './geogebra-embed';
+import { GjorIGeoGebra, GEOGEBRA_LENKE } from './gjor-i-geogebra';
 import { GeoGebraExercisesSection } from './geogebra-exercises-section';
 import { ChevronLeft, ChevronRight, Clock, BookOpen, Target, CheckCircle2 } from 'lucide-react';
 import type { GeoGebraCourse, GeoGebraChapter } from '@/lib/data/geogebra-chapters';
@@ -128,18 +128,11 @@ export function GeoGebraChapterContent({
                     {section.content}
                   </div>
                   {section.geogebra && (
-                    <GeoGebraEmbed
-                      title={section.geogebra.title}
-                      description={section.geogebra.description}
-                      appName={section.geogebra.appName || 'classic'}
-                      width={section.geogebra.appName === 'cas' ? 1200 : 800}
-                      height={section.geogebra.appName === 'cas' ? 550 : 450}
-                      algebraWidth={section.geogebra.appName === 'cas' ? 550 : undefined}
-                      showToolBar={true}
-                      showAlgebraInput={true}
-                      showMenuBar={false}
-                      showResetIcon={true}
-                      initialCommands={section.geogebra.initialCommands}
+                    <GjorIGeoGebra
+                      tittel={section.geogebra.title}
+                      beskrivelse={section.geogebra.description}
+                      kommandoer={section.geogebra.initialCommands}
+                      kommandoOverskrift={section.geogebra.appName === 'cas' ? 'Skriv inn én linje om gangen i CAS:' : undefined}
                     />
                   )}
                 </section>
@@ -155,7 +148,7 @@ export function GeoGebraChapterContent({
                     <GeoGebraExercisesSection
                       chapterId={chapter.id}
                       exercises={ALL_EXERCISES[chapter.id]}
-                      title="Interaktive øvelser"
+                      title="Øvelser"
                     />
                   </div>
                 )}
@@ -173,14 +166,9 @@ export function GeoGebraChapterContent({
                     </ol>
                   </CardContent>
                 </Card>
-                <GeoGebraEmbed
-                  title="Øvingsvindu"
-                  description="Løs oppgavene over."
-                  appName="classic"
-                  width={800}
-                  height={450}
-                  showToolBar={true}
-                  showAlgebraInput={true}
+                <GjorIGeoGebra
+                  tittel="Løs oppgavene i GeoGebra"
+                  beskrivelse="Åpne GeoGebra i en ny fane og løs oppgavene over der."
                 />
               </section>
 
@@ -240,20 +228,17 @@ export function GeoGebraChapterContent({
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4">Arbeidsområde</h2>
                 <p className="text-muted-foreground mb-6">
-                  Bruk GeoGebra-vinduet under til å utforske temaene i dette kapittelet.
-                  Du kan skrive kommandoer i inputfeltet, eller bruke verktøyene i verktøylinjen.
+                  Åpne GeoGebra i en ny fane og utforsk temaene i dette kapittelet. Du kan skrive kommandoer i
+                  inntastingsfeltet eller bruke verktøyene i verktøylinjen.
                 </p>
-                <GeoGebraEmbed
-                  title={chapter.title}
-                  description="Prøv selv! Skriv kommandoer i inputfeltet eller bruk verktøylinjen."
-                  appName="classic"
-                  width={800}
-                  height={500}
-                  showToolBar={true}
-                  showAlgebraInput={true}
-                  showMenuBar={false}
-                  showResetIcon={true}
-                />
+                <a
+                  href={GEOGEBRA_LENKE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400"
+                >
+                  Åpne GeoGebra (ny fane)
+                </a>
               </section>
 
               {/* Placeholder for actual content */}

@@ -213,7 +213,7 @@ export default function HomePage() {
       <div className="border-t border-border/50 bg-muted/30">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-4xl mx-auto">
-            <FeatureItem icon="📊" title="GeoGebra" description="Interaktive grafer" />
+            <FeatureItem icon="📊" title="GeoGebra" description="Kommandoer steg for steg" />
             <FeatureItem icon="🐍" title="Python" description="Programmering" />
             <FeatureItem icon="✏️" title="Håndskrift" description="Tegn løsninger" />
             <FeatureItem icon="🤖" title="AI-hjelp" description="Smart tilbakemelding" />

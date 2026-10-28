@@ -1,5 +1,7 @@
 # Lansering av betalingsmodellen — hva som er bygget og hva som gjenstår
 
+> **UTGÅTT 28.10.2026 (Daniel: «Fjern den premium-teksten fra Skolesaga også»):** Skolesaga er ikke-kommersiell inntil videre. Fasit-muren og flagget `NEXT_PUBLIC_FASIT_MUR_ENABLED` er fjernet fra koden, KI-sensorens nivåer er åpne for alle uten «klipp»/premium. Dokumentet beholdes som historikk.
+
 Status per 10. juli 2026. Forretningsmodell: se minne «forretningsmodell» +
 docs/AI-SENSOR.md. Verditrapp: Gratis (bøker + auto-retting + 3 løsningsforslag/uke
 + 3 KI-vurderinger) → Pluss 49 kr/mnd (alle løsningsforslag + quiz/SRS) →

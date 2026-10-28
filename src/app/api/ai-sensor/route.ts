@@ -5,17 +5,18 @@
  * NEXT_PUBLIC_AI_SENSOR_ENABLED=true (klient-synlighet) for å aktivere.
  * Begge er AV som standard — funksjonen er IKKE ute på siden.
  *
- * To nivåer (se src/lib/ai-sensor/tiers.ts):
- *  1 «Karakter + hvorfor» (Sonnet, 1 klipp) — standard OG gratis-smaken.
- *  2 «Ditt avsnitt til A» (Opus, 3 klipp) — premium.
- * Ingen synlig Haiku-tier (panel-testet: tynt gratisnivå skader tilliten);
+ * To nivåer (se src/lib/ai-sensor/tiers.ts), begge åpne for alle:
+ *  1 «Karakter + hvorfor» (Sonnet, kostnadsvekt 1) — standard.
+ *  2 «Ditt avsnitt til A» (Opus, kostnadsvekt 3) — utvidet vurdering.
  * AI_SENSOR_MODEL_OVERRIDE finnes som skjult kostnads-nødbrems.
  *
  * Vurderinger LAGRES i ai_sensor_vurderinger (delt Supabase, RLS på, kun
- * service-nøkkel) — gir historikk og refusjonsflyt (/api/ai-sensor/refusjon).
+ * service-nøkkel) — gir historikk og innmelding av vurderinger
+ * (/api/ai-sensor/refusjon, admin-gjennomgang).
  *
- * Betaling per klipp: kredittsjekken er et bevisst stubb-punkt (checkCredits) —
- * kobles til betalingsløsningen før lansering.
+ * Skolesaga er ikke-kommersiell: ingen nivåer er knyttet til kjøp. Kostnaden
+ * begrenses av rate-limit per IP og et kvotepunkt per bruker (innenforKvote),
+ * som er likt for alle.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -41,9 +42,9 @@ function rateLimited(ip: string): boolean {
   return h.count > RATE_LIMIT_PER_MIN;
 }
 
-// STUBB: betaling per klipp. Koble til betalings-/kredittløsning før lansering.
-// Skal da trekke `klipp` fra brukerens saldo (gratis: 3 vurderinger totalt).
-async function checkCredits(_userKey: string, _klipp: number): Promise<boolean> {
+// Kvotepunkt for kostnadskontroll — likt for alle brukere, aldri koblet til kjøp.
+// Ingen kvote ennå (funksjonen er av i produksjon); rate-limiten over gjelder.
+async function innenforKvote(_userKey: string, _kostnadsvekt: number): Promise<boolean> {
   return true;
 }
 
@@ -147,8 +148,11 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (!(await checkCredits(ip, tier.klipp))) {
-    return NextResponse.json({ error: 'Ingen KI-klipp igjen.' }, { status: 402 });
+  if (!(await innenforKvote(ip, tier.klipp))) {
+    return NextResponse.json(
+      { error: 'Du har brukt opp KI-vurderingene for nå — prøv igjen senere.' },
+      { status: 429 }
+    );
   }
 
   const ctx = buildSensorContext({ courseId, chapterId, exerciseId, questionOverride: question });

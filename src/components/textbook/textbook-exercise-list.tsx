@@ -19,6 +19,11 @@ import type { TextbookExercise } from '@/lib/types/textbook';
 import { TextbookExerciseItem } from './textbook-exercise-item';
 import { useSkillLevel, type Difficulty } from '@/lib/textbook/hooks';
 
+// GeoGebra-oppgavene var innbygde appleter med automatisk sjekk; GeoGebra bygges ikke lenger inn
+// (lisens, Daniel 28.10.2026), så de er klassiske oppgaver med løsning og regnes ikke som interaktive.
+const erGeoGebraOppgave = (e: TextbookExercise) => !!e.tool?.startsWith('geogebra');
+const erInteraktiv = (e: TextbookExercise) => e.type === 'interactive' && !erGeoGebraOppgave(e);
+
 interface TextbookExerciseListProps {
   exercises: TextbookExercise[];
   chapterId: string;
@@ -74,8 +79,8 @@ export function TextbookExerciseList({
   const filteredExercises = exercises.filter((exercise) => {
     if (filter === 'all') return true;
     if (filter === 'recommended') return isExerciseRecommended(exercise);
-    if (filter === 'interactive') return exercise.type === 'interactive';
-    if (filter === 'classic') return exercise.type === 'classic' || exercise.type === 'multiple-choice';
+    if (filter === 'interactive') return erInteraktiv(exercise);
+    if (filter === 'classic') return exercise.type === 'classic' || exercise.type === 'multiple-choice' || erGeoGebraOppgave(exercise);
     if (filter === 'upload') return exercise.allowsUpload || exercise.allowsCanvasDrawing;
     return true;
   });
@@ -279,7 +284,7 @@ function ExerciseCard({
   const isCompleted = false;
 
   const getTypeIcon = () => {
-    switch (exercise.type) {
+    switch (erGeoGebraOppgave(exercise) ? 'classic' : exercise.type) {
       case 'interactive':
         return <Code className="h-4 w-4" />;
       case 'upload':

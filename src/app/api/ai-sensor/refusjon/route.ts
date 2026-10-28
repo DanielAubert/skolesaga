@@ -6,8 +6,8 @@
  *        er vurderingen knyttet til en bruker, må samme bruker være innlogget.
  * GET   (admin): list refusjonsforespørsler.
  * PATCH (admin): avgjør — { id, avgjorelse: 'godkjent'|'avvist', svar? }.
- *        Godkjent = klippene skal tilbakeføres (stubb til betalingsløsningen
- *        finnes; frem til da er statusen selve kvitteringen).
+ *        Statusen er selve kvitteringen — det finnes ingen betaling å tilbakeføre
+ *        (Skolesaga er ikke-kommersiell).
  *
  * Følger samme flagg som hoved-ruta (AI_SENSOR_ENABLED).
  */
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
   }
   if (row.refusjon_status !== 'ingen') {
     return NextResponse.json(
-      { error: 'Det er allerede sendt inn en refusjonsforespørsel for denne vurderingen.' },
+      { error: 'Denne vurderingen er allerede meldt inn.' },
       { status: 409 }
     );
   }
