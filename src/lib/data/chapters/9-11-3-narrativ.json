@@ -14,12 +14,12 @@
     {
       "id": "9-11-3-n-intro",
       "type": "text",
-      "content": "## Nar matematikken blir levende\n\nI matematikk lager vi ofte **modeller** -- forenklede beskrivelser av virkeligheten. En modell kan fortelle oss hvordan en befolkning vokser, hvordan penger oker pa en sparekonto, eller hvordan en sykdom sprer seg.\n\nMed papir og blyant kan du kanskje beregne 5--10 tidspunkter for du gir opp. Men med Python kan du beregne tusenvis av tidspunkter pa et oyeblikk, lage tabeller, og finne noyaktig nar noe viktig skjer. La oss utforske to grunnleggende vekstmodeller og se hvordan programmering gjor dem levende."
+      "content": "## Nar matematikken blir levende\n\nI matematikk lager vi ofte **modeller** -- forenklede beskrivelser av virkeligheten. En modell kan fortelle oss hvordan en befolkning vokser, hvordan penger oker på en sparekonto, eller hvordan en sykdom sprer seg.\n\nMed papir og blyant kan du kanskje beregne 5--10 tidspunkter for du gir opp. Men med Python kan du beregne tusenvis av tidspunkter på et øyeblikk, lage tabeller, og finne nøyaktig nar noe viktig skjer. La oss utforske to grunnleggende vekstmodeller og se hvordan programmering gjor dem levende."
     },
     {
       "id": "9-11-3-n-section1",
       "type": "text",
-      "content": "## Lineær vekst -- jevnt og trutt\n\nDen enkleste modellen er **lineær vekst**: noe oker med et **fast belop** for hvert tidssteg. Matematisk skriver vi dette som:\n\n$$y = ax + b$$\n\nder $a$ er den faste endringen per steg (stigningstallet) og $b$ er startverdien.\n\nTenk pa en sparebosse der du putter inn 500 kr hver maned. Har du 2000 kr fra for, sa har du etter $x$ maneder:\n\n$$y = 500x + 2000$$\n\nMed Python kan vi lage en hel tabell:\n\n```python\nsaldo = 2000\ninnskudd = 500\n\nprint(f\"Start: {saldo} kr\")\nfor maned in range(1, 13):\n    saldo = saldo + innskudd\n    print(f\"Maned {maned:>2}: {saldo} kr\")\n```\n\nPa 12 maneder har du $2000 + 12 \\cdot 500 = 8000$ kr. Enkelt og forutsigbart -- det er lineær vekst i et notteskall.\n\nMen nar nar du 10 000 kr? Med en while-lokke kan Python finne svaret:\n\n```python\nsaldo = 2000\nmaned = 0\nwhile saldo < 10000:\n    saldo += 500\n    maned += 1\nprint(f\"Du nar 10 000 etter {maned} maneder\")\n```\n\nSvaret er 16 maneder. Vi kan verifisere: $500 \\cdot 16 + 2000 = 10\\,000$. Stemmer!"
+      "content": "## Lineær vekst -- jevnt og trutt\n\nDen enkleste modellen er **lineær vekst**: noe oker med et **fast belop** for hvert tidssteg. Matematisk skriver vi dette som:\n\n$$y = ax + b$$\n\nder $a$ er den faste endringen per steg (stigningstallet) og $b$ er startverdien.\n\nTenk på en sparebøsse der du putter inn 500 kr hver maned. Har du 2000 kr fra for, så har du etter $x$ måneder:\n\n$$y = 500x + 2000$$\n\nMed Python kan vi lage en hel tabell:\n\n```python\nsaldo = 2000\ninnskudd = 500\n\nprint(f\"Start: {saldo} kr\")\nfor maned in range(1, 13):\n    saldo = saldo + innskudd\n    print(f\"Maned {maned:>2}: {saldo} kr\")\n```\n\nPa 12 måneder har du $2000 + 12 \\cdot 500 = 8000$ kr. Enkelt og forutsigbart -- det er lineær vekst i et nøtteskall.\n\nMen når når du 10 000 kr? Med en while-lokke kan Python finne svaret:\n\n```python\nsaldo = 2000\nmaned = 0\nwhile saldo < 10000:\n    saldo += 500\n    maned += 1\nprint(f\"Du nar 10 000 etter {maned} maneder\")\n```\n\nSvaret er 16 måneder. Vi kan verifisere: $500 \\cdot 16 + 2000 = 10\\,000$. Stemmer!"
     },
     {
       "id": "9-11-3-n-quiz1",
@@ -28,7 +28,7 @@
         "id": "9-11-3-n-quiz1",
         "number": "Quiz 1",
         "type": "multiple-choice",
-        "task": "Test deg selv pa lineær vekst:",
+        "task": "Test deg selv på lineær vekst:",
         "options": [
           {
             "id": "a",
@@ -39,7 +39,7 @@
         "questions": [
           {
             "id": "9-11-3-n-quiz1-q0",
-            "task": "En bil kjorer med konstant fart 80 km/t. Hvor langt har den kjort etter 3 timer?",
+            "task": "En bil kjører med konstant fart 80 km/t. Hvor langt har den kjørt etter 3 timer?",
             "options": [
               {
                 "id": "a",
@@ -66,7 +66,7 @@
           },
           {
             "id": "9-11-3-n-quiz1-q1",
-            "task": "Du sparer 300 kr i maneden og starter med 1000 kr. Hvilken formel beskriver saldoen etter $x$ maneder?",
+            "task": "Du sparer 300 kr i måneden og starter med 1000 kr. Hvilken formel beskriver saldoen etter $x$ måneder?",
             "options": [
               {
                 "id": "a",
@@ -89,7 +89,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "Lineær vekst: $y = ax + b$ der $a = 300$ (fast okning per maned) og $b = 1000$ (startverdi). Altså $y = 300x + 1000$."
+            "solution": "Lineær vekst: $y = ax + b$ der $a = 300$ (fast økning per maned) og $b = 1000$ (startverdi). Altså $y = 300x + 1000$."
           }
         ]
       }
@@ -97,7 +97,7 @@
     {
       "id": "9-11-3-n-section2",
       "type": "text",
-      "content": "## Eksponentiell vekst -- nar det akselererer\n\nTenk pa penger i banken med rente. Hvis du har 5000 kr og far 3 % arlig rente, sa far du forste ar $5000 \\cdot 0{,}03 = 150$ kr i rente. Men andre ar far du rente pa 5150 kr, altså $5150 \\cdot 0{,}03 = 154{,}50$ kr. Renten oker hvert ar fordi du far **rente pa renten**!\n\nDette er **eksponentiell vekst**: en storrelse oker med en **fast prosentandel** for hvert tidssteg. Modellen er:\n\n$$y = a \\cdot b^x$$\n\nder $a$ er startverdien og $b$ er **vekstfaktoren**. For 3 % vekst er $b = 1 + \\frac{3}{100} = 1{,}03$.\n\nI Python:\n\n```python\nsaldo = 5000\nvekstfaktor = 1.03\n\nfor aar in range(1, 21):\n    saldo = saldo * vekstfaktor\n    print(f\"Ar {aar:>2}: {saldo:.2f} kr\")\n```\n\nEtter 20 ar: $5000 \\cdot 1{,}03^{20} \\approx 9030{,}56$ kr. Pengene har nesten doblet seg!\n\nEn tommelfingerregel sier at doblingstiden er omtrent $\\frac{72}{p}$ ar, der $p$ er rentesatsen i prosent. Med 3 % rente: $\\frac{72}{3} = 24$ ar.\n\nForskjellen mellom lineær og eksponentiell vekst er dramatisk over tid. Lineær vekst oker jevnt. Eksponentiell vekst starter sakte, men akselererer og tar til slutt fullstendig av."
+      "content": "## Eksponentiell vekst -- nar det akselererer\n\nTenk på penger i banken med rente. Hvis du har 5000 kr og far 3 % årlig rente, så far du forste ar $5000 \\cdot 0{,}03 = 150$ kr i rente. Men andre ar får du rente pa 5150 kr, altså $5150 \\cdot 0{,}03 = 154{,}50$ kr. Renten oker hvert år fordi du far **rente pa renten**!\n\nDette er **eksponentiell vekst**: en størrelse oker med en **fast prosentandel** for hvert tidssteg. Modellen er:\n\n$$y = a \\cdot b^x$$\n\nder $a$ er startverdien og $b$ er **vekstfaktoren**. For 3 % vekst er $b = 1 + \\frac{3}{100} = 1{,}03$.\n\nI Python:\n\n```python\nsaldo = 5000\nvekstfaktor = 1.03\n\nfor aar in range(1, 21):\n    saldo = saldo * vekstfaktor\n    print(f\"Ar {aar:>2}: {saldo:.2f} kr\")\n```\n\nEtter 20 ar: $5000 \\cdot 1{,}03^{20} \\approx 9030{,}56$ kr. Pengene har nesten doblet seg!\n\nEn tommelfingerregel sier at doblingstiden er omtrent $\\frac{72}{p}$ ar, der $p$ er rentesatsen i prosent. Med 3 % rente: $\\frac{72}{3} = 24$ ar.\n\nForskjellen mellom lineær og eksponentiell vekst er dramatisk over tid. Lineær vekst oker jevnt. Eksponentiell vekst starter sakte, men akselererer og tar til slutt fullstendig av."
     },
     {
       "id": "9-11-3-n-quiz2",
@@ -106,7 +106,7 @@
         "id": "9-11-3-n-quiz2",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg selv pa eksponentiell vekst:",
+        "task": "Test deg selv på eksponentiell vekst:",
         "options": [
           {
             "id": "a",
@@ -167,11 +167,11 @@
                 "isCorrect": false
               }
             ],
-            "solution": "A gange med $1{,}03$ er det samme som a legge til 3 %. Hvis saldoen er 1000 kr, blir den $1000 \\cdot 1{,}03 = 1030$ kr -- altså 30 kr (3 %) mer."
+            "solution": "A gange med $1{,}03$ er det samme som å legge til 3 %. Hvis saldoen er 1000 kr, blir den $1000 \\cdot 1{,}03 = 1030$ kr -- altså 30 kr (3 %) mer."
           },
           {
             "id": "9-11-3-n-quiz2-q2",
-            "task": "Med tommelfingerregelen $\\frac{72}{p}$: Omtrent hvor lang tid tar det a doble pengene med 6 % arlig rente?",
+            "task": "Med tommelfingerregelen $\\frac{72}{p}$: Omtrent hvor lang tid tar det å doble pengene med 6 % årlig rente?",
             "options": [
               {
                 "id": "a",
@@ -194,7 +194,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$\\frac{72}{6} = 12$ ar. Med 6 % arlig rente dobles pengene pa omtrent 12 ar."
+            "solution": "$\\frac{72}{6} = 12$ ar. Med 6 % årlig rente dobles pengene på omtrent 12 ar."
           }
         ]
       }
@@ -202,12 +202,12 @@
     {
       "id": "9-11-3-n-section3",
       "type": "text",
-      "content": "## Lose likninger med systematisk proving\n\nNoen likninger er vanskelige a lose for hand, men med Python kan vi finne **tilnærmede losninger** ved a prove mange verdier. Metoden kalles **numerisk losning**.\n\nLa oss finne $\\sqrt[3]{100}$ -- altså det tallet $x$ der $x^3 = 100$:\n\n```python\nbeste_x = 0\nminste_avvik = 1000\n\nfor i in range(10001):\n    x = i / 1000    # Verdier fra 0.000 til 10.000\n    avvik = abs(x**3 - 100)\n    if avvik < minste_avvik:\n        minste_avvik = avvik\n        beste_x = x\n\nprint(f\"x = {beste_x:.3f}\")\nprint(f\"Sjekk: {beste_x}^3 = {beste_x**3:.3f}\")\n```\n\nPython prover 10 001 verdier og finner den som gir $x^3$ nærmest $100$. Svaret er $x \\approx 4{,}642$. Jo flere verdier vi prover, desto mer noyaktig blir svaret.\n\nDenne metoden er overraskende kraftig. Vi kan ogsa bruke den til a finne nar ting skjer, som nar en spareplan nar et mal eller nar en eksponentiell vekst krysser en lineær vekst."
+      "content": "## Lose likninger med systematisk proving\n\nNoen likninger er vanskelige å lose for hand, men med Python kan vi finne **tilnærmede losninger** ved å prove mange verdier. Metoden kalles **numerisk losning**.\n\nLa oss finne $\\sqrt[3]{100}$ -- altså det tallet $x$ der $x^3 = 100$:\n\n```python\nbeste_x = 0\nminste_avvik = 1000\n\nfor i in range(10001):\n    x = i / 1000    # Verdier fra 0.000 til 10.000\n    avvik = abs(x**3 - 100)\n    if avvik < minste_avvik:\n        minste_avvik = avvik\n        beste_x = x\n\nprint(f\"x = {beste_x:.3f}\")\nprint(f\"Sjekk: {beste_x}^3 = {beste_x**3:.3f}\")\n```\n\nPython prover 10 001 verdier og finner den som gir $x^3$ nærmest $100$. Svaret er $x \\approx 4{,}642$. Jo flere verdier vi prover, desto mer nøyaktig blir svaret.\n\nDenne metoden er overraskende kraftig. Vi kan også bruke den til a finne når ting skjer, som når en spareplan når et mal eller når en eksponentiell vekst krysser en lineær vekst."
     },
     {
       "id": "9-11-3-n-section4",
       "type": "text",
-      "content": "## Utforske matematiske monstre\n\nEn av de goyeste tingene med programmering er a utforske matematiske monstre. La oss se pa **Fibonacci-tallene**: $1, 1, 2, 3, 5, 8, 13, 21, \\ldots$ -- der hvert tall er summen av de to forrige.\n\n```python\na, b = 1, 1\nfor i in range(20):\n    print(f\"F({i+1}) = {a}\")\n    a, b = b, a + b\n```\n\nNoe magisk skjer nar vi beregner forholdet mellom pafolgende Fibonacci-tall:\n\n$$\\frac{F_{n+1}}{F_n} \\to \\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}6180$$\n\nDette tallet kalles **det gylne snitt** og dukker opp overalt -- i naturen, i kunst og i arkitektur.\n\nProgrammering lar oss oppdage slike monstre fordi vi raskt kan beregne hundrevis av verdier og se hva som skjer. Det er matematisk utforskning pa sitt beste!"
+      "content": "## Utforske matematiske monstre\n\nEn av de goyeste tingene med programmering er å utforske matematiske monstre. La oss se pa **Fibonacci-tallene**: $1, 1, 2, 3, 5, 8, 13, 21, \\ldots$ -- der hvert tall er summen av de to forrige.\n\n```python\na, b = 1, 1\nfor i in range(20):\n    print(f\"F({i+1}) = {a}\")\n    a, b = b, a + b\n```\n\nNoe magisk skjer når vi beregner forholdet mellom påfølgende Fibonacci-tall:\n\n$$\\frac{F_{n+1}}{F_n} \\to \\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}6180$$\n\nDette tallet kalles **det gylne snitt** og dukker opp overalt -- i naturen, i kunst og i arkitektur.\n\nProgrammering lar oss oppdage slike monstre fordi vi raskt kan beregne hundrevis av verdier og se hva som skjer. Det er matematisk utforskning på sitt beste!"
     },
     {
       "id": "9-11-3-n-quiz3",
@@ -216,7 +216,7 @@
         "id": "9-11-3-n-quiz3",
         "number": "Quiz 3",
         "type": "multiple-choice",
-        "task": "Test deg selv pa modellering og monstre:",
+        "task": "Test deg selv på modellering og monstre:",
         "options": [
           {
             "id": "a",
@@ -250,7 +250,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "Lineær vekst oker med et fast belop (f.eks. 500 kr/maned). Eksponentiell vekst oker med en fast prosentandel (f.eks. 3 % per ar), noe som gjor at selve okningen blir storre og storre."
+            "solution": "Lineær vekst oker med et fast belop (f.eks. 500 kr/maned). Eksponentiell vekst oker med en fast prosentandel (f.eks. 3 % per ar), noe som gjor at selve økningen blir større og større."
           },
           {
             "id": "9-11-3-n-quiz3-q1",
@@ -290,7 +290,7 @@
               },
               {
                 "id": "b",
-                "text": "A prove mange verdier systematisk og finne den beste tilnaermelsen",
+                "text": "A prove mange verdier systematisk og finne den beste tilnærmelsen",
                 "isCorrect": true
               },
               {
@@ -304,7 +304,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Numerisk losning betyr a prove mange verdier systematisk (f.eks. med en lokke) og finne den verdien som gir det minste avviket. Det er ikke tilfeldig gjetting -- det er organisert, systematisk proving."
+            "solution": "Numerisk losning betyr å prove mange verdier systematisk (f.eks. med en lokke) og finne den verdien som gir det minste avviket. Det er ikke tilfeldig gjetting -- det er organisert, systematisk proving."
           }
         ]
       }
@@ -312,7 +312,7 @@
     {
       "id": "9-11-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nVi har sett hvordan Python gjor matematiske modeller levende:\n\n- **Lineær vekst** ($y = ax + b$): fast okning per steg. Grafen er en rett linje.\n- **Eksponentiell vekst** ($y = a \\cdot b^x$): prosentvis okning per steg. Vekstfaktoren er $b = 1 + \\frac{p}{100}$.\n- **Doblingstid** kan estimeres med $\\frac{72}{p}$ ar.\n- **Numerisk losning**: prove mange verdier med en lokke for a finne tilnærmede svar.\n- **Fibonacci-tallene** viser hvordan programmering avslorer skjulte monstre (det gylne snitt).\n\nMed programmering handler ikke matematikk bare om a finne riktig svar -- det handler om a **utforske**, **eksperimentere** og **oppdage**. Datamaskinen er din laboratoriepartner i denne utforskningen."
+      "content": "## Oppsummering\n\nVi har sett hvordan Python gjor matematiske modeller levende:\n\n- **Lineær vekst** ($y = ax + b$): fast økning per steg. Grafen er en rett linje.\n- **Eksponentiell vekst** ($y = a \\cdot b^x$): prosentvis økning per steg. Vekstfaktoren er $b = 1 + \\frac{p}{100}$.\n- **Doblingstid** kan estimeres med $\\frac{72}{p}$ ar.\n- **Numerisk losning**: prove mange verdier med en lokke for å finne tilnærmede svar.\n- **Fibonacci-tallene** viser hvordan programmering avslører skjulte monstre (det gylne snitt).\n\nMed programmering handler ikke matematikk bare om å finne riktig svar -- det handler om å **utforske**, **eksperimentere** og **oppdage**. Datamaskinen er din laboratoriepartner i denne utforskningen."
     }
   ],
   "exercises": []

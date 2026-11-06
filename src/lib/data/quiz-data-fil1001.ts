@@ -299,7 +299,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
       explanation: "Gjentakbarheten er hele poenget: det samme universalet kan opptre i mange enkeltting uten å deles opp. At det bare skulle være et navn, er nominalistens påstand, ikke definisjonen av begrepet, og et universale er ikke en fysisk del av tingene.",
     },
     {
-      question: "Hva kjennetegner et partikular?",
+      question: "Hva kjennetegner et partikulær?",
       options: ["Det finnes ett sted om gangen og kan ikke gjentas", "Det kan instansieres av mange ulike ting på én og samme tid", "Det er en egenskap som deles av flere gjenstander", "Det eksisterer utenfor tid og rom, som tall og mengder"],
       explanation: "Partikularier — denne skruen, Sokrates — er ikke gjentakbare, i motsetning til universalier. Å eksistere utenfor tid og rom er kjennetegnet på abstrakte entiteter, som den platonske realisten regner universaliene blant.",
     },
@@ -415,7 +415,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva rammer Blacks moteksempel ikke?",
-      options: ["Det identiskes uskjelnbarhet, som brukes ellers i emnet", "De uskjelnbares identitet, altså prinsippet i kvalitativ form", "Forslaget om at posisjon alene individuerer partikularier", "Tanken om at et partikular er mer enn summen av kvalitetene sine"],
+      options: ["Det identiskes uskjelnbarhet, som brukes ellers i emnet", "De uskjelnbares identitet, altså prinsippet i kvalitativ form", "Forslaget om at posisjon alene individuerer partikularier", "Tanken om at et partikulær er mer enn summen av kvalitetene sine"],
       explanation: "Den ukontroversielle retningen av Leibniz' lov står uberørt, og det er nettopp den som bærer argumentene i bevissthetsfilosofien senere i boka. De tre andre er ting eksperimentet enten angriper eller taler for.",
     },
     {

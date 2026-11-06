@@ -20,7 +20,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva sier 10%-regelen i trening?',
     options: ["Ikke øk treningsbelastningen med mer enn 10% per uke", "Bruk bare 10 % av din maksimale styrke", "At man aldri skal trene med mer enn 10 prosent av sin maksimale løftestyrke", "At man bør bruke nøyaktig 10 prosent av treningstiden på oppvarming før hver økt"],
-    explanation: '10%-regelen er en tømmelfingerregel for progresjon som hjelper å unngå overbelastning og skader ved gradvis økning.',
+    explanation: '10%-regelen er en tommelfingerregel for progresjon som hjelper å unngå overbelastning og skader ved gradvis økning.',
   },
   {
     question: 'Hvorfor er variasjon viktig i trening?',
@@ -141,7 +141,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er bredde viktig i fotballangrep?',
     options: ["Det strekker motstanderens forsvar og skaper rom", "Det er enklære å forsvare", "Det gjør forsvaret enklere fordi spillerne da samler seg tett på ett område", "Det er mye penere å se på"],
-    explanation: 'Bredde i angrep tvinger forsvåret til å dekke større områder, noe som skaper rom i midten og mellom forsvarerne.',
+    explanation: 'Bredde i angrep tvinger forsvaret til å dekke større områder, noe som skaper rom i midten og mellom forsvarerne.',
   },
 ],
 
@@ -235,9 +235,9 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
 
   'kroppsoving-vg1-9': [
   {
-    question: 'Hva er livsstilssykdømmer?',
-    options: ["Sykdømmer som skyldes levevaner som inaktivitet og usunt kosthold", "Sykdømmer som bare rammer eldre", "Sykdommer man arver genetisk fra foreldrene", "Sykdommer man pådrar seg av hard fysisk trening"],
-    explanation: 'Livsstilssykdømmer er sykdømmer som i stor grad skyldes levevaner, spesielt inaktivitet, usunt kosthold og røyking.',
+    question: 'Hva er livsstilssykdommer?',
+    options: ["Sykdommer som skyldes levevaner som inaktivitet og usunt kosthold", "Sykdommer som bare rammer eldre", "Sykdommer man arver genetisk fra foreldrene", "Sykdommer man pådrar seg av hard fysisk trening"],
+    explanation: 'Livsstilssykdommer er sykdommer som i stor grad skyldes levevaner, spesielt inaktivitet, usunt kosthold og røyking.',
   },
   {
     question: 'Hvor mye fysisk aktivitet anbefales daglig for ungdom?',
@@ -1025,7 +1025,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen på forehand og backhand i innebandy?',
     options: ["Hvilken side av kølla ballen spilles fra", "Antall spillere som hvert lag har ute på banen", "Hvor mange spillere hvert lag har ute på banen samtidig under spillet", "Hvilken farge kølla til den enkelte spilleren har"],
-    explanation: 'Forehand spilles fra «forsiden» av kølleblaadet, backhand fra baksiden.',
+    explanation: 'Forehand spilles fra «forsiden» av køllebladet, backhand fra baksiden.',
   },
   {
     question: 'Hvorfor egner smålagsspill seg godt i undervisning?',

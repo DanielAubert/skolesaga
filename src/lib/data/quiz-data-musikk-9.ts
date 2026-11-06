@@ -96,7 +96,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilket land kommer samba fra?",
       options: ["Brasil", "Cuba", "Argentina", "Mexico"],
-      explanation: "Sambå kommer fra Brasil og er knyttet til karnevalet i Rio.",
+      explanation: "Samba kommer fra Brasil og er knyttet til karnevalet i Rio.",
     },
     {
       question: "Hva er joik?",
@@ -711,7 +711,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva omfatter lyddesign i film?",
-      options: ["Lydeffekter, atmosfærelyd, foley og bearbeiding av alle lyder", "Kun kraftige lydeffekter som eksplosjoner, skudd og bilkræsj", "Bare dialogen og replikkene som skuespillerne sier i hver scene", "Utelukkende bakgrunnsmusikken som legges under scenene i en film"],
+      options: ["Lydeffekter, atmosfærelyd, foley og bearbeiding av alle lyder", "Kun kraftige lydeffekter som eksplosjoner, skudd og bilkrasj", "Bare dialogen og replikkene som skuespillerne sier i hver scene", "Utelukkende bakgrunnsmusikken som legges under scenene i en film"],
       explanation: "Lyddesign er å skape, velge og organisere alle lyder i et audiovisuelt produkt.",
     },
     {

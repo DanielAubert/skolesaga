@@ -159,8 +159,8 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'I modellering, hva gjør vi etter å ha løst problemet matematisk?',
-    options: ['Vurderer om svåret er rimelig', 'Starter hele modelleringen på nytt', 'Ignorer svåret', 'Alltid runder opp'],
-    explanation: 'Etter beregning må vi alltid vurdere om svåret gir mening i den praktiske situasjonen.',
+    options: ['Vurderer om svaret er rimelig', 'Starter hele modelleringen på nytt', 'Ignorer svaret', 'Alltid runder opp'],
+    explanation: 'Etter beregning må vi alltid vurdere om svaret gir mening i den praktiske situasjonen.',
   },
   {
     question: 'Inntektsfunksjon er $I(x) = 100x$ og kostnadsfunksjon er $K(x) = 60x + 2000$. Hva er fortjeneste ved 80 enheter?',
@@ -265,8 +265,8 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-4-1': [
   {
     question: 'Hva er en frekvenstabell?',
-    options: ['Tabell som viser hvor ofte hver verdi førekommer', 'Tabell med alle enkeltmålinger i den rekkefølgen de kom', 'Tabell med kun gjennomsnittet', 'Tabell med standardavvik'],
-    explanation: 'En frekvenstabell organiserer data og viser frekvensen (antall ganger) hver verdi eller klasse førekommer.',
+    options: ['Tabell som viser hvor ofte hver verdi forekommer', 'Tabell med alle enkeltmålinger i den rekkefølgen de kom', 'Tabell med kun gjennomsnittet', 'Tabell med standardavvik'],
+    explanation: 'En frekvenstabell organiserer data og viser frekvensen (antall ganger) hver verdi eller klasse forekommer.',
   },
   {
     question: 'Hva er populasjon i statistikk?',
@@ -300,7 +300,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er typetallet i: 4, 5, 5, 6, 7, 5, 8?',
     options: ['5', '6', '7', '4'],
-    explanation: 'Typetallet er verdien som førekommer oftest. 5 førekommer 3 ganger.',
+    explanation: 'Typetallet er verdien som forekommer oftest. 5 forekommer 3 ganger.',
   },
   {
     question: 'Hva måler variasjonsbredden?',

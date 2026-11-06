@@ -14,7 +14,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de tre delene i et godt argument?",
-      options: ["Pastand, begrunnelse og belegg", "Innledning, hoveddel og avslutning", "Etos, patos og logos", "Tema, budskap og virkemidler"],
+      options: ["Påstand, begrunnelse og belegg", "Innledning, hoveddel og avslutning", "Etos, patos og logos", "Tema, budskap og virkemidler"],
       explanation: "Et godt argument består av en påstand (det du mener), en begrunnelse (hvorfor du mener det) og belegg (bevis som støtter begrunnelsen).",
     },
     {
@@ -32,7 +32,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva betyr kritisk lesing?",
       options: ["A stille spørsmål til teksten og vurdere om den er sann", "Å lese så fort og effektivt som mulig for å spare tid", "Å kritisere og finne feil ved alt du leser uansett innhold", "Å bare lese tekster og kilder du på forhånd er enig i"],
-      explanation: "Kritisk lesing innebærer a stille spørsmål om hvem som har skrevet teksten, hva formalet er, og om påstandene er dokumenterte.",
+      explanation: "Kritisk lesing innebærer a stille spørsmål om hvem som har skrevet teksten, hva formålet er, og om påstandene er dokumenterte.",
     },
     {
       question: "Hvilket utsagn er en kamuflert mening?",
@@ -46,8 +46,8 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller fakta fra meninger?",
-      options: ["Fakta kan etterproves og bekreftes, meninger er personlige vurderinger", "Det finnes egentlig ingen tydelig forskjell mellom fakta og meninger", "Fakta kommer utelukkende fra aviser, mens meninger stammer fra blogger", "Fakta er alltid riktige og objektive, mens meninger alltid er feilaktige"],
-      explanation: "Fakta kan etterproves og bekreftes vitenskapelig, mens meninger er subjektive vurderinger som varierer fra person til person.",
+      options: ["Fakta kan etterprøves og bekreftes, meninger er personlige vurderinger", "Det finnes egentlig ingen tydelig forskjell mellom fakta og meninger", "Fakta kommer utelukkende fra aviser, mens meninger stammer fra blogger", "Fakta er alltid riktige og objektive, mens meninger alltid er feilaktige"],
+      explanation: "Fakta kan etterprøves og bekreftes vitenskapelig, mens meninger er subjektive vurderinger som varierer fra person til person.",
     },
     {
       question: "Hva er \"ladede ord\" i kritisk lesing?",
@@ -59,7 +59,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er hovedforskjellen mellom debatt og diskusjon?",
       options: ["Debatt har klare standpunkter, diskusjon utforsker et tema sammen", "Debatt er alltid formell og planlagt, mens diskusjon er uformell", "Debatt foregår alltid muntlig, mens diskusjon er skriftlig", "Det er egentlig ingen forskjell mellom en debatt og en diskusjon"],
-      explanation: "I en debatt forsvarer deltakerne ulike standpunkter, mens en diskusjon er en mer apen samtale der malet kan være felles forståelse.",
+      explanation: "I en debatt forsvarer deltakerne ulike standpunkter, mens en diskusjon er en mer åpen samtale der malet kan være felles forståelse.",
     },
     {
       question: "Hva er feil med utsagnet \"Du tar alltid feil fordi du ikke forstår noe\"?",
@@ -106,14 +106,14 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor er dialog viktig i kreativ skriving?",
       options: ["Den gjør teksten levende og viser karakterenes personlighet", "Den er langt enklere å skrive enn lange miljøbeskrivelser", "Den sparer plass fordi replikker er kortere enn avsnitt", "Den er et obligatorisk krav i absolutt alle noveller"],
-      explanation: "Dialog gjør teksten levende, avslorer karakterenes personlighet og relasjoner, og bryter opp lange beskrivende avsnitt.",
+      explanation: "Dialog gjør teksten levende, avslører karakterenes personlighet og relasjoner, og bryter opp lange beskrivende avsnitt.",
     },
   ],
   "norsk-9-2-2": [
     {
       question: "Hva er en ingress i en artikkel?",
       options: ["Forste avsnitt som oppsummerer det viktigste og lokker leseren", "Selve overskriften eller tittelen øverst i artikkelen", "De ulike mellomoverskriftene som deler opp teksten", "Kildelisten som står helt til slutt i artikkelen"],
-      explanation: "Ingressen er første avsnitt i en artikkel. Den oppsummerer det viktigste og skal fa leseren til a ville lese videre.",
+      explanation: "Ingressen er første avsnitt i en artikkel. Den oppsummerer det viktigste og skal få leseren til a ville lese videre.",
     },
     {
       question: "Hva er feil med ingressen \"I denne artikkelen skal jeg skrive om sovn\"?",
@@ -128,7 +128,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er forskjellen mellom informerende og argumenterende tekster?",
       options: ["Informerende tekster formidler kunnskap, argumenterende fremmer et syn", "Informerende tekster er alltid korte, mens argumenterende er lange", "Informerende tekster bruker kilder, mens argumenterende aldri gjør det", "Det finnes egentlig ingen forskjell mellom disse to teksttypene"],
-      explanation: "Informerende tekster har som mal a formidle kunnskap noeytralt, mens argumenterende tekster tar standpunkt og prover a overbevise leseren.",
+      explanation: "Informerende tekster har som mal a formidle kunnskap nøytralt, mens argumenterende tekster tar standpunkt og prover a overbevise leseren.",
     },
     {
       question: "Hva bør en god avslutning i en artikkel inneholde?",
@@ -144,8 +144,8 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en metafor?",
-      options: ["En overfort betydning uten bruk av \"som\", for eksempel \"livet er en reise\"", "En bevisst motsetning mellom to helt ulike begreper eller ting", "Gjentakelse av like konsonantlyder i begynnelsen av flere ord", "En direkte sammenligning der man bruker \"som\" eller \"lik\""],
-      explanation: "En metafor er en overfort betydning der noe beskrives som noe annet uten å bruke \"som\" eller \"lik\". Eksempel: \"Livet er en reise\".",
+      options: ["En overført betydning uten bruk av \"som\", for eksempel \"livet er en reise\"", "En bevisst motsetning mellom to helt ulike begreper eller ting", "Gjentakelse av like konsonantlyder i begynnelsen av flere ord", "En direkte sammenligning der man bruker \"som\" eller \"lik\""],
+      explanation: "En metafor er en overført betydning der noe beskrives som noe annet uten å bruke \"som\" eller \"lik\". Eksempel: \"Livet er en reise\".",
     },
     {
       question: "Hva er personifikasjon?",
@@ -165,14 +165,14 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   ],
   "norsk-9-3-1": [
     {
-      question: "Hva var norront?",
+      question: "Hva var norrønt?",
       options: ["Spraket som ble snakket i Skandinavia fra ca. 700-1350", "Et gammelt språk fra antikkens Hellas og Middelhavet", "Et moderne skandinavisk språk som snakkes den dag i dag", "Et tidlig dansk skriftspråk som ble brukt i Danmark"],
-      explanation: "Norront var språket som ble snakket i Skandinavia i vikingtiden og sagaiden (ca. 700-1350). Det er opphavet til moderne skandinaviske språk.",
+      explanation: "Norrønt var språket som ble snakket i Skandinavia i vikingtiden og sagaiden (ca. 700-1350). Det er opphavet til moderne skandinaviske språk.",
     },
     {
       question: "Hva er en kenning?",
       options: ["En poetisk omskrivning, for eksempel \"havets hest\" for skip", "En egen sjanger av fortellende sagaer fra middelalderen", "En av de mektige gudene i den norrøne mytologien", "En type rune som ble risset inn i stein og tre"],
-      explanation: "En kenning er en poetisk omskrivning brukt i norroen diktning. For eksempel betyr \"havets hest\" skip, og \"krigens tann\" betyr sverd.",
+      explanation: "En kenning er en poetisk omskrivning brukt i norrøn diktning. For eksempel betyr \"havets hest\" skip, og \"krigens tann\" betyr sverd.",
     },
     {
       question: "Hva het Tors berømte hammer?",
@@ -181,13 +181,13 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ofret Odin for a fa visdom?",
-      options: ["Et oye - han ga det i Mimes bronn", "Sin høyre arm - han la den i gapet på Fenrisulven", "Hammeren Mjølner - han la den ned i Mimes brønn", "Hesten Sleipner - han ga den til jotnene som gave"],
-      explanation: "Odin ga sitt ene oye i Mimes bronn for a fa visdom. Han er derfor ofte fremstilt med bare ett oye.",
+      options: ["Et oye - han ga det i Mimes brønn", "Sin høyre arm - han la den i gapet på Fenrisulven", "Hammeren Mjølner - han la den ned i Mimes brønn", "Hesten Sleipner - han ga den til jotnene som gave"],
+      explanation: "Odin ga sitt ene oye i Mimes brønn for a fa visdom. Han er derfor ofte fremstilt med bare ett oye.",
     },
     {
-      question: "Hva er Ragnarok i norroen mytologi?",
+      question: "Hva er Ragnarok i norrøn mytologi?",
       options: ["Verdens undergang der gudene kjemper mot jotnene", "En fest for gudene", "En stor gjestebudsfest der alle gudene samles i Valhall", "Odins gyllne kongetrone som han ser hele verden fra oppe"],
-      explanation: "Ragnarok er verdens undergang i norroen mytologi. Gudene kjemper mot jotnene, verden brenner, men en ny og bedre verden oppstar etterpaa.",
+      explanation: "Ragnarok er verdens undergang i norrøn mytologi. Gudene kjemper mot jotnene, verden brenner, men en ny og bedre verden oppstår etterpå.",
     },
   ],
   "norsk-9-3-2": [
@@ -220,13 +220,13 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-3-3": [
     {
       question: "Hvilke er de fire hovedgruppene av norske dialekter?",
-      options: ["Ostnorsk, vestnorsk, troendersk og nordnorsk", "Bokmaal, nynorsk, samisk og kvensk", "Bydialekt, bygdedialekt, kystdialekt og fjelldalekt", "Gammel, moderne, formal og uformell"],
-      explanation: "Norske dialekter deles tradisjonelt inn i ostnorsk, vestnorsk, troendersk og nordnorsk basert pågeografiske og språklige kjennetegn.",
+      options: ["Østnorsk, vestnorsk, trøndersk og nordnorsk", "Bokmaal, nynorsk, samisk og kvensk", "Bydialekt, bygdedialekt, kystdialekt og fjelldalekt", "Gammel, moderne, formal og uformell"],
+      explanation: "Norske dialekter deles tradisjonelt inn i østnorsk, vestnorsk, trøndersk og nordnorsk basert pågeografiske og språklige kjennetegn.",
     },
     {
       question: "Hva er \"tjukk l\"?",
-      options: ["En L-lyd som ligner påen blanding av L og R, typisk for ostnorsk", "En egen skrivemåte som bare brukes i nynorske ordbøker og lærebøker", "En rullende, skarp R-lyd som er typisk for den bergenske bydialekten", "En bred, svensk uttale av vokalene som har smittet over selve grensen"],
-      explanation: "Tjukk l er en spesiell L-lyd som finnes i ostnorske og troenderske dialekter. Den ligner påen blanding mellom L og R.",
+      options: ["En L-lyd som ligner påen blanding av L og R, typisk for østnorsk", "En egen skrivemåte som bare brukes i nynorske ordbøker og lærebøker", "En rullende, skarp R-lyd som er typisk for den bergenske bydialekten", "En bred, svensk uttale av vokalene som har smittet over selve grensen"],
+      explanation: "Tjukk l er en spesiell L-lyd som finnes i østnorske og trønderske dialekter. Den ligner påen blanding mellom L og R.",
     },
     {
       question: "Hvorfor har Norge såmange dialekter?",
@@ -236,12 +236,12 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er palatalisering i dialekter?",
       options: ["En uttale der konsonanter blir \"mykere\", som \"mannj\" for \"mannen\"", "En grammatisk bøying av substantivene etter både kjønn, tall og kasus", "En egen skrivemåte der man alltid dobler alle konsonantene i skriften", "En type enderim der to verselinjer slutter på nøyaktig den samme lyden"],
-      explanation: "Palatalisering er typisk for troendersk og nordnorsk. Konsonanter uttales lenger frem i munnen, slik at \"mannen\" blir \"mannj\".",
+      explanation: "Palatalisering er typisk for trøndersk og nordnorsk. Konsonanter uttales lenger frem i munnen, slik at \"mannen\" blir \"mannj\".",
     },
     {
-      question: "Hva menes med at nordmenn har hoey \"dialektaksept\"?",
+      question: "Hva menes med at nordmenn har høy \"dialektaksept\"?",
       options: ["Det er akseptert a snakke dialekt i alle sammenhenger i Norge", "At bare dialekten i hovedstaden regnes som korrekt norsk talemål", "At bare noen få utvalgte dialekter er tillatt i det offentlige rom", "At alle norske dialekter må registreres offisielt hos staten hvert år"],
-      explanation: "I Norge har dialektene hoey status, og det er helt normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i skolen.",
+      explanation: "I Norge har dialektene høy status, og det er helt normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i skolen.",
     },
   ],
   "norsk-9-4-1": [
@@ -258,7 +258,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor var \"Et dukkehjem\" av Ibsen såkontroversielt?",
       options: ["Nora forlater mann og barn for a finne seg selv", "Stykket kritiserte åpenlyst kongehuset og statskirken", "Hele stykket var skrevet på landsmål og reint nynorsk", "Stykket inneholdt mye grov vold og flere blodige scener"],
-      explanation: "Da Nora forlot mann og barn i slutten av stykket, sjokkerte det publikum. En mor som forlot familien var uhort påden tiden.",
+      explanation: "Da Nora forlot mann og barn i slutten av stykket, sjokkerte det publikum. En mor som forlot familien var uhørt påden tiden.",
     },
     {
       question: "Hvem var Amalie Skram?",
@@ -267,20 +267,20 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er \"dukke-metaføren\" i Et dukkehjem?",
-      options: ["Norå har vært en dukke som andre har lekt med, aldri et selvstendig individ", "Et dukkehus som står plassert på scenen", "Barnas mange leker og dukker som ligger strødd rundt omkring i stua i huset", "En reklamefigur som Nora bruker til å selge varer i butikken"],
-      explanation: "Metaføren viser hvordan Norå har gatt fra a være farens \"dukkebarn\" til Torvalds \"dukkekone\" - aldri et selvstendig menneske.",
+      options: ["Nora har vært en dukke som andre har lekt med, aldri et selvstendig individ", "Et dukkehus som står plassert på scenen", "Barnas mange leker og dukker som ligger strødd rundt omkring i stua i huset", "En reklamefigur som Nora bruker til å selge varer i butikken"],
+      explanation: "Metaforen viser hvordan Nora har gatt fra a være farens \"dukkebarn\" til Torvalds \"dukkekone\" - aldri et selvstendig menneske.",
     },
   ],
   "norsk-9-4-2": [
     {
       question: "Hva kjennetegner modernistisk litteratur?",
-      options: ["Eksperimentering med form, indre monolog og fremmedgjoering", "Tradisjonell fortelling med lykkelig slutt", "En tradisjonell og ryddig fortelling som alltid ender lykkelig til slutt", "At det bare handler om enkle og korte bøker skrevet spesielt for små barn"],
+      options: ["Eksperimentering med form, indre monolog og fremmedgjøring", "Tradisjonell fortelling med lykkelig slutt", "En tradisjonell og ryddig fortelling som alltid ender lykkelig til slutt", "At det bare handler om enkle og korte bøker skrevet spesielt for små barn"],
       explanation: "Modernismen bryter med tradisjonelle former og eksperimenterer med bevissthetsstrøm, fragmentering og subjektive perspektiver.",
     },
     {
       question: "Hva er autofiksjon?",
       options: ["Litteratur der forfatteren skriver om sitt eget liv", "Litteratur som utelukkende bygger på arkiv og historiske kilder", "Litteratur som blir gitt ut helt uten en navngitt forfatter bak seg", "Bøker som på magisk vis skriver og forteller hele historien seg selv"],
-      explanation: "Autofiksjon er litteratur der forfatteren bruker sitt eget liv som materiale, men med litteraere virkemidler. Karl Ove Knausgards \"Min kamp\" er et kjent eksempel.",
+      explanation: "Autofiksjon er litteratur der forfatteren bruker sitt eget liv som materiale, men med litterære virkemidler. Karl Ove Knausgards \"Min kamp\" er et kjent eksempel.",
     },
     {
       question: "Hvem skrev romanen \"Is-slottet\"?",
@@ -289,7 +289,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er typiske temaer i samtidslitteraturen?",
-      options: ["Autofiksjon, flerkulturelle perspektiver og klimabevissthet", "Bare kjårlighetshistorier", "Utelukkende spennende krigshistorier fra den andre verdenskrig", "Bare gamle folkeeventyr og norrøne myter fra selve vikingtiden"],
+      options: ["Autofiksjon, flerkulturelle perspektiver og klimabevissthet", "Bare kjærlighetshistorier", "Utelukkende spennende krigshistorier fra den andre verdenskrig", "Bare gamle folkeeventyr og norrøne myter fra selve vikingtiden"],
       explanation: "Samtidslitteraturen preges av mangfold: autofiksjon, flerkulturelle stemmer, klimafiksjon og digitale fortellinger.",
     },
     {
@@ -312,7 +312,7 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er et storyboard?",
       options: ["En visuell plan der scenene tegnes opp for video", "En liste over lydeffekter", "Et ferdig manus med replikker skrevet for teater", "En lang liste over alle lydeffektene"],
-      explanation: "Et storyboard er en visuell plan for video der scenene tegnes opp påforhhand. Det hjelper med a planlegge kameravinkler og handlingsforlop.",
+      explanation: "Et storyboard er en visuell plan for video der scenene tegnes opp påforhhand. Det hjelper med a planlegge kameravinkler og handlingsforløp.",
     },
     {
       question: "Hva er \"voiceover\" i digital historiefortelling?",
@@ -328,13 +328,13 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
   "norsk-9-5-2": [
     {
       question: "Hva star T for i TONE-sjekken for kildekritikk?",
-      options: ["Troverdighet - hvem står bak kilden?", "Tekst - hvå handler det om?", "Tema - hvilket emne tar kilden opp her?", "Tekst - hva slags tekst handler dette om?"],
+      options: ["Troverdighet - hvem står bak kilden?", "Tekst - hva handler det om?", "Tema - hvilket emne tar kilden opp her?", "Tekst - hva slags tekst handler dette om?"],
       explanation: "T i TONE-sjekken står for Troverdighet. Du bør spørre hvem som står bak kilden og om avsenderen har kompetanse påområdet.",
     },
     {
       question: "Hva er et ekkokammer?",
       options: ["Når du bare omgir deg med folk som tenker likt og andre perspektiver filtreres bort", "Et diskusjonsforum på nett der deltakerne bevisst oppsøker de motstridende synspunktene", "Et fysisk rom med harde vegger som gir mye ekko og kraftig gjenlyd i selve lyden der inne", "Et lydtett podkaststudio der man tar opp episodene sine helt uten forstyrrende støy utenfra"],
-      explanation: "Ekkokammer oppstar nåralgoritmer og sosiale nettverk gjør at du bare ser meninger du allærede er enig i, og motstemmmer blir usynlige.",
+      explanation: "Ekkokammer oppstår nåralgoritmer og sosiale nettverk gjør at du bare ser meninger du allærede er enig i, og motstemmmer blir usynlige.",
     },
     {
       question: "Hva er falske nyheter?",
@@ -344,11 +344,11 @@ const quizData_norsk_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er en filterboble?",
       options: ["Nårinternett tilpasses deg personlig slik at du ikke ser annet innhold", "En sikkerhetsinnstilling i nettleseren som blokkerer skadelige nettsider", "Et fargefilter man legger på bildene man tar med kameraet på selve mobilen", "En type gjenbrukbar vannflaske med et innebygd rensefilter helt nede i lokket"],
-      explanation: "Filterbobler oppstar nåralgoritmer viser deg personlig tilpasset innhold basert påtidligere aktivitet, slik at du ikke ser andre perspektiver.",
+      explanation: "Filterbobler oppstår nåralgoritmer viser deg personlig tilpasset innhold basert påtidligere aktivitet, slik at du ikke ser andre perspektiver.",
     },
     {
       question: "Hvordan kan du faktasjekke en nyhetssak?",
-      options: ["Sjekke kilden, soke etter originalen og kryssjekke med andre kilder", "Stole påat det er sant hvis mange har delt det", "Bare lese overskriften og stole på at den alene forteller hele sannheten", "Gå ut fra at saken er helt sann dersom mange nok folk har delt den videre"],
+      options: ["Sjekke kilden, søke etter originalen og kryssjekke med andre kilder", "Stole påat det er sant hvis mange har delt det", "Bare lese overskriften og stole på at den alene forteller hele sannheten", "Gå ut fra at saken er helt sann dersom mange nok folk har delt den videre"],
       explanation: "God faktasjekking innebærer a finne originalkilden, sjekke hvem som står bak, og kryss-sjekke informasjonen med andre pålitelige kilder.",
     },
   ],

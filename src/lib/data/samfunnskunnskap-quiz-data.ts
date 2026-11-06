@@ -4520,17 +4520,17 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Verdenserklæringen inneholder 30 artikler med grunnleggende rettigheter. Den er ikke juridisk bindende, men har stor moralsk autoritet.',
     },
     {
-      question: 'Hvilken filosofisk tradisjon ligger bak ideen om medfodte rettigheter?',
+      question: 'Hvilken filosofisk tradisjon ligger bak ideen om medfødte rettigheter?',
       options: [
         'Naturrettsfilosofien',
         'Utilitarismen',
         'Marxismen',
         'Eksistensialismen',
       ],
-      explanation: 'Naturrettsfilosofien (Locke, Rousseau) hevder at mennesket har medfodte, naturgitte rettigheter uavhengig av hva staten bestemmer.',
+      explanation: 'Naturrettsfilosofien (Locke, Rousseau) hevder at mennesket har medfødte, naturgitte rettigheter uavhengig av hva staten bestemmer.',
     },
     {
-      question: 'Hvilken historisk hendelse var hovedarsaken til at FNs verdenserklaring ble vedtatt?',
+      question: 'Hvilken historisk hendelse var hovedårsaken til at FNs verdenserklæring ble vedtatt?',
       options: [
         'Andre verdenskrig og holocaust',
         'Den franske revolusjon',
@@ -4545,7 +4545,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'De kan ikke tas fra deg',
         'De gjelder for alle mennesker',
         'Alle rettigheter henger sammen',
-        'De bygger pa menneskets verdighet',
+        'De bygger på menneskets verdighet',
       ],
       explanation: 'At rettighetene er umistelige betyr at de ikke kan fratas deg, uansett hva du gjor eller hvem du er.',
     },
@@ -4562,22 +4562,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er kulturrelativisme i menneskerettighetsdebatten?',
       options: [
-        'Tanken om at rettigheter ma forstas i kulturell kontekst',
+        'Tanken om at rettigheter ma forstås i kulturell kontekst',
         'At alle kulturer er like mye verdt',
         'At menneskerettighetene gjelder for alle kulturer',
         'At kulturer ikke kan sammenlignes',
       ],
-      explanation: 'Kulturrelativisme hevder at rettigheter og verdier ma forstas i sin kulturelle kontekst, og kritiserer menneskerettighetene for a vaere vestlige verdier.',
+      explanation: 'Kulturrelativisme hevder at rettigheter og verdier ma forstås i sin kulturelle kontekst, og kritiserer menneskerettighetene for a være vestlige verdier.',
     },
     {
-      question: 'Hvilket ar ble USAs uavhengighetserklaring vedtatt?',
+      question: 'Hvilket år ble USAs uavhengighetserklæring vedtatt?',
       options: [
         '1776',
         '1789',
         '1948',
         '1966',
       ],
-      explanation: '1776 er aret for USAs uavhengighetserklaring, som regnes som en viktig milep1l i menneskerettighetenes historie.',
+      explanation: '1776 er aret for USAs uavhengighetserklæring, som regnes som en viktig milep1l i menneskerettighetenes historie.',
     },
   ],
 
@@ -4585,15 +4585,15 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva kjennetegner sivile og politiske rettigheter?',
       options: [
-        'De er negative rettigheter der staten skal avsta fra inngrep',
+        'De er negative rettigheter der staten skal avstå fra inngrep',
         'De er positive rettigheter der staten skal sorge for noe',
         'De gjelder bare for politikere',
-        'De kan bare gjennomfores gradvis',
+        'De kan bare gjennomføres gradvis',
       ],
-      explanation: 'Sivile og politiske rettigheter kalles negative rettigheter fordi staten skal avsta fra a gripe inn i individets frihet.',
+      explanation: 'Sivile og politiske rettigheter kalles negative rettigheter fordi staten skal avstå fra a gripe inn i individets frihet.',
     },
     {
-      question: 'Hvilke rettigheter er eksempler pa sivile rettigheter?',
+      question: 'Hvilke rettigheter er eksempler på sivile rettigheter?',
       options: [
         'Ytringsfrihet, religionsfrihet og forbud mot tortur',
         'Rett til arbeid, utdanning og helse',
@@ -4606,31 +4606,31 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva kjennetegner okonomiske, sosiale og kulturelle rettigheter?',
       options: [
         'De er positive rettigheter som krever aktiv innsats fra staten',
-        'De er negative rettigheter der staten skal avsta fra inngrep',
-        'De kan gjennomfores umiddelbart',
+        'De er negative rettigheter der staten skal avstå fra inngrep',
+        'De kan gjennomføres umiddelbart',
         'De gjelder bare i rike land',
       ],
       explanation: 'OSK-rettigheter kalles positive rettigheter fordi staten aktivt ma sorge for noe, som utdanning, helse og sosial trygghet.',
     },
     {
-      question: 'Hva er et eksempel pa en okonomisk rettighet?',
+      question: 'Hva er et eksempel på en okonomisk rettighet?',
       options: [
         'Rett til arbeid',
         'Ytringsfrihet',
         'Stemmerett',
         'Forbud mot tortur',
       ],
-      explanation: 'Rett til arbeid er en okonomisk rettighet. Andre eksempler er rettferdige arbeidsvilkar og rett til a danne fagforeninger.',
+      explanation: 'Rett til arbeid er en okonomisk rettighet. Andre eksempler er rettferdige arbeidsvilkår og rett til a danne fagforeninger.',
     },
     {
       question: 'Hvorfor kalles sivile og politiske rettigheter negative rettigheter?',
       options: [
-        'Fordi staten skal avsta fra a gripe inn',
-        'Fordi de er darlige rettigheter',
+        'Fordi staten skal avstå fra a gripe inn',
+        'Fordi de er dårlige rettigheter',
         'Fordi de er mindre viktige',
         'Fordi de koster penger',
       ],
-      explanation: 'De kalles negative fordi staten skal la vaere a gjore noe - ikke gripe inn i individets frihet.',
+      explanation: 'De kalles negative fordi staten skal la være a gjore noe - ikke gripe inn i individets frihet.',
     },
     {
       question: 'Hva menes med at rettighetene er udelelige?',
@@ -4643,7 +4643,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'At rettighetene er udelelige betyr at alle kategorier av rettigheter henger sammen og er like viktige.',
     },
     {
-      question: 'Hva er et eksempel pa en kulturell rettighet?',
+      question: 'Hva er et eksempel på en kulturell rettighet?',
       options: [
         'Rett til a delta i kulturlivet',
         'Stemmerett',
@@ -4653,14 +4653,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Kulturelle rettigheter omfatter blant annet retten til a delta i kulturlivet og minoriteters kulturelle rettigheter.',
     },
     {
-      question: 'Hvorfor er utdanning viktig for a kunne bruke ytringsfrihet?',
+      question: 'Hvorfor er utdanning viktig for å kunne bruke ytringsfrihet?',
       options: [
         'Utdanning gir kunnskap og ferdigheter til a delta i debatt',
-        'Utdanning laerer deg a holde munn',
+        'Utdanning laerer deg å holde munn',
         'Utdanning er ikke viktig for ytringsfrihet',
-        'Utdanning laerer deg a unnga konflikter',
+        'Utdanning laerer deg a unngå konflikter',
       ],
-      explanation: 'Dette viser sammenhengen mellom rettighetene: Utdanning (OSK) er nodvendig for a kunne bruke ytringsfrihet (SP) effektivt.',
+      explanation: 'Dette viser sammenhengen mellom rettighetene: Utdanning (OSK) er nødvendig for å kunne bruke ytringsfrihet (SP) effektivt.',
     },
     {
       question: 'Hva er en politisk rettighet?',
@@ -4676,11 +4676,11 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva menes med at rettighetene er gjensidig avhengige?',
       options: [
         'Oppfyllelse av en rettighet avhenger av andre rettigheter',
-        'Rettighetene pavirker hverandre negativt',
-        'Rettighetene ma oppfylles i en bestemt rekkefolge',
+        'Rettighetene påvirker hverandre negativt',
+        'Rettighetene må oppfylles i en bestemt rekkefølge',
         'Bare noen rettigheter er viktige',
       ],
-      explanation: 'Gjensidig avhengighet betyr at oppfyllelse av en rettighet avhenger av at andre rettigheter ogsa er oppfylt.',
+      explanation: 'Gjensidig avhengighet betyr at oppfyllelse av en rettighet avhenger av at andre rettigheter også er oppfylt.',
     },
   ],
 
@@ -4693,14 +4693,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         '1966',
         '1989',
       ],
-      explanation: 'FN ble grunnlagt i 1945 etter andre verdenskrig for a fremme fred, sikkerhet og samarbeid mellom nasjoner.',
+      explanation: 'FN ble grunnlagt i 1945 etter andre verdenskrig for å fremme fred, sikkerhet og samarbeid mellom nasjoner.',
     },
     {
       question: 'Hva er The International Bill of Human Rights?',
       options: [
         'Verdenserklaeringen og de to hovedkonvensjonene fra 1966',
-        'USAs uavhengighetserklaring',
-        'Den franske menneskerettighetserklaeringen',
+        'USAs uavhengighetserklæring',
+        'Den franske menneskerettighetserklæringen',
         'EMK og EU-charteret',
       ],
       explanation: 'The International Bill of Human Rights bestar av Verdenserklaeringen (1948) og de to hovedkonvensjonene om SP og OSK (1966).',
@@ -4716,24 +4716,24 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Verdenserklaeringen er moralsk forpliktende men ikke juridisk bindende, mens konvensjonene er juridisk bindende for stater som har ratifisert.',
     },
     {
-      question: 'Hva er FNs menneskerettighetsrad?',
+      question: 'Hva er FNs menneskerettighetsråd?',
       options: [
         'Et organ med 47 medlemsland som overvar menneskerettighetssituasjonen',
         'En domstol som dommer menneskerettighetsbrudd',
         'Et rad som kun gir anbefalinger til stater',
         'Et organ som kun jobber med barns rettigheter',
       ],
-      explanation: 'FNs menneskerettighetsrad har 47 medlemsland og gjennomforer blant annet Universal Periodic Review av alle FN-land.',
+      explanation: 'FNs menneskerettighetsråd har 47 medlemsland og gjennomfører blant annet Universal Periodic Review av alle FN-land.',
     },
     {
       question: 'Hva er Universal Periodic Review (UPR)?',
       options: [
         'Regelmessig gjennomgang av alle FN-lands menneskerettighetssituasjon',
-        'En arlig rapport om verdens menneskerettigheter',
+        'En årlig rapport om verdens menneskerettigheter',
         'En pris til land med god menneskerettighetspraksis',
         'En spesiell domstol for menneskerettighetsbrudd',
       ],
-      explanation: 'UPR er en mekanisme der Menneskerettighetsradet gjennomgar menneskerettighetssituasjonen i alle FN-land.',
+      explanation: 'UPR er en mekanisme der Menneskerettighetsradet gjennomgår menneskerettighetssituasjonen i alle FN-land.',
     },
     {
       question: 'Hvilken konvensjon beskytter barn spesielt?',
@@ -4749,21 +4749,21 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva er en hovedsvakhet ved FNs menneskerettighetssystem?',
       options: [
         'Manglende handhevelse - FN kan ikke tvinge stater',
-        'For fa konvensjoner',
-        'Ingen overvakning av stater',
+        'For få konvensjoner',
+        'Ingen overvåkning av stater',
         'Rettighetene er for generelle',
       ],
       explanation: 'En hovedsvakhet er at FN ikke kan tvinge stater til a folge konvensjonene. Systemet er avhengig av politisk vilje og press.',
     },
     {
-      question: 'Hva er FNs hoykommissaer for menneskerettigheter?',
+      question: 'Hva er FNs høykommissær for menneskerettigheter?',
       options: [
         'Lederen for FNs menneskerettighetskontor og talsmann for menneskerettigheter globalt',
         'Dommeren i FNs menneskerettighetsdomstol',
-        'Lederen for FNs sikkerhetsrad',
-        'Generalsekretaeren i FN',
+        'Lederen for FNs sikkerhetsråd',
+        'Generalsekretæren i FN',
       ],
-      explanation: 'FNs hoykommissaer for menneskerettigheter leder menneskerettighetskontoret, overvar situasjonen i ulike land og er talsmann for menneskerettigheter.',
+      explanation: 'FNs høykommissær for menneskerettigheter leder menneskerettighetskontoret, overvar situasjonen i ulike land og er talsmann for menneskerettigheter.',
     },
     {
       question: 'Hva gjor konvensjonsorganene i FN?',
@@ -4771,9 +4771,9 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Behandler statsrapporter og kan behandle individklager',
         'Dommer stater for menneskerettighetsbrudd',
         'Vedtar nye menneskerettighetskonvensjoner',
-        'Gir ekonomisk stotte til fattige land',
+        'Gir ekonomisk støtte til fattige land',
       ],
-      explanation: 'Konvensjonsorganene overvar at stater folger konvensjonene gjennom a behandle statsrapporter og gi anbefalinger.',
+      explanation: 'Konvensjonsorganene overvar at stater folger konvensjonene gjennom å behandle statsrapporter og gi anbefalinger.',
     },
     {
       question: 'Hvilken konvensjon definerer hvem som er flyktning?',
@@ -4783,30 +4783,30 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Rasekonvensjonen fra 1965',
         'Torturkonvensjonen fra 1984',
       ],
-      explanation: 'Flyktningkonvensjonen fra 1951 definerer hvem som er flyktning og forbyr a sende flyktninger tilbake til forfolgelse.',
+      explanation: 'Flyktningkonvensjonen fra 1951 definerer hvem som er flyktning og forbyr å sende flyktninger tilbake til forfølgelse.',
     },
     {
-      question: 'Hvorfor kritiseres FNs menneskerettighetsrad?',
+      question: 'Hvorfor kritiseres FNs menneskerettighetsråd?',
       options: [
-        'For a velge inn land med darlig menneskerettighetshistorikk',
-        'For a ha for strenge krav til medlemsland',
-        'For a fokusere bare pa vestlige land',
-        'For a ikke ha nok medlemsland',
+        'For å velge inn land med dårlig menneskerettighetshistorikk',
+        'For å ha for strenge krav til medlemsland',
+        'For å fokusere bare på vestlige land',
+        'For å ikke ha nok medlemsland',
       ],
-      explanation: 'Menneskerettighetsradet kritiseres for politisering, blant annet for a velge inn medlemsland med darlig menneskerettighetspraksis.',
+      explanation: 'Menneskerettighetsradet kritiseres for politisering, blant annet for å velge inn medlemsland med dårlig menneskerettighetspraksis.',
     },
   ],
 
   'samfunnskunnskap-6-4': [
     {
-      question: 'Nar ble Europaradet grunnlagt?',
+      question: 'Nar ble Europarådet grunnlagt?',
       options: [
         '1949',
         '1945',
         '1950',
         '1957',
       ],
-      explanation: 'Europaradet ble grunnlagt i 1949 for a fremme demokrati, menneskerettigheter og rettsstaten i Europa.',
+      explanation: 'Europarådet ble grunnlagt i 1949 for å fremme demokrati, menneskerettigheter og rettsstaten i Europa.',
     },
     {
       question: 'Hva er EMK?',
@@ -4836,17 +4836,17 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'FN-systemet er sterkere',
         'Det europeiske systemet gjelder for flere land',
       ],
-      explanation: 'Det europeiske systemet er sterkere fordi EMDs dommer er bindende, og enkeltpersoner kan klage direkte uten a ga gjennom staten.',
+      explanation: 'Det europeiske systemet er sterkere fordi EMDs dommer er bindende, og enkeltpersoner kan klage direkte uten å ga gjennom staten.',
     },
     {
-      question: 'Hva ma gjores for man kan klage til EMD?',
+      question: 'Hva må gjores for man kan klage til EMD?',
       options: [
-        'Nasjonale rettsmidler ma vaere uttmt',
-        'Saken ma godkjennes av regjeringen',
-        'Man ma vaere statsborger i EU',
-        'Saken ma ha vart offentlig kjent i 5 ar',
+        'Nasjonale rettsmidler ma være uttmt',
+        'Saken må godkjennes av regjeringen',
+        'Man ma være statsborger i EU',
+        'Saken må ha vart offentlig kjent i 5 ar',
       ],
-      explanation: 'For a klage til EMD ma klageren ha provd saken i nasjonale domstoler forst - nasjonale rettsmidler ma vaere uttmt.',
+      explanation: 'For å klage til EMD ma klageren ha prøvd saken i nasjonale domstoler først - nasjonale rettsmidler ma være uttmt.',
     },
     {
       question: 'Hvilke rettigheter beskytter EMK?',
@@ -4859,24 +4859,24 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'EMK beskytter sivile og politiske rettigheter som rett til liv, forbud mot tortur, ytringsfrihet og rett til rettferdig rettergang.',
     },
     {
-      question: 'Hvor mange medlemsland har Europaradet?',
+      question: 'Hvor mange medlemsland har Europarådet?',
       options: [
         '46',
         '27',
         '193',
         '50',
       ],
-      explanation: 'Europaradet har 46 medlemsland (etter at Russland ble suspendert i 2022). Det er ikke det samme som EU.',
+      explanation: 'Europarådet har 46 medlemsland (etter at Russland ble suspendert i 2022). Det er ikke det samme som EU.',
     },
     {
-      question: 'Hva har Norge blitt domt for i EMD flere ganger?',
+      question: 'Hva har Norge blitt dømt for i EMD flere ganger?',
       options: [
-        'Brudd pa retten til familieliv i barnevernssaker',
-        'Brudd pa ytringsfriheten',
-        'Brudd pa religionsfriheten',
-        'Brudd pa stemmeretten',
+        'Brudd på retten til familieliv i barnevernssaker',
+        'Brudd på ytringsfriheten',
+        'Brudd på religionsfriheten',
+        'Brudd på stemmeretten',
       ],
-      explanation: 'Norge har blitt domt gjentatte ganger for brudd pa artikkel 8 (retten til familieliv) i barnevernssaker.',
+      explanation: 'Norge har blitt dømt gjentatte ganger for brudd på artikkel 8 (retten til familieliv) i barnevernssaker.',
     },
     {
       question: 'Hva er Den europeiske sosialpakten?',
@@ -4889,14 +4889,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Den europeiske sosialpakten dekker okonomiske og sosiale rettigheter som rett til arbeid og sosial trygghet.',
     },
     {
-      question: 'Hva skjer nar Norge dommes i EMD?',
+      question: 'Hva skjer nar Norge dømmes i EMD?',
       options: [
-        'Norge ma betale erstatning og vurdere a endre lovgivning eller praksis',
-        'Ingenting, dommen er bare radgivende',
-        'Norge ma betale en bot til Europaradet',
-        'Norges medlemskap i Europaradet suspenderes',
+        'Norge ma betale erstatning og vurdere å endre lovgivning eller praksis',
+        'Ingenting, dommen er bare rådgivende',
+        'Norge ma betale en bot til Europarådet',
+        'Norges medlemskap i Europarådet suspenderes',
       ],
-      explanation: 'Nar Norge dommes ma vi betale eventuell erstatning, og vi ma vurdere a endre lovgivning og praksis for a unnga nye brudd.',
+      explanation: 'Nar Norge dømmes ma vi betale eventuell erstatning, og vi ma vurdere å endre lovgivning og praksis for å unngå nye brudd.',
     },
   ],
 
@@ -4935,9 +4935,9 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva betyr menneskerettslovens forrangsbestemmelse?',
       options: [
         'Ved konflikt skal konvensjonene ga foran norsk lov',
-        'Grunnloven gar foran konvensjonene',
-        'Konvensjonene gjelder bare nar de passer',
-        'Stortinget kan velge a ignorere konvensjonene',
+        'Grunnloven går foran konvensjonene',
+        'Konvensjonene gjelder bare når de passer',
+        'Stortinget kan velge å ignorere konvensjonene',
       ],
       explanation: 'Forrangsbestemmelsen i paragraf 3 betyr at ved konflikt mellom norsk lov og konvensjonene, skal konvensjonene ga foran.',
     },
@@ -4947,7 +4947,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Norges institusjon for menneskerettigheter',
         'Norsk institutt for migrasjon',
         'Nasjonalt informasjonssenter for menneskerettigheter',
-        'Nordisk institutt for miljo',
+        'Nordisk institutt for miljø',
       ],
       explanation: 'NIM (Norges institusjon for menneskerettigheter) er et uavhengig organ som overvar menneskerettighetssituasjonen i Norge.',
     },
@@ -4979,7 +4979,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Forbud mot religionsfrihet',
         'Sensur av alle medier',
       ],
-      explanation: 'Eksempler pa utfordringer som diskuteres i Norge er samiske rettigheter og arealforvaltning, barnefattigdom og tvang i psykiatrien. Det er ofte uenighet om hva som utgjor menneskerettighetsutfordringer.',
+      explanation: 'Eksempler på utfordringer som diskuteres i Norge er samiske rettigheter og arealforvaltning, barnefattigdom og tvang i psykiatrien. Det er ofte uenighet om hva som utgjør menneskerettighetsutfordringer.',
     },
     {
       question: 'Hva er Sivilombudets rolle?',
@@ -4989,7 +4989,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Representerer Norge i internasjonale saker',
         'Lager nye lover',
       ],
-      explanation: 'Sivilombudet behandler klager mot offentlig forvaltning og kan papeke menneskerettighetsbrudd.',
+      explanation: 'Sivilombudet behandler klager mot offentlig forvaltning og kan påpeke menneskerettighetsbrudd.',
     },
     {
       question: 'Hvilken grunnlovsparagraf handler om barns rettigheter?',
@@ -4999,7 +4999,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Paragraf 92',
         'Paragraf 110',
       ],
-      explanation: 'Grunnloven paragraf 104 slaar fast barns rettigheter, inkludert at barnets beste skal vaere et grunnleggende hensyn.',
+      explanation: 'Grunnloven paragraf 104 slår fast barns rettigheter, inkludert at barnets beste skal være et grunnleggende hensyn.',
     },
   ],
 
@@ -5019,7 +5019,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       options: [
         'Alle mennesker under 18 ar',
         'Alle mennesker under 16 ar',
-        'Alle som gar pa skole',
+        'Alle som går på skole',
         'Alle som bor hjemme hos foreldrene',
       ],
       explanation: 'Barnekonvensjonen definerer barn som alle mennesker under 18 ar.',
@@ -5037,8 +5037,8 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva betyr barnets beste som grunnleggende hensyn?',
       options: [
-        'Barnets beste skal alltid vurderes og tillegges stor vekt i avgjorelser',
-        'Barn skal alltid fa det de vil',
+        'Barnets beste skal alltid vurderes og tillegges stor vekt i avgjørelser',
+        'Barn skal alltid få det de vil',
         'Voksne vet alltid best hva som er bra for barn',
         'Barnets beste er det eneste hensynet som teller',
       ],
@@ -5057,12 +5057,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva betyr barns rett til a bli hort?',
       options: [
-        'Barn skal fa uttale seg og deres mening skal tillegges vekt etter alder og modenhet',
-        'Barn skal kunne snakke sa hoyt de vil',
+        'Barn skal få uttale seg og deres mening skal tillegges vekt etter alder og modenhet',
+        'Barn skal kunne snakke sa høyt de vil',
         'Barn skal alltid bestemme selv',
-        'Voksne ma alltid gjore som barn sier',
+        'Voksne må alltid gjore som barn sier',
       ],
-      explanation: 'Retten til a bli hort (artikkel 12) betyr at barn skal fa uttale seg, og deres mening skal tillegges vekt etter alder og modenhet.',
+      explanation: 'Retten til a bli hort (artikkel 12) betyr at barn skal få uttale seg, og deres mening skal tillegges vekt etter alder og modenhet.',
     },
     {
       question: 'Hvilken norsk lov regulerer forholdet mellom barn og foreldre?',
@@ -5072,7 +5072,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Opplaringsloven',
         'Menneskerettsloven',
       ],
-      explanation: 'Barneloven regulerer forholdet mellom barn og foreldre, inkludert foreldreansvar, samvaersrett og forbud mot fysisk avstraffelse.',
+      explanation: 'Barneloven regulerer forholdet mellom barn og foreldre, inkludert foreldreansvar, samværsrett og forbud mot fysisk avstraffelse.',
     },
     {
       question: 'Hva er en utfordring for barns rettigheter i Norge?',
@@ -5092,7 +5092,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Leder av barnevernet',
         'Stortingsrepresentant for barn',
       ],
-      explanation: 'Barneombudet er en uavhengig talsmann for barn og unge som overvar barns rettigheter og uttaler seg i saker som berorer barn.',
+      explanation: 'Barneombudet er en uavhengig talsmann for barn og unge som overvar barns rettigheter og uttaler seg i saker som berører barn.',
     },
     {
       question: 'Hvor mange artikler inneholder barnekonvensjonen?',
@@ -5110,7 +5110,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Over 160 millioner barn arbeider globalt',
         'Barn har for mye fritid',
         'Det finnes for mange skoler',
-        'Barnedodeligheten er for lav',
+        'Barnedødeligheten er for lav',
       ],
       explanation: 'Barnearbeid er en stor global utfordring, med over 160 millioner barn i arbeid.',
     },
@@ -5120,12 +5120,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er en rettighetskolisjon?',
       options: [
-        'Nar ulike rettigheter trekker i motsatt retning og ma avveies',
+        'Nar ulike rettigheter trekker i motsatt retning og må avveies',
         'Nar to mennesker krever samme rettighet',
         'Nar en rettighet brytes',
         'Nar land ikke blir enige om rettigheter',
       ],
-      explanation: 'Rettighetskolisjon oppstar nar ulike rettigheter peker i motsatt retning, og man ma foreta en avveining mellom dem.',
+      explanation: 'Rettighetskolisjon oppstår nar ulike rettigheter peker i motsatt retning, og man må foreta en avveining mellom dem.',
     },
     {
       question: 'Hva er et eksempel pa rettighetskolisjon?',
@@ -5135,17 +5135,17 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Rett til liv mot forbud mot tortur',
         'Stemmerett mot organisasjonsfrihet',
       ],
-      explanation: 'Ytringsfrihet vs. vern mot hatprat er en klassisk rettighetskolisjon der to viktige hensyn ma avveies.',
+      explanation: 'Ytringsfrihet vs. vern mot hatprat er en klassisk rettighetskolisjon der to viktige hensyn må avveies.',
     },
     {
       question: 'Hva menes med forholdsmessighetsvurdering?',
       options: [
-        'Vurdering av om inngrep i en rettighet star i forhold til formalet',
-        'Beregning av hvor mange som pavirkes',
+        'Vurdering av om inngrep i en rettighet star i forhold til formålet',
+        'Beregning av hvor mange som påvirkes',
         'Sammenligning av ulike lands rettigheter',
         'Vurdering av hvor gamle rettighetene er',
       ],
-      explanation: 'Forholdsmessighetsvurdering handler om a vurdere om et inngrep i en rettighet er nodvendig og star i forhold til formalet.',
+      explanation: 'Forholdsmessighetsvurdering handler om å vurdere om et inngrep i en rettighet er nødvendig og star i forhold til formålet.',
     },
     {
       question: 'Hva er universalisme i menneskerettighetsdebatten?',
@@ -5162,10 +5162,10 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       options: [
         'Tanken om at verdier og rettigheter er kulturelt betinget',
         'At alle kulturer er likeverdige',
-        'At kulturer ma isoleres fra hverandre',
+        'At kulturer må isoleres fra hverandre',
         'At vestlig kultur er overlegen',
       ],
-      explanation: 'Kulturrelativisme hevder at verdier og rettigheter er kulturelt betinget, og kritiserer menneskerettighetene for a vaere vestlige verdier.',
+      explanation: 'Kulturrelativisme hevder at verdier og rettigheter er kulturelt betinget, og kritiserer menneskerettighetene for a være vestlige verdier.',
     },
     {
       question: 'Hvorfor er handhevelse av menneskerettigheter vanskelig internasjonalt?',
@@ -5180,22 +5180,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er en utfordring for menneskerettighetene i dag?',
       options: [
-        'Autoritaere regimer og masseovervakningsteknologi',
+        'Autoritære regimer og masseovervakningsteknologi',
         'For mange demokratier',
         'For stor ytringsfrihet',
         'For mange menneskerettighetsorganisasjoner',
       ],
-      explanation: 'Utfordringer inkluderer autoritaere regimer som undertrykker opposisjon, masseovervakningsteknologi, og debatter om balansen mellom nasjonal suverenitet og internasjonale forpliktelser.',
+      explanation: 'Utfordringer inkluderer autoritære regimer som undertrykker opposisjon, masseovervakningsteknologi, og debatter om balansen mellom nasjonal suverenitet og internasjonale forpliktelser.',
     },
     {
       question: 'Hvordan kan rettigheter avveies mot hverandre?',
       options: [
-        'Gjennom vurdering av nodvendighet, proporsjonalitet og demokratisk legitimitet',
-        'Ved a alltid velge den eldste rettigheten',
-        'Ved a sporre folket i en folkeavstemning',
-        'Ved a la den sterke parten vinne',
+        'Gjennom vurdering av nødvendighet, proporsjonalitet og demokratisk legitimitet',
+        'Ved å alltid velge den eldste rettigheten',
+        'Ved a spørre folket i en folkeavstemning',
+        'Ved å la den sterke parten vinne',
       ],
-      explanation: 'Avveining skjer gjennom vurdering av nodvendighet, proporsjonalitet, rettigheter har en kjerne og demokratisk legitimitet.',
+      explanation: 'Avveining skjer gjennom vurdering av nødvendighet, proporsjonalitet, rettigheter har en kjerne og demokratisk legitimitet.',
     },
     {
       question: 'Hva menes med at noen rettigheter har en ukrenskelig kjerne?',
@@ -5210,15 +5210,15 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er politisering i menneskerettighetsarbeidet?',
       options: [
-        'At noen land skanes mens andre kritiseres ut fra politiske hensyn',
+        'At noen land skånes mens andre kritiseres ut fra politiske hensyn',
         'At politikere engasjerer seg i menneskerettigheter',
         'At menneskerettigheter blir partipolitikk',
         'At FN har politiske representanter',
       ],
-      explanation: 'Politisering innebarer selektiv oppmerksomhet der allierte skanes og rivaler kritiseres, noe som svekker legitimiteten.',
+      explanation: 'Politisering innebærer selektiv oppmerksomhet der allierte skånes og rivaler kritiseres, noe som svekker legitimiteten.',
     },
     {
-      question: 'Hva kan vaere en mellomposisjon mellom universalisme og kulturrelativisme?',
+      question: 'Hva kan være en mellomposisjon mellom universalisme og kulturrelativisme?',
       options: [
         'Kjerneverdiene er universelle, men anvendelsen kan tilpasses kontekst',
         'Bare vestlige land trenger menneskerettigheter',
@@ -5984,14 +5984,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Universelle ordninger gjelder alle innbyggere, uavhengig av inntekt. Dette skaper fellesskap og unngår stigmatisering.',
     },
     {
-      question: 'Når ble Folketrygden innfort i Norge?',
+      question: 'Når ble Folketrygden innført i Norge?',
       options: [
         '1967',
         '1945',
         '1985',
         '2000',
       ],
-      explanation: 'Folketrygden ble innfort i 1967 og markerte en viktig milepael i utviklingen av den norske velferdsstaten.',
+      explanation: 'Folketrygden ble innført i 1967 og markerte en viktig milepæl i utviklingen av den norske velferdsstaten.',
     },
     {
       question: 'Hva er hovedkilden til finansiering av velferdsstaten?',
@@ -6024,7 +6024,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Omfordeling betyr at man betaler skatt etter evne og mottar ytelser etter behov, noe som reduserer okonomiske forskjeller.',
     },
     {
-      question: 'Hva er formalet med handlingsregelen?',
+      question: 'Hva er formålet med handlingsregelen?',
       options: [
         'Sikre at kun avkastningen fra Oljefondet brukes',
         'Bestemme hvor mye skatt folk skal betale',
@@ -6048,20 +6048,20 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       options: [
         'Universelle ordninger, hoy skatt og sterk omfordeling',
         'Lav skatt og privat velferd',
-        'Kun behovsprovde ordninger',
+        'Kun behovsprøvde ordninger',
         'Ingen offentlig sektor',
       ],
-      explanation: 'Den nordiske modellen kjennetegnes av universelle ordninger, hoyt skattenivaa, omfattende offentlig sektor og sterk omfordeling.',
+      explanation: 'Den nordiske modellen kjennetegnes av universelle ordninger, høyt skattenivå, omfattende offentlig sektor og sterk omfordeling.',
     },
     {
-      question: 'Hvilket av disse omraadene er storst i statsbudsjettet?',
+      question: 'Hvilket av disse områdene er storst i statsbudsjettet?',
       options: [
         'Folketrygden (pensjon og trygd)',
         'Kultur',
         'Bistand',
         'Forskning',
       ],
-      explanation: 'Folketrygden er den desidert storste utgiftsposten i statsbudsjettet, med ca. 550 milliarder kroner aarlig.',
+      explanation: 'Folketrygden er den desidert storste utgiftsposten i statsbudsjettet, med ca. 550 milliarder kroner årlig.',
     },
   ],
 
@@ -6069,12 +6069,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er skattens hovedfunksjoner?',
       options: [
-        'Finansiere offentlige tjenester, omfordele ressurser, styre atferd og stabilisere okonomien',
+        'Finansiere offentlige tjenester, omfordele ressurser, styre atferd og stabilisere økonomien',
         'Kun aa samle inn penger til staten',
         'Kun aa straffe de rike',
         'Kun aa finansiere forsvar',
       ],
-      explanation: 'Skatten har fire hovedfunksjoner: finansiere offentlige tjenester, omfordele ressurser, styre atferd og stabilisere okonomien.',
+      explanation: 'Skatten har fire hovedfunksjoner: finansiere offentlige tjenester, omfordele ressurser, styre atferd og stabilisere økonomien.',
     },
     {
       question: 'Hva er forskjellen paa direkte og indirekte skatter?',
@@ -6094,7 +6094,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'De fattigste betaler mest',
         'Ingen betaler skatt',
       ],
-      explanation: 'Progressiv beskatning betyr at skatteprosenten oker med inntekten - de som tjener mest, betaler mest baade i kroner og prosent.',
+      explanation: 'Progressiv beskatning betyr at skatteprosenten oker med inntekten - de som tjener mest, betaler mest både i kroner og prosent.',
     },
     {
       question: 'Hva er merverdiavgift (moms)?',
@@ -6117,14 +6117,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Skatt paa alminnelig inntekt har en flat sats paa 22% etter fradrag.',
     },
     {
-      question: 'Hva er formalet med saeravgifter paa alkohol og tobakk?',
+      question: 'Hva er formålet med særavgifter paa alkohol og tobakk?',
       options: [
         'Styre atferd ved aa gjore helseskadelige produkter dyrere',
         'Kun aa skaffe penger til staten',
         'Straffe brukerne',
         'Gjore produktene billigere',
       ],
-      explanation: 'Saeravgifter paa alkohol og tobakk har som formal aa styre atferd ved aa gjore helseskadelige produkter dyrere.',
+      explanation: 'Særavgifter paa alkohol og tobakk har som formal aa styre atferd ved aa gjore helseskadelige produkter dyrere.',
     },
     {
       question: 'Hva er trinnsskatten?',
@@ -6137,24 +6137,24 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Trinnsskatten er progressiv og oker trinnvis med inntekten, fra 1,7% paa laveste trinn til 16,6% paa hoyeste.',
     },
     {
-      question: 'Hvilket argument brukes FOR hoye skatter?',
+      question: 'Hvilket argument brukes FOR høye skatter?',
       options: [
         'Finansierer gode fellesgoder og skaper likhet',
         'Stimulerer arbeidsvilje',
         'Gir mer penger til den enkelte',
         'Oker konkurransen med andre land',
       ],
-      explanation: 'Argumenter for hoye skatter er at de finansierer gode fellesgoder, omfordeler og skaper likhet i samfunnet.',
+      explanation: 'Argumenter for høye skatter er at de finansierer gode fellesgoder, omfordeler og skaper likhet i samfunnet.',
     },
     {
-      question: 'Hvilket argument brukes MOT hoye skatter?',
+      question: 'Hvilket argument brukes MOT høye skatter?',
       options: [
         'Kan hemme arbeidsvilje og innovasjon',
         'Gir for mye likhet',
         'Finansierer for mange offentlige tjenester',
         'Gjor landet for trygt',
       ],
-      explanation: 'Argumenter mot hoye skatter er at de kan hemme arbeidsvilje og innovasjon, og at privat sektor kan vaere mer effektiv.',
+      explanation: 'Argumenter mot høye skatter er at de kan hemme arbeidsvilje og innovasjon, og at privat sektor kan være mer effektiv.',
     },
     {
       question: 'Hva er arbeidsgiveravgift?',
@@ -6172,12 +6172,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er statsbudsjettet?',
       options: [
-        'Statens okonomiske plan for det kommende aaret',
+        'Statens okonomiske plan for det kommende året',
         'En oversikt over private investeringer',
         'Kommunenes budsjett',
         'Oljefondets investeringer',
       ],
-      explanation: 'Statsbudsjettet er statens okonomiske plan som viser hvordan staten planlegger aa bruke og skaffe penger det kommende aaret.',
+      explanation: 'Statsbudsjettet er statens okonomiske plan som viser hvordan staten planlegger aa bruke og skaffe penger det kommende året.',
     },
     {
       question: 'Naar legger regjeringen frem statsbudsjettet?',
@@ -6215,7 +6215,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'En justering av statsbudsjettet som legges frem i mai',
         'Det forste budsjettforslaget',
         'Kommunenes budsjett',
-        'Oljefondets aarsrapport',
+        'Oljefondets årsrapport',
       ],
       explanation: 'Revidert budsjett legges frem i mai og justerer statsbudsjettet for endringer som har skjedd siden hosten.',
     },
@@ -6227,7 +6227,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ca. 20%',
         'Ca. 95%',
       ],
-      explanation: 'Skatter og avgifter utgjor ca. 80% av statens inntekter.',
+      explanation: 'Skatter og avgifter utgjør ca. 80% av statens inntekter.',
     },
     {
       question: 'Hva er bundne utgifter?',
@@ -6244,7 +6244,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       options: [
         'At vi kun bruker forventet realavkastning (3%) fra Oljefondet',
         'At vi bruker hele Oljefondet hvert aar',
-        'At vi ikke far bruke oljepenger',
+        'At vi ikke får bruke oljepenger',
         'At regjeringen bestemmer alt alene',
       ],
       explanation: 'Handlingsregelen sier at vi kun skal bruke forventet realavkastning fra Oljefondet (3%) i statsbudsjettet.',
@@ -6257,7 +6257,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Utenrikskomiteen',
         'Forsvarskomiteen',
       ],
-      explanation: 'Finanskomiteen behandler helheten i statsbudsjettet, mens fagkomiteene behandler sine omraader.',
+      explanation: 'Finanskomiteen behandler helheten i statsbudsjettet, mens fagkomiteene behandler sine områder.',
     },
     {
       question: 'Omtrent hvor stort er statsbudsjettet totalt?',
@@ -6283,7 +6283,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'NAV ble opprettet i 2006 ved aa slaa sammen Aetat, trygdeetaten og sosialtjenesten.',
     },
     {
-      question: 'Hvilke etater ble slaatt sammen til NAV?',
+      question: 'Hvilke etater ble slått sammen til NAV?',
       options: [
         'Aetat, trygdeetaten og sosialtjenesten',
         'Skatteetaten og politiet',
@@ -6296,28 +6296,28 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hvor lenge kan man faa sykepenger?',
       options: [
         'Inntil ett aar',
-        'Inntil tre maaneder',
+        'Inntil tre måneder',
         'Inntil fem aar',
         'Ubegrenset',
       ],
       explanation: 'Man kan faa sykepenger i inntil ett aar (52 uker) ved sykdom.',
     },
     {
-      question: 'Hvor mye av lonnen far man i sykepenger?',
+      question: 'Hvor mye av lønnen far man i sykepenger?',
       options: [
         '100% av lonn opp til 6G',
         '50% av lonn',
         '80% av lonn',
         '62% av lonn',
       ],
-      explanation: 'Sykepenger gir 100% av lonnen opp til 6G (grunnbelopet i folketrygden ganget med 6).',
+      explanation: 'Sykepenger gir 100% av lønnen opp til 6G (grunnbeløpet i folketrygden ganget med 6).',
     },
     {
       question: 'Hva er dagpenger?',
       options: [
         'Ytelse ved arbeidsledighet',
         'Ytelse ved sykdom',
-        'Ytelse ved fodsel',
+        'Ytelse ved fødsel',
         'Ytelse ved pensjon',
       ],
       explanation: 'Dagpenger er en ytelse man kan faa ved arbeidsledighet, forutsatt at man er aktiv arbeidsoker.',
@@ -6328,19 +6328,19 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ytelse under avklaring av arbeidsevne ved sykdom eller skade',
         'Ytelse ved arbeidsledighet',
         'Ytelse ved pensjonering',
-        'Ytelse ved fodsel',
+        'Ytelse ved fødsel',
       ],
       explanation: 'AAP gis under avklaring av arbeidsevne ved sykdom eller skade, mens man deltar i tiltak.',
     },
     {
-      question: 'Hvor mye av tidligere inntekt gir uforetrygd?',
+      question: 'Hvor mye av tidligere inntekt gir uføretrygd?',
       options: [
         '66%',
         '100%',
         '50%',
         '80%',
       ],
-      explanation: 'Uforetrygd gir 66% av tidligere inntekt ved varig nedsatt arbeidsevne.',
+      explanation: 'Uføretrygd gir 66% av tidligere inntekt ved varig nedsatt arbeidsevne.',
     },
     {
       question: 'Fra hvilken alder kan man ta ut alderspensjon fleksibelt?',
@@ -6365,12 +6365,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva kreves for aa faa dagpenger?',
       options: [
-        'Man maa vaere aktiv arbeidsoker',
-        'Man maa vaere syk',
-        'Man maa vaere pensjonist',
-        'Man maa vaere student',
+        'Man maa være aktiv arbeidsoker',
+        'Man maa være syk',
+        'Man maa være pensjonist',
+        'Man maa være student',
       ],
-      explanation: 'For aa faa dagpenger maa man vaere aktiv arbeidsoker og tilgjengelig for arbeidsmarkedet.',
+      explanation: 'For aa faa dagpenger maa man være aktiv arbeidsoker og tilgjengelig for arbeidsmarkedet.',
     },
   ],
 
@@ -6416,24 +6416,24 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Fondet er investert med ca. 70% i aksjer, 27% i obligasjoner og 3% i eiendom, spredt globalt.',
     },
     {
-      question: 'Hva er formalet med Oljefondet?',
+      question: 'Hva er formålet med Oljefondet?',
       options: [
         'Sikre langsiktig forvaltning av petroleumsinntektene for fremtidige generasjoner',
         'Gjore nordmenn rike naa',
         'Finansiere kun pensjoner',
         'Investere kun i Norge',
       ],
-      explanation: 'Formalet er aa sikre langsiktig forvaltning av petroleumsinntektene og ivareta fremtidige generasjoners interesser.',
+      explanation: 'Formålet er aa sikre langsiktig forvaltning av petroleumsinntektene og ivareta fremtidige generasjoners interesser.',
     },
     {
       question: 'Hva er "hollandsk syke"?',
       options: [
-        'Overoppheting av okonomien paa grunn av for rask bruk av naturressursinntekter',
+        'Overoppheting av økonomien paa grunn av for rask bruk av naturressursinntekter',
         'En smittsom sykdom',
         'En type tulipanfeber',
         'Okonomisk krise i Nederland',
       ],
-      explanation: 'Hollandsk syke er overoppheting av okonomien som kan skje hvis man bruker naturressursinntekter for raskt.',
+      explanation: 'Hollandsk syke er overoppheting av økonomien som kan skje hvis man bruker naturressursinntekter for raskt.',
     },
     {
       question: 'I hvor mange land er Oljefondet investert?',
@@ -6443,30 +6443,30 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ca. 10 land',
         'Kun i Europa',
       ],
-      explanation: 'Oljefondet er investert i over 70 land og eier ca. 1,5% av verdens borsnoterte selskaper.',
+      explanation: 'Oljefondet er investert i over 70 land og eier ca. 1,5% av verdens børsnoterte selskaper.',
     },
     {
-      question: 'Hva gjor Etikkraadet?',
+      question: 'Hva gjor Etikkrådet?',
       options: [
         'Gir anbefalinger om utelukkelse av selskaper som bryter etiske retningslinjer',
         'Bestemmer hvor mye som skal investeres',
         'Forvalter fondet',
         'Setter renten',
       ],
-      explanation: 'Etikkraadet gir anbefalinger om aa utelukke selskaper som bryter fondets etiske retningslinjer.',
+      explanation: 'Etikkrådet gir anbefalinger om aa utelukke selskaper som bryter fondets etiske retningslinjer.',
     },
     {
       question: 'Hvilke selskaper kan utelukkes fra Oljefondet?',
       options: [
-        'Selskaper som produserer visse vaapen, alvorlig miljoskade eller menneskerettighetsbrudd',
+        'Selskaper som produserer visse våpen, alvorlig miljøskade eller menneskerettighetsbrudd',
         'Alle utenlandske selskaper',
         'Kun amerikanske selskaper',
         'Ingen selskaper kan utelukkes',
       ],
-      explanation: 'Selskaper kan utelukkes for produksjon av visse vaapen, alvorlig miljoskade, menneskerettighetsbrudd eller korrupsjon.',
+      explanation: 'Selskaper kan utelukkes for produksjon av visse våpen, alvorlig miljøskade, menneskerettighetsbrudd eller korrupsjon.',
     },
     {
-      question: 'Hvor mye av Oljefondet kan brukes aarlig ifolge handlingsregelen?',
+      question: 'Hvor mye av Oljefondet kan brukes årlig ifølge handlingsregelen?',
       options: [
         'Forventet realavkastning paa 3%',
         '10% av fondet',
@@ -6483,18 +6483,18 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       options: [
         'Et maal paa okonomisk ulikhet fra 0 (full likhet) til 1 (en person har alt)',
         'Et maal paa befolkningsvekst',
-        'Et maal paa arbeidsloshet',
+        'Et maal paa arbeidsløshet',
         'Et maal paa inflasjon',
       ],
-      explanation: 'Gini-koeffisienten maaler ulikhet paa en skala fra 0 (fullstendig likhet) til 1 (en person har alt).',
+      explanation: 'Gini-koeffisienten måler ulikhet paa en skala fra 0 (fullstendig likhet) til 1 (en person har alt).',
     },
     {
       question: 'Hva er Norges Gini-koeffisient omtrent?',
       options: [
         'Ca. 0,27 (relativt lavt)',
-        'Ca. 0,60 (hoyt)',
+        'Ca. 0,60 (høyt)',
         'Ca. 0,10 (veldig lavt)',
-        'Ca. 0,80 (veldig hoyt)',
+        'Ca. 0,80 (veldig høyt)',
       ],
       explanation: 'Norge har en Gini-koeffisient paa ca. 0,27, som er relativt lavt i internasjonal sammenheng.',
     },
@@ -6503,7 +6503,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       options: [
         'Inntekt under 60% av medianinntekten',
         'Aa ikke ha raad til mat',
-        'Aa vaere hjemlos',
+        'Aa være hjemløs',
         'Inntekt under 10% av gjennomsnittet',
       ],
       explanation: 'Relativ fattigdom defineres som inntekt under 60% av medianinntekten i samfunnet.',
@@ -6511,22 +6511,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hvilke grupper er mest utsatt for fattigdom i Norge?',
       options: [
-        'Enslige forsorgere, innvandrerfamilier og personer utenfor arbeidslivet',
-        'Hoytlonnede og akademikere',
+        'Enslige forsørgere, innvandrerfamilier og personer utenfor arbeidslivet',
+        'Høytlønnede og akademikere',
         'Politikere og ledere',
         'Pensjonister med god pensjon',
       ],
-      explanation: 'Enslige forsorgere, innvandrerfamilier og personer utenfor arbeidslivet er mest utsatt for fattigdom.',
+      explanation: 'Enslige forsørgere, innvandrerfamilier og personer utenfor arbeidslivet er mest utsatt for fattigdom.',
     },
     {
       question: 'Hva er konsekvenser av fattigdom?',
       options: [
-        'Daarligere helse, lavere utdanning og sosial ekskludering',
+        'Dårligere helse, lavere utdanning og sosial ekskludering',
         'Bedre helse',
         'Hoyere utdanning',
-        'Storre sosial inkludering',
+        'Større sosial inkludering',
       ],
-      explanation: 'Fattigdom kan fore til daarligere helse, lavere utdanning, sosial ekskludering og kan overfores til neste generasjon.',
+      explanation: 'Fattigdom kan fore til dårligere helse, lavere utdanning, sosial ekskludering og kan overføres til neste generasjon.',
     },
     {
       question: 'Hvordan omfordeler staten ressurser?',
@@ -6536,7 +6536,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ved aa ikke samle inn skatt',
         'Ved aa privatisere alt',
       ],
-      explanation: 'Staten omfordeler gjennom progressiv skatt, universelle velferdsordninger, behovsprovde stonader og gratis utdanning/helse.',
+      explanation: 'Staten omfordeler gjennom progressiv skatt, universelle velferdsordninger, behovsprøvde stønader og gratis utdanning/helse.',
     },
     {
       question: 'Hva er sosial mobilitet?',
@@ -6551,12 +6551,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er formueulikhet sammenlignet med inntektsulikhet i Norge?',
       options: [
-        'Formueulikhet er storre enn inntektsulikhet',
+        'Formueulikhet er større enn inntektsulikhet',
         'Formueulikhet er mindre enn inntektsulikhet',
         'De er like store',
         'Det finnes ikke formueulikhet i Norge',
       ],
-      explanation: 'Formueulikhet er storre enn inntektsulikhet i Norge - formue er mer ujevnt fordelt enn inntekt.',
+      explanation: 'Formueulikhet er større enn inntektsulikhet i Norge - formue er mer ujevnt fordelt enn inntekt.',
     },
     {
       question: 'Hvor stor andel av befolkningen lever i relativ fattigdom i Norge?',
@@ -6595,11 +6595,11 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva kjennetegner den liberale velferdsmodellen?',
       options: [
         'Begrenset offentlig velferd, behovsprøving, marked og privat forsikring',
-        'Universelle ordninger og hoye skatter',
+        'Universelle ordninger og høye skatter',
         'Omfattende offentlig sektor',
         'Sterk omfordeling',
       ],
-      explanation: 'Den liberale modellen har begrenset offentlig velferd, behovsprovde ordninger, lavt skattenivaa og vekt paa privat forsikring.',
+      explanation: 'Den liberale modellen har begrenset offentlig velferd, behovsprøvde ordninger, lavt skattenivå og vekt paa privat forsikring.',
     },
     {
       question: 'Hvilke land har den liberale velferdsmodellen?',
@@ -6639,7 +6639,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Samarbeid mellom tre land',
         'Samarbeid mellom tre bedrifter',
       ],
-      explanation: 'Trepartssamarbeid er samarbeid mellom stat, arbeidsgivere og fagbevegelse - et saertrekk ved den nordiske modellen.',
+      explanation: 'Trepartssamarbeid er samarbeid mellom stat, arbeidsgivere og fagbevegelse - et særtrekk ved den nordiske modellen.',
     },
     {
       question: 'Hva gir den nordiske modellen sammenlignet med den liberale?',
@@ -6647,22 +6647,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Mer likhet, men hoyere skatter',
         'Mer valgfrihet og lavere skatter',
         'Mindre offentlig velferd',
-        'Storre ulikhet',
+        'Større ulikhet',
       ],
-      explanation: 'Den nordiske modellen gir mer likhet og trygghet, men krever hoyere skatter. Den liberale gir mer valgfrihet men storre ulikhet.',
+      explanation: 'Den nordiske modellen gir mer likhet og trygghet, men krever hoyere skatter. Den liberale gir mer valgfrihet men større ulikhet.',
     },
   ],
 
   'samfunnskunnskap-8-8': [
     {
-      question: 'Hva er eldrebolgen?',
+      question: 'Hva er eldrebølgen?',
       options: [
-        'Okning i andelen eldre naar store etterkrigskull pensjoneres',
+        'Økning i andelen eldre naar store etterkrigskull pensjoneres',
         'En bolge av eldre som flytter til kysten',
         'En ny pensjonistbevegelse',
         'Et TV-program for eldre',
       ],
-      explanation: 'Eldrebolgen er okningen i andelen eldre i befolkningen naar de store etterkrigskullene pensjoneres.',
+      explanation: 'Eldrebølgen er økningen i andelen eldre i befolkningen naar de store etterkrigskullene pensjoneres.',
     },
     {
       question: 'Hvordan endres forsorgelsebyrden frem mot 2050?',
@@ -6675,24 +6675,24 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Forsorgelsebyrden endres dramatisk: fra 5 yrkesaktive per pensjonist i 1970 til ca. 2,5 i 2050.',
     },
     {
-      question: 'Hvorfor er eldrebolgen en utfordring for velferdsstaten?',
+      question: 'Hvorfor er eldrebølgen en utfordring for velferdsstaten?',
       options: [
-        'Flere pensjonister, faerre skattebetalere, okte utgifter til helse/omsorg',
+        'Flere pensjonister, færre skattebetalere, okte utgifter til helse/omsorg',
         'De eldre jobber for mye',
         'De eldre betaler for mye skatt',
         'Det blir for faa pensjonister',
       ],
-      explanation: 'Eldrebolgen gir flere pensjonister, faerre i arbeid, okte utgifter til helse og omsorg, og faerre skattebetalere per pensjonist.',
+      explanation: 'Eldrebølgen gir flere pensjonister, færre i arbeid, okte utgifter til helse og omsorg, og færre skattebetalere per pensjonist.',
     },
     {
       question: 'Hva er utenforskap?',
       options: [
-        'At mange staar utenfor arbeidslivet og utdanning',
+        'At mange står utenfor arbeidslivet og utdanning',
         'Aa bo utenfor byene',
-        'Aa vaere utenlandsk',
-        'Aa jobbe utendors',
+        'Aa være utenlandsk',
+        'Aa jobbe utendørs',
       ],
-      explanation: 'Utenforskap betyr at mange staar utenfor arbeidslivet, ofte paa grunn av helseutfordringer eller manglende kvalifikasjoner.',
+      explanation: 'Utenforskap betyr at mange står utenfor arbeidslivet, ofte paa grunn av helseutfordringer eller manglende kvalifikasjoner.',
     },
     {
       question: 'Hvilken losning paa velferdsutfordringene innebærer aa jobbe lenger?',
@@ -6705,14 +6705,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Aa oke pensjonsalderen er en losning som gjor at folk jobber og betaler skatt lenger for de blir pensjonister.',
     },
     {
-      question: 'Hvordan kan innvandring baade vaere en mulighet og utfordring for velferdsstaten?',
+      question: 'Hvordan kan innvandring både være en mulighet og utfordring for velferdsstaten?',
       options: [
-        'Kan bidra med arbeidskraft, men ogsaa gi utgifter til integrering',
+        'Kan bidra med arbeidskraft, men også gi utgifter til integrering',
         'Kun en utfordring',
         'Kun en mulighet',
         'Har ingen betydning',
       ],
-      explanation: 'Innvandring kan bidra med novendig arbeidskraft, men gir ogsaa utgifter til integrering. Suksess avhenger av sysselsetting.',
+      explanation: 'Innvandring kan bidra med novendig arbeidskraft, men gir også utgifter til integrering. Suksess avhenger av sysselsetting.',
     },
     {
       question: 'Hva menes med at petroleumsinntektene vil avta?',
@@ -6738,7 +6738,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva er skattekonkurranse mellom land?',
       options: [
         'At land konkurrerer om aa ha lave skatter for aa tiltrekke bedrifter',
-        'At land konkurrerer om aa ha hoyest skatt',
+        'At land konkurrerer om aa ha høyest skatt',
         'At innbyggere konkurrerer om aa betale mest skatt',
         'At kommuner konkurrerer om flest innbyggere',
       ],
@@ -6748,11 +6748,11 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hvilke grupper er spesielt utsatt for utenforskap?',
       options: [
         'Unge utenfor utdanning og arbeid, personer med helseutfordringer',
-        'Hoytutdannede med god jobb',
+        'Høytutdannede med god jobb',
         'Pensjonister med god pensjon',
         'Politikere og ledere',
       ],
-      explanation: 'Unge utenfor utdanning og arbeid (NEET) og personer med helseutfordringer og uforhet er spesielt utsatt for utenforskap.',
+      explanation: 'Unge utenfor utdanning og arbeid (NEET) og personer med helseutfordringer og uførhet er spesielt utsatt for utenforskap.',
     },
   ],
 
@@ -6762,37 +6762,37 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-1': [
     {
-      question: 'Hva er baerekraftig utvikling?',
+      question: 'Hva er bærekraftig utvikling?',
       options: [
-        'Utvikling som dekker dagens behov uten aa odelegge fremtidige generasjoners muligheter',
+        'Utvikling som dekker dagens behov uten aa ødelegge fremtidige generasjoners muligheter',
         'Okonomisk vekst som prioriterer fortjeneste',
         'Utvikling som kun fokuserer paa miljoet',
         'Teknologisk utvikling uten hensyn til natur',
       ],
-      explanation: 'Baerekraftig utvikling ble definert i Brundtland-rapporten (1987) som utvikling som dekker dagens behov uten aa odelegge fremtidige generasjoners muligheter til aa dekke sine behov.',
+      explanation: 'Bærekraftig utvikling ble definert i Brundtland-rapporten (1987) som utvikling som dekker dagens behov uten aa ødelegge fremtidige generasjoners muligheter til aa dekke sine behov.',
     },
     {
-      question: 'I hvilken rapport ble begrepet baerekraftig utvikling definert?',
+      question: 'I hvilken rapport ble begrepet bærekraftig utvikling definert?',
       options: [
         'Brundtland-rapporten fra 1987',
         'FN-rapporten fra 2015',
         'Parisavtalen fra 2015',
         'Kyotoprotokollen fra 1997',
       ],
-      explanation: 'Begrepet baerekraftig utvikling ble definert i Brundtland-rapporten "Vaar felles fremtid" fra 1987, ledet av Gro Harlem Brundtland.',
+      explanation: 'Begrepet bærekraftig utvikling ble definert i Brundtland-rapporten "Vaar felles fremtid" fra 1987, ledet av Gro Harlem Brundtland.',
     },
     {
-      question: 'Hva er de tre dimensjonene av baerekraftig utvikling?',
+      question: 'Hva er de tre dimensjonene av bærekraftig utvikling?',
       options: [
         'Okologisk, sosial og okonomisk baerekraft',
         'Politisk, kulturell og teknologisk baerekraft',
         'Lokal, nasjonal og global baerekraft',
         'Kort, mellom og lang sikt baerekraft',
       ],
-      explanation: 'De tre dimensjonene er okologisk baerekraft (bevare natur), sosial baerekraft (rettferdighet og velferd) og okonomisk baerekraft (vekst uten miljoeskade).',
+      explanation: 'De tre dimensjonene er okologisk baerekraft (bevare natur), sosial baerekraft (rettferdighet og velferd) og okonomisk baerekraft (vekst uten miljøskade).',
     },
     {
-      question: 'Hva innebarer okologisk baerekraft?',
+      question: 'Hva innebærer okologisk baerekraft?',
       options: [
         'Aa bevare naturressurser og okosystemer',
         'Aa oke okonomisk vekst',
@@ -6802,7 +6802,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Okologisk baerekraft handler om aa bevare naturressurser og okosystemer slik at de kan fortsette aa levere tjenester til fremtidige generasjoner.',
     },
     {
-      question: 'Hva innebarer sosial baerekraft?',
+      question: 'Hva innebærer sosial baerekraft?',
       options: [
         'Aa sikre rettferdighet, helse og utdanning for alle',
         'Aa oke forbruket av varer',
@@ -6812,22 +6812,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Sosial baerekraft handler om aa sikre rettferdighet, helse, utdanning og grunnleggende behov for alle mennesker.',
     },
     {
-      question: 'Hva innebarer okonomisk baerekraft?',
+      question: 'Hva innebærer okonomisk baerekraft?',
       options: [
-        'Okonomisk vekst som ikke odelegger miljo eller skaper ulikhet',
+        'Okonomisk vekst som ikke ødelegger miljø eller skaper ulikhet',
         'Maksimal profitt uten hensyn til konsekvenser',
         'Aa stoppe all okonomisk aktivitet',
         'Aa prioritere rike lands interesser',
       ],
-      explanation: 'Okonomisk baerekraft innebarer at okonomisk utvikling maa skje paa en maate som ikke odelegger miljoet eller skaper store sosiale ulikheter.',
+      explanation: 'Okonomisk baerekraft innebærer at okonomisk utvikling maa skje paa en måte som ikke ødelegger miljoet eller skaper store sosiale ulikheter.',
     },
     {
       question: 'Hvorfor maa de tre dimensjonene av baerekraft balanseres?',
       options: [
-        'Fordi de pavirker hverandre og alle maa ivaretas for en baerekraftig utvikling',
+        'Fordi de påvirker hverandre og alle maa ivaretas for en bærekraftig utvikling',
         'Fordi FN krever det',
         'Fordi det er billigst',
-        'Fordi det er enklest aa maale',
+        'Fordi det er enklest aa måle',
       ],
       explanation: 'De tre dimensjonene henger sammen - man kan ikke ha langsiktig okonomisk vekst uten aa ta vare paa miljoet og menneskene. Alle tre maa balanseres.',
     },
@@ -6848,47 +6848,47 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-2': [
     {
-      question: 'Naar vedtok FN de 17 baerekraftsmaalene?',
+      question: 'Naar vedtok FN de 17 bærekraftsmålene?',
       options: [
         'I 2015',
         'I 1987',
         'I 2000',
         'I 2020',
       ],
-      explanation: 'FN vedtok de 17 baerekraftsmaalene (Sustainable Development Goals - SDG) i 2015, og de skal naas innen 2030.',
+      explanation: 'FN vedtok de 17 bærekraftsmålene (Sustainable Development Goals - SDG) i 2015, og de skal naas innen 2030.',
     },
     {
-      question: 'Hvor mange baerekraftsmaal har FN vedtatt?',
+      question: 'Hvor mange bærekraftsmål har FN vedtatt?',
       options: [
         '17 maal',
         '10 maal',
         '15 maal',
         '20 maal',
       ],
-      explanation: 'FN har vedtatt 17 baerekraftsmaal som omfatter fattigdom, helse, utdanning, klima, fred og mye mer.',
+      explanation: 'FN har vedtatt 17 bærekraftsmål som omfatter fattigdom, helse, utdanning, klima, fred og mye mer.',
     },
     {
-      question: 'Naar skal FNs baerekraftsmaal vaere naad?',
+      question: 'Naar skal FNs bærekraftsmål være naad?',
       options: [
         'Innen 2030',
         'Innen 2025',
         'Innen 2050',
         'Innen 2040',
       ],
-      explanation: 'FNs baerekraftsmaal skal naas innen 2030, og kalles derfor ofte "Agenda 2030".',
+      explanation: 'FNs bærekraftsmål skal naas innen 2030, og kalles derfor ofte "Agenda 2030".',
     },
     {
-      question: 'Hva erstattet FNs baerekraftsmaal?',
+      question: 'Hva erstattet FNs bærekraftsmål?',
       options: [
         'Tusenaarsmaalene',
         'Brundtland-rapporten',
         'Parisavtalen',
         'Kyotoprotokollen',
       ],
-      explanation: 'Baerekraftsmaalene erstattet Tusenaarsmaalene (Millennium Development Goals) som gjaldt fra 2000 til 2015.',
+      explanation: 'Bærekraftsmålene erstattet Tusenårsmålene (Millennium Development Goals) som gjaldt fra 2000 til 2015.',
     },
     {
-      question: 'Hvilket av disse er et av FNs baerekraftsmaal?',
+      question: 'Hvilket av disse er et av FNs bærekraftsmål?',
       options: [
         'Utrydde fattigdom',
         'Oke forbruket',
@@ -6898,14 +6898,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Maal 1 er aa utrydde fattigdom. Andre maal inkluderer god helse, utdanning, likestilling, rent vann og stoppe klimaendringene.',
     },
     {
-      question: 'Hvilke land gjelder FNs baerekraftsmaal for?',
+      question: 'Hvilke land gjelder FNs bærekraftsmål for?',
       options: [
         'Alle land i verden',
         'Kun fattige land',
         'Kun EU-land',
         'Kun FN-medlemmer',
       ],
-      explanation: 'FNs baerekraftsmaal gjelder for alle land i verden, baade rike og fattige. Alle maa bidra til aa naa maalene.',
+      explanation: 'FNs bærekraftsmål gjelder for alle land i verden, både rike og fattige. Alle maa bidra til aa naa målene.',
     },
     {
       question: 'Hvilket maal handler om aa stoppe klimaendringene?',
@@ -6918,34 +6918,34 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Maal 13 er "Stoppe klimaendringene" - aa handle umiddelbart for aa bekjempe klimaendringene og konsekvensene av dem.',
     },
     {
-      question: 'Hva er forkortelsen for FNs baerekraftsmaal paa engelsk?',
+      question: 'Hva er forkortelsen for FNs bærekraftsmål paa engelsk?',
       options: [
         'SDG (Sustainable Development Goals)',
         'MDG (Millennium Development Goals)',
         'UNG (United Nations Goals)',
         'GDG (Global Development Goals)',
       ],
-      explanation: 'SDG staar for Sustainable Development Goals, som er det engelske navnet paa FNs baerekraftsmaal.',
+      explanation: 'SDG står for Sustainable Development Goals, som er det engelske navnet paa FNs bærekraftsmål.',
     },
     {
-      question: 'Hvilket maal handler om likestilling mellom kjonnene?',
+      question: 'Hvilket maal handler om likestilling mellom kjønnene?',
       options: [
         'Maal 5',
         'Maal 1',
         'Maal 10',
         'Maal 16',
       ],
-      explanation: 'Maal 5 handler om likestilling mellom kjonnene - aa oppnaa likestilling og styrke jenters og kvinners stilling.',
+      explanation: 'Maal 5 handler om likestilling mellom kjønnene - aa oppnå likestilling og styrke jenters og kvinners stilling.',
     },
     {
-      question: 'Hvorfor henger baerekraftsmaalene sammen?',
+      question: 'Hvorfor henger bærekraftsmålene sammen?',
       options: [
-        'Fordi fremgang paa ett maal pavirker andre maal',
+        'Fordi fremgang paa ett maal påvirker andre maal',
         'Fordi FN bestemte det',
         'Fordi de har samme farge',
         'Fordi de ble vedtatt samtidig',
       ],
-      explanation: 'Maalene henger sammen fordi f.eks. god utdanning (maal 4) bidrar til mindre fattigdom (maal 1) og bedre helse (maal 3). Fremgang paa ett maal styrker andre.',
+      explanation: 'Målene henger sammen fordi f.eks. god utdanning (maal 4) bidrar til mindre fattigdom (maal 1) og bedre helse (maal 3). Fremgang paa ett maal styrker andre.',
     },
   ],
 
@@ -6954,14 +6954,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-3': [
     {
-      question: 'Hva er hovedaarsaken til menneskeskapte klimaendringer?',
+      question: 'Hva er hovedårsaken til menneskeskapte klimaendringer?',
       options: [
         'Utslipp av klimagasser fra fossile brensler',
         'Naturlige variasjoner i klima',
         'Solaktivitet',
         'Vulkanutbrudd',
       ],
-      explanation: 'Menneskeskapte klimaendringer skyldes hovedsakelig utslipp av klimagasser, saerlig CO2, fra forbrenning av fossile brensler som kull, olje og gass.',
+      explanation: 'Menneskeskapte klimaendringer skyldes hovedsakelig utslipp av klimagasser, særlig CO2, fra forbrenning av fossile brensler som kull, olje og gass.',
     },
     {
       question: 'Hvilken klimagass er viktigst for menneskeskapt global oppvarming?',
@@ -6981,7 +6981,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Over 3 grader Celsius',
         'Den har ikke okt',
       ],
-      explanation: 'Den globale gjennomsnittstemperaturen har allerede okt med over 1 grad Celsius sammenlignet med forindustriell tid.',
+      explanation: 'Den globale gjennomsnittstemperaturen har allerede okt med over 1 grad Celsius sammenlignet med førindustriell tid.',
     },
     {
       question: 'Hvilken konsekvens har klimaendringer for havnivaet?',
@@ -6991,47 +6991,47 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Havnivaet er uendret',
         'Havnivaet varierer tilfeldig',
       ],
-      explanation: 'Klimaendringer forer til at isbreer og innlandsis smelter, og havet utvider seg naar det varmes opp. Dette gir havnivaastigning som truer kystsamfunn.',
+      explanation: 'Klimaendringer forer til at isbreer og innlandsis smelter, og havet utvider seg naar det varmes opp. Dette gir havnivåstigning som truer kystsamfunn.',
     },
     {
       question: 'Hva skjer med Arktis som folge av klimaendringene?',
       options: [
-        'Isen smelter i stadig storre tempo',
+        'Isen smelter i stadig større tempo',
         'Isen oker',
         'Isen er uendret',
         'Arktis blir kaldere',
       ],
-      explanation: 'Arktis varmes opp raskere enn resten av verden, og sjois og isbreer smelter i stadig storre tempo.',
+      explanation: 'Arktis varmes opp raskere enn resten av verden, og sjois og isbreer smelter i stadig større tempo.',
     },
     {
-      question: 'Hvordan pavirker klimaendringer ekstremvaer?',
+      question: 'Hvordan påvirker klimaendringer ekstremvær?',
       options: [
         'Det blir flere og kraftigere ekstremvaerperioder',
-        'Det blir faerre ekstremvaerperioder',
-        'Ekstremvaer pavirkes ikke',
+        'Det blir færre ekstremvaerperioder',
+        'Ekstremvær påvirkes ikke',
         'Vaeret blir mer stabilt',
       ],
-      explanation: 'Klimaendringer forer til flere og kraftigere ekstremvaerperioder som hetebolgener, flommer, torke og stormer.',
+      explanation: 'Klimaendringer forer til flere og kraftigere ekstremvaerperioder som hetebolgener, flommer, tørke og stormer.',
     },
     {
-      question: 'Hvordan pavirker klimaendringer biologisk mangfold?',
+      question: 'Hvordan påvirker klimaendringer biologisk mangfold?',
       options: [
         'Arter dor ut og okosystemer endres',
-        'Flere arter oppstaar',
+        'Flere arter oppstår',
         'Ingen effekt paa arter',
         'Alle arter tilpasser seg',
       ],
-      explanation: 'Klimaendringer endrer leveomraader saa raskt at mange arter ikke rekker aa tilpasse seg. Dette forer til utryddelse og endrede okosystemer.',
+      explanation: 'Klimaendringer endrer leveområder saa raskt at mange arter ikke rekker aa tilpasse seg. Dette forer til utryddelse og endrede okosystemer.',
     },
     {
       question: 'Hva bidrar til klimaendringer i tillegg til fossile brensler?',
       options: [
         'Avskoging',
-        'Planting av traar',
+        'Planting av trær',
         'Solenergi',
         'Vindkraft',
       ],
-      explanation: 'Avskoging bidrar til klimaendringer fordi traar tar opp CO2. Naar skog hogges, frigjores karbon og mindre CO2 absorberes.',
+      explanation: 'Avskoging bidrar til klimaendringer fordi trær tar opp CO2. Naar skog hogges, frigjøres karbon og mindre CO2 absorberes.',
     },
   ],
 
@@ -7040,7 +7040,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-4': [
     {
-      question: 'Hva er Norges klimamaal for 2030?',
+      question: 'Hva er Norges klimamål for 2030?',
       options: [
         'Kutte utslipp med 55% sammenlignet med 1990',
         'Kutte utslipp med 20%',
@@ -7050,20 +7050,20 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Norge har forpliktet seg til aa kutte klimagassutslipp med minst 55% innen 2030 sammenlignet med 1990-nivaa.',
     },
     {
-      question: 'Naar skal Norge vaere klimanoytral?',
+      question: 'Naar skal Norge være klimanøytral?',
       options: [
         'Innen 2050',
         'Innen 2030',
         'Innen 2040',
         'Innen 2060',
       ],
-      explanation: 'Norge har maal om aa vaere klimanoytral innen 2050, noe som betyr at utslippene skal vaere lik null eller kompenseres.',
+      explanation: 'Norge har maal om aa være klimanøytral innen 2050, noe som betyr at utslippene skal være lik null eller kompenseres.',
     },
     {
       question: 'Hva er CO2-avgiften et eksempel paa?',
       options: [
         'Et virkemiddel som gjor utslipp dyrere',
-        'En stonad til forurensende bedrifter',
+        'En stønad til forurensende bedrifter',
         'En avgift paa fornybar energi',
         'En skatt paa elbiler',
       ],
@@ -7077,7 +7077,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Et transportselskap',
         'En energitype',
       ],
-      explanation: 'EU ETS (Emissions Trading System) er et kvotehandelssystem der bedrifter maa kjope kvoter for aa slippe ut klimagasser.',
+      explanation: 'EU ETS (Emissions Trading System) er et kvotehandelssystem der bedrifter maa kjøpe kvoter for aa slippe ut klimagasser.',
     },
     {
       question: 'Hva er Langskip-prosjektet?',
@@ -7097,27 +7097,27 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Norge har for mange elbiler',
         'Norge har for mye fornybar energi',
       ],
-      explanation: 'Norge har ambisiose klimamaal, men er samtidig en av verdens storste eksportorer av olje og gass, noe som skaper et politisk dilemma.',
+      explanation: 'Norge har ambisiøse klimamål, men er samtidig en av verdens storste eksportører av olje og gass, noe som skaper et politisk dilemma.',
     },
     {
       question: 'Hva menes med elektrifisering som klimatiltak?',
       options: [
         'Aa erstatte fossil energi med elektrisitet i transport og industri',
-        'Aa oke stromprisene',
+        'Aa oke strømprisene',
         'Aa bygge flere kullkraftverk',
-        'Aa redusere stromproduksjonen',
+        'Aa redusere strømproduksjonen',
       ],
       explanation: 'Elektrifisering betyr aa erstatte fossil energi med elektrisitet, for eksempel elbiler i stedet for bensinbiler og elektrifisering av oljeplattformer.',
     },
     {
       question: 'Hva er gronn omstilling?',
       options: [
-        'Overgang fra fossil til baerekraftig okonomi og teknologi',
-        'Aa male bygninger gronne',
+        'Overgang fra fossil til bærekraftig okonomi og teknologi',
+        'Aa male bygninger grønne',
         'Aa stoppe all industri',
         'Aa oke oljeproduksjonen',
       ],
-      explanation: 'Gronn omstilling er overgangen fra en fossil-basert okonomi til en baerekraftig okonomi med fornybar energi og miljovennlig teknologi.',
+      explanation: 'Gronn omstilling er overgangen fra en fossil-basert okonomi til en bærekraftig okonomi med fornybar energi og miljøvennlig teknologi.',
     },
   ],
 
@@ -7163,7 +7163,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'De har ingen effekt',
         'De hjelper lokale arter',
       ],
-      explanation: 'Fremmede arter (invasive arter) som innfores til nye omraader kan utkonkurrere, fortrenege eller ta livet av lokale arter.',
+      explanation: 'Fremmede arter (invasive arter) som innføres til nye områder kan utkonkurrere, fortrenege eller ta livet av lokale arter.',
     },
     {
       question: 'Hvorfor er biologisk mangfold viktig for mennesker?',
@@ -7176,34 +7176,34 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Biologisk mangfold er livsviktig for mennesker - det gir oss mat, medisiner, rent vann, pollinering av avlinger og stabile okosystemer.',
     },
     {
-      question: 'Hvordan pavirker forurensning biologisk mangfold?',
+      question: 'Hvordan påvirker forurensning biologisk mangfold?',
       options: [
         'Giftstoffer og plast skader og dreper arter',
         'Forurensning oker mangfoldet',
         'Forurensning har ingen effekt',
         'Forurensning hjelper arter aa tilpasse seg',
       ],
-      explanation: 'Forurensning som plast, giftstoffer og overgjosling skader og dreper arter og odelegger leveomraader.',
+      explanation: 'Forurensning som plast, giftstoffer og overgjosling skader og dreper arter og ødelegger leveområder.',
     },
     {
       question: 'Hvordan bidrar klimaendringer til tap av biologisk mangfold?',
       options: [
-        'Leveomraader endres raskere enn arter kan tilpasse seg',
+        'Leveområder endres raskere enn arter kan tilpasse seg',
         'Klimaendringer oker mangfoldet',
         'Arter liker varmere klima',
-        'Klimaendringer pavirker ikke arter',
+        'Klimaendringer påvirker ikke arter',
       ],
-      explanation: 'Klimaendringer endrer leveomraader saa raskt at mange arter ikke rekker aa tilpasse seg eller flytte, noe som forer til utryddelse.',
+      explanation: 'Klimaendringer endrer leveområder saa raskt at mange arter ikke rekker aa tilpasse seg eller flytte, noe som forer til utryddelse.',
     },
     {
-      question: 'Hva er et okosystem?',
+      question: 'Hva er et økosystem?',
       options: [
-        'Et samfunn av levende organismer og deres fysiske miljo',
-        'Kun plantene i et omraade',
-        'Kun dyrene i et omraade',
+        'Et samfunn av levende organismer og deres fysiske miljø',
+        'Kun plantene i et område',
+        'Kun dyrene i et område',
         'En type dataprogram',
       ],
-      explanation: 'Et okosystem er et samfunn av levende organismer (planter, dyr, mikroorganismer) sammen med det fysiske miljoet de lever i.',
+      explanation: 'Et økosystem er et samfunn av levende organismer (planter, dyr, mikroorganismer) sammen med det fysiske miljoet de lever i.',
     },
   ],
 
@@ -7214,62 +7214,62 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva debatteres om forbruk og baerekraft?',
       options: [
-        'Balansen mellom velstand og miljohensyn',
+        'Balansen mellom velstand og miljøhensyn',
         'At forbruk aldri er et problem',
         'At alle maa slutte aa forbruke',
         'At kun fattige land maa endre forbruk',
       ],
-      explanation: 'Det debatteres hvordan vi balanserer velstand og miljohensyn. Noen vektlegger redusert forbruk, andre vektlegger teknologiske losninger.',
+      explanation: 'Det debatteres hvordan vi balanserer velstand og miljøhensyn. Noen vektlegger redusert forbruk, andre vektlegger teknologiske losninger.',
     },
     {
       question: 'Hva er okologisk fotavtrykk?',
       options: [
         'Et maal paa ressursforbruk uttrykt i areal',
-        'Storrelsen paa skoene dine',
+        'Størrelsen paa skoene dine',
         'Hvor mye du gaar',
-        'Antall traar du har plantet',
+        'Antall trær du har plantet',
       ],
-      explanation: 'Okologisk fotavtrykk maaler hvor mye produktivt land- og havomraade som trengs for aa produsere det vi forbruker og ta opp avfallet vaart.',
+      explanation: 'Okologisk fotavtrykk måler hvor mye produktivt land- og havområde som trengs for aa produsere det vi forbruker og ta opp avfallet vaart.',
     },
     {
-      question: 'Hva bidrar mest til nordmenns hoye okologiske fotavtrykk?',
+      question: 'Hva bidrar mest til nordmenns høye okologiske fotavtrykk?',
       options: [
-        'Kjottforbruk, flyreiser, bilbruk og bolig',
+        'Kjøttforbruk, flyreiser, bilbruk og bolig',
         'Aa lese boker',
         'Aa gaa tur i naturen',
-        'Aa spise lokale gronnsaker',
+        'Aa spise lokale grønnsaker',
       ],
-      explanation: 'Nordmenns hoye okologiske fotavtrykk skyldes hovedsakelig kjottforbruk, flyreiser, bilbruk, klaeforbruk og energibruk i bolig.',
+      explanation: 'Nordmenns høye okologiske fotavtrykk skyldes hovedsakelig kjøttforbruk, flyreiser, bilbruk, klaeforbruk og energibruk i bolig.',
     },
     {
-      question: 'Hvorfor er hoyt forbruk et miljoeproblem?',
+      question: 'Hvorfor er høyt forbruk et miljøproblem?',
       options: [
         'Det krever store ressurser og gir avfall og utslipp',
         'Det er bra for miljoet',
         'Det har ingen miljoeffekt',
         'Det reduserer utslipp',
       ],
-      explanation: 'Hoyt forbruk krever utvinning av ressurser, produksjon med utslipp, transport og gir avfall - alt med negative miljoekonsekvenser.',
+      explanation: 'Høyt forbruk krever utvinning av ressurser, produksjon med utslipp, transport og gir avfall - alt med negative miljøkonsekvenser.',
     },
     {
-      question: 'Hva menes med baerekraftig forbruk?',
+      question: 'Hva menes med bærekraftig forbruk?',
       options: [
-        'Aa forbruke paa en maate som ikke odelegger for fremtidige generasjoner',
-        'Aa kjope saa mye som mulig',
-        'Aa aldri kjope noe',
-        'Aa kun kjope dyre ting',
+        'Aa forbruke paa en måte som ikke ødelegger for fremtidige generasjoner',
+        'Aa kjøpe saa mye som mulig',
+        'Aa aldri kjøpe noe',
+        'Aa kun kjøpe dyre ting',
       ],
-      explanation: 'Baerekraftig forbruk betyr aa dekke vaare behov uten aa bruke opp ressurser eller odelegge miljoet for fremtidige generasjoner.',
+      explanation: 'Bærekraftig forbruk betyr aa dekke våre behov uten aa bruke opp ressurser eller ødelegge miljoet for fremtidige generasjoner.',
     },
     {
       question: 'Hvordan kan du redusere ditt okologiske fotavtrykk?',
       options: [
-        'Fly mindre, spise mindre kjott, kjope faerre ting',
-        'Fly mer og kjope mer',
+        'Fly mindre, spise mindre kjøtt, kjøpe færre ting',
+        'Fly mer og kjøpe mer',
         'Bruke mer engangsplast',
-        'Kjore mer bil',
+        'Kjøre mer bil',
       ],
-      explanation: 'Du kan redusere ditt okologiske fotavtrykk ved aa fly mindre, spise mindre kjott, kjope faerre og mer holdbare ting, og bruke kollektivtransport.',
+      explanation: 'Du kan redusere ditt okologiske fotavtrykk ved aa fly mindre, spise mindre kjøtt, kjøpe færre og mer holdbare ting, og bruke kollektivtransport.',
     },
     {
       question: 'Hva er sirkulaerokonomi?',
@@ -7282,14 +7282,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Sirkulaerokonomi er et okonomisk system der produkter og materialer brukes saa lenge som mulig gjennom gjenbruk, reparasjon og resirkulering.',
     },
     {
-      question: 'Hvilket forbruksomraade har stor klimapavirkning som mange undervurderer?',
+      question: 'Hvilket forbruksomraade har stor klimapåvirkning som mange undervurderer?',
       options: [
-        'Klaer og tekstiler',
+        'Klær og tekstiler',
         'Boker',
         'Lokal mat',
         'Sykkelbruk',
       ],
-      explanation: 'Klaeindustrien har stor miljoepavirkning gjennom vannforbruk, kjemikalier, transport og avfall. Mange undervurderer klimaeffekten av kleforbruk.',
+      explanation: 'Klaeindustrien har stor miljøpåvirkning gjennom vannforbruk, kjemikalier, transport og avfall. Mange undervurderer klimaeffekten av kleforbruk.',
     },
   ],
 
@@ -7315,17 +7315,17 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Oystater',
         'Afrikanske land',
       ],
-      explanation: 'Rike industriland i Europa og Nord-Amerika har historisk sluppet ut mest klimagasser gjennom industrialisering over mange tiaar.',
+      explanation: 'Rike industriland i Europa og Nord-Amerika har historisk sluppet ut mest klimagasser gjennom industrialisering over mange tiår.',
     },
     {
       question: 'Hvem rammes hardest av klimaendringene?',
       options: [
-        'Fattige land og saarbare befolkninger',
+        'Fattige land og sårbare befolkninger',
         'Rike land',
         'Oljeeksporterende land',
         'Alle rammes likt',
       ],
-      explanation: 'Fattige land og saarbare befolkninger rammes hardest fordi de har faerre ressurser til aa tilpasse seg og beskytte seg mot klimaeffekter.',
+      explanation: 'Fattige land og sårbare befolkninger rammes hardest fordi de har færre ressurser til aa tilpasse seg og beskytte seg mot klimaeffekter.',
     },
     {
       question: 'Hva er generasjonsrettferdighet i klimasammenheng?',
@@ -7340,12 +7340,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva menes med historisk ansvar i klimadebatten?',
       options: [
-        'At land som har forurenset mye historisk har storre ansvar for aa lose problemet',
+        'At land som har forurenset mye historisk har større ansvar for aa lose problemet',
         'At vi skal glemme fortiden',
         'At alle land har like ansvar',
         'At historien ikke betyr noe',
       ],
-      explanation: 'Historisk ansvar betyr at land som har bidratt mest til klimaproblemet over tid har storre ansvar for aa kutte utslipp og stotte saarbare land.',
+      explanation: 'Historisk ansvar betyr at land som har bidratt mest til klimaproblemet over tid har større ansvar for aa kutte utslipp og støtte sårbare land.',
     },
     {
       question: 'Hvorfor er klimarettferdighet et nord-sor-sporsmaal?',
@@ -7355,27 +7355,27 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Fordi det er varmere i sor',
         'Fordi alle land er like',
       ],
-      explanation: 'Rike land i det globale nord har sluppet ut mest klimagasser historisk, mens fattige land i det globale sor er mest saarbare for klimaeffekter.',
+      explanation: 'Rike land i det globale nord har sluppet ut mest klimagasser historisk, mens fattige land i det globale sor er mest sårbare for klimaeffekter.',
     },
     {
       question: 'Hva krever klimarettferdighet av rike land?',
       options: [
-        'Store utslippskutt og okonomisk stotte til saarbare land',
+        'Store utslippskutt og okonomisk støtte til sårbare land',
         'Ingen tiltak',
         'Aa oke sine utslipp',
         'Aa ignorere fattige land',
       ],
-      explanation: 'Klimarettferdighet krever at rike land tar ledelsen i utslippskutt og gir okonomisk og teknologisk stotte til saarbare land for tilpasning.',
+      explanation: 'Klimarettferdighet krever at rike land tar ledelsen i utslippskutt og gir okonomisk og teknologisk støtte til sårbare land for tilpasning.',
     },
     {
       question: 'Hvorfor engasjerer mange unge seg i klimasaken?',
       options: [
         'Fordi de vil arve konsekvensene av dagens beslutninger',
         'Fordi de har mye fritid',
-        'Fordi de ikke forstaar okonomi',
+        'Fordi de ikke forstår okonomi',
         'Fordi de liker aa demonstrere',
       ],
-      explanation: 'Unge engasjerer seg fordi de vil leve med konsekvensene av klimaendringene i mange tiaar fremover. De krever handling naa for sin fremtid.',
+      explanation: 'Unge engasjerer seg fordi de vil leve med konsekvensene av klimaendringene i mange tiår fremover. De krever handling naa for sin fremtid.',
     },
   ],
 
@@ -7384,34 +7384,34 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-8': [
     {
-      question: 'Hvordan kan du delta i samfunnsdebatten om miljo?',
+      question: 'Hvordan kan du delta i samfunnsdebatten om miljø?',
       options: [
         'Ved aa stemme, folge med i debatten og ta bevisste valg',
         'Du kan ikke delta i debatten',
         'Kun ved aa demonstrere',
         'Kun gjennom sosiale medier',
       ],
-      explanation: 'Du kan delta ved aa stemme ved valg basert paa dine prioriteringer, folge med i debatten, og ta bevisste valg. Folk har ulike syn paa de beste losningene.',
+      explanation: 'Du kan delta ved aa stemme ved valg basert paa dine prioriteringer, folge med i debatten, og ta bevisste valg. Folk har ulike syn paa de beste løsningene.',
     },
     {
-      question: 'Hvordan kan forbruksvalgene dine pavirke miljoet?',
+      question: 'Hvordan kan forbruksvalgene dine påvirke miljoet?',
       options: [
-        'Ved aa kjope mindre og velge baerekraftige produkter',
-        'Ved aa kjope mer av alt',
-        'Forbruk pavirker ikke miljoet',
+        'Ved aa kjøpe mindre og velge baerekraftige produkter',
+        'Ved aa kjøpe mer av alt',
+        'Forbruk påvirker ikke miljoet',
         'Ved aa alltid velge billigst',
       ],
-      explanation: 'Dine forbruksvalg pavirker miljoet - aa kjope mindre, velge baerekraftige produkter og unngaa unodvendig forbruk reduserer miljoebelastningen.',
+      explanation: 'Dine forbruksvalg påvirker miljoet - aa kjøpe mindre, velge baerekraftige produkter og unngå unødvendig forbruk reduserer miljøbelastningen.',
     },
     {
-      question: 'Hvorfor deltar folk i politikk om miljosporsmal?',
+      question: 'Hvorfor deltar folk i politikk om miljøspørsmål?',
       options: [
         'Fordi politiske beslutninger kan ha stor effekt',
         'Fordi det er morsomt',
         'Fordi individuelle valg aldri betyr noe',
         'Fordi alle politikere er enige',
       ],
-      explanation: 'Politiske beslutninger om lover, avgifter og investeringer kan ha stor effekt. Folk deltar i politikk fordi de vil pavirke disse beslutningene basert paa sine verdier.',
+      explanation: 'Politiske beslutninger om lover, avgifter og investeringer kan ha stor effekt. Folk deltar i politikk fordi de vil påvirke disse beslutningene basert paa sine verdier.',
     },
     {
       question: 'Hvordan kan du delta i samfunnsdebatten?',
@@ -7421,13 +7421,13 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ved aa holde meningene dine for deg selv',
         'Ved aa ignorere alle sporsmal',
       ],
-      explanation: 'Du kan delta i samfunnsdebatten ved aa snakke med andre, dele dine synspunkter, og lytte til andres argumenter. Folk har ulike syn paa miljo- og klimasporsmal.',
+      explanation: 'Du kan delta i samfunnsdebatten ved aa snakke med andre, dele dine synspunkter, og lytte til andres argumenter. Folk har ulike syn paa miljo- og klimaspørsmål.',
     },
     {
       question: 'Hvilken transportform er mest klimavennlig for korte avstander?',
       options: [
         'Aa gaa eller sykle',
-        'Aa kjore bil',
+        'Aa kjøre bil',
         'Aa ta fly',
         'Aa ta taxi',
       ],
@@ -7436,12 +7436,12 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hvorfor er det effektivt aa engasjere seg i organisasjoner?',
       options: [
-        'Fordi kollektiv handling har storre gjennomslagskraft',
-        'Fordi det er enklere aa vaere alene',
+        'Fordi kollektiv handling har større gjennomslagskraft',
+        'Fordi det er enklere aa være alene',
         'Fordi organisasjoner alltid tar feil',
         'Fordi individer har mest makt',
       ],
-      explanation: 'Kollektiv handling gjennom organisasjoner, demonstrasjoner og kampanjer har storre gjennomslagskraft enn individuell handling alene.',
+      explanation: 'Kollektiv handling gjennom organisasjoner, demonstrasjoner og kampanjer har større gjennomslagskraft enn individuell handling alene.',
     },
     {
       question: 'Hva menes med aa kreve politisk handling for klimaet?',
@@ -7451,17 +7451,17 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Aa bare fokusere paa egen livsstil',
         'Aa gi opp',
       ],
-      explanation: 'Aa kreve politisk handling betyr aa bruke stemmerett, demonstrasjoner, horinger og andre demokratiske kanaler for aa presse frem klimapolitikk.',
+      explanation: 'Aa kreve politisk handling betyr aa bruke stemmerett, demonstrasjoner, høringer og andre demokratiske kanaler for aa presse frem klimapolitikk.',
     },
     {
-      question: 'Hvorfor er det viktig med baade individuelle og kollektive tiltak?',
+      question: 'Hvorfor er det viktig med både individuelle og kollektive tiltak?',
       options: [
-        'Fordi individuelle tiltak viser engasjement og kollektive tiltak gir stoerre endring',
+        'Fordi individuelle tiltak viser engasjement og kollektive tiltak gir større endring',
         'Fordi bare individuelle tiltak virker',
         'Fordi bare kollektive tiltak virker',
         'Fordi ingen tiltak virker',
       ],
-      explanation: 'Individuelle tiltak viser engasjement og pavirker andre, mens kollektive og politiske tiltak trengs for de store systemendringene som kreves.',
+      explanation: 'Individuelle tiltak viser engasjement og påvirker andre, mens kollektive og politiske tiltak trengs for de store systemendringene som kreves.',
     },
   ],
 
@@ -7633,22 +7633,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er forskjellen mellom en flyktning og en okonomisk migrant?',
       options: [
-        'Flyktninger flykter fra forfolgelse, okonomiske migranter soker bedre levekar',
+        'Flyktninger flykter fra forfølgelse, okonomiske migranter søker bedre levekar',
         'Det er ingen forskjell',
         'Flyktninger er alltid fattige',
         'Okonomiske migranter er ulovlige',
       ],
-      explanation: 'Flyktninger flykter fra forfolgelse eller krig og har rett til beskyttelse etter flyktningkonvensjonen. Okonomiske migranter soker bedre levekar, men har ikke samme rettigheter.',
+      explanation: 'Flyktninger flykter fra forfølgelse eller krig og har rett til beskyttelse etter flyktningkonvensjonen. Okonomiske migranter søker bedre levekar, men har ikke samme rettigheter.',
     },
     {
       question: 'Hva debatteres om innvandringspolitikk?',
       options: [
-        'Balansen mellom humanitaere hensyn og integreringsutfordringer',
+        'Balansen mellom humanitære hensyn og integreringsutfordringer',
         'Alle er enige om innvandringspolitikk',
         'Innvandring debatteres ikke i Norge',
-        'Kun okonomiske sporsmaal',
+        'Kun okonomiske spørsmål',
       ],
-      explanation: 'Det debatteres om antall innvandrere, integreringspolitikk, kostnader for velferdsstaten og balansen mellom humanitaere forpliktelser og samfunnsutfordringer.',
+      explanation: 'Det debatteres om antall innvandrere, integreringspolitikk, kostnader for velferdsstaten og balansen mellom humanitære forpliktelser og samfunnsutfordringer.',
     },
   ],
 

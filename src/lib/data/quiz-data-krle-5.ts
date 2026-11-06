@@ -33,8 +33,8 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
   'krle-5-1-2': [
   {
     question: 'Hva feirer kristne påpaskedag?',
-    options: ['At Jesus stod opp fra de dode', 'Jesu fodsel', 'Den hellige ands komme', 'Skapelsen'],
-    explanation: 'Paskedag feirer at Jesus stod opp fra de dode (oppstandelsen).',
+    options: ['At Jesus stod opp fra de døde', 'Jesu fødsel', 'Den hellige ands komme', 'Skapelsen'],
+    explanation: 'Påskedag feirer at Jesus stod opp fra de døde (oppstandelsen).',
   },
   {
     question: 'Hva betyr advent?',
@@ -42,14 +42,14 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
     explanation: 'Advent betyr "ankomst" og er de fire ukene for jul da kristne forbereder seg.',
   },
   {
-    question: 'Hvilken dag dode Jesus ifølge kristne?',
+    question: 'Hvilken dag døde Jesus ifølge kristne?',
     options: ['Langfredag', 'Paskedag', 'Palmesøndag', 'Skjaertorsdag'],
-    explanation: 'Langfredag er dagen Jesus dode påkorset.',
+    explanation: 'Langfredag er dagen Jesus døde påkorset.',
   },
   {
-    question: 'Hva feires 50 dager etter paske?',
+    question: 'Hva feires 50 dager etter påske?',
     options: ['Pinse', 'Jul', 'Advent', 'Allehelgensdag'],
-    explanation: 'Pinse feires 50 dager etter paske og markerer at Den hellige and kom til disiplene.',
+    explanation: 'Pinse feires 50 dager etter påske og markerer at Den hellige and kom til disiplene.',
   },
   {
     question: 'Hvor ble Jesus fodt ifølge Bibelen?',
@@ -63,7 +63,7 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva heter islams hellige bok?',
     options: ['Koranen', 'Bibelen', 'Toraen', 'Vedaene'],
-    explanation: 'Koranen er islams hellige bok og inneholder Guds ord apenbart til Muhammad.',
+    explanation: 'Koranen er islams hellige bok og inneholder Guds ord åpenbart til Muhammad.',
   },
   {
     question: 'Hvor mange ganger om dagen ber muslimer?',
@@ -92,16 +92,16 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva heter jodenes helligste skrift?',
     options: ['Toraen', 'Koranen', 'Bibelen', 'Vedaene'],
-    explanation: 'Toraen er de fem Mosebokene og er jodedømmens helligste skrift.',
+    explanation: 'Toraen er de fem Mosebokene og er jødedommens helligste skrift.',
   },
   {
     question: 'Hvilken dag er ukens helligste dag for jøder?',
-    options: ['Sabbaten (lordag)', 'Sondag', 'Fredag', 'Mandag'],
-    explanation: 'Sabbaten er jodenes hellige hviledag, fra fredag kveld til lordag kveld.',
+    options: ['Sabbaten (lørdag)', 'Sondag', 'Fredag', 'Mandag'],
+    explanation: 'Sabbaten er jodenes hellige hviledag, fra fredag kveld til lørdag kveld.',
   },
   {
     question: 'Hva feirer jøder i pesach?',
-    options: ['At israelittene ble frigjørt fra Egypt', 'Jesu oppstandelse', 'Jodisk nyttar', 'Templets gjeninnvielse'],
+    options: ['At israelittene ble frigjort fra Egypt', 'Jesu oppstandelse', 'Jødisk nyttar', 'Templets gjeninnvielse'],
     explanation: 'Pesach feirer at Moses forte israelittene ut av slaveriet i Egypt.',
   },
   {
@@ -129,9 +129,9 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
     explanation: 'Humanisme er et livssyn som vektlegger menneskets verdi uten a tro påguder.',
   },
   {
-    question: 'Hva er forskjellen på et religiost og ikke-religiost livssyn?',
-    options: ['Religiost inkluderer gudstro', 'Det er ingen forskjell', 'Ikke-religiost har mange guder', 'Religiost har ingen regler'],
-    explanation: 'Et religiost livssyn inkluderer tro påen gud eller guder.',
+    question: 'Hva er forskjellen på et religiøst og ikke-religiost livssyn?',
+    options: ['Religiøst inkluderer gudstro', 'Det er ingen forskjell', 'Ikke-religiost har mange guder', 'Religiøst har ingen regler'],
+    explanation: 'Et religiøst livssyn inkluderer tro påen gud eller guder.',
   },
   {
     question: 'Hva betyr religionsfrihet?',
@@ -149,7 +149,7 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
   'krle-5-3-2': [
   {
     question: 'Hva betyr ordet filosofi?',
-    options: ['Kjaærlighet til visdom', 'Studiet av stjerner', 'Kunnskap om dyr', 'Laeren om tall'],
+    options: ['Kjaærlighet til visdom', 'Studiet av stjerner', 'Kunnskap om dyr', 'Læren om tall'],
     explanation: 'Filosofi kommer fra gresk og betyr "kjaærlighet til visdom".',
   },
   {
@@ -168,9 +168,9 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
     explanation: 'Det er helt greit a si "jeg vet ikke" - noen spørsmål har ikke enkle svar.',
   },
   {
-    question: 'Hva mener noen at forklærer "hvordan" og "hvorfor" påulike mater?',
+    question: 'Hva mener noen at forklarer "hvordan" og "hvorfor" påulike mater?',
     options: ['Vitenskap og religion', 'Matematikk og sport', 'Mat og klær', 'Skole og fritid'],
-    explanation: 'Noen mener vitenskapen forklærer hvordan, mens religionen forklærer hvorfor.',
+    explanation: 'Noen mener vitenskapen forklarer hvordan, mens religionen forklarer hvorfor.',
   },
 ],
 
@@ -193,7 +193,7 @@ const quizData_krle_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Finnes den gylne regel i bare en religion?',
-    options: ['Nei, den finnes i nesten alle religioner', 'Ja, bare i kristendømmen', 'Ja, bare i islam', 'Nei, den finnes ikke i noen religion'],
+    options: ['Nei, den finnes i nesten alle religioner', 'Ja, bare i kristendommen', 'Ja, bare i islam', 'Nei, den finnes ikke i noen religion'],
     explanation: 'Den gylne regel finnes i nesten alle religioner og kulturer.',
   },
   {

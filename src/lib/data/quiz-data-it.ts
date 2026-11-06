@@ -5,17 +5,17 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er digitalisering?",
       options: ["Prosessen med å bruke digital teknologi til a endre prosesser og skape nye verdier", "A kjøpe nye datamaskiner til bedriften", "Prosessen med å skanne papirdokumenter og lagre dem som PDF-filer i et arkivsystem", "Prosessen med å kjøpe inn nye datamaskiner og programvare for å modernisere en bedrift"],
-      explanation: "Digitalisering handler om a utnytte digital teknologi til a transformere forretningsmodeller, prosesser og tjenester - ikke bare å gjøre analoge ting digitale.",
+      explanation: "Digitalisering handler om a utnytte digital teknologi til å transformere forretningsmodeller, prosesser og tjenester - ikke bare å gjøre analoge ting digitale.",
     },
     {
       question: "Hvilken kompetanse handler om evnen til a føreta gode valg i digitale sammenhenger?",
       options: ["Digital dømmekraft", "Tekniske ferdigheter", "Informasjonskompetanse", "Produksjonskompetanse"],
-      explanation: "Digital dømmekraft innebærer a vurdere troverdighet av informasjon, forstå konsekvenser av digital deling, og handle etisk ansvårlig pånett.",
+      explanation: "Digital dømmekraft innebærer å vurdere troverdighet av informasjon, forstå konsekvenser av digital deling, og handle etisk ansvarlig pånett.",
     },
     {
       question: "Hva menes med digitalt utenforskap?",
-      options: ["At grupper faller utenfor fordi de ikke mestrer digitale verktoy samfunnet forutsetter", "A bli blokkert påsosiale medier", "At man ikke har råd til å kjøpe egen internettilgang og derfor må bruke bibliotekets maskiner", "At personer blir utestengt eller blokkert fra sosiale medier på grunn av brudd på retningslinjer"],
-      explanation: "Digitalt utenforskap oppstar nårpersoner eller grupper ikke har tilgang til eller kompetanse i å bruke digital teknologi som samfunnet forventer.",
+      options: ["At grupper faller utenfor fordi de ikke mestrer digitale verktøy samfunnet forutsetter", "A bli blokkert påsosiale medier", "At man ikke har råd til å kjøpe egen internettilgang og derfor må bruke bibliotekets maskiner", "At personer blir utestengt eller blokkert fra sosiale medier på grunn av brudd på retningslinjer"],
+      explanation: "Digitalt utenforskap oppstår nårpersoner eller grupper ikke har tilgang til eller kompetanse i å bruke digital teknologi som samfunnet forventer.",
     },
     {
       question: "Hvilket område har IKKE blitt påvirket av digitaliseringen?",
@@ -42,16 +42,16 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva returnerer input()-funksjonen alltid i Python?",
       options: ["En tekststreng (str)", "Et heltall (int)", "Et desimaltall (float)", "Datatypen til det brukeren skriver"],
-      explanation: "input() returnerer alltid en tekststreng. Derfor måvi bruke int() eller float() for a konvertere til tall.",
+      explanation: "input() returnerer alltid en tekststreng. Derfor måvi bruke int() eller float() for å konvertere til tall.",
     },
     {
-      question: "Hvor mange ganger kjører loekken: for i in range(3):",
+      question: "Hvor mange ganger kjører løkken: for i in range(3):",
       options: ["3 ganger (0, 1, 2)", "4 ganger (0, 1, 2, 3)", "2 ganger (1, 2)", "3 ganger (1, 2, 3)"],
-      explanation: "range(3) genererer tallene 0, 1, 2 - altsa 3 tall. Loekken kjører en gang for hvert tall.",
+      explanation: "range(3) genererer tallene 0, 1, 2 - altså 3 tall. Løkken kjører en gang for hvert tall.",
     },
     {
       question: "Hva er viktig med innrykk i Python?",
-      options: ["Innrykk viser hva som hører til en betingelse eller loekke", "Innrykk brukes utelukkende inne i funksjonsdefinisjoner", "Python ignorerer innrykk fullstendig ved kjøring", "Innrykk er kun for å gjøre koden penere å lese"],
+      options: ["Innrykk viser hva som hører til en betingelse eller løkke", "Innrykk brukes utelukkende inne i funksjonsdefinisjoner", "Python ignorerer innrykk fullstendig ved kjøring", "Innrykk er kun for å gjøre koden penere å lese"],
       explanation: "Python bruker innrykk (typisk 4 mellomrom) for å vise kodeblokker. Feil innrykk gir syntaksfeil.",
     },
   ],
@@ -59,27 +59,27 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kjennetegner en god algoritme?",
       options: ["Den er entydig, endelig og effektiv", "Den bruker så mye kode som mulig", "Den er lang og svært detaljert", "Den er vanskelig og innviklet"],
-      explanation: "En god algoritme har klært definerte steg (entydig), stopper etter et begrenset antall steg (endelig), og løser problemet med rimelig ressursbruk (effektiv).",
+      explanation: "En god algoritme har klart definerte steg (entydig), stopper etter et begrenset antall steg (endelig), og løser problemet med rimelig ressursbruk (effektiv).",
     },
     {
       question: "Hva er pseudokode?",
       options: ["En uformell beskrivelse av en algoritme påvanlig språk", "Et enkelt programmeringsspråk laget for nybegynnere", "Kommentarer som forklarer koden i et program", "Programkode som inneholder syntaksfeil"],
-      explanation: "Pseudokode bruker vanlig språk blandet med programmeringsstrukturer for a beskrive algoritmer for de implementeres.",
+      explanation: "Pseudokode bruker vanlig språk blandet med programmeringsstrukturer for å beskrive algoritmer for de implementeres.",
     },
     {
       question: "Hvilket symbol brukes for beslutninger i et flytdiagram?",
       options: ["Rombe (diamant)", "Oval (ellipse)", "Rektangel (firkant)", "Sirkel (rund)"],
-      explanation: "Rombe brukes for beslutninger med ja/nei-utganger. Rektangel er for prosesser, oval for stårt/slutt.",
+      explanation: "Rombe brukes for beslutninger med ja/nei-utganger. Rektangel er for prosesser, oval for start/slutt.",
     },
     {
       question: "Hva er det første steget i problemløsning med programmering?",
-      options: ["Forsta problemet - hva er input og output", "Velge programmeringsspråk først", "Teste det ferdige programmet", "Velge programmeringsspråk"],
+      options: ["Forstå problemet - hva er input og output", "Velge programmeringsspråk først", "Teste det ferdige programmet", "Velge programmeringsspråk"],
       explanation: "For du kan lose et problem, må du forstå hva det gårut pa. Hva får du inn, og hva skal ut?",
     },
     {
-      question: "Hva skjer i en uendelig loekke?",
+      question: "Hva skjer i en uendelig løkke?",
       options: ["Programmet kjører for alltid fordi betingelsen aldri blir usann", "Programmet krasjer umiddelbart med en syntaksfeil ved oppstart", "Løkken hopper over annenhver iterasjon og går dobbelt så fort", "Programmet stopper automatisk etter nøyaktig 100 iterasjoner"],
-      explanation: "En uendelig loekke oppstar nårbetingelsen for a fortsette alltid er sann, typisk fordi variabelen som styrer loekken aldri oppdateres.",
+      explanation: "En uendelig løkke oppstår nårbetingelsen for å fortsette alltid er sann, typisk fordi variabelen som styrer løkken aldri oppdateres.",
     },
   ],
   "it-1-4": [
@@ -91,7 +91,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan velger du alle elementer med klassen \"meny\" i CSS?",
       options: [".meny", "#meny", "meny", "*meny"],
-      explanation: "Punktum (.) foran navnet brukes for a velge klasser i CSS. # brukes for ID-er.",
+      explanation: "Punktum (.) foran navnet brukes for å velge klasser i CSS. # brukes for ID-er.",
     },
     {
       question: "Hva gjør <head>-elementet i HTML?",
@@ -99,9 +99,9 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "Head-seksjonen inneholder metadata som tittel, CSS-lenker, og tegnsett - informasjon om siden som ikke vises direkte.",
     },
     {
-      question: "Hva er riktig mate a koble en ekstern CSS-fil til HTML?",
+      question: "Hva er riktig mate å koble en ekstern CSS-fil til HTML?",
       options: ["<link rel=\"stylesheet\" href=\"stil.css\">", "<script src=\"stil.css\">", "<style src=\"stil.css\">", "<css file=\"stil.css\">"],
-      explanation: "Link-elementet med rel=\"stylesheet\" brukes for a koble til eksterne CSS-filer i head-seksjonen.",
+      explanation: "Link-elementet med rel=\"stylesheet\" brukes for å koble til eksterne CSS-filer i head-seksjonen.",
     },
     {
       question: "Hvilken CSS-selektor har høyest spesifisitet?",
@@ -113,7 +113,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hvabrukes JavaScript til pånettsider?",
       options: ["A gjøre nettsider interaktive", "Å lagre data permanent på serveren", "Å strukturere innholdet", "Å bestemme fargene på siden"],
-      explanation: "JavaScript gjør nettsider interaktive ved a reagere påbrukerhandlinger, endre innhold, og manipulære DOM.",
+      explanation: "JavaScript gjør nettsider interaktive ved å reagere påbrukerhandlinger, endre innhold, og manipulære DOM.",
     },
     {
       question: "Hva er forskjellen mellom let og const i JavaScript?",
@@ -121,14 +121,14 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "Bruk let for variabler som skal endres, og const for verdier som skal forbli konstante gjennom programmet.",
     },
     {
-      question: "Hvilken metode brukes for a finne et HTML-element med en bestemt ID?",
+      question: "Hvilken metode brukes for å finne et HTML-element med en bestemt ID?",
       options: ["document.getElementById()", "document.getElement()", "document.findById()", "document.selectId()"],
       explanation: "getElementById(\"idNavn\") returnerer elementet med den angitte ID-en fra DOM-en.",
     },
     {
       question: "Hvordan legger du til en klikkhendelse påen knapp?",
       options: ["knapp.addEventListener(\"click\", funksjon)", "addClick(knapp, funksjon)", "knapp.onClick(funksjon)", "knapp.click = funksjon"],
-      explanation: "addEventListener() er den moderne og anbefalte maten a legge til hendelseslyttere i JavaScript.",
+      explanation: "addEventListener() er den moderne og anbefalte maten å legge til hendelseslyttere i JavaScript.",
     },
     {
       question: "Hva blir resultatet av \"5\" + 2 i JavaScript?",
@@ -143,9 +143,9 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "Primaernokkel identifiserer hver rad unikt og sikrer at ingen duplikater finnes. Ofte et ID-nummer.",
     },
     {
-      question: "Hvilken SQL-kommando brukes for a hente data?",
+      question: "Hvilken SQL-kommando brukes for å hente data?",
       options: ["SELECT", "GET", "FETCH", "RETRIEVE"],
-      explanation: "SELECT brukes for a hente (velge) data fra tabeller. Eksempel: SELECT * FROM elever;",
+      explanation: "SELECT brukes for å hente (velge) data fra tabeller. Eksempel: SELECT * FROM elever;",
     },
     {
       question: "Hva gjør WHERE-klausulen i en SQL-sporring?",
@@ -160,7 +160,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken SQL-kommando legger til en ny rad i en tabell?",
       options: ["INSERT INTO", "CREATE ROW", "ADD INTO", "UPDATE"],
-      explanation: "INSERT INTO tabellnavn VALUES (...) eller INSERT INTO tabellnavn (kolønner) VALUES (...) legger til nye rader.",
+      explanation: "INSERT INTO tabellnavn VALUES (...) eller INSERT INTO tabellnavn (kolonner) VALUES (...) legger til nye rader.",
     },
   ],
   "it-1-7": [
@@ -180,7 +180,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "WCAG AA krever minimum 4.5:1 kontrast for normal tekst og 3:1 for stor tekst (18pt+).",
     },
     {
-      question: "Hvorfor bør man ikke bruke farge alene for a formidle informasjon?",
+      question: "Hvorfor bør man ikke bruke farge alene for å formidle informasjon?",
       options: ["Fordi noen brukere har fargeblindhet", "Fordi det bryter med reglene", "Fordi farger ser stygt ut", "Fordi det bruker mye data"],
       explanation: "Ca. 8% av menn har fargeblindhet. Bruk også tekst, ikoner eller monster for viktig informasjon.",
     },
@@ -199,12 +199,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er forskjellen mellom HTTP og HTTPS?",
       options: ["HTTPS er kryptert og sikrere", "HTTP er den nyere versjonen", "Det er ingen reell forskjell", "HTTPS er alltid raskere"],
-      explanation: "HTTPS bruker kryptering (TLS/SSL) for a beskytte data som sendes mellom nettleser og server.",
+      explanation: "HTTPS bruker kryptering (TLS/SSL) for å beskytte data som sendes mellom nettleser og server.",
     },
     {
       question: "Hva er phishing?",
-      options: ["Forsok påa lure noen til a oppgi sensitiv informasjon", "Å bryte seg inn i et nettverk ved å utnytte tekniske svakheter", "En metode for a avlytte trafikk på et apent tradlost nettverk uten a bli oppdaget", "Et angrep der man oversvømmer en server med trafikk til den slutter a svare brukerne"],
-      explanation: "Phishing bruker falske e-poster eller nettsider for a lure folk til a oppgi passord eller annen sensitiv informasjon.",
+      options: ["Forsok påa lure noen til å oppgi sensitiv informasjon", "Å bryte seg inn i et nettverk ved å utnytte tekniske svakheter", "En metode for a avlytte trafikk på et åpent trådløst nettverk uten å bli oppdaget", "Et angrep der man oversvømmer en server med trafikk til den slutter å svare brukerne"],
+      explanation: "Phishing bruker falske e-poster eller nettsider for a lure folk til å oppgi passord eller annen sensitiv informasjon.",
     },
     {
       question: "Hva er tofaktorautentisering (2FA)?",
@@ -213,20 +213,20 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva star CIA for i informasjonssikkerhet?",
-      options: ["Konfidensialitet, Integritet, Tilgjengelighet", "Central Intelligence Agency", "Coded Integrity Assurance - en standard for a sikre at krypterte data ikke er endret", "Coded Information Algorithm"],
+      options: ["Konfidensialitet, Integritet, Tilgjengelighet", "Central Intelligence Agency", "Coded Integrity Assurance - en standard for å sikre at krypterte data ikke er endret", "Coded Information Algorithm"],
       explanation: "CIA-triaden: Konfidensialitet (hvem kan se), Integritet (er data korrekt), Tilgjengelighet (er data tilgjengelig).",
     },
   ],
   "it-1-9": [
     {
       question: "Hva er GDPR?",
-      options: ["EUs personvernforordning som regulærer behandling av personopplysninger", "Et norsk register der alle bedrifter må melde inn hvilke data de lagrer om kundene", "En internasjonal krypteringsstandard som beskytter data mens de sendes over internett", "En avtale mellom EU-land om a dele personopplysninger fritt over landegrensene i Europa"],
+      options: ["EUs personvernforordning som regulærer behandling av personopplysninger", "Et norsk register der alle bedrifter må melde inn hvilke data de lagrer om kundene", "En internasjonal krypteringsstandard som beskytter data mens de sendes over internett", "En avtale mellom EU-land om å dele personopplysninger fritt over landegrensene i Europa"],
       explanation: "GDPR (General Data Protection Regulation) er EUs personvernforordning som også gjelder i Norge gjennom personopplysningsloven.",
     },
     {
       question: "Hva menes med dataminimering?",
-      options: ["Bare samle inn nødvendige personopplysninger", "Slette gamle dokumenter", "A samle inn sa mye data som mulig for a kunne analysere brukerne grundig senere", "Komprimere datafiler"],
-      explanation: "Dataminimering er et GDPR-prinsipp som sier at man bare skal samle inn data som er nødvendig for formalet.",
+      options: ["Bare samle inn nødvendige personopplysninger", "Slette gamle dokumenter", "A samle inn så mye data som mulig for å kunne analysere brukerne grundig senere", "Komprimere datafiler"],
+      explanation: "Dataminimering er et GDPR-prinsipp som sier at man bare skal samle inn data som er nødvendig for formålet.",
     },
     {
       question: "Hvilken rettighet gir deg mulighet til a be om sletting av dine personopplysninger?",
@@ -235,11 +235,11 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er opphavsrett?",
-      options: ["Beskyttelse av andsverk som gir skaperen enerett til bruk", "En avgift forfatterne betaler til staten for å få gi ut bøkene sine", "En lisensavtale som gir deg lov til a bruke andres bilder sa lenge du oppgir kilden", "En rett til fritt a kopiere og dele alt innhold du finner publisert apent pa internett"],
+      options: ["Beskyttelse av åndsverk som gir skaperen enerett til bruk", "En avgift forfatterne betaler til staten for å få gi ut bøkene sine", "En lisensavtale som gir deg lov til a bruke andres bilder så lenge du oppgir kilden", "En rett til fritt å kopiere og dele alt innhold du finner publisert åpent pa internett"],
       explanation: "Opphavsrett beskytter kreative verk og gir skaperen kontroll over hvordan verket brukes og distribueres.",
     },
     {
-      question: "Hvilken lisenstype tillater fri bruk med krav om a nevne opphavsmannen?",
+      question: "Hvilken lisenstype tillater fri bruk med krav om å nevne opphavsmannen?",
       options: ["Creative Commons BY", "Copyright", "Alle rettigheter forbeholdt", "Proprietary"],
       explanation: "CC BY (Creative Commons Attribution) tillater bruk, deling og bearbeiding sålenge du krediterer opphavsmannen.",
     },
@@ -247,12 +247,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-1-10": [
     {
       question: "Hva er første fase i et IT-prosjekt?",
-      options: ["Planlegging - definere mal og krav", "Levering - presentere resultatet", "Utvikling - a begynne a skrive kode med en gang sa man raskt far noe fungerende", "Testing - finne feil i koden"],
+      options: ["Planlegging - definere mal og krav", "Levering - presentere resultatet", "Utvikling - a begynne a skrive kode med en gang så man raskt får noe fungerende", "Testing - finne feil i koden"],
       explanation: "Planleggingsfasen er først, der man definerer mal, krav, tidsplan og fordeler oppgaver.",
     },
     {
       question: "Hva er smidig utvikling (Agile)?",
-      options: ["En tilnærming med korte sykluser og hyppige leveranser", "A hoppe over planlegging", "En metode der man jobber sa raskt som mulig for a bli ferdig før tidsfristen løper ut", "En programmeringsteknikk"],
+      options: ["En tilnærming med korte sykluser og hyppige leveranser", "A hoppe over planlegging", "En metode der man jobber så raskt som mulig for å bli ferdig før tidsfristen løper ut", "En programmeringsteknikk"],
       explanation: "Smidig utvikling innebærer korte sprinter, fungerende leveranser underveis, og tilpasning til endringer.",
     },
     {
@@ -262,13 +262,13 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør en god prosjektdokumentasjon inneholde?",
-      options: ["Malsetting, teknisk beskrivelse, brukerveiledning og refleksjon", "Bare den ferdige kildekoden, helt uten noen forklarende tekst rundt", "Utelukkende prosjektloggen med datoer og timer, som viser hvor mye tid som ble brukt", "Bare skjermbilder av det ferdige produktet slik at leseren ser hvordan resultatet ble"],
-      explanation: "God dokumentasjon inkluderer hva prosjektet skal oppna, hvordan det er bygget, hvordan det brukes, og refleksjon over prosessen.",
+      options: ["Målsetting, teknisk beskrivelse, brukerveiledning og refleksjon", "Bare den ferdige kildekoden, helt uten noen forklarende tekst rundt", "Utelukkende prosjektloggen med datoer og timer, som viser hvor mye tid som ble brukt", "Bare skjermbilder av det ferdige produktet slik at leseren ser hvordan resultatet ble"],
+      explanation: "God dokumentasjon inkluderer hva prosjektet skal oppnå, hvordan det er bygget, hvordan det brukes, og refleksjon over prosessen.",
     },
     {
       question: "Hva er en Kanban-tavle?",
-      options: ["Et visuelt verktoey for a følge oppgaver gjennom A gjøre, Pagar, Ferdig", "Et programmeringsspråk", "Et grafisk designverktøy for a lage skisser og layout til nettsider og applikasjoner", "Et programmeringsspras som brukes til a bygge visuelle brukergrensesnitt med kolonner"],
-      explanation: "Kanban-tavlen visualiserer arbeidsflyt med kolønner som viser oppgavestatus, og begrenser arbeid i gang.",
+      options: ["Et visuelt verktøy for å følge oppgaver gjennom A gjøre, Pagar, Ferdig", "Et programmeringsspråk", "Et grafisk designverktøy for å lage skisser og layout til nettsider og applikasjoner", "Et programmeringsspras som brukes til a bygge visuelle brukergrensesnitt med kolonner"],
+      explanation: "Kanban-tavlen visualiserer arbeidsflyt med kolonner som viser oppgavestatus, og begrenser arbeid i gang.",
     },
   ],
   "it-2-1": [
@@ -284,17 +284,17 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør __init__-metoden i Python?",
-      options: ["Den er konstruktoren som initialiserer objektets attributter", "Den skriver ut objektet", "Den lager en fullstendig kopi av objektet med alle attributtene til et nytt objekt", "Den fjerner og sletter objektet fra minnet nar det ikke lenger er i bruk i programmet"],
-      explanation: "__init__ er konstruktoren som kjøres automatisk nåret objekt opprettes og setter opp objektets starttilstand.",
+      options: ["Den er konstruktøren som initialiserer objektets attributter", "Den skriver ut objektet", "Den lager en fullstendig kopi av objektet med alle attributtene til et nytt objekt", "Den fjerner og sletter objektet fra minnet når det ikke lenger er i bruk i programmet"],
+      explanation: "__init__ er konstruktøren som kjøres automatisk nåret objekt opprettes og setter opp objektets starttilstand.",
     },
     {
       question: "Hva betyr arv i programmering?",
-      options: ["At en klasse kan gjenbruke egenskaper og metoder fra en annen klasse", "A bruke importerte moduler", "A importere ferdige moduler og biblioteker slik at man far tilgang til deres funksjoner", "A slette gamle og utdaterte klasser automatisk nar nye klasser tar over funksjonaliteten"],
+      options: ["At en klasse kan gjenbruke egenskaper og metoder fra en annen klasse", "A bruke importerte moduler", "A importere ferdige moduler og biblioteker slik at man får tilgang til deres funksjoner", "A slette gamle og utdaterte klasser automatisk når nye klasser tar over funksjonaliteten"],
       explanation: "Arv lar en underklasse arve alle egenskaper fra en overklasse og legge til eller overstyre funksjonalitet.",
     },
     {
       question: "Hva er polymorfisme?",
-      options: ["At samme metodenavn kan ha ulik implementasjon i ulike klasser", "A bruke flere programmeringsspråk", "A skrive lang og detaljert kode med mange linjer for a dekke alle tenkelige tilfeller", "A bruke sa mange variabler som mulig slik at hver verdi lagres i sitt eget navngitte felt"],
+      options: ["At samme metodenavn kan ha ulik implementasjon i ulike klasser", "A bruke flere programmeringsspråk", "A skrive lang og detaljert kode med mange linjer for å dekke alle tenkelige tilfeller", "A bruke så mange variabler som mulig slik at hver verdi lagres i sitt eget navngitte felt"],
       explanation: "Polymorfisme betyr at objekter av ulike klasser kan behandles likt, mens de utfører metoden påsin egen mate.",
     },
   ],
@@ -302,12 +302,12 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er forskjellen mellom en stakk (stack) og en ko (queue)?",
       options: ["Stakk er LIFO (sist inn, først ut), ko er FIFO (først inn, først ut)", "Stakk kan bare brukes når dataene skal lagres permanent på harddisken", "Stakk er FIFO (først inn, først ut), mens ko er LIFO (sist inn, først ut) ved uttak", "Stakk kan bare lagre tall, mens ko kan lagre alle typer verdier som tekst og objekter"],
-      explanation: "Stakk fungerer som en stabel (siste påtoppen fjernes først), ko fungerer som en ventekoe (første i rekken betjenes først).",
+      explanation: "Stakk fungerer som en stabel (siste påtoppen fjernes først), ko fungerer som en ventekø (første i rekken betjenes først).",
     },
     {
       question: "Hva betyr O(n) i Big O-notasjon?",
-      options: ["Lineaer tid - kjoeretiden vokser proporsjonalt med input-størrelsen", "Eksponentiell tid", "Konstant tid - kjøretiden er den samme uansett hvor stor input-mengden faktisk blir", "Logaritmisk tid - kjøretiden vokser mye saktere enn input fordi rommet halveres hver gang"],
-      explanation: "O(n) betyr at hvis input dobles, dobles også kjoeretiden. Eksempel: a soke gjennom en usortert liste.",
+      options: ["Lineaer tid - kjøretiden vokser proporsjonalt med input-størrelsen", "Eksponentiell tid", "Konstant tid - kjøretiden er den samme uansett hvor stor input-mengden faktisk blir", "Logaritmisk tid - kjøretiden vokser mye saktere enn input fordi rommet halveres hver gang"],
+      explanation: "O(n) betyr at hvis input dobles, dobles også kjøretiden. Eksempel: a søke gjennom en usortert liste.",
     },
     {
       question: "Hvilken tidskompleksitet har binært sok?",
@@ -343,46 +343,46 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er test-drevet utvikling (TDD)?",
-      options: ["A skrive tester for koden først, deretter implementere kode som består testene", "Å la kunden teste programmet i full drift og melde fra om alle feilene de finner", "A vente med a teste til all koden er ferdig skrevet, sa man tester det komplette produktet", "A la en egen testavdeling eller andre utviklere teste koden din etter at du har levert den"],
-      explanation: "TDD-syklusen: Skriv test (som feiler) -> Skriv kode for a besta -> Refaktorer. Dette sikrer testdekning.",
+      options: ["A skrive tester for koden først, deretter implementere kode som består testene", "Å la kunden teste programmet i full drift og melde fra om alle feilene de finner", "A vente med a teste til all koden er ferdig skrevet, så man tester det komplette produktet", "A la en egen testavdeling eller andre utviklere teste koden din etter at du har levert den"],
+      explanation: "TDD-syklusen: Skriv test (som feiler) -> Skriv kode for å besta -> Refaktorer. Dette sikrer testdekning.",
     },
     {
-      question: "Hvilken Git-kommando brukes for a lagre endringer med en melding?",
+      question: "Hvilken Git-kommando brukes for å lagre endringer med en melding?",
       options: ["git commit -m \"melding\"", "git store \"melding\"", "git store \"melding\" - som legger endringene i det lokale lageret sammen med en forklaring", "git save \"melding\""],
-      explanation: "git commit lagrer endringer lokalt med en beskrivende melding. git push sender dem til server etterpaa.",
+      explanation: "git commit lagrer endringer lokalt med en beskrivende melding. git push sender dem til server etterpå.",
     },
   ],
   "it-2-4": [
     {
       question: "Hva er forskjellen mellom native apper og webapper?",
-      options: ["Native apper er laget for spesifikk plattform, webapper kjører i nettleser", "Native apper bruker bare HTML", "De er egentlig like, siden begge lages med de samme verktøyene og kjører pa samme mate", "Webapper er alltid raskere og bruker mindre minne enn native apper laget for plattformen"],
+      options: ["Native apper er laget for spesifikk plattform, webapper kjører i nettleser", "Native apper bruker bare HTML", "De er egentlig like, siden begge lages med de samme verktøyene og kjører på samme mate", "Webapper er alltid raskere og bruker mindre minne enn native apper laget for plattformen"],
       explanation: "Native apper utvikles spesifikt for iOS eller Android og har full tilgang til enhetsfunksjoner, webapper kjører i nettleser påalle enheter.",
     },
     {
       question: "Hva er responsive design?",
-      options: ["At nettsiden tilpasser seg automatisk til ulike skjermstørrelser", "At nettsiden svarer på brukerens klikk uten at siden må lastes på nytt", "At nettsiden reagerer og laster svaert raskt uansett hvor treg internettforbindelsen er", "At nettsiden har mange interaktive knapper og menyer som brukeren kan klikke seg gjennom"],
-      explanation: "Responsive design bruker CSS media queries og fleksible layouter for a tilpasse visningen til mobil, nettbrett og desktop.",
+      options: ["At nettsiden tilpasser seg automatisk til ulike skjermstørrelser", "At nettsiden svarer på brukerens klikk uten at siden må lastes på nytt", "At nettsiden reagerer og laster svært raskt uansett hvor treg internettforbindelsen er", "At nettsiden har mange interaktive knapper og menyer som brukeren kan klikke seg gjennom"],
+      explanation: "Responsive design bruker CSS media queries og fleksible layouter for å tilpasse visningen til mobil, nettbrett og desktop.",
     },
     {
       question: "Hva er en wireframe?",
-      options: ["En enkel skisse som viser layout og struktur uten detaljer", "Et programmeringsspråk", "En type database som lagrer struktur og layout-informasjon om nettsidens ulike sider", "Et programmeringssprak som brukes spesielt til a bygge oppsettet og strukturen pa nettsider"],
+      options: ["En enkel skisse som viser layout og struktur uten detaljer", "Et programmeringsspråk", "En type database som lagrer struktur og layout-informasjon om nettsidens ulike sider", "Et programmeringsspråk som brukes spesielt til a bygge oppsettet og strukturen på nettsider"],
       explanation: "Wireframes er enkle skisser som fokuserer påfunksjonalitet og informasjonsarkitektur for detaljert design.",
     },
     {
       question: "Hva star UX for?",
-      options: ["User Experience - brukeropplevelse", "User Extension", "Unique Export - en funksjon for a eksportere brukerdata til et eget, personlig filformat", "Universal XML"],
+      options: ["User Experience - brukeropplevelse", "User Extension", "Unique Export - en funksjon for å eksportere brukerdata til et eget, personlig filformat", "Universal XML"],
       explanation: "UX (User Experience) handler om hele brukerens opplevelse med produktet - hvor enkelt, effektivt og tilfredsstillende det er.",
     },
     {
-      question: "Hvilket verktoey brukes ofte til prototyping og UI-design?",
+      question: "Hvilket verktøy brukes ofte til prototyping og UI-design?",
       options: ["Figma", "Python", "MySQL", "Git"],
-      explanation: "Figma er et populaert verktoey for å lage design, prototyper og samarbeide om brukergrensesnitt.",
+      explanation: "Figma er et populært verktøy for å lage design, prototyper og samarbeide om brukergrensesnitt.",
     },
   ],
   "it-2-5": [
     {
       question: "Hva er forskjellen mellom veiledet og uveiledet læring?",
-      options: ["Veiledet læring bruker merkede data med fasit, uveiledet finner monster uten fasit", "Veiledet læring krever ingen treningsdata i det hele tatt, bare regler skrevet av mennesker", "Uveiledet laering gir alltid mer nøyaktige resultater fordi den ikke trenger merkede data", "De er egentlig like, siden begge trener modeller pa nøyaktig samme mate med de samme dataene"],
+      options: ["Veiledet læring bruker merkede data med fasit, uveiledet finner monster uten fasit", "Veiledet læring krever ingen treningsdata i det hele tatt, bare regler skrevet av mennesker", "Uveiledet læring gir alltid mer nøyaktige resultater fordi den ikke trenger merkede data", "De er egentlig like, siden begge trener modeller på nøyaktig samme mate med de samme dataene"],
       explanation: "Veiledet læring trenes pådata der vi vet riktig svar (f.eks. bilder merket katt/hund). Uveiledet finner monster selv.",
     },
     {
@@ -393,24 +393,24 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er bias i AI-systemer?",
       options: ["Skjevhet som gjør at systemet favoriserer visse grupper eller utfall", "En programmeringsteknikk", "Et registrert merkevarenavn på en kommersiell plattform for maskinlæring og dataanalyse", "En feilmelding som vises når treningsdataene inneholder korrupte eller manglende verdier"],
-      explanation: "Bias oppstar nårtreningsdata er skjev, slik at AI-systemet arver og forsterker fordømmer.",
+      explanation: "Bias oppstår nårtreningsdata er skjev, slik at AI-systemet arver og forsterker fordømmer.",
     },
     {
       question: "Hvilket Python-bibliotek brukes ofte til maskinlæring?",
       options: ["scikit-learn", "Django", "Flask, et mikrorammeverk for webapplikasjoner", "Pygame"],
-      explanation: "scikit-learn er et populaert bibliotek for maskinlæring med ferdige algoritmer for klassifisering, regresjon og clustering.",
+      explanation: "scikit-learn er et populært bibliotek for maskinlæring med ferdige algoritmer for klassifisering, regresjon og clustering.",
     },
     {
       question: "Hva er dypering (deep learning)?",
       options: ["Nevrale nettverk med mange skjulte lag som kan lære komplekse monster", "A bruke dype databaser", "En arbeidsmåte der utvikleren skriver spesielt lang og detaljert kode for hånd", "En teknikk som lagrer store treningsdatasett i dype, nøstede databasestrukturer"],
-      explanation: "Deep learning bruker nevrale nettverk med mange lag for a lære avanserte monster fra store datamengder, brukt i bildegjenkjenning og språkmodeller.",
+      explanation: "Deep learning bruker nevrale nettverk med mange lag for å lære avanserte monster fra store datamengder, brukt i bildegjenkjenning og språkmodeller.",
     },
   ],
   "it-2-6": [
     {
       question: "Hva er CIA-triaden i informasjonssikkerhet?",
       options: ["Konfidensialitet, Integritet, Tilgjengelighet", "Computer, Internet, Application", "Create, Install og Authenticate - de tre stegene i sikker programvareinstallasjon", "Create, Install, Authenticate"],
-      explanation: "CIA-triaden er de tre hovedmalene: Konfidensialitet (hvem ser data), Integritet (er data korrekt), Tilgjengelighet (er data tilgjengelig nårtrengs).",
+      explanation: "CIA-triaden er de tre hovedmålene: Konfidensialitet (hvem ser data), Integritet (er data korrekt), Tilgjengelighet (er data tilgjengelig nårtrengs).",
     },
     {
       question: "Hva er forskjellen mellom symmetrisk og asymmetrisk kryptering?",
@@ -423,14 +423,14 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "Hashing produserer en fast-lengde streng fra input. Kan ikke reverseres, brukes til a verifisere integritet og lagre passord sikkert.",
     },
     {
-      question: "Hvorfor bør passord aldri lagres i klærtekst?",
+      question: "Hvorfor bør passord aldri lagres i klartekst?",
       options: ["Ved datainnbrudd fårangripere alle passord direkte", "Brukerne liker det ikke", "Fordi brukerne generelt misliker at passordene deres lagres i systemets sentrale database", "Det tar for mye plass"],
-      explanation: "Klærtekst-passord er lesbare for alle med databasetilgang. Bruk hashing med salt såpassord kan verifiseres uten a lagres lesbart.",
+      explanation: "Klærtekst-passord er lesbare for alle med databasetilgang. Bruk hashing med salt såpassord kan verifiseres uten å lagres lesbart.",
     },
     {
       question: "Hva er phishing?",
-      options: ["Lureri via falske e-poster eller nettsider for a fa tak i sensitiv informasjon", "Å bryte seg inn i en server ved å utnytte tekniske sårbarheter i programvaren", "Å installere skadelig programvare på offerets maskin uten at brukeren merker det", "Å overvåke datatrafikk i et nettverk for å fange opp passord og annen informasjon"],
-      explanation: "Phishing lurer brukere til a oppgi passord eller annen sensitiv info ved a utgi seg for a være en legitim tjeneste.",
+      options: ["Lureri via falske e-poster eller nettsider for å fa tak i sensitiv informasjon", "Å bryte seg inn i en server ved å utnytte tekniske sårbarheter i programvaren", "Å installere skadelig programvare på offerets maskin uten at brukeren merker det", "Å overvåke datatrafikk i et nettverk for å fange opp passord og annen informasjon"],
+      explanation: "Phishing lurer brukere til å oppgi passord eller annen sensitiv info ved a utgi seg for a være en legitim tjeneste.",
     },
   ],
   "it-2-7": [
@@ -451,13 +451,13 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en Kanban-tavle?",
-      options: ["Et visuelt verktoey med kolønner som viser oppgavers status (A gjøre, Pagar, Ferdig)", "Et programmeringsspråk som brukes til å styre oppgaveflyten i et utviklingsprosjekt", "En type database der oppgaver lagres i strukturerte tabeller med rader og kolonner", "En fysisk tavle der utviklerne skriver kode og systemdesign med kritt under møter"],
-      explanation: "Kanban visualiserer arbeidsflyt og begrenser arbeid i gang for a oke fokus og gjennomstrømning.",
+      options: ["Et visuelt verktøy med kolonner som viser oppgavers status (A gjøre, Pagar, Ferdig)", "Et programmeringsspråk som brukes til å styre oppgaveflyten i et utviklingsprosjekt", "En type database der oppgaver lagres i strukturerte tabeller med rader og kolonner", "En fysisk tavle der utviklerne skriver kode og systemdesign med kritt under møter"],
+      explanation: "Kanban visualiserer arbeidsflyt og begrenser arbeid i gang for å oke fokus og gjennomstrømning.",
     },
     {
       question: "Hva er risikostyring i prosjekter?",
       options: ["A identifisere, analysere og handtere potensielle problemer", "Å alltid velge det aller sikreste alternativet i enhver situasjon", "Å ta bevisste sjanser i prosjektet for å oppnå raskere fremdrift og lavere kostnader", "Å ignorere mindre problemer underveis slik at teamet kan holde full fokus på hovedmålet"],
-      explanation: "Risikostyring innebærer a forutse problemer, vurdere sannsynlighet og konsekvens, og planlegge tiltak.",
+      explanation: "Risikostyring innebærer å forutse problemer, vurdere sannsynlighet og konsekvens, og planlegge tiltak.",
     },
   ],
   "it-2-8": [
@@ -467,19 +467,19 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "API (Application Programming Interface) definerer hvordan programvare kan utveksle data og funksjonalitet.",
     },
     {
-      question: "Hvilken HTTP-metode brukes for a hente data fra et REST API?",
+      question: "Hvilken HTTP-metode brukes for å hente data fra et REST API?",
       options: ["GET", "POST", "DELETE", "PUT"],
-      explanation: "GET brukes for a hente data. POST oppretter, PUT oppdaterer, DELETE sletter ressurser.",
+      explanation: "GET brukes for å hente data. POST oppretter, PUT oppdaterer, DELETE sletter ressurser.",
     },
     {
       question: "Hva er JSON?",
       options: ["Et lettvekt tekstformat for datautveksling", "En metode for å komprimere store datafiler før overføring", "Et programmeringsspråk som brukes til webutvikling", "En database for lagring av strukturert informasjon"],
-      explanation: "JSON (JavaScript Object Notation) er et menneske- og maskinlesbart format for a strukturere data, mye brukt i API-er.",
+      explanation: "JSON (JavaScript Object Notation) er et menneske- og maskinlesbart format for å strukturere data, mye brukt i API-er.",
     },
     {
       question: "Hva betyr HTTP-statuskode 404?",
       options: ["Not Found - ressursen finnes ikke", "OK - alt gikk bra", "Serverfeil - noe gikk galt på selve tjeneren", "Uautorisert - brukeren mangler gyldig innlogging"],
-      explanation: "404 betyr at den førespurte ressursen ikke finnes påserveren. 200 er OK, 401 uautorisert, 500 serverfeil.",
+      explanation: "404 betyr at den forespurte ressursen ikke finnes påserveren. 200 er OK, 401 uautorisert, 500 serverfeil.",
     },
     {
       question: "Hvabrukes en API-nokkel til?",
@@ -496,7 +496,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hva gjør en load balancer?",
       options: ["Fordeler trafikk mellom flere servere", "Krypterer trafikk", "Krypterer all trafikk som passerer mellom klient og tjener", "Blokkerer angrep"],
-      explanation: "Load balancer fordeler innkommende føresporsler for å unngå overbelastning og sikre tilgjengelighet hvis en server svikter.",
+      explanation: "Load balancer fordeler innkommende forespørsler for å unngå overbelastning og sikre tilgjengelighet hvis en server svikter.",
     },
     {
       question: "Hva er en CDN (Content Delivery Network)?",
@@ -505,7 +505,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er serverless computing?",
-      options: ["A kjøre kode uten a administrere servere, betaler kun nårkoden kjører", "Å kjøre programmene helt uten et operativsystem, direkte på maskinvaren", "Å bruke utelukkende lokale, fysiske servere i eget serverrom fremfor tjenester i skyen", "Å utvikle programvare offline på egen datamaskin før den til slutt lastes opp til en server"],
+      options: ["A kjøre kode uten å administrere servere, betaler kun nårkoden kjører", "Å kjøre programmene helt uten et operativsystem, direkte på maskinvaren", "Å bruke utelukkende lokale, fysiske servere i eget serverrom fremfor tjenester i skyen", "Å utvikle programvare offline på egen datamaskin før den til slutt lastes opp til en server"],
       explanation: "Serverless (som AWS Lambda) lar deg fokusere påkode mens skyleverandoren handterer all infrastruktur og skalering.",
     },
     {
@@ -517,8 +517,8 @@ const quizData_it: Record<string, QuizQuestion[]> = {
   "it-2-10": [
     {
       question: "Hvordan har IT påvirket arbeidslivet?",
-      options: ["Nye yrker har oppstatt, noen har forsvunnet, hjemmekontor har blitt vanligere", "Alle jobber hjemmefra na", "Ingen reell endring, ettersom arbeidsoppgavene stort sett utføres på samme måte som før", "Alle jobber nå utelukkende hjemmefra siden fysiske arbeidsplasser har blitt overflødige"],
-      explanation: "IT har skapt nye yrker (f.eks. dataingeniorer), automatisert rutineoppgaver, og muliggjørt fleksibelt arbeid.",
+      options: ["Nye yrker har oppstått, noen har forsvunnet, hjemmekontor har blitt vanligere", "Alle jobber hjemmefra na", "Ingen reell endring, ettersom arbeidsoppgavene stort sett utføres på samme måte som før", "Alle jobber nå utelukkende hjemmefra siden fysiske arbeidsplasser har blitt overflødige"],
+      explanation: "IT har skapt nye yrker (f.eks. dataingeniører), automatisert rutineoppgaver, og muliggjort fleksibelt arbeid.",
     },
     {
       question: "Hva er IoT (Internet of Things)?",
@@ -528,7 +528,7 @@ const quizData_it: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilke etiske problemstillinger reiser AI?",
       options: ["Bias, personvern, jobbautomatisering, ansvar for beslutninger", "Bare økonomiske kostnader", "Ingen reelle problemstillinger, ettersom AI er nøytral teknologi uten samfunnsmessige følger", "Utelukkende tekniske problemer knyttet til maskinvare, minnebruk og treningstid for modellene"],
-      explanation: "AI-etikk omfatter skjevhet i algoritmer, overvaking, erstatning av jobber, og hvem som er ansvårlig nårAI tar feil.",
+      explanation: "AI-etikk omfatter skjevhet i algoritmer, overvaking, erstatning av jobber, og hvem som er ansvarlig nårAI tar feil.",
     },
     {
       question: "Hva er digitalt utenforskap?",
@@ -536,9 +536,9 @@ const quizData_it: Record<string, QuizQuestion[]> = {
       explanation: "Digitalt utenforskap rammer de som ikke mestrer eller har tilgang til teknologi samfunnet forutsetter.",
     },
     {
-      question: "Hva er barekraftig IT?",
+      question: "Hva er bærekraftig IT?",
       options: ["A utvikle og bruke teknologi påen mate som tar hensyn til miljø og ressursbruk", "A kjøpe ny teknologi ofte", "Å bruke mye strøm på kraftig maskinvare for å oppnå best mulig ytelse i systemene", "Å kjøpe ny teknologi ofte slik at man alltid har de nyeste og raskeste komponentene"],
-      explanation: "Barekraftig IT handler om energieffektivitet, resirkulering av elektronikk, og redusert ressursforbruk i hele livssyklusen.",
+      explanation: "Bærekraftig IT handler om energieffektivitet, resirkulering av elektronikk, og redusert ressursforbruk i hele livssyklusen.",
     },
   ],
 };

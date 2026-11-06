@@ -34,7 +34,7 @@ const quizData_engelsk_5: Record<string, QuizQuestion[]> = {
   {
     question: 'What is "kjokken" in English?',
     options: ['Kitchen', 'Bedroom', 'Bathroom', 'Living room'],
-    explanation: 'Kitchen is the English word for kjokken. This is where you cook food.',
+    explanation: 'Kitchen is the English word for kjøkken. This is where you cook food.',
   },
   {
     question: 'How do you write the number 12 in English?',

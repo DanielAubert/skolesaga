@@ -5,11 +5,11 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     {
       question: "Hvem formulerte kravet om at litteraturen skulle \"saette problemer under debatt\"?",
       options: ["Georg Brandes i 1871","Henrik Ibsen i 1879, i Et dukkehjem","Bjoernstjerne Bjoernson i 1875","Alexander Kielland i 1880"],
-      explanation: "Den danske litteraturkritikeren Georg Brandes formulerte dette kravet i sine førelesninger i Koebenhavn i 1871, noe som innledet det moderne gjennombrudd.",
+      explanation: "Den danske litteraturkritikeren Georg Brandes formulerte dette kravet i sine forelesninger i Koebenhavn i 1871, noe som innledet det moderne gjennombrudd.",
     },
     {
       question: "Hva kjennetegner Ibsens analytiske drama?",
-      options: ["Fortiden avdekkes gradvis gjennom retrospektiv teknikk", "Handlingen foelger kronologisk rekkefølge", "Handlingen følger en strengt kronologisk rekkefølge fra start til slutt", "All bakgrunnsinformasjon presenteres samlet i den innledende første akten"],
+      options: ["Fortiden avdekkes gradvis gjennom retrospektiv teknikk", "Handlingen følger kronologisk rekkefølge", "Handlingen følger en strengt kronologisk rekkefølge fra start til slutt", "All bakgrunnsinformasjon presenteres samlet i den innledende første akten"],
       explanation: "I Ibsens analytiske drama avdekkes fortidens hemmeligheter gradvis, noe som skaper spenning og gjør at publikum forstår mer og mer.",
     },
     {
@@ -46,8 +46,8 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er Hamsuns forfatterskap kontroversielt?",
-      options: ["Han støttet nazismen under andre verdenskrig og moette Hitler", "Han skrev utelukkende på radikal nynorsk og avviste bokmålet", "Han rettet skarp offentlig kritikk mot det norske kongehuset", "Han var altfor moderne og eksperimentell for samtidens smak"],
-      explanation: "Hamsun støttet nazistene under krigen og moette Hitler personlig, noe som har preget hvordan forfatterskapet hans blir mottatt.",
+      options: ["Han støttet nazismen under andre verdenskrig og møtte Hitler", "Han skrev utelukkende på radikal nynorsk og avviste bokmålet", "Han rettet skarp offentlig kritikk mot det norske kongehuset", "Han var altfor moderne og eksperimentell for samtidens smak"],
+      explanation: "Hamsun støttet nazistene under krigen og møtte Hitler personlig, noe som har preget hvordan forfatterskapet hans blir mottatt.",
     },
     {
       question: "Hva kjennetegner Undsets stil i \"Kristin Lavransdatter\"?",
@@ -77,7 +77,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
       explanation: "Bjoerneboe var en kontroversiell forfatter som kritiserte maktmisbruk og utforsket menneskets ondskap og brutalitet.",
     },
     {
-      question: "Hvordan paavirket andre verdenskrig litteraturen?",
+      question: "Hvordan påvirket andre verdenskrig litteraturen?",
       options: ["Forfattere stilte spørsmål om hvordan man kunne skrive etter holocaust","Litteraturen vendte tilbake til nasjonalromantikken","Litteraturen ble mye mer optimistisk og feiret fremskritt","Den hadde ingen påvirkning, og litteraturen fortsatte helt uendret videre"],
       explanation: "Krigen og holocaust rystet troen påfremskritt og humanisme, og forfatterne maatte finne nye måter åuttrykke den fragmenterte virkeligheten paa.",
     },
@@ -95,8 +95,8 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er autofiksjon?",
-      options: ["Litteratur der forfatteren skriver om sitt eget liv med litteraere virkemidler", "Science fiction med fremtidsvisjoner, teknologi og fantasifulle verdener", "Ren selvbiografi der forfatteren gjengir sitt eget liv helt sannferdig", "Ren oppdiktet fiksjon uten noen forbindelse til forfatterens eget liv"],
-      explanation: "Autofiksjon blander selvbiografi og fiksjon - forfatteren bruker sitt eget liv som materiale, men med litteraere virkemidler.",
+      options: ["Litteratur der forfatteren skriver om sitt eget liv med litterære virkemidler", "Science fiction med fremtidsvisjoner, teknologi og fantasifulle verdener", "Ren selvbiografi der forfatteren gjengir sitt eget liv helt sannferdig", "Ren oppdiktet fiksjon uten noen forbindelse til forfatterens eget liv"],
+      explanation: "Autofiksjon blander selvbiografi og fiksjon - forfatteren bruker sitt eget liv som materiale, men med litterære virkemidler.",
     },
     {
       question: "Hvilken roman av Zeshan Shakar skildrer ungdomsmiljøoet påStovner?",
@@ -122,13 +122,13 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Knud Knudsens bidrag til norsk språkutvikling?",
-      options: ["Han arbeidet for gradvis fornorsking av dansk, som ble til bokmal", "Han skapte det nye landsmålet nynorsk basert på norske dialekter", "Han innførte runeskriften på nytt som norsk offisielt skriftspråk", "Han oversatte hele Bibelen til folkelig og forståelig norsk talemål"],
+      options: ["Han arbeidet for gradvis fornorsking av dansk, som ble til bokmål", "Han skapte det nye landsmålet nynorsk basert på norske dialekter", "Han innførte runeskriften på nytt som norsk offisielt skriftspråk", "Han oversatte hele Bibelen til folkelig og forståelig norsk talemål"],
       explanation: "Knudsen (1812-1895) mente at skriftspråket burde bygge pådannet dagligtale, og hans ideer forte til riksmål/bokmål.",
     },
     {
       question: "Nårble samnorsk-politikken offisielt oppgitt?",
       options: ["2002", "1938", "1959", "1814"],
-      explanation: "Samnorsk-politikken ble offisielt oppgitt i 2002. I dag aksepteres språklig mangfold fremfor sammenslaaing.",
+      explanation: "Samnorsk-politikken ble offisielt oppgitt i 2002. I dag aksepteres språklig mangfold fremfor sammenslåing.",
     },
     {
       question: "Hvilken reform fra 1938 var mest kontroversiell?",
@@ -139,13 +139,13 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-6-1": [
     {
       question: "Hva er tjukk l?",
-      options: ["En spesiell L-lyd i oestnorske og troenderske dialekter","En kort vokal som uttales med nesten lukket munn i indre bygder","En lang, mørk vokallyd som særlig kjennetegner vestlandske målfører","En hard konsonant som kun forekommer i skriftlig nynorsk rettskriving"],
-      explanation: "Tjukk l er en L-lyd som ligner påen blanding av L og R, og finnes i oestnorske og troenderske dialekter.",
+      options: ["En spesiell L-lyd i østnorske og trønderske dialekter","En kort vokal som uttales med nesten lukket munn i indre bygder","En lang, mørk vokallyd som særlig kjennetegner vestlandske målfører","En hard konsonant som kun forekommer i skriftlig nynorsk rettskriving"],
+      explanation: "Tjukk l er en L-lyd som ligner påen blanding av L og R, og finnes i østnorske og trønderske dialekter.",
     },
     {
       question: "Hva er palatalisering i dialekter?",
       options: ["Nårkonsonanter uttales lenger frem i munnen, som \"mannj\" for \"mannen\"", "Nårvokaler forlenges", "Når r-lyden rulles kraftig på tungespissen, som i rulle-r fra Rogaland", "Når trykklette vokaler forlenges og uttales tydeligere enn i skriftbildet"],
-      explanation: "Palatalisering er typisk for troendersk og nordnorsk, der konsonanter uttales lenger frem, så\"mannen\" blir \"mannj\".",
+      explanation: "Palatalisering er typisk for trøndersk og nordnorsk, der konsonanter uttales lenger frem, så\"mannen\" blir \"mannj\".",
     },
     {
       question: "Hva er multietnolekt?",
@@ -154,8 +154,8 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke urfolkspråk har offisiell status i Norge?",
-      options: ["Samisk (soersamisk, lulesamisk, nordsamisk)", "Bare nordsamisk", "Ingen urfolkspråk har noen offisiell status innenfor det norske språket", "Finsk og kvensk, som de to lovfestede urfolkspråkene i Nord-Norge i dag"],
-      explanation: "De samiske språkene - soersamisk, lulesamisk og nordsamisk - har offisiell status som urfolkspråk i Norge.",
+      options: ["Samisk (sørsamisk, lulesamisk, nordsamisk)", "Bare nordsamisk", "Ingen urfolkspråk har noen offisiell status innenfor det norske språket", "Finsk og kvensk, som de to lovfestede urfolkspråkene i Nord-Norge i dag"],
+      explanation: "De samiske språkene - sørsamisk, lulesamisk og nordsamisk - har offisiell status som urfolkspråk i Norge.",
     },
     {
       question: "Hvorfor har Norge såstort dialektmangfold?",

@@ -1,0 +1,19 @@
+name: Æøå
+
+# Daniel 06.11.2026: «sveip skolesaga og legg inn samme safegaurde der også». Feller kjente æøå-feilformer
+# (scripts/aeoa/kjente-feil.json, fra sveipen 6.11) i kapitler og quizfiler. Kode, matte, slugs og taksonomifelt røres ikke.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  aeoa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kjente æøå-feilformer
+        run: python3 scripts/aeoa/repo-sjekk.py .

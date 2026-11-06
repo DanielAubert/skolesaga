@@ -36,7 +36,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken metode er best for a etablære årsakssammenheng?",
-      options: ["Eksperiment med kontrollgruppe", "Sporreundersøkelse", "Dybdeintervjuer med et utvalg utvalgte informanter", "Observasjon"],
+      options: ["Eksperiment med kontrollgruppe", "Spørreundersøkelse", "Dybdeintervjuer med et utvalg utvalgte informanter", "Observasjon"],
       explanation: "Bare eksperimenter med kontrollgrupper kan etablære årsakssammenheng.",
     },
     {
@@ -67,14 +67,14 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
       explanation: "Den digitale revolusjonen startet rundt 1970 med utviklingen av mikroprosessorer.",
     },
     {
-      question: "Hva menes med \"digital kloeft\"?",
+      question: "Hva menes med \"digital kløft\"?",
       options: ["Ulikhet i tilgang til digital teknologi", "En fysisk sprekk i en datamaskin", "Forskjell mellom gamle og nye programmer", "Mangel påinternettforbindelse"],
-      explanation: "Digital kloeft beskriver ulikheten mellom de som har og ikke har tilgang til digital teknologi.",
+      explanation: "Digital kløft beskriver ulikheten mellom de som har og ikke har tilgang til digital teknologi.",
     },
     {
-      question: "Hva er baerekraftig teknologi?",
+      question: "Hva er bærekraftig teknologi?",
       options: ["Teknologi som møter behovene uten a ødelegge for fremtiden", "Teknologi som er så billig som mulig å produsere og kjøpe", "Teknologi som er bygd for å vare svært lenge uten å byttes ut", "Teknologi som er gammel og velprøvd gjennom mange tiår"],
-      explanation: "Baerekraftig teknologi møter dagens behov uten a ødelegge fremtidige generasjoners muligheter.",
+      explanation: "Bærekraftig teknologi møter dagens behov uten a ødelegge fremtidige generasjoners muligheter.",
     },
     {
       question: "Hvilken teknologisk revolusjon ga oss telefon og radio?",
@@ -85,7 +85,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   "tof-1-4": [
     {
       question: "Hva er det første steget i designprosessen?",
-      options: ["Empati / Forsta problemet", "Lage prototype", "Grundig testing av løsningen på brukere", "Brainstorming"],
+      options: ["Empati / Forstå problemet", "Lage prototype", "Grundig testing av løsningen på brukere", "Brainstorming"],
       explanation: "Man måførst forstå brukeren og problemet for man kan begynne a designe løsninger.",
     },
     {
@@ -95,7 +95,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en prototype?",
-      options: ["En tidlig, førenklet versjon av et produkt for testing", "Det helt ferdige produktet klart for salg i butikk", "En detaljert teknisk tegning av det endelige produktet", "En løs idé eller et konsept som ennå ikke er bygd"],
+      options: ["En tidlig, forenklet versjon av et produkt for testing", "Det helt ferdige produktet klart for salg i butikk", "En detaljert teknisk tegning av det endelige produktet", "En løs idé eller et konsept som ennå ikke er bygd"],
       explanation: "En prototype er en tidlig versjon som brukes til testing og utvikling.",
     },
     {
@@ -204,16 +204,16 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er forskjellen påtermoplast og herdeplast?",
       options: ["Termoplast kan smeltes om, herdeplast kan ikke", "Herdeplast kan smeltes om og støpes på nytt flere ganger", "De to plasttypene oppfører seg helt likt ved oppvarming", "Termoplast er alltid sterkere fordi den ikke kan smeltes om"],
-      explanation: "Termoplast kan varmes og formes på nytt, herdeplast gjennomgar irreversibel reaksjon.",
+      explanation: "Termoplast kan varmes og formes på nytt, herdeplast gjennomgår irreversibel reaksjon.",
     },
     {
       question: "Hva er styrke?",
-      options: ["Materialets evne til a motsta brudd", "Evnen til a motsta deformasjon", "Materialets vekt", "Materialets farge"],
+      options: ["Materialets evne til a motstå brudd", "Evnen til a motstå deformasjon", "Materialets vekt", "Materialets farge"],
       explanation: "Styrke er materialets evne til a tale belastning for det gåri stykker.",
     },
     {
       question: "Hva er stivhet?",
-      options: ["Evnen til a motsta deformasjon", "Evnen til a motsta brudd", "Materialets hardhet mot riper i overflaten", "Materialets elastisitet"],
+      options: ["Evnen til a motstå deformasjon", "Evnen til a motstå brudd", "Materialets hardhet mot riper i overflaten", "Materialets elastisitet"],
       explanation: "Stivhet er hvor mye materialet motstdr deformasjon under belastning.",
     },
   ],
@@ -246,9 +246,9 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   ],
   "tof-1-10": [
     {
-      question: "Hva bør du gjøre når du presenterer for en ikke-teknisk malgruppe?",
+      question: "Hva bør du gjøre når du presenterer for en ikke-teknisk målgruppe?",
       options: ["Bruke enkelt språk og analogier", "Snakke raskt for a fa med alt", "Vise detaljert programkode og tekniske beregninger", "Bruke mest mulig faguttrykk"],
-      explanation: "For ikke-tekniske malgrupper bør du førenkle språket og bruke analogier de kjenner.",
+      explanation: "For ikke-tekniske målgrupper bør du forenkle språket og bruke analogier de kjenner.",
     },
     {
       question: "Hva bør unngås påPowerPoint-slides?",
@@ -256,7 +256,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
       explanation: "Slides bør ha lite tekst - de er visuelle hjelpemidler, ikke manuskript.",
     },
     {
-      question: "Hva er viktig under selve fremforingen?",
+      question: "Hva er viktig under selve fremføringen?",
       options: ["Øyekontakt med publikum", "Lese direkte fra notatene", "Sta med ryggen til publikum", "Snakke monotont"],
       explanation: "Øyekontakt skaper forbindelse med publikum og viser at du er trygg påstoffet.",
     },
@@ -328,13 +328,13 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
   "tof-2-3": [
     {
       question: "Hvor stor er en nanometer?",
-      options: ["En milliardtedel av en meter", "En milliontedel av en meter", "En tusendel av en meter, altsa én millimeter", "En hundredel av en meter"],
-      explanation: "En nanometer er 10^-9 meter, altsa en milliardtedel av en meter.",
+      options: ["En milliardtedel av en meter", "En milliontedel av en meter", "En tusendel av en meter, altså én millimeter", "En hundredel av en meter"],
+      explanation: "En nanometer er 10^-9 meter, altså en milliardtedel av en meter.",
     },
     {
       question: "Hvorfor har materialer andre egenskaper pånanoskala?",
       options: ["Stort overflate/volum-forhold og kvanteeffekter", "De blir betydelig lettere fordi massen synker med størrelsen", "Fordi partiklene blir tyngre og får høyere tetthet", "Fordi de enkelte atomene blir fysisk større på nanoskala"],
-      explanation: "Pa nanoskala dominerer overflateeffekter og kvanteeffekter materialenes oppforsel.",
+      explanation: "Pa nanoskala dominerer overflateeffekter og kvanteeffekter materialenes oppførsel.",
     },
     {
       question: "Hva er grafen?",
@@ -376,18 +376,18 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den største utfordringen ved en bemannet Mars-ferd?",
       options: ["Lang reisetid og straling", "At det er for kaldt", "At det blir altfor varmt og motorene overopphetes", "At det er for varmt"],
-      explanation: "Reisen tar 6-9 maneder hver vei, og astronautene utsettes for kosmisk straling.",
+      explanation: "Reisen tar 6-9 måneder hver vei, og astronautene utsettes for kosmisk straling.",
     },
   ],
   "tof-2-5": [
     {
       question: "Hvilken bildediagnostisk metode bruker ikke ioniserende straling?",
       options: ["MR (magnetisk resonans)", "Rontgen", "CT, som tar mange røntgenbilder fra ulike vinkler", "PET"],
-      explanation: "MR bruker magnetfelt og radiobolger, ikke ioniserende straling.",
+      explanation: "MR bruker magnetfelt og radiobølger, ikke ioniserende straling.",
     },
     {
       question: "Hva er CRISPR-Cas9?",
-      options: ["En metode for genredigering", "Et bildediagnostisk verkty", "En form for røntgen som avbilder indre organer", "En type rontgen"],
+      options: ["En metode for genredigering", "Et bildediagnostisk verkty", "En form for røntgen som avbilder indre organer", "En type røntgen"],
       explanation: "CRISPR-Cas9 er en \"molekylaar saks\" som kan klippe og redigere DNA.",
     },
     {
@@ -425,7 +425,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er algoritmisk bias?",
       options: ["NårAI-systemer systematisk diskriminerer", "En metode for å komprimere treningsdata før bruk", "En læringsmetode der modellen trener på merkede data over tid", "En tilfeldig feil i koden som gir uforutsigbare svar hver gang"],
-      explanation: "Algoritmisk bias oppstar nårtreningsdata eller design fører til urettferdig behandling.",
+      explanation: "Algoritmisk bias oppstår nårtreningsdata eller design fører til urettferdig behandling.",
     },
     {
       question: "Hva er backpropagation?",
@@ -456,8 +456,8 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom nøyaktighet og repeterbarhet i robotikk?",
-      options: ["Noyaktighet er hvor nær malet, repeterbarhet er konsistens", "Nøyaktighet er hvor likt roboten gjentar samme bevegelse", "Repeterbarhet er alltid viktigere enn nøyaktighet i robotikk", "Nøyaktighet og repeterbarhet betyr det samme i praksis"],
-      explanation: "Noyaktighet måler avstand til mal, repeterbarhet måler hvor likt roboten gjentar bevegelser.",
+      options: ["Nøyaktighet er hvor nær malet, repeterbarhet er konsistens", "Nøyaktighet er hvor likt roboten gjentar samme bevegelse", "Repeterbarhet er alltid viktigere enn nøyaktighet i robotikk", "Nøyaktighet og repeterbarhet betyr det samme i praksis"],
+      explanation: "Nøyaktighet måler avstand til mal, repeterbarhet måler hvor likt roboten gjentar bevegelser.",
     },
   ],
   "tof-2-8": [
@@ -474,7 +474,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er føre-var-prinsippet?",
       options: ["Ved fare for alvorlig skade bør man handle selv med usikkerhet", "Man skal alltid vente påfull sikkerhet", "At man aldri under noen omstendighet bør ta risiko i forskning", "At man alltid skal vente på fullstendig sikkerhet før man handler"],
-      explanation: "Fore-var-prinsippet sier at usikkerhet ikke bør hindre førebyggende tiltak.",
+      explanation: "Fore-var-prinsippet sier at usikkerhet ikke bør hindre forebyggende tiltak.",
     },
     {
       question: "Hva er pliktetikk?",
@@ -494,14 +494,14 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
       explanation: "En god problemstilling er spesifikk nok til a kunne undersøkes med tilgjengelige ressurser.",
     },
     {
-      question: "Hva er formalet med en forskningsdagbok?",
+      question: "Hva er formålet med en forskningsdagbok?",
       options: ["A dokumentere prosessen for reproduserbarhet", "Å ha noe konkret å fylle arbeidsdagen med", "Å imponere læreren med et flott ferdig produkt", "Å skrive penere og med bedre håndskrift"],
       explanation: "Forskningsdagboken sikrer at arbeidet kan gjentas og sporfølges.",
     },
     {
       question: "Hva bør en prosjektplan inneholde?",
-      options: ["Tidsplan, milepaler, ressursbehov og risikovurdering", "Bare sluttdatoen for når prosjektet skal leveres", "Kun et detaljert budsjett med alle utgiftsposter", "Bare en tittel og en kort beskrivelse av temaet"],
-      explanation: "En god prosjektplan dekker alle aspekter av gjennomforingen.",
+      options: ["Tidsplan, milepæler, ressursbehov og risikovurdering", "Bare sluttdatoen for når prosjektet skal leveres", "Kun et detaljert budsjett med alle utgiftsposter", "Bare en tittel og en kort beskrivelse av temaet"],
+      explanation: "En god prosjektplan dekker alle aspekter av gjennomføringen.",
     },
     {
       question: "Hvorfor er litteratursok viktig?",
@@ -509,9 +509,9 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
       explanation: "Litteratursok gir oversikt over feltet og hjelper a definere egen problemstilling.",
     },
     {
-      question: "Hva er en milepael i et prosjekt?",
+      question: "Hva er en milepæl i et prosjekt?",
       options: ["Et viktig sjekkpunkt som markerer fremgang", "En uforutsett hindring som stanser framdriften", "En enkeltstående arbeidsoppgave uten særlig betydning", "Selve avslutningen og innleveringen av hele prosjektet"],
-      explanation: "Milepaler er viktige punkter som viser at prosjektet er pårett spor.",
+      explanation: "Milepæler er viktige punkter som viser at prosjektet er pårett spor.",
     },
   ],
   "tof-2-10": [
@@ -521,7 +521,7 @@ const quizData_tof: Record<string, QuizQuestion[]> = {
       explanation: "IMRaD er standardstrukturen for vitenskapelige artikler.",
     },
     {
-      question: "Hva er formalet med referanser?",
+      question: "Hva er formålet med referanser?",
       options: ["A gi kreditt, vise belegg og unngå plagiat", "A vise at man har lest mye", "Å fylle plass slik at artikkelen ser lengre ut", "Å vise leseren at forfatteren har lest svært mye"],
       explanation: "Referanser gir kreditt til originale forfattere og lar lesere finne kildene.",
     },

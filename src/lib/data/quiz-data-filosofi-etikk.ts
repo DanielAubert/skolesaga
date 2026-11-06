@@ -5,17 +5,17 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     {
       question: "Hva betyr ordet filosofi?",
       options: ["Kjærlighet til visdom", "Søken etter sannhet", "Systematisk søken etter den endelige sannheten om alt", "Kunnskap om verden"],
-      explanation: "Filosofi kommer fra de greske ordene philos (kjærlighet) og sophia (visdom). Filosofi betyr altsa «kjærlighet til visdom».",
+      explanation: "Filosofi kommer fra de greske ordene philos (kjærlighet) og sophia (visdom). Filosofi betyr altså «kjærlighet til visdom».",
     },
     {
       question: "Hvem regnes tradisjonelt som den første vestlige filosofen?",
       options: ["Thales fra Milet", "Aristoteles", "Sokrates fra Athen (ca. 470 f.Kr.)", "Sokrates"],
-      explanation: "Thales fra Milet (ca. 624-546 f.Kr.) regnes som den første vestlige filosofen fordi han søkte naturlige forklåringer påverdens opprinnelse i stedet for myter.",
+      explanation: "Thales fra Milet (ca. 624-546 f.Kr.) regnes som den første vestlige filosofen fordi han søkte naturlige forklaringer påverdens opprinnelse i stedet for myter.",
     },
     {
       question: "Hva er den sokratiske metoden?",
-      options: ["A stille sporsmål som avdekker motsetninger", "A lese gamle tekster kritisk", "Å holde lange, overbevisende taler for tilhørerne", "Å utlede sannheter logisk fra sikre grunnsetninger"],
-      explanation: "Den sokratiske metoden gårut påa stille sporsmål som avdekker motsetninger i samtalepartnerens oppfatninger. Sokrates brukte denne metoden for a soke sannhet gjennom dialog.",
+      options: ["A stille spørsmål som avdekker motsetninger", "A lese gamle tekster kritisk", "Å holde lange, overbevisende taler for tilhørerne", "Å utlede sannheter logisk fra sikre grunnsetninger"],
+      explanation: "Den sokratiske metoden gårut påa stille spørsmål som avdekker motsetninger i samtalepartnerens oppfatninger. Sokrates brukte denne metoden for a søke sannhet gjennom dialog.",
     },
     {
       question: "Hva studerer epistemologi?",
@@ -47,7 +47,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     {
       question: "Hva mente Descartes med \"Cogito ergo sum\"?",
       options: ["Jeg tenker, altså er jeg", "Jeg ser, altså vet jeg noe", "Jeg tviler, altså lærer jeg", "Jeg føler, altså lever jeg"],
-      explanation: "«Cogito ergo sum» betyr «jeg tenker, altsa er jeg». Selv om jeg tviler påalt, kan jeg ikke tvile påat jeg tviler - og dermed at jeg eksisterer som et tenkende vesen.",
+      explanation: "«Cogito ergo sum» betyr «jeg tenker, altså er jeg». Selv om jeg tviler påalt, kan jeg ikke tvile påat jeg tviler - og dermed at jeg eksisterer som et tenkende vesen.",
     },
     {
       question: "Hva er bekreftelsesskjevhet?",
@@ -86,7 +86,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er hovedprinsippet i utilitarismen?",
       options: ["Handle slik at du maksimerer total lykke for alle", "Å alltid handle i pakt med den naturlige orden", "Å alltid følge din moralske plikt uansett følgene", "Å utvikle gode karaktertrekk og dydige holdninger"],
-      explanation: "Utilitarismen sier at vi bør handle slik at vi maksimerer den totale mengden lykke (nytte) for alle berorte parter.",
+      explanation: "Utilitarismen sier at vi bør handle slik at vi maksimerer den totale mengden lykke (nytte) for alle berørte parter.",
     },
     {
       question: "Hva er Kants kategoriske imperativ (universalitetsformuleringen)?",
@@ -133,7 +133,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er Aldo Leopolds \"landets etikk\"?",
       options: ["Handlinger er riktige når de bevarer stabiliteten til det biotiske samfunnet", "At mennesket i prinsippet aldri kan eie eller råde over naturen", "At alle landområder bør ha klart definerte eiendomsrettigheter", "At økosystemer selv besitter en form for bevissthet og vilje"],
-      explanation: "Leopold formulerte: «En ting er rett nården bevarer stabiliteten, integriteten og skjonnheten til det biotiske samfunnet. Den er gal nården gjør det motsatte.»",
+      explanation: "Leopold formulerte: «En ting er rett nården bevarer stabiliteten, integriteten og skjønnheten til det biotiske samfunnet. Den er gal nården gjør det motsatte.»",
     },
   ],
   "filosofi-etikk-6": [
@@ -145,7 +145,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     {
       question: "Hva mener Rawls med \"sloret av uvitenhet\"?",
       options: ["Vi skal velge rettferdighetsprinsipper uten å kjenne vår egen posisjon", "At folk flest er uvitende om hvordan politikk faktisk fungerer", "At politikere med vilje skjuler viktig informasjon fra folket", "At rettferdighet i bunn og grunn er noe helt subjektivt"],
-      explanation: "Rawls bruker «sloret av uvitenhet» som et tankeeksperiment: Hvis vi ikke visste vår posisjon i samfunnet (rik/fattig, etc.), hvilke prinsipper ville vi velge?",
+      explanation: "Rawls bruker «sløret av uvitenhet» som et tankeeksperiment: Hvis vi ikke visste vår posisjon i samfunnet (rik/fattig, etc.), hvilke prinsipper ville vi velge?",
     },
     {
       question: "Hva er Isaiah Berlins skille mellom negativ og positiv frihet?",
@@ -160,7 +160,7 @@ const quizData_filosofi_etikk: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er flertallets tyranni?",
       options: ["Når flertallet undertrykker minoriteter", "Nårstaten har for mye makt", "Når absolutt alle i samfunnet er dypt uenige", "Når staten samler for mye makt på egne hender"],
-      explanation: "Flertallets tyranni er problemet med at et flertall kan undertrykke minoriteter i et demokrati. Losningen er konstitusjonelt demokrati med rettigheter som beskytter minoriteter.",
+      explanation: "Flertallets tyranni er problemet med at et flertall kan undertrykke minoriteter i et demokrati. Løsningen er konstitusjonelt demokrati med rettigheter som beskytter minoriteter.",
     },
   ],
   "filosofi-etikk-8": [

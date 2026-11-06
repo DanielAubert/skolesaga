@@ -7,7 +7,7 @@ const quizData_norsk_8: Record<string, QuizQuestion[]> = {
       options: [
         'Skjønnlitteratur er oppdiktet, sakprosa handler om virkeligheten',
         'Skjønnlitteratur er lengre enn sakprosa',
-        'Sakproså har alltid bilder',
+        'Sakprosa har alltid bilder',
         'Skjønnlitteratur er alltid på rim',
       ],
       explanation: 'Skjønnlitteratur er fiksjon (oppdiktet), mens sakprosa formidler faktisk informasjon om virkeligheten.',
@@ -91,7 +91,7 @@ const quizData_norsk_8: Record<string, QuizQuestion[]> = {
       question: 'Hva kjennetegner en åpen slutt i en novelle?',
       options: [
         'Leseren må selv tolke hva som skjer videre',
-        'Alt blir forklært og løst',
+        'Alt blir forklart og løst',
         'Hovedpersonen dør',
         'Fortellingen fortsetter i en ny bok',
       ],

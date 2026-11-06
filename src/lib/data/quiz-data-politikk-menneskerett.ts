@@ -107,7 +107,7 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er populisme?',
     options: ["Politikk som hevder å representere \"folket\" mot \"eliten\"", "En bestemt plassering på høyre-venstre-aksen", "Utelukkende venstreorientert politikk med krav om omfordeling og økonomisk likhet", "Kun venstreorientert politikk, ettersom høyresiden aldri appellerer til folket"],
-    explanation: 'Populisme hevder å representere "folket" mot "eliten". Den finnes på både høyre- og venstresiden. Populisme kan uttrykke legitim folkelig misnøye, men kan også førenkle komplekse spørsmål.',
+    explanation: 'Populisme hevder å representere "folket" mot "eliten". Den finnes på både høyre- og venstresiden. Populisme kan uttrykke legitim folkelig misnøye, men kan også forenkle komplekse spørsmål.',
   },
   {
     question: 'Hvilken funksjon har politiske partier i demokratiet?',
@@ -184,7 +184,7 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er proporsjonalitetsprinsippet?',
     options: ["At inngrep i rettigheter må være nødvendige og stå i rimelig forhold til målet", "At staten må gi alle borgere nøyaktig like mye ressurser og velferdsgoder", "At rettigheter gjelder evig og aldri kan innskrenkes av lovgiver i noe tilfelle", "At alle menneskerettigheter veier like tungt og aldri kan settes opp mot hverandre"],
-    explanation: 'Proporsjonalitetsprinsippet krever at inngrep i rettigheter må være nødvendige og stå i rimelig forhold til målet. Domstolene bruker dette til å vurdere om inngrep er forsvårlige.',
+    explanation: 'Proporsjonalitetsprinsippet krever at inngrep i rettigheter må være nødvendige og stå i rimelig forhold til målet. Domstolene bruker dette til å vurdere om inngrep er forsvarlige.',
   },
   {
     question: 'Hvilke grupper er særlig utsatt for menneskerettighetsbrudd?',
@@ -266,7 +266,7 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er sivil ulydighet?',
     options: ["Bevisst og åpen lovbrudd for å protestere mot urettferdige lover, med aksept av straff", "Å ignorere i det skjulte de lovene man personlig ikke liker eller er uenig i", "Voldelig væpnet opprør mot staten for å styrte den sittende regjeringen", "Å stemme blankt ved valg som en stille protest mot alle partiene"],
-    explanation: 'Sivil ulydighet er bevisst og åpen lovbrudd for å protestere mot det man mener er urettferdige lover eller politikk. Det er uenighet om når sivil ulydighet er rettferdiggjørt.',
+    explanation: 'Sivil ulydighet er bevisst og åpen lovbrudd for å protestere mot det man mener er urettferdige lover eller politikk. Det er uenighet om når sivil ulydighet er rettferdiggjort.',
   },
   {
     question: 'Hva er forskjellen mellom konvensjonell og ukonvensjonell politisk deltakelse?',
@@ -295,27 +295,27 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva sier Eastons definisjon av politikk?',
     options: ["Autoritativ fordeling av verdier for et samfunn", "Enkeltpersoners private meninger", "Alt arbeid partiene gjør i valgkamp", "Bindende regler som domstolene fastsetter gjennom sine dommer"],
-    explanation: 'David Eastons definisjon beskriver politikk som den autoritative fordelingen av verdier for et samfunn - bindende beslutninger om hvem som far hva.',
+    explanation: 'David Eastons definisjon beskriver politikk som den autoritative fordelingen av verdier for et samfunn - bindende beslutninger om hvem som får hva.',
   },
   {
     question: 'Hva er en interessekonflikt?',
-    options: ["Nar ulike grupper har motstridende onsker om fordeling eller beslutninger", "Nar staten ikke lenger har noen oppgaver eller myndighet i samfunnet", "Nar alle grupper er fullstendig enige om fordeling og beslutninger", "Nar ressursene er ubegrensede slik at ingen trenger a konkurrere"],
-    explanation: 'En interessekonflikt oppstar nar grupper eller personer har motstridende onsker. Slike konflikter er uunngaelige fordi ressurser er knappe og folk har ulike verdier.',
+    options: ["Nar ulike grupper har motstridende ønsker om fordeling eller beslutninger", "Nar staten ikke lenger har noen oppgaver eller myndighet i samfunnet", "Nar alle grupper er fullstendig enige om fordeling og beslutninger", "Nar ressursene er ubegrensede slik at ingen trenger å konkurrere"],
+    explanation: 'En interessekonflikt oppstår nar grupper eller personer har motstridende ønsker. Slike konflikter er uunngaelige fordi ressurser er knappe og folk har ulike verdier.',
   },
   {
-    question: 'Hvorfor oppstar interessekonflikter i ethvert samfunn?',
+    question: 'Hvorfor oppstår interessekonflikter i ethvert samfunn?',
     options: ["Fordi ressurser er knappe og mennesker har ulike verdier og behov", "Fordi det ikke finnes lover som regulerer forholdet mellom folk", "Fordi mennesker alltid er bevisst uenige", "Fordi staten selv skaper konfliktene gjennom sin egen politikk"],
-    explanation: 'Interessekonflikter er uunngaelige fordi ressurser er knappe og mennesker har ulike verdier og behov. Politikkens oppgave er a haandtere konfliktene fredelig.',
+    explanation: 'Interessekonflikter er uunngaelige fordi ressurser er knappe og mennesker har ulike verdier og behov. Politikkens oppgave er a håndtere konfliktene fredelig.',
   },
   {
-    question: 'Hvordan kan vindkraftdebatten forstaas politisk?',
-    options: ["Som en interessekonflikt der ulike grupper har motstridende interesser", "Som en sak der alle berorte parter i praksis er enige om losningen", "Som noe staten bestemmer alene uten hensyn til lokalsamfunn og naering", "Som et rent teknisk sporsmal uten verdier"],
-    explanation: 'Vindkraftdebatten illustrerer politikk som interessekonflikt: kraftselskaper, kommuner, miljohensyn, naturvern og lokalsamfunn har ulike og dels motstridende interesser.',
+    question: 'Hvordan kan vindkraftdebatten forstås politisk?',
+    options: ["Som en interessekonflikt der ulike grupper har motstridende interesser", "Som en sak der alle berørte parter i praksis er enige om løsningen", "Som noe staten bestemmer alene uten hensyn til lokalsamfunn og næring", "Som et rent teknisk sporsmal uten verdier"],
+    explanation: 'Vindkraftdebatten illustrerer politikk som interessekonflikt: kraftselskaper, kommuner, miljøhensyn, naturvern og lokalsamfunn har ulike og dels motstridende interesser.',
   },
   {
     question: 'Hva er politikkens oppgave i mote med interessekonflikter?',
-    options: ["A haandtere konfliktene pa en fredelig og rettferdig mate", "A la den sterkeste alltid vinne", "A fjerne alle grupper som er uenige", "A la den sterkeste parten alltid vinne fram uten motforestillinger"],
-    explanation: 'Politikkens oppgave er a haandtere interessekonflikter pa en fredelig og rettferdig mate, slik at samfunnet kan ta bindende beslutninger uten vold.',
+    options: ["A håndtere konfliktene på en fredelig og rettferdig mate", "A la den sterkeste alltid vinne", "A fjerne alle grupper som er uenige", "A la den sterkeste parten alltid vinne fram uten motforestillinger"],
+    explanation: 'Politikkens oppgave er a håndtere interessekonflikter på en fredelig og rettferdig mate, slik at samfunnet kan ta bindende beslutninger uten vold.',
   },
 ],
 
@@ -323,28 +323,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-1-2': [
   {
     question: 'Hvordan definerte Max Weber makt?',
-    options: ["Sjansen til a gjennomfore sin vilje, ogsa mot motstand", "Plikten til a folge loven", "Plikten hver borger har til a folge lover vedtatt av myndighetene", "Retten til a eie og raade fritt over egen eiendom"],
-    explanation: 'Weber definerte makt som sjansen til a gjennomfore sin vilje innenfor en sosial relasjon, ogsa mot motstand. Makt kan vaere formell eller uformell.',
+    options: ["Sjansen til a gjennomføre sin vilje, også mot motstand", "Plikten til a folge loven", "Plikten hver borger har til a folge lover vedtatt av myndighetene", "Retten til a eie og råde fritt over egen eiendom"],
+    explanation: 'Weber definerte makt som sjansen til a gjennomføre sin vilje innenfor en sosial relasjon, også mot motstand. Makt kan være formell eller uformell.',
   },
   {
     question: 'Hva er Steven Lukes tre maktdimensjoner?',
-    options: ["Beslutningsmakt, dagsordenmakt og ideologisk makt", "Okonomisk, militaer og kulturell makt", "Lovgivende, utovende og dommende makt", "Okonomisk makt, militaer makt og kulturell makt i samfunnet"],
+    options: ["Beslutningsmakt, dagsordenmakt og ideologisk makt", "Okonomisk, militær og kulturell makt", "Lovgivende, utøvende og dømmende makt", "Okonomisk makt, militær makt og kulturell makt i samfunnet"],
     explanation: 'Lukes skiller mellom beslutningsmakt (synlig), dagsordenmakt (skjult - hva som diskuteres) og ideologisk makt (usynlig - makt over tanker og verdier).',
   },
   {
-    question: 'Hva er dagsordenmakt ifolge Lukes?',
-    options: ["Makten til a bestemme hvilke saker som kommer pa eller holdes borte fra dagsordenen", "Makten til a kontrollere militaeret og statens tvangsmidler direkte", "Makten til a vinne en avstemning nar saken forst er til behandling", "Makten over okonomien alene gjennom kontroll av kapital og marked"],
+    question: 'Hva er dagsordenmakt ifølge Lukes?',
+    options: ["Makten til a bestemme hvilke saker som kommer på eller holdes borte fra dagsordenen", "Makten til a kontrollere militæret og statens tvangsmidler direkte", "Makten til a vinne en avstemning når saken først er til behandling", "Makten over økonomien alene gjennom kontroll av kapital og marked"],
     explanation: 'Dagsordenmakt (andre dimensjon) er den skjulte makten til a bestemme hvilke saker som settes pa - eller holdes borte fra - den politiske dagsordenen.',
   },
   {
     question: 'Hva er kjernen i maktfordelingsprinsippet?',
-    options: ["Statens makt deles mellom uavhengige institusjoner som kontrollerer hverandre", "At domstolene alene styrer bade lovgivning og forvaltning i staten", "At all statsmakt samles hos en sterk leder for effektiv styring", "At folket selv ikke skal ha innflytelse pa statens beslutninger"],
-    explanation: 'Maktfordelingsprinsippet, formulert av Montesquieu (1748), deler makten i lovgivende, utovende og dommende for a hindre maktmisbruk og tyranni.',
+    options: ["Statens makt deles mellom uavhengige institusjoner som kontrollerer hverandre", "At domstolene alene styrer både lovgivning og forvaltning i staten", "At all statsmakt samles hos en sterk leder for effektiv styring", "At folket selv ikke skal ha innflytelse på statens beslutninger"],
+    explanation: 'Maktfordelingsprinsippet, formulert av Montesquieu (1748), deler makten i lovgivende, utøvende og dømmende for å hindre maktmisbruk og tyranni.',
   },
   {
-    question: 'Hvem formulerte den klassiske laeren om maktfordeling?',
+    question: 'Hvem formulerte den klassiske læren om maktfordeling?',
     options: ["Montesquieu", "Adam Smith", "Karl Marx", "Max Weber"],
-    explanation: 'Montesquieu formulerte i 1748 laeren om tredeling av statsmakten i en lovgivende, en utovende og en dommende makt.',
+    explanation: 'Montesquieu formulerte i 1748 læren om tredeling av statsmakten i en lovgivende, en utøvende og en dømmende makt.',
   },
 ],
 
@@ -352,28 +352,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-1-3': [
   {
     question: 'Hva er et politisk parti?',
-    options: ["En organisasjon med lignende politiske oppfatninger som soker makt gjennom valg", "En interesseorganisasjon uten politiske mal", "En interesseorganisasjon som fremmer en enkeltsak", "Et privateid selskap som selger politiske tjenester og radgivning til staten mot betaling"],
-    explanation: 'Et politisk parti er en organisasjon av mennesker med lignende politiske oppfatninger som soker politisk makt gjennom valg, utformer programmer og stiller kandidater.',
+    options: ["En organisasjon med lignende politiske oppfatninger som søker makt gjennom valg", "En interesseorganisasjon uten politiske mal", "En interesseorganisasjon som fremmer en enkeltsak", "Et privateid selskap som selger politiske tjenester og rådgivning til staten mot betaling"],
+    explanation: 'Et politisk parti er en organisasjon av mennesker med lignende politiske oppfatninger som søker politisk makt gjennom valg, utformer programmer og stiller kandidater.',
   },
   {
     question: 'Hva er lobbyisme?',
-    options: ["Forsok pa a paavirke politiske beslutninger gjennom direkte kontakt med beslutningstakere", "A demonstrere i gatene", "A samle mange mennesker til demonstrasjoner og markeringer i gatene for a paavirke opinionen", "A utforme og formelt vedta nye lover som forplikter beslutningstakere til bestemte handlinger"],
-    explanation: 'Lobbyisme er forsok pa a paavirke politiske beslutninger gjennom direkte kontakt med beslutningstakere, for eksempel moter, horingsinnspill og bruk av PR-radgivere.',
+    options: ["Forsok pa a påvirke politiske beslutninger gjennom direkte kontakt med beslutningstakere", "A demonstrere i gatene", "A samle mange mennesker til demonstrasjoner og markeringer i gatene for a påvirke opinionen", "A utforme og formelt vedta nye lover som forplikter beslutningstakere til bestemte handlinger"],
+    explanation: 'Lobbyisme er forsok pa a påvirke politiske beslutninger gjennom direkte kontakt med beslutningstakere, for eksempel moter, høringsinnspill og bruk av PR-radgivere.',
   },
   {
     question: 'Hva er den korporative kanalen i norsk politikk?',
-    options: ["Formalisert samarbeid mellom staten og store interesseorganisasjoner", "Et politisk parti", "En uavhengig domstol som avgjor konflikter mellom staten og de store interesseorganisasjonene", "Et politisk parti som organiserer valgkamp og stiller kandidater ved stortingsvalg og lokalvalg"],
-    explanation: 'Den korporative kanalen er det formaliserte samarbeidet mellom staten og store interesseorganisasjoner gjennom trepartssamarbeid, utvalg og horinger.',
+    options: ["Formalisert samarbeid mellom staten og store interesseorganisasjoner", "Et politisk parti", "En uavhengig domstol som avgjør konflikter mellom staten og de store interesseorganisasjonene", "Et politisk parti som organiserer valgkamp og stiller kandidater ved stortingsvalg og lokalvalg"],
+    explanation: 'Den korporative kanalen er det formaliserte samarbeidet mellom staten og store interesseorganisasjoner gjennom trepartssamarbeid, utvalg og høringer.',
   },
   {
     question: 'Hva er en NGO?',
-    options: ["En ikke-statlig organisasjon som arbeider for bestemte saker", "Et statlig direktorat som er underlagt et departement og finansieres over statsbudsjettet", "Et statlig direktorat som forvalter regelverk og setter myndighetenes politikk ut i praksis", "Et politisk parti som samler medlemmer og stiller egne kandidater til valg for a vinne makt"],
-    explanation: 'NGO (Non-Governmental Organization) er en ikke-statlig organisasjon som arbeider for bestemte saker uavhengig av myndigheter og naeringsliv, for eksempel Amnesty.',
+    options: ["En ikke-statlig organisasjon som arbeider for bestemte saker", "Et statlig direktorat som er underlagt et departement og finansieres over statsbudsjettet", "Et statlig direktorat som forvalter regelverk og setter myndighetenes politikk ut i praksis", "Et politisk parti som samler medlemmer og stiller egne kandidater til valg for å vinne makt"],
+    explanation: 'NGO (Non-Governmental Organization) er en ikke-statlig organisasjon som arbeider for bestemte saker uavhengig av myndigheter og næringsliv, for eksempel Amnesty.',
   },
   {
-    question: 'Hvor mange medlemmer ma et parti ha for a bli registrert i Partiregisteret i Norge?',
+    question: 'Hvor mange medlemmer må et parti ha for å bli registrert i Partiregisteret i Norge?',
     options: ['Minst 5 000', 'Minst 100', 'Minst 1 million', 'Det er ingen krav'],
-    explanation: 'For a bli registrert i Partiregisteret og fa rett til a stille lister uten a samle underskrifter, ma et parti i Norge ha minst 5 000 medlemmer.',
+    explanation: 'For a bli registrert i Partiregisteret og få rett til å stille lister uten å samle underskrifter, må et parti i Norge ha minst 5 000 medlemmer.',
   },
 ],
 
@@ -381,28 +381,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-1-4': [
   {
     question: 'Hva er politisk sosialisering?',
-    options: ["Den livslange prosessen der individer tilegner seg politiske holdninger og verdier", "En enkelt avstemning", "En lov som fastsetter hvem som far stemmerett", "En bestemt form for valgkamp der partiene mobiliserer velgerne rett for et forestaaende valg"],
-    explanation: 'Politisk sosialisering er den livslange prosessen der individer tilegner seg politiske holdninger, verdier, kunnskaper og handlingsmonstre.',
+    options: ["Den livslange prosessen der individer tilegner seg politiske holdninger og verdier", "En enkelt avstemning", "En lov som fastsetter hvem som får stemmerett", "En bestemt form for valgkamp der partiene mobiliserer velgerne rett for et forestaaende valg"],
+    explanation: 'Politisk sosialisering er den livslange prosessen der individer tilegner seg politiske holdninger, verdier, kunnskaper og handlingsmønstre.',
   },
   {
     question: 'Hvor skjer primaer politisk sosialisering?',
     options: ['I familien', 'I Stortinget', 'I domstolene', 'I FN'],
-    explanation: 'Primaer politisk sosialisering skjer i familien, mens sekundaer sosialisering skjer gjennom skole, medier, venner og arbeidsliv.',
+    explanation: 'Primaer politisk sosialisering skjer i familien, mens sekundær sosialisering skjer gjennom skole, medier, venner og arbeidsliv.',
   },
   {
     question: 'Hva er en sosialiseringsagent?',
-    options: ["En person, gruppe eller arena som paavirker individets verdier og holdninger", "En ansatt i et PR-byraa som mot betaling utformer kommunikasjonsraad og kampanjer for kunder", "En ansatt i et PR-byraa som paa oppdrag paavirker politiske beslutninger gjennom lobbyvirksomhet", "En domstol som gjennom sine avgjorelser tolker lovene og former rettspraksis i samfunnet over tid"],
-    explanation: 'En sosialiseringsagent er en person, gruppe, institusjon eller arena som paavirker individets utvikling av verdier og holdninger - som familie, skole, venner og medier.',
+    options: ["En person, gruppe eller arena som påvirker individets verdier og holdninger", "En ansatt i et PR-byraa som mot betaling utformer kommunikasjonsraad og kampanjer for kunder", "En ansatt i et PR-byraa som paa oppdrag påvirker politiske beslutninger gjennom lobbyvirksomhet", "En domstol som gjennom sine avgjørelser tolker lovene og former rettspraksis i samfunnet over tid"],
+    explanation: 'En sosialiseringsagent er en person, gruppe, institusjon eller arena som påvirker individets utvikling av verdier og holdninger - som familie, skole, venner og medier.',
   },
   {
     question: 'Hva er politisk kultur?',
-    options: ["Summen av holdninger, verdier og forestillinger om politikk i et samfunn", "Antall partier i et land, talt ut fra hvor mange som er registrert i Partiregisteret", "Antallet partier som er representert i nasjonalforsamlingen, og styrkeforholdet mellom dem", "De formelle reglene for hvordan valg gjennomfores og hvordan mandatene fordeles mellom partiene"],
+    options: ["Summen av holdninger, verdier og forestillinger om politikk i et samfunn", "Antall partier i et land, talt ut fra hvor mange som er registrert i Partiregisteret", "Antallet partier som er representert i nasjonalforsamlingen, og styrkeforholdet mellom dem", "De formelle reglene for hvordan valg gjennomføres og hvordan mandatene fordeles mellom partiene"],
     explanation: 'Politisk kultur er summen av holdninger, verdier og forestillinger om politikk i et samfunn. Den norske kjennetegnes av konsensuskultur, hoy tillit og likhetsverdier.',
   },
   {
     question: 'Hvilke arenaer regnes som de viktigste politiske sosialiseringsagentene?',
-    options: ["Familie, skole, venner, medier, arbeidsliv og religiose institusjoner", "Bare politiske partier, ettersom politiske holdninger forst dannes naar man melder seg inn", "Utelukkende domstolene, som gjennom sine avgjorelser laerer borgerne hva som er rett og galt", "Utelukkende de politiske partiene, som former borgernes syn gjennom program og valgkampbudskap"],
-    explanation: 'De viktigste sosialiseringsagentene er familien, skolen, venner, medier, arbeidsliv og religiose institusjoner - arenaer som former politiske verdier og holdninger.',
+    options: ["Familie, skole, venner, medier, arbeidsliv og religiøse institusjoner", "Bare politiske partier, ettersom politiske holdninger først dannes naar man melder seg inn", "Utelukkende domstolene, som gjennom sine avgjørelser laerer borgerne hva som er rett og galt", "Utelukkende de politiske partiene, som former borgernes syn gjennom program og valgkampbudskap"],
+    explanation: 'De viktigste sosialiseringsagentene er familien, skolen, venner, medier, arbeidsliv og religiøse institusjoner - arenaer som former politiske verdier og holdninger.',
   },
 ],
 
@@ -410,13 +410,13 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-1-5': [
   {
     question: 'Hva menes med mediene som den fjerde statsmakt?',
-    options: ["Frie medier som kontrollerer og overvaaker de tre offisielle statsmaktene", "En domstol som dommer pressen", "Et statlig propagandaorgan for myndighetenes budskap", "En egen domstol som dommer i saker mot pressen og avgjor hva mediene har lov til a publisere"],
-    explanation: 'Den fjerde statsmakt er en betegnelse pa frie, uavhengige medier som kontrollerer de tre offisielle statsmaktene gjennom informasjon, gravejournalistikk og dagsordensetting.',
+    options: ["Frie medier som kontrollerer og overvåker de tre offisielle statsmaktene", "En domstol som dommer pressen", "Et statlig propagandaorgan for myndighetenes budskap", "En egen domstol som dommer i saker mot pressen og avgjør hva mediene har lov til a publisere"],
+    explanation: 'Den fjerde statsmakt er en betegnelse på frie, uavhengige medier som kontrollerer de tre offisielle statsmaktene gjennom informasjon, gravejournalistikk og dagsordensetting.',
   },
   {
     question: 'Hva sier teorien om agenda-setting (dagsordensetting)?',
-    options: ["Mediene paavirker hva folk oppfatter som viktig, ikke nodvendigvis hva de mener", "Mediene bestemmer hva folk skal mene", "At mediene ikke har noen reell innflytelse paa hva folk oppfatter som viktig i samfunnsdebatten", "At mediene direkte bestemmer hvilke meninger folk skal ha om de ulike politiske stridssporsmaalene"],
-    explanation: 'Agenda-setting (McCombs og Shaw, 1972) sier at mediene paavirker hvilke saker folk oppfatter som viktige - de bestemmer ikke hva folk mener, men hva de tenker pa.',
+    options: ["Mediene påvirker hva folk oppfatter som viktig, ikke nødvendigvis hva de mener", "Mediene bestemmer hva folk skal mene", "At mediene ikke har noen reell innflytelse paa hva folk oppfatter som viktig i samfunnsdebatten", "At mediene direkte bestemmer hvilke meninger folk skal ha om de ulike politiske stridsspørsmålene"],
+    explanation: 'Agenda-setting (McCombs og Shaw, 1972) sier at mediene påvirker hvilke saker folk oppfatter som viktige - de bestemmer ikke hva folk mener, men hva de tenker pa.',
   },
   {
     question: 'Hva er et ekkokammer?',
@@ -425,13 +425,13 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er framing (innramming) i mediesammenheng?',
-    options: ["Hvordan en sak presenteres, noe som paavirker hvordan folk forstaar den", "En domstolsavgjorelse som fastsetter hvordan en sak skal omtales i mediene etterpaa", "En valgordning som avgjor hvordan mediene skal fordele dekningen og sendetiden mellom partiene", "En form for statlig sensur der myndighetene stanser saker de ikke onsker offentliggjort i mediene"],
-    explanation: 'Framing handler om hvordan en sak rammes inn og presenteres. Ulik innramming - for eksempel katastrofe-framing eller mulighets-framing - paavirker hvordan folk forstaar saken.',
+    options: ["Hvordan en sak presenteres, noe som påvirker hvordan folk forstår den", "En domstolsavgjorelse som fastsetter hvordan en sak skal omtales i mediene etterpå", "En valgordning som avgjør hvordan mediene skal fordele dekningen og sendetiden mellom partiene", "En form for statlig sensur der myndighetene stanser saker de ikke ønsker offentliggjort i mediene"],
+    explanation: 'Framing handler om hvordan en sak rammes inn og presenteres. Ulik innramming - for eksempel katastrofe-framing eller mulighets-framing - påvirker hvordan folk forstår saken.',
   },
   {
-    question: 'Hvorfor kan ekkokamre vaere problematiske for demokratiet?',
-    options: ["De kan svekke evnen til a forstaa andres perspektiver og oke polarisering", "De fjerner all uenighet fra det man faar se, slik at motargumenter aldri naar fram", "De styrker domstolenes uavhengige rolle og evne til a kontrollere de ovrige statsmaktene i landet", "De gjor at alle borgerne til slutt blir enige, slik at den politiske debatten i samfunnet forstummer"],
-    explanation: 'Ekkokamre kan svekke evnen til a forstaa andres perspektiver og bidra til politisk polarisering, fordi man i mindre grad moter motforestillinger.',
+    question: 'Hvorfor kan ekkokamre være problematiske for demokratiet?',
+    options: ["De kan svekke evnen til a forstå andres perspektiver og oke polarisering", "De fjerner all uenighet fra det man får se, slik at motargumenter aldri naar fram", "De styrker domstolenes uavhengige rolle og evne til a kontrollere de ovrige statsmaktene i landet", "De gjor at alle borgerne til slutt blir enige, slik at den politiske debatten i samfunnet forstummer"],
+    explanation: 'Ekkokamre kan svekke evnen til a forstå andres perspektiver og bidra til politisk polarisering, fordi man i mindre grad moter motforestillinger.',
   },
 ],
 
@@ -443,24 +443,24 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
     explanation: 'Konvensjonell deltakelse skjer gjennom etablerte kanaler (valg, partier, organisasjoner), mens ukonvensjonell skjer gjennom demonstrasjoner, aksjoner og sivil ulydighet.',
   },
   {
-    question: 'Hva innebaerer aktivt medborgerskap?',
-    options: ["A engasjere seg i samfunnet, ikke bare vaere en passiv borger med rettigheter", "A bare ha rettigheter uten plikter", "A begrense sitt bidrag til samfunnet til a betale skatt og folge lovene, uten videre engasjement", "A holde seg helt unna all politikk og offentlig debatt, og overlate samfunnsstyringen til de folkevalgte"],
-    explanation: 'Aktivt medborgerskap innebaerer a engasjere seg gjennom politisk deltakelse, frivillig arbeid og offentlig debatt, og omfatter bade rettigheter og plikter.',
+    question: 'Hva innebærer aktivt medborgerskap?',
+    options: ["A engasjere seg i samfunnet, ikke bare være en passiv borger med rettigheter", "A bare ha rettigheter uten plikter", "A begrense sitt bidrag til samfunnet til a betale skatt og folge lovene, uten videre engasjement", "A holde seg helt unna all politikk og offentlig debatt, og overlate samfunnsstyringen til de folkevalgte"],
+    explanation: 'Aktivt medborgerskap innebærer a engasjere seg gjennom politisk deltakelse, frivillig arbeid og offentlig debatt, og omfatter både rettigheter og plikter.',
   },
   {
     question: 'Hva kjennetegner sivil ulydighet?',
-    options: ["Bevisst, ikke-voldelig lovbrudd av samvittighetsgrunner, der man aksepterer straffen", "A ignorere lover man ikke liker i smug, slik at ingen oppdager lovbruddet og ingen straff folger", "A stemme blankt ved valg som en stille protest mot partiene, uten a bryte noen lover i prosessen", "Voldelig og bevaepnet oppror mot staten med maal om a styrte myndighetene og gripe makten med makt"],
-    explanation: 'Sivil ulydighet er bevisst, ikke-voldelig lovbrudd begaatt av samvittighetsgrunner. Den utfores aapent, og utoveren er villig til a akseptere straffen.',
+    options: ["Bevisst, ikke-voldelig lovbrudd av samvittighetsgrunner, der man aksepterer straffen", "A ignorere lover man ikke liker i smug, slik at ingen oppdager lovbruddet og ingen straff folger", "A stemme blankt ved valg som en stille protest mot partiene, uten å bryte noen lover i prosessen", "Voldelig og bevæpnet opprør mot staten med maal om å styrte myndighetene og gripe makten med makt"],
+    explanation: 'Sivil ulydighet er bevisst, ikke-voldelig lovbrudd begått av samvittighetsgrunner. Den utføres åpent, og utøveren er villig til a akseptere straffen.',
   },
   {
-    question: 'Hvem regnes som sentrale tenkere og utovere av sivil ulydighet?',
-    options: ["Thoreau, Gandhi og Martin Luther King Jr.", "Adam Smith og Karl Marx", "Montesquieu og Weber, som utviklet laerene om maktfordeling og byraakratiets rolle i staten", "Montesquieu og Weber"],
-    explanation: 'Begrepet sivil ulydighet ble utviklet av Henry David Thoreau og viderefort av Mahatma Gandhi og Martin Luther King Jr.',
+    question: 'Hvem regnes som sentrale tenkere og utøvere av sivil ulydighet?',
+    options: ["Thoreau, Gandhi og Martin Luther King Jr.", "Adam Smith og Karl Marx", "Montesquieu og Weber, som utviklet lærene om maktfordeling og byråkratiets rolle i staten", "Montesquieu og Weber"],
+    explanation: 'Begrepet sivil ulydighet ble utviklet av Henry David Thoreau og videreført av Mahatma Gandhi og Martin Luther King Jr.',
   },
   {
     question: 'Betyr lav valgdeltakelse blant unge at de er mindre politisk engasjerte?',
-    options: ["Ikke nodvendigvis - unge deltar ofte mer pa andre maater", "Ja, unge bryr seg aldri om politikk", "Nei, unge deltar mest av alle gjennom valgkanalen", "Nei, unge stemmer alltid mest"],
-    explanation: 'Ikke nodvendigvis. Forskning viser at unge deltar mindre gjennom tradisjonelle kanaler, men ofte mer gjennom deling av politisk innhold, aksjoner og enkeltsaksengasjement.',
+    options: ["Ikke nødvendigvis - unge deltar ofte mer på andre måter", "Ja, unge bryr seg aldri om politikk", "Nei, unge deltar mest av alle gjennom valgkanalen", "Nei, unge stemmer alltid mest"],
+    explanation: 'Ikke nødvendigvis. Forskning viser at unge deltar mindre gjennom tradisjonelle kanaler, men ofte mer gjennom deling av politisk innhold, aksjoner og enkeltsaksengasjement.',
   },
 ],
 
@@ -468,8 +468,8 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-2-1': [
   {
     question: 'Hva kjennetegner et demokrati?',
-    options: ["Frie valg, ytringsfrihet, rettssikkerhet og at makten utgaar fra folket", "At domstolene velger regjering", "At all makt er samlet hos en enkelt leder uten kontroll", "At domstolene velger regjeringen og fatter de sentrale politiske beslutningene paa vegne av folket"],
-    explanation: 'Demokrati kjennetegnes av at makten utgaar fra folket, med frie og rettferdige valg, ytringsfrihet, organisasjonsfrihet og rettssikkerhet.',
+    options: ["Frie valg, ytringsfrihet, rettssikkerhet og at makten utgår fra folket", "At domstolene velger regjering", "At all makt er samlet hos en enkelt leder uten kontroll", "At domstolene velger regjeringen og fatter de sentrale politiske beslutningene paa vegne av folket"],
+    explanation: 'Demokrati kjennetegnes av at makten utgår fra folket, med frie og rettferdige valg, ytringsfrihet, organisasjonsfrihet og rettssikkerhet.',
   },
   {
     question: 'Hva er direkte demokrati?',
@@ -477,48 +477,48 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
     explanation: 'Direkte demokrati betyr at borgerne selv stemmer over politiske saker, slik som i folkeavstemninger, i motsetning til representativt demokrati med valgte representanter.',
   },
   {
-    question: 'Hvor mange nasjonale folkeavstemninger har Norge gjennomfort?',
+    question: 'Hvor mange nasjonale folkeavstemninger har Norge gjennomført?',
     options: ['Seks', 'En', 'Femten', 'Ingen'],
-    explanation: 'Norge har gjennomfort seks nasjonale folkeavstemninger, blant annet om unionsopplosningen (1905) og om EU-medlemskap (1972 og 1994).',
+    explanation: 'Norge har gjennomført seks nasjonale folkeavstemninger, blant annet om unionsoppløsningen (1905) og om EU-medlemskap (1972 og 1994).',
   },
   {
     question: 'Hva er allmenn stemmerett?',
-    options: ["At alle voksne borgere har rett til a stemme uavhengig av kjonn, eiendom og status", "At bare de rikeste kan stemme, og at stemmeretten folger formuen slik at rike far flere stemmer", "At bare voksne menn har rett til a stemme, mens kvinner er utelukket fra a delta i valgene", "At bare de rikeste borgerne med tilstrekkelig eiendom og inntekt har rett til a avgi stemme"],
+    options: ["At alle voksne borgere har rett til a stemme uavhengig av kjonn, eiendom og status", "At bare de rikeste kan stemme, og at stemmeretten folger formuen slik at rike får flere stemmer", "At bare voksne menn har rett til a stemme, mens kvinner er utelukket fra a delta i valgene", "At bare de rikeste borgerne med tilstrekkelig eiendom og inntekt har rett til a avgi stemme"],
     explanation: 'Allmenn stemmerett betyr at alle voksne borgere har rett til a stemme, uavhengig av kjonn, eiendom, inntekt eller sosial status. Det er et grunnleggende demokratisk kjennetegn.',
   },
   {
     question: 'Hva er et sentralt kjennetegn ved frie og rettferdige valg?',
-    options: ["Reell konkurranse mellom partier og hemmelig stemmegivning", "At staten teller stemmene uten kontroll", "At stemmene telles i lukkede rom uten innsyn", "At resultatet bestemmes pa forhaand"],
-    explanation: 'Frie og rettferdige valg forutsetter reell konkurranse mellom partier, allmenn stemmerett, hemmelig stemmegivning og at valget gjennomfores apent og kontrollerbart.',
+    options: ["Reell konkurranse mellom partier og hemmelig stemmegivning", "At staten teller stemmene uten kontroll", "At stemmene telles i lukkede rom uten innsyn", "At resultatet bestemmes pa forhånd"],
+    explanation: 'Frie og rettferdige valg forutsetter reell konkurranse mellom partier, allmenn stemmerett, hemmelig stemmegivning og at valget gjennomføres åpent og kontrollerbart.',
   },
 ],
 
 
   'politikk-menneskerett-2-2': [
   {
-    question: 'Hva innebaerer parlamentarisme?',
-    options: ["Regjeringen er avhengig av nasjonalforsamlingens (Stortingets) tillit", "Presidenten velges direkte og uavhengig", "Domstolene utnevner regjeringen og kan avsette den dersom den bryter med grunnloven og lovverket", "Kongen leder regjeringen og utnevner statsraadene etter egen vilje, uavhengig av Stortingets flertall"],
-    explanation: 'Parlamentarisme betyr at regjeringen er avhengig av Stortingets tillit. Vedtas mistillit, ma regjeringen ga av. Regjeringen utgaar normalt fra stortingsflertallet.',
+    question: 'Hva innebærer parlamentarisme?',
+    options: ["Regjeringen er avhengig av nasjonalforsamlingens (Stortingets) tillit", "Presidenten velges direkte og uavhengig", "Domstolene utnevner regjeringen og kan avsette den dersom den bryter med grunnloven og lovverket", "Kongen leder regjeringen og utnevner statsrådene etter egen vilje, uavhengig av Stortingets flertall"],
+    explanation: 'Parlamentarisme betyr at regjeringen er avhengig av Stortingets tillit. Vedtas mistillit, må regjeringen ga av. Regjeringen utgår normalt fra stortingsflertallet.',
   },
   {
     question: 'Hva er en mindretallsregjering?',
     options: ["En regjering som ikke har flertall bak seg i Stortinget", "En regjering med bare ett medlem", "En regjering som styrer uten fungerende Storting", "En regjering valgt av domstolene"],
-    explanation: 'En mindretallsregjering har ikke flertall bak seg i Stortinget, og ma derfor forhandle med andre partier for a faa gjennomslag. Dette er vanlig i Norge.',
+    explanation: 'En mindretallsregjering har ikke flertall bak seg i Stortinget, og må derfor forhandle med andre partier for a faa gjennomslag. Dette er vanlig i Norge.',
   },
   {
     question: 'Hvorfor har Norge ofte mindretallsregjeringer?',
-    options: ["Fordi flerpartisystemet gjor det vanskelig for ett parti a faa rent flertall", "Fordi grunnloven forbyr flertallsregjeringer", "Fordi altfor faa velgere moter opp og stemmer ved valgene til at noe parti kan oppnaa rent flertall", "Fordi grunnloven uttrykkelig forbyr at ett enkelt parti danner en regjering med rent flertall bak seg"],
+    options: ["Fordi flerpartisystemet gjor det vanskelig for ett parti a faa rent flertall", "Fordi grunnloven forbyr flertallsregjeringer", "Fordi altfor faa velgere moter opp og stemmer ved valgene til at noe parti kan oppnå rent flertall", "Fordi grunnloven uttrykkelig forbyr at ett enkelt parti danner en regjering med rent flertall bak seg"],
     explanation: 'Norge har et flerpartisystem med mange partier pa Stortinget, noe som gjor det vanskelig for ett parti a faa rent flertall. Derfor er mindretallsregjeringer vanlig.',
   },
   {
     question: 'Hva skjer hvis Stortinget vedtar mistillit mot regjeringen?',
-    options: ['Regjeringen ma ga av', 'Stortinget opploses', 'Kongen overtar styringen', 'Ingenting skjer'],
-    explanation: 'Under parlamentarismen ma regjeringen ga av dersom Stortinget vedtar et mistillitsforslag, fordi regjeringen er avhengig av Stortingets tillit.',
+    options: ['Regjeringen må ga av', 'Stortinget oppløses', 'Kongen overtar styringen', 'Ingenting skjer'],
+    explanation: 'Under parlamentarismen må regjeringen ga av dersom Stortinget vedtar et mistillitsforslag, fordi regjeringen er avhengig av Stortingets tillit.',
   },
   {
-    question: 'Fra hva utgaar regjeringen normalt etter et valg?',
-    options: ["Fra det partiet eller den koalisjonen som har stortingsflertall eller storst stotte", "Fra kongens egen vilje alene, ettersom det er kongen som personlig utpeker alle statsraadene", "Fra domstolene, som etter valget peker ut hvilket parti eller koalisjon som skal danne regjering", "Fra Hoyesterett, som ut fra en juridisk vurdering avgjor hvem som skal styre landet etter valget"],
-    explanation: 'Etter valg dannes regjeringen normalt av det partiet eller den koalisjonen som har flertall eller storst stotte i Stortinget.',
+    question: 'Fra hva utgår regjeringen normalt etter et valg?',
+    options: ["Fra det partiet eller den koalisjonen som har stortingsflertall eller storst støtte", "Fra kongens egen vilje alene, ettersom det er kongen som personlig utpeker alle statsrådene", "Fra domstolene, som etter valget peker ut hvilket parti eller koalisjon som skal danne regjering", "Fra Høyesterett, som ut fra en juridisk vurdering avgjør hvem som skal styre landet etter valget"],
+    explanation: 'Etter valg dannes regjeringen normalt av det partiet eller den koalisjonen som har flertall eller storst støtte i Stortinget.',
   },
 ],
 
@@ -526,28 +526,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-2-3': [
   {
     question: 'Hvilken statsmakt er Stortinget?',
-    options: ["Den lovgivende makten", "Den fjerde statsmakt", "Den utovende makten, som setter lovene ut i livet og styrer forvaltningen fra dag til dag", "Den utovende makten"],
+    options: ["Den lovgivende makten", "Den fjerde statsmakt", "Den utøvende makten, som setter lovene ut i livet og styrer forvaltningen fra dag til dag", "Den utøvende makten"],
     explanation: 'Stortinget er den lovgivende makten i Norge. Det vedtar lover, bevilger penger (budsjett) og kontrollerer regjeringen.',
   },
   {
     question: 'Hva er Stortingets sentrale oppgaver?',
-    options: ["Vedta lover, bevilge penger og kontrollere regjeringen", "Doemme i straffesaker", "A avsi dom over dem som anklages for lovbrudd", "Utnevne dommere alene"],
-    explanation: 'Stortinget vedtar lover, bevilger penger gjennom statsbudsjettet og kontrollerer regjeringen, blant annet gjennom sporretime og kontrollkomite.',
+    options: ["Vedta lover, bevilge penger og kontrollere regjeringen", "Dømme i straffesaker", "A avsi dom over dem som anklages for lovbrudd", "Utnevne dommere alene"],
+    explanation: 'Stortinget vedtar lover, bevilger penger gjennom statsbudsjettet og kontrollerer regjeringen, blant annet gjennom spørretime og kontrollkomite.',
   },
   {
     question: 'Hva skjer typisk tidlig i lovgivningsprosessen?',
-    options: ["Saken utredes, ofte gjennom offentlige utvalg og horinger", "Loven trer i kraft umiddelbart", "Loven trer i kraft umiddelbart og gjelder fra det oyeblikket den forst blir foreslaatt av regjeringen", "Kongen vedtar loven alene"],
-    explanation: 'Lovgivningsprosessen starter ofte med utredning, der offentlige utvalg vurderer saken og det gjennomfores horinger, for et lovforslag fremmes for Stortinget.',
+    options: ["Saken utredes, ofte gjennom offentlige utvalg og høringer", "Loven trer i kraft umiddelbart", "Loven trer i kraft umiddelbart og gjelder fra det øyeblikket den først blir foreslått av regjeringen", "Kongen vedtar loven alene"],
+    explanation: 'Lovgivningsprosessen starter ofte med utredning, der offentlige utvalg vurderer saken og det gjennomføres høringer, for et lovforslag fremmes for Stortinget.',
   },
   {
     question: 'Hva illustrerer prosessen bak abortloven fra 1975?',
-    options: ["At lovgivning kan vaere en lang prosess med utredning og politisk debatt", "At lover vedtas uten debatt, ved at forslaget gaar rett fra departementet til endelig vedtak", "At det er domstolene som lager lovene, mens Stortinget bare bekrefter det domstolene har bestemt", "At kongen alene bestemmer innholdet i nye lover, uten medvirkning fra Storting, utvalg eller folket"],
+    options: ["At lovgivning kan være en lang prosess med utredning og politisk debatt", "At lover vedtas uten debatt, ved at forslaget gaar rett fra departementet til endelig vedtak", "At det er domstolene som lager lovene, mens Stortinget bare bekrefter det domstolene har bestemt", "At kongen alene bestemmer innholdet i nye lover, uten medvirkning fra Storting, utvalg eller folket"],
     explanation: 'Abortloven (1975) ble til etter en lang prosess med utredninger, offentlige utvalg og bred politisk debatt, og illustrerer lovgivningsprosessen og det politiske samspillet.',
   },
   {
     question: 'Hvem vedtar til slutt lover i Norge?',
     options: ['Stortinget', 'Hoyesterett', 'Statsministeren alene', 'Kommunestyrene'],
-    explanation: 'Det er Stortinget som vedtar lover. Kongen i statsrad sanksjonerer (underskriver) formelt loven, men har ingen reell makt til a stoppe den.',
+    explanation: 'Det er Stortinget som vedtar lover. Kongen i statsråd sanksjonerer (underskriver) formelt loven, men har ingen reell makt til a stoppe den.',
   },
 ],
 
@@ -555,28 +555,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-2-4': [
   {
     question: 'Hva er den offentlige forvaltningen?',
-    options: ["Statlige og kommunale organer som forbereder og gjennomforer politiske vedtak", "De politiske partiene", "Domstolene som dommer i tvister og kontrollerer at lover blir fulgt i samfunnet", "Mediene som gransker makthaverne og formidler uavhengig informasjon til borgerne"],
-    explanation: 'Forvaltningen er fellesbetegnelsen pa statlige og kommunale organer som forbereder og gjennomforer politiske vedtak, organisert i departementer, direktorater og tilsyn.',
+    options: ["Statlige og kommunale organer som forbereder og gjennomfører politiske vedtak", "De politiske partiene", "Domstolene som dommer i tvister og kontrollerer at lover blir fulgt i samfunnet", "Mediene som gransker makthaverne og formidler uavhengig informasjon til borgerne"],
+    explanation: 'Forvaltningen er fellesbetegnelsen på statlige og kommunale organer som forbereder og gjennomfører politiske vedtak, organisert i departementer, direktorater og tilsyn.',
   },
   {
     question: 'Hva er departementenes rolle?',
     options: ["De er regjeringens sekretariat og forbereder og iverksetter politikk", "De velges direkte av folket", "De velges direkte av folket ved allmenne valg hvert fjerde ar i Norge", "De er politiske partier som stiller lister og kjemper om velgernes stemmer"],
-    explanation: 'Departementene fungerer som regjeringens sekretariat. De forbereder saker, utvikler regelverk og iverksetter politikken pa sine omrader.',
+    explanation: 'Departementene fungerer som regjeringens sekretariat. De forbereder saker, utvikler regelverk og iverksetter politikken på sine områder.',
   },
   {
     question: 'Hva er et direktorat?',
-    options: ["Et faglig gjennomforingsorgan, for eksempel Utdanningsdirektoratet eller NAV", "Et politisk parti som stiller til valg og utformer eget ideologisk program", "Et privat medieselskap som gransker makten og formidler nyheter til borgerne", "En domstol som dommer i saker og avgjor tvister mellom borgere og staten"],
+    options: ["Et faglig gjennomforingsorgan, for eksempel Utdanningsdirektoratet eller NAV", "Et politisk parti som stiller til valg og utformer eget ideologisk program", "Et privat medieselskap som gransker makten og formidler nyheter til borgerne", "En domstol som dommer i saker og avgjør tvister mellom borgere og staten"],
     explanation: 'Et direktorat er et faglig gjennomforingsorgan under et departement, for eksempel Utdanningsdirektoratet og NAV, som iverksetter og forvalter politikk i praksis.',
   },
   {
-    question: 'Hvordan gjennomfores en reform som fagfornyelsen (LK20) i praksis?',
-    options: ["Stortinget vedtar, regjeringen/departementet forbereder, forvaltningen iverksetter", "Kongen bestemmer alene innholdet i laereplanene uten a involvere Stortinget", "Mediene vedtar reformen etter offentlig debatt og pavirkning fra opinionen", "Domstolene gjennomforer hele reformen ved a dom om laereplanenes innhold"],
-    explanation: 'Stortinget vedtar at laereplanene skal fornyes, Kunnskapsdepartementet leder utviklingen med faggrupper og horinger, og forvaltningen (skoler, direktorat) iverksetter reformen.',
+    question: 'Hvordan gjennomføres en reform som fagfornyelsen (LK20) i praksis?',
+    options: ["Stortinget vedtar, regjeringen/departementet forbereder, forvaltningen iverksetter", "Kongen bestemmer alene innholdet i læreplanene uten å involvere Stortinget", "Mediene vedtar reformen etter offentlig debatt og påvirkning fra opinionen", "Domstolene gjennomfører hele reformen ved å dom om laereplanenes innhold"],
+    explanation: 'Stortinget vedtar at læreplanene skal fornyes, Kunnskapsdepartementet leder utviklingen med faggrupper og høringer, og forvaltningen (skoler, direktorat) iverksetter reformen.',
   },
   {
     question: 'Hva er en sentral verdi for forvaltningen i et demokrati?',
-    options: ["A vaere faglig, upartisk og folge lov og politiske vedtak", "A bestemme politikken selv, slik at fagfolkene i etatene setter maalene for samfunnet", "A unnga innsyn og offentlighet slik at avgjorelsene holdes skjult for borgerne", "A bestemme den politiske retningen selv uavhengig av Stortingets vedtak og lover"],
-    explanation: 'Forvaltningen skal vaere faglig og upartisk og iverksette de politiske vedtakene innenfor lovens rammer, uavhengig av hvilket parti som sitter i regjering.',
+    options: ["A være faglig, upartisk og folge lov og politiske vedtak", "A bestemme politikken selv, slik at fagfolkene i etatene setter målene for samfunnet", "A unngå innsyn og offentlighet slik at avgjørelsene holdes skjult for borgerne", "A bestemme den politiske retningen selv uavhengig av Stortingets vedtak og lover"],
+    explanation: 'Forvaltningen skal være faglig og upartisk og iverksette de politiske vedtakene innenfor lovens rammer, uavhengig av hvilket parti som sitter i regjering.',
   },
 ],
 
@@ -584,56 +584,56 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-2-5': [
   {
     question: 'Hva er kommunalt selvstyre?',
-    options: ["Prinsippet om at kommunene styrer seg selv innenfor nasjonal lovgivning", "At kommunene er helt uavhengige av staten", "At domstolene styrer kommunene og lokale tjenester", "At staten bestemmer alt lokalt og kommunene bare iverksetter statens palegg direkte"],
+    options: ["Prinsippet om at kommunene styrer seg selv innenfor nasjonal lovgivning", "At kommunene er helt uavhengige av staten", "At domstolene styrer kommunene og lokale tjenester", "At staten bestemmer alt lokalt og kommunene bare iverksetter statens pålegg direkte"],
     explanation: 'Kommunalt selvstyre er prinsippet om at kommunene har rett til a styre lokale anliggender gjennom folkevalgte organer, innenfor rammene av nasjonal lovgivning.',
   },
   {
     question: 'Nar ble det kommunale selvstyret grunnlovfestet?',
     options: ['I 2016', 'I 1814', 'I 1945', 'I 1972'],
-    explanation: 'Det kommunale selvstyret ble grunnlovfestet i 2016 gjennom ny paragraf 49, andre ledd, som slaar fast innbyggernes rett til a styre lokale anliggender.',
+    explanation: 'Det kommunale selvstyret ble grunnlovfestet i 2016 gjennom ny paragraf 49, andre ledd, som slår fast innbyggernes rett til a styre lokale anliggender.',
   },
   {
     question: 'Hva er kommunenes hovedansvar?',
-    options: ["Grunnskole, barnehage, eldreomsorg og arealplanlegging", "Forsvar og utenrikspolitikk, i tillegg til grensekontroll og forsvarsavtaler", "Nasjonal pengepolitikk og fastsetting av styringsrenten i landet", "Hoyesterett og den overste domsmyndigheten i tvister mellom borgere"],
-    explanation: 'Kommunene har ansvar for blant annet grunnskole, barnehage, eldreomsorg, arealplanlegging og vann/avlop - tjenester naer innbyggerne.',
+    options: ["Grunnskole, barnehage, eldreomsorg og arealplanlegging", "Forsvar og utenrikspolitikk, i tillegg til grensekontroll og forsvarsavtaler", "Nasjonal pengepolitikk og fastsetting av styringsrenten i landet", "Høyesterett og den øverste domsmyndigheten i tvister mellom borgere"],
+    explanation: 'Kommunene har ansvar for blant annet grunnskole, barnehage, eldreomsorg, arealplanlegging og vann/avlop - tjenester nær innbyggerne.',
   },
   {
     question: 'Hva var malet med kommunereformen?',
-    options: ["A skape storre og mer robuste kommuner", "A oke antall kommuner kraftig", "A avskaffe alle kommuner", "A fjerne lokaldemokratiet"],
-    explanation: 'Kommunereformen (igangsatt 2014) hadde som maal a skape storre og mer robuste kommuner. Fra 2020 ble antallet redusert fra 428 til 356.',
+    options: ["A skape større og mer robuste kommuner", "A oke antall kommuner kraftig", "A avskaffe alle kommuner", "A fjerne lokaldemokratiet"],
+    explanation: 'Kommunereformen (igangsatt 2014) hadde som maal a skape større og mer robuste kommuner. Fra 2020 ble antallet redusert fra 428 til 356.',
   },
   {
-    question: 'Hvilket argument ble brukt MOT kommunesammenslaaing?',
-    options: ["At avstanden mellom innbyggere og lokale folkevalgte kan oke", "At lokaldemokratiet styrkes for mye", "At lokaldemokratiet styrkes for mye pa bekostning av statlig samordning", "At kommunene blir for smaa til a lose oppgavene sine"],
-    explanation: 'Et vanlig motargument var at storre kommuner kan oke avstanden mellom innbyggerne og de lokale folkevalgte. Argumenter for var blant annet sterkere fagmiljoer og mer robuste tjenester.',
+    question: 'Hvilket argument ble brukt MOT kommunesammenslåing?',
+    options: ["At avstanden mellom innbyggere og lokale folkevalgte kan oke", "At lokaldemokratiet styrkes for mye", "At lokaldemokratiet styrkes for mye på bekostning av statlig samordning", "At kommunene blir for smaa til a lose oppgavene sine"],
+    explanation: 'Et vanlig motargument var at større kommuner kan oke avstanden mellom innbyggerne og de lokale folkevalgte. Argumenter for var blant annet sterkere fagmiljoer og mer robuste tjenester.',
   },
 ],
 
 
   'politikk-menneskerett-2-6': [
   {
-    question: 'Hva kjennetegner autoritaere regimer?',
+    question: 'Hva kjennetegner autoritære regimer?',
     options: ["Makt konsentrert hos en liten gruppe og begrenset opposisjon og mediefrihet", "Frie og rettferdige valg kombinert med full ytringsfrihet for alle borgere", "Sterk maktfordeling mellom de tre statsmaktene", "Uavhengige domstoler og frie medier som kontrollerer makthaverne effektivt"],
-    explanation: 'Autoritaere regimer kjennetegnes av at makten er konsentrert, med begrenset politisk pluralisme, svak maktfordeling og kontrollerte medier.',
+    explanation: 'Autoritære regimer kjennetegnes av at makten er konsentrert, med begrenset politisk pluralisme, svak maktfordeling og kontrollerte medier.',
   },
   {
     question: 'Hva menes med demokratisk tilbakegang?',
-    options: ["At demokratiske institusjoner gradvis svekkes, ofte innenfra", "At domstolene blir mer uavhengige", "At domstolene blir mer uavhengige av den utovende og lovgivende makten", "At det innfores flere frie valg og folkeavstemninger for a oke deltakelsen"],
-    explanation: 'Demokratisk tilbakegang er nar demokratiske institusjoner gradvis svekkes, ofte av valgte ledere som uthuler maktfordeling, mediefrihet og rettsstat innenfra.',
+    options: ["At demokratiske institusjoner gradvis svekkes, ofte innenfra", "At domstolene blir mer uavhengige", "At domstolene blir mer uavhengige av den utøvende og lovgivende makten", "At det innføres flere frie valg og folkeavstemninger for å oke deltakelsen"],
+    explanation: 'Demokratisk tilbakegang er når demokratiske institusjoner gradvis svekkes, ofte av valgte ledere som uthuler maktfordeling, mediefrihet og rettsstat innenfra.',
   },
   {
     question: 'Hva er et hybridregime?',
-    options: ["Et regime som blander demokratiske og autoritaere trekk", "Et rent diktatur uten valg, der opposisjonspartier er forbudt ved lov", "Et rent diktatur helt uten valg der all makt ligger hos en enkelt leder", "En uavhengig domstol som avgjor tvister mellom borgerne og staten fritt"],
-    explanation: 'Et hybridregime kombinerer demokratiske og autoritaere trekk - det kan ha valg, men disse er ofte ikke helt frie og rettferdige, og opposisjon og medier er under press.',
+    options: ["Et regime som blander demokratiske og autoritære trekk", "Et rent diktatur uten valg, der opposisjonspartier er forbudt ved lov", "Et rent diktatur helt uten valg der all makt ligger hos en enkelt leder", "En uavhengig domstol som avgjør tvister mellom borgerne og staten fritt"],
+    explanation: 'Et hybridregime kombinerer demokratiske og autoritære trekk - det kan ha valg, men disse er ofte ikke helt frie og rettferdige, og opposisjon og medier er under press.',
   },
   {
     question: 'Hva er et typisk trekk ved demokratisk tilbakegang slik den beskrives i Ungarn?',
-    options: ["Gradvis uthuling av uavhengige institusjoner og mediefrihet", "Innforing av flere uavhengige domstoler", "Innforing av flere uavhengige domstoler som styrker rettsstaten betydelig", "Systematisk styrking av opposisjonens kaar og frie medier"],
-    explanation: 'Eksempelet Ungarn beskriver hvordan demokratiske institusjoner kan svekkes gradvis gjennom blant annet endringer som paavirker domstoler og medier, selv etter frie valg.',
+    options: ["Gradvis uthuling av uavhengige institusjoner og mediefrihet", "Innføring av flere uavhengige domstoler", "Innføring av flere uavhengige domstoler som styrker rettsstaten betydelig", "Systematisk styrking av opposisjonens kaar og frie medier"],
+    explanation: 'Eksempelet Ungarn beskriver hvordan demokratiske institusjoner kan svekkes gradvis gjennom blant annet endringer som påvirker domstoler og medier, selv etter frie valg.',
   },
   {
     question: 'Hvorfor regnes uavhengige medier som viktige for demokratiet?',
-    options: ["De kontrollerer makten og gir borgerne uavhengig informasjon", "De erstatter Stortinget ved at redaksjonene selv avgjor hvilke saker som blir politikk", "De erstatter Stortinget som lovgivende forsamling og vedtar landets lover", "De velger regjeringen direkte og utpeker hvilke statsrader som skal sitte"],
+    options: ["De kontrollerer makten og gir borgerne uavhengig informasjon", "De erstatter Stortinget ved at redaksjonene selv avgjør hvilke saker som blir politikk", "De erstatter Stortinget som lovgivende forsamling og vedtar landets lover", "De velger regjeringen direkte og utpeker hvilke statsråder som skal sitte"],
     explanation: 'Uavhengige medier kontrollerer makthaverne og gir borgerne informasjon. Nar mediefriheten begrenses, svekkes en sentral kontrollmekanisme i demokratiet.',
   },
 ],
@@ -642,18 +642,18 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-3-1': [
   {
     question: 'Hva inneholder en politisk ideologi typisk?',
-    options: ["Menneske- og samfunnssyn, verdier og mal, og syn pa virkemidler", "Bare en valgordning", "Bare et partinavn og en logo som velgerne kan kjenne igjen ved valg", "Bare en enkeltstaende lov vedtatt av Stortinget i en konkret enkeltsak"],
+    options: ["Menneske- og samfunnssyn, verdier og mal, og syn på virkemidler", "Bare en valgordning", "Bare et partinavn og en logo som velgerne kan kjenne igjen ved valg", "Bare en enkeltstaende lov vedtatt av Stortinget i en konkret enkeltsak"],
     explanation: 'En ideologi inneholder typisk et menneske- og samfunnssyn, verdier og mal for det gode samfunnet, og oppfatninger om hvilke virkemidler som bor brukes.',
   },
   {
     question: 'Hva er en funksjon av politiske ideologier?',
     options: ["De gir et sammenhengende sett av ideer som styrer politiske standpunkter", "De er bare historiske kuriositeter", "De avskaffer all politisk uenighet og skaper full enighet mellom partiene", "De er bare historiske kuriositeter uten betydning for dagens politiske debatt"],
-    explanation: 'Ideologier gir et sammenhengende sett av ideer om mennesket, samfunnet og det gode liv, og hjelper aktorer a begrunne politiske standpunkter.',
+    explanation: 'Ideologier gir et sammenhengende sett av ideer om mennesket, samfunnet og det gode liv, og hjelper aktorer å begrunne politiske standpunkter.',
   },
   {
     question: 'Hvordan kan vi se ulike ideologier i norsk skattepolitikk?',
-    options: ["Ulike syn pa skattenivaa og omfordeling speiler ulike ideologiske grunnsyn", "Alle partier mener noyaktig det samme om skattenivaaet, og uenigheten gjelder bare enkeltsaker", "Bare domstolene bestemmer skattenivaaet uavhengig av Stortinget og partiene", "Skatt er et rent upolitisk og teknisk sporsmal uten ideologiske skillelinjer"],
-    explanation: 'I skattepolitikken ser man ideologiske skillelinjer: noen vektlegger omfordeling og sterkere fellesskap, andre vektlegger lavere skatt og storre individuell frihet.',
+    options: ["Ulike syn pa skattenivå og omfordeling speiler ulike ideologiske grunnsyn", "Alle partier mener nøyaktig det samme om skattenivaaet, og uenigheten gjelder bare enkeltsaker", "Bare domstolene bestemmer skattenivaaet uavhengig av Stortinget og partiene", "Skatt er et rent upolitisk og teknisk sporsmal uten ideologiske skillelinjer"],
+    explanation: 'I skattepolitikken ser man ideologiske skillelinjer: noen vektlegger omfordeling og sterkere fellesskap, andre vektlegger lavere skatt og større individuell frihet.',
   },
   {
     question: 'Hva er et menneskesyn i ideologisk sammenheng?',
@@ -662,8 +662,8 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor gir ulike verdier ulike politiske standpunkter?',
-    options: ["Fordi man prioriterer verdier som frihet, likhet eller trygghet ulikt", "Fordi verdier ikke pavirker politikk", "Fordi alle verdier veier akkurat like tungt og aldri kommer i konflikt", "Fordi politikk er et verdifritt fag der bare fakta avgjor standpunktene"],
-    explanation: 'Ideologier prioriterer verdier som frihet, likhet, trygghet og tradisjon ulikt. Hvilke verdier man vektlegger mest, gir ulike svar pa politiske sporsmal.',
+    options: ["Fordi man prioriterer verdier som frihet, likhet eller trygghet ulikt", "Fordi verdier ikke påvirker politikk", "Fordi alle verdier veier akkurat like tungt og aldri kommer i konflikt", "Fordi politikk er et verdifritt fag der bare fakta avgjør standpunktene"],
+    explanation: 'Ideologier prioriterer verdier som frihet, likhet, trygghet og tradisjon ulikt. Hvilke verdier man vektlegger mest, gir ulike svar på politiske sporsmal.',
   },
 ],
 
@@ -671,28 +671,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-3-2': [
   {
     question: 'Hva er en kjerneide i liberalismen?',
-    options: ["Individuell frihet og naturlige rettigheter", "Kollektivt eierskap av produksjonsmidlene", "Vekt pa fellesskapet over individet", "Sterk vekt pa tradisjon over individet"],
+    options: ["Individuell frihet og naturlige rettigheter", "Kollektivt eierskap av produksjonsmidlene", "Vekt på fellesskapet over individet", "Sterk vekt på tradisjon over individet"],
     explanation: 'Liberalismen vektlegger individuell frihet, naturlige rettigheter (liv, frihet, eiendom) og en begrenset stat som beskytter disse rettighetene.',
   },
   {
     question: 'Hvilke tenkere er sentrale for klassisk liberalisme?',
     options: ['John Locke og Adam Smith', 'Karl Marx og Friedrich Engels', 'Edmund Burke og Montesquieu', 'Thomas Hobbes alene'],
-    explanation: 'John Locke (naturlige rettigheter) og Adam Smith (markedsokonomi) er sentrale for klassisk liberalisme.',
+    explanation: 'John Locke (naturlige rettigheter) og Adam Smith (markedsøkonomi) er sentrale for klassisk liberalisme.',
   },
   {
     question: 'Hva menes med begrenset statsmakt i liberalismen?',
-    options: ["At statens makt bor begrenses for a verne individets frihet", "At staten bor styre okonomien fullt ut", "At staten bor styre okonomien fullt ut og fordele godene mellom borgerne", "At staten bor eie alt pa vegne av fellesskapet"],
-    explanation: 'Liberalismen mener statens makt bor begrenses slik at den ikke griper unodig inn i individets frihet, men forst og fremst beskytter rettighetene.',
+    options: ["At statens makt bor begrenses for å verne individets frihet", "At staten bor styre økonomien fullt ut", "At staten bor styre økonomien fullt ut og fordele godene mellom borgerne", "At staten bor eie alt på vegne av fellesskapet"],
+    explanation: 'Liberalismen mener statens makt bor begrenses slik at den ikke griper unødig inn i individets frihet, men først og fremst beskytter rettighetene.',
   },
   {
     question: 'Hva kjennetegner sosialliberalisme sammenlignet med klassisk liberalisme?',
-    options: ["Den aksepterer en mer aktiv stat for a sikre reell frihet og like muligheter", "Den onsker mindre stat enn klassisk liberalisme", "Den vil avskaffe markedet og innfore full offentlig planlegging av okonomien", "Den onsker enda mindre stat enn klassisk liberalisme og et helt fritt marked"],
-    explanation: 'Sosialliberalismen bygger pa individuell frihet, men aksepterer en mer aktiv stat som sikrer velferd, utdanning og like muligheter, slik at friheten blir reell for flere.',
+    options: ["Den aksepterer en mer aktiv stat for å sikre reell frihet og like muligheter", "Den ønsker mindre stat enn klassisk liberalisme", "Den vil avskaffe markedet og innføre full offentlig planlegging av økonomien", "Den ønsker enda mindre stat enn klassisk liberalisme og et helt fritt marked"],
+    explanation: 'Sosialliberalismen bygger på individuell frihet, men aksepterer en mer aktiv stat som sikrer velferd, utdanning og like muligheter, slik at friheten blir reell for flere.',
   },
   {
-    question: 'Hva er naturlige rettigheter ifolge liberalismen?',
-    options: ["Umistelige rettigheter til liv, frihet og eiendom som tilhorer mennesket", "Rettigheter som gjelder utelukkende i krig og oppheves i fredstid igjen", "Rettigheter som staten gir borgerne og fritt kan trekke tilbake ved behov", "Rettigheter som bare gjelder for de rikeste med storst eiendom i samfunnet"],
-    explanation: 'I liberalismen er naturlige rettigheter umistelige rettigheter til liv, frihet og eiendom som tilhorer mennesket i kraft av a vaere menneske, ikke gitt av staten.',
+    question: 'Hva er naturlige rettigheter ifølge liberalismen?',
+    options: ["Umistelige rettigheter til liv, frihet og eiendom som tilhører mennesket", "Rettigheter som gjelder utelukkende i krig og oppheves i fredstid igjen", "Rettigheter som staten gir borgerne og fritt kan trekke tilbake ved behov", "Rettigheter som bare gjelder for de rikeste med storst eiendom i samfunnet"],
+    explanation: 'I liberalismen er naturlige rettigheter umistelige rettigheter til liv, frihet og eiendom som tilhører mennesket i kraft av a være menneske, ikke gitt av staten.',
   },
 ],
 
@@ -700,27 +700,27 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-3-3': [
   {
     question: 'Hva er en kjerneide i sosialismen?',
-    options: ['Okonomisk likhet og solidaritet', 'Minst mulig stat og maksimal markedsfrihet', 'Vekt pa tradisjon over likhet', 'Ingen offentlig sektor'],
+    options: ['Okonomisk likhet og solidaritet', 'Minst mulig stat og maksimal markedsfrihet', 'Vekt på tradisjon over likhet', 'Ingen offentlig sektor'],
     explanation: 'Sosialismen vektlegger okonomisk likhet, solidaritet og at viktige produksjonsmidler bor styres eller eies av fellesskapet i ulik grad.',
   },
   {
     question: 'Hva menes med historisk materialisme hos Marx?',
     options: ["At historien drives av endringer i produksjonsforholdene", "At ideer alene styrer historien, slik at tenkere og filosofer driver utviklingen framover", "At naturen og geografien bestemmer alt av samfunnsutviklingen over tid", "At ideer og tanker alene styrer historien uavhengig av okonomiske forhold"],
-    explanation: 'Historisk materialisme er Marx sin ide om at historien drives av endringer i produksjonsforholdene - okonomien er basis som former politikk, kultur og ideologi.',
+    explanation: 'Historisk materialisme er Marx sin ide om at historien drives av endringer i produksjonsforholdene - økonomien er basis som former politikk, kultur og ideologi.',
   },
   {
-    question: 'Hva er klassekamp ifolge Marx?',
+    question: 'Hva er klassekamp ifølge Marx?',
     options: ["Konflikt mellom de som eier produksjonsmidlene og de som arbeider", "Konkurranse mellom partier om regjeringsmakt, der taperen gaar i opposisjon", "Konkurranse mellom politiske partier om velgernes stemmer ved frie valg", "Uenighet mellom parter i en domstol om tolkningen av en konkret lovtekst"],
     explanation: 'Marx mente at samfunn er preget av klassekamp - konflikt mellom de som eier produksjonsmidlene (borgerskapet) og de som maa selge sin arbeidskraft (arbeiderklassen).',
   },
   {
     question: 'Hva kjennetegner det moderne sosialdemokratiet og den nordiske modellen?',
-    options: ["Markedsokonomi kombinert med sterk velferdsstat og omfordeling", "Avskaffelse av privat eiendom, slik at ingen kan eie egen bolig eller sparepenger", "Avskaffelse av privat eiendom og all naeringsvirksomhet", "Rent planokonomisk styre der staten fastsetter all produksjon og alle priser"],
-    explanation: 'Det moderne sosialdemokratiet og den nordiske modellen kombinerer markedsokonomi med en sterk velferdsstat, trepartssamarbeid og omfordeling gjennom skatt.',
+    options: ["Markedsøkonomi kombinert med sterk velferdsstat og omfordeling", "Avskaffelse av privat eiendom, slik at ingen kan eie egen bolig eller sparepenger", "Avskaffelse av privat eiendom og all næringsvirksomhet", "Rent planokonomisk styre der staten fastsetter all produksjon og alle priser"],
+    explanation: 'Det moderne sosialdemokratiet og den nordiske modellen kombinerer markedsøkonomi med en sterk velferdsstat, trepartssamarbeid og omfordeling gjennom skatt.',
   },
   {
     question: 'Hva betyr felleseie i sosialistisk tenkning?',
-    options: ["At viktige produksjonsmidler bor eies av fellesskapet", "At staten ikke kan eie noe, og at fellesskapet derfor er utelukket som eier", "At all eiendom er privat og enkeltpersoner eier bade fabrikker og ressurser", "At alt maa forvaltes av private eiere i markedet"],
+    options: ["At viktige produksjonsmidler bor eies av fellesskapet", "At staten ikke kan eie noe, og at fellesskapet derfor er utelukket som eier", "At all eiendom er privat og enkeltpersoner eier både fabrikker og ressurser", "At alt maa forvaltes av private eiere i markedet"],
     explanation: 'Felleseie betyr at viktige produksjonsmidler (fabrikker, naturressurser, banker) bor eies av fellesskapet. Graden av felleseie varierer mellom sosialistiske retninger.',
   },
 ],
@@ -729,28 +729,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-3-4': [
   {
     question: 'Hva er en kjerneide i konservatismen?',
-    options: ["Vekt pa tradisjon, erfaring og gradvise endringer", "Avskaffelse av alle institusjoner", "Fokus pa markedets effektivitet alene", "Rent okonomisk fokus uten verdier"],
+    options: ["Vekt på tradisjon, erfaring og gradvise endringer", "Avskaffelse av alle institusjoner", "Fokus på markedets effektivitet alene", "Rent okonomisk fokus uten verdier"],
     explanation: 'Konservatismen vektlegger tradisjon og erfaring, skepsis til raske endringer, og at samfunnet bor endres forsiktig og stegvis fremfor gjennom revolusjon.',
   },
   {
     question: 'Hvem regnes som konservatismens grunnlegger?',
     options: ["Edmund Burke", "John Locke", "Karl Marx, som utviklet teorien om klassekamp og historisk materialisme", "Adam Smith"],
-    explanation: 'Edmund Burke regnes som konservatismens far. Han kritiserte den franske revolusjonens radikale omveltning og forsvarte gradvise endringer og velprovde institusjoner.',
+    explanation: 'Edmund Burke regnes som konservatismens far. Han kritiserte den franske revolusjonens radikale omveltning og forsvarte gradvise endringer og velprøvde institusjoner.',
   },
   {
     question: 'Hvorfor er konservatismen skeptisk til raske, radikale endringer?',
-    options: ["Fordi raske endringer kan gi uforutsette og skadelige konsekvenser", "Fordi endring alltid er umulig, og ethvert forsok paa reform derfor er bortkastet", "Fordi tradisjon er uten verdi og bor forkastes til fordel for nye ideer", "Fordi de selv onsker revolusjon og et fullstendig brudd med det bestaende"],
-    explanation: 'Konservatismen mener velprovde institusjoner rommer en kollektiv visdom, og at raske, radikale endringer basert pa abstrakte teorier kan gi uforutsette og skadelige folger.',
+    options: ["Fordi raske endringer kan gi uforutsette og skadelige konsekvenser", "Fordi endring alltid er umulig, og ethvert forsok paa reform derfor er bortkastet", "Fordi tradisjon er uten verdi og bor forkastes til fordel for nye ideer", "Fordi de selv ønsker revolusjon og et fullstendig brudd med det bestaende"],
+    explanation: 'Konservatismen mener velprøvde institusjoner rommer en kollektiv visdom, og at raske, radikale endringer basert på abstrakte teorier kan gi uforutsette og skadelige folger.',
   },
   {
     question: 'Hva vektlegger kristendemokratiet?',
     options: ["Kristne verdier, menneskeverd, familie og forvalteransvar", "Avskaffelse av religion og et strengt skille som holder tro utenfor politikken", "Ubegrenset markedsfrihet, minimal stat og full individuell selvrealisering", "Klasseløs stat, felleseie av produksjonsmidlene og oppheving av privat eiendom"],
-    explanation: 'Kristendemokratiet bygger pa kristne verdier og vektlegger menneskeverd, familien, naestekjaerlighet, subsidiaritet og forvalteransvar for naturen.',
+    explanation: 'Kristendemokratiet bygger på kristne verdier og vektlegger menneskeverd, familien, naestekjaerlighet, subsidiaritet og forvalteransvar for naturen.',
   },
   {
     question: 'Hva menes med at institusjoner rommer en kollektiv visdom i konservativ tenkning?',
-    options: ["At velprovde skikker har bestaatt tidens test og boer respekteres", "At gamle institusjoner alltid er darlige", "At nedarvede institusjoner alltid hindrer framgang og bør rives ned raskt", "At samfunnet fungerer best helt uten varige institusjoner og felles skikker"],
-    explanation: 'Konservatismen mener at institusjoner og skikker som har bestaatt over tid, rommer erfaring og kollektiv visdom, og at det er risikabelt a rive dem ned for raskt.',
+    options: ["At velprøvde skikker har bestått tidens test og boer respekteres", "At gamle institusjoner alltid er dårlige", "At nedarvede institusjoner alltid hindrer framgang og bør rives ned raskt", "At samfunnet fungerer best helt uten varige institusjoner og felles skikker"],
+    explanation: 'Konservatismen mener at institusjoner og skikker som har bestått over tid, rommer erfaring og kollektiv visdom, og at det er risikabelt å rive dem ned for raskt.',
   },
 ],
 
@@ -758,37 +758,37 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-3-5': [
   {
     question: 'Hva kjennetegner populisme?',
-    options: ["Anti-elitisme og paastand om a representere \"folkets vilje\"", "En fast plass pa hoyre-venstre-aksen", "Forsvar for at embetsverket bør styre", "En fast forankring på høyresiden med vekt på frihandel og lav skatt"],
-    explanation: 'Populisme kjennetegnes av anti-elitisme, paastanden om a representere en enhetlig "folkets vilje" mot eliten, og en tendens til forenkling. Den finnes pa baade hoyre- og venstresiden.',
+    options: ["Anti-elitisme og påstand om å representere \"folkets vilje\"", "En fast plass pa hoyre-venstre-aksen", "Forsvar for at embetsverket bør styre", "En fast forankring på høyresiden med vekt på frihandel og lav skatt"],
+    explanation: 'Populisme kjennetegnes av anti-elitisme, påstanden om å representere en enhetlig "folkets vilje" mot eliten, og en tendens til forenkling. Den finnes pa både hoyre- og venstresiden.',
   },
   {
     question: 'Hvor pa hoyre-venstre-aksen finnes populisme?',
-    options: ["Pa baade hoyre- og venstresiden", "Helt utenfor politikken", "Utelukkende på venstresiden knyttet til omfordeling og klassekamp", "Bare pa venstresiden"],
-    explanation: 'Populisme er ikke en egen plass pa hoyre-venstre-aksen. Den opptrer baade pa hoyresiden og venstresiden og kan kombineres med ulike ideologier.',
+    options: ["Pa både hoyre- og venstresiden", "Helt utenfor politikken", "Utelukkende på venstresiden knyttet til omfordeling og klassekamp", "Bare på venstresiden"],
+    explanation: 'Populisme er ikke en egen plass pa hoyre-venstre-aksen. Den opptrer både pa høyresiden og venstresiden og kan kombineres med ulike ideologier.',
   },
   {
     question: 'Hva er et kjennetegn ved nasjonalisme som ideologi?',
-    options: ["Vekt pa nasjonen som det sentrale fellesskapet", "Avskaffelse av alle nasjoner til fordel for én verdensstat", "Vekt på klassekamp som samfunnets fremste og avgjørende motsetning", "Et rent økonomisk fokus på marked, skattenivå og statens størrelse"],
-    explanation: 'Nasjonalisme setter nasjonen - et fellesskap med felles kultur, sprak eller historie - i sentrum. Den kan ta baade inkluderende og mer ekskluderende former.',
+    options: ["Vekt på nasjonen som det sentrale fellesskapet", "Avskaffelse av alle nasjoner til fordel for én verdensstat", "Vekt på klassekamp som samfunnets fremste og avgjørende motsetning", "Et rent økonomisk fokus på marked, skattenivå og statens størrelse"],
+    explanation: 'Nasjonalisme setter nasjonen - et fellesskap med felles kultur, sprak eller historie - i sentrum. Den kan ta både inkluderende og mer ekskluderende former.',
   },
   {
     question: 'Hva vektlegger gronn ideologi (okologisme)?',
-    options: ["Miljo og baerekraft som grunnleggende politiske hensyn", "At okonomisk vekst alltid er viktigst", "At vedvarende økonomisk vekst alltid må gå foran hensynet til naturen", "Vekt på å bevare nedarvede tradisjoner"],
-    explanation: 'Gronn ideologi setter miljo og baerekraft i sentrum og mener at hensynet til naturen og kommende generasjoner ma vaere grunnleggende for politikken.',
+    options: ["Miljø og baerekraft som grunnleggende politiske hensyn", "At okonomisk vekst alltid er viktigst", "At vedvarende økonomisk vekst alltid må gå foran hensynet til naturen", "Vekt på å bevare nedarvede tradisjoner"],
+    explanation: 'Gronn ideologi setter miljø og baerekraft i sentrum og mener at hensynet til naturen og kommende generasjoner ma være grunnleggende for politikken.',
   },
   {
-    question: 'Hvilken risiko peker kritikere pa ved populismens forenkling?',
-    options: ["At komplekse problemer fremstilles med enkle arsaker og losninger", "At alle saker blir for kompliserte", "At alle politiske saker blir framstilt som for innfløkte til å løses", "At fagfolk og eksperter får uforholdsmessig mye makt i beslutningene"],
-    explanation: 'En vanlig kritikk er at populismen forenkler: komplekse problemer fremstilles med enkle arsaker og losninger, noe som kan tilslore reelle avveininger. Den kan ogsa uttrykke legitim misnoye.',
+    question: 'Hvilken risiko peker kritikere på ved populismens forenkling?',
+    options: ["At komplekse problemer fremstilles med enkle årsaker og losninger", "At alle saker blir for kompliserte", "At alle politiske saker blir framstilt som for innfløkte til å løses", "At fagfolk og eksperter får uforholdsmessig mye makt i beslutningene"],
+    explanation: 'En vanlig kritikk er at populismen forenkler: komplekse problemer fremstilles med enkle årsaker og losninger, noe som kan tilsløre reelle avveininger. Den kan også uttrykke legitim misnøye.',
   },
 ],
 
 
   'politikk-menneskerett-3-6': [
   {
-    question: 'Hva uttrykker den tradisjonelle venstre-hoyre-aksen forst og fremst?',
-    options: ["Syn pa okonomisk likhet, omfordeling og statens rolle i okonomien", "Hvor partiene holder til geografisk", "Hvor mange medlemmer partiene har", "Synet på utenrikspolitikk og forsvar, uavhengig av økonomiske spørsmål"],
-    explanation: 'Venstre-hoyre-aksen handler tradisjonelt om okonomi: venstresiden vektlegger likhet, omfordeling og sterkere stat, hoyresiden vektlegger marked, lavere skatt og mindre stat.',
+    question: 'Hva uttrykker den tradisjonelle venstre-hoyre-aksen først og fremst?',
+    options: ["Syn pa okonomisk likhet, omfordeling og statens rolle i økonomien", "Hvor partiene holder til geografisk", "Hvor mange medlemmer partiene har", "Synet på utenrikspolitikk og forsvar, uavhengig av økonomiske spørsmål"],
+    explanation: 'Venstre-hoyre-aksen handler tradisjonelt om okonomi: venstresiden vektlegger likhet, omfordeling og sterkere stat, høyresiden vektlegger marked, lavere skatt og mindre stat.',
   },
   {
     question: 'Hva kjennetegner det norske partisystemet?',
@@ -802,13 +802,13 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er ikke venstre-hoyre-aksen alene nok til a plassere partier?',
-    options: ["Fordi saker som miljo, innvandring og verdisporsmal gaar pa tvers av aksen", "Fordi alle partiene i praksis fører nøyaktig samme politikk uansett", "Fordi økonomiske spørsmål er uviktige for hvordan velgerne stemmer", "Fordi en slik akse aldri har hatt noen betydning i norsk politikk"],
-    explanation: 'I tillegg til den okonomiske venstre-hoyre-aksen finnes andre dimensjoner - som verdisporsmal, miljo og sentrum-periferi - som gaar pa tvers og nyanserer partienes plassering.',
+    options: ["Fordi saker som miljø, innvandring og verdispørsmål gaar på tvers av aksen", "Fordi alle partiene i praksis fører nøyaktig samme politikk uansett", "Fordi økonomiske spørsmål er uviktige for hvordan velgerne stemmer", "Fordi en slik akse aldri har hatt noen betydning i norsk politikk"],
+    explanation: 'I tillegg til den okonomiske venstre-hoyre-aksen finnes andre dimensjoner - som verdispørsmål, miljø og sentrum-periferi - som gaar på tvers og nyanserer partienes plassering.',
   },
   {
     question: 'Hva menes med en koalisjonsregjering?',
     options: ["En regjering dannet av flere partier i samarbeid", "En regjering valgt av domstolene", "En regjering uavhengig av Stortinget", "En regjering med ett parti"],
-    explanation: 'En koalisjonsregjering bestaar av flere partier som samarbeider om a danne regjering, noe som er vanlig i et flerpartisystem som det norske.',
+    explanation: 'En koalisjonsregjering består av flere partier som samarbeider om å danne regjering, noe som er vanlig i et flerpartisystem som det norske.',
   },
 ],
 
@@ -826,16 +826,16 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er samfunnskontrakten?',
-    options: ["En teori om at legitim statsmakt bygger pa en avtale mellom borgere og stat", "En bindende handelsavtale om varebytte og toll mellom to eller flere land", "En individuell arbeidskontrakt mellom en arbeidsgiver og en ansatt", "En lov som fordeler oppgaver og myndighet mellom stat og kommune"],
-    explanation: 'Samfunnskontrakten er en teori om at legitim statsmakt bygger pa en frivillig avtale: borgerne gir fra seg visse friheter, og staten beskytter til gjengjeld rettighetene deres.',
+    options: ["En teori om at legitim statsmakt bygger på en avtale mellom borgere og stat", "En bindende handelsavtale om varebytte og toll mellom to eller flere land", "En individuell arbeidskontrakt mellom en arbeidsgiver og en ansatt", "En lov som fordeler oppgaver og myndighet mellom stat og kommune"],
+    explanation: 'Samfunnskontrakten er en teori om at legitim statsmakt bygger på en frivillig avtale: borgerne gir fra seg visse friheter, og staten beskytter til gjengjeld rettighetene deres.',
   },
   {
     question: 'Nar ble Verdenserklaeringen om menneskerettigheter vedtatt?',
     options: ["10. desember 1948", "14. juli 1789, da den franske revolusjonen brot ut", "26. juni 1945, da FN-pakten ble undertegnet i San Francisco", "26. juni 1945"],
-    explanation: 'FNs Verdenserklaering om menneskerettigheter ble vedtatt 10. desember 1948 og inneholder 30 artikler om sivile, politiske, okonomiske og sosiale rettigheter.',
+    explanation: 'FNs Verdenserklæring om menneskerettigheter ble vedtatt 10. desember 1948 og inneholder 30 artikler om sivile, politiske, okonomiske og sosiale rettigheter.',
   },
   {
-    question: 'Hvilken hendelse paavirket sterkt utviklingen av det moderne menneskerettighetssystemet?',
+    question: 'Hvilken hendelse påvirket sterkt utviklingen av det moderne menneskerettighetssystemet?',
     options: ['Andre verdenskrig og Holocaust', 'Den industrielle revolusjonen alene', 'Oppdagelsen av Amerika', 'Reformasjonen og bruddet med den katolske kirken'],
     explanation: 'Erfaringene fra andre verdenskrig og Holocaust viste hva stater kunne gjore mot mennesker, og skapte vilje til internasjonalt vern - som FN og Verdenserklaeringen i 1948.',
   },
@@ -844,9 +844,9 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
 
   'politikk-menneskerett-4-2': [
   {
-    question: 'Hva er forskjellen mellom en erklaering og en konvensjon i folkeretten?',
-    options: ["En erklaering er ikke juridisk bindende; en konvensjon er bindende for statene som slutter seg til", "En konvensjon uttrykker kun uforpliktende prinsipper, mens erklæringen binder statene juridisk", "En erklæring er alltid juridisk bindende, mens en konvensjon bare er en hensiktserklæring", "De er i praksis identiske og har nøyaktig samme rettslige virkning for statene"],
-    explanation: 'En erklaering uttrykker prinsipper og er ikke i seg selv bindende, mens en konvensjon (traktat) er en folkerettslig avtale som er juridisk bindende for de statene som ratifiserer den.',
+    question: 'Hva er forskjellen mellom en erklæring og en konvensjon i folkeretten?',
+    options: ["En erklæring er ikke juridisk bindende; en konvensjon er bindende for statene som slutter seg til", "En konvensjon uttrykker kun uforpliktende prinsipper, mens erklæringen binder statene juridisk", "En erklæring er alltid juridisk bindende, mens en konvensjon bare er en hensiktserklæring", "De er i praksis identiske og har nøyaktig samme rettslige virkning for statene"],
+    explanation: 'En erklæring uttrykker prinsipper og er ikke i seg selv bindende, mens en konvensjon (traktat) er en folkerettslig avtale som er juridisk bindende for de statene som ratifiserer den.',
   },
   {
     question: 'Hva regulerer ICCPR?',
@@ -865,8 +865,8 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er barnekonvensjonen et eksempel pa?',
-    options: ["En menneskerettighetskonvensjon for en saerlig utsatt gruppe", "En militaerallianse med felles kommando og staaende styrker i medlemslandene", "En militærallianse der landene forplikter seg til felles forsvar", "En bindende handelsavtale mellom stater om varebytte og tollsatser"],
-    explanation: 'Barnekonvensjonen er en menneskerettighetskonvensjon som gir saerlig vern til barn, en gruppe med saerskilte behov. Kvinnekonvensjonen er et tilsvarende eksempel.',
+    options: ["En menneskerettighetskonvensjon for en særlig utsatt gruppe", "En militærallianse med felles kommando og staaende styrker i medlemslandene", "En militærallianse der landene forplikter seg til felles forsvar", "En bindende handelsavtale mellom stater om varebytte og tollsatser"],
+    explanation: 'Barnekonvensjonen er en menneskerettighetskonvensjon som gir særlig vern til barn, en gruppe med særskilte behov. Kvinnekonvensjonen er et tilsvarende eksempel.',
   },
 ],
 
@@ -879,18 +879,18 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva sikrer politiske rettigheter?',
-    options: ["Borgernes mulighet til a delta i styringen av samfunnet", "Statens kontroll over mediene, slik at redaktorene utpekes av myndighetene", "Utelukkende retten til gratis utdanning gjennom hele skoleløpet", "Statens kontroll over mediene og hva som kan formidles til folket"],
-    explanation: 'Politiske rettigheter sikrer deltakelse i samfunnsstyringen, som stemmerett, rett til a stille til valg, organisasjonsfrihet og forsamlingsfrihet.',
+    options: ["Borgernes mulighet til a delta i styringen av samfunnet", "Statens kontroll over mediene, slik at redaktørene utpekes av myndighetene", "Utelukkende retten til gratis utdanning gjennom hele skoleløpet", "Statens kontroll over mediene og hva som kan formidles til folket"],
+    explanation: 'Politiske rettigheter sikrer deltakelse i samfunnsstyringen, som stemmerett, rett til å stille til valg, organisasjonsfrihet og forsamlingsfrihet.',
   },
   {
     question: 'Hva er legalitetsprinsippet?',
-    options: ["At myndighetene trenger hjemmel i lov for a gripe inn i borgernes rettsfaere", "At alle lover i utgangspunktet er ugyldige inntil domstolene godkjenner dem", "At domstolene fritt kan avgjøre saker uten å være bundet av lovverket", "At ingen borgere under noen omstendighet kan straffes for lovbrudd"],
-    explanation: 'Legalitetsprinsippet (lovkravet) innebaerer at offentlige myndigheter ikke kan gripe inn i borgernes rettsfaere uten hjemmel i lov, og at ingen kan straffes uten lovhjemmel.',
+    options: ["At myndighetene trenger hjemmel i lov for å gripe inn i borgernes rettsfaere", "At alle lover i utgangspunktet er ugyldige inntil domstolene godkjenner dem", "At domstolene fritt kan avgjøre saker uten å være bundet av lovverket", "At ingen borgere under noen omstendighet kan straffes for lovbrudd"],
+    explanation: 'Legalitetsprinsippet (lovkravet) innebærer at offentlige myndigheter ikke kan gripe inn i borgernes rettsfaere uten hjemmel i lov, og at ingen kan straffes uten lovhjemmel.',
   },
   {
     question: 'Hvordan reguleres hatytringer i norsk rett?',
     options: ["Gjennom straffeloven paragraf 185, som forbyr visse hatefulle ytringer mot grupper", "All kritikk av myndigheter, religion og enkeltpersoner er strengt forbudt", "Bare positive og rosende ytringer om andre grupper er lovlige å framsette", "De er fullt tillatt i alle former, uansett hvem ytringen retter seg mot"],
-    explanation: 'Straffeloven paragraf 185 forbyr offentlige ytringer som truer eller forhaaner noen, eller fremmer hat eller forfolgelse overfor grupper basert pa etnisitet, religion, seksuell orientering m.m. Vanlig kritikk og debatt er fortsatt tillatt.',
+    explanation: 'Straffeloven paragraf 185 forbyr offentlige ytringer som truer eller forhåner noen, eller fremmer hat eller forfølgelse overfor grupper basert på etnisitet, religion, seksuell orientering m.m. Vanlig kritikk og debatt er fortsatt tillatt.',
   },
   {
     question: 'Hvorfor er ytringsfrihet viktig i et demokrati?',
@@ -908,13 +908,13 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner en negativ rettighet?',
-    options: ['Den krever at staten avstaar fra a gjore noe', 'Den krever at staten aktivt yter en tjeneste', 'Den gjelder bare okonomi', 'Den kan ikke beskyttes'],
-    explanation: 'En negativ rettighet krever at staten avstaar fra a gripe inn, for eksempel forbud mot tortur og ytringsfrihet (staten skal ikke sensurere).',
+    options: ['Den krever at staten avstår fra a gjore noe', 'Den krever at staten aktivt yter en tjeneste', 'Den gjelder bare okonomi', 'Den kan ikke beskyttes'],
+    explanation: 'En negativ rettighet krever at staten avstår fra a gripe inn, for eksempel forbud mot tortur og ytringsfrihet (staten skal ikke sensurere).',
   },
   {
     question: 'Hva kjennetegner en positiv rettighet?',
-    options: ["Den krever at staten aktivt handler, for eksempel ved a tilby utdanning", "Den krever bare at staten avstår fra å gripe inn, ikke å handle aktivt", "Den er av prinsipielle grunner umulig for noen stat å oppfylle i praksis", "Den gjelder utelukkende under væpnet konflikt og i unntakstilstand"],
-    explanation: 'En positiv rettighet krever at staten aktivt handler, for eksempel ved a sikre rett til utdanning og helsetjenester. Mange OSK-rettigheter er positive rettigheter.',
+    options: ["Den krever at staten aktivt handler, for eksempel ved å tilby utdanning", "Den krever bare at staten avstår fra å gripe inn, ikke å handle aktivt", "Den er av prinsipielle grunner umulig for noen stat å oppfylle i praksis", "Den gjelder utelukkende under væpnet konflikt og i unntakstilstand"],
+    explanation: 'En positiv rettighet krever at staten aktivt handler, for eksempel ved å sikre rett til utdanning og helsetjenester. Mange OSK-rettigheter er positive rettigheter.',
   },
   {
     question: 'I hvilken konvensjon er OSK-rettighetene nedfelt?',
@@ -932,13 +932,13 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-4-5': [
   {
     question: 'Hvordan defineres folkemord i FNs folkemordkonvensjon?',
-    options: ["Handlinger begaatt med hensikt a odelegge helt eller delvis en nasjonal, etnisk, rasemessig eller religios gruppe", "Ethvert forsettlig drap på et menneske, uavhengig av motiv og gruppetilhørighet", "Enhver voldelig handling begått mot sivile under en pågående væpnet konflikt", "All systematisk diskriminering og forskjellsbehandling av bestemte grupper"],
-    explanation: 'Folkemord er definert som handlinger begaatt med hensikt a odelegge, helt eller delvis, en nasjonal, etnisk, rasemessig eller religios gruppe som saadan.',
+    options: ["Handlinger begått med hensikt a ødelegge helt eller delvis en nasjonal, etnisk, rasemessig eller religiøs gruppe", "Ethvert forsettlig drap på et menneske, uavhengig av motiv og gruppetilhørighet", "Enhver voldelig handling begått mot sivile under en pågående væpnet konflikt", "All systematisk diskriminering og forskjellsbehandling av bestemte grupper"],
+    explanation: 'Folkemord er definert som handlinger begått med hensikt a ødelegge, helt eller delvis, en nasjonal, etnisk, rasemessig eller religiøs gruppe som saadan.',
   },
   {
     question: 'Hva er derogasjon?',
-    options: ["Midlertidig fravikelse av enkelte menneskerettigheter i en nodssituasjon", "Permanent avskaffelse av alle rettigheter", "En internasjonal domstols myndighet til aa overproeve nasjonale noedstiltak", "En prosedyre der en stat trekker seg helt ut av en menneskerettighetskonvensjon"],
-    explanation: 'Derogasjon er midlertidig suspensjon av visse menneskerettighetsforpliktelser i en offentlig nodssituasjon, under strenge vilkaar om nodvendighet og forholdsmessighet.',
+    options: ["Midlertidig fravikelse av enkelte menneskerettigheter i en nødssituasjon", "Permanent avskaffelse av alle rettigheter", "En internasjonal domstols myndighet til aa overprøve nasjonale noedstiltak", "En prosedyre der en stat trekker seg helt ut av en menneskerettighetskonvensjon"],
+    explanation: 'Derogasjon er midlertidig suspensjon av visse menneskerettighetsforpliktelser i en offentlig nødssituasjon, under strenge vilkår om nødvendighet og forholdsmessighet.',
   },
   {
     question: 'Hva er kulturrelativisme i menneskerettighetsdebatten?',
@@ -948,12 +948,12 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   {
     question: 'Kan absolutte rettigheter som forbudet mot tortur fravikes ved derogasjon?',
     options: ["Nei, absolutte rettigheter kan aldri fravikes", "Ja, alle rettigheter kan fravikes", "Nei, men kun dersom et kvalifisert flertall i nasjonalforsamlingen stemmer for det", "Bare hvis et flertall stemmer for"],
-    explanation: 'Visse rettigheter er absolutte, for eksempel forbudet mot tortur, og kan ikke fravikes gjennom derogasjon, uansett nodssituasjon.',
+    explanation: 'Visse rettigheter er absolutte, for eksempel forbudet mot tortur, og kan ikke fravikes gjennom derogasjon, uansett nødssituasjon.',
   },
   {
     question: 'Hva er et vanlig motargument mot sterk kulturrelativisme?',
-    options: ["At det kan brukes til a rettferdiggjore overgrep mot egne borgere", "At det styrker universelle rettigheter fordi hver stat da maa begrunne sin egen praksis", "At det gjoer menneskerettighetene juridisk bindende for alle stater uansett tradisjon", "At det styrker de universelle rettighetene ved aa gjoere dem uavhengige av lokal kultur"],
-    explanation: 'Et vanlig motargument er at sterk kulturrelativisme kan misbrukes av makthavere til a rettferdiggjore overgrep ved a avvise universelle rettigheter som kulturfremmede.',
+    options: ["At det kan brukes til a rettferdiggjøre overgrep mot egne borgere", "At det styrker universelle rettigheter fordi hver stat da maa begrunne sin egen praksis", "At det gjør menneskerettighetene juridisk bindende for alle stater uansett tradisjon", "At det styrker de universelle rettighetene ved aa gjøre dem uavhengige av lokal kultur"],
+    explanation: 'Et vanlig motargument er at sterk kulturrelativisme kan misbrukes av makthavere til a rettferdiggjøre overgrep ved a avvise universelle rettigheter som kulturfremmede.',
   },
 ],
 
@@ -961,28 +961,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-4-6': [
   {
     question: 'Hva gjor menneskerettsloven (1999)?',
-    options: ["Inkorporerer sentrale menneskerettighetskonvensjoner i norsk rett med forrang", "Avskaffer menneskerettighetene i Norge og opphever de konvensjonene Norge har sluttet seg til", "Gjelder bare for utlendinger og statsloese som oppholder seg midlertidig paa norsk jord", "Regulerer bare gjennomfoeringen av valg og sikrer stemmerett ved politiske avstemninger"],
-    explanation: 'Menneskerettsloven inkorporerer sentrale konvensjoner i norsk rett slik at de kan paaberopes direkte for domstolene, og gir dem forrang ved motstrid med annen norsk lov.',
+    options: ["Inkorporerer sentrale menneskerettighetskonvensjoner i norsk rett med forrang", "Avskaffer menneskerettighetene i Norge og opphever de konvensjonene Norge har sluttet seg til", "Gjelder bare for utlendinger og statsløse som oppholder seg midlertidig paa norsk jord", "Regulerer bare gjennomføringen av valg og sikrer stemmerett ved politiske avstemninger"],
+    explanation: 'Menneskerettsloven inkorporerer sentrale konvensjoner i norsk rett slik at de kan påberopes direkte for domstolene, og gir dem forrang ved motstrid med annen norsk lov.',
   },
   {
     question: 'Hva var fornorskingspolitikken?',
-    options: ["Statens politikk for a assimilere samer, kvener og skogfinner inn i norsk kultur", "En del av Grunnloven fra 1814 som ga de samiske omraadene egne representanter paa Stortinget", "En del av Grunnloven fra 1814 som slo fast samenes rett til eget sprak og selvstyre", "En handelsavtale som sikret samiske naeringer tollfri adgang til de nordiske markedene"],
-    explanation: 'Fornorskingspolitikken var statens systematiske politikk fra midten av 1800-tallet til ut pa 1960-70-tallet for a assimilere samer, kvener/norskfinner og skogfinner inn i majoritetskulturen.',
+    options: ["Statens politikk for å assimilere samer, kvener og skogfinner inn i norsk kultur", "En del av Grunnloven fra 1814 som ga de samiske områdene egne representanter paa Stortinget", "En del av Grunnloven fra 1814 som slo fast samenes rett til eget sprak og selvstyre", "En handelsavtale som sikret samiske næringer tollfri adgang til de nordiske markedene"],
+    explanation: 'Fornorskingspolitikken var statens systematiske politikk fra midten av 1800-tallet til ut pa 1960-70-tallet for å assimilere samer, kvener/norskfinner og skogfinner inn i majoritetskulturen.',
   },
   {
-    question: 'Hva innebaerer forrang i menneskerettsloven?',
-    options: ["At konvensjonene gaar foran annen norsk lov ved motstrid", "At norske lover alltid gaar foran konvensjonene", "At bare Stortinget, og ikke domstolene, kan paaberope seg konvensjonene ved motstrid", "At konvensjonene er uforpliktende"],
-    explanation: 'Forrang betyr at de inkorporerte menneskerettighetskonvensjonene gaar foran annen norsk lovgivning dersom det oppstaar motstrid mellom dem.',
+    question: 'Hva innebærer forrang i menneskerettsloven?',
+    options: ["At konvensjonene gaar foran annen norsk lov ved motstrid", "At norske lover alltid gaar foran konvensjonene", "At bare Stortinget, og ikke domstolene, kan påberope seg konvensjonene ved motstrid", "At konvensjonene er uforpliktende"],
+    explanation: 'Forrang betyr at de inkorporerte menneskerettighetskonvensjonene gaar foran annen norsk lovgivning dersom det oppstår motstrid mellom dem.',
   },
   {
     question: 'Hvilket virkemiddel inngikk i fornorskingspolitikken?',
-    options: ["Forbud mot bruk av samisk og kvensk i skolen", "Innforing av samisk som hovedsprak", "Opprettelse av egne samiske domstoler som doemte etter samisk sedvanerett", "Selvstyre for samiske omrader"],
+    options: ["Forbud mot bruk av samisk og kvensk i skolen", "Innføring av samisk som hovedspråk", "Opprettelse av egne samiske domstoler som dømte etter samisk sedvanerett", "Selvstyre for samiske områder"],
     explanation: 'Fornorskingspolitikken omfattet blant annet forbud mot bruk av samisk og kvensk i skolen og internatskoler der barn ble tatt bort fra familiene.',
   },
   {
     question: 'Hvorfor regnes urfolksrettigheter som et viktig menneskerettighetstema i Norge?',
-    options: ["Fordi samene som urfolk har saerskilte rettigheter til kultur, sprak og medvirkning", "Fordi staten formelt har fraskrevet seg ethvert ansvar for urfolks kultur og sprak", "Fordi urfolksrettigheter bare gjelder utenfor Norge og reguleres av andre lands lover", "Fordi det ikke finnes anerkjente urfolk i Norge, kun spraaklige minoritetsgrupper"],
-    explanation: 'Samene er anerkjent som urfolk, og har saerskilte rettigheter til a bevare sprak, kultur og naeringsgrunnlag, og til medvirkning, blant annet gjennom Sametinget.',
+    options: ["Fordi samene som urfolk har særskilte rettigheter til kultur, sprak og medvirkning", "Fordi staten formelt har fraskrevet seg ethvert ansvar for urfolks kultur og sprak", "Fordi urfolksrettigheter bare gjelder utenfor Norge og reguleres av andre lands lover", "Fordi det ikke finnes anerkjente urfolk i Norge, kun språklige minoritetsgrupper"],
+    explanation: 'Samene er anerkjent som urfolk, og har særskilte rettigheter til a bevare sprak, kultur og naeringsgrunnlag, og til medvirkning, blant annet gjennom Sametinget.',
   },
 ],
 
@@ -990,86 +990,86 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-5-1': [
   {
     question: 'Hva betyr suverenitetsprinsippet?',
-    options: ["At hver stat har rett til a styre seg selv uten innblanding fra andre stater", "At stormaktene styrer smaa land", "At FN har oeverste myndighet over alle stater", "At stormaktene har rett til aa styre smaa og svakere land innenfor sine interessesfaerer"],
-    explanation: 'Suverenitetsprinsippet betyr at hver stat har overste myndighet over eget territorium og rett til a styre seg selv uten innblanding utenfra. Det stammer fra Westfalerfreden i 1648.',
+    options: ["At hver stat har rett til a styre seg selv uten innblanding fra andre stater", "At stormaktene styrer smaa land", "At FN har øverste myndighet over alle stater", "At stormaktene har rett til aa styre smaa og svakere land innenfor sine interessesfærer"],
+    explanation: 'Suverenitetsprinsippet betyr at hver stat har øverste myndighet over eget territorium og rett til a styre seg selv uten innblanding utenfra. Det stammer fra Westfalerfreden i 1648.',
   },
   {
     question: 'Hva er folkerett?',
-    options: ["Det internasjonale rettssystemet som regulerer forholdet mellom stater", "Reglene for kommunevalg", "Reglene som styrer gjennomfoeringen av kommunevalg og fordeling av mandater i kommunene", "Den norske straffeloven som fastsetter straff for lovbrudd begaatt paa norsk territorium"],
-    explanation: 'Folkeretten er det internasjonale rettssystemet som regulerer forholdet mellom stater, og bestaar av traktater, sedvanerett og alminnelige rettsprinsipper.',
+    options: ["Det internasjonale rettssystemet som regulerer forholdet mellom stater", "Reglene for kommunevalg", "Reglene som styrer gjennomføringen av kommunevalg og fordeling av mandater i kommunene", "Den norske straffeloven som fastsetter straff for lovbrudd begått paa norsk territorium"],
+    explanation: 'Folkeretten er det internasjonale rettssystemet som regulerer forholdet mellom stater, og består av traktater, sedvanerett og alminnelige rettsprinsipper.',
   },
   {
     question: 'Hvilken historisk hendelse knyttes til suverenitetsprinsippets opprinnelse?',
     options: ['Westfalerfreden i 1648', 'Den franske revolusjonen i 1789', 'Andre verdenskrig og opprettelsen av FN', 'Berlinmurens fall i 1989'],
-    explanation: 'Suverenitetsprinsippet knyttes til Westfalerfreden i 1648, som avsluttet trettiaarskrigen og etablerte staters rett til a styre eget territorium.',
+    explanation: 'Suverenitetsprinsippet knyttes til Westfalerfreden i 1648, som avsluttet trettiårskrigen og etablerte staters rett til a styre eget territorium.',
   },
   {
-    question: 'Hva bestaar folkeretten av?',
-    options: ["Traktater, sedvanerett og alminnelige rettsprinsipper", "Bare militaere avtaler", "Bare de nasjonale lovene som hver enkelt stat vedtar innenfor egne landegrenser", "Bare resolusjonene som vedtas av FNs generalforsamling og sikkerhetsraad hvert aar"],
-    explanation: 'Folkeretten bestaar av traktater (skriftlige avtaler), sedvanerett (regler utviklet gjennom praksis) og alminnelige rettsprinsipper.',
+    question: 'Hva består folkeretten av?',
+    options: ["Traktater, sedvanerett og alminnelige rettsprinsipper", "Bare militære avtaler", "Bare de nasjonale lovene som hver enkelt stat vedtar innenfor egne landegrenser", "Bare resolusjonene som vedtas av FNs generalforsamling og sikkerhetsråd hvert aar"],
+    explanation: 'Folkeretten består av traktater (skriftlige avtaler), sedvanerett (regler utviklet gjennom praksis) og alminnelige rettsprinsipper.',
   },
   {
-    question: 'Hvilken spenning illustrerer en humanitaer intervensjon begrunnet i Responsibility to Protect?',
-    options: ["Mellom suverenitetsprinsippet og ansvaret for a beskytte sivile", "Mellom to politiske partier som er uenige om landets utenrikspolitiske kurs", "Mellom to konkurrerende handelsavtaler som stater proever aa faa fortrinn i samtidig", "Mellom kommunalt og fylkeskommunalt niaa om ansvaret for internasjonalt hjelpearbeid"],
-    explanation: 'Slike intervensjoner illustrerer spenningen mellom statenes suverenitet (ikke-innblanding) og prinsippet om at verdenssamfunnet har et ansvar for a beskytte sivile mot grove overgrep.',
+    question: 'Hvilken spenning illustrerer en humanitær intervensjon begrunnet i Responsibility to Protect?',
+    options: ["Mellom suverenitetsprinsippet og ansvaret for å beskytte sivile", "Mellom to politiske partier som er uenige om landets utenrikspolitiske kurs", "Mellom to konkurrerende handelsavtaler som stater prøver aa faa fortrinn i samtidig", "Mellom kommunalt og fylkeskommunalt niaa om ansvaret for internasjonalt hjelpearbeid"],
+    explanation: 'Slike intervensjoner illustrerer spenningen mellom statenes suverenitet (ikke-innblanding) og prinsippet om at verdenssamfunnet har et ansvar for å beskytte sivile mot grove overgrep.',
   },
 ],
 
 
   'politikk-menneskerett-5-2': [
   {
-    question: 'Hvilke land er faste medlemmer av FNs sikkerhetsrad med vetorett?',
+    question: 'Hvilke land er faste medlemmer av FNs sikkerhetsråd med vetorett?',
     options: ["USA, Russland, Kina, Frankrike og Storbritannia", "De ti rikeste landene", "Alle FNs medlemsland har vetorett", "Bare USA og Russland"],
     explanation: 'De fem faste medlemmene med vetorett er USA, Russland, Kina, Frankrike og Storbritannia. Ett veto er nok til a stoppe en resolusjon.',
   },
   {
-    question: 'Hva kan FNs sikkerhetsrad gjore som Generalforsamlingen ikke kan?',
-    options: ["Vedta bindende resolusjoner og innfore sanksjoner", "Velge generalsekretaeren alene", "Velge FNs generalsekretaer paa egen haand", "Bare gi anbefalinger"],
-    explanation: 'Sikkerhetsradet kan vedta bindende resolusjoner, innfore sanksjoner og autorisere militaer maktbruk. Generalforsamlingens vedtak er politisk viktige, men ikke juridisk bindende.',
+    question: 'Hva kan FNs sikkerhetsråd gjore som Generalforsamlingen ikke kan?',
+    options: ["Vedta bindende resolusjoner og innføre sanksjoner", "Velge generalsekretæren alene", "Velge FNs generalsekretær paa egen hånd", "Bare gi anbefalinger"],
+    explanation: 'Sikkerhetsrådet kan vedta bindende resolusjoner, innføre sanksjoner og autorisere militær maktbruk. Generalforsamlingens vedtak er politisk viktige, men ikke juridisk bindende.',
   },
   {
-    question: 'Hvor mange medlemmer har FNs sikkerhetsrad?',
+    question: 'Hvor mange medlemmer har FNs sikkerhetsråd?',
     options: ["15 (5 faste og 10 valgte)", "193", "193 medlemmer, det vil si ett medlem for hver av FNs medlemsstater med lik stemmerett", "50"],
-    explanation: 'Sikkerhetsradet har 15 medlemmer: 5 faste med vetorett og 10 valgte som sitter i toaarsperioder.',
+    explanation: 'Sikkerhetsrådet har 15 medlemmer: 5 faste med vetorett og 10 valgte som sitter i toårsperioder.',
   },
   {
-    question: 'Hva er FNs baerekraftsmaal (SDGs)?',
-    options: ["17 globale mal vedtatt i 2015 som skal naas innen 2030", "5 mal om bare klima", "5 mal som utelukkende handler om klima og utslippskutt, vedtatt i Paris-avtalen i 2015", "En militaerallianse mellom FN-land som skal sikre kollektivt forsvar mot felles trusler"],
-    explanation: 'I 2015 vedtok FNs generalforsamling 17 baerekraftsmaal som skal naas innen 2030, blant annet om fattigdom, utdanning, likestilling og klima.',
+    question: 'Hva er FNs bærekraftsmål (SDGs)?',
+    options: ["17 globale mal vedtatt i 2015 som skal naas innen 2030", "5 mal om bare klima", "5 mal som utelukkende handler om klima og utslippskutt, vedtatt i Paris-avtalen i 2015", "En militærallianse mellom FN-land som skal sikre kollektivt forsvar mot felles trusler"],
+    explanation: 'I 2015 vedtok FNs generalforsamling 17 bærekraftsmål som skal naas innen 2030, blant annet om fattigdom, utdanning, likestilling og klima.',
   },
   {
     question: 'Hva er en konsekvens av at et fast medlem bruker vetoretten ofte i en konflikt?',
-    options: ["Sikkerhetsradet kan bli lammet og ute av stand til a handle", "Resolusjonene vedtas raskere fordi debatten i raadet dermed blir kortere", "Landet mister sin faste plass i raadet som straff for aa ha brukt vetoretten for ofte", "Resolusjonene vedtas raskere fordi vetoet tvinger de andre medlemmene til aa bli enige"],
-    explanation: 'Naar et fast medlem gjentatte ganger bruker vetoretten, kan Sikkerhetsradet bli lammet og ute av stand til a vedta tiltak, slik man har sett i flere konflikter.',
+    options: ["Sikkerhetsrådet kan bli lammet og ute av stand til a handle", "Resolusjonene vedtas raskere fordi debatten i raadet dermed blir kortere", "Landet mister sin faste plass i raadet som straff for aa ha brukt vetoretten for ofte", "Resolusjonene vedtas raskere fordi vetoet tvinger de andre medlemmene til aa bli enige"],
+    explanation: 'Naar et fast medlem gjentatte ganger bruker vetoretten, kan Sikkerhetsrådet bli lammet og ute av stand til a vedta tiltak, slik man har sett i flere konflikter.',
   },
 ],
 
 
   'politikk-menneskerett-5-3': [
   {
-    question: 'Hva slaar NATOs artikkel 5 fast?',
-    options: ["At et vaepnet angrep mot ett medlem regnes som et angrep mot alle", "At alle medlemmer ma ha samme regjering", "At medlemmene ikke kan ha egne nasjonale forsvar", "At alle medlemslandene maa ha samme styreform og felles regjering for aa vaere med"],
-    explanation: 'Artikkel 5 er NATOs kjerne om kollektivt forsvar: et vaepnet angrep mot ett eller flere medlemmer skal betraktes som et angrep mot alle. Den er aktivert kun en gang, etter 11. september 2001.',
+    question: 'Hva slår NATOs artikkel 5 fast?',
+    options: ["At et væpnet angrep mot ett medlem regnes som et angrep mot alle", "At alle medlemmer må ha samme regjering", "At medlemmene ikke kan ha egne nasjonale forsvar", "At alle medlemslandene maa ha samme styreform og felles regjering for aa være med"],
+    explanation: 'Artikkel 5 er NATOs kjerne om kollektivt forsvar: et væpnet angrep mot ett eller flere medlemmer skal betraktes som et angrep mot alle. Den er aktivert kun en gang, etter 11. september 2001.',
   },
   {
     question: 'Naar ble NATO grunnlagt?',
     options: ['I 1949', 'I 1989', 'I 1918', 'I 2001'],
-    explanation: 'NATO ble grunnlagt i 1949 som svar pa trusselen fra Sovjetunionen. Alliansen har siden utvidet seg betydelig.',
+    explanation: 'NATO ble grunnlagt i 1949 som svar på trusselen fra Sovjetunionen. Alliansen har siden utvidet seg betydelig.',
   },
   {
-    question: 'Hva er et eksempel pa en ny sikkerhetstrussel i det 21. arhundre?',
-    options: ["Cybertrusler mot digital infrastruktur", "Mangel pa handelsavtaler alene", "Ingen reelt nye trusler", "Bare tradisjonell landkrig"],
-    explanation: 'Sikkerhet i dag omfatter mer enn militaert forsvar, blant annet cybertrusler, terrorisme og hybridkrigforing som kombinerer militaere, digitale og okonomiske virkemidler.',
+    question: 'Hva er et eksempel på en ny sikkerhetstrussel i det 21. århundre?',
+    options: ["Cybertrusler mot digital infrastruktur", "Mangel på handelsavtaler alene", "Ingen reelt nye trusler", "Bare tradisjonell landkrig"],
+    explanation: 'Sikkerhet i dag omfatter mer enn militært forsvar, blant annet cybertrusler, terrorisme og hybridkrigforing som kombinerer militære, digitale og okonomiske virkemidler.',
   },
   {
-    question: 'Hva har tradisjonelt kjennetegnet norsk sikkerhetspolitikk overfor stormakter i naerheten?',
-    options: ["En balansegang mellom NATO-forankring og beroligelse", "Fullstendig isolasjon fra alle allianser", "Avvisning av ethvert militaert samarbeid", "A avskaffe NATO-medlemskapet"],
-    explanation: 'Norge har balansert mellom fast NATO-forankring (avskrekking) og en beroligelsespolitikk som skal unnga unodig spenning i naeromradene.',
+    question: 'Hva har tradisjonelt kjennetegnet norsk sikkerhetspolitikk overfor stormakter i nærheten?',
+    options: ["En balansegang mellom NATO-forankring og beroligelse", "Fullstendig isolasjon fra alle allianser", "Avvisning av ethvert militært samarbeid", "A avskaffe NATO-medlemskapet"],
+    explanation: 'Norge har balansert mellom fast NATO-forankring (avskrekking) og en beroligelsespolitikk som skal unngå unødig spenning i nærområdene.',
   },
   {
     question: 'Hva er kollektivt forsvar?',
     options: ["At medlemmene forplikter seg til a forsvare hverandre ved angrep", "At hvert land forsvarer seg helt alene og bygger opp sitt eget forsvar uten avtaler", "At hvert land forsvarer seg selv helt alene og ikke kan regne med hjelp fra allierte", "At FN overtar ansvaret for alle medlemslandenes forsvar gjennom en felles verdenshaer"],
-    explanation: 'Kollektivt forsvar betyr at medlemslandene i en allianse forplikter seg til a komme hverandre til unnsetning ved et vaepnet angrep, slik NATOs artikkel 5 uttrykker.',
+    explanation: 'Kollektivt forsvar betyr at medlemslandene i en allianse forplikter seg til a komme hverandre til unnsetning ved et væpnet angrep, slik NATOs artikkel 5 uttrykker.',
   },
 ],
 
@@ -1077,28 +1077,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-5-4': [
   {
     question: 'Hvilke er sentrale institusjoner i EU?',
-    options: ["EU-kommisjonen, Europaparlamentet, Ministerradet og Det europeiske rad", "Bare Den europeiske menneskerettsdomstol", "Bare FN og NATO, som samarbeidsorganer i Europa", "Bare Stortinget, som vedtar felles europeiske lover paa vegne av alle medlemslandene"],
-    explanation: 'EUs hovedinstitusjoner er EU-kommisjonen (foreslaar lover), Europaparlamentet (direktevalgt), Ministerradet (medlemslandenes regjeringer) og Det europeiske raad (stats- og regjeringssjefer).',
+    options: ["EU-kommisjonen, Europaparlamentet, Ministerrådet og Det europeiske rad", "Bare Den europeiske menneskerettsdomstol", "Bare FN og NATO, som samarbeidsorganer i Europa", "Bare Stortinget, som vedtar felles europeiske lover paa vegne av alle medlemslandene"],
+    explanation: 'EUs hovedinstitusjoner er EU-kommisjonen (foreslår lover), Europaparlamentet (direktevalgt), Ministerrådet (medlemslandenes regjeringer) og Det europeiske raad (stats- og regjeringssjefer).',
   },
   {
     question: 'Hvordan er Norge tilknyttet EUs indre marked?',
     options: ['Gjennom EOS-avtalen', 'Som fullt EU-medlem', 'Norge har ingen tilknytning', 'Gjennom NATO'],
-    explanation: 'Norge er ikke EU-medlem, men er tilknyttet det indre markedet gjennom EOS-avtalen, som gir tilgang til de fire frihetene mot a overta store deler av EUs regelverk.',
+    explanation: 'Norge er ikke EU-medlem, men er tilknyttet det indre markedet gjennom EOS-avtalen, som gir tilgang til de fire frihetene mot å overta store deler av EUs regelverk.',
   },
   {
     question: 'Hva menes med det demokratiske underskuddet i Norges EOS-tilknytning?',
-    options: ["At Norge innfoerer EU-regler uten a ha stemmerett i EU-institusjonene", "At Norge har for mange folkeavstemninger", "At EU-institusjonene har for lite makt overfor EOS-landene", "At Norge holder for mange folkeavstemninger om hver enkelt regel som innfoeres fra EU"],
-    explanation: 'Det demokratiske underskuddet handler om at Norge innfoerer store deler av EUs regelverk gjennom EOS, men uten stemmerett der reglene utformes.',
+    options: ["At Norge innfører EU-regler uten å ha stemmerett i EU-institusjonene", "At Norge har for mange folkeavstemninger", "At EU-institusjonene har for lite makt overfor EOS-landene", "At Norge holder for mange folkeavstemninger om hver enkelt regel som innføres fra EU"],
+    explanation: 'Det demokratiske underskuddet handler om at Norge innfører store deler av EUs regelverk gjennom EOS, men uten stemmerett der reglene utformes.',
   },
   {
-    question: 'Hvordan paavirker EOS-avtalen en norsk bedrift som eksporterer til EU?',
-    options: ["Den gir tollfri adgang til det indre markedet mot a folge EUs regler", "Den gjelder bare tjenester, ikke varer, slik at vareeksporten maa forhandles land for land", "Den hindrer all eksport ved aa paalegge norske varer hoy toll inn til det indre markedet", "Den gjelder bare handel med tjenester, mens eksport av varer faller helt utenfor avtalen"],
-    explanation: 'Gjennom EOS far norske varer tollfri adgang til EU-markedet (fri varebevegelse), men bedriften ma folge EUs harmoniserte regler, for eksempel mattrygghetsstandarder.',
+    question: 'Hvordan påvirker EOS-avtalen en norsk bedrift som eksporterer til EU?',
+    options: ["Den gir tollfri adgang til det indre markedet mot å folge EUs regler", "Den gjelder bare tjenester, ikke varer, slik at vareeksporten maa forhandles land for land", "Den hindrer all eksport ved aa pålegge norske varer hoy toll inn til det indre markedet", "Den gjelder bare handel med tjenester, mens eksport av varer faller helt utenfor avtalen"],
+    explanation: 'Gjennom EOS far norske varer tollfri adgang til EU-markedet (fri varebevegelse), men bedriften må folge EUs harmoniserte regler, for eksempel mattrygghetsstandarder.',
   },
   {
     question: 'Har Norge brukt reservasjonsretten (vetoretten) i EOS-avtalen?',
-    options: ["Nei, den har aldri blitt brukt fordi det kan sette hele avtalen i fare", "Ja, den brukes ved hver ny regel, og norske myndigheter velger selv hvilke regler som gjelder", "Ja, reservasjonsretten brukes hvert aar for aa holde stoere deler av EU-regelverket ute", "Ja, Stortinget bruker den rutinemessig ved hver nye EU-regel som skal tas inn i avtalen"],
-    explanation: 'Stortinget har i teorien en reservasjonsrett, men den har aldri blitt brukt, fordi det kan utlose mottiltak og sette deler av EOS-avtalen i fare.',
+    options: ["Nei, den har aldri blitt brukt fordi det kan sette hele avtalen i fare", "Ja, den brukes ved hver ny regel, og norske myndigheter velger selv hvilke regler som gjelder", "Ja, reservasjonsretten brukes hvert aar for aa holde store deler av EU-regelverket ute", "Ja, Stortinget bruker den rutinemessig ved hver nye EU-regel som skal tas inn i avtalen"],
+    explanation: 'Stortinget har i teorien en reservasjonsrett, men den har aldri blitt brukt, fordi det kan utløse mottiltak og sette deler av EOS-avtalen i fare.',
   },
 ],
 
@@ -1106,23 +1106,23 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-5-5': [
   {
     question: 'Hva betyr frihandel?',
-    options: ["At varer og tjenester kan krysse landegrenser uten tollbarrierer og hindringer", "At bare statlige bedrifter kan handle", "At all handel mellom land forbys for aa gjoere hvert land selvforsynt med egne varer", "At bare statlige bedrifter, ikke private, har lov til aa drive handel over landegrensene"],
+    options: ["At varer og tjenester kan krysse landegrenser uten tollbarrierer og hindringer", "At bare statlige bedrifter kan handle", "At all handel mellom land forbys for aa gjøre hvert land selvforsynt med egne varer", "At bare statlige bedrifter, ikke private, har lov til aa drive handel over landegrensene"],
     explanation: 'Frihandel betyr at varer og tjenester kan krysse landegrenser uten toll, kvoter eller andre hindringer. Tilhengere mener det gir lavere priser og okonomisk vekst.',
   },
   {
     question: 'Hva er proteksjonisme?',
-    options: ["A beskytte nasjonal industri mot utenlandsk konkurranse, for eksempel med toll", "Fri handel uten regler", "Fri handel helt uten regler, der varer krysser grenser uten toll, kvoter eller kontroll", "En militaerallianse der medlemslandene forplikter seg til aa forsvare hverandres markeder"],
-    explanation: 'Proteksjonisme betyr a beskytte nasjonal industri mot utenlandsk konkurranse, gjennom virkemidler som toll, subsidier og importkvoter.',
+    options: ["A beskytte nasjonal industri mot utenlandsk konkurranse, for eksempel med toll", "Fri handel uten regler", "Fri handel helt uten regler, der varer krysser grenser uten toll, kvoter eller kontroll", "En militærallianse der medlemslandene forplikter seg til aa forsvare hverandres markeder"],
+    explanation: 'Proteksjonisme betyr å beskytte nasjonal industri mot utenlandsk konkurranse, gjennom virkemidler som toll, subsidier og importkvoter.',
   },
   {
-    question: 'Hvilken organisasjon arbeider for a fremme internasjonal handel og handelsregler?',
+    question: 'Hvilken organisasjon arbeider for å fremme internasjonal handel og handelsregler?',
     options: ["WTO (Verdens handelsorganisasjon)", "NATO", "PST (sikkerhetstjenesten)", "EMD"],
-    explanation: 'WTO (Verdens handelsorganisasjon) arbeider for a fremme frihandel og loser handelstvister mellom medlemslandene innenfor et felles regelverk.',
+    explanation: 'WTO (Verdens handelsorganisasjon) arbeider for å fremme frihandel og loser handelstvister mellom medlemslandene innenfor et felles regelverk.',
   },
   {
-    question: 'Hvorfor har Norge hoy toll pa enkelte matvarer?',
-    options: ["For a beskytte norsk landbruk av hensyn til matvaresikkerhet og distrikter", "Fordi det er forbudt a importere mat, og tollen skal hindre smugling over grensene", "For aa oeke importen av utenlandske matvarer mest mulig og gi forbrukerne stoerre utvalg", "Fordi det er forbudt aa importere mat til Norge, slik at all mat maa produseres innenlands"],
-    explanation: 'Norge har toll pa enkelte matvarer for a beskytte norsk landbruk, av hensyn til matvaresikkerhet (selvforsyning), bosetting i distriktene og kulturlandskap. Det gir samtidig hoyere priser.',
+    question: 'Hvorfor har Norge hoy toll på enkelte matvarer?',
+    options: ["For å beskytte norsk landbruk av hensyn til matvaresikkerhet og distrikter", "Fordi det er forbudt å importere mat, og tollen skal hindre smugling over grensene", "For aa øke importen av utenlandske matvarer mest mulig og gi forbrukerne større utvalg", "Fordi det er forbudt aa importere mat til Norge, slik at all mat maa produseres innenlands"],
+    explanation: 'Norge har toll på enkelte matvarer for å beskytte norsk landbruk, av hensyn til matvaresikkerhet (selvforsyning), bosetting i distriktene og kulturlandskap. Det gir samtidig hoyere priser.',
   },
   {
     question: 'Hva er en typisk ulempe ved proteksjonisme i form av matvaretoll?',
@@ -1134,28 +1134,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
 
   'politikk-menneskerett-5-6': [
   {
-    question: 'Hva er typisk for arsaker til vaepnede konflikter?',
-    options: ["De har sjelden en enkelt arsak, men flere sammenvirkende faktorer", "De skyldes alltid bare religion", "De skyldes alltid en enkelt, klart identifiserbar utlosende hendelse", "De oppstar utelukkende av religiose motsetninger mellom folkegrupper"],
-    explanation: 'Vaepnede konflikter har sjelden en enkelt arsak. Politiske, okonomiske, etnisk-religiose og geopolitiske faktorer virker ofte sammen.',
+    question: 'Hva er typisk for årsaker til væpnede konflikter?',
+    options: ["De har sjelden en enkelt årsak, men flere sammenvirkende faktorer", "De skyldes alltid bare religion", "De skyldes alltid en enkelt, klart identifiserbar utløsende hendelse", "De oppstår utelukkende av religiøse motsetninger mellom folkegrupper"],
+    explanation: 'Væpnede konflikter har sjelden en enkelt årsak. Politiske, okonomiske, etnisk-religiose og geopolitiske faktorer virker ofte sammen.',
   },
   {
-    question: 'Hva er distinksjonsprinsippet i humanitaerretten?',
-    options: ["At man ma skille mellom sivile og stridende, og ikke angripe sivile", "At bare soldater har rettigheter", "At alle personer i et konfliktomrade lovlig kan regnes som stridende", "At krigshandlinger utenfor eget territorium ikke reguleres av regler"],
-    explanation: 'Distinksjonsprinsippet i krigens folkerett krever at partene skiller mellom sivile og stridende. Angrep skal rettes mot militaere maal, ikke sivile.',
+    question: 'Hva er distinksjonsprinsippet i humanitærretten?',
+    options: ["At man må skille mellom sivile og stridende, og ikke angripe sivile", "At bare soldater har rettigheter", "At alle personer i et konfliktområde lovlig kan regnes som stridende", "At krigshandlinger utenfor eget territorium ikke reguleres av regler"],
+    explanation: 'Distinksjonsprinsippet i krigens folkerett krever at partene skiller mellom sivile og stridende. Angrep skal rettes mot militære maal, ikke sivile.',
   },
   {
     question: 'Hva er Norge kjent for i internasjonal fredsdiplomati?',
-    options: ["A vaere fredsmekler, for eksempel i Oslo-avtalen og i Colombia", "A unnga all internasjonal innblanding", "A stotte den ene parten til militaer seier", "A vaere en ledende militaermakt som griper inn i konflikter med styrke"],
+    options: ["A være fredsmekler, for eksempel i Oslo-avtalen og i Colombia", "A unngå all internasjonal innblanding", "A støtte den ene parten til militær seier", "A være en ledende militærmakt som griper inn i konflikter med styrke"],
     explanation: 'Norge har en lang tradisjon som fredsmekler og bistandsyter, blant annet gjennom Oslo-avtalen (1993) og som garantist i fredsprosessen i Colombia.',
   },
   {
     question: 'Hva er fredsbygging?',
-    options: ["Arbeid for a skape varig fred, blant annet ved a haandtere underliggende arsaker", "Bare a stanse selve kampene", "A bygge militaere allianser som avskrekker fienden fra a starte nye angrep igjen", "A oke vaapeneksporten slik at partene kan forsvare seg selv"],
-    explanation: 'Fredsbygging handler om a skape varig fred gjennom forsoning, gjenoppbygging av institusjoner og a haandtere underliggende arsaker som fattigdom, ulikhet og urett.',
+    options: ["Arbeid for a skape varig fred, blant annet ved å håndtere underliggende årsaker", "Bare å stanse selve kampene", "A bygge militære allianser som avskrekker fienden fra a starte nye angrep igjen", "A oke våpeneksporten slik at partene kan forsvare seg selv"],
+    explanation: 'Fredsbygging handler om å skape varig fred gjennom forsoning, gjenoppbygging av institusjoner og a håndtere underliggende årsaker som fattigdom, ulikhet og urett.',
   },
   {
     question: 'Hvilke faktorer bidro til at protestene i Syria i 2011 utviklet seg til borgerkrig?',
-    options: ["Politiske, okonomiske, etnisk-religiose og geopolitiske faktorer i kombinasjon", "Bare en enkelt politisk leder, ettersom befolkningen ellers stod samlet bak myndighetene", "Utelukkende langvarig torke og klimaendringer i regionen som eneste utlosende arsak", "Bare en enkelt maktsyk politisk lederskikkelse uten bredere samfunnsmessige forhold"],
+    options: ["Politiske, okonomiske, etnisk-religiose og geopolitiske faktorer i kombinasjon", "Bare en enkelt politisk leder, ettersom befolkningen ellers stod samlet bak myndighetene", "Utelukkende langvarig tørke og klimaendringer i regionen som eneste utløsende årsak", "Bare en enkelt maktsyk politisk lederskikkelse uten bredere samfunnsmessige forhold"],
     explanation: 'Konflikten i Syria viser hvordan flere faktorer virket sammen: brutal undertrykkelse, fattigdom og arbeidsledighet, etnisk-religiose spenninger og geopolitisk innblanding.',
   },
 ],
@@ -1164,7 +1164,7 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-6-1': [
   {
     question: 'Hva er globale utfordringer?',
-    options: ["Problemer som berorer mennesker pa tvers av landegrenser og krever internasjonalt samarbeid", "Problemer som bare gjelder ett land", "Forhold som fullt ut kan reguleres av rent nasjonale lover uten noe samarbeid mellom stater", "Problemer som gjelder ett enkelt land og loses innenfor landets egne grenser"],
+    options: ["Problemer som berører mennesker på tvers av landegrenser og krever internasjonalt samarbeid", "Problemer som bare gjelder ett land", "Forhold som fullt ut kan reguleres av rent nasjonale lover uten noe samarbeid mellom stater", "Problemer som gjelder ett enkelt land og loses innenfor landets egne grenser"],
     explanation: 'Globale utfordringer er grenseoverskridende problemer - som klimaendringer, pandemier, fattigdom og cybertrusler - som ikke kan loses av enkeltstater alene.',
   },
   {
@@ -1175,31 +1175,31 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor krever globale utfordringer internasjonalt samarbeid?',
     options: ["Fordi ingen enkeltstat kan lose dem alene", "Fordi de bare gjelder rike land", "Fordi fattige land ikke rammes", "Fordi de er uten betydning"],
-    explanation: 'Fordi utfordringene gaar pa tvers av landegrenser, kan ingen enkeltstat lose dem alene. Derfor er internasjonalt samarbeid og felles institusjoner nodvendig.',
+    explanation: 'Fordi utfordringene gaar på tvers av landegrenser, kan ingen enkeltstat lose dem alene. Derfor er internasjonalt samarbeid og felles institusjoner nødvendig.',
   },
   {
-    question: 'Hva er et eksempel pa en global utfordring?',
+    question: 'Hva er et eksempel på en global utfordring?',
     options: ['Klimaendringer', 'En lokal kommuneplan', 'En enkelt skoles budsjett', 'Et nasjonalt valg'],
-    explanation: 'Klimaendringer er et typisk eksempel pa en global utfordring fordi utslipp og konsekvenser gaar pa tvers av landegrenser og krever felles handling.',
+    explanation: 'Klimaendringer er et typisk eksempel på en global utfordring fordi utslipp og konsekvenser gaar på tvers av landegrenser og krever felles handling.',
   },
   {
-    question: 'Hva er FNs baerekraftsmaal et forsok pa?',
-    options: ["A samle verden om felles mal for a mote globale utfordringer innen 2030", "A erstatte nasjonale valg med bindende avstemninger blant alle medlemslandene i FN", "A avskaffe nasjonalstatene og erstatte dem med en samlet verdensregjering", "A starte en global handelskrig for a beskytte de rike landenes egen okonomi"],
-    explanation: 'FNs baerekraftsmaal (vedtatt 2015) er et forsok pa a samle verden om 17 felles mal innen 2030 for a mote globale utfordringer som fattigdom, ulikhet og klimaendringer.',
+    question: 'Hva er FNs bærekraftsmål et forsok pa?',
+    options: ["A samle verden om felles mal for å mote globale utfordringer innen 2030", "A erstatte nasjonale valg med bindende avstemninger blant alle medlemslandene i FN", "A avskaffe nasjonalstatene og erstatte dem med en samlet verdensregjering", "A starte en global handelskrig for å beskytte de rike landenes egen okonomi"],
+    explanation: 'FNs bærekraftsmål (vedtatt 2015) er et forsok pa å samle verden om 17 felles mal innen 2030 for å mote globale utfordringer som fattigdom, ulikhet og klimaendringer.',
   },
 ],
 
 
   'politikk-menneskerett-6-2': [
   {
-    question: 'Hva er hovedarsaken til menneskeskapte klimaendringer?',
-    options: ["Utslipp av klimagasser fra forbrenning av fossile brensler", "Bare naturlige svingninger", "Endringer i solas straling som eneste arsak", "Kraftige vulkanutbrudd som alene slipper ut store mengder klimagasser"],
-    explanation: 'Klimaendringene skyldes forst og fremst menneskelige utslipp av klimagasser som CO2 og metan, fra forbrenning av fossile brensler, avskoging og landbruk.',
+    question: 'Hva er hovedårsaken til menneskeskapte klimaendringer?',
+    options: ["Utslipp av klimagasser fra forbrenning av fossile brensler", "Bare naturlige svingninger", "Endringer i solas straling som eneste årsak", "Kraftige vulkanutbrudd som alene slipper ut store mengder klimagasser"],
+    explanation: 'Klimaendringene skyldes først og fremst menneskelige utslipp av klimagasser som CO2 og metan, fra forbrenning av fossile brensler, avskoging og landbruk.',
   },
   {
     question: 'Hva er Parisavtalen?',
-    options: ["En internasjonal klimaavtale med mal om a begrense den globale oppvarmingen", "En menneskerettighetskonvensjon", "En menneskerettighetskonvensjon som beskytter individets grunnleggende rettigheter", "En handelsavtale mellom EUs medlemsland om toll og marked"],
-    explanation: 'Parisavtalen (2015) er en internasjonal klimaavtale der landene forplikter seg til a begrense den globale oppvarmingen og til a lage egne nasjonale utslippsmal.',
+    options: ["En internasjonal klimaavtale med mal om å begrense den globale oppvarmingen", "En menneskerettighetskonvensjon", "En menneskerettighetskonvensjon som beskytter individets grunnleggende rettigheter", "En handelsavtale mellom EUs medlemsland om toll og marked"],
+    explanation: 'Parisavtalen (2015) er en internasjonal klimaavtale der landene forplikter seg til a begrense den globale oppvarmingen og til a lage egne nasjonale utslippsmål.',
   },
   {
     question: 'Hvilket organ vurderer den vitenskapelige kunnskapen om klima?',
@@ -1213,7 +1213,7 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva illustrerer bevegelsen Fridays for Future?',
-    options: ["Hvordan ungdomsengasjement kan vokse til en global klimabevegelse", "At unge er uten interesse for klima", "At klimaspoersmalet er upolitisk", "At dagens ungdom stort sett er uten interesse for klima og miljospoersmal"],
+    options: ["Hvordan ungdomsengasjement kan vokse til en global klimabevegelse", "At unge er uten interesse for klima", "At klimaspørsmålet er upolitisk", "At dagens ungdom stort sett er uten interesse for klima og miljøspørsmål"],
     explanation: 'Fridays for Future, inspirert av Greta Thunbergs skolestreik, illustrerer hvordan enkeltpersoners og ungdoms engasjement kan vokse til en stor global bevegelse for klimahandling.',
   },
 ],
@@ -1222,27 +1222,27 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-6-3': [
   {
     question: 'Hva er forskjellen mellom absolutt og relativ fattigdom?',
-    options: ["Absolutt er under et minimumsnivaa for levestandard; relativ er vesentlig lavere enn vanlig i eget samfunn", "Relativ fattigdom oppstar bare i land som er rammet av langvarig krig og vaepnet konflikt over lang tid", "De to begrepene betyr i praksis akkurat det samme og brukes om hverandre for a beskrive fattigdom generelt", "Absolutt fattigdom gjelder bare de rike landene, mens relativ gjelder de fattigste"],
-    explanation: 'Absolutt fattigdom betyr a leve under et minimumsnivaa av materiell levestandard. Relativ fattigdom betyr a ha vesentlig lavere levestandard enn det som er vanlig i ens eget samfunn.',
+    options: ["Absolutt er under et minimumsnivå for levestandard; relativ er vesentlig lavere enn vanlig i eget samfunn", "Relativ fattigdom oppstår bare i land som er rammet av langvarig krig og væpnet konflikt over lang tid", "De to begrepene betyr i praksis akkurat det samme og brukes om hverandre for å beskrive fattigdom generelt", "Absolutt fattigdom gjelder bare de rike landene, mens relativ gjelder de fattigste"],
+    explanation: 'Absolutt fattigdom betyr å leve under et minimumsnivå av materiell levestandard. Relativ fattigdom betyr å ha vesentlig lavere levestandard enn det som er vanlig i ens eget samfunn.',
   },
   {
-    question: 'Hva er Verdensbankens internasjonale fattigdomsgrense (per dag, justert for kjopekraft)?',
+    question: 'Hva er Verdensbankens internasjonale fattigdomsgrense (per dag, justert for kjøpekraft)?',
     options: ['Cirka 2,15 dollar', 'Cirka 100 dollar', 'Cirka 0,10 dollar', 'Cirka 50 dollar'],
-    explanation: 'Verdensbankens internasjonale fattigdomsgrense for absolutt fattigdom er pa cirka 2,15 dollar per dag, justert for kjopekraft.',
+    explanation: 'Verdensbankens internasjonale fattigdomsgrense for absolutt fattigdom er på cirka 2,15 dollar per dag, justert for kjøpekraft.',
   },
   {
     question: 'Hva er bistand (utviklingshjelp)?',
-    options: ["Overforing av ressurser for a fremme utvikling i fattigere land", "Et laan med hoy rente", "Et laan med hoy rente som fattige land ma betale tilbake med fortjeneste", "En handelstoll som legges pa varer for a beskytte givelandets egen industri"],
-    explanation: 'Bistand er overforing av penger, kunnskap eller ressurser, ofte fra rike til fattigere land, for a fremme utvikling, redusere fattigdom og styrke institusjoner.',
+    options: ["Overføring av ressurser for å fremme utvikling i fattigere land", "Et laan med hoy rente", "Et laan med hoy rente som fattige land må betale tilbake med fortjeneste", "En handelstoll som legges på varer for å beskytte givelandets egen industri"],
+    explanation: 'Bistand er overføring av penger, kunnskap eller ressurser, ofte fra rike til fattigere land, for å fremme utvikling, redusere fattigdom og styrke institusjoner.',
   },
   {
     question: 'Hvilke institusjoner spiller en sentral rolle i internasjonal okonomi og utvikling?',
     options: ["Verdensbanken og Det internasjonale pengefondet (IMF)", "WTO og Sametinget", "Forsvarsalliansen NATO og den norske sikkerhetstjenesten PST", "Handelsorganisasjonen WTO og det norske folkevalgte Sametinget"],
-    explanation: 'Verdensbanken og IMF er sentrale internasjonale finansinstitusjoner som gir laan, raad og stotte knyttet til utvikling og okonomisk stabilitet.',
+    explanation: 'Verdensbanken og IMF er sentrale internasjonale finansinstitusjoner som gir laan, raad og støtte knyttet til utvikling og okonomisk stabilitet.',
   },
   {
     question: 'Hva er en sentral debatt knyttet til bistand?',
-    options: ["I hvilken grad bistand faktisk fremmer varig utvikling og selvstendighet", "Om stater har grenser som er anerkjent av nabolandene og av det ovrige verdenssamfunnet", "Hvorvidt stater i det hele tatt har rett til a definere egne landegrenser", "Hvorvidt handel mellom fattige og rike land i praksis er mulig a gjennomfore"],
+    options: ["I hvilken grad bistand faktisk fremmer varig utvikling og selvstendighet", "Om stater har grenser som er anerkjent av nabolandene og av det ovrige verdenssamfunnet", "Hvorvidt stater i det hele tatt har rett til a definere egne landegrenser", "Hvorvidt handel mellom fattige og rike land i praksis er mulig a gjennomføre"],
     explanation: 'En sentral debatt er hvor effektiv bistand er: noen mener den fremmer utvikling, andre at den kan skape avhengighet. Mange vektlegger handel, institusjoner og lokalt eierskap.',
   },
 ],
@@ -1251,18 +1251,18 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-6-4': [
   {
     question: 'Hva er forskjellen mellom frivillig og tvungen migrasjon?',
-    options: ["Frivillig skjer for a soke bedre liv; tvungen er flukt fra krig, forfolgelse eller katastrofe", "De to begrepene betyr i praksis det samme og handler begge om flukt fra krig og forfolgelse", "Frivillig migrasjon gjelder bare flyktninger fra krig og forfolgelse", "Tvungen migrasjon gjelder bare arbeidsinnvandrere som soker bedre kaar"],
-    explanation: 'Frivillig migrasjon (for eksempel arbeidsmigrasjon) skjer for a soke arbeid eller bedre livsbetingelser, mens tvungen migrasjon (flukt) skyldes krig, forfolgelse eller naturkatastrofer.',
+    options: ["Frivillig skjer for a søke bedre liv; tvungen er flukt fra krig, forfølgelse eller katastrofe", "De to begrepene betyr i praksis det samme og handler begge om flukt fra krig og forfølgelse", "Frivillig migrasjon gjelder bare flyktninger fra krig og forfølgelse", "Tvungen migrasjon gjelder bare arbeidsinnvandrere som søker bedre kaar"],
+    explanation: 'Frivillig migrasjon (for eksempel arbeidsmigrasjon) skjer for a søke arbeid eller bedre livsbetingelser, mens tvungen migrasjon (flukt) skyldes krig, forfølgelse eller naturkatastrofer.',
   },
   {
     question: 'Hva regulerer Flyktningkonvensjonen?',
-    options: ["Hvem som har rett til beskyttelse som flyktning, og statenes plikter", "Militaere allianser", "Gjennomforing av kommunevalg og lokalvalg", "Handel og toll mellom land som deltar i internasjonalt okonomisk samarbeid"],
-    explanation: 'Flyktningkonvensjonen (1951) definerer hvem som er flyktning og gir rett til beskyttelse, blant annet gjennom prinsippet om non-refoulement (forbud mot a sende noen tilbake til forfolgelse).',
+    options: ["Hvem som har rett til beskyttelse som flyktning, og statenes plikter", "Militære allianser", "Gjennomføring av kommunevalg og lokalvalg", "Handel og toll mellom land som deltar i internasjonalt okonomisk samarbeid"],
+    explanation: 'Flyktningkonvensjonen (1951) definerer hvem som er flyktning og gir rett til beskyttelse, blant annet gjennom prinsippet om non-refoulement (forbud mot å sende noen tilbake til forfølgelse).',
   },
   {
-    question: 'Hva er en asylsoker?',
-    options: ["En person som ber om beskyttelse og venter pa svar paa om vedkommende far flyktningstatus", "En arbeidsinnvandrer med oppholdstillatelse", "En arbeidsinnvandrer som allerede har fatt innvilget lovlig oppholdstillatelse og fast arbeid", "En turist som oppholder seg midlertidig i landet pa en gyldig og tidsbegrenset visumtillatelse"],
-    explanation: 'En asylsoker er en person som har soekt om beskyttelse (asyl) i et land og venter paa at soeknaden behandles og avgjores.',
+    question: 'Hva er en asylsøker?',
+    options: ["En person som ber om beskyttelse og venter på svar paa om vedkommende får flyktningstatus", "En arbeidsinnvandrer med oppholdstillatelse", "En arbeidsinnvandrer som allerede har fatt innvilget lovlig oppholdstillatelse og fast arbeid", "En turist som oppholder seg midlertidig i landet på en gyldig og tidsbegrenset visumtillatelse"],
+    explanation: 'En asylsøker er en person som har søkt om beskyttelse (asyl) i et land og venter paa at søknaden behandles og avgjøres.',
   },
   {
     question: 'Hva handler integrering om?',
@@ -1271,8 +1271,8 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken spenning preger ofte innvandrings- og flyktningpolitikken?',
-    options: ["Mellom statens kontroll over grensene og forpliktelsen til a gi beskyttelse", "Det finnes ingen spenning, ettersom grensekontroll og beskyttelse er to helt atskilte oppgaver", "En spenning mellom to konkurrerende internasjonale handelsavtaler om toll og marked", "Det finnes i praksis ingen reell spenning eller motsetning pa dette politikkomradet"],
-    explanation: 'Politikken pa feltet preges av en spenning mellom statens rett til a kontrollere innvandring og dens menneskerettslige forpliktelser til a gi beskyttelse til mennesker pa flukt.',
+    options: ["Mellom statens kontroll over grensene og forpliktelsen til a gi beskyttelse", "Det finnes ingen spenning, ettersom grensekontroll og beskyttelse er to helt atskilte oppgaver", "En spenning mellom to konkurrerende internasjonale handelsavtaler om toll og marked", "Det finnes i praksis ingen reell spenning eller motsetning på dette politikkomradet"],
+    explanation: 'Politikken på feltet preges av en spenning mellom statens rett til a kontrollere innvandring og dens menneskerettslige forpliktelser til a gi beskyttelse til mennesker på flukt.',
   },
 ],
 
@@ -1280,28 +1280,28 @@ const quizData_politikk_menneskerett: Record<string, QuizQuestion[]> = {
   'politikk-menneskerett-6-5': [
   {
     question: 'Hva er sivilsamfunnet?',
-    options: ["Delen av samfunnet mellom stat, marked og familie, med frivillige organisasjoner og nettverk", "Bare naeringslivet", "Bare naeringslivet og markedet der varer og tjenester kjopes og selges mellom private aktorer", "Utelukkende regjeringen og de statlige organene"],
+    options: ["Delen av samfunnet mellom stat, marked og familie, med frivillige organisasjoner og nettverk", "Bare næringslivet", "Bare næringslivet og markedet der varer og tjenester kjøpes og selges mellom private aktorer", "Utelukkende regjeringen og de statlige organene"],
     explanation: 'Sivilsamfunnet er den delen av samfunnet mellom staten, markedet og familien, og omfatter frivillige organisasjoner, interessegrupper, fagforeninger og uformelle nettverk.',
   },
   {
     question: 'Hvorfor regnes et sterkt sivilsamfunn som viktig for demokratiet?',
-    options: ["Det gir borgere kanaler til a engasjere seg og kontrollere makten", "Det erstatter Stortinget", "Det overtar styringen av domstolene og rettsvesenets uavhengige rolle", "Det svekker demokratiet ved a undergrave de folkevalgtes legitime makt"],
+    options: ["Det gir borgere kanaler til a engasjere seg og kontrollere makten", "Det erstatter Stortinget", "Det overtar styringen av domstolene og rettsvesenets uavhengige rolle", "Det svekker demokratiet ved å undergrave de folkevalgtes legitime makt"],
     explanation: 'Et sterkt og uavhengig sivilsamfunn gir borgere arenaer for engasjement, bidrar til mangfold og debatt, og kan kontrollere og utfordre makthaverne - viktig for et velfungerende demokrati.',
   },
   {
     question: 'Hva er en sosial bevegelse?',
-    options: ["Et kollektivt engasjement der mennesker organiserer seg for endring", "Et politisk parti i regjering", "En militaerallianse der medlemslandene samarbeider om felles forsvar", "Et politisk parti som sitter i regjering og utover den utovende makten"],
-    explanation: 'En sosial bevegelse er et kollektivt, ofte loselig organisert engasjement der mennesker gar sammen for a fremme eller motsette seg samfunnsendring, for eksempel klima- eller borgerrettighetsbevegelser.',
+    options: ["Et kollektivt engasjement der mennesker organiserer seg for endring", "Et politisk parti i regjering", "En militærallianse der medlemslandene samarbeider om felles forsvar", "Et politisk parti som sitter i regjering og utover den utøvende makten"],
+    explanation: 'En sosial bevegelse er et kollektivt, ofte løselig organisert engasjement der mennesker går sammen for å fremme eller motsette seg samfunnsendring, for eksempel klima- eller borgerrettighetsbevegelser.',
   },
   {
     question: 'Hva er Amnesty International et eksempel pa?',
-    options: ["En menneskerettighetsorganisasjon i sivilsamfunnet", "Et statlig direktorat", "En militaerallianse som beskytter medlemslandenes borgere mot overgrep", "En internasjonal domstol som doemmer stater for menneskerettighetsbrudd"],
-    explanation: 'Amnesty International er en av verdens storste menneskerettighetsorganisasjoner, et eksempel pa sivilsamfunnets arbeid gjennom forskning, kampanjer og paavirkning.',
+    options: ["En menneskerettighetsorganisasjon i sivilsamfunnet", "Et statlig direktorat", "En militærallianse som beskytter medlemslandenes borgere mot overgrep", "En internasjonal domstol som dømmer stater for menneskerettighetsbrudd"],
+    explanation: 'Amnesty International er en av verdens storste menneskerettighetsorganisasjoner, et eksempel på sivilsamfunnets arbeid gjennom forskning, kampanjer og påvirkning.',
   },
   {
     question: 'Hva kjennetegner digital aktivisme?',
-    options: ["Bruk av internett og sosiale medier til a mobilisere og paavirke", "Bare tradisjonelle demonstrasjoner der deltakerne moter opp fysisk paa et avtalt sted", "Bare offentlig informasjon som staten sprer gjennom sine egne kanaler", "Utelukkende tradisjonelle gatedemonstrasjoner uten bruk av digitale verktoy"],
-    explanation: 'Digital aktivisme bruker internett og sosiale medier til a spre informasjon, mobilisere stotte og paavirke. Det kan na mange raskt, men kritiseres ogsa for "slacktivism" med lav forpliktelse.',
+    options: ["Bruk av internett og sosiale medier til a mobilisere og påvirke", "Bare tradisjonelle demonstrasjoner der deltakerne moter opp fysisk paa et avtalt sted", "Bare offentlig informasjon som staten sprer gjennom sine egne kanaler", "Utelukkende tradisjonelle gatedemonstrasjoner uten bruk av digitale verktøy"],
+    explanation: 'Digital aktivisme bruker internett og sosiale medier til a spre informasjon, mobilisere støtte og påvirke. Det kan nå mange raskt, men kritiseres også for "slacktivism" med lav forpliktelse.',
   },
 ],
 

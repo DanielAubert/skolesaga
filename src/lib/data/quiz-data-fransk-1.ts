@@ -60,7 +60,7 @@ const quizData_fransk_1: Record<string, QuizQuestion[]> = {
     {
       question: 'Que répond-on à "merci"?',
       options: ['De rien', 'Merci', 'Bonjour', 'Au revoir'],
-      explanation: '"De rien" betyr "ingen årsak" og er svåret på takk.',
+      explanation: '"De rien" betyr "ingen årsak" og er svaret på takk.',
     },
     {
       question: 'Comment dit-on "jeg heter" en français?',

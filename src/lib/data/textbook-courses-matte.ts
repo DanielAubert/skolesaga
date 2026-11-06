@@ -728,7 +728,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Matematisk modellering', 'Modelleringsprosessen', 'Variable størrelser', 'Interpolering', 'Ekstrapolering'],
       prerequisites: ['1t-3-8'],
-      competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige', 'identifisere variable storleikar, sette opp formlar og utforske desse ved hjelp av digitale verktoey'],
+      competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige', 'identifisere variable storleikar, sette opp formlar og utforske desse ved hjelp av digitale verktøy'],
       linkedChapterId: '1t-8-1-narrativ',
     },
     { id: '1t-8-1-narrativ', number: '8.1', title: 'Modellering med funksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å fange virkeligheten i formler -- hvordan matematiske funksjoner kan beskrive alt fra befolkningsvekst til temperaturer.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Matematisk modellering', 'Modelleringsprosessen', 'Variable størrelser', 'Interpolering', 'Ekstrapolering'], linkedChapterId: '1t-8-1', isNarrativeVersion: true },

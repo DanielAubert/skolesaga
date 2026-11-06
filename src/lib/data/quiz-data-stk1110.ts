@@ -1081,7 +1081,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er nullfordelingen?",
       options: ["Fordelingen til observatoren når $H_0$ er sann", "Fordelingen til dataene før innsamling", "Fordelingen til P-verdien under $H_a$", "Fordelingen til estimatet $\\bar x$ over alle hypoteser"],
-      explanation: "Alt (kritisk verdi, P-verdi, nivå) leses av observatorens fordeling under $H_0$.",
+      explanation: "Alt (kritisk verdi, P-verdi, nivå) leses av observatørens fordeling under $H_0$.",
     },
     {
       question: "En lavere $\\alpha$ (f.eks. 0,01 i stedet for 0,05) gir:",

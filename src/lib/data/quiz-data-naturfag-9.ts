@@ -78,7 +78,7 @@ const quizData_naturfag_9: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er antibiotikaresistens et bevis for evolusjon?',
     options: ['Bakterier med naturlig resistens overlever og formerer seg - naturlig utvalg i aksjon', 'Bakterier bestemmer seg for å bli resistente', 'Antibiotika gjør bakteriene sterkere', 'Bakterier lærer å motstå antibiotika'],
-    explanation: 'Når antibiotikå brukes, overlever bare de få bakteriene som tilfeldigvis er resistente. Disse formerer seg, og populasjonen blir resistent.',
+    explanation: 'Når antibiotika brukes, overlever bare de få bakteriene som tilfeldigvis er resistente. Disse formerer seg, og populasjonen blir resistent.',
   },
   {
     question: 'Hva er IKKE et bevis for evolusjon?',

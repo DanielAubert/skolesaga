@@ -25,14 +25,14 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor lærer vi retorikk?",
       options: ["For å bli bedre kommunikatorer og gjennomskue andres argumentasjon", "For å oppnå bedre karakterer i norskfaget på videregående skole", "For å kunne manipulere og overtale andre uansett hva saken gjelder", "For å lære oss gresk og latin, som retorikkens fagbegreper stammer fra"],
-      explanation: "Kunnskap om retorikk hjelper deg både a kommunisere bedre selv og a gjennomskue nårandre proever a påvirke deg.",
+      explanation: "Kunnskap om retorikk hjelper deg både a kommunisere bedre selv og a gjennomskue nårandre prøver a påvirke deg.",
     },
   ],
   "norsk-vg1-1-2": [
     {
       question: "Hva er en primerkilde?",
-      options: ["Originale dokumenter, forskning eller oyenvitneskildringer","En muntlig gjenfortelling av noe man har hørt fra andre igjen","Et blogginnlegg der forfatteren gir sin egen mening om andres funn","En lærebok eller et oppslagsverk som forklarer og oppsummerer et emne"],
-      explanation: "Primaerkilder er originalmateriale som forskningsdata, historiske dokumenter eller førstehandsberetninger - ikke tolkninger av disse.",
+      options: ["Originale dokumenter, forskning eller øyenvitneskildringer","En muntlig gjenfortelling av noe man har hørt fra andre igjen","Et blogginnlegg der forfatteren gir sin egen mening om andres funn","En lærebok eller et oppslagsverk som forklarer og oppsummerer et emne"],
+      explanation: "Primærkilder er originalmateriale som forskningsdata, historiske dokumenter eller førstehandsberetninger - ikke tolkninger av disse.",
     },
     {
       question: "Hva star TRAFO for i kildekritikk?",
@@ -41,18 +41,18 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom direkte sitat og parafrasering?",
-      options: ["Direkte sitat gjengir ordrett med anforselstegn, parafrasering bruker egne ord", "Det er egentlig ingen forskjell, begge deler regnes som gjengivelse av kilden", "Direkte sitat er alltid kortere, mens parafrasering gjengir hele avsnittet", "Parafrasering trenger ingen kildehenvisning så lenge du bruker egne ord"],
-      explanation: "Ved direkte sitat gjengir du ordrett og bruker anforselstegn. Ved parafrasering gjengir du innholdet med egne ord, men oppgir fortsatt kilden.",
+      options: ["Direkte sitat gjengir ordrett med anførselstegn, parafrasering bruker egne ord", "Det er egentlig ingen forskjell, begge deler regnes som gjengivelse av kilden", "Direkte sitat er alltid kortere, mens parafrasering gjengir hele avsnittet", "Parafrasering trenger ingen kildehenvisning så lenge du bruker egne ord"],
+      explanation: "Ved direkte sitat gjengir du ordrett og bruker anførselstegn. Ved parafrasering gjengir du innholdet med egne ord, men oppgir fortsatt kilden.",
     },
     {
       question: "Hvorfor er en YouTube-video av en influencer uten faglig bakgrunn ofte en svak kilde?",
-      options: ["Lav troverdighet fordi avsenderen mangler faglig kompetanse", "Fordi videoer alltid er upaalitelige", "Fordi videoer på nett alltid er upålitelige som kilde uansett innhold", "Fordi YouTube er blokkert på skolen og derfor ikke kan brukes som kilde"],
+      options: ["Lav troverdighet fordi avsenderen mangler faglig kompetanse", "Fordi videoer alltid er upålitelige", "Fordi videoer på nett alltid er upålitelige som kilde uansett innhold", "Fordi YouTube er blokkert på skolen og derfor ikke kan brukes som kilde"],
       explanation: "Troverdigheten er lav fordi personen mangler faglig kompetanse, og det kan være skjulte kommersielle interesser (sponsing).",
     },
     {
       question: "Hva er plagiat?",
       options: ["A fremstille andres arbeid som sitt eget uten a oppgi kilde", "A bruke sitater i teksten", "Å skrive et fagstoff med egne ord etter at du har lest deg opp på temaet", "Å referere korrekt til forskning og oppgi hvem som står bak funnene i teksten"],
-      explanation: "Plagiat er a kopiere eller bruke andres arbeid uten a oppgi kilden, slik at det fremstar som ditt eget. Dette er uetisk og kan ha alvorlige konsekvenser.",
+      explanation: "Plagiat er a kopiere eller bruke andres arbeid uten a oppgi kilden, slik at det fremstår som ditt eget. Dette er uetisk og kan ha alvorlige konsekvenser.",
     },
   ],
   "norsk-vg1-2-1": [
@@ -78,8 +78,8 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner novellen som sjanger?",
-      options: ["Kort form, fa personer, begrenset tidsrom og ofte ett sentralt vendepunkt", "En fortelling som alltid ender lykkelig med en tydelig moralsk lærdom", "Lang form med mange karakterer og flere sidehandlinger over lang tid", "En tekst som alltid er skrevet på vers med fast rim og bunden form"],
-      explanation: "Novellen er en kort fortelling med konsentrert handling, fa karakterer, begrenset tid og sted, og ofte et sentralt vendepunkt.",
+      options: ["Kort form, få personer, begrenset tidsrom og ofte ett sentralt vendepunkt", "En fortelling som alltid ender lykkelig med en tydelig moralsk lærdom", "Lang form med mange karakterer og flere sidehandlinger over lang tid", "En tekst som alltid er skrevet på vers med fast rim og bunden form"],
+      explanation: "Novellen er en kort fortelling med konsentrert handling, få karakterer, begrenset tid og sted, og ofte et sentralt vendepunkt.",
     },
   ],
   "norsk-vg1-2-2": [
@@ -112,7 +112,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-3-1": [
     {
       question: "Hva er viktigst a tenke påi innledningen til en presentasjon?",
-      options: ["Fange oppmerksomheten og presentere tema tydelig", "Unnskylde seg for a være nervoes", "Gi alle detaljene med en gang så publikum får hele oversikten tidlig", "Gi alle detaljer med en gang"],
+      options: ["Fange oppmerksomheten og presentere tema tydelig", "Unnskylde seg for a være nervøs", "Gi alle detaljene med en gang så publikum får hele oversikten tidlig", "Gi alle detaljer med en gang"],
       explanation: "Innledningen skal fange publikums interesse med en hook (overraskende fakta, spørsmål, historie) og tydelig presentere hva du skal snakke om.",
     },
     {
@@ -122,8 +122,8 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er aktiv lytting?",
-      options: ["A vise at du lytter, stille oppfolgingsspørsmål og unngå å avbryte", "Å være helt stille og ikke si noe mens den andre snakker ferdig", "Å ta grundige notater av alt som blir sagt underveis i samtalen", "Å nikke jevnlig og se interessert ut uten egentlig å høre etter"],
-      explanation: "Aktiv lytting innebærer a vise interesse med kroppsspråk, stille oppfolgingsspørsmål, og oppsummere det andre har sagt for å vise at du har forstått.",
+      options: ["A vise at du lytter, stille oppfølgingsspørsmål og unngå å avbryte", "Å være helt stille og ikke si noe mens den andre snakker ferdig", "Å ta grundige notater av alt som blir sagt underveis i samtalen", "Å nikke jevnlig og se interessert ut uten egentlig å høre etter"],
+      explanation: "Aktiv lytting innebærer a vise interesse med kroppsspråk, stille oppfølgingsspørsmål, og oppsummere det andre har sagt for å vise at du har forstått.",
     },
     {
       question: "Hvordan bør hoveddelen i en presentasjon være strukturert?",
@@ -185,15 +185,15 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
       explanation: "Norge har flere offisielle minoritetsspråk: samisk (urfolksspråk), kvensk, romani og romanes. Disse er beskyttet av lov.",
     },
     {
-      question: "Hvorfor har dialekter hoey status i Norge sammenlignet med andre land?",
-      options: ["Det er akseptert å bruke dialekt i alle sammenhenger, inkludert offentligheten","Det stemmer ikke at dialekter har hoey status, for de blir bare brukt hjemme og privat","Fordi Stortinget vedtok en språklov som påla alle nordmenn å snakke sin lokale dialekt i det offentlige","Fordi Norge har svært få dialekter, slik at alle egentlig snakker nesten likt uansett hvor de kommer fra"],
+      question: "Hvorfor har dialekter høy status i Norge sammenlignet med andre land?",
+      options: ["Det er akseptert å bruke dialekt i alle sammenhenger, inkludert offentligheten","Det stemmer ikke at dialekter har høy status, for de blir bare brukt hjemme og privat","Fordi Stortinget vedtok en språklov som påla alle nordmenn å snakke sin lokale dialekt i det offentlige","Fordi Norge har svært få dialekter, slik at alle egentlig snakker nesten likt uansett hvor de kommer fra"],
       explanation: "I Norge er det normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i det offentlige. Dette er uvanlig i internasjonal sammenheng.",
     },
   ],
   "norsk-vg1-4-2": [
     {
       question: "Hva er en modalitet i sammensatte tekster?",
-      options: ["En uttrykksform som tekst, bilde, lyd eller video", "Et litteraert virkemiddel", "En grammatisk bøyningskategori som viser tid, tall og bestemthet i ordene", "En form for skriftspråk som brukes i digitale, sammensatte tekster på nett"],
+      options: ["En uttrykksform som tekst, bilde, lyd eller video", "Et litterært virkemiddel", "En grammatisk bøyningskategori som viser tid, tall og bestemthet i ordene", "En form for skriftspråk som brukes i digitale, sammensatte tekster på nett"],
       explanation: "Modaliteter er ulike uttrykksformer: verbalt språk (tekst/tale), visuell (bilder), auditiv (lyd) og kinestetisk (bevegelse/animasjon).",
     },
     {
@@ -224,8 +224,8 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
       explanation: "Opplysningstiden satte fornuft og vitenskap i sentrum, med kritikk av autoritet og tradisjon, og tro påfremskritt.",
     },
     {
-      question: "Hva kjennetegner romantikken som litteraer epoke?",
-      options: ["Foelelser, natur, det nasjonale og det individuelle","Samfunnskritikk og realistisk skildring av samtidens problemer","Fornuft, vitenskap og kritikk av autoriteter og tradisjon","Religiøse temaer, dødstanker og tanker om forgjengelighet"],
+      question: "Hva kjennetegner romantikken som litterær epoke?",
+      options: ["Følelser, natur, det nasjonale og det individuelle","Samfunnskritikk og realistisk skildring av samtidens problemer","Fornuft, vitenskap og kritikk av autoriteter og tradisjon","Religiøse temaer, dødstanker og tanker om forgjengelighet"],
       explanation: "Romantikken (ca. 1800-1850) var en reaksjon mot opplysningstidens fornuft, med fokus påfølelser, fantasi, natur og det nasjonale.",
     },
     {
@@ -257,7 +257,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er kildehenvisninger viktige i fagartikler?",
-      options: ["De viser hvor informasjonen kommer fra og styrker troverdigheten", "De er bare noedvendige i akademiske tekster", "De pynter på oppsettet og gir teksten et mer profesjonelt visuelt uttrykk", "De gjør teksten betydelig lengre og mer detaljert enn den ellers ville vært"],
+      options: ["De viser hvor informasjonen kommer fra og styrker troverdigheten", "De er bare nødvendige i akademiske tekster", "De pynter på oppsettet og gir teksten et mer profesjonelt visuelt uttrykk", "De gjør teksten betydelig lengre og mer detaljert enn den ellers ville vært"],
       explanation: "Kildehenvisninger viser at du bygger påetablert kunnskap, lar leseren sjekke påstandene, og unngår plagiat.",
     },
     {
@@ -267,8 +267,8 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom primaer- og sekundaerkilder i fagskriving?",
-      options: ["Primaerkilder er originale dokumenter, sekundaerkilder tolker og bearbeider disse", "Primaerkilder er nye, sekundaerkilder er gamle", "Primærkilder er nyskrevne kilder, mens sekundærkilder alltid er eldre og mer utdaterte tekster", "Primærkilder er alltid mer pålitelige enn sekundærkilder og bør derfor alltid brukes fremfor dem"],
-      explanation: "Primaerkilder er originale kilder (forskningsdata, historiske dokumenter), mens sekundaerkilder tolker og analyserer primaerkilder (læreboeker, oppslagsverk).",
+      options: ["Primærkilder er originale dokumenter, sekundaerkilder tolker og bearbeider disse", "Primærkilder er nye, sekundaerkilder er gamle", "Primærkilder er nyskrevne kilder, mens sekundærkilder alltid er eldre og mer utdaterte tekster", "Primærkilder er alltid mer pålitelige enn sekundærkilder og bør derfor alltid brukes fremfor dem"],
+      explanation: "Primærkilder er originale kilder (forskningsdata, historiske dokumenter), mens sekundaerkilder tolker og analyserer primærkilder (lærebøker, oppslagsverk).",
     },
   ],
   "norsk-vg1-1-3": [

@@ -208,7 +208,7 @@ const quizData_kroppsoving_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr fair play?',
     options: ['Å spille rettferdig og respektere andre', 'Å vinne for enhver pris', 'Å være best', 'Å jukse smart'],
-    explanation: 'Fair play handler om å følge reglene, respektere motstandere og dømmere, og oppføre seg ordentlig.',
+    explanation: 'Fair play handler om å følge reglene, respektere motstandere og dommere, og oppføre seg ordentlig.',
   },
   {
     question: 'Hva bør du gjøre når du taper?',

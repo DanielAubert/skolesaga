@@ -7,7 +7,7 @@
   "estimatedMinutes": 65,
   "competenceGoals": [
     "bruke at en sannsynlighet er en forventet indikator til å estimere sannsynligheter og forventninger med Monte Carlo",
-    "simulere en p-verdi ved å generere data under $H_0$ og telle andelen minst så ekstreme observatorer",
+    "simulere en p-verdi ved å generere data under $H_0$ og telle andelen minst så ekstreme observatører",
     "simulere styrken til en test ved å generere data under alternativet og telle forkastninger",
     "kontrollere en feilforplantning (deltametoden) ved simulering med riktig bruk av ddof=1"
   ],
@@ -123,7 +123,7 @@
       "id": "tma4245-9-2-def-oppii",
       "type": "definition",
       "title": "Oppskrift (ii): simulert p-verdi",
-      "content": "P-verdien er sannsynligheten, **beregnet under $H_0$**, for å få en testobservator minst så ekstrem som den observerte. Når nullfordelingen er tung å regne ut, simulerer vi den:\n\n1. **Regn den observerte testobservatoren** $t_{\\text{obs}}$ fra dataene.\n2. **Generer mange datasett under $H_0$** (parametrene satt til nullverdiene) og regn testobservatoren i hvert.\n3. **P-verdien** er andelen simulerte observatorer minst så ekstreme som $t_{\\text{obs}}$:\n$$\\hat{p}=\\texttt{np.mean(t\\_sim >= t\\_obs)}\\quad(\\text{ensidig oppover}).$$\n\n**Retningen på «mer ekstrem» må stemme med $H_1$:** ensidig oppover bruker `>=`, ensidig nedover `<=`, og tosidig bruker `np.mean(np.abs(t_sim) >= abs(t_obs))`. **Nøkkelkravet:** generer under $H_0$ — bruker du feil fordeling, får du feil p-verdi."
+      "content": "P-verdien er sannsynligheten, **beregnet under $H_0$**, for å få en testobservator minst så ekstrem som den observerte. Når nullfordelingen er tung å regne ut, simulerer vi den:\n\n1. **Regn den observerte testobservatoren** $t_{\\text{obs}}$ fra dataene.\n2. **Generer mange datasett under $H_0$** (parametrene satt til nullverdiene) og regn testobservatoren i hvert.\n3. **P-verdien** er andelen simulerte observatører minst så ekstreme som $t_{\\text{obs}}$:\n$$\\hat{p}=\\texttt{np.mean(t\\_sim >= t\\_obs)}\\quad(\\text{ensidig oppover}).$$\n\n**Retningen på «mer ekstrem» må stemme med $H_1$:** ensidig oppover bruker `>=`, ensidig nedover `<=`, og tosidig bruker `np.mean(np.abs(t_sim) >= abs(t_obs))`. **Nøkkelkravet:** generer under $H_0$ — bruker du feil fordeling, får du feil p-verdi."
     },
     {
       "id": "tma4245-9-2-ex-pverdi",

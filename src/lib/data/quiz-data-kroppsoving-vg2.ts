@@ -13,9 +13,9 @@ const quizData_kroppsoving_vg2: Record<string, QuizQuestion[]> = {
     explanation: 'Hypertrofi oppnås best med moderat repetisjon og vekt, som gir både metabolsk stress og mekanisk spenning.',
   },
   {
-    question: 'Hva er anærob terskel?',
+    question: 'Hva er anaerob terskel?',
     options: ["Intensitetsnivået der melkesyreproduksjonen overstiger fjerningsevnen", "Hvilepulsen målt om morgenen før du har stått opp av senga og spist", "Den laveste intensiteten kroppen fortsatt forbrenner karbohydrater ved", "Den maksimale pulsen hjertet kan slå ved fullstendig utmattelse i arbeid"],
-    explanation: 'Ved anærob terskel produseres melkesyre like fort som den fjernes. Over denne terskelen akkumulæres melkesyre raskt.',
+    explanation: 'Ved anaerob terskel produseres melkesyre like fort som den fjernes. Over denne terskelen akkumulæres melkesyre raskt.',
   },
   {
     question: 'Hva er fartlek?',

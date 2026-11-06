@@ -32,14 +32,14 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
 
   'komkult-1-2': [
   {
-    question: 'Hvilke hovedelementer inngar i kommunikasjonsprosessen?',
+    question: 'Hvilke hovedelementer inngår i kommunikasjonsprosessen?',
     options: ["Avsender, budskap, kanal, mottaker og tilbakemelding", "Bare ord og setninger som blir uttalt høyt av avsenderen", "Ord, setninger og grammatikk som binder språket sammen", "Tanker, følelser og indre opplevelser hos senderen alene"],
     explanation: 'Kommunikasjonsprosessen består av avsender (den som sender), budskap (innholdet), kanal (mediet), mottaker (den som mottar) og tilbakemelding (respons).',
   },
   {
-    question: 'Hva er stoy i kommunikasjonssammenheng?',
-    options: ["Alt som førstyrrer eller forvrenger budskapet", "Mange mennesker som snakker", "Kun høy og forstyrrende musikk i bakgrunnen under samtalen", "Dårlig vær som gjør det vanskelig å møtes ansikt til ansikt"],
-    explanation: 'Stoy er alt som førstyrrer kommunikasjonen - det kan være fysisk stoy, psykologiske barrierer, semantiske misforståelser eller tekniske problemer.',
+    question: 'Hva er støy i kommunikasjonssammenheng?',
+    options: ["Alt som forstyrrer eller forvrenger budskapet", "Mange mennesker som snakker", "Kun høy og forstyrrende musikk i bakgrunnen under samtalen", "Dårlig vær som gjør det vanskelig å møtes ansikt til ansikt"],
+    explanation: 'Støy er alt som forstyrrer kommunikasjonen - det kan være fysisk støy, psykologiske barrierer, semantiske misforståelser eller tekniske problemer.',
   },
   {
     question: 'Hva betyr koding i kommunikasjonsprosessen?',
@@ -49,12 +49,12 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er dekoding?',
     options: ["At mottaker tolker og forstår budskapet", "At man oversetter til et annet språk", "At mottaker oversetter budskapet fra ett språk til et annet", "At man sletter meldinger"],
-    explanation: 'Dekoding er nårmottakeren tolker og gir mening til budskapet som er mottatt, basert påegne erfåringer og forståelse.',
+    explanation: 'Dekoding er nårmottakeren tolker og gir mening til budskapet som er mottatt, basert påegne erfaringer og forståelse.',
   },
   {
-    question: 'Hvorfor kan misforståelser oppsta i kommunikasjon?',
+    question: 'Hvorfor kan misforståelser oppstå i kommunikasjon?',
     options: ["Fordi avsender og mottaker kan tolke budskapet ulikt", "Fordi teknologien alltid virker slik den skal i alle kanaler", "Fordi alle mennesker deler nøyaktig samme referanseramme", "Fordi språket er så presist at tolkning aldri er nødvendig"],
-    explanation: 'Misforståelser oppstår fordi mennesker har ulik bakgrunn, erfåringer og referanserammer som påvirker hvordan de koder og dekoder budskap.',
+    explanation: 'Misforståelser oppstår fordi mennesker har ulik bakgrunn, erfaringer og referanserammer som påvirker hvordan de koder og dekoder budskap.',
   },
 ],
 
@@ -66,14 +66,14 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
     explanation: 'Verbal kommunikasjon er bruk av ord og språk, enten muntlig eller skriftlig, for åformidle budskap.',
   },
   {
-    question: 'Hvilke elementer inngar i nonverbal kommunikasjon?',
-    options: ["Kroppsspråk, mimikk, gester, oyekontakt og stemmebruk", "Kun skriftlige ord slik de står i tekstmeldinger og brev", "Grammatikk, ordforråd og korrekt uttale av de talte ordene", "Skriftlige ord, tegnsetting og valg av setningsstruktur alene"],
-    explanation: 'Nonverbal kommunikasjon omfatter alt vi formidler uten ord: kroppsholdning, ansiktsuttrykk, handbevegelser, oyekontakt, tonefall og fysisk avstand.',
+    question: 'Hvilke elementer inngår i nonverbal kommunikasjon?',
+    options: ["Kroppsspråk, mimikk, gester, øyekontakt og stemmebruk", "Kun skriftlige ord slik de står i tekstmeldinger og brev", "Grammatikk, ordforråd og korrekt uttale av de talte ordene", "Skriftlige ord, tegnsetting og valg av setningsstruktur alene"],
+    explanation: 'Nonverbal kommunikasjon omfatter alt vi formidler uten ord: kroppsholdning, ansiktsuttrykk, handbevegelser, øyekontakt, tonefall og fysisk avstand.',
   },
   {
     question: 'Hva betyr det at nonverbal kommunikasjon ofte er flertydig?',
     options: ["At samme signal kan tolkes påulike måter", "At den kun brukes i Norge", "At den ikke finnes som egen form", "At den alltid er tydelig"],
-    explanation: 'Nonverbale signaler kan tolkes forskjellig avhengig av kontekst, kultur og person - et smil kan uttrykke glede, nervositet eller hoflighet.',
+    explanation: 'Nonverbale signaler kan tolkes forskjellig avhengig av kontekst, kultur og person - et smil kan uttrykke glede, nervøsitet eller høflighet.',
   },
   {
     question: 'Hva er paralinguistiske trekk?',
@@ -90,7 +90,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
 
   'komkult-1-4': [
   {
-    question: 'Hva er kultur i samfunnsvitenskapelig forstånd?',
+    question: 'Hva er kultur i samfunnsvitenskapelig forstand?',
     options: ["Fellesverdier, normer, tradisjoner og uttrykksformer i en gruppe", "Maten, klærne og de synlige skikkene som skiller folkegrupper", "Språket og dialektene som binder menneskene i gruppen sammen", "Kunst, musikk og litteratur som finkulturelle uttrykk alene"],
     explanation: 'Kultur omfatter alt det menneskeskapte: verdier, normer, skikker, språk, kunst, religion og måter åleve påsom deles av en gruppe.',
   },
@@ -136,7 +136,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med at identitet er dynamisk?',
     options: ["At identiteten endrer seg gjennom livet", "At den bare finnes hos unge", "At identiteten er fast og statisk gjennom hele menneskets liv", "At den forsvinner med alder"],
-    explanation: 'Identitet er ikke fast - den utvikles og endres gjennom hele livet, påvirket av erfåringer, relasjoner og valg vi gjør.',
+    explanation: 'Identitet er ikke fast - den utvikles og endres gjennom hele livet, påvirket av erfaringer, relasjoner og valg vi gjør.',
   },
   {
     question: 'Hva er bindestrek-identiteter?',
@@ -163,9 +163,9 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
     explanation: 'Medievaner er de vante monsstrene for hvordan vi bruker ulike medier - hvor ofte, nar, til hva, og i hvilke situasjoner.',
   },
   {
-    question: 'Hva menes med digital kloeft?',
+    question: 'Hva menes med digital kløft?',
     options: ["Ulikhet i tilgang til og kompetanse i bruk av digital teknologi", "Forskjellen mellom PC-er og Mac-maskiner", "Skillet mellom dem som eier smarttelefon og dem som bare har vanlig mobil", "Overgangen fra analoge til digitale medieformater som skjer i hele samfunnet"],
-    explanation: 'Digital kloeft handler om at ikke alle har lik tilgang til eller kompetanse i bruk av digital teknologi, noe som kan skape sosiale skiller.',
+    explanation: 'Digital kløft handler om at ikke alle har lik tilgang til eller kompetanse i bruk av digital teknologi, noe som kan skape sosiale skiller.',
   },
   {
     question: 'Hvordan har medievanene endret seg med smarttelefoner?',
@@ -179,7 +179,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er retorikk?',
     options: ["Læren om effektiv kommunikasjon og overtalelse", "Kun skriftlig argumentasjon i lange og formelle tekster", "Læren om hvordan politiske taler skal holdes foran en stor forsamling", "Kunsten å skrive vakre og velformede setninger uten hensyn til budskapet"],
-    explanation: 'Retorikk er kunsten åoverbevise og kommunisere effektivt. Den har roetter tilbake til antikken og handler om hvordan budskap kan formidles overbevisende.',
+    explanation: 'Retorikk er kunsten åoverbevise og kommunisere effektivt. Den har røtter tilbake til antikken og handler om hvordan budskap kan formidles overbevisende.',
   },
   {
     question: 'Hva er ethos, pathos og logos?',
@@ -188,18 +188,18 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ethos?',
-    options: ["Talærens troverdighet og karakter", "Folelsesmessig appell til publikum", "Talerens kroppsspråk og gester som understøtter det muntlige budskapet", "Logisk og saklig argumentasjon"],
+    options: ["Talærens troverdighet og karakter", "Følelsesmessig appell til publikum", "Talerens kroppsspråk og gester som understøtter det muntlige budskapet", "Logisk og saklig argumentasjon"],
     explanation: 'Ethos handler om talærens troverdighet - vi overbevises av folk vi stoler påog respekterer. Ethos bygges gjennom kompetanse, karakter og velvilje.',
   },
   {
     question: 'Hva er et argument?',
     options: ["En pastant støttet av begrunnelse", "En mening uten begrunnelse", "En logisk feilslutning som svekker holdbarheten i en tekst eller tale", "En krangel mellom to parter"],
-    explanation: 'Et argument består av en pastant (konklusjon) som stoettes av ett eller flere premisser (begrunnelser). Gode argumenter har holdbare premisser og gyldig logikk.',
+    explanation: 'Et argument består av en pastant (konklusjon) som støttes av ett eller flere premisser (begrunnelser). Gode argumenter har holdbare premisser og gyldig logikk.',
   },
   {
     question: 'Hva er forskjellen mellom påstand og argument?',
     options: ["En påstand mangler begrunnelse, et argument har begrunnelse", "Argumenter er alltid skriftlige", "En påstand bruker fakta, et argument bygger på følelser", "Det er ingen reell forskjell mellom de to begrepene"],
-    explanation: 'En paststand er bare en mening eller et utsagn. Et argument kombinerer påstanden med begrunnelse som forklærer hvorfor påstanden er holdbar.',
+    explanation: 'En paststand er bare en mening eller et utsagn. Et argument kombinerer påstanden med begrunnelse som forklarer hvorfor påstanden er holdbar.',
   },
 ],
 
@@ -212,18 +212,18 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en hashtag?',
-    options: ["Et sokeord markert med #-tegn for åkategorisere innhold", "En type datavirus som sprer seg gjennom vedlegg i e-poster", "En kryptert kode som beskytter innhold mot å bli delt videre uten løyve", "En type skadelig programvare som sprer seg gjennom lenker i sosiale medier"],
+    options: ["Et søkeord markert med #-tegn for åkategorisere innhold", "En type datavirus som sprer seg gjennom vedlegg i e-poster", "En kryptert kode som beskytter innhold mot å bli delt videre uten løyve", "En type skadelig programvare som sprer seg gjennom lenker i sosiale medier"],
     explanation: 'Hashtags (#) brukes påsosiale medier for åmerke og kategorisere innhold, slik at andre kan finne innlegg om samme tema.',
   },
   {
     question: 'Hva er nettvett?',
-    options: ["Kunnskap om trygg og ansvårlig oppforsel pånett", "Selve internettforbindelsen i huset", "Et finmasket fiskenett som brukes til å fange småfisk langs kysten", "Selve internettforbindelsen og dens hastighet i hjemmet eller på skolen"],
-    explanation: 'Nettvett handler om åoppføre seg trygt, respektfullt og ansvårlig påinternett - beskytte personvern, unngå mobbing, og tenke for man poster.',
+    options: ["Kunnskap om trygg og ansvarlig oppførsel pånett", "Selve internettforbindelsen i huset", "Et finmasket fiskenett som brukes til å fange småfisk langs kysten", "Selve internettforbindelsen og dens hastighet i hjemmet eller på skolen"],
+    explanation: 'Nettvett handler om åoppføre seg trygt, respektfullt og ansvarlig påinternett - beskytte personvern, unngå mobbing, og tenke for man poster.',
   },
   {
     question: 'Hva er digitalt fotavtrykk?',
     options: ["Alle spor vi legger igjen pånett", "Et populært dataspill for barn", "En spesiell type sportssko utviklet for løping på ulike underlag ute", "En type sportssko for løping"],
-    explanation: 'Digitalt fotavtrykk er alle sporene vi legger igjen påinternett - poster, soek, likes, bilder - som kan være vanskelige åslette og kan følge oss.',
+    explanation: 'Digitalt fotavtrykk er alle sporene vi legger igjen påinternett - poster, søk, likes, bilder - som kan være vanskelige åslette og kan følge oss.',
   },
   {
     question: 'Hvorfor er kildekritikk viktig i digital kommunikasjon?',
@@ -241,13 +241,13 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med offentligheten?',
-    options: ["Arenær der borgere kan diskutere saker av felles interesse", "Hemmelige møter mellom folkevalgte og embetsverket i staten", "Staten og dens forvaltningsorganer som styrer landet på vegne av folket", "Lukkede og hemmelige møter der beslutningstakere drøfter saker uten innsyn"],
+    options: ["Arenaer der borgere kan diskutere saker av felles interesse", "Hemmelige møter mellom folkevalgte og embetsverket i staten", "Staten og dens forvaltningsorganer som styrer landet på vegne av folket", "Lukkede og hemmelige møter der beslutningstakere drøfter saker uten innsyn"],
     explanation: 'Offentligheten er de arenaene (medier, debatter, torget) der borgere kan diskutere politikk og samfunnsspørsmål og forme offentlig mening.',
   },
   {
     question: 'Hva er pressens samfunnsoppdrag?',
     options: ["Åinformere borgerne, overvake makten og være en arena for debatt", "Åtjene mest mulig penger til eierne", "Å tjene mest mulig penger på annonser og abonnenter", "Å underholde publikum med lettbent stoff"],
-    explanation: 'Pressen har et demokratisk oppdrag: informere befolkningen, vøkte maktutovere, sette dagsorden, og være forum for offentlig debatt.',
+    explanation: 'Pressen har et demokratisk oppdrag: informere befolkningen, vokte maktutøvere, sette dagsorden, og være forum for offentlig debatt.',
   },
   {
     question: 'Hva er ytringsfrihet?',
@@ -265,8 +265,8 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   'komkult-2-2': [
   {
     question: 'Hva beskriver Shannon og Weavers kommunikasjonsmodell?',
-    options: ["En lineær modell med sender, kanal, stoy og mottaker", "Bare muntlig kommunikasjon mellom to personer i samme rom", "En modell for hvordan dyr kommuniserer med lyder, lukt og kroppsspråk", "En sirkulær modell der bare muntlig ansikt-til-ansikt-samtale kan beskrives"],
-    explanation: 'Shannon og Weavers modell (1949) er en lineær modell som beskriver kommunikasjon som overføring av informasjon fra sender via kanal til mottaker, med mulighet for stoy.',
+    options: ["En lineær modell med sender, kanal, støy og mottaker", "Bare muntlig kommunikasjon mellom to personer i samme rom", "En modell for hvordan dyr kommuniserer med lyder, lukt og kroppsspråk", "En sirkulær modell der bare muntlig ansikt-til-ansikt-samtale kan beskrives"],
+    explanation: 'Shannon og Weavers modell (1949) er en lineær modell som beskriver kommunikasjon som overføring av informasjon fra sender via kanal til mottaker, med mulighet for støy.',
   },
   {
     question: 'Hva er Stuart Halls encodings/decoding-modell?',
@@ -305,7 +305,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en plattform i mediesammenheng?',
     options: ["Et digitalt økosystem der innhold skapes, deles og konsumeres", "En type programvare for skrivebordet", "En fysisk perrong på en togstasjon", "En bestemt type programvare som installeres lokalt"],
-    explanation: 'Plattformer som Facebook, YouTube og TikTok er digitale infrastrukturer som kobler sammen brukere, skapere og annonsorer og legger til rette for interaksjon.',
+    explanation: 'Plattformer som Facebook, YouTube og TikTok er digitale infrastrukturer som kobler sammen brukere, skapere og annonsører og legger til rette for interaksjon.',
   },
   {
     question: 'Hva er algoritmer i sosiale medier?',
@@ -332,14 +332,14 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
     explanation: 'Denotasjon er den bokstavelige betydningen (en rose er en blomst). Konnotasjon er de kulturelle assosiasjonene og medbetydningene (rose = kjærlighet).',
   },
   {
-    question: 'Hva er en myte i semiotisk forstånd?',
+    question: 'Hva er en myte i semiotisk forstand?',
     options: ["Kulturelle forestillinger som fremstår som naturlige og selvfølgelige", "En historie som ikke er sann", "En eldgammel muntlig legende om gudene", "En bevisst oppdiktet fortelling som ikke er sann"],
     explanation: 'Roland Barthes brukte begrepet myte om kulturelle forestillinger som er såinnarbeidede at de fremstår som naturlige sannheter, ikke som konstruksjoner.',
   },
   {
     question: 'Hva er Todorovs narrative struktur?',
-    options: ["En modell med likevekt, førstyrrelse og ny likevekt", "En kjent type fotballformasjon", "En modell for hvordan avsender koder budskap som mottaker deretter dekoder på nytt", "En matematisk formel fra statistikken"],
-    explanation: 'Todorovs narrativstruktur beskriver fortellinger som bevegelse fra likevekt (normal tilstand), gjennom førstyrrelse og erkjennelse, til ny likevekt.',
+    options: ["En modell med likevekt, forstyrrelse og ny likevekt", "En kjent type fotballformasjon", "En modell for hvordan avsender koder budskap som mottaker deretter dekoder på nytt", "En matematisk formel fra statistikken"],
+    explanation: 'Todorovs narrativstruktur beskriver fortellinger som bevegelse fra likevekt (normal tilstand), gjennom forstyrrelse og erkjennelse, til ny likevekt.',
   },
   {
     question: 'Hva innebærer det ågjøre en retorisk analyse?',
@@ -363,7 +363,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et strawmannsargument?',
     options: ["Åangripe en forvrengt versjon av motstanderens syn", "Et argument laget av bondestudenter", "Et særlig velbygget argument som ikke kan avvises", "Et argument for jordbruk"],
-    explanation: 'Straamannsargument er nårman angriper en forvrengt, førenklet eller overdrevet versjon av motstanderens syn i stedet for det virkelige argumentet.',
+    explanation: 'Straamannsargument er nårman angriper en forvrengt, forenklet eller overdrevet versjon av motstanderens syn i stedet for det virkelige argumentet.',
   },
   {
     question: 'Hva er forskjellen mellom innledende og avledet ethos?',
@@ -402,7 +402,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor kritiseres Hofstedes kulturdimensjoner?',
     options: ["Fordi de generaliserer og kan føre til stereotypisering", "Fordi de bare gjelder for nordmenn og ingen andre folkeslag", "Fordi modellen er altfor komplisert og teknisk til å kunne brukes i praktisk analyse", "Fordi de er altfor kompliserte å bruke"],
-    explanation: 'Kritikken er at modellen førenkler, ignorerer mangfold innad i nasjoner, kan føre til stereotypisering, og er basert paå gåmmel data som kanskje ikke er gyldig lenger.',
+    explanation: 'Kritikken er at modellen forenkler, ignorerer mangfold innad i nasjoner, kan føre til stereotypisering, og er basert paå gammel data som kanskje ikke er gyldig lenger.',
   },
 ],
 
@@ -416,22 +416,22 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med bricolage i kulturstudier?',
     options: ["Ågi nye meninger til eksisterende objekter og symboler", "Åkopiere mainstreamkulturen direkte", "Å produsere og lage alle gjenstander helt fra bunnen av selv uten hjelp av ferdige deler", "Åbruke franske uttrykk i norsk"],
-    explanation: 'Bricolage handler om åta eksisterende objekter og gi dem nye meninger - som nårpunkere gjorde sikkerhetsnaler til moteplagg og uttrykk for opprør.',
+    explanation: 'Bricolage handler om åta eksisterende objekter og gi dem nye meninger - som nårpunkere gjorde sikkerhetsnåler til moteplagg og uttrykk for opprør.',
   },
   {
     question: 'Hva er kooptering i kulturstudier?',
     options: ["Naar mainstream tar opp subkulturelle uttrykk og gjør dem kommersielle", "Naar myndighetene forbyr kultur", "Når kunstnere kopierer hverandres stiler uten å oppgi kilden", "Når flere subkulturer slår seg sammen om felles uttrykk"],
-    explanation: 'Kooptering skjer nårmainstream-kulturen tar opp opprorske subkulturelle uttrykk, fjerner deres radikale innhold, og gjør dem til salgbare produkter.',
+    explanation: 'Kooptering skjer nårmainstream-kulturen tar opp opprørske subkulturelle uttrykk, fjerner deres radikale innhold, og gjør dem til salgbare produkter.',
   },
   {
     question: 'Hva er kulturell appropriasjon?',
-    options: ["Naar elementer fra en kultur brukes av en annen påmater som kan oppfattes som respektlose", "En likeverdig kulturell utveksling der to kulturer frivillig deler og lærer av hverandre over tid", "Å reise til utlandet for å oppleve fremmede kulturer på nært hold og utvide horisonten sin", "Å tilegne seg kunnskap og forståelse om andre kulturers historie, verdier og lange tradisjoner"],
-    explanation: 'Kulturell appropriasjon er nårelementer fra en (ofte marginalisert) kultur tas i bruk av en annen (ofte dominant) kultur påmåter som kan være respektlose eller utnyttende.',
+    options: ["Naar elementer fra en kultur brukes av en annen påmater som kan oppfattes som respektløse", "En likeverdig kulturell utveksling der to kulturer frivillig deler og lærer av hverandre over tid", "Å reise til utlandet for å oppleve fremmede kulturer på nært hold og utvide horisonten sin", "Å tilegne seg kunnskap og forståelse om andre kulturers historie, verdier og lange tradisjoner"],
+    explanation: 'Kulturell appropriasjon er nårelementer fra en (ofte marginalisert) kultur tas i bruk av en annen (ofte dominant) kultur påmåter som kan være respektløse eller utnyttende.',
   },
   {
     question: 'Hva er kunstens kritiske funksjon?',
     options: ["Åutfordre, provosere og stille spørsmål ved etablerte sannheter", "Åtjene mest mulig penger på salg av verkene", "Å skape inntekter og økonomisk verdi for kunstneren gjennom salg av verk på et marked", "Å pynte og forskjønne omgivelsene slik at rom og bygninger fremstår mer tiltalende og pene"],
-    explanation: 'Kunstens kritiske funksjon innebærer at kunst kan utfordre makten, provosere, og fa oss til åtenke nytt om ting vi tar for gitt.',
+    explanation: 'Kunstens kritiske funksjon innebærer at kunst kan utfordre makten, provosere, og få oss til åtenke nytt om ting vi tar for gitt.',
   },
 ],
 
@@ -450,7 +450,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er sannhetsargumentet for ytringsfrihet?',
     options: ["At fri meningsutveksling fører til at sannheten kommer fram", "At staten alene definerer hva som er sant", "At alt som blir sagt i en fri offentlig debatt av den grunn må regnes som sant og gyldig", "At det ikke finnes noen objektiv sannhet, og at ytringsfrihet derfor ikke tjener noe formål"],
-    explanation: 'Sannhetsargumentet (John Stuart Mill) hevder at fri debatt fører til at sannheten kommer fram - falske ideer avslores og gode argumenter styrkes.',
+    explanation: 'Sannhetsargumentet (John Stuart Mill) hevder at fri debatt fører til at sannheten kommer fram - falske ideer avsløres og gode argumenter styrkes.',
   },
   {
     question: 'Hva er dialogetikk?',
@@ -468,7 +468,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   'komkult-2-9': [
   {
     question: 'Hva er hovedkritikken mot Huntingtons teori om sivilisasjonskollisjon?',
-    options: ["At den førenkler og essentialiserer kulturer", "At den fokuserer for mye påøkonomi", "At teorien i altfor liten grad tar religionens sterke betydning for konfliktene på alvor", "At den undervurderer religion"],
+    options: ["At den forenkler og essentialiserer kulturer", "At den fokuserer for mye påøkonomi", "At teorien i altfor liten grad tar religionens sterke betydning for konfliktene på alvor", "At den undervurderer religion"],
     explanation: 'Huntington kritiseres for åbehandle sivilisasjoner som enhetlige blokker, ignorere mangfold innad, og overdrive kulturens rolle påbekostning av økonomi og politikk.',
   },
   {
@@ -508,7 +508,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva innebærer ådrofte?',
     options: ["Åveie ulike perspektiver mot hverandre og begrunne egne vurderinger", "Ågi sin mening uten begrunnelse", "Åoppsummere de sentrale fakta i saken kort", "Åslåfast egen mening uten åbegrunne den"],
-    explanation: 'Drofting innebærer åpresentere ulike perspektiver, vurdere argumenters styrke, forholde seg til motargumenter, og trekke begrunnede konklusjoner.',
+    explanation: 'Drøfting innebærer åpresentere ulike perspektiver, vurdere argumenters styrke, forholde seg til motargumenter, og trekke begrunnede konklusjoner.',
   },
   {
     question: 'Hva er en vanlig feil i prosjektarbeid?',
@@ -517,8 +517,8 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det viktig åbruke teori aktivt i analyse?',
-    options: ["Teorier fungerer som verktoy som hjelper deg se ting du ellers ville oversett", "For åvise at du faktisk har lest pensum og husker alle teoretikerne du skal kunne", "For åvise sensor at du har lest hele pensum og husker de viktigste teoretikerne utenat", "For åfylle ut plass og gjøre besvarelsen lengre uten åtilføre ny innsikt i analysen din"],
-    explanation: 'Teori er ikke bare pynt - det er analyseverktoy som gir deg begreper og perspektiver til åforstå og tolke materialet ditt pånye måter.',
+    options: ["Teorier fungerer som verktøy som hjelper deg se ting du ellers ville oversett", "For åvise at du faktisk har lest pensum og husker alle teoretikerne du skal kunne", "For åvise sensor at du har lest hele pensum og husker de viktigste teoretikerne utenat", "For åfylle ut plass og gjøre besvarelsen lengre uten åtilføre ny innsikt i analysen din"],
+    explanation: 'Teori er ikke bare pynt - det er analyseverktøy som gir deg begreper og perspektiver til åforstå og tolke materialet ditt pånye måter.',
   },
 ],
 
@@ -526,7 +526,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   'komkult-3-1': [
   {
     question: 'Hva menes med diskursiv makt?',
-    options: ["Makt som utoves gjennom språk og måten vi snakker om ting paa", "Okonomisk makt som bygger på kontroll over penger, kapital og eiendom", "Rein fysisk makt der man med kroppslig styrke og tvang får andre til ågjøre som man vil", "Militær makt der en stat med våpen og soldater tvinger gjennom sin vilje overfor andre land"],
+    options: ["Makt som utøves gjennom språk og måten vi snakker om ting paa", "Okonomisk makt som bygger på kontroll over penger, kapital og eiendom", "Rein fysisk makt der man med kroppslig styrke og tvang får andre til ågjøre som man vil", "Militær makt der en stat med våpen og soldater tvinger gjennom sin vilje overfor andre land"],
     explanation: 'Diskursiv makt handler om hvordan språk og måten vi snakker om ting på(diskurser) former virkelighetsoppfatningen vår og hvem som får definere sannheten.',
   },
   {
@@ -536,7 +536,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Foucaults syn påmakt?',
-    options: ["At makt er overalt og virker gjennom kunnskap og normer", "At makt er utelukkende undertrykkende", "At makt kun finnes hos staten og myndighetene, og alltid utoves ovenfra og ned mot borgerne", "At makt bare finnes hos staten og politiet"],
+    options: ["At makt er overalt og virker gjennom kunnskap og normer", "At makt er utelukkende undertrykkende", "At makt kun finnes hos staten og myndighetene, og alltid utøves ovenfra og ned mot borgerne", "At makt bare finnes hos staten og politiet"],
     explanation: 'Foucault såat makt ikke bare er undertrykkende, men produktiv - den finnes overalt og virker gjennom diskurser, kunnskap og normer som former oss.',
   },
   {
@@ -545,9 +545,9 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
     explanation: 'Definisjonsmakt er makten til ådefinere begreper, sette dagsorden, og bestemme hvordan fenomener skal forstås og snakkes om i samfunnet.',
   },
   {
-    question: 'Hvordan kan medier utove makt?',
+    question: 'Hvordan kan medier utøve makt?',
     options: ["Gjennom åvelge hva som dekkes, hvordan det vinkles, og hvem som får uttale seg", "Medier har ingen reell makt over hva folk faktisk tenker og mener om samfunnet rundt seg", "Kun gjennom reklame og annonser som betalende kunder kjøper plass til i mediekanalene", "Utelukkende gjennom bevisst ålyve og publisere direkte usanne opplysninger til publikum"],
-    explanation: 'Mediemakt utoves gjennom utvalg (hva dekkes), vinkling (hvordan fremstilles det), og kildevalg (hvem får uttale seg) - dette former publikums virkelighetsoppfatning.',
+    explanation: 'Mediemakt utøves gjennom utvalg (hva dekkes), vinkling (hvordan fremstilles det), og kildevalg (hvem får uttale seg) - dette former publikums virkelighetsoppfatning.',
   },
 ],
 
@@ -575,7 +575,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er kulturforståelse viktig i internasjonalt samarbeid?',
-    options: ["Fordi kulturelle forskjeller påvirker kommunikasjon, forhandlinger og samarbeid", "Fordi det er lovpålagt å ta kurs i kulturforståelse før man reiser på utenlandsoppdrag", "Fordi det er lovpålagt ved internasjonalt samarbeid åsette seg inn i partnerlandets kultur", "Fordi det er hoflig og pent åvise interesse for hvordan andre folkeslag lever og oppforer seg"],
+    options: ["Fordi kulturelle forskjeller påvirker kommunikasjon, forhandlinger og samarbeid", "Fordi det er lovpålagt å ta kurs i kulturforståelse før man reiser på utenlandsoppdrag", "Fordi det er lovpålagt ved internasjonalt samarbeid åsette seg inn i partnerlandets kultur", "Fordi det er høflig og pent åvise interesse for hvordan andre folkeslag lever og oppfører seg"],
     explanation: 'Ulike kulturer har ulike kommunikasjonsstiler, forventninger og normer. Kulturforståelse hjelper åunngå misforståelser og bygge gode relasjoner.',
   },
 ],
@@ -589,7 +589,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner høykontekstkulturer i kommunikasjon?',
-    options: ["Mye informasjon er implisitt og forstås ut fra kontekst", "All informasjon sies direkte og eksplisitt", "At kommunikasjonen foregar utelukkende skriftlig, gjennom formelle brev, avtaler og dokumenter", "Det brukes mange teknologiske hjelpemidler"],
+    options: ["Mye informasjon er implisitt og forstås ut fra kontekst", "All informasjon sies direkte og eksplisitt", "At kommunikasjonen foregår utelukkende skriftlig, gjennom formelle brev, avtaler og dokumenter", "Det brukes mange teknologiske hjelpemidler"],
     explanation: 'I høykontekstkulturer ligger mye informasjon i konteksten, relasjoner og non-verbal kommunikasjon - ikke alt sies eksplisitt.',
   },
   {
@@ -604,7 +604,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er bindestrek-identiteter?',
-    options: ["Identiteter som kombinerer flere kulturtilhørigheter samtidig", "Identiteter der personen har en bindestrek i selve etternavnet sitt", "Identiteter tilhorende personer som tilfeldigvis har en bindestrek et sted i sitt eget navn", "Matematiske begreper knyttet til bindestrek som skilletegn i tallrekker, formler og notasjon"],
+    options: ["Identiteter som kombinerer flere kulturtilhørigheter samtidig", "Identiteter der personen har en bindestrek i selve etternavnet sitt", "Identiteter tilhørende personer som tilfeldigvis har en bindestrek et sted i sitt eget navn", "Matematiske begreper knyttet til bindestrek som skilletegn i tallrekker, formler og notasjon"],
     explanation: 'Bindestrek-identiteter (som norsk-pakistaner) viser at man kan tilhøre flere kulturer samtidig - identitet er baade-og, ikke enten-eller.',
   },
 ],
@@ -613,7 +613,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   'komkult-3-4': [
   {
     question: 'Hva er forskjellen mellom misinformasjon og desinformasjon?',
-    options: ["Misinformasjon spres uten vilje til åvillede, desinformasjon er bevisst falsk", "Desinformasjon spres alltid muntlig, mens misinformasjon alltid spres i skriftlig form", "De to begrepene betyr egentlig noyaktig det samme, og brukes helt om hverandre i faglitteraturen", "Misinformasjon er falsk informasjon som spres pånett, mens desinformasjon spres ansikt til ansikt"],
+    options: ["Misinformasjon spres uten vilje til åvillede, desinformasjon er bevisst falsk", "Desinformasjon spres alltid muntlig, mens misinformasjon alltid spres i skriftlig form", "De to begrepene betyr egentlig nøyaktig det samme, og brukes helt om hverandre i faglitteraturen", "Misinformasjon er falsk informasjon som spres pånett, mens desinformasjon spres ansikt til ansikt"],
     explanation: 'Misinformasjon er feil informasjon som spres uten ond hensikt - man tror det er sant. Desinformasjon er bevisst falsk informasjon spredt for åmanipulære.',
   },
   {
@@ -653,17 +653,17 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hovedformålet med en risikovurdering i prosjektplanlegging?',
     options: ["Åidentifisere mulige problemer og lage plan B", "Åvelge bort risikable prosjekter", "Åberegne prosjektets forsikringsbehov", "Ådokumentere alt for ledelsen"],
-    explanation: 'Risikovurdering handler om åtenke gjennom hva som kan gå gålt, slik at man kan førebygge problemer eller ha planer for åhandtere dem.',
+    explanation: 'Risikovurdering handler om åtenke gjennom hva som kan gå galt, slik at man kan førebygge problemer eller ha planer for åhandtere dem.',
   },
   {
     question: 'Hva bør en prosjektbeskrivelse inneholde?',
-    options: ["Tittel, formaal, maalgruppe, innhold, tidsplan og ressursbehov", "Bare sluttresultatet og en kort oppsummering av hele arbeidet som er gjort", "Kun det ferdige sluttresultatet og en detaljert oppsummering av alt teamet klarte å oppnå underveis", "Bare et detaljert budsjett med alle kostnader, inntekter og en fullstendig regnskapsoversikt for hele perioden"],
+    options: ["Tittel, formål, målgruppe, innhold, tidsplan og ressursbehov", "Bare sluttresultatet og en kort oppsummering av hele arbeidet som er gjort", "Kun det ferdige sluttresultatet og en detaljert oppsummering av alt teamet klarte å oppnå underveis", "Bare et detaljert budsjett med alle kostnader, inntekter og en fullstendig regnskapsoversikt for hele perioden"],
     explanation: 'En god prosjektbeskrivelse gir oversikt over hva som skal gjøres, hvorfor, for hvem, hvordan, naar, og med hvilke ressurser.',
   },
   {
     question: 'Hva er viktigst for godt samarbeid i prosjekter?',
-    options: ["Tydelig ansvarsfordeling og aapen kommunikasjon", "At en person tar alle beslutninger", "At én person tar alle beslutninger alene", "At man unngår uenigheter"],
-    explanation: 'Godt samarbeid krever at alle vet hva de skal gjøre (tydelig ansvarsfordeling) og at man kan dele informasjon og løse problemer sammen (aapen kommunikasjon).',
+    options: ["Tydelig ansvarsfordeling og åpen kommunikasjon", "At en person tar alle beslutninger", "At én person tar alle beslutninger alene", "At man unngår uenigheter"],
+    explanation: 'Godt samarbeid krever at alle vet hva de skal gjøre (tydelig ansvarsfordeling) og at man kan dele informasjon og løse problemer sammen (åpen kommunikasjon).',
   },
 ],
 
@@ -701,7 +701,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med deltakerkultur?',
     options: ["At grensen mellom produsenter og forbrukere viskes ut, og alle kan skape innhold", "Politisk kultur med høy valgdeltakelse", "Utstrakt bruk av medbestemmelse i offentlige kulturinstitusjoner", "Kulturformer som krever at publikum møter fysisk opp på arenaen"],
-    explanation: 'Deltakerkultur (Henry Jenkins) betegner at digitale verktøy gjør det mulig for alle åvære baade forbrukere og produsenter av kulturelt innhold.',
+    explanation: 'Deltakerkultur (Henry Jenkins) betegner at digitale verktøy gjør det mulig for alle åvære både forbrukere og produsenter av kulturelt innhold.',
   },
   {
     question: 'Hva er algoritmisk kultur?',
@@ -709,9 +709,9 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
     explanation: 'Algoritmisk kultur refererer til at algoritmer i stadig større grad påvirker hvilke kulturuttrykk vi møter - hva som anbefales, vises og deles.',
   },
   {
-    question: 'Hva er digital kloeft?',
+    question: 'Hva er digital kløft?',
     options: ["Ulikhet i tilgang til og kompetanse i bruk av digital teknologi", "Forskjellen mellom det gamle internettet og det nye vi bruker i dag", "Åpne konflikter, krangler og hard tone som oppstår mellom brukere i digitale kommentarfelt og diskusjonsfora", "Skillet mellom jobb og privatliv digitalt"],
-    explanation: 'Digital kloeft beskriver ulikheten i tilgang til og ferdigheter i bruk av digital teknologi, baade mellom land og innad i samfunn.',
+    explanation: 'Digital kløft beskriver ulikheten i tilgang til og ferdigheter i bruk av digital teknologi, både mellom land og innad i samfunn.',
   },
   {
     question: 'Hva er en deepfake?',
@@ -735,7 +735,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kjennetegner en god problemstilling for fordypningsprosjekt?',
     options: ["Den er avgrenset, faglig forankret og mulig åbesvare", "Den er såbred at den dekker hele faget", "Den er så bred at den favner hele fagfeltet", "Den kan besvares med ja eller nei"],
-    explanation: 'En god problemstilling er avgrenset (haandterbart omfang), faglig forankret (kan bruke teori og begreper), og mulig åbesvare innenfor prosjektets rammer.',
+    explanation: 'En god problemstilling er avgrenset (håndterbart omfang), faglig forankret (kan bruke teori og begreper), og mulig åbesvare innenfor prosjektets rammer.',
   },
   {
     question: 'Hva er forskjellen mellom primær- og sekundærkilder?',
@@ -745,7 +745,7 @@ const quizData_komkult: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva bør du gjøre først nårdu starter et fordypningsprosjekt?',
     options: ["Velge et tema som interesserer deg og avgrense det", "Samle inn alt materialet", "Lage presentasjonen og lysbildene aller først", "Skrive ferdig konklusjonen"],
-    explanation: 'Start med åvelge et tema du brenner for, og avgrens det til et haandterbart omfang. Dette danner grunnlaget for alt videre arbeid.',
+    explanation: 'Start med åvelge et tema du brenner for, og avgrens det til et håndterbart omfang. Dette danner grunnlaget for alt videre arbeid.',
   },
   {
     question: 'Hvorfor er det viktig åbruke fagbegreper aktivt i analysen?',

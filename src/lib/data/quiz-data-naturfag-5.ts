@@ -83,7 +83,7 @@ const quizData_naturfag_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva gjør de hvite blodcellene?',
     options: ['Bekjemper sykdom', 'Frakter oksygen', 'Stopper blødninger', 'Frakter næring'],
-    explanation: 'Hvite blodceller er en del av immunforsvåret og bekjemper bakterier og virus.',
+    explanation: 'Hvite blodceller er en del av immunforsvaret og bekjemper bakterier og virus.',
   },
 ],
 

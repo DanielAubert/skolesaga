@@ -9,8 +9,8 @@ const quizData_samfunnsfag_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var Gokstadskipet og Osebergskipet?',
-    options: ['Beromte vikingskip funnet i Norge', 'Moderne fiskebater', 'Danske handelsskip', 'Svenske krigsskip'],
-    explanation: 'Gokstadskipet og Osebergskipet er beromte vikingskip som er funnet i Norge og kan ses påVikingskipsmuseet.',
+    options: ['Berømte vikingskip funnet i Norge', 'Moderne fiskebåter', 'Danske handelsskip', 'Svenske krigsskip'],
+    explanation: 'Gokstadskipet og Osebergskipet er berømte vikingskip som er funnet i Norge og kan ses påVikingskipsmuseet.',
   },
   {
     question: 'Hvor reiste vikingene?',
@@ -24,8 +24,8 @@ const quizData_samfunnsfag_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke tre grupper fantes i vikingsamfunnet?',
-    options: ['Treller, frie bonder og hovdinger/konger', 'Bare konger', 'Vikinger og kristne', 'Jegere og samlære'],
-    explanation: 'Vikingsamfunnet var delt i tre grupper: treller (slaver), frie bonder og hovdinger/konger.',
+    options: ['Treller, frie bonder og høvdinger/konger', 'Bare konger', 'Vikinger og kristne', 'Jegere og samlære'],
+    explanation: 'Vikingsamfunnet var delt i tre grupper: treller (slaver), frie bonder og høvdinger/konger.',
   },
 ],
 
@@ -33,8 +33,8 @@ const quizData_samfunnsfag_6: Record<string, QuizQuestion[]> = {
   'samfunnsfag-6-1-2': [
   {
     question: 'Hvem kristnet Norge?',
-    options: ['Olav Tryggvason og Olav den hellige', 'Harald Harfagre', 'Hakon den gode', 'Magnus Lagabote'],
-    explanation: 'Olav Tryggvason og Olav den hellige innforte kristendømmen i Norge, ofte med tvang.',
+    options: ['Olav Tryggvason og Olav den hellige', 'Harald Hårfagre', 'Hakon den gode', 'Magnus Lagabote'],
+    explanation: 'Olav Tryggvason og Olav den hellige innførte kristendommen i Norge, ofte med tvang.',
   },
   {
     question: 'Hva er spesielt med Urnes stavkirke?',
@@ -112,7 +112,7 @@ const quizData_samfunnsfag_6: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor regner det mer påVestlandet enn påOstlandet?',
     options: ['Fuktig luft frå havet treffer fjellene', 'Det er varmere der', 'Det er flere elver', 'Det er flere skoger'],
-    explanation: 'Fuktig luft frå havet treffer fjellene og måstige, noe som gir regn. Ostlandet er i regnskyggen og fårmindre nedbor.',
+    explanation: 'Fuktig luft frå havet treffer fjellene og måstige, noe som gir regn. Østlandet er i regnskyggen og fårmindre nedbør.',
   },
 ],
 
@@ -163,9 +163,9 @@ const quizData_samfunnsfag_6: Record<string, QuizQuestion[]> = {
     explanation: 'Antarktis har ingen fastboende fordi det er for kaldt. Det er bare forskere som bor der midlertidig.',
   },
   {
-    question: 'Hvilken orken er verdens største?',
+    question: 'Hvilken ørken er verdens største?',
     options: ['Sahara', 'Gobi', 'Kalahari', 'Mojave'],
-    explanation: 'Sahara i Afrika er verdens største orken.',
+    explanation: 'Sahara i Afrika er verdens største ørken.',
   },
   {
     question: 'Hva er verdens lengste fjellkjede?',

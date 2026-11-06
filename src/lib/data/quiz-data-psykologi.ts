@@ -13,9 +13,9 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
     explanation: 'Behaviorismen, grunnlagt av Watson og videreutviklet av Skinner, fokuserer kun påobserverbar atferd og avviser studiet av indre mentale prosesser.',
   },
   {
-    question: 'Hva er de fire hovedformalene med psykologisk forskning?',
+    question: 'Hva er de fire hovedformålene med psykologisk forskning?',
     options: ['Beskrive, forklare, forutsi, påvirke', 'Observere, male, analysere, publisere', 'Teste, behandle, førebygge, rehabilitere', 'Diagnostisere, klassifisere, behandle, evaluere'],
-    explanation: 'Psykologiens fire hovedformal er a beskrive atferd, forklare hvorfor vi handler som vi gjør, forutsi fremtidig atferd, og påvirke/endre atferd.',
+    explanation: 'Psykologiens fire hovedformål er a beskrive atferd, forklare hvorfor vi handler som vi gjør, forutsi fremtidig atferd, og påvirke/endre atferd.',
   },
   {
     question: 'Hvilken psykologisk retning vektlegger personlig vekst og selvrealisering?',
@@ -54,7 +54,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken del av hjernebarken er viktig for synsprosessering?',
     options: ['Bakhodelappen (occipital)', 'Pannelappen (frontal)', 'Isselappen (parietal)', 'Tinninglappen (temporal)'],
-    explanation: 'Bakhodelappen (occipital cortex) er primart ansvårlig for prosessering av visuell informasjon.',
+    explanation: 'Bakhodelappen (occipital cortex) er primært ansvarlig for prosessering av visuell informasjon.',
   },
 ],
 
@@ -82,8 +82,8 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva viste Elizabeth Loftus sin forskning om hukommelse?',
-    options: ['At falske minner kan skapes gjennom ledende sporsmael', 'At hukommelsen fungerer som et videokamera', 'At vi aldri glemmer viktige hendelser', 'At barn har bedre hukommelse enn voksne'],
-    explanation: 'Loftus viste at hukommelsen er konstruktiv og at ledende sporsmael kan skape falske minner - viktig for forståelse av vitnemalspsykologi.',
+    options: ['At falske minner kan skapes gjennom ledende spørsmål', 'At hukommelsen fungerer som et videokamera', 'At vi aldri glemmer viktige hendelser', 'At barn har bedre hukommelse enn voksne'],
+    explanation: 'Loftus viste at hukommelsen er konstruktiv og at ledende spørsmål kan skape falske minner - viktig for forståelse av vitnemalspsykologi.',
   },
 ],
 
@@ -111,7 +111,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er vikarierende forsterkning?',
-    options: ['A lare av konsekvensene andre far', 'A forsterke seg selv', 'A fa forsterkning gjennom en annen person', 'A forsterke andres atferd'],
+    options: ['A lære av konsekvensene andre far', 'A forsterke seg selv', 'A fa forsterkning gjennom en annen person', 'A forsterke andres atferd'],
     explanation: 'Vikarierende forsterkning betyr at vi lærer av a se konsekvensene andre far. Ser vi at noen blir belønnet, er vi mer tilbøyelige til a imitere atferden.',
   },
 ],
@@ -121,11 +121,11 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Ifolgse Maslows behovshierarki, hvilket behov måtilfredsstilles for behovet for anerkjennelse?',
     options: ['Tilhorighet', 'Selvaktualisering', 'Sikkerhet', 'Fysiologiske behov'],
-    explanation: 'I Maslows hierarki kommer tilhørighet (kjårlighet, vennskap) for anerkjennelse. Lavere behov måvære rimelig tilfredsstilt for høyere behov blir motiverende.',
+    explanation: 'I Maslows hierarki kommer tilhørighet (kjærlighet, vennskap) for anerkjennelse. Lavere behov måvære rimelig tilfredsstilt for høyere behov blir motiverende.',
   },
   {
     question: 'Hva er de tre grunnleggende behovene i selvbestemmelsesteorien?',
-    options: ['Autonomi, kompetanse, tilhørighet', 'Mat, sovn, trygghet', 'Makt, prestisje, penger', 'Kjårlighet, respekt, frihet'],
+    options: ['Autonomi, kompetanse, tilhørighet', 'Mat, sovn, trygghet', 'Makt, prestisje, penger', 'Kjærlighet, respekt, frihet'],
     explanation: 'Deci og Ryans selvbestemmelsesteori identifiserer tre grunnleggende psykologiske behov: autonomi (selvbestemmelse), kompetanse (mestring) og tilhørighet (sosial tilknytning).',
   },
   {
@@ -136,7 +136,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er "overjustification-effekten"?',
     options: ['At ytre belønning reduserer indre motivasjon', 'At for mye ros skaper selvtillit', 'At motivasjon øker med belønning', 'At barn trenger mer ros enn voksne'],
-    explanation: 'Overjustification-effekten oppstar nårytre belønning for noe man allærede liker å gjøre, reduserer den indre motivasjonen for aktiviteten.',
+    explanation: 'Overjustification-effekten oppstår nårytre belønning for noe man allærede liker å gjøre, reduserer den indre motivasjonen for aktiviteten.',
   },
   {
     question: 'Hvilke seks grunnfølelser føreslo Paul Ekman er universelle?',
@@ -160,12 +160,12 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken tilknytningsstil kjennetegnes av at barnet bruker omsorgspersonen som trygg base?',
     options: ['Trygg tilknytning', 'Utrygg-unnvikende', 'Utrygg-ambivalent', 'Desorganisert'],
-    explanation: 'Barn med trygg tilknytning bruker omsorgspersonen som en trygg base for utforskning, protesterer ved separasjon og er glade ved gjenførening.',
+    explanation: 'Barn med trygg tilknytning bruker omsorgspersonen som en trygg base for utforskning, protesterer ved separasjon og er glade ved gjenforening.',
   },
   {
     question: 'Ifolgse Erikson, hva er den psykososiale krisen i ungdomstiden?',
     options: ['Identitet vs. rolleforvirring', 'Intimitet vs. isolasjon', 'Tillit vs. mistillit', 'Autonomi vs. skam'],
-    explanation: 'I ungdomstiden (12-18 ar) er krisen identitet vs. rolleforvirring, der ungdømmen striver med a utvikle en sammenhengende følelse av hvem de er.',
+    explanation: 'I ungdomstiden (12-18 ar) er krisen identitet vs. rolleforvirring, der ungdommen striver med a utvikle en sammenhengende følelse av hvem de er.',
   },
   {
     question: 'Hva betyr akkomodasjon i Piagets teori?',
@@ -178,7 +178,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   'psykologi-1-7': [
   {
     question: 'Hva er de fem faktorene i femfaktormodellen (Big Five)?',
-    options: ['Apenhet, planmessighet, ekstraversjon, medmenneskelighet, nevrotisisme', 'Intelligens, kreativitet, folsomhet, sosialitet, styrke', 'Temperament, karakter, motivasjon, evner, verdier', 'Id, ego, superego, libido, thanatos'],
+    options: ['Åpenhet, planmessighet, ekstraversjon, medmenneskelighet, nevrotisisme', 'Intelligens, kreativitet, følsomhet, sosialitet, styrke', 'Temperament, karakter, motivasjon, evner, verdier', 'Id, ego, superego, libido, thanatos'],
     explanation: 'Femfaktormodellen (OCEAN) består av åpenhet, planmessighet, ekstraversjon, medmenneskelighet og nevrotisisme.',
   },
   {
@@ -188,18 +188,18 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva viser tvillingstudier om personlighetens arvelighet?',
-    options: ['Personlighetstrekk er ca. 40-60% arvelige', 'Personlighet er 100% bestemt av gener', 'Miljo bestemmer alt', 'Arvelighet er ubetydelig'],
+    options: ['Personlighetstrekk er ca. 40-60% arvelige', 'Personlighet er 100% bestemt av gener', 'Miljø bestemmer alt', 'Arvelighet er ubetydelig'],
     explanation: 'Tvillingstudier viser at personlighetstrekk er ca. 40-60% arvelige, mens resten skyldes miljø, særlig ikke-delt miljø (unike opplevelser).',
   },
   {
     question: 'Hva er fortrenging ifolgse Freud?',
-    options: ['En forsvarsmekanisme der ubehagelige tanker skyves ut av bevisstheten', 'En laringsprosess', 'En type hukommelse', 'En form for motivasjon'],
+    options: ['En forsvarsmekanisme der ubehagelige tanker skyves ut av bevisstheten', 'En læringsprosess', 'En type hukommelse', 'En form for motivasjon'],
     explanation: 'Fortrenging er en forsvarsmekanisme der ego ubevisst skyver truende eller ubehagelige tanker og minner ut av bevisstheten.',
   },
   {
     question: 'Hva er temperament?',
-    options: ['Medfodte tilboyeligheter til visse reaksjonsmoenstre', 'Laerte personlighetstrekk', 'Humorssvingninger', 'Evne til a kontrollære følelser'],
-    explanation: 'Temperament er medfodte, biologisk baserte tilboyeligheter som vises fra spebarnsalder, som aktivitetsnivå og irritabilitet.',
+    options: ['Medfødte tilbøyeligheter til visse reaksjonsmønstre', 'Lærte personlighetstrekk', 'Humorssvingninger', 'Evne til a kontrollære følelser'],
+    explanation: 'Temperament er medfødte, biologisk baserte tilbøyeligheter som vises fra spebarnsalder, som aktivitetsnivå og irritabilitet.',
   },
 ],
 
@@ -207,8 +207,8 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   'psykologi-1-8': [
   {
     question: 'Hva er den fundamentale attribusjonsfeilen?',
-    options: ['Tendensen til a overvurdere personlige egenskaper og undervurdere situasjon', 'Tendensen til a skylde påandre', 'Tendensen til a ta aeren for suksess', 'Tendensen til å unngå ansvar'],
-    explanation: 'Den fundamentale attribusjonsfeilen er tendensen til a overvurdere personlige egenskaper og undervurdere situasjonens påvirkning nårvi forklærer andres atferd.',
+    options: ['Tendensen til a overvurdere personlige egenskaper og undervurdere situasjon', 'Tendensen til a skylde påandre', 'Tendensen til a ta æren for suksess', 'Tendensen til å unngå ansvar'],
+    explanation: 'Den fundamentale attribusjonsfeilen er tendensen til a overvurdere personlige egenskaper og undervurdere situasjonens påvirkning nårvi forklarer andres atferd.',
   },
   {
     question: 'Hva viste Milgrams lydighetseksperiment?',
@@ -218,7 +218,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er kognitiv dissonans?',
     options: ['Ubehaget nåratferd ikke stemmer med holdninger', 'En type hukommelsestap', 'Konflikt mellom to personer', 'En læringsmetode'],
-    explanation: 'Kognitiv dissonans er det ubehagelige spenningsforholdet som oppstar nårvar atferd ikke stemmer overens med våre holdninger eller verdier.',
+    explanation: 'Kognitiv dissonans er det ubehagelige spenningsforholdet som oppstår nårvar atferd ikke stemmer overens med våre holdninger eller verdier.',
   },
   {
     question: 'Hva er tilskuereffekten?',
@@ -241,13 +241,13 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er stress-sårbarhetmodellen?',
-    options: ['Psykisk lidelse oppstar nårsårbare individer utsettes for stress', 'Alle har lik sårbarhet for stress', 'Stress alene forårsaker psykisk lidelse', 'Sarbarhet kan ikke påvirkes'],
-    explanation: 'Stress-sårbarhetmodellen forklærer at psykiske lidelser oppstar nårsårbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
+    options: ['Psykisk lidelse oppstår nårsårbare individer utsettes for stress', 'Alle har lik sårbarhet for stress', 'Stress alene forårsaker psykisk lidelse', 'Sårbarhet kan ikke påvirkes'],
+    explanation: 'Stress-sårbarhetmodellen forklarer at psykiske lidelser oppstår nårsårbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
   },
   {
     question: 'Hva er hovedforskjellen mellom normal angst og angstlidelse?',
     options: ['Angstlidelse er overdrevet, langvarig og hemmer fungering', 'Normal angst varer lengre', 'Angstlidelse skyldes reelle trusler', 'Det er ingen forskjell'],
-    explanation: 'Angstlidelse skiller seg fra normal angst ved a være overdrevet, langvarig og irrasjonell, og ved a førstyrre daglig fungering.',
+    explanation: 'Angstlidelse skiller seg fra normal angst ved a være overdrevet, langvarig og irrasjonell, og ved a forstyrre daglig fungering.',
   },
   {
     question: 'Hvilken faktor er en beskyttelsesfaktor for psykisk helse?',
@@ -256,8 +256,8 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er stigma knyttet til psykiske lidelser problematisk?',
-    options: ['Det hindrer folk fra a soke hjelp', 'Det gir bedre behandling', 'Det styrker selvfølelsen', 'Det er ikke problematisk'],
-    explanation: 'Stigma kan hindre folk fra a soke hjelp pågrunn av skam og frykt for andres reaksjoner, noe som kan forsinke behandling og forverre tilstanden.',
+    options: ['Det hindrer folk fra a søke hjelp', 'Det gir bedre behandling', 'Det styrker selvfølelsen', 'Det er ikke problematisk'],
+    explanation: 'Stigma kan hindre folk fra a søke hjelp pågrunn av skam og frykt for andres reaksjoner, noe som kan forsinke behandling og forverre tilstanden.',
   },
 ],
 
@@ -271,7 +271,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor betyr "korrelasjon er ikke kausalitet" at vi måvære forsiktige med konklusjoner?',
     options: ['Fordi en tredje variabel kan forklare sammenhengen', 'Fordi korrelasjon alltid er tilfeldig', 'Fordi kausalitet er umulig a bevise', 'Fordi alle studier er upålitelige'],
-    explanation: 'To variabler kan korrelære uten at den ene forårsaker den andre - en tredje variabel kan påvirke begge (f.eks. varmt vær forklærer både iskremssalg og drukningsulykker).',
+    explanation: 'To variabler kan korrelære uten at den ene forårsaker den andre - en tredje variabel kan påvirke begge (f.eks. varmt vær forklarer både iskremssalg og drukningsulykker).',
   },
   {
     question: 'Hva innebærer informert samtykke i forskning?',
@@ -294,8 +294,8 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   'psykologi-2-1': [
   {
     question: 'Hva er bekreftelsesskjevhet (confirmation bias)?',
-    options: ['Tendensen til a soke informasjon som bekrefter det vi allærede tror', 'Tendensen til a huske positive ting', 'Tendensen til a være enig med andre', 'Tendensen til a bekrefte andres meninger'],
-    explanation: 'Bekreftelsesskjevhet er tendensen til a soke, tolke og huske informasjon som bekrefter det vi allærede tror, mens vi overser motbevis.',
+    options: ['Tendensen til a søke informasjon som bekrefter det vi allærede tror', 'Tendensen til a huske positive ting', 'Tendensen til a være enig med andre', 'Tendensen til a bekrefte andres meninger'],
+    explanation: 'Bekreftelsesskjevhet er tendensen til a søke, tolke og huske informasjon som bekrefter det vi allærede tror, mens vi overser motbevis.',
   },
   {
     question: 'Hva er forskjellen mellom episodisk og semantisk hukommelse?',
@@ -304,7 +304,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er tilgjengelighetsheuristikk?',
-    options: ['A vurdere sannsynlighet basert påhvor lett eksempler kommer til minnet', 'A bruke all tilgjengelig informasjon', 'A soeke etter mer informasjon for beslutninger', 'A stole påeksperters rad'],
+    options: ['A vurdere sannsynlighet basert påhvor lett eksempler kommer til minnet', 'A bruke all tilgjengelig informasjon', 'A søke etter mer informasjon for beslutninger', 'A stole påeksperters rad'],
     explanation: 'Tilgjengelighetsheuristikk er tendensen til a vurdere sannsynligheten for noe basert påhvor lett eksempler kommer til minnet, noe som kan gi skjeve vurderinger.',
   },
   {
@@ -371,9 +371,9 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
     explanation: 'Kortisol er et stresshormon som frigjøres fra binyrene ved aktivering av HPA-aksen under langvarig stress.',
   },
   {
-    question: 'Hvordan kan kronisk stress påvirke immunforsvåret?',
-    options: ['Kronisk stress svekker immunforsvåret', 'Kronisk stress styrker immunforsvåret', 'Stress har ingen effekt påimmunforsvåret', 'Bare akutt stress påvirker immunforsvåret'],
-    explanation: 'Langvarig forhoyede kortisolnivær ved kronisk stress kan svekke immunforsvåret og gjøre oss mer mottagelige for sykdom.',
+    question: 'Hvordan kan kronisk stress påvirke immunforsvaret?',
+    options: ['Kronisk stress svekker immunforsvaret', 'Kronisk stress styrker immunforsvaret', 'Stress har ingen effekt påimmunforsvåret', 'Bare akutt stress påvirker immunforsvaret'],
+    explanation: 'Langvarig forhøyede kortisolnivær ved kronisk stress kan svekke immunforsvaret og gjøre oss mer mottagelige for sykdom.',
   },
 ],
 
@@ -386,13 +386,13 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er stress-sårbarhetmodellen for psykiske lidelser?',
-    options: ['Lidelse oppstar nårsårbare individer utsettes for tilstrekkelig stress', 'Alle har lik risiko for psykiske lidelser', 'Bare stress forårsaker lidelser', 'Sarbarhet kan ikke endres'],
-    explanation: 'Stress-sårbarhetmodellen sier at psykisk lidelse oppstar nårsårbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
+    options: ['Lidelse oppstår nårsårbare individer utsettes for tilstrekkelig stress', 'Alle har lik risiko for psykiske lidelser', 'Bare stress forårsaker lidelser', 'Sårbarhet kan ikke endres'],
+    explanation: 'Stress-sårbarhetmodellen sier at psykisk lidelse oppstår nårsårbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
   },
   {
     question: 'Hva kjennetegner bipolar lidelse?',
     options: ['Veksling mellom depressive og maniske episoder', 'Konstant nedstemthet', 'Bare maniske episoder', 'Angst og panikkanfall'],
-    explanation: 'Bipolar lidelse kjennetegnes av veksling mellom depressive episoder og maniske episoder (oppstemthet, nedsatt sovnbehov, grandiose ideer).',
+    explanation: 'Bipolar lidelse kjennetegnes av veksling mellom depressive episoder og maniske episoder (oppstemthet, nedsatt søvnbehov, grandiose ideer).',
   },
   {
     question: 'Hva er anhedoni?',
@@ -411,7 +411,7 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hovedprinsippet i kognitiv atferdsterapi (KAT)?',
     options: ['Tanker, følelser og atferd påvirker hverandre', 'Ubevisste konflikter måloses', 'Bare atferd kan endres', 'Medisin er alltid nødvendig'],
-    explanation: 'KAT baseres påat tanker, følelser og atferd henger sammen. Ved a endre negative tankemonstre kan vi endre følelser og atferd.',
+    explanation: 'KAT baseres påat tanker, følelser og atferd henger sammen. Ved a endre negative tankemønstre kan vi endre følelser og atferd.',
   },
   {
     question: 'Hva er eksponering i angstbehandling?',
@@ -420,8 +420,8 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner psykodynamisk terapi?',
-    options: ['Utforsker ubevisste konflikter og tidlige erfåringer', 'Fokuserer kun pånarvarende atferd', 'Er alltid kortvarig', 'Bruker bare atferdsteknikker'],
-    explanation: 'Psykodynamisk terapi utforsker ubevisste konflikter, tidlige erfåringer og forsvarsmekanismer, med fokus påinnsikt og den terapeutiske relasjonen.',
+    options: ['Utforsker ubevisste konflikter og tidlige erfaringer', 'Fokuserer kun pånarvarende atferd', 'Er alltid kortvarig', 'Bruker bare atferdsteknikker'],
+    explanation: 'Psykodynamisk terapi utforsker ubevisste konflikter, tidlige erfaringer og forsvarsmekanismer, med fokus påinnsikt og den terapeutiske relasjonen.',
   },
   {
     question: 'Hva menes med evidensbasert praksis?',
@@ -468,28 +468,28 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   'psykologi-2-7': [
   {
     question: 'Hvilke fire typer sosial støtte finnes?',
-    options: ['Emosjonell, instrumentell, informasjons-, fellesskapsstøtte', 'Fysisk, mental, aandelig, sosial', 'Familie, venner, jobb, nabo', 'Direkte, indirekte, aktiv, passiv'],
+    options: ['Emosjonell, instrumentell, informasjons-, fellesskapsstøtte', 'Fysisk, mental, åndelig, sosial', 'Familie, venner, jobb, nabo', 'Direkte, indirekte, aktiv, passiv'],
     explanation: 'De fire typene sosial støtte er emosjonell (trast), instrumentell (praktisk hjelp), informasjonsstøtte (rad) og fellesskapsstøtte (tilhørighet).',
   },
   {
     question: 'Hva kjennetegner engstelig tilknytningsstil i voksne relasjoner?',
-    options: ['Bekymring for avvisning og behov for mye bekreftelse', 'Ubehag med narhet', 'Komfortabel med både narhet og uavhengighet', 'Ingen spesielle kjennetegn'],
+    options: ['Bekymring for avvisning og behov for mye bekreftelse', 'Ubehag med nærhet', 'Komfortabel med både nærhet og uavhengighet', 'Ingen spesielle kjennetegn'],
     explanation: 'Personer med engstelig tilknytningsstil er ofte bekymret for avvisning, søker mye bekreftelse og kan bli klamrete i relasjoner.',
   },
   {
     question: 'Hvorfor er sosial støtte viktig for helsen?',
     options: ['Den demper stress, styrker immunforsvar og gir mening', 'Den har ingen effekt påhelse', 'Den er bare viktig for mental helse', 'Den øker stress'],
-    explanation: 'Sosial støtte demper stressresponsen, styrker immunforsvåret og gir mening og tilhørighet. Sosial isolasjon er en betydelig helserisiko.',
+    explanation: 'Sosial støtte demper stressresponsen, styrker immunforsvaret og gir mening og tilhørighet. Sosial isolasjon er en betydelig helserisiko.',
   },
   {
     question: 'Hva er aktiv lytting?',
     options: ['A gi full oppmerksomhet, reflektere og validere', 'A lytte mens man gjør andre ting', 'A gi rad såfort som mulig', 'A lytte til musikk aktivt'],
-    explanation: 'Aktiv lytting innebærer a gi full oppmerksomhet, ikke avbryte, reflektere det man har hort, stille åpne sporsmael og validere følelser.',
+    explanation: 'Aktiv lytting innebærer a gi full oppmerksomhet, ikke avbryte, reflektere det man har hort, stille åpne spørsmål og validere følelser.',
   },
   {
     question: 'Hva er nonverbal kommunikasjon?',
     options: ['Kommunikasjon gjennom kroppsspråk, tonefall og ansiktsuttrykk', 'Kommunikasjon uten mottaker', 'Skriftlig kommunikasjon', 'Kommunikasjon påfremmedspråk'],
-    explanation: 'Nonverbal kommunikasjon inkluderer kroppsspråk, ansiktsuttrykk, oynekontakt, beroring, avstand og tonefall.',
+    explanation: 'Nonverbal kommunikasjon inkluderer kroppsspråk, ansiktsuttrykk, oynekontakt, berøring, avstand og tonefall.',
   },
 ],
 
@@ -502,13 +502,13 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er stadiene i den transteoretiske modellen for atferdsendring?',
-    options: ['Foroverveielse, overveielse, forberedelse, handling, vedlikehold', 'Start, midten, slutt', 'Motivasjon, handling, resultat', 'Planlegging, gjennomforing, evaluering'],
+    options: ['Foroverveielse, overveielse, forberedelse, handling, vedlikehold', 'Start, midten, slutt', 'Motivasjon, handling, resultat', 'Planlegging, gjennomføring, evaluering'],
     explanation: 'Den transteoretiske modellen har fem stadier: Foroverveielse, overveielse, forberedelse, handling og vedlikehold.',
   },
   {
     question: 'Hva er psykonevroimmuniologi?',
-    options: ['Studiet av samspill mellom psyke, nervesystem og immunforsvar', 'En type terapi', 'Studiet av hjernesykdømmer', 'En medisinsk spesialitet'],
-    explanation: 'Psykonevroimmuniologi studerer samspillet mellom psykologiske faktorer, nervesystemet og immunforsvåret, f.eks. hvordan stress svekker immunforsvåret.',
+    options: ['Studiet av samspill mellom psyke, nervesystem og immunforsvar', 'En type terapi', 'Studiet av hjernesykdommer', 'En medisinsk spesialitet'],
+    explanation: 'Psykonevroimmuniologi studerer samspillet mellom psykologiske faktorer, nervesystemet og immunforsvaret, f.eks. hvordan stress svekker immunforsvaret.',
   },
   {
     question: 'Hva er et grunnprinsipp i motiverende intervju?',
@@ -526,12 +526,12 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   'psykologi-2-9': [
   {
     question: 'Hva er forskjellen mellom hygienefaktorer og motivasjonsfaktorer i Herzbergs teori?',
-    options: ['Hygienefaktorer førebygger misnoeye, motivasjonsfaktorer skaper tilfredshet', 'De er det samme', 'Hygienefaktorer er viktigere', 'Motivasjonsfaktorer handler om hygiene'],
-    explanation: 'Hygienefaktorer (lønn, arbeidsforhold) kan førebygge misnoeye, men skaper ikke motivasjon. Motivasjonsfaktorer (ansvar, anerkjennelse, vekst) skaper faktisk tilfredshet.',
+    options: ['Hygienefaktorer førebygger misnøye, motivasjonsfaktorer skaper tilfredshet', 'De er det samme', 'Hygienefaktorer er viktigere', 'Motivasjonsfaktorer handler om hygiene'],
+    explanation: 'Hygienefaktorer (lønn, arbeidsforhold) kan førebygge misnøye, men skaper ikke motivasjon. Motivasjonsfaktorer (ansvar, anerkjennelse, vekst) skaper faktisk tilfredshet.',
   },
   {
     question: 'Hva er de tre kjennetegnene påutbrenthet (burnout)?',
-    options: ['Emosjonell utmattelse, kynisme, redusert yteevne', 'Tretthet, sovnloshet, hodepine', 'Stress, angst, depresjon', 'Lav lønn, dårlig ledelse, kjedelig jobb'],
+    options: ['Emosjonell utmattelse, kynisme, redusert yteevne', 'Tretthet, søvnløshet, hodepine', 'Stress, angst, depresjon', 'Lav lønn, dårlig ledelse, kjedelig jobb'],
     explanation: 'Utbrenthet kjennetegnes av emosjonell utmattelse (tappet for energi), kynisme/depersonalisering og redusert profesjonell yteevne.',
   },
   {
@@ -565,13 +565,13 @@ const quizData_psykologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var et etisk problem med Milgrams lydighetseksperiment?',
-    options: ['Psykisk belastning og mangelfult informert samtykke', 'For fa deltakere', 'For kort varighet', 'For høy belønning'],
+    options: ['Psykisk belastning og mangelfult informert samtykke', 'For få deltakere', 'For kort varighet', 'For høy belønning'],
     explanation: 'Milgram-eksperimentet ga deltakere betydelig psykisk belastning (stress, skyldfølelse) og hadde mangelfult informert samtykke da de ikke visste hva de egentlig studerte.',
   },
   {
     question: 'Hva er doble relasjoner i psykologisk praksis?',
     options: ['Nårpsykologen har flere roller overfor samme person', 'Nårto psykologer jobber sammen', 'Nårpasienten har to diagnoser', 'Nårbehandlingen varer lenge'],
-    explanation: 'Doble relasjoner oppstar nårpsykologen har flere roller overfor samme person (f.eks. terapeut og venn), noe som kan kompromittere profesjonaliteten.',
+    explanation: 'Doble relasjoner oppstår nårpsykologen har flere roller overfor samme person (f.eks. terapeut og venn), noe som kan kompromittere profesjonaliteten.',
   },
   {
     question: 'Hva er konfidensialitet i psykologisk praksis?',

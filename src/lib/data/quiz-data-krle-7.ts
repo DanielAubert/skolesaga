@@ -3,23 +3,23 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_krle_7: Record<string, QuizQuestion[]> = {
   'krle-7-1-1': [
   {
-    question: 'Nårog hvor oppstod kristendømmen?',
-    options: ['For ca. 2000 årsiden i Midtosten', 'For 3000 årsiden i Egypt', 'For 1000 årsiden i Roma', 'For 500 årsiden i Norge'],
-    explanation: 'Kristendømmen oppstod for ca. 2000 årsiden i området som i dag er Israel/Palestina.',
+    question: 'Nårog hvor oppstod kristendommen?',
+    options: ['For ca. 2000 årsiden i Midtøsten', 'For 3000 årsiden i Egypt', 'For 1000 årsiden i Roma', 'For 500 årsiden i Norge'],
+    explanation: 'Kristendommen oppstod for ca. 2000 årsiden i området som i dag er Israel/Palestina.',
   },
   {
     question: 'Hvem var Paulus og hvorfor var han viktig?',
-    options: ['En misjonsaer som spredte kristendømmen til ikke-jøder', 'Den første paven', 'Jesu bror', 'En romersk keiser'],
+    options: ['En misjonsaer som spredte kristendommen til ikke-jøder', 'Den første paven', 'Jesu bror', 'En romersk keiser'],
     explanation: 'Paulus var en misjonsaer som reiste rundt og startet menigheter for ikke-jøder.',
   },
   {
-    question: 'Nårble kristendømmen statsreligion i Romerriket?',
+    question: 'Nårble kristendommen statsreligion i Romerriket?',
     options: ['Ar 380', 'Ar 30', 'Ar 1000', 'Ar 1517'],
-    explanation: 'Keiser Theodosius gjorde kristendømmen til statsreligion i år380.',
+    explanation: 'Keiser Theodosius gjorde kristendommen til statsreligion i år380.',
   },
   {
     question: 'Hva var reformasjonen?',
-    options: ['En religioes omveltning på 1500-tallet som skapte protestantismen', 'Da kristendømmen oppsto', 'Da kirken kom til Norge', 'Et kirkemote i Roma'],
+    options: ['En religiøs omveltning på 1500-tallet som skapte protestantismen', 'Da kristendommen oppsto', 'Da kirken kom til Norge', 'Et kirkemøte i Roma'],
     explanation: 'Reformasjonen (1517) var da Martin Luther protesterte mot den katolske kirken.',
   },
   {
@@ -32,14 +32,14 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
 
   'krle-7-1-2': [
   {
-    question: 'Hva er de tre hovedretningene i kristendømmen?',
+    question: 'Hva er de tre hovedretningene i kristendommen?',
     options: ['Katolsk, ortodoks og protestantisk', 'Luthersk, baptistisk og metodistisk', 'Norsk, svensk og dansk', 'Gammel, middelalder og ny'],
     explanation: 'De tre hovedretningene er katolisisme, ortodoks kristendom og protestantisme.',
   },
   {
     question: 'Hvem leder den katolske kirken?',
     options: ['Paven i Roma', 'Kongen', 'Patriarken', 'Biskopen'],
-    explanation: 'Paven i Vatikanstaten i Roma er den katolske kirkens overste leder.',
+    explanation: 'Paven i Vatikanstaten i Roma er den katolske kirkens øverste leder.',
   },
   {
     question: 'Hva vektlegger protestanter som kilden til tro?',
@@ -49,12 +49,12 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken retning bruker ikoner i tilbedelse?',
     options: ['Ortodoks kristendom', 'Protestantisme', 'Pinsebevegelsen', 'Frelsesarmeen'],
-    explanation: 'De ortodokse kirkene bruker ikoner (religiose bilder) i tilbedelse.',
+    explanation: 'De ortodokse kirkene bruker ikoner (religiøse bilder) i tilbedelse.',
   },
   {
     question: 'Hvahar alle kristne retninger felles?',
-    options: ['Troen påJesus som Guds sonn og frelser', 'Paven som leder', 'Samme gudstjeneste', 'Samme språk'],
-    explanation: 'Alle kristne deler troen påJesus Kristus som Guds sonn og frelser.',
+    options: ['Troen påJesus som Guds sønn og frelser', 'Paven som leder', 'Samme gudstjeneste', 'Samme språk'],
+    explanation: 'Alle kristne deler troen påJesus Kristus som Guds sønn og frelser.',
   },
 ],
 
@@ -67,7 +67,7 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er de tre hovedgudene (Trimurti) i hinduismen?',
-    options: ['Brahma, Vishnu og Shiva', 'Ganesha, Krishna og Lakshmi', 'Allah, Jesus og Buddha', 'Odin, Tor og Froy'],
+    options: ['Brahma, Vishnu og Shiva', 'Ganesha, Krishna og Lakshmi', 'Allah, Jesus og Buddha', 'Odin, Tor og Frøy'],
     explanation: 'Trimurti er Brahma (skaper), Vishnu (opprettholder) og Shiva (ødelegger/fornyer).',
   },
   {
@@ -77,8 +77,8 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er malet i hinduismen?',
-    options: ['Moksha - frigjøring fra gjenfodelse', 'A bli rik', 'A fa mange barn', 'A bygge templer'],
-    explanation: 'Moksha er frigjøring fra gjenfodelsens kretsloop, da sjelen førenes med Brahman.',
+    options: ['Moksha - frigjøring fra gjenfødelse', 'A bli rik', 'A fa mange barn', 'A bygge templer'],
+    explanation: 'Moksha er frigjøring fra gjenfødelsens kretsloop, da sjelen førenes med Brahman.',
   },
   {
     question: 'Hva er Diwali?',
@@ -92,7 +92,7 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem var Buddha?',
     options: ['Siddharta Gautama - den opplyste', 'En gud', 'En profet', 'En keiser'],
-    explanation: 'Buddha var Siddharta Gautama, en prins som oppnadde opplysning.',
+    explanation: 'Buddha var Siddharta Gautama, en prins som oppnådde opplysning.',
   },
   {
     question: 'Hva er den første edle sannhet?',
@@ -101,18 +101,18 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er årsaken til lidelse ifølge Buddha?',
-    options: ['Begjaer og tilknytning', 'Dårlig mat', 'Andre mennesker', 'Gudene'],
+    options: ['Begjær og tilknytning', 'Dårlig mat', 'Andre mennesker', 'Gudene'],
     explanation: 'Buddha lærte at lidelse skyldes begjær og tilknytning.',
   },
   {
     question: 'Hva er nirvana?',
-    options: ['Frigjøring fra lidelse og gjenfodelse', 'Et paradis med guder', 'En type meditasjon', 'En hellig bok'],
-    explanation: 'Nirvana er frigjøring fra lidelse og gjenfodelsens hjul.',
+    options: ['Frigjøring fra lidelse og gjenfødelse', 'Et paradis med guder', 'En type meditasjon', 'En hellig bok'],
+    explanation: 'Nirvana er frigjøring fra lidelse og gjenfødelsens hjul.',
   },
   {
     question: 'Hva er den attefoldige veien?',
     options: ['Buddhas vei til frigjøring', 'En pilegrimsrute', 'Atte guder', 'Atte hellige bøker'],
-    explanation: 'Den attefoldige veien er Buddhas oppskrift påhvordan man kan oppna nirvana.',
+    explanation: 'Den attefoldige veien er Buddhas oppskrift påhvordan man kan oppnå nirvana.',
   },
 ],
 
@@ -140,7 +140,7 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva såSokrates om sin egen kunnskap?',
-    options: ['Det eneste jeg vet, er at jeg ingenting vet', 'Jeg vet alt', 'Bare jeg kan svare', 'Kunnskap er verdilos'],
+    options: ['Det eneste jeg vet, er at jeg ingenting vet', 'Jeg vet alt', 'Bare jeg kan svare', 'Kunnskap er verdiløs'],
     explanation: 'Sokrates så"Det eneste jeg vet, er at jeg ingenting vet" for å vise ydmykhet.',
   },
 ],
@@ -148,9 +148,9 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
 
   'krle-7-3-2': [
   {
-    question: 'Nårble FNs menneskerettighetserklaring vedtatt?',
+    question: 'Nårble FNs menneskerettighetserklæring vedtatt?',
     options: ['1948', '1814', '1789', '2000'],
-    explanation: 'FNs menneskerettighetserklaring ble vedtatt i 1948 etter andre verdenskrig.',
+    explanation: 'FNs menneskerettighetserklæring ble vedtatt i 1948 etter andre verdenskrig.',
   },
   {
     question: 'Hva betyr at menneskerettighetene er universelle?',

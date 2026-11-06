@@ -3,13 +3,13 @@
   "courseId": "stk1110",
   "chapterNumber": "2.5",
   "title": "Eksakt fordelingsteori: transformasjons-pivot og F-test for varianser",
-  "description": "STK1100-transformasjonen gjenbrukt til inferens: bygg en eksakt pivot 2X/theta som er kjikvadratfordelt og et eksakt/asymmetrisk KI eller en F-test for variansforhold — foretrukket nar standardavviket avhenger av parameteren.",
+  "description": "STK1100-transformasjonen gjenbrukt til inferens: bygg en eksakt pivot 2X/theta som er kjikvadratfordelt og et eksakt/asymmetrisk KI eller en F-test for variansforhold — foretrukket når standardavviket avhenger av parameteren.",
   "estimatedMinutes": 50,
   "competenceGoals": [
-    "gjenkjenne en pivotal storrelse med fordeling uavhengig av parameteren og bruke den til et eksakt konfidensintervall",
-    "utlede at 2 ganger summen av X delt pa theta er kjikvadratfordelt med 2n frihetsgrader",
+    "gjenkjenne en pivotal størrelse med fordeling uavhengig av parameteren og bruke den til et eksakt konfidensintervall",
+    "utlede at 2 ganger summen av X delt på theta er kjikvadratfordelt med 2n frihetsgrader",
     "sette opp en F-test for variansforhold og bruke den til a sjekke lik-varians-antakelsen",
-    "vite nar et eksakt/asymmetrisk intervall foretrekkes framfor Wald-intervallet"
+    "vite når et eksakt/asymmetrisk intervall foretrekkes framfor Wald-intervallet"
   ],
   "content": [
     {
@@ -41,7 +41,7 @@
     {
       "id": "stk1110-2-5-def-pivot",
       "type": "definition",
-      "title": "Pivotal storrelse (pivot)",
+      "title": "Pivotal størrelse (pivot)",
       "content": "**En pivot** er en funksjon $W=W(X_1,\\dots,X_n,\\theta)$ av både dataene og parameteren, hvis **fordeling ikke avhenger av $\\theta$** (typisk $\\chi^2$, $t$ eller $F$). Fordi fordelingen er kjent og fast, kan vi finne tall $a,b$ med $P(a<W<b)=1-\\alpha$ og deretter **løse ulikheten $a<W<b$ for $\\theta$**. Det gir et konfidensintervall som er *eksakt* — dekningen er nøyaktig $1-\\alpha$ for enhver $n$, ikke bare asymptotisk."
     },
     {
@@ -173,7 +173,7 @@
     {
       "id": "stk1110-2-5-warn",
       "type": "warning",
-      "title": "Typiske feil (fra losningsforslagene)",
+      "title": "Typiske feil (fra løsningsforslagene)",
       "content": "- **Feil frihetsgrader i pivoten.** For $2\\sum X_i/\\theta$ er det $\\chi^2_{2n}$ — ikke $\\chi^2_n$ eller $\\chi^2_{n-1}$. Les hvilken gamma/$\\chi^2$ transformasjonen faktisk gir. (§5.13)\n- **Tro at et asymmetrisk eksakt intervall er en regnefeil.** En skjev pivot ($\\chi^2$, $F$) gir naturlig et asymmetrisk intervall — det er riktig. (§4.7)\n- **Feil plassering av kvantilene.** Fordi $\\theta$ står i nevneren, byttes ulikhetstegnene: den **store** kvantilen gir **nedre** grense.\n- **Hoppe til Wald der en eksakt pivot finnes.** Når $se$ avhenger av parameteren, er pivoten bedre.\n- **Bytte om teller- og nevner-df i F-testen.** $F=S_1^2/S_2^2\\sim F_{m-1,\\,n-1}$ — teller-df fra utvalg 1, nevner-df fra utvalg 2.\n- **Glemme absoluttverdien/Jacobi** i transformasjonen (→ stk1100-4-2)."
     },
     {

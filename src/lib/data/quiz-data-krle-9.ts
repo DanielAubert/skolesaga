@@ -9,7 +9,7 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var avlatshandel?",
-      options: ["At kirken tilga synder mot betaling", "Handel med religiose bøker", "At munkene drev handel med varer mellom klostrene", "Salg av kirkebygninger"],
+      options: ["At kirken tilga synder mot betaling", "Handel med religiøse bøker", "At munkene drev handel med varer mellom klostrene", "Salg av kirkebygninger"],
       explanation: "Avlatshandel var salg av tilgivelse for synder, noe Luther sterkt kritiserte.",
     },
     {
@@ -23,9 +23,9 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
       explanation: "Sola fide betyr at frelse kommer gjennom tro alene, ikke gjerninger.",
     },
     {
-      question: "Nårble reformasjonen innfort i Norge?",
+      question: "Nårble reformasjonen innført i Norge?",
       options: ["1537", "1517", "1814", "1905"],
-      explanation: "Reformasjonen ble innfort i Norge i 1537.",
+      explanation: "Reformasjonen ble innført i Norge i 1537.",
     },
   ],
   "krle-9-1-2": [
@@ -35,9 +35,9 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
       explanation: "Sekularisering er prosessen der religion fårmindre betydning i samfunnet.",
     },
     {
-      question: "I hvilke deler av verden vokser kristendømmen mest?",
+      question: "I hvilke deler av verden vokser kristendommen mest?",
       options: ["Afrika og Latin-Amerika", "Europa og Nord-Amerika", "Australia og New Zealand", "Skandinavia og Russland"],
-      explanation: "Kristendømmen vokser mest i Afrika, Latin-Amerika og deler av Asia.",
+      explanation: "Kristendommen vokser mest i Afrika, Latin-Amerika og deler av Asia.",
     },
     {
       question: "Nårsluttet Den norske kirke a være statskirke?",
@@ -50,15 +50,15 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
       explanation: "Den katolske kirke er størst med ca. 1,3 milliarder medlemmer.",
     },
     {
-      question: "Hva betyr det at kristendømmens tyngdepunkt flytter seg?",
-      options: ["Kristendømmen vokser i sor og synker i nord", "Paven flytter til Sor-Amerika", "At det bare bygges nye kirkebygg i de sorlige landene", "At nordmenn flest blir langt mer religiose enn tidligere"],
-      explanation: "Kristendømmen vokser i det globale sor mens den svekkes i nord.",
+      question: "Hva betyr det at kristendommens tyngdepunkt flytter seg?",
+      options: ["Kristendommen vokser i sor og synker i nord", "Paven flytter til Sor-Amerika", "At det bare bygges nye kirkebygg i de sørlige landene", "At nordmenn flest blir langt mer religiøse enn tidligere"],
+      explanation: "Kristendommen vokser i det globale sor mens den svekkes i nord.",
     },
   ],
   "krle-9-2-1": [
     {
       question: "Hva er de seks trosartiklene i islam?",
-      options: ["Allah, englene, skriftene, profetene, dømmedag og forutbestemmelse", "De hellige tekstene Koranen og hadith som veileder alle muslimer", "De fem søylene: trosbekjennelse, bønn, faste, almisse og pilegrimsreise", "Troen på Allah og profeten Muhammad som hans sendebud alene"],
+      options: ["Allah, englene, skriftene, profetene, dommedag og forutbestemmelse", "De hellige tekstene Koranen og hadith som veileder alle muslimer", "De fem søylene: trosbekjennelse, bønn, faste, almisse og pilegrimsreise", "Troen på Allah og profeten Muhammad som hans sendebud alene"],
       explanation: "De seks trosartiklene beskriver hva muslimer tror pa.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er de fleste muslimer arabere?",
-      options: ["Nei, bare ca. 20% er arabere", "Ja, alle muslimer er det", "Ja, over 90% av dem", "Muslimer finnes bare i Midtosten"],
+      options: ["Nei, bare ca. 20% er arabere", "Ja, alle muslimer er det", "Ja, over 90% av dem", "Muslimer finnes bare i Midtøsten"],
       explanation: "Bare ca. 20% av verdens muslimer er arabere. De fleste bor iAsia.",
     },
   ],
@@ -122,12 +122,12 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nirvana?",
-      options: ["Frigjøring fra lidelse og gjenfodelse", "Et paradis med guder", "Buddhas hellige fødested i India", "En spesiell form for sittende meditasjon"],
-      explanation: "Nirvana er frigjøring fra lidelse og gjenfodelsens hjul.",
+      options: ["Frigjøring fra lidelse og gjenfødelse", "Et paradis med guder", "Buddhas hellige fødested i India", "En spesiell form for sittende meditasjon"],
+      explanation: "Nirvana er frigjøring fra lidelse og gjenfødelsens hjul.",
     },
     {
       question: "Hva mener Buddha er årsaken til lidelse?",
-      options: ["Begjaer og tilknytning", "For lite penger", "At onde guder straffer menneskene", "Andre mennesker"],
+      options: ["Begjær og tilknytning", "For lite penger", "At onde guder straffer menneskene", "Andre mennesker"],
       explanation: "Buddha lærer at lidelse skyldes begjær og tilknytning til ting.",
     },
     {
@@ -154,8 +154,8 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er puja?",
-      options: ["Rituell tilbedelse av guddømmen", "En pilegrimsreise", "En hellig bok med gudehymner", "En stor fest til ære for guden Shiva"],
-      explanation: "Puja er rituell tilbedelse der man tilbyr blomster, rokelse og mat til gudene.",
+      options: ["Rituell tilbedelse av guddommen", "En pilegrimsreise", "En hellig bok med gudehymner", "En stor fest til ære for guden Shiva"],
+      explanation: "Puja er rituell tilbedelse der man tilbyr blomster, røkelse og mat til gudene.",
     },
     {
       question: "Hva er en avatar i hinduismen?",
@@ -167,7 +167,7 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kjennetegner et etisk dilemma?",
       options: ["Viktige verdier står mot hverandre, alle valg har negative sider", "At det alltid finnes bare ett riktig og opplagt svar", "At det egentlig handler om matematikk og tallregning", "At det alltid er helt enkelt og greit å velge riktig"],
-      explanation: "Et etisk dilemmå har flere alternativer der viktige verdier står mot hverandre.",
+      explanation: "Et etisk dilemma har flere alternativer der viktige verdier står mot hverandre.",
     },
     {
       question: "Hva er det første steget i a analysere et dilemma?",
@@ -186,7 +186,7 @@ const quizData_krle_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke moderne etiske dilemmaer diskuteres i dag?",
-      options: ["Personvern vs. sikkerhet, klima, medisin", "Ingen nye dilemmaer, alt er avgjort", "Bare gamle spørsmål fra fortiden", "Bare rent religiose trosspørsmål"],
+      options: ["Personvern vs. sikkerhet, klima, medisin", "Ingen nye dilemmaer, alt er avgjort", "Bare gamle spørsmål fra fortiden", "Bare rent religiøse trosspørsmål"],
       explanation: "Moderne dilemmaer inkluderer teknologi, miljø, medisin og global rettferdighet.",
     },
   ],

@@ -10,16 +10,16 @@ const quizData_samfunnsfag_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken statsmakt vedtar lovene i Norge?',
     options: ['Stortinget', 'Regjeringen', 'Domstolene', 'Kongen'],
-    explanation: 'Stortinget er den lovgivende makt i Norge og har ansvåret for a vedta alle lover.',
+    explanation: 'Stortinget er den lovgivende makt i Norge og har ansvaret for a vedta alle lover.',
   },
   {
-    question: 'Hvilket dokument fra 1948 slar fast alle menneskers grunnleggende rettigheter?',
-    options: ['FNs menneskerettighetserklaring', 'Grunnloven', 'EU-charteret', 'Geneve-konvensjonene'],
-    explanation: 'FNs menneskerettighetserklaring ble vedtatt 10. desember 1948 og fastsetter alle menneskers grunnleggende rettigheter.',
+    question: 'Hvilket dokument fra 1948 slår fast alle menneskers grunnleggende rettigheter?',
+    options: ['FNs menneskerettighetserklæring', 'Grunnloven', 'EU-charteret', 'Geneve-konvensjonene'],
+    explanation: 'FNs menneskerettighetserklæring ble vedtatt 10. desember 1948 og fastsetter alle menneskers grunnleggende rettigheter.',
   },
   {
     question: 'Hva er maktfordelingsprinsippet?',
-    options: ['At makten er delt mellom flere organer', 'At kongen har all makt', 'At bare rike fårstemme', 'At militaeret styrer landet'],
+    options: ['At makten er delt mellom flere organer', 'At kongen har all makt', 'At bare rike fårstemme', 'At militæret styrer landet'],
     explanation: 'Maktfordelingsprinsippet betyr at makten er delt mellom Stortinget, regjeringen og domstolene for a hindre maktmisbruk.',
   },
   {
@@ -39,7 +39,7 @@ const quizData_samfunnsfag_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket parti regnes som lengst til venstre påden politiske skalaen?',
     options: ['Rodt', 'Arbeiderpartiet', 'Høyre', 'Senterpartiet'],
-    explanation: 'Rodt er det partiet som ligger lengst til venstre av de store partiene i Norge.',
+    explanation: 'Rødt er det partiet som ligger lengst til venstre av de store partiene i Norge.',
   },
   {
     question: 'Hva kjennetegner partier påhoyresiden i politikken?',
@@ -49,7 +49,7 @@ const quizData_samfunnsfag_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et flerpartisystem?',
     options: ['Et system der mange partier konkurrerer om velgernes stemmer', 'Et system med bare ett parti', 'Et system uten partier', 'Et system der bare to partier finnes'],
-    explanation: 'Norge har et flerpartisystem der mange partier konkurrerer om velgernes stemmer og kan fa representanter påStortinget.',
+    explanation: 'Norge har et flerpartisystem der mange partier konkurrerer om velgernes stemmer og kan få representanter påStortinget.',
   },
   {
     question: 'Nårkan utenlandske statsborgere stemme ved valg i Norge?',
@@ -78,12 +78,12 @@ const quizData_samfunnsfag_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Norges lengste elv?',
     options: ['Glomma', 'Drammenselva', 'Namsen', 'Altaelva'],
-    explanation: 'Glomma er Norges lengste elv med en lengde på604 km. Den renner gjennom Ostlandet.',
+    explanation: 'Glomma er Norges lengste elv med en lengde på604 km. Den renner gjennom Østlandet.',
   },
   {
     question: 'Hvilken landsdel har størst befolkning i Norge?',
     options: ['Ostlandet', 'Vestlandet', 'Nord-Norge', 'Trondelag'],
-    explanation: 'Ostlandet har størst befolkning, med Oslo-regionen som det mest befolkede området i Norge.',
+    explanation: 'Østlandet har størst befolkning, med Oslo-regionen som det mest befolkede området i Norge.',
   },
 ],
 
@@ -102,12 +102,12 @@ const quizData_samfunnsfag_8: Record<string, QuizQuestion[]> = {
   {
     question: 'I hvilket årble Norge uavhengig fra Sverige?',
     options: ['1905', '1814', '1940', '1945'],
-    explanation: 'Unionen med Sverige ble fredelig opplost i 1905, og Norge ble et helt selvstendig kongerike.',
+    explanation: 'Unionen med Sverige ble fredelig oppløst i 1905, og Norge ble et helt selvstendig kongerike.',
   },
   {
     question: 'Hvilken konge samlet Norge til ett rike?',
-    options: ['Harald Harfagre', 'Olav den hellige', 'Haakon VII', 'Christian IV'],
-    explanation: 'Harald Harfagre regnes som den første kongen som samlet Norge til ett rike, rundt år872.',
+    options: ['Harald Hårfagre', 'Olav den hellige', 'Haakon VII', 'Christian IV'],
+    explanation: 'Harald Hårfagre regnes som den første kongen som samlet Norge til ett rike, rundt år872.',
   },
   {
     question: 'Nårble olje funnet i Nordsoen?',
@@ -130,17 +130,17 @@ const quizData_samfunnsfag_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er LO?',
-    options: ['En fagførening som representerer arbeidstakere', 'En arbeidsgiverorganisasjon', 'Et politisk parti', 'En bank'],
-    explanation: 'LO (Landsorganisasjonen) er Norges største fagførening som jobber for arbeidstakeres rettigheter.',
+    options: ['En fagforening som representerer arbeidstakere', 'En arbeidsgiverorganisasjon', 'Et politisk parti', 'En bank'],
+    explanation: 'LO (Landsorganisasjonen) er Norges største fagforening som jobber for arbeidstakeres rettigheter.',
   },
   {
     question: 'Hva er trepartssamarbeidet?',
     options: ['Samarbeid mellom arbeidstakere, arbeidsgivere og staten', 'Samarbeid mellom tre land', 'Samarbeid mellom tre banker', 'Samarbeid mellom tre partier'],
-    explanation: 'Trepartssamarbeidet er samarbeidet mellom fagføreninger, arbeidsgiverorganisasjoner og staten om lønn og arbeidsvilkår.',
+    explanation: 'Trepartssamarbeidet er samarbeidet mellom fagforeninger, arbeidsgiverorganisasjoner og staten om lønn og arbeidsvilkår.',
   },
   {
     question: 'Hva er Oljefondet?',
-    options: ['Verdens største statlige fond som sparer oljeinntekter', 'En bank som laner ut penger', 'Et oljeselskap', 'En type skatt'],
+    options: ['Verdens største statlige fond som sparer oljeinntekter', 'En bank som låner ut penger', 'Et oljeselskap', 'En type skatt'],
     explanation: 'Statens pensjonsfond utland (Oljefondet) er verdens største statlige fond som forvalter Norges oljeinntekter for fremtidige generasjoner.',
   },
 ],

@@ -363,7 +363,7 @@ const quizData_mat1110: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kjennetegner en lineæravbildning $T$?",
       options: ["At $T(u+v)=T(u)+T(v)$ og $T(cu)=cT(u)$", "At $T$ alltid har et konstantledd forskjellig fra null", "At $T$ sender enhver vektor til en lengre vektor", "At $T$ bytter om koordinatene til hver vektor"],
-      explanation: "Lineæritet: respekterer addisjon og skalering. En følge er $T(0)=0$.",
+      explanation: "Linearitet: respekterer addisjon og skalering. En følge er $T(0)=0$.",
     },
     {
       question: "Hvordan bygger du standardmatrisen til $T$?",

@@ -845,12 +845,12 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er høyrehåndsregelen for strøm og magnetfelt?',
     options: [
-      'Hvis tømmelen peker i strømretningen, krummer fingrene i feltets retning',
-      'Hvis tømmelen peker i feltets retning, krummer fingrene i strømretningen',
+      'Hvis tommelen peker i strømretningen, krummer fingrene i feltets retning',
+      'Hvis tommelen peker i feltets retning, krummer fingrene i strømretningen',
       'Tommel og pekefinger står alltid vinkelrett på magnetfeltet',
       'Regelen gjelder bare for negative ladninger',
     ],
-    explanation: 'Høyrehåndsregelen: Grip rundt lederen med høyre hånd slik at tømmelen peker i strømretningen (positive ladningers bevegelse). Da peker fingrene i magnetfeltets retning.',
+    explanation: 'Høyrehåndsregelen: Grip rundt lederen med høyre hånd slik at tommelen peker i strømretningen (positive ladningers bevegelse). Da peker fingrene i magnetfeltets retning.',
   },
   {
     question: 'Hva karakteriserer de magnetiske feltlinjene fra en stavmagnet?',
@@ -1100,7 +1100,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Indusert strøm har alltid samme retning som det ytre feltet',
       'Lenz\' lov gjelder bare for permanentmagneter',
     ],
-    explanation: 'Lenz\' lov forklærer minustegnet i Faradays lov: Naturen motsetter seg endringer, så den induserte strømmen motvirker den endringen som skapte den.',
+    explanation: 'Lenz\' lov forklarer minustegnet i Faradays lov: Naturen motsetter seg endringer, så den induserte strømmen motvirker den endringen som skapte den.',
   },
   {
     question: 'En spole med 100 viklinger opplever en fluksendring på 0,1 Wb i løpet av 0,5 s. Hva er den induserte EMF?',

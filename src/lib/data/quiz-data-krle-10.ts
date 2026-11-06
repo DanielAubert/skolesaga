@@ -19,8 +19,8 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mente Jean-Paul Sartre med at mennesket er \"dømt til frihet\"?",
-      options: ["Vi må alltid velge og er ansvårlige for valgene", "Vi kan gjøre hva vi vil uten konsekvenser", "At mennesket er fanget av sine medfødte drifter", "At vi kan gjøre akkurat som vi vil uten noe ansvar"],
-      explanation: "Sartre mente at vi alltid må velge, og at vi er fullt ansvårlige for våre valg.",
+      options: ["Vi må alltid velge og er ansvarlige for valgene", "Vi kan gjøre hva vi vil uten konsekvenser", "At mennesket er fanget av sine medfødte drifter", "At vi kan gjøre akkurat som vi vil uten noe ansvar"],
+      explanation: "Sartre mente at vi alltid må velge, og at vi er fullt ansvarlige for våre valg.",
     },
     {
       question: "Hva er et eksistensielt spørsmål?",
@@ -65,7 +65,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er eksistensiell angst ifølge eksistensialistene?",
       options: ["Angst over frihet og ansvar", "Bekymring for prøver", "En redsel for mørket og det ukjente", "Frykt for å møte nye mennesker"],
-      explanation: "Eksistensiell angst er følelsen som oppstår når vi innser at vi er helt frie og ansvårlige for våre valg, uten objektive retningslinjer.",
+      explanation: "Eksistensiell angst er følelsen som oppstår når vi innser at vi er helt frie og ansvarlige for våre valg, uten objektive retningslinjer.",
     },
     {
       question: "Hva mente Camus med at livet er absurd?",
@@ -116,8 +116,8 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mente Nietzsche med \"slavemoral\"?",
-      options: ["Kristendømmen fremmer svakhet i stedet for styrke", "At kristendommen støtter og forsvarer selve slaveriet som ordning", "At alle moralske regler er nøyaktig like gode og gyldige", "At all moral opprinnelig kommer fra slavene"],
-      explanation: "Nietzsche mente at kristendømmen fremmer svakhet ved å rose ydmykhet, lydighet og lidelse, i stedet for styrke og selvhevdelse.",
+      options: ["Kristendommen fremmer svakhet i stedet for styrke", "At kristendommen støtter og forsvarer selve slaveriet som ordning", "At alle moralske regler er nøyaktig like gode og gyldige", "At all moral opprinnelig kommer fra slavene"],
+      explanation: "Nietzsche mente at kristendommen fremmer svakhet ved å rose ydmykhet, lydighet og lidelse, i stedet for styrke og selvhevdelse.",
     },
     {
       question: "Hvorfor mente Freud at religion er en \"kollektiv nevrose\"?",
@@ -142,7 +142,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan svarer troende på påstanden om at vitenskap og religion er i konflikt?",
       options: ["De handler om ulike spørsmål og komplementerer hverandre", "At vitenskapen tar feil om det meste den påstår", "At det ikke er noen forskjell på de to feltene", "At religion alltid er viktigere enn vitenskap"],
-      explanation: "Troende argumenterer at vitenskap og religion handler om ulike spørsmål - vitenskap forklærer \"hvordan\" mens religion forklærer \"hvorfor\" og gir mening.",
+      explanation: "Troende argumenterer at vitenskap og religion handler om ulike spørsmål - vitenskap forklarer \"hvordan\" mens religion forklarer \"hvorfor\" og gir mening.",
     },
     {
       question: "Hvordan forsvarer troende religion mot kritikken om at den har ført til vold?",
@@ -219,7 +219,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er det etiske hovedspørsmålet ved kunstig intelligens?",
       options: ["Ansvar, personvern og moralsk status", "Hvilken farge AI-roboter skal ha", "Hva datasystemene koster å drive", "Om AI er raskere enn mennesker"],
-      explanation: "Hovedspørsmål inkluderer hvem som er ansvårlig når AI gjør feil, personvern, arbeidsplasser, og om AI kan ha rettigheter eller moralsk status.",
+      explanation: "Hovedspørsmål inkluderer hvem som er ansvarlig når AI gjør feil, personvern, arbeidsplasser, og om AI kan ha rettigheter eller moralsk status.",
     },
     {
       question: "Hvilket prinsipp brukes ofte i medisinsk etikk for fordeling av ressurser?",
@@ -455,9 +455,9 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
   ],
   "krle-10-4-1": [
     {
-      question: "Når ble kristendømmen offisielt tillatt i Romerriket?",
+      question: "Når ble kristendommen offisielt tillatt i Romerriket?",
       options: ["313", "30", "1054", "1517"],
-      explanation: "Kristendømmen ble tillatt i 313 gjennom Milanoediktet under keiser Konstantin.",
+      explanation: "Kristendommen ble tillatt i 313 gjennom Milanoediktet under keiser Konstantin.",
     },
     {
       question: "Hva var det store skisma i 1054?",
@@ -472,7 +472,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     {
       question: "Hvem startet reformasjonen i 1517?",
       options: ["Martin Luther", "Jean Calvin", "Pave Leo X i Roma", "Henrik VIII"],
-      explanation: "Martin Luther stårtet reformasjonen med sine 95 teser mot avlatshandel.",
+      explanation: "Martin Luther startet reformasjonen med sine 95 teser mot avlatshandel.",
     },
     {
       question: "Hva var korstogene?",
@@ -505,7 +505,7 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
       explanation: "Motreformasjonen var den katolske kirkens reform og motkamp mot protestantismen.",
     },
     {
-      question: "Hva skjedde med kristendømmen under opplysningstiden?",
+      question: "Hva skjedde med kristendommen under opplysningstiden?",
       options: ["Fornuft utfordret tro og kirke-stat ble skilt", "Hele befolkningen sluttet enda sterkere opp om kristen tro", "Kirken styrket sin makt over stat og vitenskap", "Forholdet mellom tro og fornuft forble uendret"],
       explanation: "Fornuft utfordret tro, bibelkritikk oppsto, og kirke og stat ble skilt mange steder.",
     },
@@ -515,9 +515,9 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
       explanation: "Statskirken i Norge ble opphevet i 2012.",
     },
     {
-      question: "Hvor vokser kristendømmen mest i dag?",
+      question: "Hvor vokser kristendommen mest i dag?",
       options: ["I Afrika, Latin-Amerika og Asia", "I Vest- og Nord-Europa", "I Australia alene", "I Canada og USA i nord"],
-      explanation: "Kristendømmen vokser mest i Afrika, Latin-Amerika og Asia, mens den synker i Europa.",
+      explanation: "Kristendommen vokser mest i Afrika, Latin-Amerika og Asia, mens den synker i Europa.",
     },
     {
       question: "Hva var Andre Vatikankonsil?",
@@ -563,8 +563,8 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er erfaringsdialog?",
-      options: ["Å dele åndelige erfåringer sammen", "Å jobbe sammen om veldedighet", "Å bo i det samme nabolaget over lengre tid", "Å samarbeide om felles veldedig hjelpearbeid"],
-      explanation: "Erfaringsdialog er å dele åndelige erfåringer, som bønn eller meditasjon sammen.",
+      options: ["Å dele åndelige erfaringer sammen", "Å jobbe sammen om veldedighet", "Å bo i det samme nabolaget over lengre tid", "Å samarbeide om felles veldedig hjelpearbeid"],
+      explanation: "Erfaringsdialog er å dele åndelige erfaringer, som bønn eller meditasjon sammen.",
     },
     {
       question: "Hva er en viktig utfordring i religionsdialog?",
@@ -691,9 +691,9 @@ const quizData_krle_10: Record<string, QuizQuestion[]> = {
       explanation: "Eksistensialistene mener at livet ikke har ferdig mening - vi må skape den selv.",
     },
     {
-      question: "Hva sier kristendømmen om livets mening?",
+      question: "Hva sier kristendommen om livets mening?",
       options: ["Å elske Gud og nesten, oppnå frelse", "At meningen ligger i å samle mest mulig kunnskap", "At meningen er å samle rikdom og materiell velstand", "At meningen er å unngå all lidelse gjennom hele livet"],
-      explanation: "Kristendømmen sier meningen er å elske Gud og nesten, leve etter Guds vilje, og oppnå frelse.",
+      explanation: "Kristendommen sier meningen er å elske Gud og nesten, leve etter Guds vilje, og oppnå frelse.",
     },
     {
       question: "Hva er nihilisme?",

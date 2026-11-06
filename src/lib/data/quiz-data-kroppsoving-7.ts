@@ -32,9 +32,9 @@ const quizData_kroppsoving_7: Record<string, QuizQuestion[]> = {
 
   'kroppsoving-7-1-2': [
   {
-    question: 'Hva er forskjellen på aerob og anærob utholdenhet?',
-    options: ['Aerob bruker oksygen (f.eks. jogging), anærob klærer seg uten tilstrekkelig oksygen (f.eks. sprint)', 'Aerob er for armer, anærob er for bein', 'De er det samme', 'Aerob er raskere enn anærob'],
-    explanation: 'Aerob utholdenhet bruker oksygen og kan holdes lenge. Anærob utholdenhet produserer energi uten nok oksygen og kan bare holdes kort tid.',
+    question: 'Hva er forskjellen på aerob og anaerob utholdenhet?',
+    options: ['Aerob bruker oksygen (f.eks. jogging), anaerob klarer seg uten tilstrekkelig oksygen (f.eks. sprint)', 'Aerob er for armer, anaerob er for bein', 'De er det samme', 'Aerob er raskere enn anaerob'],
+    explanation: 'Aerob utholdenhet bruker oksygen og kan holdes lenge. Anaerob utholdenhet produserer energi uten nok oksygen og kan bare holdes kort tid.',
   },
   {
     question: 'Hva kjennetegner intervalltrening?',
@@ -63,7 +63,7 @@ const quizData_kroppsoving_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr "å skape bredde" i angrep?',
     options: ['Å spre laget utover for å lage rom', 'Å stå tett sammen', 'Å løpe rett frem', 'Å spille ballen bakover'],
-    explanation: 'Når laget sprer seg utover banen, blir det vanskeligere for forsvåret å dekke alle.',
+    explanation: 'Når laget sprer seg utover banen, blir det vanskeligere for forsvaret å dekke alle.',
   },
   {
     question: 'Hva er de to hoveddelene av forsvarsspill?',
@@ -221,8 +221,8 @@ const quizData_kroppsoving_7: Record<string, QuizQuestion[]> = {
     explanation: 'Ved å aktivt involvere alle og gi positiv tilbakemelding, føler alle seg som en del av laget.',
   },
   {
-    question: 'Hva bør du gjøre hvis dømmeren gjør en avgjørelse du er uenig i?',
-    options: ['Akseptere avgjørelsen og fortsette å spille', 'Rope og klage høylytt', 'Nekte å spille videre', 'Fortelle alle at dømmeren er dårlig'],
+    question: 'Hva bør du gjøre hvis dommeren gjør en avgjørelse du er uenig i?',
+    options: ['Akseptere avgjørelsen og fortsette å spille', 'Rope og klage høylytt', 'Nekte å spille videre', 'Fortelle alle at dommeren er dårlig'],
     explanation: 'Dommere gjør feil, men respekt for avgjørelser er en viktig del av fair play.',
   },
   {

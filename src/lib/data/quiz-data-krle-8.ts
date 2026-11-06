@@ -4,8 +4,8 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
   'krle-8-1-1': [
   {
     question: 'Hva menes med treenigheten?',
-    options: ['Gud som Fader, Sonn og Hellig And', 'Tre forskjellige guder', 'Jesus, Maria og Josef', 'Himmel, jord og helvete'],
-    explanation: 'Treenigheten er læren om at Gud er en, men apenbarer seg som Fader, Sonn og Hellig And.',
+    options: ['Gud som Fader, Sønn og Hellig And', 'Tre forskjellige guder', 'Jesus, Maria og Josef', 'Himmel, jord og helvete'],
+    explanation: 'Treenigheten er læren om at Gud er en, men åpenbarer seg som Fader, Sønn og Hellig And.',
   },
   {
     question: 'Hvilken kristen retning ledes av paven?',
@@ -14,18 +14,18 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skjedde under reformasjonen?',
-    options: ['Protestantiske kirker oppstod', 'Kristendømmen ble til', 'Bibelen ble skrevet', 'Jesus ble fodt'],
+    options: ['Protestantiske kirker oppstod', 'Kristendommen ble til', 'Bibelen ble skrevet', 'Jesus ble fodt'],
     explanation: 'Under reformasjonen (1517) oppstod protestantiske kirker som kritiserte katolisismen.',
   },
   {
     question: 'Hva er nattverd?',
-    options: ['Et ritual der kristne minnes Jesu siste maltid', 'En type mat', 'En høytid', 'En kirkebygning'],
-    explanation: 'Nattverd er et ritual med brod og vin der kristne minnes Jesu siste maltid.',
+    options: ['Et ritual der kristne minnes Jesu siste måltid', 'En type mat', 'En høytid', 'En kirkebygning'],
+    explanation: 'Nattverd er et ritual med brod og vin der kristne minnes Jesu siste måltid.',
   },
   {
-    question: 'Hva feirer kristne i pasken?',
-    options: ['Jesu dod og oppstandelse', 'Jesu fodsel', 'Den hellige ands komme', 'Skapelsen'],
-    explanation: 'Pasken feirer at Jesus dode påkorset og stod opp igjen.',
+    question: 'Hva feirer kristne i påsken?',
+    options: ['Jesu dod og oppstandelse', 'Jesu fødsel', 'Den hellige ands komme', 'Skapelsen'],
+    explanation: 'Påsken feirer at Jesus døde påkorset og stod opp igjen.',
   },
 ],
 
@@ -34,7 +34,7 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hijra?',
     options: ['Muhammads flukt fra Mekka til Medina', 'En type bønn', 'Fasten i ramadan', 'En pilegrimsreise'],
-    explanation: 'Hijra (622 e.Kr.) er Muhammads flukt til Medina og markerer stårten påislamsk tidsregning.',
+    explanation: 'Hijra (622 e.Kr.) er Muhammads flukt til Medina og markerer starten påislamsk tidsregning.',
   },
   {
     question: 'Hva heter islams hellige bok?',
@@ -67,13 +67,13 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er karma?',
-    options: ['Laeren om at handlinger har konsekvenser', 'En type meditasjon', 'En gud i hinduismen', 'Navnet påen hellig bok'],
+    options: ['Læren om at handlinger har konsekvenser', 'En type meditasjon', 'En gud i hinduismen', 'Navnet påen hellig bok'],
     explanation: 'Karma betyr at alle handlinger har konsekvenser - gode eller dårlige.',
   },
   {
     question: 'Hva er nirvana i buddhismen?',
-    options: ['Frigjøring fra lidelse og gjenfodelse', 'Et paradis etter døden', 'En god karma', 'En meditasjonsteknikk'],
-    explanation: 'Nirvana er den endelige frigjoeringen fra lidelse og syklusen av gjenfodelse.',
+    options: ['Frigjøring fra lidelse og gjenfødelse', 'Et paradis etter døden', 'En god karma', 'En meditasjonsteknikk'],
+    explanation: 'Nirvana er den endelige frigjøringen fra lidelse og syklusen av gjenfødelse.',
   },
   {
     question: 'Hva er den første av de fire edle sannheter?',
@@ -91,17 +91,17 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
   'krle-8-3-1': [
   {
     question: 'Hva er etikk?',
-    options: ['Laeren om rett og galt', 'Regler i en religion', 'Lover i samfunnet', 'Folks følelser'],
+    options: ['Læren om rett og galt', 'Regler i en religion', 'Lover i samfunnet', 'Folks følelser'],
     explanation: 'Etikk er systematisk tenkning om hva som er rett og galt.',
   },
   {
     question: 'Hva mener konsekvensetikk?',
-    options: ['En handling er riktig hvis den gir best mulige konsekvenser', 'Alle handlinger er like', 'Folg alltid reglene', 'Bare følelser teller'],
+    options: ['En handling er riktig hvis den gir best mulige konsekvenser', 'Alle handlinger er like', 'Følg alltid reglene', 'Bare følelser teller'],
     explanation: 'Konsekvensetikk bedømmer handlinger etter deres konsekvenser.',
   },
   {
     question: 'Hva sier den gylne regel?',
-    options: ['Gjor mot andre det du vil at andre skal gjøre mot deg', 'Den sterkeste har rett', 'Malet helliger midlet', 'Folg alltid loven'],
+    options: ['Gjor mot andre det du vil at andre skal gjøre mot deg', 'Den sterkeste har rett', 'Malet helliger midlet', 'Følg alltid loven'],
     explanation: 'Den gylne regel oppfordrer til a behandle andre slik vi selv ønsker å bli behandlet.',
   },
   {
@@ -153,7 +153,7 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
     explanation: 'Et livssyn er vart helhetlige syn pålivet, verden og hvordan vi bør leve.',
   },
   {
-    question: 'Hva kjennetegner sekulaer humanisme?',
+    question: 'Hva kjennetegner sekulær humanisme?',
     options: ['Vekt påfornuft, menneskets verdi og etikk uten religion', 'Tro påmange guder', 'At livet er meningsløst', 'At bare kristendom er sann'],
     explanation: 'Humanisme vektlegger fornuft, menneskets verdi og etikk uten gudstro.',
   },
@@ -169,8 +169,8 @@ const quizData_krle_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen påreligiose og sekulære livssyn?',
-    options: ['Religiose inkluderer gudstro, sekulære gjør ikke det', 'De er helt like', 'Sekulære tror påmange guder', 'Bare religiose har etikk'],
-    explanation: 'Religiose livssyn inkluderer tro påovernaturlige krefter, sekulære gjør ikke det.',
+    options: ['Religiøse inkluderer gudstro, sekulære gjør ikke det', 'De er helt like', 'Sekulære tror påmange guder', 'Bare religiøse har etikk'],
+    explanation: 'Religiøse livssyn inkluderer tro påovernaturlige krefter, sekulære gjør ikke det.',
   },
 ],
 

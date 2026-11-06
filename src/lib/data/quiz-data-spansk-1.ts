@@ -70,7 +70,7 @@ const quizData_spansk_1: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva svarer du på "gracias"?',
       options: ['De nada', 'Gracias', 'Hola', 'Adiós'],
-      explanation: '"De nada" betyr "ingen årsak" og er svåret på takk.',
+      explanation: '"De nada" betyr "ingen årsak" og er svaret på takk.',
     },
   ],
 
@@ -1579,7 +1579,7 @@ const quizData_spansk_1: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er "tapas"?',
       options: ['Smaretter', 'En hovedrett', 'En dessert', 'En type drikke'],
-      explanation: 'Tapas er smaretter, en viktig del av spansk matkultur. Ordet betyr opprinnelig "lokk".',
+      explanation: 'Tapas er småretter, en viktig del av spansk matkultur. Ordet betyr opprinnelig "lokk".',
     },
     {
       question: 'Hva betyr "La cuenta, por favor"?',

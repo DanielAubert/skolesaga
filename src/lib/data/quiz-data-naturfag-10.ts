@@ -6,7 +6,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
       question: 'Hva er naturvitenskap?',
       options: [
         'En systematisk måte å studere naturen på',
-        'En samling av ufeilbårlige fakta',
+        'En samling av ufeilbarlige fakta',
         'Bare studiet av planter og dyr',
         'En religion',
       ],
@@ -190,12 +190,12 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er en modell i naturfag?',
       options: [
-        'En førenklet fremstilling av virkeligheten',
+        'En forenklet fremstilling av virkeligheten',
         'En eksakt kopi av virkeligheten',
         'En teori som er bevist',
         'Et forsøksresultat',
       ],
-      explanation: 'En modell er en førenklet fremstilling av noe vi vil forstå eller forklare.',
+      explanation: 'En modell er en forenklet fremstilling av noe vi vil forstå eller forklare.',
     },
     {
       question: 'Hvilken type modell er en globus?',
@@ -215,17 +215,17 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
         'For å gjøre ting vanskeligere',
         'Bare for å tegne pene bilder',
       ],
-      explanation: 'Vi bruker modeller for å førenkle, forstå, kommunisere og forutsi fenomener som kan være for store, små eller komplekse å studere direkte.',
+      explanation: 'Vi bruker modeller for å forenkle, forstå, kommunisere og forutsi fenomener som kan være for store, små eller komplekse å studere direkte.',
     },
     {
       question: 'Hva er en svakhet med alle modeller?',
       options: [
-        'De er førenklinger og viser ikke alt',
+        'De er forenklinger og viser ikke alt',
         'De er alltid feil',
         'De er for kompliserte',
         'De kan ikke endres',
       ],
-      explanation: 'Alle modeller er førenklinger og viser ikke virkeligheten perfekt - de kan utelate viktige detaljer.',
+      explanation: 'Alle modeller er forenklinger og viser ikke virkeligheten perfekt - de kan utelate viktige detaljer.',
     },
     {
       question: 'Hvabrukes Bohrs atommodell til å forklare?',
@@ -233,7 +233,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
         'Hvordan elektroner er organisert rundt atomkjernen',
         'Hvordan planeter beveger seg',
         'Hvordan celler fungerer',
-        'Hvordan vann køker',
+        'Hvordan vann koker',
       ],
       explanation: 'Bohrs atommodell viser elektroner i skall rundt kjernen og hjelper oss å forstå atomets oppbygning.',
     },
@@ -383,7 +383,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
       explanation: 'En periode viser antall elektronskall i atomene. Alle atomer i samme periode har like mange skall.',
     },
     {
-      question: 'Hva viser en gruppe (loddrett kolønne) i periodesystemet?',
+      question: 'Hva viser en gruppe (loddrett kolonne) i periodesystemet?',
       options: [
         'Antall valenselektroner',
         'Antall protoner',
@@ -1155,12 +1155,12 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     {
       question: 'Hvorfor kalles fotosyntese og celleånding motsatte prosesser?',
       options: [
-        'Produktene fra den ene er råvårene for den andre',
+        'Produktene fra den ene er råvarene for den andre',
         'De skjer på samme tid',
         'De bruker samme organeller',
         'De produserer samme stoffer',
       ],
-      explanation: 'Produktene fra fotosyntese (glukose, O₂) er råvårene for celleånding, og omvendt.',
+      explanation: 'Produktene fra fotosyntese (glukose, O₂) er råvarene for celleånding, og omvendt.',
     },
     {
       question: 'Hva er hovedproduktet av celleånding som cellene bruker til arbeid?',
@@ -1547,7 +1547,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
       options: [
         'Cellene reagerer dårlig på insulin',
         'Kroppen produserer ikke insulin',
-        'Det oppstår alltid i barndømmen',
+        'Det oppstår alltid i barndommen',
         'Det skyldes virus',
       ],
       explanation: 'Ved diabetes type 2 produserer kroppen insulin, men cellene reagerer dårligere på det (insulinresistens). Det utvikles ofte i voksen alder og er knyttet til livsstil.',
@@ -1578,7 +1578,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
       explanation: 'Medfødt immunitet er uspecifikt og reagerer likt på alle inntrengere. Spesifikk immunitet lærer å gjenkjenne spesifikke sykdomsfremkallende organismer og gir immunologisk hukommelse.',
     },
     {
-      question: 'Hva gjør B-celler i immunforsvåret?',
+      question: 'Hva gjør B-celler i immunforsvaret?',
       options: [
         'Produserer antistoffer',
         'Spiser bakterier',
@@ -1590,22 +1590,22 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     {
       question: 'Hvordan virker en vaksine?',
       options: [
-        'Lærer immunforsvåret å gjenkjenne sykdømmen uten at du blir syk',
+        'Lærer immunforsvaret å gjenkjenne sykdommen uten at du blir syk',
         'Dreper bakterier direkte',
         'Styrker huden',
         'Renser blodet',
       ],
-      explanation: 'En vaksine inneholder svekkede eller drepte mikroorganismer, eller deler av dem. Dette lærer immunforsvåret å kjenne igjen sykdømmen uten at du blir syk, slik at kroppen kan reagere raskt ved senere smitte.',
+      explanation: 'En vaksine inneholder svekkede eller drepte mikroorganismer, eller deler av dem. Dette lærer immunforsvaret å kjenne igjen sykdommen uten at du blir syk, slik at kroppen kan reagere raskt ved senere smitte.',
     },
     {
       question: 'Hva er flokkimmunitet?',
       options: [
-        'Når mange nok er immune til at sykdømmen ikke kan spre seg',
+        'Når mange nok er immune til at sykdommen ikke kan spre seg',
         'Immunitet hos dyr',
         'En type vaksine',
-        'Motstand mot alle sykdømmer',
+        'Motstand mot alle sykdommer',
       ],
-      explanation: 'Flokkimmunitet oppstår når så mange i befolkningen er immune at sykdømmen ikke kan spre seg effektivt. Dette beskytter også de som ikke kan vaksineres.',
+      explanation: 'Flokkimmunitet oppstår når så mange i befolkningen er immune at sykdommen ikke kan spre seg effektivt. Dette beskytter også de som ikke kan vaksineres.',
     },
     {
       question: 'Hva er antibiotikaresistens?',
@@ -1657,8 +1657,8 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
       options: [
         'Hindre uønsket graviditet',
         'Øke sjansen for graviditet',
-        'Behandle sykdømmer',
-        'Styrke immunforsvåret',
+        'Behandle sykdommer',
+        'Styrke immunforsvaret',
       ],
       explanation: 'Prevensjon er midler og metoder for å hindre uønsket graviditet. Kondom beskytter også mot seksuelt overførbare infeksjoner (SOI).',
     },
@@ -1675,12 +1675,12 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva betyr samtykke i seksuell sammenheng?',
       options: [
-        'At begge parter frivillig og klært sier ja',
+        'At begge parter frivillig og klart sier ja',
         'At man er gift',
         'At man er over 18 år',
         'At man ikke protesterer',
       ],
-      explanation: 'Samtykke betyr at begge parter frivillig og klært sier ja til seksuell aktivitet. Samtykke kan trekkes tilbake når som helst, og man må være edru og våken for å gi samtykke.',
+      explanation: 'Samtykke betyr at begge parter frivillig og klart sier ja til seksuell aktivitet. Samtykke kan trekkes tilbake når som helst, og man må være edru og våken for å gi samtykke.',
     },
   ],
 
@@ -1930,12 +1930,12 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er forskjellen mellom en modell og virkeligheten?',
       options: [
-        'En modell er førenklet og fokuserer på det viktigste',
+        'En modell er forenklet og fokuserer på det viktigste',
         'En modell er alltid helt nøyaktig',
         'Det er ingen forskjell',
         'En modell er alltid mer kompleks',
       ],
-      explanation: 'En modell er en førenklet representasjon av virkeligheten. Den fokuserer på de viktigste egenskapene og utelater detaljer som ikke er nødvendige for formålet.',
+      explanation: 'En modell er en forenklet representasjon av virkeligheten. Den fokuserer på de viktigste egenskapene og utelater detaljer som ikke er nødvendige for formålet.',
     },
     {
       question: 'Hvorfor bruker forskere simuleringer?',
@@ -1950,12 +1950,12 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er en viktig begrensning ved simuleringer?',
       options: [
-        'De er førenklinger og kan ikke ta med alle detaljer',
+        'De er forenklinger og kan ikke ta med alle detaljer',
         'De tar alltid for lang tid',
         'De krever alltid internett',
         'De fungerer bare for enkle systemer',
       ],
-      explanation: 'Simuleringer er førenklinger av virkeligheten og kan ikke ta med alle detaljer. Resultatene er bare så gode som modellen og dataene de er basert på.',
+      explanation: 'Simuleringer er forenklinger av virkeligheten og kan ikke ta med alle detaljer. Resultatene er bare så gode som modellen og dataene de er basert på.',
     },
     {
       question: 'Hvabrukes klimasimuleringer til?',
@@ -1977,7 +1977,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
       options: [
         'Systematisk arbeid for å skape ny kunnskap',
         'Å lese eksisterende bøker',
-        'Å gjette svåret på spørsmål',
+        'Å gjette svaret på spørsmål',
         'Å kopiere andres arbeid',
       ],
       explanation: 'Forskning er systematisk arbeid for å skape ny kunnskap. Det innebærer å stille spørsmål, teste hypoteser, samle data og trekke konklusjoner basert på bevis.',

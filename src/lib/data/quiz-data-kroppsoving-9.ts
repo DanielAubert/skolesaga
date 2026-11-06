@@ -59,7 +59,7 @@ const quizData_kroppsoving_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva betyr bredde i angrep?",
       options: ["Å spre spillet for å skape rom", "Å samle alle spillerne inne i midten", "Å spille ballen bakover hele tiden", "Å løpe så fort som mulig med ballen"],
-      explanation: "Bredde i angrep betyr å bruke hele banens bredde for å strekke forsvåret.",
+      explanation: "Bredde i angrep betyr å bruke hele banens bredde for å strekke forsvaret.",
     },
     {
       question: "Hva er forskjellen på soneforsvar og mannsforsvar?",
@@ -73,7 +73,7 @@ const quizData_kroppsoving_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er kommunikasjon viktig i forsvar?",
-      options: ["For å koordinere bevegelser og unngå hull i forsvåret", "For å forstyrre motstanderen i spillet", "Det er bare keeperen som trenger å kommunisere med de andre", "Det brukes mest for å forstyrre og prate ned motstanderlaget"],
+      options: ["For å koordinere bevegelser og unngå hull i forsvaret", "For å forstyrre motstanderen i spillet", "Det er bare keeperen som trenger å kommunisere med de andre", "Det brukes mest for å forstyrre og prate ned motstanderlaget"],
       explanation: "God kommunikasjon hjelper forsvarerne å koordinere dekning og varsle om farer.",
     },
     {
@@ -122,8 +122,8 @@ const quizData_kroppsoving_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tømmelgrepet i orientering?",
-      options: ["Å holde tømmelen på kartet der du befinner deg", "En bestemt måte å holde kompasset stødig på", "En bestemt løpestil som gjør at du går fortere", "En teknikk for å brette kartet minst mulig"],
-      explanation: "Ved tømmelgrepet holder du tømmelen på kartet der du er og flytter den kontinuerlig.",
+      options: ["Å holde tommelen på kartet der du befinner deg", "En bestemt måte å holde kompasset stødig på", "En bestemt løpestil som gjør at du går fortere", "En teknikk for å brette kartet minst mulig"],
+      explanation: "Ved tømmelgrepet holder du tommelen på kartet der du er og flytter den kontinuerlig.",
     },
     {
       question: "Hvorfor er ledelinjer nyttige i orientering?",
@@ -221,7 +221,7 @@ const quizData_kroppsoving_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kroppens hovedenergikilde under aktivitet?",
       options: ["Karbohydrater", "Proteiner fra maten", "Fett som lagres i kroppen", "Vitaminer fra maten"],
-      explanation: "Karbohydrater er kroppens føretrukne energikilde ved moderat til høy intensitet.",
+      explanation: "Karbohydrater er kroppens foretrukne energikilde ved moderat til høy intensitet.",
     },
     {
       question: "Hvorfor er protein viktig for aktive personer?",

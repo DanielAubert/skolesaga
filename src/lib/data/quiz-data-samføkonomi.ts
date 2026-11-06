@@ -43,7 +43,7 @@ const quizData_samfokonomi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er prissystemets hovedfunksjoner?',
-    options: ['Å gi informasjon, alløkere ressurser og skape insentiver', 'Å garantere lik fordeling', 'Å holde prisene stabile', 'Å beskytte forbrukerne'],
+    options: ['Å gi informasjon, allokere ressurser og skape insentiver', 'Å garantere lik fordeling', 'Å holde prisene stabile', 'Å beskytte forbrukerne'],
     explanation: 'Prissystemet informerer om knapphet, fordeler ressurser til høyest verdsatt bruk og motiverer aktørene.',
   },
   {
@@ -304,7 +304,7 @@ const quizData_samfokonomi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er toll?',
-    options: ['Avgift på importerte varer', 'Avgift på eksporterte varer', 'Avgift på innenlandsk produksjon', 'Gebyr for tollklærering'],
+    options: ['Avgift på importerte varer', 'Avgift på eksporterte varer', 'Avgift på innenlandsk produksjon', 'Gebyr for tollklarering'],
     explanation: 'Toll er en avgift som øker prisen på importvarer og beskytter innenlandsk produksjon.',
   },
   {
@@ -386,13 +386,13 @@ const quizData_samfokonomi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er NAIRU?',
-    options: ['Det ledighetssnivået som er førenlig med stabil inflasjon', 'Minimumslønnen', 'Maksimal arbeidstid', 'Naturlig befolkningsvekst'],
+    options: ['Det ledighetssnivået som er forenlig med stabil inflasjon', 'Minimumslønnen', 'Maksimal arbeidstid', 'Naturlig befolkningsvekst'],
     explanation: 'NAIRU er likevektsledigheten - under dette nivået vil lønnspress føre til økende inflasjon.',
   },
   {
     question: 'Hva er frontfagsmodellen?',
-    options: ['At konkurranseutsatt industri forhandler først og setter rammen for andre oppgjør', 'At staten bestemmer alle lønninger', 'At fagføreninger ikke har innflytelse', 'At alle får lik lønn'],
-    explanation: 'Frontfagsmodellen sikrer at lønnsveksten er førenlig med konkurranseevnen.',
+    options: ['At konkurranseutsatt industri forhandler først og setter rammen for andre oppgjør', 'At staten bestemmer alle lønninger', 'At fagforeninger ikke har innflytelse', 'At alle får lik lønn'],
+    explanation: 'Frontfagsmodellen sikrer at lønnsveksten er forenlig med konkurranseevnen.',
   },
   {
     question: 'Hva er aktiv arbeidsmarkedspolitikk?',
@@ -459,7 +459,7 @@ const quizData_samfokonomi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er allmenningens tragedie?',
-    options: ['At fellesressurser overutnyttes fordi ingen har insentiv til å spare', 'At private eiendømmer forfaller', 'At staten bruker for mye penger', 'At bankene tar for høye renter'],
+    options: ['At fellesressurser overutnyttes fordi ingen har insentiv til å spare', 'At private eiendommer forfaller', 'At staten bruker for mye penger', 'At bankene tar for høye renter'],
     explanation: 'Når ressurser er felles og tilgjengelige for alle, har hver enkelt insentiv til å bruke mest mulig.',
   },
 ],

@@ -9,7 +9,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor inkluderer vi $+C$ i ubestemte integraler?',
-    options: ['Fordi alle funksjoner med samme deriverte skiller seg bare med en konstant', 'Fordi $C$ representerer arealet', 'Det er bare konvensjon', 'For å gjøre svåret eksakt'],
+    options: ['Fordi alle funksjoner med samme deriverte skiller seg bare med en konstant', 'Fordi $C$ representerer arealet', 'Det er bare konvensjon', 'For å gjøre svaret eksakt'],
     explanation: 'Deriverten av en konstant er 0, så $F(x)+C$ og $F(x)$ har samme deriverte.',
   },
   {
@@ -23,7 +23,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
     explanation: '$e^x$ er sin egen antideriverte: integralet av $e^x$ er $e^x + C$.',
   },
   {
-    question: 'Ved substitusjon $u = 2x$, hvå blir $du$?',
+    question: 'Ved substitusjon $u = 2x$, hva blir $du$?',
     options: ['$2 \\, dx$', '$dx$', '$x \\, dx$', '$2x \\, dx$'],
     explanation: 'Hvis $u = 2x$, så er $\\frac{du}{dx} = 2$, som gir $du = 2 \\, dx$.',
   },
@@ -43,7 +43,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skjer når man bytter grensene på et bestemt integral?',
-    options: ['Svåret skifter fortegn', 'Svåret forblir det samme', 'Svåret blir null', 'Svåret dobles'],
+    options: ['Svaret skifter fortegn', 'Svaret forblir det samme', 'Svaret blir null', 'Svaret dobles'],
     explanation: 'Integral fra $a$ til $b$ = $-$(integral fra $b$ til $a$).',
   },
   {

@@ -12,6 +12,19 @@ høyere trinn (Kjemi 2 i Kjemi 1, Fysikk 2 i Fysikk 1, R2 i R1, universitetsstof
 riktig bok — det merkes ikke bare som «utvidet». Gjelder tekst, eksempler, oppgaver, figurer og videoer, og sjekkes ved
 hver ny eller endret seksjon. Grensetilfeller legges fram for Daniel.
 
+## All ny tekst går gjennom æøå-porten (Daniel 6.11.2026)
+
+«sveip skolesaga og legg inn samme safegaurde der også» (etter «Jeg føler at vi burde ha en automatisk æøå sjekk hver gang
+det blir skrevet nytt materialet»). Sveipen 6.11 rettet 70 633 strippede/feilinnsatte æøå i 2504 kapittel- og quizfiler
+(`../fremdrift/aeoa-sveip-0611/skolesaga/`). Portene, som i eksamenssett:
+1. `scripts/aeoa/aeoa-vakt.mjs` (PostToolUse i `.claude/settings.json`, også underagenter) melder «pa», «a» for «å»,
+   «okonomi», «metøde» o.l. i ny tekst i .json/.ts — rett tegnene straks.
+2. Pre-commit (lint-staged) og CI (`.github/workflows/aeoa.yml`) feller ordformene i `scripts/aeoa/kjente-feil.json` i
+   `src/lib/data` (kode, matte, slugs og taksonomifelt røres ikke; nordsamisk `sme/` er utenfor).
+3. Skript som genererer kapitler: kjør `python3 scripts/aeoa/sjekk.py <fil>` på resultatet før commit.
+Riktige ord som flagges (navn, nynorsk, sitat i eldre rettskrivning) føres i `scripts/aeoa/kjente-riktige.json`, eller per fil
+i `unntak-filer.json`. Eldre rettskrivning i sitater («aa» hos Wergeland, Aasen, Vinje) skal stå som i originalen.
+
 ## Figurer: grafmotoren er standard (5.9.26, Daniels vedtak)
 
 Alle figurer til Skolesaga (lærebok, oppgaver, forelesninger, videoer) lages

@@ -3,13 +3,13 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_regnskap_revisjon: Record<string, QuizQuestion[]> = {
   'regnskap-revisjon-1': [
   {
-    question: 'Hva er regnskapets hovedformal?',
+    question: 'Hva er regnskapets hovedformål?',
     options: ['Gi et rettvisende bilde av virksomhetens økonomi', 'Minimere skatten', 'Tilfredsstille bankene', 'Maksimere resultatet'],
-    explanation: 'Hovedformalet med regnskapet er a gi et rettvisende bilde av virksomhetens økonomiske stilling og resultat.',
+    explanation: 'Hovedformålet med regnskapet er a gi et rettvisende bilde av virksomhetens økonomiske stilling og resultat.',
   },
   {
     question: 'Hva innebærer opptjeningsprinsippet?',
-    options: ['Inntekt føres nården er opptjent, uavhengig av betaling', 'Inntekt føres nårpengene mottas', 'Inntekt føres nårfakturaen sendes', 'Inntekt føres ved arsslutt'],
+    options: ['Inntekt føres nården er opptjent, uavhengig av betaling', 'Inntekt føres nårpengene mottas', 'Inntekt føres nårfakturaen sendes', 'Inntekt føres ved årsslutt'],
     explanation: 'Opptjeningsprinsippet sier at inntekt skal resultatføres nården er opptjent, uavhengig av nårbetalingen mottas.',
   },
   {
@@ -44,12 +44,12 @@ const quizData_regnskap_revisjon: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr debet påen eiendskonto?',
     options: ['Økning av eiendelen', 'Reduksjon av eiendelen', 'Ingen endring', 'Korreksjon'],
-    explanation: 'Debet påen eiendskonto betyr okning av eiendelen (verdien av eiendelen øker).',
+    explanation: 'Debet påen eiendskonto betyr økning av eiendelen (verdien av eiendelen øker).',
   },
   {
     question: 'Hva er et bilag?',
-    options: ['Dokumentasjon for en bokfort transaksjon', 'En faktura til kunde', 'En bankutskrift', 'Et arsregnskap'],
-    explanation: 'Et bilag er dokumentasjon for en bokfort transaksjon, som viser nummer, dato, beskrivelse og beløp.',
+    options: ['Dokumentasjon for en bokført transaksjon', 'En faktura til kunde', 'En bankutskrift', 'Et arsregnskap'],
+    explanation: 'Et bilag er dokumentasjon for en bokført transaksjon, som viser nummer, dato, beskrivelse og beløp.',
   },
   {
     question: 'Hva innebærer sporbarhetskravet?',
@@ -77,7 +77,7 @@ const quizData_regnskap_revisjon: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er EBITDA?',
-    options: ['Driftsresultat for avskrivninger', 'Arsresultat for skatt', 'Driftsresultat etter skatt', 'Egenkapitalens avkastning'],
+    options: ['Driftsresultat for avskrivninger', 'Årsresultat for skatt', 'Driftsresultat etter skatt', 'Egenkapitalens avkastning'],
     explanation: 'EBITDA = Earnings Beføre Interest, Taxes, Depreciation and Amortization (Driftsresultat + Avskrivninger).',
   },
   {
@@ -153,14 +153,14 @@ const quizData_regnskap_revisjon: Record<string, QuizQuestion[]> = {
     explanation: 'Et arsregnskap består av resultatregnskap, balanse, noter og for større selskaper kontantstrømoppstilling.',
   },
   {
-    question: 'Hva er formalet med noter i regnskapet?',
+    question: 'Hva er formålet med noter i regnskapet?',
     options: ['Gi utdypende informasjon om poster i regnskapet', 'Bare pynte påregnskapet', 'Skjule informasjon', 'Erstatte balansen'],
     explanation: 'Noter gir utdypende informasjon om poster i regnskapet, regnskapsprinsipper og andre vesentlige forhold.',
   },
   {
-    question: 'Hvem måha arsberetning?',
+    question: 'Hvem måha årsberetning?',
     options: ['Større føretak over visse terskelverdier', 'Alle bedrifter', 'Bare aksjeselskaper', 'Ingen bedrifter'],
-    explanation: 'Større føretak over visse terskelverdier (ansatte, omsetning, balanse) måutarbeide arsberetning.',
+    explanation: 'Større føretak over visse terskelverdier (ansatte, omsetning, balanse) måutarbeide årsberetning.',
   },
   {
     question: 'Hva er kontantstrømmoppstilling?',
@@ -169,8 +169,8 @@ const quizData_regnskap_revisjon: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Nårmåarsregnskapet være ferdig?',
-    options: ['Innen 6 maneder etter regnskapsårets slutt', 'Innen 3 maneder', 'Innen 1 maned', 'Innen 12 maneder'],
-    explanation: 'Arsregnskapet skal være fastsatt senest 6 maneder etter regnskapsårets slutt.',
+    options: ['Innen 6 måneder etter regnskapsårets slutt', 'Innen 3 måneder', 'Innen 1 maned', 'Innen 12 måneder'],
+    explanation: 'Årsregnskapet skal være fastsatt senest 6 måneder etter regnskapsårets slutt.',
   },
 ],
 
@@ -212,7 +212,7 @@ const quizData_regnskap_revisjon: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvem måha revisjon?',
-    options: ['Aksjeselskaper over visse terskelverdier', 'Alle bedrifter', 'Bare sma bedrifter', 'Ingen bedrifter'],
+    options: ['Aksjeselskaper over visse terskelverdier', 'Alle bedrifter', 'Bare små bedrifter', 'Ingen bedrifter'],
     explanation: 'Aksjeselskaper over visse terskelverdier (driftsinntekter, balanse, ansatte) måha revisjon av autorisert revisor.',
   },
   {

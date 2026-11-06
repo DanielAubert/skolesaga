@@ -24,8 +24,8 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bor det flest mennesker påOstlandet?',
-    options: ['Flatere landskap og mildere klima', 'Mest fjell', 'Naermest havet', 'Mest skog'],
-    explanation: 'Ostlandet har flatere terreng som gjør det enklære a bygge, mildere klima og mer dyrkbar jord.',
+    options: ['Flatere landskap og mildere klima', 'Mest fjell', 'Nærmest havet', 'Mest skog'],
+    explanation: 'Østlandet har flatere terreng som gjør det enklære a bygge, mildere klima og mer dyrkbar jord.',
   },
 ],
 
@@ -39,7 +39,7 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Nårfeires samefolkets dag?',
     options: ['6. februar', '17. mai', '1. januar', '24. desember'],
-    explanation: '6. februar er samefolkets dag. Pa denne dagen i 1917 ble det første samiske landsmote holdt i Trondheim.',
+    explanation: '6. februar er samefolkets dag. Pa denne dagen i 1917 ble det første samiske landsmøte holdt i Trondheim.',
   },
   {
     question: 'Hva er joik?',
@@ -72,7 +72,7 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvem oppdaget Amerika lenge for Columbus?',
-    options: ['Leiv Eiriksson', 'Erik Raude', 'Harald Harfagre', 'Olav den hellige'],
+    options: ['Leiv Eiriksson', 'Erik Raude', 'Harald Hårfagre', 'Olav den hellige'],
     explanation: 'Leiv Eiriksson oppdaget Vinland (Nord-Amerika) rundt år1000, ca. 500 årfor Columbus.',
   },
   {
@@ -106,7 +106,7 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken konge kristnet Norge og ble helgen?',
-    options: ['Olav den hellige', 'Harald Harfagre', 'Hakon den gode', 'Magnus den gode'],
+    options: ['Olav den hellige', 'Harald Hårfagre', 'Hakon den gode', 'Magnus den gode'],
     explanation: 'Olav den hellige (Olav Haraldsson) kristnet Norge og ble regnet som helgen etter sin dod i slaget påStiklestad i 1030.',
   },
   {
@@ -159,8 +159,8 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er IKKE kommunens ansvar?',
-    options: ['Forsvåret (militaeret)', 'Grunnskolen', 'Barnehager', 'Biblioteket'],
-    explanation: 'Forsvåret er statens ansvar, ikke kommunens. Kommunen har ansvar for skole, barnehage, helse og lokale veier.',
+    options: ['Forsvaret (militæret)', 'Grunnskolen', 'Barnehager', 'Biblioteket'],
+    explanation: 'Forsvaret er statens ansvar, ikke kommunens. Kommunen har ansvar for skole, barnehage, helse og lokale veier.',
   },
   {
     question: 'Hva kalles lederen for kommunestyret?',
@@ -193,7 +193,7 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en truet art?',
-    options: ['En dyre- eller planteart som det er fa igjen av', 'En farlig dyreart', 'En ny art', 'En innfort art'],
+    options: ['En dyre- eller planteart som det er få igjen av', 'En farlig dyreart', 'En ny art', 'En innført art'],
     explanation: 'En truet art er en art som står i fare for a do ut. Rodlisten viser hvilke arter som er truet i Norge.',
   },
   {
@@ -206,27 +206,27 @@ const quizData_samfunnsfag_5: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-5-4-2': [
   {
-    question: 'Hva betyr baerekraftig utvikling?',
+    question: 'Hva betyr bærekraftig utvikling?',
     options: ['A dekke våre behov uten a ødelegge for fremtidige generasjoner', 'A bruke mest mulig ressurser', 'A ikke bry seg om fremtiden', 'A bare tenke påøkonomi'],
-    explanation: 'Baerekraftig utvikling handler om a leve godt i dag uten a ødelegge for dem som kommer etter oss.',
+    explanation: 'Bærekraftig utvikling handler om a leve godt i dag uten a ødelegge for dem som kommer etter oss.',
   },
   {
-    question: 'Hvor mange baerekraftsmal har FN?',
+    question: 'Hvor mange bærekraftsmål har FN?',
     options: ['17', '10', '5', '25'],
-    explanation: 'FN har 17 baerekraftsmal som alle verdens land ble enige om i 2015. Malene skal nas innen 2030.',
+    explanation: 'FN har 17 bærekraftsmål som alle verdens land ble enige om i 2015. Malene skal nas innen 2030.',
   },
   {
-    question: 'Hva er en sirkulaer økonomi?',
+    question: 'Hva er en sirkulær økonomi?',
     options: ['Gjenbruke og resirkulære i stedet for a kaste', 'Kaste alt etter bruk', 'Bare kjøpe nye ting', 'Bruke mest mulig plast'],
-    explanation: 'I en sirkulaer økonomi bruker vi ting om igjen og resirkulærer materialer. Malet er null avfall!',
+    explanation: 'I en sirkulær økonomi bruker vi ting om igjen og resirkulærer materialer. Malet er null avfall!',
   },
   {
     question: 'Hva er fornybar energi?',
-    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gåss'],
+    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gass'],
     explanation: 'Fornybar energi kommer fra kilder som ikke tar slutt, som sol, vind og vannkraft.',
   },
   {
-    question: 'Hva er Norges klimamal for 2030?',
+    question: 'Hva er Norges klimamål for 2030?',
     options: ['Kutte utslippene med 55%', 'Oke utslippene', 'Ingen endring', 'Kutte med 10%'],
     explanation: 'Norge har lovet a kutte klimagassutslippene med 55% innen 2030 sammenlignet med 1990.',
   },

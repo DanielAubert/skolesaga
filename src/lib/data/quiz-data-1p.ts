@@ -107,7 +107,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Forenkle: $4a + 2b - a + 3b$',
       options: ['$3a + 5b$', '$5a + 5b$', '$7ab$', '$9ab$'],
-      explanation: '$4a - a = 3a$ og $2b + 3b = 5b$, så svåret er $3a + 5b$.',
+      explanation: '$4a - a = 3a$ og $2b + 3b = 5b$, så svaret er $3a + 5b$.',
     },
     {
       question: 'Regn ut: $-2(x - 5)$',
@@ -226,7 +226,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
       explanation: 'Negativt stigningstall betyr at $y$ avtar når $x$ øker, altså linjen synker.',
     },
     {
-      question: 'Taxi koster 50 kr stårtpris + 10 kr/km. Hva er funksjonen $f(x)$?',
+      question: 'Taxi koster 50 kr startpris + 10 kr/km. Hva er funksjonen $f(x)$?',
       options: ['$f(x) = 10x + 50$', '$f(x) = 50x + 10$', '$f(x) = 60x$', '$f(x) = 10x - 50$'],
       explanation: 'Startprisen er konstantledd (50), pris per km er stigningstall (10).',
     },
@@ -363,7 +363,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er typetallet i datasettet: 2, 3, 3, 4, 5, 3, 7?',
       options: ['3', '2', '4', '5'],
-      explanation: 'Typetallet er verdien som førekommer oftest. 3 førekommer 3 ganger.',
+      explanation: 'Typetallet er verdien som forekommer oftest. 3 forekommer 3 ganger.',
     },
     {
       question: 'Finn medianen av tallene 2, 4, 6, 8.',
@@ -496,7 +496,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
 
   '1p-7-1': [
     {
-      question: 'Taxi: 60 kr stårtpris + 15 kr/km. Hva er funksjonen $P(x)$?',
+      question: 'Taxi: 60 kr startpris + 15 kr/km. Hva er funksjonen $P(x)$?',
       options: ['$P(x) = 15x + 60$', '$P(x) = 60x + 15$', '$P(x) = 75x$', '$P(x) = 60 - 15x$'],
       explanation: 'Pris = pris per km $\\times$ antall km + startpris $= 15x + 60$.',
     },
@@ -517,8 +517,8 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva bør vi alltid vurdere ved en modell?',
-      options: ['Om svåret gir mening', 'Om modellen er komplisert', 'Om den har mange variabler', 'Om den har bokstaver'],
-      explanation: 'En modell er en førenkling, så vi må vurdere om resultatet er rimelig.',
+      options: ['Om svaret gir mening', 'Om modellen er komplisert', 'Om den har mange variabler', 'Om den har bokstaver'],
+      explanation: 'En modell er en forenkling, så vi må vurdere om resultatet er rimelig.',
     },
   ],
 

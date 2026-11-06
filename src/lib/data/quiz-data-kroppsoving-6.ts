@@ -102,7 +102,7 @@ const quizData_kroppsoving_6: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med bredde i angrep?',
     options: ['Å spre laget utover for å lage rom', 'Å stå tett sammen', 'Å bare spille i midten', 'Å løpe bakover'],
-    explanation: 'Bredde betyr å utnytte hele banens bredde for å strekke forsvåret og skape rom.',
+    explanation: 'Bredde betyr å utnytte hele banens bredde for å strekke forsvaret og skape rom.',
   },
   {
     question: 'Hva er viktig når du fører ball i fotball?',
@@ -169,7 +169,7 @@ const quizData_kroppsoving_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er kommunikasjon viktig i volleyball?',
-    options: ['For å unngå at to spillære går på samme ball', 'For å førstyrre motstanderen', 'Det er ikke viktig', 'Bare for å rope "ja"'],
+    options: ['For å unngå at to spillære går på samme ball', 'For å forstyrre motstanderen', 'Det er ikke viktig', 'Bare for å rope "ja"'],
     explanation: 'God kommunikasjon hindrer forvirring og sikrer at én spiller tar ansvar for ballen.',
   },
 ],
@@ -275,7 +275,7 @@ const quizData_kroppsoving_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan du vise fair play under en kamp?',
-    options: ['Hjelpe en spiller som har falt og innrømme regelbrudd', 'Jukse når dømmeren ikke ser', 'Klage på alle avgjørelser', 'Gjøre narr av motstanderen'],
+    options: ['Hjelpe en spiller som har falt og innrømme regelbrudd', 'Jukse når dommeren ikke ser', 'Klage på alle avgjørelser', 'Gjøre narr av motstanderen'],
     explanation: 'Fair play vises gjennom handlinger som å hjelpe andre og være ærlig om egne feil.',
   },
   {

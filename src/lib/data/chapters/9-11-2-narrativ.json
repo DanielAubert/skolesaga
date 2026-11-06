@@ -14,12 +14,12 @@
     {
       "id": "9-11-2-n-intro",
       "type": "text",
-      "content": "## La datamaskinen kaste terningen\n\nForestill deg at du vil finne ut hvor sannsynlig det er a sla to seksere med to terninger. Du kan selvfolgelig sette deg ned og beregne det teoretisk -- men du kan ogsa la datamaskinen gjore forsokat for deg. Ikke bare en gang, men **hundre tusen ganger**.\n\nDenne metoden kalles **simulering**, og den er et av de kraftigste verktoyene i moderne matematikk og vitenskap. Vaermeldinger, medisinsk forskning, okonomiske prognoser -- alt bruker simulering. Og det beste er at det er overraskende enkelt a komme i gang med Python."
+      "content": "## La datamaskinen kaste terningen\n\nForestill deg at du vil finne ut hvor sannsynlig det er å sla to seksere med to terninger. Du kan selvfølgelig sette deg ned og beregne det teoretisk -- men du kan også la datamaskinen gjore forsokat for deg. Ikke bare en gang, men **hundre tusen ganger**.\n\nDenne metoden kalles **simulering**, og den er et av de kraftigste verktøyene i moderne matematikk og vitenskap. Værmeldinger, medisinsk forskning, okonomiske prognoser -- alt bruker simulering. Og det beste er at det er overraskende enkelt å komme i gang med Python."
     },
     {
       "id": "9-11-2-n-section1",
       "type": "text",
-      "content": "## random-modulen -- tilfeldighetens verktoy\n\nFor a simulere tilfeldige forsok trenger vi tilfeldige tall. Python har en innebygd modul for dette som heter `random`:\n\n```python\nimport random\n\n# Simuler et terningkast\nterning = random.randint(1, 6)\nprint(f\"Du slo {terning}\")\n```\n\n`random.randint(1, 6)` gir et tilfeldig heltall mellom 1 og 6 -- akkurat som en ekte terning. Hver gang du kjorer programmet, far du (sannsynligvis) et annet tall.\n\nNa kan vi simulere mange kast og **telle** hvor ofte en bestemt hendelse inntreffer:\n\n```python\nimport random\n\nantall_kast = 10000\nantall_seksere = 0\n\nfor i in range(antall_kast):\n    kast = random.randint(1, 6)\n    if kast == 6:\n        antall_seksere += 1\n\nsimulert = antall_seksere / antall_kast\nprint(f\"Simulert P(sekser) = {simulert:.4f}\")\nprint(f\"Teoretisk P(sekser) = {1/6:.4f}\")\n```\n\nDen **simulerte sannsynligheten** er antall gunstige utfall delt pa totalt antall forsok:\n\n$$P(A) \\approx \\frac{k}{n}$$\n\nMed 10 000 kast far vi typisk noe naert $\\frac{1}{6} \\approx 0{,}1667$, men ikke eksakt likt. Og det er helt normalt -- simulering gir et **estimat**, ikke et eksakt svar."
+      "content": "## random-modulen -- tilfeldighetens verktøy\n\nFor å simulere tilfeldige forsok trenger vi tilfeldige tall. Python har en innebygd modul for dette som heter `random`:\n\n```python\nimport random\n\n# Simuler et terningkast\nterning = random.randint(1, 6)\nprint(f\"Du slo {terning}\")\n```\n\n`random.randint(1, 6)` gir et tilfeldig heltall mellom 1 og 6 -- akkurat som en ekte terning. Hver gang du kjører programmet, får du (sannsynligvis) et annet tall.\n\nNa kan vi simulere mange kast og **telle** hvor ofte en bestemt hendelse inntreffer:\n\n```python\nimport random\n\nantall_kast = 10000\nantall_seksere = 0\n\nfor i in range(antall_kast):\n    kast = random.randint(1, 6)\n    if kast == 6:\n        antall_seksere += 1\n\nsimulert = antall_seksere / antall_kast\nprint(f\"Simulert P(sekser) = {simulert:.4f}\")\nprint(f\"Teoretisk P(sekser) = {1/6:.4f}\")\n```\n\nDen **simulerte sannsynligheten** er antall gunstige utfall delt på totalt antall forsok:\n\n$$P(A) \\approx \\frac{k}{n}$$\n\nMed 10 000 kast får vi typisk noe nært $\\frac{1}{6} \\approx 0{,}1667$, men ikke eksakt likt. Og det er helt normalt -- simulering gir et **estimat**, ikke et eksakt svar."
     },
     {
       "id": "9-11-2-n-quiz1",
@@ -28,7 +28,7 @@
         "id": "9-11-2-n-quiz1",
         "number": "Quiz 1",
         "type": "multiple-choice",
-        "task": "Test deg selv pa simulering:",
+        "task": "Test deg selv på simulering:",
         "options": [
           {
             "id": "a",
@@ -89,7 +89,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Den simulerte sannsynligheten er $\\frac{k}{n} = \\frac{1653}{10\\,000} = 0{,}1653$. Dette er naert den teoretiske verdien $\\frac{1}{6} \\approx 0{,}1667$."
+            "solution": "Den simulerte sannsynligheten er $\\frac{k}{n} = \\frac{1653}{10\\,000} = 0{,}1653$. Dette er nært den teoretiske verdien $\\frac{1}{6} \\approx 0{,}1667$."
           }
         ]
       }
@@ -97,7 +97,7 @@
     {
       "id": "9-11-2-n-section2",
       "type": "text",
-      "content": "## Store talls lov -- jo flere, jo bedre\n\nHer er et viktig poeng: med bare 10 kast kan du fa helt ville resultater. Kanskje 0 seksere, kanskje 4. Men med 100 000 kast vil den simulerte sannsynligheten nesten alltid ligge veldig naert den teoretiske.\n\nDette kalles **store talls lov**: nar du gjentar et tilfeldig forsok mange nok ganger, vil den relative frekvensen nærme seg den teoretiske sannsynligheten.\n\n$$\\frac{k}{n} \\to P(A) \\quad \\text{nar } n \\to \\infty$$\n\nVi kan demonstrere dette med myntkast:\n\n```python\nimport random\n\nfor antall_kast in [10, 100, 1000, 10000, 100000]:\n    mynt = 0\n    for i in range(antall_kast):\n        if random.randint(0, 1) == 1:\n            mynt += 1\n    print(f\"n = {antall_kast:>7}: P(mynt) = {mynt/antall_kast:.4f}\")\n```\n\nTypisk resultat:\n```\nn =      10: P(mynt) = 0.6000\nn =     100: P(mynt) = 0.4700\nn =    1000: P(mynt) = 0.5130\nn =   10000: P(mynt) = 0.4987\nn =  100000: P(mynt) = 0.5003\n```\n\nMed 10 kast svinger det mye. Med 100 000 kast er vi nesten noyaktig pa 0,5. Store talls lov i aksjon!"
+      "content": "## Store talls lov -- jo flere, jo bedre\n\nHer er et viktig poeng: med bare 10 kast kan du få helt ville resultater. Kanskje 0 seksere, kanskje 4. Men med 100 000 kast vil den simulerte sannsynligheten nesten alltid ligge veldig nært den teoretiske.\n\nDette kalles **store talls lov**: når du gjentar et tilfeldig forsok mange nok ganger, vil den relative frekvensen nærme seg den teoretiske sannsynligheten.\n\n$$\\frac{k}{n} \\to P(A) \\quad \\text{nar } n \\to \\infty$$\n\nVi kan demonstrere dette med myntkast:\n\n```python\nimport random\n\nfor antall_kast in [10, 100, 1000, 10000, 100000]:\n    mynt = 0\n    for i in range(antall_kast):\n        if random.randint(0, 1) == 1:\n            mynt += 1\n    print(f\"n = {antall_kast:>7}: P(mynt) = {mynt/antall_kast:.4f}\")\n```\n\nTypisk resultat:\n```\nn =      10: P(mynt) = 0.6000\nn =     100: P(mynt) = 0.4700\nn =    1000: P(mynt) = 0.5130\nn =   10000: P(mynt) = 0.4987\nn =  100000: P(mynt) = 0.5003\n```\n\nMed 10 kast svinger det mye. Med 100 000 kast er vi nesten nøyaktig pa 0,5. Store talls lov i aksjon!"
     },
     {
       "id": "9-11-2-n-quiz2",
@@ -106,7 +106,7 @@
         "id": "9-11-2-n-quiz2",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg selv pa store talls lov:",
+        "task": "Test deg selv på store talls lov:",
         "options": [
           {
             "id": "a",
@@ -121,7 +121,7 @@
             "options": [
               {
                 "id": "a",
-                "text": "Store tall er alltid mer sannsynlige enn sma tall",
+                "text": "Store tall er alltid mer sannsynlige enn små tall",
                 "isCorrect": false
               },
               {
@@ -136,11 +136,11 @@
               },
               {
                 "id": "d",
-                "text": "Jo flere forsok du gjor, desto storre blir tallene",
+                "text": "Jo flere forsok du gjor, desto større blir tallene",
                 "isCorrect": false
               }
             ],
-            "solution": "Store talls lov sier at den relative frekvensen (simulert sannsynlighet) nærmer seg den teoretiske sannsynligheten nar antall forsok oker."
+            "solution": "Store talls lov sier at den relative frekvensen (simulert sannsynlighet) nærmer seg den teoretiske sannsynligheten når antall forsok oker."
           },
           {
             "id": "9-11-2-n-quiz2-q1",
@@ -153,12 +153,12 @@
               },
               {
                 "id": "c",
-                "text": "Ja, sannsynligheten burde vært noyaktig 10",
+                "text": "Ja, sannsynligheten burde vært nøyaktig 10",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "Nei, med sa fa kast er store avvik helt normalt",
+                "text": "Nei, med så få kast er store avvik helt normalt",
                 "isCorrect": true
               },
               {
@@ -167,7 +167,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Med bare 20 kast er det helt normalt a avvike mye fra 50 %. Store talls lov sier at vi trenger mange forsok for a fa pålitelige estimater. 14 av 20 er ikke uvanlig for en rettferdig mynt."
+            "solution": "Med bare 20 kast er det helt normalt å avvike mye fra 50 %. Store talls lov sier at vi trenger mange forsok for å fa pålitelige estimater. 14 av 20 er ikke uvanlig for en rettferdig mynt."
           }
         ]
       }
@@ -175,7 +175,7 @@
     {
       "id": "9-11-2-n-section3",
       "type": "text",
-      "content": "## Sammensatte forsok -- nar det blir spennende\n\nSimulering er spesielt nyttig for **sammensatte forsok** der det er vanskelig a beregne sannsynligheten teoretisk. La oss se pa et klassisk eksempel: summen av to terninger.\n\n```python\nimport random\n\nantall_forsok = 100000\nantall_sju = 0\n\nfor i in range(antall_forsok):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_sju += 1\n\nprint(f\"P(sum = 7) = {antall_sju/antall_forsok:.4f}\")\n```\n\nResultatet blir omtrent $0{,}1667$, som stemmer med den teoretiske verdien $\\frac{6}{36} = \\frac{1}{6}$. Det finnes nemlig 6 kombinasjoner som gir summen 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$, av totalt $36$ mulige utfall.\n\nMen hva med virkelig kompliserte problemer? Ta **bursdagsparadokset**: I en klasse med 23 elever, hva er sannsynligheten for at minst to deler bursdag? Svaret er over 50 % -- noe de fleste finner helt utrolig. Med simulering kan vi verifisere dette:\n\n```python\nimport random\n\ntreff = 0\nfor i in range(100000):\n    bursdager = [random.randint(1, 365) for _ in range(23)]\n    if len(bursdager) != len(set(bursdager)):\n        treff += 1\n\nprint(f\"P(felles bursdag) = {treff/100000:.4f}\")\n```\n\nResultatet? Omtrent $0{,}507$ -- altså rett over 50 %. Simuleringen bekrefter det overraskende teoretiske svaret!"
+      "content": "## Sammensatte forsok -- nar det blir spennende\n\nSimulering er spesielt nyttig for **sammensatte forsok** der det er vanskelig å beregne sannsynligheten teoretisk. La oss se på et klassisk eksempel: summen av to terninger.\n\n```python\nimport random\n\nantall_forsok = 100000\nantall_sju = 0\n\nfor i in range(antall_forsok):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_sju += 1\n\nprint(f\"P(sum = 7) = {antall_sju/antall_forsok:.4f}\")\n```\n\nResultatet blir omtrent $0{,}1667$, som stemmer med den teoretiske verdien $\\frac{6}{36} = \\frac{1}{6}$. Det finnes nemlig 6 kombinasjoner som gir summen 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$, av totalt $36$ mulige utfall.\n\nMen hva med virkelig kompliserte problemer? Ta **bursdagsparadokset**: I en klasse med 23 elever, hva er sannsynligheten for at minst to deler bursdag? Svaret er over 50 % -- noe de fleste finner helt utrolig. Med simulering kan vi verifisere dette:\n\n```python\nimport random\n\ntreff = 0\nfor i in range(100000):\n    bursdager = [random.randint(1, 365) for _ in range(23)]\n    if len(bursdager) != len(set(bursdager)):\n        treff += 1\n\nprint(f\"P(felles bursdag) = {treff/100000:.4f}\")\n```\n\nResultatet? Omtrent $0{,}507$ -- altså rett over 50 %. Simuleringen bekrefter det overraskende teoretiske svaret!"
     },
     {
       "id": "9-11-2-n-quiz3",
@@ -184,7 +184,7 @@
         "id": "9-11-2-n-quiz3",
         "number": "Quiz 3",
         "type": "multiple-choice",
-        "task": "Test deg selv pa sammensatte forsok:",
+        "task": "Test deg selv på sammensatte forsok:",
         "options": [
           {
             "id": "a",
@@ -195,7 +195,7 @@
         "questions": [
           {
             "id": "9-11-2-n-quiz3-q0",
-            "task": "Hvor mange mulige utfall er det nar du kaster to terninger?",
+            "task": "Hvor mange mulige utfall er det når du kaster to terninger?",
             "options": [
               {
                 "id": "a",
@@ -249,7 +249,7 @@
           },
           {
             "id": "9-11-2-n-quiz3-q2",
-            "task": "Hva gjor `set()` nar den brukes pa en liste i Python?",
+            "task": "Hva gjor `set()` nar den brukes på en liste i Python?",
             "options": [
               {
                 "id": "b",
@@ -280,7 +280,7 @@
     {
       "id": "9-11-2-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\nVi har utforsket hvordan Python kan brukes til a simulere tilfeldige forsok:\n\n- **random-modulen** gir oss tilfeldige tall (`random.randint(a, b)`)\n- En **simulering** gjentar et forsok mange ganger og estimerer sannsynligheter\n- **Simulert sannsynlighet** $\\approx \\frac{\\text{gunstige utfall}}{\\text{totalt antall forsok}}$\n- **Store talls lov** garanterer at estimatet blir bedre jo flere forsok vi gjor\n- **Sammensatte forsok** (to terninger, kuletrekking, bursdagsparadokset) er enkle a simulere men kan være vanskelige a beregne teoretisk\n\nSimulering er et uunnværlig verktoy i moderne vitenskap. Vaermeldinger, medisinsk forskning og finansanalyse -- alt bruker simulering for a handtere usikkerhet. Du har na verktoyene til a gjore det samme!"
+      "content": "## Oppsummering\n\nVi har utforsket hvordan Python kan brukes til a simulere tilfeldige forsok:\n\n- **random-modulen** gir oss tilfeldige tall (`random.randint(a, b)`)\n- En **simulering** gjentar et forsok mange ganger og estimerer sannsynligheter\n- **Simulert sannsynlighet** $\\approx \\frac{\\text{gunstige utfall}}{\\text{totalt antall forsok}}$\n- **Store talls lov** garanterer at estimatet blir bedre jo flere forsok vi gjor\n- **Sammensatte forsok** (to terninger, kuletrekking, bursdagsparadokset) er enkle å simulere men kan være vanskelige å beregne teoretisk\n\nSimulering er et uunnværlig verktøy i moderne vitenskap. Værmeldinger, medisinsk forskning og finansanalyse -- alt bruker simulering for å handtere usikkerhet. Du har na verktøyene til å gjore det samme!"
     }
   ],
   "exercises": []

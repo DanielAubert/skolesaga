@@ -4,7 +4,7 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg2-1': [
   {
     question: 'Hvilken lov regulærer kommunenes ansvar for helse- og omsorgstjenester?',
-    options: ["Helse- og omsorgstjenesteloven", "Spesialisthelsetjenesteloven", "Helseforetaksloven, som gir kommunene ansvaret for helse- og omsorgstjenester", "Helseføretaksloven"],
+    options: ["Helse- og omsorgstjenesteloven", "Spesialisthelsetjenesteloven", "Helseforetaksloven, som gir kommunene ansvaret for helse- og omsorgstjenester", "Helseforetaksloven"],
     explanation: 'Helse- og omsorgstjenesteloven fra 2012 regulærer kommunenes ansvar for helse- og omsorgstjenester til befolkningen.',
   },
   {
@@ -13,19 +13,19 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
     explanation: 'Det er fire regionale helseføretak: Helse Nord, Helse Midt-Norge, Helse Vest og Helse Sor-Ost.',
   },
   {
-    question: 'Hva var hovedmalet med samhandlingsreformen?',
+    question: 'Hva var hovedmålet med samhandlingsreformen?',
     options: ["A førebygge mer og behandle tidligere i kommunene", "A privatisere helsetjenestene", "Å overføre ansvaret til private aktører", "A redusere antall leger"],
     explanation: 'Samhandlingsreformen fra 2012 hadde som mal a førebygge mer, behandle tidligere og gi kommunene mer ansvar for helsetjenestene.',
   },
   {
     question: 'Hva er KAD?',
     options: ['Kommunal akutt dognenhet', 'Koordinert akuttmedisinsk divisjon', 'Kommunal avdeling for demente', 'Klinisk analysedepartement'],
-    explanation: 'KAD står for kommunal akutt dognenhet, som gir behandling til pasienter som ikke trenger sykehusinnleggelse, men mer enn vanlig kommunal oppfolging.',
+    explanation: 'KAD står for kommunal akutt dognenhet, som gir behandling til pasienter som ikke trenger sykehusinnleggelse, men mer enn vanlig kommunal oppfølging.',
   },
   {
     question: 'Hva er et helsefellesskap?',
     options: ["Samarbeidsorgan mellom kommuner og sykehus", "Et helseforsikringsselskap", "Et privat sykehus eid av kommunene", "En pasientførening"],
-    explanation: 'Helsefellesskap er samarbeidsorganer mellom kommuner og sykehus for a planlegge tjenester sammen og sikre gode pasientforlop.',
+    explanation: 'Helsefellesskap er samarbeidsorganer mellom kommuner og sykehus for a planlegge tjenester sammen og sikre gode pasientforløp.',
   },
 ],
 
@@ -48,8 +48,8 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hovedoppgaven til en koordinator?',
-    options: ["A sikre oppfolging og samordning av tjenester", "A ta medisinske beslutninger", "Å skrive ut medisiner og fastsette hvilke legemidler brukeren skal ha", "A skrive ut medisiner"],
-    explanation: 'En koordinator skal sikre oppfolging av brukeren, koordinere tjenestene, være kontaktperson og sørge for at planen oppdateres.',
+    options: ["A sikre oppfølging og samordning av tjenester", "A ta medisinske beslutninger", "Å skrive ut medisiner og fastsette hvilke legemidler brukeren skal ha", "A skrive ut medisiner"],
+    explanation: 'En koordinator skal sikre oppfølging av brukeren, koordinere tjenestene, være kontaktperson og sørge for at planen oppdateres.',
   },
   {
     question: 'Pa hvilke nivær kan brukermedvirkning skje?',
@@ -66,9 +66,9 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
     explanation: 'Symptomer er subjektive opplevelser som pasienten forteller om (f.eks. smerte), mens tegn er objektive funn som helsepersonell kan observere eller male.',
   },
   {
-    question: 'Hva er den vanligste dodsårsaken i Norge?',
-    options: ["Hjerte- og karsykdømmer", "Infeksjonssykdømmer", "Kreft og svulster", "Ulykker"],
-    explanation: 'Hjerte- og karsykdømmer er fortsatt den vanligste dodsårsaken i Norge, selv om dødeligheten har gatt betydelig ned de siste tiårene.',
+    question: 'Hva er den vanligste dødsårsaken i Norge?',
+    options: ["Hjerte- og karsykdommer", "Infeksjonssykdommer", "Kreft og svulster", "Ulykker"],
+    explanation: 'Hjerte- og karsykdommer er fortsatt den vanligste dødsårsaken i Norge, selv om dødeligheten har gatt betydelig ned de siste tiårene.',
   },
   {
     question: 'Hva kjennetegner type 2-diabetes?',
@@ -83,7 +83,7 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er KOLS?',
     options: ["Kronisk obstruktiv lungesykdom", "En type hjertesykdom", "En type hjertesykdom som skyldes forsnevring av blodårene", "En autoimmun sykdom"],
-    explanation: 'KOLS står for kronisk obstruktiv lungesykdom og inkluderer kronisk bronkitt og emfysem. Hovedårsaken er royking.',
+    explanation: 'KOLS står for kronisk obstruktiv lungesykdom og inkluderer kronisk bronkitt og emfysem. Hovedårsaken er røyking.',
   },
 ],
 
@@ -102,7 +102,7 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en subkutan injeksjon?',
     options: ["Injeksjon i underhuden", "Injeksjon i blodbanen", "Injeksjon som settes rett inn i muskelen", "Injeksjon i muskelen"],
-    explanation: 'En subkutan (s.c.) injeksjon gis i underhuden. Eksempler er insulin og blodfortynnende sproyter.',
+    explanation: 'En subkutan (s.c.) injeksjon gis i underhuden. Eksempler er insulin og blodfortynnende sprøyter.',
   },
   {
     question: 'Hvor mange R-er er det i kontrollpunktene for sikker legemiddelhandtering?',
@@ -112,7 +112,7 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva skal du gjøre først ved en legemiddelfeil?',
     options: ["Sikre pasienten og iverksette nødvendige tiltak", "Vente og se om det gårbra", "Vente og se om det går bra av seg selv først", "Skjule feilen for pasient og pårørende"],
-    explanation: 'Ved legemiddelfeil skal du først sikre pasienten og iverksette nødvendige tiltak, deretter informere ansvårlig lege, dokumentere og melde avvik.',
+    explanation: 'Ved legemiddelfeil skal du først sikre pasienten og iverksette nødvendige tiltak, deretter informere ansvarlig lege, dokumentere og melde avvik.',
   },
 ],
 
@@ -120,7 +120,7 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg2-5': [
   {
     question: 'Hva star ABCDE for i førstehjelp?',
-    options: ['Airway, Breathing, Circulation, Disability, Expose', 'Arm, Ben, Celle, Dose, Effekt', 'Allergi, Blodning, Celle, Diagnose, Evaluering', 'Analyse, Behandling, Kontroll, Dokumentasjon, Evaluering'],
+    options: ['Airway, Breathing, Circulation, Disability, Expose', 'Arm, Ben, Celle, Dose, Effekt', 'Allergi, Blødning, Celle, Diagnose, Evaluering', 'Analyse, Behandling, Kontroll, Dokumentasjon, Evaluering'],
     explanation: 'ABCDE står for Airway (luftveier), Breathing (respirasjon), Circulation (sirkulasjon), Disability (bevissthet) og Expose/Environment.',
   },
   {
@@ -159,18 +159,18 @@ const quizData_helseoppvekst_vg2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør du gjøre hvis du er bekymret for at noen tenker påselvmord?',
-    options: ["Sporre direkte om de tenker påa ta sitt eget liv", "Unngå a snakke om det for ikke a gi dem ideer", "Vente og se om tankene går over av seg selv før du blander deg inn", "Snakke om andre ting for a distrahere dem"],
+    options: ["Spørre direkte om de tenker påa ta sitt eget liv", "Unngå a snakke om det for ikke a gi dem ideer", "Vente og se om tankene går over av seg selv før du blander deg inn", "Snakke om andre ting for a distrahere dem"],
     explanation: 'Forskning viser at a spørre direkte om selvmordstanker ikke øker risikoen, men tvert imot kan være livreddende.',
   },
   {
     question: 'Hva er stigma i forhold til psykisk helse?',
     options: ["Negative holdninger og fordømmer knyttet til psykisk sykdom", "En type psykisk lidelse", "En type psykisk lidelse som kjennetegnes av skam og tilbaketrekning", "En behandlingsmetode som brukes for å redusere fordommer mot psykisk syke"],
-    explanation: 'Stigma er negative holdninger, fordømmer og diskriminering knyttet til psykisk sykdom. Det hindrer mange i a soke hjelp.',
+    explanation: 'Stigma er negative holdninger, fordømmer og diskriminering knyttet til psykisk sykdom. Det hindrer mange i a søke hjelp.',
   },
   {
     question: 'Hva innebærer recovery-tilnærmingen?',
     options: ["A leve meningsfullt uavhengig av symptomer", "A bli helt frisk fra psykisk sykdom", "Å være innlagt på sykehus til man er ferdig behandlet", "A ta medisiner resten av livet for a holde symptomene borte"],
-    explanation: 'Recovery handler om a leve et meningsfullt liv uavhengig av symptomer, ikke nødvendigvis fravar av sykdom.',
+    explanation: 'Recovery handler om a leve et meningsfullt liv uavhengig av symptomer, ikke nødvendigvis fravær av sykdom.',
   },
 ],
 

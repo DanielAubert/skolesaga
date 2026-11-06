@@ -5,7 +5,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor i fordoyelsessystemet skjer hovedabsorpsjonen av næringsstoffer?",
       options: ["I tynntarmen", "I magesekken", "I munnen", "I tykktarmen"],
-      explanation: "Hovedabsorpsjonen skjer i tynntarmen. Her tas naringsstoffer opp gjennom tarmveggen og inn i blodet.",
+      explanation: "Hovedabsorpsjonen skjer i tynntarmen. Her tas næringsstoffer opp gjennom tarmveggen og inn i blodet.",
     },
     {
       question: "Hva er basalstoffskifte (BMR)?",
@@ -25,7 +25,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken faktor påvirker IKKE stoffskiftet?",
       options: ["Hårfarge", "Alder", "Muskelmasse", "Hormoner"],
-      explanation: "Harfarge påvirker ikke stoffskiftet. Alder, muskelmasse, kjonn og hormoner har alle betydning for hvor raskt du forbrenner energi.",
+      explanation: "Hårfarge påvirker ikke stoffskiftet. Alder, muskelmasse, kjonn og hormoner har alle betydning for hvor raskt du forbrenner energi.",
     },
   ],
   "mat-9-1-2": [
@@ -40,9 +40,9 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
       explanation: "Vitamin B12 finnes naturlig kun i animalske produkter. Veganere måta tilskudd eller spise berikede produkter.",
     },
     {
-      question: "Hva måpersoner med coliaki unngå helt?",
+      question: "Hva måpersoner med cøliaki unngå helt?",
       options: ["Gluten (hvete, rug, bygg)", "Laktose i melkeprodukter", "Alt raffinert hvitt sukker", "Alt mettet og hardt fett"],
-      explanation: "Coliaki er en autoimmun sykdom der gluten skader tarmen. Glutenfri kost er den eneste behandlingen.",
+      explanation: "Cøliaki er en autoimmun sykdom der gluten skader tarmen. Glutenfri kost er den eneste behandlingen.",
     },
     {
       question: "Hva er anafylaksi?",
@@ -63,8 +63,8 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en emulsjon?",
-      options: ["En blanding av to vaesker som normalt ikke blandes", "Protein i egg som stivner når det blir varmet opp", "Sukker som smelter og stivner til hard karamell", "En tykk saus som lages av mel, smør og buljong"],
-      explanation: "En emulsjon er en stabil blanding av vaesker som vanligvis ikke blandes, som olje og vann i majones. En emulgator holder dem sammen.",
+      options: ["En blanding av to væsker som normalt ikke blandes", "Protein i egg som stivner når det blir varmet opp", "Sukker som smelter og stivner til hard karamell", "En tykk saus som lages av mel, smør og buljong"],
+      explanation: "En emulsjon er en stabil blanding av væsker som vanligvis ikke blandes, som olje og vann i majones. En emulgator holder dem sammen.",
     },
     {
       question: "Hva skjer nårprotein denatureres?",
@@ -72,9 +72,9 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
       explanation: "Denaturering endrer proteinets struktur. Dette er hvorfor egg stivner ved oppvarming og fisk \"køker\" i sitronsyre (ceviche).",
     },
     {
-      question: "Hvorfor bør stekt kjøtt hvile for det skjaeres?",
-      options: ["Slik at vaesken redistribueres og kjøttet blir saftigere", "Slik at kjøttet blir helt kaldt før det legges på fatet", "Det trenger egentlig ikke å hvile før det skjæres opp", "Slik at du sparer tid og kan lage resten av maten"],
-      explanation: "Under steking presses vaeske mot midten. Hvile lar vaesken fordele seg jevnt tilbake, noe som gir saftigere kjøtt.",
+      question: "Hvorfor bør stekt kjøtt hvile for det skjæres?",
+      options: ["Slik at væsken redistribueres og kjøttet blir saftigere", "Slik at kjøttet blir helt kaldt før det legges på fatet", "Det trenger egentlig ikke å hvile før det skjæres opp", "Slik at du sparer tid og kan lage resten av maten"],
+      explanation: "Under steking presses væske mot midten. Hvile lar væsken fordele seg jevnt tilbake, noe som gir saftigere kjøtt.",
     },
     {
       question: "Hvabrukes syre til i matlaging?",
@@ -86,7 +86,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er hovedprinsippet bak all matkonservering?",
       options: ["A hemme veksten av mikroorganismer", "A gjøre maten mer smakfull", "Å øke mengden næringsstoffer i maten", "Å gjøre maten mer smakfull og krydret"],
-      explanation: "Konservering handler om a stoppe eller bremse veksten av bakterier, mugg og gjaer som bryter ned mat.",
+      explanation: "Konservering handler om a stoppe eller bremse veksten av bakterier, mugg og gjær som bryter ned mat.",
     },
     {
       question: "Hvorfor fungerer salting som konserveringsmetode?",
@@ -96,7 +96,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er fermentering?",
       options: ["Kontrollert vekst av gunstige mikroorganismer som produserer syre eller alkohol", "Frysing av mat i fryser ved svært lave temperaturer", "Tørking av mat slik at alt vannet forsvinner helt", "Koking av mat i lang tid ved svært høy varme"],
-      explanation: "Fermentering bruker gunstige bakterier eller gjaer som produserer syre eller alkohol. Dette konserverer maten og gir unik smak.",
+      explanation: "Fermentering bruker gunstige bakterier eller gjær som produserer syre eller alkohol. Dette konserverer maten og gir unik smak.",
     },
     {
       question: "Hva er forskjellen mellom pasteurisering og sterilisering?",
@@ -105,8 +105,8 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke produkter er eksempler påfermentert mat?",
-      options: ["Ost, yoghurt, surkal og ol", "Tørket frukt uten vann", "Hermetikk på boks og glass", "Frosne grønnsaker fra fryse"],
-      explanation: "Fermenterte produkter inkluderer ost, yoghurt, surkal, kimchi, ol og vin. Alle bruker mikroorganismer i produksjonen.",
+      options: ["Ost, yoghurt, surkål og ol", "Tørket frukt uten vann", "Hermetikk på boks og glass", "Frosne grønnsaker fra fryse"],
+      explanation: "Fermenterte produkter inkluderer ost, yoghurt, surkål, kimchi, ol og vin. Alle bruker mikroorganismer i produksjonen.",
     },
   ],
   "mat-9-3-1": [
@@ -121,9 +121,9 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
       explanation: "Sous vide (\"under vakuum\") bruker presis temperaturkontroll i vannbad. Gir jevn tilberedning og mort resultat.",
     },
     {
-      question: "Hva er roux og hvå brukes det til?",
-      options: ["Like deler smor og mel - basis for a jevne sauser", "Et sterkt krydder som gir sauser farge og smak", "En måte å kutte grønnsaker i tynne strimler", "En koketeknikk der maten kokes sakte i vann"],
-      explanation: "Roux er en blanding av like deler smor og mel som kokes sammen. Det brukes til a jevne sauser og supper.",
+      question: "Hva er roux og hva brukes det til?",
+      options: ["Like deler smør og mel - basis for a jevne sauser", "Et sterkt krydder som gir sauser farge og smak", "En måte å kutte grønnsaker i tynne strimler", "En koketeknikk der maten kokes sakte i vann"],
+      explanation: "Roux er en blanding av like deler smør og mel som kokes sammen. Det brukes til a jevne sauser og supper.",
     },
     {
       question: "Hva er anbefalt kjernetemperatur for kylling?",
@@ -132,25 +132,25 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør stekt kjøtt hvile like lenge som det ble stekt?",
-      options: ["For at vaesken skal redistribueres og kjøttet bli saftigere", "For at kjøttet skal bli kaldt før du legger det på fat", "Det er egentlig ikke nødvendig å la kjøttet hvile i det hele tatt", "For at du skal spare tid mens du lager resten av maten"],
-      explanation: "En biff stekt 3 minutter per side bør hvile i 6 minutter. Hvile lar vaesken fordeles jevnt og gir saftigere resultat.",
+      options: ["For at væsken skal redistribueres og kjøttet bli saftigere", "For at kjøttet skal bli kaldt før du legger det på fat", "Det er egentlig ikke nødvendig å la kjøttet hvile i det hele tatt", "For at du skal spare tid mens du lager resten av maten"],
+      explanation: "En biff stekt 3 minutter per side bør hvile i 6 minutter. Hvile lar væsken fordeles jevnt og gir saftigere resultat.",
     },
   ],
   "mat-9-3-2": [
     {
       question: "Hva gjør gluten i en deig?",
-      options: ["Gir elastisitet og holder pågassen fra gjaer", "Gjør deigen kald så den ikke hever for fort", "Gir deigen en fin gyllen farge under stekingen", "Gir deigen en søt smak av sukker"],
-      explanation: "Gluten danner et elastisk nettverk som holder påCO2-gassen fra gjaer, slik at deigen hever og fårluftig struktur.",
+      options: ["Gir elastisitet og holder pågassen fra gjær", "Gjør deigen kald så den ikke hever for fort", "Gir deigen en fin gyllen farge under stekingen", "Gir deigen en søt smak av sukker"],
+      explanation: "Gluten danner et elastisk nettverk som holder påCO2-gassen fra gjær, slik at deigen hever og fårluftig struktur.",
     },
     {
-      question: "Hva produserer gjaer som fårdeigen til a heve?",
+      question: "Hva produserer gjær som fårdeigen til a heve?",
       options: ["CO2 (karbondioksid)", "Nitrogen (N2)", "Hydrogen (H2)", "Oksygen (O2)"],
-      explanation: "Gjaer er levende organismer som spiser sukker og produserer CO2 og alkohol. CO2-gassen fårdeigen til a heve.",
+      explanation: "Gjær er levende organismer som spiser sukker og produserer CO2 og alkohol. CO2-gassen fårdeigen til a heve.",
     },
     {
-      question: "Hvorfor brukes smor i mordeig?",
+      question: "Hvorfor brukes smør i mørdeig?",
       options: ["For a forhindre glutendannelse og gi sprohet", "For a fa deigen til a heve", "For å gi mørdeigen en fin og gyllen gul farge", "For å gjøre deigen seig og elastisk å jobbe med"],
-      explanation: "Smor dekker melet og forhindrer gluten fra a utvikle seg, noe som gir mordeig sin karakteristiske sprohet.",
+      explanation: "Smør dekker melet og forhindrer gluten fra a utvikle seg, noe som gir mørdeig sin karakteristiske sprohet.",
     },
     {
       question: "Hva trenger natron for a fungere som hevemiddel?",
@@ -160,19 +160,19 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor bør ingredienser ha romtemperatur for baking?",
       options: ["De blandes bedre og gir jevnere tekstur", "Det går mye raskere å bake maten", "Det er egentlig ikke viktig for resultatet", "De smaker bedre av å være varme"],
-      explanation: "Ingredienser med romtemperatur (egg, smor, melk) blandes lettere og jevnere, noe som gir bedre resultat i kakere.",
+      explanation: "Ingredienser med romtemperatur (egg, smør, melk) blandes lettere og jevnere, noe som gir bedre resultat i kakere.",
     },
   ],
   "mat-9-4-1": [
     {
       question: "Hva er Norges nasjonalrett?",
       options: ["Farikal", "Lutefisk", "Pizza", "Taco"],
-      explanation: "Farikal er kåret til Norges nasjonalrett og har egen dag (siste torsdag i september).",
+      explanation: "Fårikål er kåret til Norges nasjonalrett og har egen dag (siste torsdag i september).",
     },
     {
       question: "Hvorfor utviklet nordmenn mange konserveringsmetoder som salting og roying?",
       options: ["For a bevare mat til den lange vinteren", "Fordi ferskvare var billigere enn saltet mat om vinteren", "Fordi kongen hadde bestemt at det var lovpålagt", "Fordi de rett og slett likte salt og røkt mat best"],
-      explanation: "Norge har lange, kalde vintre med begrenset tilgang påfersk mat. Salting, torking og roying var nødvendig for overlevelse.",
+      explanation: "Norge har lange, kalde vintre med begrenset tilgang påfersk mat. Salting, tørking og roying var nødvendig for overlevelse.",
     },
     {
       question: "Hva betyr halal?",
@@ -197,7 +197,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
       explanation: "Du måvite hvem som kommer og eventuelle allergier/preferanser for du planlegger menyen. Sikkerhet først!",
     },
     {
-      question: "Hva er riktig rekkefølge på et tradisjonelt maltid?",
+      question: "Hva er riktig rekkefølge på et tradisjonelt måltid?",
       options: ["Forrett, hovedrett, dessert", "Dessert, hovedrett, forrett", "Hovedrett, dessert, forrett", "Rekkefølgen spiller ingen rolle"],
       explanation: "Tradisjonelt serveres forrett først (lett), deretter hovedrett (mettende), og til slutt dessert (sot avslutning).",
     },
@@ -248,7 +248,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er grønnvasking?",
       options: ["Nårselskaper gir inntrykk av a være mer miljøvennlige enn de er", "Når matvarer vaskes i klorvann før de blir lagt ut i butikkhyllene", "Når et produkt selges i en emballasje som er laget av grønn plast", "Når man sorterer søpla si i grønne poser slik at den kan gjenvinnes"],
-      explanation: "Gronnvasking er villedende markedsforing der selskaper fremstar mer baerekraftige enn de faktisk er, ofte med vage påstander.",
+      explanation: "Gronnvasking er villedende markedsføring der selskaper fremstår mer baerekraftige enn de faktisk er, ofte med vage påstander.",
     },
     {
       question: "Hvagåranterer Fairtrade-merket?",
@@ -257,13 +257,13 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr MSC-merket påfisk?",
-      options: ["At fisken er fanget baerekraftig", "At fisken er frossen", "At fisken er billigere enn annen fisk i butikken", "At fisken er billig"],
+      options: ["At fisken er fanget bærekraftig", "At fisken er frossen", "At fisken er billigere enn annen fisk i butikken", "At fisken er billig"],
       explanation: "MSC (Marine Stewardship Council) sertifiserer villfanget fisk fra baerekraftige fiskerier som ikke overforbruker bestandene.",
     },
     {
       question: "Hvilke spørsmål bør du stille deg når du velger matvarer?",
       options: ["Hvor kommer maten fra og hvordan er den produsert?", "Bare om emballasjen er pen", "Bare om emballasjen er fin og fargerik nok til å pynte", "Bare om prisen er så lav som overhodet mulig i butikken"],
-      explanation: "Som bevisst forbruker bør du tenke påopprinnelse, produksjonsmate, innhold og om du faktisk trenger produktet.",
+      explanation: "Som bevisst forbruker bør du tenke påopprinnelse, produksjonsmåte, innhold og om du faktisk trenger produktet.",
     },
     {
       question: "Hvordan kan du som forbruker påvirke matproduksjonen?",

@@ -9,7 +9,7 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva star I for i BLIKK-metoden?',
-    options: ['Identifiser nokkelord og hovedideer', 'Ignorer vanskelige ord', 'Interesser deg for bilder', 'Inspiser alle sider'],
+    options: ['Identifiser nøkkelord og hovedideer', 'Ignorer vanskelige ord', 'Interesser deg for bilder', 'Inspiser alle sider'],
     explanation: 'I står for "Identifiser" - finn de viktigste ordene og ideene i teksten.',
   },
   {
@@ -91,7 +91,7 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   'norsk-7-2-1': [
   {
     question: 'Hva består et godt argument av?',
-    options: ['Pastand, begrunnelse og eksempel', 'Bare en mening', 'Bare fakta', 'Bare spørsmål'],
+    options: ['Påstand, begrunnelse og eksempel', 'Bare en mening', 'Bare fakta', 'Bare spørsmål'],
     explanation: 'Et sterkt argument har påstand (hva du mener), begrunnelse (hvorfor) og gjerne et eksempel.',
   },
   {
@@ -130,7 +130,7 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken setning "viser" i stedet for a "fortelle"?',
-    options: ['Han knyttet nevene og kjente ansiktet bli varmt', 'Han var sint', 'Han folte seg sint', 'Han var veldig sint'],
+    options: ['Han knyttet nevene og kjente ansiktet bli varmt', 'Han var sint', 'Han følte seg sint', 'Han var veldig sint'],
     explanation: 'A beskrive handlinger og fysiske reaksjoner viser følelser i stedet for bare a fortelle dem.',
   },
   {
@@ -141,7 +141,7 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan skaper du spenning med setningslengde?',
     options: ['Bruk korte setninger for a oke tempoet', 'Bare bruk lange setninger', 'Setningslengde påvirker ikke spenning', 'Bare bruk ett ord per setning'],
-    explanation: 'Korte setninger øker tempoet og spenningen: "Hun lopte. Fort. Raskere."',
+    explanation: 'Korte setninger øker tempoet og spenningen: "Hun løpte. Fort. Raskere."',
   },
 ],
 
@@ -158,9 +158,9 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
     explanation: 'Rusle beskriver en bestemt mate å gå på- rolig og avslappet. Mer presist enn bare "ga".',
   },
   {
-    question: 'Hvilken stil passer best i en jobbsoknad?',
-    options: ['Formell med hele setninger og presist språk', 'Uformell med slang', 'Muntlig med dialektord', 'Poetisk med metafører'],
-    explanation: 'I formelle situasjoner som jobbsoknader bruker du formelt, presist språk.',
+    question: 'Hvilken stil passer best i en jobbsøknad?',
+    options: ['Formell med hele setninger og presist språk', 'Uformell med slang', 'Muntlig med dialektord', 'Poetisk med metaforer'],
+    explanation: 'I formelle situasjoner som jobbsøknader bruker du formelt, presist språk.',
   },
   {
     question: 'Hva er bindeord?',
@@ -227,8 +227,8 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan finner du verbalet i en setning?',
-    options: ['Finn det boyede verbet - handlingen', 'Finn det lengste ordet', 'Finn det første ordet', 'Finn substantivet'],
-    explanation: 'Verbalet er det boyede verbet som forteller hva som skjer i setningen.',
+    options: ['Finn det bøyede verbet - handlingen', 'Finn det lengste ordet', 'Finn det første ordet', 'Finn substantivet'],
+    explanation: 'Verbalet er det bøyede verbet som forteller hva som skjer i setningen.',
   },
 ],
 
@@ -241,8 +241,8 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et "stramannsargument"?',
-    options: ['A forvrenge motpartens argument for a lettere tilbakevise det', 'A bruke humor', 'A sitere eksperter', 'A innromme at motparten har et poeng'],
-    explanation: 'Stramann er a fremstille motpartens synspunkt feilaktig for a lettere angripe det.',
+    options: ['A forvrenge motpartens argument for a lettere tilbakevise det', 'A bruke humor', 'A sitere eksperter', 'A innrømme at motparten har et poeng'],
+    explanation: 'Stråmann er a fremstille motpartens synspunkt feilaktig for a lettere angripe det.',
   },
   {
     question: 'Hva er forskjellen pådebatt og krangling?',
@@ -270,7 +270,7 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør du gjøre med blikket under en presentasjon?',
-    options: ['Ha oyekontakt med publikum', 'Se ned i gulvet', 'Se påPowerPoint-slidene', 'Se pånotatkortene hele tiden'],
+    options: ['Ha øyekontakt med publikum', 'Se ned i gulvet', 'Se påPowerPoint-slidene', 'Se pånotatkortene hele tiden'],
     explanation: 'Øyekontakt skaper kontakt med publikum og viser at du er trygg påstoffet.',
   },
   {
@@ -281,11 +281,11 @@ const quizData_norsk_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor bør du variere tempoet når du snakker?',
     options: ['For å holde oppmerksomheten og fremheve viktige poenger', 'For a forvirre publikum', 'For å gå raskere', 'Det spiller ingen rolle'],
-    explanation: 'Variasjon holder publikum vaakne. Senk farten og ta pause ved viktige poenger.',
+    explanation: 'Variasjon holder publikum vakne. Senk farten og ta pause ved viktige poenger.',
   },
   {
-    question: 'Hva kan du gjøre mot nervositet for en presentasjon?',
-    options: ['Ove godt, puste dypt og tenke positivt', 'Ikke ove i det hele tatt', 'Tenke påalt som kan gå gålt', 'Holde pusten'],
+    question: 'Hva kan du gjøre mot nervøsitet for en presentasjon?',
+    options: ['Ove godt, puste dypt og tenke positivt', 'Ikke ove i det hele tatt', 'Tenke påalt som kan gå galt', 'Holde pusten'],
     explanation: 'Jo bedre du kan stoffet, jo tryggere blir du. Dyp pust og positiv tenkning hjelper også.',
   },
 ],

@@ -43,13 +43,13 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skjedde pålangfredag?',
-    options: ['Jesus dode påkorset', 'Jesus ble fodt', 'Jesus stod opp', 'Jesus ble dopt'],
-    explanation: 'Pa langfredag dode Jesus påkorset.',
+    options: ['Jesus døde påkorset', 'Jesus ble fodt', 'Jesus stod opp', 'Jesus ble døpt'],
+    explanation: 'Pa langfredag døde Jesus påkorset.',
   },
   {
-    question: 'Hvorfor er pasken den viktigste høytiden for kristne?',
-    options: ['Fordi Jesus stod opp fra de dode', 'Fordi Jesus ble fodt', 'Fordi Jesus ble dopt', 'Fordi kirken ble grunnlagt'],
-    explanation: 'Pasken er viktigst fordi kristne tror Jesus stod opp fra de dode.',
+    question: 'Hvorfor er påsken den viktigste høytiden for kristne?',
+    options: ['Fordi Jesus stod opp fra de døde', 'Fordi Jesus ble fodt', 'Fordi Jesus ble døpt', 'Fordi kirken ble grunnlagt'],
+    explanation: 'Påsken er viktigst fordi kristne tror Jesus stod opp fra de døde.',
   },
   {
     question: 'Hva er Jesu hovedbudskap?',
@@ -67,18 +67,18 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er konfirmasjon?',
-    options: ['Markerer overgangen til voksenlivet', 'En dapsfest', 'En bryllupsfest', 'En begravelse'],
+    options: ['Markerer overgangen til voksenlivet', 'En dåpsfest', 'En bryllupsfest', 'En begravelse'],
     explanation: 'Konfirmasjon markerer overgangen til voksenlivet og bekrefter dapen.',
   },
   {
     question: 'Hva feires påpinse?',
-    options: ['Den hellige ands komme', 'Jesu fodsel', 'Jesu dod', 'Skapelsen'],
-    explanation: 'Pinse feirer at Den hellige and kom til disiplene og kalles kirkens fodselsdag.',
+    options: ['Den hellige ands komme', 'Jesu fødsel', 'Jesu dod', 'Skapelsen'],
+    explanation: 'Pinse feirer at Den hellige and kom til disiplene og kalles kirkens fødselsdag.',
   },
   {
     question: 'Hva er nattverd?',
-    options: ['A minnes Jesu siste maltid', 'En type mat', 'En sang', 'En bønn'],
-    explanation: 'Nattverd er et ritual der kristne minnes Jesu siste maltid med disiplene.',
+    options: ['A minnes Jesu siste måltid', 'En type mat', 'En sang', 'En bønn'],
+    explanation: 'Nattverd er et ritual der kristne minnes Jesu siste måltid med disiplene.',
   },
   {
     question: 'Hvilken dag i uken har kristne vanligvis gudstjeneste?',
@@ -91,7 +91,7 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   'krle-6-2-1': [
   {
     question: 'Hvem er profeten Muhammed for muslimer?',
-    options: ['Den siste og viktigste profeten', 'En gud', 'Guds sonn', 'En engel'],
+    options: ['Den siste og viktigste profeten', 'En gud', 'Guds sønn', 'En engel'],
     explanation: 'Muhammed regnes som den siste og viktigste profeten i islam.',
   },
   {
@@ -126,15 +126,15 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Jom Kippur?',
     options: ['Forsoningsdagen - den helligste dagen', 'Nyttar', 'Lysfesten', 'Paske'],
-    explanation: 'Jom Kippur er forsoningsdagen, jodedømmens helligste dag med faste og bønn.',
+    explanation: 'Jom Kippur er forsoningsdagen, jødedommens helligste dag med faste og bønn.',
   },
   {
     question: 'Hva er en kippa?',
-    options: ['En liten hette jødiske menn baerer påhodet', 'En hellig bok', 'En bønn', 'En fest'],
-    explanation: 'Kippa er en liten lue som jødiske menn baerer som tegn pårespekt for Gud.',
+    options: ['En liten hette jødiske menn bærer påhodet', 'En hellig bok', 'En bønn', 'En fest'],
+    explanation: 'Kippa er en liten lue som jødiske menn bærer som tegn pårespekt for Gud.',
   },
   {
-    question: 'Hvorfor kalles jodedømmen, kristendømmen og islam for sosterreligioner?',
+    question: 'Hvorfor kalles jødedommen, kristendommen og islam for sosterreligioner?',
     options: ['De stammer alle fra Abraham', 'De har samme hellige bok', 'De har samme leder', 'De oppsto påsamme sted'],
     explanation: 'Alle tre religioner har roter tilbake til Abraham og tror påen Gud.',
   },
@@ -159,18 +159,18 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er samsara?',
-    options: ['Gjenfodelse - sjelen fodes på nytt', 'En hellig bok', 'En gud', 'En bønn'],
-    explanation: 'Samsara er trooen påat sjelen gjenfoedes i nye kropper etter døden.',
+    options: ['Gjenfødelse - sjelen fødes på nytt', 'En hellig bok', 'En gud', 'En bønn'],
+    explanation: 'Samsara er trooen påat sjelen gjenfødes i nye kropper etter døden.',
   },
   {
     question: 'Hva er moksha i hinduismen?',
-    options: ['Frigjøring fra gjenfodelsens hjul', 'En gud', 'En fest', 'En bønn'],
-    explanation: 'Moksha er frigjøring fra gjenfodelse, da sjelen førenes med Brahman.',
+    options: ['Frigjøring fra gjenfødelsens hjul', 'En gud', 'En fest', 'En bønn'],
+    explanation: 'Moksha er frigjøring fra gjenfødelse, da sjelen førenes med Brahman.',
   },
   {
     question: 'Hva er nirvana i buddhismen?',
     options: ['Frigjøring fra lidelse', 'Et paradis', 'En gud', 'En meditasjonsteknikk'],
-    explanation: 'Nirvana er frigjøring fra lidelse og gjenfodelsens hjul.',
+    explanation: 'Nirvana er frigjøring fra lidelse og gjenfødelsens hjul.',
   },
 ],
 
@@ -193,8 +193,8 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Har alle mennesker et livssyn?',
-    options: ['Ja, alle har et livssyn', 'Nei, bare religiose', 'Nei, bare voksne', 'Nei, bare filosofer'],
-    explanation: 'Alle mennesker har et livssyn, enten det er religiost eller ikke.',
+    options: ['Ja, alle har et livssyn', 'Nei, bare religiøse', 'Nei, bare voksne', 'Nei, bare filosofer'],
+    explanation: 'Alle mennesker har et livssyn, enten det er religiøst eller ikke.',
   },
   {
     question: 'Hvilken organisasjon representerer humanister i Norge?',
@@ -207,7 +207,7 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   'krle-6-3-2': [
   {
     question: 'Hva er den gylne regel?',
-    options: ['Gjor mot andre som du vil at andre skal gjøre mot deg', 'Den sterkeste vinner', 'Malet helliger midlet', 'Folg alltid loven'],
+    options: ['Gjor mot andre som du vil at andre skal gjøre mot deg', 'Den sterkeste vinner', 'Malet helliger midlet', 'Følg alltid loven'],
     explanation: 'Den gylne regel sier at vi skal behandle andre slik vi selv vil bli behandlet.',
   },
   {
@@ -217,7 +217,7 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen på etikk og moral?',
-    options: ['Etikk er tenkning, moral er handlinger', 'De er det samme', 'Moral er for religiose', 'Etikk er for barn'],
+    options: ['Etikk er tenkning, moral er handlinger', 'De er det samme', 'Moral er for religiøse', 'Etikk er for barn'],
     explanation: 'Etikk er tenkning om rett og galt, moral er de reglene vi faktisk følger.',
   },
   {
@@ -247,7 +247,7 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er fellesskap viktig?',
     options: ['Vi trenger a høre til og støtte hverandre', 'Det er ikke viktig', 'Bare for voksne', 'Bare for a tjene penger'],
-    explanation: 'Fellesskap gir tilhørighet, laring og støtte.',
+    explanation: 'Fellesskap gir tilhørighet, læring og støtte.',
   },
   {
     question: 'Hva betyr det a respektere ulikheter?',
@@ -256,8 +256,8 @@ const quizData_krle_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Kan identiteten forandre seg gjennom livet?',
-    options: ['Ja, identiteten utvikler seg', 'Nei, den er fastsatt fra fodsel', 'Bare i barndømmen', 'Bare etter 50 år'],
-    explanation: 'Identiteten utvikler seg gjennom livet ettersom vi fårnye erfåringer.',
+    options: ['Ja, identiteten utvikler seg', 'Nei, den er fastsatt fra fødsel', 'Bare i barndommen', 'Bare etter 50 år'],
+    explanation: 'Identiteten utvikler seg gjennom livet ettersom vi fårnye erfaringer.',
   },
 ],
 

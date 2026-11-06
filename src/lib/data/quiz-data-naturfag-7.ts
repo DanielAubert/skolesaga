@@ -96,7 +96,7 @@ const quizData_naturfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er den største trusselen mot biologisk mangfold?',
-    options: ['Ødeleggelse av leveområder', 'Jakt', 'Sykdømmer', 'Naturkatastrofer'],
+    options: ['Ødeleggelse av leveområder', 'Jakt', 'Sykdommer', 'Naturkatastrofer'],
     explanation: 'Ødeleggelse av leveområder gjennom hogst, bygging og jordbruk er hovedtrusselen.',
   },
   {
@@ -236,7 +236,7 @@ const quizData_naturfag_7: Record<string, QuizQuestion[]> = {
   'naturfag-7-4-2': [
   {
     question: 'Hva er en kjemisk reaksjon?',
-    options: ['En prosess der stoffer omdannes til nye stoffer', 'Når is smelter til vann', 'Når vann køker', 'Når sukker løses i vann'],
+    options: ['En prosess der stoffer omdannes til nye stoffer', 'Når is smelter til vann', 'Når vann koker', 'Når sukker løses i vann'],
     explanation: 'I en kjemisk reaksjon omdannes stoffer til nye stoffer med andre egenskaper.',
   },
   {

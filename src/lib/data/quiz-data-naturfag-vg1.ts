@@ -33,8 +33,8 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
   'nat-vg1-1-2': [
   {
     question: 'Hva er en modell i naturfag?',
-    options: ['En førenklet fremstilling av noe i naturen', 'En eksakt kopi av virkeligheten', 'Et kunstnerisk verk', 'En matematisk ligning som alltid er riktig'],
-    explanation: 'En modell i naturfag er en førenklet fremstilling av et objekt, system eller fenomen. Modeller brukes for a forklare, visualisere eller forutsi naturvitenskapelige sammenhenger.',
+    options: ['En forenklet fremstilling av noe i naturen', 'En eksakt kopi av virkeligheten', 'Et kunstnerisk verk', 'En matematisk ligning som alltid er riktig'],
+    explanation: 'En modell i naturfag er en forenklet fremstilling av et objekt, system eller fenomen. Modeller brukes for a forklare, visualisere eller forutsi naturvitenskapelige sammenhenger.',
   },
   {
     question: 'Hvilken type modell er en globus?',
@@ -43,13 +43,13 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var hovedproblemet med Thomsons "raisinbolle-modell" av atomet?',
-    options: ['Den viste feil om hvor ladningene befinner seg i atomet', 'Den inkluderte ikke elektroner', 'Den var for komplisert', 'Den forklærte ikke kjemiske reaksjoner'],
+    options: ['Den viste feil om hvor ladningene befinner seg i atomet', 'Den inkluderte ikke elektroner', 'Den var for komplisert', 'Den forklarte ikke kjemiske reaksjoner'],
     explanation: 'Thomsons modell viste atomet som en positiv "bolle" med negative elektroner spredt i. Rutherfords gullfolieforsok viste at dette var feil - den positive ladningen er konsentrert i en liten kjerne.',
   },
   {
     question: 'Hvilken begrensning har alle modeller til felles?',
-    options: ['De er førenklinger av virkeligheten og viser ikke alt', 'De er alltid 1:1 i størrelse', 'De kan aldri brukes til a forutsi noe', 'De er alltid digitale'],
-    explanation: 'Alle modeller er førenklinger. De viser noen sider av virkeligheten, men ikke alt. Som George Box sa: "All models are wrong, but some are useful."',
+    options: ['De er forenklinger av virkeligheten og viser ikke alt', 'De er alltid 1:1 i størrelse', 'De kan aldri brukes til a forutsi noe', 'De er alltid digitale'],
+    explanation: 'Alle modeller er forenklinger. De viser noen sider av virkeligheten, men ikke alt. Som George Box sa: "All models are wrong, but some are useful."',
   },
   {
     question: 'Hvabrukes klimamodeller til?',
@@ -61,13 +61,13 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
 
   'nat-vg1-1-3': [
   {
-    question: 'Hva star bokstaven "A" for i CRAAP-testen (den første A)?',
+    question: 'Hva står bokstaven "A" for i CRAAP-testen (den første A)?',
     options: ['Authority (Autoritet)', 'Accuracy (Noyyaktighet)', 'Aktualitet', 'Argument'],
     explanation: 'CRAAP står for Currency (aktualitet), Relevance (relevans), Authority (autoritet), Accuracy (nøyaktighet) og Purpose (formal). Den første A-en står for Authority.',
   },
   {
     question: 'Hva kjennetegner pseudovitenskap?',
-    options: ['Den baserer seg påanekdoter og er immun mot falsifisering', 'Den publiseres i fagfellevurderte tidsskrifter', 'Den kan etterproves av andre forskere', 'Den bygger påsystematiske eksperimenter'],
+    options: ['Den baserer seg påanekdoter og er immun mot falsifisering', 'Den publiseres i fagfellevurderte tidsskrifter', 'Den kan etterprøves av andre forskere', 'Den bygger påsystematiske eksperimenter'],
     explanation: 'Pseudovitenskap later som den er vitenskapelig, men mangler dokumentasjon og etterprøvbarhet. Den baserer seg ofte påanekdoter og har alltid en unnskyldning nården ikke virker.',
   },
   {
@@ -77,7 +77,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom korrelasjon og årsakssammenheng?',
-    options: ['Korrelasjon betyr at to ting varierer sammen, årsakssammenheng betyr at det ene forårsaker det andre', 'De betyr det samme', 'Korrelasjon er sikrere enn årsakssammenheng', 'Arsakssammenheng er det samme som tilfeldighet'],
+    options: ['Korrelasjon betyr at to ting varierer sammen, årsakssammenheng betyr at det ene forårsaker det andre', 'De betyr det samme', 'Korrelasjon er sikrere enn årsakssammenheng', 'Årsakssammenheng er det samme som tilfeldighet'],
     explanation: 'Korrelasjon betyr at to ting varierer sammen, men det betyr ikke at det ene forårsaker det andre. For a fastslå årsakssammenheng trengs kontrollerte eksperimenter.',
   },
   {
@@ -91,7 +91,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
   'nat-vg1-1-4': [
   {
     question: 'Hva er forskningsetikk?',
-    options: ['Retningslinjer og prinsipper for ansvårlig forskningspråksis', 'Regler for hvordan man skriver vitenskapelige artikler', 'Lover om hvem som kan drive forskning', 'Metoder for a analysere data'],
+    options: ['Retningslinjer og prinsipper for ansvarlig forskningspråksis', 'Regler for hvordan man skriver vitenskapelige artikler', 'Lover om hvem som kan drive forskning', 'Metoder for a analysere data'],
     explanation: 'Forskningsetikk omfatter ærlighet, åpenhet, respekt for forskningsdeltakere, dyr og miljø, samt vurdering av forskningens samfunnsmessige konsekvenser.',
   },
   {
@@ -106,7 +106,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det etisk problematisk nåret tobakksselskap finansierer forskning påroyking og helse?',
-    options: ['Det er en interessekonflikt fordi selskapet tjener påat royking fremstår som ufarlig', 'Tobakksselskaper har ikke rad til forskning', 'Forskningen blir automatisk feil', 'Det er ikke noe problem'],
+    options: ['Det er en interessekonflikt fordi selskapet tjener påat røyking fremstår som ufarlig', 'Tobakksselskaper har ikke rad til forskning', 'Forskningen blir automatisk feil', 'Det er ikke noe problem'],
     explanation: 'Tobakksselskapet har økonomisk interesse i resultatet - de tjener penger påsigårettsalg. Dette skaper en interessekonflikt som kan påvirke hvilke studier som publiseres og hvordan resultater tolkes.',
   },
   {

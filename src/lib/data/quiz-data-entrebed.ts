@@ -4,13 +4,13 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-1-1': [
   {
     question: 'Hva er entreprenorskap?',
-    options: ["Prosessen med a identifisere muligheter og skape verdi gjennom innovasjon", "Å studere samfunnsøkonomi ved et universitet uten selv å starte noen virksomhet", "Prosessen med a forvalte en arvet familiebedrift videre uten a endre driften", "Prosessen med a effektivisere driften i en stor bedrift for a redusere kostnader"],
+    options: ["Prosessen med a identifisere muligheter og skape verdi gjennom innovasjon", "Å studere samfunnsøkonomi ved et universitet uten selv å starte noen virksomhet", "Prosessen med a forvalte en arvet familiebedrift videre uten a endre driften", "Prosessen med a effektivisere driften i en stor bedrift for å redusere kostnader"],
     explanation: 'Entreprenorskap handler om a se muligheter, ta initiativ og skape noe nytt av verdi.',
   },
   {
     question: 'Hvilken type entreprenorskap fokuserer påa lose samfunnsproblemer?',
     options: ['Sosialt entreprenorskap', 'Kommersielt entreprenorskap', 'Intraprenorskap', 'Livsstilsentreprenorskap'],
-    explanation: 'Sosialt entreprenorskap kombinerer forretningsmessig drift med sosiale mal for a lose samfunnsproblemer.',
+    explanation: 'Sosialt entreprenorskap kombinerer forretningsmessig drift med sosiale mal for å lose samfunnsproblemer.',
   },
   {
     question: 'Hva er intraprenorskap?',
@@ -18,14 +18,14 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
     explanation: 'Intraprenorskap er nåransatte tar initiativ til innovasjon og nye prosjekter innenfor en eksisterende bedrift.',
   },
   {
-    question: 'Hvem definerte entreprenoren som en som skaper "kreativ destruksjon"?',
+    question: 'Hvem definerte entreprenøren som en som skaper "kreativ destruksjon"?',
     options: ["Joseph Schumpeter", "Peter Drucker", "Karl Marx (1818-1883)", "Adam Smith (1723-1790)"],
-    explanation: 'Joseph Schumpeter (1883-1950) definerte entreprenoren som en som erstatter det gamle med noe nytt og bedre.',
+    explanation: 'Joseph Schumpeter (1883-1950) definerte entreprenøren som en som erstatter det gamle med noe nytt og bedre.',
   },
   {
-    question: 'Hvilken egenskap er mest typisk for en entreprenor?',
-    options: ["Villighet til a ta risiko og handle påmuligheter", "Folge etablerte regler uten a stille spørsmål", "Evne til a vente pa at andre tar initiativet", "Vente påat andre skal ta initiativ"],
-    explanation: 'Entreprenorer kjennetegnes av kreativitet, risikovilje, utholdenhet og evne til a se muligheter.',
+    question: 'Hvilken egenskap er mest typisk for en entreprenør?',
+    options: ["Villighet til a ta risiko og handle påmuligheter", "Folge etablerte regler uten å stille spørsmål", "Evne til a vente på at andre tar initiativet", "Vente påat andre skal ta initiativ"],
+    explanation: 'Entreprenører kjennetegnes av kreativitet, risikovilje, utholdenhet og evne til a se muligheter.',
   },
 ],
 
@@ -38,7 +38,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom en ide og en forretningsmulighet?',
-    options: ["En mulighet er en ide med betalende kunder og gjennomforbarhet", "En ide er alltid bedre enn en mulighet", "En ide og en mulighet er i praksis det samme, bare med ulike navn", "En forretningsmulighet krever ingen planlegging"],
+    options: ["En mulighet er en ide med betalende kunder og gjennomførbarhet", "En ide er alltid bedre enn en mulighet", "En ide og en mulighet er i praksis det samme, bare med ulike navn", "En forretningsmulighet krever ingen planlegging"],
     explanation: 'En forretningsmulighet er en ide som løser et reelt problem, har kunder villige til a betale, og kan gjennomføres påen lonsom mate.',
   },
   {
@@ -48,11 +48,11 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er latente behov?',
-    options: ["Behov kunden ikke vet de har for de ser løsningen", "Behov kunden uttaler direkte", "Behov som er umulige a dekke med dagens teknologi", "Behov som ikke finnes i markedet og aldri kan skapes"],
+    options: ["Behov kunden ikke vet de har for de ser løsningen", "Behov kunden uttaler direkte", "Behov som er umulige å dekke med dagens teknologi", "Behov som ikke finnes i markedet og aldri kan skapes"],
     explanation: 'Latente behov er ubevisste behov som kunden ikke vet de har for de ser løsningen.',
   },
   {
-    question: 'Hvilken metode bruker man for a generere mange ideer i en gruppe uten a kritisere?',
+    question: 'Hvilken metode bruker man for a generere mange ideer i en gruppe uten å kritisere?',
     options: ['Brainstorming', 'SWOT-analyse', 'Konkurrentanalyse', 'Budsjettering'],
     explanation: 'Brainstorming er en gruppebasert metode der alle forslag noteres uten kritikk, med fokus påkvantitet.',
   },
@@ -91,18 +91,18 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-1-4': [
   {
     question: 'Hva er forskjellen mellom primardata og sekundardata?',
-    options: ["Primardata samles inn selv, sekundardata er eksisterende data", "Sekundardata er mer pålitelig enn de dataene man samler inn selv", "Sekundardata er alltid mer palitelig fordi den er nyere og mer oppdatert", "Det er ingen reell forskjell, begge typene samles alltid inn pa samme mate"],
-    explanation: 'Primardata er data du samler inn selv for det spesifikke formalet. Sekundardata er data som allærede finnes.',
+    options: ["Primardata samles inn selv, sekundardata er eksisterende data", "Sekundardata er mer pålitelig enn de dataene man samler inn selv", "Sekundardata er alltid mer pålitelig fordi den er nyere og mer oppdatert", "Det er ingen reell forskjell, begge typene samles alltid inn på samme mate"],
+    explanation: 'Primardata er data du samler inn selv for det spesifikke formålet. Sekundardata er data som allærede finnes.',
   },
   {
-    question: 'Hva er de fire P-ene i markedsforing?',
+    question: 'Hva er de fire P-ene i markedsføring?',
     options: ['Produkt, Pris, Plass, Promosjon', 'Person, Plan, Profitt, Produkt', 'Penger, Prosess, Personale, Plass', 'Produksjon, Pakking, Prising'],
     explanation: 'De fire P-ene er Produkt (hva du selger), Pris (hva det koster), Plass (hvor du selger), og Promosjon (hvordan du markedsfører).',
   },
   {
     question: 'Hva er direkte konkurrenter?',
-    options: ["Bedrifter som tilbyr samme produkt til samme malgruppe", "Bedrifter i andre bransjer", "Kundene som kjøper produktet ditt regelmessig og gir deg inntekter", "Bedrifter i helt andre bransjer som retter seg mot andre malgrupper"],
-    explanation: 'Direkte konkurrenter tilbyr samme produkt eller tjeneste til samme malgruppe som deg.',
+    options: ["Bedrifter som tilbyr samme produkt til samme målgruppe", "Bedrifter i andre bransjer", "Kundene som kjøper produktet ditt regelmessig og gir deg inntekter", "Bedrifter i helt andre bransjer som retter seg mot andre målgrupper"],
+    explanation: 'Direkte konkurrenter tilbyr samme produkt eller tjeneste til samme målgruppe som deg.',
   },
   {
     question: 'Hvahandler Porters fem krefter om?',
@@ -111,7 +111,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en indirekte konkurrent?',
-    options: ["En bedrift som tilbyr alternativer som dekker samme behov", "En bedrift som selger samme produkt", "En investor som skyter inn kapital mot eierandel", "En bedrift som retter seg mot nøyaktig samme malgruppe"],
+    options: ["En bedrift som tilbyr alternativer som dekker samme behov", "En bedrift som selger samme produkt", "En investor som skyter inn kapital mot eierandel", "En bedrift som retter seg mot nøyaktig samme målgruppe"],
     explanation: 'Indirekte konkurrenter tilbyr alternativer som dekker det samme underliggende behovet som ditt produkt.',
   },
 ],
@@ -120,7 +120,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-1-5': [
   {
     question: 'Hva er forskjellen mellom faste og variable kostnader?',
-    options: ["Faste kostnader endres ikke med produksjonen, variable kostnader øker med produksjonen", "Variable kostnader er alltid høyere fordi råvarer koster mer enn husleie og forsikring til sammen", "Det er ingen reell forskjell, faste og variable kostnader oppforer seg akkurat helt likt", "Variable kostnader er alltid mye høyere enn de faste kostnadene uansett produksjonsmengde"],
+    options: ["Faste kostnader endres ikke med produksjonen, variable kostnader øker med produksjonen", "Variable kostnader er alltid høyere fordi råvarer koster mer enn husleie og forsikring til sammen", "Det er ingen reell forskjell, faste og variable kostnader oppfører seg akkurat helt likt", "Variable kostnader er alltid mye høyere enn de faste kostnadene uansett produksjonsmengde"],
     explanation: 'Faste kostnader (husleie, forsikring) er like uansett produksjonsmengde. Variable kostnader (råvarer) øker med produksjonen.',
   },
   {
@@ -130,7 +130,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er nullpunktet (break-even)?',
-    options: ["Antall enheter du måselge for a dekke alle kostnader", "Nårbedriften gårmed underskudd", "Den maksimale produksjonen bedriften klarer a levere", "Punktet der bedriften gar med underskudd"],
+    options: ["Antall enheter du måselge for å dekke alle kostnader", "Nårbedriften gårmed underskudd", "Den maksimale produksjonen bedriften klarer å levere", "Punktet der bedriften går med underskudd"],
     explanation: 'Nullpunktet viser hvor mange enheter du måselge for å gå i null - verken overskudd eller underskudd.',
   },
   {
@@ -140,7 +140,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et eksempel påen fast kostnad?',
-    options: ['Husleie', 'Ravarer til produksjon', 'Provisjon per salg', 'Emballasje'],
+    options: ['Husleie', 'Råvarer til produksjon', 'Provisjon per salg', 'Emballasje'],
     explanation: 'Husleie er en fast kostnad som ikke endres med produksjonsmengden.',
   },
 ],
@@ -149,7 +149,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-1-6': [
   {
     question: 'Hvilken selskapsform har begrenset ansvar?',
-    options: ['Aksjeselskap (AS)', 'Enkeltpersonføretak', 'Ansvårlig selskap (ANS)', 'Alle har begrenset ansvar'],
+    options: ['Aksjeselskap (AS)', 'Enkeltpersonføretak', 'Ansvarlig selskap (ANS)', 'Alle har begrenset ansvar'],
     explanation: 'I et aksjeselskap (AS) er eiernes ansvar begrenset til den aksjekapitalen de har skutt inn.',
   },
   {
@@ -164,42 +164,42 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er indre motivasjon?',
-    options: ["Drivkraft fra interesse, mestring og mening i selve oppgaven", "Motivasjon som kommer av lønnsopprykk, bonus og ros fra sjefen", "Drivkraft som kommer fra lønn, bonuser og andre ytre belonninger", "Drivkraft som skapes av press og strenge krav fra ledelsen over deg"],
+    options: ["Drivkraft fra interesse, mestring og mening i selve oppgaven", "Motivasjon som kommer av lønnsopprykk, bonus og ros fra sjefen", "Drivkraft som kommer fra lønn, bonuser og andre ytre belønninger", "Drivkraft som skapes av press og strenge krav fra ledelsen over deg"],
     explanation: 'Indre motivasjon kommer fra selve oppgaven - interesse, mestring og mening.',
   },
   {
     question: 'Hvilken rolle har ansvar for regnskap i en ungdomsbedrift?',
-    options: ['Okonomiansvårlig', 'Daglig leder', 'Markedsansvårlig', 'Produksjonsansvårlig'],
-    explanation: 'I en UB har økonomiansvårlig ansvar for regnskap og økonomi.',
+    options: ['Økonomiansvarlig', 'Daglig leder', 'Markedsansvarlig', 'Produksjonsansvårlig'],
+    explanation: 'I en UB har økonomiansvarlig ansvar for regnskap og økonomi.',
   },
 ],
 
 
   'entrebed-1-7': [
   {
-    question: 'Hva star de tre P-ene i Triple Bottom Line for?',
+    question: 'Hva står de tre P-ene i Triple Bottom Line for?',
     options: ['People, Planet, Profit', 'Price, Product, Promotion', 'Plan, Process, Performance', 'Partner, Platform, Positioning'],
     explanation: 'Triple Bottom Line måler suksess i tre dimensjoner: People (sosial påvirkning), Planet (miljøpåvirkning), og Profit (økonomisk resultat).',
   },
   {
     question: 'Hva er sirkulaerøkonomi?',
-    options: ["Et system der ressurser holdes i bruk lengst mulig gjennom gjenbruk og resirkulering", "Et system der bedriftene produserer så mye som mulig for a presse enhetskostnadene ned", "Et system der man utelukkende handler helt lokalt for a korte ned pa transportavstanden", "Et system der alle produkter kastes rett etter forste gangs bruk for a spare tid og plass"],
+    options: ["Et system der ressurser holdes i bruk lengst mulig gjennom gjenbruk og resirkulering", "Et system der bedriftene produserer så mye som mulig for å presse enhetskostnadene ned", "Et system der man utelukkende handler helt lokalt for å korte ned pa transportavstanden", "Et system der alle produkter kastes rett etter forste gangs bruk for å spare tid og plass"],
     explanation: 'Sirkulaerøkonomi er et alternativ til lineaer økonomi (ta-lag-kast) der ressurser brukes lengst mulig.',
   },
   {
-    question: 'Hva er groennvasking?',
-    options: ["Falsk eller overdreven markedsforing av miljøinnsats", "A vaske med miljøvennlige produkter", "En godt dokumentert miljøstrategi mot utslipp", "A resirkulere alt avfall bedriften produserer"],
-    explanation: 'Groennvasking er nårbedrifter overdriver eller lyver om sin miljøinnsats for a fremsta som mer baerekraftige.',
+    question: 'Hva er grønnvasking?',
+    options: ["Falsk eller overdreven markedsføring av miljøinnsats", "A vaske med miljøvennlige produkter", "En godt dokumentert miljøstrategi mot utslipp", "A resirkulere alt avfall bedriften produserer"],
+    explanation: 'Grønnvasking er nårbedrifter overdriver eller lyver om sin miljøinnsats for a fremstå som mer baerekraftige.',
   },
   {
     question: 'Hva er CSR (Corporate Social Responsibility)?',
-    options: ["Bedriftens frivillige innsats for a ta ansvar utover lovkrav", "Statlig regulering av bedrifter", "En skatteordning som gir bedrifter fradrag for gaver til veldedige formal", "Statlig lovpalagt regulering av samfunnsansvar som alle bedrifter ma folge"],
+    options: ["Bedriftens frivillige innsats for å ta ansvar utover lovkrav", "Statlig regulering av bedrifter", "En skatteordning som gir bedrifter fradrag for gaver til veldedige formal", "Statlig lovpålagt regulering av samfunnsansvar som alle bedrifter må folge"],
     explanation: 'CSR handler om bedriftens frivillige samfunnsansvar utover det loven krever.',
   },
   {
-    question: 'Hvor mange baerekraftsmal har FN?',
+    question: 'Hvor mange bærekraftsmål har FN?',
     options: ['17', '10', '5', '25'],
-    explanation: 'FN har 17 globale baerekraftsmal for a bekjempe fattigdom, ulikhet og klimaendringer.',
+    explanation: 'FN har 17 globale bærekraftsmål for å bekjempe fattigdom, ulikhet og klimaendringer.',
   },
 ],
 
@@ -207,17 +207,17 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-1-8': [
   {
     question: 'Hva er en forretningsplan?',
-    options: ["Et dokument som beskriver bedriften, strategien og hvordan malene skal nas", "Kun en produktbeskrivelse med tekniske spesifikasjoner og bilder av produktet", "Kun et budsjett som viser bedriftens forventede inntekter og kostnader fremover", "Kun en markedsundersokelse som kartlegger kundenes behov, ønsker og betalingsvilje"],
+    options: ["Et dokument som beskriver bedriften, strategien og hvordan malene skal nas", "Kun en produktbeskrivelse med tekniske spesifikasjoner og bilder av produktet", "Kun et budsjett som viser bedriftens forventede inntekter og kostnader fremover", "Kun en markedsundersøkelse som kartlegger kundenes behov, ønsker og betalingsvilje"],
     explanation: 'En forretningsplan er et omfattende dokument som beskriver alle aspekter ved bedriften og dens strategi.',
   },
   {
     question: 'Hva er bootstrapping?',
-    options: ["Starte med minimale ressurser, finansiere vekst gjennom salg", "Å hente inn eksterne investorer tidlig for a finansiere veksten", "Selge hele bedriften til en investor kort tid etter oppstarten", "Ta opp et stort banklan tidlig for a finansiere en rask ekspansjon"],
-    explanation: 'Bootstrapping betyr a starte og vokse med minimale ressurser, ofte ved å bruke overskudd til a finansiere vekst.',
+    options: ["Starte med minimale ressurser, finansiere vekst gjennom salg", "Å hente inn eksterne investorer tidlig for å finansiere veksten", "Selge hele bedriften til en investor kort tid etter oppstarten", "Ta opp et stort banklån tidlig for å finansiere en rask ekspansjon"],
+    explanation: 'Bootstrapping betyr å starte og vokse med minimale ressurser, ofte ved å bruke overskudd til a finansiere vekst.',
   },
   {
     question: 'Hva er en business angel?',
-    options: ["En privatperson som investerer i oppstartsbedrifter", "En offentlig stonadsordning", "En radgiver i banken som innvilger og administrerer lan til bedrifter", "En regnskapsfører som setter opp og forer bedriftens lopende regnskap"],
+    options: ["En privatperson som investerer i oppstartsbedrifter", "En offentlig stønadsordning", "En rådgiver i banken som innvilger og administrerer lan til bedrifter", "En regnskapsfører som setter opp og forer bedriftens løpende regnskap"],
     explanation: 'Business angels er privatpersoner som investerer kapital og ofte kompetanse i oppstartsbedrifter.',
   },
   {
@@ -227,8 +227,8 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er crowdfunding?',
-    options: ["Samle inn penger fra mange via plattformer", "Salg av aksjer påborsen", "Salg av aksjer i bedriften direkte pa borsen", "Offentlig støtte fra staten til nye bedrifter"],
-    explanation: 'Crowdfunding er en metode for a samle inn kapital fra mange bidragsytere, ofte gjennom nettplattformer.',
+    options: ["Samle inn penger fra mange via plattformer", "Salg av aksjer påborsen", "Salg av aksjer i bedriften direkte pa børsen", "Offentlig støtte fra staten til nye bedrifter"],
+    explanation: 'Crowdfunding er en metode for å samle inn kapital fra mange bidragsytere, ofte gjennom nettplattformer.',
   },
 ],
 
@@ -236,18 +236,18 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-1': [
   {
     question: 'Hva er PESTEL-analyse?',
-    options: ["Analyse av makroøkonomiske faktorer som påvirker bedriften", "En markedsforingsstrategi for valg av kanaler, budskap og pris", "En bestemt type regnskap som viser bedriftens inntekter og kostnader", "En markedsforingsstrategi for a na ut til nye kundegrupper i markedet"],
-    explanation: 'PESTEL analyserer Politiske, Okonomiske, Sosiale, Teknologiske, Miljomessige og Juridiske faktorer.',
+    options: ["Analyse av makroøkonomiske faktorer som påvirker bedriften", "En markedsføringsstrategi for valg av kanaler, budskap og pris", "En bestemt type regnskap som viser bedriftens inntekter og kostnader", "En markedsføringsstrategi for å na ut til nye kundegrupper i markedet"],
+    explanation: 'PESTEL analyserer Politiske, Okonomiske, Sosiale, Teknologiske, Miljømessige og Juridiske faktorer.',
   },
   {
     question: 'Hva beskriver en visjon i strategisk planlegging?',
-    options: ["Hva bedriften ønsker a oppna pålang sikt", "Dagens omsetning", "Dagens omsetning og inntekter i bedriften", "Antall ansatte bedriften har akkurat na i dag"],
+    options: ["Hva bedriften ønsker a oppnå pålang sikt", "Dagens omsetning", "Dagens omsetning og inntekter i bedriften", "Antall ansatte bedriften har akkurat na i dag"],
     explanation: 'Visjonen er et inspirerende fremtidsbilde som gir retning for alle beslutninger.',
   },
   {
     question: 'Hva er Porters fem krefter?',
-    options: ["En modell for a analysere konkurranseintensitet i en bransje", "Fem ulike typer markedsforing en bedrift kan velge mellom i markedet", "En modell for a segmentere kundene i en bransje etter kjopekraft og behov", "En modell for a fordele markedsforingsbudsjettet mellom ulike salgskanaler"],
-    explanation: 'Porters fem krefter analyserer trussel fra nye aktorer, substitutter, kundenes makt, leverandorenes makt og rivalisering.',
+    options: ["En modell for å analysere konkurranseintensitet i en bransje", "Fem ulike typer markedsføring en bedrift kan velge mellom i markedet", "En modell for å segmentere kundene i en bransje etter kjøpekraft og behov", "En modell for å fordele markedsføringsbudsjettet mellom ulike salgskanaler"],
+    explanation: 'Porters fem krefter analyserer trussel fra nye aktorer, substitutter, kundenes makt, leverandørenes makt og rivalisering.',
   },
   {
     question: 'Hva er kjerneverdier i en bedrift?',
@@ -256,8 +256,8 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom visjon og misjon?',
-    options: ["Visjon er fremtidsbildet, misjon forklærer eksistensgrunnlaget", "Visjon handler om fortjeneste, mens misjon handler om markedsandel", "Misjon er fremtidsbildet, mens visjon forklarer dagens eksistensgrunnlag", "Visjon og misjon er to ord for det samme fremtidsbildet bedriften styrer mot"],
-    explanation: 'Visjonen beskriver onskede fremtid, mens misjonen forklærer hva bedriften gjør og hvorfor den eksisterer.',
+    options: ["Visjon er fremtidsbildet, misjon forklarer eksistensgrunnlaget", "Visjon handler om fortjeneste, mens misjon handler om markedsandel", "Misjon er fremtidsbildet, mens visjon forklarer dagens eksistensgrunnlag", "Visjon og misjon er to ord for det samme fremtidsbildet bedriften styrer mot"],
+    explanation: 'Visjonen beskriver ønskede fremtid, mens misjonen forklarer hva bedriften gjør og hvorfor den eksisterer.',
   },
 ],
 
@@ -265,8 +265,8 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-2': [
   {
     question: 'Hva er Design Thinking?',
-    options: ["En menneskesentrert tilnærming til innovasjon og problemløsning", "En juridisk prosess for a sikre rettighetene til et nytt produktdesign", "En regnskapsmetode for a fordele kostnader pa ulike designprosjekter", "En strukturert salgsmetode for a presentere designforslag for kunder"],
-    explanation: 'Design Thinking fokuserer påa forstå brukernes behov for a utvikle innovative løsninger.',
+    options: ["En menneskesentrert tilnærming til innovasjon og problemløsning", "En juridisk prosess for å sikre rettighetene til et nytt produktdesign", "En regnskapsmetode for å fordele kostnader på ulike designprosjekter", "En strukturert salgsmetode for å presentere designforslag for kunder"],
+    explanation: 'Design Thinking fokuserer påa forstå brukernes behov for å utvikle innovative løsninger.',
   },
   {
     question: 'Hva er de fem fasene i Design Thinking?',
@@ -280,13 +280,13 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr "pivot" i Lean Startup?',
-    options: ["A endre retning basert pålæring fra markedet", "A legge ned bedriften", "A fortsette pa noyaktig samme kurs", "A fortsette som for"],
-    explanation: 'En pivot er en strukturert kursendring for a teste en ny hypotese om produktet eller forretningsmodellen.',
+    options: ["A endre retning basert pålæring fra markedet", "A legge ned bedriften", "A fortsette pa nøyaktig samme kurs", "A fortsette som for"],
+    explanation: 'En pivot er en strukturert kursendring for å teste en ny hypotese om produktet eller forretningsmodellen.',
   },
   {
     question: 'Hva er Build-Measure-Learn-syklusen?',
-    options: ["Kjerneprosessen i Lean Startup for a utvikle produkter iterativt", "En ansettelsesprosess der kandidatene testes i flere runder for de ansettes", "En regnskapsmetode for a fordele utviklingskostnadene over produktets levetid", "En kvalitetskontroll der ferdige produkter testes for de sendes ut til kundene"],
-    explanation: 'Build-Measure-Learn er den iterative syklusen der man bygger, måler resultater og lærer for a forbedre.',
+    options: ["Kjerneprosessen i Lean Startup for å utvikle produkter iterativt", "En ansettelsesprosess der kandidatene testes i flere runder for de ansettes", "En regnskapsmetode for å fordele utviklingskostnadene over produktets levetid", "En kvalitetskontroll der ferdige produkter testes for de sendes ut til kundene"],
+    explanation: 'Build-Measure-Learn er den iterative syklusen der man bygger, måler resultater og lærer for å forbedre.',
   },
 ],
 
@@ -294,22 +294,22 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-3': [
   {
     question: 'Hva er venturekapital (VC)?',
-    options: ["Profesjonelle fond som investerer i vekstselskaper", "Personlige sparepenger", "Lan fra banken som ma betales tilbake med renter over en avtalt nedbetalingstid", "Grunnleggernes personlige sparepenger som de skyter inn som egenkapital i selskapet"],
+    options: ["Profesjonelle fond som investerer i vekstselskaper", "Personlige sparepenger", "Lan fra banken som må betales tilbake med renter over en avtalt nedbetalingstid", "Grunnleggernes personlige sparepenger som de skyter inn som egenkapital i selskapet"],
     explanation: 'Venturekapital er investeringsfond som investerer i oppstartsbedrifter med høyt vekstpotensial.',
   },
   {
     question: 'Hva er pre-money verdsettelse?',
-    options: ["Verdien av selskapet for investeringen", "Verdien etter investering", "Selskapets totale arsomsetning malt for de faste kostnadene trekkes fra", "Arsomsetningen"],
+    options: ["Verdien av selskapet for investeringen", "Verdien etter investering", "Selskapets totale årsomsetning malt for de faste kostnadene trekkes fra", "Arsomsetningen"],
     explanation: 'Pre-money verdsettelse er selskapets verdi for den nye investeringen legges til.',
   },
   {
     question: 'Hva er en pitch deck?',
-    options: ["En presentasjon for a overbevise investorer", "En ansettelseskontrakt", "Et regnskapsark for hver maned", "En produktkatalog"],
-    explanation: 'Pitch deck er en visuell presentasjon som brukes for a presentere bedriften for potensielle investorer.',
+    options: ["En presentasjon for å overbevise investorer", "En ansettelseskontrakt", "Et regnskapsark for hver maned", "En produktkatalog"],
+    explanation: 'Pitch deck er en visuell presentasjon som brukes for å presentere bedriften for potensielle investorer.',
   },
   {
     question: 'Hva er due diligence?',
-    options: ["Grundig gjennomgang av selskapet for investering", "En markedsundersøkelse", "En salgsmetode for oppfolging av kundeemner", "En ansettelsesprosess"],
+    options: ["Grundig gjennomgang av selskapet for investering", "En markedsundersøkelse", "En salgsmetode for oppfølging av kundeemner", "En ansettelsesprosess"],
     explanation: 'Due diligence er en systematisk gjennomgang av juridiske, finansielle og kommersielle forhold for investering.',
   },
   {
@@ -323,28 +323,28 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-4': [
   {
     question: 'Hva er Ansoffs vekstmatrise?',
-    options: ["En modell for a velge vekststrategi basert påprodukt og marked", "En regnskapsmetode for a fore vekstkostnadene inn i arsregnskapet", "En regnskapsmetode for a fordele veksten mellom ulike produkter og avdelinger", "En produksjonsplan for a oke kapasiteten nar etterspurselen i markedet stiger"],
+    options: ["En modell for å velge vekststrategi basert påprodukt og marked", "En regnskapsmetode for å fore vekstkostnadene inn i årsregnskapet", "En regnskapsmetode for å fordele veksten mellom ulike produkter og avdelinger", "En produksjonsplan for å oke kapasiteten nar etterspurselen i markedet stiger"],
     explanation: 'Ansoffs matrise viser fire vekststrategier: markedspenetrasjon, produktutvikling, markedsutvikling og diversifisering.',
   },
   {
     question: 'Hva er forskjellen mellom organisk og uorganisk vekst?',
-    options: ["Organisk vekst er intern vekst, uorganisk er gjennom oppkjøp", "Organisk vekst gar alltid raskere enn oppkjop, uansett bransje", "Organisk og uorganisk vekst er to navn pa det samme, nemlig okt salg over tid", "Organisk vekst gjennom interne ressurser gar alltid raskere enn vekst ved oppkjop"],
+    options: ["Organisk vekst er intern vekst, uorganisk er gjennom oppkjøp", "Organisk vekst går alltid raskere enn oppkjøp, uansett bransje", "Organisk og uorganisk vekst er to navn på det samme, nemlig okt salg over tid", "Organisk vekst gjennom interne ressurser går alltid raskere enn vekst ved oppkjøp"],
     explanation: 'Organisk vekst skjer gjennom interne ressurser, mens uorganisk vekst skjer gjennom fusjoner og oppkjøp.',
   },
   {
     question: 'Hva er en joint venture?',
-    options: ["Et samarbeid der to selskaper oppretter et felles selskap", "En offentlig støtteordning som gir tilskudd til samarbeidsprosjekt", "En type banklan der to selskaper deler ansvaret for tilbakebetaling av gjelden", "Et enkeltpersonforetak der en grunnlegger driver virksomheten helt pa egen hand"],
+    options: ["Et samarbeid der to selskaper oppretter et felles selskap", "En offentlig støtteordning som gir tilskudd til samarbeidsprosjekt", "En type banklån der to selskaper deler ansvaret for tilbakebetaling av gjelden", "Et enkeltpersonforetak der en grunnlegger driver virksomheten helt på egen hand"],
     explanation: 'Joint venture er et felles føretak der to eller flere selskaper gårsammen om et prosjekt eller selskap.',
   },
   {
     question: 'Hva er glokalisering?',
-    options: ["A tilpasse globale produkter til lokale markeder", "A eksportere uten tilpasninger", "A utelukkende selge lokalt uten a satse ute", "A ignorere lokale behov"],
-    explanation: 'Glokalisering kombinerer global standardisering med lokal tilpasning av produkter og markedsforing.',
+    options: ["A tilpasse globale produkter til lokale markeder", "A eksportere uten tilpasninger", "A utelukkende selge lokalt uten å satse ute", "A ignorere lokale behov"],
+    explanation: 'Glokalisering kombinerer global standardisering med lokal tilpasning av produkter og markedsføring.',
   },
   {
     question: 'Hva er nettverkseffekter?',
-    options: ["Nårverdien av et produkt øker jo flere som bruker det", "Et regnskapsprinsipp for a fore kostnadene ved store nettverk", "En type reklame som spres via personlige nettverk og anbefalinger mellom venner", "Et regnskapsprinsipp for a fordele kostnadene ved a bygge et distribusjonsnettverk"],
-    explanation: 'Nettverkseffekter oppstar nårproduktets verdi for brukeren øker med antall andre brukere.',
+    options: ["Nårverdien av et produkt øker jo flere som bruker det", "Et regnskapsprinsipp for å fore kostnadene ved store nettverk", "En type reklame som spres via personlige nettverk og anbefalinger mellom venner", "Et regnskapsprinsipp for å fordele kostnadene ved å bygge et distribusjonsnettverk"],
+    explanation: 'Nettverkseffekter oppstår nårproduktets verdi for brukeren øker med antall andre brukere.',
   },
 ],
 
@@ -352,27 +352,27 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-5': [
   {
     question: 'Hva er ESG-rapportering?',
-    options: ["Rapportering om miljømessige, sosiale og styringsmessige faktorer", "En markedsundersøkelse av hvilke leverandører bedriften selv bør velge", "En type regnskap som viser bedriftens miljokostnader adskilt fra ovrige kostnader", "En markedsundersokelse som kartlegger kundenes holdninger til baerekraft og etikk"],
-    explanation: 'ESG står for Environmental, Social, Governance - viktige faktorer for baerekraftig forretningsdrift.',
+    options: ["Rapportering om miljømessige, sosiale og styringsmessige faktorer", "En markedsundersøkelse av hvilke leverandører bedriften selv bør velge", "En type regnskap som viser bedriftens miljøkostnader adskilt fra ovrige kostnader", "En markedsundersøkelse som kartlegger kundenes holdninger til baerekraft og etikk"],
+    explanation: 'ESG står for Environmental, Social, Governance - viktige faktorer for bærekraftig forretningsdrift.',
   },
   {
     question: 'Hva er sirkulaerøkonomi?',
-    options: ["Et system der ressurser holdes i bruk sålenge som mulig", "A kun selge brukte varer i bruktbutikker og pa nettauksjoner", "A kaste alt etter forste gangs bruk slik at det stadig ma produseres nye varer", "A kun kjope og selge brukte varer i stedet for a lage nye produkter fra rastoff"],
-    explanation: 'Sirkulaerøkonomi handler om a designe ut avfall, holde produkter i bruk og regenerere naturlige systemer.',
+    options: ["Et system der ressurser holdes i bruk sålenge som mulig", "A kun selge brukte varer i bruktbutikker og på nettauksjoner", "A kaste alt etter forste gangs bruk slik at det stadig må produseres nye varer", "A kun kjøpe og selge brukte varer i stedet for å lage nye produkter fra råstoff"],
+    explanation: 'Sirkulaerøkonomi handler om å designe ut avfall, holde produkter i bruk og regenerere naturlige systemer.',
   },
   {
     question: 'Hva er B Corp-sertifisering?',
-    options: ["En sertifisering for bedrifter som oppfyller høye sosiale og miljømessige standarder", "En egen aksjeklasse som gir eierne utvidet stemmerett og fortrinnsrett til utbytte", "En regnskapsstandard som palegger bedrifter a rapportere miljokostnader i arsregnskapet", "En juridisk selskapsform som ligger mellom aksjeselskap og allmennaksjeselskap"],
-    explanation: 'B Corp er en sertifisering som viser at bedriften balanserer formaal og profitt, og oppfyller strenge standarder.',
+    options: ["En sertifisering for bedrifter som oppfyller høye sosiale og miljømessige standarder", "En egen aksjeklasse som gir eierne utvidet stemmerett og fortrinnsrett til utbytte", "En regnskapsstandard som pålegger bedrifter å rapportere miljøkostnader i årsregnskapet", "En juridisk selskapsform som ligger mellom aksjeselskap og allmennaksjeselskap"],
+    explanation: 'B Corp er en sertifisering som viser at bedriften balanserer formål og profitt, og oppfyller strenge standarder.',
   },
   {
     question: 'Hva er SDG (Sustainable Development Goals)?',
-    options: ["FNs 17 baerekraftsmal", "En regnskapsstandard", "En rapportstandard", "En type investering"],
-    explanation: 'SDG er FNs 17 globale mal for baerekraftig utvikling mot 2030.',
+    options: ["FNs 17 bærekraftsmål", "En regnskapsstandard", "En rapportstandard", "En type investering"],
+    explanation: 'SDG er FNs 17 globale mal for bærekraftig utvikling mot 2030.',
   },
   {
     question: 'Hva er impact investing?',
-    options: ["Investeringer som søker både finansiell avkastning og positiv samfunnseffekt", "Kun profittfokuserte investeringer der finansiell avkastning er det eneste som teller", "Offentlige tilskudd og stotteordninger som deles ut til bedrifter med positiv samfunnsprofil", "Rimelige banklan med gunstig rente som gis til bedrifter som driver med baerekraftig produksjon"],
+    options: ["Investeringer som søker både finansiell avkastning og positiv samfunnseffekt", "Kun profittfokuserte investeringer der finansiell avkastning er det eneste som teller", "Offentlige tilskudd og støtteordninger som deles ut til bedrifter med positiv samfunnsprofil", "Rimelige banklån med gunstig rente som gis til bedrifter som driver med bærekraftig produksjon"],
     explanation: 'Impact investing kombinerer økonomisk avkastning med positiv sosial eller miljømessig påvirkning.',
   },
 ],
@@ -381,8 +381,8 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-6': [
   {
     question: 'Hva er OKR (Objectives and Key Results)?',
-    options: ["En metode for å sette og følge opp mal", "En markedsforingsstrategi", "En juridisk godkjenning av mal", "En regnskapsstandard"],
-    explanation: 'OKR er et rammeverk for å sette ambisiose mal (Objectives) og malbare resultater (Key Results).',
+    options: ["En metode for å sette og følge opp mal", "En markedsføringsstrategi", "En juridisk godkjenning av mal", "En regnskapsstandard"],
+    explanation: 'OKR er et rammeverk for å sette ambisiøse mal (Objectives) og målbare resultater (Key Results).',
   },
   {
     question: 'Hva er forskjellen mellom ledelse og styring?',
@@ -391,18 +391,18 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er psykologisk trygghet påarbeidsplassen?',
-    options: ["Et miljø der ansatte tor a ta risiko og uttrykke seg uten frykt", "Faste arbeidstider og tydelige rutiner for nar man skal vaere pa kontoret", "Faste og forutsigbare arbeidstider som gir de ansatte trygghet i hverdagen sin", "God lonn og konkurransedyktige betingelser som gjor at ansatte foler seg verdsatt"],
+    options: ["Et miljø der ansatte tor å ta risiko og uttrykke seg uten frykt", "Faste arbeidstider og tydelige rutiner for når man skal være pa kontoret", "Faste og forutsigbare arbeidstider som gir de ansatte trygghet i hverdagen sin", "God lonn og konkurransedyktige betingelser som gjor at ansatte foler seg verdsatt"],
     explanation: 'Psykologisk trygghet er nårteammedlemmer føler seg trygge påå være sårbare og ta risiko.',
   },
   {
     question: 'Hva er Scrum?',
-    options: ["Et agilt rammeverk for produktutvikling", "En markedsforingsstrategi", "En regnskapsmetode for prosjekter", "En juridisk struktur"],
+    options: ["Et agilt rammeverk for produktutvikling", "En markedsføringsstrategi", "En regnskapsmetode for prosjekter", "En juridisk struktur"],
     explanation: 'Scrum er et agilt rammeverk med sprinter, daglige stand-ups og kontinuerlig forbedring.',
   },
   {
     question: 'Hva er KPI (Key Performance Indicator)?',
-    options: ["Nokkeltall som måler bedriftens viktigste resultater", "En type ansettelseskontrakt", "En type ansettelseskontrakt som knytter lonnen til den enkeltes maloppnaelse", "En juridisk term for de bindende kravene bedriften har overfor sine kreditorer"],
-    explanation: 'KPIer er malbare verdier som viser hvor godt bedriften nårsine strategiske mal.',
+    options: ["Nøkkeltall som måler bedriftens viktigste resultater", "En type ansettelseskontrakt", "En type ansettelseskontrakt som knytter lønnen til den enkeltes maloppnaelse", "En juridisk term for de bindende kravene bedriften har overfor sine kreditorer"],
+    explanation: 'KPIer er målbare verdier som viser hvor godt bedriften nårsine strategiske mal.',
   },
 ],
 
@@ -410,17 +410,17 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   'entrebed-2-7': [
   {
     question: 'Hva er en exit-strategi?',
-    options: ["En plan for hvordan eiere skal realisere verdiene i selskapet", "A legge ned bedriften og selge unna alt utstyret til hoystbydende", "A slutte a jobbe i selskapet og overlate den daglige driften til de ansatte", "A flytte hele virksomheten til utlandet for a redusere skatt og driftskostnader"],
-    explanation: 'Exit-strategi beskriver hvordan grunnleggere og investorer skal fa avkastning påinvesteringen.',
+    options: ["En plan for hvordan eiere skal realisere verdiene i selskapet", "A legge ned bedriften og selge unna alt utstyret til høystbydende", "A slutte å jobbe i selskapet og overlate den daglige driften til de ansatte", "A flytte hele virksomheten til utlandet for å redusere skatt og driftskostnader"],
+    explanation: 'Exit-strategi beskriver hvordan grunnleggere og investorer skal få avkastning påinvesteringen.',
   },
   {
     question: 'Hva er en IPO?',
-    options: ["Initial Public Offering - borsnoteringsprosessen", "En ansettelseskontrakt", "En type banklan der selskapet henter fremmedkapital mot pant i sine eiendeler", "En omfattende regnskapsrapport som selskapet leverer til borsen hvert kvartal"],
+    options: ["Initial Public Offering - borsnoteringsprosessen", "En ansettelseskontrakt", "En type banklån der selskapet henter fremmedkapital mot pant i sine eiendeler", "En omfattende regnskapsrapport som selskapet leverer til børsen hvert kvartal"],
     explanation: 'IPO er prosessen der et selskap tilbyr aksjer til offentligheten for første gang gjennom en borsnotetering.',
   },
   {
     question: 'Hva er en trade sale?',
-    options: ["Salg av hele eller deler av selskapet til en strategisk kjøper", "Det daglige salget av produkter til vanlige kunder i butikk og pa nett", "Salg gjennom nettbutikk der kundene bestiller produktene direkte pa nettet", "Eksport av varer til kunder i utlandet gjennom selskapets egne salgskanaler"],
+    options: ["Salg av hele eller deler av selskapet til en strategisk kjøper", "Det daglige salget av produkter til vanlige kunder i butikk og på nett", "Salg gjennom nettbutikk der kundene bestiller produktene direkte på nettet", "Eksport av varer til kunder i utlandet gjennom selskapets egne salgskanaler"],
     explanation: 'Trade sale er nårselskapet selges til en strategisk kjøper, ofte en større aktror i samme bransje.',
   },
   {
@@ -430,7 +430,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er earn-out i et oppkjøp?',
-    options: ["Tilleggsbetaling basert påfremtidig ytelse etter oppkjøpet", "En bonus til de ansatte som blir vaerende i selskapet i minst ett ar", "En bonus til de ansatte som deles ut straks oppkjøpet er avtalt", "En fast årslønn som selgeren mottar etter at oppkjøpet er sluttført"],
+    options: ["Tilleggsbetaling basert påfremtidig ytelse etter oppkjøpet", "En bonus til de ansatte som blir værende i selskapet i minst ett ar", "En bonus til de ansatte som deles ut straks oppkjøpet er avtalt", "En fast årslønn som selgeren mottar etter at oppkjøpet er sluttført"],
     explanation: 'Earn-out er en betalingsstruktur der deler av kjøpesummen avhenger av selskapets fremtidige resultater.',
   },
 ],
@@ -440,7 +440,7 @@ const quizData_entrebed: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er seriellt entreprenorskap?',
     options: ["Nåren person starter flere bedrifter over tid", "A jobbe i flere bedrifter samtidig", "Når en person har jobb i flere bedrifter", "A investere i mange selskaper"],
-    explanation: 'Serielle entreprenorer starter flere bedrifter sekvensielt, ofte etter å ha solgt tidligere selskaper.',
+    explanation: 'Serielle entreprenører starter flere bedrifter sekvensielt, ofte etter å ha solgt tidligere selskaper.',
   },
   {
     question: 'Hva er intraprenorskap?',

@@ -3,19 +3,19 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   'mat-8-1-1': [
   {
-    question: 'Hva er forskjellen mellom makro- og mikronaringsstoffer?',
-    options: ['Makro trenger vi mye av, mikro trenger vi sma mengder av', 'Mikro gir energi, makro gir ikke energi', 'Det er ingen forskjell', 'Makro finnes bare i kjøtt'],
-    explanation: 'Makronaringsstoffer (karbohydrater, proteiner, fett) trenger vi i store mengder og gir energi. Mikronaringsstoffer (vitaminer, mineraler) trenger vi i sma mengder.',
+    question: 'Hva er forskjellen mellom makro- og mikronæringsstoffer?',
+    options: ['Makro trenger vi mye av, mikro trenger vi små mengder av', 'Mikro gir energi, makro gir ikke energi', 'Det er ingen forskjell', 'Makro finnes bare i kjøtt'],
+    explanation: 'Makronaringsstoffer (karbohydrater, proteiner, fett) trenger vi i store mengder og gir energi. Mikronæringsstoffer (vitaminer, mineraler) trenger vi i sma mengder.',
   },
   {
     question: 'Hvor mye energi gir fett per gram sammenlignet med karbohydrater?',
     options: ['Mer enn dobbelt så mye', 'Like mye', 'Halvparten så mye', 'Tre ganger så mye'],
-    explanation: 'Fett gir 37 kJ per gram, mens karbohydrater gir 17 kJ per gram. Fett gir altsa mer enn dobbelt så mye energi.',
+    explanation: 'Fett gir 37 kJ per gram, mens karbohydrater gir 17 kJ per gram. Fett gir altså mer enn dobbelt så mye energi.',
   },
   {
-    question: 'Hvilke vitaminer er vannloselige?',
+    question: 'Hvilke vitaminer er vannløselige?',
     options: ['B-vitaminer og C-vitamin', 'A, D, E og K', 'Bare D-vitamin', 'Alle vitaminer'],
-    explanation: 'B-vitaminer og C-vitamin er vannloselige og måtilføres daglig fordi de ikke lagres i kroppen.',
+    explanation: 'B-vitaminer og C-vitamin er vannløselige og måtilføres daglig fordi de ikke lagres i kroppen.',
   },
   {
     question: 'Hvilket mineral er viktig for oksygentransport i blodet?',
@@ -25,7 +25,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor stor andel av energiinntaket bør komme fra karbohydrater?',
     options: ['45-60%', '10-20%', '70-80%', '25-40%'],
-    explanation: 'Ifølge kostholdsradene bør45-60% av energien komme fra karbohydrater, helst grove kornprodukter.',
+    explanation: 'Ifølge kostholdsrådene bør45-60% av energien komme fra karbohydrater, helst grove kornprodukter.',
   },
 ],
 
@@ -34,12 +34,12 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange ganger i uken anbefales det a spise fisk?',
     options: ['2-3 ganger', 'Hver dag', '1 gang', '5-7 ganger'],
-    explanation: 'Kostholdsradene anbefaler fisk 2-3 ganger i uken, hvorav minst en gang bør være fet fisk som laks eller makrell.',
+    explanation: 'Kostholdsrådene anbefaler fisk 2-3 ganger i uken, hvorav minst en gang bør være fet fisk som laks eller makrell.',
   },
   {
-    question: 'Hva kjennetegner matvarer med Nokkelhullet?',
+    question: 'Hva kjennetegner matvarer med Nøkkelhullet?',
     options: ['Mindre fett, sukker og salt, mer fiber', 'De er okologiske', 'De er dyrere', 'De smaker bedre'],
-    explanation: 'Nokkelhullet er en merkeordning som viser at produktet er sunnere enn lignende produkter - mindre fett, sukker og salt, og mer fiber.',
+    explanation: 'Nøkkelhullet er en merkeordning som viser at produktet er sunnere enn lignende produkter - mindre fett, sukker og salt, og mer fiber.',
   },
   {
     question: 'Hva viser næringsdeklarasjonen påmatpakken?',
@@ -52,9 +52,9 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
     explanation: 'Ingredienser listes etter mengde, med det det er mest av først. Dette hjelper deg forstå hva produktet hovedsakelig består av.',
   },
   {
-    question: 'Hvilket rad gjelder for rodt kjøtt ifølge kostholdsradene?',
+    question: 'Hvilket rad gjelder for rødt kjøtt ifølge kostholdsrådene?',
     options: ['Begrens inntaket', 'Spis mye hver dag', 'Unngå helt', 'Spis bare påhelger'],
-    explanation: 'Kostholdsradene anbefaler a begrense inntaket av rodt kjøtt og bearbeidet kjøtt pågrunn av helserisiko ved høy inntak.',
+    explanation: 'Kostholdsrådene anbefaler a begrense inntaket av rødt kjøtt og bearbeidet kjøtt pågrunn av helserisiko ved høy inntak.',
   },
 ],
 
@@ -67,18 +67,18 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør du gjøre etter å ha tatt påratt kjøtt?',
-    options: ['Vaske hendene grundig med sape', 'Fortsette med matlagingen', 'Skylle hendene med vann', 'Torke hendene påkluten'],
-    explanation: 'Etter å ha tatt påratt kjøtt må du vaske hendene grundig med sape i minst 20 sekunder for a fjerne bakterier.',
+    options: ['Vaske hendene grundig med såpe', 'Fortsette med matlagingen', 'Skylle hendene med vann', 'Tørke hendene påkluten'],
+    explanation: 'Etter å ha tatt påratt kjøtt må du vaske hendene grundig med såpe i minst 20 sekunder for a fjerne bakterier.',
   },
   {
-    question: 'Hvorfor bør du bruke separate skjaerebrett for kjøtt og grønnsaker?',
+    question: 'Hvorfor bør du bruke separate skjærebrett for kjøtt og grønnsaker?',
     options: ['For å unngå kryssforurensning', 'For a spare tid', 'For at maten skal smake bedre', 'Det er ikke nødvendig'],
-    explanation: 'Separate skjaerebrett hindrer kryssforurensning - at bakterier fra ratt kjøtt spres til mat som skal spises ra.',
+    explanation: 'Separate skjærebrett hindrer kryssforurensning - at bakterier fra ratt kjøtt spres til mat som skal spises ra.',
   },
   {
     question: 'Hvor lenge bør du vaske hendene for a fjerne bakterier effektivt?',
     options: ['Minst 20 sekunder', '5 sekunder', '1 minutt', '10 sekunder'],
-    explanation: 'Du bør vaske hendene i minst 20 sekunder med sape og vann. Et tips er a synge "Gratulærer med dagen" to ganger.',
+    explanation: 'Du bør vaske hendene i minst 20 sekunder med såpe og vann. Et tips er a synge "Gratulærer med dagen" to ganger.',
   },
   {
     question: 'Hvilken av disse er IKKE en av de fire hovedreglene for mathygiene?',
@@ -107,7 +107,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken temperatur bør kjøleskapet holde?',
     options: ['0-4 grader C', '10 grader C', '-18 grader C', 'Romtemperatur'],
-    explanation: 'Kjoleskapet bør holde 0-4 grader C for a bremse bakterievekst og holde maten trygg lenger.',
+    explanation: 'Kjøleskapet bør holde 0-4 grader C for a bremse bakterievekst og holde maten trygg lenger.',
   },
   {
     question: 'Hvor lenge kan lett bedervelig mat sta i romtemperatur?',
@@ -119,19 +119,19 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 
   'mat-8-3-1': [
   {
-    question: 'Hva er forskjellen mellom vate og torre tilberedningsteknikker?',
-    options: ['Vate bruker vaeske, torre bruker ikke vaeske', 'Det er ingen forskjell', 'Torre er raskere', 'Vate er sunnere'],
-    explanation: 'Vate teknikker (koke, dampe, posjere) bruker vaeske, mens torre teknikker (steke, grille, bake) ikke bruker vaeske i tilberedningen.',
+    question: 'Hva er forskjellen mellom våte og torre tilberedningsteknikker?',
+    options: ['Våte bruker væske, torre bruker ikke væske', 'Det er ingen forskjell', 'Torre er raskere', 'Våte er sunnere'],
+    explanation: 'Våte teknikker (koke, dampe, posjere) bruker væske, mens torre teknikker (steke, grille, bake) ikke bruker væske i tilberedningen.',
   },
   {
     question: 'Hvilken tilberedningsmetode bevarer flest næringsstoffer?',
     options: ['Dampkoking', 'Koking i mye vann', 'Fritering', 'Lang koking'],
-    explanation: 'Dampkoking bevarer flest næringsstoffer fordi maten ikke ligger i vann der naringsstoffer kan loses ut.',
+    explanation: 'Dampkoking bevarer flest næringsstoffer fordi maten ikke ligger i vann der næringsstoffer kan loses ut.',
   },
   {
     question: 'Hva skjer under karamellisering?',
-    options: ['Sukker varmes og blir brunt med sot, notteaktig smak', 'Protein stivner', 'Fett smelter', 'Vann fordamper'],
-    explanation: 'Karamellisering skjer nårsukker varmes over 160 grader C og blir brunt. Det gir sot, notteaktig smak, ogsåi grønnsaker.',
+    options: ['Sukker varmes og blir brunt med sot, nøtteaktig smak', 'Protein stivner', 'Fett smelter', 'Vann fordamper'],
+    explanation: 'Karamellisering skjer nårsukker varmes over 160 grader C og blir brunt. Det gir sot, nøtteaktig smak, ogsåi grønnsaker.',
   },
   {
     question: 'Hvorfor bør pannen være varm for du tilsetter mat?',
@@ -140,7 +140,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner wok som tilberedningsmetode?',
-    options: ['Svært høy varme og rask tilberedning', 'Lav varme og lang tid', 'Mye vaeske', 'Bare for dessert'],
+    options: ['Svært høy varme og rask tilberedning', 'Lav varme og lang tid', 'Mye væske', 'Bare for dessert'],
     explanation: 'Wok bruker svært høy varme for rask tilberedning. Maten behoolder farge, sprodhet og næringsstoffer.',
   },
 ],
@@ -149,23 +149,23 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   'mat-8-3-2': [
   {
     question: 'Hva betyr "mise en place"?',
-    options: ['A male opp og gjøre klar alle ingredienser for stårt', 'A rydde etter matlaging', 'En type rett', 'A servere pent'],
+    options: ['A male opp og gjøre klar alle ingredienser for start', 'A rydde etter matlaging', 'En type rett', 'A servere pent'],
     explanation: 'Mise en place er fransk og betyr "alt påplass". Du måler opp og klargjør alle ingredienser for du begynner, noe som gjør matlagingen enklære.',
   },
   {
     question: 'Hva betyr a "jevne" en saus?',
-    options: ['A tilsette mel eller maisenna for a tykne', 'A roe i sausen', 'A smake til med salt', 'A avkjole sausen'],
+    options: ['A tilsette mel eller maisenna for a tykne', 'A roe i sausen', 'A smake til med salt', 'A avkjøle sausen'],
     explanation: 'A jevne betyr a tilsette et bindemiddel som mel eller maisenna for å gjøre sausen tykkere.',
   },
   {
     question: 'Hvorfor bør du lese hele oppskriften for du begynner?',
     options: ['For a forstå hva som kreves og planlegge tiden', 'For a telle ingrediensene', 'Det er ikke nødvendig', 'For a finne feil'],
-    explanation: 'Ved a lese hele oppskriften først ungår du overraskelser underveis og kan planlegge når ting mågjes klært.',
+    explanation: 'Ved a lese hele oppskriften først ungår du overraskelser underveis og kan planlegge når ting mågjes klart.',
   },
   {
     question: 'Hva betyr det a "redusere" en saus?',
-    options: ['A koke inn vaeske for sterkere smak', 'A lage mindre mengde', 'A tilsette mer vann', 'A avkjole'],
-    explanation: 'A redusere betyr a koke inn vaeske slik at smaken konsentreres og sausen blir tykkere og mer smakfull.',
+    options: ['A koke inn væske for sterkere smak', 'A lage mindre mengde', 'A tilsette mer vann', 'A avkjøle'],
+    explanation: 'A redusere betyr a koke inn væske slik at smaken konsentreres og sausen blir tykkere og mer smakfull.',
   },
   {
     question: 'Hva er en porsjon i en oppskrift?',
@@ -179,7 +179,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva viser tallerkenmodellen?',
     options: ['Halvparten grønnsaker, 1/4 karbohydrater, 1/4 protein', 'Bare kjøtt påtallerkenen', 'Like mye av alt', 'Mest karbohydrater'],
-    explanation: 'Tallerkenmodellen viser et sunt maltid: 1/2 grønnsaker, 1/4 karbohydrater (poteter, ris, pasta), 1/4 protein (kjøtt, fisk, belgfrukter).',
+    explanation: 'Tallerkenmodellen viser et sunt måltid: 1/2 grønnsaker, 1/4 karbohydrater (poteter, ris, pasta), 1/4 protein (kjøtt, fisk, belgfrukter).',
   },
   {
     question: 'Hvorfor er ukemeny lurt?',
@@ -189,7 +189,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva bør du sjekke for du planlegger ukemenyen?',
     options: ['Hva du allærede har hjemme', 'Vaermeldingen', 'TV-programmet', 'Naboens meny'],
-    explanation: 'Sjekk hva du har hjemme først, spesielt mat som snart gårut. Da kan du planlegge maltider som bruker opp dette.',
+    explanation: 'Sjekk hva du har hjemme først, spesielt mat som snart gårut. Da kan du planlegge måltider som bruker opp dette.',
   },
   {
     question: 'Hvorfor bør du ikke handle mat når du er sulten?',
@@ -198,7 +198,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør du gjøre med matrester?',
-    options: ['Bruke dem til neste maltid eller fryse ned', 'Kaste dem med en gang', 'La dem sta i kjoleskapet til de mugner', 'Gi dem til naboen'],
+    options: ['Bruke dem til neste måltid eller fryse ned', 'Kaste dem med en gang', 'La dem sta i kjøleskapet til de mugner', 'Gi dem til naboen'],
     explanation: 'Rester kan brukes til neste dags lunsj eller fryses ned. Dette sparer penger og reduserer matsvinn.',
   },
 ],
@@ -222,8 +222,8 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med sesonvarer?',
-    options: ['Varer som dyrkes naturlig i den aktuelle arstiden', 'Varer påtilbud', 'Importerte varer', 'Frosne varer'],
-    explanation: 'Sesongvarer er mat som dyrkes naturlig i arstiden, uten oppvarmet drivhus. De er ofte billigere, ferskere og mer miljøvennlige.',
+    options: ['Varer som dyrkes naturlig i den aktuelle årstiden', 'Varer påtilbud', 'Importerte varer', 'Frosne varer'],
+    explanation: 'Sesongvarer er mat som dyrkes naturlig i årstiden, uten oppvarmet drivhus. De er ofte billigere, ferskere og mer miljøvennlige.',
   },
   {
     question: 'Omtrent hvor mye kan du spare ved a lage pizza hjemme i stedet for ferdigpizza?',
@@ -241,7 +241,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr FIFO i forbindelse med matoppbevaring?',
-    options: ['First In, First Out - bruk eldst mat først', 'En type kjoleskap', 'En oppskrift', 'En butikkjede'],
+    options: ['First In, First Out - bruk eldst mat først', 'En type kjøleskap', 'En oppskrift', 'En butikkjede'],
     explanation: 'FIFO betyr at maten som kom først inn, skal brukes først. Sett nye varer bakerst i skapet såde eldste brukes for.',
   },
   {
@@ -284,7 +284,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
     explanation: 'Den mest baerekraftige maten er den du faktisk spiser. Matsvinn er det verste for miljat, uansett hva slags mat det er.',
   },
   {
-    question: 'Hvordan kan du spise mer baerekraftig uten a slutte med kjøtt?',
+    question: 'Hvordan kan du spise mer bærekraftig uten a slutte med kjøtt?',
     options: ['Redusere mengden og velge kylling eller fisk framfor storfe', 'Spise mer storfekjøtt', 'Bare spise ferdigmat', 'Importere mer mat'],
     explanation: 'Du trenger ikke slutte med kjøtt. Ved a redusere mengden og velge kylling eller fisk i stedet for storfe, reduserer du klimaavtrykket betydelig.',
   },

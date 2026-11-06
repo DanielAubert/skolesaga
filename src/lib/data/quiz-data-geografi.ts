@@ -901,7 +901,7 @@ const quizData_geografi: Record<string, QuizQuestion[]> = {
     {
       question: "Hva viser den konsentriske sonemodellen til Burgess?",
       options: ["At byen vokser i ringer utover fra sentrum", "At byen vokser i sektorer langs hovedveiene", "At byen har flere likestilte kjerner", "At byer alltid vokser mot nord"],
-      explanation: "Burgess-modellen (1925) beskriver byen som ringer rundt CBD. Sektormodellen (Hoyt) og flerkjernemodellen (Harris og Ullman) er alternative bymodeller.",
+      explanation: "Burgess-modellen (1925) beskriver byen som ringer rundt CBD. Sektormodellen (Høyt) og flerkjernemodellen (Harris og Ullman) er alternative bymodeller.",
     },
     {
       question: "Hva er gentrifisering?",

@@ -5,11 +5,11 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er økonomi i en bedriftssammenheng?',
     options: ['Hvordan virksomheten skaffer inntekter, disponerer ressurser og styrer kostnader', 'Hvor mye penger bedriften har i banken', 'Antall ansatte i bedriften', 'Hvor mange produkter bedriften selger'],
-    explanation: 'Okonomi i en bedriftssammenheng handler om hvordan virksomheten skaffer seg inntekter, disponerer ressurser og styrer kostnader for a oppna lønnsomhet.',
+    explanation: 'Okonomi i en bedriftssammenheng handler om hvordan virksomheten skaffer seg inntekter, disponerer ressurser og styrer kostnader for a oppnå lønnsomhet.',
   },
   {
     question: 'Hvilke er de tre hovedkategoriene av virksomheter etter eierskap?',
-    options: ['Private, offentlige og ideelle virksomheter', 'Store, mellomstore og sma bedrifter', 'Industri, handel og service', 'Lokale, nasjonale og internasjonale'],
+    options: ['Private, offentlige og ideelle virksomheter', 'Store, mellomstore og små bedrifter', 'Industri, handel og service', 'Lokale, nasjonale og internasjonale'],
     explanation: 'Virksomheter kan deles inn i private (eid av privatpersoner/selskaper), offentlige (eid av stat/kommune) og ideelle (frivillige organisasjoner uten profittmal).',
   },
   {
@@ -18,13 +18,13 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
     explanation: 'Interessenter er alle personer, grupper og organisasjoner som påvirkes av eller kan påvirke virksomheten, inkludert eiere, ansatte, kunder, leverandører og samfunnet.',
   },
   {
-    question: 'Hva kjennetegner sma bedrifter i Norge?',
+    question: 'Hva kjennetegner små bedrifter i Norge?',
     options: ['Under 20 ansatte', 'Under 50 ansatte', 'Under 100 ansatte', 'Under 10 ansatte'],
-    explanation: 'Sma bedrifter defineres som virksomheter med under 20 ansatte. Over 99% av alle bedrifter i Norge er sma og mellomstore bedrifter.',
+    explanation: 'Sma bedrifter defineres som virksomheter med under 20 ansatte. Over 99% av alle bedrifter i Norge er små og mellomstore bedrifter.',
   },
   {
     question: 'Hvordan henger økonomi og ledelse sammen?',
-    options: ['God ledelse gir motiverte ansatte som yter mer, noe som forbedrer økonomien', 'De har ingen sammenheng', 'Okonomi bestemmer alltid ledelsen', 'Ledelse handler bare om a ta beslutninger'],
+    options: ['God ledelse gir motiverte ansatte som yter mer, noe som forbedrer økonomien', 'De har ingen sammenheng', 'Okonomi bestemmer alltid ledelsen', 'Ledelse handler bare om å ta beslutninger'],
     explanation: 'God ledelse er en forutsetning for god økonomi fordi motiverte medarbeidere yter mer, gode beslutninger gir bedre ressursutnyttelse, og et godt arbeidsmiljø reduserer sykefravær og turnover.',
   },
 ],
@@ -39,22 +39,22 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kjennetegner en linjeorganisasjon?',
     options: ['Klare kommandolinjer fra topp til bunn, hver ansatt har en overordnet', 'Alle ansatte rapporterer til flere ledere', 'Ingen formell struktur', 'Bare prosjektbasert arbeid'],
-    explanation: 'En linjeorganisasjon er den enkleste organisasjonsformen med klare kommandolinjer fra topp til bunn. Hver ansatt har kun en overordnet a forholde seg til.',
+    explanation: 'En linjeorganisasjon er den enkleste organisasjonsformen med klare kommandolinjer fra topp til bunn. Hver ansatt har kun en overordnet å forholde seg til.',
   },
   {
     question: 'Hva er en ulempe med funksjonsorganisasjon?',
-    options: ['Kan gi silotenkning mellom avdelinger', 'For enkelt a forstå', 'Gir for mye spesialisering', 'Alle tar ansvar for alt'],
-    explanation: 'En ulempe med funksjonsorganisasjon er at den kan gi "silotenkning" mellom avdelinger, der det blir vanskelig a koordinere påtvers.',
+    options: ['Kan gi silotenkning mellom avdelinger', 'For enkelt å forstå', 'Gir for mye spesialisering', 'Alle tar ansvar for alt'],
+    explanation: 'En ulempe med funksjonsorganisasjon er at den kan gi "silotenkning" mellom avdelinger, der det blir vanskelig å koordinere påtvers.',
   },
   {
     question: 'Hva er organisasjonskultur?',
-    options: ['Felles verdier, normer og holdninger som preger organisasjonen', 'Bygningen organisasjonen holder til i', 'Lonnssystemet i bedriften', 'Antall ansatte i bedriften'],
+    options: ['Felles verdier, normer og holdninger som preger organisasjonen', 'Bygningen organisasjonen holder til i', 'Lønnssystemet i bedriften', 'Antall ansatte i bedriften'],
     explanation: 'Organisasjonskultur er de felles verdier, normer, holdninger og antakelser som preger en organisasjon - "slik gjør vi det her hos oss".',
   },
   {
     question: 'Hvilken kulturtype fokuserer påinnovasjon og kreativitet?',
     options: ['Adhokrati-kultur', 'Klankultur', 'Hierarkisk kultur', 'Markedskultur'],
-    explanation: 'Adhokrati-kultur fokuserer påinnovasjon, kreativitet og risikotaking, der lederen er en entreprenor.',
+    explanation: 'Adhokrati-kultur fokuserer påinnovasjon, kreativitet og risikotaking, der lederen er en entreprenør.',
   },
 ],
 
@@ -62,13 +62,13 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   'økonomi-ledelse-3': [
   {
     question: 'Hva er forskjellen mellom ledelse og administrasjon?',
-    options: ['Ledelse handler om retning og visjon, administrasjon om planlegging og kontroll', 'De er det samme', 'Administrasjon er viktigere enn ledelse', 'Ledelse handler bare om a gi ordrer'],
-    explanation: 'Ledelse handler om a skape retning, inspirere og motivere, mens administrasjon handler om a planlegge, organisere og kontrollære at oppgaver blir utfort.',
+    options: ['Ledelse handler om retning og visjon, administrasjon om planlegging og kontroll', 'De er det samme', 'Administrasjon er viktigere enn ledelse', 'Ledelse handler bare om å gi ordrer'],
+    explanation: 'Ledelse handler om å skape retning, inspirere og motivere, mens administrasjon handler om å planlegge, organisere og kontrollære at oppgaver blir utført.',
   },
   {
-    question: 'Nårpasser autoritaer ledelse best?',
+    question: 'Nårpasser autoritær ledelse best?',
     options: ['I krisesituasjoner eller nårraske beslutninger er nødvendig', 'Alltid i alle situasjoner', 'Nåransatte er svart selvstendige', 'Nårman har god tid til diskusjoner'],
-    explanation: 'Autoritaer ledelse passer i krisesituasjoner eller nårraske beslutninger er nødvendig, siden lederen tar beslutninger alene.',
+    explanation: 'Autoritær ledelse passer i krisesituasjoner eller nårraske beslutninger er nødvendig, siden lederen tar beslutninger alene.',
   },
   {
     question: 'Hva innebærer situasjonsbestemt ledelse?',
@@ -77,12 +77,12 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken lederstil passer for erfarne og selvgaende medarbeidere?',
-    options: ['Delegerende ledelse', 'Instruerende ledelse', 'Autoritaer ledelse', 'Demokratisk ledelse'],
+    options: ['Delegerende ledelse', 'Instruerende ledelse', 'Autoritær ledelse', 'Demokratisk ledelse'],
     explanation: 'Delegerende ledelse passer for medarbeidere med høy kompetanse og høy motivasjon, der lederen gir stor frihet til a ta egne beslutninger.',
   },
   {
     question: 'Hva kjennetegner en transformasjonsleder?',
-    options: ['Inspirerer medarbeidere til a jobbe for fellesskapets beste', 'Fokuserer kun pådaglig drift', 'Gir detaljerte instruksjoner hele tiden', 'Unngår a ta beslutninger'],
+    options: ['Inspirerer medarbeidere til a jobbe for fellesskapets beste', 'Fokuserer kun pådaglig drift', 'Gir detaljerte instruksjoner hele tiden', 'Unngår å ta beslutninger'],
     explanation: 'Transformasjonsledere inspirerer medarbeidere til a se utover egne interesser og arbeide for fellesskapets beste gjennom visjon, stimulering og individuell omtanke.',
   },
 ],
@@ -121,7 +121,7 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er de seks hovedelementene i kommunikasjonsprosessen?',
     options: ['Sender, koding, kanal, dekoding, mottaker og tilbakemelding', 'Telefon, e-post, mote, rapport, brev og SMS', 'Leder, ansatt, kunde, leverandor, eier og bank', 'Sprak, tonefall, kroppsspråk, mimikk, gester og blikk'],
-    explanation: 'Kommunikasjonsprosessen består av sender, koding (formulering), kanal (medium), dekoding (tolkning), mottaker og tilbakemelding, pluss stoy som kan førstyrre.',
+    explanation: 'Kommunikasjonsprosessen består av sender, koding (formulering), kanal (medium), dekoding (tolkning), mottaker og tilbakemelding, pluss støy som kan forstyrre.',
   },
   {
     question: 'Hva menes med kanalrikhet?',
@@ -140,7 +140,7 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en typisk kommunikasjonsbarriere i organisasjoner?',
-    options: ['For mange ledd i kommunikasjonskjeden', 'For fa kommunikasjonskanaler', 'For lav lønn', 'For lite arbeid'],
+    options: ['For mange ledd i kommunikasjonskjeden', 'For få kommunikasjonskanaler', 'For lav lønn', 'For lite arbeid'],
     explanation: 'Typiske kommunikasjonsbarrierer inkluderer for mange ledd i kommunikasjonskjeden, informasjonsoverbelastning, tidspress og geografisk avstand.',
   },
 ],
@@ -187,8 +187,8 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
     explanation: 'Et resultatbudsjett viser forventede inntekter og kostnader i en periode og gir et bilde av forventet overskudd eller underskudd.',
   },
   {
-    question: 'Hva er formalet med et likviditetsbudsjett?',
-    options: ['Vise nårpenger kommer inn og gårut for a sikre betalingsevne', 'Vise forventet overskudd', 'Vise verdien av eiendeler', 'Planlegge antall ansatte'],
+    question: 'Hva er formålet med et likviditetsbudsjett?',
+    options: ['Vise nårpenger kommer inn og gårut for å sikre betalingsevne', 'Vise forventet overskudd', 'Vise verdien av eiendeler', 'Planlegge antall ansatte'],
     explanation: 'Et likviditetsbudsjett viser nårpenger kommer inn og gårut, slik at bedriften kan planlegge å ha nok kontanter til a betale sine forpliktelser.',
   },
   {
@@ -198,7 +198,7 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er budsjettering viktig for en virksomhet?',
-    options: ['Gir grunnlag for planlegging, styring og kontroll', 'Bare for a tilfredsstille banken', 'Kun for skattemyndighetene', 'Det er egentlig ikke viktig'],
+    options: ['Gir grunnlag for planlegging, styring og kontroll', 'Bare for å tilfredsstille banken', 'Kun for skattemyndighetene', 'Det er egentlig ikke viktig'],
     explanation: 'Budsjettering er viktig fordi det gir grunnlag for planlegging, styring og kontroll, og hjelper ledelsen med a ta gode beslutninger.',
   },
 ],
@@ -207,12 +207,12 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   'økonomi-ledelse-8': [
   {
     question: 'Hva er bedriftsetikk?',
-    options: ['Moralske prinsipper og verdier som styrer bedriftens atferd', 'Bare a følge lover og regler', 'A tjene mest mulig penger', 'Kun a behandle ansatte godt'],
+    options: ['Moralske prinsipper og verdier som styrer bedriftens atferd', 'Bare å følge lover og regler', 'A tjene mest mulig penger', 'Kun å behandle ansatte godt'],
     explanation: 'Bedriftsetikk handler om de moralske prinsipper og verdier som styrer hvordan en bedrift opptrer overfor interessenter og samfunnet.',
   },
   {
     question: 'Hva er samfunnsansvar (CSR)?',
-    options: ['Bedriftens ansvar for a bidra positivt til samfunn og miljø', 'Bare a betale skatt', 'A sponse idrettslag', 'Kun a gi til veldedighet'],
+    options: ['Bedriftens ansvar for å bidra positivt til samfunn og miljø', 'Bare å betale skatt', 'A sponse idrettslag', 'Kun å gi til veldedighet'],
     explanation: 'Samfunnsansvar (CSR) innebærer at bedriften tar ansvar for sin påvirkning påsamfunn og miljø utover det loven krever.',
   },
   {
@@ -223,7 +223,7 @@ const quizData_okonomi_ledelse: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er korrupsjon?',
     options: ['Misbruk av makt for personlig vinning', 'A forhandle om priser', 'A gi rabatter til kunder', 'A betale skatt'],
-    explanation: 'Korrupsjon er misbruk av betrodd makt for personlig vinning, inkludert bestikkelser og smoring.',
+    explanation: 'Korrupsjon er misbruk av betrodd makt for personlig vinning, inkludert bestikkelser og smøring.',
   },
   {
     question: 'Hvorfor er etikk viktig for en bedrifts omdømme?',

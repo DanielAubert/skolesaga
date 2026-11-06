@@ -20,7 +20,7 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er lesestrategier?',
     options: ['Ulike mater a lese påsom hjelper deg a forstå bedre', 'Regler for hvor fort du skal lese', 'En liste over bøker du bør lese', 'Oving i a lese høyt'],
-    explanation: 'Lesestrategier er verktoy du bruker for a forstå tekster bedre - du velger strategi etter hva du leser.',
+    explanation: 'Lesestrategier er verktøy du bruker for a forstå tekster bedre - du velger strategi etter hva du leser.',
   },
   {
     question: 'Hva kan du gjøre for a huske det du har lest?',
@@ -66,9 +66,9 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
     explanation: 'Fagtekster gir oss informasjon og fakta om et emne, i motsetning til fortellinger som er oppdiktet.',
   },
   {
-    question: 'Hva er nokkelord i en tekst?',
+    question: 'Hva er nøkkelord i en tekst?',
     options: ['De viktigste ordene som forteller hva teksten handler om', 'Ordene som står først i teksten', 'Ord som er vanskelige a uttale', 'Ord som rimer'],
-    explanation: 'Nokkelord er de viktigste ordene i teksten. De gjentas ofte og er sentrale for a forstå innholdet.',
+    explanation: 'Nøkkelord er de viktigste ordene i teksten. De gjentas ofte og er sentrale for a forstå innholdet.',
   },
   {
     question: 'Hva kjennetegner fagtekster?',
@@ -106,12 +106,12 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan du beskrive at noen er redd?',
-    options: ['Hjertet hamret i brystet hennes', 'Hun var redd', 'Hun folte seg redd', 'Hun var veldig redd'],
+    options: ['Hjertet hamret i brystet hennes', 'Hun var redd', 'Hun følte seg redd', 'Hun var veldig redd'],
     explanation: 'I stedet for a bare si "hun var redd", kan du beskrive fysiske tegn som at hjertet hamrer - dette er a vise, ikke fortelle.',
   },
   {
     question: 'Hva skjer i avslutningen av en fortelling?',
-    options: ['Problemet loses og vi fårvite hvordan det gar', 'Nye problemer oppstar', 'Hovedpersonen presenteres', 'Spenningen bygger seg opp'],
+    options: ['Problemet loses og vi fårvite hvordan det gar', 'Nye problemer oppstår', 'Hovedpersonen presenteres', 'Spenningen bygger seg opp'],
     explanation: 'I avslutningen loses problemet og leseren fårvite hvordan det ender for personene.',
   },
 ],
@@ -178,7 +178,7 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   'norsk-5-3-1': [
   {
     question: 'Hva er et substantiv?',
-    options: ['Ord som betegner ting, personer, dyr eller steder', 'Ord som beskriver handling', 'Ord som beskriver egenskaper', 'Smaord som binder setninger sammen'],
+    options: ['Ord som betegner ting, personer, dyr eller steder', 'Ord som beskriver handling', 'Ord som beskriver egenskaper', 'Småord som binder setninger sammen'],
     explanation: 'Substantiv er navneord - de navngir ting, personer, dyr, steder eller begreper.',
   },
   {
@@ -211,9 +211,9 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
     explanation: 'Adjektiv er beskrivende ord som forteller hvordan noe er - størrelse, farge, form, følelser osv.',
   },
   {
-    question: 'Hva er gradboyning av adjektiv?',
+    question: 'Hva er gradbøyning av adjektiv?',
     options: ['A boye adjektiv i positiv, komparativ og superlativ', 'A skrive adjektiv med stor bokstav', 'A sette adjektiv først i setningen', 'A bruke mange adjektiv i samme setning'],
-    explanation: 'Gradboyning brukes nårvi sammenligner: stor (positiv), større (komparativ), størst (superlativ).',
+    explanation: 'Gradbøyning brukes nårvi sammenligner: stor (positiv), større (komparativ), størst (superlativ).',
   },
   {
     question: 'Hva er komparativ form av "fin"?',
@@ -270,7 +270,7 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bør du bruke stikkord i stedet for a lese alt?',
-    options: ['For a snakke naturlig og ha oyekontakt med publikum', 'For å gjøre det vanskeligere', 'For a spare papir', 'For a glemme hva du skal si'],
+    options: ['For a snakke naturlig og ha øyekontakt med publikum', 'For å gjøre det vanskeligere', 'For a spare papir', 'For a glemme hva du skal si'],
     explanation: 'Stikkord hjelper deg a huske hovedpoengene mens du kan snakke naturlig og se påpublikum.',
   },
   {
@@ -300,7 +300,7 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er viktig i en god samtale?',
     options: ['Bade a snakke og a lytte', 'A snakke mest mulig selv', 'A avbryte andre når du er uenig', 'A se påmobilen mens andre snakker'],
-    explanation: 'I en god samtale måalle både fa snakke og lytte til hverandre.',
+    explanation: 'I en god samtale måalle både få snakke og lytte til hverandre.',
   },
   {
     question: 'Hvordan kan du si at du er uenig påen respektfull mate?',
@@ -324,12 +324,12 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er drama?',
     options: ['A spille roller og late som du er en annen person', 'A lese høyt fra en bok', 'A skrive en tekst', 'A synge en sang'],
-    explanation: 'Dramå handler om a spille roller, bruke kropp, stemme og følelser for a fortelle en historie.',
+    explanation: 'Drama handler om a spille roller, bruke kropp, stemme og følelser for a fortelle en historie.',
   },
   {
     question: 'Hva er improvisasjon?',
     options: ['A finne påting der og da, uten manus', 'A lese fra et manus', 'A ove mange ganger for', 'A se påen film'],
-    explanation: 'Improvisasjon er a finne påting mens du spiller, uten å ha ovd eller planlagt.',
+    explanation: 'Improvisasjon er a finne påting mens du spiller, uten å ha øvd eller planlagt.',
   },
   {
     question: 'Hva er den gyldne regelen "Ja, og..." i improvisasjon?',
@@ -357,12 +357,12 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er tretallets lov i eventyr?',
-    options: ['At ting gjentar seg tre ganger (tre brodre, tre oppgaver)', 'At eventyret har tre sider', 'At du målese det tre ganger', 'At det er tre forfattere'],
-    explanation: 'Tretallets lov betyr at ting ofte kommer i tre: tre brodre, tre oppgaver, tre ønsker.',
+    options: ['At ting gjentar seg tre ganger (tre brødre, tre oppgaver)', 'At eventyret har tre sider', 'At du målese det tre ganger', 'At det er tre forfattere'],
+    explanation: 'Tretallets lov betyr at ting ofte kommer i tre: tre brødre, tre oppgaver, tre ønsker.',
   },
   {
     question: 'Hva kjennetegner eventyr?',
-    options: ['Magiske elementer, faste roller og lykkelig slutt', 'Bare sanne historier', 'Vitenskapelige forklåringer', 'Nyheter fra avisen'],
+    options: ['Magiske elementer, faste roller og lykkelig slutt', 'Bare sanne historier', 'Vitenskapelige forklaringer', 'Nyheter fra avisen'],
     explanation: 'Eventyr har magi, typiske roller (helt, skurk, prinsesse) og ender ofte lykkelig.',
   },
   {
@@ -386,7 +386,7 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er moralen i en fabel?',
-    options: ['Laerdømmen vi skal ta med oss', 'Hovedpersonens navn', 'Tittelen påfabelen', 'Forfatteren av fabelen'],
+    options: ['Lærdommen vi skal ta med oss', 'Hovedpersonens navn', 'Tittelen påfabelen', 'Forfatteren av fabelen'],
     explanation: 'Moralen er det fabelen vil lære oss - en lærdom om livet.',
   },
   {
@@ -400,9 +400,9 @@ const quizData_norsk_5: Record<string, QuizQuestion[]> = {
     explanation: 'Moralen er at det er bedre å gjøre ting ordentlig enn å gjøre dem fort og slurvete.',
   },
   {
-    question: 'Hva forklærer sagn ofte?',
-    options: ['Hvorfor ting er som de er (f.eks. hvorfor bjornen har kort hale)', 'Hvordan man lager mat', 'Hvem som er kongen', 'Hva som skjer i morgen'],
-    explanation: 'Sagn forklærer ofte naturlige fenomener eller hvorfor dyr ser ut som de gjør.',
+    question: 'Hva forklarer sagn ofte?',
+    options: ['Hvorfor ting er som de er (f.eks. hvorfor bjørnen har kort hale)', 'Hvordan man lager mat', 'Hvem som er kongen', 'Hva som skjer i morgen'],
+    explanation: 'Sagn forklarer ofte naturlige fenomener eller hvorfor dyr ser ut som de gjør.',
   },
 ],
 

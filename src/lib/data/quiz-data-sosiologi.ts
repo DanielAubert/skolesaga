@@ -9,8 +9,8 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebærer "den sosiologiske fantasien" ifølge C. Wright Mills?',
-    options: ["Evnen til å se sammenhengen mellom individuelle erfåringer og samfunnsstrukturer", "Evnen til å forestille seg nøyaktig hvordan framtidens samfunn kommer til å se ut", "Evnen til å dikte opp nye sosiologiske teorier uten forankring i empiriske observasjoner", "Evnen til å forklare personlige problemer utelukkende ut fra individets egne valg og egenskaper"],
-    explanation: 'Den sosiologiske fantasien er evnen til å se sammenhengen mellom individuelle erfåringer og større samfunnsstrukturer, slik at vi forstår at personlige problemer ofte har sosiale årsaker.',
+    options: ["Evnen til å se sammenhengen mellom individuelle erfaringer og samfunnsstrukturer", "Evnen til å forestille seg nøyaktig hvordan framtidens samfunn kommer til å se ut", "Evnen til å dikte opp nye sosiologiske teorier uten forankring i empiriske observasjoner", "Evnen til å forklare personlige problemer utelukkende ut fra individets egne valg og egenskaper"],
+    explanation: 'Den sosiologiske fantasien er evnen til å se sammenhengen mellom individuelle erfaringer og større samfunnsstrukturer, slik at vi forstår at personlige problemer ofte har sosiale årsaker.',
   },
   {
     question: 'Hva er feltarbeid i sosialantropologien?',
@@ -18,7 +18,7 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
     explanation: 'Feltarbeid er antropologens viktigste metode og innebærer langvarig opphold i samfunnet man studerer, med deltakende observasjon for å forstå kulturen innenfra.',
   },
   {
-    question: 'Hva er normer i sosiologisk forstånd?',
+    question: 'Hva er normer i sosiologisk forstand?',
     options: ["Regler og forventninger som styrer atferd i samfunnet", "Politiske lover vedtatt av Stortinget", "Økonomiske strukturer som fordeler ressurser og makt mellom grupper i samfunnet", "Ubevisste vaner vi ikke tenker over"],
     explanation: 'Normer er regler og forventninger som styrer atferd i samfunnet. De kan være formelle (lover) eller uformelle (skikk og bruk).',
   },
@@ -33,8 +33,8 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   'sosiologi-2': [
   {
     question: 'Hva er primærsosialisering?',
-    options: ["Den første sosialiseringen i barndømmen, hovedsakelig i familien", "Den opplæringen som skjer i idrettslag og fritidsaktiviteter i ungdomstiden", "Sosialiseringen som skjer gjennom skole og arbeidsliv etter at barndommen er over", "Sosialiseringen som skjer gjennom politiske partier og organisasjoner i voksen alder"],
-    explanation: 'Primærsosialisering er den første sosialiseringen som skjer i barndømmen, hovedsakelig i familien, der grunnleggende verdier, språk og sosiale ferdigheter læres.',
+    options: ["Den første sosialiseringen i barndommen, hovedsakelig i familien", "Den opplæringen som skjer i idrettslag og fritidsaktiviteter i ungdomstiden", "Sosialiseringen som skjer gjennom skole og arbeidsliv etter at barndommen er over", "Sosialiseringen som skjer gjennom politiske partier og organisasjoner i voksen alder"],
+    explanation: 'Primærsosialisering er den første sosialiseringen som skjer i barndommen, hovedsakelig i familien, der grunnleggende verdier, språk og sosiale ferdigheter læres.',
   },
   {
     question: 'Hva er habitus ifølge Pierre Bourdieu?',
@@ -49,10 +49,10 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom personlig og sosial identitet?',
     options: ["Personlig identitet er det unike ved oss, sosial identitet kommer fra gruppetilhørighet", "De to begrepene betyr i praksis det samme og brukes om hverandre i sosiologisk teori", "Personlig identitet er medfødt fra fødselen, mens sosial identitet ikke er det i det hele tatt", "Personlig identitet er den offentlige rollen vår, mens sosial identitet er det private og skjulte"],
-    explanation: 'Personlig identitet er det unike ved oss som individer (erfåringer, egenskaper), mens sosial identitet kommer fra gruppetilhørighet (kjønn, etnisitet, klasse, religion).',
+    explanation: 'Personlig identitet er det unike ved oss som individer (erfaringer, egenskaper), mens sosial identitet kommer fra gruppetilhørighet (kjønn, etnisitet, klasse, religion).',
   },
   {
-    question: 'Hva er stigma i sosiologisk forstånd?',
+    question: 'Hva er stigma i sosiologisk forstand?',
     options: ["Et negativt stempel som påvirker identitet og hvordan andre ser oss", "En medfødt personlighetstrekk som avgjør hvordan man oppfattes av andre", "Et formelt registrert medlemskap i en gruppe eller organisasjon i samfunnet", "En positiv merkelapp som gir personen status og fordeler i møte med andre mennesker"],
     explanation: 'Stigma er et negativt stempel som diskrediterer personen. Stigmatisering kan påvirke selvbilde, begrense muligheter og føre til at personen internaliserer andres negative syn.',
   },
@@ -106,8 +106,8 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er neolokalitet?',
-    options: ["At påret etablærer eget hjem uavhengig av foreldrene", "At påret bor hos begge familier annenhver uke", "At bruden ved ekteskap flytter til og bosetter seg hos mannens familie og slekt", "At paret bor sammen med mannens søsken"],
-    explanation: 'Neolokalitet betyr at påret etablærer eget hjem uavhengig av begge foreldrefamilier. Dette er vanlig i Norge og andre vestlige land.',
+    options: ["At paret etablærer eget hjem uavhengig av foreldrene", "At paret bor hos begge familier annenhver uke", "At bruden ved ekteskap flytter til og bosetter seg hos mannens familie og slekt", "At paret bor sammen med mannens søsken"],
+    explanation: 'Neolokalitet betyr at paret etablærer eget hjem uavhengig av begge foreldrefamilier. Dette er vanlig i Norge og andre vestlige land.',
   },
   {
     question: 'Hvilken utvikling har skjedd med skilsmisseraten i Norge?',
@@ -169,8 +169,8 @@ const quizData_sosiologi: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr interseksjonalitet?',
-    options: ["At kjønn, etnisitet, klasse og seksualitet kan samvirke og påvirke livserfåringer", "At bare økonomisk klasse har betydning for hvilke muligheter mennesker får i livet sitt", "At kjønn er den eneste virkelige formen for sosial ulikhet man behøver å analysere", "At faktorer som klasse og etnisitet virker helt separat og aldri påvirker hverandre"],
-    explanation: 'Interseksjonalitet analyserer hvordan kjønn, etnisitet, klasse og seksualitet samvirker. Begrepet er nyttig for å forstå sammensatte erfåringer, men er også omdiskutert i samfunnsdebatten.',
+    options: ["At kjønn, etnisitet, klasse og seksualitet kan samvirke og påvirke livserfaringer", "At bare økonomisk klasse har betydning for hvilke muligheter mennesker får i livet sitt", "At kjønn er den eneste virkelige formen for sosial ulikhet man behøver å analysere", "At faktorer som klasse og etnisitet virker helt separat og aldri påvirker hverandre"],
+    explanation: 'Interseksjonalitet analyserer hvordan kjønn, etnisitet, klasse og seksualitet samvirker. Begrepet er nyttig for å forstå sammensatte erfaringer, men er også omdiskutert i samfunnsdebatten.',
   },
   {
     question: 'Hva menes med "doing gender"?',

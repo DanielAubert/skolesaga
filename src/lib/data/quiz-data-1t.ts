@@ -10,7 +10,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket tall er irrasjonalt?',
     options: ['$\\sqrt{2}$', '$0{,}75$', '$\\frac{1}{3}$', '$-5$'],
-    explanation: '$\\sqrt{2}$ kan ikke skrives som en brøk og har uendelig mange desimåler uten gjentakende monster.',
+    explanation: '$\\sqrt{2}$ kan ikke skrives som en brøk og har uendelig mange desimaler uten gjentakende monster.',
   },
   {
     question: 'Hva er verdien av $|-7|$?',
@@ -71,7 +71,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Konjugatsetningen sier at produktet av to konjugerte uttrykk gir differansen av kvadratene.',
   },
   {
-    question: 'Hvordan førenkles $3x + 6$?',
+    question: 'Hvordan forenkles $3x + 6$?',
     options: ['$3(x + 2)$', '$3x + 6$', '$9x$', '$3(x + 6)$'],
     explanation: 'Vi trekker ut felles faktor $3$: $3x + 6 = 3(x + 2)$.',
   },
@@ -129,7 +129,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Produktregelen for roter: $\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{ab}$.',
   },
   {
-    question: 'Hvordan førenkles $\\sqrt{50}$?',
+    question: 'Hvordan forenkles $\\sqrt{50}$?',
     options: ['$5\\sqrt{2}$', '$25\\sqrt{2}$', '$\\sqrt{50}$', '$10\\sqrt{5}$'],
     explanation: '$\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$.',
   },
@@ -163,7 +163,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Fellesnevneren er produktet av de to nevnerne: $x(x+1)$.',
   },
   {
-    question: 'Hvordan førenkles $\\frac{3x}{6x^2}$?',
+    question: 'Hvordan forenkles $\\frac{3x}{6x^2}$?',
     options: ['1/(2x)', '$\\frac{1}{2}$', 'x/2', '2/x'],
     explanation: 'Vi forkorter med $3x$: $\\frac{3x}{6x^2} = \\frac{1}{2x}$.',
   },
@@ -211,9 +211,9 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Vi deler koeffisientene ($6/2=3$) og trekker fra eksponentene ($3-1=2$): $3x^2$.',
   },
   {
-    question: 'Hva kalles svåret når vi deler et polynom på et annet?',
+    question: 'Hva kalles svaret når vi deler et polynom på et annet?',
     options: ['Kvotienten', 'Dividenden', 'Divisoren', 'Resten'],
-    explanation: 'Når vi deler P(x) på D(x), kalles svåret Q(x) for kvotienten.',
+    explanation: 'Når vi deler P(x) på D(x), kalles svaret Q(x) for kvotienten.',
   },
   {
     question: 'Hva er $\\frac{8x^4 + 4x^2}{2x}$?',
@@ -255,7 +255,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'For polynomer med heltallskoeffisienter prøver vi divisorer av konstantleddet.',
   },
   {
-    question: 'Når vi deler $x^2 - 5x + 6$ på $(x-2)$, hvå blir kvotienten?',
+    question: 'Når vi deler $x^2 - 5x + 6$ på $(x-2)$, hva blir kvotienten?',
     options: ['$x - 3$', '$x + 3$', '$x - 2$', '$x^2 - 3$'],
     explanation: '$x^2 - 5x + 6 = (x-2)(x-3)$, så kvotienten er $(x-3)$.',
   },
@@ -410,7 +410,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-2-8': [
   {
     question: 'Hva er første steg når vi løser tekstoppgaver med likninger?',
-    options: ['Velge en variabel for det ukjente', 'Finne svåret', 'Tegne en figur', 'Prøve og feile'],
+    options: ['Velge en variabel for det ukjente', 'Finne svaret', 'Tegne en figur', 'Prøve og feile'],
     explanation: 'Vi starter med å la x (eller en annen variabel) representere det vi skal finne.',
   },
   {
@@ -424,9 +424,9 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: '$3x - 5 = 16$, $3x = 21$, $x = 7$.',
   },
   {
-    question: 'Hvorfor sjekker vi alltid svåret i tekstoppgaver?',
+    question: 'Hvorfor sjekker vi alltid svaret i tekstoppgaver?',
     options: ['For å se at det gir mening i konteksten', 'For å finne andre løsninger', 'Det er ikke nødvendig', 'For å løse likningen'],
-    explanation: 'Vi må sjekke at svåret er fornuftig i den praktiske situasjonen.',
+    explanation: 'Vi må sjekke at svaret er fornuftig i den praktiske situasjonen.',
   },
   {
     question: 'Produktet av to påfølgende tall er 72. Hvilken likning beskriver dette?',
@@ -605,7 +605,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva bestemmer bredden på en parabel?',
     options: ['Verdien av $|a|$', 'Verdien av $b$', 'Verdien av $c$', 'Toppunktet'],
-    explanation: 'Jo større $|a|$ er, jo smålære er parabelen.',
+    explanation: 'Jo større $|a|$ er, jo smalere er parabelen.',
   },
 ],
 

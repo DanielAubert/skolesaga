@@ -3,12 +3,12 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg1-1-1': [
   {
-    question: 'Hva omfatter primaerhelsetjenesten?',
+    question: 'Hva omfatter primærhelsetjenesten?',
     options: ["Helsetjenester i kommunen, som fastlege og hjemmesykepleie", "Bare private helsetjenester, altså klinikker og legesentre uten kommunal driftsavtale", "Spesialiserte behandlingstilbud på sykehus, som operasjoner og akuttmottak", "Private helseforsikringer og tjenester du betaler for selv utenom det offentlige"],
-    explanation: 'Primaerhelsetjenesten, også kalt kommunehelsetjenesten, omfatter tjenester som fastlege, legevakt, hjemmesykepleie, sykehjem, helsestasjon og skolehelsetjeneste.',
+    explanation: 'Primærhelsetjenesten, også kalt kommunehelsetjenesten, omfatter tjenester som fastlege, legevakt, hjemmesykepleie, sykehjem, helsestasjon og skolehelsetjeneste.',
   },
   {
-    question: 'Hvilket fagbrev kan du oppna gjennom helse- og oppvekstfag?',
+    question: 'Hvilket fagbrev kan du oppnå gjennom helse- og oppvekstfag?',
     options: ["Helsefagarbeider", "Fysioterapeut", "Vernepleier", "Sykepleier"],
     explanation: 'Med fagbrev i helse- og oppvekstfag kan du bli helsefagarbeider eller barne- og ungdomsarbeider. Sykepleier, lege og fysioterapeut krever høyere utdanning.',
   },
@@ -33,18 +33,18 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg1-1-2': [
   {
     question: 'Hva inkluderer WHOs definisjon av helse?',
-    options: ["Fysisk, psykisk og sosialt velvare", "Bare fravar av sykdom", "Kun fravær av sykdom og skade i kroppen", "Bare god fysisk form og fravær av plager"],
-    explanation: 'WHO definerer helse som en tilstand av fullstendig fysisk, psykisk og sosialt velvare, ikke bare fravar av sykdom.',
+    options: ["Fysisk, psykisk og sosialt velvære", "Bare fravær av sykdom", "Kun fravær av sykdom og skade i kroppen", "Bare god fysisk form og fravær av plager"],
+    explanation: 'WHO definerer helse som en tilstand av fullstendig fysisk, psykisk og sosialt velvære, ikke bare fravær av sykdom.',
   },
   {
     question: 'Hva er helsedeterminanter?',
-    options: ["Faktorer som påvirker helse", "Medisinske behandlinger", "Tiltak mot sykdom", "Typer sykdømmer"],
+    options: ["Faktorer som påvirker helse", "Medisinske behandlinger", "Tiltak mot sykdom", "Typer sykdommer"],
     explanation: 'Helsedeterminanter er faktorer som påvirker helsetilstanden i en befolkning eller hos enkeltpersoner, inkludert individuelle, sosiale og miljøsmessige faktorer.',
   },
   {
     question: 'Hva er primaerførebygging?',
-    options: ["Tiltak for a hindre at sykdom oppstar hos friske", "Behandling av eksisterende sykdom", "Screening og undersøkelser for å oppdage sykdom tidlig", "Behandling og pleie av personer som allerede har blitt syke"],
-    explanation: 'Primaerførebygging er tiltak for a hindre at sykdom oppstar i friske befolkningsgrupper, som vaksinasjonsprogrammer og kostholdsrad.',
+    options: ["Tiltak for a hindre at sykdom oppstår hos friske", "Behandling av eksisterende sykdom", "Screening og undersøkelser for å oppdage sykdom tidlig", "Behandling og pleie av personer som allerede har blitt syke"],
+    explanation: 'Primaerførebygging er tiltak for a hindre at sykdom oppstår i friske befolkningsgrupper, som vaksinasjonsprogrammer og kostholdsråd.',
   },
   {
     question: 'Hva kjennetegner helsefremmende arbeid til forskjell fra førebygging?',
@@ -68,17 +68,17 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er nonverbal kommunikasjon?',
     options: ["Kommunikasjon uten ord, som kroppsspråk og ansiktsuttrykk", "Skriftlig kommunikasjon, altså brev og journalnotater", "Kommunikasjon over telefon der partene ikke ser hverandre", "Muntlig kommunikasjon, altså det vi sier med ord"],
-    explanation: 'Nonverbal kommunikasjon er alt vi uttrykker uten ord, som ansiktsuttrykk, oyekontakt, kroppsholdning og gester.',
+    explanation: 'Nonverbal kommunikasjon er alt vi uttrykker uten ord, som ansiktsuttrykk, øyekontakt, kroppsholdning og gester.',
   },
   {
     question: 'Hvor stor andel av kommunikasjonen antas a være nonverbal?',
-    options: ['Over 70%', 'Under 30%', 'Noyaktig 50%', 'Bare 10%'],
+    options: ['Over 70%', 'Under 30%', 'Nøyaktig 50%', 'Bare 10%'],
     explanation: 'Forskning viser at over 70% av kommunikasjonen er nonverbal. Det er derfor viktig a være bevisst påkroppspråket ditt.',
   },
   {
-    question: 'Hva kjennetegner åpne sporsmål?',
+    question: 'Hva kjennetegner åpne spørsmål?',
     options: ['De krever mer enn ja/nei-svar', 'De besvares med ja eller nei', 'De er korte og enkle', 'De stilles bare til voksne'],
-    explanation: 'Apne sporsmål begynner ofte med hva, hvordan eller hvorfor, og krever mer utfyllende svar enn ja eller nei.',
+    explanation: 'Apne spørsmål begynner ofte med hva, hvordan eller hvorfor, og krever mer utfyllende svar enn ja eller nei.',
   },
   {
     question: 'Hvordan bør du kommunisere med barn?',
@@ -111,8 +111,8 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva omfatter sirkulasjonssystemet?',
-    options: ["Hjertet, blodkar og blodet", "Lungene og luftror", "Lungene, luftrøret og de øvre luftveiene", "Hjernen og nerver"],
-    explanation: 'Sirkulasjonssystemet består av hjertet, blodkårene (arterier, vener, kapillærer) og blodet.',
+    options: ["Hjertet, blodkar og blodet", "Lungene og luftrør", "Lungene, luftrøret og de øvre luftveiene", "Hjernen og nerver"],
+    explanation: 'Sirkulasjonssystemet består av hjertet, blodkarene (arterier, vener, kapillærer) og blodet.',
   },
 ],
 
@@ -120,16 +120,16 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg1-2-2': [
   {
     question: 'Hva er det viktigste tiltaket for a førebygge smitte?',
-    options: ['God handhygiene', 'A bruke munnbind alltid', 'A holde seg innendors', 'A ta antibiotika førebyggende'],
+    options: ['God handhygiene', 'A bruke munnbind alltid', 'A holde seg innendørs', 'A ta antibiotika forebyggende'],
     explanation: 'God handhygiene er det viktigste enkelttiltaket for a førebygge smittespredning i helse- og omsorgstjenesten.',
   },
   {
     question: 'Hva er kontaktsmitte?',
-    options: ["Smitte via direkte beroring eller gjenstander", "Smitte som overføres når et insekt stikker eller biter et menneske", "Smitte som spres av insekter som mygg og flått", "Smitte som overføres via forurenset mat og drikke"],
-    explanation: 'Kontaktsmitte er smitte som overføres ved direkte beroring mellom mennesker eller via forurensede gjenstander.',
+    options: ["Smitte via direkte berøring eller gjenstander", "Smitte som overføres når et insekt stikker eller biter et menneske", "Smitte som spres av insekter som mygg og flått", "Smitte som overføres via forurenset mat og drikke"],
+    explanation: 'Kontaktsmitte er smitte som overføres ved direkte berøring mellom mennesker eller via forurensede gjenstander.',
   },
   {
-    question: 'Hvilke ledd inngar i smittekjeden?',
+    question: 'Hvilke ledd inngår i smittekjeden?',
     options: ["Smittestoff, smittekilde, smittevei og smittemottaker", "Selve sykdommen og behandlingen som gis mot den", "Bare smittestoffet og en mottaker som blir syk", "Kun bakterier, virus og andre mikroorganismer"],
     explanation: 'Smittekjeden består av fire ledd: smittestoff, smittekilde, smittevei og smittemottaker. Alle måvære til stede for at smitte skal skje.',
   },
@@ -139,9 +139,9 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
     explanation: 'Handvask bør vare minimum 40-60 sekunder for a være effektiv. Handdesinfeksjon bør vare 20-30 sekunder.',
   },
   {
-    question: 'Hva er drapesmitte?',
+    question: 'Hva er dråpesmitte?',
     options: ["Smitte via hosting, nysing eller snakking", "Smitte som skjer når hender tar på forurensede gjenstander", "Smitte som overføres via blod og kroppsvæsker", "Smitte som overføres ved direkte berøring av hud"],
-    explanation: 'Drapesmitte er smitte som spres via draper fra hosting, nysing eller snakking. Drapene inneholder smittestoff.',
+    explanation: 'Dråpesmitte er smitte som spres via draper fra hosting, nysing eller snakking. Drapene inneholder smittestoff.',
   },
 ],
 
@@ -150,7 +150,7 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva innebærer taushetsplikten?',
     options: ["Plikt til a hindre at uvedkommende fåropplysninger om brukere", "At man aldri skal snakke med brukerne om private forhold", "At man ikke skal skrive ned eller dokumentere noe om brukeren", "At man ikke skal samarbeide eller dele noe som helst med kolleger"],
-    explanation: 'Taushetsplikt betyr at du ikke skal dele opplysninger om brukere med uvedkommende. Du kan dele med kolleger som trenger det for a gi forsvårlig hjelp.',
+    explanation: 'Taushetsplikt betyr at du ikke skal dele opplysninger om brukere med uvedkommende. Du kan dele med kolleger som trenger det for a gi forsvarlig hjelp.',
   },
   {
     question: 'Hvilken lov regulærer pasienters rettigheter i Norge?',
@@ -165,7 +165,7 @@ const quizData_helseoppvekst_vg1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva sier artikkel 3 i FNs barnekonvensjon?',
     options: ["Barnets beste skal være et grunnleggende hensyn", "Barn har rett til gratis skole", "At alle barn har rett til gratis og obligatorisk grunnskole", "At barn under en viss alder ikke har lov til å være i arbeid"],
-    explanation: 'Artikkel 3 i FNs barnekonvensjon slar fast at barnets beste skal være et grunnleggende hensyn i alle avgjørelser som angår barn.',
+    explanation: 'Artikkel 3 i FNs barnekonvensjon slår fast at barnets beste skal være et grunnleggende hensyn i alle avgjørelser som angår barn.',
   },
   {
     question: 'Gjelder taushetsplikten for elever og lærlinger?',

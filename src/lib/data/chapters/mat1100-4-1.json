@@ -8,7 +8,7 @@
   "competenceGoals": [
     "bygge opp det bestemte integralet fra nedre og øvre trappesummer og forklare Darboux-kriteriet for integrerbarhet",
     "avgjøre om en funksjon er integrerbar ved hjelp av de to arbeidsteoremene (begrenset + endelig mange diskontinuiteter; begrenset + stykkevis monoton), med teoremet navngitt",
-    "bruke lineæritet, intervalladditivitet og monotoni av integralet",
+    "bruke linearitet, intervalladditivitet og monotoni av integralet",
     "gjenkjenne en Riemann-sum som et bestemt integral"
   ],
   "content": [
@@ -181,7 +181,7 @@
     {
       "id": "mat1100-4-1-def-linear",
       "type": "definition",
-      "title": "Lineæritet av integralet",
+      "title": "Linearitet av integralet",
       "content": "Integralet av en sum er summen av integralene, og konstanter kan flyttes utenfor:\n\n$$\\int_a^b\\big(\\alpha f(x)+\\beta g(x)\\big)\\,dx=\\alpha\\int_a^b f(x)\\,dx+\\beta\\int_a^b g(x)\\,dx.$$\n\nDette lar deg **splitte** en integrand i enklere biter og behandle hver for seg — det første grepet i nesten alle integrasjonsoppgaver. (Gjelder når begge integralene på høyre side finnes.)"
     },
     {
@@ -212,10 +212,10 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "(Eksamenssjanger I — regnereglene i bruk.) Anta at $\\int_0^2 f(x)\\,dx=5$ og $\\int_2^6 f(x)\\,dx=-3$, og at $\\int_0^6 g(x)\\,dx=4$.\n\n**a)** Finn $\\int_0^6 f(x)\\,dx$.\n\n**b)** Finn $\\int_0^6\\big(3f(x)-2g(x)\\big)\\,dx$ — men bare deloppgave (a) gir nok informasjon direkte; forklar hva du trenger.",
-        "solution": "**a)** Intervalladditivitet med delepunkt $c=2$:\n$$\\int_0^6 f(x)\\,dx=\\int_0^2 f(x)\\,dx+\\int_2^6 f(x)\\,dx=5+(-3)=2.$$\n\n**b)** Lineæritet gir\n$$\\int_0^6\\big(3f-2g\\big)\\,dx=3\\int_0^6 f\\,dx-2\\int_0^6 g\\,dx.$$\nFra (a) er $\\int_0^6 f=2$, og $\\int_0^6 g=4$ er oppgitt, så\n$$=3\\cdot 2-2\\cdot 4=6-8=-2.$$\n(Vi trengte nettopp resultatet fra (a) — et eksempel på at slutteksamens delpunkter kjedes: senere svar bygger på tidligere.)\n\n**Konklusjon:** (a) $\\int_0^6 f=2$; (b) $\\int_0^6(3f-2g)=-2$. $\\boxed{2\\text{ og }-2}$",
+        "solution": "**a)** Intervalladditivitet med delepunkt $c=2$:\n$$\\int_0^6 f(x)\\,dx=\\int_0^2 f(x)\\,dx+\\int_2^6 f(x)\\,dx=5+(-3)=2.$$\n\n**b)** Linearitet gir\n$$\\int_0^6\\big(3f-2g\\big)\\,dx=3\\int_0^6 f\\,dx-2\\int_0^6 g\\,dx.$$\nFra (a) er $\\int_0^6 f=2$, og $\\int_0^6 g=4$ er oppgitt, så\n$$=3\\cdot 2-2\\cdot 4=6-8=-2.$$\n(Vi trengte nettopp resultatet fra (a) — et eksempel på at slutteksamens delpunkter kjedes: senere svar bygger på tidligere.)\n\n**Konklusjon:** (a) $\\int_0^6 f=2$; (b) $\\int_0^6(3f-2g)=-2$. $\\boxed{2\\text{ og }-2}$",
         "hints": [
           "I (a): del $[0,6]$ ved $x=2$ og legg sammen — intervalladditivitet.",
-          "I (b): flytt konstantene $3$ og $-2$ ut og splitt summen — lineæritet.",
+          "I (b): flytt konstantene $3$ og $-2$ ut og splitt summen — linearitet.",
           "Sett inn tallet fra (a) for $\\int_0^6 f$."
         ]
       }
@@ -292,7 +292,7 @@
         {
           "id": "mat1100-4-1-symbolliste-text",
           "type": "text",
-          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $P=\\{x_0,\\dots,x_n\\}$ | Partisjon: delepunkter $a=x_0<\\dots<x_n=b$ |\n| $\\Delta x_i$ | Bredden $x_i-x_{i-1}$ av bit nr. $i$ |\n| $m_i,\\;M_i$ | Minste ($\\inf$) og største ($\\sup$) verdi av $f$ på bit $i$ |\n| $\\underline{S}(P)$ | Nedre trappesum (undersum) |\n| $\\overline{S}(P)$ | Øvre trappesum (oversum) |\n| $\\int_a^b f(x)\\,dx$ | Det bestemte integralet — arealet mellom under- og oversummer |\n| $\\inf,\\;\\sup$ | Største nedre / minste øvre grense (fra kap. 2.3) |\n| $\\xi_i$ | Fritt valgt punkt i bit $i$ (Riemann-sum) |\n| $\\bar f$ | Gjennomsnittsverdien $\\frac{1}{b-a}\\int_a^b f$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\underline{S}(P)=\\sum_{i=1}^{n} m_i\\,\\Delta x_i,\\qquad \\overline{S}(P)=\\sum_{i=1}^{n} M_i\\,\\Delta x_i$$\nNedre og øvre trappesum over en partisjon $P$.\n\n$$\\overline{S}(P)-\\underline{S}(P)<\\varepsilon\\ \\text{(for en }P\\text{)}\\;\\Longleftrightarrow\\; f\\text{ integrerbar}$$\nDarboux-kriteriet: gapet kan gjøres vilkårlig lite.\n\n$$\\int_a^b f=\\sup_P \\underline{S}(P)=\\inf_P \\overline{S}(P)$$\nDet bestemte integralet som det entydige klemte tallet.\n\n$$\\int_a^b(\\alpha f+\\beta g)=\\alpha\\int_a^b f+\\beta\\int_a^b g$$\nLineæritet.\n\n$$\\int_a^b f=\\int_a^c f+\\int_c^b f\\qquad(a<c<b)$$\nIntervalladditivitet.\n\n$$f\\le g\\text{ på }[a,b]\\;\\Rightarrow\\;\\int_a^b f\\le\\int_a^b g$$\nMonotoni av integralet.\n\n$$\\bar f=\\frac{1}{b-a}\\int_a^b f(x)\\,dx$$\nGjennomsnittsverdien av $f$ over $[a,b]$."
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $P=\\{x_0,\\dots,x_n\\}$ | Partisjon: delepunkter $a=x_0<\\dots<x_n=b$ |\n| $\\Delta x_i$ | Bredden $x_i-x_{i-1}$ av bit nr. $i$ |\n| $m_i,\\;M_i$ | Minste ($\\inf$) og største ($\\sup$) verdi av $f$ på bit $i$ |\n| $\\underline{S}(P)$ | Nedre trappesum (undersum) |\n| $\\overline{S}(P)$ | Øvre trappesum (oversum) |\n| $\\int_a^b f(x)\\,dx$ | Det bestemte integralet — arealet mellom under- og oversummer |\n| $\\inf,\\;\\sup$ | Største nedre / minste øvre grense (fra kap. 2.3) |\n| $\\xi_i$ | Fritt valgt punkt i bit $i$ (Riemann-sum) |\n| $\\bar f$ | Gjennomsnittsverdien $\\frac{1}{b-a}\\int_a^b f$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\underline{S}(P)=\\sum_{i=1}^{n} m_i\\,\\Delta x_i,\\qquad \\overline{S}(P)=\\sum_{i=1}^{n} M_i\\,\\Delta x_i$$\nNedre og øvre trappesum over en partisjon $P$.\n\n$$\\overline{S}(P)-\\underline{S}(P)<\\varepsilon\\ \\text{(for en }P\\text{)}\\;\\Longleftrightarrow\\; f\\text{ integrerbar}$$\nDarboux-kriteriet: gapet kan gjøres vilkårlig lite.\n\n$$\\int_a^b f=\\sup_P \\underline{S}(P)=\\inf_P \\overline{S}(P)$$\nDet bestemte integralet som det entydige klemte tallet.\n\n$$\\int_a^b(\\alpha f+\\beta g)=\\alpha\\int_a^b f+\\beta\\int_a^b g$$\nLinearitet.\n\n$$\\int_a^b f=\\int_a^c f+\\int_c^b f\\qquad(a<c<b)$$\nIntervalladditivitet.\n\n$$f\\le g\\text{ på }[a,b]\\;\\Rightarrow\\;\\int_a^b f\\le\\int_a^b g$$\nMonotoni av integralet.\n\n$$\\bar f=\\frac{1}{b-a}\\int_a^b f(x)\\,dx$$\nGjennomsnittsverdien av $f$ over $[a,b]$."
         }
       ]
     },

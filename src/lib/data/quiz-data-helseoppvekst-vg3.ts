@@ -3,18 +3,18 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-1': [
   {
-    question: 'Hva innebærer profesjonell yrkesutovelse i helse- og oppvekstfag?',
+    question: 'Hva innebærer profesjonell yrkesutøvelse i helse- og oppvekstfag?',
     options: ["A kombinere fagkunnskap, etisk bevissthet og personlig kompetanse", "A gjøre det man selv synes er best, uten å ta hensyn til faglige rutiner", "A følge lederens instrukser nøyaktig og aldri stille spørsmål ved rutinene", "A gjøre det man selv opplever som riktig ut fra egen livserfaring og magefølelse"],
-    explanation: 'Profesjonell yrkesutovelse handler om a kombinere fagkunnskap, etisk bevissthet og personlig kompetanse til beste for brukerne.',
+    explanation: 'Profesjonell yrkesutøvelse handler om a kombinere fagkunnskap, etisk bevissthet og personlig kompetanse til beste for brukerne.',
   },
   {
     question: 'Hva star S for i SMUL-modellen for refleksjon?',
     options: ['Situasjon', 'System', 'Samarbeid', 'Sikkerhet'],
-    explanation: 'SMUL-modellen består av Situasjon (hva skjedde), Mestring (hva mestret jeg), Utfordring (hva var vanskelig) og Laering (hva tar jeg med videre).',
+    explanation: 'SMUL-modellen består av Situasjon (hva skjedde), Mestring (hva mestret jeg), Utfordring (hva var vanskelig) og Læring (hva tar jeg med videre).',
   },
   {
     question: 'Hva er yrkesetikk?',
-    options: ["Moralske prinsipper og retningslinjer som styrer yrkesutovelsen", "Personlige meninger om rett og galt som hver enkelt danner seg selv", "Lover og forskrifter som Stortinget vedtar og som gir rettslige plikter i yrket", "Bindende regler som arbeidsgiver alene fastsetter for den enkelte arbeidsplassen"],
+    options: ["Moralske prinsipper og retningslinjer som styrer yrkesutøvelsen", "Personlige meninger om rett og galt som hver enkelt danner seg selv", "Lover og forskrifter som Stortinget vedtar og som gir rettslige plikter i yrket", "Bindende regler som arbeidsgiver alene fastsetter for den enkelte arbeidsplassen"],
     explanation: 'Yrkesetikk beskriver hvilke verdier og normer som skal ligge til grunn for profesjonell praksis innenfor et fagfelt.',
   },
   {
@@ -25,7 +25,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kan brudd påtaushetsplikten føre til?',
     options: ["Straffeansvar og tap av autorisasjon", "Bare muntlig advarsel", "Ingen konsekvenser ved uhell", "Bare internt oppgjør"],
-    explanation: 'Brudd påtaushetsplikten kan føre til straffeansvar, oppsigelse og tap av autorisasjon. Det er en lovpalaagt plikt.',
+    explanation: 'Brudd påtaushetsplikten kan føre til straffeansvar, oppsigelse og tap av autorisasjon. Det er en lovpålagt plikt.',
   },
 ],
 
@@ -38,8 +38,8 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er VAS-skalaen?',
-    options: ["Et verktoy for a male smerteintensitet fra 0-10", "En skala for a vurdere bevissthet", "Et verktoy for a male kroppstemperatur og oppdage feber tidlig", "Et verktoy for a male temperatur"],
-    explanation: 'VAS (Visuell analog skala) er et verktoy for a male smerteintensitet der pasienten angir smertenivå påen skala fra 0 (ingen smerte) til 10.',
+    options: ["Et verktøy for a male smerteintensitet fra 0-10", "En skala for a vurdere bevissthet", "Et verktøy for a male kroppstemperatur og oppdage feber tidlig", "Et verktøy for a male temperatur"],
+    explanation: 'VAS (Visuell analog skala) er et verktøy for a male smerteintensitet der pasienten angir smertenivå påen skala fra 0 (ingen smerte) til 10.',
   },
   {
     question: 'Hva star V for i VIPS-modellen for dokumentasjon?',
@@ -67,8 +67,8 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Braden-skalaen?',
-    options: ["Et verktoy for a vurdere risiko for trykksar", "Et verktoy for a vurdere fallrisiko", "Et verktoy for a vurdere fallrisiko basert påbalanse og ganglag", "En skala for a male blodtrykk"],
-    explanation: 'Braden-skalaen er et verktoy for a vurdere risiko for trykksar basert påseks faktorer inkludert mobilitet, fuktighet og ernæring.',
+    options: ["Et verktøy for a vurdere risiko for trykksår", "Et verktøy for a vurdere fallrisiko", "Et verktøy for a vurdere fallrisiko basert påbalanse og ganglag", "En skala for a male blodtrykk"],
+    explanation: 'Braden-skalaen er et verktøy for a vurdere risiko for trykksår basert påseks faktorer inkludert mobilitet, fuktighet og ernæring.',
   },
   {
     question: 'Hva er hensikten med rotårsakanalyse?',
@@ -78,7 +78,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er den vanligste typen uønsket hendelse i helsetjenesten?',
     options: ['Legemiddelfeil', 'Operasjonsfeil', 'Brannskader', 'Allergiske reaksjoner'],
-    explanation: 'Legemiddelfeil er den vanligste typen uønsket hendelse i helsetjenesten, fulgt av fall og trykksår i eldreomsørgen.',
+    explanation: 'Legemiddelfeil er den vanligste typen uønsket hendelse i helsetjenesten, fulgt av fall og trykksår i eldreomsorgen.',
   },
   {
     question: 'Hva innebærer systemtenkning i pasientsikkerhet?',
@@ -92,12 +92,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er palliasjon?',
     options: ["Aktiv behandling og omsorg for pasienter med uhelbredelig sykdom", "Kurativ behandling av kreft med cellegift, stråling og kirurgiske inngrep", "Forebyggende helsearbeid som skal hindre at sykdom oppstårhos friske", "Kurativ behandling som har som mål a helbrede pasienten for kreftsykdom"],
-    explanation: 'Palliasjon er aktiv behandling, pleie og omsorg for pasienter med uhelbredelig sykdom og kort forventet levetid. Hovedmalet er best mulig livskvalitet.',
+    explanation: 'Palliasjon er aktiv behandling, pleie og omsorg for pasienter med uhelbredelig sykdom og kort forventet levetid. Hovedmålet er best mulig livskvalitet.',
   },
   {
     question: 'Hva er dodsralling?',
-    options: ["Surklete lyd nårpasienten ikke klærer a hoste opp slim", "En allergisk reaksjon som gir kløe og utslett hos pasienten", "En type pustestopp der pasienten slutter a puste i korte perioder", "En allergisk reaksjon i luftveiene som gir hevelse og pustebesvær"],
-    explanation: 'Dodsralling er en surklete lyd nårpasienten ikke klærer a hoste opp slim. Det er vanligvis ikke plagsomt for pasienten, men kan være belastende for parorende.',
+    options: ["Surklete lyd nårpasienten ikke klarer a hoste opp slim", "En allergisk reaksjon som gir kløe og utslett hos pasienten", "En type pustestopp der pasienten slutter a puste i korte perioder", "En allergisk reaksjon i luftveiene som gir hevelse og pustebesvær"],
+    explanation: 'Dodsralling er en surklete lyd nårpasienten ikke klarer a hoste opp slim. Det er vanligvis ikke plagsomt for pasienten, men kan være belastende for pårørende.',
   },
   {
     question: 'Hva bør du unngå å si til sørgende?',
@@ -111,8 +111,8 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktigst i palliativ omsorg?',
-    options: ["A lindre symptomer og gi livskvalitet", "A forlenge livet mest mulig", "A kurere sykdommen med all tilgjengelig behandling", "A unngå ålle medisiner"],
-    explanation: 'I palliativ omsorg er hovedmalet a lindre symptomer og gi best mulig livskvalitet for pasienten og de parorende, ikke a kurere sykdømmen.',
+    options: ["A lindre symptomer og gi livskvalitet", "A forlenge livet mest mulig", "A kurere sykdommen med all tilgjengelig behandling", "A unngå alle medisiner"],
+    explanation: 'I palliativ omsorg er hovedmålet a lindre symptomer og gi best mulig livskvalitet for pasienten og de pårørende, ikke a kurere sykdommen.',
   },
 ],
 
@@ -120,13 +120,13 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-5': [
   {
     question: 'Hva kjennetegner avhengighet?',
-    options: ["Tvangsmessig bruk til tross for negative konsekvenser", "A bruke medisiner som føreskrevet", "A like smaken av alkohol og drikke det i sosiale sammenhenger", "A bruke rusmidler en enkelt gang uten a fortsette med det senere"],
+    options: ["Tvangsmessig bruk til tross for negative konsekvenser", "A bruke medisiner som foreskrevet", "A like smaken av alkohol og drikke det i sosiale sammenhenger", "A bruke rusmidler en enkelt gang uten a fortsette med det senere"],
     explanation: 'Avhengighet kjennetegnes av tvangsmessig bruk av rusmiddel til tross for negative konsekvenser, toleranse, abstinens og tap av kontroll.',
   },
   {
     question: 'Hva er tegn påoverdose?',
-    options: ["Bevisstloshet, langsom/ingen pust, bla lepper", "Oyeblikkelig oppvakning og full bevissthet igjen", "Høyt blodtrykk sammen med rask og kraftig puls", "Oyeblikkelig oppvakning og økt aktivitet hos personen"],
-    explanation: 'Tegn påoverdose inkluderer bevisstloshet, langsom eller ingen pust, og bla lepper. Ring 113 umiddelbart.',
+    options: ["Bevisstløshet, langsom/ingen pust, bla lepper", "Øyeblikkelig oppvakning og full bevissthet igjen", "Høyt blodtrykk sammen med rask og kraftig puls", "Øyeblikkelig oppvakning og økt aktivitet hos personen"],
+    explanation: 'Tegn påoverdose inkluderer bevisstløshet, langsom eller ingen pust, og bla lepper. Ring 113 umiddelbart.',
   },
   {
     question: 'Hva er skadereduksjon?',
@@ -135,7 +135,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er LAR?',
-    options: ['Legemiddelassistert rehabilitering', 'Langtids akutt rusbehandling', 'Lokal avrusningsenhet', 'Lovpalagt avhold og rehabilitering'],
+    options: ['Legemiddelassistert rehabilitering', 'Langtids akutt rusbehandling', 'Lokal avrusningsenhet', 'Lovpålagt avhold og rehabilitering'],
     explanation: 'LAR står for legemiddelassistert rehabilitering, der pasienter med opioidavhengighet fårsubstitusjonsmedisiner som del av behandlingen.',
   },
   {
@@ -149,12 +149,12 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-6': [
   {
     question: 'Hva er avvergingsplikt?',
-    options: ["Plikt til a soke a avverge alvorlige straffbare handlinger", "Plikt til a rapportere alle samtaler", "Plikt til a holde all informasjon om pasienten strengt hemmelig", "Plikt til a rapportere alle samtaler man har med brukere til leder"],
-    explanation: 'Alle har plikt til a soke a avverge alvorlige straffbare handlinger som er i ferd med a skje eller vil skje, inkludert vold mot barn.',
+    options: ["Plikt til a søke a avverge alvorlige straffbare handlinger", "Plikt til a rapportere alle samtaler", "Plikt til a holde all informasjon om pasienten strengt hemmelig", "Plikt til a rapportere alle samtaler man har med brukere til leder"],
+    explanation: 'Alle har plikt til a søke a avverge alvorlige straffbare handlinger som er i ferd med a skje eller vil skje, inkludert vold mot barn.',
   },
   {
     question: 'Hvilke typer vold finnes?',
-    options: ["Fysisk, psykisk, seksuell, økonomisk og digital vold", "Bare seksuell vold og andre overgrep av fysisk karakter", "Kun psykisk vold i form av trusler, nedsettelse og kontrollering", "Kun seksuell vold der noen tvinger andre til uonskede handlinger"],
+    options: ["Fysisk, psykisk, seksuell, økonomisk og digital vold", "Bare seksuell vold og andre overgrep av fysisk karakter", "Kun psykisk vold i form av trusler, nedsettelse og kontrollering", "Kun seksuell vold der noen tvinger andre til uønskede handlinger"],
     explanation: 'Vold kan være fysisk, psykisk, seksuell, økonomisk, materiell, digital og latent. Alle former er alvorlige og skadelige.',
   },
   {
@@ -169,7 +169,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan bør du snakke med en mulig voldsutsatt?',
-    options: ["I et privat og trygt sted, lytte uten a avbryte, tro pådet som fortelles", "Konfrontere personen med mange direkte sporsmål for a fåfrem sannheten", "Presse personen til a anmelde forholdet så raskt som overhodet mulig", "Bare snakke om det nårandre kolleger er til stede som vitner"],
+    options: ["I et privat og trygt sted, lytte uten a avbryte, tro pådet som fortelles", "Konfrontere personen med mange direkte spørsmål for a fåfrem sannheten", "Presse personen til a anmelde forholdet så raskt som overhodet mulig", "Bare snakke om det nårandre kolleger er til stede som vitner"],
     explanation: 'Finn et privat og trygt sted, forklar din bekymring, lytt uten a avbryte, tro pådet som fortelles, og respekter valg mens du informerer om hjelpemuligheter.',
   },
 ],
@@ -198,7 +198,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig a huske om kultur?',
-    options: ["Kultur er dynamisk og endrer seg, og det er stor variasjon innad i grupper", "Bare første generasjon innvandrere har kultur, mens barna deres ikke har det", "At kultur er noe fast og medfodt som folger en person uendret gjennom hele livet, uavhengig av erfaringer", "At det bare er forste generasjon innvandrere som egentlig har en kultur som pavirker mote med helsetjenesten"],
+    options: ["Kultur er dynamisk og endrer seg, og det er stor variasjon innad i grupper", "Bare første generasjon innvandrere har kultur, mens barna deres ikke har det", "At kultur er noe fast og medfødt som folger en person uendret gjennom hele livet, uavhengig av erfaringer", "At det bare er forste generasjon innvandrere som egentlig har en kultur som påvirker mote med helsetjenesten"],
     explanation: 'Kultur er dynamisk og endrer seg over tid. Det er stor variasjon innad i alle grupper, og man bør aldri generalisere.',
   },
 ],
@@ -207,23 +207,23 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-8': [
   {
     question: 'Hva er velferdsteknologi?',
-    options: ["Teknologisk assistanse som bidrar til økt trygghet og selvstendighet", "Bare roboter i helsevesenet som utfører oppgaver i stedet for ansatte", "Datamaskiner og journalsystemer som ansatte pa sykehus bruker til a dokumentere pasientopplysninger", "Utelukkende avanserte roboter som overtar stell og pleie i sykehjem og hjemmetjeneste for de ansatte"],
+    options: ["Teknologisk assistanse som bidrar til økt trygghet og selvstendighet", "Bare roboter i helsevesenet som utfører oppgaver i stedet for ansatte", "Datamaskiner og journalsystemer som ansatte på sykehus bruker til a dokumentere pasientopplysninger", "Utelukkende avanserte roboter som overtar stell og pleie i sykehjem og hjemmetjeneste for de ansatte"],
     explanation: 'Velferdsteknologi er teknologisk assistanse som bidrar til økt trygghet, sikkerhet, sosial deltakelse, mobilitet og aktivitet for brukere med nedsatt funksjonsevne.',
   },
   {
     question: 'Erstatter velferdsteknologi menneskelig kontakt?',
-    options: ["Nei, den skal være et supplement til, ikke erstatning for, menneskelig omsorg", "Ja, det er hovedformalet med all velferdsteknologi som tas i bruk i helsetjenesten", "Bare i noen tilfeller kan teknologien fullt ut erstatte den menneskelige kontakten brukeren trenger", "Ja, hovedformalet er a la teknologien overta omsorgsoppgavene slik at tjenesten trenger faerre ansatte"],
+    options: ["Nei, den skal være et supplement til, ikke erstatning for, menneskelig omsorg", "Ja, det er hovedformålet med all velferdsteknologi som tas i bruk i helsetjenesten", "Bare i noen tilfeller kan teknologien fullt ut erstatte den menneskelige kontakten brukeren trenger", "Ja, hovedformålet er a la teknologien overta omsorgsoppgavene slik at tjenesten trenger færre ansatte"],
     explanation: 'Velferdsteknologi skal være et supplement til, ikke en erstatning for, menneskelig kontakt og omsorg. Den kan frigjøre tid til mer kvalitetstid med brukerne.',
   },
   {
     question: 'Hva er et etisk dilemma ved GPS-sporing av personer med demens?',
     options: ["Avveining mellom sikkerhet og frihet/selvbestemmelse", "Det er ingen etiske dilemmaer", "Det eneste problemet er at utstyret er for dyrt", "At det bruker for mye batteri"],
-    explanation: 'GPS-sporing reiser etiske sporsmål om avveining mellom sikkerhet og frihet, spesielt nårpersonen ikke kan gi informert samtykke.',
+    explanation: 'GPS-sporing reiser etiske spørsmål om avveining mellom sikkerhet og frihet, spesielt nårpersonen ikke kan gi informert samtykke.',
   },
   {
     question: 'Hva er trygghetsalarm?',
     options: ["En enhet som bruker trykker påfor a tilkalle hjelp", "En tyverialarm i boligen", "En brannalarm montert i taket i boligen", "En brannalarm som varsler"],
-    explanation: 'Trygghetsalarm er en enhet brukeren baerer påseg og kan trykke påfor a tilkalle hjelp ved behov, for eksempel ved fall.',
+    explanation: 'Trygghetsalarm er en enhet brukeren bærer påseg og kan trykke påfor a tilkalle hjelp ved behov, for eksempel ved fall.',
   },
   {
     question: 'Hva bør vurderes for man tar i bruk velferdsteknologi?',
@@ -256,7 +256,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør man gjøre for man innfører en endring i stor skala?',
-    options: ["Teste den i liten skala først og evaluere resultatene", "Innføre den umiddelbart for alle", "Bare sporre ledelsen om de synes endringen er en god ide, uten a teste hvordan den fungerer i praksis", "Vente til noen andre prover det"],
+    options: ["Teste den i liten skala først og evaluere resultatene", "Innføre den umiddelbart for alle", "Bare spørre ledelsen om de synes endringen er en god ide, uten a teste hvordan den fungerer i praksis", "Vente til noen andre prover det"],
     explanation: 'Endringer bør testes i liten skala først for å se om de virker, for de eventuelt innføres i større skala.',
   },
 ],
@@ -265,7 +265,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-10': [
   {
     question: 'Hva kan du gjøre etter fagbrev i helse- og oppvekstfag?',
-    options: ["Jobbe som helsefagarbeider, ta videreutdanning eller studere videre", "Bare jobbe i barnehage eller skolefritidsordning resten av yrkeslivet sitt", "Bare jobbe i barnehage som barne- og ungdomsarbeider, siden fagbrevet ikke apner for arbeid i helsesektoren", "Du ma bytte karriere til et helt annet felt, fordi fagbrevet i seg selv ikke gir grunnlag for videre studier"],
+    options: ["Jobbe som helsefagarbeider, ta videreutdanning eller studere videre", "Bare jobbe i barnehage eller skolefritidsordning resten av yrkeslivet sitt", "Bare jobbe i barnehage som barne- og ungdomsarbeider, siden fagbrevet ikke åpner for arbeid i helsesektoren", "Du må bytte karriere til et helt annet felt, fordi fagbrevet i seg selv ikke gir grunnlag for videre studier"],
     explanation: 'Etter fagbrev kan du jobbe som helsefagarbeider eller barne- og ungdomsarbeider, ta fagskole, videreutdanning, eller studere videre (f.eks. sykepleie via Y-veien).',
   },
   {
@@ -285,7 +285,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør du tenke pånårdu planlegger karrieren?',
-    options: ["Hva du liker, hva du vil lære mer om, og hvor du ser deg selv i fremtiden", "Ingenting, bare følge strømmen og gjøre som de andre i klassen gjør etter skolen", "Ingenting spesielt, det holder a folge stommen og ta imot de mulighetene som tilfeldigvis dukker opp", "Bare hva slags jobb som gir den hoyeste lonna, ettersom lonn er det viktigste nar man skal velge yrke"],
+    options: ["Hva du liker, hva du vil lære mer om, og hvor du ser deg selv i fremtiden", "Ingenting, bare følge strømmen og gjøre som de andre i klassen gjør etter skolen", "Ingenting spesielt, det holder a folge stommen og ta imot de mulighetene som tilfeldigvis dukker opp", "Bare hva slags jobb som gir den hoyeste lønna, ettersom lonn er det viktigste når man skal velge yrke"],
     explanation: 'Når du planlegger karrieren bør du tenke påhva du liker a jobbe med, hvilke områder du vil lære mer om, og hvor du ser deg selv i fremtiden.',
   },
 ],
@@ -294,7 +294,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-1-1': [
   {
     question: 'Hva kjennetegner profesjonell yrkesutøvelse?',
-    options: ["Faglig kompetanse, etisk bevissthet og ansvarlig handling", "Å gjøre det man personlig synes", "A gjore det man personlig synes er best i oyeblikket", "Å følge bare egne meninger"],
+    options: ["Faglig kompetanse, etisk bevissthet og ansvarlig handling", "Å gjøre det man personlig synes", "A gjore det man personlig synes er best i øyeblikket", "Å følge bare egne meninger"],
     explanation: 'Profesjonalitet forener fagkunnskap, etikk og ansvarlighet til beste for pasienten.',
   },
   {
@@ -304,7 +304,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er yrkesidentitet?',
-    options: ["Følelsen av tilhørighet til og forståelse av eget yrke", "En skriftlig arbeidskontrakt", "En lonnsavtale som fastsetter hva man skal ha betalt", "En lønnsavtale med arbeidsgiver"],
+    options: ["Følelsen av tilhørighet til og forståelse av eget yrke", "En skriftlig arbeidskontrakt", "En lønnsavtale som fastsetter hva man skal ha betalt", "En lønnsavtale med arbeidsgiver"],
     explanation: 'Yrkesidentitet handler om hvordan man forstår og ser seg selv som fagperson.',
   },
   {
@@ -336,7 +336,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan bør man håndtere et etisk dilemma?',
-    options: ["Reflektere systematisk over verdier og konsekvenser, gjerne med kolleger", "Bare følge magefølelsen og handle slik det kjennes riktig i den enkelte situasjonen", "Bare folge magefolelsen og forste innskytelse, framfor a veie verdier og konsekvenser opp mot hverandre", "Velge losning helt tilfeldig, siden alle utfall er like gode og valget likevel ikke kan begrunnes faglig"],
+    options: ["Reflektere systematisk over verdier og konsekvenser, gjerne med kolleger", "Bare følge magefølelsen og handle slik det kjennes riktig i den enkelte situasjonen", "Bare folge magefølelsen og forste innskytelse, framfor a veie verdier og konsekvenser opp mot hverandre", "Velge losning helt tilfeldig, siden alle utfall er like gode og valget likevel ikke kan begrunnes faglig"],
     explanation: 'Etiske dilemmaer håndteres best gjennom systematisk refleksjon, gjerne i fellesskap.',
   },
   {
@@ -348,7 +348,7 @@ const quizData_helseoppvekst_vg3: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-1-3': [
   {
     question: 'Hva er taushetsplikt?',
-    options: ["Plikten til å hindre at uvedkommende får tilgang til pasientopplysninger", "Plikten til å fortelle pårørende alt de spør om, uten pasientens samtykke", "En helt frivillig avtale mellom ansatt og pasient om hva som eventuelt kan deles videre til andre", "Plikten til a informere de parorende om alt som gjelder pasientens helse og behandling, uansett samtykke"],
+    options: ["Plikten til å hindre at uvedkommende får tilgang til pasientopplysninger", "Plikten til å fortelle pårørende alt de spør om, uten pasientens samtykke", "En helt frivillig avtale mellom ansatt og pasient om hva som eventuelt kan deles videre til andre", "Plikten til a informere de pårørende om alt som gjelder pasientens helse og behandling, uansett samtykke"],
     explanation: 'Taushetsplikten verner pasientens opplysninger mot innsyn fra uvedkommende.',
   },
   {

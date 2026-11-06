@@ -502,7 +502,7 @@ const quizData_fransk_3: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er "la bienséance" i klassisismen?',
     options: ['Sommelighet – vold og død vises ikke på scenen', 'Tidsenheten', 'Bruk av alexandrinsk vers', 'Den komiske effekten'],
-    explanation: 'La bienséance (sommelighet) krever at det usommelige (vold, død) ikke vises på scenen, men fortelles av en budbringer.',
+    explanation: 'La bienséance (sommelighet) krever at det usømmelige (vold, død) ikke vises på scenen, men fortelles av en budbringer.',
   },
 ],
 

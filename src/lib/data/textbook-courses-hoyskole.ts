@@ -1318,13 +1318,13 @@ export const COURSE_EXPHIL03: TextbookCourse = {
     {
       id: 'exphil03-2-5',
       number: '2.5',
-      title: 'Kant og Einstein — syntetisk a priori og geometriens status',
-      description: 'Kants syntetisk a priori-kunnskap med tekstens egne eksempler og Einsteins innvending om ren og anvendt geometri — det faste vitenskapsteoretiske Være-alternativet.',
+      title: 'Kant og Einstein — syntetisk å priori og geometriens status',
+      description: 'Kants syntetisk å priori-kunnskap med tekstens egne eksempler og Einsteins innvending om ren og anvendt geometri — det faste vitenskapsteoretiske Være-alternativet.',
       estimatedMinutes: 40,
       exerciseCount: 4,
-      topics: ['Kant', 'Einstein', 'syntetisk a priori', 'geometriens status'],
+      topics: ['Kant', 'Einstein', 'syntetisk å priori', 'geometriens status'],
       prerequisites: ['exphil03-1-4'],
-      competenceGoals: ['skille analytisk fra syntetisk og a priori fra a posteriori, og forklare hvorfor krysningen er poenget', 'gjøre rede for hva syntetisk a priori-kunnskap er med Kants egne eksempler', 'rekonstruere Einsteins skille mellom ren og anvendt geometri og hva innvendingen rammer', 'drøfte om Einsteins innvending treffer Kants posisjon eller snakker forbi den'],
+      competenceGoals: ['skille analytisk fra syntetisk og a priori fra a posteriori, og forklare hvorfor krysningen er poenget', 'gjøre rede for hva syntetisk å priori-kunnskap er med Kants egne eksempler', 'rekonstruere Einsteins skille mellom ren og anvendt geometri og hva innvendingen rammer', 'drøfte om Einsteins innvending treffer Kants posisjon eller snakker forbi den'],
     },
     {
       id: 'exphil03-2-6',
@@ -2734,7 +2734,7 @@ export const COURSE_MAT1100: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Riemann-integralet', 'integrerbarhet'],
       prerequisites: ['mat1100-2-4'],
-      competenceGoals: ['bygge opp det bestemte integralet fra nedre og øvre trappesummer og forklare Darboux-kriteriet for integrerbarhet', 'avgjøre om en funksjon er integrerbar ved hjelp av de to arbeidsteoremene (begrenset + endelig mange diskontinuiteter; begrenset + stykkevis monoton), med teoremet navngitt', 'bruke lineæritet, intervalladditivitet og monotoni av integralet', 'gjenkjenne en Riemann-sum som et bestemt integral'],
+      competenceGoals: ['bygge opp det bestemte integralet fra nedre og øvre trappesummer og forklare Darboux-kriteriet for integrerbarhet', 'avgjøre om en funksjon er integrerbar ved hjelp av de to arbeidsteoremene (begrenset + endelig mange diskontinuiteter; begrenset + stykkevis monoton), med teoremet navngitt', 'bruke linearitet, intervalladditivitet og monotoni av integralet', 'gjenkjenne en Riemann-sum som et bestemt integral'],
     },
     {
       id: 'mat1100-4-2',
@@ -3425,7 +3425,7 @@ export const COURSE_TMA4245: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Monte Carlo som inferensverktøy', 'simulert sannsynlighet', 'p-verdi', 'styrke'],
       prerequisites: ['tma4245-9-1', 'tma4245-7-3', 'tma4245-5-3'],
-      competenceGoals: ['bruke at en sannsynlighet er en forventet indikator til å estimere sannsynligheter og forventninger med Monte Carlo', 'simulere en p-verdi ved å generere data under $H_0$ og telle andelen minst så ekstreme observatorer', 'simulere styrken til en test ved å generere data under alternativet og telle forkastninger', 'kontrollere en feilforplantning (deltametoden) ved simulering med riktig bruk av ddof=1'],
+      competenceGoals: ['bruke at en sannsynlighet er en forventet indikator til å estimere sannsynligheter og forventninger med Monte Carlo', 'simulere en p-verdi ved å generere data under $H_0$ og telle andelen minst så ekstreme observatører', 'simulere styrken til en test ved å generere data under alternativet og telle forkastninger', 'kontrollere en feilforplantning (deltametoden) ved simulering med riktig bruk av ddof=1'],
     },
     {
       id: 'tma4245-9-prove',
@@ -3996,7 +3996,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Momentmetoden', 'maximum likelihood', 'den faste kjeden'],
       prerequisites: ['stk1110-1-1'],
-      competenceGoals: ['finne momentestimatoren ved a sette E(X) lik utvalgsgjennomsnittet, ogsa nar E(X)=g(theta) er ikke-triviell', 'utlede ML-estimatoren via hele kjeden L til log-likelihood til score til los til bekreft maksimum', 'bekrefte at ML-punktet er et maksimum med andrederiverttesten', 'bruke invariansprinsippet til a finne ML for en omregnet parameter'],
+      competenceGoals: ['finne momentestimatoren ved å sette E(X) lik utvalgsgjennomsnittet, også nar E(X)=g(theta) er ikke-triviell', 'utlede ML-estimatoren via hele kjeden L til log-likelihood til score til los til bekreft maksimum', 'bekrefte at ML-punktet er et maksimum med andrederiverttesten', 'bruke invariansprinsippet til a finne ML for en omregnet parameter'],
     },
     {
       id: 'stk1110-1-3',
@@ -4007,7 +4007,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Fisher-informasjon', 'MLE-asymptotikk', 'Wald-KI', 'Cramér–Rao'],
       prerequisites: ['stk1110-1-2'],
-      competenceGoals: ['regne ut Fisher-informasjonen I(theta) i en observasjon og I_n=nI for hele utvalget', 'angi ML-estimatorens tilnaermede normalfordeling N(theta,1/(nI)) og begrunne den med sentralgrenseteoremet', 'konstruere Wald-konfidensintervall og velge symmetrisk eller asymmetrisk pivot-form', 'forklare Cramer-Rao-grensen og hvorfor ML-estimatoren er asymptotisk effisient'],
+      competenceGoals: ['regne ut Fisher-informasjonen I(theta) i en observasjon og I_n=nI for hele utvalget', 'angi ML-estimatorens tilnærmede normalfordeling N(theta,1/(nI)) og begrunne den med sentralgrenseteoremet', 'konstruere Wald-konfidensintervall og velge symmetrisk eller asymmetrisk pivot-form', 'forklare Cramer-Rao-grensen og hvorfor ML-estimatoren er asymptotisk effisient'],
     },
     {
       id: 'stk1110-1-4',
@@ -4018,7 +4018,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Bayesiansk inferens', 'konjugering', 'Bayes-estimatoren'],
       prerequisites: ['stk1110-1-2'],
-      competenceGoals: ['sette opp aposteriorifordelingen som apriori ganget med likelihood', 'gjenkjenne konjugering ved a samle eksponentene og lese av gamma-parametrene', 'regne ut Bayes-estimatoren som aposteriori forventning alfa*beta', 'forklare hvorfor Bayes-estimatoren naermer seg ML-estimatoren for stor n'],
+      competenceGoals: ['sette opp aposteriorifordelingen som apriori ganget med likelihood', 'gjenkjenne konjugering ved å samle eksponentene og lese av gamma-parametrene', 'regne ut Bayes-estimatoren som aposteriori forventning alfa*beta', 'forklare hvorfor Bayes-estimatoren nærmer seg ML-estimatoren for stor n'],
     },
     {
       id: 'stk1110-1-5',
@@ -4073,7 +4073,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 11,
       topics: ['To-utvalg', 'parvise data', 'andeler'],
       prerequisites: ['stk1110-2-2'],
-      competenceGoals: ['sette opp to-utvalgs t-test med pooled varians og riktige frihetsgrader m+n-2', 'redusere parvise data til differanser og teste dem som ett utvalg med n-1 frihetsgrader', 'gjennomfore en to-utvalgs andelstest med pooled p-hatt under H0', 'gjenkjenne koblingen mellom to-utvalgs t-test og enkel regresjon pa en dummy'],
+      competenceGoals: ['sette opp to-utvalgs t-test med pooled varians og riktige frihetsgrader m+n-2', 'redusere parvise data til differanser og teste dem som ett utvalg med n-1 frihetsgrader', 'gjennomføre en to-utvalgs andelstest med pooled p-hatt under H0', 'gjenkjenne koblingen mellom to-utvalgs t-test og enkel regresjon på en dummy'],
     },
     {
       id: 'stk1110-2-4',
@@ -4084,7 +4084,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Styrke', 'type II-feil', 'dimensjonering av utvalgsstørrelse'],
       prerequisites: ['stk1110-2-2'],
-      competenceGoals: ['skille type I- og type II-feil og regne ut teststyrken 1 minus beta', 'bruke styrkeformelen for en ensidig normaltest med riktig fortegn', 'lose styrkekravet for utvalgsstorrelsen n og runde opp til naermeste heltall', 'bruke normaltilnaerming til Poisson-styrke og koble den til sentralgrenseteoremet'],
+      competenceGoals: ['skille type I- og type II-feil og regne ut teststyrken 1 minus beta', 'bruke styrkeformelen for en ensidig normaltest med riktig fortegn', 'lose styrkekravet for utvalgsstorrelsen n og runde opp til nærmeste heltall', 'bruke normaltilnaerming til Poisson-styrke og koble den til sentralgrenseteoremet'],
     },
     {
       id: 'stk1110-2-5',
@@ -4095,7 +4095,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eksakt fordelingsteori', 'transformasjons-pivot', 'F-test for varianser'],
       prerequisites: ['stk1110-2-2'],
-      competenceGoals: ['gjenkjenne en pivotal storrelse med fordeling uavhengig av parameteren og bruke den til et eksakt konfidensintervall', 'utlede at 2 ganger summen av X delt pa theta er kjikvadratfordelt med 2n frihetsgrader', 'sette opp en F-test for variansforhold og bruke den til a sjekke lik-varians-antakelsen', 'vite nar et eksakt/asymmetrisk intervall foretrekkes framfor Wald-intervallet'],
+      competenceGoals: ['gjenkjenne en pivotal størrelse med fordeling uavhengig av parameteren og bruke den til et eksakt konfidensintervall', 'utlede at 2 ganger summen av X delt på theta er kjikvadratfordelt med 2n frihetsgrader', 'sette opp en F-test for variansforhold og bruke den til a sjekke lik-varians-antakelsen', 'vite når et eksakt/asymmetrisk intervall foretrekkes framfor Wald-intervallet'],
     },
     {
       id: 'stk1110-2-6',
@@ -4106,7 +4106,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Enveis ANOVA', 'ikke-parametriske alternativer'],
       prerequisites: ['stk1110-2-3'],
-      competenceGoals: ['sette opp enveis ANOVA-modellen og tolke F-testen MSB delt pa MSW fra en R-utskrift', 'forklare koblingen mellom ANOVA og dummy-regresjon', 'beskrive bootstrap-persentilintervallet konseptuelt og lese av persentilene', 'vurdere nar en rang-/Wilcoxon-test foretrekkes framfor t-testen ut fra et QQ-plott'],
+      competenceGoals: ['sette opp enveis ANOVA-modellen og tolke F-testen MSB delt pa MSW fra en R-utskrift', 'forklare koblingen mellom ANOVA og dummy-regresjon', 'beskrive bootstrap-persentilintervallet konseptuelt og lese av persentilene', 'vurdere når en rang-/Wilcoxon-test foretrekkes framfor t-testen ut fra et QQ-plott'],
     },
     {
       id: 'stk1110-2-7',
@@ -4117,7 +4117,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Drill', 'det komplette test-ritualet (sjanger E)'],
       prerequisites: ['stk1110-2-2', 'stk1110-2-3'],
-      competenceGoals: ['kjenne igjen hvilken testtype en oppgave krever og skrive ut hele femtrinnsmalen for hver av dem', 'utlede eksplisitt at testen far niva alpha ved a regne P(forkast H0 gitt H0 sann)', 'velge riktig testobservator, fordeling og frihetsgrader for ett-utvalg, to-utvalg, parvis, andeler, Poisson, F, ANOVA og rangtest', 'definere P-verdien verbalt korrekt, konkludere i kontekst og kryssjekke mot konfidensintervallet'],
+      competenceGoals: ['kjenne igjen hvilken testtype en oppgave krever og skrive ut hele femtrinnsmalen for hver av dem', 'utlede eksplisitt at testen far niva alpha ved å regne P(forkast H0 gitt H0 sann)', 'velge riktig testobservator, fordeling og frihetsgrader for ett-utvalg, to-utvalg, parvis, andeler, Poisson, F, ANOVA og rangtest', 'definere P-verdien verbalt korrekt, konkludere i kontekst og kryssjekke mot konfidensintervallet'],
     },
     {
       id: 'stk1110-2-prove',
@@ -4128,7 +4128,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Prøver til del 2', 'Hypotesetesting', 'konfidensintervall'],
       prerequisites: ['stk1110-2-7'],
-      competenceGoals: ['konstruere t-, Wald-, andels- og khikvadrat-intervall med riktig kvantil og frihetsgrad under proveforhold', 'skrive ut hele femtrinns-testritualet inkludert nivaa-utledning og verbal P-verdi', 'velge og gjennomfore to-utvalgs-, parvis- og andelstest samt dimensjonere utvalgsstorrelse', 'lose en blandet test-/KI-oppgave a til f paa eksamensnivaa og bruke dualiteten som kryssjekk'],
+      competenceGoals: ['konstruere t-, Wald-, andels- og khikvadrat-intervall med riktig kvantil og frihetsgrad under proveforhold', 'skrive ut hele femtrinns-testritualet inkludert nivaa-utledning og verbal P-verdi', 'velge og gjennomføre to-utvalgs-, parvis- og andelstest samt dimensjonere utvalgsstorrelse', 'lose en blandet test-/KI-oppgave a til f paa eksamensnivaa og bruke dualiteten som kryssjekk'],
     },
     {
       id: 'stk1110-3-1',
@@ -4139,7 +4139,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Enkel lineær regresjon', 'minste kvadrater', 'inferens for stigningstallet'],
       prerequisites: ['stk1110-2-1'],
-      competenceGoals: ['utlede minste kvadraters estimatorer fra normalligningene og vise at LS = ML under normalfeil', 'utlede forventning og varians av stigningstallestimatoren og estimere feilvariansen med n-2 frihetsgrader', 'gjennomfore t-test og konfidensintervall for stigningstallet med riktige frihetsgrader', 'tolke koeffisientene i kontekst, advare mot ekstrapolering, og bruke R-kvadrat som kvadrert korrelasjon'],
+      competenceGoals: ['utlede minste kvadraters estimatorer fra normalligningene og vise at LS = ML under normalfeil', 'utlede forventning og varians av stigningstallestimatoren og estimere feilvariansen med n-2 frihetsgrader', 'gjennomføre t-test og konfidensintervall for stigningstallet med riktige frihetsgrader', 'tolke koeffisientene i kontekst, advare mot ekstrapolering, og bruke R-kvadrat som kvadrert korrelasjon'],
     },
     {
       id: 'stk1110-3-2',
@@ -4150,7 +4150,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 9,
       topics: ['Å lese R-utskrift (lm-sammendraget)'],
       prerequisites: ['stk1110-3-1'],
-      competenceGoals: ['kjenne igjen og tolke hver kolonne i Coefficients-tabellen (Estimate, Std. Error, t value, Pr(>|t|))', 'hente residualspredning, frihetsgrader, R-kvadrat og justert R-kvadrat fra utskriften', 'bygge konfidensintervall og lese signifikans direkte fra sammendraget', 'tolke en ikke-signifikant koeffisient betinget pa de ovrige variablene'],
+      competenceGoals: ['kjenne igjen og tolke hver kolonne i Coefficients-tabellen (Estimate, Std. Error, t value, Pr(>|t|))', 'hente residualspredning, frihetsgrader, R-kvadrat og justert R-kvadrat fra utskriften', 'bygge konfidensintervall og lese signifikans direkte fra sammendraget', 'tolke en ikke-signifikant koeffisient betinget på de ovrige variablene'],
     },
     {
       id: 'stk1110-3-3',
@@ -4194,7 +4194,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Logistisk regresjon (kjenne', 'to-gruppe-sammenligning)'],
       prerequisites: ['stk1110-3-1'],
-      competenceGoals: ['sette opp den logistiske modellen med logit-lenke for en binaer respons', 'tolke beta1 som logit-/oddsforskjell — aldri som sannsynlighetsforskjell', 'uttrykke en to-gruppe-sammenligning med dummy og vise at beta1=0 svarer til lik andel', 'lese koeffisienter og P-verdi fra utskriften av en logistisk regresjon (kjenne-niva)'],
+      competenceGoals: ['sette opp den logistiske modellen med logit-lenke for en binær respons', 'tolke beta1 som logit-/oddsforskjell — aldri som sannsynlighetsforskjell', 'uttrykke en to-gruppe-sammenligning med dummy og vise at beta1=0 svarer til lik andel', 'lese koeffisienter og P-verdi fra utskriften av en logistisk regresjon (kjenne-niva)'],
     },
     {
       id: 'stk1110-3-7',
@@ -4205,7 +4205,7 @@ export const COURSE_STK1110: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Drill', 'regresjonsoppgaven fra R-utskrift (sjanger H–K)'],
       prerequisites: ['stk1110-3-4', 'stk1110-3-5'],
-      competenceGoals: ['folge syvtrinnsoppskriften fra R-utskrift til full regresjonsbesvarelse a til f', 'gjennomfore t-test og KI for koeffisienter med riktig frihetsgrad n-2 eller n-k-1', 'bruke justert R-kvadrat til modellvalg og forklare konfundering nar en variabel legges til', 'vurdere residualplott i monstre og skille konfidensintervall fra prediksjonsintervall med 1+ under rota'],
+      competenceGoals: ['folge syvtrinnsoppskriften fra R-utskrift til full regresjonsbesvarelse a til f', 'gjennomføre t-test og KI for koeffisienter med riktig frihetsgrad n-2 eller n-k-1', 'bruke justert R-kvadrat til modellvalg og forklare konfundering nar en variabel legges til', 'vurdere residualplott i monstre og skille konfidensintervall fra prediksjonsintervall med 1+ under rota'],
     },
     {
       id: 'stk1110-3-prove',
@@ -5310,7 +5310,7 @@ export const COURSE_MAT111_UIB: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Invers funksjon', 'eksistens', 'uttrykk', 'derivert av invers'],
       prerequisites: ['mat111-uib-3-1'],
-      competenceGoals: ['kunne begrunne at en invers funksjon finnes via fast fortegn på den deriverte over et intervall', 'kunne finne uttrykk for inversen med riktig definisjonsmengde (verdimengden til funksjonen)', 'kunne regne den deriverte av inversen med formelen og oppskriften «finn a først»', 'kunne finne største inverterbarhetsintervall med fortegnsskjema, og forklare fellen med usammenhengende definisjonsmengder'],
+      competenceGoals: ['kunne begrunne at en invers funksjon finnes via fast fortegn på den deriverte over et intervall', 'kunne finne uttrykk for inversen med riktig definisjonsmengde (verdimengden til funksjonen)', 'kunne regne den deriverte av inversen med formelen og oppskriften «finn å først»', 'kunne finne største inverterbarhetsintervall med fortegnsskjema, og forklare fellen med usammenhengende definisjonsmengder'],
     },
     {
       id: 'mat111-uib-3-5',
@@ -5585,7 +5585,7 @@ export const COURSE_MAT111_UIB: TextbookCourse = {
       exerciseCount: 0,
       topics: ['Øvingseksamen 2', 'vårprofil (13 deloppgaver', '5 timer)'],
       prerequisites: ['mat111-uib-8-2'],
-      competenceGoals: ['kunne gjennomføre et komplett 5-timers vårsett med 13 likt vektede deloppgaver', 'kunne disponere ~23 minutter per deloppgave og hente poengene i vårsettets markørsjangre', 'kunne føre løsninger etter åpen bok-standarden i sjangrene C, M, L, K, FTC, J, B og A', 'kunne bruke feilformler og inversformler med de faste føringskravene («finn a først», K på hele intervallet)'],
+      competenceGoals: ['kunne gjennomføre et komplett 5-timers vårsett med 13 likt vektede deloppgaver', 'kunne disponere ~23 minutter per deloppgave og hente poengene i vårsettets markørsjangre', 'kunne føre løsninger etter åpen bok-standarden i sjangrene C, M, L, K, FTC, J, B og A', 'kunne bruke feilformler og inversformler med de faste føringskravene («finn å først», K på hele intervallet)'],
     },
     {
       id: 'mat111-uib-8-4',
@@ -9642,7 +9642,7 @@ export const COURSE_FIL1001: TextbookCourse = {
       exerciseCount: 7,
       topics: ['Identitetsteorien', 'Kims minimale fysikalisme'],
       prerequisites: ['fil1001-4-1'],
-      competenceGoals: ['kunne gjøre rede for identitetsteorien som en a posteriori identitet, og forklare hvorfor lyn-analogien er nødvendig for posisjonen', 'kunne skille typeidentitet fra tokenidentitet og si presist hvilken av dem multippel realiserbarhet rammer', 'kunne bruke Kims egne termer — minimal fysikalisme, supervenience og de tre reduksjonsmodellene — der oppgaven navngir dem', 'kunne veie identitetsteorien mot dualismen langs flere dimensjoner og lande med en begrunnet konklusjon'],
+      competenceGoals: ['kunne gjøre rede for identitetsteorien som en å posteriori identitet, og forklare hvorfor lyn-analogien er nødvendig for posisjonen', 'kunne skille typeidentitet fra tokenidentitet og si presist hvilken av dem multippel realiserbarhet rammer', 'kunne bruke Kims egne termer — minimal fysikalisme, supervenience og de tre reduksjonsmodellene — der oppgaven navngir dem', 'kunne veie identitetsteorien mot dualismen langs flere dimensjoner og lande med en begrunnet konklusjon'],
     },
     {
       id: 'fil1001-4-4',
@@ -17171,7 +17171,7 @@ export const COURSE_TDT4120: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Rekurrenser', 'masterteoremet'],
       prerequisites: ['tdt4120-1-1'],
-      competenceGoals: ['kunne lese av a, b og f(n) fra en rekurrens og regne ut sammenligningsuttrykket n opphoeyd i logaritmen til a med grunntall b', 'kunne velge riktig tilfelle i masterteoremet og oppgi svaret med riktig antall logaritmefaktorer', 'kunne sjekke regularitetsbetingelsen i tilfelle 3 og skrive begrunnelsen paa en linje', 'kunne avgjoere naar en rekurrens faller utenfor masterteoremet, og si hvorfor'],
+      competenceGoals: ['kunne lese av a, b og f(n) fra en rekurrens og regne ut sammenligningsuttrykket n opphøyd i logaritmen til a med grunntall b', 'kunne velge riktig tilfelle i masterteoremet og oppgi svaret med riktig antall logaritmefaktorer', 'kunne sjekke regularitetsbetingelsen i tilfelle 3 og skrive begrunnelsen paa en linje', 'kunne avgjøre naar en rekurrens faller utenfor masterteoremet, og si hvorfor'],
     },
     {
       id: 'tdt4120-1-5',

@@ -235,7 +235,7 @@ const quizData_kroppsoving_8: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig å redusere stillesitting?",
-      options: ["Fordi langvarig stillesitting øker risiko for livsstilssykdømmer", "Fordi bare voksne mennesker påvirkes negativt av å sitte lenge", "Fordi det egentlig ikke har noe å si for helsen din i det hele tatt", "Fordi kontorstoler og skolestoler er dyre å skifte ut ofte"],
+      options: ["Fordi langvarig stillesitting øker risiko for livsstilssykdommer", "Fordi bare voksne mennesker påvirkes negativt av å sitte lenge", "Fordi det egentlig ikke har noe å si for helsen din i det hele tatt", "Fordi kontorstoler og skolestoler er dyre å skifte ut ofte"],
       explanation: "Langvarig stillesitting øker risikoen for overvekt, diabetes og hjerte-karsykdømmer.",
     },
     {

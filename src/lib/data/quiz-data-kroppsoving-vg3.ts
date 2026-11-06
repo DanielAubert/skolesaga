@@ -52,9 +52,9 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
     explanation: 'Helsemyndighetene anbefaler regelmessig aktivitet fordelt utover uken.',
   },
   {
-    question: 'Hvordan kan fysisk aktivitet førebygge livsstilssykdømmer?',
+    question: 'Hvordan kan fysisk aktivitet førebygge livsstilssykdommer?',
     options: ["Bedrer hjertehelse, insulinfølsomhet, styrker muskulatur og mental helse", "Aktivitet virker kun forebyggende mot forkjølelse og milde infeksjoner", "Aktivitet har ingen forebyggende effekt mot livsstilssykdommer", "Aktivitet øker risikoen for alvorlige livsstilssykdommer"],
-    explanation: 'Regelmessig aktivitet er en av de mest effektive førebyggende tiltakene.',
+    explanation: 'Regelmessig aktivitet er en av de mest effektive forebyggende tiltakene.',
   },
 ],
 

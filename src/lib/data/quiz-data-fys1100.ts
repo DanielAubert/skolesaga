@@ -126,7 +126,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En sirkelbane har fart $v \\sim r^{-1/2}$. Hva skjer med farten hvis radien nidobles?",
-      options: ["Farten blir en tredjedel av det den var", "Farten blir en niendedel av det den var", "Farten blir tre ganger så stor som før nidoblingen", "Farten blir en attendedel av det den var"],
+      options: ["Farten blir en tredjedel av det den var", "Farten blir en niendedel av det den var", "Farten blir tre ganger så stor som før nidoblingen", "Farten blir en åttendedel av det den var"],
       explanation: "Med $v \\sim r^{-1/2}$ ganges farten med $9^{-1/2} = 1/3$ når radien ganges med 9. Svaret «en niendedel» ligger nærmest og oppstår hvis man glemmer at eksponenten er en halv og bruker $9^{-1}$ i stedet.",
     },
     {

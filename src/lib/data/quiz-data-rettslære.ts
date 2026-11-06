@@ -10,12 +10,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken domstol er Norges øverste?",
       options: ["Høyesterett", "Lagmannsretten", "Tingretten", "Forliksrådet"],
-      explanation: "Høyesterett er landets øverste domstol og behandler de mest prinsipielle sakene. Den har 20 dømmere.",
+      explanation: "Høyesterett er landets øverste domstol og behandler de mest prinsipielle sakene. Den har 20 dommere.",
     },
     {
       question: "Hva betyr det å anke en dom?",
       options: ["Å bringe saken til høyere rettsinstans for ny behandling", "Å trekke tilbake saken", "Å godta dommen som endelig og frivillig oppfylle det domstolen har bestemt i saken", "Å levere en helt ny og selvstendig anmeldelse i en annen sak til påtalemyndigheten"],
-      explanation: "Anke betyr å be en høyere domstol behandle saken på nytt fordi man mener den første dømmen er feil.",
+      explanation: "Anke betyr å be en høyere domstol behandle saken på nytt fordi man mener den første dommen er feil.",
     },
     {
       question: "Hva er forskjellen mellom straffesaker og sivile saker?",
@@ -31,13 +31,13 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslære-1-2": [
     {
       question: "Hvilken rettskilde har høyest rang i Norge?",
-      options: ["Grunnloven", "Vanlige lover", "Forskrifter", "Rettspråksis"],
+      options: ["Grunnloven", "Vanlige lover", "Forskrifter", "Rettspraksis"],
       explanation: "Grunnloven er Norges høyeste lov. Alle andre lover må være i samsvar med Grunnloven.",
     },
     {
       question: "Hva er forarbeider?",
       options: ["Dokumenter laget under utarbeidelsen av en lov","Juridiske lærebøker og artikler skrevet av rettsvitere","Eldre rettsavgjørelser fra domstolene som skaper bindende prejudikat for senere saker","Arbeidskontrakter og andre avtaler mellom private parter"],
-      explanation: "Forarbeider inkluderer NOU-er, proposisjoner og innstillinger som forklærer lovens formål og hvordan den skal forstås.",
+      explanation: "Forarbeider inkluderer NOU-er, proposisjoner og innstillinger som forklarer lovens formål og hvordan den skal forstås.",
     },
     {
       question: "Hvor starter man vanligvis ved lovtolkning?",
@@ -150,7 +150,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er objektivt ansvar?",
       options: ["Ansvar uten krav om skyld","Ansvar med krav om forsett","Ansvar for brudd på en kontrakt","Ansvar for andres handlinger"],
-      explanation: "Objektivt ansvar betyr at man er ansvårlig uavhengig av skyld. Det gjelder for særlig farlig virksomhet.",
+      explanation: "Objektivt ansvar betyr at man er ansvarlig uavhengig av skyld. Det gjelder for særlig farlig virksomhet.",
     },
     {
       question: "Hva menes med påregnelighet i erstatningsretten?",
@@ -158,9 +158,9 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
       explanation: "Påregnelighet betyr at skaden var en forutsigbar følge. Man erstatter ikke helt upåregnelige følger.",
     },
     {
-      question: "Hva innebærer arbeidsgiveransvåret?",
-      options: ["Arbeidsgiver er ansvårlig for skade ansatte volder i tjenesten", "Arbeidstaker er alltid ansvårlig selv", "At kun staten som arbeidsgiver hefter for slik skade, mens private virksomheter går fri", "Bare staten har arbeidsgiveransvar"],
-      explanation: "Arbeidsgiver er ansvårlig for skade som ansatte volder i tjenesten, selv uten egen skyld.",
+      question: "Hva innebærer arbeidsgiveransvaret?",
+      options: ["Arbeidsgiver er ansvarlig for skade ansatte volder i tjenesten", "Arbeidstaker er alltid ansvarlig selv", "At kun staten som arbeidsgiver hefter for slik skade, mens private virksomheter går fri", "Bare staten har arbeidsgiveransvar"],
+      explanation: "Arbeidsgiver er ansvarlig for skade som ansatte volder i tjenesten, selv uten egen skyld.",
     },
   ],
   "rettslære-1-7": [
@@ -177,7 +177,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er nødverge?",
       options: ["Retten til å forsvare seg mot ulovlige angrep", "Rett til å bryte loven ved fare", "Den lovpålagte militære verneplikten som gjelder for norske borgere i en gitt aldersgruppe", "Plikt til å hjelpe andre"],
-      explanation: "Nødverge gir rett til å avverge et ulovlig angrep på seg selv eller andre. Forsvåret må være nødvendig og forholdsmessig.",
+      explanation: "Nødverge gir rett til å avverge et ulovlig angrep på seg selv eller andre. Forsvaret må være nødvendig og forholdsmessig.",
     },
     {
       question: "Hva betyr legalitetsprinsippet?",
@@ -262,8 +262,8 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom mekling og voldgift?",
-      options: ["Meklæren avgjør ikke tvisten, voldgiftsretten avgjør bindende","Mekling er bare tillatt i familiesaker mellom foreldre med felles barn","Det er ingen reell forskjell; begge avgjør tvisten bindende for partene","Voldgift er alltid gratis, mens mekling koster partene et betydelig gebyr"],
-      explanation: "Ved mekling hjelper meklæren partene å finne løsning selv. Ved voldgift avgjør en privat voldgiftsrett tvisten bindende.",
+      options: ["Mekleren avgjør ikke tvisten, voldgiftsretten avgjør bindende","Mekling er bare tillatt i familiesaker mellom foreldre med felles barn","Det er ingen reell forskjell; begge avgjør tvisten bindende for partene","Voldgift er alltid gratis, mens mekling koster partene et betydelig gebyr"],
+      explanation: "Ved mekling hjelper mekleren partene å finne løsning selv. Ved voldgift avgjør en privat voldgiftsrett tvisten bindende.",
     },
     {
       question: "Hva er fri rettshjelp?",
@@ -288,7 +288,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
       explanation: "Selv om forsøksgrensen er passert, kan man gå straffri dersom man frivillig avstår fra å fullføre lovbruddet.",
     },
     {
-      question: "Hvilken straffrihetsgrunn føreligger når man forsvarer seg mot et ulovlig angrep?",
+      question: "Hvilken straffrihetsgrunn foreligger når man forsvarer seg mot et ulovlig angrep?",
       options: ["Nødverge", "Nødrett", "Samtykke", "Selvtekt"],
       explanation: "Nødverge gir rett til å avverge et ulovlig angrep med nødvendig og forholdsmessig forsvar.",
     },
@@ -392,7 +392,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier Grunnloven § 112 om miljø?",
-      options: ["Enhver har rett til et miljø som sikrer helsen og staten har plikt til å ivåreta dette", "At bare staten, og ikke den enkelte borger, har rettigheter knyttet til miljøet", "At miljøspørsmål ikke er regulert i Grunnloven, men bare i vanlig lovgivning", "At miljøvern er en frivillig oppgave som staten kan velge å prioritere"],
+      options: ["Enhver har rett til et miljø som sikrer helsen og staten har plikt til å ivareta dette", "At bare staten, og ikke den enkelte borger, har rettigheter knyttet til miljøet", "At miljøspørsmål ikke er regulert i Grunnloven, men bare i vanlig lovgivning", "At miljøvern er en frivillig oppgave som staten kan velge å prioritere"],
       explanation: "Grunnloven § 112 gir borgerne rett til et sunt miljø og pålegger staten en handlingsplikt.",
     },
     {

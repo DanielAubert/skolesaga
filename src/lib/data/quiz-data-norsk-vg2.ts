@@ -4,18 +4,18 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-1-1": [
     {
       question: "Hvem startet \"det moderne gjennombrudd\" i nordisk litteratur?",
-      options: ["Georg Brandes med sine førelesninger i 1871","Bjornstjerne Bjornson med nasjonalsangen","Alexander Kielland med sin debutroman Garman & Worse","Camilla Collett med Amtmandens Døtre"],
-      explanation: "Georg Brandes holdt førelesninger i Koebenhavn i 1871 der han krevde at litteraturen skulle \"saette problemer under debatt\".",
+      options: ["Georg Brandes med sine forelesninger i 1871","Bjornstjerne Bjornson med nasjonalsangen","Alexander Kielland med sin debutroman Garman & Worse","Camilla Collett med Amtmandens Døtre"],
+      explanation: "Georg Brandes holdt forelesninger i Koebenhavn i 1871 der han krevde at litteraturen skulle \"saette problemer under debatt\".",
     },
     {
       question: "Hvilke temaer var sentrale i realismen?",
       options: ["Samfunnskritikk, kvinners stilling, klasseskiller og dobbeltmoral", "Religiøs andakt, from lengsel mot Gud og bibelske forbilder", "Naturdyrking, sterke følelser og lengsel mot det fjerne og fortidige", "Nasjonale eventyr, folkeviser og gammelnorske heltemyter fra sagatiden"],
-      explanation: "Realismen fokuserte på å avdekke samfunnets problemer: kvinneundertrykking, klasseskiller, religioes hykleri og borgerlig dobbeltmoral.",
+      explanation: "Realismen fokuserte på å avdekke samfunnets problemer: kvinneundertrykking, klasseskiller, religiøs hykleri og borgerlig dobbeltmoral.",
     },
     {
       question: "Hva er analytisk drama hos Ibsen?",
-      options: ["Fortiden avdekkes gradvis gjennom handlingen", "Alle hemmeligheter avsloeres i første akt", "Handlingen skjer kronologisk uten tilbakeblikk", "Publikum vet alt fra starten"],
-      explanation: "I Ibsens analytiske drama avdekkes fortidens hemmeligheter gradvis gjennom stykket, noe som skaper spenning og dramatiske avsloringer.",
+      options: ["Fortiden avdekkes gradvis gjennom handlingen", "Alle hemmeligheter avsløres i første akt", "Handlingen skjer kronologisk uten tilbakeblikk", "Publikum vet alt fra starten"],
+      explanation: "I Ibsens analytiske drama avdekkes fortidens hemmeligheter gradvis gjennom stykket, noe som skaper spenning og dramatiske avsløringer.",
     },
     {
       question: "Hvem var \"de fire store\" i norsk litteratur under det moderne gjennombrudd?",
@@ -42,24 +42,24 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     {
       question: "Hvem skrev romanserien \"Hellemyrsfolket\"?",
       options: ["Amalie Skram", "Alexander Kielland", "Jonas Lie", "Henrik Ibsen"],
-      explanation: "Amalie Skram skrev \"Hellemyrsfolket\" (1887-1898), en naturalistisk romanserie som foelger flere generasjoner gjennom armod og forfall.",
+      explanation: "Amalie Skram skrev \"Hellemyrsfolket\" (1887-1898), en naturalistisk romanserie som følger flere generasjoner gjennom armod og forfall.",
     },
     {
       question: "Hvilken fransk forfatter regnes som naturalismens grunnlegger?",
       options: ["Emile Zola", "Victor Hugo", "Honore de Balzac", "Gustave Flaubert"],
-      explanation: "Emile Zola utviklet naturalismen som litteraer retning og mente at forfatteren skulle studere mennesket vitenskapelig, som en forsker.",
+      explanation: "Emile Zola utviklet naturalismen som litterær retning og mente at forfatteren skulle studere mennesket vitenskapelig, som en forsker.",
     },
     {
       question: "Hvorfor ble naturalistisk litteratur ofte sensurert eller skandalisert?",
       options: ["Den tok opp tabubelagte temaer som prostitusjon, alkoholisme og sinnslidelser", "Den kritiserte kongen og monarkiet direkte og oppfordret til opprør mot ham", "Den ble utelukkende skrevet på nynorsk, som få kunne lese på den tida", "Den var altfor lang og krevende, og folk orket ikke å lese den"],
-      explanation: "Naturalismen skildret tabubelagte sider av livet - fattigdom, prostitusjon, sinnslidelser - påen naadeloest aeerlig måte som provoserte borgerskapet.",
+      explanation: "Naturalismen skildret tabubelagte sider av livet - fattigdom, prostitusjon, sinnslidelser - påen nådeløst aeerlig måte som provoserte borgerskapet.",
     },
   ],
   "norsk-vg2-2-1": [
     {
       question: "Hva var nyromantikken en reaksjon mot?",
       options: ["Realismens og naturalismens noeterne, objektive skildringer", "Barokkens religioeese temaer", "Barokkens religiøse temaer og overdådige, kontrastfylte billedbruk", "Romantikkens sterke følelsesfokus og dyrking av naturen og fantasien"],
-      explanation: "Nyromantikken (1890-tallet) reagerte mot realismens ytre fokus og vendte seg innover - mot følelser, droemmer og det mystiske.",
+      explanation: "Nyromantikken (1890-tallet) reagerte mot realismens ytre fokus og vendte seg innover - mot følelser, drømmer og det mystiske.",
     },
     {
       question: "Hva kjennetegner symbolismen?",
@@ -132,7 +132,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er actio i retorikkens fem faser?",
-      options: ["Fremfoeringen av talen - stemme, kroppspråk og tilstedeværelse", "Å skrive og formulere selve manuset før framføringen", "Å ordne og disponere stoffet i en logisk rekkefølge", "Å finne og samle inn stoff og argumenter til talen"],
+      options: ["Fremføringen av talen - stemme, kroppspråk og tilstedeværelse", "Å skrive og formulere selve manuset før framføringen", "Å ordne og disponere stoffet i en logisk rekkefølge", "Å finne og samle inn stoff og argumenter til talen"],
       explanation: "Actio er den siste fasen som handler om selve fremføringen: hvordan du bruker stemme, kroppspråk og øyekontakt.",
     },
   ],
@@ -159,7 +159,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er musikkvalg viktig i dokumentar?",
-      options: ["Musikk styrer publikums følelser og paavirker hvordan vi oppfatter innholdet", "Det fyller bare stillheten mellom scenene og har ingen dypere hensikt", "Det er utelukkende for underholdning og gjør filmen lettere å se på", "Det er egentlig ikke viktig, og påvirker ikke publikums opplevelse"],
+      options: ["Musikk styrer publikums følelser og påvirker hvordan vi oppfatter innholdet", "Det fyller bare stillheten mellom scenene og har ingen dypere hensikt", "Det er utelukkende for underholdning og gjør filmen lettere å se på", "Det er egentlig ikke viktig, og påvirker ikke publikums opplevelse"],
       explanation: "Musikk er et kraftfullt virkemiddel som kan styre publikums følelser - dramatisk musikk skaper spenning, rolig musikk skaper ro.",
     },
   ],

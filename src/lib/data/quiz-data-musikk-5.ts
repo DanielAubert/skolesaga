@@ -129,7 +129,7 @@ const quizData_musikk_5: Record<string, QuizQuestion[]> = {
     explanation: 'Klassisk musikk spilles ofte av orkestre med strykere, blåsere og slagverk.',
   },
   {
-    question: 'Hvor stårtet hip-hop som musikksjanger?',
+    question: 'Hvor startet hip-hop som musikksjanger?',
     options: ['New York på 1970-tallet', 'London på 1960-tallet', 'Paris på 1980-tallet', 'Oslo på 1990-tallet'],
     explanation: 'Hip-hop startet i New York på 1970-tallet med rap, DJ-ing, breakdance og graffiti.',
   },

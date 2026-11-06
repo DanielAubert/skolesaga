@@ -3,7 +3,7 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   "samfunnsfag-9-1-1": [
     {
-      question: "Hvor stårtet den industrielle revolusjonen?",
+      question: "Hvor startet den industrielle revolusjonen?",
       options: ["Storbritannia", "Tyskland", "Tyskland, med sine store kull- og stålindustrier", "Norge"],
       explanation: "Den industrielle revolusjonen startet i Storbritannia rundt 1760, takket være tilgang påkull, kapital og oppfinnelser.",
     },
@@ -52,24 +52,24 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilket europeisk land koloniserte Kongo med stor brutalitet?",
       options: ["Belgia", "Storbritannia", "Frankrike", "Tyskland"],
-      explanation: "Kong Leopold II av Belgia styrte Kongo som sin private eiendom og milioner dode under brutal tvangsarbeid.",
+      explanation: "Kong Leopold II av Belgia styrte Kongo som sin private eiendom og milioner døde under brutal tvangsarbeid.",
     },
   ],
   "samfunnsfag-9-1-3": [
     {
-      question: "Hva utloste første verdenskrig?",
+      question: "Hva utløste første verdenskrig?",
       options: ["Drapet påerkehertug Franz Ferdinand", "Angrep påPearl Harbor", "Det japanske angrepet på flåtebasen Pearl Harbor", "Nazi-Tysklands invasjon av nabolandet Polen i 1939"],
-      explanation: "Erkehertug Franz Ferdinand av Osterrike ble drept i Sarajevo 28. juni 1914, noe som utloste krigen.",
+      explanation: "Erkehertug Franz Ferdinand av Osterrike ble drept i Sarajevo 28. juni 1914, noe som utløste krigen.",
     },
     {
-      question: "Hva kjennetegnet krigforingen påvestfronten?",
+      question: "Hva kjennetegnet krigføringen påvestfronten?",
       options: ["Skyttergravskrig", "Geriljakrig", "Store ridderslag der rustede kavaleristyrker møttes", "Ridderslag"],
       explanation: "Vestfronten var preget av skyttergravskrig der soldatene kjempet fra nedgravde stillinger med store tap.",
     },
     {
       question: "Nårendte første verdenskrig?",
       options: ["1918", "1914", "1917", "1919"],
-      explanation: "Vapenhvilen ble undertegnet 11. november 1918, og krigen var over.",
+      explanation: "Våpenhvilen ble undertegnet 11. november 1918, og krigen var over.",
     },
     {
       question: "Hva star MAIN for som årsaker til første verdenskrig?",
@@ -105,8 +105,8 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva beskriver den demografiske overgangen?",
-      options: ["Hvordan fodsels- og dodsrater endres nårland utvikles", "Hvordan politikk påvirker befolkningen", "Hvordan folk stadig flytter mellom ulike land og steder", "Hvordan landegrenser tegnes om etter store kriger og freder"],
-      explanation: "Den demografiske overgangen beskriver hvordan dodsraten først synker, deretter fodselsraten, noe som gir midlertidig stor befolkningsvekst.",
+      options: ["Hvordan fodsels- og dødsrater endres nårland utvikles", "Hvordan politikk påvirker befolkningen", "Hvordan folk stadig flytter mellom ulike land og steder", "Hvordan landegrenser tegnes om etter store kriger og freder"],
+      explanation: "Den demografiske overgangen beskriver hvordan dødsraten først synker, deretter fødselsraten, noe som gir midlertidig stor befolkningsvekst.",
     },
   ],
   "samfunnsfag-9-2-2": [
@@ -143,9 +143,9 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
       explanation: "Vind er en fornybar ressurs som ikke brukes opp og stadig fornyes naturlig.",
     },
     {
-      question: "Hva er baerekraftig utvikling?",
+      question: "Hva er bærekraftig utvikling?",
       options: ["Utvikling som ikke ødelegger for fremtidige generasjoner", "Å stoppe all økonomisk utvikling og vekst i hele verden", "Å gå helt tilbake til steinalderen uten moderne teknologi", "Å bruke opp alle ressursene i naturen med en gang nå"],
-      explanation: "Baerekraftig utvikling tilfredsstiller dagens behov uten a ødelegge fremtidige generasjoners muligheter.",
+      explanation: "Bærekraftig utvikling tilfredsstiller dagens behov uten a ødelegge fremtidige generasjoners muligheter.",
     },
     {
       question: "Hvor kommer det meste av Norges strøm fra?",
@@ -155,7 +155,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er det grønne skiftet?",
       options: ["Overgangen fra fossil til fornybar energi", "At jordbruksareal blir omgjort til skog og natur", "Å spise mer grønnsaker og mindre kjøtt i hverdagen", "Å male alle husene i landet grønne for miljøets skyld"],
-      explanation: "Det grønne skiftet handler om overgangen fra fossile brensler til fornybar energi og baerekraftig økonomi.",
+      explanation: "Det grønne skiftet handler om overgangen fra fossile brensler til fornybar energi og bærekraftig økonomi.",
     },
     {
       question: "Hva er en ikke-fornybar ressurs?",
@@ -172,7 +172,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken type styresett har Norge?",
       options: ["Parlamentarisk demokrati", "Absolutt monarki med kongen som eneveldig", "Diktatur styrt av én sterk leder", "Presidentstyre med valgt president"],
-      explanation: "Norge har parlamentarisk demokrati der regjeringen utgar fra Stortinget og måha støtte der.",
+      explanation: "Norge har parlamentarisk demokrati der regjeringen utgår fra Stortinget og måha støtte der.",
     },
     {
       question: "Hvilken ideologi vektlegger individuell frihet og markedsøkonomi?",
@@ -181,8 +181,8 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et teokrati?",
-      options: ["Et styre der religiose ledere har makten", "Et styre der militaeret bestemmer", "Et styre der militæret tar makten med våpen", "Et styre med bare ett tillatt politisk parti"],
-      explanation: "I et teokrati styrer religiose ledere landet, som for eksempel i Iran.",
+      options: ["Et styre der religiøse ledere har makten", "Et styre der militæret bestemmer", "Et styre der militæret tar makten med våpen", "Et styre med bare ett tillatt politisk parti"],
+      explanation: "I et teokrati styrer religiøse ledere landet, som for eksempel i Iran.",
     },
     {
       question: "Hva er forskjellen mellom direkte og representativt demokrati?",
@@ -220,8 +220,8 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   "samfunnsfag-9-3-3": [
     {
       question: "Hva er en borgerkrig?",
-      options: ["Vaepnet konflikt innad i et land", "En krig som varer under ett år", "Væpnet krig mellom to ulike land", "En fredelig protest ute i gatene"],
-      explanation: "Borgerkrig er en vaepnet konflikt mellom grupper innad i samme land.",
+      options: ["Væpnet konflikt innad i et land", "En krig som varer under ett år", "Væpnet krig mellom to ulike land", "En fredelig protest ute i gatene"],
+      explanation: "Borgerkrig er en væpnet konflikt mellom grupper innad i samme land.",
     },
     {
       question: "Hva kan være en årsak til konflikt?",
@@ -229,9 +229,9 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
       explanation: "Kamp om ressurser som vann, olje eller land er en vanlig årsak til konflikter.",
     },
     {
-      question: "Hvilket organ i FN kan vedta bruk av militaermakt?",
+      question: "Hvilket organ i FN kan vedta bruk av militærmakt?",
       options: ["Sikkerhetsradet", "Generalforsamlingen", "UNESCO", "WHO"],
-      explanation: "FNs sikkerhetsrad har myndighet til a vedta bruk av militaermakt for a opprettholde fred.",
+      explanation: "FNs sikkerhetsråd har myndighet til a vedta bruk av militærmakt for a opprettholde fred.",
     },
     {
       question: "Hva var Oslo-avtalen?",
@@ -246,9 +246,9 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
   ],
   "samfunnsfag-9-4-1": [
     {
-      question: "Hva er en fagførening?",
+      question: "Hva er en fagforening?",
       options: ["Organisasjon som jobber for arbeidstakeres rettigheter", "Organisasjon for arbeidsgivere", "Et statlig organ som fastsetter alle lønninger i landet ved lov", "Et politisk parti som stiller til valg for arbeiderne på Stortinget"],
-      explanation: "Fagføreninger representerer arbeidstakere og forhandler om lønn og arbeidsvilkår påderes vegne.",
+      explanation: "Fagforeninger representerer arbeidstakere og forhandler om lønn og arbeidsvilkår påderes vegne.",
     },
     {
       question: "Hvor mange feriedager har man krav påi Norge?",
@@ -258,7 +258,7 @@ const quizData_samfunnsfag_9: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er trepartssamarbeidet i arbeidslivet?",
       options: ["Samarbeid mellom arbeidstakere, arbeidsgivere og staten", "Samarbeid mellom de tre nordiske landene om arbeidsliv", "Et samarbeid mellom de tre største partiene på Stortinget", "Samarbeid mellom tre store bedrifter i samme bransje"],
-      explanation: "Trepartssamarbeidet er samarbeidet mellom fagføreninger, arbeidsgiverorganisasjoner og staten, kjent som den norske modellen.",
+      explanation: "Trepartssamarbeidet er samarbeidet mellom fagforeninger, arbeidsgiverorganisasjoner og staten, kjent som den norske modellen.",
     },
     {
       question: "Hva er en streik?",

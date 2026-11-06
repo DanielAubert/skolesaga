@@ -8,13 +8,13 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
     explanation: 'Opplysningstiden var på 1700-tallet, også kalt fornuftens tidsalder.',
   },
   {
-    question: 'Hvem føreslo maktfordeling mellom lovgivende, utovende og dømmende makt?',
+    question: 'Hvem føreslo maktfordeling mellom lovgivende, utøvende og dømmende makt?',
     options: ['Montesquieu', 'Voltaire', 'Rousseau', 'Locke'],
     explanation: 'Montesquieu føreslo maktfordelingsprinsippet som brukes i de fleste demokratier i dag.',
   },
   {
     question: 'Hva var hovedideen i opplysningstiden?',
-    options: ['Mennesker skulle bruke fornuften og tenke selv', 'Kongen skulle ha all makt', 'Religion var viktigere enn vitenskap', 'Bare de rike skulle fa utdanning'],
+    options: ['Mennesker skulle bruke fornuften og tenke selv', 'Kongen skulle ha all makt', 'Religion var viktigere enn vitenskap', 'Bare de rike skulle få utdanning'],
     explanation: 'Opplysningstiden handlet om å bruke fornuften, stille spørsmål og tenke kritisk.',
   },
   {
@@ -32,7 +32,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-7-1-2': [
   {
-    question: 'Hvor stårtet den industrielle revolusjonen?',
+    question: 'Hvor startet den industrielle revolusjonen?',
     options: ['England', 'Frankrike', 'USA', 'Norge'],
     explanation: 'Den industrielle revolusjonen startet i England rundt 1760.',
   },
@@ -52,7 +52,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
     explanation: 'Norge kom sent i gang med industrialisering, fra ca. 1840.',
   },
   {
-    question: 'Hvorfor organiserte arbeiderne seg i fagføreninger?',
+    question: 'Hvorfor organiserte arbeiderne seg i fagforeninger?',
     options: ['For a kreve bedre lønn og arbeidsforhold', 'Fordi de likte å gå påmøter', 'Fordi fabrikkeierne ba dem', 'For a jobbe mer'],
     explanation: 'Arbeiderne organiserte seg for a stå sterkere sammen og kunne forhandle om bedre lønn, kortere arbeidsdag og tryggere arbeidsplasser.',
   },
@@ -97,7 +97,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr parlamentarisme?',
     options: ['At regjeringen måha støtte fra Stortinget', 'At kongen bestemmer alt', 'At bare rike fårstemme', 'At det ikke er valg'],
-    explanation: 'Parlamentarisme ble innfort i 1884 og betyr at regjeringen måha tillit fra flertallet i Stortinget.',
+    explanation: 'Parlamentarisme ble innført i 1884 og betyr at regjeringen måha tillit fra flertallet i Stortinget.',
   },
   {
     question: 'Nårble unionen med Sverige opphøst?',
@@ -112,7 +112,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem var Gina Krog?',
     options: ['Leder for kvinnestemmerettsbevegelsen', 'Norges første statsminister', 'Dronning av Norge', 'Grunnlovens mor'],
-    explanation: 'Gina Krog (1847-1916) var leder for kvinnestemmerettsbevegelsen og grunnla Norsk Kvinnesaksførening.',
+    explanation: 'Gina Krog (1847-1916) var leder for kvinnestemmerettsbevegelsen og grunnla Norsk Kvinnesaksforening.',
   },
 ],
 
@@ -120,12 +120,12 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-3-1': [
   {
     question: 'Hva betyr globalisering?',
-    options: ['At land og mennesker blir mer avhengige av hverandre', 'At bare noen fa land handler', 'At alle land er helt uavhengige', 'At vi bare kjøper varer fra Norge'],
+    options: ['At land og mennesker blir mer avhengige av hverandre', 'At bare noen få land handler', 'At alle land er helt uavhengige', 'At vi bare kjøper varer fra Norge'],
     explanation: 'Globalisering handler om at verden blir mer sammenkoblet gjennom handel, kommunikasjon og kultur.',
   },
   {
     question: 'Hvahar gjørt globaliseringen mulig?',
-    options: ['Internett, billigere transport og frihandelsavtaler', 'Hogere tollmurer', 'Mindre reising', 'Faerre telefoner'],
+    options: ['Internett, billigere transport og frihandelsavtaler', 'Hogere tollmurer', 'Mindre reising', 'Færre telefoner'],
     explanation: 'Teknologi og økonomiske avtaler har gjørt det mulig å handle og kommunisere over hele verden.',
   },
   {
@@ -140,7 +140,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en filterboble?',
-    options: ['Nåralgoritmer viser deg mer av det du allærede liker', 'En type sapeboble', 'En vanlig boble', 'Et filter for vann'],
+    options: ['Nåralgoritmer viser deg mer av det du allærede liker', 'En type såpeboble', 'En vanlig boble', 'Et filter for vann'],
     explanation: 'Filterboble er nåralgoritmer påsosiale medier viser deg mer av det du allærede liker, slik at du ser mindre av andre synspunkter.',
   },
 ],
@@ -178,7 +178,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-4-1': [
   {
     question: 'Hva er drivhuseffekten?',
-    options: ['Gasser i atmosfæren holder påvarmen fra sola', 'Solå blir varmere', 'Jorden er et drivhus', 'Atmosfaeren blir tynnere'],
+    options: ['Gasser i atmosfæren holder påvarmen fra sola', 'Sola blir varmere', 'Jorden er et drivhus', 'Atmosfaeren blir tynnere'],
     explanation: 'Drivhuseffekten gjør at gasser i atmosfæren holder påvarmen, som i et drivhus.',
   },
   {
@@ -198,7 +198,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fornybar energi?',
-    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gåss'],
+    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gass'],
     explanation: 'Fornybar energi kommer fra kilder som ikke tar slutt, som sol, vind og vannkraft, og gir lite klimagassutslipp.',
   },
 ],
@@ -212,7 +212,7 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en filterboble?',
-    options: ['Nåralgoritmer viser deg det du allærede liker', 'En sapeboble', 'Et vannfilter', 'En type nyheter'],
+    options: ['Nåralgoritmer viser deg det du allærede liker', 'En såpeboble', 'Et vannfilter', 'En type nyheter'],
     explanation: 'Filterboble er nåralgoritmer påsosiale medier viser deg mer av det du allærede liker, slik at du ser mindre av andre synspunkter.',
   },
   {

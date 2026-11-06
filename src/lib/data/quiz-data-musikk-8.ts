@@ -53,7 +53,7 @@ const quizData_musikk_8: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er backbeat?',
-    options: ['Skarptromme på slag 2 og 4', 'Basstrømme på alle slag', 'Ingen trommer', 'Bare cymbal'],
+    options: ['Skarptromme på slag 2 og 4', 'Basstromme på alle slag', 'Ingen trommer', 'Bare cymbal'],
     explanation: 'Backbeat er skarptromme på slag 2 og 4, typisk for rock og pop.',
   },
 ],

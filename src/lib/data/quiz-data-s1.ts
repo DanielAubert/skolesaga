@@ -87,7 +87,7 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
     explanation: 'Nevneren $x^2 - 4 = (x-2)(x+2) = 0$ når $x = 2$ eller $x = -2$. Disse verdiene må utelates.',
   },
   {
-    question: 'Hva er førenklet form av $\\frac{x^2 - 9}{x + 3}$?',
+    question: 'Hva er forenklet form av $\\frac{x^2 - 9}{x + 3}$?',
     options: ['$x - 3$', '$x + 3$', '$x^2 - 3$', '$\\frac{x - 3}{x + 3}$'],
     explanation: '$x^2 - 9 = (x+3)(x-3)$. Deler vi på $(x+3)$ får vi $x - 3$ (for $x \\neq -3$).',
   },
@@ -373,9 +373,9 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
     explanation: 'For eksponentiell vekst må basen $b$ være større enn $1$.',
   },
   {
-    question: 'Hva er verdien av $e$ (Eulers tall) avrundet til to desimåler?',
+    question: 'Hva er verdien av $e$ (Eulers tall) avrundet til to desimaler?',
     options: ['$2{,}72$', '$3{,}14$', '$1{,}62$', '$2{,}00$'],
-    explanation: 'Eulers tall $e$ er ca. $2{,}71828...$, som avrundet til to desimåler er $2{,}72$.',
+    explanation: 'Eulers tall $e$ er ca. $2{,}71828...$, som avrundet til to desimaler er $2{,}72$.',
   },
   {
     question: 'Hvis en populasjon dobler seg hvert 5. år, og starter på 100, hva er vekstfaktoren?',
@@ -887,11 +887,11 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en bibetingelse i et optimaliseringsproblem?',
-    options: ['En ekstra likning som variablene må tilfredsstille', 'Den funksjonen som skal maksimeres', 'En ulikhet som må være brutt', 'Svåret på problemet'],
+    options: ['En ekstra likning som variablene må tilfredsstille', 'Den funksjonen som skal maksimeres', 'En ulikhet som må være brutt', 'Svaret på problemet'],
     explanation: 'En bibetingelse er en restriksjon som begrenser de mulige verdiene for variablene.',
   },
   {
-    question: 'Hvis et rektangel har omkrets $20$ og vi vil maksimere arealet, hvå blir sidelengdene?',
+    question: 'Hvis et rektangel har omkrets $20$ og vi vil maksimere arealet, hva blir sidelengdene?',
     options: ['$5$ og $5$ (kvadrat)', '$10$ og $0$', '$6$ og $4$', '$7$ og $3$'],
     explanation: 'Med omkrets $2a + 2b = 20$, så $b = 10-a$. Areal $A = a(10-a) = 10a - a^2$. $A\'(a) = 10-2a = 0$ gir $a = 5, b = 5$.',
   },
@@ -918,7 +918,7 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er minste avstand fra punktet $(0, 4)$ til parabelen $y = x^2$?',
     options: ['$\\sqrt{7}$', '$4$', '$2$', '$\\sqrt{15}$'],
-    explanation: 'Minimer $D^2 = x^2 + (x^2 - 4)^2$. Derivasjon og løsning gir $x^2 = \\frac{7}{2}$. $D = \\sqrt{7}$ etter førenkling.',
+    explanation: 'Minimer $D^2 = x^2 + (x^2 - 4)^2$. Derivasjon og løsning gir $x^2 = \\frac{7}{2}$. $D = \\sqrt{7}$ etter forenkling.',
   },
   {
     question: 'Ved maksimalt overskudd gjelder:',
@@ -1290,7 +1290,7 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
     explanation: '$P(A)$ er prior (forhånds-) sannsynlighet - vår tro før vi får ny informasjon.',
   },
   {
-    question: 'En test for en sykdom er 95% sensitiv og 90% spesifikk. 1% av befolkningen har sykdømmen. Hvis testen er positiv, hva er sannsynligheten for sykdom?',
+    question: 'En test for en sykdom er 95% sensitiv og 90% spesifikk. 1% av befolkningen har sykdommen. Hvis testen er positiv, hva er sannsynligheten for sykdom?',
     options: ['Ca 9%', 'Ca 95%', 'Ca 90%', 'Ca 1%'],
     explanation: 'Bruker Bayes: $P(\\text{syk}|\\text{positiv}) = \\frac{0{,}95 \\cdot 0{,}01}{0{,}95 \\cdot 0{,}01 + 0{,}10 \\cdot 0{,}99} \\approx 8{,}8\\%$.',
   },
@@ -1335,8 +1335,8 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
     explanation: 'Falsk positiv: Testen sier «syk» (positiv), men personen er faktisk frisk.',
   },
   {
-    question: 'Hvorfor kan en test med 99% sensitivitet og 99% spesifisitet gi lav $P(\\text{syk}|\\text{positiv})$ for sjeldne sykdømmer?',
-    options: ['Fordi antall falske positive overstiger antall sanne positive når sykdømmen er sjelden', 'Fordi testen ikke virker', 'Fordi spesifisitet er viktigere enn sensitivitet', 'Det kan den ikke'],
+    question: 'Hvorfor kan en test med 99% sensitivitet og 99% spesifisitet gi lav $P(\\text{syk}|\\text{positiv})$ for sjeldne sykdommer?',
+    options: ['Fordi antall falske positive overstiger antall sanne positive når sykdommen er sjelden', 'Fordi testen ikke virker', 'Fordi spesifisitet er viktigere enn sensitivitet', 'Det kan den ikke'],
     explanation: 'Ved lav prevalens (sjelden sykdom) blir antallet falske positive stort relativt til antall sanne positive.',
   },
 ],

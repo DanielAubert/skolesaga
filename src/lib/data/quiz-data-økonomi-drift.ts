@@ -72,13 +72,13 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er takttid?',
-    options: ['Tiden som er tilgjengelig per enhet for a mote ettersporselen', 'Total produksjonstid', 'Tiden for å sette opp en maskin', 'Ventetiden mellom operasjoner'],
-    explanation: 'Takttid = Tilgjengelig produksjonstid / Ettersporsel. Den viser hvor ofte man måfullføre en enhet for a mote ettersporselen.',
+    options: ['Tiden som er tilgjengelig per enhet for a mote etterspørselen', 'Total produksjonstid', 'Tiden for å sette opp en maskin', 'Ventetiden mellom operasjoner'],
+    explanation: 'Takttid = Tilgjengelig produksjonstid / Ettersporsel. Den viser hvor ofte man måfullføre en enhet for a mote etterspørselen.',
   },
   {
-    question: 'Hva er hovedmalet med Just-in-Time (JIT)?',
-    options: ['Eliminere slosing og produsere riktig mengde til riktig tid', 'Maksimere lagerbeholdningen', 'Produsere så mye som mulig', 'Ha lange serier'],
-    explanation: 'JIT fokuserer påa eliminere alle former for slosing (lager, ventetid, overproduksjon) ved a produsere akkurat det som trengs, nårdet trengs.',
+    question: 'Hva er hovedmålet med Just-in-Time (JIT)?',
+    options: ['Eliminere sløsing og produsere riktig mengde til riktig tid', 'Maksimere lagerbeholdningen', 'Produsere så mye som mulig', 'Ha lange serier'],
+    explanation: 'JIT fokuserer påa eliminere alle former for sløsing (lager, ventetid, overproduksjon) ved a produsere akkurat det som trengs, nårdet trengs.',
   },
   {
     question: 'Hvilken produksjonsmetode passer best for unike, komplekse produkter?',
@@ -92,7 +92,7 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er logistikk?',
     options: ['Planlegging og kontroll av flyt av varer, tjenester og informasjon', 'Bare transport av varer', 'Kun lagerstyring', 'Bare innkjøp'],
-    explanation: 'Logistikk er planlegging, gjennomforing og kontroll av effektiv flyt og lagring av varer, tjenester og informasjon fra opprinnelsespunkt til forbrukspunkt.',
+    explanation: 'Logistikk er planlegging, gjennomføring og kontroll av effektiv flyt og lagring av varer, tjenester og informasjon fra opprinnelsespunkt til forbrukspunkt.',
   },
   {
     question: 'Hva er bestillingspunkt?',
@@ -106,7 +106,7 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sikkerhetslager?',
-    options: ['En ekstra buffer for a beskytte mot usikkerhet', 'Utgatt varelager', 'Defekte varer', 'Varer som skal returneres'],
+    options: ['En ekstra buffer for a beskytte mot usikkerhet', 'Utgått varelager', 'Defekte varer', 'Varer som skal returneres'],
     explanation: 'Sikkerhetslager er en ekstra buffer for a beskytte mot usikkerhet i ettersporsel eller leveringstid.',
   },
   {
@@ -124,7 +124,7 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
     explanation: 'Kvalitet defineres som i hvilken grad et produkt eller en tjeneste tilfredsstiller kundens krav og forventninger.',
   },
   {
-    question: 'Hva er formalet med et kvalitetssystem?',
+    question: 'Hva er formålet med et kvalitetssystem?',
     options: ['Sikre jevn kvalitet gjennom dokumenterte prosedyrer og rutiner', 'Bare a tilfredsstille myndighetene', 'A redusere antall ansatte', 'A øke prisene'],
     explanation: 'Et kvalitetssystem sikrer jevn kvalitet gjennom dokumenterte prosedyrer, rutiner og kontinuerlig forbedring.',
   },
@@ -140,8 +140,8 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er feilkostnader?',
-    options: ['Kostnader som oppstar nårnoe ikke fungerer som det skal', 'Planlagte vedlikeholdskostnader', 'Investeringer i kvalitet', 'Lonnskostnader'],
-    explanation: 'Feilkostnader er kostnader som oppstar nårnoe ikke fungerer som det skal, inkludert reklamasjoner, omarbeid og kassasjon.',
+    options: ['Kostnader som oppstår nårnoe ikke fungerer som det skal', 'Planlagte vedlikeholdskostnader', 'Investeringer i kvalitet', 'Lonnskostnader'],
+    explanation: 'Feilkostnader er kostnader som oppstår nårnoe ikke fungerer som det skal, inkludert reklamasjoner, omarbeid og kassasjon.',
   },
 ],
 
@@ -197,9 +197,9 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
     explanation: 'Arbeidsmiljøloven regulærer arbeidstid inkludert maksimal arbeidstid, overtid, pauser, hviletid mellom arbeidsøkter og nattarbeid.',
   },
   {
-    question: 'Hva er formalet med rekruttering?',
+    question: 'Hva er formålet med rekruttering?',
     options: ['Skaffe riktig kompetanse til riktig stilling', 'Ansette flest mulig', 'Spare penger pålønn', 'Fylle alle ledige stillinger raskt'],
-    explanation: 'Formalet med rekruttering er a skaffe riktig kompetanse til riktig stilling til riktig tid for virksomheten.',
+    explanation: 'Formålet med rekruttering er a skaffe riktig kompetanse til riktig stilling til riktig tid for virksomheten.',
   },
 ],
 
@@ -207,13 +207,13 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
   'økonomi-drift-8': [
   {
     question: 'Hva er strategi i en bedriftssammenheng?',
-    options: ['Langsiktig plan for a oppna virksomhetens mal', 'Daglige rutiner', 'Kvartalsbudsjettet', 'Arsregnskapet'],
-    explanation: 'Strategi er virksomhetens langsiktige plan for a oppna sine mal og skape konkurransefortrinn.',
+    options: ['Langsiktig plan for a oppnå virksomhetens mal', 'Daglige rutiner', 'Kvartalsbudsjettet', 'Arsregnskapet'],
+    explanation: 'Strategi er virksomhetens langsiktige plan for a oppnå sine mal og skape konkurransefortrinn.',
   },
   {
     question: 'Hva er en visjon?',
     options: ['Et bilde av ønsket fremtidig tilstand for virksomheten', 'Arsbudsjettet', 'Denne ukens oppgaver', 'Organisasjonskartet'],
-    explanation: 'En visjon er et inspirerende bilde av den onskede fremtidige tilstanden for virksomheten - hva den streber mot å bli.',
+    explanation: 'En visjon er et inspirerende bilde av den ønskede fremtidige tilstanden for virksomheten - hva den streber mot å bli.',
   },
   {
     question: 'Hva er Porters fem krefter?',
@@ -222,8 +222,8 @@ const quizData_okonomi_drift: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forretningside?',
-    options: ['Hva virksomheten tilbyr til hvem og hvordan', 'Bare produktet', 'Kun malgruppa', 'Bare prisen'],
-    explanation: 'Forretningside beskriver hva virksomheten tilbyr (produkter/tjenester), til hvem (malgruppe) og hvordan (leveringsmåte).',
+    options: ['Hva virksomheten tilbyr til hvem og hvordan', 'Bare produktet', 'Kun målgruppa', 'Bare prisen'],
+    explanation: 'Forretningside beskriver hva virksomheten tilbyr (produkter/tjenester), til hvem (målgruppe) og hvordan (leveringsmåte).',
   },
   {
     question: 'Hva er et konkurransefortrinn?',
