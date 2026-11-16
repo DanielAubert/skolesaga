@@ -26,7 +26,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Å lese ulike tekster',
       description: 'Lær å gjenkjenne og forstå ulike teksttyper som eventyr, fabler, faktatekster og dikt.',
       estimatedMinutes: 40,
-      exerciseCount: 8,
+      exerciseCount: 9,
       topics: ['Eventyr', 'Fabler', 'Faktatekster', 'Dikt', 'Teksttyper'],
       competenceGoals: ['lese og reflektere over skjønnlitteratur og sakprosa'], linkedChapterId: 'norsk-6-1-1-narrativ' },
     {
@@ -35,7 +35,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Lesestrategier',
       description: 'Bruk strategier som å forutsi, stille spørsmål og oppsummere for å forstå tekster bedre.',
       estimatedMinutes: 35,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Forutsi', 'Stille spørsmål', 'Oppsummere', 'Visualisere'],
       competenceGoals: ['bruke lesestrategier tilpasset formålet med lesingen'], linkedChapterId: 'norsk-6-1-2-narrativ' },
     {
@@ -44,7 +44,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Å forstå det du leser',
       description: 'Finn hovedinnhold, tema og budskap i tekster du leser.',
       estimatedMinutes: 45,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Hovedinnhold', 'Tema', 'Budskap', 'Mellom linjene'],
       competenceGoals: ['reflektere over hvordan tekster fremstiller virkeligheten'], linkedChapterId: 'norsk-6-1-3-narrativ' },
     // Kapittel 2: Skriving
@@ -54,7 +54,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Fortellende tekster',
       description: 'Lær å skrive spennende fortellinger med innledning, hoveddel og avslutning.',
       estimatedMinutes: 50,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Fortelling', 'Innledning', 'Spenningskurve', 'Avslutning'],
       competenceGoals: ['skrive fortellende tekster med god oppbygning'], linkedChapterId: 'norsk-6-2-1-narrativ' },
     {
@@ -63,7 +63,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Faktatekster',
       description: 'Skriv saklige tekster med fakta, og lær å bruke kilder.',
       estimatedMinutes: 45,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Faktatekst', 'Kilder', 'Avsnitt', 'Overskrifter'],
       competenceGoals: ['skrive tekster med funksjonell håndskrift og tastatur'], linkedChapterId: 'norsk-6-2-2-narrativ' },
     {
@@ -72,7 +72,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Rettskriving og tegnsetting',
       description: 'Lær regler for rettskriving, punktum, komma og store bokstaver.',
       estimatedMinutes: 40,
-      exerciseCount: 10,
+      exerciseCount: 9,
       topics: ['Punktum', 'Komma', 'Store bokstaver', 'Dobbel konsonant'],
       competenceGoals: ['mestre sentrale regler for rettskriving og tegnsetting'], linkedChapterId: 'norsk-6-2-3-narrativ' },
     // Kapittel 3: Muntlig
@@ -82,7 +82,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Å holde presentasjoner',
       description: 'Planlegg og hold engasjerende presentasjoner for klassen.',
       estimatedMinutes: 45,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Presentasjon', 'Kroppsspråk', 'Stemmebruk', 'Blikkontakt'],
       competenceGoals: ['presentere fagstoff muntlig med og uten digitale verktøy'], linkedChapterId: 'norsk-6-3-1-narrativ' },
     {
@@ -91,7 +91,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Samtale og diskusjon',
       description: 'Delta i samtaler, lytt til andre og uttrykk egne meninger.',
       estimatedMinutes: 35,
-      exerciseCount: 4,
+      exerciseCount: 7,
       topics: ['Lytting', 'Argumentasjon', 'Meningsutveksling', 'Respekt'],
       competenceGoals: ['delta i samtaler og diskusjoner og begrunne egne synspunkter'], linkedChapterId: 'norsk-6-3-2-narrativ' },
     // Kapittel 4: Språklære
@@ -101,7 +101,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
       title: 'Ordklasser',
       description: 'Lær om substantiv, verb, adjektiv og andre ordklasser.',
       estimatedMinutes: 50,
-      exerciseCount: 12,
+      exerciseCount: 9,
       topics: ['Substantiv', 'Verb', 'Adjektiv', 'Pronomen', 'Preposisjoner'],
       competenceGoals: ['utforske og beskrive grammatiske strukturer'], linkedChapterId: 'norsk-6-4-1-narrativ' },
     {
@@ -155,7 +155,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Daily routines',
       description: 'Beskriv daglige rutiner og aktiviteter på engelsk.',
       estimatedMinutes: 35,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Morning routine', 'School day', 'After school', 'Weekends'],
       competenceGoals: ['uttrykke seg forståelig med et variert ordforråd'], linkedChapterId: 'engelsk-6-1-2-narrativ' },
     {
@@ -164,7 +164,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Asking and answering questions',
       description: 'Øv på å stille og svare på spørsmål i ulike situasjoner.',
       estimatedMinutes: 40,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Question words', 'Yes/No questions', 'Conversations'],
       competenceGoals: ['innlede, holde i gang og avslutte samtaler'], linkedChapterId: 'engelsk-6-1-3-narrativ' },
     // Kapittel 2: Reading and Writing
@@ -174,7 +174,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Reading stories',
       description: 'Les og forstå korte fortellinger og eventyr på engelsk.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Stories', 'Fairy tales', 'Reading comprehension'],
       competenceGoals: ['lese og forstå ulike typer tekster'], linkedChapterId: 'engelsk-6-2-1-narrativ' },
     {
@@ -183,7 +183,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Writing texts',
       description: 'Skriv enkle tekster som brev, e-post og korte fortellinger.',
       estimatedMinutes: 50,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Letters', 'Emails', 'Short stories', 'Descriptions'],
       competenceGoals: ['skrive sammenhengende tekster som forteller og beskriver'], linkedChapterId: 'engelsk-6-2-2-narrativ' },
     // Kapittel 3: Grammar
@@ -193,7 +193,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Verbs and tenses',
       description: 'Lær om verb i presens, preteritum og fremtid.',
       estimatedMinutes: 50,
-      exerciseCount: 12,
+      exerciseCount: 8,
       topics: ['Present tense', 'Past tense', 'Future tense', 'Irregular verbs'],
       competenceGoals: ['utforske mønstre i språket'], linkedChapterId: 'engelsk-6-3-1-narrativ' },
     {
@@ -202,7 +202,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Nouns and adjectives',
       description: 'Bruk substantiv og adjektiv riktig på engelsk.',
       estimatedMinutes: 40,
-      exerciseCount: 10,
+      exerciseCount: 8,
       topics: ['Singular/Plural', 'Adjectives', 'Comparisons'],
       competenceGoals: ['utforske mønstre i språket'], linkedChapterId: 'engelsk-6-3-2-narrativ' },
     // Kapittel 4: Culture
@@ -212,7 +212,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'English-speaking countries',
       description: 'Lær om kultur og tradisjoner i engelsktalende land.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['UK', 'USA', 'Australia', 'Traditions', 'Holidays'],
       competenceGoals: ['utforske levesett og tradisjoner i engelsktalende land'], linkedChapterId: 'engelsk-6-4-1-narrativ' },
     {
@@ -221,7 +221,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
       title: 'Celebrations around the world',
       description: 'Utforsk feiringer og høytider i ulike kulturer.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Christmas', 'Thanksgiving', 'Halloween', 'Festivals'],
       competenceGoals: ['sammenligne egen kultur med kulturer i engelsktalende land'], linkedChapterId: 'engelsk-6-4-2-narrativ' },
   ],
@@ -256,7 +256,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Fordøyelsessystemet',
       description: 'Følg matens vei gjennom kroppen fra munn til tarm.',
       estimatedMinutes: 50,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Munn', 'Magesekk', 'Tarm', 'Næringsstoffer'],
       competenceGoals: ['beskrive kroppens oppbygning og funksjoner'], linkedChapterId: 'naturfag-6-1-2-narrativ' },
     {
@@ -265,7 +265,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Blodomløpet',
       description: 'Forstå hvordan hjertet pumper blod rundt i kroppen.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Hjerte', 'Blodårer', 'Blod', 'Oksygen'],
       competenceGoals: ['beskrive kroppens oppbygning og funksjoner'], linkedChapterId: 'naturfag-6-1-3-narrativ' },
     // Kapittel 2: Dyr og planter
@@ -275,7 +275,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Celledeling og vekst',
       description: 'Lær om hvordan celler deler seg og organismer vokser.',
       estimatedMinutes: 40,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Celler', 'Celledeling', 'Vekst', 'Utvikling'],
       competenceGoals: ['beskrive celler og forklare hovedtrekkene i celledeling'], linkedChapterId: 'naturfag-6-2-1-narrativ' },
     {
@@ -284,7 +284,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Fotosyntese',
       description: 'Forstå hvordan planter lager mat ved hjelp av sollys.',
       estimatedMinutes: 45,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Fotosyntese', 'Klorofyll', 'Karbondioksid', 'Oksygen'],
       competenceGoals: ['gjøre rede for fotosyntese og celleånding'], linkedChapterId: 'naturfag-6-2-2-narrativ' },
     {
@@ -303,7 +303,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Enkle maskiner',
       description: 'Lær om vektstang, skråplan, trinser og andre enkle maskiner.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Vektstang', 'Skråplan', 'Trinse', 'Kraft'],
       competenceGoals: ['designe og lage teknologiske produkter'], linkedChapterId: 'naturfag-6-3-1-narrativ' },
     {
@@ -322,7 +322,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Klima og miljø',
       description: 'Lær om klimaendringer og hvordan vi kan ta vare på miljøet.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Klima', 'Drivhuseffekt', 'Forurensning', 'Resirkulering'],
       competenceGoals: ['drøfte hva som kan gjøres for å ta vare på naturen'], linkedChapterId: 'naturfag-6-4-1-narrativ' },
     {
@@ -331,7 +331,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       title: 'Fornybare ressurser',
       description: 'Utforsk fornybare energikilder som sol, vind og vann.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Solenergi', 'Vindkraft', 'Vannkraft', 'Bærekraft'],
       competenceGoals: ['gjøre rede for betydningen av biologisk mangfold'], linkedChapterId: 'naturfag-6-4-2-narrativ' },
   ],
@@ -365,7 +365,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Middelalderen i Norge',
       description: 'Lær om Norge i middelalderen, kristningen og svartedauden.',
       estimatedMinutes: 45,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Kristning', 'Konger', 'Svartedauden', 'Stavkirker'],
       competenceGoals: ['beskrive samfunnsendringer gjennom historien'], linkedChapterId: 'samfunnsfag-6-1-2-narrativ' },
     {
@@ -374,7 +374,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Norge under Danmark og Sverige',
       description: 'Forstå Norges historie som del av Danmark-Norge og unionen med Sverige.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Dansketiden', 'Grunnloven 1814', 'Unionen med Sverige'],
       competenceGoals: ['reflektere over hvordan fortiden preger nåtiden'], linkedChapterId: 'samfunnsfag-6-1-3-narrativ' },
     // Kapittel 2: Geografi
@@ -393,7 +393,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Europa',
       description: 'Utforsk Europas land, hovedsteder og kulturer.',
       estimatedMinutes: 50,
-      exerciseCount: 10,
+      exerciseCount: 8,
       topics: ['Europeiske land', 'Hovedsteder', 'EU', 'Kulturer'],
       competenceGoals: ['bruke kart og digitale ressurser'], linkedChapterId: 'samfunnsfag-6-2-2-narrativ' },
     {
@@ -402,7 +402,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Verdensdelene',
       description: 'Lær om de ulike verdensdelene og deres kjennetegn.',
       estimatedMinutes: 45,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Asia', 'Afrika', 'Amerika', 'Oseania'],
       competenceGoals: ['beskrive og sammenligne ulike regioner i verden'], linkedChapterId: 'samfunnsfag-6-2-3-narrativ' },
     // Kapittel 3: Samfunnskunnskap
@@ -412,7 +412,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Demokrati',
       description: 'Forstå hva demokrati er og hvordan vi styres i Norge.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Demokrati', 'Valg', 'Storting', 'Regjering'],
       competenceGoals: ['beskrive demokratiske prosesser'], linkedChapterId: 'samfunnsfag-6-3-1-narrativ' },
     {
@@ -421,7 +421,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Rettigheter og plikter',
       description: 'Lær om menneskerettigheter, barns rettigheter og våre plikter.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Menneskerettigheter', 'Barnekonvensjonen', 'Plikter'],
       competenceGoals: ['reflektere over egne og andres rettigheter'], linkedChapterId: 'samfunnsfag-6-3-2-narrativ' },
     {
@@ -430,7 +430,7 @@ export const COURSE_SAMFUNNSFAG_6: TextbookCourse = {
       title: 'Mangfold og inkludering',
       description: 'Forstå betydningen av mangfold og hvordan vi kan skape et inkluderende samfunn.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Mangfold', 'Kultur', 'Inkludering', 'Respekt'],
       competenceGoals: ['drøfte hvordan vi kan bidra til et inkluderende samfunn'], linkedChapterId: 'samfunnsfag-6-3-3-narrativ' },
   ],
@@ -455,7 +455,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Bibelen',
       description: 'Lær om Bibelen, dens oppbygning og viktige fortellinger.',
       estimatedMinutes: 45,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Det gamle testamentet', 'Det nye testamentet', 'Evangeliene'],
       competenceGoals: ['utforske og beskrive sentrale fortellinger fra Bibelen'], linkedChapterId: 'krle-6-1-1-narrativ' },
     {
@@ -473,7 +473,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Kristen praksis',
       description: 'Utforsk kristne tradisjoner, høytider og ritualer.',
       estimatedMinutes: 40,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Dåp', 'Konfirmasjon', 'Kirken', 'Høytider'],
       competenceGoals: ['beskrive kristne høytider og ritualer'], linkedChapterId: 'krle-6-1-3-narrativ' },
     // Kapittel 2: Andre religioner
@@ -483,7 +483,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Islam',
       description: 'Lær om islam, Koranen og muslimske tradisjoner.',
       estimatedMinutes: 45,
-      exerciseCount: 7,
+      exerciseCount: 8,
       topics: ['Muhammed', 'Koranen', 'Fem søyler', 'Moskeen'],
       competenceGoals: ['utforske og beskrive sentrale elementer i islam'], linkedChapterId: 'krle-6-2-1-narrativ' },
     {
@@ -492,7 +492,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Jødedommen',
       description: 'Utforsk jødedommen, Toraen og jødiske tradisjoner.',
       estimatedMinutes: 40,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Torah', 'Synagoge', 'Sabbat', 'Høytider'],
       competenceGoals: ['utforske og beskrive sentrale elementer i jødedommen'], linkedChapterId: 'krle-6-2-2-narrativ' },
     {
@@ -501,7 +501,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Hinduisme og buddhisme',
       description: 'Lær om østlige religioner og deres tradisjoner.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Guder', 'Karma', 'Buddha', 'Meditasjon'],
       competenceGoals: ['utforske og beskrive sentrale elementer i østlige religioner'], linkedChapterId: 'krle-6-2-3-narrativ' },
     // Kapittel 3: Livssyn og etikk
@@ -511,7 +511,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Livssyn',
       description: 'Utforsk ulike livssyn og hva det betyr å ha et livssyn.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Humanisme', 'Livssyn', 'Verdier', 'Mening'],
       competenceGoals: ['utforske og beskrive ulike livssyn'], linkedChapterId: 'krle-6-3-1-narrativ' },
     {
@@ -520,7 +520,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Etikk og valg',
       description: 'Lær å reflektere over rett og galt, og ta gode valg.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Etikk', 'Moral', 'Valg', 'Konsekvenser'],
       competenceGoals: ['reflektere over etiske spørsmål'], linkedChapterId: 'krle-6-3-2-narrativ' },
     {
@@ -529,7 +529,7 @@ export const COURSE_KRLE_6: TextbookCourse = {
       title: 'Identitet og fellesskap',
       description: 'Forstå hva som former identiteten vår og betydningen av fellesskap.',
       estimatedMinutes: 35,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Identitet', 'Tilhørighet', 'Familie', 'Venner'],
       competenceGoals: ['utforske eksistensielle spørsmål'], linkedChapterId: 'krle-6-3-3-narrativ' },
   ],
@@ -554,7 +554,7 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Perspektiv',
       description: 'Lær å tegne med perspektiv for å skape dybde i bildene dine.',
       estimatedMinutes: 60,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Ettepunktsperspektiv', 'Dybde', 'Horisontlinje', 'Forsvinningspunkt'],
       competenceGoals: ['bruke perspektiv i egne bilder'], linkedChapterId: 'kunst-6-1-1-narrativ' },
     {
@@ -563,7 +563,7 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Fargelære',
       description: 'Utforsk fargesirkelen, komplementærfarger og fargekontraster.',
       estimatedMinutes: 50,
-      exerciseCount: 6,
+      exerciseCount: 8,
       topics: ['Fargesirkelen', 'Primærfarger', 'Komplementærfarger', 'Kontraster'],
       competenceGoals: ['bruke farger bevisst i egne arbeider'], linkedChapterId: 'kunst-6-1-2-narrativ' },
     {
@@ -583,7 +583,7 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Designprosessen',
       description: 'Følg designprosessen fra idé til ferdig produkt.',
       estimatedMinutes: 45,
-      exerciseCount: 4,
+      exerciseCount: 8,
       topics: ['Idéutvikling', 'Skisser', 'Prototyp', 'Vurdering'],
       competenceGoals: ['bruke designprosessen til å utvikle produkter'], linkedChapterId: 'kunst-6-2-1-narrativ' },
     {
@@ -592,7 +592,7 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Grafisk design',
       description: 'Lag logoer, plakater og andre grafiske produkter.',
       estimatedMinutes: 50,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Logo', 'Typografi', 'Layout', 'Komposisjon'],
       competenceGoals: ['lage grafiske produkter med digitale verktøy'], linkedChapterId: 'kunst-6-2-2-narrativ' },
     // Kapittel 3: Håndverk
@@ -602,7 +602,7 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Tekstil',
       description: 'Lær grunnleggende tekstilteknikker som sying og veving.',
       estimatedMinutes: 60,
-      exerciseCount: 4,
+      exerciseCount: 8,
       topics: ['Sying', 'Broderi', 'Mønster', 'Materialer'],
       competenceGoals: ['bruke ulike teknikker i tekstil'], linkedChapterId: 'kunst-6-3-1-narrativ' },
     {
@@ -611,7 +611,7 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Tre og metall',
       description: 'Arbeid med tre og metall, og lær å bruke verktøy trygt.',
       estimatedMinutes: 55,
-      exerciseCount: 4,
+      exerciseCount: 8,
       topics: ['Saging', 'Filing', 'Sliping', 'Sikkerhet'],
       competenceGoals: ['bruke verktøy og materialer på en trygg måte'], linkedChapterId: 'kunst-6-3-2-narrativ' },
     // Kapittel 4: Kunsthistorie
@@ -621,18 +621,18 @@ export const COURSE_KUNST_6: TextbookCourse = {
       title: 'Kjente kunstnere',
       description: 'Lær om kjente kunstnere og deres verk.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 8,
       topics: ['Munch', 'Picasso', 'Monet', 'Kunstretninger'],
       competenceGoals: ['utforske og beskrive kunst fra ulike tider'], linkedChapterId: 'kunst-6-4-1-narrativ' },
-      { id: 'kunst-6-4-2', number: '4.2', title: 'Romdesign og interiør', description: 'Lær hvordan man designer funksjonelle og estetiske rom.', estimatedMinutes: 50, exerciseCount: 3, topics: [], competenceGoals: ['planlegge og presentere enkle romløsninger', 'forstå hvordan møbler og farger påvirker et rom'], linkedChapterId: 'kunst-6-4-2-narrativ' },
-    { id: 'kunst-6-5-1', number: '5.1', title: 'Tekstil og veving', description: 'Lær grunnleggende teknikker for å arbeide med tekstil og veving.', estimatedMinutes: 55, exerciseCount: 3, topics: [], competenceGoals: ['bruke ulike tekstile teknikker', 'forstå hvordan tekstiler lages og brukes'], linkedChapterId: 'kunst-6-5-1-narrativ' },
-    { id: 'kunst-6-5-2', number: '5.2', title: 'Tre og metall', description: 'Utforsk grunnleggende teknikker for å arbeide med tre og metall.', estimatedMinutes: 50, exerciseCount: 3, topics: [], competenceGoals: ['bruke enkle verktøy for tre- og metallarbeid', 'forstå materialenes egenskaper og bruksområder'], linkedChapterId: 'kunst-6-5-2-narrativ' },
-    { id: 'kunst-6-6-1', number: '6.1', title: 'Kunsttradisjoner fra ulike kulturer', description: 'Utforsk kunst og håndverkstradisjoner fra forskjellige deler av verden.', estimatedMinutes: 50, exerciseCount: 3, topics: [], competenceGoals: ['utforske og lære om kunst fra ulike kulturer', 'forstå hvordan kultur og tradisjon påvirker kunstuttrykk'], linkedChapterId: 'kunst-6-6-1-narrativ' },
-    { id: 'kunst-6-6-2', number: '6.2', title: 'Kjente kunstnere og kunstverk', description: 'Lær om kjente kunstnere fra ulike tidsepoker og deres viktigste verk.', estimatedMinutes: 50, exerciseCount: 3, topics: [], competenceGoals: ['kjenne til viktige kunstnere og kunstverk', 'forstå hvordan kunst reflekterer sin tid'], linkedChapterId: 'kunst-6-6-2-narrativ' },
-    { id: 'kunst-6-7-1', number: '7.1', title: 'Digital tegning og bildebehandling', description: 'Lær å lage og redigere bilder med digitale verktøy.', estimatedMinutes: 50, exerciseCount: 3, topics: [], competenceGoals: ['bruke digitale verktøy til å lage og bearbeide bilder', 'forstå grunnleggende bildebehandling'], linkedChapterId: 'kunst-6-7-1-narrativ' },
-    { id: 'kunst-6-7-2', number: '7.2', title: 'Fotografi og komposisjon', description: 'Lær å ta bedre bilder med grunnleggende fototeknikk.', estimatedMinutes: 45, exerciseCount: 3, topics: [], competenceGoals: ['bruke fotografi som kunstnerisk uttrykk', 'forstå grunnleggende prinsipper for god komposisjon'], linkedChapterId: 'kunst-6-7-2-narrativ' },
-    { id: 'kunst-6-8-1', number: '8.1', title: 'Gjenbruk og upcycling', description: 'Lær å lage kunst og design av materialer som ellers ville blitt kastet.', estimatedMinutes: 50, exerciseCount: 3, topics: [], competenceGoals: ['bruke gjenbruksmaterialer kreativt', 'forstå bærekraftig design og sirkulær økonomi'], linkedChapterId: 'kunst-6-8-1-narrativ' },
-    { id: 'kunst-6-8-2', number: '8.2', title: 'Design for fremtiden', description: 'Forstå hvordan design kan bidra til en bærekraftig fremtid.', estimatedMinutes: 45, exerciseCount: 3, topics: [], competenceGoals: ['forstå prinsipper for bærekraftig design', 'reflektere over designens påvirkning på miljøet'], linkedChapterId: 'kunst-6-8-2-narrativ' },
+      { id: 'kunst-6-4-2', number: '4.2', title: 'Romdesign og interiør', description: 'Lær hvordan man designer funksjonelle og estetiske rom.', estimatedMinutes: 50, exerciseCount: 8, topics: [], competenceGoals: ['planlegge og presentere enkle romløsninger', 'forstå hvordan møbler og farger påvirker et rom'], linkedChapterId: 'kunst-6-4-2-narrativ' },
+    { id: 'kunst-6-5-1', number: '5.1', title: 'Tekstil og veving', description: 'Lær grunnleggende teknikker for å arbeide med tekstil og veving.', estimatedMinutes: 55, exerciseCount: 8, topics: [], competenceGoals: ['bruke ulike tekstile teknikker', 'forstå hvordan tekstiler lages og brukes'], linkedChapterId: 'kunst-6-5-1-narrativ' },
+    { id: 'kunst-6-5-2', number: '5.2', title: 'Tre og metall', description: 'Utforsk grunnleggende teknikker for å arbeide med tre og metall.', estimatedMinutes: 50, exerciseCount: 8, topics: [], competenceGoals: ['bruke enkle verktøy for tre- og metallarbeid', 'forstå materialenes egenskaper og bruksområder'], linkedChapterId: 'kunst-6-5-2-narrativ' },
+    { id: 'kunst-6-6-1', number: '6.1', title: 'Kunsttradisjoner fra ulike kulturer', description: 'Utforsk kunst og håndverkstradisjoner fra forskjellige deler av verden.', estimatedMinutes: 50, exerciseCount: 8, topics: [], competenceGoals: ['utforske og lære om kunst fra ulike kulturer', 'forstå hvordan kultur og tradisjon påvirker kunstuttrykk'], linkedChapterId: 'kunst-6-6-1-narrativ' },
+    { id: 'kunst-6-6-2', number: '6.2', title: 'Kjente kunstnere og kunstverk', description: 'Lær om kjente kunstnere fra ulike tidsepoker og deres viktigste verk.', estimatedMinutes: 50, exerciseCount: 8, topics: [], competenceGoals: ['kjenne til viktige kunstnere og kunstverk', 'forstå hvordan kunst reflekterer sin tid'], linkedChapterId: 'kunst-6-6-2-narrativ' },
+    { id: 'kunst-6-7-1', number: '7.1', title: 'Digital tegning og bildebehandling', description: 'Lær å lage og redigere bilder med digitale verktøy.', estimatedMinutes: 50, exerciseCount: 8, topics: [], competenceGoals: ['bruke digitale verktøy til å lage og bearbeide bilder', 'forstå grunnleggende bildebehandling'], linkedChapterId: 'kunst-6-7-1-narrativ' },
+    { id: 'kunst-6-7-2', number: '7.2', title: 'Fotografi og komposisjon', description: 'Lær å ta bedre bilder med grunnleggende fototeknikk.', estimatedMinutes: 45, exerciseCount: 8, topics: [], competenceGoals: ['bruke fotografi som kunstnerisk uttrykk', 'forstå grunnleggende prinsipper for god komposisjon'], linkedChapterId: 'kunst-6-7-2-narrativ' },
+    { id: 'kunst-6-8-1', number: '8.1', title: 'Gjenbruk og upcycling', description: 'Lær å lage kunst og design av materialer som ellers ville blitt kastet.', estimatedMinutes: 50, exerciseCount: 8, topics: [], competenceGoals: ['bruke gjenbruksmaterialer kreativt', 'forstå bærekraftig design og sirkulær økonomi'], linkedChapterId: 'kunst-6-8-1-narrativ' },
+    { id: 'kunst-6-8-2', number: '8.2', title: 'Design for fremtiden', description: 'Forstå hvordan design kan bidra til en bærekraftig fremtid.', estimatedMinutes: 45, exerciseCount: 8, topics: [], competenceGoals: ['forstå prinsipper for bærekraftig design', 'reflektere over designens påvirkning på miljøet'], linkedChapterId: 'kunst-6-8-2-narrativ' },
   ],
 };
 
@@ -655,7 +655,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Notasjon',
       description: 'Lær å lese og skrive noter på notelinjen.',
       estimatedMinutes: 45,
-      exerciseCount: 8,
+      exerciseCount: 13,
       topics: ['Notelinje', 'Notenavner', 'Noteverdier', 'Pauser'],
       competenceGoals: ['bruke musikkens grunnelementer i skapende arbeid'], linkedChapterId: 'musikk-6-1-1-narrativ' },
     {
@@ -664,7 +664,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Rytme',
       description: 'Utforsk rytmer, taktarter og tempi.',
       estimatedMinutes: 40,
-      exerciseCount: 7,
+      exerciseCount: 12,
       topics: ['Taktarter', 'Rytmemønstre', 'Tempo', 'Synkope'],
       competenceGoals: ['øve inn og fremføre sang og musikk'], linkedChapterId: 'musikk-6-1-2-narrativ' },
     {
@@ -673,7 +673,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Melodi og akkorder',
       description: 'Forstå hvordan melodier og akkorder bygges opp.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Skalaer', 'Dur og moll', 'Akkorder', 'Harmonier'],
       competenceGoals: ['utforske sammenhenger mellom musikk og følelser'], linkedChapterId: 'musikk-6-1-3-narrativ' },
     // Kapittel 2: Spill og sang
@@ -683,7 +683,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Instrumentspill',
       description: 'Lær å spille enkle melodier på ukulele, keyboard eller blokkfløyte.',
       estimatedMinutes: 50,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Ukulele', 'Keyboard', 'Blokkfløyte', 'Akkompagnement'],
       competenceGoals: ['spille melodier og akkompagnement på ulike instrumenter'], linkedChapterId: 'musikk-6-2-1-narrativ' },
     {
@@ -692,7 +692,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Samspill',
       description: 'Spill sammen med andre i band eller ensemble.',
       estimatedMinutes: 45,
-      exerciseCount: 4,
+      exerciseCount: 9,
       topics: ['Band', 'Ensemble', 'Samspill', 'Lytting'],
       competenceGoals: ['delta i ulike typer samspill'], linkedChapterId: 'musikk-6-2-2-narrativ' },
     {
@@ -701,7 +701,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Sangteknikk',
       description: 'Utvikle sangstemmen din med teknikker for pust og klang.',
       estimatedMinutes: 35,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Pust', 'Støtte', 'Klang', 'Flerstemmig sang'],
       competenceGoals: ['bruke stemmen på varierte måter'], linkedChapterId: 'musikk-6-2-3-narrativ' },
     // Kapittel 3: Komponering
@@ -711,7 +711,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Lage musikk',
       description: 'Komponer egne melodier og rytmer.',
       estimatedMinutes: 50,
-      exerciseCount: 4,
+      exerciseCount: 9,
       topics: ['Komposisjon', 'Improvisasjon', 'Arrangement'],
       competenceGoals: ['skape og formidle egne musikalske uttrykk'], linkedChapterId: 'musikk-6-3-1-narrativ' },
     {
@@ -720,7 +720,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Digital musikk',
       description: 'Bruk digitale verktøy til å lage og redigere musikk.',
       estimatedMinutes: 45,
-      exerciseCount: 4,
+      exerciseCount: 9,
       topics: ['GarageBand', 'Loops', 'Effekter', 'Miksing'],
       competenceGoals: ['utforske digitale verktøy for musikkskaping'], linkedChapterId: 'musikk-6-3-2-narrativ' },
     // Kapittel 4: Musikkhistorie
@@ -730,7 +730,7 @@ export const COURSE_MUSIKK_6: TextbookCourse = {
       title: 'Musikk fra ulike tider',
       description: 'Utforsk musikkhistorien fra klassisk til moderne musikk.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Klassisk', 'Jazz', 'Rock', 'Pop'],
       competenceGoals: ['utforske musikk fra ulike tidsperioder'], linkedChapterId: 'musikk-6-4-1-narrativ' },
   ],
@@ -755,7 +755,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Næringsstoffer',
       description: 'Lær om karbohydrater, proteiner, fett, vitaminer og mineraler.',
       estimatedMinutes: 40,
-      exerciseCount: 8,
+      exerciseCount: 13,
       topics: ['Karbohydrater', 'Proteiner', 'Fett', 'Vitaminer', 'Mineraler'],
       competenceGoals: ['forklare sammenhengen mellom mat, ernæring og helse'], linkedChapterId: 'mat-6-1-1-narrativ' },
     {
@@ -764,7 +764,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Et balansert kosthold',
       description: 'Forstå hva som utgjør et balansert og sunt kosthold.',
       estimatedMinutes: 35,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Kostholdsråd', 'Tallerkenmodellen', 'Måltider', 'Vann'],
       competenceGoals: ['sette sammen måltider basert på kostholdsråd'], linkedChapterId: 'mat-6-1-2-narrativ' },
     {
@@ -773,7 +773,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Matmerking',
       description: 'Lær å lese og forstå innholdsfortegnelser på matvarer.',
       estimatedMinutes: 30,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Innholdsfortegnelse', 'Næringsinnhold', 'Allergier', 'Merkeordninger'],
       competenceGoals: ['lese og tolke informasjon om matvarer'], linkedChapterId: 'mat-6-1-3-narrativ' },
     // Kapittel 2: Matteknikker
@@ -783,7 +783,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Grunnleggende teknikker',
       description: 'Lær å kutte, blande, steke og koke på en trygg måte.',
       estimatedMinutes: 50,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Kutteteknikker', 'Steking', 'Koking', 'Baking'],
       competenceGoals: ['bruke ulike tilberedningsmåter'], linkedChapterId: 'mat-6-2-1-narrativ' },
     {
@@ -792,7 +792,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Baking',
       description: 'Lær grunnleggende baketeknikker for brød, boller og kaker.',
       estimatedMinutes: 55,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Gjær', 'Elting', 'Heving', 'Steking'],
       competenceGoals: ['lage mat ved å følge oppskrifter'], linkedChapterId: 'mat-6-2-2-narrativ' },
     // Kapittel 3: Hygiene og sikkerhet
@@ -802,7 +802,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Mathygiene',
       description: 'Forstå viktigheten av god hygiene ved matlaging.',
       estimatedMinutes: 35,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Håndvask', 'Rengjøring', 'Oppbevaring', 'Holdbarhet'],
       competenceGoals: ['praktisere god hygiene ved matlaging'], linkedChapterId: 'mat-6-3-1-narrativ' },
     {
@@ -811,7 +811,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Sikkerhet på kjøkkenet',
       description: 'Lær å jobbe trygt med kniver, varme og elektriske apparater.',
       estimatedMinutes: 30,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Knivbruk', 'Brannfare', 'Førstehjelp', 'Sikkerhet'],
       competenceGoals: ['arbeide trygt og ryddig på kjøkkenet'], linkedChapterId: 'mat-6-3-2-narrativ' },
     // Kapittel 4: Mat og kultur
@@ -821,7 +821,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Norske mattradisjoner',
       description: 'Utforsk tradisjonell norsk mat og regionale spesialiteter.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Tradisjonsmat', 'Høytidsmat', 'Regionale retter'],
       competenceGoals: ['utforske og lage tradisjonsmat'], linkedChapterId: 'mat-6-4-1-narrativ' },
     {
@@ -830,7 +830,7 @@ export const COURSE_MAT_6: TextbookCourse = {
       title: 'Mat fra andre kulturer',
       description: 'Smak på mat fra ulike deler av verden.',
       estimatedMinutes: 45,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Verdensmat', 'Krydder', 'Matkultur', 'Mangfold'],
       competenceGoals: ['utforske mat fra ulike kulturer'], linkedChapterId: 'mat-6-4-2-narrativ' },
   ],
@@ -855,7 +855,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Løping og hopping',
       description: 'Utvikle teknikk for løping, hopping og hink.',
       estimatedMinutes: 45,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Løpeteknikk', 'Lengdehopp', 'Høydehopp', 'Hink'],
       competenceGoals: ['øve på og utvikle grunnleggende bevegelser'], linkedChapterId: 'kroppsoving-6-1-1-narrativ' },
     {
@@ -864,7 +864,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Kasting og mottak',
       description: 'Lær ulike kasteteknikker og hvordan du tar imot baller.',
       estimatedMinutes: 40,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Kast', 'Mottak', 'Presisjon', 'Koordinasjon'],
       competenceGoals: ['utføre varierte bevegelser i ulike miljø'], linkedChapterId: 'kroppsoving-6-1-2-narrativ' },
     {
@@ -873,7 +873,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Turn og akrobatikk',
       description: 'Øv på ruller, håndstående og enkle akrobatiske øvelser.',
       estimatedMinutes: 50,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Ruller', 'Håndstående', 'Balanse', 'Styrke'],
       competenceGoals: ['utforske egne muligheter i ulike bevegelsesformer'], linkedChapterId: 'kroppsoving-6-1-3-narrativ' },
     // Kapittel 2: Ballspill
@@ -883,7 +883,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Fotball',
       description: 'Lær grunnleggende fotballteknikk og spillforståelse.',
       estimatedMinutes: 50,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Pasning', 'Dribling', 'Skudd', 'Forsvar'],
       competenceGoals: ['delta i lagspill og følge regler'], linkedChapterId: 'kroppsoving-6-2-1-narrativ' },
     {
@@ -892,7 +892,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Basketball og håndball',
       description: 'Øv på teknikk og samspill i basketball og håndball.',
       estimatedMinutes: 50,
-      exerciseCount: 6,
+      exerciseCount: 11,
       topics: ['Dribling', 'Kast', 'Forsvar', 'Samspill'],
       competenceGoals: ['samarbeide og vise respekt i spill og aktiviteter'], linkedChapterId: 'kroppsoving-6-2-2-narrativ' },
     {
@@ -901,7 +901,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Volleyball og badminton',
       description: 'Lær grunnleggende teknikk i nettspill.',
       estimatedMinutes: 45,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Serve', 'Slag', 'Plassering', 'Regler'],
       competenceGoals: ['prøve ulike aktiviteter og vurdere egen innsats'], linkedChapterId: 'kroppsoving-6-2-3-narrativ' },
     // Kapittel 3: Friluftsliv
@@ -911,7 +911,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Orientering',
       description: 'Lær å bruke kart og kompass i naturen.',
       estimatedMinutes: 55,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Kart', 'Kompass', 'Orientering', 'Turplanlegging'],
       competenceGoals: ['planlegge og gjennomføre turer i nærmiljøet'], linkedChapterId: 'kroppsoving-6-3-1-narrativ' },
     {
@@ -920,7 +920,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Friluftsliv hele året',
       description: 'Utforsk aktiviteter i naturen til alle årstider.',
       estimatedMinutes: 45,
-      exerciseCount: 4,
+      exerciseCount: 9,
       topics: ['Ski', 'Skøyter', 'Sykling', 'Padling'],
       competenceGoals: ['ferdes trygt i naturen til ulike årstider'], linkedChapterId: 'kroppsoving-6-3-2-narrativ' },
     // Kapittel 4: Helse og livsstil
@@ -930,7 +930,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Trening og helse',
       description: 'Forstå sammenhengen mellom fysisk aktivitet og helse.',
       estimatedMinutes: 35,
-      exerciseCount: 5,
+      exerciseCount: 10,
       topics: ['Kondisjon', 'Styrke', 'Bevegelighet', 'Hvile'],
       competenceGoals: ['forklare hvorfor fysisk aktivitet er viktig for helsen'], linkedChapterId: 'kroppsoving-6-4-1-narrativ' },
     {
@@ -939,7 +939,7 @@ export const COURSE_KROPPSOVING_6: TextbookCourse = {
       title: 'Fair play',
       description: 'Lær om fair play, samarbeid og respekt i idrett.',
       estimatedMinutes: 30,
-      exerciseCount: 4,
+      exerciseCount: 9,
       topics: ['Fair play', 'Respekt', 'Samarbeid', 'Inkludering'],
       competenceGoals: ['vise respekt for andre i aktiviteter'], linkedChapterId: 'kroppsoving-6-4-2-narrativ' },
   ],

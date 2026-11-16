@@ -53,6 +53,31 @@ function getLevelGradeSlug(level: string): string | null {
   return null; // «Nivå 1» o.l. — ingen trinnoversikt å gå tilbake til
 }
 
+/**
+ * Antall oppgaver slik eleven ser dem i kapitlet: exercises-lista, oppgaveblokker i innholdet og
+ * oppgaver i sammenleggbare blokker (repetisjon). En sekvensiell quiz telles per spørsmål.
+ *
+ * Brukerrapport 10.11.2026 (naturfag-6 2.3, lesevennlig versjon): «Det var 9 oppgaver det står at det
+ * skulle være 8 oppgaver». `exerciseCount` i metadataen er et håndskrevet tall, og den lesevennlige
+ * versjonen arver originalkapitlets tall (getChapterMeta). Måling 16.11.2026: 6 699 av 13 217
+ * kapittelfiler viste feil antall. Tallet telles derfor fra innholdet når det finnes.
+ */
+function tellOppgaver(chapter: TextbookChapter | undefined): number | undefined {
+  if (!chapter) return undefined;
+  const enheter = (ex: TextbookExercise) =>
+    ex.type === 'multiple-choice' && ex.questions && ex.questions.length > 0 ? ex.questions.length : 1;
+  let antall = (chapter.exercises ?? []).reduce((sum, ex) => sum + (ex ? enheter(ex) : 0), 0);
+  for (const block of chapter.content ?? []) {
+    if (block.type === 'exercise' && block.exercise) antall += enheter(block.exercise);
+    if (block.type === 'collapsible') {
+      for (const inner of block.content ?? []) {
+        if (inner.type === 'exercise' && inner.exercise) antall += enheter(inner.exercise);
+      }
+    }
+  }
+  return antall;
+}
+
 interface ChapterNavInfo {
   id: string;
   number: string;
@@ -97,6 +122,7 @@ export function TextbookChapterView({
   dependents = [],
 }: TextbookChapterViewProps) {
   const hasContent = !!chapterContent;
+  const exerciseCount = tellOppgaver(chapterContent) ?? chapterMeta.exerciseCount;
   const { user } = useUser();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -401,7 +427,7 @@ export function TextbookChapterView({
               </div>
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="h-3.5 w-3.5" />
-                <span>{chapterMeta.exerciseCount} oppgaver</span>
+                <span>{exerciseCount} oppgaver</span>
               </div>
             </div>
 
@@ -470,15 +496,15 @@ export function TextbookChapterView({
                       <span>deloppgaver</span>
                     </span>
                   )}
-                  <span>{completedExercisesCount} / {chapterMeta.exerciseCount} oppgaver</span>
+                  <span>{completedExercisesCount} / {exerciseCount} oppgaver</span>
                 </div>
               </div>
               {/* Progress bar: width based on exercises, color split based on subtasks */}
               <div className="h-2 bg-primary/20 rounded-full overflow-hidden">
                 {(() => {
                   // Width based on exercises completed
-                  const progressPercent = chapterMeta.exerciseCount > 0
-                    ? (completedExercisesCount / chapterMeta.exerciseCount) * 100
+                  const progressPercent = exerciseCount > 0
+                    ? (completedExercisesCount / exerciseCount) * 100
                     : 0;
 
                   // Color distribution based on subtasks
