@@ -159,8 +159,8 @@ const quizData_naturfag_6: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det færre rovdyr enn planteetere i naturen?',
-    options: ['Ca. 90% av energien tapes for hvert ledd', 'Rovdyr liker ikke å bo tett', 'Planteetere formerer seg raskere', 'Mennesker dreper rovdyr'],
-    explanation: 'For hvert ledd i næringskjeden tapes ca. 90% av energien som varme.',
+    options: ['Ca. 90% av energien tapes for hvert ledd', 'Rovdyr liker ikke å bo tett', 'Rovdyr trenger ikke mat', 'Mennesker dreper rovdyr'],
+    explanation: 'For hvert ledd i næringskjeden går ca. 90 % av energien tapt – mest som varme.',
   },
   {
     question: 'Hva er et næringsnett?',

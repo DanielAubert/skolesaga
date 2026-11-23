@@ -272,7 +272,7 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kulturrelativisme?',
-    options: ["Å forstå andre kulturer på deres egne premisser", "At alle skal tilpasse seg majoritetskulturen", "Å mene at ens egen kultur er overlegen og best, og dømme andre kulturer etter den", "Å mene at egen kultur er best"],
+    options: ["Å forstå andre kulturer på deres egne premisser", "At alle skal tilpasse seg majoritetskulturen", "At kultur ikke har noen betydning", "Å mene at egen kultur er best"],
     explanation: 'Kulturrelativisme er å forsøke å forstå andre kulturer på deres egne premisser i stedet for å dømme dem etter egen kulturs standarder.',
   },
   {
@@ -282,12 +282,12 @@ const quizData_samfunnskunnskap: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med segregering?',
-    options: ["At kulturgrupper lever atskilt fra hverandre", "At ulike kulturer blandes fullstendig", "At ulike kulturgrupper blandes fullstendig sammen til én felles kultur over tid", "At alle deltar i samme samfunnsliv"],
+    options: ["At kulturgrupper lever atskilt fra hverandre", "At ulike kulturer blandes fullstendig", "At minoriteter får særrettigheter", "At alle deltar i samme samfunnsliv"],
     explanation: 'Segregering betyr at kulturgrupper lever atskilt fra hverandre - for eksempel i ulike bydeler, skoler eller arbeidsmarkeder, med lite kontakt mellom gruppene.',
   },
   {
     question: 'Hva innebærer multikulturalisme som perspektiv?',
-    options: ["At ulike kulturer skal kunne eksistere side om side med like rettigheter", "At én bestemt kultur skal være overordnet alle de andre kulturene i samfunnet", "At én bestemt kultur skal være overordnet og styrende for alle de andre kulturene i samfunnet", "At alle grupper i samfunnet på sikt må gi opp sin opprinnelige kultur til fordel for majoriteten"],
+    options: ["At ulike kulturer skal kunne eksistere side om side med like rettigheter", "At én bestemt kultur skal være overordnet alle de andre kulturene i samfunnet", "At kulturer ikke bør møtes eller ha kontakt med hverandre", "At alle grupper i samfunnet på sikt må gi opp sin opprinnelige kultur til fordel for majoriteten"],
     explanation: 'Multikulturalisme er ideen om at ulike kulturer skal kunne eksistere side om side med like rettigheter. Hvor godt dette fungerer i praksis, er omdiskutert - noen mener det fremmer mangfold, andre frykter parallellsamfunn.',
   },
 ],

@@ -510,7 +510,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på kaldrøyking og varmrøyking?",
-      options: ["Kaldrøyking skjer ved 15–25 °C, varmrøyking ved 60–80 °C", "Kaldrøyking bruker høyere temperatur", "Kaldrøyking bruker en mye høyere temperatur enn varmrøyking gjør", "De to metodene er i praksis helt like"],
+      options: ["Kaldrøyking skjer ved 15–25 °C, varmrøyking ved 60–80 °C", "Kaldrøyking bruker høyere temperatur", "Kaldrøyking og varmrøyking skjer ved samme temperatur, men med ulik type flis", "De to metodene er i praksis helt like"],
       explanation: "Kaldrøyking foregår ved lav temperatur (15–25 °C) uten å koke maten, mens varmrøyking ved 60–80 °C også varmebehandler den.",
     },
   ],

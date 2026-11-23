@@ -398,7 +398,7 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
         'På venstre side og i midten',
         'På høyre side',
         'Øverst',
-        'Nederst',
+        'Bare i gruppe 18',
       ],
       explanation: 'Metallene finner vi på venstre side og i midten av periodesystemet.',
     },

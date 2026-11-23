@@ -1430,7 +1430,7 @@ const quizData_norsk_8: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er norrøn litteratur?',
       options: [
-        'Litteratur skrevet på norrønt språk i Skandinavia og på Island fra ca. 800 til 1400',
+        'Litteratur skrevet på norrønt språk i Norge og på Island fra ca. 800 til 1400',
         'Litteratur skrevet i Norge på 1800-tallet',
         'Folkeeventyr samlet inn av Asbjørnsen og Moe',
         'Moderne litteratur skrevet på nynorsk',

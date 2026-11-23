@@ -3,14 +3,14 @@ import type { QuizQuestion } from './quiz-data';
 const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-1-1': [
   {
-    question: 'Nårvar opplysningstiden?',
+    question: 'Når var opplysningstiden?',
     options: ['1700-tallet', '1500-tallet', '1900-tallet', '1200-tallet'],
     explanation: 'Opplysningstiden var på 1700-tallet, også kalt fornuftens tidsalder.',
   },
   {
-    question: 'Hvem føreslo maktfordeling mellom lovgivende, utøvende og dømmende makt?',
+    question: 'Hvem foreslo maktfordeling mellom lovgivende, utøvende og dømmende makt?',
     options: ['Montesquieu', 'Voltaire', 'Rousseau', 'Locke'],
-    explanation: 'Montesquieu føreslo maktfordelingsprinsippet som brukes i de fleste demokratier i dag.',
+    explanation: 'Montesquieu foreslo maktfordelingsprinsippet som brukes i de fleste demokratier i dag.',
   },
   {
     question: 'Hva var hovedideen i opplysningstiden?',
@@ -19,8 +19,8 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken filosof kjempet for ytringsfrihet?',
-    options: ['Voltaire', 'Newton', 'Linne', 'Diderot'],
-    explanation: 'Voltaire kjempet for ytringsfrihet og religionsfrihet. Han er kjent for sitatet om a forsvare andres rett til a si sin mening.',
+    options: ['Voltaire', 'Newton', 'Linné', 'Ludvig 14.'],
+    explanation: 'Voltaire kjempet for ytringsfrihet og religionsfrihet. Setningen om å forsvare andres rett til å si sin mening tillegges ofte ham, men ble skrevet av Evelyn Beatrice Hall i 1906 som en oppsummering av hans syn.',
   },
   {
     question: 'Hva var Encyklopedien?',

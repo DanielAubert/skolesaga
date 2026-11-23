@@ -37,13 +37,13 @@ const quizData_naturfag_7: Record<string, QuizQuestion[]> = {
     explanation: 'Hormoner er kjemiske stoffer som produseres i kjertler og fraktes med blodet.',
   },
   {
-    question: 'Hvilken kjertel kalles "sjefsklertelen"?',
+    question: 'Hvilken kjertel kalles "sjefskjertelen"?',
     options: ['Hypofysen', 'Skjoldbruskkjertelen', 'Bukspyttkjertelen', 'Binyrene'],
-    explanation: 'Hypofysen i hjernen kalles sjefsklertelen fordi den styrer de andre hormonkjertlene.',
+    explanation: 'Hypofysen under hjernen kalles sjefskjertelen fordi den styrer de andre hormonkjertlene.',
   },
   {
     question: 'Hva setter i gang puberteten?',
-    options: ['Hypofysen sender signaler til kjønnskjertlene', 'Vi bestemmer selv', 'Maten vi spiser', 'Nervesystemet'],
+    options: ['Hypofysen sender signaler til kjønnskjertlene', 'Vi bestemmer selv', 'Maten vi spiser', 'Været ute'],
     explanation: 'Puberteten starter når hypofysen signaliserer kjønnskjertlene om å produsere hormoner.',
   },
   {
@@ -52,8 +52,8 @@ const quizData_naturfag_7: Record<string, QuizQuestion[]> = {
     explanation: 'Adrenalin produseres av binyrene og gjør kroppen klar til "kjemp eller flykt".',
   },
   {
-    question: 'Hvilket hormon regulærer blodsukkeret?',
-    options: ['Insulin', 'Adrenalin', 'Veksthormon', 'Progesteron'],
+    question: 'Hvilket hormon regulerer blodsukkeret?',
+    options: ['Insulin', 'Testosteron', 'Veksthormon', 'Progesteron'],
     explanation: 'Insulin fra bukspyttkjertelen hjelper cellene ta opp sukker fra blodet.',
   },
 ],

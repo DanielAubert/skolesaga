@@ -1353,12 +1353,12 @@ const quizData_tysk_1: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er Wiens kaffehus kjent for?',
       options: [
-        'De står på UNESCOs verdensarvliste for sin kultur',
+        'Kaffehuskulturen står på Østerrikes liste over immateriell kulturarv',
         'De serverer bare te',
         'De er verdens eldste restauranter',
         'De er kun for turister',
       ],
-      explanation: 'Wiens kaffehuskultur er anerkjent av UNESCO - folk sitter i timevis med kaffe og kaker.',
+      explanation: 'Wiens kaffehuskultur står på Østerrikes nasjonale liste over immateriell kulturarv (2011) - folk sitter i timevis med kaffe og kaker.',
     },
     {
       question: 'Hvilket fjellområde er Østerrike kjent for?',
