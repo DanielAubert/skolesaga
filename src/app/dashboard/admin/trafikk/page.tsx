@@ -8,11 +8,14 @@ import { MainNav } from "@/components/navigation/main-nav";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Nokkeltall, Stolpeliste, prosent, tall } from "@/components/admin/trafikk-deler";
+import { SkolebrukPanel } from "@/components/admin/skolebruk-panel";
 import { ArrowLeft, BarChart3, BookOpen, RefreshCw } from "lucide-react";
 
 /* Typer — speiler src/app/api/admin/trafikk/route.ts og skolesaga_trafikk (migrasjon 115) */
 type Periode = "dag" | "uke" | "maned" | "3mnd";
 type LandValg = "NO" | "alle";
+type Fane = "oversikt" | "skolebruk";
 
 interface Svar {
   periode: Periode;
@@ -39,11 +42,11 @@ interface Svar {
   aktivitet?: Array<{ bok: string; tittel: string; fullforte: number; innleveringer: number; elever: number }>;
 }
 
-const PERIODER: Array<{ nokkel: Periode; navn: string; forrige: string }> = [
-  { nokkel: "dag", navn: "Døgn", forrige: "forrige døgn" },
-  { nokkel: "uke", navn: "Uke", forrige: "forrige uke" },
-  { nokkel: "maned", navn: "Måned", forrige: "forrige 30 døgn" },
-  { nokkel: "3mnd", navn: "3 måneder", forrige: "forrige 13 uker" },
+const PERIODER: Array<{ nokkel: Periode; navn: string; forrige: string; dager: number }> = [
+  { nokkel: "dag", navn: "Døgn", forrige: "forrige døgn", dager: 1 },
+  { nokkel: "uke", navn: "Uke", forrige: "forrige uke", dager: 7 },
+  { nokkel: "maned", navn: "Måned", forrige: "forrige 30 døgn", dager: 30 },
+  { nokkel: "3mnd", navn: "3 måneder", forrige: "forrige 13 uker", dager: 91 },
 ];
 
 const SIDETYPE_NAVN: Record<string, string> = {
@@ -62,56 +65,11 @@ const SIDETYPE_NAVN: Record<string, string> = {
   annet: "Annet",
 };
 
-const tall = (n: number | undefined) => (n ?? 0).toLocaleString("nb-NO");
-const prosent = (del: number, av: number) => (av > 0 ? `${Math.round((del / av) * 100)} %` : "–");
-
 function Endring({ naa, for: foer }: { naa: number; for: number }) {
   if (!foer) return <span className="text-xs text-muted-foreground">ingen data før</span>;
   const p = Math.round(((naa - foer) / foer) * 100);
   const farge = p > 0 ? "text-green-600" : p < 0 ? "text-red-600" : "text-muted-foreground";
   return <span className={`text-xs ${farge}`}>{p > 0 ? "+" : ""}{p} %</span>;
-}
-
-function Nokkeltall({ tittel, verdi, under }: { tittel: string; verdi: string; under?: React.ReactNode }) {
-  return (
-    <Card>
-      <CardContent className="p-4">
-        <div className="text-xs text-muted-foreground">{tittel}</div>
-        <div className="text-2xl font-semibold tabular-nums">{verdi}</div>
-        {under && <div className="mt-1 text-xs text-muted-foreground">{under}</div>}
-      </CardContent>
-    </Card>
-  );
-}
-
-/** Liste med en liggende stolpe bak hver rad — leses på mobil uten sidelengs scroll. */
-function Stolpeliste({
-  rader,
-}: {
-  rader: Array<{ nokkel: string; navn: React.ReactNode; under?: React.ReactNode; verdi: number; tekst: string }>;
-}) {
-  const maks = Math.max(1, ...rader.map((r) => r.verdi));
-  if (rader.length === 0) return <p className="text-sm text-muted-foreground">Ingen data i perioden.</p>;
-  return (
-    <ul className="space-y-1.5">
-      {rader.map((r) => (
-        <li key={r.nokkel} className="relative overflow-hidden rounded-md">
-          <div
-            className="absolute inset-y-0 left-0 bg-primary/10"
-            style={{ width: `${(r.verdi / maks) * 100}%` }}
-            aria-hidden
-          />
-          <div className="relative flex items-baseline justify-between gap-3 px-2 py-1.5">
-            <div className="min-w-0">
-              <div className="truncate text-sm">{r.navn}</div>
-              {r.under && <div className="truncate text-xs text-muted-foreground">{r.under}</div>}
-            </div>
-            <div className="shrink-0 text-sm tabular-nums">{r.tekst}</div>
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
 }
 
 function Serie({ serie, bucket }: { serie: NonNullable<Svar["serie"]>; bucket: Svar["bucket"] }) {
@@ -147,7 +105,10 @@ export default function TrafikkSide() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [periode, setPeriode] = useState<Periode>("uke");
+  // Norge er standard (Daniel 23.11.2026): tre firedeler av øktene var utenlandske enkelttreff.
   const [land, setLand] = useState<LandValg>("NO");
+  const [fane, setFane] = useState<Fane>("oversikt");
+  const [oppdatert, setOppdatert] = useState(0);
   const [svar, setSvar] = useState<Svar | null>(null);
   const [laster, setLaster] = useState(false);
   const [feil, setFeil] = useState<string | null>(null);
@@ -206,7 +167,15 @@ export default function TrafikkSide() {
               Trafikk og bøker
             </h1>
           </div>
-          <Button variant="outline" size="sm" onClick={hent} disabled={laster}>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              void hent();
+              setOppdatert((n) => n + 1);
+            }}
+            disabled={laster}
+          >
             <RefreshCw className={`mr-2 h-4 w-4 ${laster ? "animate-spin" : ""}`} />
             Oppdater
           </Button>
@@ -227,8 +196,37 @@ export default function TrafikkSide() {
           </Button>
         </div>
 
-        {feil && <p className="text-sm text-red-600">Kunne ikke hente trafikken: {feil}</p>}
-        {svar?.mangler && (
+        <p className="text-sm text-muted-foreground" aria-live="polite">
+          Viser: <b className="text-foreground">{land === "NO" ? "bare Norge" : "alle land"}</b> · siste{" "}
+          {valgt.dager === 1 ? "døgn" : `${valgt.dager} døgn`}
+          {land === "NO" && " · utenlandske treff er holdt utenfor"}
+        </p>
+
+        <div className="flex gap-1 border-b" role="tablist">
+          {(
+            [
+              ["oversikt", "Oversikt"],
+              ["skolebruk", "Skolebruk"],
+            ] as const
+          ).map(([n, navn]) => (
+            <button
+              key={n}
+              role="tab"
+              aria-selected={fane === n}
+              onClick={() => setFane(n)}
+              className={`-mb-px border-b-2 px-3 py-2 text-sm font-medium ${
+                fane === n ? "border-primary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {navn}
+            </button>
+          ))}
+        </div>
+
+        {fane === "skolebruk" && <SkolebrukPanel periode={periode} land={land} oppdatert={oppdatert} />}
+
+        {fane === "oversikt" && feil && <p className="text-sm text-red-600">Kunne ikke hente trafikken: {feil}</p>}
+        {fane === "oversikt" && svar?.mangler && (
           <Card>
             <CardContent className="p-4 text-sm">
               {svar.mangler}. Når den er kjørt, begynner Skolesaga å logge sidevisninger, og tallene dukker opp her.
@@ -236,7 +234,7 @@ export default function TrafikkSide() {
           </Card>
         )}
 
-        {t && f && (
+        {fane === "oversikt" && t && f && (
           <>
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
               <Nokkeltall
@@ -272,7 +270,7 @@ export default function TrafikkSide() {
               </CardContent>
             </Card>
 
-            <div className="grid gap-6 lg:grid-cols-2">
+            <div className="grid gap-6 lg:grid-cols-2 [&>*]:min-w-0">
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center gap-2 text-base">
