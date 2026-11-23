@@ -43,71 +43,71 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var typisk arbeidstid i en fabrikk på 1800-tallet?',
-    options: ['12-16 timer om dagen, 6 dager i uken', '8 timer om dagen', '5 dagers uke med ferie', 'Folk jobbet nårde ville'],
+    options: ['12-16 timer om dagen, 6 dager i uken', '8 timer om dagen', '5 dagers uke med ferie', 'Folk jobbet når de ville'],
     explanation: 'Arbeidsforholdene var harde med lange dager, farlige maskiner og dårlig lønn.',
   },
   {
-    question: 'Nårbegynte industrialiseringen i Norge?',
+    question: 'Når begynte industrialiseringen i Norge?',
     options: ['Ca. 1840', 'Ca. 1760', 'Ca. 1900', 'Ca. 1700'],
     explanation: 'Norge kom sent i gang med industrialisering, fra ca. 1840.',
   },
   {
     question: 'Hvorfor organiserte arbeiderne seg i fagforeninger?',
-    options: ['For a kreve bedre lønn og arbeidsforhold', 'Fordi de likte å gå påmøter', 'Fordi fabrikkeierne ba dem', 'For a jobbe mer'],
-    explanation: 'Arbeiderne organiserte seg for a stå sterkere sammen og kunne forhandle om bedre lønn, kortere arbeidsdag og tryggere arbeidsplasser.',
+    options: ['For å kreve bedre lønn og arbeidsforhold', 'Fordi de likte å gå på møter', 'Fordi fabrikkeierne ba dem', 'For å jobbe mer'],
+    explanation: 'Arbeiderne organiserte seg for å stå sterkere sammen og kunne forhandle om bedre lønn, kortere arbeidsdag og tryggere arbeidsplasser.',
   },
 ],
 
 
   'samfunnsfag-7-2-1': [
   {
-    question: 'Nårble Grunnloven vedtatt?',
+    question: 'Når ble Grunnloven vedtatt?',
     options: ['17. mai 1814', '17. mai 1905', '14. januar 1814', '7. juni 1905'],
-    explanation: 'Grunnloven ble vedtatt påEidsvoll 17. mai 1814.',
+    explanation: 'Grunnloven ble vedtatt på Eidsvoll 17. mai 1814.',
   },
   {
-    question: 'Hvor mange menn var samlet påEidsvoll?',
+    question: 'Hvor mange menn var samlet på Eidsvoll?',
     options: ['112', '50', '200', '17'],
-    explanation: '112 menn fra hele Norge motte påEidsvoll for a skrive Grunnloven.',
+    explanation: '112 menn fra hele Norge møtte på Eidsvoll for å skrive Grunnloven.',
   },
   {
-    question: 'Hvilket land var Norge i union med for 1814?',
+    question: 'Hvilket land var Norge i union med før 1814?',
     options: ['Danmark', 'Sverige', 'England', 'Frankrike'],
     explanation: 'Norge var i union med Danmark fra 1380 til 1814.',
   },
   {
     question: 'Hvem hadde stemmerett i 1814?',
-    options: ['Bare menn med eiendom (ca. 10%)', 'Alle voksne', 'Bare kongen', 'Ingen'],
-    explanation: 'I 1814 hadde bare menn over 25 årmed eiendom eller embete stemmerett, ca. 10% av befolkningen.',
+    options: ['Bare menn med eiendom (under 10 %)', 'Alle voksne', 'Bare kongen', 'Ingen'],
+    explanation: 'I 1814 hadde bare menn over 25 år med eiendom eller embete stemmerett, under 10 % av befolkningen.',
   },
   {
     question: 'Hva betyr maktfordeling?',
     options: ['At makten er fordelt mellom Stortinget, regjeringen og domstolene', 'At kongen har all makt', 'At bare en person bestemmer', 'At ingen har makt'],
-    explanation: 'Maktfordeling hindrer at en person fårall makt ved a dele makten mellom ulike organer.',
+    explanation: 'Maktfordeling hindrer at en person får all makt ved å dele makten mellom ulike organer.',
   },
 ],
 
 
   'samfunnsfag-7-2-2': [
   {
-    question: 'Nårfikk kvinner full stemmerett i Norge?',
+    question: 'Når fikk kvinner full stemmerett i Norge?',
     options: ['1913', '1814', '1898', '1979'],
     explanation: 'Kvinner fikk full stemmerett i 1913. Norge var et av de første landene i verden!',
   },
   {
     question: 'Hva betyr parlamentarisme?',
-    options: ['At regjeringen måha støtte fra Stortinget', 'At kongen bestemmer alt', 'At bare rike fårstemme', 'At det ikke er valg'],
-    explanation: 'Parlamentarisme ble innført i 1884 og betyr at regjeringen måha tillit fra flertallet i Stortinget.',
+    options: ['At regjeringen må ha støtte fra Stortinget', 'At kongen bestemmer alt', 'At bare rike får stemme', 'At det ikke er valg'],
+    explanation: 'Parlamentarisme ble innført i 1884 og betyr at regjeringen må ha tillit fra flertallet i Stortinget.',
   },
   {
-    question: 'Nårble unionen med Sverige opphøst?',
+    question: 'Når ble unionen med Sverige oppløst?',
     options: ['1905', '1814', '1884', '1945'],
-    explanation: 'Unionen med Sverige ble opphøst i 1905 etter en folkeavstemning der 99,95% stemte for selvstendighet.',
+    explanation: 'Unionen med Sverige ble oppløst i 1905 etter en folkeavstemning der 99,95% stemte for selvstendighet.',
   },
   {
-    question: 'Nårfikk alle menn stemmerett i Norge?',
+    question: 'Når fikk alle menn stemmerett i Norge?',
     options: ['1898', '1814', '1913', '1979'],
-    explanation: 'Alle menn over 25 årfikk stemmerett i 1898, uten krav om eiendom.',
+    explanation: 'Alle menn over 25 år fikk stemmerett i 1898, uten krav om eiendom.',
   },
   {
     question: 'Hvem var Gina Krog?',
@@ -124,9 +124,9 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
     explanation: 'Globalisering handler om at verden blir mer sammenkoblet gjennom handel, kommunikasjon og kultur.',
   },
   {
-    question: 'Hvahar gjørt globaliseringen mulig?',
-    options: ['Internett, billigere transport og frihandelsavtaler', 'Hogere tollmurer', 'Mindre reising', 'Færre telefoner'],
-    explanation: 'Teknologi og økonomiske avtaler har gjørt det mulig å handle og kommunisere over hele verden.',
+    question: 'Hva har gjort globaliseringen mulig?',
+    options: ['Internett, billigere transport og frihandelsavtaler', 'Høyere tollmurer', 'Mindre reising', 'Færre telefoner'],
+    explanation: 'Teknologi og økonomiske avtaler har gjort det mulig å handle og kommunisere over hele verden.',
   },
   {
     question: 'Hva er en negativ side ved globalisering?',
@@ -136,12 +136,12 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Fairtrade?',
     options: ['En ordning som sikrer rettferdig betaling til produsenter', 'En type butikk', 'Et varemerke for dyre produkter', 'En organisasjon i Norge'],
-    explanation: 'Fairtrade sikrer at bonder og arbeidere i fattige land fåren rettferdig pris for vårene sine.',
+    explanation: 'Fairtrade sikrer at bønder og arbeidere i fattige land får en rettferdig pris for varene sine.',
   },
   {
     question: 'Hva er en filterboble?',
-    options: ['Nåralgoritmer viser deg mer av det du allærede liker', 'En type såpeboble', 'En vanlig boble', 'Et filter for vann'],
-    explanation: 'Filterboble er nåralgoritmer påsosiale medier viser deg mer av det du allærede liker, slik at du ser mindre av andre synspunkter.',
+    options: ['Når algoritmer viser deg mer av det du allerede liker', 'En type såpeboble', 'En vanlig boble', 'Et filter for vann'],
+    explanation: 'Filterboble er når algoritmer på sosiale medier viser deg mer av det du allerede liker, slik at du ser mindre av andre synspunkter.',
   },
 ],
 
@@ -159,18 +159,18 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr relativ fattigdom?',
-    options: ['A ha mye mindre enn andre i samme samfunn', 'A ha under 2 dollar om dagen', 'A bo i et fattig land', 'A ikke ha noe som helst'],
+    options: ['Å ha mye mindre enn andre i samme samfunn', 'Å ha under 2 dollar om dagen', 'Å bo i et fattig land', 'Å ikke ha noe som helst'],
     explanation: 'Relativ fattigdom handler om ulikhet innenfor et samfunn - å ha mye mindre enn andre rundt deg.',
   },
   {
-    question: 'Har andelen fattige i verden gatt opp eller ned de siste 30 årene?',
+    question: 'Har andelen fattige i verden gått opp eller ned de siste 30 årene?',
     options: ['Ned - fra 36% til 9%', 'Opp - det blir flere fattige', 'Ingen endring', 'Vi vet ikke'],
-    explanation: 'Andelen i ekstrem fattigdom har gatt fra 36% i 1990 til ca. 9% i dag. Over 1 milliard mennesker har kommet ut av fattigdom!',
+    explanation: 'Andelen i ekstrem fattigdom har gått fra 36% i 1990 til ca. 9% i dag. Over 1 milliard mennesker har kommet ut av fattigdom!',
   },
   {
-    question: 'Hvorfor er utdanning viktig for a bekjempe fattigdom?',
+    question: 'Hvorfor er utdanning viktig for å bekjempe fattigdom?',
     options: ['Det gir mulighet til bedre jobber og mer kunnskap', 'Utdanning er ikke viktig', 'Bare rike trenger utdanning', 'Utdanning gjør folk fattigere'],
-    explanation: 'Utdanning gir mennesker mulighet til a fa bedre jobber og tjene mer. Det gir også kunnskap om helse, rettigheter og muligheter.',
+    explanation: 'Utdanning gir mennesker mulighet til å få bedre jobber og tjene mer. Det gir også kunnskap om helse, rettigheter og muligheter.',
   },
 ],
 
@@ -178,8 +178,8 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-4-1': [
   {
     question: 'Hva er drivhuseffekten?',
-    options: ['Gasser i atmosfæren holder påvarmen fra sola', 'Sola blir varmere', 'Jorden er et drivhus', 'Atmosfaeren blir tynnere'],
-    explanation: 'Drivhuseffekten gjør at gasser i atmosfæren holder påvarmen, som i et drivhus.',
+    options: ['Gasser i atmosfæren holder på varmen fra sola', 'Sola blir varmere', 'Jorden er et drivhus', 'Atmosfæren blir tynnere'],
+    explanation: 'Drivhuseffekten gjør at gasser i atmosfæren holder på varmen, som i et drivhus.',
   },
   {
     question: 'Hva er den viktigste klimagassen?',
@@ -188,17 +188,17 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en konsekvens av klimaendringer?',
-    options: ['Is smelter og havet stiger', 'Det blir kaldere overalt', 'Det blir mindre ekstremt vær', 'Alle dyr fårdet bedre'],
-    explanation: 'Nårjorden blir varmere, smelter is og havet stiger. Vi fårogså mer ekstremt vær.',
+    options: ['Is smelter og havet stiger', 'Det blir kaldere overalt', 'Det blir mindre ekstremt vær', 'Alle dyr får det bedre'],
+    explanation: 'Når jorden blir varmere, smelter is og havet stiger. Vi får også mer ekstremt vær.',
   },
   {
     question: 'Hva er Parisavtalen?',
-    options: ['En avtale om a begrense global oppvarming til under 2 grader', 'En avtale om handel', 'En lov i Norge', 'En avtale om flytrafikk'],
+    options: ['En avtale om å begrense global oppvarming til under 2 grader', 'En avtale om handel', 'En lov i Norge', 'En avtale om flytrafikk'],
     explanation: 'Parisavtalen fra 2015 er en internasjonal avtale der landene ble enige om å holde global oppvarming under 2 grader.',
   },
   {
     question: 'Hva er fornybar energi?',
-    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gass'],
+    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi fra gass'],
     explanation: 'Fornybar energi kommer fra kilder som ikke tar slutt, som sol, vind og vannkraft, og gir lite klimagassutslipp.',
   },
 ],
@@ -207,27 +207,27 @@ const quizData_samfunnsfag_7: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-4-2': [
   {
     question: 'Hva er kildekritikk?',
-    options: ['A vurdere om informasjon er pålitelig og sann', 'A kritisere alle kilder', 'A bare bruke en kilde', 'A tro påalt man leser'],
-    explanation: 'Kildekritikk er a vurdere om informasjon er pålitelig ved a spørre hvem som har laget den, hvorfor, og om den kan bekreftes.',
+    options: ['Å vurdere om informasjon er pålitelig og sann', 'Å kritisere alle kilder', 'Å bare bruke en kilde', 'Å tro på alt man leser'],
+    explanation: 'Kildekritikk er å vurdere om informasjon er pålitelig ved å spørre hvem som har laget den, hvorfor, og om den kan bekreftes.',
   },
   {
     question: 'Hva er en filterboble?',
-    options: ['Nåralgoritmer viser deg det du allærede liker', 'En såpeboble', 'Et vannfilter', 'En type nyheter'],
-    explanation: 'Filterboble er nåralgoritmer påsosiale medier viser deg mer av det du allærede liker, slik at du ser mindre av andre synspunkter.',
+    options: ['Når algoritmer viser deg det du allerede liker', 'En såpeboble', 'Et vannfilter', 'En type nyheter'],
+    explanation: 'Filterboble er når algoritmer på sosiale medier viser deg mer av det du allerede liker, slik at du ser mindre av andre synspunkter.',
   },
   {
     question: 'Hva er falske nyheter?',
     options: ['Usann informasjon som spres som om det var nyheter', 'Alle nyheter', 'Nyheter fra utlandet', 'Gamle nyheter'],
-    explanation: 'Falske nyheter er usann informasjon som er laget for å se ut som ekte nyheter, ofte for a påvirke folk eller tjene penger.',
+    explanation: 'Falske nyheter er usann informasjon som er laget for å se ut som ekte nyheter, ofte for å påvirke folk eller tjene penger.',
   },
   {
-    question: 'Hva bør du gjøre for du deler noe påsosiale medier?',
-    options: ['Sjekke om det er sant', 'Dele med en gang', 'Ikke tenke pådet', 'Bare dele til venner'],
-    explanation: 'For du deler noe bør du sjekke om det er sant ved a lete etter kilden og se om andre pålitelige kilder sier det samme.',
+    question: 'Hva bør du gjøre før du deler noe på sosiale medier?',
+    options: ['Sjekke om det er sant', 'Dele med en gang', 'Ikke tenke på det', 'Bare dele til venner'],
+    explanation: 'Før du deler noe bør du sjekke om det er sant ved å lete etter kilden og se om andre pålitelige kilder sier det samme.',
   },
   {
     question: 'Hva er kildekompasset?',
-    options: ['En metode for a vurdere kilder: Hvem, Innhold, Lokalitet, Datering, Ensidighet', 'Et kompass for a finne veien', 'En type sok', 'En app'],
+    options: ['En metode for å vurdere kilder: Hvem, Innhold, Lokalitet, Datering, Ensidighet', 'Et kompass for å finne veien', 'En type søk', 'En app'],
     explanation: 'KILDE-kompasset er en metode for kildekritikk: Hvem står bak, hva er Innholdet, hvor (Lokalitet), Datering, og er det Ensidig?',
   },
 ],

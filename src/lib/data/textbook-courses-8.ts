@@ -80,7 +80,7 @@ export const COURSE_NORSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Implisitt mening', 'Ironi', 'Symboler', 'Tema', 'Budskap'],
-      competenceGoals: ['sammenligne og tolke tekster ut fra historisk kontekst og egen samtid'],
+      competenceGoals: ['lese skjønnlitteratur og sakprosa på bokmål og nynorsk og i oversettelse fra samiske og andre språk, og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler', 'gjenkjenne og bruke språklige virkemidler og retoriske appellformer'],
       linkedChapterId: 'norsk-8-1-6-narrativ',
     },
     {
@@ -304,7 +304,7 @@ export const COURSE_NORSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 3,
       topics: ['Edda', 'Sagaer', 'Norrøn mytologi', 'Snorre Sturlason'],
-      competenceGoals: ['utforske tekster fra ulike tider og kulturer'],
+      competenceGoals: ['sammenligne og tolke romaner, noveller, lyrikk og andre tekster ut fra historisk kontekst og egen samtid'],
       linkedChapterId: 'norsk-8-5-1-narrativ',
     },
     {

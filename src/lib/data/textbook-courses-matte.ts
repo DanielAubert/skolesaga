@@ -2367,7 +2367,7 @@ export const COURSE_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 20,
       topics: ['Sannsynlighet', 'Sammensatte hendelser', 'Produktregelen', 'Sumregelen'],
-      competenceGoals: ['bruke programmering til å utforske sannsyn'],
+      competenceGoals: ['beregne og vurdere sannsynlighet i statistikk og spill'],
       coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
     },
 
@@ -2689,10 +2689,10 @@ export const COURSE_10: TextbookCourse = {
       linkedChapterId: '10-2-2-narrativ',
       number: '2.2',
       title: 'Andregradslikninger',
-      description: 'Løse andregradslikninger med faktorisering og abc-formelen.',
+      description: 'Løse andregradslikninger med kvadratrot, faktorisering og digitale verktøy.',
       estimatedMinutes: 60,
       exerciseCount: 8,
-      topics: ['Andregradslikning', 'Faktorisering', 'abc-formelen', 'Diskriminant'],
+      topics: ['Andregradslikning', 'Faktorisering', 'Kvadratrot', 'Nullpunkter'],
       prerequisites: ['10-2-1', '10-1-3'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
     },
@@ -3060,7 +3060,7 @@ export const COURSE_10: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Python', 'Variabler', 'Løkker', 'Betingelser', 'Lister'],
       prerequisites: ['10-11-1'],
-      competenceGoals: ['utforske matematiske eigenskapar og samanhengar ved å bruke programmering'],
+      competenceGoals: ['utforske matematiske egenskaper og sammenhenger ved å bruke programmering', 'lese og forklare tekstbasert programkode i Python'],
     },
     {
       id: '10-11-3',
@@ -3072,7 +3072,7 @@ export const COURSE_10: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Numerisk løsning', 'Funksjonsplotting', 'Simulering', 'Monte Carlo'],
       prerequisites: ['10-11-2'],
-      competenceGoals: ['utforske matematiske eigenskapar og samanhengar ved å bruke programmering', 'bruke programmering til å utforske sannsyn'],
+      competenceGoals: ['utforske matematiske egenskaper og sammenhenger ved å bruke programmering', 'simulere utfall i tilfeldige forsøk og beregne sannsynligheten for at noe skal inntreffe, ved å bruke programmering'],
     },
 
     // Kapittel 12: Eksamensforberedelse og problemløsning

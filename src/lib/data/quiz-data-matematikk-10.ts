@@ -138,29 +138,29 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
   ],
   '10-2-2': [
     {
-      question: 'Hva er abc-formelen?',
-      options: ['$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$', '$x = \\frac{-b}{2a}$', '$x = \\frac{b \\pm \\sqrt{b^2 - 4ac}}{2a}$', '$x = -\\frac{b}{a}$'],
-      explanation: 'abc-formelen: $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.',
+      question: 'Løs $x^2 = 49$.',
+      options: ['$x = 7$ eller $x = -7$', '$x = 7$', '$x = 24{,}5$', '$x = 49$'],
+      explanation: '$x^2 = 49$ gir $x = 7$ eller $x = -7$, fordi både $7^2$ og $(-7)^2$ er 49.',
     },
     {
-      question: 'Løs $x^2 - 5x + 6 = 0$.',
-      options: ['$x = 2$ eller $x = 3$', '$x = -2$ eller $x = -3$', '$x = 1$ eller $x = 6$', '$x = 5$ eller $x = 6$'],
-      explanation: '$(x - 2)(x - 3) = 0$ gir $x = 2$ eller $x = 3$.',
+      question: 'Løs $x^2 - 6x = 0$.',
+      options: ['$x = 0$ eller $x = 6$', '$x = 6$', '$x = 0$ eller $x = -6$', '$x = -6$'],
+      explanation: 'Felles faktor: $x(x - 6) = 0$ gir $x = 0$ eller $x = 6$.',
     },
     {
-      question: 'Løs $2x^2 - 5x - 3 = 0$ med abc-formelen.',
-      options: ['$x = 3$ eller $x = -\\frac{1}{2}$', '$x = -3$ eller $x = \\frac{1}{2}$', '$x = 2$ eller $x = 3$', '$x = 1$ eller $x = 3$'],
-      explanation: '$x = \\frac{5 \\pm \\sqrt{49}}{4} = \\frac{5 \\pm 7}{4}$, så $x = 3$ eller $x = -\\frac{1}{2}$.',
+      question: 'Løs $x^2 - 10x + 25 = 0$.',
+      options: ['$x = 5$', '$x = -5$', '$x = 5$ eller $x = -5$', '$x = 25$'],
+      explanation: 'Andre kvadratsetning: $(x - 5)^2 = 0$ gir $x = 5$ (dobbeltrot).',
     },
     {
-      question: 'Hva forteller diskriminanten $D = b^2 - 4ac$ når $D = 0$?',
-      options: ['Én løsning (dobbeltrot)', 'To ulike reelle løsninger', 'Ingen reelle løsninger', 'Uendelig mange løsninger'],
-      explanation: '$D = 0$ gir én løsning (dobbeltrot).',
+      question: 'Hvor mange løsninger har $x^2 + 16 = 0$?',
+      options: ['Ingen løsning', 'To løsninger', 'Én løsning', 'Uendelig mange løsninger'],
+      explanation: '$x^2 = -16$. Et tall i andre er aldri negativt, så likningen har ingen løsning.',
     },
     {
       question: 'Hva er nullpunktene til $f(x) = x^2 - 2x - 8$?',
       options: ['$x = 4$ og $x = -2$', '$x = -4$ og $x = 2$', '$x = 8$ og $x = -1$', '$x = 2$ og $x = 4$'],
-      explanation: '$(x - 4)(x + 2) = 0$ gir $x = 4$ og $x = -2$.',
+      explanation: '$f(4) = 16 - 8 - 8 = 0$ og $f(-2) = 4 + 4 - 8 = 0$, så grafen treffer $x$-aksen i $x = 4$ og $x = -2$.',
     },
   ],
   '10-2-3': [
@@ -213,7 +213,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilket verktøy bruker vi til å løse andregradsulikheter?',
-      options: ['Fortegnsskjema', 'Abc-formelen alene', 'Vekstfaktoren', 'Pytagoras\' setning'],
+      options: ['Fortegnsskjema', 'Stigningstallet', 'Vekstfaktoren', 'Pytagoras\' setning'],
       explanation: 'Vi finner nullpunktene og bruker et fortegnsskjema for å lese av løsningen.',
     },
   ],
@@ -257,7 +257,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er likningen for symmetrilinjen?',
-      options: ['$x = -\\frac{b}{2a}$', '$x = -\\frac{b}{a}$', '$x = \\frac{c}{a}$', '$x = b^2 - 4ac$'],
+      options: ['$x = -\\frac{b}{2a}$', '$x = -\\frac{b}{a}$', '$x = \\frac{c}{a}$', '$x = \\frac{b}{2a}$'],
       explanation: 'Symmetrilinjen er $x = -\\frac{b}{2a}$.',
     },
     {
@@ -321,7 +321,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilken metode finner regresjonslinjen ved å minimere kvadratavvik?',
-      options: ['Minste kvadraters metode', 'Abc-formelen for andregradslikninger', 'Fortegnsskjema for polynomer', 'Pytagoras\' setning'],
+      options: ['Minste kvadraters metode', 'Kvadratsetningene', 'Fortegnsskjema for polynomer', 'Pytagoras\' setning'],
       explanation: 'Minste kvadraters metode minimerer summen av kvadrerte avvik fra linjen.',
     },
   ],
@@ -375,7 +375,7 @@ const quizData_matematikk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilket verktøy bruker vi for å finne en vinkel når vi kjenner sidene?',
-      options: ['Inverse trigonometriske funksjoner ($\\sin^{-1}$ osv.)', 'Vekstfaktoren i en prosentregning', 'Abc-formelen, som vi bruker til å løse andregradslikninger', 'Fortegnsskjema for å finne ut når uttrykket er positivt'],
+      options: ['Inverse trigonometriske funksjoner ($\\sin^{-1}$ osv.)', 'Vekstfaktoren i en prosentregning', 'Kvadratsetningene, som vi bruker til å faktorisere uttrykk', 'Fortegnsskjema for å finne ut når uttrykket er positivt'],
       explanation: 'Vi bruker $\\sin^{-1}$, $\\cos^{-1}$ eller $\\tan^{-1}$ for å finne vinkelen.',
     },
   ],

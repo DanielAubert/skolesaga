@@ -7,7 +7,7 @@
   "description": "En fortellende gjennomgang av sannsynlighet -- fra terningkast og myntspill til valgtrær og kombinasjoner, med vekt på å bygge intuisjon for tilfeldighet.",
   "estimatedMinutes": 40,
   "competenceGoals": [
-    "bruke sannsynlegheit og statistikk i utforsking og argumentasjon"
+    "beregne og vurdere sannsynlighet i statistikk og spill"
   ],
   "linkedChapterId": "9-6-3",
   "content": [
@@ -19,7 +19,7 @@
     {
       "id": "9-6-3-n-section1",
       "type": "text",
-      "content": "## Grunnleggende sannsynlighet\n\nNår alle utfall er like sannsynlige (som med en rettferdig terning eller mynt), kan vi beregne sannsynligheten med en enkel formel:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\nLa oss ta en vanlig terning med $6$ sider. Hvert kast har $6$ mulige utfall: $1, 2, 3, 4, 5, 6$.\n\n- $P(\\text{sekser}) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$\n- $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5 = 50\\,\\%$ (utfallene $2, 4, 6$)\n- $P(\\text{mindre enn 5}) = \\frac{4}{6} = \\frac{2}{3} \\approx 66{,}7\\,\\%$ (utfallene $1, 2, 3, 4$)\n\n**Komplementregelen** sier at sannsynligheten for at noe *ikke* skjer er:\n\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\nSannsynligheten for å *ikke* kaste en sekser er $1 - \\frac{1}{6} = \\frac{5}{6}$. Denne regelen er veldig nyttig -- noen ganger er det lettere å beregne det motsatte og trekke fra.\n\nEt utfallsrom (ofte kalt $\\Omega$) er mengden av alle mulige utfall. For ett terningkast: $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. En **hendelse** er en delmengde av utfallsrommet, for eksempel «partall» $= \\{2, 4, 6\\}$."
+      "content": "## Grunnleggende sannsynlighet\n\nNår alle utfall er like sannsynlige (som med en rettferdig terning eller mynt), kan vi beregne sannsynligheten med en enkel formel:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\nLa oss ta en vanlig terning med $6$ sider. Hvert kast har $6$ mulige utfall: $1, 2, 3, 4, 5, 6$.\n\n- $P(\\text{sekser}) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$\n- $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5 = 50\\,\\%$ (utfallene $2, 4, 6$)\n- $P(\\text{mindre enn 5}) = \\frac{4}{6} = \\frac{2}{3} \\approx 66{,}7\\,\\%$ (utfallene $1, 2, 3, 4$)\n\n**Komplementregelen** sier at sannsynligheten for at noe *ikke* skjer er:\n\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\nSannsynligheten for å *ikke* kaste en sekser er $1 - \\frac{1}{6} = \\frac{5}{6}$. Denne regelen er veldig nyttig -- noen ganger er det lettere å beregne det motsatte og trekke fra."
     },
     {
       "id": "9-6-3-n-quiz1",
@@ -124,7 +124,7 @@
     {
       "id": "9-6-3-n-section2",
       "type": "text",
-      "content": "## Sammensatte hendelser og valgtre\n\nHva skjer når vi gjør flere forsøk? Hvis du kaster en terning to ganger, eller trekker to kort, blir ting mer komplisert. Her bruker vi **valgtre** (også kalt trestruktur) for å holde oversikten.\n\n### Multiplikasjonsregelen\n\nNår to hendelser er **uavhengige** (den ene påvirker ikke den andre), ganger vi sannsynlighetene:\n\n$$P(A \\text{ og } B) = P(A) \\cdot P(B)$$\n\nDu kaster en mynt og en terning. Sannsynligheten for krone OG sekser:\n\n$$P(\\text{krone og sekser}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$$\n\n### Valgtre\n\nEt valgtre er et diagram der hver forgrening representerer et mulig utfall. Ved to myntkast får vi:\n\n- Første kast: Krone (K) eller Mynt (M)\n- Andre kast: Krone (K) eller Mynt (M)\n\nUtfallsrommet er $\\{KK, KM, MK, MM\\}$ -- fire like sannsynlige utfall, hver med sannsynlighet $\\frac{1}{4}$.\n\nSannsynligheten for nøyaktig en krone av to kast: Utfallene $KM$ og $MK$ gir en krone, så $P = \\frac{2}{4} = \\frac{1}{2}$.\n\n### Addisjonsregelen\n\nNår to hendelser **ikke kan skje samtidig** (disjunkte hendelser), legger vi sammen sannsynlighetene:\n\n$$P(A \\text{ eller } B) = P(A) + P(B)$$\n\nSannsynligheten for å kaste $1$ eller $6$ med en terning: $\\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$."
+      "content": "## Sammensatte hendelser og valgtre\n\nHva skjer når vi gjør flere forsøk? Hvis du kaster en terning to ganger, eller trekker to kort, blir ting mer komplisert. Her bruker vi **valgtre** (også kalt trestruktur) for å holde oversikten.\n\n### Multiplikasjonsregelen\n\nNår to hendelser er **uavhengige** (den ene påvirker ikke den andre), ganger vi sannsynlighetene:\n\n$$P(A \\text{ og } B) = P(A) \\cdot P(B)$$\n\nDu kaster en mynt og en terning. Sannsynligheten for krone OG sekser:\n\n$$P(\\text{krone og sekser}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$$\n\n### Valgtre\n\nEt valgtre er et diagram der hver forgrening representerer et mulig utfall. Ved to myntkast får vi:\n\n- Første kast: Krone (K) eller Mynt (M)\n- Andre kast: Krone (K) eller Mynt (M)\n\nDe mulige utfallene er $KK$, $KM$, $MK$ og $MM$ -- fire like sannsynlige utfall, hver med sannsynlighet $\\frac{1}{4}$.\n\nSannsynligheten for nøyaktig en krone av to kast: Utfallene $KM$ og $MK$ gir en krone, så $P = \\frac{2}{4} = \\frac{1}{2}$.\n\n### Addisjonsregelen\n\nNår to hendelser **ikke kan skje samtidig** (disjunkte hendelser), legger vi sammen sannsynlighetene:\n\n$$P(A \\text{ eller } B) = P(A) + P(B)$$\n\nSannsynligheten for å kaste $1$ eller $6$ med en terning: $\\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$."
     },
     {
       "id": "9-6-3-n-quiz2",
@@ -229,7 +229,7 @@
     {
       "id": "9-6-3-n-section3",
       "type": "text",
-      "content": "## Med og uten tilbakelegging\n\nNoen ganger påvirker det første forsøket det neste. Tenk på en pose med $3$ røde og $2$ blå kuler.\n\n### Med tilbakelegging\nDu trekker en kule, noterer fargen, legger kulen tilbake, og trekker igjen. Sannsynlighetene er de samme hver gang:\n\n$$P(\\text{rød, rød}) = \\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25}$$\n\n### Uten tilbakelegging\nDu trekker en kule og legger den IKKE tilbake. Nå endrer sannsynlighetene seg:\n\n$$P(\\text{rød, rød}) = \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10}$$\n\nEtter at du har tatt ut en rød kule, er det bare $2$ røde igjen av $4$ kuler totalt.\n\nHer er hendelsene **avhengige** -- utfallet av det første trekket påvirker sannsynligheten for det andre. Vi bruker **betinget sannsynlighet**: $P(B | A)$ betyr «sannsynligheten for $B$ gitt at $A$ har skjedd».\n\n$$P(A \\text{ og } B) = P(A) \\cdot P(B | A)$$\n\nEt valgtre er ekstra nyttig i slike situasjoner, fordi du kan skrive de oppdaterte sannsynlighetene langs hver gren."
+      "content": "## Med og uten tilbakelegging\n\nNoen ganger påvirker det første forsøket det neste. Tenk på en pose med $3$ røde og $2$ blå kuler.\n\n### Med tilbakelegging\nDu trekker en kule, noterer fargen, legger kulen tilbake, og trekker igjen. Sannsynlighetene er de samme hver gang:\n\n$$P(\\text{rød, rød}) = \\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25}$$\n\n### Uten tilbakelegging\nDu trekker en kule og legger den IKKE tilbake. Nå endrer sannsynlighetene seg:\n\n$$P(\\text{rød, rød}) = \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10}$$\n\nEtter at du har tatt ut en rød kule, er det bare $2$ røde igjen av $4$ kuler totalt.\n\nHer er hendelsene **avhengige** -- utfallet av det første trekket påvirker sannsynligheten for det andre. Sannsynligheten i andre trekk regner vi derfor ut fra det som er igjen i posen etter første trekk.\n\nEt valgtre er ekstra nyttig i slike situasjoner, fordi du kan skrive de oppdaterte sannsynlighetene langs hver gren."
     },
     {
       "id": "9-6-3-n-quiz3",
@@ -238,7 +238,7 @@
         "id": "9-6-3-n-quiz3",
         "number": "Quiz 3",
         "type": "multiple-choice",
-        "task": "Test deg selv på tilbakelegging og betinget sannsynlighet:",
+        "task": "Test deg selv på trekking med og uten tilbakelegging:",
         "options": [
           {
             "id": "a",
@@ -299,7 +299,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "Uten tilbakelegging fjernes den trukne gjenstanden, slik at utfallsrommet endres. Med tilbakelegging er hvert trekk uavhengig av de forrige."
+            "solution": "Uten tilbakelegging fjernes den trukne gjenstanden, slik at det er færre gjenstander igjen i neste trekk. Med tilbakelegging er hvert trekk uavhengig av de forrige."
           },
           {
             "id": "9-6-3-n-quiz3-q2",
@@ -334,7 +334,7 @@
     {
       "id": "9-6-3-n-section4",
       "type": "text",
-      "content": "## Relativ frekvens og store talls lov\n\nI praksis vet vi ikke alltid den teoretiske sannsynligheten. Hva er sannsynligheten for at et brødskive lander med smørsiden ned? Det finnes ingen formel -- men vi kan **eksperimentere**.\n\nHvis du slipper brødskiven $100$ ganger og den lander med smørsiden ned $62$ ganger, er den **relative frekvensen**:\n\n$$\\text{Relativ frekvens} = \\frac{62}{100} = 0{,}62 = 62\\,\\%$$\n\nJo flere forsøk du gjør, jo nærmere vil den relative frekvensen komme den sanne sannsynligheten. Dette er **store talls lov**. Med $10$ kast av en rettferdig mynt kan du godt få $7$ krone ($70\\,\\%$), men med $10\\,000$ kast vil andelen krone ligge svært nær $50\\,\\%$.\n\nViktig: Store talls lov betyr IKKE at myntene «husker» tidligere kast. Etter $10$ krone på rad er sannsynligheten for krone på neste kast fortsatt $\\frac{1}{2}$. Hvert kast er uavhengig. Troen på at «det er på tide» med mynt etter mange krone kalles **gamblerens feilslutning**."
+      "content": "## Relativ frekvens og store talls lov\n\nI praksis vet vi ikke alltid den teoretiske sannsynligheten. Hva er sannsynligheten for at en brødskive lander med smørsiden ned? Det finnes ingen formel -- men vi kan **eksperimentere**.\n\nHvis du slipper brødskiven $100$ ganger og den lander med smørsiden ned $62$ ganger, er den **relative frekvensen**:\n\n$$\\text{Relativ frekvens} = \\frac{62}{100} = 0{,}62 = 62\\,\\%$$\n\nJo flere forsøk du gjør, jo nærmere vil den relative frekvensen komme den sanne sannsynligheten. Dette er **store talls lov**. Med $10$ kast av en rettferdig mynt kan du godt få $7$ krone ($70\\,\\%$), men med $10\\,000$ kast vil andelen krone ligge svært nær $50\\,\\%$.\n\nViktig: Store talls lov betyr IKKE at myntene «husker» tidligere kast. Etter $10$ krone på rad er sannsynligheten for krone på neste kast fortsatt $\\frac{1}{2}$. Hvert kast er uavhengig. Troen på at «det er på tide» med mynt etter mange krone kalles **gamblerens feilslutning**."
     },
     {
       "id": "9-6-3-n-quiz4",
@@ -395,7 +395,7 @@
               },
               {
                 "id": "b",
-                "text": "Høyere enn $\\frac{1}{2}$ -- mynten er «på en streak»",
+                "text": "Høyere enn $\\frac{1}{2}$ -- krone har kommet mange ganger, så det fortsetter",
                 "isCorrect": false
               },
               {
@@ -412,7 +412,7 @@
     {
       "id": "9-6-3-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\n**Grunnleggende sannsynlighet** med like sannsynlige utfall:\n\n$$P(A) = \\frac{\\text{gunstige utfall}}{\\text{mulige utfall}}$$\n\n**Komplementregelen**: $P(\\text{ikke } A) = 1 - P(A)$.\n\n**Multiplikasjonsregelen** for uavhengige hendelser: $P(A \\text{ og } B) = P(A) \\cdot P(B)$.\n\n**Addisjonsregelen** for disjunkte hendelser: $P(A \\text{ eller } B) = P(A) + P(B)$.\n\n**Trekking uten tilbakelegging** gir avhengige hendelser: $P(A \\text{ og } B) = P(A) \\cdot P(B|A)$.\n\n**Relativ frekvens** er estimert sannsynlighet basert på eksperimenter. **Store talls lov**: jo flere forsøk, jo nærmere kommer den relative frekvensen den sanne sannsynligheten.\n\n**Valgtre** er et uunnværlig verktøy for å holde oversikten over sammensatte hendelser -- tegn alltid et tre når du er i tvil!"
+      "content": "## Oppsummering\n\n**Grunnleggende sannsynlighet** med like sannsynlige utfall:\n\n$$P(A) = \\frac{\\text{gunstige utfall}}{\\text{mulige utfall}}$$\n\n**Komplementregelen**: $P(\\text{ikke } A) = 1 - P(A)$.\n\n**Multiplikasjonsregelen** for uavhengige hendelser: $P(A \\text{ og } B) = P(A) \\cdot P(B)$.\n\n**Addisjonsregelen** for disjunkte hendelser: $P(A \\text{ eller } B) = P(A) + P(B)$.\n\n**Trekking uten tilbakelegging** gir avhengige hendelser. Sannsynligheten i andre trekk regnes ut fra det som er igjen etter første trekk.\n\n**Relativ frekvens** er estimert sannsynlighet basert på eksperimenter. **Store talls lov**: jo flere forsøk, jo nærmere kommer den relative frekvensen den sanne sannsynligheten.\n\n**Valgtre** er et uunnværlig verktøy for å holde oversikten over sammensatte hendelser -- tegn alltid et tre når du er i tvil!"
     }
   ],
   "exercises": []

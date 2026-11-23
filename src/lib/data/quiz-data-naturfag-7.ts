@@ -14,8 +14,8 @@ const quizData_naturfag_7: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en refleks?',
-    options: ['En rask, automatisk reaksjon uten hjernens medvirkning', 'En langsom, gjennomtenkt handling', 'En følelse', 'En type muskel'],
-    explanation: 'Reflekser er raske, automatiske reaksjoner som styres av ryggmargen.',
+    options: ['En rask, automatisk reaksjon som skjer uten at vi tenker over den', 'En langsom, gjennomtenkt handling', 'En følelse', 'En type muskel'],
+    explanation: 'Reflekser er raske, automatiske reaksjoner som skjer uten at vi tenker over dem. Mange styres av ryggmargen, andre av hjernestammen.',
   },
   {
     question: 'Hva heter den lange utløperen på en nervecelle som sender signaler?',

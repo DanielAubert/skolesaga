@@ -146,7 +146,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Refleksjon', 'Essay', 'Påstand-eksempel-refleksjon', 'Litterær refleksjon'],
-      competenceGoals: ['uttrykke seg i ulike sjangre og eksperimentere med sjangre på kreative måter'],
+      competenceGoals: ['uttrykke seg i ulike sjangre og eksperimentere med sjangre på kreative måter', 'informere, fortelle, argumentere og reflektere i ulike muntlige og skriftlige sjangre og for ulike formål tilpasset mottaker og medium'],
       linkedChapterId: 'norsk-9-2-6-narrativ',
     },
     {
@@ -853,7 +853,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Kildekritikk', 'Troverdighet', 'Propaganda', 'Desinformasjon', 'Avsender og kontekst'],
-      competenceGoals: ['vurdere på kva måtar ulike kjelder gir informasjon om samfunnet'],
+      competenceGoals: ['bruke samfunnsfaglige metoder og digitale ressurser i egne undersøkelser, presentere funn ved hjelp av digitale verktøy og drøfte hvor gyldige og relevante funnene er', 'vurdere på hvilke måter ulike kilder gir informasjon om et samfunnsfaglig tema, og reflektere over hvordan algoritmer, ensrettede kilder eller mangel på kilder kan prege forståelsen vår'],
       linkedChapterId: 'samfunnsfag-9-1-1-narrativ',
     },
     {
@@ -864,7 +864,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Statistikk', 'Grafer', 'Gjennomsnitt', 'Median', 'Prosentregning', 'Manipulasjon'],
-      competenceGoals: ['vurdere på kva måtar ulike kjelder gir informasjon om samfunnet'],
+      competenceGoals: ['bruke samfunnsfaglige metoder og digitale ressurser i egne undersøkelser, presentere funn ved hjelp av digitale verktøy og drøfte hvor gyldige og relevante funnene er', 'vurdere på hvilke måter ulike kilder gir informasjon om et samfunnsfaglig tema, og reflektere over hvordan algoritmer, ensrettede kilder eller mangel på kilder kan prege forståelsen vår'],
       linkedChapterId: 'samfunnsfag-9-1-2-narrativ',
     },
     {
@@ -875,7 +875,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Kvalitativ metode', 'Kvantitativ metode', 'Intervju', 'Spørreundersøkelse', 'Feltarbeid'],
-      competenceGoals: ['vurdere på kva måtar ulike kjelder gir informasjon om samfunnet'],
+      competenceGoals: ['bruke samfunnsfaglige metoder og digitale ressurser i egne undersøkelser, presentere funn ved hjelp av digitale verktøy og drøfte hvor gyldige og relevante funnene er'],
       linkedChapterId: 'samfunnsfag-9-1-3-narrativ',
     },
 
@@ -888,7 +888,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Opplysningstiden', 'Fornuft', 'Montesquieu', 'Voltaire', 'Rousseau', 'Maktfordeling'],
-      competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      competenceGoals: ['reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst'],
       linkedChapterId: 'samfunnsfag-9-2-1-narrativ',
     },
     {
@@ -899,7 +899,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Amerikanske revolusjonen', 'Uavhengighetserklæringen', 'Grunnloven', 'Boston Tea Party'],
-      competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      competenceGoals: ['reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst', 'gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene'],
       linkedChapterId: 'samfunnsfag-9-2-2-narrativ',
     },
     {
@@ -910,7 +910,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Franske revolusjonen', 'Stendersamfunnet', 'Bastillen', 'Terrorveldet', 'Napoleon'],
-      competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      competenceGoals: ['reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst', 'gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene'],
       linkedChapterId: 'samfunnsfag-9-2-3-narrativ',
     },
     {
@@ -945,7 +945,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['1814', 'Eidsvoll', 'Grunnloven', 'Christian Frederik', 'Riksforsamlingen'],
-      competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      competenceGoals: ['reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst', 'beskrive trekk ved det politiske systemet og velferdssamfunnet i Norge i dag og reflektere over sentrale utfordringer'],
       linkedChapterId: 'samfunnsfag-9-3-1-narrativ',
     },
     {
@@ -956,7 +956,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Nasjonsbygging', 'Nasjonalromantikk', 'Språkstrid', 'Parlamentarisme', '1884'],
-      competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      competenceGoals: ['reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst', 'drøfte hvordan framstillinger av fortiden, hendelser og grupper har påvirket og påvirker folks holdninger og handlinger'],
       linkedChapterId: 'samfunnsfag-9-3-2-narrativ',
     },
     {
@@ -967,7 +967,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Imperialisme', 'Kolonialisme', 'Kappløpet om Afrika', 'Berlin-konferansen', 'Konsekvenser'],
-      competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      competenceGoals: ['gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene', 'drøfte hvordan framstillinger av fortiden, hendelser og grupper har påvirket og påvirker folks holdninger og handlinger'],
       linkedChapterId: 'samfunnsfag-9-3-3-narrativ',
     },
     {
@@ -1002,7 +1002,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Første verdenskrig', 'Skyttergravskrig', 'Allianser', 'Versailles', 'Konsekvenser'],
-      competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      competenceGoals: ['gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene'],
       linkedChapterId: 'samfunnsfag-9-4-1-narrativ',
     },
     {
@@ -1013,7 +1013,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 5,
       topics: ['Mellomkrigstiden', 'Børskrakket', 'Arbeidsløshet', 'Weimarrepublikken', 'New Deal'],
-      competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      competenceGoals: ['gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene', 'reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst'],
       linkedChapterId: 'samfunnsfag-9-4-2-narrativ',
     },
     {

@@ -12,6 +12,16 @@ høyere trinn (Kjemi 2 i Kjemi 1, Fysikk 2 i Fysikk 1, R2 i R1, universitetsstof
 riktig bok — det merkes ikke bare som «utvidet». Gjelder tekst, eksempler, oppgaver, figurer og videoer, og sjekkes ved
 hver ny eller endret seksjon. Grensetilfeller legges fram for Daniel.
 
+**Skjerpet 23.11.2026 (Daniel, ordrett: «Alt som ikke er i lære planen for det aktuelle året eller tidligere år skal ut av bøkene
+(regel).»)** — etter at kontrollen av klassekapitlene fant abc-formelen og diskriminanten i Matematikk 10 (ikke i MAT01-06 for
+10. trinn), elektronegativitet i Naturfag 10 og binomialkoeffisienter i Matematikk 9. Målestokken er GJELDENDE læreplan for bokas
+trinn og trinnene før (på trinn uten egne mål: neste måltrinn i planen, f.eks. 8. og 9. trinn mot målene etter 10. — da gjelder
+planens progresjon og Udirs støtte, og tvil legges fram). Stoff som bare hører til et senere trinn eller et annet fag, TAS UT av
+fagtekst, fortelling, eksempler, oppgaver, quiz, kort og figurer i begge målformer, eller flyttes til riktig bok hvis den mangler
+det. Ikke «fordypning», ikke «for de som vil ha mer». Før noe tas ut: sjekk eksamenssettene for trinnet (er det gitt på eksamen,
+er det ikke utenfor — legg det fram). Har en oppgave som tas ut film, meldes det. Mål-linjer (`competenceGoals`) skal være ordrett
+fra gjeldende plan.
+
 ## All ny tekst går gjennom æøå-porten (Daniel 6.11.2026)
 
 «sveip skolesaga og legg inn samme safegaurde der også» (etter «Jeg føler at vi burde ha en automatisk æøå sjekk hver gang

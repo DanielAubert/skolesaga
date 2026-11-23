@@ -295,7 +295,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 8,
       topics: ['Næringskjede', 'Produsent', 'Forbruker', 'Nedbryter'],
-      competenceGoals: ['beskrive ulike økosystemer og forklare sammenhenger'], linkedChapterId: 'naturfag-6-2-3-narrativ' },
+      competenceGoals: ['utforske og beskrive ulike næringsnett og bruke dette til å diskutere samspill i naturen'], linkedChapterId: 'naturfag-6-2-3-narrativ' },
     // Kapittel 3: Teknologi og design
     {
       id: 'naturfag-6-3-1',

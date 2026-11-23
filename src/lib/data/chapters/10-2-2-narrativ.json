@@ -4,10 +4,12 @@
   "chapterNumber": "2.2",
   "title": "Andregradslikninger",
   "subtitle": "Narrativ versjon",
-  "description": "En engasjerende fortelling om andregradslikninger, faktorisering, abc-formelen og hvordan parabeler møter x-aksen.",
+  "description": "En fortelling om andregradslikninger: kvadratrot, faktorisering med kvadratsetningene og hvordan parabler møter x-aksen.",
   "estimatedMinutes": 40,
   "competenceGoals": [
-    "løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend"
+    "utforske kvadratsetningene geometrisk og algebraisk og bruke kvadratsetningene som regnestrategier",
+    "utforske og sammenligne egenskaper ved lineære funksjoner, eksponentialfunksjoner, brøkfunksjoner og andregradsfunksjoner ved å bruke digitale verktøy",
+    "lage og løse ligninger knyttet til praktiske situasjoner og kritisk vurdere løsninger"
   ],
   "linkedChapterId": "10-2-2",
   "content": [
@@ -19,7 +21,7 @@
     {
       "id": "10-2-2-n-section1",
       "type": "text",
-      "content": "## Løsning ved faktorisering\n\nEn **andregradslikning** har formen $ax^2 + bx + c = 0$ der $a \\neq 0$. Den enkleste måten å løse den på er faktorisering -- det vi lærte i forrige kapittel.\n\nTa $x^2 - 5x + 6 = 0$. Vi faktoriserer: $(x - 2)(x - 3) = 0$. Nå bruker vi **nullpunktregelen**: et produkt er null hvis og bare hvis minst én av faktorene er null. Altså er $x - 2 = 0$ eller $x - 3 = 0$, som gir $x = 2$ eller $x = 3$. To løsninger!\n\nFor $x^2 - 9 = 0$ bruker vi konjugatsetningen: $(x + 3)(x - 3) = 0$, som gir $x = -3$ eller $x = 3$.\n\nFor $x^2 + 6x + 9 = 0$ bruker vi kvadratsetningen: $(x + 3)^2 = 0$, som gir $x = -3$. Bare én løsning -- en **dobbeltrot**. Geometrisk betyr dette at parabelen bare tangerer $x$-aksen.\n\nLa oss prøve $x^2 + 7x + 12 = 0$: tallene 3 og 4 ganget gir 12 og summert gir 7, så $(x + 3)(x + 4) = 0$, og $x = -3$ eller $x = -4$."
+      "content": "## Løsning ved faktorisering\n\nEn **andregradslikning** har formen $ax^2 + bx + c = 0$ der $a \\neq 0$. Mange av dem kan vi løse ved å faktorisere med felles faktor eller med kvadratsetningene.\n\nTa $x^2 - 4x = 0$. Begge leddene har $x$ som felles faktor: $x(x - 4) = 0$. Nå bruker vi **nullregelen**: et produkt er null hvis og bare hvis minst én av faktorene er null. Altså er $x = 0$ eller $x - 4 = 0$, som gir $x = 0$ eller $x = 4$. To løsninger!\n\nFor $x^2 - 9 = 0$ bruker vi konjugatsetningen: $(x + 3)(x - 3) = 0$, som gir $x = -3$ eller $x = 3$.\n\nFor $x^2 + 6x + 9 = 0$ bruker vi første kvadratsetning: $(x + 3)^2 = 0$, som gir $x = -3$. Bare én løsning -- en **dobbeltrot**. Geometrisk betyr dette at parabelen bare tangerer $x$-aksen."
     },
     {
       "id": "10-2-2-n-quiz1",
@@ -38,31 +40,31 @@
         ],
         "questions": [
           {
-            "id": "10-2-2-n-quiz1-q0",
-            "task": "Løs $x^2 - x - 20 = 0$.",
+            "id": "10-2-2-n-quiz1-q3",
+            "task": "Løs $x^2 - 7x = 0$.",
             "options": [
               {
                 "id": "b",
-                "text": "$x = -5$ eller $x = 4$",
+                "text": "$x = 7$",
                 "isCorrect": false
               },
               {
                 "id": "c",
-                "text": "$x = 10$ eller $x = -2$",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "$x = 20$ eller $x = -1$",
+                "text": "$x = 0$ eller $x = -7$",
                 "isCorrect": false
               },
               {
                 "id": "a",
-                "text": "$x = 5$ eller $x = -4$",
+                "text": "$x = 0$ eller $x = 7$",
                 "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = -7$",
+                "isCorrect": false
               }
             ],
-            "solution": "Vi trenger to tall som ganget gir $-20$ og summert gir $-1$. Det er $-5$ og $4$: $(x - 5)(x + 4) = 0$, altså $x = 5$ eller $x = -4$."
+            "solution": "Felles faktor $x$: $x(x - 7) = 0$, altså $x = 0$ eller $x = 7$. Deler vi med $x$, mister vi løsningen $x = 0$."
           },
           {
             "id": "10-2-2-n-quiz1-q1",
@@ -123,18 +125,18 @@
       }
     },
     {
-      "id": "10-2-2-n-section2",
+      "id": "10-2-2-n-section5",
       "type": "text",
-      "content": "## abc-formelen -- universalverktøyet\n\nIkke alle andregradslikninger lar seg faktorisere like enkelt. Heldigvis har vi et universalverktøy: **abc-formelen** (også kalt løsningsformelen for andregradslikninger):\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nHer er $a$, $b$ og $c$ koeffisientene i $ax^2 + bx + c = 0$. Det lille symbolet $\\pm$ betyr \"pluss eller minus\", som gir oss potensielt to løsninger.\n\nUttrykket under rottegnet, $D = b^2 - 4ac$, kalles **diskriminanten**, og den forteller oss alt:\n- $D > 0$: To ulike løsninger\n- $D = 0$: Én løsning (dobbeltrot)\n- $D < 0$: Ingen reelle løsninger\n\nLa oss ta $2x^2 - 5x - 3 = 0$. Her er $a = 2$, $b = -5$, $c = -3$.\n\n$$x = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4 \\cdot 2 \\cdot (-3)}}{2 \\cdot 2} = \\frac{5 \\pm \\sqrt{25 + 24}}{4} = \\frac{5 \\pm \\sqrt{49}}{4} = \\frac{5 \\pm 7}{4}$$\n\nAltså $x_1 = \\frac{5 + 7}{4} = 3$ eller $x_2 = \\frac{5 - 7}{4} = -\\frac{1}{2}$.\n\nFor $x^2 - 6x + 9 = 0$: $D = 36 - 36 = 0$, så $x = \\frac{6}{2} = 3$ (dobbeltrot)."
+      "content": "## Løsning med kvadratrot\n\nNoen andregradslikninger har ikke noe $x$-ledd, bare $x^2$ og et tall. Da kan vi få $x^2$ alene og ta kvadratroten.\n\nTa $x^2 = 49$. Både $7^2$ og $(-7)^2$ er 49, så $x = 7$ eller $x = -7$. Husk begge løsningene, og sett gjerne prøve.\n\nFor $2x^2 - 50 = 0$ legger vi først til 50 og deler på 2: $x^2 = 25$, som gir $x = 5$ eller $x = -5$.\n\nSamme idé virker når en hel parentes står i andre. For $(x - 1)^2 = 16$ er $x - 1 = 4$ eller $x - 1 = -4$, altså $x = 5$ eller $x = -3$.\n\nOg $x^2 = -4$? Et tall i andre er aldri negativt, så denne likningen har **ingen løsning**."
     },
     {
-      "id": "10-2-2-n-quiz2",
+      "id": "10-2-2-n-quiz5",
       "type": "exercise",
       "exercise": {
-        "id": "10-2-2-n-quiz2",
+        "id": "10-2-2-n-quiz5",
         "number": "Quiz 2",
         "type": "multiple-choice",
-        "task": "Test deg selv på abc-formelen:",
+        "task": "Test deg selv på løsning med kvadratrot:",
         "options": [
           {
             "id": "a",
@@ -144,112 +146,112 @@
         ],
         "questions": [
           {
-            "id": "10-2-2-n-quiz2-q0",
-            "task": "Løs $x^2 + 4x - 5 = 0$ med abc-formelen.",
+            "id": "10-2-2-n-quiz5-q0",
+            "task": "Løs $x^2 = 100$.",
             "options": [
               {
                 "id": "b",
-                "text": "$x = -1$ eller $x = 5$",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "$x = 2$ eller $x = -2{,}5$",
+                "text": "$x = 10$",
                 "isCorrect": false
               },
               {
                 "id": "a",
-                "text": "$x = 1$ eller $x = -5$",
+                "text": "$x = 10$ eller $x = -10$",
                 "isCorrect": true
               },
               {
+                "id": "c",
+                "text": "$x = 50$",
+                "isCorrect": false
+              },
+              {
                 "id": "d",
+                "text": "Ingen løsning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Både $10^2$ og $(-10)^2$ er 100, så $x = 10$ eller $x = -10$."
+          },
+          {
+            "id": "10-2-2-n-quiz5-q1",
+            "task": "Løs $3x^2 - 27 = 0$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 9$ eller $x = -9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 3$ eller $x = -3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 27$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3x^2 = 27$, så $x^2 = 9$ og $x = 3$ eller $x = -3$."
+          },
+          {
+            "id": "10-2-2-n-quiz5-q2",
+            "task": "Løs $(x + 4)^2 = 9$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = -1$ eller $x = -7$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 1$ eller $x = 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
                 "text": "$x = 5$",
                 "isCorrect": false
-              }
-            ],
-            "solution": "$x = \\frac{-4 \\pm \\sqrt{16 + 20}}{2} = \\frac{-4 \\pm \\sqrt{36}}{2} = \\frac{-4 \\pm 6}{2}$. Gir $x = 1$ eller $x = -5$."
-          },
-          {
-            "id": "10-2-2-n-quiz2-q1",
-            "task": "Hva forteller diskriminanten $D = b^2 - 4ac$ oss?",
-            "options": [
-              {
-                "id": "a",
-                "text": "Verdien av $x$",
-                "isCorrect": false
-              },
-              {
-                "id": "c",
-                "text": "Toppunktet til parabelen",
-                "isCorrect": false
               },
               {
                 "id": "d",
-                "text": "Koeffisienten foran $x$",
+                "text": "$x = -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x + 4 = 3$ eller $x + 4 = -3$, altså $x = -1$ eller $x = -7$."
+          },
+          {
+            "id": "10-2-2-n-quiz5-q3",
+            "task": "Hvor mange løsninger har $x^2 + 25 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "To",
                 "isCorrect": false
               },
               {
                 "id": "b",
-                "text": "Antall løsninger likningen har",
-                "isCorrect": true
-              }
-            ],
-            "solution": "Diskriminanten $D = b^2 - 4ac$ forteller oss antall løsninger: $D > 0$ gir to løsninger, $D = 0$ gir én løsning (dobbeltrot), og $D < 0$ betyr ingen reelle løsninger."
-          },
-          {
-            "id": "10-2-2-n-quiz2-q2",
-            "task": "Løs $2x^2 + 3x - 2 = 0$.",
-            "options": [
-              {
-                "id": "c",
-                "text": "$x = \\frac{1}{2}$ eller $x = -2$",
-                "isCorrect": true
-              },
-              {
-                "id": "a",
-                "text": "$x = -\\frac{1}{2}$ eller $x = 2$",
+                "text": "Én",
                 "isCorrect": false
-              },
-              {
-                "id": "b",
-                "text": "$x = 1$ eller $x = -1$",
-                "isCorrect": false
-              },
-              {
-                "id": "d",
-                "text": "$x = 2$ eller $x = -\\frac{1}{2}$",
-                "isCorrect": false
-              }
-            ],
-            "solution": "$x = \\frac{-3 \\pm \\sqrt{9 + 16}}{4} = \\frac{-3 \\pm 5}{4}$. Gir $x = \\frac{2}{4} = \\frac{1}{2}$ eller $x = \\frac{-8}{4} = -2$."
-          },
-          {
-            "id": "10-2-2-n-quiz2-q3",
-            "task": "Løs $3x^2 - x - 4 = 0$.",
-            "options": [
-              {
-                "id": "a",
-                "text": "$x = -\\frac{4}{3}$ eller $x = 1$",
-                "isCorrect": false
-              },
-              {
-                "id": "b",
-                "text": "$x = \\frac{4}{3}$ eller $x = -1$",
-                "isCorrect": true
               },
               {
                 "id": "c",
-                "text": "$x = \\frac{1}{3}$ eller $x = -4$",
-                "isCorrect": false
+                "text": "Ingen",
+                "isCorrect": true
               },
               {
                 "id": "d",
-                "text": "$x = 4$ eller $x = -\\frac{1}{3}$",
+                "text": "Uendelig mange",
                 "isCorrect": false
               }
             ],
-            "solution": "$x = \\frac{1 \\pm \\sqrt{1 + 48}}{6} = \\frac{1 \\pm 7}{6}$. Gir $x = \\frac{8}{6} = \\frac{4}{3}$ eller $x = \\frac{-6}{6} = -1$."
+            "solution": "$x^2 = -25$. Et tall i andre er aldri negativt, så likningen har ingen løsning."
           }
         ],
         "solution": ""
@@ -258,7 +260,7 @@
     {
       "id": "10-2-2-n-section3",
       "type": "text",
-      "content": "## Nullpunkter til andregradsfunksjoner\n\nÅ finne nullpunktene til en funksjon $f(x) = ax^2 + bx + c$ betyr å finne hvor grafen krysser $x$-aksen. Det er punktene der $f(x) = 0$ -- altså å løse en andregradslikning!\n\nTa $f(x) = x^2 - 2x - 8$. Vi setter $f(x) = 0$: $x^2 - 2x - 8 = 0$. Faktoriserer: $(x - 4)(x + 2) = 0$. Nullpunktene er $(-2, 0)$ og $(4, 0)$.\n\nFor $g(x) = x^2 + 2x - 15$: $(x+5)(x-3) = 0$, nullpunkter $(-5, 0)$ og $(3, 0)$.\n\nFor $h(x) = 2x^2 - 8x$: $2x(x-4) = 0$, nullpunkter $(0, 0)$ og $(4, 0)$. Her har vi faktorisert ut $2x$ som felles faktor.\n\nFor $p(x) = x^2 - 6x + 9$: $(x-3)^2 = 0$, kun ett nullpunkt $(3, 0)$. Parabelen tangerer $x$-aksen uten å krysse den.\n\nAntall nullpunkter henger direkte sammen med diskriminanten: to nullpunkter når $D > 0$, ett nullpunkt når $D = 0$, og ingen nullpunkter når $D < 0$ (parabelen ligger helt over eller helt under $x$-aksen)."
+      "content": "## Nullpunkter til andregradsfunksjoner\n\nÅ finne nullpunktene til en funksjon $f(x) = ax^2 + bx + c$ betyr å finne hvor grafen treffer $x$-aksen. Det er punktene der $f(x) = 0$ -- altså å løse en andregradslikning!\n\nTa $f(x) = x^2 - 2x - 8$. I GeoGebra skriver vi `f(x) = x^2 - 2x - 8` og så `Nullpunkt(f)`. Vi får punktene $(-2, 0)$ og $(4, 0)$. Vi kan kontrollere ved innsetting: $f(4) = 16 - 8 - 8 = 0$ og $f(-2) = 4 + 4 - 8 = 0$.\n\nFor $h(x) = 2x^2 - 8x$ klarer vi oss uten digitalt verktøy: $2x(x-4) = 0$, nullpunkter $(0, 0)$ og $(4, 0)$. Her har vi faktorisert ut $2x$ som felles faktor.\n\nFor $p(x) = x^2 - 6x + 9$: $(x-3)^2 = 0$, kun ett nullpunkt $(3, 0)$. Parabelen tangerer $x$-aksen uten å krysse den.\n\nGrafen viser også hvor mange nullpunkter funksjonen har: to når parabelen krysser $x$-aksen, ett når den så vidt tangerer aksen, og ingen når parabelen ligger helt over eller helt under $x$-aksen."
     },
     {
       "id": "10-2-2-n-quiz3",
@@ -301,7 +303,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$(x-6)(x+2) = 0 \\Rightarrow x = 6$ eller $x = -2$."
+            "solution": "Med GeoGebra: `Nullpunkt(f)` gir $(-2, 0)$ og $(6, 0)$. Kontroll: $f(6) = 36 - 24 - 12 = 0$ og $f(-2) = 4 + 8 - 12 = 0$."
           },
           {
             "id": "10-2-2-n-quiz3-q1",
@@ -364,7 +366,7 @@
     {
       "id": "10-2-2-n-section4",
       "type": "text",
-      "content": "## Praktiske problemer med andregradslikninger\n\nMange virkelige problemer fører til andregradslikninger -- spesielt problemer som involverer areal, avstand eller bevegelse.\n\n**Problem 1:** Et rektangel har areal $48 \\text{ cm}^2$. Lengden er 2 cm mer enn bredden. Finn sidene.\n\nLa bredden være $x$ cm. Lengden er $(x + 2)$ cm. Areal: $x(x + 2) = 48$, som gir $x^2 + 2x - 48 = 0$. Faktoriserer: $(x + 8)(x - 6) = 0$. Siden bredden må være positiv: $x = 6$. Bredden er 6 cm og lengden er 8 cm.\n\n**Problem 2:** Produktet av to påfølgende positive tall er 72. Finn tallene.\n\nLa det minste tallet være $x$. Da er $x(x+1) = 72$, altså $x^2 + x - 72 = 0$. Faktoriserer: $(x+9)(x-8) = 0$. Siden tallene er positive: $x = 8$. Tallene er 8 og 9.\n\n**Problem 3:** En rettvinklet trekant har kateter der den ene er 7 cm lengre enn den andre. Hypotenusen er 13 cm. Finn katetene.\n\nLa korteste katet være $x$. Pytagoras: $x^2 + (x+7)^2 = 13^2$. Utvider: $x^2 + x^2 + 14x + 49 = 169$, som gir $2x^2 + 14x - 120 = 0$, altså $x^2 + 7x - 60 = 0$. Faktoriserer: $(x+12)(x-5) = 0$. Siden kateten er positiv: $x = 5$. Katetene er 5 cm og 12 cm."
+      "content": "## Praktiske problemer med andregradslikninger\n\nMange virkelige problemer fører til andregradslikninger -- spesielt problemer som involverer areal, avstand eller bevegelse. Vi setter opp likningen selv, løser den med CAS eller ved å prøve oss fram, og vurderer til slutt om løsningene passer i situasjonen.\n\n**Problem 1:** Et rektangel har areal $48 \\text{ cm}^2$. Lengden er 2 cm mer enn bredden. Finn sidene.\n\nLa bredden være $x$ cm. Lengden er $(x + 2)$ cm. Areal: $x(x + 2) = 48$. I CAS gir `Løs(x(x + 2) = 48)` løsningene $x = -8$ og $x = 6$. Siden bredden må være positiv, er $x = 6$. Bredden er 6 cm og lengden er 8 cm.\n\n**Problem 2:** Produktet av to påfølgende positive tall er 72. Finn tallene.\n\nLa det minste tallet være $x$. Da er $x(x+1) = 72$. Her kan vi prøve oss fram: $7 \\cdot 8 = 56$ er for lite, mens $8 \\cdot 9 = 72$ stemmer. Tallene er 8 og 9.\n\n**Problem 3:** En rettvinklet trekant har kateter der den ene er 7 cm lengre enn den andre. Hypotenusen er 13 cm. Finn katetene.\n\nLa korteste katet være $x$. Pytagoras: $x^2 + (x+7)^2 = 13^2$. I CAS gir `Løs(x^2 + (x + 7)^2 = 13^2)` løsningene $x = -12$ og $x = 5$. Siden kateten er positiv, er $x = 5$. Katetene er 5 cm og 12 cm, og $5^2 + 12^2 = 169 = 13^2$ stemmer."
     },
     {
       "id": "10-2-2-n-quiz4",
@@ -407,7 +409,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$x(x+1) = 72 \\Rightarrow x^2 + x - 72 = 0 \\Rightarrow (x+9)(x-8) = 0$. $x = 8$, tallene er 8 og 9."
+            "solution": "$x(x+1) = 72$. Vi prøver: $8 \\cdot 9 = 72$. Tallene er 8 og 9."
           },
           {
             "id": "10-2-2-n-quiz4-q1",
@@ -434,7 +436,7 @@
                 "isCorrect": false
               }
             ],
-            "solution": "$x^2 + (x+7)^2 = 169 \\Rightarrow 2x^2 + 14x - 120 = 0 \\Rightarrow x = 5$. Katetene er 5 cm og 12 cm."
+            "solution": "$x^2 + (x+7)^2 = 169$. CAS gir $x = -12$ eller $x = 5$. Kateten er positiv, så $x = 5$, og katetene er 5 cm og 12 cm."
           },
           {
             "id": "10-2-2-n-quiz4-q2",
@@ -461,7 +463,7 @@
                 "isCorrect": true
               }
             ],
-            "solution": "$(x+3)^2 = 121 \\Rightarrow x + 3 = 11 \\Rightarrow x = 8$ m."
+            "solution": "$(x+3)^2 = 121$, så $x + 3 = 11$ (lengden er positiv) og $x = 8$ m."
           }
         ],
         "solution": ""
@@ -470,7 +472,7 @@
     {
       "id": "10-2-2-n-summary",
       "type": "text",
-      "content": "## Oppsummering\n\n**Andregradslikninger** har formen $ax^2 + bx + c = 0$ og kan løses ved **faktorisering** eller med **abc-formelen**: $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.\n\n**Diskriminanten** $D = b^2 - 4ac$ avgjør antall løsninger: to ($D > 0$), én dobbeltrot ($D = 0$), eller ingen ($D < 0$).\n\n**Nullpunkter** til $f(x) = ax^2 + bx + c$ finnes ved å sette $f(x) = 0$ og løse andregradslikningen.\n\nMange **praktiske problemer** med areal, avstand og bevegelse fører til andregradslikninger."
+      "content": "## Oppsummering\n\n**Andregradslikninger** har formen $ax^2 + bx + c = 0$.\n\n**Kvadratrot:** $x^2 = d$ med $d > 0$ gir to løsninger, $x = \\sqrt{d}$ eller $x = -\\sqrt{d}$. Er $d < 0$, finnes ingen løsning.\n\n**Faktorisering:** Med felles faktor eller kvadratsetningene skriver vi venstresiden som et produkt og bruker nullregelen.\n\n**Nullpunkter** til $f(x) = ax^2 + bx + c$ er løsningene av $f(x) = 0$. De kan leses av grafen eller finnes med `Nullpunkt` i GeoGebra.\n\nMange **praktiske problemer** med areal, avstand og bevegelse fører til andregradslikninger. Da vurderer vi alltid om løsningene passer i situasjonen."
     }
   ],
   "exercises": []

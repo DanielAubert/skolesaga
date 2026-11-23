@@ -15,6 +15,7 @@ import { TextbookExerciseList } from './textbook-exercise-list';
 import { ExerciseAnswerKey } from './exercise-answer-key';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { MalformToggle } from './malform-toggle';
+import { NynorskUiOverlegg } from './nynorsk-ui-overlegg';
 import { StudentSelector } from './student-selector';
 import { UserMenu } from '@/components/auth/user-menu';
 import { useUser } from '@/lib/auth/hooks';
@@ -404,6 +405,7 @@ export function TextbookChapterView({
 
       {/* Hovedinnhold */}
       <main id="main-content" className="container mx-auto px-4 py-8">
+        <NynorskUiOverlegg aktiv={malform === 'nn'} />
         <div className="max-w-3xl mx-auto">
           {/* Kapitteltittel - bare hvis ingen hero image */}
           <div className="mb-8">
@@ -427,7 +429,7 @@ export function TextbookChapterView({
               </div>
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="h-3.5 w-3.5" />
-                <span>{exerciseCount} oppgaver</span>
+                <span>{exerciseCount} {malform === 'nn' ? 'oppgåver' : 'oppgaver'}</span>
               </div>
             </div>
 
@@ -447,6 +449,7 @@ export function TextbookChapterView({
               <CompetenceGoalsDropdown
                 goals={chapterContent?.competenceGoals || chapterMeta.competenceGoals || []}
                 higherEd={course.level === 'Høyskole'}
+                malform={malform}
               />
             )}
 
@@ -457,16 +460,20 @@ export function TextbookChapterView({
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <ArrowLeftRight className="h-4 w-4" />
                     <span>
-                      {isNarrativeVersion
-                        ? 'Du leser den lesevennlige versjonen'
-                        : 'Du leser den tradisjonelle versjonen'}
+                      {malform === 'nn'
+                        ? isNarrativeVersion
+                          ? 'Du les den lesevennlege versjonen'
+                          : 'Du les den tradisjonelle versjonen'
+                        : isNarrativeVersion
+                          ? 'Du leser den lesevennlige versjonen'
+                          : 'Du leser den tradisjonelle versjonen'}
                     </span>
                   </div>
                   <Link href={`/${course.id}/${linkedChapter.id}`}>
                     <Button variant="outline" size="sm" className="gap-2">
                       <BookOpen className="h-4 w-4" />
                       {linkedChapter.isNarrativeVersion
-                        ? 'Lesevennlig versjon'
+                        ? malform === 'nn' ? 'Lesevennleg versjon' : 'Lesevennlig versjon'
                         : 'Tradisjonell versjon'}
                     </Button>
                   </Link>
@@ -482,7 +489,9 @@ export function TextbookChapterView({
             {/* Fremgang + øv-handlinger (gruppert) */}
             <div className="mt-6 p-4 bg-muted/30 border border-border/60 rounded-lg">
               <div className="flex items-center justify-between text-sm mb-2">
-                <span className="font-medium">{selectedStudentId ? 'Elevens fremgang i kapitlet' : 'Din fremgang i kapitlet'}</span>
+                <span className="font-medium">{malform === 'nn'
+                  ? selectedStudentId ? 'Framgangen til eleven i kapittelet' : 'Framgangen din i kapittelet'
+                  : selectedStudentId ? 'Elevens fremgang i kapitlet' : 'Din fremgang i kapitlet'}</span>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   {subTaskStats.total > 0 && (
                     <span className="flex items-center gap-1.5">
@@ -493,10 +502,10 @@ export function TextbookChapterView({
                           <span className="text-red-500 dark:text-red-400 font-medium">{subTaskStats.skipped}</span>
                         </>
                       )}
-                      <span>deloppgaver</span>
+                      <span>{malform === 'nn' ? 'deloppgåver' : 'deloppgaver'}</span>
                     </span>
                   )}
-                  <span>{completedExercisesCount} / {exerciseCount} oppgaver</span>
+                  <span>{completedExercisesCount} / {exerciseCount} {malform === 'nn' ? 'oppgåver' : 'oppgaver'}</span>
                 </div>
               </div>
               {/* Progress bar: width based on exercises, color split based on subtasks */}
@@ -689,7 +698,7 @@ export function TextbookChapterView({
                   <Button variant="outline" className="w-full justify-start gap-2 h-auto py-3 whitespace-normal">
                     <ChevronLeft className="h-4 w-4 shrink-0" />
                     <div className="text-left min-w-0 break-words">
-                      <div className="text-xs text-muted-foreground">Forrige</div>
+                      <div className="text-xs text-muted-foreground">{malform === 'nn' ? 'Førre' : 'Forrige'}</div>
                       <div className="font-medium">{prevChapter.number} {prevChapter.title}</div>
                     </div>
                   </Button>

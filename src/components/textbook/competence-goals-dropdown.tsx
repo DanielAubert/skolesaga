@@ -8,9 +8,12 @@ interface CompetenceGoalsDropdownProps {
   goals: string[];
   /** Høyskole/universitet: LK20 gjelder ikke — vis «Læringsmål» i stedet. */
   higherEd?: boolean;
+  /** Nynorsk: kapittelsidene under /nn viser rammeteksten på nynorsk. */
+  malform?: 'nb' | 'nn';
 }
 
-export function CompetenceGoalsDropdown({ goals, higherEd }: CompetenceGoalsDropdownProps) {
+export function CompetenceGoalsDropdown({ goals, higherEd, malform = 'nb' }: CompetenceGoalsDropdownProps) {
+  const nn = malform === 'nn';
   const [isOpen, setIsOpen] = useState(false);
 
   if (!goals || goals.length === 0) {
@@ -38,9 +41,13 @@ export function CompetenceGoalsDropdown({ goals, higherEd }: CompetenceGoalsDrop
       {isOpen && (
         <div className="mt-3 p-4 bg-muted/50 rounded-lg border">
           <h3 className="text-sm font-medium mb-3 text-foreground">
-            {higherEd
-              ? 'Dette kapitlet dekker følgende læringsmål:'
-              : 'Dette kapitlet dekker følgende kompetansemål (LK20):'}
+            {nn
+              ? higherEd
+                ? 'Dette kapittelet dekkjer desse læringsmåla:'
+                : 'Dette kapittelet dekkjer desse kompetansemåla (LK20):'
+              : higherEd
+                ? 'Dette kapitlet dekker følgende læringsmål:'
+                : 'Dette kapitlet dekker følgende kompetansemål (LK20):'}
           </h3>
           <ul className="space-y-2">
             {goals.map((goal, index) => (
@@ -54,7 +61,9 @@ export function CompetenceGoalsDropdown({ goals, higherEd }: CompetenceGoalsDrop
             ))}
           </ul>
           <p className="text-xs text-muted-foreground mt-3 pt-2 border-t">
-            {higherEd
+            {nn && !higherEd
+              ? 'Kjelde: Kompetansemål frå læreplanverket LK20 (Utdanningsdirektoratet, udir.no).'
+              : higherEd
               ? 'Kilde: Læringsmålene er utformet av Skolesaga på grunnlag av emnets eksamensoppgaver, sensorveiledninger og emnebeskrivelse. De er ikke institusjonens offisielle læringsutbyttebeskrivelser.'
               : 'Kilde: Kompetansemål fra læreplanverket LK20 (Utdanningsdirektoratet, udir.no).'}
           </p>

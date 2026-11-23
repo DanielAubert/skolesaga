@@ -499,12 +499,17 @@ export function getChapterMeta(
     }
   }
   if (!meta || malform !== 'nn') return meta;
-  const nn = getMetaNn()[chapterId];
-  if (!nn) return meta;
+  // Lesevennleg versjon utan eiga nynorsk metadata (4 834 av 5 270 i nov. 2026): bruk nynorsk metadata frå
+  // originalkapittelet, slik bokmål brukar originalen — elles vart tittel, ingress og emne ståande på bokmål.
+  const syntetisk = meta.isNarrativeVersion && meta.subtitle === 'Lesevennlig versjon';
+  const eiga = getMetaNn()[chapterId];
+  const nn = eiga ?? (meta.isNarrativeVersion && meta.linkedChapterId ? getMetaNn()[meta.linkedChapterId] : undefined);
+  if (!nn) return syntetisk ? { ...meta, subtitle: 'Lesevennleg versjon' } : meta;
   return {
     ...meta,
+    ...(syntetisk ? { subtitle: 'Lesevennleg versjon' } : {}),
     ...(nn.title ? { title: nn.title } : {}),
-    ...(nn.subtitle ? { subtitle: nn.subtitle } : {}),
+    ...(eiga?.subtitle ? { subtitle: eiga.subtitle } : {}),
     ...(nn.description ? { description: nn.description } : {}),
     ...(nn.topics ? { topics: nn.topics } : {}),
   };
