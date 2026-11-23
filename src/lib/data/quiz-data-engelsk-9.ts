@@ -120,7 +120,7 @@ const quizData_engelsk_9: Record<string, QuizQuestion[]> = {
   'engelsk-9-2-2': [
   {
     question: 'What does "show, don\'t tell" mean in creative writing?',
-    options: ['Describe through actions and details rather than stating emotions directly', 'Use pictures instead of words', 'Show your work to others beføre publishing', 'Tell the story in chronological order'],
+    options: ['Describe through actions and details rather than stating emotions directly', 'Use pictures instead of words', 'Show your work to others before publishing', 'Tell the story in chronological order'],
     explanation: 'Instead of writing "She was nervous," you show it: "Her hands trembled as she reached for the door handle." This creates more vivid, engaging writing.',
   },
   {
@@ -247,7 +247,7 @@ const quizData_engelsk_9: Record<string, QuizQuestion[]> = {
   {
     question: 'Which phrase is best for politely disagreeing in a discussion?',
     options: ['I see your point, but...', 'That\'s completely wrong', 'Whatever you say', 'I don\'t care about your opinion'],
-    explanation: 'Polite disagreement acknowledges the other person\'s view beføre presenting an alternative perspective.',
+    explanation: 'Polite disagreement acknowledges the other person\'s view before presenting an alternative perspective.',
   },
   {
     question: 'What is climate change primarily caused by?',
@@ -275,7 +275,7 @@ const quizData_engelsk_9: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Which is NOT a good strategy for managing presentation nerves?',
-    options: ['Reading your entire speech word-for-word from a script', 'Practicing multiple times beførehand', 'Breathing deeply beføre starting', 'Focusing on your message rather than yourself'],
+    options: ['Reading your entire speech word-for-word from a script', 'Practicing multiple times beforehand', 'Breathing deeply before starting', 'Focusing on your message rather than yourself'],
     explanation: 'Reading from a script makes presentations less engaging. Practice allows you to speak naturally while knowing your content.',
   },
   {

@@ -1710,9 +1710,9 @@ const quizData_fransk_1: Record<string, QuizQuestion[]> = {
       explanation: '«à l\'arrière-plan» = i bakgrunnen.',
     },
     {
-      question: 'Hvilket uttrykk markerer en sannsynlighet i en bildebeskrivelse?',
-      options: ['Il semble que ...', 'Il est certain que ...', 'C\'est faux', 'Jamais'],
-      explanation: '«Il semble que ...» = «Det ser ut til at ...», nyttig når man tolker et bilde.',
+      question: 'Hvilket uttrykk bruker du når du vil si hvordan en person på bildet ser ut til å ha det?',
+      options: ['Il/Elle a l\'air ...', 'Il/Elle porte ...', 'Il y a ...', 'À droite, ...'],
+      explanation: '«Il/Elle a l\'air ...» = «Han/Hun ser ut til å være ...», f.eks. «Elle a l\'air contente.»',
     },
     {
       question: 'Hva betyr «à gauche» og «à droite» i en bildebeskrivelse?',

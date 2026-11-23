@@ -18,9 +18,9 @@ const quizData_engelsk_5: Record<string, QuizQuestion[]> = {
     explanation: '"Hungry" betyr sulten. If you are hungry, you want food.',
   },
   {
-    question: 'Beføre you read a story, you should:',
+    question: 'Before you read a story, you should:',
     options: ['Look at the pictures and read the title', 'Read every word out loud', 'Skip to the ending', 'Close your eyes'],
-    explanation: 'Beføre reading, look at the pictures and the title. This helps you guess what the story might be about.',
+    explanation: 'Before reading, look at the pictures and the title. This helps you guess what the story might be about.',
   },
   {
     question: 'Hva betyr "garden" pånorsk?',
@@ -48,7 +48,7 @@ const quizData_engelsk_5: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'What does "teacher" mean?',
-    options: ['Laerer', 'Elev', 'Venn', 'Familie'],
+    options: ['Lærer', 'Elev', 'Venn', 'Familie'],
     explanation: '"Teacher" betyr lærer - a person who teaches you at school.',
   },
   {
@@ -178,7 +178,7 @@ const quizData_engelsk_5: Record<string, QuizQuestion[]> = {
   'engelsk-5-2-4': [
   {
     question: 'Where do adjectives go in English?',
-    options: ['Beføre the noun', 'After the noun', 'At the end of the sentence', 'Anywhere'],
+    options: ['Before the noun', 'After the noun', 'At the end of the sentence', 'Anywhere'],
     explanation: 'In English, adjectives come BEFORE the noun: "a red apple" (not "an apple red").',
   },
   {
@@ -194,7 +194,7 @@ const quizData_engelsk_5: Record<string, QuizQuestion[]> = {
   {
     question: 'Which sentence uses an adjective correctly?',
     options: ['A big dog', 'A dog big', 'Big a dog', 'Dog a big'],
-    explanation: 'In English, the adjective comes beføre the noun: "a big dog".',
+    explanation: 'In English, the adjective comes before the noun: "a big dog".',
   },
   {
     question: 'Velg riktig: "Winter is ___ than summer."',

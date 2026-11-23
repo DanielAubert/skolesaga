@@ -24,9 +24,18 @@ const ext = path.extname(fil);
 // Biter av JSON/TS sjekkes som ren tekst; hele JSON-filer som JSON, så nøkler og id-er hoppes over.
 const p = spawnSync('python3', [path.join(ROT, 'scripts/aeoa/sjekk.py'), '--stdin', '--json'],
   { input: ext === '.ts' || ext === '.tsx' ? tsStrenger(tekst) : tekst, encoding: 'utf8', timeout: 60000 });
-if (p.status === null || !p.stdout) process.exit(0);
-let funn;
-try { funn = JSON.parse(p.stdout); } catch { process.exit(0); }
+let funn = [];
+if (p.status !== null && p.stdout) { try { funn = JSON.parse(p.stdout); } catch { funn = []; } }
+// Aksentporten (aksentsveip 23.11.2026): språkbøkene (fransk/tysk/spansk) sjekkes også for strippede aksenter/omlyd.
+const bok = fil.match(/\/src\/lib\/data\/(?:chapters\/(?:nn\/)?|quiz\/nn\/|meta\/nn\/|quiz-data-)(fransk|tysk|spansk)-/);
+if (bok) {
+  const lang = { fransk: 'fr', tysk: 'de', spansk: 'es' }[bok[1]];
+  const a = spawnSync('python3', [path.join(ROT, 'scripts/aeoa/aksent-sjekk.py'), '--stdin', '--spraak', lang, '--json'],
+    { input: ext === '.ts' ? tsStrenger(tekst) : tekst, encoding: 'utf8', timeout: 60000 });
+  try {
+    for (const f of JSON.parse(a.stdout || '[]')) funn.push({ ...f, grunn: f.grunn + ' — rett tegnene, ev. aksent-kjente-riktige.json' });
+  } catch { /* porten svarte ikke: æøå-funnene gjelder fortsatt */ }
+}
 if (!funn.length) process.exit(0);
 const linjer = funn.slice(0, 25).map((f) => `  «${f.ord}» → «${f.forslag}» (${f.grunn}): …${f.ctx}…`);
 process.stderr.write(`æøå-vakten: ${funn.length} mistenkte æøå-feil i ${path.relative(ROT, fil)}:\n${linjer.join('\n')}\n` +

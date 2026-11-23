@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "eslint",
     "test:skolebruk": "node --test src/lib/trafikk/__tests__/*.test.mjs",
+    "test:svarsjekk": "node --test src/lib/textbook/__tests__/svarsjekk.test.mjs",
+    "test:tekstsvar": "node --test src/lib/textbook/__tests__/tekstsvar.test.mjs",
+    "test:aksent": "python3 scripts/aeoa/test_aksent_og_vern.py",
     "prepare": "husky",
     "a11y": "node scripts/a11y-check.mjs"
   },
@@ -81,7 +84,8 @@
       "git add"
     ],
     "src/lib/data/**/*.{json,ts}": [
-      "python3 scripts/aeoa/sjekk.py --kjente"
+      "python3 scripts/aeoa/sjekk.py --kjente",
+      "python3 scripts/aeoa/aksent-sjekk.py"
     ]
   }
 }

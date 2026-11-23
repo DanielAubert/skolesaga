@@ -54,7 +54,7 @@ const quizData_engelsk_7: Record<string, QuizQuestion[]> = {
   {
     question: 'Which word means "not possible"?',
     options: ['Impossible', 'Unpossible', 'Dispossible', 'Repossible'],
-    explanation: 'The prefix "im-" means "not" beføre words starting with p: impossible.',
+    explanation: 'The prefix "im-" means "not" before words starting with p: impossible.',
   },
 ],
 

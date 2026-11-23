@@ -4,7 +4,7 @@
 #   ny = regler.rett(kilde, sti, tekst)      -> (ny_tekst, [endringer])
 import re, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tekst import SKRIPT, KODEBLOKK, MATTE, TAGG, URL, FOLD, norm
+from tekst import SKRIPT, KODEBLOKK, MATTE, TAGG, URL, FOLD, norm, fremmed_kontekst
 
 ORDTEGN = 'A-Za-zÆØÅæøåÉéÜüÖöÄä'
 NABO = re.compile(f'[{ORDTEGN}]+')
@@ -43,6 +43,7 @@ class Regler:
         self.blokk = set(blokk)  # (kilde, sti, ordform) som ikke skal røres; ('*','*',ord) = ordformen aldri
         self.unntak = set(unntak)  # ordformer der invarianten er fraveket etter kontroll for hånd
         self.brudd = []  # erstatninger som ville brutt invarianten: hoppes over og meldes
+        self.fremmed = []  # treff i tekst på fremmedspråk: røres aldri, meldes
         self.forekomster = forekomster
         self.ord = set(alltid) | {o.lower() for (_, _, o) in forekomster}
         # Ord inntil kodetegn (anførsel, =, (, [, _, punktum foran bokstav) eller i slugs (bindestrek) røres aldri.
@@ -60,6 +61,9 @@ class Regler:
             g = m.group(0)
             if i_spenn(m.start(), spenn):
                 continue
+            if fremmed_kontekst(s, m.start(), m.end()):
+                self.fremmed.append((kilde, sti, g, re.sub(r'\s+', ' ', s[max(0, m.start() - 40):m.end() + 40])))
+                continue  # aldri æøå inn i fransk/tysk/spansk/engelsk (aksentsveip 23.11.2026)
             ny = None
             if (kilde, sti, g) in self.blokk or ('*', '*', g) in self.blokk or (kilde, '', g) in self.blokk:
                 continue

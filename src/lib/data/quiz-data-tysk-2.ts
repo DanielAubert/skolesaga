@@ -60,7 +60,7 @@ const quizData_tysk_2: Record<string, QuizQuestion[]> = {
   'tysk-2-1-3': [
     {
       question: 'Hva er preteritum av «sein» i 1. person entall?',
-      options: ['ich war', 'ich bin', 'ich gewesen', 'ich ware'],
+      options: ['ich war', 'ich bin', 'ich gewesen', 'ich wäre'],
       explanation: 'Preteritum av sein: ich war, du warst, er war.',
     },
     {

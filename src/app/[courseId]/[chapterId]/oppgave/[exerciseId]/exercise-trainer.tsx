@@ -18,10 +18,14 @@ import { ExerciseProgressBar } from "@/components/textbook/exercise-progress";
 import { incrementProblems } from "@/lib/hoderegning/stats";
 import { StatsCounter } from "@/components/hoderegning/stats-counter";
 import { validateExpressionAnswer } from "@/lib/math-engine/parser";
+import { sjekkTallsvar, sjekkBroksvar } from "@/lib/textbook/svarsjekk";
 import { markTextbookExerciseCompleted, updateSubTaskStatus, getExerciseSubTaskProgress } from "@/lib/textbook/progress";
 import type { SubTaskStatus } from "@/lib/textbook/progress";
 import type { TextbookExercise, TextbookChapter, TextbookCourse } from "@/lib/types/textbook";
 import { AssignmentBanner } from "@/components/assignments/assignment-banner";
+// Tekstsvar (språkfag): eget hjem i tekstsvar.ts — aksentsveip 23.11.2026
+import { erTekstfasit, sjekkTekstsvar, langForKurs } from "@/lib/textbook/tekstsvar";
+import { TekstsvarFelt } from "@/components/textbook/tekstsvar-felt";
 
 // Shuffle array using Fisher-Yates algorithm
 function shuffleArray<T>(array: T[]): T[] {
@@ -78,12 +82,25 @@ interface Problem {
   label: string;
   expression: string;
   answer?: number | string;               // Numerisk eller tekstbasert svar
+  answers?: number | number[] | string;   // Hele fasitlista (svarsjekken godtar alle formene)
+  solution?: string;                      // Løsningen (svarsjekken ser om fasiten er avrundet, «≈»)
+  kontekst?: string;                      // Oppgaveteksten over deloppgavene («Skriv som desimaltall:», «Hvor mange prosent …»)
   expressionAnswer?: string | string[];   // Algebraisk svar
   multipleChoiceOptions?: string[];       // Shuffled flervalgsalternativer
   correctOptionIndex?: number;            // Indeks til riktig svar i shuffled array
   userAnswer: string;
   isCorrect?: boolean;
   status: SubTaskStatus;                  // 'completed' | 'skipped' | 'pending'
+}
+
+// Tallsvar sjekkes i src/lib/textbook/svarsjekk.ts (brøk, prosent, komma/punktum, tusenskille, standardform,
+// avrunding etter oppgaven). `eksakt` = autogodkjenning mens eleven skriver: bare eksakt likhet, så et halvskrevet
+// svar («100» på vei mot «1004») aldri godkjennes. Tekstfasit (ikke tall) sammenlignes som før.
+function tallsvarRiktig(p: Problem, raw: string, eksakt = false): boolean {
+  const status = sjekkTallsvar({ task: p.expression, solution: p.solution, answer: p.answers ?? p.answer, kontekst: p.kontekst }, raw, { eksakt });
+  if (status !== null) return status === 'correct';
+  const v = parseFloat(raw.replace(',', '.'));
+  return !isNaN(v) && v === p.answer;
 }
 
 interface ExerciseTrainerProps {
@@ -172,6 +189,9 @@ export function ExerciseTrainer({
         label: st.label,
         expression: st.task,
         answer,
+        answers: st.answer,
+        solution: st.solution,
+        kontekst: exercise.task,
         expressionAnswer: st.expressionAnswer,
         multipleChoiceOptions,
         correctOptionIndex,
@@ -281,6 +301,9 @@ export function ExerciseTrainer({
           label: st.label,
           expression: st.task,
           answer,
+          answers: st.answer,
+          solution: st.solution,
+          kontekst: exercise.task,
           expressionAnswer: st.expressionAnswer,
           multipleChoiceOptions,
           correctOptionIndex,
@@ -379,13 +402,23 @@ export function ExerciseTrainer({
     const currentProblem = problems[currentIndex];
     const isAlgebraic = currentProblem?.expressionAnswer !== undefined;
 
+    // Tekstfasit (språkfag): alle tegn er lov, svaret sjekkes når eleven sender (tekstsvar.ts)
+    if (currentProblem && erTekstfasit(currentProblem.answers ?? currentProblem.answer)) {
+      const tekstProblems = [...problems];
+      tekstProblems[currentIndex].userAnswer = value;
+      setProblems(tekstProblems);
+      setWrongAnswer(false);
+      setWrongOrderMessage(null);
+      return;
+    }
+
     // Tillat ulike tegn basert på oppgavetype
     if (isAlgebraic) {
-      // Algebraiske svar: tillat bokstaver, tall, ^, *, /, +, -, (, )
-      if (!/^[-\d\^a-zA-Z\*\/\+\(\)\s]*$/.test(value)) return;
+      // Algebraiske svar: tillat bokstaver, tall, ^, *, /, +, -, (, ) — og komma/punktum/% for brøkfasit (0,3 eller 30 %)
+      if (!/^[-−\d\^a-zA-Z\*\/\+\(\)\s,\.%]*$/.test(value)) return;
     } else {
-      // Numeriske svar: kun tall og komma/punktum
-      if (!/^-?[\d,\.]*$/.test(value)) return;
+      // Numeriske svar: tall, komma/punktum, brøkstrek, prosent, mellomrom (tusenskille) og standardform (4,2*10^-4)
+      if (!/^[-−\d,\.\/%\s\*\^·×eE{}()]*$/.test(value)) return;
     }
 
     const newProblems = [...problems];
@@ -395,16 +428,16 @@ export function ExerciseTrainer({
 
     // Sjekk numerisk svar
     if (currentProblem.answer !== undefined) {
-      const userAnswer = parseFloat(value.replace(',', '.'));
-      if (!isNaN(userAnswer) && userAnswer === currentProblem.answer) {
+      if (tallsvarRiktig(currentProblem, value, true)) {
         markCorrectAndProceed(newProblems);
       }
     }
 
     // Sjekk algebraisk svar (autocomplete ved riktig svar)
     if (currentProblem.expressionAnswer !== undefined) {
-      const result = validateExpressionAnswer(value, currentProblem.expressionAnswer);
-      if (result.isCorrect) {
+      const broksvar = sjekkBroksvar({ task: currentProblem.expression, expressionAnswer: currentProblem.expressionAnswer, kontekst: currentProblem.kontekst }, value, { eksakt: true });
+      const result = broksvar === null ? validateExpressionAnswer(value, currentProblem.expressionAnswer) : null;
+      if (broksvar === 'correct' || result?.isCorrect) {
         markCorrectAndProceed(newProblems);
       }
       // Ikke vis feil rekkefølge-melding ved autocomplete, kun ved "Neste"-klikk
@@ -495,17 +528,39 @@ export function ExerciseTrainer({
   const nextProblem = () => {
     const currentProblem = problems[currentIndex];
 
+    // Tekstfasit (språkfag): riktig / nesten (mangler aksent, ß, ¿ …) / feil — se tekstsvar.ts
+    if (erTekstfasit(currentProblem.answers ?? currentProblem.answer)) {
+      const r = sjekkTekstsvar(currentProblem.answers ?? currentProblem.answer, currentProblem.userAnswer, langForKurs(courseId));
+      if (r.status === 'correct') {
+        markCorrectAndProceed([...problems]);
+      } else if (r.status === 'nesten') {
+        setWrongAnswer(false);
+        setWrongOrderMessage(r.melding ?? 'Sjekk tegnene.');
+      } else {
+        setWrongOrderMessage(null);
+        setWrongAnswer(true);
+      }
+      return;
+    }
+
     // Sjekk numerisk svar
     if (currentProblem.answer !== undefined) {
-      const userAnswer = parseFloat(currentProblem.userAnswer.replace(',', '.'));
-      if (isNaN(userAnswer) || userAnswer !== currentProblem.answer) {
+      if (!tallsvarRiktig(currentProblem, currentProblem.userAnswer)) {
         showWrongAnswerFeedback();
         return;
       }
     }
 
     // Sjekk algebraisk svar
-    if (currentProblem.expressionAnswer !== undefined) {
+    // Brøkfasit (f.eks. '3/10'): lik verdi som brøk, desimaltall eller prosent godtas
+    const broksvar = currentProblem.expressionAnswer !== undefined
+      ? sjekkBroksvar({ task: currentProblem.expression, expressionAnswer: currentProblem.expressionAnswer, kontekst: currentProblem.kontekst }, currentProblem.userAnswer)
+      : null;
+    if (broksvar === 'incorrect') {
+      showWrongAnswerFeedback();
+      return;
+    }
+    if (currentProblem.expressionAnswer !== undefined && broksvar === null) {
       const result = validateExpressionAnswer(currentProblem.userAnswer, currentProblem.expressionAnswer);
       if (result.isCorrect) {
         // Riktig - fortsett
@@ -717,6 +772,22 @@ export function ExerciseTrainer({
             );
           }
 
+          // Tekstfasit (språkfag): vanlig tekstfelt med tegnrad, ikke regnetastaturet
+          if (erTekstfasit(currentProblem.answers ?? currentProblem.answer)) {
+            return (
+              <TekstsvarFelt
+                oppgave={currentProblem.expression}
+                verdi={currentProblem.userAnswer}
+                lang={langForKurs(courseId)}
+                feil={wrongAnswer}
+                aktiv={isActive}
+                inputRef={inputRef}
+                onEndre={handleInputChange}
+                onSend={nextProblem}
+              />
+            );
+          }
+
           // Check if expression is an equation (contains =)
           // Also check if we're in the equations chapter (2-1) as a fallback
           const isEquationChapter = exercise?.id?.includes('2-1') || false;
@@ -739,7 +810,7 @@ export function ExerciseTrainer({
                   <Input
                     ref={inputRef}
                     type="text"
-                    inputMode="numeric"
+                    inputMode={typeof currentProblem.answer === "number" && Number.isInteger(currentProblem.answer) ? "numeric" : "text"}
                     value={currentProblem.userAnswer}
                     onChange={(e) => handleInputChange(e.target.value)}
                     onKeyPress={handleKeyPress}
@@ -883,7 +954,7 @@ export function ExerciseTrainer({
                   <Input
                     ref={inputRef}
                     type="text"
-                    inputMode="numeric"
+                    inputMode={typeof currentProblem.answer === "number" && Number.isInteger(currentProblem.answer) ? "numeric" : "text"}
                     value={currentProblem.userAnswer}
                     onChange={(e) => handleInputChange(e.target.value)}
                     onKeyPress={handleKeyPress}

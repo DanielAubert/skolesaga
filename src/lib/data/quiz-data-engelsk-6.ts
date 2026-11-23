@@ -105,9 +105,9 @@ const quizData_engelsk_6: Record<string, QuizQuestion[]> = {
     explanation: 'A character is a person (or creature) in the story.',
   },
   {
-    question: 'What should you do beføre reading?',
+    question: 'What should you do before reading?',
     options: ['Look at the title and pictures', 'Read every word slowly', 'Skip to the end', 'Close your eyes'],
-    explanation: 'Beføre reading, look at the title and pictures to predict what the story is about.',
+    explanation: 'Before reading, look at the title and pictures to predict what the story is about.',
   },
   {
     question: 'What is the "plot" of a story?',

@@ -68,3 +68,38 @@ def norm(s):
     """Invarianten for tegnrettinger: æøå foldet og «oe/ae/aa» slått sammen. norm(ny) må være lik norm(gammel)."""
     s = re.sub(r'(?i)(?<=o)e|(?<=a)[ea]', '', s)
     return s.translate(FOLD).lower()
+
+
+# Vern mot at æøå-verktøyene rører fremmedspråk (aksentsveip 23.11.2026: sveipen 6.11 gjorde «est a la» til «est å la»
+# i fransk og «star power» til «står power» i engelsk). fremmedord.json = vanlige fr/de/es/en-ord som ikke er norske.
+import os as _os
+_FO = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'fremmedord.json')
+FREMMEDORD = set()
+if _os.path.exists(_FO):
+    for _v in json.load(open(_FO, encoding='utf-8')).values():
+        FREMMEDORD.update(_v)
+# Bare småord som ikke også er vanlige ord på fransk/tysk/spansk/engelsk (ikke «et», «en», «de», «du», «der», «den»,
+# «er», «for», «i», «a», «at», «men», «han», «sin», «dem», «vi»), så en fremmedspråklig setning ikke tas for norsk.
+NORSKE_SMAAORD = {'og', 'på', 'pa', 'å', 'som', 'det', 'til', 'med', 'av', 'ikke', 'ikkje', 'jeg', 'eg', 'hun', 'ho', 'dei',
+                  'har', 'kan', 'skal', 'må', 'ma', 'vil', 'blir', 'vert', 'var', 'om', 'så', 'sa', 'når', 'nar', 'eller',
+                  'også', 'ogsa', 'òg', 'fra', 'frå', 'hva', 'kva', 'dette', 'denne', 'ein', 'eit', 'seg', 'sitt', 'sine',
+                  'oss', 'meg', 'deg', 'bare', 'berre', 'betyr', 'tyder', 'heter', 'heiter', 'viktig', 'kjem', 'kommer',
+                  'bruker', 'brukes', 'ord', 'setning', 'norsk', 'hvordan', 'korleis', 'skriv', 'ikkje', 'hvor',
+                  'kor', 'her', 'mye', 'mykje', 'noen', 'nokon', 'andre', 'eksempel', 'døme'}
+FremmedSkille = re.compile(r'[\n|()«»"“”\[\]]')
+
+
+def fremmed_kontekst(s, a, b, n=5):
+    """True når ordet s[a:b] står i en setning på et fremmedspråk (minst to vanlige fremmedord rundt, ingen norske
+    småord), eller rett ved et fremmedord uten norske småord rundt. Da skal æøå-verktøyene ikke røre det."""
+    venstre = FremmedSkille.split(s[max(0, a - 160):a])[-1]
+    hoyre = FremmedSkille.split(s[b:b + 160])[0]
+    fo = [w.lower() for w in re.findall(r"[^\W\d_]+", venstre)][-n:]
+    et = [w.lower() for w in re.findall(r"[^\W\d_]+", hoyre)][:n]
+    rundt = fo + et
+    norske = sum(1 for w in rundt if w in NORSKE_SMAAORD)
+    fremmede = sum(1 for w in rundt if w in FREMMEDORD and w not in NORSKE_SMAAORD)
+    nabo = (fo[-1:] + et[:1])
+    if norske:
+        return False
+    return fremmede >= 2 or any(w in FREMMEDORD for w in nabo)

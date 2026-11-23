@@ -491,7 +491,7 @@ const quizData_tysk_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva heter mars på tysk?',
-      options: ['März', 'Mai', 'Marz', 'Mars'],
+      options: ['Marz', 'Mai', 'März', 'Mars'],
       explanation: 'Mars = März, med umlaut. Mai = mai.',
     },
     {

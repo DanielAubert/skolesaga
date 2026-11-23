@@ -17,3 +17,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Kjente æøå-feilformer
         run: python3 scripts/aeoa/repo-sjekk.py .
+      # Daniel 23.11.2026: «Undersøk også aksentene og slikt og rett kontrolleren.» Strippede aksenter/omlyd/ß/ñ i
+      # fransk-, tysk- og spanskbøkene (scripts/aeoa/aksent-tabell.json), og æøå-verktøyene skal aldri røre fremmedspråk.
+      - name: Aksenter i språkbøkene
+        run: python3 scripts/aeoa/aksent-sjekk.py
+      - name: Tester for aksentporten og vernet mot fremmedspråk
+        run: python3 scripts/aeoa/test_aksent_og_vern.py

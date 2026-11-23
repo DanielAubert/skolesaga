@@ -287,7 +287,7 @@ const quizData_fransk_2: Record<string, QuizQuestion[]> = {
   {
     question: 'Når bruker du relativpronomenet "qui"?',
     options: ['Når det erstatter subjektet i leddsetningen (qui + verb)', 'Når det erstatter det direkte objektet', 'Når det erstatter et stedsuttrykk', 'Bare når det handler om personer'],
-    explanation: 'Qui er subjekt og følges direkte av verb: La fille qui parle est ma soeur.',
+    explanation: 'Qui er subjekt og følges direkte av verb: La fille qui parle est ma sœur.',
   },
   {
     question: 'Hvilket relativpronomen passer: "Le film ___ j\'ai vu était bien."?',
@@ -408,8 +408,8 @@ const quizData_fransk_2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken rett kommer fra Provence?',
-    options: ['La ratatouille', 'La choucroute', 'Le boeuf bourguignon', 'Les galettes'],
-    explanation: 'Ratatouille er grønnsaksretten fra Provence. Choucroute er fra Alsace, boeuf bourguignon fra Bourgogne og galettes fra Bretagne.',
+    options: ['La ratatouille', 'La choucroute', 'Le bœuf bourguignon', 'Les galettes'],
+    explanation: 'Ratatouille er grønnsaksretten fra Provence. Choucroute er fra Alsace, bœuf bourguignon fra Bourgogne og galettes fra Bretagne.',
   },
   {
     question: 'Hvilken vinregion er kjent for musserende vin?',
@@ -465,7 +465,7 @@ const quizData_fransk_2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr "les yeux"?',
     options: ['Øynene', 'Ørene', 'Hendene', 'Knærne'],
-    explanation: 'Les yeux = øynene (entall: l\'oeil). Ørene heter les oreilles.',
+    explanation: 'Les yeux = øynene (entall: l\'œil). Ørene heter les oreilles.',
   },
   {
     question: 'Hvilket ord betyr "kneet"?',
@@ -687,7 +687,7 @@ const quizData_fransk_2: Record<string, QuizQuestion[]> = {
     explanation: 'Victor Hugo skrev Les Misérables (1862). L\'Étranger er av Camus, Madame Bovary av Flaubert og Monte-Cristo av Dumas.',
   },
   {
-    question: 'Hva betyr sitatet "On ne voit bien qu\'avec le coeur" fra Le Petit Prince?',
+    question: 'Hva betyr sitatet "On ne voit bien qu\'avec le cœur" fra Le Petit Prince?',
     options: ['Man ser bare godt med hjertet', 'Man ser ikke med øynene', 'Hjertet ser aldri godt', 'Man må se for å elske'],
     explanation: 'Det berømte sitatet betyr "Man ser bare godt med hjertet. Det vesentlige er usynlig for øynene."',
   },

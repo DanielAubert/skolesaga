@@ -12,7 +12,7 @@
 import itertools, json, os, re, subprocess, sys
 HER = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HER)
-from tekst import ord_i, rens, strenger, ts_strenger, norm, ORD
+from tekst import ord_i, rens, strenger, ts_strenger, norm, ORD, fremmed_kontekst
 
 KJENTE_FEIL = json.load(open(f'{HER}/kjente-feil.json')) if os.path.exists(f'{HER}/kjente-feil.json') else {}
 KJENTE_RIKTIGE = set(json.load(open(f'{HER}/kjente-riktige.json'))) if os.path.exists(f'{HER}/kjente-riktige.json') else set()
@@ -117,6 +117,8 @@ def sjekk_tekster(tekster, bruk_ordbok=True):
     for w, r, a, b in alle:
         lw = w.lower()
         grunn = None
+        if fremmed_kontekst(r, a, b):
+            continue  # ord i fransk/tysk/spansk/engelsk tekst: aldri æøå-forslag (aksentsveip 23.11.2026)
         if lw in mistenkt:
             forslag, grunn = mistenkt[lw]
         elif w in TVETYDIGE and (w not in SVAKE or strippet_felt):
