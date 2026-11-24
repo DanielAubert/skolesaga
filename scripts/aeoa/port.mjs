@@ -1,5 +1,5 @@
 // æøå-porten for skript som skriver til content_data (Daniel 06.11.2026: «automatisk æøå sjekk hver gang det blir
-// skrevet nytt materialet»). Sjekker bare strenger som er NYE i `ny` i forhold til `gammel`, med scripts/aeoa/sjekk.py.
+// skrevet nytt materialet»). Fanger også mojibake (A14, mønstre i mojibake.json). Sjekker bare strenger som er NYE i `ny` i forhold til `gammel`, med scripts/aeoa/sjekk.py.
 // Ved funn: skriv dem ut og stopp (exit 1). AEOA_OK="<grunn>" foran kommandoen slipper gjennom (f.eks. navn som flagges).
 //   import { aeoaPort } from '../aeoa/port.mjs';  aeoaPort(gammelData, nyData, 'kurs/type');
 import { spawnSync } from 'node:child_process';
@@ -26,6 +26,8 @@ export function aeoaPort(gammel, ny, navn = '') {
   console.error(`æøå-porten: ${funn.length} mistenkte æøå-feil i ny tekst${navn ? ` (${navn})` : ''}:`);
   for (const f of funn.slice(0, 40)) console.error(`  «${f.ord}» → «${f.forslag}» (${f.grunn}): …${f.ctx}…`);
   if (process.env.AEOA_OK) { console.error(`  slapp gjennom: AEOA_OK="${process.env.AEOA_OK}"`); return funn; }
+  if (funn.some((f) => String(f.grunn).startsWith('mojibake'))) console.error('Mojibake («Ã¸», «â€“», C1-tegn, U+FFFD) har ingen unntak i\n' +
+    'kjente-riktige.json: teksten er lest som Latin-1/CP1252 et sted i kjeden — les kilden som UTF-8 og skriv på nytt.');
   console.error('Rett teksten (bare tegnene) og kjør på nytt. Er ordene riktige (navn, nynorsk, sitat): legg dem i\n' +
     'scripts/aeoa/kjente-riktige.json, eller kjør med AEOA_OK="<grunn>" foran kommandoen.');
   process.exit(1);

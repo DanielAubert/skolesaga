@@ -1,10 +1,11 @@
-# Repoets innholdsfiler mot kjente-feil.json: ingen ordform som sveipen 06.11.2026 dømte som æøå-feil skal stå i lesbar
+# Repoets innholdsfiler mot kjente-feil.json og mojibake.json (A14, 24.11.2026): ingen ordform som sveipen 06.11.2026 dømte som æøå-feil skal stå i lesbar
 # tekst (samme beskyttelse som rettingen: kode, matte, lenker, slugs og taksonomifelt røres ikke). Brukes av
 # src/__tests__/aeoa-kjente-feil.test.ts. Ingen ordbok, så resultatet er likt på Mac, node og CI.
 #   python3 scripts/aeoa/repo-sjekk.py [<repo>]      exit 1 og liste ved funn
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tekst import HOPP_NOKLER, TS_STRENG
+from tekst import HOPP_NOKLER, TS_STRENG, MOJIBAKE_FORSIL
+from mojibake import finn as mojibake_finn, synlig
 from rett import Regler
 
 REPO = sys.argv[1] if len(sys.argv) > 1 else os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
@@ -39,6 +40,20 @@ def gaa(o, rel):
             gaa(v, rel)
 
 
+def moji(o, rel):
+    """Mojibake (A14) i ALLE strenger, også under slug-, id- og taksonominøkler: det finnes ingen riktig «Ã¸»
+    (sitert eksempel i lærestoff er unntatt i mojibake.py). gaa() hopper over hele undertrær under «temaer»/«kort» o.l."""
+    if isinstance(o, str):
+        funn.extend((rel, synlig(t), synlig(re.sub(r'\s+', ' ', o[max(0, a - 40):b + 40])))
+                    for a, b, t, _, _ in mojibake_finn(o))
+    elif isinstance(o, dict):
+        for v in o.values():
+            moji(v, rel)
+    elif isinstance(o, list):
+        for v in o:
+            moji(v, rel)
+
+
 def sjekk_fil(p, rel):
     if HOPP_FILER.search(rel) or HOPP_MAPPER.search('/' + os.path.dirname(rel) + '/'):
         return
@@ -48,17 +63,23 @@ def sjekk_fil(p, rel):
         return
     if p.endswith('.html'):
         gaa(s, rel)
+        moji(s, rel)
     elif p.endswith('.ts'):
         kode = re.sub(r'//[^\n]*|/\*.*?\*/', ' ', s, flags=re.S)
         for m in TS_STRENG.finditer(kode):
             inni = next(g for g in m.groups() if g is not None)
             if (' ' in inni or re.search('[æøåÆØÅ]', inni)) and '${' not in inni:
                 gaa(inni, rel)
+            if MOJIBAKE_FORSIL.search(inni):
+                moji(inni, rel)
     elif p.endswith('.json'):
         try:
-            gaa(json.loads(s), rel)
+            data = json.loads(s)
         except ValueError:
-            pass
+            return
+        gaa(data, rel)
+        if MOJIBAKE_FORSIL.search(s) or '\\u00' in s:
+            moji(data, rel)
 
 
 def sjekk_repo():
@@ -76,5 +97,5 @@ if __name__ == '__main__':
     sjekk_repo()
     for rel, g, ctx in funn[:200]:
         print(f'{rel}: «{g}»: …{ctx}…')
-    print(f'{len(funn)} kjente æøå-feilformer i repoet', file=sys.stderr)
+    print(f'{len(funn)} kjente æøå-feilformer og mojibake-treff i repoet', file=sys.stderr)
     sys.exit(1 if funn else 0)

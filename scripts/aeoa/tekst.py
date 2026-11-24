@@ -57,8 +57,13 @@ def ts_strenger(kode):
     kode = re.sub(r'//[^\n]*|/\*.*?\*/', ' ', kode, flags=re.S)
     for m in TS_STRENG.finditer(kode):
         s = next(g for g in m.groups() if g is not None)
-        if ' ' in s or re.search(r'[æøåÆØÅ]', s):  # enkeltord uten mellomrom er nesten alltid nøkler
+        # enkeltord uten mellomrom er nesten alltid nøkler; mojibake-tegn (A14) tas likevel med
+        if ' ' in s or re.search(r'[æøåÆØÅ]', s) or MOJIBAKE_FORSIL.search(s):
             yield s
+
+
+# Tegn som kan innlede mojibake (A14, 24.11.2026); hele mønstrene står i mojibake.json / mojibake.py.
+MOJIBAKE_FORSIL = re.compile('[\u00c2\u00c3\u00ce\u00cf\u00e2\u00f0\u0080-\u009f\ufffd]')
 
 
 FOLD = str.maketrans({'æ': 'a', 'ø': 'o', 'å': 'a', 'Æ': 'A', 'Ø': 'O', 'Å': 'A'})

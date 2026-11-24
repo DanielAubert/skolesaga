@@ -1,0 +1,47 @@
+{
+  "_opphav": "Kopi av eksamenssett/scripts/aeoa/mojibake.json (24.11.2026, FEILKLASSER A14 der). Repoene er adskilte, så fila er kopiert; endres mønstrene der, kopier dem hit. Brukt av mojibake.py, sjekk.py, repo-sjekk.py (CI) og aeoa-vakt.mjs. Skolesaga-funnet 24.11: «forteneste\\ufffdmargin» (frisør 7-5), «berÃ¸ringar» (kroppsøving vg1-5-2), «Ã\\u0085 … sÃ¥» (kroppsøving vg2-6-1), alle nynorsk.",
+  "_om": "Mojibake (FEILKLASSER A14, 24.11.2026): UTF-8 lest som Latin-1/CP1252. ÉN kilde for mønstrene: lest av scripts/aeoa/mojibake.py (sjekk.py, repo-sjekk.py) og .github/hooks/aeoa-vakt.mjs (utløseren). Regexene skal virke likt i Python re og JavaScript RegExp (flagg u): bare tegnklasser, \\uXXXX og alternasjon. Rekkefølgen teller: første mønster som treffer en posisjon vinner, så «Ã» + C1 meldes som ett treff og ikke også som enslig C1-tegn.",
+  "_tegnklasser": "F = fortsettelsestegn: U+0080–U+00BF (Latin-1-lesing av byte 80–BF) og CP1252-tegnene for byte 80–9F (€ ‚ ƒ „ … † ‡ ˆ ‰ Š ‹ Œ Ž ‘ ’ “ ” • – — ˜ ™ š › œ ž Ÿ). L = bare rad 80–9F (C1 + de samme CP1252-tegnene). Står ledetegnet rett etter et åpnende anførselstegn («“‘„\"'‹), teller ikke et lukketegn (» ” ’ › … – —) som fortsettelse: «Î» er kurdisk î i anførselstegn, ikke λ (målt 24.11.2026 i vgs-smasprak-batch2-data.ts).",
+  "monstre": [
+    {
+      "navn": "Ã + fortsettelsestegn",
+      "regex": "Ã(?:[\\u0080-\\u00ba\\u00bc-\\u00bf€‚ƒ„†‡ˆ‰Š‹ŒŽ‘“•˜™šœžŸ]|(?<![«“‘„\"'‹]Ã)[»”’›…–—])",
+      "forklaring": "UTF-8 for À–ÿ (C3 xx): «Ã¸» = ø, «Ã¥» = å, «Ã¦» = æ, «Ã˜»/«Ã\\u0098» = Ø, «Ã…» = Å, «Ã†» = Æ, «Ã©» = é, «Ã¨» = è, «Ã¼» = ü, «Ã¶» = ö, «Ã¤» = ä. Riktig «Ã» (São, SÃO) står foran en bokstav og treffes ikke."
+    },
+    {
+      "navn": "Â + fortsettelsestegn",
+      "regex": "Â(?:[\\u0080-\\u00ba\\u00bc-\\u00bf€‚ƒ„†‡ˆ‰Š‹ŒŽ‘“•˜™šœžŸ]|(?<![«“‘„\"'‹]Â)[»”’›…–—])",
+      "forklaring": "UTF-8 for U+00A0–U+00BF (C2 xx): «Â«», «Â»», «Â°», «Â§», «Â·», «Â±», «Â½» og «Â» + hardt mellomrom. Riktig «Â» (CHÂTEAU) står foran en bokstav."
+    },
+    {
+      "navn": "â€ / â + to fortsettelsestegn",
+      "regex": "â[\\u0080-\\u009f€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ][\\u0080-\\u00bf€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ]|â€",
+      "forklaring": "UTF-8 for U+2000–U+2FFF (E2 xx xx): «â€“» = –, «â€”» = —, «â€œ»/«â€\\u009d» = “ ”, «â€™» = ’, «â€¦» = …, «â‰¤» = ≤, «âˆ’» = −, «â†’» = →. Riktig «â» (âge, pâte) står foran en bokstav."
+    },
+    {
+      "navn": "Î/Ï + fortsettelsestegn (gresk)",
+      "regex": "[ÎÏ](?:[\\u0080-\\u00ba\\u00bc-\\u00bf€‚ƒ„†‡ˆ‰Š‹ŒŽ‘“•˜™šœžŸ]|(?<![«“‘„\"'‹][ÎÏ])[»”’›…–—])",
+      "forklaring": "UTF-8 for gresk (CE/CF xx): «Î¼» = μ, «Ïƒ» = σ, «Ï‡» = χ, «Î±» = α, «Î”» = Δ, «Ï€» = π. Riktig «Î»/«Ï» (ÎLE, NAÏF) står foran en bokstav."
+    },
+    {
+      "navn": "ðŸ (emoji)",
+      "regex": "ðŸ",
+      "forklaring": "UTF-8 for emoji (F0 9F xx xx)."
+    },
+    {
+      "navn": "enslig C1-kontrolltegn",
+      "regex": "[\\u0080-\\u009f]",
+      "forklaring": "U+0080–U+009F er aldri tekst: rest av Latin-1-lesing eller et tegn som har mistet ledebyten. Usynlig i visningen."
+    },
+    {
+      "navn": "erstatningstegn U+FFFD",
+      "regex": "\\ufffd",
+      "forklaring": "«�»: ugyldig UTF-8 er lest med errors=replace; det opprinnelige tegnet er tapt og må finnes i kilden."
+    }
+  ],
+  "sitert_eksempel": {
+    "_om": "Et treff (eller flere treff rett etter hverandre) som står ALENE mellom et åpnende og et lukkende tegn, er et bevisst eksempel på mojibake i lærestoff, ikke en feil (målt 24.11.2026: NHH MET3 «\"Ã¦Ã¸Ã¥\"», IT1 muntlig «Ã¸»). Ekte mojibake står inne i et ord («bÃ¸ker») og treffes fortsatt.",
+    "aapne": "«“‘„\"'`‹",
+    "lukke": "»”’“\"'`›"
+  }
+}

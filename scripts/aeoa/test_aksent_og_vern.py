@@ -90,5 +90,42 @@ class Aksentport(unittest.TestCase):
             self.assertEqual(aksent.sjekk_fil(rod, 'src/lib/data/chapters/naturfag-9-9-9.json'), [])
 
 
+class Mojibake(unittest.TestCase):
+    """24.11.2026: «forteneste\ufffdmargin», «berÃ¸ringar» og «Ã\u0085 … sÃ¥» sto i nn-filene uten at porten sa fra."""
+
+    def test_rod_paa_funnene(self):
+        import mojibake as mb
+        for s, venta in (('To berÃ¸ringar', 'ø'), ('Ã\u0085 alltid angripe sÃ¥ raskt', 'Å'), ('forteneste\ufffdmargin', None)):
+            f = mb.finn(s)
+            self.assertTrue(f, s)
+            self.assertEqual(f[0][4], venta)
+
+    def test_gronn_paa_riktig_tekst_og_sitert_eksempel(self):
+        import mojibake as mb
+        for s in ('Tre berøringar', 'Å alltid angripe så raskt', 'São Paulo', 'pâte', 'Kurdisk «Î» er ikkje λ',
+                  'Feilkoding gir "Ã¸" i staden for ø', 'Sjå `Ã¥` i loggen'):
+            self.assertEqual(mb.finn(s), [], s)
+
+    def test_repo_sjekk_feller_mojibake_ogsaa_i_svaralternativ(self):
+        import importlib.util
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, 'src/lib/data/chapters/nn')
+            os.makedirs(p)
+            fil = os.path.join(p, 'kroppsoving-9-9-9.json')
+            json.dump({'id': 'k', 'content': [{'exercise': {'subTasks': [{'multipleChoiceOptions': ['To berÃ¸ringar', 'Tre berøringar']}]}}]},
+                      open(fil, 'w', encoding='utf-8'), ensure_ascii=False)
+            spec = importlib.util.spec_from_file_location('repo_sjekk_t', os.path.join(HER, 'repo-sjekk.py'))
+            rs = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(rs)
+            rs.sjekk_fil(fil, 'src/lib/data/chapters/nn/kroppsoving-9-9-9.json')
+            self.assertEqual([g for _, g, _ in rs.funn], ['Ã¸'])
+
+    def test_sjekk_py_stdin(self):
+        p = subprocess.run([sys.executable, os.path.join(HER, 'sjekk.py'), '--stdin', '--json', '--kjente'],
+                           input=json.dumps({'task': 'Kva er forteneste\ufffdmarginen?'}), capture_output=True, text=True)
+        self.assertEqual(p.returncode, 1, p.stderr)
+        self.assertTrue(json.loads(p.stdout)[0]['grunn'].startswith('mojibake'))
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

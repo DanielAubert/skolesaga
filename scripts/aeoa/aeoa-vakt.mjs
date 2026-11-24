@@ -12,13 +12,22 @@ let ROT = path.dirname(new URL(import.meta.url).pathname);
 while (!existsSync(path.join(ROT, 'scripts/aeoa/sjekk.py')) && path.dirname(ROT) !== ROT) ROT = path.dirname(ROT);
 const HOPP = /(\/node_modules\/|\/scripts\/aeoa\/|\/fremdrift\/aeoa-sveip-[^/]*\/|\/__tests__\/|\.test\.|\/\.next\/|\/dump\/|\/audits\/|package(-lock)?\.json$|tsconfig|\/\.claude\/|\/sme\/|\/kursbunter\/)/; // sme = nordsamisk, kursbunter = generert
 
+// Mojibake (24.11.2026: «forteneste\ufffdmargin», «berÃ¸ringar» i nn-filene): mønstrene har ett hjem, scripts/aeoa/mojibake.json
+// (kopi fra eksamenssett). Her brukes de bare som utløser, så tekst uten tre bokstaver på rad og TS-strenger uten mellomrom
+// likevel sendes til sjekk.py.
+let MOJI = /$^/;
+try {
+  const k = JSON.parse(readFileSync(path.join(ROT, 'scripts/aeoa/mojibake.json'), 'utf8'));
+  MOJI = new RegExp(k.monstre.map((m) => `(?:${m.regex})`).join('|'), 'u');
+} catch { /* uten mønsterfil: sjekk.py står for mojibake alene */ }
+
 let inn;
 try { inn = JSON.parse(readFileSync(0, 'utf8')); } catch { process.exit(0); }
 const ti = inn.tool_input ?? {};
 const fil = ti.file_path ?? '';
 if (!/\.(json|jsonl|html|ts|tsx)$/.test(fil) || HOPP.test(fil)) process.exit(0);
 const tekst = ti.content ?? ti.new_string ?? (ti.edits ?? []).map((e) => e.new_string).join('\n');
-if (!tekst || !/[a-zæøå]{3}/i.test(tekst)) process.exit(0);
+if (!tekst || (!/[a-zæøå]{3}/i.test(tekst) && !MOJI.test(tekst))) process.exit(0);
 
 const ext = path.extname(fil);
 // Biter av JSON/TS sjekkes som ren tekst; hele JSON-filer som JSON, så nøkler og id-er hoppes over.
@@ -40,14 +49,15 @@ if (!funn.length) process.exit(0);
 const linjer = funn.slice(0, 25).map((f) => `  «${f.ord}» → «${f.forslag}» (${f.grunn}): …${f.ctx}…`);
 process.stderr.write(`æøå-vakten: ${funn.length} mistenkte æøå-feil i ${path.relative(ROT, fil)}:\n${linjer.join('\n')}\n` +
   (funn.length > 25 ? `  … og ${funn.length - 25} til\n` : '') +
-  'Rett dem i fila nå (bare tegnene). Er et ord riktig (navn, nynorsk, sitat), legg det i scripts/aeoa/kjente-riktige.json.\n');
+  'Rett dem i fila nå (bare tegnene). Er et ord riktig (navn, nynorsk, sitat), legg det i scripts/aeoa/kjente-riktige.json.\n' +
+  (funn.some((f) => String(f.grunn).startsWith('mojibake')) ? 'Mojibake har ingen unntak: sett inn tegnet fra forslaget (UTF-8 er lest som Latin-1/CP1252 et sted i kjeden).\n' : ''));
 process.exit(2);
 
 function tsStrenger(kode) {
   const ut = [];
   for (const m of kode.matchAll(/'((?:[^'\\\n]|\\.)*)'|"((?:[^"\\\n]|\\.)*)"|`((?:[^`\\]|\\.)*)`/g)) {
     const s = m[1] ?? m[2] ?? m[3];
-    if (s.includes(' ') || /[æøåÆØÅ]/.test(s)) ut.push(s);
+    if (s.includes(' ') || /[æøåÆØÅ]/.test(s) || MOJI.test(s)) ut.push(s);
   }
   return ut.join('\n');
 }

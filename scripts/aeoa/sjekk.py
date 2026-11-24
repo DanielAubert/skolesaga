@@ -9,10 +9,12 @@
 # To lag: (1) kjente-feil.json (alltid, også på noden og i CI); (2) macOS' ordbøker (nb, nn, en) når swiftc finnes:
 # et ukjent ord som blir et gyldig norsk ord når æøå byttes, flagges. Tvetydige ord («pa», «nar», «ogsa» …) flagges
 # bare mellom to norske ord. Ord i kjente-riktige.json (navn, nynorsk, eldre rettskrivning) flagges aldri.
+# Mojibake («Ãkt», «Ã¸», «â€“», C1-tegn, U+FFFD; A14 i eksamenssett) flagges alltid, også med --kjente: mønstrene i mojibake.json.
 import itertools, json, os, re, subprocess, sys
 HER = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HER)
 from tekst import ord_i, rens, strenger, ts_strenger, norm, ORD, fremmed_kontekst
+from mojibake import funn_i_tekster as mojibake_funn  # A14: UTF-8 lest som Latin-1/CP1252, mønstre i mojibake.json
 
 KJENTE_FEIL = json.load(open(f'{HER}/kjente-feil.json')) if os.path.exists(f'{HER}/kjente-feil.json') else {}
 KJENTE_RIKTIGE = set(json.load(open(f'{HER}/kjente-riktige.json'))) if os.path.exists(f'{HER}/kjente-riktige.json') else set()
@@ -89,7 +91,8 @@ def tekster_i_fil(sti):
 
 def sjekk_tekster(tekster, bruk_ordbok=True):
     """Liste av funn {ord, forslag, grunn, ctx}."""
-    funn = []
+    # Mojibake sjekkes i RÅ tekst, også inne i matte og kode, uavhengig av ordboka (likt på Mac, node og CI).
+    funn = mojibake_funn(tekster)
     alle = []
     for t in tekster:
         r = rens(t)
@@ -157,7 +160,11 @@ def main(argv):
             spec.loader.exec_module(rs)
             for sti in argv:
                 rs.sjekk_fil(sti, os.path.relpath(os.path.abspath(sti)))
-            funn = [{'fil': rel, 'ord': g, 'forslag': KJENTE_FEIL.get(g.lower(), '?'), 'grunn': 'kjent feilform', 'ctx': ctx}
+            import mojibake as mb
+            ut = lambda g: re.sub(r'\\u([0-9a-f]{4})', lambda m: chr(int(m.group(1), 16)), g)
+            funn = [{'fil': rel, 'ord': g, 'ctx': ctx,
+                     **({'forslag': KJENTE_FEIL[g.lower()], 'grunn': 'kjent feilform'} if g.lower() in KJENTE_FEIL else
+                        {'forslag': mb.forslag(ut(g)) or '? (finn tegnet i kilden)', 'grunn': 'mojibake'})}
                     for rel, g, ctx in rs.funn]
             argv = []
         for sti in argv:
