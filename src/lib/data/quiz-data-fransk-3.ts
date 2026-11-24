@@ -1783,9 +1783,9 @@ const quizData_fransk_3: Record<string, QuizQuestion[]> = {
     explanation: '"Discutez" betyr å presentere begge sider av saken og gi en nyansert konklusjon.',
   },
   {
-    question: 'Hvilket vurderingskriterium teller mest på fransk skriftlig eksamen?',
+    question: 'Hvilket av disse er et vurderingsområde i Udirs eksamensveiledning for fremmedspråk nivå III (2026)?',
     options: ['Contenu (innhold) – relevans, argumenter, eksempler', 'Lengden på besvarelsen', 'Håndskriften', 'Antall fremmedord'],
-    explanation: 'Contenu (innhold) teller typisk mest (30-40 %): relevans, argumentasjon, eksempler og originalitet.',
+    explanation: 'Eksamensveiledningen vurderer blant annet faglig innhold og om teksten svarer på oppgaven. Lengde, håndskrift og antall fremmedord er ikke egne vurderingsområder.',
   },
   {
     question: 'Hvor mye tid bør reserveres til korrekturlesing (la relecture)?',
